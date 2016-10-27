@@ -1,0 +1,55 @@
+// TpgDataProviderParams 55D6CFA5009E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_553A37E902C9_ME_55D6CFA5009E_over
+ MELINK Original WL 'ME_553A37E902C9' '54F9A60200A8.ms.model.script' // AssignParams
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_553A37E902C9_ME_55D6CFA5009E_over AssignParams
+
+MEREF ME_54F9A60200A8_ME_55D6CFA5009E_G
+ MELINK Original WL? 'ME_54F9A60200A8' // TdaDataProviderParams
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54F9A60200A8_ME_55D6CFA5009E_G TdaDataProviderParams
+
+MEREF ME_543282B3006A_ME_55D6CFA5009E_R
+ MELINK Original WL 'ME_543282B3006A' '484A470100DD.ms.model.script' // PostgresProviderParams
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_543282B3006A_ME_55D6CFA5009E_R PostgresProviderParams
+
+%%ImplementedBy ME_543282B3006A ME_55D6CFA5009E
+
+%%InheritedBy ME_54F9A60200A8 ME_55D6CFA5009E
+
+ME ME_55D6CFA5009E
+ MEPROP UID '55D6CFA5009E'
+ MEPROP Name 'TpgDataProviderParams'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55D6CF3B014B' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54F9A60200A8_ME_55D6CFA5009E_G // TdaDataProviderParams
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_543282B3006A_ME_55D6CFA5009E_R // PostgresProviderParams
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_553A37E902C9_ME_55D6CFA5009E_over // AssignParams
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'pgDataProviderParams'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'pgDataProviderParams'
+ UP intf.pas:Path 'common\components\rtl\Garant\PG\pgDataProviderParams.pas'
+
+ENDME // ME_55D6CFA5009E TpgDataProviderParams

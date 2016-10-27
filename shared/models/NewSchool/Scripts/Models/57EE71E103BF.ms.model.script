@@ -1,0 +1,124 @@
+// TtfwParserProgressService 57EE71E103BF Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_E5D1FF306E87
+
+FORWARD ME_57EE71E103BF
+
+FORWARD ME_E5D1FF306E87
+
+FORWARD ME_57EE71FF0071
+
+FORWARD ME_D5EA2D973852
+
+ME ME_E28E15EEDB83
+ MEPROP Name 'aFiler'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_E28E15EEDB83 aFiler
+
+ME ME_D5EA2D973852
+ MEPROP UID 'D5EA2D973852'
+ MEPROP Name 'TuneFiler'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_E5D1FF306E87 // MtfwParserProgressService
+ ;
+ MELIST Parameters
+   Seq: ( ME_E28E15EEDB83 // aFiler
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_57EE71FF0071 // TuneFiler
+ ;
+
+ENDME // ME_D5EA2D973852 TuneFiler
+
+ME ME_E5D1FF306E87
+ MEPROP UID 'E5D1FF306E87'
+ MEPROP Name 'MtfwParserProgressService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TtfwParserProgressService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57EE71E103BF // TtfwParserProgressService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_D5EA2D973852 // TuneFiler
+ )
+ ; // Operations
+
+ENDME // ME_E5D1FF306E87 MtfwParserProgressService
+
+ME ME_57EE720C0143
+ MEPROP Name 'aFiler'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_57EE720C0143 aFiler
+
+ME ME_57EE71FF0071
+ MEPROP UID '57EE71FF0071'
+ MEPROP Name 'TuneFiler'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EE71E103BF // TtfwParserProgressService
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EE720C0143 // aFiler
+ )
+ ; // Parameters
+
+ENDME // ME_57EE71FF0071 TuneFiler
+
+MEREF ME_49E7754802A9_ME_57EE71E103BF_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57EE71E103BF_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_57EE71E103BF
+
+ME ME_57EE71E103BF
+ MEPROP UID '57EE71E103BF'
+ MEPROP Name 'TtfwParserProgressService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F4734A40270' // Parser
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_57EE71E103BF_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57EE71FF0071 // TuneFiler
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_E5D1FF306E87 // MtfwParserProgressService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP extprop:pas:UnitName 'tfwParserProgressService'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ParserProgressService'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwParserProgressService.pas'
+
+ENDME // ME_57EE71E103BF TtfwParserProgressService

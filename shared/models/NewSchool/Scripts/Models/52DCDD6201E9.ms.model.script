@@ -1,0 +1,1140 @@
+// TddRTFSegmentWriter 52DCDD6201E9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52DCDD6201E9
+
+FORWARD ME_52DCEB7702E8
+
+ME ME_52DCEB9100EA
+ MEPROP UID '52DCEB9100EA'
+ MEPROP Name 'cnGarantMagicDocIDContant'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52DCEB7702E8 // SegmentConsts
+ ;
+ MEPROP Value 100000
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 100000
+
+ENDME // ME_52DCEB9100EA cnGarantMagicDocIDContant
+
+ME ME_52DCEB9F03B1
+ MEPROP UID '52DCEB9F03B1'
+ MEPROP Name 'subAlias'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52DCEB7702E8 // SegmentConsts
+ ;
+ MEPROP Value '''sub_'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''sub_'''
+
+ENDME // ME_52DCEB9F03B1 subAlias
+
+ME ME_52DCEB7702E8
+ MEPROP UID '52DCEB7702E8'
+ MEPROP Name 'SegmentConsts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52DCEB9100EA // cnGarantMagicDocIDContant
+ HWL ME_52DCEB9F03B1 // subAlias
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_52DCEB7702E8 SegmentConsts
+
+ME ME_52DCEBE902DA
+ MEPROP UID '52DCEBE902DA'
+ MEPROP Name 'f_TextSegmentQueue'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELINK Target WL? 'ME_52DCDDEE0371' // TddTextSegmentQueue
+ ;
+
+ENDME // ME_52DCEBE902DA f_TextSegmentQueue
+
+ME ME_52DCF3370367
+ MEPROP UID '52DCF3370367'
+ MEPROP Name 'Host'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52DCF3370367 Host
+
+FORWARD ME_52DCDFF9033B
+
+FORWARD ME_52DCE00501B7
+
+ME ME_52DCE0260007
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4FACE14F0231' '51E8DBEC0212.ms.model.script' // TddTextParagraph
+ ;
+
+ENDME // ME_52DCE0260007 aPara
+
+ME ME_52DCE0260016
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52DCE0260016 anIndex
+
+ME ME_52DCE00501B7
+ MEPROP UID '52DCE00501B7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDFF9033B // CheckFinishSegments
+ ;
+ MELIST Parameters
+   Seq: ( ME_52DCE0260007 // aPara
+ ME_52DCE0260016 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_52DCE00501B7 DoIt
+
+ME ME_52DCDFF9033B
+ MEPROP UID '52DCDFF9033B'
+ MEPROP Name 'CheckFinishSegments'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DCE00501B7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DCDFF9033B CheckFinishSegments
+
+FORWARD ME_52DCE03E037C
+
+FORWARD ME_52DCE04B0229
+
+ME ME_52DCF291024D
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4FACE14F0231' '51E8DBEC0212.ms.model.script' // TddTextParagraph
+ ;
+
+ENDME // ME_52DCF291024D aPara
+
+ME ME_52DCF291025D
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52DCF291025D anIndex
+
+ME ME_52DCF291026D
+ MEPROP Name 'aStyle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_51E7D21B0068' '51E7D2010032.ms.model.script' // TddStyleEntry
+ ;
+
+ENDME // ME_52DCF291026D aStyle
+
+ME ME_52DCE04B0229
+ MEPROP UID '52DCE04B0229'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCE03E037C // CheckObjectSegment
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52DCF291024D // aPara
+ ME_52DCF291025D // anIndex
+ ME_52DCF291026D // aStyle
+ )
+ ; // Parameters
+
+ENDME // ME_52DCE04B0229 DoIt
+
+ME ME_52DCE03E037C
+ MEPROP UID '52DCE03E037C'
+ MEPROP Name 'CheckObjectSegment'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DCE04B0229 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DCE03E037C CheckObjectSegment
+
+FORWARD ME_52DCE0AA0066
+
+FORWARD ME_52DCE0B50275
+
+ME ME_52DCE0C702EA
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4FACE14F0231' '51E8DBEC0212.ms.model.script' // TddTextParagraph
+ ;
+
+ENDME // ME_52DCE0C702EA aPara
+
+ME ME_52DCE0C702F9
+ MEPROP Name 'aSeg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL? 'ME_5111FC5402AA' // TddTextSegment
+ ;
+
+ENDME // ME_52DCE0C702F9 aSeg
+
+ME ME_52DCE0B50275
+ MEPROP UID '52DCE0B50275'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCE0AA0066 // CheckSegmentStart
+ ;
+ MELIST Parameters
+   Seq: ( ME_52DCE0C702EA // aPara
+ ME_52DCE0C702F9 // aSeg
+ )
+ ; // Parameters
+
+ENDME // ME_52DCE0B50275 DoIt
+
+ME ME_52DCE0AA0066
+ MEPROP UID '52DCE0AA0066'
+ MEPROP Name 'CheckSegmentStart'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DCE0B50275 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DCE0AA0066 CheckSegmentStart
+
+FORWARD ME_52DCE0D60200
+
+FORWARD ME_52DCE0EA009B
+
+ME ME_52DCE0EF013E
+ MEPROP Name 'aSeg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL? 'ME_5111FC5402AA' // TddTextSegment
+ ;
+
+ENDME // ME_52DCE0EF013E aSeg
+
+ME ME_52DCE0EA009B
+ MEPROP UID '52DCE0EA009B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCE0D60200 // CheckSegmentFinish
+ ;
+ MELIST Parameters
+   Seq: ( ME_52DCE0EF013E // aSeg
+ )
+ ; // Parameters
+
+ENDME // ME_52DCE0EA009B DoIt
+
+ME ME_52DCE0D60200
+ MEPROP UID '52DCE0D60200'
+ MEPROP Name 'CheckSegmentFinish'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DCE0EA009B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DCE0D60200 CheckSegmentFinish
+
+FORWARD ME_52DCE14F0228
+
+FORWARD ME_52DCE15D0255
+
+ME ME_52DCE1700183
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4FACE14F0231' '51E8DBEC0212.ms.model.script' // TddTextParagraph
+ ;
+
+ENDME // ME_52DCE1700183 aPara
+
+ME ME_52DCE1700193
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52DCE1700193 anIndex
+
+ME ME_52DCE15D0255
+ MEPROP UID '52DCE15D0255'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCE14F0228 // CheckStartSegments
+ ;
+ MELIST Parameters
+   Seq: ( ME_52DCE1700183 // aPara
+ ME_52DCE1700193 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_52DCE15D0255 DoIt
+
+ME ME_52DCE14F0228
+ MEPROP UID '52DCE14F0228'
+ MEPROP Name 'CheckStartSegments'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DCE15D0255 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DCE14F0228 CheckStartSegments
+
+FORWARD ME_52DCEC00024A
+
+FORWARD ME_52DCEC16018B
+
+ME ME_55C09C0B00E9
+ MEPROP Name 'aStyle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51E7D21B0068' '51E7D2010032.ms.model.script' // TddStyleEntry
+ ;
+
+ENDME // ME_55C09C0B00E9 aStyle
+
+ME ME_55C09C0B0108
+ MEPROP Name 'aBlockIndent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55C09C0B0108 aBlockIndent
+
+ME ME_55C09C0B0128
+ MEPROP Name 'anIgnoreLeftIndent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55C09C0B0128 anIgnoreLeftIndent
+
+ME ME_52DCEC16018B
+ MEPROP UID '52DCEC16018B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCEC00024A // Style2RTF
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_55C09C0B00E9 // aStyle
+ ME_55C09C0B0108 // aBlockIndent
+ ME_55C09C0B0128 // anIgnoreLeftIndent
+ )
+ ; // Parameters
+
+ENDME // ME_52DCEC16018B DoIt
+
+ME ME_52DCEC00024A
+ MEPROP UID '52DCEC00024A'
+ MEPROP Name 'Style2RTF'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DCEC16018B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DCEC00024A Style2RTF
+
+FORWARD ME_52DCEC4C0176
+
+FORWARD ME_52DCEC5A0085
+
+ME ME_535F9F5001FC
+ MEPROP Name 'aCHP'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_51DBBD99020C' // TddCharacterProperty
+ ;
+
+ENDME // ME_535F9F5001FC aCHP
+
+ME ME_535F9F50021B
+ MEPROP Name 'aParent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_51DBBD99020C' // TddCharacterProperty
+ ;
+
+ENDME // ME_535F9F50021B aParent
+
+ME ME_535F9F50024A
+ MEPROP Name 'WithStyle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_535F9F50024A WithStyle
+
+ME ME_52DCEC5A0085
+ MEPROP UID '52DCEC5A0085'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCEC4C0176 // CHP2RTF
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_535F9F5001FC // aCHP
+ ME_535F9F50021B // aParent
+ ME_535F9F50024A // WithStyle
+ )
+ ; // Parameters
+
+ENDME // ME_52DCEC5A0085 DoIt
+
+ME ME_52DCEC4C0176
+ MEPROP UID '52DCEC4C0176'
+ MEPROP Name 'CHP2RTF'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DCEC5A0085 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DCEC4C0176 CHP2RTF
+
+FORWARD ME_52DCEC9D0243
+
+FORWARD ME_52DCECAC0019
+
+ME ME_52DCECBF0374
+ MEPROP Name 'aCHP1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_51DBBD99020C' // TddCharacterProperty
+ ;
+
+ENDME // ME_52DCECBF0374 aCHP1
+
+ME ME_52DCECBF0383
+ MEPROP Name 'aCHP2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_51DBBD99020C' // TddCharacterProperty
+ ;
+
+ENDME // ME_52DCECBF0383 aCHP2
+
+ME ME_52DCECAC0019
+ MEPROP UID '52DCECAC0019'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCEC9D0243 // DIffCHP2RTF
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_52DCECBF0374 // aCHP1
+ ME_52DCECBF0383 // aCHP2
+ )
+ ; // Parameters
+
+ENDME // ME_52DCECAC0019 DoIt
+
+ME ME_52DCEC9D0243
+ MEPROP UID '52DCEC9D0243'
+ MEPROP Name 'DIffCHP2RTF'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DCECAC0019 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DCEC9D0243 DIffCHP2RTF
+
+FORWARD ME_52DCF2D303E7
+
+FORWARD ME_52DCF2E40301
+
+ME ME_52DCF2F80341
+ MEPROP Name 'aSegment'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_5111FC5402AA' // TddTextSegment
+ ;
+
+ENDME // ME_52DCF2F80341 aSegment
+
+ME ME_52DCF2F80350
+ MEPROP Name 'aCHP'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_51DBBD99020C' // TddCharacterProperty
+ ;
+
+ENDME // ME_52DCF2F80350 aCHP
+
+ME ME_52DCF2E40301
+ MEPROP UID '52DCF2E40301'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCF2D303E7 // WriteSegmentObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_52DCF2F80341 // aSegment
+ ME_52DCF2F80350 // aCHP
+ )
+ ; // Parameters
+
+ENDME // ME_52DCF2E40301 DoIt
+
+ME ME_52DCF2D303E7
+ MEPROP UID '52DCF2D303E7'
+ MEPROP Name 'WriteSegmentObject'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DCF2E40301 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DCF2D303E7 WriteSegmentObject
+
+FORWARD ME_52DCF547032A
+
+FORWARD ME_52DCF5520378
+
+ME ME_55C0969D02E7
+ MEPROP Name 'aPAP'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_51DBBDD6011E' // TddParagraphProperty
+ ;
+
+ENDME // ME_55C0969D02E7 aPAP
+
+ME ME_55C0969D02F7
+ MEPROP Name 'aBlockIndent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55C0969D02F7 aBlockIndent
+
+ME ME_55C0969D0316
+ MEPROP Name 'anIgnoreLeftIndent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55C0969D0316 anIgnoreLeftIndent
+
+ME ME_55C0969D0325
+ MEPROP Name 'WithStyle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_55C0969D0325 WithStyle
+
+ME ME_52DCF5520378
+ MEPROP UID '52DCF5520378'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCF547032A // PAP2RTF
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_55C0969D02E7 // aPAP
+ ME_55C0969D02F7 // aBlockIndent
+ ME_55C0969D0316 // anIgnoreLeftIndent
+ ME_55C0969D0325 // WithStyle
+ )
+ ; // Parameters
+
+ENDME // ME_52DCF5520378 DoIt
+
+ME ME_52DCF547032A
+ MEPROP UID '52DCF547032A'
+ MEPROP Name 'PAP2RTF'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DCF5520378 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DCF547032A PAP2RTF
+
+FORWARD ME_52DCFF7B038B
+
+ME ME_52DCFF98030E
+ MEPROP UID '52DCFF98030E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCFF7B038B // Init4Segments
+ ;
+
+ENDME // ME_52DCFF98030E DoIt
+
+ME ME_52DCFF7B038B
+ MEPROP UID '52DCFF7B038B'
+ MEPROP Name 'Init4Segments'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DCFF98030E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DCFF7B038B Init4Segments
+
+FORWARD ME_52DCFFB701C4
+
+ME ME_52DCFFC60229
+ MEPROP UID '52DCFFC60229'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCFFB701C4 // DeInit4Segments
+ ;
+
+ENDME // ME_52DCFFC60229 DoIt
+
+ME ME_52DCFFB701C4
+ MEPROP UID '52DCFFB701C4'
+ MEPROP Name 'DeInit4Segments'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DCFFC60229 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DCFFB701C4 DeInit4Segments
+
+FORWARD ME_52DD022F0118
+
+FORWARD ME_52DD023703AA
+
+ME ME_542BCC4B0088
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_542BCC4B0088 aValue
+
+ME ME_542BCC4B0097
+ MEPROP Name 'aWriteBarket'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_542BCC4B0097 aWriteBarket
+
+ME ME_52DD023703AA
+ MEPROP UID '52DD023703AA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DD022F0118 // IncBracesCount
+ ;
+ MELIST Parameters
+   Seq: ( ME_542BCC4B0088 // aValue
+ ME_542BCC4B0097 // aWriteBarket
+ )
+ ; // Parameters
+
+ENDME // ME_52DD023703AA DoIt
+
+ME ME_52DD022F0118
+ MEPROP UID '52DD022F0118'
+ MEPROP Name 'IncBracesCount'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DD023703AA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DD022F0118 IncBracesCount
+
+FORWARD ME_52DD02450254
+
+FORWARD ME_52DD02630188
+
+ME ME_542BBE1D0263
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_542BBE1D0263 aValue
+
+ME ME_52DD02630188
+ MEPROP UID '52DD02630188'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DD02450254 // DecBracesCount
+ ;
+ MELIST Parameters
+   Seq: ( ME_542BBE1D0263 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_52DD02630188 DoIt
+
+ME ME_52DD02450254
+ MEPROP UID '52DD02450254'
+ MEPROP Name 'DecBracesCount'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DD02630188 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DD02450254 DecBracesCount
+
+FORWARD ME_542BBAE00125
+
+ME ME_542BBAF90032
+ MEPROP UID '542BBAF90032'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542BBAE00125 // WriteOpenBarket
+ ;
+
+ENDME // ME_542BBAF90032 DoIt
+
+ME ME_542BBAE00125
+ MEPROP UID '542BBAE00125'
+ MEPROP Name 'WriteOpenBarket'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542BBAF90032 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_542BBAE00125 WriteOpenBarket
+
+FORWARD ME_542BBB020308
+
+ME ME_542BBB1401EF
+ MEPROP UID '542BBB1401EF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542BBB020308 // WriteCloseBarket
+ ;
+
+ENDME // ME_542BBB1401EF DoIt
+
+ME ME_542BBB020308
+ MEPROP UID '542BBB020308'
+ MEPROP Name 'WriteCloseBarket'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542BBB1401EF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_542BBB020308 WriteCloseBarket
+
+ME ME_52DCE834004F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELINK Target WL? 'ME_51DBBD99020C' // TddCharacterProperty
+ ;
+
+ENDME // ME_52DCE834004F 
+
+ME ME_52DCE85F037A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELINK Target WL 'ME_51E7D21B0068' '51E7D2010032.ms.model.script' // TddStyleEntry
+ ;
+
+ENDME // ME_52DCE85F037A 
+
+ME ME_52DCE89003DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELINK Target WL 'ME_51DD5C720260' '52CFA9D5031E.ms.model.script' // Common
+ ;
+
+ENDME // ME_52DCE89003DB 
+
+ME ME_52DCEEF20215
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELINK Target WL 'ME_4DE89E560091' '47877EB202FB.ms.model.script' // Format
+ ;
+
+ENDME // ME_52DCEEF20215 
+
+ME ME_52DCEF1601FB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELINK Target WL 'ME_484AB26803DB' '469D0AC7005E.ms.model.script' // Hyperlink Const
+ ;
+
+ENDME // ME_52DCEF1601FB 
+
+ME ME_52DCEF880213
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_52DCEF880213 
+
+ME ME_52DCF26002EA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELINK Target WL 'ME_52DCEA5E00C3' '518A1E9F0274.ms.model.script' // TddStyleDef
+ ;
+
+ENDME // ME_52DCF26002EA 
+
+ME ME_52DCF2BE03D9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELINK Target WL? 'ME_51E8DC3E0361' // TddPicture
+ ;
+
+ENDME // ME_52DCF2BE03D9 
+
+ME ME_52DCF52D0315
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELINK Target WL? 'ME_51DBBDD6011E' // TddParagraphProperty
+ ;
+
+ENDME // ME_52DCF52D0315 
+
+ME ME_542BBAD70135
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELINK Target WL 'ME_49082AE80393' '476BE98C01B8.ms.model.script' // Code Pages
+ ;
+
+ENDME // ME_542BBAD70135 
+
+ME ME_54D9DAB0018B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELINK Target WL? 'ME_54D9ACA500F5' // TddPictureSegment
+ ;
+
+ENDME // ME_54D9DAB0018B 
+
+ME ME_54D9DABA0066
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELINK Target WL? 'ME_54D9ACC002E1' // TddFormulaSegment
+ ;
+
+ENDME // ME_54D9DABA0066 
+
+ME ME_54D9DCA102A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELINK Target WL? 'ME_54D9AC570374' // TddHyperlink
+ ;
+
+ENDME // ME_54D9DCA102A0 
+
+ME ME_54D9DF54037B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52DCDD6201E9 // TddRTFSegmentWriter
+ ;
+ MELINK Target WL? 'ME_54D9B0A2024C' // TddObjectSegment
+ ;
+
+ENDME // ME_54D9DF54037B 
+
+MEREF ME_4F683DA30260_ME_52DCDD6201E9_G
+ MELINK Original WL 'ME_4F683DA30260' '4E1C271501E5.ms.model.script' // TddDocumentGenerator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F683DA30260_ME_52DCDD6201E9_G TddDocumentGenerator
+
+%%InheritedBy ME_4F683DA30260 ME_52DCDD6201E9
+
+ME ME_52DCDD6201E9
+ MEPROP UID '52DCDD6201E9'
+ MEPROP Name 'TddRTFSegmentWriter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Предок, умеющий выливать сегменты.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48F4BA770180' // Writers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F683DA30260_ME_52DCDD6201E9_G // TddDocumentGenerator
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52DCEBE902DA // f_TextSegmentQueue
+ HWL ME_52DCF3370367 // Host
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52DCDFF9033B // CheckFinishSegments
+ HWL ME_52DCE03E037C // CheckObjectSegment
+ HWL ME_52DCE0AA0066 // CheckSegmentStart
+ HWL ME_52DCE0D60200 // CheckSegmentFinish
+ HWL ME_52DCE14F0228 // CheckStartSegments
+ HWL ME_52DCEC00024A // Style2RTF
+ HWL ME_52DCEC4C0176 // CHP2RTF
+ HWL ME_52DCEC9D0243 // DIffCHP2RTF
+ HWL ME_52DCF2D303E7 // WriteSegmentObject
+ HWL ME_52DCF547032A // PAP2RTF
+ HWL ME_52DCFF7B038B // Init4Segments
+ HWL ME_52DCFFB701C4 // DeInit4Segments
+ HWL ME_52DD022F0118 // IncBracesCount
+ HWL ME_52DD02450254 // DecBracesCount
+ HWL ME_542BBAE00125 // WriteOpenBarket
+ HWL ME_542BBB020308 // WriteCloseBarket
+ )
+ ; // Operations
+ MELIST Constants
+   Seq: ( HWL ME_52DCEB7702E8 // SegmentConsts
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_52DCE834004F // TddCharacterProperty
+ ME_52DCE85F037A // TddStyleEntry
+ ME_52DCE89003DB // Common
+ ME_52DCEEF20215 // Format
+ ME_52DCEF1601FB // Hyperlink Const
+ ME_52DCEF880213 // l3Free
+ ME_52DCF26002EA // TddStyleDef
+ ME_52DCF2BE03D9 // TddPicture
+ ME_52DCF52D0315 // TddParagraphProperty
+ ME_542BBAD70135 // Code Pages
+ ME_54D9DAB0018B // TddPictureSegment
+ ME_54D9DABA0066 // TddFormulaSegment
+ ME_54D9DCA102A0 // TddHyperlink
+ ME_54D9DF54037B // TddObjectSegment
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ddRTFSegmentWriter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddRTFSegmentWriter'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddRTFSegmentWriter.pas'
+
+ENDME // ME_52DCDD6201E9 TddRTFSegmentWriter

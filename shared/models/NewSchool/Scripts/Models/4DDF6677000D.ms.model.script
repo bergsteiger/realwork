@@ -1,0 +1,66 @@
+// TClickOnCommentTest 4DDF6677000D TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4BE13147032C_ME_4DDF6677000D_impl
+ MELINK Original WL 'ME_4BE13147032C' '4BE111D30229.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE13147032C_ME_4DDF6677000D_impl Process
+
+MEREF ME_4DE7456800BE_ME_4DDF6677000D_impl
+ MELINK Original WL 'ME_4DE7456800BE' '4DE7451703C8.ms.model.script' // CheckCollapsed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DE7456800BE_ME_4DDF6677000D_impl CheckCollapsed
+
+MEREF ME_4BE111D30229_ME_4DDF6677000D_G
+ MELINK Original WL? 'ME_4BE111D30229' // TTextViaEditorProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE111D30229_ME_4DDF6677000D_G TTextViaEditorProcessor
+
+MEREF ME_4DE7451703C8_ME_4DDF6677000D_R
+ MELINK Original WL? 'ME_4DE7451703C8' // ClickOnCommentHeader
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DE7451703C8_ME_4DDF6677000D_R ClickOnCommentHeader
+
+%%ImplementedBy ME_4DE7451703C8 ME_4DDF6677000D
+
+%%InheritedBy ME_4BE111D30229 ME_4DDF6677000D
+
+ME ME_4DDF6677000D
+ MEPROP UID '4DDF6677000D'
+ MEPROP Name 'TClickOnCommentTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тестирование кликанья мышью на заголовке комментария.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4D02566F01E6' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE111D30229_ME_4DDF6677000D_G // TTextViaEditorProcessor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4DE7451703C8_ME_4DDF6677000D_R // ClickOnCommentHeader
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4BE13147032C_ME_4DDF6677000D_impl // Process
+ ME_4DE7456800BE_ME_4DDF6677000D_impl // CheckCollapsed
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ClickOnCommentTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ClickOnCommentTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\ClickOnCommentTest.pas'
+
+ENDME // ME_4DDF6677000D TClickOnCommentTest

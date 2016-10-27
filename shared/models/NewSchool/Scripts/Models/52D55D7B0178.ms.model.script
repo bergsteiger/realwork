@@ -1,0 +1,109 @@
+// TkwRuntimeWordWithCode 52D55D7B0178 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52D55D7B0178
+
+ME ME_52D55DDA011A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52D55D7B0178 // TkwRuntimeWordWithCode
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_52D55DDA011A 
+
+ME ME_52D4056D00E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52D55D7B0178 // TkwRuntimeWordWithCode
+ ;
+ MELINK Target WL? 'ME_4F4BC6DB02F4' // TkwForwardDeclarationHolder
+ ;
+
+ENDME // ME_52D4056D00E1 
+
+MEREF ME_479731C50290_ME_52D55D7B0178_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_52D55D7B0178_over Cleanup
+
+MEREF ME_52D41C7F027B_ME_52D55D7B0178_over
+ MELINK Original WL 'ME_52D41C7F027B' '52D3C5F90029.ms.model.script' // GetCode
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52D41C7F027B_ME_52D55D7B0178_over GetCode
+
+MEREF ME_52D56341033B_ME_52D55D7B0178_over
+ MELINK Original WL 'ME_52D56341033B' '4DAF19F600C5.ms.model.script' // GetNewWordDefinitor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52D56341033B_ME_52D55D7B0178_over GetNewWordDefinitor
+
+MEREF ME_52D5637A031E_ME_52D55D7B0178_over
+ MELINK Original WL 'ME_52D5637A031E' '4DAF19F600C5.ms.model.script' // GetKeywordFinder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52D5637A031E_ME_52D55D7B0178_over GetKeywordFinder
+
+MEREF ME_52D56A980103_ME_52D55D7B0178_over
+ MELINK Original WL 'ME_52D56A980103' '4DAF19F600C5.ms.model.script' // DoCompileInParameterPopCode
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52D56A980103_ME_52D55D7B0178_over DoCompileInParameterPopCode
+
+MEREF ME_52D3C5F90029_ME_52D55D7B0178_G
+ MELINK Original WL? 'ME_52D3C5F90029' // TkwCompiledWordPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52D3C5F90029_ME_52D55D7B0178_G TkwCompiledWordPrim
+
+MEREF ME_55A4E9940396_ME_52D55D7B0178_G
+ MELINK Original WL? 'ME_55A4E9940396' // tfwCodeCompiler
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55A4E9940396_ME_52D55D7B0178_G tfwCodeCompiler
+
+%%InheritedBy ME_52D3C5F90029 ME_52D55D7B0178
+%%InheritedBy ME_55A4E9940396 ME_52D55D7B0178
+
+ME ME_52D55D7B0178
+ MEPROP UID '52D55D7B0178'
+ MEPROP Name 'TkwRuntimeWordWithCode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_54F079B5035C' // CompiledWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52D3C5F90029_ME_52D55D7B0178_G // TkwCompiledWordPrim
+ HWL ME_55A4E9940396_ME_52D55D7B0178_G // tfwCodeCompiler
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_52D55D7B0178_over // Cleanup
+ ME_52D41C7F027B_ME_52D55D7B0178_over // GetCode
+ ME_52D56341033B_ME_52D55D7B0178_over // GetNewWordDefinitor
+ ME_52D5637A031E_ME_52D55D7B0178_over // GetKeywordFinder
+ ME_52D56A980103_ME_52D55D7B0178_over // DoCompileInParameterPopCode
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52D55DDA011A // FreeAndNil
+ ME_52D4056D00E1 // TkwForwardDeclarationHolder
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'kwRuntimeWordWithCode'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RuntimeWordWithCode'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwRuntimeWordWithCode.pas'
+
+ENDME // ME_52D55D7B0178 TkwRuntimeWordWithCode

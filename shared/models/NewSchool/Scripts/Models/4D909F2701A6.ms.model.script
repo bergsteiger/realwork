@@ -1,0 +1,65 @@
+// EVDtoEVDBlockNameAdderTest 4D909F2701A6 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D909F2701A6
+
+ME ME_4D909F94034D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D909F2701A6 // EVDtoEVDBlockNameAdderTest
+ ;
+ MELINK Target WL? 'ME_4A2CFFA30282' // TevdBlockNameAdder
+ ;
+
+ENDME // ME_4D909F94034D 
+
+MEREF ME_4C07BCBE01F2_ME_4D909F2701A6_over
+ MELINK Original WL 'ME_4C07BCBE01F2' '4BACDDB500CE.ms.model.script' // SetFilters
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C07BCBE01F2_ME_4D909F2701A6_over SetFilters
+
+MEREF ME_4C07B5E300F2_ME_4D909F2701A6_G
+ MELINK Original WL? 'ME_4C07B5E300F2' // EVDtoEVDWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C07B5E300F2_ME_4D909F2701A6_G EVDtoEVDWriterTest
+
+%%InheritedBy ME_4C07B5E300F2 ME_4D909F2701A6
+
+ME ME_4D909F2701A6
+ MEPROP UID '4D909F2701A6'
+ MEPROP Name 'EVDtoEVDBlockNameAdderTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C07B59F0382' // EVD
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C07B5E300F2_ME_4D909F2701A6_G // EVDtoEVDWriterTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C07BCBE01F2_ME_4D909F2701A6_over // SetFilters
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D909F94034D // TevdBlockNameAdder
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '28.03.2011 18:45'
+ UP extprop:pas:TypeName 'TEVDtoEVDBlockNameAdderTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EVDtoEVDBlockNameAdderTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\EVDtoEVDBlockNameAdderTest.pas'
+
+ENDME // ME_4D909F2701A6 EVDtoEVDBlockNameAdderTest

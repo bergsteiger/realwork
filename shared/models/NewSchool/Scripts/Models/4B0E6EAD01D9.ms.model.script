@@ -1,0 +1,83 @@
+// TnsSwitchVersionCommentsEvent 4B0E6EAD01D9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B0E6EAD01D9
+
+FORWARD ME_4B0E6ED502E0
+
+ME ME_4B0E6EDE013C
+ MEPROP Name 'State'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B0E6EDE013C State
+
+ME ME_4B0E6ED502E0
+ MEPROP UID '4B0E6ED502E0'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B0E6EAD01D9 // TnsSwitchVersionCommentsEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B0E6EDE013C // State
+ )
+ ; // Parameters
+
+ENDME // ME_4B0E6ED502E0 Log
+
+ME ME_4B0E6F09009A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B0E6EAD01D9 // TnsSwitchVersionCommentsEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B0E6F09009A 
+
+MEREF ME_4B0A6109010C_ME_4B0E6EAD01D9_G
+ MELINK Original WL? 'ME_4B0A6109010C' // TnsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0A6109010C_ME_4B0E6EAD01D9_G TnsLogEvent
+
+%%InheritedBy ME_4B0A6109010C ME_4B0E6EAD01D9
+
+ME ME_4B0E6EAD01D9
+ MEPROP UID '4B0E6EAD01D9'
+ MEPROP Name 'TnsSwitchVersionCommentsEvent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4951181B02B6' // Document
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B0A6109010C_ME_4B0E6EAD01D9_G // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B0E6ED502E0 // Log
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B0E6F09009A // LogEvent
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nsSwitchVersionCommentsEvent'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SwitchVersionCommentsEvent'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\nsSwitchVersionCommentsEvent.pas'
+
+ENDME // ME_4B0E6EAD01D9 TnsSwitchVersionCommentsEvent

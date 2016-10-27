@@ -1,0 +1,93 @@
+// TtfwInitedDictionariesList 55A53B44029F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_55A549A40356
+%%Inner ME_55A549D50094
+
+FORWARD ME_55A53B44029F
+
+ME ME_55A549A40356
+ MEPROP UID '55A549A40356'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A53B44029F // TtfwInitedDictionariesList
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_55A549A40356 l3Items_NoSort
+
+ME ME_55A549D50094
+ MEPROP UID '55A549D50094'
+ MEPROP Name 'l3Items_NoChanging'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A53B44029F // TtfwInitedDictionariesList
+ ;
+ UP extprop:rc:SelfName 'Items_NoChanging'
+
+ENDME // ME_55A549D50094 l3Items_NoChanging
+
+ME ME_55A53B740261
+ MEPROP UID '55A53B740261'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55A53B44029F // TtfwInitedDictionariesList
+ ;
+ MELINK Target WL? 'ME_55A4FCDC01B8' // TtfwDictionaryExPrim
+ ;
+
+ENDME // ME_55A53B740261 ItemType
+
+MEREF ME_55A63D8C00F0_ME_55A53B44029F_G
+ MELINK Original WL? 'ME_55A63D8C00F0' // tfwDictionaryList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55A63D8C00F0_ME_55A53B44029F_G tfwDictionaryList
+
+%%InheritedBy ME_55A63D8C00F0 ME_55A53B44029F
+
+ME ME_55A53B44029F
+ MEPROP UID '55A53B44029F'
+ MEPROP Name 'TtfwInitedDictionariesList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F2275C00012' // ScriptingKeywordsCore
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_55A63D8C00F0_ME_55A53B44029F_G // tfwDictionaryList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55A53B740261 // ItemType
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_55A549A40356 // l3Items_NoSort
+ HWL ME_55A549D50094 // l3Items_NoChanging
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'tfwInitedDictionariesList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'InitedDictionariesList'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwInitedDictionariesList.pas'
+
+ENDME // ME_55A53B44029F TtfwInitedDictionariesList

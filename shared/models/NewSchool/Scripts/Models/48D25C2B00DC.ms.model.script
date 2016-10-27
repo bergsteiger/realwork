@@ -1,0 +1,46 @@
+// TevEmailEdit 48D25C2B00DC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_48D14C0E023E_ME_48D25C2B00DC_over
+ MELINK Original WL 'ME_48D14C0E023E' '48D13B8D03A3.ms.model.script' // DoTextChange
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D14C0E023E_ME_48D25C2B00DC_over DoTextChange
+
+MEREF ME_48D2409102B7_ME_48D25C2B00DC_G
+ MELINK Original WL? 'ME_48D2409102B7' // TevEditControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48D2409102B7_ME_48D25C2B00DC_G TevEditControl
+
+%%InheritedBy ME_48D2409102B7 ME_48D25C2B00DC
+
+ME ME_48D25C2B00DC
+ MEPROP UID '48D25C2B00DC'
+ MEPROP Name 'TevEmailEdit'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поле для ввод почтового реквизита - использует проверку правильности ввода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47CEBC900123' // qf
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48D2409102B7_ME_48D25C2B00DC_G // TevEditControl
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48D14C0E023E_ME_48D25C2B00DC_over // DoTextChange
+ )
+ ; // Overridden
+ UP "author" 'Инишев Д.А.'
+ UP "no hands" True
+ UP extprop:pas:UnitName 'evEmailEdit'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EmailEdit'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\qf\evEmailEdit.pas'
+
+ENDME // ME_48D25C2B00DC TevEmailEdit

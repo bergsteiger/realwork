@@ -1,0 +1,75 @@
+// TPreviewWithRowCompare 4DF1E915017B TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DF1E915017B
+
+ME ME_4DF872340206
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DF1E915017B // TPreviewWithRowCompare
+ ;
+ MELINK Target WL 'ME_4DF870EA0062' '47877EB202FB.ms.model.script' // ChangeFileExt
+ ;
+
+ENDME // ME_4DF872340206 
+
+MEREF ME_4BE419AF0217_ME_4DF1E915017B_over
+ MELINK Original WL 'ME_4BE419AF0217' '4BE418BB001F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BE419AF0217_ME_4DF1E915017B_over DoVisit
+
+MEREF ME_4D18986B03D0_ME_4DF1E915017B_G
+ MELINK Original WL? 'ME_4D18986B03D0' // TPreviewTestBefore278833302
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D18986B03D0_ME_4DF1E915017B_G TPreviewTestBefore278833302
+
+MEREF ME_4DF1E0DC0289_ME_4DF1E915017B_R
+ MELINK Original WL? 'ME_4DF1E0DC0289' // PrintRowCompare
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DF1E0DC0289_ME_4DF1E915017B_R PrintRowCompare
+
+%%ImplementedBy ME_4DF1E0DC0289 ME_4DF1E915017B
+
+%%InheritedBy ME_4D18986B03D0 ME_4DF1E915017B
+
+ME ME_4DF1E915017B
+ MEPROP UID '4DF1E915017B'
+ MEPROP Name 'TPreviewWithRowCompare'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест печати со сравнением строк.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4D02566F01E6' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D18986B03D0_ME_4DF1E915017B_G // TPreviewTestBefore278833302
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4DF1E0DC0289_ME_4DF1E915017B_R // PrintRowCompare
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4BE419AF0217_ME_4DF1E915017B_over // DoVisit
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DF872340206 // ChangeFileExt
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'PreviewWithRowCompare'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PreviewWithRowCompare'
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\PreviewWithRowCompare.pas'
+
+ENDME // ME_4DF1E915017B TPreviewWithRowCompare

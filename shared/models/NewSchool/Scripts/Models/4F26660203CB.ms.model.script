@@ -1,0 +1,378 @@
+// TevCustomTextFormatterModelPart 4F26660203CB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F26660203CB
+
+FORWARD ME_4F2666AC03A4
+
+FORWARD ME_4F26694603B5
+
+ME ME_4F26707A0213
+ MEPROP UID '4F26707A0213'
+ MEPROP Name 'Layer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F26694603B5 // DoIt
+ ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4F26707A0213 Layer
+
+FORWARD ME_F43F2CAE3655
+
+ME ME_9B63E2560C25
+ MEPROP Name 'anItem'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_9B63E2560C25 anItem
+
+ME ME_9B63E2560C26
+ MEPROP Name 'anIndex'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_9B63E2560C26 anIndex
+
+ME ME_F43F2CAE3655
+ MEPROP UID 'F43F2CAE3655'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F26694603B5 // DoIt
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_9B63E2560C25 // anItem
+ ME_9B63E2560C26 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_F43F2CAE3655 DoIt
+
+FORWARD ME_87A18881C23B
+
+FORWARD ME_823DC2BC8D7D
+
+ME ME_6898842C0DA6
+ MEPROP Name 'anItem'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_6898842C0DA6 anItem
+
+ME ME_6898842C0DA7
+ MEPROP Name 'anIndex'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_6898842C0DA7 anIndex
+
+ME ME_823DC2BC8D7D
+ MEPROP UID '823DC2BC8D7D'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_87A18881C23B // DoIt
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_6898842C0DA6 // anItem
+ ME_6898842C0DA7 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_823DC2BC8D7D DoIt
+
+ME ME_87A18881C23B
+ MEPROP UID '87A18881C23B'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_localmethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Подитеративная функция для вызова IterateChildrenF из DoIt' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F26694603B5 // DoIt
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_823DC2BC8D7D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_87A18881C23B DoIt
+
+ME ME_4F26708F017A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_call::Dependency ;
+ MELINK Parent HWL ME_4F26694603B5 // DoIt
+ ;
+ MELINK Target WL 'ME_4BB21F9D022F' '53317D14019D.ms.model.script' // IterateChildrenF
+ ;
+ UP "iterator func name" 'DoIt'
+ UP "iterator needs params" False
+ UP "needs after iterator UC" False
+
+ENDME // ME_4F26708F017A 
+
+ME ME_4F2675FD0393
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F26694603B5 // DoIt
+ ;
+ MELINK Target WL 'ME_47F24AFB0308' '469D0AC7005E.ms.model.script' // Layers
+ ;
+
+ENDME // ME_4F2675FD0393 
+
+ME ME_4F2677B60282
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F26694603B5 // DoIt
+ ;
+ MELINK Target WL 'ME_48564C5800DD' '484A470100DD.ms.model.script' // ObjectSegment
+ ;
+
+ENDME // ME_4F2677B60282 
+
+ME ME_D617A271596B
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F26694603B5 // DoIt
+ ;
+ MELINK Target WL 'ME_4A422BA20187' '53317D14019D.ms.model.script' // Mk2Children
+ ;
+
+ENDME // ME_D617A271596B 
+
+ME ME_4F26694603B5
+ MEPROP UID '4F26694603B5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_localmethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Подитеративная функция для вызова IterateChildrenF из ValidateStyles' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2666AC03A4 // ValidateStyles
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F26707A0213 // Layer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_F43F2CAE3655 // DoIt
+ HWL ME_87A18881C23B // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F26708F017A // IterateChildrenF
+ ME_4F2675FD0393 // Layers
+ ME_4F2677B60282 // ObjectSegment
+ ME_D617A271596B // Mk2Children
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4F26694603B5 DoIt
+
+FORWARD ME_4F2666BE022D
+
+ME ME_4F2666CE0081
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4F2666CE0081 aPara
+
+ME ME_4F2666BE022D
+ MEPROP UID '4F2666BE022D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2666AC03A4 // ValidateStyles
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F2666CE0081 // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_4F2666BE022D DoIt
+
+ME ME_4F2666EB0058
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2666AC03A4 // ValidateStyles
+ ;
+ MELINK Target WL 'ME_4860E0950197' '484A470100DD.ms.model.script' // Object
+ ;
+
+ENDME // ME_4F2666EB0058 
+
+ME ME_4F266700012E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2666AC03A4 // ValidateStyles
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4F266700012E 
+
+ME ME_4F26671F02DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2666AC03A4 // ValidateStyles
+ ;
+ MELINK Target WL 'ME_4857926501CB' '48492FC0029D.ms.model.script' // Formula
+ ;
+
+ENDME // ME_4F26671F02DF 
+
+ME ME_4F26677E0247
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_call::Dependency ;
+ MELINK Parent HWL ME_4F2666AC03A4 // ValidateStyles
+ ;
+ MELINK Target WL 'ME_4BB21F9D022F' '53317D14019D.ms.model.script' // IterateChildrenF
+ ;
+ UP "iterator func name" 'DoIt'
+ UP "iterator needs params" False
+ UP "needs after iterator UC" False
+
+ENDME // ME_4F26677E0247 
+
+ME ME_F73E873399DB
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2666AC03A4 // ValidateStyles
+ ;
+ MELINK Target WL 'ME_4A422BA20187' '53317D14019D.ms.model.script' // Mk2Children
+ ;
+
+ENDME // ME_F73E873399DB 
+
+MEREF ME_4F2663560035_ME_4F2666AC03A4_R
+ MELINK Original WL 'ME_4F2663560035' '4F266203018F.ms.model.script' // Сегменты и параграфы оформленные стилем Объект и не являющиеся формулами должны выливаться как оформленные стилем Нормальный
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F2663560035_ME_4F2666AC03A4_R Сегменты и параграфы оформленные стилем Объект и не являющиеся формулами должны выливаться как оформленные стилем Нормальный
+
+%%ImplementedBy ME_4F2663560035 ME_4F2666AC03A4
+
+ME ME_4F2666AC03A4
+ MEPROP UID '4F2666AC03A4'
+ MEPROP Name 'ValidateStyles'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F26660203CB // TevCustomTextFormatterModelPart
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_4F2663560035_ME_4F2666AC03A4_R // Сегменты и параграфы оформленные стилем Объект и не являющиеся формулами должны выливаться как оформленные стилем Нормальный
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4F26694603B5 // DoIt
+ HWL ME_4F2666BE022D // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F2666EB0058 // Object
+ ME_4F266700012E // Tk2TagID
+ ME_4F26671F02DF // Formula
+ ME_4F26677E0247 // IterateChildrenF
+ ME_F73E873399DB // Mk2Children
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4F2666AC03A4 ValidateStyles
+
+MEREF ME_4836BA4C03B3_ME_4F26660203CB_G
+ MELINK Original WL? 'ME_4836BA4C03B3' // TevdDocumentFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4836BA4C03B3_ME_4F26660203CB_G TevdDocumentFilter
+
+MEREF ME_4F2663560035_ME_4F26660203CB_R
+ MELINK Original WL 'ME_4F2663560035' '4F266203018F.ms.model.script' // Сегменты и параграфы оформленные стилем Объект и не являющиеся формулами должны выливаться как оформленные стилем Нормальный
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F2663560035_ME_4F26660203CB_R Сегменты и параграфы оформленные стилем Объект и не являющиеся формулами должны выливаться как оформленные стилем Нормальный
+
+%%ImplementedBy ME_4F2663560035 ME_4F26660203CB
+
+%%InheritedBy ME_4836BA4C03B3 ME_4F26660203CB
+
+ME ME_4F26660203CB
+ MEPROP UID '4F26660203CB'
+ MEPROP Name 'TevCustomTextFormatterModelPart'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4836BA4C03B3_ME_4F26660203CB_G // TevdDocumentFilter
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4F2663560035_ME_4F26660203CB_R // Сегменты и параграфы оформленные стилем Объект и не являющиеся формулами должны выливаться как оформленные стилем Нормальный
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4F2666AC03A4 // ValidateStyles
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '30.01.2012 13:42'
+ UP extprop:pas:UnitName 'evCustomTextFormatterModelPart'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextFormatterModelPart'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCustomTextFormatterModelPart.pas'
+
+ENDME // ME_4F26660203CB TevCustomTextFormatterModelPart

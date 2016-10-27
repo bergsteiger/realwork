@@ -1,0 +1,177 @@
+// TddExtObjectMachine 57987C49023C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57987C49023C
+
+ME ME_57987C8001BB
+ MEPROP UID '57987C8001BB'
+ MEPROP Name 'DocID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57987C49023C // TddExtObjectMachine
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_57987C8001BB DocID
+
+FORWARD ME_57987CCE02C7
+
+FORWARD ME_57987CE20213
+
+ME ME_57987CE7009E
+ MEPROP Name 'theGenerator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
+ ;
+
+ENDME // ME_57987CE7009E theGenerator
+
+ME ME_57987CE20213
+ MEPROP UID '57987CE20213'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57987CCE02C7 // SetTo
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+ MELIST Parameters
+   Seq: ( ME_57987CE7009E // theGenerator
+ )
+ ; // Parameters
+
+ENDME // ME_57987CE20213 DoIt
+
+ME ME_57987CCE02C7
+ MEPROP UID '57987CCE02C7'
+ MEPROP Name 'SetTo'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57987C49023C // TddExtObjectMachine
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57987CE20213 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_57987CCE02C7 SetTo
+
+FORWARD ME_57987D54034E
+
+ME ME_3EF1BD3495FE
+ MEPROP UID '3EF1BD3495FE'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода DocumentIDChanged' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57987D54034E // DocumentIDChanged
+ ;
+
+ENDME // ME_3EF1BD3495FE DoIt
+
+ME ME_57987D54034E
+ MEPROP UID '57987D54034E'
+ MEPROP Name 'DocumentIDChanged'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57987C49023C // TddExtObjectMachine
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_3EF1BD3495FE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57987D54034E DocumentIDChanged
+
+MEREF ME_479731C50290_ME_57987C49023C_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57987C49023C_over Cleanup
+
+MEREF ME_4836D52400D9_ME_57987C49023C_over
+ MELINK Original WL 'ME_4836D52400D9' '47ECAA270135.ms.model.script' // AddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D52400D9_ME_57987C49023C_over AddAtomEx
+
+MEREF ME_4C56D54B002A_ME_57987C49023C_over
+ MELINK Original WL 'ME_4C56D54B002A' '49E496880120.ms.model.script' // NeedStartBuffering
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C56D54B002A_ME_57987C49023C_over NeedStartBuffering
+
+MEREF ME_4CF7BC520161_ME_57987C49023C_over
+ MELINK Original WL 'ME_4CF7BC520161' '49E496880120.ms.model.script' // NeedFlushBuffer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CF7BC520161_ME_57987C49023C_over NeedFlushBuffer
+
+MEREF ME_49E4965202A1_ME_57987C49023C_G
+ MELINK Original WL 'ME_49E4965202A1' '49E496880120.ms.model.script' // TevdBufferedFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E4965202A1_ME_57987C49023C_G TevdBufferedFilter
+
+%%InheritedBy ME_49E4965202A1 ME_57987C49023C
+
+ME ME_57987C49023C
+ MEPROP UID '57987C49023C'
+ MEPROP Name 'TddExtObjectMachine'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'базовый объект для обработки объектов в документах' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57989E5700D4' // ExternalObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E4965202A1_ME_57987C49023C_G // TevdBufferedFilter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57987C8001BB // DocID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57987CCE02C7 // SetTo
+ HWL ME_57987D54034E // DocumentIDChanged
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57987C49023C_over // Cleanup
+ ME_4836D52400D9_ME_57987C49023C_over // AddAtomEx
+ ME_4C56D54B002A_ME_57987C49023C_over // NeedStartBuffering
+ ME_4CF7BC520161_ME_57987C49023C_over // NeedFlushBuffer
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" True
+ UP extprop:pas:UnitName 'ddExtObjectMachine'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddExtObjectMachine'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddExtObjectMachine.pas'
+
+ENDME // ME_57987C49023C TddExtObjectMachine

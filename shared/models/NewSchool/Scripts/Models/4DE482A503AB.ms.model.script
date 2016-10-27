@@ -1,0 +1,95 @@
+// TArchiAutoTest 4DE482A503AB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DE482A503AB
+
+ME ME_4DE4834502E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE482A503AB // TArchiAutoTest
+ ;
+ MELINK Target WL 'ME_4DDA4CFE00E8' '47877EB202FB.ms.model.script' // ExtractFilePath
+ ;
+
+ENDME // ME_4DE4834502E8 
+
+ME ME_52F88C9A0206
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE482A503AB // TArchiAutoTest
+ ;
+ MELINK Target WL 'ME_4BB3609E0331' '483C378301CB.ms.model.script' // AnsiStartsText
+ ;
+
+ENDME // ME_52F88C9A0206 
+
+MEREF ME_4C937013031D_ME_4DE482A503AB_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4DE482A503AB_over GetFolder
+
+MEREF ME_4DB03121022B_ME_4DE482A503AB_over
+ MELINK Original WL 'ME_4DB03121022B' '4DAEEA2B029A.ms.model.script' // ResolveScriptFilePath
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB03121022B_ME_4DE482A503AB_over ResolveScriptFilePath
+
+MEREF ME_4DC395670274_ME_4DE482A503AB_over
+ MELINK Original WL 'ME_4DC395670274' '4B2A0DCE03A9.ms.model.script' // IsScript
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DC395670274_ME_4DE482A503AB_over IsScript
+
+MEREF ME_4DC399CA00BC_ME_4DE482A503AB_over
+ MELINK Original WL 'ME_4DC399CA00BC' '4B2A0DCE03A9.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DC399CA00BC_ME_4DE482A503AB_over Create
+
+MEREF ME_4DE4827600CA_ME_4DE482A503AB_G
+ MELINK Original WL? 'ME_4DE4827600CA' // TArchiInsiderTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DE4827600CA_ME_4DE482A503AB_G TArchiInsiderTest
+
+%%InheritedBy ME_4DE4827600CA ME_4DE482A503AB
+
+ME ME_4DE482A503AB
+ MEPROP UID '4DE482A503AB'
+ MEPROP Name 'TArchiAutoTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поддержка автоскриптов в Арчи.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE3425B01DA' // ArchiScriptSupport
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DE4827600CA_ME_4DE482A503AB_G // TArchiInsiderTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4DE482A503AB_over // GetFolder
+ ME_4DB03121022B_ME_4DE482A503AB_over // ResolveScriptFilePath
+ ME_4DC395670274_ME_4DE482A503AB_over // IsScript
+ ME_4DC399CA00BC_ME_4DE482A503AB_over // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DE4834502E8 // ExtractFilePath
+ ME_52F88C9A0206 // AnsiStartsText
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ArchiAutoTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ArchiAutoTest'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\ArchiAutoTest.pas'
+
+ENDME // ME_4DE482A503AB TArchiAutoTest

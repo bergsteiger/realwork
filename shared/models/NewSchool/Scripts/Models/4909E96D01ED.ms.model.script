@@ -1,0 +1,66 @@
+// TnsMedicContentsTree 4909E96D01ED SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4909E96D01ED
+
+ME ME_4909E9F0036F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4909E96D01ED // TnsMedicContentsTree
+ ;
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
+ ;
+
+ENDME // ME_4909E9F0036F 
+
+MEREF ME_48FF56D003E6_ME_4909E96D01ED_over
+ MELINK Original WL 'ME_48FF56D003E6' '46835BD201D6.ms.model.script' // SettingsID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FF56D003E6_ME_4909E96D01ED_over SettingsID
+
+MEREF ME_4683630000A0_ME_4909E96D01ED_G
+ MELINK Original WL? 'ME_4683630000A0' // TnsContentsTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4683630000A0_ME_4909E96D01ED_G TnsContentsTree
+
+%%InheritedBy ME_4683630000A0 ME_4909E96D01ED
+
+ME ME_4909E96D01ED
+ MEPROP UID '4909E96D01ED'
+ MEPROP Name 'TnsMedicContentsTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Документ Инфарма. См. [$121166984]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C6A7BA001A5' // F1DocumentContainers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4683630000A0_ME_4909E96D01ED_G // TnsContentsTree
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48FF56D003E6_ME_4909E96D01ED_over // SettingsID
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4909E9F0036F // nsConst
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '30.10.2008 20:06'
+ UP extprop:pas:UnitName 'nsMedicContentsTree'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MedicContentsTree'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsMedicContentsTree.pas'
+
+ENDME // ME_4909E96D01ED TnsMedicContentsTree

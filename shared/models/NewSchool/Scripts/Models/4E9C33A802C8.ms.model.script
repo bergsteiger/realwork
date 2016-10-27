@@ -225,7 +225,7 @@ ENDME // ME_4A891A2700EA
 ME ME_4A8912820378
  MEPROP UID '4A8912820378'
  MEPROP Name 'DoGetNonHyperlinkInfo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Возвращает информацию о стиле сравнения' ;
@@ -263,11 +263,23 @@ ME ME_4A8912820378
 
 ENDME // ME_4A8912820378 DoGetNonHyperlinkInfo
 
-ME ME_4A890E81030B_ME_4E9C33A802C8
+MEREF ME_4A890E81030B_ME_4E9C33A802C8_over
  MELINK Original WL 'ME_4A890E81030B' '4A815C200111.ms.model.script' // GetNonHyperlinkInfo
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A890E81030B_ME_4E9C33A802C8 GetNonHyperlinkInfo
+ENDMEREF // ME_4A890E81030B_ME_4E9C33A802C8_over GetNonHyperlinkInfo
+
+MEREF ME_4E9C33CD022F_ME_4E9C33A802C8_R
+ MELINK Original WL 'ME_4E9C33CD022F' '4A815BFF0168.ms.model.script' // MHyperlinkProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E9C33CD022F_ME_4E9C33A802C8_R MHyperlinkProcessor
+
+MEREF ME_4E9C39690144_ME_4E9C33A802C8_R
+ MELINK Original WL 'ME_4E9C39690144' '484900780017.ms.model.script' // Должны быть хинты к добавленных и изменённым фрагментам
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E9C39690144_ME_4E9C33A802C8_R Должны быть хинты к добавленных и изменённым фрагментам
 
 %%ImplementedBy ME_4E9C33CD022F ME_4E9C33A802C8
 %%ImplementedBy ME_4E9C39690144 ME_4E9C33A802C8
@@ -284,8 +296,8 @@ ME ME_4E9C33A802C8
  MELINK Parent WL? 'ME_4A815BFF0168' // Navigation
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E9C33CD022F' '4A815BFF0168.ms.model.script' // MHyperlinkProcessor
- WL 'ME_4E9C39690144' '484900780017.ms.model.script' // Должны быть хинты к добавленных и изменённым фрагментам
+   Seq: ( HWL ME_4E9C33CD022F_ME_4E9C33A802C8_R // MHyperlinkProcessor
+ HWL ME_4E9C39690144_ME_4E9C33A802C8_R // Должны быть хинты к добавленных и изменённым фрагментам
  )
  ; // Implements
  MELIST Operations
@@ -293,7 +305,7 @@ ME ME_4E9C33A802C8
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_4A890E81030B_ME_4E9C33A802C8 // GetNonHyperlinkInfo
+   Seq: ( ME_4A890E81030B_ME_4E9C33A802C8_over // GetNonHyperlinkInfo
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames

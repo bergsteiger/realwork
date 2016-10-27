@@ -51,7 +51,7 @@ ENDME // ME_4F69AE6A02B4 DoIt
 ME ME_4F69AE600137
  MEPROP UID '4F69AE600137'
  MEPROP Name 'DoQueryCardForm'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -65,11 +65,17 @@ ME ME_4F69AE600137
 
 ENDME // ME_4F69AE600137 DoQueryCardForm
 
-ME ME_4EB25DE00396_ME_4F69AE35012F
- MELINK Original WL 'ME_4EB25DE00396' '54DB92D203C9.ms.model.script' // DoForm
+MEREF ME_4EB25DE00396_ME_4F69AE35012F_impl
+ MELINK Original WL 'ME_4EB25DE00396' '4EB25D530395.ms.model.script' // DoForm
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4EB25DE00396_ME_4F69AE35012F DoForm
+ENDMEREF // ME_4EB25DE00396_ME_4F69AE35012F_impl DoForm
+
+MEREF ME_4EB25D530395_ME_4F69AE35012F_G
+ MELINK Original WL? 'ME_4EB25D530395' // TkwFormFromControlWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EB25D530395_ME_4F69AE35012F_G TkwFormFromControlWord
 
 %%InheritedBy ME_4EB25D530395 ME_4F69AE35012F
 
@@ -84,7 +90,7 @@ ME ME_4F69AE35012F
  MELINK Parent HWL ME_571A23EE0196 // PrimQueryCardWordsPack
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4EB25D530395' '54DB92D203C9.ms.model.script' // TkwFormFromControlWord
+   Seq: ( HWL ME_4EB25D530395_ME_4F69AE35012F_G // TkwFormFromControlWord
  )
  ; // Inherits
  MELIST Operations
@@ -92,7 +98,7 @@ ME ME_4F69AE35012F
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4EB25DE00396_ME_4F69AE35012F // DoForm
+   Seq: ( ME_4EB25DE00396_ME_4F69AE35012F_impl // DoForm
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -103,11 +109,23 @@ ME ME_4F69AE35012F
 
 ENDME // ME_4F69AE35012F TkwQueryCardFormWord
 
-ME ME_4F69AE600137_ME_4F69AF3E01C0
+MEREF ME_4F69AE600137_ME_4F69AF3E01C0_impl
  MELINK Original HWL ME_4F69AE600137 // DoQueryCardForm
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F69AE600137_ME_4F69AF3E01C0 DoQueryCardForm
+ENDMEREF // ME_4F69AE600137_ME_4F69AF3E01C0_impl DoQueryCardForm
+
+MEREF ME_4F69AE35012F_ME_4F69AF3E01C0_G
+ MELINK Original HWL ME_4F69AE35012F // TkwQueryCardFormWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F69AE35012F_ME_4F69AF3E01C0_G TkwQueryCardFormWord
+
+MEREF ME_4F69ADC70003_ME_4F69AF3E01C0_R
+ MELINK Original WL 'ME_4F69ADC70003' '484FA67302D7.ms.model.script' // Карточки запроса должны уметь не писать своё состояние при вызове из скриптов
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F69ADC70003_ME_4F69AF3E01C0_R Карточки запроса должны уметь не писать своё состояние при вызове из скриптов
 
 %%ImplementedBy ME_4F69ADC70003 ME_4F69AF3E01C0
 
@@ -125,15 +143,15 @@ ME ME_4F69AF3E01C0
  MELINK Parent HWL ME_571A23EE0196 // PrimQueryCardWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4F69AE35012F // TkwQueryCardFormWord
+   Seq: ( HWL ME_4F69AE35012F_ME_4F69AF3E01C0_G // TkwQueryCardFormWord
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4F69ADC70003' '484FA67302D7.ms.model.script' // Карточки запроса должны уметь не писать своё состояние при вызове из скриптов
+   Seq: ( HWL ME_4F69ADC70003_ME_4F69AF3E01C0_R // Карточки запроса должны уметь не писать своё состояние при вызове из скриптов
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_4F69AE600137_ME_4F69AF3E01C0 // DoQueryCardForm
+   Seq: ( ME_4F69AE600137_ME_4F69AF3E01C0_impl // DoQueryCardForm
  )
  ; // Implemented
  UP extprop:pas:TypeName 'TkwQueryCardSetCanSaveState'

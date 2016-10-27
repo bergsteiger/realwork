@@ -1,0 +1,230 @@
+// TmsmModelLoadingThreadPrimList 57C6876700B1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57C6876700B1
+
+ME ME_57C68BDA00F4
+ MEPROP UID '57C68BDA00F4'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57C6876700B1 // TmsmModelLoadingThreadPrimList
+ ;
+ MELINK Target WL? 'ME_57C686D301A8' // TmsmModelLoadingThreadPrim
+ ;
+
+ENDME // ME_57C68BDA00F4 ItemType
+
+FORWARD ME_57C695CA0194
+
+FORWARD ME_57C695D1022A
+
+ME ME_57C695DA0264
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_57C686D301A8' // TmsmModelLoadingThreadPrim
+ ;
+
+ENDME // ME_57C695DA0264 anItem
+
+ME ME_57C695D1022A
+ MEPROP UID '57C695D1022A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57C695CA0194 // Add
+ ;
+ MELIST Parameters
+   Seq: ( ME_57C695DA0264 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_57C695D1022A DoIt
+
+ME ME_57C695CA0194
+ MEPROP UID '57C695CA0194'
+ MEPROP Name 'Add'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57C6876700B1 // TmsmModelLoadingThreadPrimList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57C695D1022A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57C695CA0194 Add
+
+FORWARD ME_57C695E001D4
+
+FORWARD ME_57C695E803A3
+
+ME ME_57C695EA0052
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_57C686D301A8' // TmsmModelLoadingThreadPrim
+ ;
+
+ENDME // ME_57C695EA0052 anItem
+
+ME ME_57C695E803A3
+ MEPROP UID '57C695E803A3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57C695E001D4 // Remove
+ ;
+ MELIST Parameters
+   Seq: ( ME_57C695EA0052 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_57C695E803A3 DoIt
+
+ME ME_57C695E001D4
+ MEPROP UID '57C695E001D4'
+ MEPROP Name 'Remove'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57C6876700B1 // TmsmModelLoadingThreadPrimList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57C695E803A3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57C695E001D4 Remove
+
+ME ME_57CE912000FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C6876700B1 // TmsmModelLoadingThreadPrimList
+ ;
+ MELINK Target WL? 'ME_57CE8E0B0357' // l3PointerUtils
+ ;
+
+ENDME // ME_57CE912000FE 
+
+MEREF ME_47B2C42A0163_ME_57C6876700B1_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_57C6876700B1_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_57C6876700B1_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_57C6876700B1_impl CompareExistingItems
+
+MEREF ME_479731C50290_ME_57C6876700B1_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57C6876700B1_over Cleanup
+
+MEREF ME_47A042E100E2_ME_57C6876700B1_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_57C6876700B1_over InitFields
+
+MEREF ME_49BFC98902FF_ME_57C6876700B1_over
+ MELINK Original WL 'ME_49BFC98902FF' '51612ED700B4.ms.model.script' // BeforeRelease
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49BFC98902FF_ME_57C6876700B1_over BeforeRelease
+
+MEREF ME_4A54DD4E036F_ME_57C6876700B1_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_57C6876700B1_G Tl3ProtoDataContainer
+
+MEREF ME_47B99E920196_ME_57C6876700B1_R
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_57C6876700B1_R l3UncomparabeObjectRefList
+
+MEREF ME_57C5572B036F_ME_57C6876700B1_R
+ MELINK Original WL? 'ME_57C5572B036F' // seCriticalSectionHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57C5572B036F_ME_57C6876700B1_R seCriticalSectionHolder
+
+%%ImplementedBy ME_47B99E920196 ME_57C6876700B1
+%%ImplementedBy ME_57C5572B036F ME_57C6876700B1
+
+%%InheritedBy ME_4A54DD4E036F ME_57C6876700B1
+
+ME ME_57C6876700B1
+ MEPROP UID '57C6876700B1'
+ MEPROP Name 'TmsmModelLoadingThreadPrimList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57AB4243034B' // ScriptCalling
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_57C6876700B1_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B99E920196_ME_57C6876700B1_R // l3UncomparabeObjectRefList
+ HWL ME_57C5572B036F_ME_57C6876700B1_R // seCriticalSectionHolder
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57C68BDA00F4 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57C695CA0194 // Add
+ HWL ME_57C695E001D4 // Remove
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_57C6876700B1_impl // AssignItem
+ ME_47B99D4503A2_ME_57C6876700B1_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57C6876700B1_over // Cleanup
+ ME_47A042E100E2_ME_57C6876700B1_over // InitFields
+ ME_49BFC98902FF_ME_57C6876700B1_over // BeforeRelease
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57CE912000FE // l3PointerUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifdef" 'seThreadSafe'
+ UP extprop:pas:UnitName 'msmModelLoadingThreadPrimList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmModelLoadingThreadPrimList'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmModelLoadingThreadPrimList.pas'
+
+ENDME // ME_57C6876700B1 TmsmModelLoadingThreadPrimList

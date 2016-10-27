@@ -1,0 +1,81 @@
+// Tl3ProtoPersistentWithHandleRefListPrim 52FCCB1B0273 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52FCCB1B0273
+
+ME ME_52FCCB2B01F2
+ MEPROP UID '52FCCB2B01F2'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52FCCB1B0273 // Tl3ProtoPersistentWithHandleRefListPrim
+ ;
+ MELINK Target WL? 'ME_52FCC6C002D7' // Tl3ProtoPersistentWithHandle
+ ;
+
+ENDME // ME_52FCCB2B01F2 ItemType
+
+MEREF ME_47B2C42A0163_ME_52FCCB1B0273_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_52FCCB1B0273_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_52FCCB1B0273_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_52FCCB1B0273_impl CompareExistingItems
+
+MEREF ME_47B99E920196_ME_52FCCB1B0273_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_52FCCB1B0273_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_52FCCB1B0273_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_52FCCB1B0273_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B99E920196 ME_52FCCB1B0273
+%%InheritedBy ME_4A54DD4E036F ME_52FCCB1B0273
+
+ME ME_52FCCB1B0273
+ MEPROP UID '52FCCB1B0273'
+ MEPROP Name 'Tl3ProtoPersistentWithHandleRefListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B8931DC0339' // Garbage
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B99E920196_ME_52FCCB1B0273_G // l3UncomparabeObjectRefList
+ HWL ME_4A54DD4E036F_ME_52FCCB1B0273_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52FCCB2B01F2 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_52FCCB1B0273_impl // AssignItem
+ ME_47B99D4503A2_ME_52FCCB1B0273_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'l3ProtoPersistentWithHandleRefListPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ProtoPersistentWithHandleRefListPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ProtoPersistentWithHandleRefListPrim.pas'
+
+ENDME // ME_52FCCB1B0273 Tl3ProtoPersistentWithHandleRefListPrim

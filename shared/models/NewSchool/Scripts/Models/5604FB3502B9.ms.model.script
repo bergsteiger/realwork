@@ -1,0 +1,63 @@
+// Tl3CharSkipper 5604FB3502B9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5604FB3502B9
+
+FORWARD ME_5604FBB600CF
+
+ME ME_5604FBCE005B
+ MEPROP UID '5604FBCE005B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5604FBB600CF // GetChar
+ ;
+ MELINK Target WL 'ME_3DBFFE6F0305' '3DBFDB23006E.ms.model.script' // char
+ ;
+
+ENDME // ME_5604FBCE005B DoIt
+
+ME ME_5604FBB600CF
+ MEPROP UID '5604FBB600CF'
+ MEPROP Name 'GetChar'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5604FB3502B9 // Tl3CharSkipper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5604FBCE005B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5604FBB600CF GetChar
+
+ME ME_5604FB3502B9
+ MEPROP UID '5604FB3502B9'
+ MEPROP Name 'Tl3CharSkipper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5604FBB600CF // GetChar
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:pas:UnitName 'l3CharSkipper'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CharSkipper'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3CharSkipper.pas'
+
+ENDME // ME_5604FB3502B9 Tl3CharSkipper

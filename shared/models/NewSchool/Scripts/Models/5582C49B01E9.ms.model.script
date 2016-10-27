@@ -1,0 +1,93 @@
+// TvcmEntitiesDefIterator 5582C49B01E9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5582C49B01E9
+
+ME ME_559D245302F0
+ MEPROP UID '559D245302F0'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5582C49B01E9 // TvcmEntitiesDefIterator
+ ;
+ MELINK Target WL 'ME_49956D4A00C6' '4683F37902CF.ms.model.script' // IvcmEntityDef
+ ;
+
+ENDME // ME_559D245302F0 ItemType
+
+ME ME_559D2502006D
+ MEPROP UID '559D2502006D'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5582C49B01E9 // TvcmEntitiesDefIterator
+ ;
+ MELINK Target WL? 'ME_559D24E403DE' // TvcmEntitiesDefList
+ ;
+
+ENDME // ME_559D2502006D ListType
+
+MEREF ME_49956DB300D6_ME_5582C49B01E9_impl
+ MELINK Original WL 'ME_49956DB300D6' '4683F37902CF.ms.model.script' // Next
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_49956DB300D6_ME_5582C49B01E9_impl Next
+
+MEREF ME_5582BCBE00C3_ME_5582C49B01E9_G
+ MELINK Original WL? 'ME_5582BCBE00C3' // vcmIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5582BCBE00C3_ME_5582C49B01E9_G vcmIterator
+
+MEREF ME_49956DA70152_ME_5582C49B01E9_R
+ MELINK Original WL 'ME_49956DA70152' '4683F37902CF.ms.model.script' // IvcmEntitiesDefIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49956DA70152_ME_5582C49B01E9_R IvcmEntitiesDefIterator
+
+%%ImplementedBy ME_49956DA70152 ME_5582C49B01E9
+
+%%InheritedBy ME_5582BCBE00C3 ME_5582C49B01E9
+
+ME ME_5582C49B01E9
+ MEPROP UID '5582C49B01E9'
+ MEPROP Name 'TvcmEntitiesDefIterator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47D0E1500033' // Implementation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5582BCBE00C3_ME_5582C49B01E9_G // vcmIterator
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_49956DA70152_ME_5582C49B01E9_R // IvcmEntitiesDefIterator
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_559D245302F0 // ItemType
+ HWL ME_559D2502006D // ListType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_49956DB300D6_ME_5582C49B01E9_impl // Next
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'vcmEntitiesDefIterator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EntitiesDefIterator'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmEntitiesDefIterator.pas'
+
+ENDME // ME_5582C49B01E9 TvcmEntitiesDefIterator

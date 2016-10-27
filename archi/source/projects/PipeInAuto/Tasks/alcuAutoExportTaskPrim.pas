@@ -14,8 +14,6 @@ uses
  {$If NOT Defined(Nemesis)}
  , csProcessTask
  {$IfEnd} // NOT Defined(Nemesis)
- , evdDTTypes
- , evdTasksHelpers
  , k2Base
 ;
 

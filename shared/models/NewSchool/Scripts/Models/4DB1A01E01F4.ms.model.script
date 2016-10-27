@@ -1,0 +1,90 @@
+// Key 4DB1A01E01F4 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DB1A01E01F4
+
+ME ME_4DB1A0660303
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB1A01E01F4 // Key
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_4DB1A0660303 
+
+ME ME_4DB1A0900097
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB1A01E01F4 // Key
+ ;
+ MELINK Target WL? 'ME_47E7ABAE0110' // Menus
+ ;
+
+ENDME // ME_4DB1A0900097 
+
+ME ME_4DB1A0EF0161
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB1A01E01F4 // Key
+ ;
+ MELINK Target WL? 'ME_478CF30500C1' // Classes
+ ;
+
+ENDME // ME_4DB1A0EF0161 
+
+ME ME_4DB1BF440078
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB1A01E01F4 // Key
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4DB1BF440078 
+
+ME ME_5507EA22015B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB1A01E01F4 // Key
+ ;
+ MELINK Target WL? 'ME_5506D3B202FA' // Tl3MessagesService
+ ;
+
+ENDME // ME_5507EA22015B 
+
+ME ME_4DB1A01E01F4
+ MEPROP UID '4DB1A01E01F4'
+ MEPROP Name 'Key'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Нажатие на кнопку клавиатуры.'#13#10'Пример:'#13#10'{code}'#13#10': "Нажать" STRING IN aString'#13#10' aString key'#13#10';'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5019517A022F' // KeyBoardInput
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4DB1A0660303 // Windows
+ ME_4DB1A0900097 // Menus
+ ME_4DB1A0EF0161 // Classes
+ ME_4DB1BF440078 // Msg Codes
+ ME_5507EA22015B // Tl3MessagesService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "NameForScript" 'key'
+ UP "no hands" True
+ UP "started" '22.04.2011 19:35'
+ UP extprop:pas:TypeName 'TkwKey'
+ UP extprop:pas:UnitName 'kwKey'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Key'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwKey.pas'
+
+ENDME // ME_4DB1A01E01F4 Key

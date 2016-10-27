@@ -1,0 +1,109 @@
+// TnsCounterEvent 4B13A1A2000F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B13A1A2000F
+
+ME ME_4B13A1D40309
+ MEPROP UID '4B13A1D40309'
+ MEPROP Name 'f_Counter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B13A1A2000F // TnsCounterEvent
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4B13A1D40309 f_Counter
+
+ME ME_4B13A26203DB
+ MEPROP UID '4B13A26203DB'
+ MEPROP Name 'EventID'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B13A1A2000F // TnsCounterEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B13A26203DB EventID
+
+ME ME_4B13A5F10200
+ MEPROP UID '4B13A5F10200'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B13A1A2000F // TnsCounterEvent
+ ;
+
+ENDME // ME_4B13A5F10200 Log
+
+ME ME_55B7A79003BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B13A1A2000F // TnsCounterEvent
+ ;
+ MELINK Target WL 'ME_55B75F160131' '55B75E6E034C.ms.model.script' // InsLogEventData
+ ;
+
+ENDME // ME_55B7A79003BD 
+
+MEREF ME_4B13A1F202D9_ME_4B13A1A2000F_impl
+ MELINK Original WL 'ME_4B13A1F202D9' '4B13A069037A.ms.model.script' // DoFireLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B13A1F202D9_ME_4B13A1A2000F_impl DoFireLog
+
+MEREF ME_4B13A069037A_ME_4B13A1A2000F_G
+ MELINK Original WL? 'ME_4B13A069037A' // TnsPrimCachedEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B13A069037A_ME_4B13A1A2000F_G TnsPrimCachedEvent
+
+%%InheritedBy ME_4B13A069037A ME_4B13A1A2000F
+
+ME ME_4B13A1A2000F
+ MEPROP UID '4B13A1A2000F'
+ MEPROP Name 'TnsCounterEvent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B0A60DF01F2' // Logging
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B13A069037A_ME_4B13A1A2000F_G // TnsPrimCachedEvent
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B13A1D40309 // f_Counter
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B13A26203DB // EventID
+ HWL ME_4B13A5F10200 // Log
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4B13A1F202D9_ME_4B13A1A2000F_impl // DoFireLog
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_55B7A79003BD // InsLogEventData
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nsCounterEvent'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CounterEvent'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Logging\nsCounterEvent.pas'
+
+ENDME // ME_4B13A1A2000F TnsCounterEvent

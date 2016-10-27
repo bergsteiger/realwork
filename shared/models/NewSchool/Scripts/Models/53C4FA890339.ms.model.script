@@ -1,0 +1,44 @@
+// WevdProcessTask 53C4FA890339 Wrapper Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_53C3E67C0258_ME_53C4FA890339_G
+ MELINK Original WL? 'ME_53C3E67C0258' // WevdTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53C3E67C0258_ME_53C4FA890339_G WevdTask
+
+MEREF ME_53A95D9F02E9_ME_53C4FA890339_R
+ MELINK Original WL 'ME_53A95D9F02E9' '484A470100DD.ms.model.script' // ProcessTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53A95D9F02E9_ME_53C4FA890339_R ProcessTask
+
+%%ImplementedBy ME_53A95D9F02E9 ME_53C4FA890339
+
+%%InheritedBy ME_53C3E67C0258 ME_53C4FA890339
+
+ME ME_53C4FA890339
+ MEPROP UID '53C4FA890339'
+ MEPROP Name 'WevdProcessTask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Wrapper ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_484A470100DD' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53C3E67C0258_ME_53C4FA890339_G // WevdTask
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53A95D9F02E9_ME_53C4FA890339_R // ProcessTask
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'evdProcessTask_Wrap'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdProcessTask_Wrap.pas'
+
+ENDME // ME_53C4FA890339 WevdProcessTask

@@ -1,0 +1,115 @@
+// TatSynchroPointOperation 492154F303D9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492154F303D9
+
+ME ME_4921569B03A6
+ MEPROP UID '4921569B03A6'
+ MEPROP Name 'f_SynchroPoint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_492154F303D9 // TatSynchroPointOperation
+ ;
+ MELINK Target WL? 'ME_491D9DFA0288' // TatSynchroPoint
+ ;
+
+ENDME // ME_4921569B03A6 f_SynchroPoint
+
+ME ME_4921577C015A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492154F303D9 // TatSynchroPointOperation
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_4921577C015A 
+
+ME ME_492172D602B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492154F303D9 // TatSynchroPointOperation
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_492172D602B5 
+
+MEREF ME_48089F460352_ME_492154F303D9_impl
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48089F460352_ME_492154F303D9_impl ExecuteSelf
+
+MEREF ME_479731C50290_ME_492154F303D9_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_492154F303D9_over Cleanup
+
+MEREF ME_48089F3701B4_ME_492154F303D9_over
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F3701B4_ME_492154F303D9_over InitParamList
+
+MEREF ME_492188F70140_ME_492154F303D9_over
+ MELINK Original WL 'ME_492188F70140' '48089D120398.ms.model.script' // AfterFillingParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_492188F70140_ME_492154F303D9_over AfterFillingParamList
+
+MEREF ME_48076E9D013E_ME_492154F303D9_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_492154F303D9_G TatOperationBase
+
+%%InheritedBy ME_48076E9D013E ME_492154F303D9
+
+ME ME_492154F303D9
+ MEPROP UID '492154F303D9'
+ MEPROP Name 'TatSynchroPointOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48076E9D013E_ME_492154F303D9_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4921569B03A6 // f_SynchroPoint
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_492154F303D9_impl // ExecuteSelf
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_492154F303D9_over // Cleanup
+ ME_48089F3701B4_ME_492154F303D9_over // InitParamList
+ ME_492188F70140_ME_492154F303D9_over // AfterFillingParamList
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4921577C015A // atLogger
+ ME_492172D602B5 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atSynchroPointOperation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atSynchroPointOperation'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atSynchroPointOperation.pas'
+
+ENDME // ME_492154F303D9 TatSynchroPointOperation

@@ -1,0 +1,63 @@
+// K517772970_TcsExportResultRequestDefault 5319728801FC TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5319728801FC
+
+ME ME_5319730B0249
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5319728801FC // K517772970_TcsExportResultRequestDefault
+ ;
+ MELINK Target WL? 'ME_53170931038A' // csExportResultRequest
+ ;
+
+ENDME // ME_5319730B0249 
+
+MEREF ME_53170E4100CF_ME_5319728801FC_impl
+ MELINK Original WL 'ME_53170E4100CF' '53170DE90011.ms.model.script' // GetTaskClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_53170E4100CF_ME_5319728801FC_impl GetTaskClass
+
+MEREF ME_53170DE90011_ME_5319728801FC_G
+ MELINK Original WL? 'ME_53170DE90011' // K517772970_TCheckSaveToStreamDefault
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53170DE90011_ME_5319728801FC_G K517772970_TCheckSaveToStreamDefault
+
+%%InheritedBy ME_53170DE90011 ME_5319728801FC
+
+ME ME_5319728801FC
+ MEPROP UID '5319728801FC'
+ MEPROP Name 'K517772970_TcsExportResultRequestDefault'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53185EDF0306' // TasksSaveLoadWithDefault
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53170DE90011_ME_5319728801FC_G // K517772970_TCheckSaveToStreamDefault
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53170E4100CF_ME_5319728801FC_impl // GetTaskClass
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5319730B0249 // csExportResultRequest
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TK517772970_TcsExportResultRequestDefault'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K517772970_TcsExportResultRequestDefault'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TcsExportResultRequestDefault.pas'
+
+ENDME // ME_5319728801FC K517772970_TcsExportResultRequestDefault

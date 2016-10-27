@@ -1,0 +1,67 @@
+// TkwCompiledMain 4F37CBBE015A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F37CBBE015A
+
+ME ME_53DA54200330
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F37CBBE015A // TkwCompiledMain
+ ;
+ MELINK Target WL? 'ME_508528D10384' // TtfwClassRef
+ ;
+
+ENDME // ME_53DA54200330 
+
+MEREF ME_52CFCF4B02C6_ME_4F37CBBE015A_over
+ MELINK Original WL 'ME_52CFCF4B02C6' '4DAF19F600C5.ms.model.script' // ParentWord
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "pm" True
+ENDMEREF // ME_52CFCF4B02C6_ME_4F37CBBE015A_over ParentWord
+
+MEREF ME_4DB6CA4F010D_ME_4F37CBBE015A_G
+ MELINK Original WL? 'ME_4DB6CA4F010D' // TkwCompiledWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB6CA4F010D_ME_4F37CBBE015A_G TkwCompiledWord
+
+%%InheritedBy ME_4DB6CA4F010D ME_4F37CBBE015A
+
+ME ME_4F37CBBE015A
+ MEPROP UID '4F37CBBE015A'
+ MEPROP Name 'TkwCompiledMain'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Скомпилированный основной код скрипта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DAEEA14018A' // Scripting Axiomatics
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DB6CA4F010D_ME_4F37CBBE015A_G // TkwCompiledWord
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_52CFCF4B02C6_ME_4F37CBBE015A_over // ParentWord
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53DA54200330 // TtfwClassRef
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '12.02.2012 18:25'
+ UP extprop:pas:UnitName 'kwCompiledMain'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CompiledMain'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledMain.pas'
+
+ENDME // ME_4F37CBBE015A TkwCompiledMain

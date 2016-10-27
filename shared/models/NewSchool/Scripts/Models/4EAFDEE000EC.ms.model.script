@@ -1,0 +1,73 @@
+// pop_editor_GetSelectionText 4EAFDEE000EC ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EAFDEE000EC
+
+ME ME_50BA2BF90070
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EAFDEE000EC // pop_editor_GetSelectionText
+ ;
+ MELINK Target WL? 'ME_47F1F3BC0330' // evParaTools
+ ;
+
+ENDME // ME_50BA2BF90070 
+
+MEREF ME_4F4CB81200CA_ME_4EAFDEE000EC_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_4EAFDEE000EC_impl DoWithEditor
+
+MEREF ME_4DB0614603C8_ME_4EAFDEE000EC_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB0614603C8_ME_4EAFDEE000EC_over GetWordNameForRegister
+
+MEREF ME_4F4CB625027A_ME_4EAFDEE000EC_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_4EAFDEE000EC_G TkwEditorFromStackWord
+
+%%InheritedBy ME_4F4CB625027A ME_4EAFDEE000EC
+
+ME ME_4EAFDEE000EC
+ MEPROP UID '4EAFDEE000EC'
+ MEPROP Name 'pop_editor_GetSelectionText'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A_ME_4EAFDEE000EC_G // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4EAFDEE000EC_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4EAFDEE000EC_over // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_50BA2BF90070 // evParaTools
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwPopEditorGetSelectionText'
+ UP extprop:pas:UnitName 'kwPopEditorGetSelectionText'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PopEditorGetSelectionText'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorGetSelectionText.pas'
+
+ENDME // ME_4EAFDEE000EC pop_editor_GetSelectionText

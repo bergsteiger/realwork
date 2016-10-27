@@ -1,0 +1,174 @@
+// TafwMeasureCanvas 47414D0C018A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47414D0C018A
+
+ME ME_4CC69C3200C0
+ MEPROP UID '4CC69C3200C0'
+ MEPROP Name 'f_Caret'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47414D0C018A // TafwMeasureCanvas
+ ;
+ MELINK Target WL 'ME_478E4BF6002B' '467823B7002C.ms.model.script' // IafwCaret
+ ;
+
+ENDME // ME_4CC69C3200C0 f_Caret
+
+FORWARD ME_4CC69AD60087
+
+FORWARD ME_4CC69ADE038A
+
+ME ME_4CC69ADF022C
+ MEPROP Name 'anExtent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D8F4C03CD' '467823B7002C.ms.model.script' // TafwPoint
+ ;
+
+ENDME // ME_4CC69ADF022C anExtent
+
+ME ME_4CC69ADF0244
+ MEPROP Name 'aCaret'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478E4BF6002B' '467823B7002C.ms.model.script' // IafwCaret
+ ;
+
+ENDME // ME_4CC69ADF0244 aCaret
+
+ME ME_4CC69ADE038A
+ MEPROP UID '4CC69ADE038A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC69AD60087 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CC69ADF022C // anExtent
+ ME_4CC69ADF0244 // aCaret
+ )
+ ; // Parameters
+
+ENDME // ME_4CC69ADE038A Create
+
+ME ME_4CC69AD60087
+ MEPROP UID '4CC69AD60087'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47414D0C018A // TafwMeasureCanvas
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CC69ADE038A // Create
+ )
+ ; // Operations
+
+ENDME // ME_4CC69AD60087 Create
+
+MEREF ME_4CC69AD60087_ME_4CC69AC100E1_G
+ MELINK Original HWL ME_4CC69AD60087 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CC69AD60087_ME_4CC69AC100E1_G Create
+
+MEREF ME_4727449A00A2_ME_4CC69AC100E1_R
+ MELINK Original WL 'ME_4727449A00A2' '467C0CAA02AB.ms.model.script' // Il3Canvas
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4727449A00A2_ME_4CC69AC100E1_R Il3Canvas
+
+%%ImplementedBy ME_4727449A00A2 ME_4CC69AC100E1
+
+%%InheritedBy ME_4CC69AD60087 ME_4CC69AC100E1
+
+ME ME_4CC69AC100E1
+ MEPROP UID '4CC69AC100E1'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47414D0C018A // TafwMeasureCanvas
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CC69AD60087_ME_4CC69AC100E1_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4727449A00A2_ME_4CC69AC100E1_R // Il3Canvas
+ )
+ ; // Implements
+
+ENDME // ME_4CC69AC100E1 Make
+
+MEREF ME_479731C50290_ME_47414D0C018A_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_47414D0C018A_over Cleanup
+
+MEREF ME_56B49F030225_ME_47414D0C018A_over
+ MELINK Original WL 'ME_56B49F030225' '4A4CB79A02C6.ms.model.script' // GetCaret
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56B49F030225_ME_47414D0C018A_over GetCaret
+
+MEREF ME_473C4F1E01A1_ME_47414D0C018A_G
+ MELINK Original WL? 'ME_473C4F1E01A1' // Tl3VirtualCanvas
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_473C4F1E01A1_ME_47414D0C018A_G Tl3VirtualCanvas
+
+%%InheritedBy ME_473C4F1E01A1 ME_47414D0C018A
+
+ME ME_47414D0C018A
+ MEPROP UID '47414D0C018A'
+ MEPROP Name 'TafwMeasureCanvas'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Канва для измерений и вычисления позиции курсора.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_474144E20301' // Draw
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_473C4F1E01A1_ME_47414D0C018A_G // Tl3VirtualCanvas
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4CC69C3200C0 // f_Caret
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CC69AD60087 // Create
+ HWL ME_4CC69AC100E1 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47414D0C018A_over // Cleanup
+ ME_56B49F030225_ME_47414D0C018A_over // GetCaret
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В. '
+ UP "no hands" True
+ UP "started" '26.02.2006 13:33'
+ UP extprop:pas:UnitName 'afwMeasureCanvas'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwMeasureCanvas'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwMeasureCanvas.pas'
+
+ENDME // ME_47414D0C018A TafwMeasureCanvas

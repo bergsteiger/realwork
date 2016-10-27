@@ -5,40 +5,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_561F9F9400BC
 %%Inner ME_572C98D2039D
 
-FORWARD ME_561F9F7D02A7
-
-ME ME_561F9F9400BC
- MEPROP UID '561F9F9400BC'
- MEPROP Name 'TtfwClassRef'
- MEPROP Class class_Class
- MELINK Stereotype st_ClassProxy ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_561F9F7D02A7 // ScriptEngine
- ;
- UP extprop:pas:UnitName 'TtfwClassRef_Proxy'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'ClassRef'
-
-ENDME // ME_561F9F9400BC TtfwClassRef
-
-ME ME_572C98D2039D
- MEPROP UID '572C98D2039D'
- MEPROP Name 'TtfwTypeRegistrator'
- MEPROP Class class_Class
- MELINK Stereotype st_ClassProxy ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_561F9F7D02A7 // ScriptEngine
- ;
- UP extprop:pas:UnitName 'TtfwTypeRegistrator_Proxy'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'TypeRegistrator'
-
-ENDME // ME_572C98D2039D TtfwTypeRegistrator
-
 ME ME_561F9F7D02A7
  MEPROP UID '561F9F7D02A7'
  MEPROP Name 'ScriptEngine'
@@ -50,8 +16,8 @@ ME ME_561F9F7D02A7
  MELINK Parent WL? 'ME_4B63155B0328' // MDProcess$ForDelphi
  ;
  MELIST Children
-   Seq: ( HWL ME_561F9F9400BC // TtfwClassRef
- HWL ME_572C98D2039D // TtfwTypeRegistrator
+   Seq: ( WL? 'ME_561F9F9400BC' // TtfwClassRef
+ WL? 'ME_572C98D2039D' // TtfwTypeRegistrator
  )
  ; // Children
  MESTRINGLIST DiagramsNames

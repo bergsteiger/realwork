@@ -1,0 +1,99 @@
+// TmsmChangePropertiesBinding 5804D4CC00E3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5804D4CC00E3
+
+ME ME_5804D518001D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5804D4CC00E3 // TmsmChangePropertiesBinding
+ ;
+ MELINK Target WL? 'ME_57F5040203B0' // TmsmModelElementSelectService
+ ;
+
+ENDME // ME_5804D518001D 
+
+ME ME_5804D52B0215
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_5804D4CC00E3 // TmsmChangePropertiesBinding
+ ;
+ MELINK Target WL 'ME_57B2B0C602DF' '57C99A680247.ms.model.script' // ActionElementEvent
+ ;
+
+ENDME // ME_5804D52B0215 
+
+MEREF ME_57F509AC007F_ME_5804D4CC00E3_impl
+ MELINK Original WL 'ME_57F509AC007F' '57F5040203B0.ms.model.script' // SelectElement
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57F509AC007F_ME_5804D4CC00E3_impl SelectElement
+
+MEREF ME_57FB8665023E_ME_5804D4CC00E3_impl
+ MELINK Original WL 'ME_57FB8665023E' '57F5040203B0.ms.model.script' // SelectFormCaption
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57FB8665023E_ME_5804D4CC00E3_impl SelectFormCaption
+
+MEREF ME_57FB86B0027E_ME_5804D4CC00E3_impl
+ MELINK Original WL 'ME_57FB86B0027E' '57F5040203B0.ms.model.script' // KeyValues
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57FB86B0027E_ME_5804D4CC00E3_impl KeyValues
+
+MEREF ME_57F51BC20045_ME_5804D4CC00E3_G
+ MELINK Original WL? 'ME_57F51BC20045' // TmsmListController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57F51BC20045_ME_5804D4CC00E3_G TmsmListController
+
+MEREF ME_57F5098E01B5_ME_5804D4CC00E3_R
+ MELINK Original WL 'ME_57F5098E01B5' '57F5040203B0.ms.model.script' // ImsmElementSelector
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57F5098E01B5_ME_5804D4CC00E3_R ImsmElementSelector
+
+%%ImplementedBy ME_57F5098E01B5 ME_5804D4CC00E3
+
+%%InheritedBy ME_57F51BC20045 ME_5804D4CC00E3
+
+ME ME_5804D4CC00E3
+ MEPROP UID '5804D4CC00E3'
+ MEPROP Name 'TmsmChangePropertiesBinding'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CD2BB003D3' // ConcreteBindings
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57F51BC20045_ME_5804D4CC00E3_G // TmsmListController
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57F5098E01B5_ME_5804D4CC00E3_R // ImsmElementSelector
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_57F509AC007F_ME_5804D4CC00E3_impl // SelectElement
+ ME_57FB8665023E_ME_5804D4CC00E3_impl // SelectFormCaption
+ ME_57FB86B0027E_ME_5804D4CC00E3_impl // KeyValues
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5804D518001D // TmsmModelElementSelectService
+ ME_5804D52B0215 // ActionElementEvent
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmChangePropertiesBinding'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmChangePropertiesBinding'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmChangePropertiesBinding.pas'
+
+ENDME // ME_5804D4CC00E3 TmsmChangePropertiesBinding

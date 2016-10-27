@@ -1,0 +1,87 @@
+// TvcmContainerFormModelPart 4F7B1BC201C2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F7B1BC201C2
+
+FORWARD ME_4F7C6DFE00DE
+
+FORWARD ME_4F7C6E0B037E
+
+ME ME_4F7C6E160295
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4F7C6E160295 aForm
+
+ME ME_4F7C6E0B037E
+ MEPROP UID '4F7C6E0B037E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7C6DFE00DE // AfterInsertForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F7C6E160295 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4F7C6E0B037E DoIt
+
+ME ME_4F7C6DFE00DE
+ MEPROP UID '4F7C6DFE00DE'
+ MEPROP Name 'AfterInsertForm'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F7B1BC201C2 // TvcmContainerFormModelPart
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F7C6E0B037E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F7C6DFE00DE AfterInsertForm
+
+MEREF ME_49525B34022A_ME_4F7B1BC201C2_G
+ MELINK Original WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525B34022A_ME_4F7B1BC201C2_G TvcmEntityForm
+
+%%InheritedBy ME_49525B34022A ME_4F7B1BC201C2
+
+ME ME_4F7B1BC201C2
+ MEPROP UID '4F7B1BC201C2'
+ MEPROP Name 'TvcmContainerFormModelPart'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AADF9450143' // Visual
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49525B34022A_ME_4F7B1BC201C2_G // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F7C6DFE00DE // AfterInsertForm
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'vcmContainerFormModelPart'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ContainerFormModelPart'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmContainerFormModelPart.pas'
+
+ENDME // ME_4F7B1BC201C2 TvcmContainerFormModelPart

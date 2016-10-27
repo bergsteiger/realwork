@@ -1,0 +1,54 @@
+// TByteList 51DEE6440352 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51DEE6440352
+
+ME ME_51DEE64F01D9
+ MEPROP UID '51DEE64F01D9'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51DEE6440352 // TByteList
+ ;
+ MELINK Target WL 'ME_476130E5023C' '4807744200AA.ms.model.script' // Byte
+ ;
+
+ENDME // ME_51DEE64F01D9 ItemType
+
+MEREF ME_51E809FD01DF_ME_51DEE6440352_G
+ MELINK Original WL? 'ME_51E809FD01DF' // StandardAtomicList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51E809FD01DF_ME_51DEE6440352_G StandardAtomicList
+
+%%InheritedBy ME_51E809FD01DF ME_51DEE6440352
+
+ME ME_51DEE6440352
+ MEPROP UID '51DEE6440352'
+ MEPROP Name 'TByteList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_51DEB22001AC' // FinalContainers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_51E809FD01DF_ME_51DEE6440352_G // StandardAtomicList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51DEE64F01D9 // ItemType
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'ByteList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ByteList'
+ UP intf.pas:Path 'common\components\SandBox\ByteList.pas'
+
+ENDME // ME_51DEE6440352 TByteList

@@ -7,7 +7,7 @@ FORWARD ME_49895C3C02D6
 ME ME_4AC9E4080336
  MEPROP UID '4AC9E4080336'
  MEPROP Name 'nsOpenNavigatorItem'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -21,7 +21,7 @@ ENDME // ME_4AC9E4080336 nsOpenNavigatorItem
 ME ME_4AEAD8D40138
  MEPROP UID '4AEAD8D40138'
  MEPROP Name 'nsSayAdapterObjectMissing'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -35,7 +35,7 @@ ENDME // ME_4AEAD8D40138 nsSayAdapterObjectMissing
 ME ME_4C7E5A4D01BF
  MEPROP UID '4C7E5A4D01BF'
  MEPROP Name 'OpenControllableElement'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -48,7 +48,7 @@ ENDME // ME_4C7E5A4D01BF OpenControllableElement
 ME ME_4C7E745402B1
  MEPROP UID '4C7E745402B1'
  MEPROP Name 'OpenQuery'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -61,7 +61,7 @@ ENDME // ME_4C7E745402B1 OpenQuery
 ME ME_4C7F64FB02A4
  MEPROP UID '4C7F64FB02A4'
  MEPROP Name 'OpenFolderElement'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -109,13 +109,19 @@ ME ME_4E731A9202F6
 
 ENDME // ME_4E731A9202F6 DoIt
 
+MEREF ME_4E70D70C0055_ME_4E731A650122_R
+ MELINK Original WL 'ME_4E70D70C0055' '48563BA400A9.ms.model.script' // Основное меню должно уметь зависеть от должности пользователя
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E70D70C0055_ME_4E731A650122_R Основное меню должно уметь зависеть от должности пользователя
+
 %%ImplementedBy ME_4E70D70C0055 ME_4E731A650122
 
 ME ME_4E731A650122
  MEPROP UID '4E731A650122'
  MEPROP Name 'nsOpenNavigatorItem'
  MEPROP OriginalName 'nsOpenNavigatorItem$ForMainMenu'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -123,7 +129,7 @@ ME ME_4E731A650122
  MELINK Parent HWL ME_49895C3C02D6 // nsOpenUtils
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E70D70C0055' '48563BA400A9.ms.model.script' // Основное меню должно уметь зависеть от должности пользователя
+   Seq: ( HWL ME_4E70D70C0055_ME_4E731A650122_R // Основное меню должно уметь зависеть от должности пользователя
  )
  ; // Implements
  MELIST Operations

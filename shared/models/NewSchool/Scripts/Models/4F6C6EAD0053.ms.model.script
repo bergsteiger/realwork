@@ -1,0 +1,591 @@
+// TafwSettingsImplPrimPrim 4F6C6EAD0053 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F6C6EEE038B
+%%Inner ME_4F6C7CEB035A
+
+FORWARD ME_4F6C6EAD0053
+
+FORWARD ME_4F6C6EEE038B
+
+FORWARD ME_4F6C7F2B036B
+
+FORWARD ME_4F6C7F320155
+
+ME ME_4F6C7F470060
+ MEPROP Name 'aSettingId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+
+ENDME // ME_4F6C7F470060 aSettingId
+
+ME ME_4F6C7F900019
+ MEPROP Name 'theValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4F6C7F900019 theValue
+
+ME ME_4F6C7F320155
+ MEPROP UID '4F6C7F320155'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6C7F2B036B // GetString
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F6C7F470060 // aSettingId
+ ME_4F6C7F900019 // theValue
+ )
+ ; // Parameters
+
+ENDME // ME_4F6C7F320155 DoIt
+
+ME ME_4F6C7F2B036B
+ MEPROP UID '4F6C7F2B036B'
+ MEPROP Name 'GetString'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F6C6EEE038B // IafwSettingsImpl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6C7F320155 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F6C7F2B036B GetString
+
+FORWARD ME_4F6C7F650121
+
+FORWARD ME_4F6C7F7001CD
+
+ME ME_4F6C7F80009C
+ MEPROP Name 'aSettingId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+
+ENDME // ME_4F6C7F80009C aSettingId
+
+ME ME_4F6C7F8000D2
+ MEPROP Name 'theValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F6C7F8000D2 theValue
+
+ME ME_4F6C7F7001CD
+ MEPROP UID '4F6C7F7001CD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6C7F650121 // GetLong
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F6C7F80009C // aSettingId
+ ME_4F6C7F8000D2 // theValue
+ )
+ ; // Parameters
+
+ENDME // ME_4F6C7F7001CD DoIt
+
+ME ME_4F6C7F650121
+ MEPROP UID '4F6C7F650121'
+ MEPROP Name 'GetLong'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F6C6EEE038B // IafwSettingsImpl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6C7F7001CD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F6C7F650121 GetLong
+
+FORWARD ME_4F6C7F9D0247
+
+FORWARD ME_4F6C7FA703A1
+
+ME ME_4F6C7FAE00E2
+ MEPROP Name 'aSettingId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+
+ENDME // ME_4F6C7FAE00E2 aSettingId
+
+ME ME_4F6C7FAE0118
+ MEPROP Name 'theValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F6C7FAE0118 theValue
+
+ME ME_4F6C7FA703A1
+ MEPROP UID '4F6C7FA703A1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6C7F9D0247 // GetBool
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F6C7FAE00E2 // aSettingId
+ ME_4F6C7FAE0118 // theValue
+ )
+ ; // Parameters
+
+ENDME // ME_4F6C7FA703A1 DoIt
+
+ME ME_4F6C7F9D0247
+ MEPROP UID '4F6C7F9D0247'
+ MEPROP Name 'GetBool'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F6C6EEE038B // IafwSettingsImpl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6C7FA703A1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F6C7F9D0247 GetBool
+
+FORWARD ME_4F6C7FDF00C2
+
+FORWARD ME_4F6C7FEA00CE
+
+ME ME_4F6C7FF701DE
+ MEPROP Name 'aSettingId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+
+ENDME // ME_4F6C7FF701DE aSettingId
+
+ME ME_4F6C7FF70218
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4771179900D8' '4807744200AA.ms.model.script' // PChar
+ ;
+
+ENDME // ME_4F6C7FF70218 aValue
+
+ME ME_4F6C7FEA00CE
+ MEPROP UID '4F6C7FEA00CE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6C7FDF00C2 // SetString
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F6C7FF701DE // aSettingId
+ ME_4F6C7FF70218 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_4F6C7FEA00CE DoIt
+
+ME ME_4F6C7FDF00C2
+ MEPROP UID '4F6C7FDF00C2'
+ MEPROP Name 'SetString'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F6C6EEE038B // IafwSettingsImpl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6C7FEA00CE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F6C7FDF00C2 SetString
+
+FORWARD ME_4F6C800D02AE
+
+FORWARD ME_4F6C801B015C
+
+ME ME_4F6C80210113
+ MEPROP Name 'aSettingId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+
+ENDME // ME_4F6C80210113 aSettingId
+
+ME ME_4F6C80210151
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F6C80210151 aValue
+
+ME ME_4F6C801B015C
+ MEPROP UID '4F6C801B015C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6C800D02AE // SetLong
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F6C80210113 // aSettingId
+ ME_4F6C80210151 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_4F6C801B015C DoIt
+
+ME ME_4F6C800D02AE
+ MEPROP UID '4F6C800D02AE'
+ MEPROP Name 'SetLong'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F6C6EEE038B // IafwSettingsImpl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6C801B015C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F6C800D02AE SetLong
+
+FORWARD ME_4F6C80390209
+
+FORWARD ME_4F6C8046022F
+
+ME ME_4F6C805001A8
+ MEPROP Name 'aSettingId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+
+ENDME // ME_4F6C805001A8 aSettingId
+
+ME ME_4F6C805001DE
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F6C805001DE aValue
+
+ME ME_4F6C8046022F
+ MEPROP UID '4F6C8046022F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6C80390209 // SetBool
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F6C805001A8 // aSettingId
+ ME_4F6C805001DE // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_4F6C8046022F DoIt
+
+ME ME_4F6C80390209
+ MEPROP UID '4F6C80390209'
+ MEPROP Name 'SetBool'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F6C6EEE038B // IafwSettingsImpl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6C8046022F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F6C80390209 SetBool
+
+ME ME_4F6C6EEE038B
+ MEPROP UID '4F6C6EEE038B'
+ MEPROP GUID 'A764A778-3678-4317-BAA8-F586E633D82F'
+ MEPROP Name 'IafwSettingsImpl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6C6EAD0053 // TafwSettingsImplPrimPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6C7F2B036B // GetString
+ HWL ME_4F6C7F650121 // GetLong
+ HWL ME_4F6C7F9D0247 // GetBool
+ HWL ME_4F6C7FDF00C2 // SetString
+ HWL ME_4F6C800D02AE // SetLong
+ HWL ME_4F6C80390209 // SetBool
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwSettingsImpl'
+
+ENDME // ME_4F6C6EEE038B IafwSettingsImpl
+
+FORWARD ME_4F6C7CEB035A
+
+ME ME_4F6C7D040268
+ MEPROP UID '4F6C7D040268'
+ MEPROP Name 'rKey'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F6C7CEB035A // TafwKeyValue
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4F6C7D040268 rKey
+
+ME ME_4F6C7D1202BA
+ MEPROP UID '4F6C7D1202BA'
+ MEPROP Name 'rValue'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F6C7CEB035A // TafwKeyValue
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4F6C7D1202BA rValue
+
+FORWARD ME_4F6C7D1F0329
+
+FORWARD ME_4F6C7D430290
+
+ME ME_4F6C7D470255
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4F6C7D470255 aKey
+
+ME ME_4F6C7D47027F
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4F6C7D47027F aValue
+
+ME ME_4F6C7D430290
+ MEPROP UID '4F6C7D430290'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6C7D1F0329 // C
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F6C7D470255 // aKey
+ ME_4F6C7D47027F // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_4F6C7D430290 DoIt
+
+ME ME_4F6C7D1F0329
+ MEPROP UID '4F6C7D1F0329'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6C7CEB035A // TafwKeyValue
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6C7D430290 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F6C7D1F0329 C
+
+ME ME_4F6C7CEB035A
+ MEPROP UID '4F6C7CEB035A'
+ MEPROP Name 'TafwKeyValue'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6C6EAD0053 // TafwSettingsImplPrimPrim
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F6C7D040268 // rKey
+ HWL ME_4F6C7D1202BA // rValue
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F6C7D1F0329 // C
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'afwKeyValue'
+
+ENDME // ME_4F6C7CEB035A TafwKeyValue
+
+ME ME_4F6C7DE8018D
+ MEPROP UID '4F6C7DE8018D'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F6C6EAD0053 // TafwSettingsImplPrimPrim
+ ;
+ MELINK Target HWL ME_4F6C7CEB035A // TafwKeyValue
+ ;
+
+ENDME // ME_4F6C7DE8018D ItemType
+
+ME ME_4F6C7EFF01BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6C6EAD0053 // TafwSettingsImplPrimPrim
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4F6C7EFF01BB 
+
+MEREF ME_47B07CF403D0_ME_4F6C6EAD0053_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_4F6C6EAD0053_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_4F6C6EAD0053_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4F6C6EAD0053_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_4F6C6EAD0053_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4F6C6EAD0053_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_4F6C6EAD0053_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4F6C6EAD0053_G Tl3ProtoDataContainer
+
+MEREF ME_4B223ADC02BF_ME_4F6C6EAD0053_G
+ MELINK Original WL? 'ME_4B223ADC02BF' // l3RecordListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223ADC02BF_ME_4F6C6EAD0053_G l3RecordListPrim
+
+%%InheritedBy ME_4A54DD4E036F ME_4F6C6EAD0053
+%%InheritedBy ME_4B223ADC02BF ME_4F6C6EAD0053
+
+ME ME_4F6C6EAD0053
+ MEPROP UID '4F6C6EAD0053'
+ MEPROP Name 'TafwSettingsImplPrimPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6C5511015F' // afwSettings
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_4F6C6EAD0053_G // Tl3ProtoDataContainer
+ HWL ME_4B223ADC02BF_ME_4F6C6EAD0053_G // l3RecordListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F6C7DE8018D // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_4F6C6EAD0053_impl // IsSameItems
+ ME_47B2C42A0163_ME_4F6C6EAD0053_impl // AssignItem
+ ME_47B99D4503A2_ME_4F6C6EAD0053_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4F6C6EEE038B // IafwSettingsImpl
+ HWL ME_4F6C7CEB035A // TafwKeyValue
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4F6C7EFF01BB // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'afwSettingsImplPrimPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwSettingsImplPrimPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\afwSettingsImplPrimPrim.pas'
+
+ENDME // ME_4F6C6EAD0053 TafwSettingsImplPrimPrim

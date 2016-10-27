@@ -1,0 +1,75 @@
+// pop_editor_SetStyle2Block 4FF2EF7E03C7 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FF2EF7E03C7
+
+ME ME_4FF2F1670352
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FF2EF7E03C7 // pop_editor_SetStyle2Block
+ ;
+ MELINK Target WL 'ME_4FD84DC20233' '47F1F3BC0330.ms.model.script' // evSetStyle2Block
+ ;
+
+ENDME // ME_4FF2F1670352 
+
+ME ME_4FF2F3ED0122
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FF2EF7E03C7 // pop_editor_SetStyle2Block
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4FF2F3ED0122 
+
+MEREF ME_4F4CB81200CA_ME_4FF2EF7E03C7_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_4FF2EF7E03C7_impl DoWithEditor
+
+MEREF ME_4F4CB625027A_ME_4FF2EF7E03C7_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_4FF2EF7E03C7_G TkwEditorFromStackWord
+
+%%InheritedBy ME_4F4CB625027A ME_4FF2EF7E03C7
+
+ME ME_4FF2EF7E03C7
+ MEPROP UID '4FF2EF7E03C7'
+ MEPROP Name 'pop_editor_SetStyle2Block'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{code}'#13#10'aStyle anEditor pop:editor:SetStyle2Block'#13#10'{code}'#13#10'aStyle -  номер стиля из таблицы стилей.'#13#10'anEditor - редактор, в котором производятся изменения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F5DA07B02CD' // EditorKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A_ME_4FF2EF7E03C7_G // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4FF2EF7E03C7_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4FF2F1670352 // evSetStyle2Block
+ ME_4FF2F3ED0122 // Operations
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwPopEditorSetStyle2Block'
+ UP extprop:pas:UnitName 'kwPopEditorSetStyle2Block'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PopEditorSetStyle2Block'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorSetStyle2Block.pas'
+
+ENDME // ME_4FF2EF7E03C7 pop_editor_SetStyle2Block

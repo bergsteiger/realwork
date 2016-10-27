@@ -1,0 +1,210 @@
+// TkwEntityOperationPrim 523006F7004A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_523006F7004A
+
+ME ME_523007090291
+ MEPROP UID '523007090291'
+ MEPROP Name 'f_Op'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_523006F7004A // TkwEntityOperationPrim
+ ;
+ MELINK Target WL? 'ME_4D7A109601C2' // TvcmBaseOperationsCollectionItem
+ ;
+
+ENDME // ME_523007090291 f_Op
+
+ME ME_523007130010
+ MEPROP UID '523007130010'
+ MEPROP Name 'f_En'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_523006F7004A // TkwEntityOperationPrim
+ ;
+ MELINK Target WL? 'ME_4DDBBD1103C3' // TvcmBaseEntitiesCollectionItem
+ ;
+
+ENDME // ME_523007130010 f_En
+
+FORWARD ME_4DDBBDEB00DE
+
+FORWARD ME_4DDBBEDE028E
+
+ME ME_4DDBBEF60237
+ MEPROP Name 'anEn'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4DDBBD1103C3' // TvcmBaseEntitiesCollectionItem
+ ;
+
+ENDME // ME_4DDBBEF60237 anEn
+
+ME ME_4DDBBEF60294
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4D7A109601C2' // TvcmBaseOperationsCollectionItem
+ ;
+
+ENDME // ME_4DDBBEF60294 anOp
+
+ME ME_4DDBBEDE028E
+ MEPROP UID '4DDBBEDE028E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDBBDEB00DE // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DDBBEF60237 // anEn
+ ME_4DDBBEF60294 // anOp
+ )
+ ; // Parameters
+
+ENDME // ME_4DDBBEDE028E DoIt
+
+ME ME_4DDBBDEB00DE
+ MEPROP UID '4DDBBDEB00DE'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_523006F7004A // TkwEntityOperationPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DDBBEDE028E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DDBBDEB00DE Create
+
+FORWARD ME_523008BC0096
+
+FORWARD ME_523008C901CD
+
+ME ME_523008E500AB
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_523008E500AB aCtx
+
+ME ME_523008E500C8
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CF3401F5' '467BAB7F021E.ms.model.script' // TvcmOPID
+ ;
+
+ENDME // ME_523008E500C8 anOp
+
+ME ME_523008C901CD
+ MEPROP UID '523008C901CD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_523008BC0096 // DoOp
+ ;
+ MELIST Parameters
+   Seq: ( ME_523008E500AB // aCtx
+ ME_523008E500C8 // anOp
+ )
+ ; // Parameters
+
+ENDME // ME_523008C901CD DoIt
+
+ME ME_523008BC0096
+ MEPROP UID '523008BC0096'
+ MEPROP Name 'DoOp'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_523006F7004A // TkwEntityOperationPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_523008C901CD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_523008BC0096 DoOp
+
+ME ME_5230086A0164
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_523006F7004A // TkwEntityOperationPrim
+ ;
+ MELINK Target WL 'ME_4683CF3401F5' '467BAB7F021E.ms.model.script' // TvcmOPID
+ ;
+
+ENDME // ME_5230086A0164 
+
+MEREF ME_4DAEEDE10285_ME_523006F7004A_impl
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DAEEDE10285_ME_523006F7004A_impl DoDoIt
+
+MEREF ME_54D229E702B6_ME_523006F7004A_G
+ MELINK Original WL? 'ME_54D229E702B6' // TtfwRegisterableWordPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54D229E702B6_ME_523006F7004A_G TtfwRegisterableWordPrim
+
+%%InheritedBy ME_54D229E702B6 ME_523006F7004A
+
+ME ME_523006F7004A
+ MEPROP UID '523006F7004A'
+ MEPROP Name 'TkwEntityOperationPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E200FED0213' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54D229E702B6_ME_523006F7004A_G // TtfwRegisterableWordPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_523007090291 // f_Op
+ HWL ME_523007130010 // f_En
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DDBBDEB00DE // Create
+ HWL ME_523008BC0096 // DoOp
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_523006F7004A_impl // DoDoIt
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5230086A0164 // TvcmOPID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'kwEntityOperationPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EntityOperationPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwEntityOperationPrim.pas'
+
+ENDME // ME_523006F7004A TkwEntityOperationPrim

@@ -1,0 +1,65 @@
+// TafwPreviewPageList 47E107E20191 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47E107E20191
+
+ME ME_47E107F80371
+ MEPROP UID '47E107F80371'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E107E20191 // TafwPreviewPageList
+ ;
+ MELINK Target WL 'ME_473C60E70003' '467823B7002C.ms.model.script' // IafwPreviewPage
+ ;
+
+ENDME // ME_47E107F80371 ItemType
+
+MEREF ME_47B57D830369_ME_47E107E20191_G
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_47E107E20191_G l3InterfaceRefList
+
+MEREF ME_4A54DD4E036F_ME_47E107E20191_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_47E107E20191_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57D830369 ME_47E107E20191
+%%InheritedBy ME_4A54DD4E036F ME_47E107E20191
+
+ME ME_47E107E20191
+ MEPROP UID '47E107E20191'
+ MEPROP Name 'TafwPreviewPageList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_474144E20301' // Draw
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57D830369_ME_47E107E20191_G // l3InterfaceRefList
+ HWL ME_4A54DD4E036F_ME_47E107E20191_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47E107F80371 // ItemType
+ )
+ ; // Attributes
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '19.03.2008'
+ UP extprop:pas:UnitName 'afwPreviewPageList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwPreviewPageList'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPageList.pas'
+
+ENDME // ME_47E107E20191 TafwPreviewPageList

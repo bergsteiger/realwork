@@ -1,0 +1,91 @@
+// TevSectionBreak 48567BD10027 InterfaceFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48567BD10027
+
+ME ME_BE889DDD5E5C
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48567BD10027 // TevSectionBreak
+ ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_BE889DDD5E5C 
+
+ME ME_A08F1BF0053F
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48567BD10027 // TevSectionBreak
+ ;
+ MELINK Target WL 'ME_4A250DB2035E' '4A1FCBA0014C.ms.model.script' // InevHotSpotTester2
+ ;
+
+ENDME // ME_A08F1BF0053F 
+
+ME ME_F90DD45885F8
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48567BD10027 // TevSectionBreak
+ ;
+ MELINK Target WL 'ME_47C697030322' '49D2080D020C.ms.model.script' // InevDrawingShape
+ ;
+
+ENDME // ME_F90DD45885F8 
+
+MEREF ME_53CCBDA5026D_ME_48567BD10027_over
+ MELINK Original WL 'ME_53CCBDA5026D' '4D63C2420229.ms.model.script' // COMQueryTool
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53CCBDA5026D_ME_48567BD10027_over COMQueryTool
+
+MEREF ME_48567BA50307_ME_48567BD10027_G
+ MELINK Original WL? 'ME_48567BA50307' // TevPageBreak
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48567BA50307_ME_48567BD10027_G TevPageBreak
+
+%%InheritedBy ME_48567BA50307 ME_48567BD10027
+
+ME ME_48567BD10027
+ MEPROP UID '48567BD10027'
+ MEPROP Name 'TevSectionBreak'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_InterfaceFactory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '"фабрика интерфейсов" для разрыва раздела.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53D258F1004F' // InterfaceFactories
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48567BA50307_ME_48567BD10027_G // TevPageBreak
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_53CCBDA5026D_ME_48567BD10027_over // COMQueryTool
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_BE889DDD5E5C // IevPainter
+ ME_A08F1BF0053F // InevHotSpotTester2
+ ME_F90DD45885F8 // InevDrawingShape
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_4DD67BFD008A' '480CA641014D.ms.model.script' // TevSectionBreakPainter
+ WL 'ME_53D0B0F1024F' '53D0B0A10259.ms.model.script' // TevSectionBreakHotSpotTester
+ )
+ ; // Injected
+ UP extprop:pas:TypeName 'TevSectionBreakInterfaceFactory'
+ UP extprop:pas:UnitName 'evSectionBreak_InterfaceFactory'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SectionBreakInterfaceFactory'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evSectionBreak_InterfaceFactory.pas'
+
+ENDME // ME_48567BD10027 TevSectionBreak

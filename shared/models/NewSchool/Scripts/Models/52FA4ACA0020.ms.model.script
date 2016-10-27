@@ -27,7 +27,7 @@ ME ME_54C0FDB80161
  MEPROP Name 'aPipe'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_537F62DD009F' '52FBB2FC0386.ms.model.script' // TCsDataPipe
+ MELINK Target WL? 'ME_537F62DD009F' // TCsDataPipe
  ;
 
 ENDME // ME_54C0FDB80161 aPipe
@@ -67,11 +67,23 @@ ME ME_53B3D9F50212
 
 ENDME // ME_53B3D9F50212 
 
-ME ME_53B3D8A8011F_ME_52FA4AD90122
+MEREF ME_53B3D8A8011F_ME_52FA4AD90122_over
  MELINK Original WL 'ME_53B3D8A8011F' '52FA49C7022C.ms.model.script' // Create
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_53B3D8A8011F_ME_52FA4AD90122 Create
+ENDMEREF // ME_53B3D8A8011F_ME_52FA4AD90122_over Create
+
+MEREF ME_52FA49DF00EF_ME_52FA4AD90122_G
+ MELINK Original WL 'ME_52FA49DF00EF' '52FA49C7022C.ms.model.script' // TddTaskItem
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52FA49DF00EF_ME_52FA4AD90122_G TddTaskItem
+
+MEREF ME_53AC5E8B00CB_ME_52FA4AD90122_R
+ MELINK Original WL 'ME_53AC5E8B00CB' '484A470100DD.ms.model.script' // RequestTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53AC5E8B00CB_ME_52FA4AD90122_R RequestTask
 
 %%ImplementedBy ME_53AC5E8B00CB ME_52FA4AD90122
 
@@ -88,11 +100,11 @@ ME ME_52FA4AD90122
  MELINK Parent HWL ME_52FA4ACA0020 // csRequestTask
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_52FA49DF00EF' '52FA49C7022C.ms.model.script' // TddTaskItem
+   Seq: ( HWL ME_52FA49DF00EF_ME_52FA4AD90122_G // TddTaskItem
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_53AC5E8B00CB' '484A470100DD.ms.model.script' // RequestTask
+   Seq: ( HWL ME_53AC5E8B00CB_ME_52FA4AD90122_R // RequestTask
  )
  ; // Implements
  MELIST Operations
@@ -101,7 +113,7 @@ ME ME_52FA4AD90122
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_53B3D8A8011F_ME_52FA4AD90122 // Create
+   Seq: ( ME_53B3D8A8011F_ME_52FA4AD90122_over // Create
  )
  ; // Overridden
  MELIST Dependencies
@@ -122,7 +134,7 @@ ME ME_54C65068002A
  MEPROP Name 'aPipe'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_537F62DD009F' '52FBB2FC0386.ms.model.script' // TCsDataPipe
+ MELINK Target WL? 'ME_537F62DD009F' // TCsDataPipe
  ;
 
 ENDME // ME_54C65068002A aPipe
@@ -162,6 +174,12 @@ ME ME_54C6555A01FC
 
 ENDME // ME_54C6555A01FC 
 
+MEREF ME_52FA4AD90122_ME_54C6504A003A_G
+ MELINK Original HWL ME_52FA4AD90122 // TddRequestTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52FA4AD90122_ME_54C6504A003A_G TddRequestTask
+
 %%InheritedBy ME_52FA4AD90122 ME_54C6504A003A
 
 ME ME_54C6504A003A
@@ -175,7 +193,7 @@ ME ME_54C6504A003A
  MELINK Parent HWL ME_52FA4ACA0020 // csRequestTask
  ;
  MELIST Inherits
-   Seq: ( HWL ME_52FA4AD90122 // TddRequestTask
+   Seq: ( HWL ME_52FA4AD90122_ME_54C6504A003A_G // TddRequestTask
  )
  ; // Inherits
  MELIST Operations

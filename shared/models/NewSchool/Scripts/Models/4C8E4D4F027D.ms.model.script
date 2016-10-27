@@ -31,10 +31,16 @@ ME ME_55A347B4039B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C8E4D4F027D // CustomizeTasksPanel
  ;
- MELINK Target WL 'ME_559F8C7A0213' '4C8DD8B8006C.ms.model.script' // TvcmCustOpsRepGroupList
+ MELINK Target WL? 'ME_559F8C7A0213' // TvcmCustOpsRepGroupList
  ;
 
 ENDME // ME_55A347B4039B 
+
+MEREF ME_4C8E4D21001F_ME_4C8E4D4F027D_G
+ MELINK Original WL? 'ME_4C8E4D21001F' // PrimCustomizeTasksPanel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C8E4D21001F_ME_4C8E4D4F027D_G PrimCustomizeTasksPanel
 
 %%InheritedBy ME_4C8E4D21001F ME_4C8E4D4F027D
 
@@ -51,7 +57,7 @@ ME ME_4C8E4D4F027D
  MELINK Parent WL? 'ME_4C8DD8C602D3' // PrimTasksPanelMenu
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4C8E4D21001F' // PrimCustomizeTasksPanel
+   Seq: ( HWL ME_4C8E4D21001F_ME_4C8E4D4F027D_G // PrimCustomizeTasksPanel
  )
  ; // Inherits
  MELIST Children

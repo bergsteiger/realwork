@@ -1,0 +1,184 @@
+// TatSharedBuffer 491D776401B4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491D776401B4
+
+ME ME_491D7D3E00F3
+ MEPROP UID '491D7D3E00F3'
+ MEPROP Name 'f_FileMapping'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491D776401B4 // TatSharedBuffer
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+
+ENDME // ME_491D7D3E00F3 f_FileMapping
+
+ME ME_491D7D5602C3
+ MEPROP UID '491D7D5602C3'
+ MEPROP Name 'f_MappingAddress'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_491D776401B4 // TatSharedBuffer
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_491D7D5602C3 f_MappingAddress
+
+ME ME_491D881000F6
+ MEPROP UID '491D881000F6'
+ MEPROP Name 'Value'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Указатель на буфер.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491D776401B4 // TatSharedBuffer
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_491D881000F6 Value
+
+ME ME_491D891002F1
+ MEPROP UID '491D891002F1'
+ MEPROP Name 'Size'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Размер буфера.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491D776401B4 // TatSharedBuffer
+ ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_491D891002F1 Size
+
+FORWARD ME_491D78AD03E4
+
+ME ME_491D88C903B6
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_491D88C903B6 aName
+
+ME ME_491D88C903BB
+ MEPROP Name 'aSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_491D88C903BB aSize
+
+ME ME_491D78AD03E4
+ MEPROP UID '491D78AD03E4'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_491D776401B4 // TatSharedBuffer
+ ;
+ MELIST Parameters
+   Seq: ( ME_491D88C903B6 // aName
+ ME_491D88C903BB // aSize
+ )
+ ; // Parameters
+
+ENDME // ME_491D78AD03E4 Create
+
+ME ME_491D7EE40133
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491D776401B4 // TatSharedBuffer
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_491D7EE40133 
+
+ME ME_491D9C390391
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491D776401B4 // TatSharedBuffer
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_491D9C390391 
+
+MEREF ME_479731C50290_ME_491D776401B4_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_491D776401B4_over Cleanup
+
+MEREF ME_47879856035F_ME_491D776401B4_G
+ MELINK Original WL? 'ME_47879856035F' // Tl3_Base
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47879856035F_ME_491D776401B4_G Tl3_Base
+
+%%InheritedBy ME_47879856035F ME_491D776401B4
+
+ME ME_491D776401B4
+ MEPROP UID '491D776401B4'
+ MEPROP Name 'TatSharedBuffer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Класс для создания буфера памяти, общего для нескольких процессов на одной машине.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47879856035F_ME_491D776401B4_G // Tl3_Base
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_491D7D3E00F3 // f_FileMapping
+ HWL ME_491D7D5602C3 // f_MappingAddress
+ HWL ME_491D881000F6 // Value
+ HWL ME_491D891002F1 // Size
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_491D78AD03E4 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_491D776401B4_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_491D7EE40133 // Windows
+ ME_491D9C390391 // SysUtils
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'atSharedBuffer'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atSharedBuffer'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atSharedBuffer.pas'
+
+ENDME // ME_491D776401B4 TatSharedBuffer

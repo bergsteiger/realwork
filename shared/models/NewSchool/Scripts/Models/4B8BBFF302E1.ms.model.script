@@ -1,0 +1,85 @@
+// Tl3StringMapPrim 4B8BBFF302E1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B8BC02E0031
+%%Inner ME_4B8BC0380287
+
+FORWARD ME_4B8BBFF302E1
+
+ME ME_4B8BC02E0031
+ MEPROP UID '4B8BC02E0031'
+ MEPROP Name 'l3Items_NeedsBeforeFreeItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B8BBFF302E1 // Tl3StringMapPrim
+ ;
+ UP extprop:rc:SelfName 'Items_NeedsBeforeFreeItem'
+
+ENDME // ME_4B8BC02E0031 l3Items_NeedsBeforeFreeItem
+
+ME ME_4B8BC0380287
+ MEPROP UID '4B8BC0380287'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Undef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B8BBFF302E1 // Tl3StringMapPrim
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_4B8BC0380287 l3Items_NoSort
+
+MEREF ME_4A54DD4E036F_ME_4B8BBFF302E1_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4B8BBFF302E1_G Tl3ProtoDataContainer
+
+MEREF ME_4B88F8D6025A_ME_4B8BBFF302E1_G
+ MELINK Original WL? 'ME_4B88F8D6025A' // l3StringList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B88F8D6025A_ME_4B8BBFF302E1_G l3StringList
+
+%%InheritedBy ME_4A54DD4E036F ME_4B8BBFF302E1
+%%InheritedBy ME_4B88F8D6025A ME_4B8BBFF302E1
+
+ME ME_4B8BBFF302E1
+ MEPROP UID '4B8BBFF302E1'
+ MEPROP Name 'Tl3StringMapPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B8BBF7101B8' // L3 for VCM
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_4B8BBFF302E1_G // Tl3ProtoDataContainer
+ HWL ME_4B88F8D6025A_ME_4B8BBFF302E1_G // l3StringList
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_4B8BC02E0031 // l3Items_NeedsBeforeFreeItem
+ HWL ME_4B8BC0380287 // l3Items_NoSort
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '01.03.2010 16:24'
+ UP extprop:pas:UnitName 'l3StringMapPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringMapPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\Implementation\l3StringMapPrim.pas'
+
+ENDME // ME_4B8BBFF302E1 Tl3StringMapPrim

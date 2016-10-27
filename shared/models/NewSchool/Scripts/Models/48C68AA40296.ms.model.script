@@ -1,0 +1,167 @@
+// Tl3WinControlCanvas 48C68AA40296 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4FAE622100F5
+
+FORWARD ME_48C68AA40296
+
+MEREF ME_47E124E90272_ME_4FAE622100F5_G
+ MELINK Original WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E124E90272_ME_4FAE622100F5_G TWinControl
+
+%%InheritedBy ME_47E124E90272 ME_4FAE622100F5
+
+ME ME_4FAE622100F5
+ MEPROP UID '4FAE622100F5'
+ MEPROP Name 'THackWinControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C68AA40296 // Tl3WinControlCanvas
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47E124E90272_ME_4FAE622100F5_G // TWinControl
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HackWinControl'
+
+ENDME // ME_4FAE622100F5 THackWinControl
+
+FORWARD ME_4FAE537C02FA
+
+ME ME_4FAE538D00AE
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+
+ENDME // ME_4FAE538D00AE aControl
+
+ME ME_4FAE538D00E4
+ MEPROP Name 'aCaret'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4728CC880316' '4677FBA70343.ms.model.script' // Il3Caret
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_4728CC880316' '4677FBA70343.ms.model.script' // Il3Caret
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4FAE538D00E4 aCaret
+
+ME ME_4FAE537C02FA
+ MEPROP UID '4FAE537C02FA'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48C68AA40296 // Tl3WinControlCanvas
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FAE538D00AE // aControl
+ ME_4FAE538D00E4 // aCaret
+ )
+ ; // Parameters
+
+ENDME // ME_4FAE537C02FA Create
+
+ME ME_4FAE8B1C01AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48C68AA40296 // Tl3WinControlCanvas
+ ;
+ MELINK Target WL? 'ME_4A4CB79A02C6' // Tl3CanvasPrim
+ ;
+
+ENDME // ME_4FAE8B1C01AC 
+
+ME ME_4FAE8BC60167
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48C68AA40296 // Tl3WinControlCanvas
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
+ ;
+
+ENDME // ME_4FAE8BC60167 
+
+MEREF ME_4FAE533E035C_ME_48C68AA40296_over
+ MELINK Original WL 'ME_4FAE533E035C' '4A4CB79A02C6.ms.model.script' // GetAlienDC
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FAE533E035C_ME_48C68AA40296_over GetAlienDC
+
+MEREF ME_56B0B2610026_ME_48C68AA40296_over
+ MELINK Original WL 'ME_56B0B2610026' '4A4CB79A02C6.ms.model.script' // FreeAlienDC
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56B0B2610026_ME_48C68AA40296_over FreeAlienDC
+
+MEREF ME_56B0B54F03CC_ME_48C68AA40296_over
+ MELINK Original WL 'ME_56B0B54F03CC' '4A4CB79A02C6.ms.model.script' // FireDCSetToNull
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56B0B54F03CC_ME_48C68AA40296_over FireDCSetToNull
+
+MEREF ME_48C68AC60396_ME_48C68AA40296_G
+ MELINK Original WL? 'ME_48C68AC60396' // Tl3ControlCanvas
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48C68AC60396_ME_48C68AA40296_G Tl3ControlCanvas
+
+%%InheritedBy ME_48C68AC60396 ME_48C68AA40296
+
+ME ME_48C68AA40296
+ MEPROP UID '48C68AA40296'
+ MEPROP Name 'Tl3WinControlCanvas'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_473C3BEE0334' // l3Canvas
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48C68AC60396_ME_48C68AA40296_G // Tl3ControlCanvas
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4FAE537C02FA // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4FAE533E035C_ME_48C68AA40296_over // GetAlienDC
+ ME_56B0B2610026_ME_48C68AA40296_over // FreeAlienDC
+ ME_56B0B54F03CC_ME_48C68AA40296_over // FireDCSetToNull
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4FAE622100F5 // THackWinControl
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4FAE8B1C01AC // Tl3CanvasPrim
+ ME_4FAE8BC60167 // l3System
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "started" '26.05.2005 17:40'
+ UP extprop:pas:UnitName 'l3WinControlCanvas'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'WinControlCanvas'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3WinControlCanvas.pas'
+
+ENDME // ME_48C68AA40296 Tl3WinControlCanvas

@@ -1,0 +1,76 @@
+// Tk2TypedSimpleTagListPrim 527D14900028 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_527D0A50012F
+
+FORWARD ME_527D14900028
+
+ME ME_527D0A50012F
+ MEPROP UID '527D0A50012F'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_527D14900028 // Tk2TypedSimpleTagListPrim
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_527D0A50012F l3Items_NoSort
+
+MEREF ME_47B975AF02ED_ME_527D14900028_over
+ MELINK Original WL 'ME_47B975AF02ED' '47B45152003F.ms.model.script' // ExpandSize
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B975AF02ED_ME_527D14900028_over ExpandSize
+
+MEREF ME_4A5F28820363_ME_527D14900028_G
+ MELINK Original WL? 'ME_4A5F28820363' // k2SimpleTagListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A5F28820363_ME_527D14900028_G k2SimpleTagListPrim
+
+MEREF ME_5320814702B4_ME_527D14900028_G
+ MELINK Original WL? 'ME_5320814702B4' // Tk2ListTag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5320814702B4_ME_527D14900028_G Tk2ListTag
+
+%%InheritedBy ME_4A5F28820363 ME_527D14900028
+%%InheritedBy ME_5320814702B4 ME_527D14900028
+
+ME ME_527D14900028
+ MEPROP UID '527D14900028'
+ MEPROP Name 'Tk2TypedSimpleTagListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A5F28820363_ME_527D14900028_G // k2SimpleTagListPrim
+ HWL ME_5320814702B4_ME_527D14900028_G // Tk2ListTag
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47B975AF02ED_ME_527D14900028_over // ExpandSize
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_527D0A50012F // l3Items_NoSort
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'k2TypedSimpleTagListPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TypedSimpleTagListPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2TypedSimpleTagListPrim.pas'
+
+ENDME // ME_527D14900028 Tk2TypedSimpleTagListPrim

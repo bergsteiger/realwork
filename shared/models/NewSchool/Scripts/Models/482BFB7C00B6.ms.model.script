@@ -1,0 +1,199 @@
+// TevCustomTextSource 482BFB7C00B6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52543B960049
+%%Inner ME_52543D1702DA
+
+FORWARD ME_482BFB7C00B6
+
+FORWARD ME_52543B960049
+
+FORWARD ME_52543BC802DE
+
+ME ME_52543BCD003A
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_52543BCD003A aSender
+
+ME ME_52543BCD0053
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E25BB410189' '4678209200A6.ms.model.script' // TnevControlInfo
+ ;
+
+ENDME // ME_52543BCD0053 aControl
+
+ME ME_52543BCD006B
+ MEPROP Name 'theImageInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_4D5936FC01A0' '4678209200A6.ms.model.script' // TnevControlImageInfo
+ ;
+
+ENDME // ME_52543BCD006B theImageInfo
+
+ME ME_52543BC802DE
+ MEPROP UID '52543BC802DE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52543B960049 // TevGetControlItemImgEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_52543BCD003A // aSender
+ ME_52543BCD0053 // aControl
+ ME_52543BCD006B // theImageInfo
+ )
+ ; // Parameters
+
+ENDME // ME_52543BC802DE DoIt
+
+ME ME_52543B960049
+ MEPROP UID '52543B960049'
+ MEPROP Name 'TevGetControlItemImgEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482BFB7C00B6 // TevCustomTextSource
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52543BC802DE // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_52543B960049 TevGetControlItemImgEvent
+
+FORWARD ME_52543D1702DA
+
+FORWARD ME_52543D3A00A1
+
+ME ME_52543D3C02A9
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_52543D3C02A9 aSender
+
+ME ME_52543D3C02C1
+ MEPROP Name 'anOldDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_52543D3C02C1 anOldDocument
+
+ME ME_52543D3C02D9
+ MEPROP Name 'aNewDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_52543D3C02D9 aNewDocument
+
+ME ME_52543D3A00A1
+ MEPROP UID '52543D3A00A1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52543D1702DA // TevDocumentChangedEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_52543D3C02A9 // aSender
+ ME_52543D3C02C1 // anOldDocument
+ ME_52543D3C02D9 // aNewDocument
+ )
+ ; // Parameters
+
+ENDME // ME_52543D3A00A1 DoIt
+
+ME ME_52543D1702DA
+ MEPROP UID '52543D1702DA'
+ MEPROP Name 'TevDocumentChangedEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482BFB7C00B6 // TevCustomTextSource
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52543D3A00A1 // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_52543D1702DA TevDocumentChangedEvent
+
+ME ME_482D9A030221
+ MEPROP UID '482D9A030221'
+ MEPROP Name 'DoMakeDocumentContainer'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482BFB7C00B6 // TevCustomTextSource
+ ;
+ MELINK Target WL 'ME_47C6A603009D' '47C5207602D1.ms.model.script' // InevDocumentContainer
+ ;
+
+ENDME // ME_482D9A030221 DoMakeDocumentContainer
+
+MEREF ME_47541E17024E_ME_482BFB7C00B6_G
+ MELINK Original WL? 'ME_47541E17024E' // Tl3InterfacedComponent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47541E17024E_ME_482BFB7C00B6_G Tl3InterfacedComponent
+
+%%InheritedBy ME_47541E17024E ME_482BFB7C00B6
+
+ME ME_482BFB7C00B6
+ MEPROP UID '482BFB7C00B6'
+ MEPROP Name 'TevCustomTextSource'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация источника документа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_482BFB50007B' // TextSources
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47541E17024E_ME_482BFB7C00B6_G // Tl3InterfacedComponent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_482D9A030221 // DoMakeDocumentContainer
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_52543B960049 // TevGetControlItemImgEvent
+ HWL ME_52543D1702DA // TevDocumentChangedEvent
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '09.04.1997 15:57'
+ UP extprop:pas:UnitName 'evCustomTextSource'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextSource'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evCustomTextSource.pas'
+
+ENDME // ME_482BFB7C00B6 TevCustomTextSource

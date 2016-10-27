@@ -1,0 +1,93 @@
+// TtfwStandardDictionaryList 55B0EFA300D1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55B0EFA300D1
+
+ME ME_55B0F90B0230
+ MEPROP UID '55B0F90B0230'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55B0EFA300D1 // TtfwStandardDictionaryList
+ ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_55B0F90B0230 FindDataType
+
+ME ME_55B1E66000B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55B0EFA300D1 // TtfwStandardDictionaryList
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_55B1E66000B1 
+
+MEREF ME_47B9BAFD01F4_ME_55B0EFA300D1_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_55B0EFA300D1_over CompareItemWithData
+
+MEREF ME_55B0FF1501FC_ME_55B0EFA300D1_G
+ MELINK Original WL? 'ME_55B0FF1501FC' // TtfwStandardDictionaryListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55B0FF1501FC_ME_55B0EFA300D1_G TtfwStandardDictionaryListPrim
+
+MEREF ME_47B47E230134_ME_55B0EFA300D1_R
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_55B0EFA300D1_R l3Searcher
+
+%%ImplementedBy ME_47B47E230134 ME_55B0EFA300D1
+
+%%InheritedBy ME_55B0FF1501FC ME_55B0EFA300D1
+
+ME ME_55B0EFA300D1
+ MEPROP UID '55B0EFA300D1'
+ MEPROP Name 'TtfwStandardDictionaryList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F2275C00012' // ScriptingKeywordsCore
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_55B0FF1501FC_ME_55B0EFA300D1_G // TtfwStandardDictionaryListPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B47E230134_ME_55B0EFA300D1_R // l3Searcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55B0F90B0230 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_55B0EFA300D1_over // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_55B1E66000B1 // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'tfwStandardDictionaryList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StandardDictionaryList'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwStandardDictionaryList.pas'
+
+ENDME // ME_55B0EFA300D1 TtfwStandardDictionaryList

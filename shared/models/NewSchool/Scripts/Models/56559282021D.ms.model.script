@@ -1,0 +1,236 @@
+// TevSCSubAttr 56559282021D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56559282021D
+
+ME ME_565598F20082
+ MEPROP UID '565598F20082'
+ MEPROP Name 'f_AttrType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56559282021D // TevSCSubAttr
+ ;
+ MELINK Target WL 'ME_56555BFF0284' '56555BA603A8.ms.model.script' // TevSCAttrType
+ ;
+
+ENDME // ME_565598F20082 f_AttrType
+
+ME ME_565598FD0312
+ MEPROP UID '565598FD0312'
+ MEPROP Name 'f_ID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56559282021D // TevSCSubAttr
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_565598FD0312 f_ID
+
+ME ME_5655990C02C2
+ MEPROP UID '5655990C02C2'
+ MEPROP Name 'f_SubID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56559282021D // TevSCSubAttr
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5655990C02C2 f_SubID
+
+FORWARD ME_56559CFC005F
+
+FORWARD ME_56559D0C0327
+
+ME ME_56559D5D0059
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_56555BFF0284' '56555BA603A8.ms.model.script' // TevSCAttrType
+ ;
+
+ENDME // ME_56559D5D0059 aType
+
+ME ME_56559D5D007A
+ MEPROP Name 'aID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_56559D5D007A aID
+
+ME ME_56559D5D00B4
+ MEPROP Name 'aSubID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_56559D5D00B4 aSubID
+
+ME ME_56559D0C0327
+ MEPROP UID '56559D0C0327'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56559CFC005F // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_56559D5D0059 // aType
+ ME_56559D5D007A // aID
+ ME_56559D5D00B4 // aSubID
+ )
+ ; // Parameters
+
+ENDME // ME_56559D0C0327 DoIt
+
+ME ME_56559CFC005F
+ MEPROP UID '56559CFC005F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56559282021D // TevSCSubAttr
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56559D0C0327 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56559CFC005F Create
+
+MEREF ME_56559CFC005F_ME_56559D6D03E3_G
+ MELINK Original HWL ME_56559CFC005F // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_56559CFC005F_ME_56559D6D03E3_G Create
+
+MEREF ME_56556E5B0080_ME_56559D6D03E3_R
+ MELINK Original WL 'ME_56556E5B0080' '56555BA603A8.ms.model.script' // IevSCAttrElement
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_56556E5B0080_ME_56559D6D03E3_R IevSCAttrElement
+
+%%ImplementedBy ME_56556E5B0080 ME_56559D6D03E3
+
+%%InheritedBy ME_56559CFC005F ME_56559D6D03E3
+
+ME ME_56559D6D03E3
+ MEPROP UID '56559D6D03E3'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56559282021D // TevSCSubAttr
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_56559CFC005F_ME_56559D6D03E3_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_56556E5B0080_ME_56559D6D03E3_R // IevSCAttrElement
+ )
+ ; // Implements
+
+ENDME // ME_56559D6D03E3 Make
+
+MEREF ME_5655780E0080_ME_56559282021D_impl
+ MELINK Original WL 'ME_5655780E0080' '56555BA603A8.ms.model.script' // AttrType
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_5655780E0080_ME_56559282021D_impl AttrType
+
+MEREF ME_5655789501D8_ME_56559282021D_impl
+ MELINK Original WL 'ME_5655789501D8' '56555BA603A8.ms.model.script' // ID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_5655789501D8_ME_56559282021D_impl ID
+
+MEREF ME_565578A702AE_ME_56559282021D_impl
+ MELINK Original WL 'ME_565578A702AE' '56555BA603A8.ms.model.script' // SubID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_565578A702AE_ME_56559282021D_impl SubID
+
+MEREF ME_49E7754802A9_ME_56559282021D_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_56559282021D_G Tl3ProtoObject
+
+MEREF ME_56556E5B0080_ME_56559282021D_R
+ MELINK Original WL 'ME_56556E5B0080' '56555BA603A8.ms.model.script' // IevSCAttrElement
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_56556E5B0080_ME_56559282021D_R IevSCAttrElement
+
+%%ImplementedBy ME_56556E5B0080 ME_56559282021D
+
+%%InheritedBy ME_49E7754802A9 ME_56559282021D
+
+ME ME_56559282021D
+ MEPROP UID '56559282021D'
+ MEPROP Name 'TevSCSubAttr'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_565587A002DB' // SubCompare
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_56559282021D_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_56556E5B0080_ME_56559282021D_R // IevSCAttrElement
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_565598F20082 // f_AttrType
+ HWL ME_565598FD0312 // f_ID
+ HWL ME_5655990C02C2 // f_SubID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_56559CFC005F // Create
+ HWL ME_56559D6D03E3 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5655780E0080_ME_56559282021D_impl // AttrType
+ ME_5655789501D8_ME_56559282021D_impl // ID
+ ME_565578A702AE_ME_56559282021D_impl // SubID
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evSCSubAttr'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SCSubAttr'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evSCSubAttr.pas'
+
+ENDME // ME_56559282021D TevSCSubAttr

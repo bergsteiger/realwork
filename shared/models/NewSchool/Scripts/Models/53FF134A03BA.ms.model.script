@@ -1,0 +1,538 @@
+// Tm3BaseHeaderStream 53FF134A03BA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53FF134A03BA
+
+FORWARD ME_53FF29BD01B3
+
+ME ME_53FF29CA0197
+ MEPROP UID '53FF29CA0197'
+ MEPROP Name 'cHeaderFullSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FF29BD01B3 // Defaults
+ ;
+ MEPROP Value 'Cm3BasClaDefHeaderSize'
+ MELINK ValueType WL 'ME_53FF08370075' '54217680017C.ms.model.script' // BasClaDefaults
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'm3Const.Cm3BasClaDefHeaderSize'
+
+ENDME // ME_53FF29CA0197 cHeaderFullSize
+
+ME ME_53FF29BD01B3
+ MEPROP UID '53FF29BD01B3'
+ MEPROP Name 'Defaults'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53FF29CA0197 // cHeaderFullSize
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_53FF29BD01B3 Defaults
+
+ME ME_53FF1391017E
+ MEPROP UID '53FF1391017E'
+ MEPROP Name 'FHeaderSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53FF1391017E FHeaderSize
+
+ME ME_53FF13B703B6
+ MEPROP UID '53FF13B703B6'
+ MEPROP Name 'FHeaderLocked'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53FF13B703B6 FHeaderLocked
+
+ME ME_53FF1FE30251
+ MEPROP UID '53FF1FE30251'
+ MEPROP Name 'FHeaderLoaded'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53FF1FE30251 FHeaderLoaded
+
+ME ME_53FDFE220358
+ MEPROP UID '53FDFE220358'
+ MEPROP Name 'LockHeader'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'закрывает заголовок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+
+ENDME // ME_53FDFE220358 LockHeader
+
+ME ME_53FDFE3802D0
+ MEPROP UID '53FDFE3802D0'
+ MEPROP Name 'UnlockHeader'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'открывает заголовок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+
+ENDME // ME_53FDFE3802D0 UnlockHeader
+
+FORWARD ME_53FDFDF503CE
+
+FORWARD ME_53FDFE05015C
+
+ME ME_53FDFE15039B
+ MEPROP Name 'aForceSave'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_53FDFE15039B aForceSave
+
+ME ME_53FDFE05015C
+ MEPROP UID '53FDFE05015C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FDFDF503CE // DoSaveHeader
+ ;
+ MELIST Parameters
+   Seq: ( ME_53FDFE15039B // aForceSave
+ )
+ ; // Parameters
+
+ENDME // ME_53FDFE05015C DoIt
+
+ME ME_53FDFDF503CE
+ MEPROP UID '53FDFDF503CE'
+ MEPROP Name 'DoSaveHeader'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'сохраняет заголовок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53FDFE05015C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53FDFDF503CE DoSaveHeader
+
+FORWARD ME_53FDFDD90071
+
+ME ME_C7BF4C4FFD7C
+ MEPROP UID 'C7BF4C4FFD7C'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода DoLoadHeader' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FDFDD90071 // DoLoadHeader
+ ;
+
+ENDME // ME_C7BF4C4FFD7C DoIt
+
+ME ME_53FDFDD90071
+ MEPROP UID '53FDFDD90071'
+ MEPROP Name 'DoLoadHeader'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'загружает заголовок в память' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_C7BF4C4FFD7C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53FDFDD90071 DoLoadHeader
+
+ME ME_53FF1F6901C5
+ MEPROP UID '53FF1F6901C5'
+ MEPROP Name 'LoadHeader'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+
+ENDME // ME_53FF1F6901C5 LoadHeader
+
+FORWARD ME_53FF1F90030A
+
+FORWARD ME_53FF1FA20235
+
+ME ME_53FF1FA50259
+ MEPROP Name 'aForceSave'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_53FF1FA50259 aForceSave
+
+ME ME_53FF1FA20235
+ MEPROP UID '53FF1FA20235'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF1F90030A // SaveHeader
+ ;
+ MELIST Parameters
+   Seq: ( ME_53FF1FA50259 // aForceSave
+ )
+ ; // Parameters
+
+ENDME // ME_53FF1FA20235 DoIt
+
+ME ME_53FF1F90030A
+ MEPROP UID '53FF1F90030A'
+ MEPROP Name 'SaveHeader'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53FF1FA20235 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53FF1F90030A SaveHeader
+
+FORWARD ME_53FDFD1D0164
+
+ME ME_53FDFD230321
+ MEPROP UID '53FDFD230321'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FDFD1D0164 // DefaultInitAction
+ ;
+
+ENDME // ME_53FDFD230321 DoIt
+
+ME ME_53FDFD1D0164
+ MEPROP UID '53FDFD1D0164'
+ MEPROP Name 'DefaultInitAction'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53FDFD230321 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53FDFD1D0164 DefaultInitAction
+
+FORWARD ME_53FDFD34034B
+
+ME ME_53FDFD3B02ED
+ MEPROP UID '53FDFD3B02ED'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FDFD34034B // DefaultDoneAction
+ ;
+
+ENDME // ME_53FDFD3B02ED DoIt
+
+ME ME_53FDFD34034B
+ MEPROP UID '53FDFD34034B'
+ MEPROP Name 'DefaultDoneAction'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53FDFD3B02ED // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53FDFD34034B DefaultDoneAction
+
+FORWARD ME_540F07260255
+
+ME ME_5410259E0201
+ MEPROP UID '5410259E0201'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_540F07260255 // DoLockHeader
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5410259E0201 DoIt
+
+ME ME_540F07260255
+ MEPROP UID '540F07260255'
+ MEPROP Name 'DoLockHeader'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5410259E0201 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_540F07260255 DoLockHeader
+
+FORWARD ME_540F072F02B4
+
+ME ME_541025A900AA
+ MEPROP UID '541025A900AA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_540F072F02B4 // DoUnlockHeader
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_541025A900AA DoIt
+
+ME ME_540F072F02B4
+ MEPROP UID '540F072F02B4'
+ MEPROP Name 'DoUnlockHeader'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_541025A900AA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_540F072F02B4 DoUnlockHeader
+
+ME ME_53FF136E015E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+ MELINK Target WL? 'ME_4981AC0701C1' // ComObj
+ ;
+
+ENDME // ME_53FF136E015E 
+
+ME ME_53FF13720046
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+ MELINK Target WL? 'ME_49B952CD03A6' // m2COMLib
+ ;
+
+ENDME // ME_53FF13720046 
+
+ME ME_53FF19D201DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+ MELINK Target WL 'ME_53FDFAAE0115' '46A0E6C5023A.ms.model.script' // TCLSID
+ ;
+
+ENDME // ME_53FF19D201DB 
+
+ME ME_54198FD6025A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_54198FD6025A 
+
+ME ME_54B8F8CA032A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FF134A03BA // Tm3BaseHeaderStream
+ ;
+ MELINK Target WL? 'ME_54B7B2F900C2' // l3Interlocked
+ ;
+
+ENDME // ME_54B8F8CA032A 
+
+MEREF ME_479731C50290_ME_53FF134A03BA_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_53FF134A03BA_over Cleanup
+
+MEREF ME_4FA27D5302C5_ME_53FF134A03BA_over
+ MELINK Original WL 'ME_4FA27D5302C5' '5481CCCF0319.ms.model.script' // DoSeek
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27D5302C5_ME_53FF134A03BA_over DoSeek
+
+MEREF ME_4FA27DCD02B4_ME_53FF134A03BA_over
+ MELINK Original WL 'ME_4FA27DCD02B4' '5481CCCF0319.ms.model.script' // DoSetSize
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27DCD02B4_ME_53FF134A03BA_over DoSetSize
+
+MEREF ME_4FA27E100218_ME_53FF134A03BA_over
+ MELINK Original WL 'ME_4FA27E100218' '5481CCCF0319.ms.model.script' // LockRegion
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27E100218_ME_53FF134A03BA_over LockRegion
+
+MEREF ME_4FA27E4C0342_ME_53FF134A03BA_over
+ MELINK Original WL 'ME_4FA27E4C0342' '5481CCCF0319.ms.model.script' // UnlockRegion
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27E4C0342_ME_53FF134A03BA_over UnlockRegion
+
+MEREF ME_4FA2802E0231_ME_53FF134A03BA_over
+ MELINK Original WL 'ME_4FA2802E0231' '4FA276650046.ms.model.script' // DoGetSize
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA2802E0231_ME_53FF134A03BA_over DoGetSize
+
+MEREF ME_53FF125B01D4_ME_53FF134A03BA_G
+ MELINK Original WL? 'ME_53FF125B01D4' // Tm3LinkedStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53FF125B01D4_ME_53FF134A03BA_G Tm3LinkedStream
+
+%%InheritedBy ME_53FF125B01D4 ME_53FF134A03BA
+
+ME ME_53FF134A03BA
+ MEPROP UID '53FF134A03BA'
+ MEPROP Name 'Tm3BaseHeaderStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5485C15F0072' // HeaderStream
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53FF125B01D4_ME_53FF134A03BA_G // Tm3LinkedStream
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53FF1391017E // FHeaderSize
+ HWL ME_53FF13B703B6 // FHeaderLocked
+ HWL ME_53FF1FE30251 // FHeaderLoaded
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53FDFE220358 // LockHeader
+ HWL ME_53FDFE3802D0 // UnlockHeader
+ HWL ME_53FDFDF503CE // DoSaveHeader
+ HWL ME_53FDFDD90071 // DoLoadHeader
+ HWL ME_53FF1F6901C5 // LoadHeader
+ HWL ME_53FF1F90030A // SaveHeader
+ HWL ME_53FDFD1D0164 // DefaultInitAction
+ HWL ME_53FDFD34034B // DefaultDoneAction
+ HWL ME_540F07260255 // DoLockHeader
+ HWL ME_540F072F02B4 // DoUnlockHeader
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_53FF134A03BA_over // Cleanup
+ ME_4FA27D5302C5_ME_53FF134A03BA_over // DoSeek
+ ME_4FA27DCD02B4_ME_53FF134A03BA_over // DoSetSize
+ ME_4FA27E100218_ME_53FF134A03BA_over // LockRegion
+ ME_4FA27E4C0342_ME_53FF134A03BA_over // UnlockRegion
+ ME_4FA2802E0231_ME_53FF134A03BA_over // DoGetSize
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_53FF29BD01B3 // Defaults
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_53FF136E015E // ComObj
+ ME_53FF13720046 // m2COMLib
+ ME_53FF19D201DB // TCLSID
+ ME_54198FD6025A // l3Base
+ ME_54B8F8CA032A // l3Interlocked
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'm3BaseHeaderStream'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3BaseHeaderStream'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3BaseHeaderStream.pas'
+
+ENDME // ME_53FF134A03BA Tm3BaseHeaderStream

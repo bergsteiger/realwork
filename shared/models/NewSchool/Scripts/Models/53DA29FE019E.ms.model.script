@@ -1,0 +1,44 @@
+// K558957526 53DA29FE019E TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_53DA3E0C019A_ME_53DA29FE019E_over
+ MELINK Original WL 'ME_53DA3E0C019A' '52BAFC960080.ms.model.script' // TreatExceptionAsSuccess
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53DA3E0C019A_ME_53DA29FE019E_over TreatExceptionAsSuccess
+
+MEREF ME_52BAFC960080_ME_53DA29FE019E_G
+ MELINK Original WL? 'ME_52BAFC960080' // TEVDtoRTFRender
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52BAFC960080_ME_53DA29FE019E_G TEVDtoRTFRender
+
+%%InheritedBy ME_52BAFC960080 ME_53DA29FE019E
+
+ME ME_53DA29FE019E
+ MEPROP UID '53DA29FE019E'
+ MEPROP Name 'K558957526'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:558957526}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5260D53C01AF' // 7.10
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52BAFC960080_ME_53DA29FE019E_G // TEVDtoRTFRender
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_53DA3E0C019A_ME_53DA29FE019E_over // TreatExceptionAsSuccess
+ )
+ ; // Overridden
+ UP extprop:pas:TypeName 'TK558957526'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K558957526'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K558957526.pas'
+
+ENDME // ME_53DA29FE019E K558957526

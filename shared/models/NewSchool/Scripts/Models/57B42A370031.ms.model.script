@@ -1,0 +1,81 @@
+// TmsmSizeablePanel 57B42A370031 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57FD5A3C030B
+
+FORWARD ME_57B42A370031
+
+MEREF ME_50FD1AE5027A_ME_57FD5A3C030B_G
+ MELINK Original WL 'ME_50FD1AE5027A' '4A7961A701CF.ms.model.script' // TvtCustomPanel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50FD1AE5027A_ME_57FD5A3C030B_G TvtCustomPanel
+
+%%InheritedBy ME_50FD1AE5027A ME_57FD5A3C030B
+
+ME ME_57FD5A3C030B
+ MEPROP UID '57FD5A3C030B'
+ MEPROP Name 'TmsmCustomPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B42A370031 // TmsmSizeablePanel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50FD1AE5027A_ME_57FD5A3C030B_G // TvtCustomPanel
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmCustomPanel'
+
+ENDME // ME_57FD5A3C030B TmsmCustomPanel
+
+MEREF ME_47D1602000C6_ME_57B42A370031_over
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47D1602000C6_ME_57B42A370031_over Create
+
+MEREF ME_4A7961300264_ME_57B42A370031_G
+ MELINK Original WL? 'ME_4A7961300264' // TvtSizeablePanel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A7961300264_ME_57B42A370031_G TvtSizeablePanel
+
+%%InheritedBy ME_4A7961300264 ME_57B42A370031
+
+ME ME_57B42A370031
+ MEPROP UID '57B42A370031'
+ MEPROP Name 'TmsmSizeablePanel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B42D1A0044' // DefaultUsedControls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A7961300264_ME_57B42A370031_G // TvtSizeablePanel
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57B42A370031_over // Create
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_57FD5A3C030B // TmsmCustomPanel
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmSizeablePanel'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmSizeablePanel'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmSizeablePanel.pas'
+
+ENDME // ME_57B42A370031 TmsmSizeablePanel

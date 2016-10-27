@@ -1,0 +1,81 @@
+// TExcludedTests 4C44675A0269 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C44675A0269
+
+FORWARD ME_4C446BAE00A3
+
+ME ME_4C446BC901D9
+ MEPROP UID '4C446BC901D9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C446BAE00A3 // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C446BC901D9 DoIt
+
+ME ME_4C446BAE00A3
+ MEPROP UID '4C446BAE00A3'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Определяет создан ли экземпляр синглетона' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C44675A0269 // TExcludedTests
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C446BC901D9 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4C446BAE00A3 Exists
+
+MEREF ME_4773DCE302FF_ME_4C44675A0269_G
+ MELINK Original WL? 'ME_4773DCE302FF' // Tl3StringList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773DCE302FF_ME_4C44675A0269_G Tl3StringList
+
+%%InheritedBy ME_4773DCE302FF ME_4C44675A0269
+
+ME ME_4C44675A0269
+ MEPROP UID '4C44675A0269'
+ MEPROP Name 'TExcludedTests'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тесты, которые не надо запускать - [$227477825].' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B2A112B011A' // Source
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4773DCE302FF_ME_4C44675A0269_G // Tl3StringList
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C446BAE00A3 // Exists
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "singleton" True
+ UP "started" '19.0.2010 18:56'
+ UP extprop:pas:UnitName 'ExcludedTests'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ExcludedTests'
+ UP intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\ExcludedTests.pas'
+
+ENDME // ME_4C44675A0269 TExcludedTests

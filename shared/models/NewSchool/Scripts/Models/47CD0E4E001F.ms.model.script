@@ -1,0 +1,101 @@
+// TvtNavigatorForm 47CD0E4E001F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47CD0E4E001F
+
+ME ME_47D0FB460226
+ MEPROP UID '47D0FB460226'
+ MEPROP Name 'CloseHandler'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Обработчик закрыть формы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47CD0E4E001F // TvtNavigatorForm
+ ;
+ MELINK Target WL 'ME_47D0DE52037F' '467BAB7F021E.ms.model.script' // IvcmFormHandler
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_47D0FB460226 CloseHandler
+
+FORWARD ME_47CE93D9033B
+
+ME ME_4F61A65602A5
+ MEPROP Name 'aCloseHandler'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47D0DE52037F' '467BAB7F021E.ms.model.script' // IvcmFormHandler
+ ;
+
+ENDME // ME_4F61A65602A5 aCloseHandler
+
+ME ME_47CE93D9033B
+ MEPROP UID '47CE93D9033B'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ %SUMMARY 'Конструктор класса.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47CD0E4E001F // TvtNavigatorForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F61A65602A5 // aCloseHandler
+ )
+ ; // Parameters
+
+ENDME // ME_47CE93D9033B Create
+
+MEREF ME_479731C50290_ME_47CD0E4E001F_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_47CD0E4E001F_over Cleanup
+
+MEREF ME_49E7754802A9_ME_47CD0E4E001F_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_47CD0E4E001F_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_47CD0E4E001F
+
+ME ME_47CD0E4E001F
+ MEPROP UID '47CD0E4E001F'
+ MEPROP Name 'TvtNavigatorForm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Элемент списка  форм навигатора.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47CD07B900E0' // vtNavigator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_47CD0E4E001F_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47D0FB460226 // CloseHandler
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47CE93D9033B // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47CD0E4E001F_over // Cleanup
+ )
+ ; // Overridden
+ UP "no hands" True
+ UP extprop:pas:UnitName 'vtNavigatorForm'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NavigatorForm'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtNavigatorForm.pas'
+
+ENDME // ME_47CD0E4E001F TvtNavigatorForm

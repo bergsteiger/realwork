@@ -1,0 +1,90 @@
+// Tk2NonOptimizeContext 531075C102DD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_531075C102DD
+
+FORWARD ME_5310790D00D9
+
+ME ME_5310791302E6
+ MEPROP UID '5310791302E6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5310790D00D9 // Create
+ ;
+
+ENDME // ME_5310791302E6 DoIt
+
+ME ME_5310790D00D9
+ MEPROP UID '5310790D00D9'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_531075C102DD // Tk2NonOptimizeContext
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5310791302E6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5310790D00D9 Create
+
+MEREF ME_4E7AF07603D9_ME_531075C102DD_over
+ MELINK Original WL 'ME_4E7AF07603D9' '47E3C78502FB.ms.model.script' // GetSaveUndo
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E7AF07603D9_ME_531075C102DD_over GetSaveUndo
+
+MEREF ME_531075A60396_ME_531075C102DD_over
+ MELINK Original WL 'ME_531075A60396' '47E3C78502FB.ms.model.script' // GetNeedOptimize
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_531075A60396_ME_531075C102DD_over GetNeedOptimize
+
+MEREF ME_4BE404E701DB_ME_531075C102DD_G
+ MELINK Original WL? 'ME_4BE404E701DB' // Tk2Context
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE404E701DB_ME_531075C102DD_G Tk2Context
+
+%%InheritedBy ME_4BE404E701DB ME_531075C102DD
+
+ME ME_531075C102DD
+ MEPROP UID '531075C102DD'
+ MEPROP Name 'Tk2NonOptimizeContext'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E3C64F037E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE404E701DB_ME_531075C102DD_G // Tk2Context
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5310790D00D9 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4E7AF07603D9_ME_531075C102DD_over // GetSaveUndo
+ ME_531075A60396_ME_531075C102DD_over // GetNeedOptimize
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:pas:UnitName 'k2NonOptimizeContext'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NonOptimizeContext'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2NonOptimizeContext.pas'
+
+ENDME // ME_531075C102DD Tk2NonOptimizeContext

@@ -12,7 +12,6 @@ interface
 uses
  l3IntfUses
  , ncsMessage
- , evdNcsTypes
  , k2Base
 ;
 

@@ -9,7 +9,7 @@ ME ME_51238055022E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5123800A0080 // PrimeTest
  ;
- MELINK Target WL 'ME_5123804E003E' '51237FE1009D.ms.model.script' // toKPrime
+ MELINK Target WL? 'ME_5123804E003E' // toKPrime
  ;
 
 ENDME // ME_51238055022E 
@@ -19,17 +19,29 @@ ME ME_512388110096
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5123800A0080 // PrimeTest
  ;
- MELINK Target WL 'ME_512388060314' '51237FE1009D.ms.model.script' // toKTPrime
+ MELINK Target WL? 'ME_512388060314' // toKTPrime
  ;
 
 ENDME // ME_512388110096 
 
-ME ME_4F79BCC902C5_ME_5123800A0080
+MEREF ME_4F79BCC902C5_ME_5123800A0080_impl
  MELINK Original WL 'ME_4F79BCC902C5' '52F21A610247.ms.model.script' // CalcBatchMode
  ;
  MEPROP OpKind opkind_Implemented
  UP "is static" True
-ENDME // ME_4F79BCC902C5_ME_5123800A0080 CalcBatchMode
+ENDMEREF // ME_4F79BCC902C5_ME_5123800A0080_impl CalcBatchMode
+
+MEREF ME_4AA9038C0387_ME_5123800A0080_G
+ MELINK Original WL? 'ME_4AA9038C0387' // Monitorings
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AA9038C0387_ME_5123800A0080_G Monitorings
+
+MEREF ME_4F79CD9F015F_ME_5123800A0080_R
+ MELINK Original WL? 'ME_4F79CD9F015F' // VCMAppTester
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F79CD9F015F_ME_5123800A0080_R VCMAppTester
 
 %%ImplementedBy ME_4F79CD9F015F ME_5123800A0080
 
@@ -47,15 +59,15 @@ ME ME_5123800A0080
  MELINK Parent WL? 'ME_51237FE1009D' // Prime
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4AA9038C0387' // Monitorings
+   Seq: ( HWL ME_4AA9038C0387_ME_5123800A0080_G // Monitorings
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_4F79CD9F015F' // VCMAppTester
+   Seq: ( HWL ME_4F79CD9F015F_ME_5123800A0080_R // VCMAppTester
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_4F79BCC902C5_ME_5123800A0080 // CalcBatchMode
+   Seq: ( ME_4F79BCC902C5_ME_5123800A0080_impl // CalcBatchMode
  )
  ; // Implemented
  MELIST Dependencies

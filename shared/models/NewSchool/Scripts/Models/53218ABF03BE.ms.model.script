@@ -1,0 +1,63 @@
+// K517772970_TalcuRelPublishTask 53218ABF03BE TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53218ABF03BE
+
+ME ME_53218AE50368
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53218ABF03BE // K517772970_TalcuRelPublishTask
+ ;
+ MELINK Target WL? 'ME_530356D90066' // alcuRelCorrector
+ ;
+
+ENDME // ME_53218AE50368 
+
+MEREF ME_5320088202FB_ME_53218ABF03BE_over
+ MELINK Original WL 'ME_5320088202FB' '532008240001.ms.model.script' // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5320088202FB_ME_53218ABF03BE_over TaskClass
+
+MEREF ME_53214C4500B5_ME_53218ABF03BE_G
+ MELINK Original WL? 'ME_53214C4500B5' // K517772970_TcsImportTaskItem
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53214C4500B5_ME_53218ABF03BE_G K517772970_TcsImportTaskItem
+
+%%InheritedBy ME_53214C4500B5 ME_53218ABF03BE
+
+ME ME_53218ABF03BE
+ MEPROP UID '53218ABF03BE'
+ MEPROP Name 'K517772970_TalcuRelPublishTask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_531FF6280311' // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53214C4500B5_ME_53218ABF03BE_G // K517772970_TcsImportTaskItem
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53218ABF03BE_over // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53218AE50368 // alcuRelCorrector
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TK517772970_TalcuRelPublishTask'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K517772970_TalcuRelPublishTask'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuRelPublishTask.pas'
+
+ENDME // ME_53218ABF03BE K517772970_TalcuRelPublishTask

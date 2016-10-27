@@ -868,13 +868,19 @@ ME ME_4ED8F1860003
 
 ENDME // ME_4ED8F1860003 MdeDocInfoProvider
 
-ME ME_4DF9D63B0360_ME_4DF9D62701AD
+MEREF ME_4DF9D63B0360_ME_4DF9D62701AD_impl
  MELINK Original HWL ME_4DF9D63B0360 // DocInfo
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
  UP "reflectable" True
-ENDME // ME_4DF9D63B0360_ME_4DF9D62701AD DocInfo
+ENDMEREF // ME_4DF9D63B0360_ME_4DF9D62701AD_impl DocInfo
+
+MEREF ME_4ED8F1860003_ME_4DF9D62701AD_R
+ MELINK Original HWL ME_4ED8F1860003 // MdeDocInfoProvider
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4ED8F1860003_ME_4DF9D62701AD_R MdeDocInfoProvider
 
 %%ImplementedBy ME_4ED8F1860003 ME_4DF9D62701AD
 
@@ -891,11 +897,11 @@ ME ME_4DF9D62701AD
  MELINK Parent HWL ME_4B1FC2FF03CD // DocumentInterfaces
  ;
  MELIST Implements
-   Seq: ( HWL ME_4ED8F1860003 // MdeDocInfoProvider
+   Seq: ( HWL ME_4ED8F1860003_ME_4DF9D62701AD_R // MdeDocInfoProvider
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_4DF9D63B0360_ME_4DF9D62701AD // DocInfo
+   Seq: ( ME_4DF9D63B0360_ME_4DF9D62701AD_impl // DocInfo
  )
  ; // Implemented
  UP extprop:rc:isAcceptableForScripts True

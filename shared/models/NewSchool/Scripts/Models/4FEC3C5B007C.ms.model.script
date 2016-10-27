@@ -1,0 +1,229 @@
+// TnscStatusBarDelimiterDef 4FEC3C5B007C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FEC3C5B007C
+
+ME ME_4FF3275E0226
+ MEPROP UID '4FF3275E0226'
+ MEPROP Name 'f_SeparatorPos'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
+ ;
+ MELINK Target WL 'ME_4FF314BE007F' '490838E10313.ms.model.script' // TsbdSeparatorPos
+ ;
+
+ENDME // ME_4FF3275E0226 f_SeparatorPos
+
+ME ME_4FF3277C03D5
+ MEPROP UID '4FF3277C03D5'
+ MEPROP Name 'f_SeparatorVisible'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4FF3277C03D5 f_SeparatorVisible
+
+ME ME_4FF3279603BB
+ MEPROP UID '4FF3279603BB'
+ MEPROP Name 'f_Width'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
+ ;
+ MELINK Target WL 'ME_450A61050251' '3DBFDB23006E.ms.model.script' // integer
+ ;
+
+ENDME // ME_4FF3279603BB f_Width
+
+FORWARD ME_4FEC49660337
+
+FORWARD ME_4FEC497001EF
+
+ME ME_4FF31C50019B
+ MEPROP Name 'aSeparatorVisible'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4FF31C50019B aSeparatorVisible
+
+ME ME_4FF324EC0321
+ MEPROP Name 'aSeparatorPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4FF314BE007F' '490838E10313.ms.model.script' // TsbdSeparatorPos
+ ;
+ MEPROP Value 'spMiddle'
+ MELINK ValueType WL 'ME_4FF314BE007F' '490838E10313.ms.model.script' // TsbdSeparatorPos
+ ;
+ UP extprop:pas:Value 'nscNewInterfaces.spMiddle'
+
+ENDME // ME_4FF324EC0321 aSeparatorPos
+
+ME ME_4FF324EC0390
+ MEPROP Name 'aWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_4FF324EC0390 aWidth
+
+ME ME_4FEC497001EF
+ MEPROP UID '4FEC497001EF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FEC49660337 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FF31C50019B // aSeparatorVisible
+ ME_4FF324EC0321 // aSeparatorPos
+ ME_4FF324EC0390 // aWidth
+ )
+ ; // Parameters
+
+ENDME // ME_4FEC497001EF DoIt
+
+ME ME_4FEC49660337
+ MEPROP UID '4FEC49660337'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FEC497001EF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FEC49660337 Create
+
+MEREF ME_4FEC49660337_ME_4FEC4982036E_G
+ MELINK Original HWL ME_4FEC49660337 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FEC49660337_ME_4FEC4982036E_G Create
+
+%%InheritedBy ME_4FEC49660337 ME_4FEC4982036E
+
+ME ME_4FEC4982036E
+ MEPROP UID '4FEC4982036E'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FEC49660337_ME_4FEC4982036E_G // Create
+ )
+ ; // Inherits
+
+ENDME // ME_4FEC4982036E Make
+
+MEREF ME_4FF315450358_ME_4FEC3C5B007C_impl
+ MELINK Original WL 'ME_4FF315450358' '490838E10313.ms.model.script' // SeparatorPos
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4FF315450358_ME_4FEC3C5B007C_impl SeparatorPos
+
+MEREF ME_4FF3157D0385_ME_4FEC3C5B007C_impl
+ MELINK Original WL 'ME_4FF3157D0385' '490838E10313.ms.model.script' // IsSeparatorVisible
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4FF3157D0385_ME_4FEC3C5B007C_impl IsSeparatorVisible
+
+MEREF ME_4FF3159402B4_ME_4FEC3C5B007C_impl
+ MELINK Original WL 'ME_4FF3159402B4' '490838E10313.ms.model.script' // Width
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4FF3159402B4_ME_4FEC3C5B007C_impl Width
+
+MEREF ME_4FEC3C34003F_ME_4FEC3C5B007C_G
+ MELINK Original WL? 'ME_4FEC3C34003F' // TnscStatusBarItemDef
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FEC3C34003F_ME_4FEC3C5B007C_G TnscStatusBarItemDef
+
+MEREF ME_4FEC3BB5027F_ME_4FEC3C5B007C_R
+ MELINK Original WL 'ME_4FEC3BB5027F' '490838E10313.ms.model.script' // InscStatusBarDelimiterDef
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FEC3BB5027F_ME_4FEC3C5B007C_R InscStatusBarDelimiterDef
+
+%%ImplementedBy ME_4FEC3BB5027F ME_4FEC3C5B007C
+
+%%InheritedBy ME_4FEC3C34003F ME_4FEC3C5B007C
+
+ME ME_4FEC3C5B007C
+ MEPROP UID '4FEC3C5B007C'
+ MEPROP Name 'TnscStatusBarDelimiterDef'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49871D5103B9' // StatusBar
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FEC3C34003F_ME_4FEC3C5B007C_G // TnscStatusBarItemDef
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4FEC3BB5027F_ME_4FEC3C5B007C_R // InscStatusBarDelimiterDef
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4FF3275E0226 // f_SeparatorPos
+ HWL ME_4FF3277C03D5 // f_SeparatorVisible
+ HWL ME_4FF3279603BB // f_Width
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FEC49660337 // Create
+ HWL ME_4FEC4982036E // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4FF315450358_ME_4FEC3C5B007C_impl // SeparatorPos
+ ME_4FF3157D0385_ME_4FEC3C5B007C_impl // IsSeparatorVisible
+ ME_4FF3159402B4_ME_4FEC3C5B007C_impl // Width
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" True
+ UP extprop:pas:UnitName 'nscStatusBarDelimiterDef'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StatusBarDelimiterDef'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscStatusBarDelimiterDef.pas'
+
+ENDME // ME_4FEC3C5B007C TnscStatusBarDelimiterDef

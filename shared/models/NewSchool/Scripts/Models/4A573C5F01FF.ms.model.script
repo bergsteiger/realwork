@@ -36,16 +36,22 @@ ME ME_533ED59300CF
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A573C5F01FF // k2TagHolder
  ;
- MELINK Target WL 'ME_49A6ABFB02BA' '49A58A1A03C4.ms.model.script' // Tk2NullTagImpl
+ MELINK Target WL? 'ME_49A6ABFB02BA' // Tk2NullTagImpl
  ;
 
 ENDME // ME_533ED59300CF 
 
-ME ME_479731C50290_ME_4A573C5F01FF
+MEREF ME_479731C50290_ME_4A573C5F01FF_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4A573C5F01FF Cleanup
+ENDMEREF // ME_479731C50290_ME_4A573C5F01FF_over Cleanup
+
+MEREF ME_4A5CB93700CF_ME_4A573C5F01FF_R
+ MELINK Original WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A5CB93700CF_ME_4A573C5F01FF_R Ml3Unknown
 
 %%ImplementedBy ME_4A5CB93700CF ME_4A573C5F01FF
 
@@ -61,7 +67,7 @@ ME ME_4A573C5F01FF
  MELINK Parent WL? 'ME_49A58A1A03C4' // k2PrimObjects
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+   Seq: ( HWL ME_4A5CB93700CF_ME_4A573C5F01FF_R // Ml3Unknown
  )
  ; // Implements
  MELIST Attributes
@@ -69,7 +75,7 @@ ME ME_4A573C5F01FF
  )
  ; // Attributes
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4A573C5F01FF // Cleanup
+   Seq: ( ME_479731C50290_ME_4A573C5F01FF_over // Cleanup
  )
  ; // Overridden
  MELIST Dependencies

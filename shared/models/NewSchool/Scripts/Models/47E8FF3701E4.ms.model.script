@@ -1,0 +1,66 @@
+// TnevViewList 47E8FF3701E4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47E8FF3701E4
+
+ME ME_47E8FF710106
+ MEPROP UID '47E8FF710106'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E8FF3701E4 // TnevViewList
+ ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_47E8FF710106 ItemType
+
+MEREF ME_47B57D830369_ME_47E8FF3701E4_G
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_47E8FF3701E4_G l3InterfaceRefList
+
+MEREF ME_4A54DD4E036F_ME_47E8FF3701E4_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_47E8FF3701E4_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57D830369 ME_47E8FF3701E4
+%%InheritedBy ME_4A54DD4E036F ME_47E8FF3701E4
+
+ME ME_47E8FF3701E4
+ MEPROP UID '47E8FF3701E4'
+ MEPROP Name 'TnevViewList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список InevView.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47C52679006D' // nevUtils
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57D830369_ME_47E8FF3701E4_G // l3InterfaceRefList
+ HWL ME_4A54DD4E036F_ME_47E8FF3701E4_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47E8FF710106 // ItemType
+ )
+ ; // Attributes
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '25.03.2008 16:34'
+ UP extprop:pas:UnitName 'nevViewList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ViewList'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevViewList.pas'
+
+ENDME // ME_47E8FF3701E4 TnevViewList

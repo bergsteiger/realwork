@@ -9,31 +9,31 @@ MEDIAGRAMS ME_54870DB502F5_diagrams
   MELINK Original WL? 'ME_54870DB502F5' ; // ArchiveStreams
 
   MEVIEW ME_54539D300254_view
-   MELINK Original WL 'ME_54539D300254' '54870DB502F5.ms.model.script' ; // Tm3ArcHandle
+   MELINK Original WL? 'ME_54539D300254' ; // Tm3ArcHandle
    MEPROP X 40
    MEPROP Y 40
   ENDMEVIEW // ME_54539D300254_view
 
   MEVIEW ME_53FF2D7500EB_view
-   MELINK Original WL 'ME_53FF2D7500EB' '54870DB502F5.ms.model.script' ; // Tm3BaseArcStream
+   MELINK Original WL? 'ME_53FF2D7500EB' ; // Tm3BaseArcStream
    MEPROP X 200
    MEPROP Y 40
   ENDMEVIEW // ME_53FF2D7500EB_view
 
   MEVIEW ME_54539E0A00DA_view
-   MELINK Original WL 'ME_54539E0A00DA' '54870DB502F5.ms.model.script' ; // Tm3ArcHandleList
+   MELINK Original WL? 'ME_54539E0A00DA' ; // Tm3ArcHandleList
    MEPROP X 360
    MEPROP Y 40
   ENDMEVIEW // ME_54539E0A00DA_view
 
   MEVIEW ME_542AA47B0241_view
-   MELINK Original WL 'ME_542AA47B0241' '54870DB502F5.ms.model.script' ; // Tm3LZODeflateStreamNew
+   MELINK Original WL? 'ME_542AA47B0241' ; // Tm3LZODeflateStreamNew
    MEPROP X 520
    MEPROP Y 40
   ENDMEVIEW // ME_542AA47B0241_view
 
   MEVIEW ME_542AA48C0354_view
-   MELINK Original WL 'ME_542AA48C0354' '54870DB502F5.ms.model.script' ; // Tm3LZOInflateStreamNew
+   MELINK Original WL? 'ME_542AA48C0354' ; // Tm3LZOInflateStreamNew
    MEPROP X 680
    MEPROP Y 40
   ENDMEVIEW // ME_542AA48C0354_view
@@ -44,35 +44,11 @@ MEDIAGRAMS ME_54870DB502F5_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_542A9FC5028B_view
 
-  MEVIEWLINK ME_54539E260298_viewlink
-   MELINK Original WL 'ME_54539E260298' '54870DB502F5.ms.model.script' ;
-   MELINK From ME_54539E0A00DA_view ;
-   MELINK To ME_54539D300254_view ;
-  ENDMEVIEWLINK // ME_54539E260298_viewlink
-
   MEVIEWLINK ME_545B66050163_viewlink
-   MELINK Original WL 'ME_545B66050163' '54870DB502F5.ms.model.script' ;
+   MELINK Original WL 'ME_545B66050163' '54539E0A00DA.ms.model.script' ;
    MELINK From ME_54539E0A00DA_view ;
    MELINK To ME_54539D300254_view ;
   ENDMEVIEWLINK // ME_545B66050163_viewlink
-
-  MEVIEWLINK ME_542AA49B00D5_viewlink
-   MELINK Original WL 'ME_542AA49B00D5' '54870DB502F5.ms.model.script' ;
-   MELINK From ME_542AA48C0354_view ;
-   MELINK To ME_542AA47B0241_view ;
-  ENDMEVIEWLINK // ME_542AA49B00D5_viewlink
-
-  MEVIEWLINK ME_54539D3F01C1_viewlink
-   MELINK Original WL 'ME_54539D3F01C1' '542A9FC5028B.ms.model.script' ;
-   MELINK From ME_542A9FC5028B_view ;
-   MELINK To ME_54539D300254_view ;
-  ENDMEVIEWLINK // ME_54539D3F01C1_viewlink
-
-  MEVIEWLINK ME_54539E310108_viewlink
-   MELINK Original WL 'ME_54539E310108' '542A9FC5028B.ms.model.script' ;
-   MELINK From ME_542A9FC5028B_view ;
-   MELINK To ME_54539E0A00DA_view ;
-  ENDMEVIEWLINK // ME_54539E310108_viewlink
 
   MELIST Views
    Seq: ( ME_54539D300254_view // Tm3ArcHandle
@@ -81,11 +57,7 @@ MEDIAGRAMS ME_54870DB502F5_diagrams
    ME_542AA47B0241_view // Tm3LZODeflateStreamNew
    ME_542AA48C0354_view // Tm3LZOInflateStreamNew
    ME_542A9FC5028B_view // m3ArcCla
-   ME_54539E260298_viewlink // Tm3ArcHandleList -> Tm3ArcHandle
    ME_545B66050163_viewlink // Tm3ArcHandleList -> Tm3ArcHandle
-   ME_542AA49B00D5_viewlink // Tm3LZOInflateStreamNew -> Tm3LZODeflateStreamNew
-   ME_54539D3F01C1_viewlink // m3ArcCla -> Tm3ArcHandle
-   ME_54539E310108_viewlink // m3ArcCla -> Tm3ArcHandleList
    )
   ; // Views
  ENDMEDIAGRAM // ME_54870DB502F5_main

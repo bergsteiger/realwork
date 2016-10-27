@@ -26,7 +26,7 @@ ENDME // ME_4DD3D2B5019D DoIt
 ME ME_4DD3D2A20200
  MEPROP UID '4DD3D2A20200'
  MEPROP Name 'Exists'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -41,6 +41,12 @@ ME ME_4DD3D2A20200
 
 ENDME // ME_4DD3D2A20200 Exists
 
+MEREF ME_47ACA26600BF_ME_4DD3D2710378_G
+ MELINK Original WL? 'ME_47ACA26600BF' // Tl3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47ACA26600BF_ME_4DD3D2710378_G Tl3InterfacePtrList
+
 %%InheritedBy ME_47ACA26600BF ME_4DD3D2710378
 
 ME ME_4DD3D2710378
@@ -54,7 +60,7 @@ ME ME_4DD3D2710378
  MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47ACA26600BF' '47913B47006E.ms.model.script' // Tl3InterfacePtrList
+   Seq: ( HWL ME_47ACA26600BF_ME_4DD3D2710378_G // Tl3InterfacePtrList
  )
  ; // Inherits
  MELIST Operations
@@ -221,7 +227,7 @@ ME ME_480DB9000046
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
  ;
- MELINK Target WL 'ME_47ACA26600BF' '47913B47006E.ms.model.script' // Tl3InterfacePtrList
+ MELINK Target WL? 'ME_47ACA26600BF' // Tl3InterfacePtrList
  ;
 
 ENDME // ME_480DB9000046 
@@ -231,7 +237,7 @@ ME ME_480DB94201BE
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
  ;
- MELINK Target WL 'ME_480DB927035A' '47ECB2870309.ms.model.script' // TevStyleInterface
+ MELINK Target WL? 'ME_480DB927035A' // TevStyleInterface
  ;
 
 ENDME // ME_480DB94201BE 

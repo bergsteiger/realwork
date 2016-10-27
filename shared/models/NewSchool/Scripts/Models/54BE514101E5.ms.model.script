@@ -1,0 +1,69 @@
+// TeeTextPara 54BE514101E5 InterfaceFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4D63D26D033F_ME_54BE514101E5_over
+ MELINK Original WL 'ME_4D63D26D033F' '4D63C2420229.ms.model.script' // QueryTool
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D63D26D033F_ME_54BE514101E5_over QueryTool
+
+MEREF ME_48577C150116_ME_54BE514101E5_G
+ MELINK Original WL? 'ME_48577C150116' // TevTextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48577C150116_ME_54BE514101E5_G TevTextPara
+
+MEREF ME_54BE533C0001_ME_54BE514101E5_R
+ MELINK Original WL 'ME_54BE533C0001' '4AB112DF005B.ms.model.script' // TextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54BE533C0001_ME_54BE514101E5_R TextPara
+
+MEREF ME_54BE68F10127_ME_54BE514101E5_R
+ MELINK Original WL 'ME_54BE68F10127' '4AB112DF005B.ms.model.script' // DecorTextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54BE68F10127_ME_54BE514101E5_R DecorTextPara
+
+%%ImplementedBy ME_54BE533C0001 ME_54BE514101E5
+%%ImplementedBy ME_54BE68F10127 ME_54BE514101E5
+
+%%InheritedBy ME_48577C150116 ME_54BE514101E5
+
+ME ME_54BE514101E5
+ MEPROP UID '54BE514101E5'
+ MEPROP Name 'TeeTextPara'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_InterfaceFactory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AB112DF005B' // EVD
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48577C150116_ME_54BE514101E5_G // TevTextPara
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_54BE533C0001_ME_54BE514101E5_R // TextPara
+ HWL ME_54BE68F10127_ME_54BE514101E5_R // DecorTextPara
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4D63D26D033F_ME_54BE514101E5_over // QueryTool
+ )
+ ; // Overridden
+ MELIST Injected
+   Seq: ( WL 'ME_54BE525C0357' '54BE4A4902B9.ms.model.script' // TeeTextParaCursor
+ WL 'ME_54BE526A02CF' '54BE505F0038.ms.model.script' // TeeTextCursorPair
+ )
+ ; // Injected
+ UP extprop:pas:TypeName 'TeeTextParaInterfaceFactory'
+ UP extprop:pas:UnitName 'eeTextPara_InterfaceFactory'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'eeTextParaInterfaceFactory'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeTextPara_InterfaceFactory.pas'
+
+ENDME // ME_54BE514101E5 TeeTextPara

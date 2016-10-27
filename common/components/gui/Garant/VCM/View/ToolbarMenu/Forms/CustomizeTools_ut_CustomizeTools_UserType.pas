@@ -12,7 +12,6 @@ interface
 {$If NOT Defined(NoVCM)}
 uses
  l3IntfUses
- , vcmUserControls
  , l3StringIDEx
 ;
 

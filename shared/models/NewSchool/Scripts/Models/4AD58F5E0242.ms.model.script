@@ -1,0 +1,105 @@
+// TnsSettingsPrim 4AD58F5E0242 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AD58F5E0242
+
+ME ME_4AD58FAE0357
+ MEPROP UID '4AD58FAE0357'
+ MEPROP Name 'SettingsClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AD58F5E0242 // TnsSettingsPrim
+ ;
+ MELINK Target WL 'ME_4AC498EC0056' '45EEAA69036E.ms.model.script' // BaseSettingsManager
+ ;
+
+ENDME // ME_4AD58FAE0357 SettingsClass
+
+FORWARD ME_4AD594CA00D5
+
+ME ME_4AD594FC0018
+ MEPROP Name 'aSettings'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4AC498EC0056' '45EEAA69036E.ms.model.script' // BaseSettingsManager
+ ;
+
+ENDME // ME_4AD594FC0018 aSettings
+
+ME ME_4AD594CA00D5
+ MEPROP UID '4AD594CA00D5'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD58F5E0242 // TnsSettingsPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AD594FC0018 // aSettings
+ )
+ ; // Parameters
+
+ENDME // ME_4AD594CA00D5 Make
+
+MEREF ME_49E7754802A9_ME_4AD58F5E0242_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4AD58F5E0242_G Tl3ProtoObject
+
+MEREF ME_4F6C571A00B2_ME_4AD58F5E0242_G
+ MELINK Original WL? 'ME_4F6C571A00B2' // nsSettings
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F6C571A00B2_ME_4AD58F5E0242_G nsSettings
+
+MEREF ME_4AB728CB025C_ME_4AD58F5E0242_R
+ MELINK Original WL 'ME_4AB728CB025C' '467823B7002C.ms.model.script' // IafwSettingsPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AB728CB025C_ME_4AD58F5E0242_R IafwSettingsPrim
+
+%%ImplementedBy ME_4AB728CB025C ME_4AD58F5E0242
+
+%%InheritedBy ME_49E7754802A9 ME_4AD58F5E0242
+%%InheritedBy ME_4F6C571A00B2 ME_4AD58F5E0242
+
+ME ME_4AD58F5E0242
+ MEPROP UID '4AD58F5E0242'
+ MEPROP Name 'TnsSettingsPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_491447590351' // Settings
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_4AD58F5E0242_G // Tl3ProtoObject
+ HWL ME_4F6C571A00B2_ME_4AD58F5E0242_G // nsSettings
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4AB728CB025C_ME_4AD58F5E0242_R // IafwSettingsPrim
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AD58FAE0357 // SettingsClass
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AD594CA00D5 // Make
+ )
+ ; // Operations
+ UP extprop:pas:UnitName 'nsSettingsPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SettingsPrim'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettingsPrim.pas'
+
+ENDME // ME_4AD58F5E0242 TnsSettingsPrim

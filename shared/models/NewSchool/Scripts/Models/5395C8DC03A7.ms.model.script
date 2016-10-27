@@ -1,0 +1,175 @@
+// TCsReplyProceduresWithRegistering 5395C8DC03A7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5395C8DC03A7
+
+FORWARD ME_53959AE3018D
+
+FORWARD ME_53959AF80329
+
+ME ME_53959AFD012B
+ MEPROP Name 'aQueryId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_537F63760334' '537F63590169.ms.model.script' // TCsQueryId
+ ;
+
+ENDME // ME_53959AFD012B aQueryId
+
+ME ME_53959AFD0142
+ MEPROP Name 'aProc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_537F63170355' '537F6306025B.ms.model.script' // TCsReplyProc
+ ;
+
+ENDME // ME_53959AFD0142 aProc
+
+ME ME_53959AF80329
+ MEPROP UID '53959AF80329'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53959AE3018D // Register
+ ;
+ MELIST Parameters
+   Seq: ( ME_53959AFD012B // aQueryId
+ ME_53959AFD0142 // aProc
+ )
+ ; // Parameters
+
+ENDME // ME_53959AF80329 DoIt
+
+ME ME_5395C9EC02D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53959AE3018D // Register
+ ;
+ MELINK Target WL? 'ME_537F6306025B' // TCsProcWithId
+ ;
+
+ENDME // ME_5395C9EC02D5 
+
+ME ME_5395CA1F025B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53959AE3018D // Register
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_5395CA1F025B 
+
+ME ME_5395CA2400BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53959AE3018D // Register
+ ;
+ MELINK Target WL 'ME_4767748503B5' '4767743E00E5.ms.model.script' // TTypeInfo
+ ;
+
+ENDME // ME_5395CA2400BF 
+
+ME ME_5395CCF9011D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53959AE3018D // Register
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5395CCF9011D 
+
+ME ME_53959AE3018D
+ MEPROP UID '53959AE3018D'
+ MEPROP Name 'Register'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53959AF80329 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5395C9EC02D5 // TCsProcWithId
+ ME_5395CA1F025B // l3Base
+ ME_5395CA2400BF // TTypeInfo
+ ME_5395CCF9011D // FreeAndNil
+ )
+ ; // Dependencies
+
+ENDME // ME_53959AE3018D Register
+
+FORWARD ME_53BFBB81029F
+
+ME ME_53BFBB88021E
+ MEPROP UID '53BFBB88021E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53BFBB81029F // UnregisterAll
+ ;
+
+ENDME // ME_53BFBB88021E DoIt
+
+ME ME_53BFBB81029F
+ MEPROP UID '53BFBB81029F'
+ MEPROP Name 'UnregisterAll'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53BFBB88021E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53BFBB81029F UnregisterAll
+
+MEREF ME_537F645C01D1_ME_5395C8DC03A7_G
+ MELINK Original WL? 'ME_537F645C01D1' // TCsReplyProceduresPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_537F645C01D1_ME_5395C8DC03A7_G TCsReplyProceduresPrim
+
+%%InheritedBy ME_537F645C01D1 ME_5395C8DC03A7
+
+ME ME_5395C8DC03A7
+ MEPROP UID '5395C8DC03A7'
+ MEPROP Name 'TCsReplyProceduresWithRegistering'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_538DA26C020A' // ServerSide
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_537F645C01D1_ME_5395C8DC03A7_G // TCsReplyProceduresPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_53959AE3018D // Register
+ HWL ME_53BFBB81029F // UnregisterAll
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'CsReplyProceduresWithRegistering'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CsReplyProceduresWithRegistering'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\CsReplyProceduresWithRegistering.pas'
+
+ENDME // ME_5395C8DC03A7 TCsReplyProceduresWithRegistering

@@ -1,0 +1,358 @@
+// TcsIdIOHandlerAdapter 538DB527006C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_538DB527006C
+
+ME ME_538DB5180011
+ MEPROP UID '538DB5180011'
+ MEPROP Name 'f_IOHandler'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_538DB527006C // TcsIdIOHandlerAdapter
+ ;
+ MELINK Target WL? 'ME_538DAED40203' // TIdIOHandler
+ ;
+
+ENDME // ME_538DB5180011 f_IOHandler
+
+FORWARD ME_538DB5610283
+
+FORWARD ME_538DB5740231
+
+ME ME_538DB5780375
+ MEPROP Name 'aIOHandler'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_538DAED40203' // TIdIOHandler
+ ;
+
+ENDME // ME_538DB5780375 aIOHandler
+
+ME ME_538DB5740231
+ MEPROP UID '538DB5740231'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_538DB5610283 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_538DB5780375 // aIOHandler
+ )
+ ; // Parameters
+
+ENDME // ME_538DB5740231 DoIt
+
+ME ME_538DB5610283
+ MEPROP UID '538DB5610283'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_538DB527006C // TcsIdIOHandlerAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_538DB5740231 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_538DB5610283 Create
+
+ME ME_538DBE130279
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_538DB527006C // TcsIdIOHandlerAdapter
+ ;
+ MELINK Target WL 'ME_538DBDE603A7' '537F469100A6.ms.model.script' // TIdBytes
+ ;
+
+ENDME // ME_538DBE130279 
+
+ME ME_538DBE180163
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_538DB527006C // TcsIdIOHandlerAdapter
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_538DBE180163 
+
+ME ME_54F5CDE200F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_538DB527006C // TcsIdIOHandlerAdapter
+ ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_54F5CDE200F4 
+
+ME ME_54F5CE27023C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_538DB527006C // TcsIdIOHandlerAdapter
+ ;
+ MELINK Target WL 'ME_499D47A502DE' '47AB1FDE03E4.ms.model.script' // Tl3ConstMemoryStream
+ ;
+
+ENDME // ME_54F5CE27023C 
+
+ME ME_54F5D20D0388
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_538DB527006C // TcsIdIOHandlerAdapter
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54F5D20D0388 
+
+MEREF ME_538DB5C7002E_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB5C7002E' '538DB4F00335.ms.model.script' // WriteBufferFlush
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB5C7002E_ME_538DB527006C_impl WriteBufferFlush
+
+MEREF ME_538DB5E90386_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB5E90386' '538DB4F00335.ms.model.script' // ReadChar
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB5E90386_ME_538DB527006C_impl ReadChar
+
+MEREF ME_538DB61100CA_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB61100CA' '538DB4F00335.ms.model.script' // ReadCardinal
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB61100CA_ME_538DB527006C_impl ReadCardinal
+
+MEREF ME_538DB62D02C7_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB62D02C7' '538DB4F00335.ms.model.script' // ReadDateTime
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB62D02C7_ME_538DB527006C_impl ReadDateTime
+
+MEREF ME_538DB6520024_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB6520024' '538DB4F00335.ms.model.script' // ReadLn
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB6520024_ME_538DB527006C_impl ReadLn
+
+MEREF ME_538DB66D02EB_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB66D02EB' '538DB4F00335.ms.model.script' // ReadInt64
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB66D02EB_ME_538DB527006C_impl ReadInt64
+
+MEREF ME_538DB69000E7_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB69000E7' '538DB4F00335.ms.model.script' // ReadStream
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB69000E7_ME_538DB527006C_impl ReadStream
+
+MEREF ME_538DB78C01B0_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB78C01B0' '538DB4F00335.ms.model.script' // ReadInteger
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB78C01B0_ME_538DB527006C_impl ReadInteger
+
+MEREF ME_538DB7A4016D_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB7A4016D' '538DB4F00335.ms.model.script' // ReadSmallInt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB7A4016D_ME_538DB527006C_impl ReadSmallInt
+
+MEREF ME_538DB7E00144_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB7E00144' '538DB4F00335.ms.model.script' // WriteLn
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB7E00144_ME_538DB527006C_impl WriteLn
+
+MEREF ME_538DB804015E_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB804015E' '538DB4F00335.ms.model.script' // WriteCardinal
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB804015E_ME_538DB527006C_impl WriteCardinal
+
+MEREF ME_538DB83B021B_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB83B021B' '538DB4F00335.ms.model.script' // WriteInt64
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB83B021B_ME_538DB527006C_impl WriteInt64
+
+MEREF ME_538DB86700DB_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB86700DB' '538DB4F00335.ms.model.script' // WriteStream
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB86700DB_ME_538DB527006C_impl WriteStream
+
+MEREF ME_538DB8970317_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB8970317' '538DB4F00335.ms.model.script' // WriteChar
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB8970317_ME_538DB527006C_impl WriteChar
+
+MEREF ME_538DB8BA00D1_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB8BA00D1' '538DB4F00335.ms.model.script' // WriteSmallInt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB8BA00D1_ME_538DB527006C_impl WriteSmallInt
+
+MEREF ME_538DB8DF029E_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB8DF029E' '538DB4F00335.ms.model.script' // WriteInteger
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB8DF029E_ME_538DB527006C_impl WriteInteger
+
+MEREF ME_538DB9070097_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB9070097' '538DB4F00335.ms.model.script' // WriteDateTime
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB9070097_ME_538DB527006C_impl WriteDateTime
+
+MEREF ME_538DB93002B5_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB93002B5' '538DDC890328.ms.model.script' // Connected
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB93002B5_ME_538DB527006C_impl Connected
+
+MEREF ME_538DB9810192_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB9810192' '538DDC890328.ms.model.script' // WriteFile
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB9810192_ME_538DB527006C_impl WriteFile
+
+MEREF ME_538DB9C40271_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB9C40271' '538DDC890328.ms.model.script' // WriteBufferOpen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB9C40271_ME_538DB527006C_impl WriteBufferOpen
+
+MEREF ME_538DB9F30058_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DB9F30058' '538DDC890328.ms.model.script' // WriteBufferClose
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DB9F30058_ME_538DB527006C_impl WriteBufferClose
+
+MEREF ME_538DBA0B009F_ME_538DB527006C_impl
+ MELINK Original WL 'ME_538DBA0B009F' '538DDC890328.ms.model.script' // WriteBufferClear
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_538DBA0B009F_ME_538DB527006C_impl WriteBufferClear
+
+MEREF ME_54536C8F036B_ME_538DB527006C_impl
+ MELINK Original WL 'ME_54536C8F036B' '538DB4F00335.ms.model.script' // WaitForReadData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54536C8F036B_ME_538DB527006C_impl WaitForReadData
+
+MEREF ME_5476EDF200B5_ME_538DB527006C_impl
+ MELINK Original WL 'ME_5476EDF200B5' '538DDC890328.ms.model.script' // InputBufferClear
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5476EDF200B5_ME_538DB527006C_impl InputBufferClear
+
+MEREF ME_54F5C07302CC_ME_538DB527006C_impl
+ MELINK Original WL 'ME_54F5C07302CC' '538DB4F00335.ms.model.script' // WriteLargeStr
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54F5C07302CC_ME_538DB527006C_impl WriteLargeStr
+
+MEREF ME_54F5C09C0302_ME_538DB527006C_impl
+ MELINK Original WL 'ME_54F5C09C0302' '538DB4F00335.ms.model.script' // ReadLargeStr
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54F5C09C0302_ME_538DB527006C_impl ReadLargeStr
+
+MEREF ME_479731C50290_ME_538DB527006C_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_538DB527006C_over Cleanup
+
+MEREF ME_538DDC890328_ME_538DB527006C_G
+ MELINK Original WL? 'ME_538DDC890328' // TcsIdIOHandlerAbstractAdapter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_538DDC890328_ME_538DB527006C_G TcsIdIOHandlerAbstractAdapter
+
+%%InheritedBy ME_538DDC890328 ME_538DB527006C
+
+ME ME_538DB527006C
+ MEPROP UID '538DB527006C'
+ MEPROP Name 'TcsIdIOHandlerAdapter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52FBB2FC0386' // Core
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_538DDC890328_ME_538DB527006C_G // TcsIdIOHandlerAbstractAdapter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_538DB5180011 // f_IOHandler
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_538DB5610283 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_538DB5C7002E_ME_538DB527006C_impl // WriteBufferFlush
+ ME_538DB5E90386_ME_538DB527006C_impl // ReadChar
+ ME_538DB61100CA_ME_538DB527006C_impl // ReadCardinal
+ ME_538DB62D02C7_ME_538DB527006C_impl // ReadDateTime
+ ME_538DB6520024_ME_538DB527006C_impl // ReadLn
+ ME_538DB66D02EB_ME_538DB527006C_impl // ReadInt64
+ ME_538DB69000E7_ME_538DB527006C_impl // ReadStream
+ ME_538DB78C01B0_ME_538DB527006C_impl // ReadInteger
+ ME_538DB7A4016D_ME_538DB527006C_impl // ReadSmallInt
+ ME_538DB7E00144_ME_538DB527006C_impl // WriteLn
+ ME_538DB804015E_ME_538DB527006C_impl // WriteCardinal
+ ME_538DB83B021B_ME_538DB527006C_impl // WriteInt64
+ ME_538DB86700DB_ME_538DB527006C_impl // WriteStream
+ ME_538DB8970317_ME_538DB527006C_impl // WriteChar
+ ME_538DB8BA00D1_ME_538DB527006C_impl // WriteSmallInt
+ ME_538DB8DF029E_ME_538DB527006C_impl // WriteInteger
+ ME_538DB9070097_ME_538DB527006C_impl // WriteDateTime
+ ME_538DB93002B5_ME_538DB527006C_impl // Connected
+ ME_538DB9810192_ME_538DB527006C_impl // WriteFile
+ ME_538DB9C40271_ME_538DB527006C_impl // WriteBufferOpen
+ ME_538DB9F30058_ME_538DB527006C_impl // WriteBufferClose
+ ME_538DBA0B009F_ME_538DB527006C_impl // WriteBufferClear
+ ME_54536C8F036B_ME_538DB527006C_impl // WaitForReadData
+ ME_5476EDF200B5_ME_538DB527006C_impl // InputBufferClear
+ ME_54F5C07302CC_ME_538DB527006C_impl // WriteLargeStr
+ ME_54F5C09C0302_ME_538DB527006C_impl // ReadLargeStr
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_538DB527006C_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_538DBE130279 // TIdBytes
+ ME_538DBE180163 // l3Base
+ ME_54F5CDE200F4 // TStream
+ ME_54F5CE27023C // Tl3ConstMemoryStream
+ ME_54F5D20D0388 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'csIdIOHandlerAdapter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'csIdIOHandlerAdapter'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csIdIOHandlerAdapter.pas'
+
+ENDME // ME_538DB527006C TcsIdIOHandlerAdapter

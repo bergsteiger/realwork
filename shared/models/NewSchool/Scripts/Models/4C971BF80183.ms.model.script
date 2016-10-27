@@ -1,0 +1,181 @@
+// RTFReaderTest 4C971BF80183 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C971BF80183
+
+FORWARD ME_4C971C6C0182
+
+FORWARD ME_4C971C7B008B
+
+ME ME_4C971C8400AD
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4C971C8400AD aFileName
+
+ME ME_4C971C7B008B
+ MEPROP UID '4C971C7B008B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C971C6C0182 // RTFtoEVD
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C971C8400AD // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_4C971C7B008B DoIt
+
+ME ME_4C971E400046
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C971C6C0182 // RTFtoEVD
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4C971E400046 
+
+ME ME_4C971F590233
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C971C6C0182 // RTFtoEVD
+ ;
+ MELINK Target WL? 'ME_4C971BD4031B' // TddRTFReader
+ ;
+
+ENDME // ME_4C971F590233 
+
+ME ME_4C971C6C0182
+ MEPROP UID '4C971C6C0182'
+ MEPROP Name 'RTFtoEVD'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C971BF80183 // RTFReaderTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C971C7B008B // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C971E400046 // FreeAndNil
+ ME_4C971F590233 // TddRTFReader
+ )
+ ; // Dependencies
+
+ENDME // ME_4C971C6C0182 RTFtoEVD
+
+FORWARD ME_4D5BE2F500AD
+
+ME ME_4D5BE31100FF
+ MEPROP UID '4D5BE31100FF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5BE2F500AD // GetEnablePictures
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D5BE31100FF DoIt
+
+ME ME_4D5BE2F500AD
+ MEPROP UID '4D5BE2F500AD'
+ MEPROP Name 'GetEnablePictures'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C971BF80183 // RTFReaderTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D5BE31100FF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D5BE2F500AD GetEnablePictures
+
+FORWARD ME_56A9C9CE021D
+
+ME ME_56A9C9EB029A
+ MEPROP UID '56A9C9EB029A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56A9C9CE021D // GetEnableReadURL
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_56A9C9EB029A DoIt
+
+ME ME_56A9C9CE021D
+ MEPROP UID '56A9C9CE021D'
+ MEPROP Name 'GetEnableReadURL'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C971BF80183 // RTFReaderTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56A9C9EB029A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56A9C9CE021D GetEnableReadURL
+
+MEREF ME_4BACDDB500CE_ME_4C971BF80183_G
+ MELINK Original WL? 'ME_4BACDDB500CE' // WriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BACDDB500CE_ME_4C971BF80183_G WriterTest
+
+%%InheritedBy ME_4BACDDB500CE ME_4C971BF80183
+
+ME ME_4C971BF80183
+ MEPROP UID '4C971BF80183'
+ MEPROP Name 'RTFReaderTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4BACDED003CE' // RTF
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BACDDB500CE_ME_4C971BF80183_G // WriterTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C971C6C0182 // RTFtoEVD
+ HWL ME_4D5BE2F500AD // GetEnablePictures
+ HWL ME_56A9C9CE021D // GetEnableReadURL
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '20.09.2010 12:32'
+ UP extprop:pas:TypeName 'TRTFReaderTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RTFReaderTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\RTFReaderTest.pas'
+
+ENDME // ME_4C971BF80183 RTFReaderTest

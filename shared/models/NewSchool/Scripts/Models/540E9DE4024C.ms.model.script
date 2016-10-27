@@ -1,0 +1,62 @@
+// TnsHAFPainterPrim 540E9DE4024C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_540E9DE4024C
+
+ME ME_540E9EDF02E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_540E9DE4024C // TnsHAFPainterPrim
+ ;
+ MELINK Target WL? 'ME_53EDD46F03D2' // nsAppTitleData
+ ;
+
+ENDME // ME_540E9EDF02E7 
+
+MEREF ME_53EDC0B8024A_ME_540E9DE4024C_over
+ MELINK Original WL 'ME_53EDC0B8024A' '4C22137E025C.ms.model.script' // GetAppTitle
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53EDC0B8024A_ME_540E9DE4024C_over GetAppTitle
+
+MEREF ME_47F352A30004_ME_540E9DE4024C_G
+ MELINK Original WL 'ME_47F352A30004' '4C22137E025C.ms.model.script' // TevHAFPainterEx
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F352A30004_ME_540E9DE4024C_G TevHAFPainterEx
+
+%%InheritedBy ME_47F352A30004 ME_540E9DE4024C
+
+ME ME_540E9DE4024C
+ MEPROP UID '540E9DE4024C'
+ MEPROP Name 'TnsHAFPainterPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_491DCA2C00A9' // Search
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47F352A30004_ME_540E9DE4024C_G // TevHAFPainterEx
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_53EDC0B8024A_ME_540E9DE4024C_over // GetAppTitle
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_540E9EDF02E7 // nsAppTitleData
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nsHAFPainterPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HAFPainterPrim'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\nsHAFPainterPrim.pas'
+
+ENDME // ME_540E9DE4024C TnsHAFPainterPrim

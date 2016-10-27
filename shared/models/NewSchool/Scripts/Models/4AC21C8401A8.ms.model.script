@@ -1,0 +1,179 @@
+// TnsPrimeNode 4AC21C8401A8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC21C8401A8
+
+ME ME_4ADF2CE501B2
+ MEPROP UID '4ADF2CE501B2'
+ MEPROP Name 'f_Prime'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC21C8401A8 // TnsPrimeNode
+ ;
+ MELINK Target WL 'ME_47BECCE501B5' '47BECCB801BE.ms.model.script' // Prime
+ ;
+
+ENDME // ME_4ADF2CE501B2 f_Prime
+
+FORWARD ME_4ADF2D5D01FC
+
+ME ME_4ADF2D630290
+ MEPROP Name 'aPrime'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BECCE501B5' '47BECCB801BE.ms.model.script' // Prime
+ ;
+
+ENDME // ME_4ADF2D630290 aPrime
+
+ME ME_4ADF2D5D01FC
+ MEPROP UID '4ADF2D5D01FC'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC21C8401A8 // TnsPrimeNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ADF2D630290 // aPrime
+ )
+ ; // Parameters
+
+ENDME // ME_4ADF2D5D01FC Create
+
+FORWARD ME_4ADF2D6A03E3
+
+ME ME_4ADF2D700115
+ MEPROP Name 'aPrime'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BECCE501B5' '47BECCB801BE.ms.model.script' // Prime
+ ;
+
+ENDME // ME_4ADF2D700115 aPrime
+
+ME ME_4ADF2D6A03E3
+ MEPROP UID '4ADF2D6A03E3'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC21C8401A8 // TnsPrimeNode
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ADF2D700115 // aPrime
+ )
+ ; // Parameters
+
+ENDME // ME_4ADF2D6A03E3 Make
+
+ME ME_4ADF2E8A00A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC21C8401A8 // TnsPrimeNode
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4ADF2E8A00A0 
+
+ME ME_4ADF2F0A0024
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC21C8401A8 // TnsPrimeNode
+ ;
+ MELINK Target WL 'ME_4ADEE542029C' '4A6854C70390.ms.model.script' // nsWStr
+ ;
+
+ENDME // ME_4ADF2F0A0024 
+
+MEREF ME_499032D40064_ME_4AC21C8401A8_impl
+ MELINK Original WL 'ME_499032D40064' '4ADF3FBB00C3.ms.model.script' // Data
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_499032D40064_ME_4AC21C8401A8_impl Data
+
+MEREF ME_479731C50290_ME_4AC21C8401A8_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4AC21C8401A8_over Cleanup
+
+MEREF ME_4AC230590004_ME_4AC21C8401A8_G
+ MELINK Original WL? 'ME_4AC230590004' // TnsWrapperNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AC230590004_ME_4AC21C8401A8_G TnsWrapperNode
+
+MEREF ME_499032AE00A0_ME_4AC21C8401A8_R
+ MELINK Original WL 'ME_499032AE00A0' '4ADF3FBB00C3.ms.model.script' // InsPrimeNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_499032AE00A0_ME_4AC21C8401A8_R InsPrimeNode
+
+%%ImplementedBy ME_499032AE00A0 ME_4AC21C8401A8
+
+%%InheritedBy ME_4AC230590004 ME_4AC21C8401A8
+
+ME ME_4AC21C8401A8
+ MEPROP UID '4AC21C8401A8'
+ MEPROP Name 'TnsPrimeNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5267C3880201' // Search
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AC230590004_ME_4AC21C8401A8_G // TnsWrapperNode
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_499032AE00A0_ME_4AC21C8401A8_R // InsPrimeNode
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4ADF2CE501B2 // f_Prime
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4ADF2D5D01FC // Create
+ HWL ME_4ADF2D6A03E3 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_499032D40064_ME_4AC21C8401A8_impl // Data
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4AC21C8401A8_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4ADF2E8A00A0 // String
+ ME_4ADF2F0A0024 // nsWStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "ifndef" 'Admin'
+ UP "no hands" True
+ UP "started" '21.10.2009 19:48'
+ UP extprop:pas:UnitName 'nsPrimeNode'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimeNode'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsPrimeNode.pas'
+
+ENDME // ME_4AC21C8401A8 TnsPrimeNode

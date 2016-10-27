@@ -1,0 +1,744 @@
+// TnevShapesPainted 4811DA3100E6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B8682720286
+%%Inner ME_4B8682990059
+%%Inner ME_4B8682A400EA
+%%Inner ME_4B8682B00020
+%%Inner ME_4B8682BC023B
+%%Inner ME_4B8682CD006F
+%%Inner ME_4B8682D80337
+%%Inner ME_4B8682E7031A
+%%Inner ME_4E6E1B64005B
+%%Inner ME_4B8682F7027C
+%%Inner ME_4B8683050322
+
+FORWARD ME_4811DA3100E6
+
+FORWARD ME_4B8682720286
+
+FORWARD ME_4E6E1AFF0229
+
+FORWARD ME_4E6E1B1701D2
+
+ME ME_4E6E1B3101A1
+ MEPROP Name 'aShape'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_4E6E1B3101A1 aShape
+
+ME ME_4E6E1B3101D5
+ MEPROP Name 'aTopLeft'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C59DE803AD' '4678209200A6.ms.model.script' // TnevPoint
+ ;
+
+ENDME // ME_4E6E1B3101D5 aTopLeft
+
+ME ME_4E6E1B310219
+ MEPROP Name 'MakeVisible'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E6E1B310219 MakeVisible
+
+ME ME_4E6E1B31023E
+ MEPROP Name 'aHacker'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CAF443F0351' '47C5207602D1.ms.model.script' // InevK235870994Hacker
+ ;
+
+ENDME // ME_4E6E1B31023E aHacker
+
+ME ME_4E6E1B1701D2
+ MEPROP UID '4E6E1B1701D2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E6E1AFF0229 // AddShape
+ ;
+ MELINK Target HWL ME_4B8682720286 // TnevShape
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E6E1B3101A1 // aShape
+ ME_4E6E1B3101D5 // aTopLeft
+ ME_4E6E1B310219 // MakeVisible
+ ME_4E6E1B31023E // aHacker
+ )
+ ; // Parameters
+
+ENDME // ME_4E6E1B1701D2 DoIt
+
+ME ME_4E6E1AFF0229
+ MEPROP UID '4E6E1AFF0229'
+ MEPROP Name 'AddShape'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B8682720286 // TnevShape
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E6E1B1701D2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E6E1AFF0229 AddShape
+
+MEREF ME_473DA7280074_ME_4B8682720286_impl
+ MELINK Original WL 'ME_473DA7280074' '467823B7002C.ms.model.script' // Bounds
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_473DA7280074_ME_4B8682720286_impl Bounds
+
+MEREF ME_473DA73100A9_ME_4B8682720286_impl
+ MELINK Original WL 'ME_473DA73100A9' '467823B7002C.ms.model.script' // Outer
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_473DA73100A9_ME_4B8682720286_impl Outer
+
+MEREF ME_47C5B88F0025_ME_4B8682720286_impl
+ MELINK Original WL 'ME_47C5B88F0025' '47C5207602D1.ms.model.script' // rVisible
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C5B88F0025_ME_4B8682720286_impl rVisible
+
+MEREF ME_47C5B91302DA_ME_4B8682720286_impl
+ MELINK Original WL 'ME_47C5B91302DA' '47C5207602D1.ms.model.script' // SetDrawnBottom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C5B91302DA_ME_4B8682720286_impl SetDrawnBottom
+
+MEREF ME_47C5B9400335_ME_4B8682720286_impl
+ MELINK Original WL 'ME_47C5B9400335' '47C5207602D1.ms.model.script' // ReserveMap
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C5B9400335_ME_4B8682720286_impl ReserveMap
+
+MEREF ME_47C5B9560375_ME_4B8682720286_impl
+ MELINK Original WL 'ME_47C5B9560375' '47C5207602D1.ms.model.script' // IsLinked
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C5B9560375_ME_4B8682720286_impl IsLinked
+
+MEREF ME_47C5B9620340_ME_4B8682720286_impl
+ MELINK Original WL 'ME_47C5B9620340' '47C5207602D1.ms.model.script' // AdjustTopByAnchor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C5B9620340_ME_4B8682720286_impl AdjustTopByAnchor
+
+MEREF ME_4810CE6103D1_ME_4B8682720286_impl
+ MELINK Original WL 'ME_4810CE6103D1' '47C5207602D1.ms.model.script' // CheckFormatInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4810CE6103D1_ME_4B8682720286_impl CheckFormatInfo
+
+MEREF ME_48174E4500E6_ME_4B8682720286_impl
+ MELINK Original WL 'ME_48174E4500E6' '47C5207602D1.ms.model.script' // ClearBounds
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48174E4500E6_ME_4B8682720286_impl ClearBounds
+
+MEREF ME_4A5B2B6C038C_ME_4B8682720286_impl
+ MELINK Original WL 'ME_4A5B2B6C038C' '47C5207602D1.ms.model.script' // FI
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4A5B2B6C038C_ME_4B8682720286_impl FI
+
+MEREF ME_4CF78985037E_ME_4B8682720286_impl
+ MELINK Original WL 'ME_4CF78985037E' '47C5207602D1.ms.model.script' // GetMaxTop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CF78985037E_ME_4B8682720286_impl GetMaxTop
+
+MEREF ME_4E6E23810369_ME_4B8682720286_impl
+ MELINK Original WL 'ME_4E6E23810369' '4B8693630365.ms.model.script' // CleanupRefs
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4E6E23810369_ME_4B8682720286_impl CleanupRefs
+
+MEREF ME_4FF57E82039F_ME_4B8682720286_impl
+ MELINK Original WL 'ME_4FF57E82039F' '47C5207602D1.ms.model.script' // GetChildMap
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4FF57E82039F_ME_4B8682720286_impl GetChildMap
+
+MEREF ME_50CEEE740139_ME_4B8682720286_impl
+ MELINK Original WL 'ME_50CEEE740139' '47C5207602D1.ms.model.script' // SetDrawnTop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_50CEEE740139_ME_4B8682720286_impl SetDrawnTop
+
+MEREF ME_52AA973C0380_ME_4B8682720286_impl
+ MELINK Original WL 'ME_52AA973C0380' '47C5207602D1.ms.model.script' // GetChildenRight4Fill
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52AA973C0380_ME_4B8682720286_impl GetChildenRight4Fill
+
+MEREF ME_52FC8C1C00D9_ME_4B8682720286_impl
+ MELINK Original WL 'ME_52FC8C1C00D9' '47C5207602D1.ms.model.script' // IsMapValid
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52FC8C1C00D9_ME_4B8682720286_impl IsMapValid
+
+MEREF ME_4B8693630365_ME_4B8682720286_G
+ MELINK Original WL? 'ME_4B8693630365' // TnevShapePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B8693630365_ME_4B8682720286_G TnevShapePrim
+
+MEREF ME_47C5B63D033A_ME_4B8682720286_R
+ MELINK Original WL 'ME_47C5B63D033A' '47C5207602D1.ms.model.script' // InevMap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C5B63D033A_ME_4B8682720286_R InevMap
+
+%%ImplementedBy ME_47C5B63D033A ME_4B8682720286
+
+%%InheritedBy ME_4B8693630365 ME_4B8682720286
+
+ME ME_4B8682720286
+ MEPROP UID '4B8682720286'
+ MEPROP Name 'TnevShape'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4811DA3100E6 // TnevShapesPainted
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B8693630365_ME_4B8682720286_G // TnevShapePrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47C5B63D033A_ME_4B8682720286_R // InevMap
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4E6E1AFF0229 // AddShape
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_473DA7280074_ME_4B8682720286_impl // Bounds
+ ME_473DA73100A9_ME_4B8682720286_impl // Outer
+ ME_47C5B88F0025_ME_4B8682720286_impl // rVisible
+ ME_47C5B91302DA_ME_4B8682720286_impl // SetDrawnBottom
+ ME_47C5B9400335_ME_4B8682720286_impl // ReserveMap
+ ME_47C5B9560375_ME_4B8682720286_impl // IsLinked
+ ME_47C5B9620340_ME_4B8682720286_impl // AdjustTopByAnchor
+ ME_4810CE6103D1_ME_4B8682720286_impl // CheckFormatInfo
+ ME_48174E4500E6_ME_4B8682720286_impl // ClearBounds
+ ME_4A5B2B6C038C_ME_4B8682720286_impl // FI
+ ME_4CF78985037E_ME_4B8682720286_impl // GetMaxTop
+ ME_4E6E23810369_ME_4B8682720286_impl // CleanupRefs
+ ME_4FF57E82039F_ME_4B8682720286_impl // GetChildMap
+ ME_50CEEE740139_ME_4B8682720286_impl // SetDrawnTop
+ ME_52AA973C0380_ME_4B8682720286_impl // GetChildenRight4Fill
+ ME_52FC8C1C00D9_ME_4B8682720286_impl // IsMapValid
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Shape'
+
+ENDME // ME_4B8682720286 TnevShape
+
+MEREF ME_4E6E1AFF0229_ME_4B8682990059_impl
+ MELINK Original HWL ME_4E6E1AFF0229 // AddShape
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4E6E1AFF0229_ME_4B8682990059_impl AddShape
+
+MEREF ME_4B8682720286_ME_4B8682990059_G
+ MELINK Original HWL ME_4B8682720286 // TnevShape
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B8682720286_ME_4B8682990059_G TnevShape
+
+%%InheritedBy ME_4B8682720286 ME_4B8682990059
+
+ME ME_4B8682990059
+ MEPROP UID '4B8682990059'
+ MEPROP Name 'TnevLeafShape'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4811DA3100E6 // TnevShapesPainted
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B8682720286_ME_4B8682990059_G // TnevShape
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4E6E1AFF0229_ME_4B8682990059_impl // AddShape
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LeafShape'
+
+ENDME // ME_4B8682990059 TnevLeafShape
+
+MEREF ME_4B8682990059_ME_4B8682A400EA_G
+ MELINK Original HWL ME_4B8682990059 // TnevLeafShape
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B8682990059_ME_4B8682A400EA_G TnevLeafShape
+
+%%InheritedBy ME_4B8682990059 ME_4B8682A400EA
+
+ME ME_4B8682A400EA
+ MEPROP UID '4B8682A400EA'
+ MEPROP Name 'TnevTextParaShape'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4811DA3100E6 // TnevShapesPainted
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B8682990059_ME_4B8682A400EA_G // TnevLeafShape
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextParaShape'
+
+ENDME // ME_4B8682A400EA TnevTextParaShape
+
+MEREF ME_4E6E1AFF0229_ME_4B8682B00020_impl
+ MELINK Original HWL ME_4E6E1AFF0229 // AddShape
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4E6E1AFF0229_ME_4B8682B00020_impl AddShape
+
+MEREF ME_4B8682720286_ME_4B8682B00020_G
+ MELINK Original HWL ME_4B8682720286 // TnevShape
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B8682720286_ME_4B8682B00020_G TnevShape
+
+%%InheritedBy ME_4B8682720286 ME_4B8682B00020
+
+ME ME_4B8682B00020
+ MEPROP UID '4B8682B00020'
+ MEPROP Name 'TnevBaseTopShape'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4811DA3100E6 // TnevShapesPainted
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B8682720286_ME_4B8682B00020_G // TnevShape
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4E6E1AFF0229_ME_4B8682B00020_impl // AddShape
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BaseTopShape'
+
+ENDME // ME_4B8682B00020 TnevBaseTopShape
+
+MEREF ME_4B8682B00020_ME_4B8682BC023B_G
+ MELINK Original HWL ME_4B8682B00020 // TnevBaseTopShape
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B8682B00020_ME_4B8682BC023B_G TnevBaseTopShape
+
+%%InheritedBy ME_4B8682B00020 ME_4B8682BC023B
+
+ME ME_4B8682BC023B
+ MEPROP UID '4B8682BC023B'
+ MEPROP Name 'TnevListShape'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4811DA3100E6 // TnevShapesPainted
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B8682B00020_ME_4B8682BC023B_G // TnevBaseTopShape
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ListShape'
+
+ENDME // ME_4B8682BC023B TnevListShape
+
+MEREF ME_4B8682BC023B_ME_4B8682CD006F_G
+ MELINK Original HWL ME_4B8682BC023B // TnevListShape
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B8682BC023B_ME_4B8682CD006F_G TnevListShape
+
+%%InheritedBy ME_4B8682BC023B ME_4B8682CD006F
+
+ME ME_4B8682CD006F
+ MEPROP UID '4B8682CD006F'
+ MEPROP Name 'TnevLinesStoredListShape'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4811DA3100E6 // TnevShapesPainted
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B8682BC023B_ME_4B8682CD006F_G // TnevListShape
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LinesStoredListShape'
+
+ENDME // ME_4B8682CD006F TnevLinesStoredListShape
+
+MEREF ME_4B8682BC023B_ME_4B8682D80337_G
+ MELINK Original HWL ME_4B8682BC023B // TnevListShape
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B8682BC023B_ME_4B8682D80337_G TnevListShape
+
+%%InheritedBy ME_4B8682BC023B ME_4B8682D80337
+
+ME ME_4B8682D80337
+ MEPROP UID '4B8682D80337'
+ MEPROP Name 'TnevHorzListShape'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4811DA3100E6 // TnevShapesPainted
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B8682BC023B_ME_4B8682D80337_G // TnevListShape
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HorzListShape'
+
+ENDME // ME_4B8682D80337 TnevHorzListShape
+
+MEREF ME_4B8682D80337_ME_4B8682E7031A_G
+ MELINK Original HWL ME_4B8682D80337 // TnevHorzListShape
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B8682D80337_ME_4B8682E7031A_G TnevHorzListShape
+
+%%InheritedBy ME_4B8682D80337 ME_4B8682E7031A
+
+ME ME_4B8682E7031A
+ MEPROP UID '4B8682E7031A'
+ MEPROP Name 'TnevRowShape'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4811DA3100E6 // TnevShapesPainted
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B8682D80337_ME_4B8682E7031A_G // TnevHorzListShape
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RowShape'
+
+ENDME // ME_4B8682E7031A TnevRowShape
+
+FORWARD ME_4E6E1B64005B
+
+ME ME_4E6E1EEE0208
+ MEPROP UID '4E6E1EEE0208'
+ MEPROP Name 'f_DecorShapes'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E6E1B64005B // TnevDocumentShape
+ ;
+ MELINK Target WL? 'ME_4E6E1EB1013F' // TnevShapePrimRefList
+ ;
+
+ENDME // ME_4E6E1EEE0208 f_DecorShapes
+
+MEREF ME_4B8682BC023B_ME_4E6E1B64005B_G
+ MELINK Original HWL ME_4B8682BC023B // TnevListShape
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B8682BC023B_ME_4E6E1B64005B_G TnevListShape
+
+%%InheritedBy ME_4B8682BC023B ME_4E6E1B64005B
+
+ME ME_4E6E1B64005B
+ MEPROP UID '4E6E1B64005B'
+ MEPROP Name 'TnevDocumentShape'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4811DA3100E6 // TnevShapesPainted
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B8682BC023B_ME_4E6E1B64005B_G // TnevListShape
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4E6E1EEE0208 // f_DecorShapes
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentShape'
+
+ENDME // ME_4E6E1B64005B TnevDocumentShape
+
+MEREF ME_4E6E1B64005B_ME_4B8682F7027C_G
+ MELINK Original HWL ME_4E6E1B64005B // TnevDocumentShape
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E6E1B64005B_ME_4B8682F7027C_G TnevDocumentShape
+
+%%InheritedBy ME_4E6E1B64005B ME_4B8682F7027C
+
+ME ME_4B8682F7027C
+ MEPROP UID '4B8682F7027C'
+ MEPROP Name 'TnevTopShape'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4811DA3100E6 // TnevShapesPainted
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E6E1B64005B_ME_4B8682F7027C_G // TnevDocumentShape
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TopShape'
+
+ENDME // ME_4B8682F7027C TnevTopShape
+
+MEREF ME_4B8682F7027C_ME_4B8683050322_G
+ MELINK Original HWL ME_4B8682F7027C // TnevTopShape
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B8682F7027C_ME_4B8683050322_G TnevTopShape
+
+%%InheritedBy ME_4B8682F7027C ME_4B8683050322
+
+ME ME_4B8683050322
+ MEPROP UID '4B8683050322'
+ MEPROP Name 'TnevHorzTopShape'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4811DA3100E6 // TnevShapesPainted
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B8682F7027C_ME_4B8683050322_G // TnevTopShape
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HorzTopShape'
+
+ENDME // ME_4B8683050322 TnevHorzTopShape
+
+ME ME_4CA5CC88004B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4811DA3100E6 // TnevShapesPainted
+ ;
+ MELINK Target WL? 'ME_4CA5CC2C03CF' // TnevShapesPaintedSpy
+ ;
+
+ENDME // ME_4CA5CC88004B 
+
+MEREF ME_47C7D2480162_ME_4811DA3100E6_impl
+ MELINK Original WL 'ME_47C7D2480162' '47C5207602D1.ms.model.script' // Root
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C7D2480162_ME_4811DA3100E6_impl Root
+
+MEREF ME_47C7D34701A6_ME_4811DA3100E6_impl
+ MELINK Original WL 'ME_47C7D34701A6' '47C5207602D1.ms.model.script' // PointByPt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C7D34701A6_ME_4811DA3100E6_impl PointByPt
+
+MEREF ME_47C7D36502E0_ME_4811DA3100E6_impl
+ MELINK Original WL 'ME_47C7D36502E0' '47C5207602D1.ms.model.script' // MapByPoint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C7D36502E0_ME_4811DA3100E6_impl MapByPoint
+
+MEREF ME_47C7D373009C_ME_4811DA3100E6_impl
+ MELINK Original WL 'ME_47C7D373009C' '47C5207602D1.ms.model.script' // Empty
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C7D373009C_ME_4811DA3100E6_impl Empty
+
+MEREF ME_47C7D37F0287_ME_4811DA3100E6_impl
+ MELINK Original WL 'ME_47C7D37F0287' '47C5207602D1.ms.model.script' // SubShapesCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C7D37F0287_ME_4811DA3100E6_impl SubShapesCount
+
+MEREF ME_47C7D38B00E5_ME_4811DA3100E6_impl
+ MELINK Original WL 'ME_47C7D38B00E5' '47C5207602D1.ms.model.script' // SetSingle
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C7D38B00E5_ME_4811DA3100E6_impl SetSingle
+
+MEREF ME_47C7D3CC02CA_ME_4811DA3100E6_impl
+ MELINK Original WL 'ME_47C7D3CC02CA' '47C5207602D1.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C7D3CC02CA_ME_4811DA3100E6_impl Clear
+
+MEREF ME_47C7D3DB013C_ME_4811DA3100E6_impl
+ MELINK Original WL 'ME_47C7D3DB013C' '47C5207602D1.ms.model.script' // ClearEx
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C7D3DB013C_ME_4811DA3100E6_impl ClearEx
+
+MEREF ME_47C7D3FC031E_ME_4811DA3100E6_impl
+ MELINK Original WL 'ME_47C7D3FC031E' '47C5207602D1.ms.model.script' // BeginDraw
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C7D3FC031E_ME_4811DA3100E6_impl BeginDraw
+
+MEREF ME_47C7D418021D_ME_4811DA3100E6_impl
+ MELINK Original WL 'ME_47C7D418021D' '47C5207602D1.ms.model.script' // EndDraw
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C7D418021D_ME_4811DA3100E6_impl EndDraw
+
+MEREF ME_47C7D425024C_ME_4811DA3100E6_impl
+ MELINK Original WL 'ME_47C7D425024C' '47C5207602D1.ms.model.script' // MaxWidth
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C7D425024C_ME_4811DA3100E6_impl MaxWidth
+
+MEREF ME_47C7D87400C8_ME_4811DA3100E6_impl
+ MELINK Original WL 'ME_47C7D87400C8' '47C5207602D1.ms.model.script' // VertScroll
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C7D87400C8_ME_4811DA3100E6_impl VertScroll
+
+MEREF ME_47C7D8910243_ME_4811DA3100E6_impl
+ MELINK Original WL 'ME_47C7D8910243' '47C5207602D1.ms.model.script' // HorzScroll
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C7D8910243_ME_4811DA3100E6_impl HorzScroll
+
+MEREF ME_46780E690001_ME_4811DA3100E6_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_4811DA3100E6_G Tl3CacheableBase
+
+MEREF ME_47C7D20C0128_ME_4811DA3100E6_R
+ MELINK Original WL 'ME_47C7D20C0128' '47C5207602D1.ms.model.script' // InevShapesPainted
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C7D20C0128_ME_4811DA3100E6_R InevShapesPainted
+
+%%ImplementedBy ME_47C7D20C0128 ME_4811DA3100E6
+
+%%InheritedBy ME_46780E690001 ME_4811DA3100E6
+
+ME ME_4811DA3100E6
+ MEPROP UID '4811DA3100E6'
+ MEPROP Name 'TnevShapesPainted'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Коллекция отрисованных параграфов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4811D4EC0237' // Views
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46780E690001_ME_4811DA3100E6_G // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47C7D20C0128_ME_4811DA3100E6_R // InevShapesPainted
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_47C7D2480162_ME_4811DA3100E6_impl // Root
+ ME_47C7D34701A6_ME_4811DA3100E6_impl // PointByPt
+ ME_47C7D36502E0_ME_4811DA3100E6_impl // MapByPoint
+ ME_47C7D373009C_ME_4811DA3100E6_impl // Empty
+ ME_47C7D37F0287_ME_4811DA3100E6_impl // SubShapesCount
+ ME_47C7D38B00E5_ME_4811DA3100E6_impl // SetSingle
+ ME_47C7D3CC02CA_ME_4811DA3100E6_impl // Clear
+ ME_47C7D3DB013C_ME_4811DA3100E6_impl // ClearEx
+ ME_47C7D3FC031E_ME_4811DA3100E6_impl // BeginDraw
+ ME_47C7D418021D_ME_4811DA3100E6_impl // EndDraw
+ ME_47C7D425024C_ME_4811DA3100E6_impl // MaxWidth
+ ME_47C7D87400C8_ME_4811DA3100E6_impl // VertScroll
+ ME_47C7D8910243_ME_4811DA3100E6_impl // HorzScroll
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4B8682720286 // TnevShape
+ HWL ME_4B8682990059 // TnevLeafShape
+ HWL ME_4B8682A400EA // TnevTextParaShape
+ HWL ME_4B8682B00020 // TnevBaseTopShape
+ HWL ME_4B8682BC023B // TnevListShape
+ HWL ME_4B8682CD006F // TnevLinesStoredListShape
+ HWL ME_4B8682D80337 // TnevHorzListShape
+ HWL ME_4B8682E7031A // TnevRowShape
+ HWL ME_4E6E1B64005B // TnevDocumentShape
+ HWL ME_4B8682F7027C // TnevTopShape
+ HWL ME_4B8683050322 // TnevHorzTopShape
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4CA5CC88004B // TnevShapesPaintedSpy
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А.'
+ UP "finished" False
+ UP "started" '29.06.2005 16:51'
+ UP extprop:pas:UnitName 'nevShapesPainted'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ShapesPainted'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_nevShapesPainted.pas'
+
+ENDME // ME_4811DA3100E6 TnevShapesPainted

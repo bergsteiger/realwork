@@ -98,7 +98,7 @@ ENDME // ME_503DFE3D024E DoIt
 ME ME_503DFE350045
  MEPROP UID '503DFE350045'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -112,11 +112,17 @@ ME ME_503DFE350045
 
 ENDME // ME_503DFE350045 Create
 
-ME ME_479731C50290_ME_503DEB310216
+MEREF ME_479731C50290_ME_503DEB310216_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_503DEB310216 Cleanup
+ENDMEREF // ME_479731C50290_ME_503DEB310216_over Cleanup
+
+MEREF ME_49E7754802A9_ME_503DEB310216_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_503DEB310216_G Tl3ProtoObject
 
 %%InheritedBy ME_49E7754802A9 ME_503DEB310216
 
@@ -131,7 +137,7 @@ ME ME_503DEB310216
  MELINK Parent HWL ME_4E15A08E030D // TnscStatusBar
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_503DEB310216_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Attributes
@@ -145,7 +151,7 @@ ME ME_503DEB310216
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_503DEB310216 // Cleanup
+   Seq: ( ME_479731C50290_ME_503DEB310216_over // Cleanup
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames
@@ -155,6 +161,18 @@ ME ME_503DEB310216
  UP extprop:rc:SelfName 'OperationInternalDef'
 
 ENDME // ME_503DEB310216 TOperationInternalDef
+
+MEREF ME_5028DD12007F_ME_503DE730029F_G
+ MELINK Original WL 'ME_5028DD12007F' '502889FF0054.ms.model.script' // TDock97
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5028DD12007F_ME_503DE730029F_G TDock97
+
+MEREF ME_47D67714034A_ME_503DE730029F_R
+ MELINK Original WL 'ME_47D67714034A' '467823B7002C.ms.model.script' // IafwAlwaysOnTopControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47D67714034A_ME_503DE730029F_R IafwAlwaysOnTopControl
 
 %%ImplementedBy ME_47D67714034A ME_503DE730029F
 
@@ -171,11 +189,11 @@ ME ME_503DE730029F
  MELINK Parent HWL ME_4E15A08E030D // TnscStatusBar
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_5028DD12007F' '502889FF0054.ms.model.script' // TDock97
+   Seq: ( HWL ME_5028DD12007F_ME_503DE730029F_G // TDock97
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_47D67714034A' '467823B7002C.ms.model.script' // IafwAlwaysOnTopControl
+   Seq: ( HWL ME_47D67714034A_ME_503DE730029F_R // IafwAlwaysOnTopControl
  )
  ; // Implements
  MESTRINGLIST DiagramsNames
@@ -251,7 +269,7 @@ ME ME_503DE94F01AC
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4E15A08E030D // TnscStatusBar
  ;
- MELINK Target WL 'ME_4CE521C80107' '4A6D65B9022A.ms.model.script' // Tl3ProtoObjectRefList
+ MELINK Target WL? 'ME_4CE521C80107' // Tl3ProtoObjectRefList
  ;
 
 ENDME // ME_503DE94F01AC f_OperationsList
@@ -316,7 +334,7 @@ ENDME // ME_505C55130356 f_GroupIndex
 ME ME_503DE99801D3
  MEPROP UID '503DE99801D3'
  MEPROP Name 'SetLink'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -329,7 +347,7 @@ ENDME // ME_503DE99801D3 SetLink
 ME ME_503DE9AA03AD
  MEPROP UID '503DE9AA03AD'
  MEPROP Name 'ReleaseLink'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -390,7 +408,7 @@ ENDME // ME_503DE9CF0309 DoIt
 ME ME_503DE9C60211
  MEPROP UID '503DE9C60211'
  MEPROP Name 'DoUpdateStrings'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -404,12 +422,18 @@ ME ME_503DE9C60211
 
 ENDME // ME_503DE9C60211 DoUpdateStrings
 
+MEREF ME_47881B22005A_ME_503DEA120182_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_503DEA120182_G TNotifyEvent
+
 %%InheritedBy ME_47881B22005A ME_503DEA120182
 
 ME ME_503DEA120182
  MEPROP UID '503DEA120182'
  MEPROP Name 'TimerProc'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -417,7 +441,7 @@ ME ME_503DEA120182
  MELINK Parent HWL ME_4E15A08E030D // TnscStatusBar
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_503DEA120182_G // TNotifyEvent
  )
  ; // Inherits
 
@@ -426,7 +450,7 @@ ENDME // ME_503DEA120182 TimerProc
 ME ME_5049B3BE0205
  MEPROP UID '5049B3BE0205'
  MEPROP Name 'FireUpUpdateStringsTimer'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -436,12 +460,18 @@ ME ME_5049B3BE0205
 
 ENDME // ME_5049B3BE0205 FireUpUpdateStringsTimer
 
+MEREF ME_47881B22005A_ME_5049B3DB0227_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5049B3DB0227_G TNotifyEvent
+
 %%InheritedBy ME_47881B22005A ME_5049B3DB0227
 
 ME ME_5049B3DB0227
  MEPROP UID '5049B3DB0227'
  MEPROP Name 'UpdateStringsTimerProc'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -449,7 +479,7 @@ ME ME_5049B3DB0227
  MELINK Parent HWL ME_4E15A08E030D // TnscStatusBar
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5049B3DB0227_G // TNotifyEvent
  )
  ; // Inherits
 
@@ -473,7 +503,7 @@ ENDME // ME_504F30F40351 DoIt
 ME ME_504F30D900F7
  MEPROP UID '504F30D900F7'
  MEPROP Name 'AllVisiblePanelsText'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -490,7 +520,7 @@ ENDME // ME_504F30D900F7 AllVisiblePanelsText
 ME ME_575516E4010D
  MEPROP UID '575516E4010D'
  MEPROP Name 'InitPanels'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -581,7 +611,7 @@ ME ME_503DFA0D0169
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E15A08E030D // TnscStatusBar
  ;
- MELINK Target WL 'ME_502CD8FA02E1' '5028898902A2.ms.model.script' // Ttb97GraphicControl
+ MELINK Target WL? 'ME_502CD8FA02E1' // Ttb97GraphicControl
  ;
 
 ENDME // ME_503DFA0D0169 
@@ -746,59 +776,77 @@ ME ME_50603CD901CF
 
 ENDME // ME_50603CD901CF 
 
-ME ME_473D95CA02B5_ME_4E15A08E030D
+MEREF ME_473D95CA02B5_ME_4E15A08E030D_impl
  MELINK Original WL 'ME_473D95CA02B5' '467823B7002C.ms.model.script' // UpdateStrings
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_473D95CA02B5_ME_4E15A08E030D UpdateStrings
+ENDMEREF // ME_473D95CA02B5_ME_4E15A08E030D_impl UpdateStrings
 
-ME ME_498036D4036F_ME_4E15A08E030D
+MEREF ME_498036D4036F_ME_4E15A08E030D_impl
  MELINK Original WL 'ME_498036D4036F' '490838E10313.ms.model.script' // RegisterProvider
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_498036D4036F_ME_4E15A08E030D RegisterProvider
+ENDMEREF // ME_498036D4036F_ME_4E15A08E030D_impl RegisterProvider
 
-ME ME_498036E00030_ME_4E15A08E030D
+MEREF ME_498036E00030_ME_4E15A08E030D_impl
  MELINK Original WL 'ME_498036E00030' '490838E10313.ms.model.script' // UnregisterProvider
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_498036E00030_ME_4E15A08E030D UnregisterProvider
+ENDMEREF // ME_498036E00030_ME_4E15A08E030D_impl UnregisterProvider
 
-ME ME_479731C50290_ME_4E15A08E030D
+MEREF ME_479731C50290_ME_4E15A08E030D_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4E15A08E030D Cleanup
+ENDMEREF // ME_479731C50290_ME_4E15A08E030D_over Cleanup
 
-ME ME_47D1602000C6_ME_4E15A08E030D
+MEREF ME_47D1602000C6_ME_4E15A08E030D_over
  MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47D1602000C6_ME_4E15A08E030D Create
+ENDMEREF // ME_47D1602000C6_ME_4E15A08E030D_over Create
 
-ME ME_4A97E78202FC_ME_4E15A08E030D
+MEREF ME_4A97E78202FC_ME_4E15A08E030D_over
  MELINK Original WL 'ME_4A97E78202FC' '47E11FC3021E.ms.model.script' // SetParent
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A97E78202FC_ME_4E15A08E030D SetParent
+ENDMEREF // ME_4A97E78202FC_ME_4E15A08E030D_over SetParent
 
-ME ME_4F2A599E0283_ME_4E15A08E030D
+MEREF ME_4F2A599E0283_ME_4E15A08E030D_over
  MELINK Original WL 'ME_4F2A599E0283' '47E11FC3021E.ms.model.script' // SetBounds
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4F2A599E0283_ME_4E15A08E030D SetBounds
+ENDMEREF // ME_4F2A599E0283_ME_4E15A08E030D_over SetBounds
 
-ME ME_503DE79F02BA_ME_4E15A08E030D
+MEREF ME_503DE79F02BA_ME_4E15A08E030D_over
  MELINK Original WL 'ME_503DE79F02BA' '5028888A0160.ms.model.script' // IsGToolbarSizeNeeded
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_503DE79F02BA_ME_4E15A08E030D IsGToolbarSizeNeeded
+ENDMEREF // ME_503DE79F02BA_ME_4E15A08E030D_over IsGToolbarSizeNeeded
 
-ME ME_5058B29A007C_ME_4E15A08E030D
+MEREF ME_5058B29A007C_ME_4E15A08E030D_over
  MELINK Original WL 'ME_5058B29A007C' '5028888A0160.ms.model.script' // AdjustSizeForPanels
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_5058B29A007C_ME_4E15A08E030D AdjustSizeForPanels
+ENDMEREF // ME_5058B29A007C_ME_4E15A08E030D_over AdjustSizeForPanels
+
+MEREF ME_502888EA0114_ME_4E15A08E030D_G
+ MELINK Original WL 'ME_502888EA0114' '5028888A0160.ms.model.script' // TCustomToolbar97
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_502888EA0114_ME_4E15A08E030D_G TCustomToolbar97
+
+MEREF ME_473D95A90159_ME_4E15A08E030D_R
+ MELINK Original WL 'ME_473D95A90159' '467823B7002C.ms.model.script' // IafwStatusBar
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_473D95A90159_ME_4E15A08E030D_R IafwStatusBar
+
+MEREF ME_498036CB01D2_ME_4E15A08E030D_R
+ MELINK Original WL 'ME_498036CB01D2' '490838E10313.ms.model.script' // InscStatusBarItemsVisualizer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_498036CB01D2_ME_4E15A08E030D_R InscStatusBarItemsVisualizer
 
 %%ImplementedBy ME_473D95A90159 ME_4E15A08E030D
 %%ImplementedBy ME_498036CB01D2 ME_4E15A08E030D
@@ -817,12 +865,12 @@ ME ME_4E15A08E030D
  MELINK Parent WL? 'ME_49871D5103B9' // StatusBar
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_502888EA0114' '5028888A0160.ms.model.script' // TCustomToolbar97
+   Seq: ( HWL ME_502888EA0114_ME_4E15A08E030D_G // TCustomToolbar97
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_473D95A90159' '467823B7002C.ms.model.script' // IafwStatusBar
- WL 'ME_498036CB01D2' '490838E10313.ms.model.script' // InscStatusBarItemsVisualizer
+   Seq: ( HWL ME_473D95A90159_ME_4E15A08E030D_R // IafwStatusBar
+ HWL ME_498036CB01D2_ME_4E15A08E030D_R // InscStatusBarItemsVisualizer
  )
  ; // Implements
  MELIST Attributes
@@ -851,18 +899,18 @@ ME ME_4E15A08E030D
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_473D95CA02B5_ME_4E15A08E030D // UpdateStrings
- ME_498036D4036F_ME_4E15A08E030D // RegisterProvider
- ME_498036E00030_ME_4E15A08E030D // UnregisterProvider
+   Seq: ( ME_473D95CA02B5_ME_4E15A08E030D_impl // UpdateStrings
+ ME_498036D4036F_ME_4E15A08E030D_impl // RegisterProvider
+ ME_498036E00030_ME_4E15A08E030D_impl // UnregisterProvider
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4E15A08E030D // Cleanup
- ME_47D1602000C6_ME_4E15A08E030D // Create
- ME_4A97E78202FC_ME_4E15A08E030D // SetParent
- ME_4F2A599E0283_ME_4E15A08E030D // SetBounds
- ME_503DE79F02BA_ME_4E15A08E030D // IsGToolbarSizeNeeded
- ME_5058B29A007C_ME_4E15A08E030D // AdjustSizeForPanels
+   Seq: ( ME_479731C50290_ME_4E15A08E030D_over // Cleanup
+ ME_47D1602000C6_ME_4E15A08E030D_over // Create
+ ME_4A97E78202FC_ME_4E15A08E030D_over // SetParent
+ ME_4F2A599E0283_ME_4E15A08E030D_over // SetBounds
+ ME_503DE79F02BA_ME_4E15A08E030D_over // IsGToolbarSizeNeeded
+ ME_5058B29A007C_ME_4E15A08E030D_over // AdjustSizeForPanels
  )
  ; // Overridden
  MELIST Children

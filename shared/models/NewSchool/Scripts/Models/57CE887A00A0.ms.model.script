@@ -1,0 +1,94 @@
+// TmsmEventHandlers 57CE887A00A0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57CE887A00A0
+
+ME ME_57CE88B4038A
+ MEPROP UID '57CE88B4038A'
+ MEPROP Name 'KeyType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57CE887A00A0 // TmsmEventHandlers
+ ;
+ MELINK Target WL 'ME_57B5682D00D1' '57B5730D0123.ms.model.script' // TmsmEvent
+ ;
+
+ENDME // ME_57CE88B4038A KeyType
+
+ME ME_57CE88BF0372
+ MEPROP UID '57CE88BF0372'
+ MEPROP Name 'ValueType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57CE887A00A0 // TmsmEventHandlers
+ ;
+ MELINK Target WL 'ME_57CD82BF0129' '57B5730D0123.ms.model.script' // TmsmEventHandler
+ ;
+
+ENDME // ME_57CE88BF0372 ValueType
+
+ME ME_57CE8E6B0171
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57CE887A00A0 // TmsmEventHandlers
+ ;
+ MELINK Target WL? 'ME_57CE8E0B0357' // l3PointerUtils
+ ;
+
+ENDME // ME_57CE8E6B0171 
+
+MEREF ME_5609091B00C0_ME_57CE887A00A0_impl
+ MELINK Original WL 'ME_5609091B00C0' '560907E00134.ms.model.script' // CompareKeys
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5609091B00C0_ME_57CE887A00A0_impl CompareKeys
+
+MEREF ME_57CE9D2803DF_ME_57CE887A00A0_G
+ MELINK Original WL? 'ME_57CE9D2803DF' // l3ReplacingMap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57CE9D2803DF_ME_57CE887A00A0_G l3ReplacingMap
+
+%%InheritedBy ME_57CE9D2803DF ME_57CE887A00A0
+
+ME ME_57CE887A00A0
+ MEPROP UID '57CE887A00A0'
+ MEPROP Name 'TmsmEventHandlers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CE85BE0100' // Events
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57CE9D2803DF_ME_57CE887A00A0_G // l3ReplacingMap
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57CE88B4038A // KeyType
+ HWL ME_57CE88BF0372 // ValueType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_5609091B00C0_ME_57CE887A00A0_impl // CompareKeys
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_57CE8E6B0171 // l3PointerUtils
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'msmEventHandlers'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmEventHandlers'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmEventHandlers.pas'
+
+ENDME // ME_57CE887A00A0 TmsmEventHandlers

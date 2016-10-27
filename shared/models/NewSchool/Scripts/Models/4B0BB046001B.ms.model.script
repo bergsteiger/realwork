@@ -1,0 +1,93 @@
+// TnsPrimaryMonitorResolutionEvent 4B0BB046001B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B0BB046001B
+
+FORWARD ME_4B0BB0510315
+
+ME ME_4B0BB06702E2
+ MEPROP Name 'aWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4B0BB06702E2 aWidth
+
+ME ME_4B0BB0670311
+ MEPROP Name 'aHeight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4B0BB0670311 aHeight
+
+ME ME_4B0BB0510315
+ MEPROP UID '4B0BB0510315'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B0BB046001B // TnsPrimaryMonitorResolutionEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B0BB06702E2 // aWidth
+ ME_4B0BB0670311 // aHeight
+ )
+ ; // Parameters
+
+ENDME // ME_4B0BB0510315 Log
+
+ME ME_4B0BB08E02B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B0BB046001B // TnsPrimaryMonitorResolutionEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B0BB08E02B3 
+
+MEREF ME_4B0A6109010C_ME_4B0BB046001B_G
+ MELINK Original WL? 'ME_4B0A6109010C' // TnsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0A6109010C_ME_4B0BB046001B_G TnsLogEvent
+
+%%InheritedBy ME_4B0A6109010C ME_4B0BB046001B
+
+ME ME_4B0BB046001B
+ MEPROP UID '4B0BB046001B'
+ MEPROP Name 'TnsPrimaryMonitorResolutionEvent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55B793700105' // Events
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B0A6109010C_ME_4B0BB046001B_G // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B0BB0510315 // Log
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B0BB08E02B3 // LogEvent
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nsPrimaryMonitorResolutionEvent'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimaryMonitorResolutionEvent'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsPrimaryMonitorResolutionEvent.pas'
+
+ENDME // ME_4B0BB046001B TnsPrimaryMonitorResolutionEvent

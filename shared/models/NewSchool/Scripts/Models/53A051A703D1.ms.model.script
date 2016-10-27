@@ -28,7 +28,7 @@ ENDME // ME_53A0466502D8
 ME ME_53A04652024A
  MEPROP UID '53A04652024A'
  MEPROP Name 'ForEachF'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetiterator ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -78,7 +78,7 @@ ENDME // ME_53A199BA0063
 ME ME_53A199A802C9
  MEPROP UID '53A199A802C9'
  MEPROP Name 'ForOneF'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetiterator ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -143,7 +143,7 @@ ENDME // ME_546C9BF3018B
 ME ME_546B5A73038A
  MEPROP UID '546B5A73038A'
  MEPROP Name 'ForOneByIDF'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetiterator ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -195,7 +195,7 @@ ME ME_53A041D20371
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_53A038090050 // TalcuTaskListBase
  ;
- MELINK Target WL 'ME_52FA3DE1003D' '52FA3DD30094.ms.model.script' // TalcuTaskListPrim
+ MELINK Target WL? 'ME_52FA3DE1003D' // TalcuTaskListPrim
  ;
  UP "pm" True
  UP "reads field" True
@@ -234,7 +234,7 @@ ENDME // ME_53A063CD0235 DoIt
 ME ME_53A063C502F6
  MEPROP UID '53A063C502F6'
  MEPROP Name 'Clear'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -266,7 +266,7 @@ ENDME // ME_53A196A302BF DoIt
 ME ME_53A196850107
  MEPROP UID '53A196850107'
  MEPROP Name 'NeedSort'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -300,41 +300,65 @@ ME ME_53A045DF01C2
 
 ENDME // ME_53A045DF01C2 
 
-ME ME_53A04652024A_ME_53A038090050
+MEREF ME_53A04652024A_ME_53A038090050_impl
  MELINK Original HWL ME_53A04652024A // ForEachF
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs index" False
  UP "needs result" False
-ENDME // ME_53A04652024A_ME_53A038090050 ForEachF
+ENDMEREF // ME_53A04652024A_ME_53A038090050_impl ForEachF
 
-ME ME_53A199A802C9_ME_53A038090050
+MEREF ME_53A199A802C9_ME_53A038090050_impl
  MELINK Original HWL ME_53A199A802C9 // ForOneF
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs index" False
  UP "needs result" False
-ENDME // ME_53A199A802C9_ME_53A038090050 ForOneF
+ENDMEREF // ME_53A199A802C9_ME_53A038090050_impl ForOneF
 
-ME ME_546B5A73038A_ME_53A038090050
+MEREF ME_546B5A73038A_ME_53A038090050_impl
  MELINK Original HWL ME_546B5A73038A // ForOneByIDF
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs index" False
  UP "needs result" True
-ENDME // ME_546B5A73038A_ME_53A038090050 ForOneByIDF
+ENDMEREF // ME_546B5A73038A_ME_53A038090050_impl ForOneByIDF
 
-ME ME_479731C50290_ME_53A038090050
+MEREF ME_479731C50290_ME_53A038090050_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_53A038090050 Cleanup
+ENDMEREF // ME_479731C50290_ME_53A038090050_over Cleanup
 
-ME ME_47A042E100E2_ME_53A038090050
+MEREF ME_47A042E100E2_ME_53A038090050_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_53A038090050 InitFields
+ENDMEREF // ME_47A042E100E2_ME_53A038090050_over InitFields
+
+MEREF ME_54CB5BB40321_ME_53A038090050_G
+ MELINK Original WL? 'ME_54CB5BB40321' // TalcuTaskListBasePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54CB5BB40321_ME_53A038090050_G TalcuTaskListBasePrim
+
+MEREF ME_53A03846011C_ME_53A038090050_R
+ MELINK Original WL? 'ME_53A03846011C' // l3CriticalSectionHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53A03846011C_ME_53A038090050_R l3CriticalSectionHolder
+
+MEREF ME_53A04CD30052_ME_53A038090050_R
+ MELINK Original HWL ME_53A04CD30052 // alcuTasksIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53A04CD30052_ME_53A038090050_R alcuTasksIterator
+
+MEREF ME_54CB3F0F01C0_ME_53A038090050_R
+ MELINK Original WL? 'ME_54CB3F0F01C0' // l3ChangingWithLock
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54CB3F0F01C0_ME_53A038090050_R l3ChangingWithLock
 
 %%ImplementedBy ME_53A03846011C ME_53A038090050
 %%ImplementedBy ME_53A04CD30052 ME_53A038090050
@@ -353,13 +377,13 @@ ME ME_53A038090050
  MELINK Parent HWL ME_53A051A703D1 // alcuTaskListBase
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_54CB5BB40321' '53A05123034C.ms.model.script' // TalcuTaskListBasePrim
+   Seq: ( HWL ME_54CB5BB40321_ME_53A038090050_G // TalcuTaskListBasePrim
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_53A03846011C' // l3CriticalSectionHolder
- HWL ME_53A04CD30052 // alcuTasksIterator
- WL? 'ME_54CB3F0F01C0' // l3ChangingWithLock
+   Seq: ( HWL ME_53A03846011C_ME_53A038090050_R // l3CriticalSectionHolder
+ HWL ME_53A04CD30052_ME_53A038090050_R // alcuTasksIterator
+ HWL ME_54CB3F0F01C0_ME_53A038090050_R // l3ChangingWithLock
  )
  ; // Implements
  MELIST Attributes
@@ -373,14 +397,14 @@ ME ME_53A038090050
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_53A04652024A_ME_53A038090050 // ForEachF
- ME_53A199A802C9_ME_53A038090050 // ForOneF
- ME_546B5A73038A_ME_53A038090050 // ForOneByIDF
+   Seq: ( ME_53A04652024A_ME_53A038090050_impl // ForEachF
+ ME_53A199A802C9_ME_53A038090050_impl // ForOneF
+ ME_546B5A73038A_ME_53A038090050_impl // ForOneByIDF
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_53A038090050 // Cleanup
- ME_47A042E100E2_ME_53A038090050 // InitFields
+   Seq: ( ME_479731C50290_ME_53A038090050_over // Cleanup
+ ME_47A042E100E2_ME_53A038090050_over // InitFields
  )
  ; // Overridden
  MELIST Dependencies

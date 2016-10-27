@@ -1,0 +1,81 @@
+// TmsmProportionalPanel 57DA8745012E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57FD5AD700DC
+
+FORWARD ME_57DA8745012E
+
+MEREF ME_50FD1AE5027A_ME_57FD5AD700DC_G
+ MELINK Original WL 'ME_50FD1AE5027A' '4A7961A701CF.ms.model.script' // TvtCustomPanel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50FD1AE5027A_ME_57FD5AD700DC_G TvtCustomPanel
+
+%%InheritedBy ME_50FD1AE5027A ME_57FD5AD700DC
+
+ME ME_57FD5AD700DC
+ MEPROP UID '57FD5AD700DC'
+ MEPROP Name 'TmsmCustomPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57DA8745012E // TmsmProportionalPanel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50FD1AE5027A_ME_57FD5AD700DC_G // TvtCustomPanel
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmCustomPanel'
+
+ENDME // ME_57FD5AD700DC TmsmCustomPanel
+
+MEREF ME_47D1602000C6_ME_57DA8745012E_over
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47D1602000C6_ME_57DA8745012E_over Create
+
+MEREF ME_4A7AD11C028B_ME_57DA8745012E_G
+ MELINK Original WL? 'ME_4A7AD11C028B' // TvtProportionalPanel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A7AD11C028B_ME_57DA8745012E_G TvtProportionalPanel
+
+%%InheritedBy ME_4A7AD11C028B ME_57DA8745012E
+
+ME ME_57DA8745012E
+ MEPROP UID '57DA8745012E'
+ MEPROP Name 'TmsmProportionalPanel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B42D1A0044' // DefaultUsedControls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A7AD11C028B_ME_57DA8745012E_G // TvtProportionalPanel
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57DA8745012E_over // Create
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_57FD5AD700DC // TmsmCustomPanel
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmProportionalPanel'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmProportionalPanel'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmProportionalPanel.pas'
+
+ENDME // ME_57DA8745012E TmsmProportionalPanel

@@ -1,0 +1,80 @@
+// TRefcountedTest 5161393802B7 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5161393802B7
+
+ME ME_516139A803D5
+ MEPROP UID '516139A803D5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5161393802B7 // TRefcountedTest
+ ;
+
+ENDME // ME_516139A803D5 DoIt
+
+ME ME_5161394F007E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5161393802B7 // TRefcountedTest
+ ;
+ MELINK Target WL? 'ME_516137AD0362' // TRefcounted
+ ;
+
+ENDME // ME_5161394F007E 
+
+ME ME_516139C20339
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5161393802B7 // TRefcountedTest
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_516139C20339 
+
+MEREF ME_4B2A0DDE028B_ME_5161393802B7_G
+ MELINK Original WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A0DDE028B_ME_5161393802B7_G TTestCase
+
+%%InheritedBy ME_4B2A0DDE028B ME_5161393802B7
+
+ME ME_5161393802B7
+ MEPROP UID '5161393802B7'
+ MEPROP Name 'TRefcountedTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5161390500C1' // Core
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B2A0DDE028B_ME_5161393802B7_G // TTestCase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_516139A803D5 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5161394F007E // TRefcounted
+ ME_516139C20339 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'RefcountedTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RefcountedTest'
+ UP intf.pas:Path 'common\components\SandBox\RefcountedTest.pas'
+
+ENDME // ME_5161393802B7 TRefcountedTest

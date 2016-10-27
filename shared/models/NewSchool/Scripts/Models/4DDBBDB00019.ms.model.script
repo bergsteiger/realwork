@@ -1,0 +1,241 @@
+// TkwEntityOperation 4DDBBDB00019 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DDBBDB00019
+
+FORWARD ME_4DDBBF790154
+
+FORWARD ME_4DDBBF840080
+
+ME ME_4DDBBFFF02C4
+ MEPROP Name 'anEn'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4DDBBD1103C3' // TvcmBaseEntitiesCollectionItem
+ ;
+
+ENDME // ME_4DDBBFFF02C4 anEn
+
+ME ME_4DDBBFFF030E
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4D7A109601C2' // TvcmBaseOperationsCollectionItem
+ ;
+
+ENDME // ME_4DDBBFFF030E anOp
+
+ME ME_4DDBBF840080
+ MEPROP UID '4DDBBF840080'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDBBF790154 // Register
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DDBBFFF02C4 // anEn
+ ME_4DDBBFFF030E // anOp
+ )
+ ; // Parameters
+
+ENDME // ME_4DDBBF840080 DoIt
+
+ME ME_4DDBC01E010A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDBBF790154 // Register
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4DDBC01E010A 
+
+ME ME_4DDBC7400205
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDBBF790154 // Register
+ ;
+ MELINK Target WL? 'ME_483C378301CB' // StrUtils
+ ;
+
+ENDME // ME_4DDBC7400205 
+
+ME ME_4DDBC8E20193
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDBBF790154 // Register
+ ;
+ MELINK Target WL 'ME_4787B1BA031F' '4787B0A8007B.ms.model.script' // El3DuplicateItem
+ ;
+
+ENDME // ME_4DDBC8E20193 
+
+ME ME_4DDBBF790154
+ MEPROP UID '4DDBBF790154'
+ MEPROP Name 'Register'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DDBBF840080 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4DDBC01E010A // FreeAndNil
+ ME_4DDBC7400205 // StrUtils
+ ME_4DDBC8E20193 // El3DuplicateItem
+ )
+ ; // Dependencies
+ UP "is static" True
+
+ENDME // ME_4DDBBF790154 Register
+
+ME ME_4DDBBF15020E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ MELINK Target WL 'ME_4AA936DC0154' '47F25BC801DB.ms.model.script' // vcmDispatcher
+ ;
+
+ENDME // ME_4DDBBF15020E 
+
+ME ME_4DDBBF2D03BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ MELINK Target WL 'ME_4683CF3401F5' '467BAB7F021E.ms.model.script' // TvcmOPID
+ ;
+
+ENDME // ME_4DDBBF2D03BD 
+
+ME ME_4E201EF90191
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ MELINK Target WL 'ME_4AD5DBBD0147' '4AB24EF502BB.ms.model.script' // TvcmBaseMenuManagerPrim
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_4E201EF90191 
+
+ME ME_4E30129D0123
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ MELINK Target WL? 'ME_4E3012700155' // TvcmRepOperationsCollectionItem
+ ;
+
+ENDME // ME_4E30129D0123 
+
+ME ME_4F75BB670020
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ MELINK Target WL 'ME_4991AD08005B' '4683F37902CF.ms.model.script' // IvcmEntity
+ ;
+
+ENDME // ME_4F75BB670020 
+
+ME ME_5230074F0386
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ MELINK Target WL? 'ME_5230072D031A' // TkwEntityOperationTest
+ ;
+
+ENDME // ME_5230074F0386 
+
+ME ME_528C9C01026C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ MELINK Target WL? 'ME_4DB6CD4203D4' // TkwString
+ ;
+
+ENDME // ME_528C9C01026C 
+
+ME ME_52A74A7D0134
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDBBDB00019 // TkwEntityOperation
+ ;
+ MELINK Target WL? 'ME_52A73D1701B9' // TkwOperationsRegistrar
+ ;
+
+ENDME // ME_52A74A7D0134 
+
+MEREF ME_523008BC0096_ME_4DDBBDB00019_impl
+ MELINK Original WL 'ME_523008BC0096' '523006F7004A.ms.model.script' // DoOp
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_523008BC0096_ME_4DDBBDB00019_impl DoOp
+
+MEREF ME_523006F7004A_ME_4DDBBDB00019_G
+ MELINK Original WL? 'ME_523006F7004A' // TkwEntityOperationPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_523006F7004A_ME_4DDBBDB00019_G TkwEntityOperationPrim
+
+%%InjectedBy ME_4AD5DBBD0147 ME_4DDBBDB00019
+
+%%InheritedBy ME_523006F7004A ME_4DDBBDB00019
+
+ME ME_4DDBBDB00019
+ MEPROP UID '4DDBBDB00019'
+ MEPROP Name 'TkwEntityOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E200FED0213' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_523006F7004A_ME_4DDBBDB00019_G // TkwEntityOperationPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DDBBF790154 // Register
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_523008BC0096_ME_4DDBBDB00019_impl // DoOp
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4DDBBF15020E // vcmDispatcher
+ ME_4DDBBF2D03BD // TvcmOPID
+ ME_4E201EF90191 // TvcmBaseMenuManagerPrim
+ ME_4E30129D0123 // TvcmRepOperationsCollectionItem
+ ME_4F75BB670020 // IvcmEntity
+ ME_5230074F0386 // TkwEntityOperationTest
+ ME_528C9C01026C // TkwString
+ ME_52A74A7D0134 // TkwOperationsRegistrar
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '24.05.2011 18:15'
+ UP extprop:pas:UnitName 'kwEntityOperation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EntityOperation'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwEntityOperation.pas'
+
+ENDME // ME_4DDBBDB00019 TkwEntityOperation

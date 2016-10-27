@@ -1,0 +1,232 @@
+// TnsLeafParaDecorationsHolder 4CEFD73403E4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CEFD73403E4
+
+FORWARD ME_4CEFDCD80253
+
+ME ME_4CEFDCF30231
+ MEPROP UID '4CEFDCF30231'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEFDCD80253 // Create
+ ;
+
+ENDME // ME_4CEFDCF30231 DoIt
+
+ME ME_4CEFDCD80253
+ MEPROP UID '4CEFDCD80253'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEFD73403E4 // TnsLeafParaDecorationsHolder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CEFDCF30231 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CEFDCD80253 Create
+
+FORWARD ME_4CEFDCE9012B
+
+ME ME_535A3E6801B2
+ MEPROP UID '535A3E6801B2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEFDCE9012B // Make
+ ;
+ MELINK Target WL 'ME_5346BD53015A' '53317D14019D.ms.model.script' // Il3TagRef
+ ;
+
+ENDME // ME_535A3E6801B2 DoIt
+
+ME ME_535A3E4B0290
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFDCE9012B // Make
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_535A3E4B0290 
+
+ME ME_4CEFDCE9012B
+ MEPROP UID '4CEFDCE9012B'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEFD73403E4 // TnsLeafParaDecorationsHolder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_535A3E6801B2 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_535A3E4B0290 // FreeAndNil
+ )
+ ; // Dependencies
+ UP "is static" True
+
+ENDME // ME_4CEFDCE9012B Make
+
+ME ME_4CEFE05C00F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFD73403E4 // TnsLeafParaDecorationsHolder
+ ;
+ MELINK Target WL 'ME_4857C9C20131' '48492FC0029D.ms.model.script' // CommentPara
+ ;
+
+ENDME // ME_4CEFE05C00F9 
+
+ME ME_4CEFE0B2007E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFD73403E4 // TnsLeafParaDecorationsHolder
+ ;
+ MELINK Target WL 'ME_4CEE380000F1' '4C6E92E9016E.ms.model.script' // If1CommentSink
+ ;
+
+ENDME // ME_4CEFE0B2007E 
+
+ME ME_4CEFE0CD02EA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFD73403E4 // TnsLeafParaDecorationsHolder
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4CEFE0CD02EA 
+
+ME ME_4CEFE1310160
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFD73403E4 // TnsLeafParaDecorationsHolder
+ ;
+ MELINK Target WL 'ME_4C6D1B070024' '4C6E92E9016E.ms.model.script' // TnsNodeState
+ ;
+
+ENDME // ME_4CEFE1310160 
+
+ME ME_4D62A3F3014C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFD73403E4 // TnsLeafParaDecorationsHolder
+ ;
+ MELINK Target WL? 'ME_4CED3DF702F9' // TnsNativeCommentPara
+ ;
+
+ENDME // ME_4D62A3F3014C 
+
+ME ME_4D62A8010123
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFD73403E4 // TnsLeafParaDecorationsHolder
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4D62A8010123 
+
+ME ME_530737FD0014
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFD73403E4 // TnsLeafParaDecorationsHolder
+ ;
+ MELINK Target WL 'ME_4CEBC4B702DD' '48492FC0029D.ms.model.script' // LeafParaDecorationsHolder
+ ;
+
+ENDME // ME_530737FD0014 
+
+MEREF ME_4C6CE735026E_ME_4CEFD73403E4_over
+ MELINK Original WL 'ME_4C6CE735026E' '53317D14019D.ms.model.script' // DeleteChildPrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C6CE735026E_ME_4CEFD73403E4_over DeleteChildPrim
+
+MEREF ME_4CED66B8005F_ME_4CEFD73403E4_over
+ MELINK Original WL 'ME_4CED66B8005F' '53280B9801E7.ms.model.script' // CheckChildInsert
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CED66B8005F_ME_4CEFD73403E4_over CheckChildInsert
+
+MEREF ME_4CEBC4B702DD_ME_4CEFD73403E4_G
+ MELINK Original WL 'ME_4CEBC4B702DD' '48492FC0029D.ms.model.script' // LeafParaDecorationsHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CEBC4B702DD_ME_4CEFD73403E4_G LeafParaDecorationsHolder
+
+MEREF ME_4CED570E029C_ME_4CEFD73403E4_R
+ MELINK Original WL 'ME_4CED570E029C' '467FC43F01F9.ms.model.script' // Mk2Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CED570E029C_ME_4CEFD73403E4_R Mk2Tag
+
+%%ImplementedBy ME_4CED570E029C ME_4CEFD73403E4
+
+%%InheritedBy ME_4CEBC4B702DD ME_4CEFD73403E4
+
+ME ME_4CEFD73403E4
+ MEPROP UID '4CEFD73403E4'
+ MEPROP Name 'TnsLeafParaDecorationsHolder'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C726B20031E' // TagDataProviders
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CEBC4B702DD_ME_4CEFD73403E4_G // LeafParaDecorationsHolder
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4CED570E029C_ME_4CEFD73403E4_R // Mk2Tag
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4CEFDCD80253 // Create
+ HWL ME_4CEFDCE9012B // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4C6CE735026E_ME_4CEFD73403E4_over // DeleteChildPrim
+ ME_4CED66B8005F_ME_4CEFD73403E4_over // CheckChildInsert
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CEFE05C00F9 // CommentPara
+ ME_4CEFE0B2007E // If1CommentSink
+ ME_4CEFE0CD02EA // Supports
+ ME_4CEFE1310160 // TnsNodeState
+ ME_4D62A3F3014C // TnsNativeCommentPara
+ ME_4D62A8010123 // Tk2TagID
+ ME_530737FD0014 // LeafParaDecorationsHolder
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '25.11.2010 18:50'
+ UP extprop:pas:UnitName 'nsLeafParaDecorationsHolder'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LeafParaDecorationsHolder'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsLeafParaDecorationsHolder.pas'
+
+ENDME // ME_4CEFD73403E4 TnsLeafParaDecorationsHolder

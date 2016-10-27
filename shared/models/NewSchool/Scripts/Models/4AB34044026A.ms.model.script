@@ -1,0 +1,64 @@
+// TvcmModulesCollection 4AB34044026A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52A1FB5C0299
+
+FORWARD ME_4AB34044026A
+
+MEREF ME_4AB34044026A_ME_52A1FB5C0299_G
+ MELINK Original HWL ME_4AB34044026A // TvcmModulesCollection
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AB34044026A_ME_52A1FB5C0299_G TvcmModulesCollection
+
+%%InheritedBy ME_4AB34044026A ME_52A1FB5C0299
+
+ME ME_52A1FB5C0299
+ MEPROP UID '52A1FB5C0299'
+ MEPROP Name 'RvcmModulesCollection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB34044026A // TvcmModulesCollection
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AB34044026A_ME_52A1FB5C0299_G // TvcmModulesCollection
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_52A1FB5C0299 RvcmModulesCollection
+
+ME ME_4AB34044026A
+ MEPROP UID '4AB34044026A'
+ MEPROP Name 'TvcmModulesCollection'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AB34028023E' // Components
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52A1FB5C0299 // RvcmModulesCollection
+ )
+ ; // Children
+ MELIST Injected
+   Seq: ( WL 'ME_5770FF8C03B5' '5770F145022B.ms.model.script' // TtfwModuleOperationWordEx
+ )
+ ; // Injected
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:pas:UnitName 'vcmModulesCollection'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ModulesCollection'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmModulesCollection.pas'
+
+ENDME // ME_4AB34044026A TvcmModulesCollection

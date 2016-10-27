@@ -1,0 +1,81 @@
+// K517772970_TddProcessTask 53200B5D0155 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53200B5D0155
+
+ME ME_53200BF60343
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53200B5D0155 // K517772970_TddProcessTask
+ ;
+ MELINK Target WL? 'ME_52F8C2AE0042' // csProcessTask
+ ;
+
+ENDME // ME_53200BF60343 
+
+ME ME_532047CA0357
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53200B5D0155 // K517772970_TddProcessTask
+ ;
+ MELINK Target WL? 'ME_532046D302C2' // csTaskTypes
+ ;
+
+ENDME // ME_532047CA0357 
+
+MEREF ME_5320088202FB_ME_53200B5D0155_over
+ MELINK Original WL 'ME_5320088202FB' '532008240001.ms.model.script' // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5320088202FB_ME_53200B5D0155_over TaskClass
+
+MEREF ME_532008D203BA_ME_53200B5D0155_over
+ MELINK Original WL 'ME_532008D203BA' '532008240001.ms.model.script' // InitTask
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_532008D203BA_ME_53200B5D0155_over InitTask
+
+MEREF ME_53200B930243_ME_53200B5D0155_G
+ MELINK Original WL? 'ME_53200B930243' // K517772970_TddTaskItem
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53200B930243_ME_53200B5D0155_G K517772970_TddTaskItem
+
+%%InheritedBy ME_53200B930243 ME_53200B5D0155
+
+ME ME_53200B5D0155
+ MEPROP UID '53200B5D0155'
+ MEPROP Name 'K517772970_TddProcessTask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_531FF6280311' // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B930243_ME_53200B5D0155_G // K517772970_TddTaskItem
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53200B5D0155_over // TaskClass
+ ME_532008D203BA_ME_53200B5D0155_over // InitTask
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53200BF60343 // csProcessTask
+ ME_532047CA0357 // csTaskTypes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TK517772970_TddProcessTask'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K517772970_TddProcessTask'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddProcessTask.pas'
+
+ENDME // ME_53200B5D0155 K517772970_TddProcessTask

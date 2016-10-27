@@ -1,0 +1,107 @@
+// TncsTransporterIOThread 5460B6230039 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5460B6230039
+
+ME ME_545224C80036
+ MEPROP UID '545224C80036'
+ MEPROP Name 'IOHandler'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5460B6230039 // TncsTransporterIOThread
+ ;
+ MELINK Target WL? 'ME_538DDC890328' // TcsIdIOHandlerAbstractAdapter
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_545224C80036 IOHandler
+
+ME ME_545B3DEA0268
+ MEPROP UID '545B3DEA0268'
+ MEPROP Name 'ReleaseIOHandler'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5460B6230039 // TncsTransporterIOThread
+ ;
+
+ENDME // ME_545B3DEA0268 ReleaseIOHandler
+
+ME ME_5460BE3D03E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5460B6230039 // TncsTransporterIOThread
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5460BE3D03E2 
+
+MEREF ME_479731C50290_ME_5460B6230039_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5460B6230039_over Cleanup
+
+MEREF ME_5459DB98029C_ME_5460B6230039_over
+ MELINK Original WL 'ME_5459DB98029C' '5452248C02B8.ms.model.script' // TerminatedConnection
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5459DB98029C_ME_5460B6230039_over TerminatedConnection
+
+MEREF ME_5452248C02B8_ME_5460B6230039_G
+ MELINK Original WL? 'ME_5452248C02B8' // TncsTransporterThread
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5452248C02B8_ME_5460B6230039_G TncsTransporterThread
+
+%%InheritedBy ME_5452248C02B8 ME_5460B6230039
+
+ME ME_5460B6230039
+ MEPROP UID '5460B6230039'
+ MEPROP Name 'TncsTransporterIOThread'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_544E0148010D' // Messages
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5452248C02B8_ME_5460B6230039_G // TncsTransporterThread
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_545224C80036 // IOHandler
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_545B3DEA0268 // ReleaseIOHandler
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5460B6230039_over // Cleanup
+ ME_5459DB98029C_ME_5460B6230039_over // TerminatedConnection
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5460BE3D03E2 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ncsTransporterIOThread'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ncsTransporterIOThread'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsTransporterIOThread.pas'
+
+ENDME // ME_5460B6230039 TncsTransporterIOThread

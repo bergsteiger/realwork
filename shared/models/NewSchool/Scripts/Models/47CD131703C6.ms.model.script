@@ -1,0 +1,83 @@
+// TvtNavigatorFormListPrimPrim 47CD131703C6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47CD131703C6
+
+ME ME_47CD2DF00132
+ MEPROP UID '47CD2DF00132'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47CD131703C6 // TvtNavigatorFormListPrimPrim
+ ;
+ MELINK Target WL? 'ME_47CD0E4E001F' // TvtNavigatorForm
+ ;
+
+ENDME // ME_47CD2DF00132 ItemType
+
+MEREF ME_47B2C42A0163_ME_47CD131703C6_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_47CD131703C6_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_47CD131703C6_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_47CD131703C6_impl CompareExistingItems
+
+MEREF ME_47B99E920196_ME_47CD131703C6_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_47CD131703C6_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_47CD131703C6_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_47CD131703C6_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B99E920196 ME_47CD131703C6
+%%InheritedBy ME_4A54DD4E036F ME_47CD131703C6
+
+ME ME_47CD131703C6
+ MEPROP UID '47CD131703C6'
+ MEPROP Name 'TvtNavigatorFormListPrimPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список форм навигатора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47CD07B900E0' // vtNavigator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B99E920196_ME_47CD131703C6_G // l3UncomparabeObjectRefList
+ HWL ME_4A54DD4E036F_ME_47CD131703C6_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47CD2DF00132 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_47CD131703C6_impl // AssignItem
+ ME_47B99D4503A2_ME_47CD131703C6_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP "no hands" True
+ UP extprop:pas:UnitName 'vtNavigatorFormListPrimPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NavigatorFormListPrimPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtNavigatorFormListPrimPrim.pas'
+
+ENDME // ME_47CD131703C6 TvtNavigatorFormListPrimPrim

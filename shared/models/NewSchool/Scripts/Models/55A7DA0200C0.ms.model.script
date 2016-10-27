@@ -1,0 +1,211 @@
+// TtfwInitCodeWord 55A7DA0200C0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55A7DA0200C0
+
+ME ME_55A7DA1F029C
+ MEPROP UID '55A7DA1F029C'
+ MEPROP Name 'Dictionary'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ MELINK Target WL? 'ME_55A4FCDC01B8' // TtfwDictionaryExPrim
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_55A7DA1F029C Dictionary
+
+FORWARD ME_55A7DB260310
+
+FORWARD ME_55A7DB2D0259
+
+ME ME_55A7DB3901E7
+ MEPROP Name 'aDictionary'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_55A4FCDC01B8' // TtfwDictionaryExPrim
+ ;
+
+ENDME // ME_55A7DB3901E7 aDictionary
+
+ME ME_55A7DB2D0259
+ MEPROP UID '55A7DB2D0259'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A7DB260310 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_55A7DB3901E7 // aDictionary
+ )
+ ; // Parameters
+
+ENDME // ME_55A7DB2D0259 DoIt
+
+ME ME_55A7DB260310
+ MEPROP UID '55A7DB260310'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55A7DB2D0259 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55A7DB260310 Create
+
+ME ME_55A7F3A40021
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ MELINK Target WL? 'ME_559E8B2E0385' // TtfwDictionaryEx
+ ;
+
+ENDME // ME_55A7F3A40021 
+
+ME ME_55ACE5D8022B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55A7DA0200C0 // TtfwInitCodeWord
+ ;
+ MELINK Target WL? 'ME_4DB05FF60115' // TtfwAutoregisteredDiction
+ ;
+
+ENDME // ME_55ACE5D8022B 
+
+MEREF ME_4DAEEDE10285_ME_55A7DA0200C0_impl
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DAEEDE10285_ME_55A7DA0200C0_impl DoDoIt
+
+MEREF ME_4F4161BC0024_ME_55A7DA0200C0_over
+ MELINK Original WL 'ME_4F4161BC0024' '4DAF19F600C5.ms.model.script' // DoDefineInParameter
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4F4161BC0024_ME_55A7DA0200C0_over DoDefineInParameter
+
+MEREF ME_52B43311021D_ME_55A7DA0200C0_over
+ MELINK Original WL 'ME_52B43311021D' '4DAF19F600C5.ms.model.script' // InnerDictionary
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "pm" True
+ENDMEREF // ME_52B43311021D_ME_55A7DA0200C0_over InnerDictionary
+
+MEREF ME_52D56341033B_ME_55A7DA0200C0_over
+ MELINK Original WL 'ME_52D56341033B' '4DAF19F600C5.ms.model.script' // GetNewWordDefinitor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52D56341033B_ME_55A7DA0200C0_over GetNewWordDefinitor
+
+MEREF ME_52D5637A031E_ME_55A7DA0200C0_over
+ MELINK Original WL 'ME_52D5637A031E' '4DAF19F600C5.ms.model.script' // GetKeywordFinder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52D5637A031E_ME_55A7DA0200C0_over GetKeywordFinder
+
+MEREF ME_52D56A980103_ME_55A7DA0200C0_over
+ MELINK Original WL 'ME_52D56A980103' '4DAF19F600C5.ms.model.script' // DoCompileInParameterPopCode
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52D56A980103_ME_55A7DA0200C0_over DoCompileInParameterPopCode
+
+MEREF ME_55A7D34102A0_ME_55A7DA0200C0_over
+ MELINK Original WL 'ME_55A7D34102A0' '4DAF19F600C5.ms.model.script' // DoCheckWord
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55A7D34102A0_ME_55A7DA0200C0_over DoCheckWord
+
+MEREF ME_55ACE5210310_ME_55A7DA0200C0_over
+ MELINK Original WL 'ME_55ACE5210310' '4DAF19F600C5.ms.model.script' // GetKeywordByName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55ACE5210310_ME_55A7DA0200C0_over GetKeywordByName
+
+MEREF ME_55ACF0F5025D_ME_55A7DA0200C0_over
+ MELINK Original WL 'ME_55ACF0F5025D' '4DAF19F600C5.ms.model.script' // GetParentFinder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55ACF0F5025D_ME_55A7DA0200C0_over GetParentFinder
+
+MEREF ME_4DAEED140007_ME_55A7DA0200C0_G
+ MELINK Original WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DAEED140007_ME_55A7DA0200C0_G TtfwWord
+
+MEREF ME_55A4E9940396_ME_55A7DA0200C0_G
+ MELINK Original WL? 'ME_55A4E9940396' // tfwCodeCompiler
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55A4E9940396_ME_55A7DA0200C0_G tfwCodeCompiler
+
+%%InheritedBy ME_4DAEED140007 ME_55A7DA0200C0
+%%InheritedBy ME_55A4E9940396 ME_55A7DA0200C0
+
+ME ME_55A7DA0200C0
+ MEPROP UID '55A7DA0200C0'
+ MEPROP Name 'TtfwInitCodeWord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F2275C00012' // ScriptingKeywordsCore
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DAEED140007_ME_55A7DA0200C0_G // TtfwWord
+ HWL ME_55A4E9940396_ME_55A7DA0200C0_G // tfwCodeCompiler
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55A7DA1F029C // Dictionary
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55A7DB260310 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_55A7DA0200C0_impl // DoDoIt
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4F4161BC0024_ME_55A7DA0200C0_over // DoDefineInParameter
+ ME_52B43311021D_ME_55A7DA0200C0_over // InnerDictionary
+ ME_52D56341033B_ME_55A7DA0200C0_over // GetNewWordDefinitor
+ ME_52D5637A031E_ME_55A7DA0200C0_over // GetKeywordFinder
+ ME_52D56A980103_ME_55A7DA0200C0_over // DoCompileInParameterPopCode
+ ME_55A7D34102A0_ME_55A7DA0200C0_over // DoCheckWord
+ ME_55ACE5210310_ME_55A7DA0200C0_over // GetKeywordByName
+ ME_55ACF0F5025D_ME_55A7DA0200C0_over // GetParentFinder
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_55A7F3A40021 // TtfwDictionaryEx
+ ME_55ACE5D8022B // TtfwAutoregisteredDiction
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'tfwInitCodeWord'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'InitCodeWord'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwInitCodeWord.pas'
+
+ENDME // ME_55A7DA0200C0 TtfwInitCodeWord

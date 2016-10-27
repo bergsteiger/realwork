@@ -1,0 +1,319 @@
+// TvcmLayoutImplementation 4F82714B0271 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F82723B00CF
+
+FORWARD ME_4F82714B0271
+
+FORWARD ME_4F82723B00CF
+
+FORWARD ME_4F82737803BE
+
+ME ME_4F82738801FE
+ MEPROP UID '4F82738801FE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F82737803BE // ClearLinkToControl
+ ;
+
+ENDME // ME_4F82738801FE DoIt
+
+ME ME_4F82737803BE
+ MEPROP UID '4F82737803BE'
+ MEPROP Name 'ClearLinkToControl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F82723B00CF // IvcmLayoutInternal
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F82738801FE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F82737803BE ClearLinkToControl
+
+ME ME_4F82723B00CF
+ MEPROP UID '4F82723B00CF'
+ MEPROP GUID '3C78DB5C-C875-4768-AC34-75F697D2514D'
+ MEPROP Name 'IvcmLayoutInternal'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F82714B0271 // TvcmLayoutImplementation
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F82737803BE // ClearLinkToControl
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LayoutInternal'
+
+ENDME // ME_4F82723B00CF IvcmLayoutInternal
+
+ME ME_4F8271EE0387
+ MEPROP UID '4F8271EE0387'
+ MEPROP Name 'Control'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F82714B0271 // TvcmLayoutImplementation
+ ;
+ MELINK Target WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4F8271EE0387 Control
+
+FORWARD ME_4F827263026A
+
+FORWARD ME_4F82726A01B3
+
+ME ME_4F82727403A8
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+
+ENDME // ME_4F82727403A8 aControl
+
+ME ME_4F82726A01B3
+ MEPROP UID '4F82726A01B3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F827263026A // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F82727403A8 // aControl
+ )
+ ; // Parameters
+
+ENDME // ME_4F82726A01B3 DoIt
+
+ME ME_4F827263026A
+ MEPROP UID '4F827263026A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F82714B0271 // TvcmLayoutImplementation
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F82726A01B3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F827263026A Create
+
+MEREF ME_4F827263026A_ME_4F82727D016D_G
+ MELINK Original HWL ME_4F827263026A // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F827263026A_ME_4F82727D016D_G Create
+
+MEREF ME_4F827093010E_ME_4F82727D016D_R
+ MELINK Original WL 'ME_4F827093010E' '4683F37902CF.ms.model.script' // IvcmLayout
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F827093010E_ME_4F82727D016D_R IvcmLayout
+
+%%ImplementedBy ME_4F827093010E ME_4F82727D016D
+
+%%InheritedBy ME_4F827263026A ME_4F82727D016D
+
+ME ME_4F82727D016D
+ MEPROP UID '4F82727D016D'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F82714B0271 // TvcmLayoutImplementation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F827263026A_ME_4F82727D016D_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4F827093010E_ME_4F82727D016D_R // IvcmLayout
+ )
+ ; // Implements
+
+ENDME // ME_4F82727D016D Make
+
+FORWARD ME_55127C030325
+
+FORWARD ME_55127C130299
+
+ME ME_55F031E603AE
+ MEPROP Name 'aDataUpdate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55F031E603AE aDataUpdate
+
+ME ME_55127C130299
+ MEPROP UID '55127C130299'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55127C030325 // GetIsAcceptable
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55F031E603AE // aDataUpdate
+ )
+ ; // Parameters
+
+ENDME // ME_55127C130299 DoIt
+
+ME ME_55127C030325
+ MEPROP UID '55127C030325'
+ MEPROP Name 'GetIsAcceptable'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Можно ли открывать форму в текущих условиях (например, на текущей базе)' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F82714B0271 // TvcmLayoutImplementation
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55127C130299 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55127C030325 GetIsAcceptable
+
+MEREF ME_4F82737803BE_ME_4F82714B0271_impl
+ MELINK Original HWL ME_4F82737803BE // ClearLinkToControl
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F82737803BE_ME_4F82714B0271_impl ClearLinkToControl
+
+MEREF ME_5511678C0335_ME_4F82714B0271_impl
+ MELINK Original WL 'ME_5511678C0335' '4683F37902CF.ms.model.script' // VCLWinControl
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_5511678C0335_ME_4F82714B0271_impl VCLWinControl
+
+MEREF ME_5511680A003B_ME_4F82714B0271_impl
+ MELINK Original WL 'ME_5511680A003B' '4683F37902CF.ms.model.script' // IsAcceptable
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5511680A003B_ME_4F82714B0271_impl IsAcceptable
+
+MEREF ME_479731C50290_ME_4F82714B0271_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4F82714B0271_over Cleanup
+
+MEREF ME_47A6FEE600FC_ME_4F82714B0271_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_4F82714B0271_over IsCacheable
+
+MEREF ME_4DD26D570378_ME_4F82714B0271_G
+ MELINK Original WL? 'ME_4DD26D570378' // Tl3ProtoObjectWithCOMQI
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DD26D570378_ME_4F82714B0271_G Tl3ProtoObjectWithCOMQI
+
+MEREF ME_4F827093010E_ME_4F82714B0271_R
+ MELINK Original WL 'ME_4F827093010E' '4683F37902CF.ms.model.script' // IvcmLayout
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F827093010E_ME_4F82714B0271_R IvcmLayout
+
+MEREF ME_4F82723B00CF_ME_4F82714B0271_R
+ MELINK Original HWL ME_4F82723B00CF // IvcmLayoutInternal
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F82723B00CF_ME_4F82714B0271_R IvcmLayoutInternal
+
+%%ImplementedBy ME_4F827093010E ME_4F82714B0271
+%%ImplementedBy ME_4F82723B00CF ME_4F82714B0271
+
+%%InheritedBy ME_4DD26D570378 ME_4F82714B0271
+
+ME ME_4F82714B0271
+ MEPROP UID '4F82714B0271'
+ MEPROP Name 'TvcmLayoutImplementation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AADF9450143' // Visual
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DD26D570378_ME_4F82714B0271_G // Tl3ProtoObjectWithCOMQI
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4F827093010E_ME_4F82714B0271_R // IvcmLayout
+ HWL ME_4F82723B00CF_ME_4F82714B0271_R // IvcmLayoutInternal
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4F8271EE0387 // Control
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F827263026A // Create
+ HWL ME_4F82727D016D // Make
+ HWL ME_55127C030325 // GetIsAcceptable
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F82737803BE_ME_4F82714B0271_impl // ClearLinkToControl
+ ME_5511678C0335_ME_4F82714B0271_impl // VCLWinControl
+ ME_5511680A003B_ME_4F82714B0271_impl // IsAcceptable
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4F82714B0271_over // Cleanup
+ ME_47A6FEE600FC_ME_4F82714B0271_over // IsCacheable
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4F82723B00CF // IvcmLayoutInternal
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'vcmLayoutImplementation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LayoutImplementation'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmLayoutImplementation.pas'
+
+ENDME // ME_4F82714B0271 TvcmLayoutImplementation

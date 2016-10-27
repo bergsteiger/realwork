@@ -7,6 +7,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4EA536A500EB
 
+MEREF ME_4C1B2AB301B1_ME_4EA536C0031B_G
+ MELINK Original WL 'ME_4C1B2AB301B1' '4C1B2A94015D.ms.model.script' // TevCustomEvdReader
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C1B2AB301B1_ME_4EA536C0031B_G TevCustomEvdReader
+
 %%InheritedBy ME_4C1B2AB301B1 ME_4EA536C0031B
 
 ME ME_4EA536C0031B
@@ -21,7 +27,7 @@ ME ME_4EA536C0031B
  MELINK Parent HWL ME_4EA536A500EB // evEvdReader
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4C1B2AB301B1' '4C1B2A94015D.ms.model.script' // TevCustomEvdReader
+   Seq: ( HWL ME_4C1B2AB301B1_ME_4EA536C0031B_G // TevCustomEvdReader
  )
  ; // Inherits
  UP "finished" False
@@ -29,6 +35,12 @@ ME ME_4EA536C0031B
  UP extprop:rc:SelfName 'EvdStorageReader'
 
 ENDME // ME_4EA536C0031B TevCustomEvdStorageReader
+
+MEREF ME_4EA536C0031B_ME_4EA536EC013F_G
+ MELINK Original HWL ME_4EA536C0031B // TevCustomEvdStorageReader
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EA536C0031B_ME_4EA536EC013F_G TevCustomEvdStorageReader
 
 %%InheritedBy ME_4EA536C0031B ME_4EA536EC013F
 
@@ -44,7 +56,7 @@ ME ME_4EA536EC013F
  MELINK Parent HWL ME_4EA536A500EB // evEvdReader
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4EA536C0031B // TevCustomEvdStorageReader
+   Seq: ( HWL ME_4EA536C0031B_ME_4EA536EC013F_G // TevCustomEvdStorageReader
  )
  ; // Inherits
  UP "finished" False

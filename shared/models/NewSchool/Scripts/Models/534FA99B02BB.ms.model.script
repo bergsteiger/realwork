@@ -251,7 +251,7 @@ ME ME_54EC5757010F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_534FA99B02BB // ReminderWordsPack
  ;
- MELINK Target WL 'ME_532322D901A3' '53288DFA03A7.ms.model.script' // TvgRemindersLine
+ MELINK Target WL? 'ME_532322D901A3' // TvgRemindersLine
  ;
 
 ENDME // ME_54EC5757010F 
@@ -271,7 +271,7 @@ ME ME_550046ED0287
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_534FA99B02BB // ReminderWordsPack
  ;
- MELINK Target WL 'ME_550013770000' '55001317029B.ms.model.script' // Tl3PopupMenuHelper
+ MELINK Target WL? 'ME_550013770000' // Tl3PopupMenuHelper
  ;
 
 ENDME // ME_550046ED0287 
@@ -296,6 +296,12 @@ ME ME_5500585302D1
 
 ENDME // ME_5500585302D1 
 
+MEREF ME_532973740186_ME_534FA99B02BB_G
+ MELINK Original WL 'ME_532973740186' '532322D901A3.ms.model.script' // TvgReminder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_532973740186_ME_534FA99B02BB_G TvgReminder
+
 %%InjectedBy ME_53319C7502F4 ME_534FA99B02BB
 
 %%InheritedBy ME_532973740186 ME_534FA99B02BB
@@ -312,7 +318,7 @@ ME ME_534FA99B02BB
  MELINK Parent WL? 'ME_534FA97F003E' // ReminderWords
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_532973740186' '53288DFA03A7.ms.model.script' // TvgReminder
+   Seq: ( HWL ME_532973740186_ME_534FA99B02BB_G // TvgReminder
  )
  ; // Inherits
  MELIST Attributes

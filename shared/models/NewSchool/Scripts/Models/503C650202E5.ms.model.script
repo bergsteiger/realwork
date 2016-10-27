@@ -1,0 +1,64 @@
+// pop_editor_DP2LP 503C650202E5 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_503C650202E5
+
+ME ME_503C65430178
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_503C650202E5 // pop_editor_DP2LP
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_503C65430178 
+
+MEREF ME_4F4CB81200CA_ME_503C650202E5_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_503C650202E5_impl DoWithEditor
+
+MEREF ME_4F4CB625027A_ME_503C650202E5_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_503C650202E5_G TkwEditorFromStackWord
+
+%%InheritedBy ME_4F4CB625027A ME_503C650202E5
+
+ME ME_503C650202E5
+ MEPROP UID '503C650202E5'
+ MEPROP Name 'pop_editor_DP2LP'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* X Y anEditorControl pop:editor:DP2LP'#13#10'*Описание:* Переводи значения точки из долей дюйма в пиксели.'#13#10'*Пример:*'#13#10'{code} '#13#10'100 100  focused:control:push pop:editor:DP2LP'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A_ME_503C650202E5_G // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_503C650202E5_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_503C65430178 // Tl3Point
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwPopEditorDP2LP'
+ UP extprop:pas:UnitName 'kwPopEditorDP2LP'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PopEditorDP2LP'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorDP2LP.pas'
+
+ENDME // ME_503C650202E5 pop_editor_DP2LP

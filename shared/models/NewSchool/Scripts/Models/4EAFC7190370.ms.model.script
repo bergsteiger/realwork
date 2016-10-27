@@ -1,0 +1,42 @@
+// TkwSetActivePage 4EAFC7190370 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EAFC7190370
+
+ME ME_4EAFCCCF012E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EAFC7190370 // TkwSetActivePage
+ ;
+ MELINK Target WL 'ME_4EAFC7CC0065' '4DE60853015A.ms.model.script' // acSetActivePage
+ ;
+
+ENDME // ME_4EAFCCCF012E 
+
+ME ME_4EAFC7190370
+ MEPROP UID '4EAFC7190370'
+ MEPROP Name 'TkwSetActivePage'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* ID_вкладки окно_редактора:перейти_на_вкладку'#13#10'*Описание:* Делает активной вкладку с номером ID_вкладки.'#13#10'*Примечания:*'#13#10' Константы с номерами вкладок находятся в файле:'#13#10'{code}'#13#10'  w:\archi\source\projects\Archi\TestSet\Dictionary\ArchiControls.script"'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4EAFCCCF012E // acSetActivePage
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'окно_редактора:перейти_на_вкладку'
+ UP extprop:pas:UnitName 'kwSetActivePage'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SetActivePage'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwSetActivePage.pas'
+
+ENDME // ME_4EAFC7190370 TkwSetActivePage

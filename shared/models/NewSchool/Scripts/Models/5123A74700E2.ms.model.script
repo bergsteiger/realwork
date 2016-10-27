@@ -9,17 +9,29 @@ ME ME_5123A769004F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5123A74700E2 // AdminTest
  ;
- MELINK Target WL 'ME_5123A75E00D5' '5123A72D03E5.ms.model.script' // toKAdmin
+ MELINK Target WL? 'ME_5123A75E00D5' // toKAdmin
  ;
 
 ENDME // ME_5123A769004F 
 
-ME ME_4F79BCC902C5_ME_5123A74700E2
+MEREF ME_4F79BCC902C5_ME_5123A74700E2_impl
  MELINK Original WL 'ME_4F79BCC902C5' '52F21A610247.ms.model.script' // CalcBatchMode
  ;
  MEPROP OpKind opkind_Implemented
  UP "is static" True
-ENDME // ME_4F79BCC902C5_ME_5123A74700E2 CalcBatchMode
+ENDMEREF // ME_4F79BCC902C5_ME_5123A74700E2_impl CalcBatchMode
+
+MEREF ME_4AA517B5037A_ME_5123A74700E2_G
+ MELINK Original WL? 'ME_4AA517B5037A' // AdminApp
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AA517B5037A_ME_5123A74700E2_G AdminApp
+
+MEREF ME_4F79CD9F015F_ME_5123A74700E2_R
+ MELINK Original WL? 'ME_4F79CD9F015F' // VCMAppTester
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F79CD9F015F_ME_5123A74700E2_R VCMAppTester
 
 %%ImplementedBy ME_4F79CD9F015F ME_5123A74700E2
 
@@ -37,15 +49,15 @@ ME ME_5123A74700E2
  MELINK Parent WL? 'ME_5123A72D03E5' // Admin
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4AA517B5037A' // AdminApp
+   Seq: ( HWL ME_4AA517B5037A_ME_5123A74700E2_G // AdminApp
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_4F79CD9F015F' // VCMAppTester
+   Seq: ( HWL ME_4F79CD9F015F_ME_5123A74700E2_R // VCMAppTester
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_4F79BCC902C5_ME_5123A74700E2 // CalcBatchMode
+   Seq: ( ME_4F79BCC902C5_ME_5123A74700E2_impl // CalcBatchMode
  )
  ; // Implemented
  MELIST Dependencies

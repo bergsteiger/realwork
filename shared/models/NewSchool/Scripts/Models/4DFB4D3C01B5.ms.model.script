@@ -147,7 +147,7 @@ ENDME // ME_4E0AD05C020C Doit
 ME ME_4E0AD05102F2
  MEPROP UID '4E0AD05102F2'
  MEPROP Name 'CreateNewDocumentFromFile'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -186,7 +186,7 @@ ME ME_577649CA03C0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DFB4D5E0084 // TMainForm
  ;
- MELINK Target WL 'ME_57762BA20039' '57762B5A0168.ms.model.script' // Tl3ClipSpyService
+ MELINK Target WL? 'ME_57762BA20039' // Tl3ClipSpyService
  ;
 
 ENDME // ME_577649CA03C0 
@@ -196,7 +196,7 @@ ME ME_57764B440318
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DFB4D5E0084 // TMainForm
  ;
- MELINK Target WL 'ME_5776300D0270' '47F485150151.ms.model.script' // TvtClipSpyService
+ MELINK Target WL? 'ME_5776300D0270' // TvtClipSpyService
  ;
 
 ENDME // ME_57764B440318 
@@ -211,11 +211,17 @@ ME ME_57FCDC8D000F
 
 ENDME // ME_57FCDC8D000F 
 
-ME ME_57762C1A029F_ME_4DFB4D5E0084
+MEREF ME_57762C1A029F_ME_4DFB4D5E0084_impl
  MELINK Original WL 'ME_57762C1A029F' '57762BD601E1.ms.model.script' // Change
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_57762C1A029F_ME_4DFB4D5E0084 Change
+ENDMEREF // ME_57762C1A029F_ME_4DFB4D5E0084_impl Change
+
+MEREF ME_57762C030193_ME_4DFB4D5E0084_R
+ MELINK Original WL 'ME_57762C030193' '57762BD601E1.ms.model.script' // Il3ClipListner
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57762C030193_ME_4DFB4D5E0084_R Il3ClipListner
 
 %%ImplementedBy ME_57762C030193 ME_4DFB4D5E0084
 
@@ -230,7 +236,7 @@ ME ME_4DFB4D5E0084
  MELINK Parent HWL ME_4DFB4D3C01B5 // Main
  ;
  MELIST Implements
-   Seq: ( WL 'ME_57762C030193' '57762BD601E1.ms.model.script' // Il3ClipListner
+   Seq: ( HWL ME_57762C030193_ME_4DFB4D5E0084_R // Il3ClipListner
  )
  ; // Implements
  MELIST Operations
@@ -238,7 +244,7 @@ ME ME_4DFB4D5E0084
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_57762C1A029F_ME_4DFB4D5E0084 // Change
+   Seq: ( ME_57762C1A029F_ME_4DFB4D5E0084_impl // Change
  )
  ; // Implemented
  MELIST Children

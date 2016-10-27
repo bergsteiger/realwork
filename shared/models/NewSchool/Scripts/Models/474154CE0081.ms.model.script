@@ -1,0 +1,288 @@
+// TafwVirtualCaret 474154CE0081 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_474154CE0081
+
+ME ME_478E5A9202E0
+ MEPROP UID '478E5A9202E0'
+ MEPROP Name 'f_Extent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474154CE0081 // TafwVirtualCaret
+ ;
+ MELINK Target WL 'ME_478E59910054' '467823B7002C.ms.model.script' // TafwSPoint
+ ;
+
+ENDME // ME_478E5A9202E0 f_Extent
+
+ME ME_478E5AA402F6
+ MEPROP UID '478E5AA402F6'
+ MEPROP Name 'f_CaretPos'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474154CE0081 // TafwVirtualCaret
+ ;
+ MELINK Target WL 'ME_478E59910054' '467823B7002C.ms.model.script' // TafwSPoint
+ ;
+
+ENDME // ME_478E5AA402F6 f_CaretPos
+
+ME ME_478E5AB60046
+ MEPROP UID '478E5AB60046'
+ MEPROP Name 'f_CaretExt'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474154CE0081 // TafwVirtualCaret
+ ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_478E5AB60046 f_CaretExt
+
+FORWARD ME_4CC69A8B0337
+
+FORWARD ME_4CC69A9203D0
+
+ME ME_4CC69A93022C
+ MEPROP Name 'anExtent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478E59910054' '467823B7002C.ms.model.script' // TafwSPoint
+ ;
+
+ENDME // ME_4CC69A93022C anExtent
+
+ME ME_4CC69A9203D0
+ MEPROP UID '4CC69A9203D0'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC69A8B0337 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CC69A93022C // anExtent
+ )
+ ; // Parameters
+
+ENDME // ME_4CC69A9203D0 Create
+
+ME ME_4CC69A8B0337
+ MEPROP UID '4CC69A8B0337'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_474154CE0081 // TafwVirtualCaret
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CC69A9203D0 // Create
+ )
+ ; // Operations
+
+ENDME // ME_4CC69A8B0337 Create
+
+MEREF ME_4CC69A8B0337_ME_4CC69A7801C6_G
+ MELINK Original HWL ME_4CC69A8B0337 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CC69A8B0337_ME_4CC69A7801C6_G Create
+
+MEREF ME_478E4C070069_ME_4CC69A7801C6_R
+ MELINK Original WL 'ME_478E4C070069' '467823B7002C.ms.model.script' // IafwScrollCaret
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_478E4C070069_ME_4CC69A7801C6_R IafwScrollCaret
+
+%%ImplementedBy ME_478E4C070069 ME_4CC69A7801C6
+
+%%InheritedBy ME_4CC69A8B0337 ME_4CC69A7801C6
+
+ME ME_4CC69A7801C6
+ MEPROP UID '4CC69A7801C6'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_474154CE0081 // TafwVirtualCaret
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CC69A8B0337_ME_4CC69A7801C6_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_478E4C070069_ME_4CC69A7801C6_R // IafwScrollCaret
+ )
+ ; // Implements
+
+ENDME // ME_4CC69A7801C6 Make
+
+ME ME_478E5E0C0388
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_474154CE0081 // TafwVirtualCaret
+ ;
+ MELINK Target WL 'ME_47289677028A' '472745450206.ms.model.script' // Tl3SPoint
+ ;
+
+ENDME // ME_478E5E0C0388 
+
+MEREF ME_4728CC9400ED_ME_474154CE0081_impl
+ MELINK Original WL 'ME_4728CC9400ED' '4677FBA70343.ms.model.script' // CheckHidden
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4728CC9400ED_ME_474154CE0081_impl CheckHidden
+
+MEREF ME_4728CCB1004E_ME_474154CE0081_impl
+ MELINK Original WL 'ME_4728CCB1004E' '4677FBA70343.ms.model.script' // CanHide
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4728CCB1004E_ME_474154CE0081_impl CanHide
+
+MEREF ME_4728CCBC023F_ME_474154CE0081_impl
+ MELINK Original WL 'ME_4728CCBC023F' '4677FBA70343.ms.model.script' // Extent
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4728CCBC023F_ME_474154CE0081_impl Extent
+
+MEREF ME_4728CCC90157_ME_474154CE0081_impl
+ MELINK Original WL 'ME_4728CCC90157' '4677FBA70343.ms.model.script' // Position
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4728CCC90157_ME_474154CE0081_impl Position
+
+MEREF ME_4728CCD502A9_ME_474154CE0081_impl
+ MELINK Original WL 'ME_4728CCD502A9' '4677FBA70343.ms.model.script' // Visible
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4728CCD502A9_ME_474154CE0081_impl Visible
+
+MEREF ME_4728CCEA00DC_ME_474154CE0081_impl
+ MELINK Original WL 'ME_4728CCEA00DC' '4677FBA70343.ms.model.script' // Hidden
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4728CCEA00DC_ME_474154CE0081_impl Hidden
+
+MEREF ME_4728CD1103B3_ME_474154CE0081_impl
+ MELINK Original WL 'ME_4728CD1103B3' '4677FBA70343.ms.model.script' // IsInited
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4728CD1103B3_ME_474154CE0081_impl IsInited
+
+MEREF ME_4728CD240270_ME_474154CE0081_impl
+ MELINK Original WL 'ME_4728CD240270' '4677FBA70343.ms.model.script' // IsOnScreen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4728CD240270_ME_474154CE0081_impl IsOnScreen
+
+MEREF ME_4728CD370137_ME_474154CE0081_impl
+ MELINK Original WL 'ME_4728CD370137' '4677FBA70343.ms.model.script' // Scroll
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4728CD370137_ME_474154CE0081_impl Scroll
+
+MEREF ME_4728CD4101D2_ME_474154CE0081_impl
+ MELINK Original WL 'ME_4728CD4101D2' '4677FBA70343.ms.model.script' // Reset
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4728CD4101D2_ME_474154CE0081_impl Reset
+
+MEREF ME_46780E690001_ME_474154CE0081_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_474154CE0081_G Tl3CacheableBase
+
+MEREF ME_478E4BF6002B_ME_474154CE0081_R
+ MELINK Original WL 'ME_478E4BF6002B' '467823B7002C.ms.model.script' // IafwCaret
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_478E4BF6002B_ME_474154CE0081_R IafwCaret
+
+MEREF ME_478E4C070069_ME_474154CE0081_R
+ MELINK Original WL 'ME_478E4C070069' '467823B7002C.ms.model.script' // IafwScrollCaret
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_478E4C070069_ME_474154CE0081_R IafwScrollCaret
+
+%%ImplementedBy ME_478E4BF6002B ME_474154CE0081
+%%ImplementedBy ME_478E4C070069 ME_474154CE0081
+
+%%InheritedBy ME_46780E690001 ME_474154CE0081
+
+ME ME_474154CE0081
+ MEPROP UID '474154CE0081'
+ MEPROP Name 'TafwVirtualCaret'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Виртуальная каретка.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_474144E20301' // Draw
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46780E690001_ME_474154CE0081_G // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_478E4BF6002B_ME_474154CE0081_R // IafwCaret
+ HWL ME_478E4C070069_ME_474154CE0081_R // IafwScrollCaret
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_478E5A9202E0 // f_Extent
+ HWL ME_478E5AA402F6 // f_CaretPos
+ HWL ME_478E5AB60046 // f_CaretExt
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CC69A8B0337 // Create
+ HWL ME_4CC69A7801C6 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4728CC9400ED_ME_474154CE0081_impl // CheckHidden
+ ME_4728CCB1004E_ME_474154CE0081_impl // CanHide
+ ME_4728CCBC023F_ME_474154CE0081_impl // Extent
+ ME_4728CCC90157_ME_474154CE0081_impl // Position
+ ME_4728CCD502A9_ME_474154CE0081_impl // Visible
+ ME_4728CCEA00DC_ME_474154CE0081_impl // Hidden
+ ME_4728CD1103B3_ME_474154CE0081_impl // IsInited
+ ME_4728CD240270_ME_474154CE0081_impl // IsOnScreen
+ ME_4728CD370137_ME_474154CE0081_impl // Scroll
+ ME_4728CD4101D2_ME_474154CE0081_impl // Reset
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_478E5E0C0388 // Tl3SPoint
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '26.02.2006 13:49'
+ UP extprop:pas:UnitName 'afwVirtualCaret'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwVirtualCaret'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwVirtualCaret.pas'
+
+ENDME // ME_474154CE0081 TafwVirtualCaret

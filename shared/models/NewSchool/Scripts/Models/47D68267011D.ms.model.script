@@ -1,0 +1,174 @@
+// TvtNavigatorFormListPrim 47D68267011D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47D67F4A01EA
+
+FORWARD ME_47D68267011D
+
+FORWARD ME_47D67F4A01EA
+
+ME ME_4B703A13033E
+ MEPROP UID '4B703A13033E'
+ MEPROP Name 'rObject'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Ключ поиска - объект' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D67F4A01EA // TvtFormHandlerID
+ ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4B703A13033E rObject
+
+FORWARD ME_4B7039C60392
+
+FORWARD ME_4B7039CF01FB
+
+ME ME_4B7039D2012F
+ MEPROP Name 'anObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4B7039D2012F anObject
+
+ME ME_4B7039CF01FB
+ MEPROP UID '4B7039CF01FB'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B7039C60392 // C
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B7039D2012F // anObject
+ )
+ ; // Parameters
+
+ENDME // ME_4B7039CF01FB C
+
+ME ME_4B7039C60392
+ MEPROP UID '4B7039C60392'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращает заполненную запись' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47D67F4A01EA // TvtFormHandlerID
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B7039CF01FB // C
+ )
+ ; // Operations
+
+ENDME // ME_4B7039C60392 C
+
+ME ME_47D67F4A01EA
+ MEPROP UID '47D67F4A01EA'
+ MEPROP Name 'TvtFormHandlerID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ключ для поиска элемента по объекту.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D68267011D // TvtNavigatorFormListPrim
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B703A13033E // rObject
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B7039C60392 // C
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_47D67F4A01EA TvtFormHandlerID
+
+ME ME_47D67FEF0384
+ MEPROP UID '47D67FEF0384'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D68267011D // TvtNavigatorFormListPrim
+ ;
+ MELINK Target HWL ME_47D67F4A01EA // TvtFormHandlerID
+ ;
+
+ENDME // ME_47D67FEF0384 FindDataType
+
+MEREF ME_47B9BAFD01F4_ME_47D68267011D_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_47D68267011D_over CompareItemWithData
+
+MEREF ME_47CD131703C6_ME_47D68267011D_G
+ MELINK Original WL? 'ME_47CD131703C6' // TvtNavigatorFormListPrimPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47CD131703C6_ME_47D68267011D_G TvtNavigatorFormListPrimPrim
+
+MEREF ME_47B47E230134_ME_47D68267011D_R
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_47D68267011D_R l3Searcher
+
+%%ImplementedBy ME_47B47E230134 ME_47D68267011D
+
+%%InheritedBy ME_47CD131703C6 ME_47D68267011D
+
+ME ME_47D68267011D
+ MEPROP UID '47D68267011D'
+ MEPROP Name 'TvtNavigatorFormListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список форм навигатора, который позволяет искать элемент в списка по ключу объект.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47CD07B900E0' // vtNavigator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47CD131703C6_ME_47D68267011D_G // TvtNavigatorFormListPrimPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B47E230134_ME_47D68267011D_R // l3Searcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47D67FEF0384 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_47D68267011D_over // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_47D67F4A01EA // TvtFormHandlerID
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'vtNavigatorFormListPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NavigatorFormListPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtNavigatorFormListPrim.pas'
+
+ENDME // ME_47D68267011D TvtNavigatorFormListPrim

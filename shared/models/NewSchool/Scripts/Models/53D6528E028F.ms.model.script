@@ -1,0 +1,154 @@
+// TnevControlParaModelControlMapper 53D6528E028F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D6528E028F
+
+ME ME_53D652AC00BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D6528E028F // TnevControlParaModelControlMapper
+ ;
+ MELINK Target WL? 'ME_4858000901EF' // TevControlPara
+ ;
+ UP "injects as" 'mapper'
+
+ENDME // ME_53D652AC00BC 
+
+ME ME_53D652D801DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53D6528E028F // TnevControlParaModelControlMapper
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_53D652D801DB 
+
+ME ME_53D652E7004C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53D6528E028F // TnevControlParaModelControlMapper
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_53D652E7004C 
+
+ME ME_53D6530201BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D6528E028F // TnevControlParaModelControlMapper
+ ;
+ MELINK Target WL 'ME_47CD5D2C00F9' '47CD5C7602CD.ms.model.script' // IevCustomParaTool
+ ;
+
+ENDME // ME_53D6530201BB 
+
+ME ME_53D6531A0233
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D6528E028F // TnevControlParaModelControlMapper
+ ;
+ MELINK Target WL 'ME_47CD5E5300D5' '47CD5C7602CD.ms.model.script' // IevCustomEditorControl
+ ;
+
+ENDME // ME_53D6531A0233 
+
+ME ME_53D653370323
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D6528E028F // TnevControlParaModelControlMapper
+ ;
+ MELINK Target WL 'ME_47CD601B0048' '47CD5C7602CD.ms.model.script' // IevEditorControl
+ ;
+
+ENDME // ME_53D653370323 
+
+ME ME_53D653600313
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D6528E028F // TnevControlParaModelControlMapper
+ ;
+ MELINK Target WL 'ME_47CD608201FA' '47CD5C7602CD.ms.model.script' // IevEditorControlField
+ ;
+
+ENDME // ME_53D653600313 
+
+ME ME_53D6537902A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D6528E028F // TnevControlParaModelControlMapper
+ ;
+ MELINK Target WL 'ME_47CD609F0273' '47CD5C7602CD.ms.model.script' // IevEditorFieldWithTree
+ ;
+
+ENDME // ME_53D6537902A3 
+
+ME ME_53D653910292
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D6528E028F // TnevControlParaModelControlMapper
+ ;
+ MELINK Target WL 'ME_47CD7D2A013E' '47CD5C7602CD.ms.model.script' // IevEditorCalendarField
+ ;
+
+ENDME // ME_53D653910292 
+
+MEREF ME_53D639B601D7_ME_53D6528E028F_impl
+ MELINK Original WL 'ME_53D639B601D7' '53D6399F03E1.ms.model.script' // Make
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" True
+ENDMEREF // ME_53D639B601D7_ME_53D6528E028F_impl Make
+
+MEREF ME_53D6399F03E1_ME_53D6528E028F_G
+ MELINK Original WL? 'ME_53D6399F03E1' // Tk2InterfaceMapper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53D6399F03E1_ME_53D6528E028F_G Tk2InterfaceMapper
+
+%%InjectedBy ME_4858000901EF ME_53D6528E028F
+
+%%InheritedBy ME_53D6399F03E1 ME_53D6528E028F
+
+ME ME_53D6528E028F
+ MEPROP UID '53D6528E028F'
+ MEPROP Name 'TnevControlParaModelControlMapper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48CE0A0A03B4' // ParagraphsImplementation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53D6399F03E1_ME_53D6528E028F_G // Tk2InterfaceMapper
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53D639B601D7_ME_53D6528E028F_impl // Make
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53D652AC00BC // TevControlPara
+ ME_53D652D801DB // Tk2TagID
+ ME_53D652E7004C // Supports
+ ME_53D6530201BB // IevCustomParaTool
+ ME_53D6531A0233 // IevCustomEditorControl
+ ME_53D653370323 // IevEditorControl
+ ME_53D653600313 // IevEditorControlField
+ ME_53D6537902A3 // IevEditorFieldWithTree
+ ME_53D653910292 // IevEditorCalendarField
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nevControlParaModelControlMapper'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ControlParaModelControlMapper'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevControlParaModelControlMapper.pas'
+
+ENDME // ME_53D6528E028F TnevControlParaModelControlMapper

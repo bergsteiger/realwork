@@ -14,7 +14,6 @@ uses
  , l3Interfaces
  , UnderControlInterfaces
  , l3StringIDEx
- , l3MessageID
 ;
 
 const
@@ -38,6 +37,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3MessageID
  , UnderControlUnit
  , l3String
  {$If NOT Defined(NoVCM)}

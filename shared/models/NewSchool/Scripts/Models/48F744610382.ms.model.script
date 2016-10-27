@@ -1,0 +1,73 @@
+// TnsNodesInterfacedDataObject 48F744610382 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48F744610382
+
+ME ME_48F869A1003C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F744610382 // TnsNodesInterfacedDataObject
+ ;
+ MELINK Target WL 'ME_45EECAA0007D' '457450470167.ms.model.script' // NodesClipboard
+ ;
+
+ENDME // ME_48F869A1003C 
+
+ME ME_48F869F702EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F744610382 // TnsNodesInterfacedDataObject
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_48F869F702EE 
+
+MEREF ME_4A60B23E00C3_ME_48F744610382_over
+ MELINK Original WL 'ME_4A60B23E00C3' '4A60B2220398.ms.model.script' // COMQueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A60B23E00C3_ME_48F744610382_over COMQueryInterface
+
+MEREF ME_48EF3978008D_ME_48F744610382_G
+ MELINK Original WL? 'ME_48EF3978008D' // TevDataObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48EF3978008D_ME_48F744610382_G TevDataObject
+
+%%InheritedBy ME_48EF3978008D ME_48F744610382
+
+ME ME_48F744610382
+ MEPROP UID '48F744610382'
+ MEPROP Name 'TnsNodesInterfacedDataObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48F7409E0257' // ListDataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48EF3978008D_ME_48F744610382_G // TevDataObject
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4A60B23E00C3_ME_48F744610382_over // COMQueryInterface
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48F869A1003C // NodesClipboard
+ ME_48F869F702EE // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nsNodesInterfacedDataObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NodesInterfacedDataObject'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\List\nsNodesInterfacedDataObject.pas'
+
+ENDME // ME_48F744610382 TnsNodesInterfacedDataObject

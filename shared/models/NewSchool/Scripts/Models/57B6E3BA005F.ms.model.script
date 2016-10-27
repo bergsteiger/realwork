@@ -1,0 +1,147 @@
+// TmsGenRunner 57B6E3BA005F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57B6E3BA005F
+
+ME ME_57BB1439021C
+ MEPROP UID '57BB1439021C'
+ MEPROP Name 'g_ModelOnly'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B6E3BA005F // TmsGenRunner
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_57BB1439021C g_ModelOnly
+
+ME ME_57BF48CB03B2
+ MEPROP UID '57BF48CB03B2'
+ MEPROP Name 'g_NullOnly'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B6E3BA005F // TmsGenRunner
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_57BF48CB03B2 g_NullOnly
+
+ME ME_57BFE5C1028C
+ MEPROP UID '57BFE5C1028C'
+ MEPROP Name 'g_SpellOnly'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B6E3BA005F // TmsGenRunner
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_57BFE5C1028C g_SpellOnly
+
+ME ME_57EB56980387
+ MEPROP UID '57EB56980387'
+ MEPROP Name 'g_NoModel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B6E3BA005F // TmsGenRunner
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_57EB56980387 g_NoModel
+
+ME ME_57B6EB2C01F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57B6E3BA005F // TmsGenRunner
+ ;
+ MELINK Target WL? 'ME_57B2D68E035D' // msmWordsCachePack
+ ;
+
+ENDME // ME_57B6EB2C01F6 
+
+MEREF ME_55C483850136_ME_57B6E3BA005F_over
+ MELINK Original WL 'ME_55C483850136' '55C482EC023E.ms.model.script' // Run
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDMEREF // ME_55C483850136_ME_57B6E3BA005F_over Run
+
+MEREF ME_57B6E409029C_ME_57B6E3BA005F_over
+ MELINK Original WL 'ME_57B6E409029C' '55C482EC023E.ms.model.script' // DoRunScript
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDMEREF // ME_57B6E409029C_ME_57B6E3BA005F_over DoRunScript
+
+MEREF ME_57B6F81500E3_ME_57B6E3BA005F_over
+ MELINK Original WL 'ME_57B6F81500E3' '55C482EC023E.ms.model.script' // CheckFileExists
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDMEREF // ME_57B6F81500E3_ME_57B6E3BA005F_over CheckFileExists
+
+MEREF ME_55C482EC023E_ME_57B6E3BA005F_G
+ MELINK Original WL? 'ME_55C482EC023E' // TcallMSSRunner
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55C482EC023E_ME_57B6E3BA005F_G TcallMSSRunner
+
+%%InheritedBy ME_55C482EC023E ME_57B6E3BA005F
+
+ME ME_57B6E3BA005F
+ MEPROP UID '57B6E3BA005F'
+ MEPROP Name 'TmsGenRunner'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B6E36B01C8' // msgen
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_55C482EC023E_ME_57B6E3BA005F_G // TcallMSSRunner
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57BB1439021C // g_ModelOnly
+ HWL ME_57BF48CB03B2 // g_NullOnly
+ HWL ME_57BFE5C1028C // g_SpellOnly
+ HWL ME_57EB56980387 // g_NoModel
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_55C483850136_ME_57B6E3BA005F_over // Run
+ ME_57B6E409029C_ME_57B6E3BA005F_over // DoRunScript
+ ME_57B6F81500E3_ME_57B6E3BA005F_over // CheckFileExists
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57B6EB2C01F6 // msmWordsCachePack
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'msGenRunner'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msGenRunner'
+ UP intf.pas:Path 'common\components\msgen\msGenRunner.pas'
+
+ENDME // ME_57B6E3BA005F TmsGenRunner

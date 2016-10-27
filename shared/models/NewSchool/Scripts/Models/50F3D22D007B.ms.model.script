@@ -1,0 +1,61 @@
+// TkwCompiledCheckWithEtalon 50F3D22D007B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4DAEEDE10285_ME_50F3D22D007B_impl
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DAEEDE10285_ME_50F3D22D007B_impl DoDoIt
+
+MEREF ME_4EB100CE0160_ME_50F3D22D007B_over
+ MELINK Original WL 'ME_4EB100CE0160' '4E1C016B0011.ms.model.script' // DoRepaint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4EB100CE0160_ME_50F3D22D007B_over DoRepaint
+
+MEREF ME_4DCBD50101CB_ME_50F3D22D007B_G
+ MELINK Original WL? 'ME_4DCBD50101CB' // TkwCompiledWordWorker
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCBD50101CB_ME_50F3D22D007B_G TkwCompiledWordWorker
+
+MEREF ME_50D456F10356_ME_50F3D22D007B_G
+ MELINK Original WL? 'ME_50D456F10356' // kwCheckWithEtalonCommon
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50D456F10356_ME_50F3D22D007B_G kwCheckWithEtalonCommon
+
+%%InheritedBy ME_4DCBD50101CB ME_50F3D22D007B
+%%InheritedBy ME_50D456F10356 ME_50F3D22D007B
+
+ME ME_50F3D22D007B
+ MEPROP UID '50F3D22D007B'
+ MEPROP Name 'TkwCompiledCheckWithEtalon'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DCBD50101CB_ME_50F3D22D007B_G // TkwCompiledWordWorker
+ HWL ME_50D456F10356_ME_50F3D22D007B_G // kwCheckWithEtalonCommon
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_50F3D22D007B_impl // DoDoIt
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4EB100CE0160_ME_50F3D22D007B_over // DoRepaint
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'kwCompiledCheckWithEtalon'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CompiledCheckWithEtalon'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledCheckWithEtalon.pas'
+
+ENDME // ME_50F3D22D007B TkwCompiledCheckWithEtalon

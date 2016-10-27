@@ -1,0 +1,85 @@
+// Tl3IntegerToIntegerMapTest 56090AF902FF TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56090AF902FF
+
+FORWARD ME_56090B0D03D1
+
+ME ME_56090B2E01A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56090B0D03D1 // DoIt
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_56090B2E01A8 
+
+ME ME_56090B0D03D1
+ MEPROP UID '56090B0D03D1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56090AF902FF // Tl3IntegerToIntegerMapTest
+ ;
+ MELIST Dependencies
+   Seq: ( ME_56090B2E01A8 // FreeAndNil
+ )
+ ; // Dependencies
+
+ENDME // ME_56090B0D03D1 DoIt
+
+ME ME_56090B03026D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56090AF902FF // Tl3IntegerToIntegerMapTest
+ ;
+ MELINK Target WL? 'ME_56090A5401A5' // Tl3IntegerToIntegerMap
+ ;
+
+ENDME // ME_56090B03026D 
+
+MEREF ME_4B2A11BC0255_ME_56090AF902FF_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_56090AF902FF_G TBaseTest
+
+%%InheritedBy ME_4B2A11BC0255 ME_56090AF902FF
+
+ME ME_56090AF902FF
+ MEPROP UID '56090AF902FF'
+ MEPROP Name 'Tl3IntegerToIntegerMapTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_549199FF02ED' // 7.11
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B2A11BC0255_ME_56090AF902FF_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_56090B0D03D1 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_56090B03026D // Tl3IntegerToIntegerMap
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'l3IntegerToIntegerMapTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IntegerToIntegerMapTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\l3IntegerToIntegerMapTest.pas'
+
+ENDME // ME_56090AF902FF Tl3IntegerToIntegerMapTest

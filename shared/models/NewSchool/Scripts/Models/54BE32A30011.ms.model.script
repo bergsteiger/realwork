@@ -1,0 +1,141 @@
+// TalcuDetachedExecutorPool 54BE32A30011 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54BE32A30011
+
+ME ME_54BE32B500B1
+ MEPROP UID '54BE32B500B1'
+ MEPROP Name 'f_Data'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54BE32A30011 // TalcuDetachedExecutorPool
+ ;
+ MELINK Target WL? 'ME_54BE2518015B' // TalcuDetachedExecutorList
+ ;
+
+ENDME // ME_54BE32B500B1 f_Data
+
+FORWARD ME_54BE5EBC03D3
+
+ME ME_54BF5B590124
+ MEPROP Name 'anExecutor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4911B24C01F6' '4773D64E036C.ms.model.script' // Tl3ThreadContainer
+ ;
+
+ENDME // ME_54BF5B590124 anExecutor
+
+ME ME_54BE5EBC03D3
+ MEPROP UID '54BE5EBC03D3'
+ MEPROP Name 'Launch'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54BE32A30011 // TalcuDetachedExecutorPool
+ ;
+ MELIST Parameters
+   Seq: ( ME_54BF5B590124 // anExecutor
+ )
+ ; // Parameters
+
+ENDME // ME_54BE5EBC03D3 Launch
+
+ME ME_54BE5ED201CC
+ MEPROP UID '54BE5ED201CC'
+ MEPROP Name 'Pack'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54BE32A30011 // TalcuDetachedExecutorPool
+ ;
+
+ENDME // ME_54BE5ED201CC Pack
+
+ME ME_54BE331D00E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54BE32A30011 // TalcuDetachedExecutorPool
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54BE331D00E9 
+
+MEREF ME_479731C50290_ME_54BE32A30011_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_54BE32A30011_over Cleanup
+
+MEREF ME_47A042E100E2_ME_54BE32A30011_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_54BE32A30011_over InitFields
+
+MEREF ME_49E7754802A9_ME_54BE32A30011_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_54BE32A30011_G Tl3ProtoObject
+
+MEREF ME_53A03846011C_ME_54BE32A30011_R
+ MELINK Original WL? 'ME_53A03846011C' // l3CriticalSectionHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53A03846011C_ME_54BE32A30011_R l3CriticalSectionHolder
+
+%%ImplementedBy ME_53A03846011C ME_54BE32A30011
+
+%%InheritedBy ME_49E7754802A9 ME_54BE32A30011
+
+ME ME_54BE32A30011
+ MEPROP UID '54BE32A30011'
+ MEPROP Name 'TalcuDetachedExecutorPool'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54856B680023' // TaskSend
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_54BE32A30011_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53A03846011C_ME_54BE32A30011_R // l3CriticalSectionHolder
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_54BE32B500B1 // f_Data
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54BE5EBC03D3 // Launch
+ HWL ME_54BE5ED201CC // Pack
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_54BE32A30011_over // Cleanup
+ ME_47A042E100E2_ME_54BE32A30011_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54BE331D00E9 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'alcuDetachedExecutorPool'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuDetachedExecutorPool'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuDetachedExecutorPool.pas'
+
+ENDME // ME_54BE32A30011 TalcuDetachedExecutorPool

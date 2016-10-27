@@ -1,0 +1,325 @@
+// Tl3BoxMemoryManagerPrim 54B69FAC0256 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54B69FAC0256
+
+FORWARD ME_54B6A3B800A5
+
+ME ME_54B6A3CB03C7
+ MEPROP UID '54B6A3CB03C7'
+ MEPROP Name 'cStep'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54B6A3B800A5 // Constants
+ ;
+ MEPROP Value 4
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 4
+
+ENDME // ME_54B6A3CB03C7 cStep
+
+ME ME_54B6A3B800A5
+ MEPROP UID '54B6A3B800A5'
+ MEPROP Name 'Constants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_54B6A3CB03C7 // cStep
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_54B6A3B800A5 Constants
+
+ME ME_54B6A2A800DA
+ MEPROP UID '54B6A2A800DA'
+ MEPROP Name 'f_Freed'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
+ ;
+ MELINK Target WL 'ME_54B6A0D8000C' '4807744200AA.ms.model.script' // PAnsiChar
+ ;
+
+ENDME // ME_54B6A2A800DA f_Freed
+
+ME ME_54B6A2BF029A
+ MEPROP UID '54B6A2BF029A'
+ MEPROP Name 'f_LowIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54B6A2BF029A f_LowIndex
+
+ME ME_54B6A2CB0202
+ MEPROP UID '54B6A2CB0202'
+ MEPROP Name 'f_HighIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54B6A2CB0202 f_HighIndex
+
+ME ME_54B6A2DE003A
+ MEPROP UID '54B6A2DE003A'
+ MEPROP Name 'f_SizeSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_54B6A2DE003A f_SizeSize
+
+FORWARD ME_54B6A30003E2
+
+FORWARD ME_54B6A309000D
+
+ME ME_54B6A32500E1
+ MEPROP Name 'aBlockSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54B6A32500E1 aBlockSize
+
+ME ME_54B6A3250108
+ MEPROP Name 'aHighIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 8
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 8
+
+ENDME // ME_54B6A3250108 aHighIndex
+
+ME ME_54B6A3250127
+ MEPROP Name 'aLowIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_54B6A3250127 aLowIndex
+
+ME ME_54B6A309000D
+ MEPROP UID '54B6A309000D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B6A30003E2 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B6A32500E1 // aBlockSize
+ ME_54B6A3250108 // aHighIndex
+ ME_54B6A3250127 // aLowIndex
+ )
+ ; // Parameters
+
+ENDME // ME_54B6A309000D DoIt
+
+ME ME_54B6A30003E2
+ MEPROP UID '54B6A30003E2'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B6A309000D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B6A30003E2 Create
+
+ME ME_54B6A3430381
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
+ ;
+ MELINK Target WL? 'ME_47A066980016' // l3MinMax
+ ;
+
+ENDME // ME_54B6A3430381 
+
+ME ME_54B8F86201AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B69FAC0256 // Tl3BoxMemoryManagerPrim
+ ;
+ MELINK Target WL? 'ME_51DD554C0205' // Tl3MemUtils
+ ;
+
+ENDME // ME_54B8F86201AC 
+
+MEREF ME_54B6A043017E_ME_54B69FAC0256_impl
+ MELINK Original WL 'ME_54B6A043017E' '54B69F9700DE.ms.model.script' // SizeSize
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54B6A043017E_ME_54B69FAC0256_impl SizeSize
+
+MEREF ME_54B6A06A00AF_ME_54B69FAC0256_impl
+ MELINK Original WL 'ME_54B6A06A00AF' '54B69F9700DE.ms.model.script' // Size2Index
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54B6A06A00AF_ME_54B69FAC0256_impl Size2Index
+
+MEREF ME_54B6A0850253_ME_54B69FAC0256_impl
+ MELINK Original WL 'ME_54B6A0850253' '54B69F9700DE.ms.model.script' // AlignSize
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54B6A0850253_ME_54B69FAC0256_impl AlignSize
+
+MEREF ME_54B6A0A50097_ME_54B69FAC0256_impl
+ MELINK Original WL 'ME_54B6A0A50097' '54B69F9700DE.ms.model.script' // GetPSz
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54B6A0A50097_ME_54B69FAC0256_impl GetPSz
+
+MEREF ME_54B6A0F1005C_ME_54B69FAC0256_impl
+ MELINK Original WL 'ME_54B6A0F1005C' '54B69F9700DE.ms.model.script' // SetPSz
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54B6A0F1005C_ME_54B69FAC0256_impl SetPSz
+
+MEREF ME_54B6A11301EC_ME_54B69FAC0256_impl
+ MELINK Original WL 'ME_54B6A11301EC' '54B69F9700DE.ms.model.script' // HasFreed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54B6A11301EC_ME_54B69FAC0256_impl HasFreed
+
+MEREF ME_54B6A1290134_ME_54B69FAC0256_impl
+ MELINK Original WL 'ME_54B6A1290134' '54B69F9700DE.ms.model.script' // InitFreed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54B6A1290134_ME_54B69FAC0256_impl InitFreed
+
+MEREF ME_54B6A138006E_ME_54B69FAC0256_impl
+ MELINK Original WL 'ME_54B6A138006E' '54B69F9700DE.ms.model.script' // ClearFreed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54B6A138006E_ME_54B69FAC0256_impl ClearFreed
+
+MEREF ME_54B6A14B000C_ME_54B69FAC0256_impl
+ MELINK Original WL 'ME_54B6A14B000C' '54B69F9700DE.ms.model.script' // IsValidIndex
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54B6A14B000C_ME_54B69FAC0256_impl IsValidIndex
+
+MEREF ME_54B6A16703DD_ME_54B69FAC0256_impl
+ MELINK Original WL 'ME_54B6A16703DD' '54B69F9700DE.ms.model.script' // GetFreed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54B6A16703DD_ME_54B69FAC0256_impl GetFreed
+
+MEREF ME_54B6A1830090_ME_54B69FAC0256_impl
+ MELINK Original WL 'ME_54B6A1830090' '54B69F9700DE.ms.model.script' // SetFreed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54B6A1830090_ME_54B69FAC0256_impl SetFreed
+
+MEREF ME_54B69F9700DE_ME_54B69FAC0256_G
+ MELINK Original WL? 'ME_54B69F9700DE' // Tl3BaseBoxMemoryManager
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54B69F9700DE_ME_54B69FAC0256_G Tl3BaseBoxMemoryManager
+
+%%InheritedBy ME_54B69F9700DE ME_54B69FAC0256
+
+ME ME_54B69FAC0256
+ MEPROP UID '54B69FAC0256'
+ MEPROP Name 'Tl3BoxMemoryManagerPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_545CDF1002C9' // MemoryManagers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54B69F9700DE_ME_54B69FAC0256_G // Tl3BaseBoxMemoryManager
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54B6A2A800DA // f_Freed
+ HWL ME_54B6A2BF029A // f_LowIndex
+ HWL ME_54B6A2CB0202 // f_HighIndex
+ HWL ME_54B6A2DE003A // f_SizeSize
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54B6A30003E2 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_54B6A043017E_ME_54B69FAC0256_impl // SizeSize
+ ME_54B6A06A00AF_ME_54B69FAC0256_impl // Size2Index
+ ME_54B6A0850253_ME_54B69FAC0256_impl // AlignSize
+ ME_54B6A0A50097_ME_54B69FAC0256_impl // GetPSz
+ ME_54B6A0F1005C_ME_54B69FAC0256_impl // SetPSz
+ ME_54B6A11301EC_ME_54B69FAC0256_impl // HasFreed
+ ME_54B6A1290134_ME_54B69FAC0256_impl // InitFreed
+ ME_54B6A138006E_ME_54B69FAC0256_impl // ClearFreed
+ ME_54B6A14B000C_ME_54B69FAC0256_impl // IsValidIndex
+ ME_54B6A16703DD_ME_54B69FAC0256_impl // GetFreed
+ ME_54B6A1830090_ME_54B69FAC0256_impl // SetFreed
+ )
+ ; // Implemented
+ MELIST Constants
+   Seq: ( HWL ME_54B6A3B800A5 // Constants
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_54B6A3430381 // l3MinMax
+ ME_54B8F86201AC // Tl3MemUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "started" '28.05.2004 19:49'
+ UP extprop:pas:UnitName 'l3BoxMemoryManagerPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BoxMemoryManagerPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3BoxMemoryManagerPrim.pas'
+
+ENDME // ME_54B69FAC0256 Tl3BoxMemoryManagerPrim

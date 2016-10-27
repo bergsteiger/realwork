@@ -1,0 +1,117 @@
+// Tk2SimpleTagList 5319CECC039A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5319CF84038D
+
+FORWARD ME_5319CECC039A
+
+ME ME_5319CF84038D
+ MEPROP UID '5319CF84038D'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5319CECC039A // Tk2SimpleTagList
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_5319CF84038D l3Items_NoSort
+
+FORWARD ME_5319D72D03D1
+
+FORWARD ME_5319D74000E8
+
+ME ME_5319D74A020C
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_47B9D76B0301' // Tk2TagList
+ ;
+
+ENDME // ME_5319D74A020C anOther
+
+ME ME_5319D74000E8
+ MEPROP UID '5319D74000E8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5319D72D03D1 // JoinWith
+ ;
+ MELIST Parameters
+   Seq: ( ME_5319D74A020C // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_5319D74000E8 DoIt
+
+ME ME_5319D72D03D1
+ MEPROP UID '5319D72D03D1'
+ MEPROP Name 'JoinWith'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5319CECC039A // Tk2SimpleTagList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5319D74000E8 // DoIt
+ )
+ ; // Operations
+ UP "force overload" True
+ UP "is static" False
+
+ENDME // ME_5319D72D03D1 JoinWith
+
+MEREF ME_4A5F28820363_ME_5319CECC039A_G
+ MELINK Original WL? 'ME_4A5F28820363' // k2SimpleTagListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A5F28820363_ME_5319CECC039A_G k2SimpleTagListPrim
+
+MEREF ME_5319E8FF0107_ME_5319CECC039A_G
+ MELINK Original WL? 'ME_5319E8FF0107' // Tl3DataContainerWithoutIUnknownPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5319E8FF0107_ME_5319CECC039A_G Tl3DataContainerWithoutIUnknownPrim
+
+%%InheritedBy ME_4A5F28820363 ME_5319CECC039A
+%%InheritedBy ME_5319E8FF0107 ME_5319CECC039A
+
+ME ME_5319CECC039A
+ MEPROP UID '5319CECC039A'
+ MEPROP Name 'Tk2SimpleTagList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5319CE3F02E2' // k2Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A5F28820363_ME_5319CECC039A_G // k2SimpleTagListPrim
+ HWL ME_5319E8FF0107_ME_5319CECC039A_G // Tl3DataContainerWithoutIUnknownPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5319D72D03D1 // JoinWith
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_5319CF84038D // l3Items_NoSort
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'k2SimpleTagList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SimpleTagList'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2SimpleTagList.pas'
+
+ENDME // ME_5319CECC039A Tk2SimpleTagList

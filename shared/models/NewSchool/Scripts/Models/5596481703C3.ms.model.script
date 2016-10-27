@@ -1,0 +1,465 @@
+// TddRTFShape 5596481703C3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5596481703C3
+
+ME ME_55964BEB03D1
+ MEPROP UID '55964BEB03D1'
+ MEPROP Name 'f_Children'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5596481703C3 // TddRTFShape
+ ;
+ MELINK Target WL? 'ME_518A04EF001B' // TddDocumentAtomList
+ ;
+
+ENDME // ME_55964BEB03D1 f_Children
+
+ME ME_55964C48010D
+ MEPROP UID '55964C48010D'
+ MEPROP Name 'Top'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5596481703C3 // TddRTFShape
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_55964C48010D Top
+
+ME ME_55964C5C0042
+ MEPROP UID '55964C5C0042'
+ MEPROP Name 'Left'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5596481703C3 // TddRTFShape
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_55964C5C0042 Left
+
+ME ME_55964C6E0015
+ MEPROP UID '55964C6E0015'
+ MEPROP Name 'Bottom'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5596481703C3 // TddRTFShape
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_55964C6E0015 Bottom
+
+ME ME_55964C9D0290
+ MEPROP UID '55964C9D0290'
+ MEPROP Name 'Right'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5596481703C3 // TddRTFShape
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_55964C9D0290 Right
+
+FORWARD ME_55966CB60326
+
+FORWARD ME_55966CC90124
+
+ME ME_55966CE10045
+ MEPROP Name 'aState'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51D287250128' '51D2871702FA.ms.model.script' // TddRTFState
+ ;
+
+ENDME // ME_55966CE10045 aState
+
+ME ME_55966CE10054
+ MEPROP Name 'aDest'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_51D278280093' // TdestNorm
+ ;
+
+ENDME // ME_55966CE10054 aDest
+
+ME ME_55966CC90124
+ MEPROP UID '55966CC90124'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55966CB60326 // Append
+ ;
+ MELIST Parameters
+   Seq: ( ME_55966CE10045 // aState
+ ME_55966CE10054 // aDest
+ )
+ ; // Parameters
+
+ENDME // ME_55966CC90124 DoIt
+
+ME ME_55966CB60326
+ MEPROP UID '55966CB60326'
+ MEPROP Name 'Append'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5596481703C3 // TddRTFShape
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55966CC90124 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55966CB60326 Append
+
+FORWARD ME_559B95E00118
+
+FORWARD ME_559B95F90279
+
+ME ME_559B96090127
+ MEPROP Name 'aPicture'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_51E8DC3E0361' // TddPicture
+ ;
+
+ENDME // ME_559B96090127 aPicture
+
+ME ME_559B96090146
+ MEPROP Name 'aState'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51D287250128' '51D2871702FA.ms.model.script' // TddRTFState
+ ;
+
+ENDME // ME_559B96090146 aState
+
+ME ME_559B95F90279
+ MEPROP UID '559B95F90279'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559B95E00118 // AddPicture
+ ;
+ MELIST Parameters
+   Seq: ( ME_559B96090127 // aPicture
+ ME_559B96090146 // aState
+ )
+ ; // Parameters
+
+ENDME // ME_559B95F90279 DoIt
+
+ME ME_559B95E00118
+ MEPROP UID '559B95E00118'
+ MEPROP Name 'AddPicture'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5596481703C3 // TddRTFShape
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_559B95F90279 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_559B95E00118 AddPicture
+
+FORWARD ME_559BDC0701B1
+
+FORWARD ME_559BDC2403D7
+
+ME ME_559BDE4300B3
+ MEPROP Name 'aShape'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5596481703C3 // TddRTFShape
+ ;
+
+ENDME // ME_559BDE4300B3 aShape
+
+ME ME_559BDC2403D7
+ MEPROP UID '559BDC2403D7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BDC0701B1 // BottomAndRight
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_559BDE4300B3 // aShape
+ )
+ ; // Parameters
+
+ENDME // ME_559BDC2403D7 DoIt
+
+ME ME_559BDC0701B1
+ MEPROP UID '559BDC0701B1'
+ MEPROP Name 'BottomAndRight'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5596481703C3 // TddRTFShape
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_559BDC2403D7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_559BDC0701B1 BottomAndRight
+
+FORWARD ME_55C4744E00CC
+
+ME ME_55C47462004E
+ MEPROP UID '55C47462004E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C4744E00CC // AddTextPara
+ ;
+ MELINK Target WL 'ME_4FACE14F0231' '51E8DBEC0212.ms.model.script' // TddTextParagraph
+ ;
+
+ENDME // ME_55C47462004E DoIt
+
+ME ME_55C4744E00CC
+ MEPROP UID '55C4744E00CC'
+ MEPROP Name 'AddTextPara'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5596481703C3 // TddRTFShape
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55C47462004E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55C4744E00CC AddTextPara
+
+FORWARD ME_55C4746C0398
+
+ME ME_55C474780079
+ MEPROP UID '55C474780079'
+ MEPROP Name 'DoI'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C4746C0398 // LastPara
+ ;
+ MELINK Target WL 'ME_4FACE14F0231' '51E8DBEC0212.ms.model.script' // TddTextParagraph
+ ;
+
+ENDME // ME_55C474780079 DoI
+
+ME ME_55C4746C0398
+ MEPROP UID '55C4746C0398'
+ MEPROP Name 'LastPara'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5596481703C3 // TddRTFShape
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55C474780079 // DoI
+ )
+ ; // Operations
+
+ENDME // ME_55C4746C0398 LastPara
+
+ME ME_5596629A0008
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5596481703C3 // TddRTFShape
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5596629A0008 
+
+ME ME_5596781F0175
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5596481703C3 // TddRTFShape
+ ;
+ MELINK Target WL 'ME_4FACE14F0231' '51E8DBEC0212.ms.model.script' // TddTextParagraph
+ ;
+
+ENDME // ME_5596781F0175 
+
+ME ME_559B9A190263
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5596481703C3 // TddRTFShape
+ ;
+ MELINK Target WL? 'ME_51DBBDD6011E' // TddParagraphProperty
+ ;
+
+ENDME // ME_559B9A190263 
+
+ME ME_559B9F6B01D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5596481703C3 // TddRTFShape
+ ;
+ MELINK Target WL? 'ME_51E8DC3E0361' // TddPicture
+ ;
+
+ENDME // ME_559B9F6B01D7 
+
+ME ME_559BE50302EA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5596481703C3 // TddRTFShape
+ ;
+ MELINK Target WL? 'ME_47A066980016' // l3MinMax
+ ;
+
+ENDME // ME_559BE50302EA 
+
+ME ME_55C478F50337
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5596481703C3 // TddRTFShape
+ ;
+ MELINK Target WL? 'ME_519B719F0019' // TddTable
+ ;
+
+ENDME // ME_55C478F50337 
+
+MEREF ME_518A504F00F5_ME_5596481703C3_impl
+ MELINK Original WL 'ME_518A504F00F5' '4FACE0E4032F.ms.model.script' // Write2Generator
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_518A504F00F5_ME_5596481703C3_impl Write2Generator
+
+MEREF ME_479731C50290_ME_5596481703C3_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5596481703C3_over Cleanup
+
+MEREF ME_518A48F500CF_ME_5596481703C3_over
+ MELINK Original WL 'ME_518A48F500CF' '4FACE0E4032F.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_518A48F500CF_ME_5596481703C3_over Clear
+
+MEREF ME_51E91BA80051_ME_5596481703C3_over
+ MELINK Original WL 'ME_51E91BA80051' '4FACE0E4032F.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51E91BA80051_ME_5596481703C3_over Create
+
+MEREF ME_4FACE0E4032F_ME_5596481703C3_G
+ MELINK Original WL? 'ME_4FACE0E4032F' // TddDocumentAtom
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FACE0E4032F_ME_5596481703C3_G TddDocumentAtom
+
+%%InheritedBy ME_4FACE0E4032F ME_5596481703C3
+
+ME ME_5596481703C3
+ MEPROP UID '5596481703C3'
+ MEPROP Name 'TddRTFShape'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект для работы с Shape и извлечением из них нужной информации.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5190A3470397' // RTFSupport
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FACE0E4032F_ME_5596481703C3_G // TddDocumentAtom
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55964BEB03D1 // f_Children
+ HWL ME_55964C48010D // Top
+ HWL ME_55964C5C0042 // Left
+ HWL ME_55964C6E0015 // Bottom
+ HWL ME_55964C9D0290 // Right
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55966CB60326 // Append
+ HWL ME_559B95E00118 // AddPicture
+ HWL ME_559BDC0701B1 // BottomAndRight
+ HWL ME_55C4744E00CC // AddTextPara
+ HWL ME_55C4746C0398 // LastPara
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_518A504F00F5_ME_5596481703C3_impl // Write2Generator
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5596481703C3_over // Cleanup
+ ME_518A48F500CF_ME_5596481703C3_over // Clear
+ ME_51E91BA80051_ME_5596481703C3_over // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5596629A0008 // FreeAndNil
+ ME_5596781F0175 // TddTextParagraph
+ ME_559B9A190263 // TddParagraphProperty
+ ME_559B9F6B01D7 // TddPicture
+ ME_559BE50302EA // l3MinMax
+ ME_55C478F50337 // TddTable
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ddRTFShape'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddRTFShape'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddRTFShape.pas'
+
+ENDME // ME_5596481703C3 TddRTFShape

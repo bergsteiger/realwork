@@ -26,6 +26,12 @@ ME ME_4B14FAF90091
 
 ENDME // ME_4B14FAF90091 
 
+MEREF ME_4992F7350274_ME_4B14FAD6026E_G
+ MELINK Original WL 'ME_4992F7350274' '499EAAE502A8.ms.model.script' // TvcmOperationCallType
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4992F7350274_ME_4B14FAD6026E_G TvcmOperationCallType
+
 %%InheritedBy ME_4992F7350274 ME_4B14FAD6026E
 
 ME ME_4B14FAD6026E
@@ -39,7 +45,7 @@ ME ME_4B14FAD6026E
  MELINK Parent HWL ME_4B14F1AB03A0 // TnsUserOperationEvent
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4992F7350274' '499EAAE502A8.ms.model.script' // TvcmOperationCallType
+   Seq: ( HWL ME_4992F7350274_ME_4B14FAD6026E_G // TvcmOperationCallType
  )
  ; // Inherits
  MELIST Attributes
@@ -100,11 +106,17 @@ ME ME_4B14F2600146
 
 ENDME // ME_4B14F2600146 
 
-ME ME_4B13A1F202D9_ME_4B14F1AB03A0
- MELINK Original WL 'ME_4B13A1F202D9' '4B0A60DF01F2.ms.model.script' // DoFireLog
+MEREF ME_4B13A1F202D9_ME_4B14F1AB03A0_impl
+ MELINK Original WL 'ME_4B13A1F202D9' '4B13A069037A.ms.model.script' // DoFireLog
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4B13A1F202D9_ME_4B14F1AB03A0 DoFireLog
+ENDMEREF // ME_4B13A1F202D9_ME_4B14F1AB03A0_impl DoFireLog
+
+MEREF ME_4B13A069037A_ME_4B14F1AB03A0_G
+ MELINK Original WL? 'ME_4B13A069037A' // TnsPrimCachedEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B13A069037A_ME_4B14F1AB03A0_G TnsPrimCachedEvent
 
 %%InheritedBy ME_4B13A069037A ME_4B14F1AB03A0
 
@@ -119,7 +131,7 @@ ME ME_4B14F1AB03A0
  MELINK Parent HWL ME_4A92BBDF0126 // PrimF1
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4B13A069037A' '4B0A60DF01F2.ms.model.script' // TnsPrimCachedEvent
+   Seq: ( HWL ME_4B13A069037A_ME_4B14F1AB03A0_G // TnsPrimCachedEvent
  )
  ; // Inherits
  MELIST Attributes
@@ -131,7 +143,7 @@ ME ME_4B14F1AB03A0
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4B13A1F202D9_ME_4B14F1AB03A0 // DoFireLog
+   Seq: ( ME_4B13A1F202D9_ME_4B14F1AB03A0_impl // DoFireLog
  )
  ; // Implemented
  MELIST Children
@@ -163,6 +175,12 @@ ME ME_57A35C9400E9
 
 ENDME // ME_57A35C9400E9 
 
+MEREF ME_49E7754802A9_ME_57A35C870031_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57A35C870031_G Tl3ProtoObject
+
 %%InheritedBy ME_49E7754802A9 ME_57A35C870031
 
 ME ME_57A35C870031
@@ -176,7 +194,7 @@ ME ME_57A35C870031
  MELINK Parent HWL ME_4A92BBDF0126 // PrimF1
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_57A35C870031_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Dependencies
@@ -312,7 +330,7 @@ ME ME_4AA7B7450144
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA7BAF10057 // InitDefaults
  ;
- MELINK Target WL 'ME_47F100430323' '47F086170200.ms.model.script' // TevDocumentsCache
+ MELINK Target WL? 'ME_47F100430323' // TevDocumentsCache
  ;
 
 ENDME // ME_4AA7B7450144 
@@ -360,7 +378,7 @@ ENDME // ME_4AA7C1B0032D
 ME ME_4AA7BAF10057
  MEPROP UID '4AA7BAF10057'
  MEPROP Name 'InitDefaults'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -420,7 +438,7 @@ ENDME // ME_4AA7D41A0060 DoIt
 ME ME_4AA7D40B02F4
  MEPROP UID '4AA7D40B02F4'
  MEPROP Name 'CanRun'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -558,7 +576,7 @@ ENDME // ME_4AA7E21100A9
 ME ME_4AA7DDA90337
  MEPROP UID '4AA7DDA90337'
  MEPROP Name 'GlobalInit'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -811,7 +829,7 @@ ME ME_4ADDD7A30035
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A92BBDF0126 // PrimF1
  ;
- MELINK Target WL 'ME_4AD6FDC802F3' '491447590351.ms.model.script' // TnsSettings
+ MELINK Target WL? 'ME_4AD6FDC802F3' // TnsSettings
  ;
 
 ENDME // ME_4ADDD7A30035 
@@ -831,7 +849,7 @@ ME ME_4B166AAE02A5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A92BBDF0126 // PrimF1
  ;
- MELINK Target WL 'ME_4B1660B9000D' '4B0A60DF01F2.ms.model.script' // TnsContextFilterEventListener
+ MELINK Target WL? 'ME_4B1660B9000D' // TnsContextFilterEventListener
  ;
 
 ENDME // ME_4B166AAE02A5 
@@ -851,7 +869,7 @@ ME ME_4BB9CE92021A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A92BBDF0126 // PrimF1
  ;
- MELINK Target WL 'ME_4BA2214002EE' '4F9BDEEE01BC.ms.model.script' // Tl3ConstStrings
+ MELINK Target WL? 'ME_4BA2214002EE' // Tl3ConstStrings
  ;
 
 ENDME // ME_4BB9CE92021A 
@@ -891,7 +909,7 @@ ME ME_55B0CFFC0075
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A92BBDF0126 // PrimF1
  ;
- MELINK Target WL 'ME_55B0CFA90241' '4A924BCA0092.ms.model.script' // Tf1StartupCompleteNotificationService
+ MELINK Target WL? 'ME_55B0CFA90241' // Tf1StartupCompleteNotificationService
  ;
 
 ENDME // ME_55B0CFFC0075 
@@ -901,24 +919,30 @@ ME ME_572D08EB011B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A92BBDF0126 // PrimF1
  ;
- MELINK Target WL 'ME_540EE24702BC' '540EE231015D.ms.model.script' // Tl3ExceptionsLog
+ MELINK Target WL? 'ME_540EE24702BC' // Tl3ExceptionsLog
  ;
 
 ENDME // ME_572D08EB011B 
 
-ME ME_4F6AF5860291_ME_4A92BBDF0126
- MELINK Original WL 'ME_4F6AF5860291' '50883A2E00B3.ms.model.script' // Runner
+MEREF ME_4F6AF5860291_ME_4A92BBDF0126_over
+ MELINK Original WL 'ME_4F6AF5860291' '4AB22E140136.ms.model.script' // Runner
  ;
  MEPROP OpKind opkind_Overridden
  UP "is static" True
-ENDME // ME_4F6AF5860291_ME_4A92BBDF0126 Runner
+ENDMEREF // ME_4F6AF5860291_ME_4A92BBDF0126_over Runner
 
-ME ME_4F6AF5F00058_ME_4A92BBDF0126
- MELINK Original WL 'ME_4F6AF5F00058' '50883A2E00B3.ms.model.script' // MakeResources
+MEREF ME_4F6AF5F00058_ME_4A92BBDF0126_over
+ MELINK Original WL 'ME_4F6AF5F00058' '4AB22E140136.ms.model.script' // MakeResources
  ;
  MEPROP OpKind opkind_Overridden
  UP "is static" True
-ENDME // ME_4F6AF5F00058_ME_4A92BBDF0126 MakeResources
+ENDMEREF // ME_4F6AF5F00058_ME_4A92BBDF0126_over MakeResources
+
+MEREF ME_4F6B607F027E_ME_4A92BBDF0126_G
+ MELINK Original WL? 'ME_4F6B607F027E' // F1Like
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F6B607F027E_ME_4A92BBDF0126_G F1Like
 
 %%InheritedBy ME_4F6B607F027E ME_4A92BBDF0126
 
@@ -935,7 +959,7 @@ ME ME_4A92BBDF0126
  MELINK Parent WL? 'ME_4986ECDF01F4' // View
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4F6B607F027E' // F1Like
+   Seq: ( HWL ME_4F6B607F027E_ME_4A92BBDF0126_G // F1Like
  )
  ; // Inherits
  MELIST Operations
@@ -949,8 +973,8 @@ ME ME_4A92BBDF0126
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_4F6AF5860291_ME_4A92BBDF0126 // Runner
- ME_4F6AF5F00058_ME_4A92BBDF0126 // MakeResources
+   Seq: ( ME_4F6AF5860291_ME_4A92BBDF0126_over // Runner
+ ME_4F6AF5F00058_ME_4A92BBDF0126_over // MakeResources
  )
  ; // Overridden
  MELIST Children

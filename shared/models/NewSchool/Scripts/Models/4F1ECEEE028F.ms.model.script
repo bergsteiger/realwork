@@ -1,0 +1,66 @@
+// TvcmIEntityList 4F1ECEEE028F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F1ECEEE028F
+
+ME ME_4F1ECF230223
+ MEPROP UID '4F1ECF230223'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F1ECEEE028F // TvcmIEntityList
+ ;
+ MELINK Target WL 'ME_4991AD08005B' '4683F37902CF.ms.model.script' // IvcmEntity
+ ;
+
+ENDME // ME_4F1ECF230223 ItemType
+
+MEREF ME_47B57D830369_ME_4F1ECEEE028F_G
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_4F1ECEEE028F_G l3InterfaceRefList
+
+MEREF ME_4A54DD4E036F_ME_4F1ECEEE028F_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4F1ECEEE028F_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57D830369 ME_4F1ECEEE028F
+%%InheritedBy ME_4A54DD4E036F ME_4F1ECEEE028F
+
+ME ME_4F1ECEEE028F
+ MEPROP UID '4F1ECEEE028F'
+ MEPROP Name 'TvcmIEntityList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список ссылок на IvcmEntity' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A8D6EF403E4' // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57D830369_ME_4F1ECEEE028F_G // l3InterfaceRefList
+ HWL ME_4A54DD4E036F_ME_4F1ECEEE028F_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F1ECF230223 // ItemType
+ )
+ ; // Attributes
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '24.01.2012 19:32'
+ UP extprop:pas:UnitName 'vcmIEntityList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IEntityList'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmIEntityList.pas'
+
+ENDME // ME_4F1ECEEE028F TvcmIEntityList

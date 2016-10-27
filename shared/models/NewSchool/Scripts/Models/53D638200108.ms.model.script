@@ -1,0 +1,132 @@
+// TnevControlsBlockModelControlMapper 53D638200108 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D638200108
+
+ME ME_53D63840017D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D638200108 // TnevControlsBlockModelControlMapper
+ ;
+ MELINK Target WL? 'ME_485807480091' // TevControlsBlock
+ ;
+ UP "injects as" 'mapper'
+
+ENDME // ME_53D63840017D 
+
+ME ME_53D638640383
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D638200108 // TnevControlsBlockModelControlMapper
+ ;
+ MELINK Target WL 'ME_47CD5D2C00F9' '47CD5C7602CD.ms.model.script' // IevCustomParaTool
+ ;
+
+ENDME // ME_53D638640383 
+
+ME ME_53D6387E0222
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D638200108 // TnevControlsBlockModelControlMapper
+ ;
+ MELINK Target WL 'ME_47CD6F2902DC' '47CD5C7602CD.ms.model.script' // IevQueryGroup
+ ;
+
+ENDME // ME_53D6387E0222 
+
+ME ME_53D6389C02F3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D638200108 // TnevControlsBlockModelControlMapper
+ ;
+ MELINK Target WL 'ME_47CD5E5300D5' '47CD5C7602CD.ms.model.script' // IevCustomEditorControl
+ ;
+
+ENDME // ME_53D6389C02F3 
+
+ME ME_53D638B8025B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D638200108 // TnevControlsBlockModelControlMapper
+ ;
+ MELINK Target WL 'ME_47CD601B0048' '47CD5C7602CD.ms.model.script' // IevEditorControl
+ ;
+
+ENDME // ME_53D638B8025B 
+
+ME ME_53D638D800F3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53D638200108 // TnevControlsBlockModelControlMapper
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_53D638D800F3 
+
+ME ME_53D638F200A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53D638200108 // TnevControlsBlockModelControlMapper
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_53D638F200A2 
+
+MEREF ME_53D639B601D7_ME_53D638200108_impl
+ MELINK Original WL 'ME_53D639B601D7' '53D6399F03E1.ms.model.script' // Make
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" True
+ENDMEREF // ME_53D639B601D7_ME_53D638200108_impl Make
+
+MEREF ME_53D6399F03E1_ME_53D638200108_G
+ MELINK Original WL? 'ME_53D6399F03E1' // Tk2InterfaceMapper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53D6399F03E1_ME_53D638200108_G Tk2InterfaceMapper
+
+%%InjectedBy ME_485807480091 ME_53D638200108
+
+%%InheritedBy ME_53D6399F03E1 ME_53D638200108
+
+ME ME_53D638200108
+ MEPROP UID '53D638200108'
+ MEPROP Name 'TnevControlsBlockModelControlMapper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48CE0A0A03B4' // ParagraphsImplementation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53D6399F03E1_ME_53D638200108_G // Tk2InterfaceMapper
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53D639B601D7_ME_53D638200108_impl // Make
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53D63840017D // TevControlsBlock
+ ME_53D638640383 // IevCustomParaTool
+ ME_53D6387E0222 // IevQueryGroup
+ ME_53D6389C02F3 // IevCustomEditorControl
+ ME_53D638B8025B // IevEditorControl
+ ME_53D638D800F3 // Tk2TagID
+ ME_53D638F200A2 // Supports
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nevControlsBlockModelControlMapper'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ControlsBlockModelControlMapper'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevControlsBlockModelControlMapper.pas'
+
+ENDME // ME_53D638200108 TnevControlsBlockModelControlMapper

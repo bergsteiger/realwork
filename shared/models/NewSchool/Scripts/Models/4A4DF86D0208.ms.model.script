@@ -1,0 +1,102 @@
+// TatSemaphoreOperation 4A4DF86D0208 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A4DF86D0208
+
+ME ME_4A51C907006B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4DF86D0208 // TatSemaphoreOperation
+ ;
+ MELINK Target WL? 'ME_4A4DFF7800C9' // TatFileBasedSemaphore
+ ;
+
+ENDME // ME_4A51C907006B 
+
+ME ME_4A51C9140371
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4DF86D0208 // TatSemaphoreOperation
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_4A51C9140371 
+
+ME ME_4A51EBB40160
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4DF86D0208 // TatSemaphoreOperation
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4A51EBB40160 
+
+MEREF ME_48089F460352_ME_4A4DF86D0208_impl
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48089F460352_ME_4A4DF86D0208_impl ExecuteSelf
+
+MEREF ME_48089F3701B4_ME_4A4DF86D0208_over
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F3701B4_ME_4A4DF86D0208_over InitParamList
+
+MEREF ME_48089F660238_ME_4A4DF86D0208_over
+ MELINK Original WL 'ME_48089F660238' '48089D120398.ms.model.script' // ExecuteChilds
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F660238_ME_4A4DF86D0208_over ExecuteChilds
+
+MEREF ME_48076E9D013E_ME_4A4DF86D0208_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_4A4DF86D0208_G TatOperationBase
+
+%%InheritedBy ME_48076E9D013E ME_4A4DF86D0208
+
+ME ME_4A4DF86D0208
+ MEPROP UID '4A4DF86D0208'
+ MEPROP Name 'TatSemaphoreOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обеспечивает выполнение вложенных операций одновременно не более чем заданному количеству клиентов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48076E9D013E_ME_4A4DF86D0208_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_4A4DF86D0208_impl // ExecuteSelf
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F3701B4_ME_4A4DF86D0208_over // InitParamList
+ ME_48089F660238_ME_4A4DF86D0208_over // ExecuteChilds
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4A51C907006B // TatFileBasedSemaphore
+ ME_4A51C9140371 // atLogger
+ ME_4A51EBB40160 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atSemaphoreOperation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atSemaphoreOperation'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atSemaphoreOperation.pas'
+
+ENDME // ME_4A4DF86D0208 TatSemaphoreOperation

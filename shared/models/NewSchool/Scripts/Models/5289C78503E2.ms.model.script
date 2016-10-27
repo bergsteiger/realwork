@@ -99,7 +99,7 @@ ENDME // ME_5289CC860143 DoIt
 ME ME_5289CC6003B0
  MEPROP UID '5289CC6003B0'
  MEPROP Name 'EQ'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -146,7 +146,7 @@ ENDME // ME_5289CCFC01B9 DoIt
 ME ME_5289CC9F0130
  MEPROP UID '5289CC9F0130'
  MEPROP Name 'Compare'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -235,7 +235,7 @@ ENDME // ME_528CBA8D0376
 ME ME_528B525300DE
  MEPROP UID '528B525300DE'
  MEPROP Name 'C'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -360,7 +360,7 @@ ENDME // ME_5289CD4602CC DoIt
 ME ME_5289CD300046
  MEPROP UID '5289CD300046'
  MEPROP Name 'EQ'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -407,7 +407,7 @@ ENDME // ME_5289CD6201A0 DoIt
 ME ME_5289CD3602F8
  MEPROP UID '5289CD3602F8'
  MEPROP Name 'Compare'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -466,7 +466,7 @@ ENDME // ME_528B522E017D DoIt
 ME ME_528B51C0030E
  MEPROP UID '528B51C0030E'
  MEPROP Name 'C'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -609,7 +609,7 @@ ENDME // ME_528DB45B01FD DoIt
 ME ME_528DB44C02D7
  MEPROP UID '528DB44C02D7'
  MEPROP Name 'GetFormIndex'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -664,7 +664,7 @@ ENDME // ME_52984594013A DoIt
 ME ME_529845780295
  MEPROP UID '529845780295'
  MEPROP Name 'SetIfNeedMakeNo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -678,31 +678,43 @@ ME ME_529845780295
 
 ENDME // ME_529845780295 SetIfNeedMakeNo
 
-ME ME_47B2C42A0163_ME_5289CD8F0001
+MEREF ME_47B2C42A0163_ME_5289CD8F0001_impl
  MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
  UP "ifndef" 'l3Items_NoSort'
-ENDME // ME_47B2C42A0163_ME_5289CD8F0001 AssignItem
+ENDMEREF // ME_47B2C42A0163_ME_5289CD8F0001_impl AssignItem
 
-ME ME_47B99D4503A2_ME_5289CD8F0001
+MEREF ME_47B99D4503A2_ME_5289CD8F0001_impl
  MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47B99D4503A2_ME_5289CD8F0001 CompareExistingItems
+ENDMEREF // ME_47B99D4503A2_ME_5289CD8F0001_impl CompareExistingItems
 
-ME ME_47A750E70096_ME_5289CD8F0001
+MEREF ME_47A750E70096_ME_5289CD8F0001_over
  MELINK Original WL 'ME_47A750E70096' '47A74A5F0123.ms.model.script' // Add
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A750E70096_ME_5289CD8F0001 Add
+ENDMEREF // ME_47A750E70096_ME_5289CD8F0001_over Add
 
-ME ME_47B9866E034D_ME_5289CD8F0001
+MEREF ME_47B9866E034D_ME_5289CD8F0001_over
  MELINK Original WL 'ME_47B9866E034D' '47A74A5F0123.ms.model.script' // Create
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47B9866E034D_ME_5289CD8F0001 Create
+ENDMEREF // ME_47B9866E034D_ME_5289CD8F0001_over Create
+
+MEREF ME_4A54DD4E036F_ME_5289CD8F0001_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_5289CD8F0001_G Tl3ProtoDataContainer
+
+MEREF ME_4B223DB5024B_ME_5289CD8F0001_G
+ MELINK Original WL? 'ME_4B223DB5024B' // l3RecordWithEQList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223DB5024B_ME_5289CD8F0001_G l3RecordWithEQList
 
 %%InheritedBy ME_4A54DD4E036F ME_5289CD8F0001
 %%InheritedBy ME_4B223DB5024B ME_5289CD8F0001
@@ -718,8 +730,8 @@ ME ME_5289CD8F0001
  MELINK Parent HWL ME_5289C78503E2 // vcmFormSetFormItemList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL? 'ME_4B223DB5024B' // l3RecordWithEQList
+   Seq: ( HWL ME_4A54DD4E036F_ME_5289CD8F0001_G // Tl3ProtoDataContainer
+ HWL ME_4B223DB5024B_ME_5289CD8F0001_G // l3RecordWithEQList
  )
  ; // Inherits
  MELIST Attributes
@@ -733,13 +745,13 @@ ME ME_5289CD8F0001
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_47B2C42A0163_ME_5289CD8F0001 // AssignItem
- ME_47B99D4503A2_ME_5289CD8F0001 // CompareExistingItems
+   Seq: ( ME_47B2C42A0163_ME_5289CD8F0001_impl // AssignItem
+ ME_47B99D4503A2_ME_5289CD8F0001_impl // CompareExistingItems
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_47A750E70096_ME_5289CD8F0001 // Add
- ME_47B9866E034D_ME_5289CD8F0001 // Create
+   Seq: ( ME_47A750E70096_ME_5289CD8F0001_over // Add
+ ME_47B9866E034D_ME_5289CD8F0001_over // Create
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames

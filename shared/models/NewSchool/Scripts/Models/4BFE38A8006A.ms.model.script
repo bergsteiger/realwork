@@ -1,0 +1,160 @@
+// TScrollAndSelectPtTest 4BFE38A8006A TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BFE38A8006A
+
+FORWARD ME_4E44C98700AE
+
+ME ME_4E44C9A20188
+ MEPROP UID '4E44C9A20188'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E44C98700AE // NeedScrollUp
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E44C9A20188 DoIt
+
+ME ME_4E44C98700AE
+ MEPROP UID '4E44C98700AE'
+ MEPROP Name 'NeedScrollUp'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E44C9A20188 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E44C98700AE NeedScrollUp
+
+FORWARD ME_4E44C9B00324
+
+ME ME_4E44C9C10187
+ MEPROP UID '4E44C9C10187'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E44C9B00324 // NeedScrollByLine
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E44C9C10187 DoIt
+
+ME ME_4E44C9B00324
+ MEPROP UID '4E44C9B00324'
+ MEPROP Name 'NeedScrollByLine'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E44C9C10187 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E44C9B00324 NeedScrollByLine
+
+ME ME_4BFE40CD0337
+ MEPROP UID '4BFE40CD0337'
+ MEPROP Name 'GetScrollCount'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BFE40CD0337 GetScrollCount
+
+FORWARD ME_4C3C80AF002D
+
+ME ME_4C9B259F00C2
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C49600CD' '47C5207602D1.ms.model.script' // InevInputView
+ ;
+
+ENDME // ME_4C9B259F00C2 aView
+
+ME ME_4C3C80AF002D
+ MEPROP UID '4C3C80AF002D'
+ MEPROP Name 'CheckAfterScroll'
+ MEPROP Class class_Operation
+ %SUMMARY 'Операции после прокрутки' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C9B259F00C2 // aView
+ )
+ ; // Parameters
+
+ENDME // ME_4C3C80AF002D CheckAfterScroll
+
+MEREF ME_4BE419AF0217_ME_4BFE38A8006A_over
+ MELINK Original WL 'ME_4BE419AF0217' '4BE418BB001F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BE419AF0217_ME_4BFE38A8006A_over DoVisit
+
+MEREF ME_4BF4E6650245_ME_4BFE38A8006A_G
+ MELINK Original WL? 'ME_4BF4E6650245' // TSelectPtTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BF4E6650245_ME_4BFE38A8006A_G TSelectPtTest
+
+%%InheritedBy ME_4BF4E6650245 ME_4BFE38A8006A
+
+ME ME_4BFE38A8006A
+ MEPROP UID '4BFE38A8006A'
+ MEPROP Name 'TScrollAndSelectPtTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'тесты вида - загрузили, прокрутили и ткнули' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C4FDBF703DB' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BF4E6650245_ME_4BFE38A8006A_G // TSelectPtTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4E44C98700AE // NeedScrollUp
+ HWL ME_4E44C9B00324 // NeedScrollByLine
+ HWL ME_4BFE40CD0337 // GetScrollCount
+ HWL ME_4C3C80AF002D // CheckAfterScroll
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4BE419AF0217_ME_4BFE38A8006A_over // DoVisit
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ScrollAndSelectPtTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ScrollAndSelectPtTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\ScrollAndSelectPtTest.pas'
+
+ENDME // ME_4BFE38A8006A TScrollAndSelectPtTest

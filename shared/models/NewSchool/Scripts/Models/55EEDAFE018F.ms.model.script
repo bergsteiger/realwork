@@ -1,0 +1,166 @@
+// TkwCompiledWordPrimPrim 55EEDAFE018F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55EEDAFE018F
+
+ME ME_55EEDB270091
+ MEPROP UID '55EEDB270091'
+ MEPROP Name 'f_WordProducer'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Слово, которое породило данное при компиляции' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_55EEDAFE018F // TkwCompiledWordPrimPrim
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_55EEDB270091 f_WordProducer
+
+FORWARD ME_55EEDB4E00B3
+
+FORWARD ME_55EEDB540277
+
+ME ME_55EEDB66023C
+ MEPROP Name 'aWordProducer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_55EEDB66023C aWordProducer
+
+ME ME_55EEDB660264
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_55EEDB660264 aCtx
+
+ME ME_55EEDB66028C
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4FFEEC080367' // TtfwKeyWordPrim
+ ;
+
+ENDME // ME_55EEDB66028C aKey
+
+ME ME_55EEDB540277
+ MEPROP UID '55EEDB540277'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55EEDB4E00B3 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_55EEDB66023C // aWordProducer
+ ME_55EEDB660264 // aCtx
+ ME_55EEDB66028C // aKey
+ )
+ ; // Parameters
+
+ENDME // ME_55EEDB540277 DoIt
+
+ME ME_55EEDB4E00B3
+ MEPROP UID '55EEDB4E00B3'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55EEDAFE018F // TkwCompiledWordPrimPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55EEDB540277 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55EEDB4E00B3 Create
+
+MEREF ME_479731C50290_ME_55EEDAFE018F_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_55EEDAFE018F_over Cleanup
+
+MEREF ME_47A6FEE600FC_ME_55EEDAFE018F_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_55EEDAFE018F_over IsCacheable
+
+MEREF ME_4F43C9A10139_ME_55EEDAFE018F_over
+ MELINK Original WL 'ME_4F43C9A10139' '4DAF19F600C5.ms.model.script' // WordProducer
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "pm" True
+ENDMEREF // ME_4F43C9A10139_ME_55EEDAFE018F_over WordProducer
+
+MEREF ME_52D6B62E001B_ME_55EEDAFE018F_over
+ MELINK Original WL 'ME_52D6B62E001B' '4DAF19F600C5.ms.model.script' // GetEndBracket
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52D6B62E001B_ME_55EEDAFE018F_over GetEndBracket
+
+MEREF ME_52D7DC84019E_ME_55EEDAFE018F_over
+ MELINK Original WL 'ME_52D7DC84019E' '4DAF19F600C5.ms.model.script' // AcceptMedianBracket
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52D7DC84019E_ME_55EEDAFE018F_over AcceptMedianBracket
+
+MEREF ME_556427250160_ME_55EEDAFE018F_G
+ MELINK Original WL? 'ME_556427250160' // TkwSourcePointWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_556427250160_ME_55EEDAFE018F_G TkwSourcePointWord
+
+%%InheritedBy ME_556427250160 ME_55EEDAFE018F
+
+ME ME_55EEDAFE018F
+ MEPROP UID '55EEDAFE018F'
+ MEPROP Name 'TkwCompiledWordPrimPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F079B5035C' // CompiledWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_556427250160_ME_55EEDAFE018F_G // TkwSourcePointWord
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55EEDB270091 // f_WordProducer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55EEDB4E00B3 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_55EEDAFE018F_over // Cleanup
+ ME_47A6FEE600FC_ME_55EEDAFE018F_over // IsCacheable
+ ME_4F43C9A10139_ME_55EEDAFE018F_over // WordProducer
+ ME_52D6B62E001B_ME_55EEDAFE018F_over // GetEndBracket
+ ME_52D7DC84019E_ME_55EEDAFE018F_over // AcceptMedianBracket
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'kwCompiledWordPrimPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CompiledWordPrimPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledWordPrimPrim.pas'
+
+ENDME // ME_55EEDAFE018F TkwCompiledWordPrimPrim

@@ -1,0 +1,134 @@
+// TTestFilerCopyViaReadLn 4B2A52070264 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B2A52070264
+
+FORWARD ME_4B2A528E03BB
+
+ME ME_4B2A529703BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A528E03BB // DoIt
+ ;
+ MELINK Target WL? 'ME_47A0686803A5' // l3Filer
+ ;
+
+ENDME // ME_4B2A529703BB 
+
+ME ME_4B2A52C203A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A528E03BB // DoIt
+ ;
+ MELINK Target WL? 'ME_47A080670100' // l3Stream
+ ;
+
+ENDME // ME_4B2A52C203A4 
+
+ME ME_4B2A52D90236
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A528E03BB // DoIt
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_4B2A52D90236 
+
+ME ME_4B2A535C01B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A528E03BB // DoIt
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4B2A535C01B5 
+
+ME ME_4B2A528E03BB
+ MEPROP UID '4B2A528E03BB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест правильности копирования файлов с помощью ReadLn' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A52070264 // TTestFilerCopyViaReadLn
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4B2A529703BB // l3Filer
+ ME_4B2A52C203A4 // l3Stream
+ ME_4B2A52D90236 // Tl3FileMode
+ ME_4B2A535C01B5 // FreeAndNil
+ )
+ ; // Dependencies
+
+ENDME // ME_4B2A528E03BB DoIt
+
+ME ME_4B337B58013E
+ MEPROP UID '4B337B58013E'
+ MEPROP Name 'CopyUnicode'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест для {RequestLink:175540286}.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A52070264 // TTestFilerCopyViaReadLn
+ ;
+
+ENDME // ME_4B337B58013E CopyUnicode
+
+ME ME_4B2A520C015B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A52070264 // TTestFilerCopyViaReadLn
+ ;
+ MELINK Target WL? 'ME_4B2A50570311' // TestGlobals
+ ;
+
+ENDME // ME_4B2A520C015B 
+
+MEREF ME_4B2A11BC0255_ME_4B2A52070264_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_4B2A52070264_G TBaseTest
+
+%%InheritedBy ME_4B2A11BC0255 ME_4B2A52070264
+
+ME ME_4B2A52070264
+ MEPROP UID '4B2A52070264'
+ MEPROP Name 'TTestFilerCopyViaReadLn'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B2A15A00031' // Core
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B2A11BC0255_ME_4B2A52070264_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B2A528E03BB // DoIt
+ HWL ME_4B337B58013E // CopyUnicode
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B2A520C015B // TestGlobals
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'TestFilerCopyViaReadLn'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TestFilerCopyViaReadLn'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\TestFilerCopyViaReadLn.pas'
+
+ENDME // ME_4B2A52070264 TTestFilerCopyViaReadLn

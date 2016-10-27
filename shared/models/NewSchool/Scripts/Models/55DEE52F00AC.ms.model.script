@@ -1,0 +1,62 @@
+// TddNSRCSubList 55DEE52F00AC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55DEE52F00AC
+
+ME ME_55DEE56B01D9
+ MEPROP UID '55DEE56B01D9'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55DEE52F00AC // TddNSRCSubList
+ ;
+ MELINK Target WL? 'ME_55DEE5100096' // TddNSRCSub
+ ;
+
+ENDME // ME_55DEE56B01D9 ItemType
+
+MEREF ME_4A54DD4E036F_ME_55DEE52F00AC_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_55DEE52F00AC_G Tl3ProtoDataContainer
+
+MEREF ME_55DEEA210182_ME_55DEE52F00AC_G
+ MELINK Original WL? 'ME_55DEEA210182' // l3NotSortedObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55DEEA210182_ME_55DEE52F00AC_G l3NotSortedObjectRefList
+
+%%InheritedBy ME_4A54DD4E036F ME_55DEE52F00AC
+%%InheritedBy ME_55DEEA210182 ME_55DEE52F00AC
+
+ME ME_55DEE52F00AC
+ MEPROP UID '55DEE52F00AC'
+ MEPROP Name 'TddNSRCSubList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55DC6B0D020D' // NSRCReaderCore
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_55DEE52F00AC_G // Tl3ProtoDataContainer
+ HWL ME_55DEEA210182_ME_55DEE52F00AC_G // l3NotSortedObjectRefList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55DEE56B01D9 // ItemType
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'ddNSRCSubList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddNSRCSubList'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddNSRCSubList.pas'
+
+ENDME // ME_55DEE52F00AC TddNSRCSubList

@@ -1,0 +1,135 @@
+// Tl3Mutex 540EDC10016F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_540EDC10016F
+
+ME ME_540EDCD00378
+ MEPROP UID '540EDCD00378'
+ MEPROP Name 'f_Handle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_540EDC10016F // Tl3Mutex
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+
+ENDME // ME_540EDCD00378 f_Handle
+
+ME ME_540EDC2E03AF
+ MEPROP UID '540EDC2E03AF'
+ MEPROP Name 'Enter'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_540EDC10016F // Tl3Mutex
+ ;
+
+ENDME // ME_540EDC2E03AF Enter
+
+ME ME_540EDC3E006A
+ MEPROP UID '540EDC3E006A'
+ MEPROP Name 'Leave'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_540EDC10016F // Tl3Mutex
+ ;
+
+ENDME // ME_540EDC3E006A Leave
+
+FORWARD ME_540EDC5F015E
+
+ME ME_540EDC8B006D
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_540EDC8B006D aName
+
+ME ME_540EDC8B008C
+ MEPROP Name 'InitialLocked'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_540EDC8B008C InitialLocked
+
+ME ME_540EDC5F015E
+ MEPROP UID '540EDC5F015E'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_540EDC10016F // Tl3Mutex
+ ;
+ MELIST Parameters
+   Seq: ( ME_540EDC8B006D // aName
+ ME_540EDC8B008C // InitialLocked
+ )
+ ; // Parameters
+
+ENDME // ME_540EDC5F015E Create
+
+MEREF ME_479731C50290_ME_540EDC10016F_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_540EDC10016F_over Cleanup
+
+MEREF ME_49E7754802A9_ME_540EDC10016F_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_540EDC10016F_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_540EDC10016F
+
+ME ME_540EDC10016F
+ MEPROP UID '540EDC10016F'
+ MEPROP Name 'Tl3Mutex'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53A038340371' // MultiThread
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_540EDC10016F_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_540EDCD00378 // f_Handle
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_540EDC2E03AF // Enter
+ HWL ME_540EDC3E006A // Leave
+ HWL ME_540EDC5F015E // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_540EDC10016F_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'l3Mutex'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Mutex'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3Mutex.pas'
+
+ENDME // ME_540EDC10016F Tl3Mutex

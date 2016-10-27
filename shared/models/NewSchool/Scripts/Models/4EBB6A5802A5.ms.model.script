@@ -1,0 +1,156 @@
+// TAllChildreCountTest 4EBB6A5802A5 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EBB6A5802A5
+
+ME ME_4EBB7240019D
+ MEPROP UID '4EBB7240019D'
+ MEPROP Name 'f_Filer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EBB6A5802A5 // TAllChildreCountTest
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_4EBB7240019D f_Filer
+
+FORWARD ME_4EBB7150025C
+
+FORWARD ME_4EBB715B02F2
+
+ME ME_5357B31201E7
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_5357B31201E7 aTag
+
+ME ME_4EBB715B02F2
+ MEPROP UID '4EBB715B02F2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EBB7150025C // CheckTag
+ ;
+ MELIST Parameters
+   Seq: ( ME_5357B31201E7 // aTag
+ )
+ ; // Parameters
+
+ENDME // ME_4EBB715B02F2 DoIt
+
+ME ME_4EBB7150025C
+ MEPROP UID '4EBB7150025C'
+ MEPROP Name 'CheckTag'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EBB6A5802A5 // TAllChildreCountTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EBB715B02F2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EBB7150025C CheckTag
+
+ME ME_4EBB83340283
+ MEPROP UID '4EBB83340283'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EBB6A5802A5 // TAllChildreCountTest
+ ;
+
+ENDME // ME_4EBB83340283 DoIt
+
+ME ME_4EBB753200C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EBB6A5802A5 // TAllChildreCountTest
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_4EBB753200C3 
+
+ME ME_4EBB75470328
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EBB6A5802A5 // TAllChildreCountTest
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4EBB75470328 
+
+ME ME_4EBB7ABC0229
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EBB6A5802A5 // TAllChildreCountTest
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4EBB7ABC0229 
+
+MEREF ME_4BE047320379_ME_4EBB6A5802A5_G
+ MELINK Original WL? 'ME_4BE047320379' // TTextViaEditorProcessorPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE047320379_ME_4EBB6A5802A5_G TTextViaEditorProcessorPrim
+
+%%InheritedBy ME_4BE047320379 ME_4EBB6A5802A5
+
+ME ME_4EBB6A5802A5
+ MEPROP UID '4EBB6A5802A5'
+ MEPROP Name 'TAllChildreCountTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '“ест дл€ подсчета количества AllChildrenCount у тегов документа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4D02566F01E6' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE047320379_ME_4EBB6A5802A5_G // TTextViaEditorProcessorPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4EBB7240019D // f_Filer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4EBB7150025C // CheckTag
+ HWL ME_4EBB83340283 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4EBB753200C3 // Tl3FileMode
+ ME_4EBB75470328 // FreeAndNil
+ ME_4EBB7ABC0229 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'AllChildreCountTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AllChildreCountTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\AllChildreCountTest.pas'
+
+ENDME // ME_4EBB6A5802A5 TAllChildreCountTest

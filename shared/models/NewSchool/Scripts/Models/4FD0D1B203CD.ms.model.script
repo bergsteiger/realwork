@@ -1,0 +1,141 @@
+// TatOpenSavedBookmarkOperation 4FD0D1B203CD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FD0D1B203CD
+
+ME ME_4FD0D1C20363
+ MEPROP UID '4FD0D1C20363'
+ MEPROP Name 'FoldersNodeMatcher'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD0D1B203CD // TatOpenSavedBookmarkOperation
+ ;
+ MELINK Target WL 'ME_4843C0AE03D4' '480864400141.ms.model.script' // TatBookmarkMatcher
+ ;
+
+ENDME // ME_4FD0D1C20363 FoldersNodeMatcher
+
+ME ME_4FD0D2FC016A
+ MEPROP UID '4FD0D2FC016A'
+ MEPROP Name 'ObjectType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD0D1B203CD // TatOpenSavedBookmarkOperation
+ ;
+ MELINK Target WL 'ME_45EEB65202A0' '4570511E038A.ms.model.script' // Bookmark
+ ;
+
+ENDME // ME_4FD0D2FC016A ObjectType
+
+ME ME_4FD0E6650323
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FD0D1B203CD // TatOpenSavedBookmarkOperation
+ ;
+ MELINK Target WL 'ME_4FD0E3FA03BE' '4815C75902A2.ms.model.script' // TatBookmark
+ ;
+
+ENDME // ME_4FD0E6650323 
+
+ME ME_4FD0E68503CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FD0D1B203CD // TatOpenSavedBookmarkOperation
+ ;
+ MELINK Target WL 'ME_4DD39F320114' '4815C75902A2.ms.model.script' // TatDocReader
+ ;
+
+ENDME // ME_4FD0E68503CA 
+
+ME ME_4FDB91A1005E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FD0D1B203CD // TatOpenSavedBookmarkOperation
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_4FDB91A1005E 
+
+MEREF ME_4FD0D2530143_ME_4FD0D1B203CD_impl
+ MELINK Original WL 'ME_4FD0D2530143' '4FD0D1E00242.ms.model.script' // OnFoldersObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4FD0D2530143_ME_4FD0D1B203CD_impl OnFoldersObject
+
+MEREF ME_48089F660238_ME_4FD0D1B203CD_over
+ MELINK Original WL 'ME_48089F660238' '48089D120398.ms.model.script' // ExecuteChilds
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F660238_ME_4FD0D1B203CD_over ExecuteChilds
+
+MEREF ME_484FA0FD0223_ME_4FD0D1B203CD_G
+ MELINK Original WL? 'ME_484FA0FD0223' // atProcessNamedFoldersObjectOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484FA0FD0223_ME_4FD0D1B203CD_G atProcessNamedFoldersObjectOperation
+
+MEREF ME_4FD0D1E00242_ME_4FD0D1B203CD_R
+ MELINK Original WL? 'ME_4FD0D1E00242' // atOpenFoldersObjectAddon
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FD0D1E00242_ME_4FD0D1B203CD_R atOpenFoldersObjectAddon
+
+%%ImplementedBy ME_4FD0D1E00242 ME_4FD0D1B203CD
+
+%%InheritedBy ME_484FA0FD0223 ME_4FD0D1B203CD
+
+ME ME_4FD0D1B203CD
+ MEPROP UID '4FD0D1B203CD'
+ MEPROP Name 'TatOpenSavedBookmarkOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484FA0FD0223_ME_4FD0D1B203CD_G // atProcessNamedFoldersObjectOperation
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4FD0D1E00242_ME_4FD0D1B203CD_R // atOpenFoldersObjectAddon
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4FD0D1C20363 // FoldersNodeMatcher
+ HWL ME_4FD0D2FC016A // ObjectType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4FD0D2530143_ME_4FD0D1B203CD_impl // OnFoldersObject
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F660238_ME_4FD0D1B203CD_over // ExecuteChilds
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4FD0E6650323 // TatBookmark
+ ME_4FD0E68503CA // TatDocReader
+ ME_4FDB91A1005E // CanNotFindData
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atOpenSavedBookmarkOperation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atOpenSavedBookmarkOperation'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atOpenSavedBookmarkOperation.pas'
+
+ENDME // ME_4FD0D1B203CD TatOpenSavedBookmarkOperation

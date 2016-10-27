@@ -1,0 +1,373 @@
+// Tf1StartupCompleteNotificationServiceImpl 55B0CF2803D7 ServiceImplementation Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55B0CF2803D7
+
+FORWARD ME_55AF6A40006E
+
+FORWARD ME_55AF6A53023F
+
+FORWARD ME_55AF6B13030B
+
+ME ME_55AF6B290060
+ MEPROP UID '55AF6B290060'
+ MEPROP Name 'Init'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55AF6B13030B // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Настроить ленту ПРАЙМ'''
+
+ENDME // ME_55AF6B290060 Init
+
+ME ME_55AF6B4A03CF
+ MEPROP UID '55AF6B4A03CF'
+ MEPROP Name 'NoThanks'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55AF6B13030B // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Начать работу с системой'''
+
+ENDME // ME_55AF6B4A03CF NoThanks
+
+ME ME_55AF6B13030B
+ MEPROP UID '55AF6B13030B'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AF6A53023F // StartupInitPrime
+ ;
+ MELIST Children
+   Seq: ( HWL ME_55AF6B290060 // Init
+ HWL ME_55AF6B4A03CF // NoThanks
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_55AF6B13030B Choices
+
+ME ME_55AF754F0052
+ MEPROP UID '55AF754F0052'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_DefaultChoice::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_55AF6A53023F // StartupInitPrime
+ ;
+ MELINK Target HWL ME_55AF6B290060 // Init
+ ;
+
+ENDME // ME_55AF754F0052 
+
+ME ME_55AF6A53023F
+ MEPROP UID '55AF6A53023F'
+ MEPROP Name 'StartupInitPrime'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55AF6A40006E // Messages For User
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_55AF754F0052 // 
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_55AF6B13030B // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" False
+ UP "DlgType" 'Information'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "NeedCheck" False
+ UP "Value" '''Уважаемый пользователь!''#13#10 + '#13#10'''В новой версии системы ГАРАНТ вы можете самостоятельно настраивать и редактировать индивидуальную новостную ленту ПРАЙМ.'' + '#13#10''' Потратив несколько минут на настройку, вы всегда будете в курсе последних новостей законодательства, касающихся ваших профессиональных интересов.'''
+
+ENDME // ME_55AF6A53023F StartupInitPrime
+
+ME ME_55ED77E70177
+ MEPROP UID '55ED77E70177'
+ MEPROP Name 'DefaultSetttingsWereChanged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55AF6A40006E // Messages For User
+ ;
+ UP "AutoInc" False
+ UP "DlgType" 'Information'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "NeedCheck" False
+ UP "Value" '''В новой версии изменена используемая по умолчанию конфигурация пользовательского интерфейса. Новые настройки упрощают работу с системой, организуя ее более удобным образом.''#13#10 + '#13#10'''Конфигурация, с которой Вы работали раньше, сохранена. Для обращения к ней выберите в разделе командного меню «Файл» пункт «Выбор конфигурации».'''
+
+ENDME // ME_55ED77E70177 DefaultSetttingsWereChanged
+
+ME ME_55AF6A40006E
+ MEPROP UID '55AF6A40006E'
+ MEPROP Name 'Messages For User'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B0CF2803D7 // Tf1StartupCompleteNotificationServiceImpl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_55AF6A53023F // StartupInitPrime
+ HWL ME_55ED77E70177 // DefaultSetttingsWereChanged
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_55AF6A40006E Messages For User
+
+FORWARD ME_075D4B222848
+
+ME ME_10187773B7E4
+ MEPROP UID '10187773B7E4'
+ MEPROP Name 'StartupInitPrime_Choice_Init'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Настроить ленту ПРАЙМ''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_075D4B222848 // LCImpl_StartupInitPrime_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''StartupInitPrime_Choice_Init''; rValue : ''Настроить ленту ПРАЙМ'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''StartupInitPrime_Choice_Init''; rValue : ''Настроить ленту ПРАЙМ'')'
+ UPLINK Speller HWL ME_55AF6B290060 // Init
+ ;
+
+ENDME // ME_10187773B7E4 StartupInitPrime_Choice_Init
+
+ME ME_3A7DC6A3E9EA
+ MEPROP UID '3A7DC6A3E9EA'
+ MEPROP Name 'StartupInitPrime_Choice_NoThanks'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Начать работу с системой''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_075D4B222848 // LCImpl_StartupInitPrime_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''StartupInitPrime_Choice_NoThanks''; rValue : ''Начать работу с системой'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''StartupInitPrime_Choice_NoThanks''; rValue : ''Начать работу с системой'')'
+ UPLINK Speller HWL ME_55AF6B4A03CF // NoThanks
+ ;
+
+ENDME // ME_3A7DC6A3E9EA StartupInitPrime_Choice_NoThanks
+
+ME ME_075D4B222848
+ MEPROP UID '075D4B222848'
+ MEPROP Name 'LCImpl_StartupInitPrime_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога StartupInitPrime' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55B0CF2803D7 // Tf1StartupCompleteNotificationServiceImpl
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_10187773B7E4 // StartupInitPrime_Choice_Init
+ HWL ME_3A7DC6A3E9EA // StartupInitPrime_Choice_NoThanks
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'str_'
+ UP extprop:pas:ElementPrefixBase 'str'
+ UPLINK Speller HWL ME_55AF6B13030B // Choices
+ ;
+
+ENDME // ME_075D4B222848 LCImpl_StartupInitPrime_Choices
+
+ME ME_577A345500C5
+ MEPROP UID '577A345500C5'
+ MEPROP Name 'NeedAskToFillPrimeAtStartup'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55B0CF2803D7 // Tf1StartupCompleteNotificationServiceImpl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_577A345500C5 NeedAskToFillPrimeAtStartup
+
+ME ME_577A36ED031C
+ MEPROP UID '577A36ED031C'
+ MEPROP Name 'NeedShowSettingsDialog'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55B0CF2803D7 // Tf1StartupCompleteNotificationServiceImpl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_577A36ED031C NeedShowSettingsDialog
+
+ME ME_55B0CFE50150
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_55B0CF2803D7 // Tf1StartupCompleteNotificationServiceImpl
+ ;
+ MELINK Target WL? 'ME_55B0CFA90241' // Tf1StartupCompleteNotificationService
+ ;
+
+ENDME // ME_55B0CFE50150 
+
+ME ME_577648650110
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55B0CF2803D7 // Tf1StartupCompleteNotificationServiceImpl
+ ;
+ MELINK Target WL? 'ME_4A8ECF3001D2' // PrimMonitorings
+ ;
+
+ENDME // ME_577648650110 
+
+ME ME_8D623F4BE775
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55B0CF2803D7 // Tf1StartupCompleteNotificationServiceImpl
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+
+ENDME // ME_8D623F4BE775 
+
+ME ME_093C3964EE62
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55B0CF2803D7 // Tf1StartupCompleteNotificationServiceImpl
+ ;
+ MELINK Target WL 'ME_4E01D1E002AE' '4E01D1980071.ms.model.script' // Tl3MessageID
+ ;
+
+ENDME // ME_093C3964EE62 
+
+MEREF ME_47A042E100E2_ME_55B0CF2803D7_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_55B0CF2803D7_over InitFields
+
+MEREF ME_49E7754802A9_ME_55B0CF2803D7_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_55B0CF2803D7_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_55B0CF2803D7
+
+ME ME_55B0CF2803D7
+ MEPROP UID '55B0CF2803D7'
+ MEPROP Name 'Tf1StartupCompleteNotificationServiceImpl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4A92D644009B' // Search
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_55B0CF2803D7_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_577A345500C5 // NeedAskToFillPrimeAtStartup
+ HWL ME_577A36ED031C // NeedShowSettingsDialog
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_55B0CF2803D7_over // InitFields
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_55AF6A40006E // Messages For User
+ HWL ME_075D4B222848 // LCImpl_StartupInitPrime_Choices
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_55B0CFE50150 // Tf1StartupCompleteNotificationService
+ ME_577648650110 // PrimMonitorings
+ ME_8D623F4BE775 // Tl3StringIDEx
+ ME_093C3964EE62 // Tl3MessageID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" True
+ UP extprop:pas:UnitName 'f1StartupCompleteNotificationServiceImpl'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'f1StartupCompleteNotificationServiceImpl'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\f1StartupCompleteNotificationServiceImpl.pas'
+
+ENDME // ME_55B0CF2803D7 Tf1StartupCompleteNotificationServiceImpl

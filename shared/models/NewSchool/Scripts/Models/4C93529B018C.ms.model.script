@@ -1,0 +1,170 @@
+// TCopyPasteTest 4C93529B018C TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C93529B018C
+
+FORWARD ME_4C93538E0218
+
+FORWARD ME_4C9353B70163
+
+ME ME_4C9353BD0212
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4829D92A037B' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4C9353BD0212 aText
+
+ME ME_4C9353BD0234
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F7AC50332' '53317D14019D.ms.model.script' // Il3OpPack
+ ;
+
+ENDME // ME_4C9353BD0234 anOp
+
+ME ME_4C9353B70163
+ MEPROP UID '4C9353B70163'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C93538E0218 // DoSelect
+ ;
+ MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C9353BD0212 // aText
+ ME_4C9353BD0234 // anOp
+ )
+ ; // Parameters
+
+ENDME // ME_4C9353B70163 DoIt
+
+ME ME_4C93538E0218
+ MEPROP UID '4C93538E0218'
+ MEPROP Name 'DoSelect'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выделяет текст в редакторе' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C93529B018C // TCopyPasteTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C9353B70163 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C93538E0218 DoSelect
+
+ME ME_4C9355CD01B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C93529B018C // TCopyPasteTest
+ ;
+ MELINK Target WL 'ME_47C5BA5F017D' '47C5207602D1.ms.model.script' // InevSelection
+ ;
+
+ENDME // ME_4C9355CD01B9 
+
+ME ME_4C9355EB0326
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C93529B018C // TCopyPasteTest
+ ;
+ MELINK Target WL 'ME_53317DDB0223' '4A4DE48C0344.ms.model.script' // Il3OpPack
+ ;
+
+ENDME // ME_4C9355EB0326 
+
+ME ME_4C93571C039A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C93529B018C // TCopyPasteTest
+ ;
+ MELINK Target WL 'ME_47C695D90332' '47C695A10172.ms.model.script' // TevSelectTarget
+ ;
+
+ENDME // ME_4C93571C039A 
+
+MEREF ME_4BE13147032C_ME_4C93529B018C_impl
+ MELINK Original WL 'ME_4BE13147032C' '4BE111D30229.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE13147032C_ME_4C93529B018C_impl Process
+
+MEREF ME_4BE111D30229_ME_4C93529B018C_G
+ MELINK Original WL? 'ME_4BE111D30229' // TTextViaEditorProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE111D30229_ME_4C93529B018C_G TTextViaEditorProcessor
+
+MEREF ME_4C500D6101D8_ME_4C93529B018C_R
+ MELINK Original WL? 'ME_4C500D6101D8' // CursorMover
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C500D6101D8_ME_4C93529B018C_R CursorMover
+
+MEREF ME_4CE1344403AC_ME_4C93529B018C_R
+ MELINK Original WL? 'ME_4CE1344403AC' // ClipboardOperations
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CE1344403AC_ME_4C93529B018C_R ClipboardOperations
+
+%%ImplementedBy ME_4C500D6101D8 ME_4C93529B018C
+%%ImplementedBy ME_4CE1344403AC ME_4C93529B018C
+
+%%InheritedBy ME_4BE111D30229 ME_4C93529B018C
+
+ME ME_4C93529B018C
+ MEPROP UID '4C93529B018C'
+ MEPROP Name 'TCopyPasteTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест копирования/вставки через буфер обмена' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C4FDBF703DB' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE111D30229_ME_4C93529B018C_G // TTextViaEditorProcessor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4C500D6101D8_ME_4C93529B018C_R // CursorMover
+ HWL ME_4CE1344403AC_ME_4C93529B018C_R // ClipboardOperations
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4C93538E0218 // DoSelect
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BE13147032C_ME_4C93529B018C_impl // Process
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4C9355CD01B9 // InevSelection
+ ME_4C9355EB0326 // Il3OpPack
+ ME_4C93571C039A // TevSelectTarget
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '17.09.2010 15:36'
+ UP extprop:pas:UnitName 'CopyPasteTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CopyPasteTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\CopyPasteTest.pas'
+
+ENDME // ME_4C93529B018C TCopyPasteTest

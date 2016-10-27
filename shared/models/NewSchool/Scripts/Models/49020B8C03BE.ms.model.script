@@ -1,0 +1,138 @@
+// TnsLayerFilter 49020B8C03BE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49020B8C03BE
+
+ME ME_49020C500218
+ MEPROP UID '49020C500218'
+ MEPROP Name 'f_LayerID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49020B8C03BE // TnsLayerFilter
+ ;
+ MELINK Target WL 'ME_45EEC7EA01C5' '457450470167.ms.model.script' // LayerId
+ ;
+
+ENDME // ME_49020C500218 f_LayerID
+
+FORWARD ME_49020C630037
+
+ME ME_49020D430395
+ MEPROP Name 'aLayerID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC7EA01C5' '457450470167.ms.model.script' // LayerId
+ ;
+
+ENDME // ME_49020D430395 aLayerID
+
+ME ME_49020C630037
+ MEPROP UID '49020C630037'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49020B8C03BE // TnsLayerFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_49020D430395 // aLayerID
+ )
+ ; // Parameters
+
+ENDME // ME_49020C630037 Create
+
+FORWARD ME_49020C75039D
+
+ME ME_49020D48039A
+ MEPROP Name 'aLayerID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC7EA01C5' '457450470167.ms.model.script' // LayerId
+ ;
+
+ENDME // ME_49020D48039A aLayerID
+
+ME ME_49020C75039D
+ MEPROP UID '49020C75039D'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49020B8C03BE // TnsLayerFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_49020D48039A // aLayerID
+ )
+ ; // Parameters
+
+ENDME // ME_49020C75039D Make
+
+MEREF ME_4902077E028F_ME_49020B8C03BE_impl
+ MELINK Original WL 'ME_4902077E028F' '47ECAAF901F8.ms.model.script' // LayerID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4902077E028F_ME_49020B8C03BE_impl LayerID
+
+MEREF ME_46780E690001_ME_49020B8C03BE_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_49020B8C03BE_G Tl3CacheableBase
+
+MEREF ME_4902077602BA_ME_49020B8C03BE_R
+ MELINK Original WL 'ME_4902077602BA' '47ECAAF901F8.ms.model.script' // InsLayerFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4902077602BA_ME_49020B8C03BE_R InsLayerFilter
+
+%%ImplementedBy ME_4902077602BA ME_49020B8C03BE
+
+%%InheritedBy ME_46780E690001 ME_49020B8C03BE
+
+ME ME_49020B8C03BE
+ MEPROP UID '49020B8C03BE'
+ MEPROP Name 'TnsLayerFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4902090401E7' // Diction$Unit
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46780E690001_ME_49020B8C03BE_G // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4902077602BA_ME_49020B8C03BE_R // InsLayerFilter
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49020C500218 // f_LayerID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49020C630037 // Create
+ HWL ME_49020C75039D // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4902077E028F_ME_49020B8C03BE_impl // LayerID
+ )
+ ; // Implemented
+ UP "author" 'Λσκόÿνεφ Π.Β.'
+ UP "no hands" True
+ UP "started" '2007/03/23 14:18:10 '
+ UP extprop:pas:UnitName 'nsLayerFilter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LayerFilter'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\nsLayerFilter.pas'
+
+ENDME // ME_49020B8C03BE TnsLayerFilter

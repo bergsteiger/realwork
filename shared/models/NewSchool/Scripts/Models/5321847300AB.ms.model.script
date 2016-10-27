@@ -1,0 +1,63 @@
+// K517772970_TalcuHavanskyExportTask 5321847300AB TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5321847300AB
+
+ME ME_532184B803B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5321847300AB // K517772970_TalcuHavanskyExportTask
+ ;
+ MELINK Target WL? 'ME_530355CF0057' // TalcuHavanskyExportTask
+ ;
+
+ENDME // ME_532184B803B2 
+
+MEREF ME_5320088202FB_ME_5321847300AB_over
+ MELINK Original WL 'ME_5320088202FB' '532008240001.ms.model.script' // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5320088202FB_ME_5321847300AB_over TaskClass
+
+MEREF ME_532182090317_ME_5321847300AB_G
+ MELINK Original WL? 'ME_532182090317' // K517772970_TalcuExport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_532182090317_ME_5321847300AB_G K517772970_TalcuExport
+
+%%InheritedBy ME_532182090317 ME_5321847300AB
+
+ME ME_5321847300AB
+ MEPROP UID '5321847300AB'
+ MEPROP Name 'K517772970_TalcuHavanskyExportTask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_531FF6280311' // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_532182090317_ME_5321847300AB_G // K517772970_TalcuExport
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_5321847300AB_over // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_532184B803B2 // TalcuHavanskyExportTask
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TK517772970_TalcuHavanskyExportTask'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K517772970_TalcuHavanskyExportTask'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuHavanskyExportTask.pas'
+
+ENDME // ME_5321847300AB K517772970_TalcuHavanskyExportTask

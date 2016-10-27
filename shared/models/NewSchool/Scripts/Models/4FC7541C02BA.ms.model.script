@@ -13,10 +13,16 @@ ME ME_553F7384030B
  MELINK Stereotype st_implements::Dependency ;
  MELINK Parent HWL ME_553F737A02D6 // TseModalService
  ;
- MELINK Target WL 'ME_553F71BE03E0' '4E030FC801EB.ms.model.script' // Tl3ModalService
+ MELINK Target WL? 'ME_553F71BE03E0' // Tl3ModalService
  ;
 
 ENDME // ME_553F7384030B 
+
+MEREF ME_49E7754802A9_ME_553F737A02D6_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_553F737A02D6_G Tl3ProtoObject
 
 %%InheritedBy ME_49E7754802A9 ME_553F737A02D6
 
@@ -31,7 +37,7 @@ ME ME_553F737A02D6
  MELINK Parent HWL ME_4FC7541C02BA // seModalSupport
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_553F737A02D6_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Dependencies
@@ -86,7 +92,7 @@ ENDME // ME_4FC754AA030E DoIt
 ME ME_4FC7549A03B6
  MEPROP UID '4FC7549A03B6'
  MEPROP Name 'seAddModalWorker'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -108,7 +114,7 @@ ME ME_552631A303A5
  MEPROP Name 'aModalExecute'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_5526316402F9' '4E030FC801EB.ms.model.script' // TseModalExecute
+ MELINK Target WL 'ME_5526316402F9' '553F71BE03E0.ms.model.script' // TseModalExecute
  ;
 
 ENDME // ME_552631A303A5 aModalExecute
@@ -135,7 +141,7 @@ ME ME_5507EA98008B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4FC754C20096 // seExecuteCurrentModalWorker
  ;
- MELINK Target WL 'ME_5506D3B202FA' '5506D079035B.ms.model.script' // Tl3MessagesService
+ MELINK Target WL? 'ME_5506D3B202FA' // Tl3MessagesService
  ;
 
 ENDME // ME_5507EA98008B 
@@ -143,7 +149,7 @@ ENDME // ME_5507EA98008B
 ME ME_4FC754C20096
  MEPROP UID '4FC754C20096'
  MEPROP Name 'seExecuteCurrentModalWorker'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -179,7 +185,7 @@ ENDME // ME_4FC774AB0041 DoIt
 ME ME_4FC7749201E0
  MEPROP UID '4FC7749201E0'
  MEPROP Name 'seHasModalWorker'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -226,7 +232,7 @@ ENDME // ME_5193916B0370 DoIt
 ME ME_5193915002D8
  MEPROP UID '5193915002D8'
  MEPROP Name 'seIsValidModalWorkersCount'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -245,7 +251,7 @@ ME ME_4FC7568E03C3
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4FC7541C02BA // seModalSupport
  ;
- MELINK Target WL 'ME_4FC756830111' '4F2163250016.ms.model.script' // TseModalWorkerList
+ MELINK Target WL? 'ME_4FC756830111' // TseModalWorkerList
  ;
 
 ENDME // ME_4FC7568E03C3 
@@ -275,7 +281,7 @@ ME ME_5507FE3C03A0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4FC7541C02BA // seModalSupport
  ;
- MELINK Target WL 'ME_5507FDD203E1' '4E030FC801EB.ms.model.script' // Tl3BatchService
+ MELINK Target WL? 'ME_5507FDD203E1' // Tl3BatchService
  ;
 
 ENDME // ME_5507FE3C03A0 

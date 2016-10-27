@@ -40,7 +40,7 @@ ENDME // ME_52FA511402C0 DoIt
 ME ME_52FA510700F0
  MEPROP UID '52FA510700F0'
  MEPROP Name 'AssignFrom'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -85,7 +85,7 @@ ENDME // ME_53B3D8B90342 DoIt
 ME ME_53B3D8A8011F
  MEPROP UID '53B3D8A8011F'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -140,7 +140,7 @@ ENDME // ME_53E481B603E5 DoIt
 ME ME_53E481990243
  MEPROP UID '53E481990243'
  MEPROP Name 'DoSaveTo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -195,7 +195,7 @@ ENDME // ME_53E481ED0110 DoIt
 ME ME_53E481DF03D1
  MEPROP UID '53E481DF03D1'
  MEPROP Name 'DoLoadFrom'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -227,7 +227,7 @@ ENDME // ME_53FB282502E5 DoIt
 ME ME_53FB28170339
  MEPROP UID '53FB28170339'
  MEPROP Name 'GetDescription'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -251,6 +251,12 @@ ME ME_5385C3D50087
 
 ENDME // ME_5385C3D50087 
 
+MEREF ME_53AC018900AE_ME_52FA49DF00EF_G
+ MELINK Original WL? 'ME_53AC018900AE' // TddTaskItemPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53AC018900AE_ME_52FA49DF00EF_G TddTaskItemPrim
+
 %%InheritedBy ME_53AC018900AE ME_52FA49DF00EF
 
 ME ME_52FA49DF00EF
@@ -264,7 +270,7 @@ ME ME_52FA49DF00EF
  MELINK Parent HWL ME_52FA49C7022C // ddServerTask
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_53AC018900AE' '53C51B390355.ms.model.script' // TddTaskItemPrim
+   Seq: ( HWL ME_53AC018900AE_ME_52FA49DF00EF_G // TddTaskItemPrim
  )
  ; // Inherits
  MELIST Operations
@@ -288,6 +294,12 @@ ME ME_52FA49DF00EF
 
 ENDME // ME_52FA49DF00EF TddTaskItem
 
+MEREF ME_52FA49DF00EF_ME_53170EB30071_G
+ MELINK Original HWL ME_52FA49DF00EF // TddTaskItem
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52FA49DF00EF_ME_53170EB30071_G TddTaskItem
+
 %%InheritedBy ME_52FA49DF00EF ME_53170EB30071
 
 ME ME_53170EB30071
@@ -301,7 +313,7 @@ ME ME_53170EB30071
  MELINK Parent HWL ME_52FA49C7022C // ddServerTask
  ;
  MELIST Inherits
-   Seq: ( HWL ME_52FA49DF00EF // TddTaskItem
+   Seq: ( HWL ME_52FA49DF00EF_ME_53170EB30071_G // TddTaskItem
  )
  ; // Inherits
  UP "isClassRef" True
@@ -313,7 +325,7 @@ ENDME // ME_53170EB30071 TddTaskClass
 ME ME_53B3D9E702BA
  MEPROP UID '53B3D9E702BA'
  MEPROP Name 'RegisterTaskClass'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -328,7 +340,7 @@ ME ME_5384912F015B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_52FA49C7022C // ddServerTask
  ;
- MELINK Target WL 'ME_53848F4F00E4' '52FA49B901D3.ms.model.script' // TddTaskClassManager
+ MELINK Target WL? 'ME_53848F4F00E4' // TddTaskClassManager
  ;
 
 ENDME // ME_5384912F015B 

@@ -1,0 +1,114 @@
+// TnsPrimCachedEvent 4B13A069037A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B13A069037A
+
+ME ME_4B13A1F202D9
+ MEPROP UID '4B13A1F202D9'
+ MEPROP Name 'DoFireLog'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B13A069037A // TnsPrimCachedEvent
+ ;
+
+ENDME // ME_4B13A1F202D9 DoFireLog
+
+ME ME_4B13A22E0048
+ MEPROP UID '4B13A22E0048'
+ MEPROP Name 'RequestWrite'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B13A069037A // TnsPrimCachedEvent
+ ;
+
+ENDME // ME_4B13A22E0048 RequestWrite
+
+ME ME_4B13AB74036B
+ MEPROP UID '4B13AB74036B'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B13A069037A // TnsPrimCachedEvent
+ ;
+
+ENDME // ME_4B13AB74036B Create
+
+ME ME_4B13A22001E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B13A069037A // TnsPrimCachedEvent
+ ;
+ MELINK Target WL? 'ME_4B139FB1009B' // TnsCachedEventsProcessor
+ ;
+
+ENDME // ME_4B13A22001E4 
+
+MEREF ME_4B0FA5CB0254_ME_4B13A069037A_impl
+ MELINK Original WL 'ME_4B0FA5CB0254' '49913F2C020C.ms.model.script' // FireLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B0FA5CB0254_ME_4B13A069037A_impl FireLog
+
+MEREF ME_4B0A6109010C_ME_4B13A069037A_G
+ MELINK Original WL? 'ME_4B0A6109010C' // TnsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0A6109010C_ME_4B13A069037A_G TnsLogEvent
+
+MEREF ME_4B0FA5B8011B_ME_4B13A069037A_R
+ MELINK Original WL 'ME_4B0FA5B8011B' '49913F2C020C.ms.model.script' // InsDefferedEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0FA5B8011B_ME_4B13A069037A_R InsDefferedEvent
+
+%%ImplementedBy ME_4B0FA5B8011B ME_4B13A069037A
+
+%%InheritedBy ME_4B0A6109010C ME_4B13A069037A
+
+ME ME_4B13A069037A
+ MEPROP UID '4B13A069037A'
+ MEPROP Name 'TnsPrimCachedEvent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B0A60DF01F2' // Logging
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B0A6109010C_ME_4B13A069037A_G // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4B0FA5B8011B_ME_4B13A069037A_R // InsDefferedEvent
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4B13A1F202D9 // DoFireLog
+ HWL ME_4B13A22E0048 // RequestWrite
+ HWL ME_4B13AB74036B // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4B0FA5CB0254_ME_4B13A069037A_impl // FireLog
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4B13A22001E4 // TnsCachedEventsProcessor
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nsPrimCachedEvent'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimCachedEvent'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Logging\nsPrimCachedEvent.pas'
+
+ENDME // ME_4B13A069037A TnsPrimCachedEvent

@@ -1,0 +1,446 @@
+// TtfwScriptEngine 4DAEEA9E0049 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DAEEA9E0049
+
+FORWARD ME_4DAEEB9602CF
+
+FORWARD ME_4DAEEBB40249
+
+ME ME_4DAEEBC302CD
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_52F4E6AA02BB' // TtfwStreamFactory
+ ;
+
+ENDME // ME_4DAEEBC302CD aStream
+
+ME ME_4DAF1A650357
+ MEPROP Name 'aCaller'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.ms.model.script' // ItfwScriptCaller
+ ;
+
+ENDME // ME_4DAF1A650357 aCaller
+
+ME ME_4DAEEBB40249
+ MEPROP UID '4DAEEBB40249'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEEB9602CF // Script
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DAEEBC302CD // aStream
+ ME_4DAF1A650357 // aCaller
+ )
+ ; // Parameters
+
+ENDME // ME_4DAEEBB40249 DoIt
+
+ME ME_4DAEECAD016F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEEB9602CF // Script
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4DAEECAD016F 
+
+ME ME_4DAF1171006B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEEB9602CF // Script
+ ;
+ MELINK Target WL 'ME_47A082F101DB' '476BE98C01B8.ms.model.script' // Ext Chars
+ ;
+
+ENDME // ME_4DAF1171006B 
+
+ME ME_4DB1C85903DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEEB9602CF // Script
+ ;
+ MELINK Target WL 'ME_478E1EF4036B' '4767743E00E5.ms.model.script' // TTypeData
+ ;
+
+ENDME // ME_4DB1C85903DF 
+
+ME ME_4DAEEB9602CF
+ MEPROP UID '4DAEEB9602CF'
+ MEPROP Name 'Script'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEEA9E0049 // TtfwScriptEngine
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DAEEBB40249 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4DAEECAD016F // FreeAndNil
+ ME_4DAF1171006B // Ext Chars
+ ME_4DB1C85903DF // TTypeData
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" True
+
+ENDME // ME_4DAEEB9602CF Script
+
+FORWARD ME_4DAEEBC90028
+
+ME ME_4DAEF5D102C9
+ MEPROP UID '4DAEF5D102C9'
+ MEPROP Name 'SS'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DAEEBC90028 // Script$FromString
+ ;
+ MELINK Target WL? 'ME_52F4FAF80376' // TtfwStringStreamFactory
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4DAEF5D102C9 SS
+
+FORWARD ME_4DAEEBDC03A7
+
+ME ME_4DAEEBE5031E
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DAEEBE5031E aString
+
+ME ME_4DAF1A7102EC
+ MEPROP Name 'aCaller'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.ms.model.script' // ItfwScriptCaller
+ ;
+
+ENDME // ME_4DAF1A7102EC aCaller
+
+ME ME_4DAEEBDC03A7
+ MEPROP UID '4DAEEBDC03A7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEEBC90028 // Script$FromString
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DAEEBE5031E // aString
+ ME_4DAF1A7102EC // aCaller
+ )
+ ; // Parameters
+
+ENDME // ME_4DAEEBDC03A7 DoIt
+
+ME ME_4DAEF5EB0058
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEEBC90028 // Script$FromString
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4DAEF5EB0058 
+
+ME ME_4DAEF609022E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEEBC90028 // Script$FromString
+ ;
+ MELINK Target WL 'ME_4ADEE4F301E2' '47878E0E0191.ms.model.script' // l3PCharLen
+ ;
+
+ENDME // ME_4DAEF609022E 
+
+ME ME_4DAEEBC90028
+ MEPROP UID '4DAEEBC90028'
+ MEPROP Name 'Script'
+ MEPROP OriginalName 'Script$FromString'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEEA9E0049 // TtfwScriptEngine
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4DAEF5D102C9 // SS
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DAEEBDC03A7 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4DAEF5EB0058 // FreeAndNil
+ ME_4DAEF609022E // l3PCharLen
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" True
+
+ENDME // ME_4DAEEBC90028 Script$FromString
+
+FORWARD ME_4DB02B590048
+
+ME ME_4DB02B90039D
+ MEPROP UID '4DB02B90039D'
+ MEPROP Name 'FS'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DB02B590048 // ScriptFromFile
+ ;
+ MELINK Target WL? 'ME_52F4E85300D4' // TtfwFileStreamFactory
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4DB02B90039D FS
+
+FORWARD ME_4DB02B6601F9
+
+ME ME_4DB02B6E0201
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DB02B6E0201 aFileName
+
+ME ME_4DB02E6400C6
+ MEPROP Name 'aCaller'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.ms.model.script' // ItfwScriptCaller
+ ;
+
+ENDME // ME_4DB02E6400C6 aCaller
+
+ME ME_4DB02B6601F9
+ MEPROP UID '4DB02B6601F9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DB02B590048 // ScriptFromFile
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DB02B6E0201 // aFileName
+ ME_4DB02E6400C6 // aCaller
+ )
+ ; // Parameters
+
+ENDME // ME_4DB02B6601F9 DoIt
+
+ME ME_4DB02BB300EB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB02B590048 // ScriptFromFile
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_4DB02BB300EB 
+
+ME ME_4DB02B590048
+ MEPROP UID '4DB02B590048'
+ MEPROP Name 'ScriptFromFile'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEEA9E0049 // TtfwScriptEngine
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4DB02B90039D // FS
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DB02B6601F9 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4DB02BB300EB // Tl3FileMode
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" True
+
+ENDME // ME_4DB02B590048 ScriptFromFile
+
+ME ME_4DB17B63010C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEEA9E0049 // TtfwScriptEngine
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4DB17B63010C 
+
+ME ME_4DB19F96021F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEEA9E0049 // TtfwScriptEngine
+ ;
+ MELINK Target WL? 'ME_4DB19F7802E3' // EmitString
+ ;
+
+ENDME // ME_4DB19F96021F 
+
+ME ME_4DBAC5650397
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEEA9E0049 // TtfwScriptEngine
+ ;
+ MELINK Target WL? 'ME_4DBAC542005F' // TryFinally
+ ;
+
+ENDME // ME_4DBAC5650397 
+
+ME ME_4DC90A4A01EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEEA9E0049 // TtfwScriptEngine
+ ;
+ MELINK Target WL? 'ME_4DC90A1E03C2' // TkwMain
+ ;
+
+ENDME // ME_4DC90A4A01EE 
+
+ME ME_4F3CE5F30069
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEEA9E0049 // TtfwScriptEngine
+ ;
+ MELINK Target WL? 'ME_4DB6CA4F010D' // TkwCompiledWord
+ ;
+
+ENDME // ME_4F3CE5F30069 
+
+ME ME_4F3CE6400365
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEEA9E0049 // TtfwScriptEngine
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_4F3CE6400365 
+
+ME ME_4F4637B200C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEEA9E0049 // TtfwScriptEngine
+ ;
+ MELINK Target WL? 'ME_4DB05FF60115' // TtfwAutoregisteredDiction
+ ;
+
+ENDME // ME_4F4637B200C9 
+
+ME ME_4F4736550240
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEEA9E0049 // TtfwScriptEngine
+ ;
+ MELINK Target WL? 'ME_4F4735060149' // TtfwParser
+ ;
+
+ENDME // ME_4F4736550240 
+
+ME ME_52F4E9940387
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEEA9E0049 // TtfwScriptEngine
+ ;
+ MELINK Target WL? 'ME_52F4E85300D4' // TtfwFileStreamFactory
+ ;
+
+ENDME // ME_52F4E9940387 
+
+ME ME_52F4FB1D0328
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEEA9E0049 // TtfwScriptEngine
+ ;
+ MELINK Target WL? 'ME_52F4FAF80376' // TtfwStringStreamFactory
+ ;
+
+ENDME // ME_52F4FB1D0328 
+
+ME ME_4DAEEA9E0049
+ MEPROP UID '4DAEEA9E0049'
+ MEPROP Name 'TtfwScriptEngine'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Машина для исполнения скриптов. Базовый класс.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DAEEA14018A' // Scripting Axiomatics
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DAEEB9602CF // Script
+ HWL ME_4DAEEBC90028 // Script$FromString
+ HWL ME_4DB02B590048 // ScriptFromFile
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4DB17B63010C // l3String
+ ME_4DB19F96021F // EmitString
+ ME_4DBAC5650397 // TryFinally
+ ME_4DC90A4A01EE // TkwMain
+ ME_4F3CE5F30069 // TkwCompiledWord
+ ME_4F3CE6400365 // l3CStr
+ ME_4F4637B200C9 // TtfwAutoregisteredDiction
+ ME_4F4736550240 // TtfwParser
+ ME_52F4E9940387 // TtfwFileStreamFactory
+ ME_52F4FB1D0328 // TtfwStringStreamFactory
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_56F5563D0109' '56F556230193.ms.model.script' // tfwScriptsRunningAndDebugging
+ )
+ ; // Injected
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '20.04.2011 18:16'
+ UP extprop:pas:UnitName 'tfwScriptEngine'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ScriptEngine'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwScriptEngine.pas'
+
+ENDME // ME_4DAEEA9E0049 TtfwScriptEngine

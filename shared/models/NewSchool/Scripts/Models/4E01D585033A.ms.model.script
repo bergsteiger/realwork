@@ -1,0 +1,114 @@
+// TvcmUserInteractiveForm 4E01D585033A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_55015117004B
+
+FORWARD ME_4E01D585033A
+
+FORWARD ME_55015117004B
+
+ME ME_550151230255
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55015117004B // TvcmCloseFormHelper
+ ;
+ MELINK Target WL 'ME_49525AB4009E' '47F4EED50062.ms.model.script' // TvcmInterfacedForm
+ ;
+
+ENDME // ME_550151230255 
+
+ME ME_550150EF017F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_55015117004B // TvcmCloseFormHelper
+ ;
+ MELINK Target WL? 'ME_55014D810077' // Tl3CloseFormHelper
+ ;
+
+ENDME // ME_550150EF017F 
+
+MEREF ME_49E7754802A9_ME_55015117004B_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_55015117004B_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_55015117004B
+
+ME ME_55015117004B
+ MEPROP UID '55015117004B'
+ MEPROP Name 'TvcmCloseFormHelper'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D585033A // TvcmUserInteractiveForm
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_55015117004B_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_550151230255 // TvcmInterfacedForm
+ ME_550150EF017F // Tl3CloseFormHelper
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CloseFormHelper'
+
+ENDME // ME_55015117004B TvcmCloseFormHelper
+
+MEREF ME_49525A0F034B_ME_4E01D585033A_G
+ MELINK Original WL 'ME_49525A0F034B' '495259ED005C.ms.model.script' // Tl3Form
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525A0F034B_ME_4E01D585033A_G Tl3Form
+
+MEREF ME_4E01D5E50001_ME_4E01D585033A_G
+ MELINK Original WL? 'ME_4E01D5E50001' // vcmUserInteractiveForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E01D5E50001_ME_4E01D585033A_G vcmUserInteractiveForm
+
+%%InheritedBy ME_49525A0F034B ME_4E01D585033A
+%%InheritedBy ME_4E01D5E50001 ME_4E01D585033A
+
+ME ME_4E01D585033A
+ MEPROP UID '4E01D585033A'
+ MEPROP Name 'TvcmUserInteractiveForm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AADF9450143' // Visual
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49525A0F034B_ME_4E01D585033A_G // Tl3Form
+ HWL ME_4E01D5E50001_ME_4E01D585033A_G // vcmUserInteractiveForm
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_55015117004B // TvcmCloseFormHelper
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '22.06.2011 15:44'
+ UP "UseNewGen" True
+ UP extprop:pas:UnitName 'vcmUserInteractiveForm'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'UserInteractiveForm'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmUserInteractiveForm.pas'
+
+ENDME // ME_4E01D585033A TvcmUserInteractiveForm

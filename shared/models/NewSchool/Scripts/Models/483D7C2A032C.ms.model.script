@@ -1,0 +1,53 @@
+// TevdCustomNativeWriter 483D7C2A032C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_483D7C2A032C
+
+ME ME_555DCF420288
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483D7C2A032C // TevdCustomNativeWriter
+ ;
+ MELINK Target WL? 'ME_555DCF340385' // evdCustomNativeWriterServices
+ ;
+
+ENDME // ME_555DCF420288 
+
+MEREF ME_4836BFC9011E_ME_483D7C2A032C_G
+ MELINK Original WL? 'ME_4836BFC9011E' // Tk2CustomFileGenerator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4836BFC9011E_ME_483D7C2A032C_G Tk2CustomFileGenerator
+
+%%InheritedBy ME_4836BFC9011E ME_483D7C2A032C
+
+ME ME_483D7C2A032C
+ MEPROP UID '483D7C2A032C'
+ MEPROP Name 'TevdCustomNativeWriter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Писатель тегов в формате evd.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECB8BD00A8' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4836BFC9011E_ME_483D7C2A032C_G // Tk2CustomFileGenerator
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_555DCF420288 // evdCustomNativeWriterServices
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '05.10.1999 13:00'
+ UP extprop:pas:UnitName 'evdCustomNativeWriter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dCustomNativeWriter'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\NOT_FINISHED_evdCustomNativeWriter.pas'
+
+ENDME // ME_483D7C2A032C TevdCustomNativeWriter

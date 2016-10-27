@@ -83,35 +83,47 @@ ME ME_4CF37AF1004E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_491C3E97009F // TdsConsultation
  ;
- MELINK Target WL 'ME_4CF37A0400FB' '491C3E40007B.ms.model.script' // TnsConsultationDocumentContainerNew
+ MELINK Target WL? 'ME_4CF37A0400FB' // TnsConsultationDocumentContainerNew
  ;
 
 ENDME // ME_4CF37AF1004E 
 
-ME ME_491C3FAA009D_ME_491C3E97009F
+MEREF ME_491C3FAA009D_ME_491C3E97009F_impl
  MELINK Original WL 'ME_491C3FAA009D' '4ABCF04F00DF.ms.model.script' // ShowingStatus
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_491C3FAA009D_ME_491C3E97009F ShowingStatus
+ENDMEREF // ME_491C3FAA009D_ME_491C3E97009F_impl ShowingStatus
 
-ME ME_47A042E100E2_ME_491C3E97009F
+MEREF ME_47A042E100E2_ME_491C3E97009F_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_491C3E97009F InitFields
+ENDMEREF // ME_47A042E100E2_ME_491C3E97009F_over InitFields
 
-ME ME_4A60B23E00C3_ME_491C3E97009F
+MEREF ME_4A60B23E00C3_ME_491C3E97009F_over
  MELINK Original WL 'ME_4A60B23E00C3' '4A60B2220398.ms.model.script' // COMQueryInterface
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A60B23E00C3_ME_491C3E97009F COMQueryInterface
+ENDMEREF // ME_4A60B23E00C3_ME_491C3E97009F_over COMQueryInterface
 
-ME ME_4C6AB38800F3_ME_491C3E97009F
+MEREF ME_4C6AB38800F3_ME_491C3E97009F_over
  MELINK Original WL 'ME_4C6AB38800F3' '47EA20430108.ms.model.script' // MakeContainer
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4C6AB38800F3_ME_491C3E97009F MakeContainer
+ENDMEREF // ME_4C6AB38800F3_ME_491C3E97009F_over MakeContainer
+
+MEREF ME_47EA20430108_ME_491C3E97009F_G
+ MELINK Original WL? 'ME_47EA20430108' // dsBaseDocumentPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47EA20430108_ME_491C3E97009F_G dsBaseDocumentPrim
+
+MEREF ME_491C3F68021E_ME_491C3E97009F_R
+ MELINK Original WL 'ME_491C3F68021E' '4ABCF04F00DF.ms.model.script' // IdsConsultation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_491C3F68021E_ME_491C3E97009F_R IdsConsultation
 
 %%ImplementedBy ME_491C3F68021E ME_491C3E97009F
 
@@ -130,11 +142,11 @@ ME ME_491C3E97009F
  MELINK Parent WL? 'ME_491C3E40007B' // Consultation
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47EA20430108' // dsBaseDocumentPrim
+   Seq: ( HWL ME_47EA20430108_ME_491C3E97009F_G // dsBaseDocumentPrim
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_491C3F68021E' '4ABCF04F00DF.ms.model.script' // IdsConsultation
+   Seq: ( HWL ME_491C3F68021E_ME_491C3E97009F_R // IdsConsultation
  )
  ; // Implements
  MELIST Attributes
@@ -144,13 +156,13 @@ ME ME_491C3E97009F
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_491C3FAA009D_ME_491C3E97009F // ShowingStatus
+   Seq: ( ME_491C3FAA009D_ME_491C3E97009F_impl // ShowingStatus
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_47A042E100E2_ME_491C3E97009F // InitFields
- ME_4A60B23E00C3_ME_491C3E97009F // COMQueryInterface
- ME_4C6AB38800F3_ME_491C3E97009F // MakeContainer
+   Seq: ( ME_47A042E100E2_ME_491C3E97009F_over // InitFields
+ ME_4A60B23E00C3_ME_491C3E97009F_over // COMQueryInterface
+ ME_4C6AB38800F3_ME_491C3E97009F_over // MakeContainer
  )
  ; // Overridden
  MELIST Dependencies

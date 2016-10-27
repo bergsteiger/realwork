@@ -1,0 +1,69 @@
+// ReleaseItsLAW 97FE67497778 TestResults Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4B7AB0B6016E_ME_97FE67497778_impl
+ MELINK Original WL 'ME_4B7AB0B6016E' '4B2A6D4303A9.ms.model.script' // CommandLineKey
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B7AB0B6016E_ME_97FE67497778_impl CommandLineKey
+
+MEREF ME_4B7C0B43005B_ME_97FE67497778_impl
+ MELINK Original WL 'ME_4B7C0B43005B' '4B2A6D4303A9.ms.model.script' // TimesPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B7C0B43005B_ME_97FE67497778_impl TimesPage
+
+MEREF ME_4B7C0B670215_ME_97FE67497778_impl
+ MELINK Original WL 'ME_4B7C0B670215' '4B2A6D4303A9.ms.model.script' // ResultsPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B7C0B670215_ME_97FE67497778_impl ResultsPage
+
+MEREF ME_4C35A6DA02E9_ME_97FE67497778_over
+ MELINK Original WL 'ME_4C35A6DA02E9' '4B2A6D4303A9.ms.model.script' // IsLAW
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C35A6DA02E9_ME_97FE67497778_over IsLAW
+
+MEREF ME_4B7AAC7A031D_ME_97FE67497778_G
+ MELINK Original WL 'ME_4B7AAC7A031D' '4B2A6D4303A9.ms.model.script' // TTestResultsPlace
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B7AAC7A031D_ME_97FE67497778_G TTestResultsPlace
+
+%%InheritedBy ME_4B7AAC7A031D ME_97FE67497778
+
+ME ME_97FE67497778
+ MEPROP UID '97FE67497778'
+ MEPROP Name 'ReleaseItsLAW'
+ UP IsSummoned true
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestResults ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '¬ывод дл€ отладочных целей (релизный вариант)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_06EF1E6353C7' // ReleaseDaily$Test
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B7AAC7A031D_ME_97FE67497778_G // TTestResultsPlace
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4B7AB0B6016E_ME_97FE67497778_impl // CommandLineKey
+ ME_4B7C0B43005B_ME_97FE67497778_impl // TimesPage
+ ME_4B7C0B670215_ME_97FE67497778_impl // ResultsPage
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C35A6DA02E9_ME_97FE67497778_over // IsLAW
+ )
+ ; // Overridden
+ UP extprop:pas:TypeName 'TReleaseItsLAW'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ReleaseItsLAW'
+ UP intf.pas:Path 'common\components\DailyTest\ReleaseItsLAW.pas'
+
+ENDME // ME_97FE67497778 ReleaseItsLAW

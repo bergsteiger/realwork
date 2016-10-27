@@ -1,0 +1,539 @@
+// TnsContextFilterParams 4908930C0268 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4908930C0268
+
+FORWARD ME_49089B1B0337
+
+ME ME_49089B2E0017
+ MEPROP UID '49089B2E0017'
+ MEPROP Name 'cstTreeLevelDist'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49089B1B0337 // Constants
+ ;
+ MEPROP Value '''stTreeLevelDist'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''stTreeLevelDist'''
+
+ENDME // ME_49089B2E0017 cstTreeLevelDist
+
+ME ME_49089B340148
+ MEPROP UID '49089B340148'
+ MEPROP Name 'cstWordOrder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49089B1B0337 // Constants
+ ;
+ MEPROP Value '''stWordOrder'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''stWordOrder'''
+
+ENDME // ME_49089B340148 cstWordOrder
+
+ME ME_49089B3B003F
+ MEPROP UID '49089B3B003F'
+ MEPROP Name 'cstWordPosition'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49089B1B0337 // Constants
+ ;
+ MEPROP Value '''stWordPosition'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''stWordPosition'''
+
+ENDME // ME_49089B3B003F cstWordPosition
+
+ME ME_49089B46036B
+ MEPROP UID '49089B46036B'
+ MEPROP Name 'cDefaultTreeLevelDist'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49089B1B0337 // Constants
+ ;
+ MEPROP Value 'tldAllLevels'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'tldAllLevels'
+
+ENDME // ME_49089B46036B cDefaultTreeLevelDist
+
+ME ME_49089B4C0396
+ MEPROP UID '49089B4C0396'
+ MEPROP Name 'cDefaultWordOrder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49089B1B0337 // Constants
+ ;
+ MEPROP Value 'woAnyOrder'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'woAnyOrder'
+
+ENDME // ME_49089B4C0396 cDefaultWordOrder
+
+ME ME_49089B53029C
+ MEPROP UID '49089B53029C'
+ MEPROP Name 'cDefaultWordPosition'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49089B1B0337 // Constants
+ ;
+ MEPROP Value 'wpAnyPathWord'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'wpAnyPathWord'
+
+ENDME // ME_49089B53029C cDefaultWordPosition
+
+ME ME_49089B1B0337
+ MEPROP UID '49089B1B0337'
+ MEPROP Name 'Constants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4908930C0268 // TnsContextFilterParams
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49089B2E0017 // cstTreeLevelDist
+ HWL ME_49089B340148 // cstWordOrder
+ HWL ME_49089B3B003F // cstWordPosition
+ HWL ME_49089B46036B // cDefaultTreeLevelDist
+ HWL ME_49089B4C0396 // cDefaultWordOrder
+ HWL ME_49089B53029C // cDefaultWordPosition
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_49089B1B0337 Constants
+
+ME ME_4908984400F8
+ MEPROP UID '4908984400F8'
+ MEPROP Name 'f_BaseSettingID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4908930C0268 // TnsContextFilterParams
+ ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+
+ENDME // ME_4908984400F8 f_BaseSettingID
+
+ME ME_490898F702D4
+ MEPROP UID '490898F702D4'
+ MEPROP Name 'f_Subscribers'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4908930C0268 // TnsContextFilterParams
+ ;
+ MELINK Target WL? 'ME_49089895038A' // TIl3ContextFilterParamsNotifierPtrList
+ ;
+
+ENDME // ME_490898F702D4 f_Subscribers
+
+ME ME_49089AFB017D
+ MEPROP UID '49089AFB017D'
+ MEPROP Name 'Settings'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4908930C0268 // TnsContextFilterParams
+ ;
+ MELINK Target WL 'ME_473D9EF10387' '467823B7002C.ms.model.script' // IafwSettings
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_49089AFB017D Settings
+
+FORWARD ME_490894A3018E
+
+ME ME_490894AA02CD
+ MEPROP Name 'aBaseSettingID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+
+ENDME // ME_490894AA02CD aBaseSettingID
+
+ME ME_490894A3018E
+ MEPROP UID '490894A3018E'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4908930C0268 // TnsContextFilterParams
+ ;
+ MELINK Target WL 'ME_47724E7F0261' '4682595B0268.ms.model.script' // Il3ContextFilterParams
+ ;
+ MELIST Parameters
+   Seq: ( ME_490894AA02CD // aBaseSettingID
+ )
+ ; // Parameters
+
+ENDME // ME_490894A3018E Make
+
+FORWARD ME_490894CF009C
+
+ME ME_490894D40206
+ MEPROP Name 'aBaseSettingID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+
+ENDME // ME_490894D40206 aBaseSettingID
+
+ME ME_490894CF009C
+ MEPROP UID '490894CF009C'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4908930C0268 // TnsContextFilterParams
+ ;
+ MELIST Parameters
+   Seq: ( ME_490894D40206 // aBaseSettingID
+ )
+ ; // Parameters
+
+ENDME // ME_490894CF009C Create
+
+ME ME_49089AD40319
+ MEPROP UID '49089AD40319'
+ MEPROP Name 'UseSettings'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4908930C0268 // TnsContextFilterParams
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_49089AD40319 UseSettings
+
+ME ME_49089BBA0151
+ MEPROP UID '49089BBA0151'
+ MEPROP Name 'NotifySubscribers'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4908930C0268 // TnsContextFilterParams
+ ;
+
+ENDME // ME_49089BBA0151 NotifySubscribers
+
+FORWARD ME_49089CAB0346
+
+ME ME_49089CB10014
+ MEPROP Name 'aSubSettingID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+
+ENDME // ME_49089CB10014 aSubSettingID
+
+ME ME_49089CAB0346
+ MEPROP UID '49089CAB0346'
+ MEPROP Name 'MakePath'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4908930C0268 // TnsContextFilterParams
+ ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+ MELIST Parameters
+   Seq: ( ME_49089CB10014 // aSubSettingID
+ )
+ ; // Parameters
+
+ENDME // ME_49089CAB0346 MakePath
+
+FORWARD ME_49089CB9018F
+
+ME ME_49089CC000CB
+ MEPROP Name 'aSettingID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+
+ENDME // ME_49089CC000CB aSettingID
+
+ME ME_49089CB9018F
+ MEPROP UID '49089CB9018F'
+ MEPROP Name 'IsSettingAffectUs'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4908930C0268 // TnsContextFilterParams
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49089CC000CB // aSettingID
+ )
+ ; // Parameters
+
+ENDME // ME_49089CB9018F IsSettingAffectUs
+
+ME ME_49089AB1017B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4908930C0268 // TnsContextFilterParams
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_49089AB1017B 
+
+ME ME_49089BFB0055
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4908930C0268 // TnsContextFilterParams
+ ;
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
+ ;
+
+ENDME // ME_49089BFB0055 
+
+ME ME_49089D5603DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4908930C0268 // TnsContextFilterParams
+ ;
+ MELINK Target WL? 'ME_47EA0D5F0038' // afwConsts
+ ;
+
+ENDME // ME_49089D5603DB 
+
+MEREF ME_47724E930100_ME_4908930C0268_impl
+ MELINK Original WL 'ME_47724E930100' '4682595B0268.ms.model.script' // WordPosition
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47724E930100_ME_4908930C0268_impl WordPosition
+
+MEREF ME_47724E9D014D_ME_4908930C0268_impl
+ MELINK Original WL 'ME_47724E9D014D' '4682595B0268.ms.model.script' // WordOrder
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47724E9D014D_ME_4908930C0268_impl WordOrder
+
+MEREF ME_47724EA70354_ME_4908930C0268_impl
+ MELINK Original WL 'ME_47724EA70354' '4682595B0268.ms.model.script' // TreeLevelDist
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47724EA70354_ME_4908930C0268_impl TreeLevelDist
+
+MEREF ME_47724F120028_ME_4908930C0268_impl
+ MELINK Original WL 'ME_47724F120028' '4682595B0268.ms.model.script' // Subscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47724F120028_ME_4908930C0268_impl Subscribe
+
+MEREF ME_47724F1E0180_ME_4908930C0268_impl
+ MELINK Original WL 'ME_47724F1E0180' '4682595B0268.ms.model.script' // UnSubscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47724F1E0180_ME_4908930C0268_impl UnSubscribe
+
+MEREF ME_490896DA03E4_ME_4908930C0268_impl
+ MELINK Original WL 'ME_490896DA03E4' '47ECAAF901F8.ms.model.script' // BaseSettingID
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_490896DA03E4_ME_4908930C0268_impl BaseSettingID
+
+MEREF ME_490896E600DC_ME_4908930C0268_impl
+ MELINK Original WL 'ME_490896E600DC' '47ECAAF901F8.ms.model.script' // WordPositionSettingID
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_490896E600DC_ME_4908930C0268_impl WordPositionSettingID
+
+MEREF ME_490896F300D8_ME_4908930C0268_impl
+ MELINK Original WL 'ME_490896F300D8' '47ECAAF901F8.ms.model.script' // WordOrderSettingID
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_490896F300D8_ME_4908930C0268_impl WordOrderSettingID
+
+MEREF ME_49089705028B_ME_4908930C0268_impl
+ MELINK Original WL 'ME_49089705028B' '47ECAAF901F8.ms.model.script' // TreeLevelDistSettingID
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_49089705028B_ME_4908930C0268_impl TreeLevelDistSettingID
+
+MEREF ME_479731C50290_ME_4908930C0268_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4908930C0268_over Cleanup
+
+MEREF ME_47EA863A035C_ME_4908930C0268_over
+ MELINK Original WL 'ME_47EA863A035C' '47EA85E7005B.ms.model.script' // DoSettingChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47EA863A035C_ME_4908930C0268_over DoSettingChanged
+
+MEREF ME_47EA8B9601FE_ME_4908930C0268_over
+ MELINK Original WL 'ME_47EA8B9601FE' '47EA8AEF0077.ms.model.script' // SettingsReplaceFinish
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47EA8B9601FE_ME_4908930C0268_over SettingsReplaceFinish
+
+MEREF ME_46780E690001_ME_4908930C0268_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_4908930C0268_G Tl3CacheableBase
+
+MEREF ME_47EA85E7005B_ME_4908930C0268_G
+ MELINK Original WL? 'ME_47EA85E7005B' // afwSettingChanged
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47EA85E7005B_ME_4908930C0268_G afwSettingChanged
+
+MEREF ME_46835CB60115_ME_4908930C0268_R
+ MELINK Original WL 'ME_46835CB60115' '4682595B0268.ms.model.script' // Il3ContextFilterParamsNotifySource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46835CB60115_ME_4908930C0268_R Il3ContextFilterParamsNotifySource
+
+MEREF ME_47724E7F0261_ME_4908930C0268_R
+ MELINK Original WL 'ME_47724E7F0261' '4682595B0268.ms.model.script' // Il3ContextFilterParams
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47724E7F0261_ME_4908930C0268_R Il3ContextFilterParams
+
+MEREF ME_47EA8AEF0077_ME_4908930C0268_R
+ MELINK Original WL? 'ME_47EA8AEF0077' // afwSettingsReplace
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47EA8AEF0077_ME_4908930C0268_R afwSettingsReplace
+
+MEREF ME_490896CE00FD_ME_4908930C0268_R
+ MELINK Original WL 'ME_490896CE00FD' '47ECAAF901F8.ms.model.script' // InsContextFilterParamsInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_490896CE00FD_ME_4908930C0268_R InsContextFilterParamsInfo
+
+%%ImplementedBy ME_46835CB60115 ME_4908930C0268
+%%ImplementedBy ME_47724E7F0261 ME_4908930C0268
+%%ImplementedBy ME_47EA8AEF0077 ME_4908930C0268
+%%ImplementedBy ME_490896CE00FD ME_4908930C0268
+
+%%InheritedBy ME_46780E690001 ME_4908930C0268
+%%InheritedBy ME_47EA85E7005B ME_4908930C0268
+
+ME ME_4908930C0268
+ MEPROP UID '4908930C0268'
+ MEPROP Name 'TnsContextFilterParams'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация хранилищя для параметров контекстной фильтрации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48FD8B2702F6' // Tree
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46780E690001_ME_4908930C0268_G // Tl3CacheableBase
+ HWL ME_47EA85E7005B_ME_4908930C0268_G // afwSettingChanged
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_46835CB60115_ME_4908930C0268_R // Il3ContextFilterParamsNotifySource
+ HWL ME_47724E7F0261_ME_4908930C0268_R // Il3ContextFilterParams
+ HWL ME_47EA8AEF0077_ME_4908930C0268_R // afwSettingsReplace
+ HWL ME_490896CE00FD_ME_4908930C0268_R // InsContextFilterParamsInfo
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4908984400F8 // f_BaseSettingID
+ HWL ME_490898F702D4 // f_Subscribers
+ HWL ME_49089AFB017D // Settings
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_490894A3018E // Make
+ HWL ME_490894CF009C // Create
+ HWL ME_49089AD40319 // UseSettings
+ HWL ME_49089BBA0151 // NotifySubscribers
+ HWL ME_49089CAB0346 // MakePath
+ HWL ME_49089CB9018F // IsSettingAffectUs
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47724E930100_ME_4908930C0268_impl // WordPosition
+ ME_47724E9D014D_ME_4908930C0268_impl // WordOrder
+ ME_47724EA70354_ME_4908930C0268_impl // TreeLevelDist
+ ME_47724F120028_ME_4908930C0268_impl // Subscribe
+ ME_47724F1E0180_ME_4908930C0268_impl // UnSubscribe
+ ME_490896DA03E4_ME_4908930C0268_impl // BaseSettingID
+ ME_490896E600DC_ME_4908930C0268_impl // WordPositionSettingID
+ ME_490896F300D8_ME_4908930C0268_impl // WordOrderSettingID
+ ME_49089705028B_ME_4908930C0268_impl // TreeLevelDistSettingID
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4908930C0268_over // Cleanup
+ ME_47EA863A035C_ME_4908930C0268_over // DoSettingChanged
+ ME_47EA8B9601FE_ME_4908930C0268_over // SettingsReplaceFinish
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_49089B1B0337 // Constants
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_49089AB1017B // SysUtils
+ ME_49089BFB0055 // afwFacade
+ ME_49089D5603DB // afwConsts
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Лукьянец Р. В.'
+ UP "no hands" True
+ UP "started" '2007/03/21 11:54:56'
+ UP extprop:pas:UnitName 'nsContextFilterParams'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ContextFilterParams'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsContextFilterParams.pas'
+
+ENDME // ME_4908930C0268 TnsContextFilterParams

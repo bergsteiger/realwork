@@ -71,7 +71,7 @@ ME ME_4CEE666803CD
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C72603000E8 // f1TagDataProviderPrim
  ;
- MELINK Target WL 'ME_4CEE65C8015D' '4CEE659103B3.ms.model.script' // TnsCommentModifier
+ MELINK Target WL? 'ME_4CEE65C8015D' // TnsCommentModifier
  ;
 
 ENDME // ME_4CEE666803CD 
@@ -81,10 +81,16 @@ ME ME_4CEE666D000D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C72603000E8 // f1TagDataProviderPrim
  ;
- MELINK Target WL 'ME_4CEE65B701A4' '4CEE659103B3.ms.model.script' // TnsParaModifier
+ MELINK Target WL? 'ME_4CEE65B701A4' // TnsParaModifier
  ;
 
 ENDME // ME_4CEE666D000D 
+
+MEREF ME_4AE5CA2D0034_ME_4C72603000E8_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_4C72603000E8_G Tl3CProtoObject
 
 %%InheritedBy ME_4AE5CA2D0034 ME_4C72603000E8
 
@@ -101,7 +107,7 @@ ME ME_4C72603000E8
  MELINK Parent WL? 'ME_4C726B20031E' // TagDataProviders
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.ms.model.script' // Tl3CProtoObject
+   Seq: ( HWL ME_4AE5CA2D0034_ME_4C72603000E8_G // Tl3CProtoObject
  )
  ; // Inherits
  MELIST Operations

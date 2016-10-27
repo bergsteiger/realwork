@@ -93,7 +93,7 @@ ENDME // ME_57DAB0580108 DoIt
 ME ME_57DAB04A00F5
  MEPROP UID '57DAB04A00F5'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -107,6 +107,18 @@ ME ME_57DAB04A00F5
 
 ENDME // ME_57DAB04A00F5 Create
 
+MEREF ME_57DAB04A00F5_ME_57DAB0390299_G
+ MELINK Original HWL ME_57DAB04A00F5 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57DAB04A00F5_ME_57DAB0390299_G Create
+
+MEREF ME_57AB05790383_ME_57DAB0390299_R
+ MELINK Original WL 'ME_57AB05790383' '57AAE8D403E5.ms.model.script' // ImsmViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AB05790383_ME_57DAB0390299_R ImsmViewController
+
 %%ImplementedBy ME_57AB05790383 ME_57DAB0390299
 
 %%InheritedBy ME_57DAB04A00F5 ME_57DAB0390299
@@ -114,7 +126,7 @@ ENDME // ME_57DAB04A00F5 Create
 ME ME_57DAB0390299
  MEPROP UID '57DAB0390299'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -122,15 +134,21 @@ ME ME_57DAB0390299
  MELINK Parent HWL ME_57DAAADC01B7 // msmConcreteModelAndConcreteViewController
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57DAB04A00F5 // Create
+   Seq: ( HWL ME_57DAB04A00F5_ME_57DAB0390299_G // Create
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_57AB05790383' '57AAE8D403E5.ms.model.script' // ImsmViewController
+   Seq: ( HWL ME_57AB05790383_ME_57DAB0390299_R // ImsmViewController
  )
  ; // Implements
 
 ENDME // ME_57DAB0390299 Make
+
+MEREF ME_57AE0566006E_ME_57DAAADC01B7_G
+ MELINK Original WL? 'ME_57AE0566006E' // msmConcreteModelViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AE0566006E_ME_57DAAADC01B7_G msmConcreteModelViewController
 
 %%InheritedBy ME_57AE0566006E ME_57DAAADC01B7
 
@@ -146,7 +164,7 @@ ME ME_57DAAADC01B7
  MELINK Parent WL? 'ME_57AAE90E02B6' // Controllers
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_57AE0566006E' // msmConcreteModelViewController
+   Seq: ( HWL ME_57AE0566006E_ME_57DAAADC01B7_G // msmConcreteModelViewController
  )
  ; // Inherits
  MELIST Attributes

@@ -9,7 +9,7 @@ ME ME_49589F850343
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958980300D5 // TdsChildDocument
  ;
- MELINK Target WL 'ME_4958968201A7' '47EA50050263.ms.model.script' // TnsDocInfoHAFMacroReplacer
+ MELINK Target WL? 'ME_4958968201A7' // TnsDocInfoHAFMacroReplacer
  ;
 
 ENDME // ME_49589F850343 
@@ -19,7 +19,7 @@ ME ME_4958A01902A4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958980300D5 // TdsChildDocument
  ;
- MELINK Target WL 'ME_49589FF7027D' '493D465902FA.ms.model.script' // TnsChildDocInfoHAFMacroReplacer
+ MELINK Target WL? 'ME_49589FF7027D' // TnsChildDocInfoHAFMacroReplacer
  ;
 
 ENDME // ME_4958A01902A4 
@@ -34,11 +34,17 @@ ME ME_496A2D7C03CC
 
 ENDME // ME_496A2D7C03CC 
 
-ME ME_49589C6203A6_ME_4958980300D5
+MEREF ME_49589C6203A6_ME_4958980300D5_over
  MELINK Original WL 'ME_49589C6203A6' '47EA20430108.ms.model.script' // DoMakeHAFMacroReplacer
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49589C6203A6_ME_4958980300D5 DoMakeHAFMacroReplacer
+ENDMEREF // ME_49589C6203A6_ME_4958980300D5_over DoMakeHAFMacroReplacer
+
+MEREF ME_493D63D20049_ME_4958980300D5_G
+ MELINK Original WL? 'ME_493D63D20049' // TdsDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_493D63D20049_ME_4958980300D5_G TdsDocument
 
 %%InheritedBy ME_493D63D20049 ME_4958980300D5
 
@@ -54,11 +60,11 @@ ME ME_4958980300D5
  MELINK Parent WL? 'ME_493D465902FA' // DocumentAndList
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_493D63D20049' // TdsDocument
+   Seq: ( HWL ME_493D63D20049_ME_4958980300D5_G // TdsDocument
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_49589C6203A6_ME_4958980300D5 // DoMakeHAFMacroReplacer
+   Seq: ( ME_49589C6203A6_ME_4958980300D5_over // DoMakeHAFMacroReplacer
  )
  ; // Overridden
  MELIST Dependencies

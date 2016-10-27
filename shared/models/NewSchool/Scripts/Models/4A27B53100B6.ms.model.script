@@ -1,0 +1,80 @@
+// TevControlsBlockHotSpotTester 4A27B53100B6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A27B53100B6
+
+ME ME_4E1423BF0044
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_friend::Dependency ;
+ MELINK Parent HWL ME_4A27B53100B6 // TevControlsBlockHotSpotTester
+ ;
+ MELINK Target WL 'ME_485806FC032D' '48492FC0029D.ms.model.script' // ControlsBlock
+ ;
+
+ENDME // ME_4E1423BF0044 
+
+ME ME_4E6E385C0084
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4A27B53100B6 // TevControlsBlockHotSpotTester
+ ;
+ MELINK Target WL? 'ME_485807480091' // TevControlsBlock
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_4E6E385C0084 
+
+ME ME_53D6344501AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_4A27B53100B6 // TevControlsBlockHotSpotTester
+ ;
+ MELINK Target WL 'ME_4A250DB2035E' '4A1FCBA0014C.ms.model.script' // InevHotSpotTester2
+ ;
+ UP "needs processor" True
+
+ENDME // ME_53D6344501AA 
+
+MEREF ME_4A27B51303A7_ME_4A27B53100B6_G
+ MELINK Original WL? 'ME_4A27B51303A7' // TevControlsBlockHotSpotTesterPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A27B51303A7_ME_4A27B53100B6_G TevControlsBlockHotSpotTesterPrim
+
+%%InjectedBy ME_485807480091 ME_4A27B53100B6
+
+%%InheritedBy ME_4A27B51303A7 ME_4A27B53100B6
+
+ME ME_4A27B53100B6
+ MEPROP UID '4A27B53100B6'
+ MEPROP Name 'TevControlsBlockHotSpotTester'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A267EE3017B' // HotSpots
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A27B51303A7_ME_4A27B53100B6_G // TevControlsBlockHotSpotTesterPrim
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4E1423BF0044 // ControlsBlock
+ ME_4E6E385C0084 // TevControlsBlock
+ ME_53D6344501AA // InevHotSpotTester2
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP "ifndef" 'evCanEditControlsAsText'
+ UP extprop:pas:UnitName 'evControlsBlockHotSpotTester'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ControlsBlockHotSpotTester'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evControlsBlockHotSpotTester.pas'
+
+ENDME // ME_4A27B53100B6 TevControlsBlockHotSpotTester

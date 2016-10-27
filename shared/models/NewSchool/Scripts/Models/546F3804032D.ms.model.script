@@ -1,0 +1,783 @@
+// TncsOneFileDeliverer 546F3804032D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_546F3804032D
+
+FORWARD ME_5472F63C0394
+
+ME ME_5472F65B0085
+ MEPROP UID '5472F65B0085'
+ MEPROP Name 'cControlExt'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5472F63C0394 // cFilesExtensions
+ ;
+ MEPROP Value '''.control'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''.control'''
+
+ENDME // ME_5472F65B0085 cControlExt
+
+ME ME_5472F67B019A
+ MEPROP UID '5472F67B019A'
+ MEPROP Name 'cPartialExt'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5472F63C0394 // cFilesExtensions
+ ;
+ MEPROP Value '''.partial'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''.partial'''
+
+ENDME // ME_5472F67B019A cPartialExt
+
+ME ME_5472F63C0394
+ MEPROP UID '5472F63C0394'
+ MEPROP Name 'cFilesExtensions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5472F65B0085 // cControlExt
+ HWL ME_5472F67B019A // cPartialExt
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_5472F63C0394 cFilesExtensions
+
+ME ME_57F3A8E70118
+ MEPROP UID '57F3A8E70118'
+ MEPROP Name 'ReceiveTime'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_475EA27A0131' '4807744200AA.ms.model.script' // Double
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_57F3A8E70118 ReceiveTime
+
+ME ME_5805F7D4027B
+ MEPROP UID '5805F7D4027B'
+ MEPROP Name 'WriteTime'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_475EA27A0131' '4807744200AA.ms.model.script' // Double
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_5805F7D4027B WriteTime
+
+ME ME_546F382B031E
+ MEPROP UID '546F382B031E'
+ MEPROP Name 'LocalDesc'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL? 'ME_546EF14803A6' // TncsTaskedFileDesc
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_546F382B031E LocalDesc
+
+ME ME_546F388103BF
+ MEPROP UID '546F388103BF'
+ MEPROP Name 'f_Transporter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_5464B4730055' '5460A4DB018A.ms.model.script' // IncsTransporter
+ ;
+
+ENDME // ME_546F388103BF f_Transporter
+
+ME ME_546F38FE021D
+ MEPROP UID '546F38FE021D'
+ MEPROP Name 'f_LocalPath'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_546F38FE021D f_LocalPath
+
+ME ME_547588AA019E
+ MEPROP UID '547588AA019E'
+ MEPROP Name 'f_TaskID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_547588AA019E f_TaskID
+
+ME ME_5489456000B9
+ MEPROP UID '5489456000B9'
+ MEPROP Name 'f_Stream'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_5489456000B9 f_Stream
+
+ME ME_5489482402E9
+ MEPROP UID '5489482402E9'
+ MEPROP Name 'f_Progressor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_53A2EFA901C0' '53A2EF8B0204.ms.model.script' // TddProgressObject
+ ;
+
+ENDME // ME_5489482402E9 f_Progressor
+
+ME ME_57F4B3110303
+ MEPROP UID '57F4B3110303'
+ MEPROP Name 'f_Counter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_57F3829802BA' '57F3833101A7.ms.model.script' // IncsTrafficCounter
+ ;
+
+ENDME // ME_57F4B3110303 f_Counter
+
+FORWARD ME_546F389A0156
+
+FORWARD ME_546F38A30119
+
+ME ME_5472FF6C0224
+ MEPROP Name 'aTransporter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5464B4730055' '5460A4DB018A.ms.model.script' // IncsTransporter
+ ;
+
+ENDME // ME_5472FF6C0224 aTransporter
+
+ME ME_5472FF6C0233
+ MEPROP Name 'aTaskID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5472FF6C0233 aTaskID
+
+ME ME_5472FF6C0243
+ MEPROP Name 'aLocalPath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5472FF6C0243 aLocalPath
+
+ME ME_5472FF6C0262
+ MEPROP Name 'aRemoteDesc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_546C52C001ED' // TncsFileDesc
+ ;
+
+ENDME // ME_5472FF6C0262 aRemoteDesc
+
+ME ME_546F38A30119
+ MEPROP UID '546F38A30119'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546F389A0156 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5472FF6C0224 // aTransporter
+ ME_5472FF6C0233 // aTaskID
+ ME_5472FF6C0243 // aLocalPath
+ ME_5472FF6C0262 // aRemoteDesc
+ )
+ ; // Parameters
+
+ENDME // ME_546F38A30119 DoIt
+
+ME ME_546F389A0156
+ MEPROP UID '546F389A0156'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_546F38A30119 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_546F389A0156 Create
+
+FORWARD ME_5473254E0090
+
+FORWARD ME_547325CA01EC
+
+ME ME_547588EB0039
+ MEPROP Name 'aRemoteDesc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_546C52C001ED' // TncsFileDesc
+ ;
+
+ENDME // ME_547588EB0039 aRemoteDesc
+
+ME ME_547325CA01EC
+ MEPROP UID '547325CA01EC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5473254E0090 // CheckContinue
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_547588EB0039 // aRemoteDesc
+ )
+ ; // Parameters
+
+ENDME // ME_547325CA01EC DoIt
+
+ME ME_5473254E0090
+ MEPROP UID '5473254E0090'
+ MEPROP Name 'CheckContinue'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_547325CA01EC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5473254E0090 CheckContinue
+
+FORWARD ME_5473255F03A1
+
+FORWARD ME_5473257F0260
+
+ME ME_547588F80053
+ MEPROP Name 'aRemoteDesc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_546C52C001ED' // TncsFileDesc
+ ;
+
+ENDME // ME_547588F80053 aRemoteDesc
+
+ME ME_5473257F0260
+ MEPROP UID '5473257F0260'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5473255F03A1 // InitNew
+ ;
+ MELIST Parameters
+   Seq: ( ME_547588F80053 // aRemoteDesc
+ )
+ ; // Parameters
+
+ENDME // ME_5473257F0260 DoIt
+
+ME ME_5473255F03A1
+ MEPROP UID '5473255F03A1'
+ MEPROP Name 'InitNew'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5473257F0260 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5473255F03A1 InitNew
+
+FORWARD ME_54732616034A
+
+ME ME_547326290213
+ MEPROP UID '547326290213'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54732616034A // LocalControlFileName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_547326290213 DoIt
+
+ME ME_54732616034A
+ MEPROP UID '54732616034A'
+ MEPROP Name 'LocalControlFileName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_547326290213 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54732616034A LocalControlFileName
+
+FORWARD ME_5473263D00AC
+
+ME ME_547326500188
+ MEPROP UID '547326500188'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5473263D00AC // LocalPartialFileName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_547326500188 DoIt
+
+ME ME_5473263D00AC
+ MEPROP UID '5473263D00AC'
+ MEPROP Name 'LocalPartialFileName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_547326500188 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5473263D00AC LocalPartialFileName
+
+ME ME_5474A3BD0077
+ MEPROP UID '5474A3BD0077'
+ MEPROP Name 'SaveControl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+
+ENDME // ME_5474A3BD0077 SaveControl
+
+FORWARD ME_5474A3D400D5
+
+ME ME_5474A7F90226
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5474A3D400D5 // CommitDelivery
+ ;
+ MELINK Target WL 'ME_5474A7DD02EF' '4B57004201BD.ms.model.script' // RenameFileSafe
+ ;
+
+ENDME // ME_5474A7F90226 
+
+ME ME_5474A3D400D5
+ MEPROP UID '5474A3D400D5'
+ MEPROP Name 'CommitDelivery'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELIST Dependencies
+   Seq: ( ME_5474A7F90226 // RenameFileSafe
+ )
+ ; // Dependencies
+
+ENDME // ME_5474A3D400D5 CommitDelivery
+
+FORWARD ME_5474A7B201FC
+
+ME ME_5474A7BE010E
+ MEPROP UID '5474A7BE010E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5474A7B201FC // LocalFileName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5474A7BE010E DoIt
+
+ME ME_5474A7B201FC
+ MEPROP UID '5474A7B201FC'
+ MEPROP Name 'LocalFileName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5474A7BE010E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5474A7B201FC LocalFileName
+
+FORWARD ME_5472E6E201EE
+
+ME ME_54744E600038
+ MEPROP Name 'aProgressor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_53A2EFA901C0' '53A2EF8B0204.ms.model.script' // TddProgressObject
+ ;
+
+ENDME // ME_54744E600038 aProgressor
+
+ME ME_5472E6E201EE
+ MEPROP UID '5472E6E201EE'
+ MEPROP Name 'DoProcess'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_54744E600038 // aProgressor
+ )
+ ; // Parameters
+ UP "force overload" True
+
+ENDME // ME_5472E6E201EE DoProcess
+
+ME ME_546F404602FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_546F404602FD 
+
+ME ME_5472F61902E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_4C74ED51025F' '47A080670100.ms.model.script' // Tl3FileStream
+ ;
+
+ENDME // ME_5472F61902E1 
+
+ME ME_5472F61E004A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_5472F61E004A 
+
+ME ME_547456150156
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_546F0E81033E' '546F0E690374.ms.model.script' // l3CalcCRC32
+ ;
+
+ENDME // ME_547456150156 
+
+ME ME_547583E30297
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL? 'ME_547583540319' // TncsGetFilePartReply
+ ;
+
+ENDME // ME_547583E30297 
+
+ME ME_547583E8008C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL? 'ME_547583330291' // TncsGetFilePart
+ ;
+
+ENDME // ME_547583E8008C 
+
+ME ME_54758E27032F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ ;
+
+ENDME // ME_54758E27032F 
+
+ME ME_5475932A028B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_5475911A0274' '4808A20402DC.ms.model.script' // Min
+ ;
+
+ENDME // ME_5475932A028B 
+
+ME ME_548940D1027B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL? 'ME_548940970391' // TncsPushFilePart
+ ;
+
+ENDME // ME_548940D1027B 
+
+ME ME_548940EC036A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL? 'ME_54607384020A' // TncsMessageExecutorFactory
+ ;
+
+ENDME // ME_548940EC036A 
+
+ME ME_548AC8E0026C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL? 'ME_548AC7FB0046' // ncsProfile
+ ;
+
+ENDME // ME_548AC8E0026C 
+
+ME ME_5494061A03BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
+ ;
+
+ENDME // ME_5494061A03BD 
+
+ME ME_57F4A74A007B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_548007530030' '5480073300B1.ms.model.script' // Tl3StopWatch
+ ;
+
+ENDME // ME_57F4A74A007B 
+
+MEREF ME_54607DDC0159_ME_546F3804032D_impl
+ MELINK Original WL 'ME_54607DDC0159' '5460A4DB018A.ms.model.script' // Execute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54607DDC0159_ME_546F3804032D_impl Execute
+
+MEREF ME_546082B801F3_ME_546F3804032D_impl
+ MELINK Original WL 'ME_546082B801F3' '5460A4DB018A.ms.model.script' // MakeExecutor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_546082B801F3_ME_546F3804032D_impl MakeExecutor
+
+MEREF ME_479731C50290_ME_546F3804032D_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_546F3804032D_over Cleanup
+
+MEREF ME_49E7754802A9_ME_546F3804032D_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_546F3804032D_G Tl3ProtoObject
+
+MEREF ME_5460731E025E_ME_546F3804032D_R
+ MELINK Original WL 'ME_5460731E025E' '5460A4DB018A.ms.model.script' // IncsExecutor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5460731E025E_ME_546F3804032D_R IncsExecutor
+
+MEREF ME_5460829B0384_ME_546F3804032D_R
+ MELINK Original WL 'ME_5460829B0384' '5460A4DB018A.ms.model.script' // IncsMessageExecutorFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5460829B0384_ME_546F3804032D_R IncsMessageExecutorFactory
+
+%%ImplementedBy ME_5460731E025E ME_546F3804032D
+%%ImplementedBy ME_5460829B0384 ME_546F3804032D
+
+%%InheritedBy ME_49E7754802A9 ME_546F3804032D
+
+ME ME_546F3804032D
+ MEPROP UID '546F3804032D'
+ MEPROP Name 'TncsOneFileDeliverer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_546457E203C0' // ResultDelivery
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_546F3804032D_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5460731E025E_ME_546F3804032D_R // IncsExecutor
+ HWL ME_5460829B0384_ME_546F3804032D_R // IncsMessageExecutorFactory
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57F3A8E70118 // ReceiveTime
+ HWL ME_5805F7D4027B // WriteTime
+ HWL ME_546F382B031E // LocalDesc
+ HWL ME_546F388103BF // f_Transporter
+ HWL ME_546F38FE021D // f_LocalPath
+ HWL ME_547588AA019E // f_TaskID
+ HWL ME_5489456000B9 // f_Stream
+ HWL ME_5489482402E9 // f_Progressor
+ HWL ME_57F4B3110303 // f_Counter
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_546F389A0156 // Create
+ HWL ME_5473254E0090 // CheckContinue
+ HWL ME_5473255F03A1 // InitNew
+ HWL ME_54732616034A // LocalControlFileName
+ HWL ME_5473263D00AC // LocalPartialFileName
+ HWL ME_5474A3BD0077 // SaveControl
+ HWL ME_5474A3D400D5 // CommitDelivery
+ HWL ME_5474A7B201FC // LocalFileName
+ HWL ME_5472E6E201EE // DoProcess
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_54607DDC0159_ME_546F3804032D_impl // Execute
+ ME_546082B801F3_ME_546F3804032D_impl // MakeExecutor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_546F3804032D_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_5472F63C0394 // cFilesExtensions
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_546F404602FD // FreeAndNil
+ ME_5472F61902E1 // Tl3FileStream
+ ME_5472F61E004A // Tl3FileMode
+ ME_547456150156 // l3CalcCRC32
+ ME_547583E30297 // TncsGetFilePartReply
+ ME_547583E8008C // TncsGetFilePart
+ ME_54758E27032F // TncsMessage
+ ME_5475932A028B // Min
+ ME_548940D1027B // TncsPushFilePart
+ ME_548940EC036A // TncsMessageExecutorFactory
+ ME_548AC8E0026C // ncsProfile
+ ME_5494061A03BD // l3System
+ ME_57F4A74A007B // Tl3StopWatch
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ncsOneFileDeliverer'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ncsOneFileDeliverer'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsOneFileDeliverer.pas'
+
+ENDME // ME_546F3804032D TncsOneFileDeliverer

@@ -1,0 +1,573 @@
+// evStyles 522ED9B4018B SettingsHolder Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5EDF2B8ACE76
+
+FORWARD ME_522ED9B4018B
+
+FORWARD ME_5EDF2B8ACE76
+
+FORWARD ME_ADC42F5F57B3
+
+ME ME_306B1D04CA9C
+ MEPROP UID '306B1D04CA9C'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода CheckSubscribe' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_ADC42F5F57B3 // CheckSubscribe
+ ;
+
+ENDME // ME_306B1D04CA9C DoIt
+
+ME ME_ADC42F5F57B3
+ MEPROP UID 'ADC42F5F57B3'
+ MEPROP Name 'CheckSubscribe'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Метод для проверки того факта, что TevStylesSettingsListener подписан на изменения необходимых настроек' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5EDF2B8ACE76 // TevStylesSettingsListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_306B1D04CA9C // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_ADC42F5F57B3 CheckSubscribe
+
+FORWARD ME_704CA5071A35
+
+ME ME_77C4E20A1895
+ MEPROP Name 'aSettingId'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+
+ENDME // ME_77C4E20A1895 aSettingId
+
+ME ME_704CA5071A35
+ MEPROP UID '704CA5071A35'
+ MEPROP Name 'IsSettingAffectsUs'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Метод для проверки того факта, что TevStylesSettingsListener касается изменение указанной настройки' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5EDF2B8ACE76 // TevStylesSettingsListener
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_77C4E20A1895 // aSettingId
+ )
+ ; // Parameters
+
+ENDME // ME_704CA5071A35 IsSettingAffectsUs
+
+ME ME_E299FD04EA19
+ MEPROP UID 'E299FD04EA19'
+ MEPROP Name 'Exists'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5EDF2B8ACE76 // TevStylesSettingsListener
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_E299FD04EA19 Exists
+
+ME ME_D2016F86B06E
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5EDF2B8ACE76 // TevStylesSettingsListener
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_D2016F86B06E 
+
+MEREF ME_47EA863A035C_ME_5EDF2B8ACE76_over
+ MELINK Original WL 'ME_47EA863A035C' '47EA85E7005B.ms.model.script' // DoSettingChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47EA863A035C_ME_5EDF2B8ACE76_over DoSettingChanged
+
+MEREF ME_49E7754802A9_ME_5EDF2B8ACE76_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5EDF2B8ACE76_G Tl3ProtoObject
+
+MEREF ME_47EA85E7005B_ME_5EDF2B8ACE76_R
+ MELINK Original WL? 'ME_47EA85E7005B' // afwSettingChanged
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47EA85E7005B_ME_5EDF2B8ACE76_R afwSettingChanged
+
+%%ImplementedBy ME_47EA85E7005B ME_5EDF2B8ACE76
+
+%%InheritedBy ME_49E7754802A9 ME_5EDF2B8ACE76
+
+ME ME_5EDF2B8ACE76
+ MEPROP UID '5EDF2B8ACE76'
+ MEPROP Name 'TevStylesSettingsListener'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Экземпляр evStyles, который подписывается к настройкам' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_522ED9B4018B // evStyles
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_5EDF2B8ACE76_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47EA85E7005B_ME_5EDF2B8ACE76_R // afwSettingChanged
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_ADC42F5F57B3 // CheckSubscribe
+ HWL ME_704CA5071A35 // IsSettingAffectsUs
+ HWL ME_E299FD04EA19 // Exists
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47EA863A035C_ME_5EDF2B8ACE76_over // DoSettingChanged
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_D2016F86B06E // SysUtils
+ )
+ ; // Dependencies
+ UP "singleton" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StylesSettingsListener'
+
+ENDME // ME_5EDF2B8ACE76 TevStylesSettingsListener
+
+FORWARD ME_52387143039D
+
+ME ME_5238718D0226
+ MEPROP UID '5238718D0226'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52387143039D // PrintAndExportFontSize
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5238718D0226 DoIt
+
+ME ME_52387143039D
+ MEPROP UID '52387143039D'
+ MEPROP Name 'PrintAndExportFontSize'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Эффективный размер шрифта для печати и экспорта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_522ED9B4018B // evStyles
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5238718D0226 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_52387143039D PrintAndExportFontSize
+
+FORWARD ME_B4F9EAF1647A
+
+ME ME_5676E7C9C5EE
+ MEPROP UID '5676E7C9C5EE'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати размер шрифта, отображаемого на экране"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_B4F9EAF1647A // PrintAndExportDefaultSetting
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5676E7C9C5EE DoIt
+
+ME ME_99E882CA5521
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_B4F9EAF1647A // PrintAndExportDefaultSetting
+ ;
+ MELINK Target WL 'ME_477515240332' '47752AF90375.ms.model.script' // Tafw
+ ;
+
+ENDME // ME_99E882CA5521 
+
+MEREF ME_5214960C034B_ME_B4F9EAF1647A_R
+ MELINK Original WL 'ME_5214960C034B' '4E3160C802DA.ms.model.script' // Печать и экспорт
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5214960C034B_ME_B4F9EAF1647A_R Печать и экспорт
+
+%%ImplementedBy ME_5214960C034B ME_B4F9EAF1647A
+
+ME ME_B4F9EAF1647A
+ MEPROP UID 'B4F9EAF1647A'
+ MEPROP Name 'PrintAndExportDefaultSetting'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати размер шрифта, отображаемого на экране"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_522ED9B4018B // evStyles
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_5214960C034B_ME_B4F9EAF1647A_R // Печать и экспорт
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_5676E7C9C5EE // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_99E882CA5521 // Tafw
+ )
+ ; // Dependencies
+ UP "is static" True
+ UPLINK Speller WL 'ME_5214960C034B' '4E3160C802DA.ms.model.script' // Печать и экспорт
+ ;
+
+ENDME // ME_B4F9EAF1647A PrintAndExportDefaultSetting
+
+FORWARD ME_C4840679B5EF
+
+ME ME_AC3A30595778
+ MEPROP UID 'AC3A30595778'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати следующий размер шрифта"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_C4840679B5EF // PrintAndExportCustomSetting
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_AC3A30595778 DoIt
+
+ME ME_AB0031608A65
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_C4840679B5EF // PrintAndExportCustomSetting
+ ;
+ MELINK Target WL 'ME_477515240332' '47752AF90375.ms.model.script' // Tafw
+ ;
+
+ENDME // ME_AB0031608A65 
+
+MEREF ME_5214960C034B_ME_C4840679B5EF_R
+ MELINK Original WL 'ME_5214960C034B' '4E3160C802DA.ms.model.script' // Печать и экспорт
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5214960C034B_ME_C4840679B5EF_R Печать и экспорт
+
+%%ImplementedBy ME_5214960C034B ME_C4840679B5EF
+
+ME ME_C4840679B5EF
+ MEPROP UID 'C4840679B5EF'
+ MEPROP Name 'PrintAndExportCustomSetting'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати следующий размер шрифта"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_522ED9B4018B // evStyles
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_5214960C034B_ME_C4840679B5EF_R // Печать и экспорт
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_AC3A30595778 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_AB0031608A65 // Tafw
+ )
+ ; // Dependencies
+ UP "is static" True
+ UPLINK Speller WL 'ME_5214960C034B' '4E3160C802DA.ms.model.script' // Печать и экспорт
+ ;
+
+ENDME // ME_C4840679B5EF PrintAndExportCustomSetting
+
+FORWARD ME_71C286195AC6
+
+ME ME_BCA72ACC3073
+ MEPROP UID 'BCA72ACC3073'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Метод для получения значения настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_71C286195AC6 // PrintAndExportFontSizeSetting
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_BCA72ACC3073 DoIt
+
+ME ME_4E01AB100733
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_71C286195AC6 // PrintAndExportFontSizeSetting
+ ;
+ MELINK Target WL 'ME_477515240332' '47752AF90375.ms.model.script' // Tafw
+ ;
+
+ENDME // ME_4E01AB100733 
+
+MEREF ME_4E314EC80391_ME_71C286195AC6_R
+ MELINK Original WL 'ME_4E314EC80391' '4E3160C802DA.ms.model.script' // Использовать для экспорта и печати следующий размер шрифта
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E314EC80391_ME_71C286195AC6_R Использовать для экспорта и печати следующий размер шрифта
+
+%%ImplementedBy ME_4E314EC80391 ME_71C286195AC6
+
+ME ME_71C286195AC6
+ MEPROP UID '71C286195AC6'
+ MEPROP Name 'PrintAndExportFontSizeSetting'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Метод для получения значения настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_522ED9B4018B // evStyles
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_4E314EC80391_ME_71C286195AC6_R // Использовать для экспорта и печати следующий размер шрифта
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_BCA72ACC3073 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E01AB100733 // Tafw
+ )
+ ; // Dependencies
+ UP "is static" True
+ UPLINK Speller WL 'ME_4E314EC80391' '4E3160C802DA.ms.model.script' // Использовать для экспорта и печати следующий размер шрифта
+ ;
+
+ENDME // ME_71C286195AC6 PrintAndExportFontSizeSetting
+
+FORWARD ME_FF5063A3A440
+
+FORWARD ME_ACCFB6683A6A
+
+ME ME_E6E2C45BFECF
+ MEPROP Name 'aValue'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_E6E2C45BFECF aValue
+
+ME ME_ACCFB6683A6A
+ MEPROP UID 'ACCFB6683A6A'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Метод для записи значения настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_FF5063A3A440 // WritePrintAndExportFontSizeSetting
+ ;
+ MELIST Parameters
+   Seq: ( ME_E6E2C45BFECF // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_ACCFB6683A6A DoIt
+
+ME ME_EEFF1B74B298
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_FF5063A3A440 // WritePrintAndExportFontSizeSetting
+ ;
+ MELINK Target WL 'ME_477515240332' '47752AF90375.ms.model.script' // Tafw
+ ;
+
+ENDME // ME_EEFF1B74B298 
+
+MEREF ME_4E314EC80391_ME_FF5063A3A440_R
+ MELINK Original WL 'ME_4E314EC80391' '4E3160C802DA.ms.model.script' // Использовать для экспорта и печати следующий размер шрифта
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E314EC80391_ME_FF5063A3A440_R Использовать для экспорта и печати следующий размер шрифта
+
+%%ImplementedBy ME_4E314EC80391 ME_FF5063A3A440
+
+ME ME_FF5063A3A440
+ MEPROP UID 'FF5063A3A440'
+ MEPROP Name 'WritePrintAndExportFontSizeSetting'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Метод для записи значения настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_522ED9B4018B // evStyles
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_4E314EC80391_ME_FF5063A3A440_R // Использовать для экспорта и печати следующий размер шрифта
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_ACCFB6683A6A // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_EEFF1B74B298 // Tafw
+ )
+ ; // Dependencies
+ UP "is static" True
+ UPLINK Speller WL 'ME_4E314EC80391' '4E3160C802DA.ms.model.script' // Использовать для экспорта и печати следующий размер шрифта
+ ;
+
+ENDME // ME_FF5063A3A440 WritePrintAndExportFontSizeSetting
+
+ME ME_523970E60269
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_522ED9B4018B // evStyles
+ ;
+ MELINK Target WL? 'ME_47ECB297037D' // evStyleTableSpy
+ ;
+
+ENDME // ME_523970E60269 
+
+ME ME_62D236A986D4
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_522ED9B4018B // evStyles
+ ;
+ MELINK Target WL? 'ME_870F97A58415' // evStylesPrintAndExportSettingRes
+ ;
+
+ENDME // ME_62D236A986D4 
+
+ME ME_2A81B3BA96E9
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_522ED9B4018B // evStyles
+ ;
+ MELINK Target WL? 'ME_C9ADD4944F97' // evStylesPrintAndExportFontSizeSettingRes
+ ;
+
+ENDME // ME_2A81B3BA96E9 
+
+MEREF ME_522ED98F0223_ME_522ED9B4018B_G
+ MELINK Original WL? 'ME_522ED98F0223' // TevInterface
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_522ED98F0223_ME_522ED9B4018B_G TevInterface
+
+MEREF ME_5214960C034B_ME_522ED9B4018B_R
+ MELINK Original WL 'ME_5214960C034B' '4E3160C802DA.ms.model.script' // Печать и экспорт
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5214960C034B_ME_522ED9B4018B_R Печать и экспорт
+
+%%ImplementedBy ME_5214960C034B ME_522ED9B4018B
+
+%%InheritedBy ME_522ED98F0223 ME_522ED9B4018B
+
+ME ME_522ED9B4018B
+ MEPROP UID '522ED9B4018B'
+ MEPROP Name 'evStyles'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SettingsHolder ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Стили' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECB2870309' // StyleTable
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_522ED98F0223_ME_522ED9B4018B_G // TevInterface
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5214960C034B_ME_522ED9B4018B_R // Печать и экспорт
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_52387143039D // PrintAndExportFontSize
+ HWL ME_B4F9EAF1647A // PrintAndExportDefaultSetting
+ HWL ME_C4840679B5EF // PrintAndExportCustomSetting
+ HWL ME_71C286195AC6 // PrintAndExportFontSizeSetting
+ HWL ME_FF5063A3A440 // WritePrintAndExportFontSizeSetting
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_5EDF2B8ACE76 // TevStylesSettingsListener
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_523970E60269 // evStyleTableSpy
+ ME_62D236A986D4 // evStylesPrintAndExportSettingRes
+ ME_2A81B3BA96E9 // evStylesPrintAndExportFontSizeSettingRes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'SHevStyles'
+ UP extprop:pas:UnitName 'evStyles_SH'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evStyles_SH.pas'
+
+ENDME // ME_522ED9B4018B evStyles

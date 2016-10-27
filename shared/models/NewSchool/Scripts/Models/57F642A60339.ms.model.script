@@ -1,0 +1,168 @@
+// TmsmLostWords 57F642A60339 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57F642A60339
+
+FORWARD ME_57F642DD00D6
+
+FORWARD ME_57F642E403CD
+
+ME ME_57F642F300E9
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57F642F300E9 aValue
+
+ME ME_57F642E403CD
+ MEPROP UID '57F642E403CD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57F642DD00D6 // Add
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F642F300E9 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_57F642E403CD DoIt
+
+ME ME_57F642DD00D6
+ MEPROP UID '57F642DD00D6'
+ MEPROP Name 'Add'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57F642A60339 // TmsmLostWords
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57F642E403CD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57F642DD00D6 Add
+
+FORWARD ME_57F643280126
+
+FORWARD ME_57F6433201CE
+
+ME ME_57F6433403C7
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57F6433403C7 anItem
+
+ME ME_57F6433403E6
+ MEPROP Name 'theIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_57F6433403E6 theIndex
+
+ME ME_57F6433201CE
+ MEPROP UID '57F6433201CE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57F643280126 // FindData
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F6433403C7 // anItem
+ ME_57F6433403E6 // theIndex
+ )
+ ; // Parameters
+
+ENDME // ME_57F6433201CE DoIt
+
+ME ME_57F643280126
+ MEPROP UID '57F643280126'
+ MEPROP Name 'FindData'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57F642A60339 // TmsmLostWords
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57F6433201CE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57F643280126 FindData
+
+MEREF ME_47A042E100E2_ME_57F642A60339_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_57F642A60339_over InitFields
+
+MEREF ME_4773DCE302FF_ME_57F642A60339_G
+ MELINK Original WL? 'ME_4773DCE302FF' // Tl3StringList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773DCE302FF_ME_57F642A60339_G Tl3StringList
+
+MEREF ME_57C5572B036F_ME_57F642A60339_R
+ MELINK Original WL? 'ME_57C5572B036F' // seCriticalSectionHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57C5572B036F_ME_57F642A60339_R seCriticalSectionHolder
+
+%%ImplementedBy ME_57C5572B036F ME_57F642A60339
+
+%%InheritedBy ME_4773DCE302FF ME_57F642A60339
+
+ME ME_57F642A60339
+ MEPROP UID '57F642A60339'
+ MEPROP Name 'TmsmLostWords'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B2D67D038F' // WordsCache
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4773DCE302FF_ME_57F642A60339_G // Tl3StringList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57C5572B036F_ME_57F642A60339_R // seCriticalSectionHolder
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_57F642DD00D6 // Add
+ HWL ME_57F643280126 // FindData
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_57F642A60339_over // InitFields
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:pas:UnitName 'msmLostWords'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmLostWords'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmLostWords.pas'
+
+ENDME // ME_57F642A60339 TmsmLostWords

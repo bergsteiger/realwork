@@ -1,0 +1,62 @@
+// TatSaveJournalQueryToXMLOperation 5006FEE200E1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_5006F37302DF_ME_5006FEE200E1_impl
+ MELINK Original WL 'ME_5006F37302DF' '5006EE59000E.ms.model.script' // OnQuery
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5006F37302DF_ME_5006FEE200E1_impl OnQuery
+
+MEREF ME_5006F4130346_ME_5006FEE200E1_impl
+ MELINK Original WL 'ME_5006F4130346' '5006EE59000E.ms.model.script' // OnBookmark
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5006F4130346_ME_5006FEE200E1_impl OnBookmark
+
+MEREF ME_5006EE59000E_ME_5006FEE200E1_G
+ MELINK Original WL? 'ME_5006EE59000E' // TatIterateUserJournalOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5006EE59000E_ME_5006FEE200E1_G TatIterateUserJournalOperation
+
+MEREF ME_5006FE0303DD_ME_5006FEE200E1_R
+ MELINK Original WL? 'ME_5006FE0303DD' // atSaveQueryToXMLAddon
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5006FE0303DD_ME_5006FEE200E1_R atSaveQueryToXMLAddon
+
+%%ImplementedBy ME_5006FE0303DD ME_5006FEE200E1
+
+%%InheritedBy ME_5006EE59000E ME_5006FEE200E1
+
+ME ME_5006FEE200E1
+ MEPROP UID '5006FEE200E1'
+ MEPROP Name 'TatSaveJournalQueryToXMLOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5006EE59000E_ME_5006FEE200E1_G // TatIterateUserJournalOperation
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5006FE0303DD_ME_5006FEE200E1_R // atSaveQueryToXMLAddon
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_5006F37302DF_ME_5006FEE200E1_impl // OnQuery
+ ME_5006F4130346_ME_5006FEE200E1_impl // OnBookmark
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'atSaveJournalQueryToXMLOperation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atSaveJournalQueryToXMLOperation'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atSaveJournalQueryToXMLOperation.pas'
+
+ENDME // ME_5006FEE200E1 TatSaveJournalQueryToXMLOperation

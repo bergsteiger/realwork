@@ -248,7 +248,6 @@ uses
  l3ImplUses
  , nsLogEvent
  , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(Monitorings)}
  , nsFolders
  {$IfEnd} // NOT Defined(Monitorings)

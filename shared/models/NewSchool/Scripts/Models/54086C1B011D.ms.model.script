@@ -1,0 +1,52 @@
+// Tm3RootStreamNew 54086C1B011D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_53FDFAF900ED_ME_54086C1B011D_over
+ MELINK Original WL 'ME_53FDFAF900ED' '53FDFADD027F.ms.model.script' // HeaderID
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDMEREF // ME_53FDFAF900ED_ME_54086C1B011D_over HeaderID
+
+MEREF ME_5408826C0072_ME_54086C1B011D_over
+ MELINK Original WL 'ME_5408826C0072' '53FDCEC40006.ms.model.script' // NeedHeaderAlignment
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDMEREF // ME_5408826C0072_ME_54086C1B011D_over NeedHeaderAlignment
+
+MEREF ME_53FDE7290320_ME_54086C1B011D_G
+ MELINK Original WL? 'ME_53FDE7290320' // Tm3RootStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53FDE7290320_ME_54086C1B011D_G Tm3RootStream
+
+%%InheritedBy ME_53FDE7290320 ME_54086C1B011D
+
+ME ME_54086C1B011D
+ MEPROP UID '54086C1B011D'
+ MEPROP Name 'Tm3RootStreamNew'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53FDE7290320_ME_54086C1B011D_G // Tm3RootStream
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_53FDFAF900ED_ME_54086C1B011D_over // HeaderID
+ ME_5408826C0072_ME_54086C1B011D_over // NeedHeaderAlignment
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'm3RootStreamNew'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3RootStreamNew'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3RootStreamNew.pas'
+
+ENDME // ME_54086C1B011D Tm3RootStreamNew

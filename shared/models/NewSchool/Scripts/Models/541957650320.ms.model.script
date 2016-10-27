@@ -1,0 +1,276 @@
+// TDataBaseTester 541957650320 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_541957650320
+
+ME ME_541FFF93008C
+ MEPROP UID '541FFF93008C'
+ MEPROP Name 'f_DataPath'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_541957650320 // TDataBaseTester
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_541FFF93008C f_DataPath
+
+ME ME_541FFFAC039A
+ MEPROP UID '541FFFAC039A'
+ MEPROP Name 'f_BasePath'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_541957650320 // TDataBaseTester
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_541FFFAC039A f_BasePath
+
+FORWARD ME_541FFFCB03B7
+
+FORWARD ME_541FFFD600AA
+
+ME ME_541FFFFE0080
+ MEPROP Name 'CreateSuspended'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_541FFFFE0080 CreateSuspended
+
+ME ME_541FFFFE0090
+ MEPROP Name 'aDataPath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
+ ;
+
+ENDME // ME_541FFFFE0090 aDataPath
+
+ME ME_541FFFFE00A0
+ MEPROP Name 'aBaseName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
+ ;
+
+ENDME // ME_541FFFFE00A0 aBaseName
+
+ME ME_541FFFD600AA
+ MEPROP UID '541FFFD600AA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_541FFFCB03B7 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_541FFFFE0080 // CreateSuspended
+ ME_541FFFFE0090 // aDataPath
+ ME_541FFFFE00A0 // aBaseName
+ )
+ ; // Parameters
+
+ENDME // ME_541FFFD600AA DoIt
+
+ME ME_541FFFCB03B7
+ MEPROP UID '541FFFCB03B7'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_541957650320 // TDataBaseTester
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_541FFFD600AA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_541FFFCB03B7 Create
+
+FORWARD ME_542003B40317
+
+FORWARD ME_542003F302ED
+
+ME ME_542003F9024D
+ MEPROP Name 'aDB'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_472084690055' '4720831F012D.ms.model.script' // Im3DB
+ ;
+
+ENDME // ME_542003F9024D aDB
+
+ME ME_542003F302ED
+ MEPROP UID '542003F302ED'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542003B40317 // DoBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_542003F9024D // aDB
+ )
+ ; // Parameters
+
+ENDME // ME_542003F302ED DoIt
+
+ME ME_542003B40317
+ MEPROP UID '542003B40317'
+ MEPROP Name 'DoBase'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_541957650320 // TDataBaseTester
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542003F302ED // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_542003B40317 DoBase
+
+ME ME_541C2D740268
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_541957650320 // TDataBaseTester
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_541C2D740268 
+
+ME ME_541C2DED008D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_541957650320 // TDataBaseTester
+ ;
+ MELINK Target WL 'ME_48EA3BDD0023' '4678193C009C.ms.model.script' // ActiveXConsts
+ ;
+
+ENDME // ME_541C2DED008D 
+
+ME ME_542009A400BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_541957650320 // TDataBaseTester
+ ;
+ MELINK Target WL 'ME_47208653003B' '4720862F0238.ms.model.script' // Tm3StoreAccess
+ ;
+
+ENDME // ME_542009A400BE 
+
+ME ME_542009D10396
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_541957650320 // TDataBaseTester
+ ;
+ MELINK Target WL 'ME_495230C40219' '47A080670100.ms.model.script' // Tl3NamedTextStream
+ ;
+
+ENDME // ME_542009D10396 
+
+ME ME_54200A3A00C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_541957650320 // TDataBaseTester
+ ;
+ MELINK Target WL 'ME_4DC25D9502BB' '4B57004201BD.ms.model.script' // ProcessFilesWithMask
+ ;
+
+ENDME // ME_54200A3A00C8 
+
+ME ME_54200A8C01F3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_541957650320 // TDataBaseTester
+ ;
+ MELINK Target WL 'ME_4742CA9702AE' '4742D9F50189.ms.model.script' // Tm3DB
+ ;
+
+ENDME // ME_54200A8C01F3 
+
+ME ME_54200DB1031F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_541957650320 // TDataBaseTester
+ ;
+ MELINK Target WL 'ME_4BA7BE3B0114' '4773D64E036C.ms.model.script' // l3LocalStub
+ ;
+
+ENDME // ME_54200DB1031F 
+
+MEREF ME_4FFFDF740099_ME_541957650320_impl
+ MELINK Original WL 'ME_4FFFDF740099' '478CF30500C1.ms.model.script' // Execute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4FFFDF740099_ME_541957650320_impl Execute
+
+MEREF ME_4FFFDF4601F9_ME_541957650320_G
+ MELINK Original WL 'ME_4FFFDF4601F9' '478CF30500C1.ms.model.script' // TThread
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FFFDF4601F9_ME_541957650320_G TThread
+
+%%InheritedBy ME_4FFFDF4601F9 ME_541957650320
+
+ME ME_541957650320
+ MEPROP UID '541957650320'
+ MEPROP Name 'TDataBaseTester'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5419575202DB' // DataBaseTestUtils
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FFFDF4601F9_ME_541957650320_G // TThread
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_541FFF93008C // f_DataPath
+ HWL ME_541FFFAC039A // f_BasePath
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_541FFFCB03B7 // Create
+ HWL ME_542003B40317 // DoBase
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4FFFDF740099_ME_541957650320_impl // Execute
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_541C2D740268 // FreeAndNil
+ ME_541C2DED008D // ActiveXConsts
+ ME_542009A400BE // Tm3StoreAccess
+ ME_542009D10396 // Tl3NamedTextStream
+ ME_54200A3A00C8 // ProcessFilesWithMask
+ ME_54200A8C01F3 // Tm3DB
+ ME_54200DB1031F // l3LocalStub
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'DataBaseTester'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DataBaseTester'
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Archi_Tests\DataBaseTester.pas'
+
+ENDME // ME_541957650320 TDataBaseTester

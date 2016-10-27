@@ -1,0 +1,45 @@
+// RAISE 4DBAE64F02F7 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DBAE64F02F7
+
+ME ME_4DBAE6930072
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DBAE64F02F7 // RAISE
+ ;
+ MELINK Target WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ ;
+
+ENDME // ME_4DBAE6930072 
+
+ME ME_4DBAE64F02F7
+ MEPROP UID '4DBAE64F02F7'
+ MEPROP Name 'RAISE'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Зарезервированное слово RAISE. Аналогично raise из Delphi. Если не было исключения, то генерируется EtfwScriptException.'#13#10'Пример:'#13#10'{code}'#13#10'TRY'#13#10' ''Тестовое исключение'' RAISE'#13#10'EXCEPT'#13#10' true >>> WasException'#13#10'END'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5284E8850019' // CodeBranchingWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4DBAE6930072 // Exception
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '29.04.2011 20:25'
+ UP extprop:pas:TypeName 'TkwRAISE'
+ UP extprop:pas:UnitName 'kwRAISE'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RAISE'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwRAISE.pas'
+
+ENDME // ME_4DBAE64F02F7 RAISE

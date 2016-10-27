@@ -99,6 +99,9 @@ begin
   ShowInContextMenu(en_Warning, op_TimeMachineOffAndReset, False);
   ShowInToolbar(en_Warning, op_TimeMachineOffAndReset, False);
  end;//with Entities.Entities
+ AddUserTypeExclude(FakeName, en_File, op_Print, False);
+ AddUserTypeExclude(FakeName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(FakeName, en_File, op_PrintPreview, False);
  AddUserTypeExclude(WarnJurorName, en_File, op_Print, False);
  AddUserTypeExclude(WarnJurorName, en_File, op_PrintDialog, False);
  AddUserTypeExclude(WarnJurorName, en_File, op_PrintPreview, False);

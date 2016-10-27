@@ -1,0 +1,178 @@
+// TpgCommandExecutor 5694BA3500C4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5694BA3500C4
+
+ME ME_5694BA79022F
+ MEPROP UID '5694BA79022F'
+ MEPROP Name 'f_Connection'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5694BA3500C4 // TpgCommandExecutor
+ ;
+ MELINK Target WL? 'ME_55F6875803A8' // TpgConnection
+ ;
+
+ENDME // ME_5694BA79022F f_Connection
+
+FORWARD ME_5694BA880236
+
+FORWARD ME_5694BA97030A
+
+ME ME_5694BAA603D0
+ MEPROP Name 'aConnection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_55F6875803A8' // TpgConnection
+ ;
+
+ENDME // ME_5694BAA603D0 aConnection
+
+ME ME_5694BA97030A
+ MEPROP UID '5694BA97030A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5694BA880236 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5694BAA603D0 // aConnection
+ )
+ ; // Parameters
+
+ENDME // ME_5694BA97030A DoIt
+
+ME ME_5694BA880236
+ MEPROP UID '5694BA880236'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5694BA3500C4 // TpgCommandExecutor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5694BA97030A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5694BA880236 Create
+
+FORWARD ME_5694BA4A0323
+
+ME ME_5694BA6002F1
+ MEPROP Name 'aCommand'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5694BA6002F1 aCommand
+
+ME ME_5694BA4A0323
+ MEPROP UID '5694BA4A0323'
+ MEPROP Name 'Execute'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5694BA3500C4 // TpgCommandExecutor
+ ;
+ MELIST Parameters
+   Seq: ( ME_5694BA6002F1 // aCommand
+ )
+ ; // Parameters
+
+ENDME // ME_5694BA4A0323 Execute
+
+ME ME_5694DC610277
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5694BA3500C4 // TpgCommandExecutor
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5694DC610277 
+
+ME ME_5694E7D20018
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5694BA3500C4 // TpgCommandExecutor
+ ;
+ MELINK Target WL 'ME_556DA51E037C' '556C43B0014B.ms.model.script' // PPGresult
+ ;
+
+ENDME // ME_5694E7D20018 
+
+ME ME_5694ED3A020F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5694BA3500C4 // TpgCommandExecutor
+ ;
+ MELINK Target WL 'ME_5604F2A802A0' '5604F2910025.ms.model.script' // pgCheckStatus
+ ;
+
+ENDME // ME_5694ED3A020F 
+
+MEREF ME_479731C50290_ME_5694BA3500C4_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5694BA3500C4_over Cleanup
+
+MEREF ME_49E7754802A9_ME_5694BA3500C4_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5694BA3500C4_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_5694BA3500C4
+
+ME ME_5694BA3500C4
+ MEPROP UID '5694BA3500C4'
+ MEPROP Name 'TpgCommandExecutor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55D6CF3B014B' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_5694BA3500C4_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5694BA79022F // f_Connection
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5694BA880236 // Create
+ HWL ME_5694BA4A0323 // Execute
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5694BA3500C4_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5694DC610277 // FreeAndNil
+ ME_5694E7D20018 // PPGresult
+ ME_5694ED3A020F // pgCheckStatus
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'pgCommandExecutor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'pgCommandExecutor'
+ UP intf.pas:Path 'common\components\rtl\Garant\PG\pgCommandExecutor.pas'
+
+ENDME // ME_5694BA3500C4 TpgCommandExecutor

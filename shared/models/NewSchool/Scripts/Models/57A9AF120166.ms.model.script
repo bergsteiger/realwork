@@ -1,0 +1,274 @@
+// TdaBitwiseCondition 57A9AF120166 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57A9AF120166
+
+ME ME_57A9AFAA0120
+ MEPROP UID '57A9AFAA0120'
+ MEPROP Name 'f_TableAlias'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57A9AF120166 // TdaBitwiseCondition
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57A9AFAA0120 f_TableAlias
+
+ME ME_57A9AFB40064
+ MEPROP UID '57A9AFB40064'
+ MEPROP Name 'f_Field'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57A9AF120166 // TdaBitwiseCondition
+ ;
+ MELINK Target WL 'ME_55377C5F0162' '5432518A0316.ms.model.script' // IdaFieldDescription
+ ;
+
+ENDME // ME_57A9AFB40064 f_Field
+
+ME ME_57A9AFD800B7
+ MEPROP UID '57A9AFD800B7'
+ MEPROP Name 'f_Operator'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57A9AF120166 // TdaBitwiseCondition
+ ;
+ MELINK Target WL 'ME_57A9A62800C9' '5432448401BC.ms.model.script' // TdaBitwiseOperator
+ ;
+
+ENDME // ME_57A9AFD800B7 f_Operator
+
+ME ME_57A9AFF4024F
+ MEPROP UID '57A9AFF4024F'
+ MEPROP Name 'f_Value'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57A9AF120166 // TdaBitwiseCondition
+ ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_57A9AFF4024F f_Value
+
+FORWARD ME_57A9AF460222
+
+FORWARD ME_57A9AF510156
+
+ME ME_57A9AF760002
+ MEPROP Name 'aTableAlias'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57A9AF760002 aTableAlias
+
+ME ME_57A9AF760012
+ MEPROP Name 'aField'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_55377C5F0162' '5432518A0316.ms.model.script' // IdaFieldDescription
+ ;
+
+ENDME // ME_57A9AF760012 aField
+
+ME ME_57A9AF760031
+ MEPROP Name 'anOperation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57A9A62800C9' '5432448401BC.ms.model.script' // TdaBitwiseOperator
+ ;
+
+ENDME // ME_57A9AF760031 anOperation
+
+ME ME_57A9AF760040
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_57A9AF760040 aValue
+
+ME ME_57A9AF510156
+ MEPROP UID '57A9AF510156'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A9AF460222 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57A9AF760002 // aTableAlias
+ ME_57A9AF760012 // aField
+ ME_57A9AF760031 // anOperation
+ ME_57A9AF760040 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_57A9AF510156 DoIt
+
+ME ME_57A9AF460222
+ MEPROP UID '57A9AF460222'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A9AF120166 // TdaBitwiseCondition
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57A9AF510156 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57A9AF460222 Create
+
+MEREF ME_57A9AF460222_ME_57A9AF7C01E6_G
+ MELINK Original HWL ME_57A9AF460222 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57A9AF460222_ME_57A9AF7C01E6_G Create
+
+MEREF ME_5551DC5C020D_ME_57A9AF7C01E6_R
+ MELINK Original WL 'ME_5551DC5C020D' '5432518A0316.ms.model.script' // IdaCondition
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5551DC5C020D_ME_57A9AF7C01E6_R IdaCondition
+
+%%ImplementedBy ME_5551DC5C020D ME_57A9AF7C01E6
+
+%%InheritedBy ME_57A9AF460222 ME_57A9AF7C01E6
+
+ME ME_57A9AF7C01E6
+ MEPROP UID '57A9AF7C01E6'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A9AF120166 // TdaBitwiseCondition
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57A9AF460222_ME_57A9AF7C01E6_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5551DC5C020D_ME_57A9AF7C01E6_R // IdaCondition
+ )
+ ; // Implements
+
+ENDME // ME_57A9AF7C01E6 Make
+
+MEREF ME_555351D702B3_ME_57A9AF120166_impl
+ MELINK Original WL 'ME_555351D702B3' '5432518A0316.ms.model.script' // TableAlias
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_555351D702B3_ME_57A9AF120166_impl TableAlias
+
+MEREF ME_555351F500BC_ME_57A9AF120166_impl
+ MELINK Original WL 'ME_555351F500BC' '5432518A0316.ms.model.script' // Field
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_555351F500BC_ME_57A9AF120166_impl Field
+
+MEREF ME_56408E7F01A1_ME_57A9AF120166_impl
+ MELINK Original WL 'ME_56408E7F01A1' '56408DB303B7.ms.model.script' // DoBuildSQL
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_56408E7F01A1_ME_57A9AF120166_impl DoBuildSQL
+
+MEREF ME_479731C50290_ME_57A9AF120166_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57A9AF120166_over Cleanup
+
+MEREF ME_56408DB303B7_ME_57A9AF120166_G
+ MELINK Original WL? 'ME_56408DB303B7' // TdaCondition
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_56408DB303B7_ME_57A9AF120166_G TdaCondition
+
+MEREF ME_555351BE026E_ME_57A9AF120166_R
+ MELINK Original WL 'ME_555351BE026E' '5432518A0316.ms.model.script' // IdaFieldFromTable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_555351BE026E_ME_57A9AF120166_R IdaFieldFromTable
+
+MEREF ME_57A9AB0902D4_ME_57A9AF120166_R
+ MELINK Original WL 'ME_57A9AB0902D4' '5432518A0316.ms.model.script' // IdaBitwiseCondition
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57A9AB0902D4_ME_57A9AF120166_R IdaBitwiseCondition
+
+%%ImplementedBy ME_555351BE026E ME_57A9AF120166
+%%ImplementedBy ME_57A9AB0902D4 ME_57A9AF120166
+
+%%InheritedBy ME_56408DB303B7 ME_57A9AF120166
+
+ME ME_57A9AF120166
+ MEPROP UID '57A9AF120166'
+ MEPROP Name 'TdaBitwiseCondition'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F85B2500FB' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_56408DB303B7_ME_57A9AF120166_G // TdaCondition
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_555351BE026E_ME_57A9AF120166_R // IdaFieldFromTable
+ HWL ME_57A9AB0902D4_ME_57A9AF120166_R // IdaBitwiseCondition
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57A9AFAA0120 // f_TableAlias
+ HWL ME_57A9AFB40064 // f_Field
+ HWL ME_57A9AFD800B7 // f_Operator
+ HWL ME_57A9AFF4024F // f_Value
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57A9AF460222 // Create
+ HWL ME_57A9AF7C01E6 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_555351D702B3_ME_57A9AF120166_impl // TableAlias
+ ME_555351F500BC_ME_57A9AF120166_impl // Field
+ ME_56408E7F01A1_ME_57A9AF120166_impl // DoBuildSQL
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57A9AF120166_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'daBitwiseCondition'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'daBitwiseCondition'
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daBitwiseCondition.pas'
+
+ENDME // ME_57A9AF120166 TdaBitwiseCondition

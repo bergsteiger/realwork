@@ -1,0 +1,136 @@
+// TnsGroupFilter 49F017390338 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49F017390338
+
+ME ME_49F017B0023C
+ MEPROP UID '49F017B0023C'
+ MEPROP Name 'f_GroupUID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49F017390338 // TnsGroupFilter
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_49F017B0023C f_GroupUID
+
+FORWARD ME_49F017D90351
+
+ME ME_49F017E80201
+ MEPROP Name 'aGroupUID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_49F017E80201 aGroupUID
+
+ME ME_49F017D90351
+ MEPROP UID '49F017D90351'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49F017390338 // TnsGroupFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_49F017E80201 // aGroupUID
+ )
+ ; // Parameters
+
+ENDME // ME_49F017D90351 Create
+
+FORWARD ME_49F017EF00CE
+
+ME ME_49F017F80090
+ MEPROP Name 'aGroupUID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_49F017F80090 aGroupUID
+
+ME ME_49F017EF00CE
+ MEPROP UID '49F017EF00CE'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49F017390338 // TnsGroupFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_49F017F80090 // aGroupUID
+ )
+ ; // Parameters
+
+ENDME // ME_49F017EF00CE Make
+
+MEREF ME_49F015F003D0_ME_49F017390338_impl
+ MELINK Original WL 'ME_49F015F003D0' '47ECAAF901F8.ms.model.script' // GroupUID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_49F015F003D0_ME_49F017390338_impl GroupUID
+
+MEREF ME_46780E690001_ME_49F017390338_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_49F017390338_G Tl3CacheableBase
+
+MEREF ME_49F015CA0381_ME_49F017390338_R
+ MELINK Original WL 'ME_49F015CA0381' '47ECAAF901F8.ms.model.script' // InsGroupFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49F015CA0381_ME_49F017390338_R InsGroupFilter
+
+%%ImplementedBy ME_49F015CA0381 ME_49F017390338
+
+%%InheritedBy ME_46780E690001 ME_49F017390338
+
+ME ME_49F017390338
+ MEPROP UID '49F017390338'
+ MEPROP Name 'TnsGroupFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтр на группу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4ACF68160358' // Users$CommonForAdminAndF1
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46780E690001_ME_49F017390338_G // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_49F015CA0381_ME_49F017390338_R // InsGroupFilter
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49F017B0023C // f_GroupUID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49F017D90351 // Create
+ HWL ME_49F017EF00CE // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49F015F003D0_ME_49F017390338_impl // GroupUID
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'nsGroupFilter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'GroupFilter'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Users\nsGroupFilter.pas'
+
+ENDME // ME_49F017390338 TnsGroupFilter

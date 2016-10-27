@@ -1,0 +1,54 @@
+// TnsCachedEventsProcessor 4B139FB1009B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B139FB1009B
+
+ME ME_4B13A8A20263
+ MEPROP UID '4B13A8A20263'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B139FB1009B // TnsCachedEventsProcessor
+ ;
+ MELINK Target WL 'ME_4B139E41024C' '49913F2C020C.ms.model.script' // InsCachedEventsProcessor
+ ;
+
+ENDME // ME_4B13A8A20263 Make
+
+MEREF ME_4B139F5C025B_ME_4B139FB1009B_G
+ MELINK Original WL? 'ME_4B139F5C025B' // TnsPrimCachedEventsProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B139F5C025B_ME_4B139FB1009B_G TnsPrimCachedEventsProcessor
+
+%%InheritedBy ME_4B139F5C025B ME_4B139FB1009B
+
+ME ME_4B139FB1009B
+ MEPROP UID '4B139FB1009B'
+ MEPROP Name 'TnsCachedEventsProcessor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B0A60DF01F2' // Logging
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B139F5C025B_ME_4B139FB1009B_G // TnsPrimCachedEventsProcessor
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B13A8A20263 // Make
+ )
+ ; // Operations
+ UP "singleton" True
+ UP extprop:pas:UnitName 'nsCachedEventsProcessor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CachedEventsProcessor'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Logging\nsCachedEventsProcessor.pas'
+
+ENDME // ME_4B139FB1009B TnsCachedEventsProcessor

@@ -1,0 +1,68 @@
+// TevBitmapParaCursor 49DF6D240199 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49DF6D240199
+
+ME ME_4D63CDEC02D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_49DF6D240199 // TevBitmapParaCursor
+ ;
+ MELINK Target WL? 'ME_4858137901EF' // TevBitmapPara
+ ;
+ UP "injects as" 'cursor'
+
+ENDME // ME_4D63CDEC02D6 
+
+MEREF ME_49E34A6301AC_ME_49DF6D240199_over
+ MELINK Original WL 'ME_49E34A6301AC' '49DE2726027E.ms.model.script' // GetNeedWindowsCaret
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E34A6301AC_ME_49DF6D240199_over GetNeedWindowsCaret
+
+MEREF ME_49DF6D3F02F9_ME_49DF6D240199_G
+ MELINK Original WL? 'ME_49DF6D3F02F9' // TevSolidParaCursor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49DF6D3F02F9_ME_49DF6D240199_G TevSolidParaCursor
+
+%%InjectedBy ME_4858137901EF ME_49DF6D240199
+
+%%InheritedBy ME_49DF6D3F02F9 ME_49DF6D240199
+
+ME ME_49DF6D240199
+ MEPROP UID '49DF6D240199'
+ MEPROP Name 'TevBitmapParaCursor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E3DF460095' // Cursors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49DF6D3F02F9_ME_49DF6D240199_G // TevSolidParaCursor
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49E34A6301AC_ME_49DF6D240199_over // GetNeedWindowsCaret
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D63CDEC02D6 // TevBitmapPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '13.11.2004 18:49'
+ UP extprop:pas:UnitName 'evBitmapParaCursor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BitmapParaCursor'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evBitmapParaCursor.pas'
+
+ENDME // ME_49DF6D240199 TevBitmapParaCursor

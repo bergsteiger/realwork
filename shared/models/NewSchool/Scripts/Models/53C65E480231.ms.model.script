@@ -1,0 +1,65 @@
+// TvcmChromeLikeTabbedContainerFormPrim 53C65E480231 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_53C65D8F0393_ME_53C65E480231_impl
+ MELINK Original WL 'ME_53C65D8F0393' '4683F37902CF.ms.model.script' // CanChangeSize
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_53C65D8F0393_ME_53C65E480231_impl CanChangeSize
+
+MEREF ME_53C65E120031_ME_53C65E480231_impl
+ MELINK Original WL 'ME_53C65E120031' '4683F37902CF.ms.model.script' // CanBeMaximized
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_53C65E120031_ME_53C65E480231_impl CanBeMaximized
+
+MEREF ME_533BDEE602B6_ME_53C65E480231_G
+ MELINK Original WL? 'ME_533BDEE602B6' // TvcmGlassForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_533BDEE602B6_ME_53C65E480231_G TvcmGlassForm
+
+MEREF ME_53C65D700237_ME_53C65E480231_R
+ MELINK Original WL 'ME_53C65D700237' '4683F37902CF.ms.model.script' // IvcmSizeableForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53C65D700237_ME_53C65E480231_R IvcmSizeableForm
+
+%%ImplementedBy ME_53C65D700237 ME_53C65E480231
+
+%%InheritedBy ME_533BDEE602B6 ME_53C65E480231
+
+ME ME_53C65E480231
+ MEPROP UID '53C65E480231'
+ MEPROP Name 'TvcmChromeLikeTabbedContainerFormPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_533D53FF00C2' // Visual$ChromeLike
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_533BDEE602B6_ME_53C65E480231_G // TvcmGlassForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53C65D700237_ME_53C65E480231_R // IvcmSizeableForm
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_53C65D8F0393_ME_53C65E480231_impl // CanChangeSize
+ ME_53C65E120031_ME_53C65E480231_impl // CanBeMaximized
+ )
+ ; // Implemented
+ UP "ifndef" 'NoVGScene, NoVCM'
+ UP extprop:pas:UnitName 'vcmChromeLikeTabbedContainerFormPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ChromeLikeTabbedContainerFormPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabbedContainerFormPrim.pas'
+
+ENDME // ME_53C65E480231 TvcmChromeLikeTabbedContainerFormPrim

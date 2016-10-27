@@ -1,0 +1,217 @@
+// TddCustomIniStorage 57A07B6903C1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57A07B6903C1
+
+ME ME_57A07BDC0195
+ MEPROP UID '57A07BDC0195'
+ MEPROP Name 'f_Section'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57A07B6903C1 // TddCustomIniStorage
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57A07BDC0195 f_Section
+
+ME ME_57A07C480170
+ MEPROP UID '57A07C480170'
+ MEPROP Name 'Ini'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57A07B6903C1 // TddCustomIniStorage
+ ;
+ MELINK Target WL 'ME_57A07C010144' '57726BD301F3.ms.model.script' // TCustomIniFile
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_57A07C480170 Ini
+
+FORWARD ME_57A07CAA01B1
+
+FORWARD ME_57A07CB902F1
+
+ME ME_57A07CCD00EE
+ MEPROP Name 'aIniFile'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57A07C010144' '57726BD301F3.ms.model.script' // TCustomIniFile
+ ;
+
+ENDME // ME_57A07CCD00EE aIniFile
+
+ME ME_57A07CB902F1
+ MEPROP UID '57A07CB902F1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A07CAA01B1 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57A07CCD00EE // aIniFile
+ )
+ ; // Parameters
+
+ENDME // ME_57A07CB902F1 DoIt
+
+ME ME_57A07CAA01B1
+ MEPROP UID '57A07CAA01B1'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A07B6903C1 // TddCustomIniStorage
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57A07CB902F1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57A07CAA01B1 Create
+
+ME ME_57A0822E01D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57A07B6903C1 // TddCustomIniStorage
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_57A0822E01D0 
+
+MEREF ME_51D51983016F_ME_57A07B6903C1_impl
+ MELINK Original WL 'ME_51D51983016F' '5214AEF201AE.ms.model.script' // ReadBool
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51D51983016F_ME_57A07B6903C1_impl ReadBool
+
+MEREF ME_51D519A40189_ME_57A07B6903C1_impl
+ MELINK Original WL 'ME_51D519A40189' '5214AEF201AE.ms.model.script' // ReadDateTime
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51D519A40189_ME_57A07B6903C1_impl ReadDateTime
+
+MEREF ME_51D519B403D0_ME_57A07B6903C1_impl
+ MELINK Original WL 'ME_51D519B403D0' '5214AEF201AE.ms.model.script' // ReadInteger
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51D519B403D0_ME_57A07B6903C1_impl ReadInteger
+
+MEREF ME_51D519D00291_ME_57A07B6903C1_impl
+ MELINK Original WL 'ME_51D519D00291' '5214AEF201AE.ms.model.script' // ReadString
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51D519D00291_ME_57A07B6903C1_impl ReadString
+
+MEREF ME_51D519FC00D5_ME_57A07B6903C1_impl
+ MELINK Original WL 'ME_51D519FC00D5' '5214AEF201AE.ms.model.script' // WriteBool
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51D519FC00D5_ME_57A07B6903C1_impl WriteBool
+
+MEREF ME_51D51A0D0133_ME_57A07B6903C1_impl
+ MELINK Original WL 'ME_51D51A0D0133' '5214AEF201AE.ms.model.script' // WriteDateTime
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51D51A0D0133_ME_57A07B6903C1_impl WriteDateTime
+
+MEREF ME_51D51A1E025E_ME_57A07B6903C1_impl
+ MELINK Original WL 'ME_51D51A1E025E' '5214AEF201AE.ms.model.script' // WriteInteger
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51D51A1E025E_ME_57A07B6903C1_impl WriteInteger
+
+MEREF ME_51D51A3201BA_ME_57A07B6903C1_impl
+ MELINK Original WL 'ME_51D51A3201BA' '5214AEF201AE.ms.model.script' // WriteString
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51D51A3201BA_ME_57A07B6903C1_impl WriteString
+
+MEREF ME_51D51A48025D_ME_57A07B6903C1_impl
+ MELINK Original WL 'ME_51D51A48025D' '5214AEF201AE.ms.model.script' // Section
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_51D51A48025D_ME_57A07B6903C1_impl Section
+
+MEREF ME_49E7754802A9_ME_57A07B6903C1_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57A07B6903C1_G Tl3ProtoObject
+
+MEREF ME_51D519310249_ME_57A07B6903C1_R
+ MELINK Original WL 'ME_51D519310249' '5214AEF201AE.ms.model.script' // IddConfigStorage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51D519310249_ME_57A07B6903C1_R IddConfigStorage
+
+%%ImplementedBy ME_51D519310249 ME_57A07B6903C1
+
+%%InheritedBy ME_49E7754802A9 ME_57A07B6903C1
+
+ME ME_57A07B6903C1
+ MEPROP UID '57A07B6903C1'
+ MEPROP Name 'TddCustomIniStorage'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс.'#13#10'Ini-файлом НЕ владеет. Надо убивать его снаружи.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_51D518E70109' // ddConfigStorages
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_57A07B6903C1_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_51D519310249_ME_57A07B6903C1_R // IddConfigStorage
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57A07BDC0195 // f_Section
+ HWL ME_57A07C480170 // Ini
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57A07CAA01B1 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_51D51983016F_ME_57A07B6903C1_impl // ReadBool
+ ME_51D519A40189_ME_57A07B6903C1_impl // ReadDateTime
+ ME_51D519B403D0_ME_57A07B6903C1_impl // ReadInteger
+ ME_51D519D00291_ME_57A07B6903C1_impl // ReadString
+ ME_51D519FC00D5_ME_57A07B6903C1_impl // WriteBool
+ ME_51D51A0D0133_ME_57A07B6903C1_impl // WriteDateTime
+ ME_51D51A1E025E_ME_57A07B6903C1_impl // WriteInteger
+ ME_51D51A3201BA_ME_57A07B6903C1_impl // WriteString
+ ME_51D51A48025D_ME_57A07B6903C1_impl // Section
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_57A0822E01D0 // l3CStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ddCustomIniStorage'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddCustomIniStorage'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddCustomIniStorage.pas'
+
+ENDME // ME_57A07B6903C1 TddCustomIniStorage

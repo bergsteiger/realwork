@@ -59,7 +59,7 @@ ENDME // ME_5166DD4500E0 DoIt
 ME ME_5166DD350150
  MEPROP UID '5166DD350150'
  MEPROP Name 'QuickSearchHandler'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -104,7 +104,7 @@ ENDME // ME_5166DD61024A DoIt
 ME ME_5166DD570238
  MEPROP UID '5166DD570238'
  MEPROP Name 'QuickSearchHintTimerEvent'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -148,11 +148,17 @@ ME ME_5166E1ED02B9
 
 ENDME // ME_5166E1ED02B9 
 
-ME ME_47D1602000C6_ME_4B97EA0802EB
+MEREF ME_47D1602000C6_ME_4B97EA0802EB_over
  MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47D1602000C6_ME_4B97EA0802EB Create
+ENDMEREF // ME_47D1602000C6_ME_4B97EA0802EB_over Create
+
+MEREF ME_4CFFBEEA0109_ME_4B97EA0802EB_G
+ MELINK Original WL 'ME_4CFFBEEA0109' '515DA5860015.ms.model.script' // TvtCustomOutliner
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CFFBEEA0109_ME_4B97EA0802EB_G TvtCustomOutliner
 
 %%InheritedBy ME_4CFFBEEA0109 ME_4B97EA0802EB
 
@@ -168,7 +174,7 @@ ME ME_4B97EA0802EB
  MELINK Parent WL? 'ME_4B97E7FD006C' // Outliner
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CFFBEEA0109' '515DA5860015.ms.model.script' // TvtCustomOutliner
+   Seq: ( HWL ME_4CFFBEEA0109_ME_4B97EA0802EB_G // TvtCustomOutliner
  )
  ; // Inherits
  MELIST Attributes
@@ -181,7 +187,7 @@ ME ME_4B97EA0802EB
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_47D1602000C6_ME_4B97EA0802EB // Create
+   Seq: ( ME_47D1602000C6_ME_4B97EA0802EB_over // Create
  )
  ; // Overridden
  MELIST Dependencies

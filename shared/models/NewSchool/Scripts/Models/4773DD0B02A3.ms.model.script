@@ -1,0 +1,83 @@
+// Tl3DataRefList 4773DD0B02A3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4773DD0B02A3
+
+ME ME_47B58BA10267
+ MEPROP UID '47B58BA10267'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4773DD0B02A3 // Tl3DataRefList
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_47B58BA10267 ItemType
+
+ME ME_47AAB6C9033B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4773DD0B02A3 // Tl3DataRefList
+ ;
+ MELINK Target WL 'ME_47AAB5EC03C2' '4773D64E036C.ms.model.script' // Tl3System
+ ;
+
+ENDME // ME_47AAB6C9033B 
+
+MEREF ME_47B5877A02EE_ME_4773DD0B02A3_G
+ MELINK Original WL? 'ME_47B5877A02EE' // l3DataRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B5877A02EE_ME_4773DD0B02A3_G l3DataRefList
+
+MEREF ME_47BC3A07027F_ME_4773DD0B02A3_G
+ MELINK Original WL? 'ME_47BC3A07027F' // Tl3SimpleDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC3A07027F_ME_4773DD0B02A3_G Tl3SimpleDataContainer
+
+%%InheritedBy ME_47B5877A02EE ME_4773DD0B02A3
+%%InheritedBy ME_47BC3A07027F ME_4773DD0B02A3
+
+ME ME_4773DD0B02A3
+ MEPROP UID '4773DD0B02A3'
+ MEPROP Name 'Tl3DataRefList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список ссылок на куски памяти. При своём освобождении освобождает хранимые куски памяти. Эта память должна быть выделена функцией l3System.GetLocalMem.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B5877A02EE_ME_4773DD0B02A3_G // l3DataRefList
+ HWL ME_47BC3A07027F_ME_4773DD0B02A3_G // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47B58BA10267 // ItemType
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_47AAB6C9033B // Tl3System
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '07.02.2008 10:10'
+ UP extprop:pas:UnitName 'l3DataRefList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DataRefList'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3DataRefList.pas'
+
+ENDME // ME_4773DD0B02A3 Tl3DataRefList

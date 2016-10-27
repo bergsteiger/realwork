@@ -1,0 +1,80 @@
+// TIntStackTest 5155CA4E0028 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5155CA4E0028
+
+ME ME_5155CA8A02A6
+ MEPROP UID '5155CA8A02A6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5155CA4E0028 // TIntStackTest
+ ;
+
+ENDME // ME_5155CA8A02A6 DoIt
+
+ME ME_5155CA6701FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5155CA4E0028 // TIntStackTest
+ ;
+ MELINK Target WL? 'ME_51545E1E004A' // TIntStack
+ ;
+
+ENDME // ME_5155CA6701FC 
+
+ME ME_5155CC3400E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5155CA4E0028 // TIntStackTest
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5155CC3400E1 
+
+MEREF ME_4B2A0DDE028B_ME_5155CA4E0028_G
+ MELINK Original WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A0DDE028B_ME_5155CA4E0028_G TTestCase
+
+%%InheritedBy ME_4B2A0DDE028B ME_5155CA4E0028
+
+ME ME_5155CA4E0028
+ MEPROP UID '5155CA4E0028'
+ MEPROP Name 'TIntStackTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_5155CA0E009F' // ContainersTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B2A0DDE028B_ME_5155CA4E0028_G // TTestCase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5155CA8A02A6 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5155CA6701FC // TIntStack
+ ME_5155CC3400E1 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'IntStackTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IntStackTest'
+ UP intf.pas:Path 'common\components\SandBox\IntStackTest.pas'
+
+ENDME // ME_5155CA4E0028 TIntStackTest

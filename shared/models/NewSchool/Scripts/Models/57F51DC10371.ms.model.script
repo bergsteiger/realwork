@@ -1,0 +1,54 @@
+// TmsmListControllerWithExternalView 57F51DC10371 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57F51DC10371
+
+ME ME_57F51E000200
+ MEPROP UID '57F51E000200'
+ MEPROP Name 'ConcreteModel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57F51DC10371 // TmsmListControllerWithExternalView
+ ;
+ MELINK Target WL 'ME_57CD626402C0' '57ADC53E00B6.ms.model.script' // ImsmListLikeModel
+ ;
+
+ENDME // ME_57F51E000200 ConcreteModel
+
+MEREF ME_57AE0566006E_ME_57F51DC10371_G
+ MELINK Original WL? 'ME_57AE0566006E' // msmConcreteModelViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AE0566006E_ME_57F51DC10371_G msmConcreteModelViewController
+
+%%InheritedBy ME_57AE0566006E ME_57F51DC10371
+
+ME ME_57F51DC10371
+ MEPROP UID '57F51DC10371'
+ MEPROP Name 'TmsmListControllerWithExternalView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_57D263FC0311' // AbstractBindings
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57AE0566006E_ME_57F51DC10371_G // msmConcreteModelViewController
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57F51E000200 // ConcreteModel
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'msmListControllerWithExternalView'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmListControllerWithExternalView'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmListControllerWithExternalView.pas'
+
+ENDME // ME_57F51DC10371 TmsmListControllerWithExternalView

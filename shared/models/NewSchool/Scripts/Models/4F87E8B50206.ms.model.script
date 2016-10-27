@@ -1,0 +1,90 @@
+// TnevDocumentPart 4F87E8B50206 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F87E8B50206
+
+ME ME_53D66A6E0219
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4F87E8B50206 // TnevDocumentPart
+ ;
+ MELINK Target WL? 'ME_4857AA550220' // TevBlock
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D66A6E0219 
+
+ME ME_53D66A8E015F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_4F87E8B50206 // TnevDocumentPart
+ ;
+ MELINK Target WL 'ME_47C6A6570369' '47C5207602D1.ms.model.script' // InevParaList
+ ;
+
+ENDME // ME_53D66A8E015F 
+
+MEREF ME_48CFB17F03A2_ME_4F87E8B50206_over
+ MELINK Original WL 'ME_48CFB17F03A2' '48CE0A490377.ms.model.script' // GetAppliesToMaxWidth
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48CFB17F03A2_ME_4F87E8B50206_over GetAppliesToMaxWidth
+
+MEREF ME_48CFB1F5024F_ME_4F87E8B50206_over
+ MELINK Original WL 'ME_48CFB1F5024F' '48CE0A490377.ms.model.script' // GetIsHiddenPrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48CFB1F5024F_ME_4F87E8B50206_over GetIsHiddenPrim
+
+MEREF ME_4D596369028C_ME_4F87E8B50206_over
+ MELINK Original WL 'ME_4D596369028C' '48CE0A490377.ms.model.script' // TreatCollapsedAsHidden
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D596369028C_ME_4F87E8B50206_over TreatCollapsedAsHidden
+
+MEREF ME_48CE0B85029C_ME_4F87E8B50206_G
+ MELINK Original WL? 'ME_48CE0B85029C' // TnevParaList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48CE0B85029C_ME_4F87E8B50206_G TnevParaList
+
+%%InjectedBy ME_4857AA550220 ME_4F87E8B50206
+
+%%InheritedBy ME_48CE0B85029C ME_4F87E8B50206
+
+ME ME_4F87E8B50206
+ MEPROP UID '4F87E8B50206'
+ MEPROP Name 'TnevDocumentPart'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48CE0A0A03B4' // ParagraphsImplementation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48CE0B85029C_ME_4F87E8B50206_G // TnevParaList
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48CFB17F03A2_ME_4F87E8B50206_over // GetAppliesToMaxWidth
+ ME_48CFB1F5024F_ME_4F87E8B50206_over // GetIsHiddenPrim
+ ME_4D596369028C_ME_4F87E8B50206_over // TreatCollapsedAsHidden
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53D66A6E0219 // TevBlock
+ ME_53D66A8E015F // InevParaList
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nevDocumentPart'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentPart'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevDocumentPart.pas'
+
+ENDME // ME_4F87E8B50206 TnevDocumentPart

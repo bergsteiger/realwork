@@ -1,0 +1,75 @@
+// Tl3ClassList 4773DC1E01B4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4773DC1E01B4
+
+ME ME_47A9BDB8001B
+ MEPROP UID '47A9BDB8001B'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4773DC1E01B4 // Tl3ClassList
+ ;
+ MELINK Target WL 'ME_476775CB036A' '4807744200AA.ms.model.script' // TClass
+ ;
+
+ENDME // ME_47A9BDB8001B ItemType
+
+MEREF ME_47B99D4503A2_ME_4773DC1E01B4_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4773DC1E01B4_impl CompareExistingItems
+
+MEREF ME_47B992F60244_ME_4773DC1E01B4_G
+ MELINK Original WL? 'ME_47B992F60244' // l3UnrefcountedList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B992F60244_ME_4773DC1E01B4_G l3UnrefcountedList
+
+MEREF ME_4A54DD4E036F_ME_4773DC1E01B4_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4773DC1E01B4_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B992F60244 ME_4773DC1E01B4
+%%InheritedBy ME_4A54DD4E036F ME_4773DC1E01B4
+
+ME ME_4773DC1E01B4
+ MEPROP UID '4773DC1E01B4'
+ MEPROP Name 'Tl3ClassList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B992F60244_ME_4773DC1E01B4_G // l3UnrefcountedList
+ HWL ME_4A54DD4E036F_ME_4773DC1E01B4_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47A9BDB8001B // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B99D4503A2_ME_4773DC1E01B4_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '06.02.2008 16:51'
+ UP extprop:pas:UnitName 'l3ClassList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ClassList'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ClassList.pas'
+
+ENDME // ME_4773DC1E01B4 Tl3ClassList

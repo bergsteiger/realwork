@@ -45,26 +45,38 @@ ME ME_4A5F2A78003B
 
 ENDME // ME_4A5F2A78003B 
 
-ME ME_47B2C42A0163_ME_4A5F28820363
+MEREF ME_47B2C42A0163_ME_4A5F28820363_impl
  MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
  UP "ifndef" 'l3Items_NoSort'
-ENDME // ME_47B2C42A0163_ME_4A5F28820363 AssignItem
+ENDMEREF // ME_47B2C42A0163_ME_4A5F28820363_impl AssignItem
 
-ME ME_47B99D4503A2_ME_4A5F28820363
+MEREF ME_47B99D4503A2_ME_4A5F28820363_impl
  MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47B99D4503A2_ME_4A5F28820363 CompareExistingItems
+ENDMEREF // ME_47B99D4503A2_ME_4A5F28820363_impl CompareExistingItems
 
-ME ME_47A6FEE600FC_ME_4A5F28820363
+MEREF ME_47A6FEE600FC_ME_4A5F28820363_over
  MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifndef" 'DesignTimeLibrary'
-ENDME // ME_47A6FEE600FC_ME_4A5F28820363 IsCacheable
+ENDMEREF // ME_47A6FEE600FC_ME_4A5F28820363_over IsCacheable
+
+MEREF ME_534515CD039A_ME_4A5F28820363_G
+ MELINK Original WL? 'ME_534515CD039A' // l3VariantListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_534515CD039A_ME_4A5F28820363_G l3VariantListPrim
+
+MEREF ME_4A5CB93700CF_ME_4A5F28820363_R
+ MELINK Original WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A5CB93700CF_ME_4A5F28820363_R Ml3Unknown
 
 %%ImplementedBy ME_4A5CB93700CF ME_4A5F28820363
 
@@ -83,20 +95,20 @@ ME ME_4A5F28820363
  MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_534515CD039A' // l3VariantListPrim
+   Seq: ( HWL ME_534515CD039A_ME_4A5F28820363_G // l3VariantListPrim
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+   Seq: ( HWL ME_4A5CB93700CF_ME_4A5F28820363_R // Ml3Unknown
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_47B2C42A0163_ME_4A5F28820363 // AssignItem
- ME_47B99D4503A2_ME_4A5F28820363 // CompareExistingItems
+   Seq: ( ME_47B2C42A0163_ME_4A5F28820363_impl // AssignItem
+ ME_47B99D4503A2_ME_4A5F28820363_impl // CompareExistingItems
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_47A6FEE600FC_ME_4A5F28820363 // IsCacheable
+   Seq: ( ME_47A6FEE600FC_ME_4A5F28820363_over // IsCacheable
  )
  ; // Overridden
  MELIST Children

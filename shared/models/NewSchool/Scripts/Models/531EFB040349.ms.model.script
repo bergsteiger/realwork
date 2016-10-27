@@ -1,0 +1,69 @@
+// Tk2ToolCacheList 531EFB040349 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_531EFB040349
+
+ME ME_531EFB1C03E0
+ MEPROP UID '531EFB1C03E0'
+ MEPROP Name 'GetFree'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_531EFB040349 // Tk2ToolCacheList
+ ;
+ MELINK Target WL? 'ME_47F5DAEB0007' // Tk2ToolPrim
+ ;
+
+ENDME // ME_531EFB1C03E0 GetFree
+
+ME ME_531EFE9F030C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_531EFB040349 // Tk2ToolCacheList
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_531EFE9F030C 
+
+MEREF ME_53231C5401CE_ME_531EFB040349_G
+ MELINK Original WL? 'ME_53231C5401CE' // Tk2ToolPrimList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53231C5401CE_ME_531EFB040349_G Tk2ToolPrimList
+
+%%InheritedBy ME_53231C5401CE ME_531EFB040349
+
+ME ME_531EFB040349
+ MEPROP UID '531EFB040349'
+ MEPROP Name 'Tk2ToolCacheList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49A58A1A03C4' // k2PrimObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53231C5401CE_ME_531EFB040349_G // Tk2ToolPrimList
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_531EFB1C03E0 // GetFree
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_531EFE9F030C // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'k2ToolCacheList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ToolCacheList'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2ToolCacheList.pas'
+
+ENDME // ME_531EFB040349 Tk2ToolCacheList

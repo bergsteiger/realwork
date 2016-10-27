@@ -1,0 +1,51 @@
+// K235052965 4C99A80900C4 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4C937013031D_ME_4C99A80900C4_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4C99A80900C4_over GetFolder
+
+MEREF ME_4C9874060367_ME_4C99A80900C4_over
+ MELINK Original WL 'ME_4C9874060367' '4CC815A00031.ms.model.script' // SelectColumn
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C9874060367_ME_4C99A80900C4_over SelectColumn
+
+MEREF ME_4C99945800BC_ME_4C99A80900C4_G
+ MELINK Original WL? 'ME_4C99945800BC' // TSelectColumnAndDelete
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C99945800BC_ME_4C99A80900C4_G TSelectColumnAndDelete
+
+%%InheritedBy ME_4C99945800BC ME_4C99A80900C4
+
+ME ME_4C99A80900C4
+ MEPROP UID '4C99A80900C4'
+ MEPROP Name 'K235052965'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$235052965]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C288F1202F8' // 7.6
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C99945800BC_ME_4C99A80900C4_G // TSelectColumnAndDelete
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4C99A80900C4_over // GetFolder
+ ME_4C9874060367_ME_4C99A80900C4_over // SelectColumn
+ )
+ ; // Overridden
+ UP extprop:pas:TypeName 'TK235052965'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K235052965'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K235052965.pas'
+
+ENDME // ME_4C99A80900C4 K235052965

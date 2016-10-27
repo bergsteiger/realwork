@@ -1,0 +1,264 @@
+// TnevRubberCellsRenderInfo 482098D2015E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_482098D2015E
+
+ME ME_4821596F01CB
+ MEPROP UID '4821596F01CB'
+ MEPROP Name 'Widthes'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_482098D2015E // TnevRubberCellsRenderInfo
+ ;
+ MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4821596F01CB Widthes
+
+ME ME_4ED721DF02D2
+ MEPROP UID '4ED721DF02D2'
+ MEPROP Name 'f_LimitWidth'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_482098D2015E // TnevRubberCellsRenderInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4ED721DF02D2 f_LimitWidth
+
+FORWARD ME_4ED719EE01C1
+
+ME ME_4ED71A050134
+ MEPROP UID '4ED71A050134'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ED719EE01C1 // WasChanged
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4ED71A050134 DoIt
+
+ME ME_4ED719EE01C1
+ MEPROP UID '4ED719EE01C1'
+ MEPROP Name 'WasChanged'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482098D2015E // TnevRubberCellsRenderInfo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4ED71A050134 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4ED719EE01C1 WasChanged
+
+FORWARD ME_4ED71A110169
+
+ME ME_4ED71A2B004E
+ MEPROP UID '4ED71A2B004E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ED71A110169 // ClearChangedFlag
+ ;
+
+ENDME // ME_4ED71A2B004E DoIt
+
+ME ME_4ED71A110169
+ MEPROP UID '4ED71A110169'
+ MEPROP Name 'ClearChangedFlag'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482098D2015E // TnevRubberCellsRenderInfo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4ED71A2B004E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4ED71A110169 ClearChangedFlag
+
+FORWARD ME_4BFD6763012A
+
+ME ME_4BFD677F03CC
+ MEPROP Name 'anOldWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BFD677F03CC anOldWidth
+
+ME ME_4BFD68B60305
+ MEPROP Name 'theNewWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BFD68B60305 theNewWidth
+
+ME ME_4BFD6763012A
+ MEPROP UID '4BFD6763012A'
+ MEPROP Name 'ValidateNewChildWidth'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482098D2015E // TnevRubberCellsRenderInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BFD677F03CC // anOldWidth
+ ME_4BFD68B60305 // theNewWidth
+ )
+ ; // Parameters
+
+ENDME // ME_4BFD6763012A ValidateNewChildWidth
+
+ME ME_482159B401F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_482098D2015E // TnevRubberCellsRenderInfo
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_482159B401F9 
+
+ME ME_48215C1F00A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_482098D2015E // TnevRubberCellsRenderInfo
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_48215C1F00A3 
+
+ME ME_48215C43021D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_482098D2015E // TnevRubberCellsRenderInfo
+ ;
+ MELINK Target WL? 'ME_47E0C36201C7' // l3Math
+ ;
+
+ENDME // ME_48215C43021D 
+
+ME ME_4ED5C48E02D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_482098D2015E // TnevRubberCellsRenderInfo
+ ;
+ MELINK Target WL? 'ME_47A066980016' // l3MinMax
+ ;
+
+ENDME // ME_4ED5C48E02D2 
+
+ME ME_4ED727060232
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_482098D2015E // TnevRubberCellsRenderInfo
+ ;
+ MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+
+ENDME // ME_4ED727060232 
+
+MEREF ME_479731C50290_ME_482098D2015E_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_482098D2015E_over Cleanup
+
+MEREF ME_4820985D0238_ME_482098D2015E_over
+ MELINK Original WL 'ME_4820985D0238' '4815B8510359.ms.model.script' // ChildWidth
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4820985D0238_ME_482098D2015E_over ChildWidth
+
+MEREF ME_482161BE001C_ME_482098D2015E_over
+ MELINK Original WL 'ME_482161BE001C' '4815B8510359.ms.model.script' // ChildrenChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_482161BE001C_ME_482098D2015E_over ChildrenChanged
+
+MEREF ME_4848EBFB00B0_ME_482098D2015E_G
+ MELINK Original WL? 'ME_4848EBFB00B0' // TnevTableRowRenderInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4848EBFB00B0_ME_482098D2015E_G TnevTableRowRenderInfo
+
+%%InheritedBy ME_4848EBFB00B0 ME_482098D2015E
+
+ME ME_482098D2015E
+ MEPROP UID '482098D2015E'
+ MEPROP Name 'TnevRubberCellsRenderInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48185390010A' // Rendering
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4848EBFB00B0_ME_482098D2015E_G // TnevTableRowRenderInfo
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4821596F01CB // Widthes
+ HWL ME_4ED721DF02D2 // f_LimitWidth
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4ED719EE01C1 // WasChanged
+ HWL ME_4ED71A110169 // ClearChangedFlag
+ HWL ME_4BFD6763012A // ValidateNewChildWidth
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_482098D2015E_over // Cleanup
+ ME_4820985D0238_ME_482098D2015E_over // ChildWidth
+ ME_482161BE001C_ME_482098D2015E_over // ChildrenChanged
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_482159B401F9 // SysUtils
+ ME_48215C1F00A3 // Tk2TagID
+ ME_48215C43021D // l3Math
+ ME_4ED5C48E02D2 // l3MinMax
+ ME_4ED727060232 // evL3CoreConsts
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '06.05.2008 21:42'
+ UP extprop:pas:UnitName 'nevRubberCellsRenderInfo'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RubberCellsRenderInfo'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevRubberCellsRenderInfo.pas'
+
+ENDME // ME_482098D2015E TnevRubberCellsRenderInfo

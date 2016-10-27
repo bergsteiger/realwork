@@ -1,0 +1,60 @@
+// TalcuProcessingEnabledService 561CF00A0193 ServiceImplementation Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_561CF00A0193
+
+ME ME_561CFA9E038C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_561CF00A0193 // TalcuProcessingEnabledService
+ ;
+ MELINK Target WL? 'ME_561CEB90011D' // Tl3ProcessingEnabledService
+ ;
+
+ENDME // ME_561CFA9E038C 
+
+ME ME_561D091E0238
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_561CF00A0193 // TalcuProcessingEnabledService
+ ;
+ MELINK Target WL? 'ME_52F8C9E00037' // TalcuServer
+ ;
+
+ENDME // ME_561D091E0238 
+
+MEREF ME_49E7754802A9_ME_561CF00A0193_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_561CF00A0193_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_561CF00A0193
+
+ME ME_561CF00A0193
+ MEPROP UID '561CF00A0193'
+ MEPROP Name 'TalcuProcessingEnabledService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_53D656130130' // Server
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_561CF00A0193_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_561CFA9E038C // Tl3ProcessingEnabledService
+ ME_561D091E0238 // TalcuServer
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'alcuProcessingEnabledService'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuProcessingEnabledService'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuProcessingEnabledService.pas'
+
+ENDME // ME_561CF00A0193 TalcuProcessingEnabledService

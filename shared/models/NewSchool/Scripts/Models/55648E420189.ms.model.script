@@ -1,0 +1,89 @@
+// TtfwSourcePointList 55648E420189 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55648E420189
+
+ME ME_55648E520349
+ MEPROP UID '55648E520349'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55648E420189 // TtfwSourcePointList
+ ;
+ MELINK Target WL 'ME_55647DF70372' '4DAF19F600C5.ms.model.script' // TtfwSourcePoint
+ ;
+
+ENDME // ME_55648E520349 ItemType
+
+MEREF ME_47B07CF403D0_ME_55648E420189_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_55648E420189_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_55648E420189_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_55648E420189_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_55648E420189_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_55648E420189_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_55648E420189_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_55648E420189_G Tl3ProtoDataContainer
+
+MEREF ME_4B223ADC02BF_ME_55648E420189_G
+ MELINK Original WL? 'ME_4B223ADC02BF' // l3RecordListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223ADC02BF_ME_55648E420189_G l3RecordListPrim
+
+%%InheritedBy ME_4A54DD4E036F ME_55648E420189
+%%InheritedBy ME_4B223ADC02BF ME_55648E420189
+
+ME ME_55648E420189
+ MEPROP UID '55648E420189'
+ MEPROP Name 'TtfwSourcePointList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F7338A800A7' // ScriptEngineCore
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_55648E420189_G // Tl3ProtoDataContainer
+ HWL ME_4B223ADC02BF_ME_55648E420189_G // l3RecordListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55648E520349 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_55648E420189_impl // IsSameItems
+ ME_47B2C42A0163_ME_55648E420189_impl // AssignItem
+ ME_47B99D4503A2_ME_55648E420189_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'tfwSourcePointList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SourcePointList'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwSourcePointList.pas'
+
+ENDME // ME_55648E420189 TtfwSourcePointList

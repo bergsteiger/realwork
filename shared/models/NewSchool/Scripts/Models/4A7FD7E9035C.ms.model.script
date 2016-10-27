@@ -1,0 +1,82 @@
+// TnsEditionDiffData 4A7FD7E9035C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A7FD7E9035C
+
+MEREF ME_4B585365015A_ME_4B585C7C03AA_G
+ MELINK Original WL 'ME_4B585365015A' '4A8039EF0325.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B585365015A_ME_4B585C7C03AA_G Create
+
+%%InheritedBy ME_4B585365015A ME_4B585C7C03AA
+
+ME ME_4B585C7C03AA
+ MEPROP UID '4B585C7C03AA'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A7FD7E9035C // TnsEditionDiffData
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B585365015A_ME_4B585C7C03AA_G // Create
+ )
+ ; // Inherits
+
+ENDME // ME_4B585C7C03AA Make
+
+MEREF ME_4A8039EF0325_ME_4A7FD7E9035C_G
+ MELINK Original WL? 'ME_4A8039EF0325' // TnsCompareEditionsInfoPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A8039EF0325_ME_4A7FD7E9035C_G TnsCompareEditionsInfoPrim
+
+MEREF ME_4A7FD75E00CA_ME_4A7FD7E9035C_R
+ MELINK Original WL 'ME_4A7FD75E00CA' '4A6D56B00065.ms.model.script' // InsEditionDiffData
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A7FD75E00CA_ME_4A7FD7E9035C_R InsEditionDiffData
+
+%%ImplementedBy ME_4A7FD75E00CA ME_4A7FD7E9035C
+
+%%InheritedBy ME_4A8039EF0325 ME_4A7FD7E9035C
+
+ME ME_4A7FD7E9035C
+ MEPROP UID '4A7FD7E9035C'
+ MEPROP Name 'TnsEditionDiffData'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A717F3D0221' // Editions
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A8039EF0325_ME_4A7FD7E9035C_G // TnsCompareEditionsInfoPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4A7FD75E00CA_ME_4A7FD7E9035C_R // InsEditionDiffData
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4B585C7C03AA // Make
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '10.08.2009 12:19'
+ UP extprop:pas:UnitName 'nsEditionDiffData'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EditionDiffData'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Editions\nsEditionDiffData.pas'
+
+ENDME // ME_4A7FD7E9035C TnsEditionDiffData

@@ -1,0 +1,95 @@
+// K289933137 4E8C5F6502AA TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E8C5F6502AA
+
+ME ME_4E8C5F96027B
+ MEPROP UID '4E8C5F96027B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E8C5F6502AA // K289933137
+ ;
+
+ENDME // ME_4E8C5F96027B DoIt
+
+ME ME_4E8C5FB50163
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E8C5F6502AA // K289933137
+ ;
+ MELINK Target WL 'ME_4DAEF1E900D1' '4B8BC148037A.ms.model.script' // Tl3KeyWords
+ ;
+
+ENDME // ME_4E8C5FB50163 
+
+ME ME_4E8C5FDA0198
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E8C5F6502AA // K289933137
+ ;
+ MELINK Target WL 'ME_4787B1BA031F' '4787B0A8007B.ms.model.script' // El3DuplicateItem
+ ;
+
+ENDME // ME_4E8C5FDA0198 
+
+ME ME_4E8C64C70128
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E8C5F6502AA // K289933137
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4E8C64C70128 
+
+MEREF ME_4B2A11BC0255_ME_4E8C5F6502AA_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_4E8C5F6502AA_G TBaseTest
+
+%%InheritedBy ME_4B2A11BC0255 ME_4E8C5F6502AA
+
+ME ME_4E8C5F6502AA
+ MEPROP UID '4E8C5F6502AA'
+ MEPROP Name 'K289933137'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:289933137}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D6BE7850038' // 7.7 Lulin
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B2A11BC0255_ME_4E8C5F6502AA_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4E8C5F96027B // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E8C5FB50163 // Tl3KeyWords
+ ME_4E8C5FDA0198 // El3DuplicateItem
+ ME_4E8C64C70128 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '05.10.2011 17:45'
+ UP extprop:pas:TypeName 'TK289933137'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K289933137'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K289933137.pas'
+
+ENDME // ME_4E8C5F6502AA K289933137

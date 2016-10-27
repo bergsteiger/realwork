@@ -1,0 +1,160 @@
+// TkwString 4DB6CD4203D4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DB6CD4203D4
+
+ME ME_4DB6CDA702EC
+ MEPROP UID '4DB6CDA702EC'
+ MEPROP Name 'Value'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4DB6CD4203D4 // TkwString
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4DB6CDA702EC Value
+
+FORWARD ME_4DB6CD7402A0
+
+FORWARD ME_4DB6CD7C0360
+
+ME ME_4DB6CD8902F9
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4DB6CD8902F9 aValue
+
+ME ME_4DB6CD7C0360
+ MEPROP UID '4DB6CD7C0360'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DB6CD7402A0 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DB6CD8902F9 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_4DB6CD7C0360 DoIt
+
+ME ME_4DB6CD7402A0
+ MEPROP UID '4DB6CD7402A0'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DB6CD4203D4 // TkwString
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DB6CD7C0360 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DB6CD7402A0 Create
+
+ME ME_55BA3D74026A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB6CD4203D4 // TkwString
+ ;
+ MELINK Target WL 'ME_55153C2C036F' '55BA28CE0290.ms.model.script' // TypeInfoExt
+ ;
+
+ENDME // ME_55BA3D74026A 
+
+MEREF ME_4DAEEDE10285_ME_4DB6CD4203D4_impl
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DAEEDE10285_ME_4DB6CD4203D4_impl DoDoIt
+
+MEREF ME_479731C50290_ME_4DB6CD4203D4_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4DB6CD4203D4_over Cleanup
+
+MEREF ME_551544E2001A_ME_4DB6CD4203D4_over
+ MELINK Original WL 'ME_551544E2001A' '4DAF19F600C5.ms.model.script' // GetResultTypeInfo
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_551544E2001A_ME_4DB6CD4203D4_over GetResultTypeInfo
+
+MEREF ME_55AFD7DA0258_ME_4DB6CD4203D4_over
+ MELINK Original WL 'ME_55AFD7DA0258' '4DAF19F600C5.ms.model.script' // WordName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55AFD7DA0258_ME_4DB6CD4203D4_over WordName
+
+MEREF ME_54D229E702B6_ME_4DB6CD4203D4_G
+ MELINK Original WL? 'ME_54D229E702B6' // TtfwRegisterableWordPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54D229E702B6_ME_4DB6CD4203D4_G TtfwRegisterableWordPrim
+
+%%InheritedBy ME_54D229E702B6 ME_4DB6CD4203D4
+
+ME ME_4DB6CD4203D4
+ MEPROP UID '4DB6CD4203D4'
+ MEPROP Name 'TkwString'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Помещает значение в стек как строковое.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F3E3F5F0160' // PrimitiveWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54D229E702B6_ME_4DB6CD4203D4_G // TtfwRegisterableWordPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DB6CDA702EC // Value
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DB6CD7402A0 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DB6CD4203D4_impl // DoDoIt
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4DB6CD4203D4_over // Cleanup
+ ME_551544E2001A_ME_4DB6CD4203D4_over // GetResultTypeInfo
+ ME_55AFD7DA0258_ME_4DB6CD4203D4_over // WordName
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_55BA3D74026A // TypeInfoExt
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '26.04.2011 17:49'
+ UP extprop:pas:UnitName 'kwString'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'String'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwString.pas'
+
+ENDME // ME_4DB6CD4203D4 TkwString

@@ -1,0 +1,63 @@
+// K517772970_TddCaseCodeTask 532180F80327 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_532180F80327
+
+ME ME_53218128035A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532180F80327 // K517772970_TddCaseCodeTask
+ ;
+ MELINK Target WL? 'ME_5305A7410332' // ddCaseCodeMaker
+ ;
+
+ENDME // ME_53218128035A 
+
+MEREF ME_5320088202FB_ME_532180F80327_over
+ MELINK Original WL 'ME_5320088202FB' '532008240001.ms.model.script' // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5320088202FB_ME_532180F80327_over TaskClass
+
+MEREF ME_53214BA801AC_ME_532180F80327_G
+ MELINK Original WL? 'ME_53214BA801AC' // K517772970_TcsExport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53214BA801AC_ME_532180F80327_G K517772970_TcsExport
+
+%%InheritedBy ME_53214BA801AC ME_532180F80327
+
+ME ME_532180F80327
+ MEPROP UID '532180F80327'
+ MEPROP Name 'K517772970_TddCaseCodeTask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_531FF6280311' // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53214BA801AC_ME_532180F80327_G // K517772970_TcsExport
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_532180F80327_over // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53218128035A // ddCaseCodeMaker
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TK517772970_TddCaseCodeTask'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K517772970_TddCaseCodeTask'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddCaseCodeTask.pas'
+
+ENDME // ME_532180F80327 K517772970_TddCaseCodeTask

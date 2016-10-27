@@ -1,0 +1,75 @@
+// Tl3CustomLongintListView 4DEFB340025B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DEFB340025B
+
+ME ME_4DEFB36303C3
+ MEPROP UID '4DEFB36303C3'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DEFB340025B // Tl3CustomLongintListView
+ ;
+ MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
+ ;
+
+ENDME // ME_4DEFB36303C3 ListType
+
+ME ME_4DEFB76D017F
+ MEPROP UID '4DEFB76D017F'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DEFB340025B // Tl3CustomLongintListView
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DEFB76D017F ItemType
+
+MEREF ME_4DEFC3B90061_ME_4DEFB340025B_G
+ MELINK Original WL? 'ME_4DEFC3B90061' // l3OtherTypedListView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DEFC3B90061_ME_4DEFB340025B_G l3OtherTypedListView
+
+%%InheritedBy ME_4DEFC3B90061 ME_4DEFB340025B
+
+ME ME_4DEFB340025B
+ MEPROP UID '4DEFB340025B'
+ MEPROP Name 'Tl3CustomLongintListView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4A6D65B9022A' // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DEFC3B90061_ME_4DEFB340025B_G // l3OtherTypedListView
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DEFB36303C3 // ListType
+ HWL ME_4DEFB76D017F // ItemType
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "started" '08.06.2011 21:37'
+ UP extprop:pas:UnitName 'l3CustomLongintListView'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LongintListView'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3CustomLongintListView.pas'
+
+ENDME // ME_4DEFB340025B Tl3CustomLongintListView

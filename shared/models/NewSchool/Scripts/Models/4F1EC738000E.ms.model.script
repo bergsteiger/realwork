@@ -1,0 +1,76 @@
+// TnevTableAnchor 4F1EC738000E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F1EC738000E
+
+ME ME_53D67266024A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4F1EC738000E // TnevTableAnchor
+ ;
+ MELINK Target WL? 'ME_4857E163036B' // TevTable
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D67266024A 
+
+ME ME_53D67286007A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_4F1EC738000E // TnevTableAnchor
+ ;
+ MELINK Target WL 'ME_47C5B5BE009D' '47C5207602D1.ms.model.script' // InevAnchor
+ ;
+
+ENDME // ME_53D67286007A 
+
+MEREF ME_48CF73CE00B5_ME_4F1EC738000E_over
+ MELINK Original WL 'ME_48CF73CE00B5' '467C185C03E7.ms.model.script' // DoFire
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48CF73CE00B5_ME_4F1EC738000E_over DoFire
+
+MEREF ME_4A3F457A0129_ME_4F1EC738000E_G
+ MELINK Original WL? 'ME_4A3F457A0129' // TnevParaListAnchor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A3F457A0129_ME_4F1EC738000E_G TnevParaListAnchor
+
+%%InjectedBy ME_4857E163036B ME_4F1EC738000E
+
+%%InheritedBy ME_4A3F457A0129 ME_4F1EC738000E
+
+ME ME_4F1EC738000E
+ MEPROP UID '4F1EC738000E'
+ MEPROP Name 'TnevTableAnchor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3B771101D5' // Anchors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A3F457A0129_ME_4F1EC738000E_G // TnevParaListAnchor
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48CF73CE00B5_ME_4F1EC738000E_over // DoFire
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53D67266024A // TevTable
+ ME_53D67286007A // InevAnchor
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nevTableAnchor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TableAnchor'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevTableAnchor.pas'
+
+ENDME // ME_4F1EC738000E TnevTableAnchor

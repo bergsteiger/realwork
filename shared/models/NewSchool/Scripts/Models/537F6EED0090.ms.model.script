@@ -1,0 +1,81 @@
+// TdtNumRangeList 537F6EED0090 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_537F6EED0090
+
+ME ME_537F6F040072
+ MEPROP UID '537F6F040072'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537F6EED0090 // TdtNumRangeList
+ ;
+ MELINK Target WL? 'ME_537F6DA00036' // TdtNumRange
+ ;
+
+ENDME // ME_537F6F040072 ItemType
+
+MEREF ME_47B2C42A0163_ME_537F6EED0090_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_537F6EED0090_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_537F6EED0090_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_537F6EED0090_impl CompareExistingItems
+
+MEREF ME_47B99E920196_ME_537F6EED0090_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_537F6EED0090_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_537F6EED0090_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_537F6EED0090_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B99E920196 ME_537F6EED0090
+%%InheritedBy ME_4A54DD4E036F ME_537F6EED0090
+
+ME ME_537F6EED0090
+ MEPROP UID '537F6EED0090'
+ MEPROP Name 'TdtNumRangeList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_537F6D320018' // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B99E920196_ME_537F6EED0090_G // l3UncomparabeObjectRefList
+ HWL ME_4A54DD4E036F_ME_537F6EED0090_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_537F6F040072 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_537F6EED0090_impl // AssignItem
+ ME_47B99D4503A2_ME_537F6EED0090_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'dtNumRangeList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dtNumRangeList'
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\dtNumRangeList.pas'
+
+ENDME // ME_537F6EED0090 TdtNumRangeList

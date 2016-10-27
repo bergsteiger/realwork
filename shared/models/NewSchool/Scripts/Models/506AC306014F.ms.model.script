@@ -260,7 +260,7 @@ ME ME_551D4D45018E
  MELINK Stereotype st_friend::Dependency ;
  MELINK Parent HWL ME_506AC306014F // VGSceneWordsPack
  ;
- MELINK Target WL 'ME_4D49562A01B7' '4CFCE51A00B0.ms.model.script' // TvgVisualObject
+ MELINK Target WL? 'ME_4D49562A01B7' // TvgVisualObject
  ;
 
 ENDME // ME_551D4D45018E 
@@ -290,7 +290,7 @@ ME ME_551D5C1202F4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_506AC306014F // VGSceneWordsPack
  ;
- MELINK Target WL 'ME_4D4956480326' '4CFCE51A00B0.ms.model.script' // TvgObject
+ MELINK Target WL? 'ME_4D4956480326' // TvgObject
  ;
 
 ENDME // ME_551D5C1202F4 
@@ -315,6 +315,12 @@ ME ME_552259DA039D
 
 ENDME // ME_552259DA039D 
 
+MEREF ME_4D49562A01B7_ME_506AC306014F_G
+ MELINK Original WL? 'ME_4D49562A01B7' // TvgVisualObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D49562A01B7_ME_506AC306014F_G TvgVisualObject
+
 %%InjectedBy ME_4CFCF4840379 ME_506AC306014F
 
 %%InheritedBy ME_4D49562A01B7 ME_506AC306014F
@@ -331,7 +337,7 @@ ME ME_506AC306014F
  MELINK Parent WL? 'ME_506AC2F00283' // VGSceneWords
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4D49562A01B7' '4CFCE51A00B0.ms.model.script' // TvgVisualObject
+   Seq: ( HWL ME_4D49562A01B7_ME_506AC306014F_G // TvgVisualObject
  )
  ; // Inherits
  MELIST Operations

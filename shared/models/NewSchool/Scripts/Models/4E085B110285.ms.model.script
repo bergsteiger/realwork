@@ -1,0 +1,507 @@
+// TbsDocumentMissingMessage 4E085B110285 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E085B110285
+
+FORWARD ME_4E08B77F03B5
+
+FORWARD ME_4E08B798037B
+
+FORWARD ME_4E09AFC40022
+
+ME ME_4E09CDBF02B6
+ MEPROP UID '4E09CDBF02B6'
+ MEPROP Name 'First'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Запросить отсутствующий документ у специалиста Правовой поддержки онлайн''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E09AFC40022 // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4E09CDBF02B6 First
+
+MEREF ME_4E09CDBF02B6_ME_4E09CDD80287_G
+ MELINK Original HWL ME_4E09CDBF02B6 // First
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E09CDBF02B6_ME_4E09CDD80287_G First
+
+%%InheritedBy ME_4E09CDBF02B6 ME_4E09CDD80287
+
+ME ME_4E09CDD80287
+ MEPROP UID '4E09CDD80287'
+ MEPROP Name 'Second'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Вернуться в открытый документ''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E09AFC40022 // Choices
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E09CDBF02B6_ME_4E09CDD80287_G // First
+ )
+ ; // Inherits
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4E09CDD80287 Second
+
+ME ME_4E09AFC40022
+ MEPROP UID '4E09AFC40022'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E08B798037B // DocumentMissing
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E09CDBF02B6 // First
+ HWL ME_4E09CDD80287 // Second
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4E09AFC40022 Choices
+
+ME ME_4E09D37B005B
+ MEPROP UID '4E09D37B005B'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_CustomChoice::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4E08B798037B // DocumentMissing
+ ;
+ MELINK Target HWL ME_4E09CDBF02B6 // First
+ ;
+
+ENDME // ME_4E09D37B005B 
+
+ME ME_4E0A03E10122
+ MEPROP UID '4E0A03E10122'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_DefaultChoice::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4E08B798037B // DocumentMissing
+ ;
+ MELINK Target HWL ME_4E09CDD80287 // Second
+ ;
+
+ENDME // ME_4E0A03E10122 
+
+ME ME_4E08B798037B
+ MEPROP UID '4E08B798037B'
+ MEPROP Name 'DocumentMissing'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Данный документ не включён в состав Вашего комплекта.''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E08B77F03B5 // Local
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E09D37B005B // 
+ HWL ME_4E0A03E10122 // 
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4E09AFC40022 // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" False
+ UP "DlgType" 'Warning'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "NeedCheck" False
+
+ENDME // ME_4E08B798037B DocumentMissing
+
+ME ME_4E0B29630091
+ MEPROP UID '4E0B29630091'
+ MEPROP Name 'MissingDocumentIsContainedInBlock'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E08B77F03B5 // Local
+ ;
+ MEPROP Value '''Документ содержится в информационном блоке:'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Документ содержится в информационном блоке:'''
+
+ENDME // ME_4E0B29630091 MissingDocumentIsContainedInBlock
+
+ME ME_4E0B29C50297
+ MEPROP UID '4E0B29C50297'
+ MEPROP Name 'MissingDocumentIsContainedInBlocks'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E08B77F03B5 // Local
+ ;
+ MEPROP Value '''Документ содержится в информационных блоках:'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Документ содержится в информационных блоках:'''
+
+ENDME // ME_4E0B29C50297 MissingDocumentIsContainedInBlocks
+
+ME ME_4E0B29E2017C
+ MEPROP UID '4E0B29E2017C'
+ MEPROP Name 'MissingDocumentInfo'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E08B77F03B5 // Local
+ ;
+ MEPROP Value '''Подробнее о запрашиваемом документе'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Подробнее о запрашиваемом документе'''
+
+ENDME // ME_4E0B29E2017C MissingDocumentInfo
+
+ME ME_4E0B2A04033B
+ MEPROP UID '4E0B2A04033B'
+ MEPROP Name 'ContactInfo'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E08B77F03B5 // Local
+ ;
+ MEPROP Value '''Контактная информация'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Контактная информация'''
+
+ENDME // ME_4E0B2A04033B ContactInfo
+
+ME ME_4E08B77F03B5
+ MEPROP UID '4E08B77F03B5'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E085B110285 // TbsDocumentMissingMessage
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E0B29630091 // MissingDocumentIsContainedInBlock
+ HWL ME_4E0B29C50297 // MissingDocumentIsContainedInBlocks
+ HWL ME_4E0B29E2017C // MissingDocumentInfo
+ HWL ME_4E0B2A04033B // ContactInfo
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4E08B798037B // DocumentMissing
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4E08B77F03B5 Local
+
+FORWARD ME_4E085B3F01F5
+
+FORWARD ME_4E085B7003B3
+
+ME ME_4E085B7C018A
+ MEPROP Name 'AllowConsulting'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_4E085B7C018A AllowConsulting
+
+ME ME_4E085B7C0304
+ MEPROP Name 'aMissingInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520309' '4570511E038A.ms.model.script' // MissingInfo
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_45EEB6520309' '4570511E038A.ms.model.script' // MissingInfo
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4E085B7C0304 aMissingInfo
+
+ME ME_4E085B7003B3
+ MEPROP UID '4E085B7003B3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E085B3F01F5 // Show
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E085B7C018A // AllowConsulting
+ ME_4E085B7C0304 // aMissingInfo
+ )
+ ; // Parameters
+
+ENDME // ME_4E085B7003B3 DoIt
+
+ME ME_4E085C12000E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E085B3F01F5 // Show
+ ;
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
+ ;
+
+ENDME // ME_4E085C12000E 
+
+ME ME_4E0869BE00CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E085B3F01F5 // Show
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4E0869BE00CE 
+
+ME ME_4E0869F100C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E085B3F01F5 // Show
+ ;
+ MELINK Target WL 'ME_4AB882990057' '4A6854C70390.ms.model.script' // nsCStr
+ ;
+
+ENDME // ME_4E0869F100C8 
+
+ME ME_4E086A28010D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E085B3F01F5 // Show
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48FF556602BA.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_4E086A28010D 
+
+ME ME_4E086A8C0298
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E085B3F01F5 // Show
+ ;
+ MELINK Target WL 'ME_4A9D12BB00CC' '4E01D696020C.ms.model.script' // ShowMessageDlg
+ ;
+
+ENDME // ME_4E086A8C0298 
+
+ME ME_4E086B33035C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E085B3F01F5 // Show
+ ;
+ MELINK Target WL 'ME_45EEE13200E5' '45EEAA8E034E.ms.model.script' // QueryType
+ ;
+
+ENDME // ME_4E086B33035C 
+
+ME ME_4E086B6702C4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E085B3F01F5 // Show
+ ;
+ MELINK Target WL? 'ME_4B8E676500AD' // vcmDialogs
+ ;
+
+ENDME // ME_4E086B6702C4 
+
+ME ME_4E086BBC0089
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E085B3F01F5 // Show
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4E086BBC0089 
+
+ME ME_4E086C0901C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E085B3F01F5 // Show
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4E086C0901C3 
+
+ME ME_4E086D370345
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E085B3F01F5 // Show
+ ;
+ MELINK Target WL 'ME_476A763702A8' '49942E3202B3.ms.model.script' // PvcmMessageID
+ ;
+
+ENDME // ME_4E086D370345 
+
+ME ME_4E0879230287
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E085B3F01F5 // Show
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4E0879230287 
+
+ME ME_4E087941005C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E085B3F01F5 // Show
+ ;
+ MELINK Target WL 'ME_4A8ADF9E0058' '47F25BC801DB.ms.model.script' // vcmFmt
+ ;
+
+ENDME // ME_4E087941005C 
+
+ME ME_4E0879710101
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E085B3F01F5 // Show
+ ;
+ MELINK Target WL 'ME_47A082F101DB' '476BE98C01B8.ms.model.script' // Ext Chars
+ ;
+
+ENDME // ME_4E0879710101 
+
+ME ME_4E0879BD03BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E085B3F01F5 // Show
+ ;
+ MELINK Target WL? 'ME_4AE8A02C03E7' // nsQuery
+ ;
+
+ENDME // ME_4E0879BD03BD 
+
+ME ME_4E14687502F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E085B3F01F5 // Show
+ ;
+ MELINK Target WL? 'ME_483C378301CB' // StrUtils
+ ;
+
+ENDME // ME_4E14687502F8 
+
+ME ME_4E085B3F01F5
+ MEPROP UID '4E085B3F01F5'
+ MEPROP Name 'Show'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Показывает сообщение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E085B110285 // TbsDocumentMissingMessage
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E085B7003B3 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E085C12000E // StdRes
+ ME_4E0869BE00CE // l3String
+ ME_4E0869F100C8 // nsCStr
+ ME_4E086A28010D // DefDataAdapter
+ ME_4E086A8C0298 // ShowMessageDlg
+ ME_4E086B33035C // QueryType
+ ME_4E086B6702C4 // vcmDialogs
+ ME_4E086BBC0089 // Il3CString
+ ME_4E086C0901C3 // String
+ ME_4E086D370345 // PvcmMessageID
+ ME_4E0879230287 // SysUtils
+ ME_4E087941005C // vcmFmt
+ ME_4E0879710101 // Ext Chars
+ ME_4E0879BD03BD // nsQuery
+ ME_4E14687502F8 // StrUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" True
+
+ENDME // ME_4E085B3F01F5 Show
+
+ME ME_4E085B110285
+ MEPROP UID '4E085B110285'
+ MEPROP Name 'TbsDocumentMissingMessage'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'сообщение которое выдается при открытии документа или ссылки, которой'#13#10'       нет в базе (находится в отсутствующих блоках)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E085A9E00F0' // DocumentUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E085B3F01F5 // Show
+ )
+ ; // Operations
+ MELIST Constants
+   Seq: ( HWL ME_4E08B77F03B5 // Local
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '27.06.2011 14:27'
+ UP extprop:pas:UnitName 'bsDocumentMissingMessage'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'bsDocumentMissingMessage'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\bsDocumentMissingMessage.pas'
+
+ENDME // ME_4E085B110285 TbsDocumentMissingMessage

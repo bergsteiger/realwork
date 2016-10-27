@@ -1,0 +1,337 @@
+// ViewBase 45F57B6C0128 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_45F57B6C0128
+
+ME ME_46025C6602BF
+ MEPROP UID '46025C6602BF'
+ MEPROP Name 'mode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45F57B6C0128 // ViewBase
+ ;
+ MELINK Target WL 'ME_45F80B600000' '45F66E6A02BF.ms.model.script' // FlagMask
+ ;
+ UP "pm" True
+
+ENDME // ME_46025C6602BF mode
+
+ME ME_46025C860251
+ MEPROP UID '46025C860251'
+ MEPROP Name 'parent_tree_root'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_45F57B6C0128 // ViewBase
+ ;
+ MELINK Target WL? 'ME_45F7ECA8034B' // DefaultNodeBase
+ ;
+ UP "pm" True
+
+ENDME // ME_46025C860251 parent_tree_root
+
+ME ME_46025C9E01D4
+ MEPROP UID '46025C9E01D4'
+ MEPROP Name 'maximum_levels_restriction'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45F57B6C0128 // ViewBase
+ ;
+ MELINK Target WL 'ME_450A6117003E' '3DBFDB23006E.ms.model.script' // unsigned integer
+ ;
+ UP "pm" True
+
+ENDME // ME_46025C9E01D4 maximum_levels_restriction
+
+ME ME_46025CBB01B5
+ MEPROP UID '46025CBB01B5'
+ MEPROP Name 'auto_open'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45F57B6C0128 // ViewBase
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP "pm" True
+
+ENDME // ME_46025CBB01B5 auto_open
+
+ME ME_46025BAC02FD
+ MEPROP UID '46025BAC02FD'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F57B6C0128 // ViewBase
+ ;
+
+ENDME // ME_46025BAC02FD make
+
+FORWARD ME_46272A80037A
+
+ME ME_46272AA7031C
+ MEPROP Name 'snode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_46272AA7031C snode
+
+ME ME_46272B6102AF
+ MEPROP Name 'current_stub'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL? 'ME_45F52C0602BF' // FlagNodeBase
+ ;
+
+ENDME // ME_46272B6102AF current_stub
+
+ME ME_46272A80037A
+ MEPROP UID '46272A80037A'
+ MEPROP Name 'build_node'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F57B6C0128 // ViewBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_46272AA7031C // snode
+ ME_46272B6102AF // current_stub
+ )
+ ; // Parameters
+
+ENDME // ME_46272A80037A build_node
+
+FORWARD ME_46025D6F0000
+
+ME ME_46025D850148
+ MEPROP Name 'mode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45F80B600000' '45F66E6A02BF.ms.model.script' // FlagMask
+ ;
+
+ENDME // ME_46025D850148 mode
+
+ME ME_46025D850196
+ MEPROP Name 'levels'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_450A6117003E' '3DBFDB23006E.ms.model.script' // unsigned integer
+ ;
+
+ENDME // ME_46025D850196 levels
+
+ME ME_46025DE7033C
+ MEPROP Name 'auto_open'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_46025DE7033C auto_open
+
+ME ME_46025DE7038A
+ MEPROP Name 'parent_tree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_45F554750213' // TreeBase
+ ;
+
+ENDME // ME_46025DE7038A parent_tree
+
+ME ME_46025DE80000
+ MEPROP Name 'server_tree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_46025DE80000 server_tree
+
+ME ME_46025D6F0000
+ MEPROP UID '46025D6F0000'
+ MEPROP Name 'init'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F57B6C0128 // ViewBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_46025D850148 // mode
+ ME_46025D850196 // levels
+ ME_46025DE7033C // auto_open
+ ME_46025DE7038A // parent_tree
+ ME_46025DE80000 // server_tree
+ )
+ ; // Parameters
+
+ENDME // ME_46025D6F0000 init
+
+ME ME_4627254E035B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_friend::Dependency ;
+ MELINK Parent HWL ME_45F57B6C0128 // ViewBase
+ ;
+ MELINK Target WL? 'ME_45F554750213' // TreeBase
+ ;
+
+ENDME // ME_4627254E035B 
+
+ME ME_46272BF5032C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_45F57B6C0128 // ViewBase
+ ;
+ MELINK Target WL? 'ME_45F7D8410157' // RealNodeBase
+ ;
+
+ENDME // ME_46272BF5032C 
+
+ME ME_46272C79031C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_45F57B6C0128 // ViewBase
+ ;
+
+ENDME // ME_46272C79031C 
+
+ME ME_46272DC40232
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_friend::Dependency ;
+ MELINK Parent HWL ME_45F57B6C0128 // ViewBase
+ ;
+ MELINK Target WL? 'ME_45F6C139000F' // DelegateNodeBase
+ ;
+
+ENDME // ME_46272DC40232 
+
+ME ME_47CEB268025A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_45F57B6C0128 // ViewBase
+ ;
+ MELINK Target WL? 'ME_460A6EF8024B' // ApplicationHelper
+ ;
+
+ENDME // ME_47CEB268025A 
+
+MEREF ME_460139CE02BF_ME_45F57B6C0128_impl
+ MELINK Original WL 'ME_460139CE02BF' '45F554750213.ms.model.script' // get_change_mutex
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_460139CE02BF_ME_45F57B6C0128_impl get_change_mutex
+
+MEREF ME_4948E2B2038D_ME_45F57B6C0128_impl
+ MELINK Original WL 'ME_4948E2B2038D' '45F554750213.ms.model.script' // tree_name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" False
+ UP "pm" True
+ENDMEREF // ME_4948E2B2038D_ME_45F57B6C0128_impl tree_name
+
+MEREF ME_4601221600DA_ME_45F57B6C0128_over
+ MELINK Original WL 'ME_4601221600DA' '45F554750213.ms.model.script' // is_mode
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4601221600DA_ME_45F57B6C0128_over is_mode
+
+MEREF ME_46012392006D_ME_45F57B6C0128_over
+ MELINK Original WL 'ME_46012392006D' '45F554750213.ms.model.script' // load_nodes_from_server
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_46012392006D_ME_45F57B6C0128_over load_nodes_from_server
+
+MEREF ME_4601240A033C_ME_45F57B6C0128_over
+ MELINK Original WL 'ME_4601240A033C' '45F554750213.ms.model.script' // get_shared_mode
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4601240A033C_ME_45F57B6C0128_over get_shared_mode
+
+MEREF ME_460127560261_ME_45F57B6C0128_over
+ MELINK Original WL 'ME_460127560261' '45F554750213.ms.model.script' // expand_all
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_460127560261_ME_45F57B6C0128_over expand_all
+
+MEREF ME_46012787038A_ME_45F57B6C0128_over
+ MELINK Original WL 'ME_46012787038A' '45F554750213.ms.model.script' // master_tree
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_46012787038A_ME_45F57B6C0128_over master_tree
+
+MEREF ME_45F554750213_ME_45F57B6C0128_G
+ MELINK Original WL? 'ME_45F554750213' // TreeBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45F554750213_ME_45F57B6C0128_G TreeBase
+
+%%InheritedBy ME_45F554750213 ME_45F57B6C0128
+
+ME ME_45F57B6C0128
+ MEPROP UID '45F57B6C0128'
+ MEPROP Name 'ViewBase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_45EEA4490239' // DynamicTree_i
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_45F554750213_ME_45F57B6C0128_G // TreeBase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_46025C6602BF // mode
+ HWL ME_46025C860251 // parent_tree_root
+ HWL ME_46025C9E01D4 // maximum_levels_restriction
+ HWL ME_46025CBB01B5 // auto_open
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_46025BAC02FD // make
+ HWL ME_46272A80037A // build_node
+ HWL ME_46025D6F0000 // init
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_460139CE02BF_ME_45F57B6C0128_impl // get_change_mutex
+ ME_4948E2B2038D_ME_45F57B6C0128_impl // tree_name
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4601221600DA_ME_45F57B6C0128_over // is_mode
+ ME_46012392006D_ME_45F57B6C0128_over // load_nodes_from_server
+ ME_4601240A033C_ME_45F57B6C0128_over // get_shared_mode
+ ME_460127560261_ME_45F57B6C0128_over // expand_all
+ ME_46012787038A_ME_45F57B6C0128_over // master_tree
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4627254E035B // TreeBase
+ ME_46272BF5032C // RealNodeBase
+ ME_46272C79031C // 
+ ME_46272DC40232 // DelegateNodeBase
+ ME_47CEB268025A // ApplicationHelper
+ )
+ ; // Dependencies
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DynamicTree_i\ViewBase.cpp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DynamicTree_i\ViewBase.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ViewBase.pas'
+
+ENDME // ME_45F57B6C0128 ViewBase

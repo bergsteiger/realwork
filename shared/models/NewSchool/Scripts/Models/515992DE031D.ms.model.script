@@ -8,6 +8,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_515992DE031D
 
+MEREF ME_51545EC402A3_ME_515992FB03D5_G
+ MELINK Original WL 'ME_51545EC402A3' '51545DEA00FB.ms.model.script' // ItemsHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51545EC402A3_ME_515992FB03D5_G ItemsHolder
+
 %%InheritedBy ME_51545EC402A3 ME_515992FB03D5
 
 ME ME_515992FB03D5
@@ -21,7 +27,7 @@ ME ME_515992FB03D5
  MELINK Parent HWL ME_515992DE031D // StackTest
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_51545EC402A3' '51545DEA00FB.ms.model.script' // ItemsHolder
+   Seq: ( HWL ME_51545EC402A3_ME_515992FB03D5_G // ItemsHolder
  )
  ; // Inherits
 
@@ -105,7 +111,7 @@ ENDME // ME_515993910266 DoIt
 ME ME_5159938101A2
  MEPROP UID '5159938101A2'
  MEPROP Name 'DoDoIt'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -137,7 +143,7 @@ ENDME // ME_515993BC02B4 DoIt
 ME ME_515993A0015B
  MEPROP UID '515993A0015B'
  MEPROP Name 'GetEtalonData'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -184,7 +190,7 @@ ENDME // ME_51599BF20334 DoIt
 ME ME_51599BD5015F
  MEPROP UID '51599BD5015F'
  MEPROP Name 'ArrayToEtalon'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Вспомогательная функция появившаяся оттого, что динамические массивы умеют к открытым приводиться автоматом, а обратно - нет' ;
@@ -202,7 +208,7 @@ ENDME // ME_51599BD5015F ArrayToEtalon
 ME ME_515996DE014C
  MEPROP UID '515996DE014C'
  MEPROP Name 'DoIt'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Test ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -222,6 +228,12 @@ ME ME_515993E30114
 
 ENDME // ME_515993E30114 
 
+MEREF ME_4B2A0DDE028B_ME_515992DE031D_G
+ MELINK Original WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A0DDE028B_ME_515992DE031D_G TTestCase
+
 %%InheritedBy ME_4B2A0DDE028B ME_515992DE031D
 
 ME ME_515992DE031D
@@ -236,7 +248,7 @@ ME ME_515992DE031D
  MELINK Parent WL? 'ME_5159929F0022' // ContainersTestsPrim
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+   Seq: ( HWL ME_4B2A0DDE028B_ME_515992DE031D_G // TTestCase
  )
  ; // Inherits
  MELIST Attributes

@@ -1,0 +1,233 @@
+// TnsContextListForSearchViaEverestOwnSearcher 4D8A1D6700A0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D8A1D6700A0
+
+ME ME_4D8A3380034B
+ MEPROP UID '4D8A3380034B'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D8A1D6700A0 // TnsContextListForSearchViaEverestOwnSearcher
+ ;
+ MELINK Target WL? 'ME_47E26A16008E' // TnevRangeList
+ ;
+
+ENDME // ME_4D8A3380034B f_List
+
+ME ME_4E073BE1018E
+ MEPROP UID '4E073BE1018E'
+ MEPROP Name 'f_Doc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4D8A1D6700A0 // TnsContextListForSearchViaEverestOwnSearcher
+ ;
+ MELINK Target WL 'ME_49D0E657022F' '4678209200A6.ms.model.script' // InevObjectPrim
+ ;
+
+ENDME // ME_4E073BE1018E f_Doc
+
+FORWARD ME_4D8A33A50117
+
+FORWARD ME_4D8A33B60076
+
+ME ME_4E073BFD0243
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49D0E657022F' '4678209200A6.ms.model.script' // InevObjectPrim
+ ;
+
+ENDME // ME_4E073BFD0243 aDoc
+
+ME ME_4D8A33BA02EA
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_47E26A16008E' // TnevRangeList
+ ;
+
+ENDME // ME_4D8A33BA02EA aList
+
+ME ME_4D8A33B60076
+ MEPROP UID '4D8A33B60076'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D8A33A50117 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E073BFD0243 // aDoc
+ ME_4D8A33BA02EA // aList
+ )
+ ; // Parameters
+
+ENDME // ME_4D8A33B60076 DoIt
+
+ME ME_4D8A344D02B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D8A33A50117 // Create
+ ;
+ MELINK Target WL 'ME_4ADF092A0066' '4773D64E036C.ms.model.script' // l3Set
+ ;
+
+ENDME // ME_4D8A344D02B4 
+
+ME ME_4D8A33A50117
+ MEPROP UID '4D8A33A50117'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D8A1D6700A0 // TnsContextListForSearchViaEverestOwnSearcher
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D8A33B60076 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4D8A344D02B4 // l3Set
+ )
+ ; // Dependencies
+
+ENDME // ME_4D8A33A50117 Create
+
+MEREF ME_4D8A33A50117_ME_4D8A33C90174_G
+ MELINK Original HWL ME_4D8A33A50117 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D8A33A50117_ME_4D8A33C90174_G Create
+
+MEREF ME_4CA32AC30364_ME_4D8A33C90174_R
+ MELINK Original WL 'ME_4CA32AC30364' '4570511E038A.ms.model.script' // ContextList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CA32AC30364_ME_4D8A33C90174_R ContextList
+
+%%ImplementedBy ME_4CA32AC30364 ME_4D8A33C90174
+
+%%InheritedBy ME_4D8A33A50117 ME_4D8A33C90174
+
+ME ME_4D8A33C90174
+ MEPROP UID '4D8A33C90174'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D8A1D6700A0 // TnsContextListForSearchViaEverestOwnSearcher
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D8A33A50117_ME_4D8A33C90174_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4CA32AC30364_ME_4D8A33C90174_R // ContextList
+ )
+ ; // Implements
+
+ENDME // ME_4D8A33C90174 Make
+
+ME ME_4D8A339E00C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D8A1D6700A0 // TnsContextListForSearchViaEverestOwnSearcher
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4D8A339E00C0 
+
+ME ME_4D8A36F30242
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D8A1D6700A0 // TnsContextListForSearchViaEverestOwnSearcher
+ ;
+ MELINK Target WL? 'ME_4D8A35D7008B' // TnsFragmentListForSearchViaEverestOwnSearcher
+ ;
+
+ENDME // ME_4D8A36F30242 
+
+MEREF ME_479731C50290_ME_4D8A1D6700A0_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4D8A1D6700A0_over Cleanup
+
+MEREF ME_4C9C9A0603D6_ME_4D8A1D6700A0_G
+ MELINK Original WL? 'ME_4C9C9A0603D6' // Tl3ProtoObjectForTie
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C9C9A0603D6_ME_4D8A1D6700A0_G Tl3ProtoObjectForTie
+
+MEREF ME_4CA32AC30364_ME_4D8A1D6700A0_R
+ MELINK Original WL 'ME_4CA32AC30364' '4570511E038A.ms.model.script' // ContextList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CA32AC30364_ME_4D8A1D6700A0_R ContextList
+
+%%ImplementedBy ME_4CA32AC30364 ME_4D8A1D6700A0
+
+%%InheritedBy ME_4C9C9A0603D6 ME_4D8A1D6700A0
+
+ME ME_4D8A1D6700A0
+ MEPROP UID '4D8A1D6700A0'
+ MEPROP Name 'TnsContextListForSearchViaEverestOwnSearcher'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D8A25430335' // ContextSearchInEVDDocument
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C9C9A0603D6_ME_4D8A1D6700A0_G // Tl3ProtoObjectForTie
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4CA32AC30364_ME_4D8A1D6700A0_R // ContextList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4D8A3380034B // f_List
+ HWL ME_4E073BE1018E // f_Doc
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D8A33A50117 // Create
+ HWL ME_4D8A33C90174 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4D8A1D6700A0_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D8A339E00C0 // FreeAndNil
+ ME_4D8A36F30242 // TnsFragmentListForSearchViaEverestOwnSearcher
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "need UC" True
+ UP "no hands" True
+ UP "started" '23.03.2011 19:19'
+ UP extprop:pas:UnitName 'nsContextListForSearchViaEverestOwnSearcher'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ContextListForSearchViaEverestOwnSearcher'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsContextListForSearchViaEverestOwnSearcher.pas'
+
+ENDME // ME_4D8A1D6700A0 TnsContextListForSearchViaEverestOwnSearcher

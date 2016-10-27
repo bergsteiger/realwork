@@ -1,0 +1,91 @@
+// Tl3BaseWithID 47BD85FA015F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47BD85FA015F
+
+ME ME_47BDA19C0074
+ MEPROP UID '47BDA19C0074'
+ MEPROP Name 'ID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47BD85FA015F // Tl3BaseWithID
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" False
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_47BDA19C0074 ID
+
+FORWARD ME_47BD8AF20271
+
+ME ME_47BD8B000201
+ MEPROP Name 'aHandle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47BD8B000201 aHandle
+
+ME ME_47BD8AF20271
+ MEPROP UID '47BD8AF20271'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_vctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47BD85FA015F // Tl3BaseWithID
+ ;
+ MELIST Parameters
+   Seq: ( ME_47BD8B000201 // aHandle
+ )
+ ; // Parameters
+
+ENDME // ME_47BD8AF20271 Create
+
+MEREF ME_49E7754802A9_ME_47BD85FA015F_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_47BD85FA015F_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_47BD85FA015F
+
+ME ME_47BD85FA015F
+ MEPROP UID '47BD85FA015F'
+ MEPROP Name 'Tl3BaseWithID'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_47BD85FA015F_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47BDA19C0074 // ID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47BD8AF20271 // Create
+ )
+ ; // Operations
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '02.12.2003 13:06'
+ UP extprop:pas:UnitName 'l3BaseWithID'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BaseWithID'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3BaseWithID.pas'
+
+ENDME // ME_47BD85FA015F Tl3BaseWithID

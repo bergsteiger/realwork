@@ -7,6 +7,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4981AC0701C1
 
+MEREF ME_4787A405013D_ME_4981AC530096_G
+ MELINK Original WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4787A405013D_ME_4981AC530096_G Exception
+
 %%InheritedBy ME_4787A405013D ME_4981AC530096
 
 ME ME_4981AC530096
@@ -21,11 +27,17 @@ ME ME_4981AC530096
  MELINK Parent HWL ME_4981AC0701C1 // ComObj
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+   Seq: ( HWL ME_4787A405013D_ME_4981AC530096_G // Exception
  )
  ; // Inherits
 
 ENDME // ME_4981AC530096 EOleError
+
+MEREF ME_4981AC530096_ME_4981AC2F0294_G
+ MELINK Original HWL ME_4981AC530096 // EOleError
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4981AC530096_ME_4981AC2F0294_G EOleError
 
 %%InheritedBy ME_4981AC530096 ME_4981AC2F0294
 
@@ -41,7 +53,7 @@ ME ME_4981AC2F0294
  MELINK Parent HWL ME_4981AC0701C1 // ComObj
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4981AC530096 // EOleError
+   Seq: ( HWL ME_4981AC530096_ME_4981AC2F0294_G // EOleError
  )
  ; // Inherits
 
@@ -50,7 +62,7 @@ ENDME // ME_4981AC2F0294 EOleSysError
 ME ME_4D186F8401C5
  MEPROP UID '4D186F8401C5'
  MEPROP Name 'OleCheck'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess

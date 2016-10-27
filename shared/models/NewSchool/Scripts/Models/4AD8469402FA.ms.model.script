@@ -1,0 +1,54 @@
+// TnsInpharmContextHistory 4AD8469402FA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AD8469402FA
+
+ME ME_4AD846C10235
+ MEPROP UID '4AD846C10235'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD8469402FA // TnsInpharmContextHistory
+ ;
+ MELINK Target WL 'ME_496B53D10104' '54F9F6FB0143.ms.model.script' // InsContextSearchHistory
+ ;
+
+ENDME // ME_4AD846C10235 Make
+
+MEREF ME_4AD846290145_ME_4AD8469402FA_G
+ MELINK Original WL? 'ME_4AD846290145' // TnsInpharmContextHistoryPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AD846290145_ME_4AD8469402FA_G TnsInpharmContextHistoryPrim
+
+%%InheritedBy ME_4AD846290145 ME_4AD8469402FA
+
+ME ME_4AD8469402FA
+ MEPROP UID '4AD8469402FA'
+ MEPROP Name 'TnsInpharmContextHistory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F9EC5B0269' // ContextHistory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AD846290145_ME_4AD8469402FA_G // TnsInpharmContextHistoryPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4AD846C10235 // Make
+ )
+ ; // Operations
+ UP "singleton" True
+ UP extprop:pas:UnitName 'nsInpharmContextHistory'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'InpharmContextHistory'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsInpharmContextHistory.pas'
+
+ENDME // ME_4AD8469402FA TnsInpharmContextHistory

@@ -1,0 +1,90 @@
+// ListTreeView 5465B85E011B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5465B85E011B
+
+ME ME_5465B88C02BC
+ MEPROP UID '5465B88C02BC'
+ MEPROP Name 'NodeDelegateType_'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_template::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5465B85E011B // ListTreeView
+ ;
+
+ENDME // ME_5465B88C02BC NodeDelegateType_
+
+ME ME_5465C2970213
+ MEPROP UID '5465C2970213'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5465B85E011B // ListTreeView
+ ;
+
+ENDME // ME_5465C2970213 make
+
+ME ME_5465C14C03C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5465B85E011B // ListTreeView
+ ;
+
+ENDME // ME_5465C14C03C0 
+
+MEREF ME_460127E400EA_ME_5465B85E011B_over
+ MELINK Original WL 'ME_460127E400EA' '45F554750213.ms.model.script' // alloc_new_view
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_460127E400EA_ME_5465B85E011B_over alloc_new_view
+
+MEREF ME_45F6583E001F_ME_5465B85E011B_R
+ MELINK Original WL? 'ME_45F6583E001F' // View
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45F6583E001F_ME_5465B85E011B_R View
+
+%%ImplementedBy ME_45F6583E001F ME_5465B85E011B
+
+ME ME_5465B85E011B
+ MEPROP UID '5465B85E011B'
+ MEPROP Name 'ListTreeView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_45741B780271' // DynamicDocList_i
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_45F6583E001F_ME_5465B85E011B_R // View
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5465B88C02BC // NodeDelegateType_
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5465C2970213 // make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_460127E400EA_ME_5465B85E011B_over // alloc_new_view
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5465C14C03C0 // 
+ )
+ ; // Dependencies
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DynamicDocList_i\ListTreeView.cpp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DynamicDocList_i\ListTreeView.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ListTreeView.pas'
+
+ENDME // ME_5465B85E011B ListTreeView

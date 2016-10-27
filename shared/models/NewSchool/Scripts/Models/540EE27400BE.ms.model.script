@@ -1,0 +1,59 @@
+// Tl3ExceptionsLogEx 540EE27400BE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_540EE287029C_ME_540EE27400BE_over
+ MELINK Original WL 'ME_540EE287029C' '540EE24702BC.ms.model.script' // SetOnException
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef" '_m0USEFORMS1'
+ENDMEREF // ME_540EE287029C_ME_540EE27400BE_over SetOnException
+
+MEREF ME_540EE29A0095_ME_540EE27400BE_over
+ MELINK Original WL 'ME_540EE29A0095' '540EE24702BC.ms.model.script' // ResOnException
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef" '_m0USEFORMS1'
+ENDMEREF // ME_540EE29A0095_ME_540EE27400BE_over ResOnException
+
+MEREF ME_5422E8FC025D_ME_540EE27400BE_over
+ MELINK Original WL 'ME_5422E8FC025D' '540EE24702BC.ms.model.script' // NeedTime
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5422E8FC025D_ME_540EE27400BE_over NeedTime
+
+MEREF ME_540EE24702BC_ME_540EE27400BE_G
+ MELINK Original WL? 'ME_540EE24702BC' // Tl3ExceptionsLog
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_540EE24702BC_ME_540EE27400BE_G Tl3ExceptionsLog
+
+%%InheritedBy ME_540EE24702BC ME_540EE27400BE
+
+ME ME_540EE27400BE
+ MEPROP UID '540EE27400BE'
+ MEPROP Name 'Tl3ExceptionsLogEx'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_540EE231015D' // Logging
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_540EE24702BC_ME_540EE27400BE_G // Tl3ExceptionsLog
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_540EE287029C_ME_540EE27400BE_over // SetOnException
+ ME_540EE29A0095_ME_540EE27400BE_over // ResOnException
+ ME_5422E8FC025D_ME_540EE27400BE_over // NeedTime
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'l3ExceptionsLogEx'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ExceptionsLogEx'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ExceptionsLogEx.pas'
+
+ENDME // ME_540EE27400BE Tl3ExceptionsLogEx

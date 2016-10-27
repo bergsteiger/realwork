@@ -1,0 +1,267 @@
+// TmsmMultiPanelViewParent 57B3468D0000 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57B3468D0000
+
+ME ME_57B346C30075
+ MEPROP UID '57B346C30075'
+ MEPROP Name 'f_Parent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B3468D0000 // TmsmMultiPanelViewParent
+ ;
+ MELINK Target WL 'ME_57B345B20359' '57AAE8D403E5.ms.model.script' // TmsmViewParentControl
+ ;
+
+ENDME // ME_57B346C30075 f_Parent
+
+ME ME_57B4214F03AE
+ MEPROP UID '57B4214F03AE'
+ MEPROP Name 'f_Parents'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B3468D0000 // TmsmMultiPanelViewParent
+ ;
+ MELINK Target WL? 'ME_57B420C602B2' // TmsmViewParentControlList
+ ;
+
+ENDME // ME_57B4214F03AE f_Parents
+
+ME ME_57B4215E00ED
+ MEPROP UID '57B4215E00ED'
+ MEPROP Name 'f_Views'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B3468D0000 // TmsmMultiPanelViewParent
+ ;
+ MELINK Target WL? 'ME_57B420A601C7' // TmsmViewList
+ ;
+
+ENDME // ME_57B4215E00ED f_Views
+
+FORWARD ME_57B346D700A8
+
+FORWARD ME_57B346E20154
+
+ME ME_57B346F50238
+ MEPROP Name 'aParent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57B345B20359' '57AAE8D403E5.ms.model.script' // TmsmViewParentControl
+ ;
+
+ENDME // ME_57B346F50238 aParent
+
+ME ME_57B346E20154
+ MEPROP UID '57B346E20154'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B346D700A8 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57B346F50238 // aParent
+ )
+ ; // Parameters
+
+ENDME // ME_57B346E20154 DoIt
+
+ME ME_57B346D700A8
+ MEPROP UID '57B346D700A8'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B3468D0000 // TmsmMultiPanelViewParent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57B346E20154 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57B346D700A8 Create
+
+MEREF ME_57B346D700A8_ME_57B3470D0048_G
+ MELINK Original HWL ME_57B346D700A8 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B346D700A8_ME_57B3470D0048_G Create
+
+MEREF ME_57AAF0E701FA_ME_57B3470D0048_R
+ MELINK Original WL 'ME_57AAF0E701FA' '57AAE8D403E5.ms.model.script' // ImsmViewParent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AAF0E701FA_ME_57B3470D0048_R ImsmViewParent
+
+%%ImplementedBy ME_57AAF0E701FA ME_57B3470D0048
+
+%%InheritedBy ME_57B346D700A8 ME_57B3470D0048
+
+ME ME_57B3470D0048
+ MEPROP UID '57B3470D0048'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B3468D0000 // TmsmMultiPanelViewParent
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57B346D700A8_ME_57B3470D0048_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57AAF0E701FA_ME_57B3470D0048_R // ImsmViewParent
+ )
+ ; // Implements
+
+ENDME // ME_57B3470D0048 Make
+
+FORWARD ME_57EA4F0302FD
+
+ME ME_57EA4F0A03B0
+ MEPROP UID '57EA4F0A03B0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EA4F0302FD // IsVert
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57EA4F0A03B0 DoIt
+
+ME ME_57EA4F0302FD
+ MEPROP UID '57EA4F0302FD'
+ MEPROP Name 'IsVert'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B3468D0000 // TmsmMultiPanelViewParent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EA4F0A03B0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EA4F0302FD IsVert
+
+ME ME_57B42A420060
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57B3468D0000 // TmsmMultiPanelViewParent
+ ;
+ MELINK Target WL? 'ME_57B42A370031' // TmsmSizeablePanel
+ ;
+
+ENDME // ME_57B42A420060 
+
+MEREF ME_57B345EC0195_ME_57B3468D0000_impl
+ MELINK Original WL 'ME_57B345EC0195' '57AAE8D403E5.ms.model.script' // InsertView
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57B345EC0195_ME_57B3468D0000_impl InsertView
+
+MEREF ME_57B3461C0319_ME_57B3468D0000_impl
+ MELINK Original WL 'ME_57B3461C0319' '57AAE8D403E5.ms.model.script' // RemoveView
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57B3461C0319_ME_57B3468D0000_impl RemoveView
+
+MEREF ME_479731C50290_ME_57B3468D0000_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57B3468D0000_over Cleanup
+
+MEREF ME_47A042E100E2_ME_57B3468D0000_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_57B3468D0000_over InitFields
+
+MEREF ME_57DAB7CC02AF_ME_57B3468D0000_G
+ MELINK Original WL? 'ME_57DAB7CC02AF' // TmsmViewParentPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57DAB7CC02AF_ME_57B3468D0000_G TmsmViewParentPrim
+
+MEREF ME_57AAF0E701FA_ME_57B3468D0000_R
+ MELINK Original WL 'ME_57AAF0E701FA' '57AAE8D403E5.ms.model.script' // ImsmViewParent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AAF0E701FA_ME_57B3468D0000_R ImsmViewParent
+
+%%ImplementedBy ME_57AAF0E701FA ME_57B3468D0000
+
+%%InheritedBy ME_57DAB7CC02AF ME_57B3468D0000
+
+ME ME_57B3468D0000
+ MEPROP UID '57B3468D0000'
+ MEPROP Name 'TmsmMultiPanelViewParent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B41F3C01C4' // ViewParents
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57DAB7CC02AF_ME_57B3468D0000_G // TmsmViewParentPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57AAF0E701FA_ME_57B3468D0000_R // ImsmViewParent
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57B346C30075 // f_Parent
+ HWL ME_57B4214F03AE // f_Parents
+ HWL ME_57B4215E00ED // f_Views
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57B346D700A8 // Create
+ HWL ME_57B3470D0048 // Make
+ HWL ME_57EA4F0302FD // IsVert
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57B345EC0195_ME_57B3468D0000_impl // InsertView
+ ME_57B3461C0319_ME_57B3468D0000_impl // RemoveView
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57B3468D0000_over // Cleanup
+ ME_47A042E100E2_ME_57B3468D0000_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57B42A420060 // TmsmSizeablePanel
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" True
+ UP extprop:pas:UnitName 'msmMultiPanelViewParent'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmMultiPanelViewParent'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmMultiPanelViewParent.pas'
+
+ENDME // ME_57B3468D0000 TmsmMultiPanelViewParent

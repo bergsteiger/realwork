@@ -5,8 +5,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_6E555D981AA9
 %%Inner ME_09001A7C3CCE
 
-FORWARD ME_09001A7C3CCE
-
 FORWARD ME_4AB135BD01C2
 
 ME ME_6E555D981AA9
@@ -52,6 +50,18 @@ ME ME_09001A7C3CCE
 
 ENDME // ME_09001A7C3CCE TurnOnTimeMachine$Def
 
+MEREF ME_4C8A1B5C0356_ME_4AB135BD01C2_G
+ MELINK Original WL? 'ME_4C8A1B5C0356' // PrimTurnOnTimeMachineOptions
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C8A1B5C0356_ME_4AB135BD01C2_G PrimTurnOnTimeMachineOptions
+
+MEREF ME_09001A7C3CCE_ME_4AB135BD01C2_R
+ MELINK Original HWL ME_09001A7C3CCE // TurnOnTimeMachine$Def
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_09001A7C3CCE_ME_4AB135BD01C2_R TurnOnTimeMachine$Def
+
 %%ImplementedBy ME_09001A7C3CCE ME_4AB135BD01C2
 
 %%InheritedBy ME_4C8A1B5C0356 ME_4AB135BD01C2
@@ -69,11 +79,11 @@ ME ME_4AB135BD01C2
  MELINK Parent WL? 'ME_498B135601B6' // Document
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4C8A1B5C0356' // PrimTurnOnTimeMachineOptions
+   Seq: ( HWL ME_4C8A1B5C0356_ME_4AB135BD01C2_G // PrimTurnOnTimeMachineOptions
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_09001A7C3CCE // TurnOnTimeMachine$Def
+   Seq: ( HWL ME_09001A7C3CCE_ME_4AB135BD01C2_R // TurnOnTimeMachine$Def
  )
  ; // Implements
  MELIST Children

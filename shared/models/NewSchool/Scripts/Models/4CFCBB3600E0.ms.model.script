@@ -70,7 +70,7 @@ ENDME // ME_4DE670A8021F EQ
 ME ME_4DE6709D02E9
  MEPROP UID '4DE6709D02E9'
  MEPROP Name 'EQ'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -115,7 +115,7 @@ ENDME // ME_4DE671350053 DoIt
 ME ME_4DE6712F01AA
  MEPROP UID '4DE6712F01AA'
  MEPROP Name 'C'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -171,7 +171,7 @@ ME ME_4DE6734A00D5
  MEPROP UID '4DE6734A00D5'
  MEPROP Name 'C'
  MEPROP OriginalName 'C$1'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -230,19 +230,31 @@ ME ME_4CFCF4BB0160
 
 ENDME // ME_4CFCF4BB0160 ItemType
 
-ME ME_47B2C42A0163_ME_4CFCF49601B1
+MEREF ME_47B2C42A0163_ME_4CFCF49601B1_impl
  MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
  UP "ifndef" 'l3Items_NoSort'
-ENDME // ME_47B2C42A0163_ME_4CFCF49601B1 AssignItem
+ENDMEREF // ME_47B2C42A0163_ME_4CFCF49601B1_impl AssignItem
 
-ME ME_47B99D4503A2_ME_4CFCF49601B1
+MEREF ME_47B99D4503A2_ME_4CFCF49601B1_impl
  MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47B99D4503A2_ME_4CFCF49601B1 CompareExistingItems
+ENDMEREF // ME_47B99D4503A2_ME_4CFCF49601B1_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_4CFCF49601B1_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4CFCF49601B1_G Tl3ProtoDataContainer
+
+MEREF ME_4B223DB5024B_ME_4CFCF49601B1_G
+ MELINK Original WL? 'ME_4B223DB5024B' // l3RecordWithEQList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223DB5024B_ME_4CFCF49601B1_G l3RecordWithEQList
 
 %%InheritedBy ME_4A54DD4E036F ME_4CFCF49601B1
 %%InheritedBy ME_4B223DB5024B ME_4CFCF49601B1
@@ -258,8 +270,8 @@ ME ME_4CFCF49601B1
  MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL? 'ME_4B223DB5024B' // l3RecordWithEQList
+   Seq: ( HWL ME_4A54DD4E036F_ME_4CFCF49601B1_G // Tl3ProtoDataContainer
+ HWL ME_4B223DB5024B_ME_4CFCF49601B1_G // l3RecordWithEQList
  )
  ; // Inherits
  MELIST Attributes
@@ -267,8 +279,8 @@ ME ME_4CFCF49601B1
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_47B2C42A0163_ME_4CFCF49601B1 // AssignItem
- ME_47B99D4503A2_ME_4CFCF49601B1 // CompareExistingItems
+   Seq: ( ME_47B2C42A0163_ME_4CFCF49601B1_impl // AssignItem
+ ME_47B99D4503A2_ME_4CFCF49601B1_impl // CompareExistingItems
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -534,6 +546,12 @@ ME ME_4CFE21BB0104
 
 ENDME // ME_4CFE21BB0104 Local
 
+MEREF ME_4CFCE54B01B0_ME_4CFCE561011D_G
+ MELINK Original WL 'ME_4CFCE54B01B0' '4CFCE531013A.ms.model.script' // TvgPathButton
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CFCE54B01B0_ME_4CFCE561011D_G TvgPathButton
+
 %%InheritedBy ME_4CFCE54B01B0 ME_4CFCE561011D
 
 ME ME_4CFCE561011D
@@ -547,7 +565,7 @@ ME ME_4CFCE561011D
  MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CFCE54B01B0' '4CFCE531013A.ms.model.script' // TvgPathButton
+   Seq: ( HWL ME_4CFCE54B01B0_ME_4CFCE561011D_G // TvgPathButton
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -555,6 +573,12 @@ ME ME_4CFCE561011D
  UP "put to dfm" True
 
 ENDME // ME_4CFCE561011D FindBtn
+
+MEREF ME_4CFCE54B01B0_ME_4CFCE56E009C_G
+ MELINK Original WL 'ME_4CFCE54B01B0' '4CFCE531013A.ms.model.script' // TvgPathButton
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CFCE54B01B0_ME_4CFCE56E009C_G TvgPathButton
 
 %%InheritedBy ME_4CFCE54B01B0 ME_4CFCE56E009C
 
@@ -569,7 +593,7 @@ ME ME_4CFCE56E009C
  MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CFCE54B01B0' '4CFCE531013A.ms.model.script' // TvgPathButton
+   Seq: ( HWL ME_4CFCE54B01B0_ME_4CFCE56E009C_G // TvgPathButton
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -577,6 +601,12 @@ ME ME_4CFCE56E009C
  UP "put to dfm" True
 
 ENDME // ME_4CFCE56E009C FindBackBtn
+
+MEREF ME_4CFCE5A10367_ME_4CFCE5B200A9_G
+ MELINK Original WL 'ME_4CFCE5A10367' '4CFCE531013A.ms.model.script' // TvgCloseButton
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CFCE5A10367_ME_4CFCE5B200A9_G TvgCloseButton
 
 %%InheritedBy ME_4CFCE5A10367 ME_4CFCE5B200A9
 
@@ -591,7 +621,7 @@ ME ME_4CFCE5B200A9
  MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CFCE5A10367' '4CFCE531013A.ms.model.script' // TvgCloseButton
+   Seq: ( HWL ME_4CFCE5A10367_ME_4CFCE5B200A9_G // TvgCloseButton
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -599,6 +629,12 @@ ME ME_4CFCE5B200A9
  UP "put to dfm" True
 
 ENDME // ME_4CFCE5B200A9 CloseBtn
+
+MEREF ME_4D3D71CE0254_ME_4CFE0E5F02D5_G
+ MELINK Original WL 'ME_4D3D71CE0254' '4CFE0E330363.ms.model.script' // TvgComboBox
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D3D71CE0254_ME_4CFE0E5F02D5_G TvgComboBox
 
 %%InheritedBy ME_4D3D71CE0254 ME_4CFE0E5F02D5
 
@@ -613,7 +649,7 @@ ME ME_4CFE0E5F02D5
  MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4D3D71CE0254' '4CFE0E330363.ms.model.script' // TvgComboBox
+   Seq: ( HWL ME_4D3D71CE0254_ME_4CFE0E5F02D5_G // TvgComboBox
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -621,6 +657,12 @@ ME ME_4CFE0E5F02D5
  UP "put to dfm" True
 
 ENDME // ME_4CFE0E5F02D5 AreaCombo
+
+MEREF ME_4CFE2C800399_ME_4CFE2C9F0029_G
+ MELINK Original WL 'ME_4CFE2C800399' '4CFE2C72021C.ms.model.script' // TvgText
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CFE2C800399_ME_4CFE2C9F0029_G TvgText
 
 %%InheritedBy ME_4CFE2C800399 ME_4CFE2C9F0029
 
@@ -635,7 +677,7 @@ ME ME_4CFE2C9F0029
  MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CFE2C800399' '4CFE2C72021C.ms.model.script' // TvgText
+   Seq: ( HWL ME_4CFE2C800399_ME_4CFE2C9F0029_G // TvgText
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -643,6 +685,12 @@ ME ME_4CFE2C9F0029
  UP "put to dfm" True
 
 ENDME // ME_4CFE2C9F0029 QueryExampleLabel
+
+MEREF ME_4CFF5690033D_ME_4CFF56750396_G
+ MELINK Original WL 'ME_4CFF5690033D' '4CFCE531013A.ms.model.script' // TvgButton
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CFF5690033D_ME_4CFF56750396_G TvgButton
 
 %%InheritedBy ME_4CFF5690033D ME_4CFF56750396
 
@@ -657,7 +705,7 @@ ME ME_4CFF56750396
  MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CFF5690033D' '4CFCE531013A.ms.model.script' // TvgButton
+   Seq: ( HWL ME_4CFF5690033D_ME_4CFF56750396_G // TvgButton
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -665,6 +713,12 @@ ME ME_4CFF56750396
  UP "put to dfm" True
 
 ENDME // ME_4CFF56750396 DropButton
+
+MEREF ME_4CFE2C800399_ME_4CFF80CC027F_G
+ MELINK Original WL 'ME_4CFE2C800399' '4CFE2C72021C.ms.model.script' // TvgText
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CFE2C800399_ME_4CFF80CC027F_G TvgText
 
 %%InheritedBy ME_4CFE2C800399 ME_4CFF80CC027F
 
@@ -679,7 +733,7 @@ ME ME_4CFF80CC027F
  MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CFE2C800399' '4CFE2C72021C.ms.model.script' // TvgText
+   Seq: ( HWL ME_4CFE2C800399_ME_4CFF80CC027F_G // TvgText
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -687,6 +741,12 @@ ME ME_4CFF80CC027F
  UP "put to dfm" True
 
 ENDME // ME_4CFF80CC027F FoundCountLabel
+
+MEREF ME_4CFE2C800399_ME_4CFF86B00026_G
+ MELINK Original WL 'ME_4CFE2C800399' '4CFE2C72021C.ms.model.script' // TvgText
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CFE2C800399_ME_4CFF86B00026_G TvgText
 
 %%InheritedBy ME_4CFE2C800399 ME_4CFF86B00026
 
@@ -701,7 +761,7 @@ ME ME_4CFF86B00026
  MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CFE2C800399' '4CFE2C72021C.ms.model.script' // TvgText
+   Seq: ( HWL ME_4CFE2C800399_ME_4CFF86B00026_G // TvgText
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -709,6 +769,12 @@ ME ME_4CFF86B00026
  UP "put to dfm" True
 
 ENDME // ME_4CFF86B00026 ExampleLabel
+
+MEREF ME_4CFFAE9802DF_ME_4CFFAEBB0305_G
+ MELINK Original WL 'ME_4CFFAE9802DF' '4CFFAE8902BD.ms.model.script' // TvgNonVGLayout
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CFFAE9802DF_ME_4CFFAEBB0305_G TvgNonVGLayout
 
 %%InheritedBy ME_4CFFAE9802DF ME_4CFFAEBB0305
 
@@ -723,7 +789,7 @@ ME ME_4CFFAEBB0305
  MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CFFAE9802DF' '4CFFAE8902BD.ms.model.script' // TvgNonVGLayout
+   Seq: ( HWL ME_4CFFAE9802DF_ME_4CFFAEBB0305_G // TvgNonVGLayout
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -735,6 +801,12 @@ ENDME // ME_4CFFAEBB0305 ContextEditPanel
 FORWARD ME_4CFFB1B500DB
 
 FORWARD ME_4D51648F033D
+
+MEREF ME_4CFFB1A00237_ME_4E789D5A0179_G
+ MELINK Original WL 'ME_4CFFB1A00237' '4CFFAE8902BD.ms.model.script' // TvgLayout
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CFFB1A00237_ME_4E789D5A0179_G TvgLayout
 
 %%InheritedBy ME_4CFFB1A00237 ME_4E789D5A0179
 
@@ -749,7 +821,7 @@ ME ME_4E789D5A0179
  MELINK Parent HWL ME_4D51648F033D // Layout2
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CFFB1A00237' '4CFFAE8902BD.ms.model.script' // TvgLayout
+   Seq: ( HWL ME_4CFFB1A00237_ME_4E789D5A0179_G // TvgLayout
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -757,6 +829,12 @@ ME ME_4E789D5A0179
  UP "put to dfm" True
 
 ENDME // ME_4E789D5A0179 Layout3
+
+MEREF ME_4CFFB1A00237_ME_4D51648F033D_G
+ MELINK Original WL 'ME_4CFFB1A00237' '4CFFAE8902BD.ms.model.script' // TvgLayout
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CFFB1A00237_ME_4D51648F033D_G TvgLayout
 
 %%InheritedBy ME_4CFFB1A00237 ME_4D51648F033D
 
@@ -771,7 +849,7 @@ ME ME_4D51648F033D
  MELINK Parent HWL ME_4CFFB1B500DB // Layout1
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CFFB1A00237' '4CFFAE8902BD.ms.model.script' // TvgLayout
+   Seq: ( HWL ME_4CFFB1A00237_ME_4D51648F033D_G // TvgLayout
  )
  ; // Inherits
  MELIST Attributes
@@ -787,6 +865,12 @@ ME ME_4D51648F033D
 
 ENDME // ME_4D51648F033D Layout2
 
+MEREF ME_4CFFB1A00237_ME_4CFFB1B500DB_G
+ MELINK Original WL 'ME_4CFFB1A00237' '4CFFAE8902BD.ms.model.script' // TvgLayout
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CFFB1A00237_ME_4CFFB1B500DB_G TvgLayout
+
 %%InheritedBy ME_4CFFB1A00237 ME_4CFFB1B500DB
 
 ME ME_4CFFB1B500DB
@@ -800,7 +884,7 @@ ME ME_4CFFB1B500DB
  MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CFFB1A00237' '4CFFAE8902BD.ms.model.script' // TvgLayout
+   Seq: ( HWL ME_4CFFB1A00237_ME_4CFFB1B500DB_G // TvgLayout
  )
  ; // Inherits
  MELIST Attributes
@@ -816,6 +900,12 @@ ME ME_4CFFB1B500DB
 
 ENDME // ME_4CFFB1B500DB Layout1
 
+MEREF ME_4CFFB562010C_ME_4CFFB59200DB_G
+ MELINK Original WL 'ME_4CFFB562010C' '4CFE3E000371.ms.model.script' // TvgScene
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CFFB562010C_ME_4CFFB59200DB_G TvgScene
+
 %%InheritedBy ME_4CFFB562010C ME_4CFFB59200DB
 
 ME ME_4CFFB59200DB
@@ -829,7 +919,7 @@ ME ME_4CFFB59200DB
  MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CFFB562010C' '4CFE3E000371.ms.model.script' // TvgScene
+   Seq: ( HWL ME_4CFFB562010C_ME_4CFFB59200DB_G // TvgScene
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -838,6 +928,18 @@ ME ME_4CFFB59200DB
  UP extprop:rc:SelfName 'Scene1'
 
 ENDME // ME_4CFFB59200DB vgScene1
+
+MEREF ME_4D3D71CE0254_ME_4D49931D0389_G
+ MELINK Original WL 'ME_4D3D71CE0254' '4CFE0E330363.ms.model.script' // TvgComboBox
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D3D71CE0254_ME_4D49931D0389_G TvgComboBox
+
+MEREF ME_4EB7BA17030A_ME_4D49931D0389_R
+ MELINK Original WL 'ME_4EB7BA17030A' '484FA67302D7.ms.model.script' // Выбор из кнопки 'Ещё'
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EB7BA17030A_ME_4D49931D0389_R Выбор из кнопки 'Ещё'
 
 %%ImplementedBy ME_4EB7BA17030A ME_4D49931D0389
 
@@ -854,11 +956,11 @@ ME ME_4D49931D0389
  MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4D3D71CE0254' '4CFE0E330363.ms.model.script' // TvgComboBox
+   Seq: ( HWL ME_4D3D71CE0254_ME_4D49931D0389_G // TvgComboBox
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4EB7BA17030A' '484FA67302D7.ms.model.script' // Выбор из кнопки 'Ещё'
+   Seq: ( HWL ME_4EB7BA17030A_ME_4D49931D0389_R // Выбор из кнопки 'Ещё'
  )
  ; // Implements
  UP "ControlClass" 'none'
@@ -866,6 +968,12 @@ ME ME_4D49931D0389
  UP "put to dfm" True
 
 ENDME // ME_4D49931D0389 MoreTab
+
+MEREF ME_4D70E5440067_ME_4D70E56F0066_G
+ MELINK Original WL 'ME_4D70E5440067' '4CFE2C72021C.ms.model.script' // TvgRectangle
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D70E5440067_ME_4D70E56F0066_G TvgRectangle
 
 %%InheritedBy ME_4D70E5440067 ME_4D70E56F0066
 
@@ -880,7 +988,7 @@ ME ME_4D70E56F0066
  MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4D70E5440067' '4CFE2C72021C.ms.model.script' // TvgRectangle
+   Seq: ( HWL ME_4D70E5440067_ME_4D70E56F0066_G // TvgRectangle
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -888,6 +996,12 @@ ME ME_4D70E56F0066
  UP "put to dfm" True
 
 ENDME // ME_4D70E56F0066 Border
+
+MEREF ME_4D70E5440067_ME_4D70E57F00C3_G
+ MELINK Original WL 'ME_4D70E5440067' '4CFE2C72021C.ms.model.script' // TvgRectangle
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D70E5440067_ME_4D70E57F00C3_G TvgRectangle
 
 %%InheritedBy ME_4D70E5440067 ME_4D70E57F00C3
 
@@ -902,7 +1016,7 @@ ME ME_4D70E57F00C3
  MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4D70E5440067' '4CFE2C72021C.ms.model.script' // TvgRectangle
+   Seq: ( HWL ME_4D70E5440067_ME_4D70E57F00C3_G // TvgRectangle
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -910,6 +1024,12 @@ ME ME_4D70E57F00C3
  UP "put to dfm" True
 
 ENDME // ME_4D70E57F00C3 InnerBorder
+
+MEREF ME_4D70E5440067_ME_4D70E7DD0123_G
+ MELINK Original WL 'ME_4D70E5440067' '4CFE2C72021C.ms.model.script' // TvgRectangle
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D70E5440067_ME_4D70E7DD0123_G TvgRectangle
 
 %%InheritedBy ME_4D70E5440067 ME_4D70E7DD0123
 
@@ -924,7 +1044,7 @@ ME ME_4D70E7DD0123
  MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4D70E5440067' '4CFE2C72021C.ms.model.script' // TvgRectangle
+   Seq: ( HWL ME_4D70E5440067_ME_4D70E7DD0123_G // TvgRectangle
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -932,6 +1052,12 @@ ME ME_4D70E7DD0123
  UP "put to dfm" True
 
 ENDME // ME_4D70E7DD0123 MostOuterRectangle
+
+MEREF ME_4D70E5440067_ME_4DE6764D000D_G
+ MELINK Original WL 'ME_4D70E5440067' '4CFE2C72021C.ms.model.script' // TvgRectangle
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D70E5440067_ME_4DE6764D000D_G TvgRectangle
 
 %%InheritedBy ME_4D70E5440067 ME_4DE6764D000D
 
@@ -946,7 +1072,7 @@ ME ME_4DE6764D000D
  MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4D70E5440067' '4CFE2C72021C.ms.model.script' // TvgRectangle
+   Seq: ( HWL ME_4D70E5440067_ME_4DE6764D000D_G // TvgRectangle
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -1018,7 +1144,7 @@ ENDME // ME_4CFE4BAD0116 DoIt
 ME ME_4CFE4BA60063
  MEPROP UID '4CFE4BA60063'
  MEPROP Name 'TabClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -1075,7 +1201,7 @@ ENDME // ME_4D3D71800335 DoIt
 ME ME_4D3D7176028B
  MEPROP UID '4D3D7176028B'
  MEPROP Name 'AddListItem'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -1120,7 +1246,7 @@ ENDME // ME_4D4AA2BF0088 DoIt
 ME ME_4D4AA2B500C8
  MEPROP UID '4D4AA2B500C8'
  MEPROP Name 'DoResize'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1165,7 +1291,7 @@ ENDME // ME_4D4ACBA30033 DoIt
 ME ME_4D4ACB9900F6
  MEPROP UID '4D4ACB9900F6'
  MEPROP Name 'MoreTabChange'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1230,7 +1356,7 @@ ENDME // ME_4D4BD7D702F4 DoIt
 ME ME_4D4BD7C902EA
  MEPROP UID '4D4BD7C902EA'
  MEPROP Name 'DoSearch'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1285,7 +1411,7 @@ ENDME // ME_4D51668A0340
 ME ME_4D5164A30162
  MEPROP UID '4D5164A30162'
  MEPROP Name 'DoRealignLayout1'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1337,7 +1463,7 @@ ENDME // ME_4D5C0D24013D DoIt
 ME ME_4D5C0D11022D
  MEPROP UID '4D5C0D11022D'
  MEPROP Name 'TabChange'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1382,7 +1508,7 @@ ENDME // ME_4D70ED6E012B DoIt
 ME ME_4D70ED5901BF
  MEPROP UID '4D70ED5901BF'
  MEPROP Name 'ContextEditFocusChanged'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1424,12 +1550,18 @@ ME ME_4E78993C00F5
 
 ENDME // ME_4E78993C00F5 DoIt
 
+MEREF ME_4E787ED60292_ME_4E7899330095_R
+ MELINK Original WL 'ME_4E787ED60292' '484FA67302D7.ms.model.script' // Псевдонадпись и пример в БП должны быть склеены
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E787ED60292_ME_4E7899330095_R Псевдонадпись и пример в БП должны быть склеены
+
 %%ImplementedBy ME_4E787ED60292 ME_4E7899330095
 
 ME ME_4E7899330095
  MEPROP UID '4E7899330095'
  MEPROP Name 'DoEmptyAddingClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1437,7 +1569,7 @@ ME ME_4E7899330095
  MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E787ED60292' '484FA67302D7.ms.model.script' // Псевдонадпись и пример в БП должны быть склеены
+   Seq: ( HWL ME_4E787ED60292_ME_4E7899330095_R // Псевдонадпись и пример в БП должны быть склеены
  )
  ; // Implements
  MELIST Operations
@@ -1577,127 +1709,145 @@ ME ME_4EAFE59B0229
 
 ENDME // ME_4EAFE59B0229 
 
-ME ME_4CF4D1AD01B3_ME_4CFCBB3600E0
+MEREF ME_4CF4D1AD01B3_ME_4CFCBB3600E0_impl
  MELINK Original WL 'ME_4CF4D1AD01B3' '4AB791130260.ms.model.script' // AdjustParamsPagesHeight
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4CF4D1AD01B3_ME_4CFCBB3600E0 AdjustParamsPagesHeight
+ENDMEREF // ME_4CF4D1AD01B3_ME_4CFCBB3600E0_impl AdjustParamsPagesHeight
 
-ME ME_4CF4D56E0258_ME_4CFCBB3600E0
+MEREF ME_4CF4D56E0258_ME_4CFCBB3600E0_impl
  MELINK Original WL 'ME_4CF4D56E0258' '4AB791130260.ms.model.script' // SetUpFindButtons
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4CF4D56E0258_ME_4CFCBB3600E0 SetUpFindButtons
+ENDMEREF // ME_4CF4D56E0258_ME_4CFCBB3600E0_impl SetUpFindButtons
 
-ME ME_4CF4D6C40292_ME_4CFCBB3600E0
+MEREF ME_4CF4D6C40292_ME_4CFCBB3600E0_impl
  MELINK Original WL 'ME_4CF4D6C40292' '4AB791130260.ms.model.script' // SetupClasses
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4CF4D6C40292_ME_4CFCBB3600E0 SetupClasses
+ENDMEREF // ME_4CF4D6C40292_ME_4CFCBB3600E0_impl SetupClasses
 
-ME ME_4CF4DC7C0129_ME_4CFCBB3600E0
+MEREF ME_4CF4DC7C0129_ME_4CFCBB3600E0_impl
  MELINK Original WL 'ME_4CF4DC7C0129' '4AB791130260.ms.model.script' // UpdateExamplePanelWidthAndPosition
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4CF4DC7C0129_ME_4CFCBB3600E0 UpdateExamplePanelWidthAndPosition
+ENDMEREF // ME_4CF4DC7C0129_ME_4CFCBB3600E0_impl UpdateExamplePanelWidthAndPosition
 
-ME ME_4CFCCE4B0112_ME_4CFCBB3600E0
+MEREF ME_4CFCCE4B0112_ME_4CFCBB3600E0_impl
  MELINK Original WL 'ME_4CFCCE4B0112' '4AB791130260.ms.model.script' // FindBtnEnabled
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs field" False
  UP "pm" True
-ENDME // ME_4CFCCE4B0112_ME_4CFCBB3600E0 FindBtnEnabled
+ENDMEREF // ME_4CFCCE4B0112_ME_4CFCBB3600E0_impl FindBtnEnabled
 
-ME ME_4CFCD6270160_ME_4CFCBB3600E0
+MEREF ME_4CFCD6270160_ME_4CFCBB3600E0_impl
  MELINK Original WL 'ME_4CFCD6270160' '4AB791130260.ms.model.script' // FindBackBtnEnabled
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs field" False
  UP "pm" True
-ENDME // ME_4CFCD6270160_ME_4CFCBB3600E0 FindBackBtnEnabled
+ENDMEREF // ME_4CFCD6270160_ME_4CFCBB3600E0_impl FindBackBtnEnabled
 
-ME ME_4CFCE1AE01A0_ME_4CFCBB3600E0
+MEREF ME_4CFCE1AE01A0_ME_4CFCBB3600E0_impl
  MELINK Original WL 'ME_4CFCE1AE01A0' '4AB791130260.ms.model.script' // CheckParamsPagesCount
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4CFCE1AE01A0_ME_4CFCBB3600E0 CheckParamsPagesCount
+ENDMEREF // ME_4CFCE1AE01A0_ME_4CFCBB3600E0_impl CheckParamsPagesCount
 
-ME ME_4CFCE22D03D1_ME_4CFCBB3600E0
+MEREF ME_4CFCE22D03D1_ME_4CFCBB3600E0_impl
  MELINK Original WL 'ME_4CFCE22D03D1' '4AB791130260.ms.model.script' // SetCurrentContextKind
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4CFCE22D03D1_ME_4CFCBB3600E0 SetCurrentContextKind
+ENDMEREF // ME_4CFCE22D03D1_ME_4CFCBB3600E0_impl SetCurrentContextKind
 
-ME ME_4CFCEBFA0350_ME_4CFCBB3600E0
+MEREF ME_4CFCEBFA0350_ME_4CFCBB3600E0_impl
  MELINK Original WL 'ME_4CFCEBFA0350' '4AB791130260.ms.model.script' // ContextLabelVisible
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs field" False
  UP "pm" True
-ENDME // ME_4CFCEBFA0350_ME_4CFCBB3600E0 ContextLabelVisible
+ENDMEREF // ME_4CFCEBFA0350_ME_4CFCBB3600E0_impl ContextLabelVisible
 
-ME ME_4CFCEE450210_ME_4CFCBB3600E0
+MEREF ME_4CFCEE450210_ME_4CFCBB3600E0_impl
  MELINK Original WL 'ME_4CFCEE450210' '4AB791130260.ms.model.script' // CloseBtnEnabled
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs field" False
  UP "pm" True
-ENDME // ME_4CFCEE450210_ME_4CFCBB3600E0 CloseBtnEnabled
+ENDMEREF // ME_4CFCEE450210_ME_4CFCBB3600E0_impl CloseBtnEnabled
 
-ME ME_4CFE140401CF_ME_4CFCBB3600E0
+MEREF ME_4CFE140401CF_ME_4CFCBB3600E0_impl
  MELINK Original WL 'ME_4CFE140401CF' '4AB791130260.ms.model.script' // SetCurrentSearchArea
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4CFE140401CF_ME_4CFCBB3600E0 SetCurrentSearchArea
+ENDMEREF // ME_4CFE140401CF_ME_4CFCBB3600E0_impl SetCurrentSearchArea
 
-ME ME_4CFE192200C5_ME_4CFCBB3600E0
+MEREF ME_4CFE192200C5_ME_4CFCBB3600E0_impl
  MELINK Original WL 'ME_4CFE192200C5' '4AB791130260.ms.model.script' // SetupThemePages
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4CFE192200C5_ME_4CFCBB3600E0 SetupThemePages
+ENDMEREF // ME_4CFE192200C5_ME_4CFCBB3600E0_impl SetupThemePages
 
-ME ME_4CFE28330018_ME_4CFCBB3600E0
+MEREF ME_4CFE28330018_ME_4CFCBB3600E0_impl
  MELINK Original WL 'ME_4CFE28330018' '4AB791130260.ms.model.script' // DoCheckFragmentsCount
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4CFE28330018_ME_4CFCBB3600E0 DoCheckFragmentsCount
+ENDMEREF // ME_4CFE28330018_ME_4CFCBB3600E0_impl DoCheckFragmentsCount
 
-ME ME_4CFE2AA80164_ME_4CFCBB3600E0
+MEREF ME_4CFE2AA80164_ME_4CFCBB3600E0_impl
  MELINK Original WL 'ME_4CFE2AA80164' '4AB791130260.ms.model.script' // DoExampleChanged
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4CFE2AA80164_ME_4CFCBB3600E0 DoExampleChanged
+ENDMEREF // ME_4CFE2AA80164_ME_4CFCBB3600E0_impl DoExampleChanged
 
-ME ME_479731C50290_ME_4CFCBB3600E0
+MEREF ME_479731C50290_ME_4CFCBB3600E0_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4CFCBB3600E0 Cleanup
+ENDMEREF // ME_479731C50290_ME_4CFCBB3600E0_over Cleanup
 
-ME ME_49BFC98902FF_ME_4CFCBB3600E0
+MEREF ME_49BFC98902FF_ME_4CFCBB3600E0_over
  MELINK Original WL 'ME_49BFC98902FF' '51612ED700B4.ms.model.script' // BeforeRelease
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49BFC98902FF_ME_4CFCBB3600E0 BeforeRelease
+ENDMEREF // ME_49BFC98902FF_ME_4CFCBB3600E0_over BeforeRelease
 
-ME ME_4A8E8F2E0195_ME_4CFCBB3600E0
+MEREF ME_4A8E8F2E0195_ME_4CFCBB3600E0_over
  MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8E8F2E0195_ME_4CFCBB3600E0 InitControls
+ENDMEREF // ME_4A8E8F2E0195_ME_4CFCBB3600E0_over InitControls
 
-ME ME_4B13B419036C_ME_4CFCBB3600E0
+MEREF ME_4B13B419036C_ME_4CFCBB3600E0_over
  MELINK Original WL 'ME_4B13B419036C' '4AB791130260.ms.model.script' // ApplyCurrentExample
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4B13B419036C_ME_4CFCBB3600E0 ApplyCurrentExample
+ENDMEREF // ME_4B13B419036C_ME_4CFCBB3600E0_over ApplyCurrentExample
 
-ME ME_4B4F13E80365_ME_4CFCBB3600E0
+MEREF ME_4B4F13E80365_ME_4CFCBB3600E0_over
  MELINK Original WL 'ME_4B4F13E80365' '4F22CB1E0009.ms.model.script' // NeedSetMyFocus
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4B4F13E80365_ME_4CFCBB3600E0 NeedSetMyFocus
+ENDMEREF // ME_4B4F13E80365_ME_4CFCBB3600E0_over NeedSetMyFocus
+
+MEREF ME_4CC7F0CE0267_ME_4CFCBB3600E0_G
+ MELINK Original WL? 'ME_4CC7F0CE0267' // PrimBaseSearchOptions
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CC7F0CE0267_ME_4CFCBB3600E0_G PrimBaseSearchOptions
+
+MEREF ME_4E787ED60292_ME_4CFCBB3600E0_R
+ MELINK Original WL 'ME_4E787ED60292' '484FA67302D7.ms.model.script' // Псевдонадпись и пример в БП должны быть склеены
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E787ED60292_ME_4CFCBB3600E0_R Псевдонадпись и пример в БП должны быть склеены
+
+MEREF ME_4EAFE98700D7_ME_4CFCBB3600E0_R
+ MELINK Original WL 'ME_4EAFE98700D7' '484FA67302D7.ms.model.script' // Крайнее правое положение кнопки 'Ещё' должно быть закреплено на уровне конца строки ввода
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EAFE98700D7_ME_4CFCBB3600E0_R Крайнее правое положение кнопки 'Ещё' должно быть закреплено на уровне конца строки ввода
 
 %%ImplementedBy ME_4E787ED60292 ME_4CFCBB3600E0
 %%ImplementedBy ME_4EAFE98700D7 ME_4CFCBB3600E0
@@ -1716,12 +1866,12 @@ ME ME_4CFCBB3600E0
  MELINK Parent WL? 'ME_4CC97BDA02DF' // BaseSearch$Module
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4CC7F0CE0267' // PrimBaseSearchOptions
+   Seq: ( HWL ME_4CC7F0CE0267_ME_4CFCBB3600E0_G // PrimBaseSearchOptions
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E787ED60292' '484FA67302D7.ms.model.script' // Псевдонадпись и пример в БП должны быть склеены
- WL 'ME_4EAFE98700D7' '484FA67302D7.ms.model.script' // Крайнее правое положение кнопки 'Ещё' должно быть закреплено на уровне конца строки ввода
+   Seq: ( HWL ME_4E787ED60292_ME_4CFCBB3600E0_R // Псевдонадпись и пример в БП должны быть склеены
+ HWL ME_4EAFE98700D7_ME_4CFCBB3600E0_R // Крайнее правое положение кнопки 'Ещё' должно быть закреплено на уровне конца строки ввода
  )
  ; // Implements
  MELIST Attributes
@@ -1758,28 +1908,28 @@ ME ME_4CFCBB3600E0
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4CF4D1AD01B3_ME_4CFCBB3600E0 // AdjustParamsPagesHeight
- ME_4CF4D56E0258_ME_4CFCBB3600E0 // SetUpFindButtons
- ME_4CF4D6C40292_ME_4CFCBB3600E0 // SetupClasses
- ME_4CF4DC7C0129_ME_4CFCBB3600E0 // UpdateExamplePanelWidthAndPosition
- ME_4CFCCE4B0112_ME_4CFCBB3600E0 // FindBtnEnabled
- ME_4CFCD6270160_ME_4CFCBB3600E0 // FindBackBtnEnabled
- ME_4CFCE1AE01A0_ME_4CFCBB3600E0 // CheckParamsPagesCount
- ME_4CFCE22D03D1_ME_4CFCBB3600E0 // SetCurrentContextKind
- ME_4CFCEBFA0350_ME_4CFCBB3600E0 // ContextLabelVisible
- ME_4CFCEE450210_ME_4CFCBB3600E0 // CloseBtnEnabled
- ME_4CFE140401CF_ME_4CFCBB3600E0 // SetCurrentSearchArea
- ME_4CFE192200C5_ME_4CFCBB3600E0 // SetupThemePages
- ME_4CFE28330018_ME_4CFCBB3600E0 // DoCheckFragmentsCount
- ME_4CFE2AA80164_ME_4CFCBB3600E0 // DoExampleChanged
+   Seq: ( ME_4CF4D1AD01B3_ME_4CFCBB3600E0_impl // AdjustParamsPagesHeight
+ ME_4CF4D56E0258_ME_4CFCBB3600E0_impl // SetUpFindButtons
+ ME_4CF4D6C40292_ME_4CFCBB3600E0_impl // SetupClasses
+ ME_4CF4DC7C0129_ME_4CFCBB3600E0_impl // UpdateExamplePanelWidthAndPosition
+ ME_4CFCCE4B0112_ME_4CFCBB3600E0_impl // FindBtnEnabled
+ ME_4CFCD6270160_ME_4CFCBB3600E0_impl // FindBackBtnEnabled
+ ME_4CFCE1AE01A0_ME_4CFCBB3600E0_impl // CheckParamsPagesCount
+ ME_4CFCE22D03D1_ME_4CFCBB3600E0_impl // SetCurrentContextKind
+ ME_4CFCEBFA0350_ME_4CFCBB3600E0_impl // ContextLabelVisible
+ ME_4CFCEE450210_ME_4CFCBB3600E0_impl // CloseBtnEnabled
+ ME_4CFE140401CF_ME_4CFCBB3600E0_impl // SetCurrentSearchArea
+ ME_4CFE192200C5_ME_4CFCBB3600E0_impl // SetupThemePages
+ ME_4CFE28330018_ME_4CFCBB3600E0_impl // DoCheckFragmentsCount
+ ME_4CFE2AA80164_ME_4CFCBB3600E0_impl // DoExampleChanged
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4CFCBB3600E0 // Cleanup
- ME_49BFC98902FF_ME_4CFCBB3600E0 // BeforeRelease
- ME_4A8E8F2E0195_ME_4CFCBB3600E0 // InitControls
- ME_4B13B419036C_ME_4CFCBB3600E0 // ApplyCurrentExample
- ME_4B4F13E80365_ME_4CFCBB3600E0 // NeedSetMyFocus
+   Seq: ( ME_479731C50290_ME_4CFCBB3600E0_over // Cleanup
+ ME_49BFC98902FF_ME_4CFCBB3600E0_over // BeforeRelease
+ ME_4A8E8F2E0195_ME_4CFCBB3600E0_over // InitControls
+ ME_4B13B419036C_ME_4CFCBB3600E0_over // ApplyCurrentExample
+ ME_4B4F13E80365_ME_4CFCBB3600E0_over // NeedSetMyFocus
  )
  ; // Overridden
  MELIST Children

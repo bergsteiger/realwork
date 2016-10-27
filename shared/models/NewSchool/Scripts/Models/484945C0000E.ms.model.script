@@ -1,0 +1,100 @@
+// Wl3String 484945C0000E Wrapper Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_484945C0000E
+
+ME ME_49A6D595020C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484945C0000E // Wl3String
+ ;
+ MELINK Target WL? 'ME_4773DED9004C' // Tl3_String
+ ;
+
+ENDME // ME_49A6D595020C 
+
+ME ME_49A6D5B003BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484945C0000E // Wl3String
+ ;
+ MELINK Target WL? 'ME_4773DEF0021B' // Tl3CustomString
+ ;
+
+ENDME // ME_49A6D5B003BE 
+
+ME ME_49A6D7000065
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484945C0000E // Wl3String
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_49A6D7000065 
+
+ME ME_53073DDE03A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484945C0000E // Wl3String
+ ;
+ MELINK Target WL? 'ME_53073D3D00BE' // Tk2String
+ ;
+
+ENDME // ME_53073DDE03A1 
+
+MEREF ME_48493F800373_ME_484945C0000E_G
+ MELINK Original WL? 'ME_48493F800373' // WPersistent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48493F800373_ME_484945C0000E_G WPersistent
+
+MEREF ME_48492AC1023B_ME_484945C0000E_R
+ MELINK Original WL 'ME_48492AC1023B' '52669BFC024E.ms.model.script' // String
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48492AC1023B_ME_484945C0000E_R String
+
+%%ImplementedBy ME_48492AC1023B ME_484945C0000E
+
+%%InheritedBy ME_48493F800373 ME_484945C0000E
+
+ME ME_484945C0000E
+ MEPROP UID '484945C0000E'
+ MEPROP Name 'Wl3String'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Wrapper ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Wl3String' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4849284D0067' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48493F800373_ME_484945C0000E_G // WPersistent
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_48492AC1023B_ME_484945C0000E_R // String
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_49A6D595020C // Tl3_String
+ ME_49A6D5B003BE // Tl3CustomString
+ ME_49A6D7000065 // SysUtils
+ ME_53073DDE03A1 // Tk2String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '07.09.1998 12:46'
+ UP extprop:pas:UnitName 'l3String_Wrap'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\l3String_Wrap.pas'
+
+ENDME // ME_484945C0000E Wl3String

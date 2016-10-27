@@ -1,0 +1,69 @@
+// TnsBaseSearchWindowDataListenerList 562F67F8026F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_562F67F8026F
+
+ME ME_562F6858008E
+ MEPROP UID '562F6858008E'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_562F67F8026F // TnsBaseSearchWindowDataListenerList
+ ;
+ MELINK Target WL 'ME_562F5C9401F0' '4A9F98B901A5.ms.model.script' // InsBaseSearchWindowDataListener
+ ;
+
+ENDME // ME_562F6858008E ItemType
+
+MEREF ME_4A54DD4E036F_ME_562F67F8026F_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_562F67F8026F_G Tl3ProtoDataContainer
+
+MEREF ME_47B57D630029_ME_562F67F8026F_R
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_562F67F8026F_R l3InterfacePtrList
+
+%%ImplementedBy ME_47B57D630029 ME_562F67F8026F
+
+%%InheritedBy ME_4A54DD4E036F ME_562F67F8026F
+
+ME ME_562F67F8026F
+ MEPROP UID '562F67F8026F'
+ MEPROP Name 'TnsBaseSearchWindowDataListenerList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AC225E70273' // BaseSearch
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_562F67F8026F_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B57D630029_ME_562F67F8026F_R // l3InterfacePtrList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_562F6858008E // ItemType
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nsBaseSearchWindowDataListenerList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BaseSearchWindowDataListenerList'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\nsBaseSearchWindowDataListenerList.pas'
+
+ENDME // ME_562F67F8026F TnsBaseSearchWindowDataListenerList

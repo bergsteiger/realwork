@@ -1,0 +1,1215 @@
+// TmsmModelElementMethodCaller 57AA00BD022E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57DFF5AD03C7
+%%Inner ME_57A9FEF503A3
+%%Inner ME_57E3FE20029C
+
+FORWARD ME_57AA00BD022E
+
+FORWARD ME_57DFF5AD03C7
+
+ME ME_57DFF5CE01E1
+ MEPROP UID '57DFF5CE01E1'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57DFF5AD03C7 // array of TtfwStackValue
+ ;
+ MELINK Target WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
+ ;
+
+ENDME // ME_57DFF5CE01E1 
+
+ME ME_57DFF5AD03C7
+ MEPROP UID '57DFF5AD03C7'
+ MEPROP Name 'array of TtfwStackValue'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_57DFF5CE01E1 // 
+ )
+ ; // Attributes
+ UP "array type" 'open'
+
+ENDME // ME_57DFF5AD03C7 array of TtfwStackValue
+
+FORWARD ME_57A9FEF503A3
+
+ME ME_57AA034A0260
+ MEPROP UID '57AA034A0260'
+ MEPROP Name 'Parameters'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57A9FEF503A3 // TmsmModelElementMethodScriptCaller
+ ;
+ MELINK Target WL? 'ME_4DCC11A10187' // TtfwValueList
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_57AA034A0260 Parameters
+
+ME ME_57AA008300DE
+ MEPROP UID '57AA008300DE'
+ MEPROP Name 'ResultValue'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57A9FEF503A3 // TmsmModelElementMethodScriptCaller
+ ;
+ MELINK Target WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_57AA008300DE ResultValue
+
+FORWARD ME_57AA03740168
+
+FORWARD ME_57AA037A0247
+
+ME ME_57DFF5EB0288
+ MEPROP Name 'aParameters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_57DFF5AD03C7 // array of TtfwStackValue
+ ;
+
+ENDME // ME_57DFF5EB0288 aParameters
+
+ME ME_57AA037A0247
+ MEPROP UID '57AA037A0247'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA03740168 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57DFF5EB0288 // aParameters
+ )
+ ; // Parameters
+
+ENDME // ME_57AA037A0247 DoIt
+
+ME ME_57AA03740168
+ MEPROP UID '57AA03740168'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A9FEF503A3 // TmsmModelElementMethodScriptCaller
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57AA037A0247 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57AA03740168 Create
+
+MEREF ME_479731C50290_ME_57A9FEF503A3_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57A9FEF503A3_over Cleanup
+
+MEREF ME_57A9E4F203B5_ME_57A9FEF503A3_over
+ MELINK Original WL 'ME_57A9E4F203B5' '57A9D663008F.ms.model.script' // DoScriptDone
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57A9E4F203B5_ME_57A9FEF503A3_over DoScriptDone
+
+MEREF ME_57A9FED102C4_ME_57A9FEF503A3_over
+ MELINK Original WL 'ME_57A9FED102C4' '57A9D663008F.ms.model.script' // DoScriptWillRun
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57A9FED102C4_ME_57A9FEF503A3_over DoScriptWillRun
+
+MEREF ME_57A9D663008F_ME_57A9FEF503A3_G
+ MELINK Original WL? 'ME_57A9D663008F' // TmsmScriptCaller
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57A9D663008F_ME_57A9FEF503A3_G TmsmScriptCaller
+
+%%InheritedBy ME_57A9D663008F ME_57A9FEF503A3
+
+ME ME_57A9FEF503A3
+ MEPROP UID '57A9FEF503A3'
+ MEPROP Name 'TmsmModelElementMethodScriptCaller'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57A9D663008F_ME_57A9FEF503A3_G // TmsmScriptCaller
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57AA034A0260 // Parameters
+ HWL ME_57AA008300DE // ResultValue
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57AA03740168 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57A9FEF503A3_over // Cleanup
+ ME_57A9E4F203B5_ME_57A9FEF503A3_over // DoScriptDone
+ ME_57A9FED102C4_ME_57A9FEF503A3_over // DoScriptWillRun
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmModelElementMethodScriptCaller'
+
+ENDME // ME_57A9FEF503A3 TmsmModelElementMethodScriptCaller
+
+FORWARD ME_57E3FE20029C
+
+ME ME_57E3FE2E006A
+ MEPROP UID '57E3FE2E006A'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57E3FE20029C // TtfwStackValuesArray
+ ;
+ MELINK Target WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
+ ;
+
+ENDME // ME_57E3FE2E006A 
+
+ME ME_57E3FE20029C
+ MEPROP UID '57E3FE20029C'
+ MEPROP Name 'TtfwStackValuesArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_57E3FE2E006A // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_57E3FE20029C TtfwStackValuesArray
+
+FORWARD ME_57AA00EB01D8
+
+FORWARD ME_57AA00FB0182
+
+ME ME_57AA011201E3
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57AA011201E3 aWord
+
+ME ME_57AA0112020B
+ MEPROP Name 'aMethodName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57AA0112020B aMethodName
+
+ME ME_57AA00FB0182
+ MEPROP UID '57AA00FB0182'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA00EB01D8 // Call
+ ;
+ MELINK Target WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
+ ;
+ MELIST Parameters
+   Seq: ( ME_57AA011201E3 // aWord
+ ME_57AA0112020B // aMethodName
+ )
+ ; // Parameters
+
+ENDME // ME_57AA00FB0182 DoIt
+
+ME ME_57AA01310369
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57AA00EB01D8 // Call
+ ;
+ MELINK Target WL? 'ME_4DAEEA9E0049' // TtfwScriptEngine
+ ;
+
+ENDME // ME_57AA01310369 
+
+ME ME_57D66A5800D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57AA00EB01D8 // Call
+ ;
+ MELINK Target WL? 'ME_55A63D300062' // TtfwMainDictionaryCache
+ ;
+
+ENDME // ME_57D66A5800D3 
+
+ME ME_57AA00EB01D8
+ MEPROP UID '57AA00EB01D8'
+ MEPROP Name 'Call'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57AA00FB0182 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57AA01310369 // TtfwScriptEngine
+ ME_57D66A5800D3 // TtfwMainDictionaryCache
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" True
+
+ENDME // ME_57AA00EB01D8 Call
+
+FORWARD ME_57AAD78202FF
+
+FORWARD ME_57AAD79900C9
+
+ME ME_57AAD7A001E6
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57AAD7A001E6 aWord
+
+ME ME_57AAD7A0021E
+ MEPROP Name 'aMethodName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57AAD7A0021E aMethodName
+
+ME ME_57AAD79900C9
+ MEPROP UID '57AAD79900C9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AAD78202FF // CallAndGetObj
+ ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_57AAD7A001E6 // aWord
+ ME_57AAD7A0021E // aMethodName
+ )
+ ; // Parameters
+
+ENDME // ME_57AAD79900C9 DoIt
+
+ME ME_57AAD78202FF
+ MEPROP UID '57AAD78202FF'
+ MEPROP Name 'CallAndGetObj'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57AAD79900C9 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_57AAD78202FF CallAndGetObj
+
+FORWARD ME_57AAD7AA00E0
+
+FORWARD ME_57AAD7BC0120
+
+ME ME_57AAD7C40019
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57AAD7C40019 aWord
+
+ME ME_57AAD7C4005F
+ MEPROP Name 'aMethodName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57AAD7C4005F aMethodName
+
+ME ME_57AAD7BC0120
+ MEPROP UID '57AAD7BC0120'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AAD7AA00E0 // CallAndGetString
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MELIST Parameters
+   Seq: ( ME_57AAD7C40019 // aWord
+ ME_57AAD7C4005F // aMethodName
+ )
+ ; // Parameters
+
+ENDME // ME_57AAD7BC0120 DoIt
+
+ME ME_57AAD7AA00E0
+ MEPROP UID '57AAD7AA00E0'
+ MEPROP Name 'CallAndGetString'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57AAD7BC0120 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_57AAD7AA00E0 CallAndGetString
+
+FORWARD ME_57AAD7CA0287
+
+FORWARD ME_57AAD7DA02F9
+
+ME ME_57AAD7E602F6
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57AAD7E602F6 aWord
+
+ME ME_57AAD7E60328
+ MEPROP Name 'aMethodName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57AAD7E60328 aMethodName
+
+ME ME_57AAD7DA02F9
+ MEPROP UID '57AAD7DA02F9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AAD7CA0287 // CallAndGetList
+ ;
+ MELINK Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+ ;
+ MELIST Parameters
+   Seq: ( ME_57AAD7E602F6 // aWord
+ ME_57AAD7E60328 // aMethodName
+ )
+ ; // Parameters
+
+ENDME // ME_57AAD7DA02F9 DoIt
+
+ME ME_57AAD7CA0287
+ MEPROP UID '57AAD7CA0287'
+ MEPROP Name 'CallAndGetList'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57AAD7DA02F9 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_57AAD7CA0287 CallAndGetList
+
+FORWARD ME_57AAD7EE01D3
+
+FORWARD ME_57AAD7FD0335
+
+ME ME_57AAD806034D
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57AAD806034D aWord
+
+ME ME_57AAD806036B
+ MEPROP Name 'aMethodName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57AAD806036B aMethodName
+
+ME ME_57AAD7FD0335
+ MEPROP UID '57AAD7FD0335'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AAD7EE01D3 // CallAndGetInt
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_57AAD806034D // aWord
+ ME_57AAD806036B // aMethodName
+ )
+ ; // Parameters
+
+ENDME // ME_57AAD7FD0335 DoIt
+
+ME ME_57AAD7EE01D3
+ MEPROP UID '57AAD7EE01D3'
+ MEPROP Name 'CallAndGetInt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57AAD7FD0335 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_57AAD7EE01D3 CallAndGetInt
+
+FORWARD ME_57AAD8130389
+
+FORWARD ME_57AAD822008A
+
+ME ME_57AAD8270312
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57AAD8270312 aWord
+
+ME ME_57AAD827033A
+ MEPROP Name 'aMethodName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57AAD827033A aMethodName
+
+ME ME_57AAD822008A
+ MEPROP UID '57AAD822008A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AAD8130389 // CallAndGetBool
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_57AAD8270312 // aWord
+ ME_57AAD827033A // aMethodName
+ )
+ ; // Parameters
+
+ENDME // ME_57AAD822008A DoIt
+
+ME ME_57AAD8130389
+ MEPROP UID '57AAD8130389'
+ MEPROP Name 'CallAndGetBool'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57AAD822008A // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_57AAD8130389 CallAndGetBool
+
+MEREF ME_57AA00EB01D8_ME_57C437080131_G
+ MELINK Original HWL ME_57AA00EB01D8 // Call
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AA00EB01D8_ME_57C437080131_G Call
+
+%%InheritedBy ME_57AA00EB01D8 ME_57C437080131
+
+ME ME_57C437080131
+ MEPROP UID '57C437080131'
+ MEPROP Name 'RawCall'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57AA00EB01D8_ME_57C437080131_G // Call
+ )
+ ; // Inherits
+ UP "is static" True
+
+ENDME // ME_57C437080131 RawCall
+
+FORWARD ME_57C438C803DC
+
+FORWARD ME_57C438EA0236
+
+ME ME_57C438F800F1
+ MEPROP Name 'aMethodName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57C438F800F1 aMethodName
+
+ME ME_57C438EA0236
+ MEPROP UID '57C438EA0236'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57C438C803DC // CallProc
+ ;
+ MELIST Parameters
+   Seq: ( ME_57C438F800F1 // aMethodName
+ )
+ ; // Parameters
+
+ENDME // ME_57C438EA0236 DoIt
+
+ME ME_57C438C803DC
+ MEPROP UID '57C438C803DC'
+ MEPROP Name 'CallProc'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57C438EA0236 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_57C438C803DC CallProc
+
+FORWARD ME_57CFC420039B
+
+FORWARD ME_57CFC43802BF
+
+ME ME_57DFFAAA010D
+ MEPROP Name 'aParameters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_57DFF5AD03C7 // array of TtfwStackValue
+ ;
+
+ENDME // ME_57DFFAAA010D aParameters
+
+ME ME_57CFC44D0015
+ MEPROP Name 'aMethodName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57CFC44D0015 aMethodName
+
+ME ME_57CFC43802BF
+ MEPROP UID '57CFC43802BF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CFC420039B // Call$OnAny
+ ;
+ MELINK Target WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
+ ;
+ MELIST Parameters
+   Seq: ( ME_57DFFAAA010D // aParameters
+ ME_57CFC44D0015 // aMethodName
+ )
+ ; // Parameters
+
+ENDME // ME_57CFC43802BF DoIt
+
+ME ME_57CFC420039B
+ MEPROP UID '57CFC420039B'
+ MEPROP Name 'Call'
+ MEPROP OriginalName 'Call$OnAny'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57CFC43802BF // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_57CFC420039B Call$OnAny
+
+FORWARD ME_57D66B490028
+
+FORWARD ME_57D66B5703E0
+
+ME ME_57D66B6F0275
+ MEPROP Name 'aMethodName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57D66B6F0275 aMethodName
+
+ME ME_57D66B5703E0
+ MEPROP UID '57D66B5703E0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D66B490028 // ScriptName
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MELIST Parameters
+   Seq: ( ME_57D66B6F0275 // aMethodName
+ )
+ ; // Parameters
+
+ENDME // ME_57D66B5703E0 DoIt
+
+ME ME_57D66B490028
+ MEPROP UID '57D66B490028'
+ MEPROP Name 'ScriptName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57D66B5703E0 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_57D66B490028 ScriptName
+
+FORWARD ME_57D68123004E
+
+FORWARD ME_57D6813B0296
+
+ME ME_57D6814901B8
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57D6814901B8 aWord
+
+ME ME_57D6814901E6
+ MEPROP Name 'aMethodName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57D6814901E6 aMethodName
+
+ME ME_57D6814901FF
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
+ ;
+
+ENDME // ME_57D6814901FF aValue
+
+ME ME_57D6813B0296
+ MEPROP UID '57D6813B0296'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D68123004E // CallSetter
+ ;
+ MELIST Parameters
+   Seq: ( ME_57D6814901B8 // aWord
+ ME_57D6814901E6 // aMethodName
+ ME_57D6814901FF // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_57D6813B0296 DoIt
+
+ME ME_57D68123004E
+ MEPROP UID '57D68123004E'
+ MEPROP Name 'CallSetter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57D6813B0296 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_57D68123004E CallSetter
+
+FORWARD ME_57D6815802B8
+
+FORWARD ME_57D6817000BA
+
+ME ME_57D6817603AB
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57D6817603AB aWord
+
+ME ME_57D6817603DD
+ MEPROP Name 'aMethodName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57D6817603DD aMethodName
+
+ME ME_57D681770013
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_57D681770013 aValue
+
+ME ME_57D6817000BA
+ MEPROP UID '57D6817000BA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D6815802B8 // CallIntSetter
+ ;
+ MELIST Parameters
+   Seq: ( ME_57D6817603AB // aWord
+ ME_57D6817603DD // aMethodName
+ ME_57D681770013 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_57D6817000BA DoIt
+
+ME ME_57D6815802B8
+ MEPROP UID '57D6815802B8'
+ MEPROP Name 'CallIntSetter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57D6817000BA // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_57D6815802B8 CallIntSetter
+
+FORWARD ME_57F4E39D0252
+
+FORWARD ME_57F4E3B401AF
+
+ME ME_57F4E3C002E5
+ MEPROP Name 'aParameters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_57DFF5AD03C7 // array of TtfwStackValue
+ ;
+
+ENDME // ME_57F4E3C002E5 aParameters
+
+ME ME_57F4E3C0031F
+ MEPROP Name 'aMethodName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57F4E3C0031F aMethodName
+
+ME ME_57F4E3B401AF
+ MEPROP UID '57F4E3B401AF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57F4E39D0252 // CallAndGetList$1
+ ;
+ MELINK Target WL 'ME_57E3F88C00BB' '4DAF19F600C5.ms.model.script' // ItfwArray
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F4E3C002E5 // aParameters
+ ME_57F4E3C0031F // aMethodName
+ )
+ ; // Parameters
+
+ENDME // ME_57F4E3B401AF DoIt
+
+ME ME_57F4E39D0252
+ MEPROP UID '57F4E39D0252'
+ MEPROP Name 'CallAndGetList'
+ MEPROP OriginalName 'CallAndGetList$1'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57F4E3B401AF // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_57F4E39D0252 CallAndGetList$1
+
+FORWARD ME_57FBBAD9018B
+
+FORWARD ME_57FBBAE9016E
+
+ME ME_57FBBAF300BD
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57FBBAF300BD aWord
+
+ME ME_57FBBAF300F3
+ MEPROP Name 'aMethodName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57FBBAF300F3 aMethodName
+
+ME ME_57FBBAF30115
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57FBBAF30115 aValue
+
+ME ME_57FBBAE9016E
+ MEPROP UID '57FBBAE9016E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57FBBAD9018B // CallStrSetter
+ ;
+ MELIST Parameters
+   Seq: ( ME_57FBBAF300BD // aWord
+ ME_57FBBAF300F3 // aMethodName
+ ME_57FBBAF30115 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_57FBBAE9016E DoIt
+
+ME ME_57FBBAD9018B
+ MEPROP UID '57FBBAD9018B'
+ MEPROP Name 'CallStrSetter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57FBBAE9016E // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_57FBBAD9018B CallStrSetter
+
+FORWARD ME_57FBBAFC02D9
+
+FORWARD ME_57FBBB090224
+
+ME ME_57FBBB110124
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57FBBB110124 aWord
+
+ME ME_57FBBB110184
+ MEPROP Name 'aMethodName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57FBBB110184 aMethodName
+
+ME ME_57FBBB1101D8
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57FBBB1101D8 aValue
+
+ME ME_57FBBB090224
+ MEPROP UID '57FBBB090224'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57FBBAFC02D9 // CallWordSetter
+ ;
+ MELIST Parameters
+   Seq: ( ME_57FBBB110124 // aWord
+ ME_57FBBB110184 // aMethodName
+ ME_57FBBB1101D8 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_57FBBB090224 DoIt
+
+ME ME_57FBBAFC02D9
+ MEPROP UID '57FBBAFC02D9'
+ MEPROP Name 'CallWordSetter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57FBBB090224 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_57FBBAFC02D9 CallWordSetter
+
+ME ME_57AA00C90031
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELINK Target HWL ME_57A9FEF503A3 // TmsmModelElementMethodScriptCaller
+ ;
+
+ENDME // ME_57AA00C90031 
+
+ME ME_57B2E6C800DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELINK Target WL? 'ME_57B2E6B90102' // TmsmModelElementMethodValueCache
+ ;
+
+ENDME // ME_57B2E6C800DF 
+
+ME ME_57C68638037A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELINK Target WL? 'ME_57C3E95F0252' // TmsmModelLoadingThread
+ ;
+
+ENDME // ME_57C68638037A 
+
+ME ME_57D6772F0328
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELINK Target WL? 'ME_57D6771E001F' // TmsmWordsByName
+ ;
+
+ENDME // ME_57D6772F0328 
+
+ME ME_57E103FA0362
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELINK Target WL? 'ME_57E103E402B8' // TmsmChangedElementsPrim
+ ;
+
+ENDME // ME_57E103FA0362 
+
+ME ME_57F7BA22035A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELINK Target WL? 'ME_57F7BA1703A5' // TmsmChangedElements
+ ;
+
+ENDME // ME_57F7BA22035A 
+
+ME ME_57AA00BD022E
+ MEPROP UID '57AA00BD022E'
+ MEPROP Name 'TmsmModelElementMethodCaller'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57AB4243034B' // ScriptCalling
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57AA00EB01D8 // Call
+ HWL ME_57AAD78202FF // CallAndGetObj
+ HWL ME_57AAD7AA00E0 // CallAndGetString
+ HWL ME_57AAD7CA0287 // CallAndGetList
+ HWL ME_57AAD7EE01D3 // CallAndGetInt
+ HWL ME_57AAD8130389 // CallAndGetBool
+ HWL ME_57C437080131 // RawCall
+ HWL ME_57C438C803DC // CallProc
+ HWL ME_57CFC420039B // Call$OnAny
+ HWL ME_57D66B490028 // ScriptName
+ HWL ME_57D68123004E // CallSetter
+ HWL ME_57D6815802B8 // CallIntSetter
+ HWL ME_57F4E39D0252 // CallAndGetList$1
+ HWL ME_57FBBAD9018B // CallStrSetter
+ HWL ME_57FBBAFC02D9 // CallWordSetter
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_57DFF5AD03C7 // array of TtfwStackValue
+ HWL ME_57A9FEF503A3 // TmsmModelElementMethodScriptCaller
+ HWL ME_57E3FE20029C // TtfwStackValuesArray
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_57AA00C90031 // TmsmModelElementMethodScriptCaller
+ ME_57B2E6C800DF // TmsmModelElementMethodValueCache
+ ME_57C68638037A // TmsmModelLoadingThread
+ ME_57D6772F0328 // TmsmWordsByName
+ ME_57E103FA0362 // TmsmChangedElementsPrim
+ ME_57F7BA22035A // TmsmChangedElements
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_57EE79810155' '57EE79280327.ms.model.script' // msmModelElementMethodCallerPack
+ )
+ ; // Injected
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmModelElementMethodCaller'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmModelElementMethodCaller'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmModelElementMethodCaller.pas'
+
+ENDME // ME_57AA00BD022E TmsmModelElementMethodCaller

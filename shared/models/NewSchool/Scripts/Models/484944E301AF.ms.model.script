@@ -1,0 +1,106 @@
+// WEnumeration 484944E301AF Wrapper Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_484944E301AF
+
+ME ME_49C8F5400236
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484944E301AF // WEnumeration
+ ;
+ MELINK Target WL 'ME_4767749802D1' '4767743E00E5.ms.model.script' // PTypeInfo
+ ;
+
+ENDME // ME_49C8F5400236 
+
+ME ME_49C8F65D0292
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484944E301AF // WEnumeration
+ ;
+ MELINK Target WL? 'ME_47AC6F0B025E' // k2Base
+ ;
+
+ENDME // ME_49C8F65D0292 
+
+ME ME_49C8F6F701AE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484944E301AF // WEnumeration
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_49C8F6F701AE 
+
+MEREF ME_484CCE970073_ME_484944E301AF_over
+ MELINK Original WL 'ME_484CCE970073' '47AC6F0B025E.ms.model.script' // AsString
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_484CCE970073_ME_484944E301AF_over AsString
+
+MEREF ME_484CCEBC00DC_ME_484944E301AF_over
+ MELINK Original WL 'ME_484CCEBC00DC' '47AC6F0B025E.ms.model.script' // StrToTag
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_484CCEBC00DC_ME_484944E301AF_over StrToTag
+
+MEREF ME_4849423C0299_ME_484944E301AF_G
+ MELINK Original WL? 'ME_4849423C0299' // WLong
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4849423C0299_ME_484944E301AF_G WLong
+
+MEREF ME_48492A33037B_ME_484944E301AF_R
+ MELINK Original WL 'ME_48492A33037B' '52669BFC024E.ms.model.script' // Enum
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48492A33037B_ME_484944E301AF_R Enum
+
+%%ImplementedBy ME_48492A33037B ME_484944E301AF
+
+%%InheritedBy ME_4849423C0299 ME_484944E301AF
+
+ME ME_484944E301AF
+ MEPROP UID '484944E301AF'
+ MEPROP Name 'WEnumeration'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Wrapper ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'WEnumeration' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4849284D0067' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4849423C0299_ME_484944E301AF_G // WLong
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_48492A33037B_ME_484944E301AF_R // Enum
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_484CCE970073_ME_484944E301AF_over // AsString
+ ME_484CCEBC00DC_ME_484944E301AF_over // StrToTag
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49C8F5400236 // PTypeInfo
+ ME_49C8F65D0292 // k2Base
+ ME_49C8F6F701AE // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '07.09.1998 12:46'
+ UP extprop:pas:UnitName 'Enumeration_Wrap'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\Enumeration_Wrap.pas'
+
+ENDME // ME_484944E301AF WEnumeration

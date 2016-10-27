@@ -1,0 +1,679 @@
+// TnevFormatInfoFactory 4E16E263024F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E16E263024F
+
+FORWARD ME_4E16E29D02DF
+
+FORWARD ME_4E16E2D8036E
+
+ME ME_4E16E2F40253
+ MEPROP Name 'aChild'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49D0E657022F' '4678209200A6.ms.model.script' // InevObjectPrim
+ ;
+
+ENDME // ME_4E16E2F40253 aChild
+
+ME ME_4E16E2F40273
+ MEPROP Name 'aParent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4810DFE100B4' // TnevFormatInfo
+ ;
+
+ENDME // ME_4E16E2F40273 aParent
+
+ME ME_4E16E81F01C7
+ MEPROP Name 'aMetrics'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_467821CA019F' '4678209200A6.ms.model.script' // InevViewMetrics
+ ;
+
+ENDME // ME_4E16E81F01C7 aMetrics
+
+ME ME_4E16E2D8036E
+ MEPROP UID '4E16E2D8036E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4810DFE100B4' // TnevFormatInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E16E2F40253 // aChild
+ ME_4E16E2F40273 // aParent
+ ME_4E16E81F01C7 // aMetrics
+ )
+ ; // Parameters
+
+ENDME // ME_4E16E2D8036E DoIt
+
+ME ME_4E16E31D009D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4E16E31D009D 
+
+ME ME_4E16E326006C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4E16E326006C 
+
+ME ME_4E16E329024E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_4E16E329024E 
+
+ME ME_4E16E32E0134
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_4857C9C20131' '48492FC0029D.ms.model.script' // CommentPara
+ ;
+
+ENDME // ME_4E16E32E0134 
+
+ME ME_4E16E3320205
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_4857E2A70175' '48492FC0029D.ms.model.script' // SBS
+ ;
+
+ENDME // ME_4E16E3320205 
+
+ME ME_4E16E336006D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_4857D3C103AB' '48492FC0029D.ms.model.script' // SBSRow
+ ;
+
+ENDME // ME_4E16E336006D 
+
+ME ME_4E16E33902EB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_4857D2F8006D' '48492FC0029D.ms.model.script' // TableRow
+ ;
+
+ENDME // ME_4E16E33902EB 
+
+ME ME_4E16E341008C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_4857EA97011D' '48492FC0029D.ms.model.script' // ReqRow
+ ;
+
+ENDME // ME_4E16E341008C 
+
+ME ME_4E16E3450205
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_4857D15D029B' '48492FC0029D.ms.model.script' // SBSCell
+ ;
+
+ENDME // ME_4E16E3450205 
+
+ME ME_4E16E349030A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_4857CD8D0093' '48492FC0029D.ms.model.script' // TableCell
+ ;
+
+ENDME // ME_4E16E349030A 
+
+ME ME_4E16E35701B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_47D00CC20108' // nevFacade
+ ;
+
+ENDME // ME_4E16E35701B2 
+
+ME ME_4E16E36403DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_48DB9D1A030D' // TnevTableCellFormatInfo
+ ;
+
+ENDME // ME_4E16E36403DA 
+
+ME ME_4E16E39902FB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_47F1F3BC0330' // evParaTools
+ ;
+
+ENDME // ME_4E16E39902FB 
+
+ME ME_4E16E3A20365
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_47A066980016' // l3MinMax
+ ;
+
+ENDME // ME_4E16E3A20365 
+
+ME ME_4E16E3AF0316
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4810DFE100B4' // TnevFormatInfo
+ ;
+
+ENDME // ME_4E16E3AF0316 
+
+ME ME_4E16E3BD03AE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_480CA9AD0198' // evSectionPara
+ ;
+
+ENDME // ME_4E16E3BD03AE 
+
+ME ME_4E16E4B1006B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4815B8510359' // TnevListFormatInfo
+ ;
+
+ENDME // ME_4E16E4B1006B 
+
+ME ME_4E16E4C60129
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_482098D2015E' // TnevRubberCellsRenderInfo
+ ;
+
+ENDME // ME_4E16E4C60129 
+
+ME ME_4E16E4D503AE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4848EBFB00B0' // TnevTableRowRenderInfo
+ ;
+
+ENDME // ME_4E16E4D503AE 
+
+ME ME_4E16E4E002B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_481F174D01BF' // TnevTextParaRenderInfo
+ ;
+
+ENDME // ME_4E16E4E002B5 
+
+ME ME_4E16E4EE01F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4BA24BC5012E' // TnevZoomedCellsRenderInfo
+ ;
+
+ENDME // ME_4E16E4EE01F4 
+
+ME ME_4E16E4F8011C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4BFD57640306' // TnevZoomedRubberCellsRenderInfo
+ ;
+
+ENDME // ME_4E16E4F8011C 
+
+ME ME_4E16EAEF0225
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_481F0442026B' // TnevLeafRenderInfo
+ ;
+
+ENDME // ME_4E16EAEF0225 
+
+ME ME_4E5F330E0017
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_4857A87D0337' '48492FC0029D.ms.model.script' // Block
+ ;
+
+ENDME // ME_4E5F330E0017 
+
+ME ME_4E5F331B0017
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4E5F331B0017 
+
+ME ME_4E5F337D01E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4E5F3349020F' // TnevDocumentPartFormatInfo
+ ;
+
+ENDME // ME_4E5F337D01E6 
+
+ME ME_4E5F33B802DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4E5F3389001D' // TnevCommentFormatInfo
+ ;
+
+ENDME // ME_4E5F33B802DA 
+
+ME ME_4E5F3631027B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4E5F35FF01B4' // TnevBitmapFormatInfo
+ ;
+
+ENDME // ME_4E5F3631027B 
+
+ME ME_4E5F363F03DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4E5F35CF007B' // TnevControlFormatInfo
+ ;
+
+ENDME // ME_4E5F363F03DB 
+
+ME ME_4E5F364E0272
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4E5F35A9022C' // TnevFormulaFormatInfo
+ ;
+
+ENDME // ME_4E5F364E0272 
+
+ME ME_4E5F365E0375
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_4857926501CB' '48492FC0029D.ms.model.script' // Formula
+ ;
+
+ENDME // ME_4E5F365E0375 
+
+ME ME_4E5F36690340
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_4857923F0186' '48492FC0029D.ms.model.script' // ControlPara
+ ;
+
+ENDME // ME_4E5F36690340 
+
+ME ME_4E5F3672033F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_4858116B0355' '48492FC0029D.ms.model.script' // BitmapPara
+ ;
+
+ENDME // ME_4E5F3672033F 
+
+ME ME_4E5F553B031B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4E5F54E500AA' // TnevControlsBlockFormatInfo
+ ;
+
+ENDME // ME_4E5F553B031B 
+
+ME ME_4E5F55480091
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4E5F550D0032' // TnevCloakFormatInfo
+ ;
+
+ENDME // ME_4E5F55480091 
+
+ME ME_4E5F55550348
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_485806FC032D' '48492FC0029D.ms.model.script' // ControlsBlock
+ ;
+
+ENDME // ME_4E5F55550348 
+
+ME ME_4E5F55650341
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_4E13366702E2' '48492FC0029D.ms.model.script' // Cloak
+ ;
+
+ENDME // ME_4E5F55650341 
+
+ME ME_4E5FAB6C0013
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4E5FAB3E0333' // TnevSegmentFormatInfo
+ ;
+
+ENDME // ME_4E5FAB6C0013 
+
+ME ME_4E5FAB7E0279
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_484FDC4F013F' '484A470100DD.ms.model.script' // TextSegment
+ ;
+
+ENDME // ME_4E5FAB7E0279 
+
+ME ME_4E5FB1AD0116
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4E5FB17501E8' // TnevObjectSegmentFormatInfo
+ ;
+
+ENDME // ME_4E5FB1AD0116 
+
+ME ME_4E5FB1CC0360
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_48564C5800DD' '484A470100DD.ms.model.script' // ObjectSegment
+ ;
+
+ENDME // ME_4E5FB1CC0360 
+
+ME ME_4E6A30610235
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4E6A302701CF' // TnevDocumentFormatInfo
+ ;
+
+ENDME // ME_4E6A30610235 
+
+ME ME_4E7064DA00C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_4E7064DA00C3 
+
+ME ME_4E7065390056
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4E706504020E' // TnevSBSCellFormatInfo
+ ;
+
+ENDME // ME_4E7065390056 
+
+ME ME_4E7065D0035B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4E70655403BD' // TnevSBSRowFormatInfo
+ ;
+
+ENDME // ME_4E7065D0035B 
+
+ME ME_4E706DBF004C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_4E706DA1024A' '4810DFE100B4.ms.model.script' // RnevFormatInfo
+ ;
+
+ENDME // ME_4E706DBF004C 
+
+ME ME_4E706F2D0187
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4E706C6003DD' // TnevTableRowRenderInfoEx
+ ;
+
+ENDME // ME_4E706F2D0187 
+
+ME ME_4E70722D010D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4E7071FD01E9' // TnevReqRowFormatInfo
+ ;
+
+ENDME // ME_4E70722D010D 
+
+ME ME_4E709531023F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4E7094F60213' // TnevPageBreakFormatInfo
+ ;
+
+ENDME // ME_4E709531023F 
+
+ME ME_4E70955B00B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_48566A8103C1' '484A470100DD.ms.model.script' // PageBreak
+ ;
+
+ENDME // ME_4E70955B00B2 
+
+ME ME_4ED4EB000174
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL? 'ME_4ED4EA8B0364' // TnevNodeGroupFormatInfo
+ ;
+
+ENDME // ME_4ED4EB000174 
+
+ME ME_4ED4EB25025A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E16E29D02DF // CreateFormatInfo
+ ;
+ MELINK Target WL 'ME_4ED4DDA10234' '48492FC0029D.ms.model.script' // NodeGroup
+ ;
+
+ENDME // ME_4ED4EB25025A 
+
+ME ME_4E16E29D02DF
+ MEPROP UID '4E16E29D02DF'
+ MEPROP Name 'CreateFormatInfo'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E16E263024F // TnevFormatInfoFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E16E2D8036E // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E16E31D009D // SysUtils
+ ME_4E16E326006C // Tk2TagID
+ ME_4E16E329024E // TextPara
+ ME_4E16E32E0134 // CommentPara
+ ME_4E16E3320205 // SBS
+ ME_4E16E336006D // SBSRow
+ ME_4E16E33902EB // TableRow
+ ME_4E16E341008C // ReqRow
+ ME_4E16E3450205 // SBSCell
+ ME_4E16E349030A // TableCell
+ ME_4E16E35701B2 // nevFacade
+ ME_4E16E36403DA // TnevTableCellFormatInfo
+ ME_4E16E39902FB // evParaTools
+ ME_4E16E3A20365 // l3MinMax
+ ME_4E16E3AF0316 // TnevFormatInfo
+ ME_4E16E3BD03AE // evSectionPara
+ ME_4E16E4B1006B // TnevListFormatInfo
+ ME_4E16E4C60129 // TnevRubberCellsRenderInfo
+ ME_4E16E4D503AE // TnevTableRowRenderInfo
+ ME_4E16E4E002B5 // TnevTextParaRenderInfo
+ ME_4E16E4EE01F4 // TnevZoomedCellsRenderInfo
+ ME_4E16E4F8011C // TnevZoomedRubberCellsRenderInfo
+ ME_4E16EAEF0225 // TnevLeafRenderInfo
+ ME_4E5F330E0017 // Block
+ ME_4E5F331B0017 // Document
+ ME_4E5F337D01E6 // TnevDocumentPartFormatInfo
+ ME_4E5F33B802DA // TnevCommentFormatInfo
+ ME_4E5F3631027B // TnevBitmapFormatInfo
+ ME_4E5F363F03DB // TnevControlFormatInfo
+ ME_4E5F364E0272 // TnevFormulaFormatInfo
+ ME_4E5F365E0375 // Formula
+ ME_4E5F36690340 // ControlPara
+ ME_4E5F3672033F // BitmapPara
+ ME_4E5F553B031B // TnevControlsBlockFormatInfo
+ ME_4E5F55480091 // TnevCloakFormatInfo
+ ME_4E5F55550348 // ControlsBlock
+ ME_4E5F55650341 // Cloak
+ ME_4E5FAB6C0013 // TnevSegmentFormatInfo
+ ME_4E5FAB7E0279 // TextSegment
+ ME_4E5FB1AD0116 // TnevObjectSegmentFormatInfo
+ ME_4E5FB1CC0360 // ObjectSegment
+ ME_4E6A30610235 // TnevDocumentFormatInfo
+ ME_4E7064DA00C3 // Tk2Type
+ ME_4E7065390056 // TnevSBSCellFormatInfo
+ ME_4E7065D0035B // TnevSBSRowFormatInfo
+ ME_4E706DBF004C // RnevFormatInfo
+ ME_4E706F2D0187 // TnevTableRowRenderInfoEx
+ ME_4E70722D010D // TnevReqRowFormatInfo
+ ME_4E709531023F // TnevPageBreakFormatInfo
+ ME_4E70955B00B2 // PageBreak
+ ME_4ED4EB000174 // TnevNodeGroupFormatInfo
+ ME_4ED4EB25025A // NodeGroup
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" True
+
+ENDME // ME_4E16E29D02DF CreateFormatInfo
+
+ME ME_4E16E263024F
+ MEPROP UID '4E16E263024F'
+ MEPROP Name 'TnevFormatInfoFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48185390010A' // Rendering
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E16E29D02DF // CreateFormatInfo
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '08.07.2011 14:57'
+ UP extprop:pas:UnitName 'nevFormatInfoFactory'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FormatInfoFactory'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevFormatInfoFactory.pas'
+
+ENDME // ME_4E16E263024F TnevFormatInfoFactory

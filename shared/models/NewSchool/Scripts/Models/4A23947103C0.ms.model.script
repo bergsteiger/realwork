@@ -1,0 +1,86 @@
+// TnevFlatSubsList 4A23947103C0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A23947103C0
+
+ME ME_4A23953D024A
+ MEPROP UID '4A23953D024A'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A23947103C0 // TnevFlatSubsList
+ ;
+ MELINK Target WL 'ME_47C6B03200AF' '47C5207602D1.ms.model.script' // IevSub
+ ;
+
+ENDME // ME_4A23953D024A ItemType
+
+MEREF ME_4BB08B8902F2_ME_4A23947103C0_impl
+ MELINK Original WL 'ME_4BB08B8902F2' '47D810610398.ms.model.script' // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4BB08B8902F2_ME_4A23947103C0_impl Count
+
+MEREF ME_47B57D830369_ME_4A23947103C0_G
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_4A23947103C0_G l3InterfaceRefList
+
+MEREF ME_4A54DD4E036F_ME_4A23947103C0_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4A23947103C0_G Tl3ProtoDataContainer
+
+MEREF ME_4A2393970155_ME_4A23947103C0_R
+ MELINK Original WL 'ME_4A2393970155' '4A23913602C3.ms.model.script' // InevFlatSubsList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A2393970155_ME_4A23947103C0_R InevFlatSubsList
+
+%%ImplementedBy ME_4A2393970155 ME_4A23947103C0
+
+%%InheritedBy ME_47B57D830369 ME_4A23947103C0
+%%InheritedBy ME_4A54DD4E036F ME_4A23947103C0
+
+ME ME_4A23947103C0
+ MEPROP UID '4A23947103C0'
+ MEPROP Name 'TnevFlatSubsList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Плоский контейнер сабов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47C52679006D' // nevUtils
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57D830369_ME_4A23947103C0_G // l3InterfaceRefList
+ HWL ME_4A54DD4E036F_ME_4A23947103C0_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4A2393970155_ME_4A23947103C0_R // InevFlatSubsList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A23953D024A // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4BB08B8902F2_ME_4A23947103C0_impl // Count
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'nevFlatSubsList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FlatSubsList'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevFlatSubsList.pas'
+
+ENDME // ME_4A23947103C0 TnevFlatSubsList

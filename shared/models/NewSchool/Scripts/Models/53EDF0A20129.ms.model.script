@@ -1,0 +1,75 @@
+// IterateSubDecriptorsOnSubPanelEX 53EDF0A20129 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53EDF0A20129
+
+ME ME_53EDF1D903D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53EDF0A20129 // IterateSubDecriptorsOnSubPanelEX
+ ;
+ MELINK Target WL? 'ME_4B87B6A2008E' // TevSubPanelSubArray
+ ;
+
+ENDME // ME_53EDF1D903D7 
+
+ME ME_53EDF1DE0101
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53EDF0A20129 // IterateSubDecriptorsOnSubPanelEX
+ ;
+ MELINK Target WL? 'ME_4B87D32A0023' // TevSubPanelSubCollection
+ ;
+
+ENDME // ME_53EDF1DE0101 
+
+MEREF ME_53EDFA0401B8_ME_53EDF0A20129_over
+ MELINK Original WL 'ME_53EDFA0401B8' '52D78486017B.ms.model.script' // PushObjData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53EDFA0401B8_ME_53EDF0A20129_over PushObjData
+
+MEREF ME_52D78486017B_ME_53EDF0A20129_G
+ MELINK Original WL? 'ME_52D78486017B' // IterateSubDecriptorsOnSubPanel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52D78486017B_ME_53EDF0A20129_G IterateSubDecriptorsOnSubPanel
+
+%%InheritedBy ME_52D78486017B ME_53EDF0A20129
+
+ME ME_53EDF0A20129
+ MEPROP UID '53EDF0A20129'
+ MEPROP Name 'IterateSubDecriptorsOnSubPanelEX'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Перебирает все SubDescriptot на SubPanel, которые *могут быть* отрисованы (!). Т.е. проверка на Visible не производится. Если это нужно, то можно реализвать в скриптах. '#13#10'Формат:'#13#10'{code}'#13#10'@ aWord aLayerID aSubPanel IterateSubDecriptorsOnSubPanelEX'#13#10'{code}'#13#10'aLayerID - слой, в котором производится итерация'#13#10'aSubPanel - контрол сабпанели.'#13#10'aWord - функция для обработки вида:'#13#10'{code}'#13#10'PROCEDURE CheckDescription OBJECT IN aSubDescription OBJECT IN aSubPanelSub'#13#10' // А здесь обрабатываем полученный aSubDescription'#13#10';'#13#10'{code}'#13#10'Для извлечения нужной инфорации из aSubDescription есть набор функций: subdescriptor:GetDrawType и т.п.'#13#10'aSubPanelSub - визуальное представление метки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_52D643A301A9' // SubPanelWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52D78486017B_ME_53EDF0A20129_G // IterateSubDecriptorsOnSubPanel
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_53EDFA0401B8_ME_53EDF0A20129_over // PushObjData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53EDF1D903D7 // TevSubPanelSubArray
+ ME_53EDF1DE0101 // TevSubPanelSubCollection
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwIterateSubDecriptorsOnSubPanelEX'
+ UP extprop:pas:UnitName 'kwIterateSubDecriptorsOnSubPanelEX'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IterateSubDecriptorsOnSubPanelEX'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwIterateSubDecriptorsOnSubPanelEX.pas'
+
+ENDME // ME_53EDF0A20129 IterateSubDecriptorsOnSubPanelEX

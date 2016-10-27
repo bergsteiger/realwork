@@ -1,0 +1,101 @@
+// TtfwMappedArrayView 52E6733C0163 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52EA87EA0325
+
+FORWARD ME_52E6733C0163
+
+MEREF ME_4DAEEDE10285_ME_52EA87EA0325_impl
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DAEEDE10285_ME_52EA87EA0325_impl DoDoIt
+
+MEREF ME_52EA8AD102B0_ME_52EA87EA0325_G
+ MELINK Original WL 'ME_52EA8AD102B0' '52E666BC0270.ms.model.script' // TtfwTwoLambdas
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52EA8AD102B0_ME_52EA87EA0325_G TtfwTwoLambdas
+
+%%InheritedBy ME_52EA8AD102B0 ME_52EA87EA0325
+
+ME ME_52EA87EA0325
+ MEPROP UID '52EA87EA0325'
+ MEPROP Name 'TtfwMapLambda'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52E6733C0163 // TtfwMappedArrayView
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52EA8AD102B0_ME_52EA87EA0325_G // TtfwTwoLambdas
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_52EA87EA0325_impl // DoDoIt
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MapLambda'
+
+ENDME // ME_52EA87EA0325 TtfwMapLambda
+
+MEREF ME_52EA8EE702FA_ME_52E6733C0163_impl
+ MELINK Original WL 'ME_52EA8EE702FA' '52E666BC0270.ms.model.script' // TwoLabdasClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52EA8EE702FA_ME_52E6733C0163_impl TwoLabdasClass
+
+MEREF ME_57C811A30375_ME_52E6733C0163_over
+ MELINK Original WL 'ME_57C811A30375' '57C81527030E.ms.model.script' // GetCount
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57C811A30375_ME_52E6733C0163_over GetCount
+
+MEREF ME_52E666BC0270_ME_52E6733C0163_G
+ MELINK Original WL? 'ME_52E666BC0270' // TtfwLambdedArrayView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52E666BC0270_ME_52E6733C0163_G TtfwLambdedArrayView
+
+%%InheritedBy ME_52E666BC0270 ME_52E6733C0163
+
+ME ME_52E6733C0163
+ MEPROP UID '52E6733C0163'
+ MEPROP Name 'TtfwMappedArrayView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F50310E03D7' // ArrayProcessing
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52E666BC0270_ME_52E6733C0163_G // TtfwLambdedArrayView
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52EA8EE702FA_ME_52E6733C0163_impl // TwoLabdasClass
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_57C811A30375_ME_52E6733C0163_over // GetCount
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_52EA87EA0325 // TtfwMapLambda
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'tfwMappedArrayView'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MappedArrayView'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwMappedArrayView.pas'
+
+ENDME // ME_52E6733C0163 TtfwMappedArrayView

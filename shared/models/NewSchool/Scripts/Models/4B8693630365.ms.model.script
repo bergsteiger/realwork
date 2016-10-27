@@ -1,0 +1,206 @@
+// TnevShapePrim 4B8693630365 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B87B08E03AE
+%%Inner ME_4E6E23C001B6
+
+FORWARD ME_4B8693630365
+
+ME ME_4B87B08E03AE
+ MEPROP UID '4B87B08E03AE'
+ MEPROP Name 'l3Items_NoChanging'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B8693630365 // TnevShapePrim
+ ;
+ UP extprop:rc:SelfName 'Items_NoChanging'
+
+ENDME // ME_4B87B08E03AE l3Items_NoChanging
+
+ME ME_4E6E23C001B6
+ MEPROP UID '4E6E23C001B6'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B8693630365 // TnevShapePrim
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_4E6E23C001B6 l3Items_NoSort
+
+ME ME_4B86942F0286
+ MEPROP UID '4B86942F0286'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B8693630365 // TnevShapePrim
+ ;
+ MELINK Target WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+
+ENDME // ME_4B86942F0286 ItemType
+
+FORWARD ME_4E6E23810369
+
+ME ME_4E6E239103B1
+ MEPROP UID '4E6E239103B1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E6E23810369 // CleanupRefs
+ ;
+
+ENDME // ME_4E6E239103B1 DoIt
+
+ME ME_4E6E23810369
+ MEPROP UID '4E6E23810369'
+ MEPROP Name 'CleanupRefs'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Очищает ссылки на сторонние объекты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B8693630365 // TnevShapePrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E6E239103B1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E6E23810369 CleanupRefs
+
+ME ME_4B87994C0299
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B8693630365 // TnevShapePrim
+ ;
+ MELINK Target WL 'ME_4B8682720286' '4811DA3100E6.ms.model.script' // TnevShape
+ ;
+
+ENDME // ME_4B87994C0299 
+
+MEREF ME_47B2C42A0163_ME_4B8693630365_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4B8693630365_impl AssignItem
+
+MEREF ME_47B935AF0066_ME_4B8693630365_impl
+ MELINK Original WL 'ME_47B935AF0066' '47B45152003F.ms.model.script' // FillItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B935AF0066_ME_4B8693630365_impl FillItem
+
+MEREF ME_47B94A5C006E_ME_4B8693630365_impl
+ MELINK Original WL 'ME_47B94A5C006E' '47B45152003F.ms.model.script' // FreeItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B94A5C006E_ME_4B8693630365_impl FreeItem
+
+MEREF ME_47B99D4503A2_ME_4B8693630365_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4B8693630365_impl CompareExistingItems
+
+MEREF ME_47A6FEE600FC_ME_4B8693630365_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_4B8693630365_over IsCacheable
+
+MEREF ME_47B5A0AE03CC_ME_4B8693630365_G
+ MELINK Original WL? 'ME_47B5A0AE03CC' // l3ObjectRefListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B5A0AE03CC_ME_4B8693630365_G l3ObjectRefListPrim
+
+MEREF ME_4A54DD4E036F_ME_4B8693630365_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4B8693630365_G Tl3ProtoDataContainer
+
+MEREF ME_4B86890E0307_ME_4B8693630365_G
+ MELINK Original WL? 'ME_4B86890E0307' // l3OpenArray
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B86890E0307_ME_4B8693630365_G l3OpenArray
+
+%%InheritedBy ME_47B5A0AE03CC ME_4B8693630365
+%%InheritedBy ME_4A54DD4E036F ME_4B8693630365
+%%InheritedBy ME_4B86890E0307 ME_4B8693630365
+
+ME ME_4B8693630365
+ MEPROP UID '4B8693630365'
+ MEPROP Name 'TnevShapePrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация об отрисованном объекте' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4811D4EC0237' // Views
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B5A0AE03CC_ME_4B8693630365_G // l3ObjectRefListPrim
+ HWL ME_4A54DD4E036F_ME_4B8693630365_G // Tl3ProtoDataContainer
+ HWL ME_4B86890E0307_ME_4B8693630365_G // l3OpenArray
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B86942F0286 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E6E23810369 // CleanupRefs
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_4B8693630365_impl // AssignItem
+ ME_47B935AF0066_ME_4B8693630365_impl // FillItem
+ ME_47B94A5C006E_ME_4B8693630365_impl // FreeItem
+ ME_47B99D4503A2_ME_4B8693630365_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_4B8693630365_over // IsCacheable
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4B87B08E03AE // l3Items_NoChanging
+ HWL ME_4E6E23C001B6 // l3Items_NoSort
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4B87994C0299 // TnevShape
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '25.02.2010 18:12'
+ UP extprop:pas:UnitName 'nevShapePrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ShapePrim'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevShapePrim.pas'
+
+ENDME // ME_4B8693630365 TnevShapePrim

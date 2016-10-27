@@ -12,7 +12,6 @@ interface
 uses
  l3IntfUses
  , l3Variant
- , csCourtsListHelper
  , k2Base
  , Classes
 ;

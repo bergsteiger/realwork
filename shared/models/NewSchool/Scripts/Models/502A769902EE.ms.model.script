@@ -13,7 +13,7 @@ ME ME_502A79310382
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_502A769902EE // atIterateThroughFilesAddOn
  ;
- MELINK Target WL 'ME_502A45570012' '48076E7F0260.ms.model.script' // TatStringFileReader
+ MELINK Target WL? 'ME_502A45570012' // TatStringFileReader
  ;
 
 ENDME // ME_502A79310382 f_FileList
@@ -88,7 +88,7 @@ ME ME_502A775E01CB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_502A769902EE // atIterateThroughFilesAddOn
  ;
- MELINK Target WL 'ME_50294907000B' '48076E7F0260.ms.model.script' // TatFileInitializer
+ MELINK Target WL? 'ME_50294907000B' // TatFileInitializer
  ;
 
 ENDME // ME_502A775E01CB 
@@ -98,7 +98,7 @@ ME ME_502A776103B7
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_502A769902EE // atIterateThroughFilesAddOn
  ;
- MELINK Target WL 'ME_50254E240133' '48076E7F0260.ms.model.script' // TatFileIterator
+ MELINK Target WL? 'ME_50254E240133' // TatFileIterator
  ;
 
 ENDME // ME_502A776103B7 
@@ -108,7 +108,7 @@ ME ME_502A776A011F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_502A769902EE // atIterateThroughFilesAddOn
  ;
- MELINK Target WL 'ME_502A4763011B' '48076E7F0260.ms.model.script' // TatSyncedStringFileReader
+ MELINK Target WL? 'ME_502A4763011B' // TatSyncedStringFileReader
  ;
 
 ENDME // ME_502A776A011F 
@@ -118,7 +118,7 @@ ME ME_502A776D033A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_502A769902EE // atIterateThroughFilesAddOn
  ;
- MELINK Target WL 'ME_502A45570012' '48076E7F0260.ms.model.script' // TatStringFileReader
+ MELINK Target WL? 'ME_502A45570012' // TatStringFileReader
  ;
 
 ENDME // ME_502A776D033A 
@@ -138,28 +138,34 @@ ME ME_539709FB0055
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_502A769902EE // atIterateThroughFilesAddOn
  ;
- MELINK Target WL 'ME_5396F07A0079' '480865840083.ms.model.script' // EnvVarNames
+ MELINK Target WL 'ME_5396F07A0079' '5396EA3E0230.ms.model.script' // EnvVarNames
  ;
 
 ENDME // ME_539709FB0055 
 
-ME ME_48089F460352_ME_502A769902EE
+MEREF ME_48089F460352_ME_502A769902EE_impl
  MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_48089F460352_ME_502A769902EE ExecuteSelf
+ENDMEREF // ME_48089F460352_ME_502A769902EE_impl ExecuteSelf
 
-ME ME_479731C50290_ME_502A769902EE
+MEREF ME_479731C50290_ME_502A769902EE_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_502A769902EE Cleanup
+ENDMEREF // ME_479731C50290_ME_502A769902EE_over Cleanup
 
-ME ME_48089F3701B4_ME_502A769902EE
+MEREF ME_48089F3701B4_ME_502A769902EE_over
  MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48089F3701B4_ME_502A769902EE InitParamList
+ENDMEREF // ME_48089F3701B4_ME_502A769902EE_over InitParamList
+
+MEREF ME_4FD0D8A60276_ME_502A769902EE_R
+ MELINK Original WL 'ME_4FD0D8A60276' '4808ADB9014E.ms.model.script' // MatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FD0D8A60276_ME_502A769902EE_R MatOperationBase
 
 %%ImplementedBy ME_4FD0D8A60276 ME_502A769902EE
 
@@ -175,7 +181,7 @@ ME ME_502A769902EE
  MELINK Parent WL? 'ME_4808ADB9014E' // Operations
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4FD0D8A60276' '4808ADB9014E.ms.model.script' // MatOperationBase
+   Seq: ( HWL ME_4FD0D8A60276_ME_502A769902EE_R // MatOperationBase
  )
  ; // Implements
  MELIST Attributes
@@ -189,12 +195,12 @@ ME ME_502A769902EE
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_48089F460352_ME_502A769902EE // ExecuteSelf
+   Seq: ( ME_48089F460352_ME_502A769902EE_impl // ExecuteSelf
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_502A769902EE // Cleanup
- ME_48089F3701B4_ME_502A769902EE // InitParamList
+   Seq: ( ME_479731C50290_ME_502A769902EE_over // Cleanup
+ ME_48089F3701B4_ME_502A769902EE_over // InitParamList
  )
  ; // Overridden
  MELIST Dependencies

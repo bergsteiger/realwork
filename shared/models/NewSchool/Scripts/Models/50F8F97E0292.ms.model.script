@@ -1,0 +1,62 @@
+// TevArchiLikeDocumentContainer 50F8F97E0292 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50F8F97E0292
+
+ME ME_50F9343C01C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50F8F97E0292 // TevArchiLikeDocumentContainer
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_50F9343C01C8 
+
+MEREF ME_479731C50290_ME_50F8F97E0292_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_50F8F97E0292_over Cleanup
+
+MEREF ME_47F34F00021C_ME_50F8F97E0292_G
+ MELINK Original WL? 'ME_47F34F00021C' // TnevPrintableDocumentContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F34F00021C_ME_50F8F97E0292_G TnevPrintableDocumentContainer
+
+%%InheritedBy ME_47F34F00021C ME_50F8F97E0292
+
+ME ME_50F8F97E0292
+ MEPROP UID '50F8F97E0292'
+ MEPROP Name 'TevArchiLikeDocumentContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_50F8F944035A' // EditorCommon
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47F34F00021C_ME_50F8F97E0292_G // TnevPrintableDocumentContainer
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_50F8F97E0292_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_50F9343C01C8 // l3Free
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evArchiLikeDocumentContainer'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ArchiLikeDocumentContainer'
+ UP intf.pas:Path 'archi\source\projects\Common\Utils\evArchiLikeDocumentContainer.pas'
+
+ENDME // ME_50F8F97E0292 TevArchiLikeDocumentContainer

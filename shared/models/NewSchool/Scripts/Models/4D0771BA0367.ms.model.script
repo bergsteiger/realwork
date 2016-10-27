@@ -1,0 +1,135 @@
+// TTextViaEditorProcessorWithExternalSave 4D0771BA0367 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D0771BA0367
+
+FORWARD ME_4D0771F102B6
+
+FORWARD ME_4D0772060398
+
+ME ME_4D0773E100DC
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4D0773E100DC aForm
+
+ME ME_4D07720D00C3
+ MEPROP Name 'aFiler'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_4D07720D00C3 aFiler
+
+ME ME_4D0772060398
+ MEPROP UID '4D0772060398'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D0771F102B6 // DoSave
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D0773E100DC // aForm
+ ME_4D07720D00C3 // aFiler
+ )
+ ; // Parameters
+
+ENDME // ME_4D0772060398 DoIt
+
+ME ME_4D0771F102B6
+ MEPROP UID '4D0771F102B6'
+ MEPROP Name 'DoSave'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D0771BA0367 // TTextViaEditorProcessorWithExternalSave
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D0772060398 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D0771F102B6 DoSave
+
+ME ME_4D0772210325
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D0771BA0367 // TTextViaEditorProcessorWithExternalSave
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_4D0772210325 
+
+ME ME_4D07722600C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D0771BA0367 // TTextViaEditorProcessorWithExternalSave
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4D07722600C5 
+
+MEREF ME_4BE12AEE0190_ME_4D0771BA0367_over
+ MELINK Original WL 'ME_4BE12AEE0190' '4BE047320379.ms.model.script' // Save
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BE12AEE0190_ME_4D0771BA0367_over Save
+
+MEREF ME_4BE111D30229_ME_4D0771BA0367_G
+ MELINK Original WL? 'ME_4BE111D30229' // TTextViaEditorProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE111D30229_ME_4D0771BA0367_G TTextViaEditorProcessor
+
+%%InheritedBy ME_4BE111D30229 ME_4D0771BA0367
+
+ME ME_4D0771BA0367
+ MEPROP UID '4D0771BA0367'
+ MEPROP Name 'TTextViaEditorProcessorWithExternalSave'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4D02566F01E6' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE111D30229_ME_4D0771BA0367_G // TTextViaEditorProcessor
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D0771F102B6 // DoSave
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4BE12AEE0190_ME_4D0771BA0367_over // Save
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D0772210325 // Tl3CustomFiler
+ ME_4D07722600C5 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '14.12.2010 16:31'
+ UP extprop:pas:UnitName 'TextViaEditorProcessorWithExternalSave'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextViaEditorProcessorWithExternalSave'
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\TextViaEditorProcessorWithExternalSave.pas'
+
+ENDME // ME_4D0771BA0367 TTextViaEditorProcessorWithExternalSave

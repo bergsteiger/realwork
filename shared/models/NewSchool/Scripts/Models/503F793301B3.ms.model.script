@@ -1,0 +1,131 @@
+// TatStringToStringConverterBase 503F793301B3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_503F793301B3
+
+ME ME_503F79B201A9
+ MEPROP UID '503F79B201A9'
+ MEPROP Name 'FirstType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_503F793301B3 // TatStringToStringConverterBase
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_503F79B201A9 FirstType
+
+ME ME_503F79D4034F
+ MEPROP UID '503F79D4034F'
+ MEPROP Name 'SecondType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_503F793301B3 // TatStringToStringConverterBase
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_503F79D4034F SecondType
+
+FORWARD ME_503F7A2601F6
+
+ME ME_503F7A3A02BC
+ MEPROP Name 'aFirst'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_503E2C0901A6' '48076E7F0260.ms.model.script' // FirstType
+ ;
+
+ENDME // ME_503F7A3A02BC aFirst
+
+ME ME_503F7A2601F6
+ MEPROP UID '503F7A2601F6'
+ MEPROP Name 'FirstToSecondCI'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_503F793301B3 // TatStringToStringConverterBase
+ ;
+ MELINK Target WL 'ME_503E2CAF01BA' '48076E7F0260.ms.model.script' // SecondType
+ ;
+ MELIST Parameters
+   Seq: ( ME_503F7A3A02BC // aFirst
+ )
+ ; // Parameters
+
+ENDME // ME_503F7A2601F6 FirstToSecondCI
+
+FORWARD ME_503F7A40002D
+
+ME ME_503F7A5202EB
+ MEPROP Name 'aSecond'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_503E2CAF01BA' '48076E7F0260.ms.model.script' // SecondType
+ ;
+
+ENDME // ME_503F7A5202EB aSecond
+
+ME ME_503F7A40002D
+ MEPROP UID '503F7A40002D'
+ MEPROP Name 'SecondToFirstCI'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_503F793301B3 // TatStringToStringConverterBase
+ ;
+ MELINK Target WL 'ME_503E2C0901A6' '48076E7F0260.ms.model.script' // FirstType
+ ;
+ MELIST Parameters
+   Seq: ( ME_503F7A5202EB // aSecond
+ )
+ ; // Parameters
+
+ENDME // ME_503F7A40002D SecondToFirstCI
+
+MEREF ME_503E2BCA01E8_ME_503F793301B3_G
+ MELINK Original WL? 'ME_503E2BCA01E8' // atConverter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_503E2BCA01E8_ME_503F793301B3_G atConverter
+
+%%InheritedBy ME_503E2BCA01E8 ME_503F793301B3
+
+ME ME_503F793301B3
+ MEPROP UID '503F793301B3'
+ MEPROP Name 'TatStringToStringConverterBase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_503E2BCA01E8_ME_503F793301B3_G // atConverter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_503F79B201A9 // FirstType
+ HWL ME_503F79D4034F // SecondType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_503F7A2601F6 // FirstToSecondCI
+ HWL ME_503F7A40002D // SecondToFirstCI
+ )
+ ; // Operations
+ UP extprop:pas:UnitName 'atStringToStringConverterBase'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atStringToStringConverterBase'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atStringToStringConverterBase.pas'
+
+ENDME // ME_503F793301B3 TatStringToStringConverterBase

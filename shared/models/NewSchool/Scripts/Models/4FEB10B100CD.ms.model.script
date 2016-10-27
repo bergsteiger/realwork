@@ -1,0 +1,304 @@
+// TatLockFile 4FEB10B100CD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FEB10B100CD
+
+ME ME_4FEB11AD02D7
+ MEPROP UID '4FEB11AD02D7'
+ MEPROP Name 'f_WriteHandle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FEB10B100CD // TatLockFile
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+
+ENDME // ME_4FEB11AD02D7 f_WriteHandle
+
+ME ME_4FEB11BE0232
+ MEPROP UID '4FEB11BE0232'
+ MEPROP Name 'f_ReadHandle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FEB10B100CD // TatLockFile
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+
+ENDME // ME_4FEB11BE0232 f_ReadHandle
+
+ME ME_4FEB12F902F6
+ MEPROP UID '4FEB12F902F6'
+ MEPROP Name 'FileName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FEB10B100CD // TatLockFile
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4FEB12F902F6 FileName
+
+ME ME_4FEB14490195
+ MEPROP UID '4FEB14490195'
+ MEPROP Name 'f_LocksCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FEB10B100CD // TatLockFile
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FEB14490195 f_LocksCount
+
+FORWARD ME_4FEB10EA02B3
+
+ME ME_4FEB10F70064
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4FEB10F70064 aFileName
+
+ME ME_4FEB10EA02B3
+ MEPROP UID '4FEB10EA02B3'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_vctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FEB10B100CD // TatLockFile
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FEB10F70064 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_4FEB10EA02B3 Create
+
+FORWARD ME_4FEB10FD01E9
+
+ME ME_4FEB112B01F7
+ MEPROP Name 'aTimeOut'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+ MEPROP Value 'INFINITE'
+ MELINK ValueType WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+ UP extprop:pas:Value 'INFINITE'
+
+ENDME // ME_4FEB112B01F7 aTimeOut
+
+ME ME_4FEB10FD01E9
+ MEPROP UID '4FEB10FD01E9'
+ MEPROP Name 'Acquire'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FEB10B100CD // TatLockFile
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FEB112B01F7 // aTimeOut
+ )
+ ; // Parameters
+
+ENDME // ME_4FEB10FD01E9 Acquire
+
+ME ME_4FEB117E0197
+ MEPROP UID '4FEB117E0197'
+ MEPROP Name 'Release'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FEB10B100CD // TatLockFile
+ ;
+
+ENDME // ME_4FEB117E0197 Release
+
+ME ME_4FEB11FB009A
+ MEPROP UID '4FEB11FB009A'
+ MEPROP Name 'Initialize'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FEB10B100CD // TatLockFile
+ ;
+
+ENDME // ME_4FEB11FB009A Initialize
+
+ME ME_4FEB12AF03A1
+ MEPROP UID '4FEB12AF03A1'
+ MEPROP Name 'OpenForRead'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FEB10B100CD // TatLockFile
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FEB12AF03A1 OpenForRead
+
+FORWARD ME_4FEB12C50271
+
+ME ME_4FEB12C90171
+ MEPROP Name 'aAccessMode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_49B1535A0116' '48A41FF10094.ms.model.script' // DWORD
+ ;
+
+ENDME // ME_4FEB12C90171 aAccessMode
+
+ME ME_4FEB12C901BA
+ MEPROP Name 'aShareMode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_49B1535A0116' '48A41FF10094.ms.model.script' // DWORD
+ ;
+
+ENDME // ME_4FEB12C901BA aShareMode
+
+ME ME_4FEB12C50271
+ MEPROP UID '4FEB12C50271'
+ MEPROP Name 'OpenFile'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FEB10B100CD // TatLockFile
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FEB12C90171 // aAccessMode
+ ME_4FEB12C901BA // aShareMode
+ )
+ ; // Parameters
+
+ENDME // ME_4FEB12C50271 OpenFile
+
+ME ME_4FEB116A022C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FEB10B100CD // TatLockFile
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_4FEB116A022C 
+
+ME ME_4FEB13E602E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FEB10B100CD // TatLockFile
+ ;
+ MELINK Target WL? 'ME_48D391C60190' // DateUtils
+ ;
+
+ENDME // ME_4FEB13E602E5 
+
+ME ME_4FEB243A0253
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FEB10B100CD // TatLockFile
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4FEB243A0253 
+
+MEREF ME_48077504027E_ME_4FEB10B100CD_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_4FEB10B100CD_over Destroy
+
+MEREF ME_49F057120234_ME_4FEB10B100CD_over
+ MELINK Original WL 'ME_49F057120234' '4807744200AA.ms.model.script' // AfterConstruction
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49F057120234_ME_4FEB10B100CD_over AfterConstruction
+
+MEREF ME_4807745602C8_ME_4FEB10B100CD_G
+ MELINK Original WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807745602C8_ME_4FEB10B100CD_G TObject
+
+%%InheritedBy ME_4807745602C8 ME_4FEB10B100CD
+
+ME ME_4FEB10B100CD
+ MEPROP UID '4FEB10B100CD'
+ MEPROP Name 'TatLockFile'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4807745602C8_ME_4FEB10B100CD_G // TObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4FEB11AD02D7 // f_WriteHandle
+ HWL ME_4FEB11BE0232 // f_ReadHandle
+ HWL ME_4FEB12F902F6 // FileName
+ HWL ME_4FEB14490195 // f_LocksCount
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FEB10EA02B3 // Create
+ HWL ME_4FEB10FD01E9 // Acquire
+ HWL ME_4FEB117E0197 // Release
+ HWL ME_4FEB11FB009A // Initialize
+ HWL ME_4FEB12AF03A1 // OpenForRead
+ HWL ME_4FEB12C50271 // OpenFile
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_4FEB10B100CD_over // Destroy
+ ME_49F057120234_ME_4FEB10B100CD_over // AfterConstruction
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4FEB116A022C // Windows
+ ME_4FEB13E602E5 // DateUtils
+ ME_4FEB243A0253 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atLockFile'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atLockFile'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atLockFile.pas'
+
+ENDME // ME_4FEB10B100CD TatLockFile

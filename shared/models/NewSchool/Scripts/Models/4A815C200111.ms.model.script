@@ -121,7 +121,7 @@ ENDME // ME_4A819BC303B0
 ME ME_4A8199EE00F2
  MEPROP UID '4A8199EE00F2'
  MEPROP Name 'JumpTo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Обработчик гиперссылки' ;
@@ -236,7 +236,7 @@ ENDME // ME_4A82C084010A
 ME ME_4A82C02701E4
  MEPROP UID '4A82C02701E4'
  MEPROP Name 'GetHotSpotInfo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Обработчик события OnGetHotSpotInfo' ;
@@ -293,7 +293,7 @@ ENDME // ME_4F382E3C025F DoIt
 ME ME_4F382E2D01C1
  MEPROP UID '4F382E2D01C1'
  MEPROP Name 'DoSetHyperlinkCallStatus'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Выставляет флаг, определяющий произведенный переход по ссылке' ;
@@ -341,7 +341,7 @@ ENDME // ME_52023510001B DoIt
 ME ME_520234BD015B
  MEPROP UID '520234BD015B'
  MEPROP Name 'NeedJumpTo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -388,7 +388,7 @@ ENDME // ME_53A95A33016E DoIt
 ME ME_53A95A1A0073
  MEPROP UID '53A95A1A0073'
  MEPROP Name 'GetBehaviourFromEffects'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -435,7 +435,7 @@ ENDME // ME_54D314780368 DoIt
 ME ME_54D3144F0227
  MEPROP UID '54D3144F0227'
  MEPROP Name 'MakeContainerForBehaviour'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -480,7 +480,7 @@ ENDME // ME_5767E14B0108 DoIt
 ME ME_5767DF4D033E
  MEPROP UID '5767DF4D033E'
  MEPROP Name 'BeforeJumpTo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -968,7 +968,7 @@ ME ME_4A8A9DA50250
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A815C200111 // HyperlinkProcessor
  ;
- MELINK Target WL 'ME_491C0BE302FF' '4C6ABB3201AC.ms.model.script' // TdeDocInfo
+ MELINK Target WL? 'ME_491C0BE302FF' // TdeDocInfo
  ;
 
 ENDME // ME_4A8A9DA50250 
@@ -1043,59 +1043,71 @@ ME ME_5418031B00C4
 
 ENDME // ME_5418031B00C4 
 
-ME ME_4A7687C702C8_ME_4A815C200111
+MEREF ME_4A7687C702C8_ME_4A815C200111_impl
  MELINK Original WL 'ME_4A7687C702C8' '4ACF514E0337.ms.model.script' // MakeContainer
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A7687C702C8_ME_4A815C200111 MakeContainer
+ENDMEREF // ME_4A7687C702C8_ME_4A815C200111_impl MakeContainer
 
-ME ME_4A7687F0016D_ME_4A815C200111
+MEREF ME_4A7687F0016D_ME_4A815C200111_impl
  MELINK Original WL 'ME_4A7687F0016D' '4ACF514E0337.ms.model.script' // MakeNewMainWindow
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A7687F0016D_ME_4A815C200111 MakeNewMainWindow
+ENDMEREF // ME_4A7687F0016D_ME_4A815C200111_impl MakeNewMainWindow
 
-ME ME_4A76CDFA014B_ME_4A815C200111
+MEREF ME_4A76CDFA014B_ME_4A815C200111_impl
  MELINK Original WL 'ME_4A76CDFA014B' '4ACF514E0337.ms.model.script' // ProcessExternalOperation
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A76CDFA014B_ME_4A815C200111 ProcessExternalOperation
+ENDMEREF // ME_4A76CDFA014B_ME_4A815C200111_impl ProcessExternalOperation
 
-ME ME_4A780EBF00CD_ME_4A815C200111
+MEREF ME_4A780EBF00CD_ME_4A815C200111_impl
  MELINK Original WL 'ME_4A780EBF00CD' '4ACF514E0337.ms.model.script' // CheckLinkInfo
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A780EBF00CD_ME_4A815C200111 CheckLinkInfo
+ENDMEREF // ME_4A780EBF00CD_ME_4A815C200111_impl CheckLinkInfo
 
-ME ME_4A79216102C6_ME_4A815C200111
+MEREF ME_4A79216102C6_ME_4A815C200111_impl
  MELINK Original WL 'ME_4A79216102C6' '4ACF514E0337.ms.model.script' // MakeLinkDocInfo
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A79216102C6_ME_4A815C200111 MakeLinkDocInfo
+ENDMEREF // ME_4A79216102C6_ME_4A815C200111_impl MakeLinkDocInfo
 
-ME ME_4A7928E80375_ME_4A815C200111
+MEREF ME_4A7928E80375_ME_4A815C200111_impl
  MELINK Original WL 'ME_4A7928E80375' '4ACF514E0337.ms.model.script' // ProcessLocalLink
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A7928E80375_ME_4A815C200111 ProcessLocalLink
+ENDMEREF // ME_4A7928E80375_ME_4A815C200111_impl ProcessLocalLink
 
-ME ME_53A2EF1B036C_ME_4A815C200111
+MEREF ME_53A2EF1B036C_ME_4A815C200111_impl
  MELINK Original WL 'ME_53A2EF1B036C' '4ACF514E0337.ms.model.script' // ProcessGlobalLink
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_53A2EF1B036C_ME_4A815C200111 ProcessGlobalLink
+ENDMEREF // ME_53A2EF1B036C_ME_4A815C200111_impl ProcessGlobalLink
 
-ME ME_53A812BE013E_ME_4A815C200111
+MEREF ME_53A812BE013E_ME_4A815C200111_impl
  MELINK Original WL 'ME_53A812BE013E' '4ACF514E0337.ms.model.script' // MakeTabbedContainer
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_53A812BE013E_ME_4A815C200111 MakeTabbedContainer
+ENDMEREF // ME_53A812BE013E_ME_4A815C200111_impl MakeTabbedContainer
 
-ME ME_4A8E8F2E0195_ME_4A815C200111
+MEREF ME_4A8E8F2E0195_ME_4A815C200111_over
  MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8E8F2E0195_ME_4A815C200111 InitControls
+ENDMEREF // ME_4A8E8F2E0195_ME_4A815C200111_over InitControls
+
+MEREF ME_4A76879B032D_ME_4A815C200111_R
+ MELINK Original WL 'ME_4A76879B032D' '4ACF514E0337.ms.model.script' // IbsHyperLinkProcessorHelper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A76879B032D_ME_4A815C200111_R IbsHyperLinkProcessorHelper
+
+MEREF ME_4A82BCFA02EF_ME_4A815C200111_R
+ MELINK Original WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A82BCFA02EF_ME_4A815C200111_R MvcmEntityForm
 
 %%ImplementedBy ME_4A76879B032D ME_4A815C200111
 %%ImplementedBy ME_4A82BCFA02EF ME_4A815C200111
@@ -1113,8 +1125,8 @@ ME ME_4A815C200111
  MELINK Parent WL? 'ME_4A815BFF0168' // Navigation
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A76879B032D' '4ACF514E0337.ms.model.script' // IbsHyperLinkProcessorHelper
- WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+   Seq: ( HWL ME_4A76879B032D_ME_4A815C200111_R // IbsHyperLinkProcessorHelper
+ HWL ME_4A82BCFA02EF_ME_4A815C200111_R // MvcmEntityForm
  )
  ; // Implements
  MELIST Attributes
@@ -1143,18 +1155,18 @@ ME ME_4A815C200111
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4A7687C702C8_ME_4A815C200111 // MakeContainer
- ME_4A7687F0016D_ME_4A815C200111 // MakeNewMainWindow
- ME_4A76CDFA014B_ME_4A815C200111 // ProcessExternalOperation
- ME_4A780EBF00CD_ME_4A815C200111 // CheckLinkInfo
- ME_4A79216102C6_ME_4A815C200111 // MakeLinkDocInfo
- ME_4A7928E80375_ME_4A815C200111 // ProcessLocalLink
- ME_53A2EF1B036C_ME_4A815C200111 // ProcessGlobalLink
- ME_53A812BE013E_ME_4A815C200111 // MakeTabbedContainer
+   Seq: ( ME_4A7687C702C8_ME_4A815C200111_impl // MakeContainer
+ ME_4A7687F0016D_ME_4A815C200111_impl // MakeNewMainWindow
+ ME_4A76CDFA014B_ME_4A815C200111_impl // ProcessExternalOperation
+ ME_4A780EBF00CD_ME_4A815C200111_impl // CheckLinkInfo
+ ME_4A79216102C6_ME_4A815C200111_impl // MakeLinkDocInfo
+ ME_4A7928E80375_ME_4A815C200111_impl // ProcessLocalLink
+ ME_53A2EF1B036C_ME_4A815C200111_impl // ProcessGlobalLink
+ ME_53A812BE013E_ME_4A815C200111_impl // MakeTabbedContainer
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_4A8E8F2E0195_ME_4A815C200111 // InitControls
+   Seq: ( ME_4A8E8F2E0195_ME_4A815C200111_over // InitControls
  )
  ; // Overridden
  MELIST Dependencies

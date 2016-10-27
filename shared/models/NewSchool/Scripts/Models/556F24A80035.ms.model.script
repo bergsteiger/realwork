@@ -1,0 +1,400 @@
+// Tl3ControlFontService 556F24A80035 Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_556F25860097
+%%Inner ME_6CEEDAAA8451
+
+FORWARD ME_556F24A80035
+
+FORWARD ME_556F25860097
+
+ME ME_556F25FC0213
+ MEPROP UID '556F25FC0213'
+ MEPROP Name 'f_Control'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+
+ENDME // ME_556F25FC0213 f_Control
+
+FORWARD ME_556F25D20367
+
+FORWARD ME_556F25D801C0
+
+ME ME_556F25E303CC
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+
+ENDME // ME_556F25E303CC aControl
+
+ME ME_556F25D801C0
+ MEPROP UID '556F25D801C0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_556F25D20367 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_556F25E303CC // aControl
+ )
+ ; // Parameters
+
+ENDME // ME_556F25D801C0 DoIt
+
+ME ME_556F25D20367
+ MEPROP UID '556F25D20367'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_556F25D801C0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_556F25D20367 Create
+
+MEREF ME_556F25D20367_ME_556F25ED00C2_G
+ MELINK Original HWL ME_556F25D20367 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_556F25D20367_ME_556F25ED00C2_G Create
+
+MEREF ME_46A60B17028B_ME_556F25ED00C2_R
+ MELINK Original WL 'ME_46A60B17028B' '4677FBA70343.ms.model.script' // Il3FontInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46A60B17028B_ME_556F25ED00C2_R Il3FontInfo
+
+%%ImplementedBy ME_46A60B17028B ME_556F25ED00C2
+
+%%InheritedBy ME_556F25D20367 ME_556F25ED00C2
+
+ME ME_556F25ED00C2
+ MEPROP UID '556F25ED00C2'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_556F25D20367_ME_556F25ED00C2_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_46A60B17028B_ME_556F25ED00C2_R // Il3FontInfo
+ )
+ ; // Implements
+
+ENDME // ME_556F25ED00C2 Make
+
+ME ME_556F25AF0144
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_friend::Dependency ;
+ MELINK Parent HWL ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+
+ENDME // ME_556F25AF0144 
+
+ME ME_556F3C8C0144
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_556F25860097 // Tl3ControlFontInfo
+ ;
+ MELINK Target WL? 'ME_47D15712022D' // Graphics
+ ;
+
+ENDME // ME_556F3C8C0144 
+
+MEREF ME_46A60D7A02E4_ME_556F25860097_impl
+ MELINK Original WL 'ME_46A60D7A02E4' '4677FBA70343.ms.model.script' // Size
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_46A60D7A02E4_ME_556F25860097_impl Size
+
+MEREF ME_46A60E2802E4_ME_556F25860097_impl
+ MELINK Original WL 'ME_46A60E2802E4' '4677FBA70343.ms.model.script' // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_46A60E2802E4_ME_556F25860097_impl Name
+
+MEREF ME_46A60E58013F_ME_556F25860097_impl
+ MELINK Original WL 'ME_46A60E58013F' '4677FBA70343.ms.model.script' // Bold
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_46A60E58013F_ME_556F25860097_impl Bold
+
+MEREF ME_46A60E740045_ME_556F25860097_impl
+ MELINK Original WL 'ME_46A60E740045' '4677FBA70343.ms.model.script' // Italic
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_46A60E740045_ME_556F25860097_impl Italic
+
+MEREF ME_46A60EA6032C_ME_556F25860097_impl
+ MELINK Original WL 'ME_46A60EA6032C' '4677FBA70343.ms.model.script' // Underline
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_46A60EA6032C_ME_556F25860097_impl Underline
+
+MEREF ME_46A60EBF03BE_ME_556F25860097_impl
+ MELINK Original WL 'ME_46A60EBF03BE' '4677FBA70343.ms.model.script' // Strikeout
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_46A60EBF03BE_ME_556F25860097_impl Strikeout
+
+MEREF ME_46A60ED90325_ME_556F25860097_impl
+ MELINK Original WL 'ME_46A60ED90325' '4677FBA70343.ms.model.script' // ForeColor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_46A60ED90325_ME_556F25860097_impl ForeColor
+
+MEREF ME_46A60EF300C9_ME_556F25860097_impl
+ MELINK Original WL 'ME_46A60EF300C9' '4677FBA70343.ms.model.script' // BackColor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_46A60EF300C9_ME_556F25860097_impl BackColor
+
+MEREF ME_46A60F63035F_ME_556F25860097_impl
+ MELINK Original WL 'ME_46A60F63035F' '4677FBA70343.ms.model.script' // Pitch
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_46A60F63035F_ME_556F25860097_impl Pitch
+
+MEREF ME_46A60F89031E_ME_556F25860097_impl
+ MELINK Original WL 'ME_46A60F89031E' '4677FBA70343.ms.model.script' // Index
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_46A60F89031E_ME_556F25860097_impl Index
+
+MEREF ME_479731C50290_ME_556F25860097_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_556F25860097_over Cleanup
+
+MEREF ME_4AE5CA2D0034_ME_556F25860097_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_556F25860097_G Tl3CProtoObject
+
+MEREF ME_46A60B17028B_ME_556F25860097_R
+ MELINK Original WL 'ME_46A60B17028B' '4677FBA70343.ms.model.script' // Il3FontInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46A60B17028B_ME_556F25860097_R Il3FontInfo
+
+%%ImplementedBy ME_46A60B17028B ME_556F25860097
+
+%%InheritedBy ME_4AE5CA2D0034 ME_556F25860097
+
+ME ME_556F25860097
+ MEPROP UID '556F25860097'
+ MEPROP Name 'Tl3ControlFontInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_556F24A80035 // Tl3ControlFontService
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AE5CA2D0034_ME_556F25860097_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_46A60B17028B_ME_556F25860097_R // Il3FontInfo
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_556F25FC0213 // f_Control
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_556F25D20367 // Create
+ HWL ME_556F25ED00C2 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46A60D7A02E4_ME_556F25860097_impl // Size
+ ME_46A60E2802E4_ME_556F25860097_impl // Name
+ ME_46A60E58013F_ME_556F25860097_impl // Bold
+ ME_46A60E740045_ME_556F25860097_impl // Italic
+ ME_46A60EA6032C_ME_556F25860097_impl // Underline
+ ME_46A60EBF03BE_ME_556F25860097_impl // Strikeout
+ ME_46A60ED90325_ME_556F25860097_impl // ForeColor
+ ME_46A60EF300C9_ME_556F25860097_impl // BackColor
+ ME_46A60F63035F_ME_556F25860097_impl // Pitch
+ ME_46A60F89031E_ME_556F25860097_impl // Index
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_556F25860097_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_556F25AF0144 // TControl
+ ME_556F3C8C0144 // Graphics
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ControlFontInfo'
+
+ENDME // ME_556F25860097 Tl3ControlFontInfo
+
+FORWARD ME_6CEEDAAA8451
+
+FORWARD ME_556F24D50369
+
+FORWARD ME_B31F486B3A13
+
+ME ME_0F97AE3EC352
+ MEPROP Name 'aControl'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+
+ENDME // ME_0F97AE3EC352 aControl
+
+ME ME_B31F486B3A13
+ MEPROP UID 'B31F486B3A13'
+ MEPROP Name 'GetFont'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_6CEEDAAA8451 // Ml3ControlFontService
+ ;
+ MELINK Target WL 'ME_46A60B17028B' '4677FBA70343.ms.model.script' // Il3FontInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_0F97AE3EC352 // aControl
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_556F24D50369 // GetFont
+ ;
+
+ENDME // ME_B31F486B3A13 GetFont
+
+ME ME_6CEEDAAA8451
+ MEPROP UID '6CEEDAAA8451'
+ MEPROP Name 'Ml3ControlFontService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3ControlFontService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_556F24A80035 // Tl3ControlFontService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_B31F486B3A13 // GetFont
+ )
+ ; // Operations
+
+ENDME // ME_6CEEDAAA8451 Ml3ControlFontService
+
+ME ME_556F24EF0347
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+
+ENDME // ME_556F24EF0347 aControl
+
+ME ME_556F24D50369
+ MEPROP UID '556F24D50369'
+ MEPROP Name 'GetFont'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_556F24A80035 // Tl3ControlFontService
+ ;
+ MELINK Target WL 'ME_46A60B17028B' '4677FBA70343.ms.model.script' // Il3FontInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_556F24EF0347 // aControl
+ )
+ ; // Parameters
+
+ENDME // ME_556F24D50369 GetFont
+
+MEREF ME_49E7754802A9_ME_556F24A80035_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_556F24A80035_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_556F24A80035
+
+ME ME_556F24A80035
+ MEPROP UID '556F24A80035'
+ MEPROP Name 'Tl3ControlFontService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_55001317029B' // VCLHelpers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_556F24A80035_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_556F24D50369 // GetFont
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_556F25860097 // Tl3ControlFontInfo
+ HWL ME_6CEEDAAA8451 // Ml3ControlFontService
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "auto translate to alien" 'undefined'
+ UP extprop:pas:UnitName 'l3ControlFontService'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ControlFontService'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ControlFontService.pas'
+
+ENDME // ME_556F24A80035 Tl3ControlFontService

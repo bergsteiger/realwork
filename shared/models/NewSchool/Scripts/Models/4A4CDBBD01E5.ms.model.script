@@ -1,0 +1,128 @@
+// TatSortListOperation 4A4CDBBD01E5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A4CDBBD01E5
+
+ME ME_4A4CDBE002F5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4CDBBD01E5 // TatSortListOperation
+ ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_4A4CDBE002F5 
+
+ME ME_4A4CDBE90392
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4CDBBD01E5 // TatSortListOperation
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_4A4CDBE90392 
+
+ME ME_4A4CDCD901F3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4CDBBD01E5 // TatSortListOperation
+ ;
+ MELINK Target WL 'ME_456ECB110222' '456EA56002BF.ms.model.script' // SortOrder
+ ;
+
+ENDME // ME_4A4CDCD901F3 
+
+ME ME_4A4CDCDE0390
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4CDBBD01E5 // TatSortListOperation
+ ;
+ MELINK Target WL 'ME_456ECC87033C' '456EA56002BF.ms.model.script' // SortType
+ ;
+
+ENDME // ME_4A4CDCDE0390 
+
+ME ME_4A4CDF6B0390
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4CDBBD01E5 // TatSortListOperation
+ ;
+ MELINK Target WL? 'ME_4A4CDD01023F' // TatListHelper
+ ;
+
+ENDME // ME_4A4CDF6B0390 
+
+ME ME_4A4CDF8302AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4CDBBD01E5 // TatSortListOperation
+ ;
+ MELINK Target WL 'ME_456ECB2C030D' '456EA56002BF.ms.model.script' // SortParams
+ ;
+
+ENDME // ME_4A4CDF8302AF 
+
+MEREF ME_48089F460352_ME_4A4CDBBD01E5_impl
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48089F460352_ME_4A4CDBBD01E5_impl ExecuteSelf
+
+MEREF ME_48089F3701B4_ME_4A4CDBBD01E5_over
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F3701B4_ME_4A4CDBBD01E5_over InitParamList
+
+MEREF ME_48076E9D013E_ME_4A4CDBBD01E5_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_4A4CDBBD01E5_G TatOperationBase
+
+%%InheritedBy ME_48076E9D013E ME_4A4CDBBD01E5
+
+ME ME_4A4CDBBD01E5
+ MEPROP UID '4A4CDBBD01E5'
+ MEPROP Name 'TatSortListOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сортирует текущий список документов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48076E9D013E_ME_4A4CDBBD01E5_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_4A4CDBBD01E5_impl // ExecuteSelf
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F3701B4_ME_4A4CDBBD01E5_over // InitParamList
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4A4CDBE002F5 // DynList
+ ME_4A4CDBE90392 // atLogger
+ ME_4A4CDCD901F3 // SortOrder
+ ME_4A4CDCDE0390 // SortType
+ ME_4A4CDF6B0390 // TatListHelper
+ ME_4A4CDF8302AF // SortParams
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atSortListOperation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atSortListOperation'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atSortListOperation.pas'
+
+ENDME // ME_4A4CDBBD01E5 TatSortListOperation

@@ -1,0 +1,78 @@
+// TevLocation 4A3A5B9F0064 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_47C5B23101DE_ME_4A3A5B9F0064_impl
+ MELINK Original WL 'ME_47C5B23101DE' '47C5207602D1.ms.model.script' // CanBeDeleted
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C5B23101DE_ME_4A3A5B9F0064_impl CanBeDeleted
+
+MEREF ME_47C5B23D0301_ME_4A3A5B9F0064_impl
+ MELINK Original WL 'ME_47C5B23D0301' '47C5207602D1.ms.model.script' // Modify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C5B23D0301_ME_4A3A5B9F0064_impl Modify
+
+MEREF ME_4A3A69AC006F_ME_4A3A5B9F0064_over
+ MELINK Original WL 'ME_4A3A69AC006F' '47F4D44C01BF.ms.model.script' // GetText
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A3A69AC006F_ME_4A3A5B9F0064_over GetText
+
+MEREF ME_47F4D44C01BF_ME_4A3A5B9F0064_G
+ MELINK Original WL? 'ME_47F4D44C01BF' // TevLocationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F4D44C01BF_ME_4A3A5B9F0064_G TevLocationBase
+
+MEREF ME_47C5B21900C2_ME_4A3A5B9F0064_R
+ MELINK Original WL 'ME_47C5B21900C2' '47C5207602D1.ms.model.script' // InevText
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C5B21900C2_ME_4A3A5B9F0064_R InevText
+
+%%ImplementedBy ME_47C5B21900C2 ME_4A3A5B9F0064
+
+%%InheritedBy ME_47F4D44C01BF ME_4A3A5B9F0064
+
+ME ME_4A3A5B9F0064
+ MEPROP UID '4A3A5B9F0064'
+ MEPROP Name 'TevLocation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E3DF460095' // Cursors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47F4D44C01BF_ME_4A3A5B9F0064_G // TevLocationBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47C5B21900C2_ME_4A3A5B9F0064_R // InevText
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_47C5B23101DE_ME_4A3A5B9F0064_impl // CanBeDeleted
+ ME_47C5B23D0301_ME_4A3A5B9F0064_impl // Modify
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4A3A69AC006F_ME_4A3A5B9F0064_over // GetText
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '01.06.2005 18:11'
+ UP extprop:pas:UnitName 'evLocation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Location'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evLocation.pas'
+
+ENDME // ME_4A3A5B9F0064 TevLocation

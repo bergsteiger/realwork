@@ -1,0 +1,91 @@
+// TnsOneLevelTreeStruct 4683692B0105 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4683692B0105
+
+ME ME_4909A36E017A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4683692B0105 // TnsOneLevelTreeStruct
+ ;
+ MELINK Target WL? 'ME_468275C903C6' // TnsINodeOneLevelRootWrap
+ ;
+
+ENDME // ME_4909A36E017A 
+
+MEREF ME_48FDA0DD02E1_ME_4683692B0105_over
+ MELINK Original WL 'ME_48FDA0DD02E1' '48FD8F78038B.ms.model.script' // IsOneLevelPrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FDA0DD02E1_ME_4683692B0105_over IsOneLevelPrim
+
+MEREF ME_48FDA11E02D1_ME_4683692B0105_over
+ MELINK Original WL 'ME_48FDA11E02D1' '48FD8F78038B.ms.model.script' // ChangeChildrenCountPrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FDA11E02D1_ME_4683692B0105_over ChangeChildrenCountPrim
+
+MEREF ME_48FDC58F0218_ME_4683692B0105_over
+ MELINK Original WL 'ME_48FDC58F0218' '48FDC52D0006.ms.model.script' // GetByVisibleIndex
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FDC58F0218_ME_4683692B0105_over GetByVisibleIndex
+
+MEREF ME_48FEE3640227_ME_4683692B0105_over
+ MELINK Original WL 'ME_48FEE3640227' '46835B4001A4.ms.model.script' // RootNodeClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FEE3640227_ME_4683692B0105_over RootNodeClass
+
+MEREF ME_48FEFA1E02E7_ME_4683692B0105_over
+ MELINK Original WL 'ME_48FEFA1E02E7' '46835B4001A4.ms.model.script' // DoChangeExpand
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FEFA1E02E7_ME_4683692B0105_over DoChangeExpand
+
+MEREF ME_468361010204_ME_4683692B0105_G
+ MELINK Original WL? 'ME_468361010204' // TnsDataResetTreeStruct
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_468361010204_ME_4683692B0105_G TnsDataResetTreeStruct
+
+%%InheritedBy ME_468361010204 ME_4683692B0105
+
+ME ME_4683692B0105
+ MEPROP UID '4683692B0105'
+ MEPROP Name 'TnsOneLevelTreeStruct'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Одноуровневое дерево' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_48FD8B2702F6' // Tree
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_468361010204_ME_4683692B0105_G // TnsDataResetTreeStruct
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48FDA0DD02E1_ME_4683692B0105_over // IsOneLevelPrim
+ ME_48FDA11E02D1_ME_4683692B0105_over // ChangeChildrenCountPrim
+ ME_48FDC58F0218_ME_4683692B0105_over // GetByVisibleIndex
+ ME_48FEE3640227_ME_4683692B0105_over // RootNodeClass
+ ME_48FEFA1E02E7_ME_4683692B0105_over // DoChangeExpand
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4909A36E017A // TnsINodeOneLevelRootWrap
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '2005/11/22 18:29:30'
+ UP extprop:pas:UnitName 'nsOneLevelTreeStruct'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OneLevelTreeStruct'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsOneLevelTreeStruct.pas'
+
+ENDME // ME_4683692B0105 TnsOneLevelTreeStruct

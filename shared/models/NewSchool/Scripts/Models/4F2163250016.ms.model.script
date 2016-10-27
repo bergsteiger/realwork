@@ -8,108 +8,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_4FC756830111
 %%Inner ME_4FC75F0F0061
 
-FORWARD ME_4F2163250016
-
-FORWARD ME_4FC7562801FE
-
-ME ME_4FC756510366
- MEPROP UID '4FC756510366'
- MEPROP Name 'ItemType'
- MEPROP Class class_Attribute
- MELINK Stereotype st_impurity_value::Attribute ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_abstract
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4FC7562801FE // TseModalWorkerListPrim
- ;
- MELINK Target WL 'ME_4FC7557C0082' '4FC75F0F0061.ms.model.script' // TseModalWorker
- ;
-
-ENDME // ME_4FC756510366 ItemType
-
-ME ME_47B07CF403D0_ME_4FC7562801FE
- MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
- ;
- MEPROP OpKind opkind_Implemented
- UP "ifndef" 'l3Items_IsAtomic'
-ENDME // ME_47B07CF403D0_ME_4FC7562801FE IsSameItems
-
-ME ME_47B2C42A0163_ME_4FC7562801FE
- MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
- ;
- MEPROP OpKind opkind_Implemented
- UP "ifdef" 'l3Items_NeedsAssignItem'
- UP "ifndef" 'l3Items_NoSort'
-ENDME // ME_47B2C42A0163_ME_4FC7562801FE AssignItem
-
-ME ME_47B99D4503A2_ME_4FC7562801FE
- MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_47B99D4503A2_ME_4FC7562801FE CompareExistingItems
-
-%%InheritedBy ME_4A54DD4E036F ME_4FC7562801FE
-%%InheritedBy ME_4B223ADC02BF ME_4FC7562801FE
-
-ME ME_4FC7562801FE
- MEPROP UID '4FC7562801FE'
- MEPROP Name 'TseModalWorkerListPrim'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F2163250016 // CodeFlowWords
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL? 'ME_4B223ADC02BF' // l3RecordListPrim
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_4FC756510366 // ItemType
- )
- ; // Attributes
- MELIST Implemented
-   Seq: ( ME_47B07CF403D0_ME_4FC7562801FE // IsSameItems
- ME_47B2C42A0163_ME_4FC7562801FE // AssignItem
- ME_47B99D4503A2_ME_4FC7562801FE // CompareExistingItems
- )
- ; // Implemented
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP extprop:pas:UnitName 'seModalWorkerListPrim'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'seModalWorkerListPrim'
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\seModalWorkerListPrim.pas'
-
-ENDME // ME_4FC7562801FE TseModalWorkerListPrim
-
-%%InheritedBy ME_4FC7562801FE ME_4FC756830111
-
-ME ME_4FC756830111
- MEPROP UID '4FC756830111'
- MEPROP Name 'TseModalWorkerList'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F2163250016 // CodeFlowWords
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4FC7562801FE // TseModalWorkerListPrim
- )
- ; // Inherits
- UP "singleton" True
- UP extprop:pas:UnitName 'seModalWorkerList'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'seModalWorkerList'
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\seModalWorkerList.pas'
-
-ENDME // ME_4FC756830111 TseModalWorkerList
-
 ME ME_4F2163250016
  MEPROP UID '4F2163250016'
  MEPROP Name 'CodeFlowWords'
@@ -124,8 +22,8 @@ ME ME_4F2163250016
  MELIST Children
    Seq: ( WL? 'ME_4F21634F01C7' // CodeFlowWordsPack
  WL? 'ME_4FC7541C02BA' // seModalSupport
- HWL ME_4FC7562801FE // TseModalWorkerListPrim
- HWL ME_4FC756830111 // TseModalWorkerList
+ WL? 'ME_4FC7562801FE' // TseModalWorkerListPrim
+ WL? 'ME_4FC756830111' // TseModalWorkerList
  WL? 'ME_4FC75F0F0061' // seModalWorker
  )
  ; // Children

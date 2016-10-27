@@ -259,7 +259,7 @@ ENDME // ME_4C0CB501032E
 ME ME_4C0CA1FC02A8
  MEPROP UID '4C0CA1FC02A8'
  MEPROP Name 'GetVScrollerHint'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -318,7 +318,7 @@ ENDME // ME_4C0E3AC7003D DoIt
 ME ME_4C0E39BE0272
  MEPROP UID '4C0E39BE0272'
  MEPROP Name 'GetDocumentPartHint'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -366,7 +366,7 @@ ENDME // ME_4C0E3B220325 DoIt
 ME ME_4C0E3AF002E8
  MEPROP UID '4C0E3AF002E8'
  MEPROP Name 'GetDocumentPartByPoint'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -398,7 +398,7 @@ ENDME // ME_4D6D429B02B7 DoIt
 ME ME_4D6D427D023A
  MEPROP UID '4D6D427D023A'
  MEPROP Name 'NeedAlignMarksOnSingleClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -450,12 +450,18 @@ ME ME_4E788E32029A
 
 ENDME // ME_4E788E32029A DoIt
 
+MEREF ME_4E787E7400A7_ME_4E788DB902F9_R
+ MELINK Original WL 'ME_4E787E7400A7' '4E787E1E02F8.ms.model.script' // Должен уметь показывать сложную псевдонадпись
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E787E7400A7_ME_4E788DB902F9_R Должен уметь показывать сложную псевдонадпись
+
 %%ImplementedBy ME_4E787E7400A7 ME_4E788DB902F9
 
 ME ME_4E788DB902F9
  MEPROP UID '4E788DB902F9'
  MEPROP Name 'RecalcScreenCursor'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -463,7 +469,7 @@ ME ME_4E788DB902F9
  MELINK Parent HWL ME_4B28D63A00EC // TevCustomEditorWindowPrim
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E787E7400A7' '4E787E1E02F8.ms.model.script' // Должен уметь показывать сложную псевдонадпись
+   Seq: ( HWL ME_4E787E7400A7_ME_4E788DB902F9_R // Должен уметь показывать сложную псевдонадпись
  )
  ; // Implements
  MELIST Operations
@@ -489,7 +495,7 @@ ENDME // ME_4E7B46DD0054 DoIt
 ME ME_4E7B4686012C
  MEPROP UID '4E7B4686012C'
  MEPROP Name 'SetFocusViaMouse'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -565,23 +571,41 @@ ME ME_4E7B513C019C
 
 ENDME // ME_4E7B513C019C 
 
-ME ME_47A042E100E2_ME_4B28D63A00EC
+MEREF ME_47A042E100E2_ME_4B28D63A00EC_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_4B28D63A00EC InitFields
+ENDMEREF // ME_47A042E100E2_ME_4B28D63A00EC_over InitFields
 
-ME ME_4BCC315901D3_ME_4B28D63A00EC
+MEREF ME_4BCC315901D3_ME_4B28D63A00EC_over
  MELINK Original WL 'ME_4BCC315901D3' '48E0E5C1032A.ms.model.script' // DoForceRepaint
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4BCC315901D3_ME_4B28D63A00EC DoForceRepaint
+ENDMEREF // ME_4BCC315901D3_ME_4B28D63A00EC_over DoForceRepaint
 
-ME ME_4D3974AB02E5_ME_4B28D63A00EC
+MEREF ME_4D3974AB02E5_ME_4B28D63A00EC_over
  MELINK Original WL 'ME_4D3974AB02E5' '48BD1975029B.ms.model.script' // DoAfterCreateCanvas
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4D3974AB02E5_ME_4B28D63A00EC DoAfterCreateCanvas
+ENDMEREF // ME_4D3974AB02E5_ME_4B28D63A00EC_over DoAfterCreateCanvas
+
+MEREF ME_48E0E5C1032A_ME_4B28D63A00EC_G
+ MELINK Original WL? 'ME_48E0E5C1032A' // TnevControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48E0E5C1032A_ME_4B28D63A00EC_G TnevControl
+
+MEREF ME_4E7B18D60286_ME_4B28D63A00EC_R
+ MELINK Original WL 'ME_4E7B18D60286' '4E5CF70B01E2.ms.model.script' // Скроллирование документа
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E7B18D60286_ME_4B28D63A00EC_R Скроллирование документа
+
+MEREF ME_4E85A4280258_ME_4B28D63A00EC_R
+ MELINK Original WL 'ME_4E85A4280258' '4E5CF70B01E2.ms.model.script' // Редактирование документа
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E85A4280258_ME_4B28D63A00EC_R Редактирование документа
 
 %%ImplementedBy ME_4E7B18D60286 ME_4B28D63A00EC
 %%ImplementedBy ME_4E85A4280258 ME_4B28D63A00EC
@@ -600,12 +624,12 @@ ME ME_4B28D63A00EC
  MELINK Parent WL? 'ME_4829D7D50156' // Editors
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_48E0E5C1032A' // TnevControl
+   Seq: ( HWL ME_48E0E5C1032A_ME_4B28D63A00EC_G // TnevControl
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E7B18D60286' '4E5CF70B01E2.ms.model.script' // Скроллирование документа
- WL 'ME_4E85A4280258' '4E5CF70B01E2.ms.model.script' // Редактирование документа
+   Seq: ( HWL ME_4E7B18D60286_ME_4B28D63A00EC_R // Скроллирование документа
+ HWL ME_4E85A4280258_ME_4B28D63A00EC_R // Редактирование документа
  )
  ; // Implements
  MELIST Attributes
@@ -629,9 +653,9 @@ ME ME_4B28D63A00EC
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_47A042E100E2_ME_4B28D63A00EC // InitFields
- ME_4BCC315901D3_ME_4B28D63A00EC // DoForceRepaint
- ME_4D3974AB02E5_ME_4B28D63A00EC // DoAfterCreateCanvas
+   Seq: ( ME_47A042E100E2_ME_4B28D63A00EC_over // InitFields
+ ME_4BCC315901D3_ME_4B28D63A00EC_over // DoForceRepaint
+ ME_4D3974AB02E5_ME_4B28D63A00EC_over // DoAfterCreateCanvas
  )
  ; // Overridden
  MELIST Children

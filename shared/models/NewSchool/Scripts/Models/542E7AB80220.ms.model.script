@@ -1,0 +1,109 @@
+// Tm3StorageHolderListPrim 542E7AB80220 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_542E7AB80220
+
+ME ME_542E7AF70226
+ MEPROP UID '542E7AF70226'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_542E7AB80220 // Tm3StorageHolderListPrim
+ ;
+ MELINK Target WL? 'ME_542E5D79018F' // Tm3StorageHolder
+ ;
+
+ENDME // ME_542E7AF70226 ItemType
+
+ME ME_542E826102E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_542E7AB80220 // Tm3StorageHolderListPrim
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_542E826102E9 
+
+ME ME_542E827A0058
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_542E7AB80220 // Tm3StorageHolderListPrim
+ ;
+ MELINK Target WL 'ME_476F9605006B' '4678193C009C.ms.model.script' // Indexes
+ ;
+
+ENDME // ME_542E827A0058 
+
+MEREF ME_47B2C42A0163_ME_542E7AB80220_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_542E7AB80220_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_542E7AB80220_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_542E7AB80220_impl CompareExistingItems
+
+MEREF ME_47B99E920196_ME_542E7AB80220_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_542E7AB80220_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_542E7AB80220_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_542E7AB80220_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B99E920196 ME_542E7AB80220
+%%InheritedBy ME_4A54DD4E036F ME_542E7AB80220
+
+ME ME_542E7AB80220
+ MEPROP UID '542E7AB80220'
+ MEPROP Name 'Tm3StorageHolderListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5486E32B0191' // StorageHolder
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B99E920196_ME_542E7AB80220_G // l3UncomparabeObjectRefList
+ HWL ME_4A54DD4E036F_ME_542E7AB80220_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_542E7AF70226 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_542E7AB80220_impl // AssignItem
+ ME_47B99D4503A2_ME_542E7AB80220_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_542E826102E9 // l3String
+ ME_542E827A0058 // Indexes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'm3StorageHolderListPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3StorageHolderListPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3StorageHolderListPrim.pas'
+
+ENDME // ME_542E7AB80220 Tm3StorageHolderListPrim

@@ -182,6 +182,18 @@ ME ME_47FE04000293
 
 ENDME // ME_47FE04000293 
 
+MEREF ME_471738DF00DA_ME_4714A311037A_G
+ MELINK Original WL 'ME_471738DF00DA' '46E80398003B.ms.model.script' // WikiPackageImpl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_471738DF00DA_ME_4714A311037A_G WikiPackageImpl
+
+MEREF ME_4A10F7610180_ME_4714A311037A_G
+ MELINK Original WL 'ME_4A10F7610180' '470F01500290.ms.model.script' // AllContainerInclude
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A10F7610180_ME_4714A311037A_G AllContainerInclude
+
 %%InheritedBy ME_471738DF00DA ME_4714A311037A
 %%InheritedBy ME_4A10F7610180 ME_4714A311037A
 
@@ -197,8 +209,8 @@ ME ME_4714A311037A
  MELINK Parent HWL ME_478E27270205 // PackagesIncludes
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_471738DF00DA' '46E80398003B.ms.model.script' // WikiPackageImpl
- WL 'ME_4A10F7610180' '470F01500290.ms.model.script' // AllContainerInclude
+   Seq: ( HWL ME_471738DF00DA_ME_4714A311037A_G // WikiPackageImpl
+ HWL ME_4A10F7610180_ME_4714A311037A_G // AllContainerInclude
  )
  ; // Inherits
  MELIST Dependencies
@@ -323,6 +335,30 @@ ME ME_49C3AD7F007A
 
 ENDME // ME_49C3AD7F007A 
 
+MEREF ME_471738DF00DA_ME_47149A85038A_G
+ MELINK Original WL 'ME_471738DF00DA' '46E80398003B.ms.model.script' // WikiPackageImpl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_471738DF00DA_ME_47149A85038A_G WikiPackageImpl
+
+MEREF ME_47022C670251_ME_47149A85038A_R
+ MELINK Original WL 'ME_47022C670251' '4773969402E9.ms.model.script' // C++ интерфейсы и реализация
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47022C670251_ME_47149A85038A_R C++ интерфейсы и реализация
+
+MEREF ME_4703212700DA_ME_47149A85038A_R
+ MELINK Original WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4703212700DA_ME_47149A85038A_R Java
+
+MEREF ME_470F151302FD_ME_47149A85038A_R
+ MELINK Original WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_470F151302FD_ME_47149A85038A_R Delphi интерфейсы и реализация
+
 %%ImplementedBy ME_47022C670251 ME_47149A85038A
 %%ImplementedBy ME_4703212700DA ME_47149A85038A
 %%ImplementedBy ME_470F151302FD ME_47149A85038A
@@ -341,13 +377,13 @@ ME ME_47149A85038A
  MELINK Parent HWL ME_478E27270205 // PackagesIncludes
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_471738DF00DA' '46E80398003B.ms.model.script' // WikiPackageImpl
+   Seq: ( HWL ME_471738DF00DA_ME_47149A85038A_G // WikiPackageImpl
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_47022C670251' '4773969402E9.ms.model.script' // C++ интерфейсы и реализация
- WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
- WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+   Seq: ( HWL ME_47022C670251_ME_47149A85038A_R // C++ интерфейсы и реализация
+ HWL ME_4703212700DA_ME_47149A85038A_R // Java
+ HWL ME_470F151302FD_ME_47149A85038A_R // Delphi интерфейсы и реализация
  )
  ; // Implements
  MELIST Attributes
@@ -405,6 +441,12 @@ ME ME_4712EDB10128
 
 ENDME // ME_4712EDB10128 is namespace
 
+MEREF ME_4714A311037A_ME_4712EA5402DE_G
+ MELINK Original HWL ME_4714A311037A // CommonPackageInclude
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4714A311037A_ME_4712EA5402DE_G CommonPackageInclude
+
 %%InheritedBy ME_4714A311037A ME_4712EA5402DE
 
 ME ME_4712EA5402DE
@@ -419,7 +461,7 @@ ME ME_4712EA5402DE
  MELINK Parent HWL ME_478E27270205 // PackagesIncludes
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4714A311037A // CommonPackageInclude
+   Seq: ( HWL ME_4714A311037A_ME_4712EA5402DE_G // CommonPackageInclude
  )
  ; // Inherits
  MELIST Attributes
@@ -480,20 +522,32 @@ ME ME_47FE09280057
 
 ENDME // ME_47FE09280057 
 
-ME ME_47022C88029F_ME_4714A0260109
+MEREF ME_47022C88029F_ME_4714A0260109_impl
  MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef_suffix" 'H'
  UP "lang id" 'cpp'
-ENDME // ME_47022C88029F_ME_4714A0260109 h
+ENDMEREF // ME_47022C88029F_ME_4714A0260109_impl h
 
-ME ME_47022CB8034B_ME_4714A0260109
+MEREF ME_47022CB8034B_ME_4714A0260109_impl
  MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
  ;
  MEPROP OpKind opkind_Implemented
  UP "lang id" 'cpp'
-ENDME // ME_47022CB8034B_ME_4714A0260109 cpp
+ENDMEREF // ME_47022CB8034B_ME_4714A0260109_impl cpp
+
+MEREF ME_47149A85038A_ME_4714A0260109_G
+ MELINK Original HWL ME_47149A85038A // AbstractUnitBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47149A85038A_ME_4714A0260109_G AbstractUnitBase
+
+MEREF ME_4714A311037A_ME_4714A0260109_G
+ MELINK Original HWL ME_4714A311037A // CommonPackageInclude
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4714A311037A_ME_4714A0260109_G CommonPackageInclude
 
 %%InheritedBy ME_47149A85038A ME_4714A0260109
 %%InheritedBy ME_4714A311037A ME_4714A0260109
@@ -510,13 +564,13 @@ ME ME_4714A0260109
  MELINK Parent HWL ME_478E27270205 // PackagesIncludes
  ;
  MELIST Inherits
-   Seq: ( HWL ME_47149A85038A // AbstractUnitBase
- HWL ME_4714A311037A // CommonPackageInclude
+   Seq: ( HWL ME_47149A85038A_ME_4714A0260109_G // AbstractUnitBase
+ HWL ME_4714A311037A_ME_4714A0260109_G // CommonPackageInclude
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_47022C88029F_ME_4714A0260109 // h
- ME_47022CB8034B_ME_4714A0260109 // cpp
+   Seq: ( ME_47022C88029F_ME_4714A0260109_impl // h
+ ME_47022CB8034B_ME_4714A0260109_impl // cpp
  )
  ; // Implemented
  MELIST Dependencies

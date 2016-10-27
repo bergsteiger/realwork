@@ -1,0 +1,67 @@
+// TevMemoEdit 48D258F502BF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_48D13CED0240_ME_48D258F502BF_over
+ MELINK Original WL 'ME_48D13CED0240' '48D13B8D03A3.ms.model.script' // GetIsMultiline
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D13CED0240_ME_48D258F502BF_over GetIsMultiline
+
+MEREF ME_48D14C0E023E_ME_48D258F502BF_over
+ MELINK Original WL 'ME_48D14C0E023E' '48D13B8D03A3.ms.model.script' // DoTextChange
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D14C0E023E_ME_48D258F502BF_over DoTextChange
+
+MEREF ME_48D247CA0077_ME_48D258F502BF_over
+ MELINK Original WL 'ME_48D247CA0077' '48D2409102B7.ms.model.script' // AfterSetText
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D247CA0077_ME_48D258F502BF_over AfterSetText
+
+MEREF ME_48D249F00054_ME_48D258F502BF_over
+ MELINK Original WL 'ME_48D249F00054' '48D2409102B7.ms.model.script' // GetSelectAllOnFocus
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D249F00054_ME_48D258F502BF_over GetSelectAllOnFocus
+
+MEREF ME_48D2409102B7_ME_48D258F502BF_G
+ MELINK Original WL? 'ME_48D2409102B7' // TevEditControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48D2409102B7_ME_48D258F502BF_G TevEditControl
+
+%%InheritedBy ME_48D2409102B7 ME_48D258F502BF
+
+ME ME_48D258F502BF
+ MEPROP UID '48D258F502BF'
+ MEPROP Name 'TevMemoEdit'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Изначально многострочный редактор с ограничением на количество символов ввода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47CEBC900123' // qf
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48D2409102B7_ME_48D258F502BF_G // TevEditControl
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48D13CED0240_ME_48D258F502BF_over // GetIsMultiline
+ ME_48D14C0E023E_ME_48D258F502BF_over // DoTextChange
+ ME_48D247CA0077_ME_48D258F502BF_over // AfterSetText
+ ME_48D249F00054_ME_48D258F502BF_over // GetSelectAllOnFocus
+ )
+ ; // Overridden
+ UP "author" 'Инишев Д.А.'
+ UP "no hands" True
+ UP extprop:pas:UnitName 'evMemoEdit'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MemoEdit'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\qf\evMemoEdit.pas'
+
+ENDME // ME_48D258F502BF TevMemoEdit

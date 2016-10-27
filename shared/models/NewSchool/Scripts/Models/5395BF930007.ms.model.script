@@ -1,0 +1,50 @@
+// TCsQueryExecutor 5395BF930007 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5395BF930007
+
+ME ME_5395BFA90075
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5395BF930007 // TCsQueryExecutor
+ ;
+ MELINK Target WL? 'ME_5395B29D0177' // TCsReplyProcedures
+ ;
+
+ENDME // ME_5395BFA90075 
+
+MEREF ME_52FBB30A01C6_ME_5395BF930007_G
+ MELINK Original WL? 'ME_52FBB30A01C6' // TCsObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52FBB30A01C6_ME_5395BF930007_G TCsObject
+
+%%InheritedBy ME_52FBB30A01C6 ME_5395BF930007
+
+ME ME_5395BF930007
+ MEPROP UID '5395BF930007'
+ MEPROP Name 'TCsQueryExecutor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_538DA26C020A' // ServerSide
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52FBB30A01C6_ME_5395BF930007_G // TCsObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_5395BFA90075 // TCsReplyProcedures
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'CsQueryExecutor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CsQueryExecutor'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_CsQueryExecutor.pas'
+
+ENDME // ME_5395BF930007 TCsQueryExecutor

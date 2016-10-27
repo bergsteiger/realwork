@@ -1,0 +1,189 @@
+// TevTextInTableCorrector 502B789B03CA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_502B789B03CA
+
+ME ME_516524320112
+ MEPROP UID '516524320112'
+ MEPROP Name 'f_WasStyle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_502B789B03CA // TevTextInTableCorrector
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_516524320112 f_WasStyle
+
+FORWARD ME_539003570066
+
+ME ME_539003610037
+ MEPROP UID '539003610037'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_539003570066 // InCell
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_539003610037 DoIt
+
+ME ME_539003570066
+ MEPROP UID '539003570066'
+ MEPROP Name 'InCell'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_502B789B03CA // TevTextInTableCorrector
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_539003610037 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_539003570066 InCell
+
+ME ME_502B80D5007F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502B789B03CA // TevTextInTableCorrector
+ ;
+ MELINK Target WL 'ME_4857CD8D0093' '48492FC0029D.ms.model.script' // TableCell
+ ;
+
+ENDME // ME_502B80D5007F 
+
+ME ME_502B80E0006F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502B789B03CA // TevTextInTableCorrector
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_502B80E0006F 
+
+ME ME_502B85C30307
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502B789B03CA // TevTextInTableCorrector
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_502B85C30307 
+
+ME ME_502B8EA10042
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502B789B03CA // TevTextInTableCorrector
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_502B8EA10042 
+
+ME ME_54A12C4303AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502B789B03CA // TevTextInTableCorrector
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_54A12C4303AC 
+
+MEREF ME_479731C50290_ME_502B789B03CA_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_502B789B03CA_over Cleanup
+
+MEREF ME_47A042E100E2_ME_502B789B03CA_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_502B789B03CA_over InitFields
+
+MEREF ME_4A2D1217037A_ME_502B789B03CA_over
+ MELINK Original WL 'ME_4A2D1217037A' '49E487A70144.ms.model.script' // DoStartChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A2D1217037A_ME_502B789B03CA_over DoStartChild
+
+MEREF ME_4A2D1634025B_ME_502B789B03CA_over
+ MELINK Original WL 'ME_4A2D1634025B' '49E487A70144.ms.model.script' // DoAddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A2D1634025B_ME_502B789B03CA_over DoAddAtomEx
+
+MEREF ME_4E45166B0156_ME_502B789B03CA_over
+ MELINK Original WL 'ME_4E45166B0156' '49E487A70144.ms.model.script' // DoCloseStructure
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E45166B0156_ME_502B789B03CA_over DoCloseStructure
+
+MEREF ME_49E487A70144_ME_502B789B03CA_G
+ MELINK Original WL? 'ME_49E487A70144' // Tk2TagFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487A70144_ME_502B789B03CA_G Tk2TagFilter
+
+%%InheritedBy ME_49E487A70144 ME_502B789B03CA
+
+ME ME_502B789B03CA
+ MEPROP UID '502B789B03CA'
+ MEPROP Name 'TevTextInTableCorrector'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вычищает всякую "кривизну" из текста в таблицах: стиль "обычный", отрицательные отступы, рамки вокруг текста.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E487A70144_ME_502B789B03CA_G // Tk2TagFilter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_516524320112 // f_WasStyle
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_539003570066 // InCell
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_502B789B03CA_over // Cleanup
+ ME_47A042E100E2_ME_502B789B03CA_over // InitFields
+ ME_4A2D1217037A_ME_502B789B03CA_over // DoStartChild
+ ME_4A2D1634025B_ME_502B789B03CA_over // DoAddAtomEx
+ ME_4E45166B0156_ME_502B789B03CA_over // DoCloseStructure
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_502B80D5007F // TableCell
+ ME_502B80E0006F // TextPara
+ ME_502B85C30307 // Tk2TagID
+ ME_502B8EA10042 // Standard
+ ME_54A12C4303AC // Document
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evTextInTableCorrector'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextInTableCorrector'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evTextInTableCorrector.pas'
+
+ENDME // ME_502B789B03CA TevTextInTableCorrector

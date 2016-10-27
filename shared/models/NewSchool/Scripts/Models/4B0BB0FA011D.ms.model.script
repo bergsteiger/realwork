@@ -1,0 +1,83 @@
+// TnsFontSizeEvent 4B0BB0FA011D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B0BB0FA011D
+
+FORWARD ME_4B0BB10A02E7
+
+ME ME_4B0BB1160295
+ MEPROP Name 'aSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4B0BB1160295 aSize
+
+ME ME_4B0BB10A02E7
+ MEPROP UID '4B0BB10A02E7'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B0BB0FA011D // TnsFontSizeEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B0BB1160295 // aSize
+ )
+ ; // Parameters
+
+ENDME // ME_4B0BB10A02E7 Log
+
+ME ME_4B0BB12601D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B0BB0FA011D // TnsFontSizeEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B0BB12601D0 
+
+MEREF ME_4B0A6109010C_ME_4B0BB0FA011D_G
+ MELINK Original WL? 'ME_4B0A6109010C' // TnsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0A6109010C_ME_4B0BB0FA011D_G TnsLogEvent
+
+%%InheritedBy ME_4B0A6109010C ME_4B0BB0FA011D
+
+ME ME_4B0BB0FA011D
+ MEPROP UID '4B0BB0FA011D'
+ MEPROP Name 'TnsFontSizeEvent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55B793700105' // Events
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B0A6109010C_ME_4B0BB0FA011D_G // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B0BB10A02E7 // Log
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B0BB12601D0 // LogEvent
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nsFontSizeEvent'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FontSizeEvent'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsFontSizeEvent.pas'
+
+ENDME // ME_4B0BB0FA011D TnsFontSizeEvent

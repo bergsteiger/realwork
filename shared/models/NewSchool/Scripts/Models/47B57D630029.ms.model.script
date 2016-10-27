@@ -2,26 +2,32 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-ME ME_47B07CF403D0_ME_47B57D630029
+MEREF ME_47B07CF403D0_ME_47B57D630029_impl
  MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifndef" 'l3Items_IsAtomic'
-ENDME // ME_47B07CF403D0_ME_47B57D630029 IsSameItems
+ENDMEREF // ME_47B07CF403D0_ME_47B57D630029_impl IsSameItems
 
-ME ME_47B2C42A0163_ME_47B57D630029
+MEREF ME_47B2C42A0163_ME_47B57D630029_impl
  MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
  UP "ifndef" 'l3Items_NoSort'
-ENDME // ME_47B2C42A0163_ME_47B57D630029 AssignItem
+ENDMEREF // ME_47B2C42A0163_ME_47B57D630029_impl AssignItem
 
-ME ME_47B99D4503A2_ME_47B57D630029
+MEREF ME_47B99D4503A2_ME_47B57D630029_impl
  MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47B99D4503A2_ME_47B57D630029 CompareExistingItems
+ENDMEREF // ME_47B99D4503A2_ME_47B57D630029_impl CompareExistingItems
+
+MEREF ME_4A6FFCC00354_ME_47B57D630029_G
+ MELINK Original WL? 'ME_4A6FFCC00354' // l3InterfacePtrListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A6FFCC00354_ME_47B57D630029_G l3InterfacePtrListPrim
 
 %%InheritedBy ME_4A6FFCC00354 ME_47B57D630029
 
@@ -38,13 +44,13 @@ ME ME_47B57D630029
  MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4A6FFCC00354' // l3InterfacePtrListPrim
+   Seq: ( HWL ME_4A6FFCC00354_ME_47B57D630029_G // l3InterfacePtrListPrim
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_47B07CF403D0_ME_47B57D630029 // IsSameItems
- ME_47B2C42A0163_ME_47B57D630029 // AssignItem
- ME_47B99D4503A2_ME_47B57D630029 // CompareExistingItems
+   Seq: ( ME_47B07CF403D0_ME_47B57D630029_impl // IsSameItems
+ ME_47B2C42A0163_ME_47B57D630029_impl // AssignItem
+ ME_47B99D4503A2_ME_47B57D630029_impl // CompareExistingItems
  )
  ; // Implemented
  UP extprop:pas:TypeName '_l3InterfacePtrList_'

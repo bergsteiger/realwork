@@ -6,80 +6,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_4614E03B02EE
 %%Inner ME_4614EBAD0222
 
-FORWARD ME_4614E97E01C5
-
-FORWARD ME_4614E05A0222
-
-ME ME_4614F51F034B
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4614E05A0222 // ActiveChangeableProxy
- ;
-
-ENDME // ME_4614F51F034B 
-
-ME ME_4614E05A0222
- MEPROP UID '4614E05A0222'
- MEPROP Name 'ActiveChangeableProxy'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4614E97E01C5 // TimeStampSync
- ;
- MELIST Dependencies
-   Seq: ( ME_4614F51F034B // 
- )
- ; // Dependencies
- UP "need UC" True
- UP "Refcount" 'standard'
- UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync\ActiveChangeableProxy.cpp'
- UP extprop:rc:isAcceptableForScripts True
- UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync\ActiveChangeableProxy.h'
- UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ActiveChangeableProxy.pas'
-
-ENDME // ME_4614E05A0222 ActiveChangeableProxy
-
-ME ME_4614E03B02EE
- MEPROP UID '4614E03B02EE'
- MEPROP Name 'TimeStampObjectManager'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4614E97E01C5 // TimeStampSync
- ;
- UP "need UC" True
- UP "singleton" True
- UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync\TimeStampObjectManager.cpp'
- UP extprop:pas:UnitName 'imeStampObjectManager'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'imeStampObjectManager'
- UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync\TimeStampObjectManager.h'
- UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\imeStampObjectManager.pas'
-
-ENDME // ME_4614E03B02EE TimeStampObjectManager
-
-ME ME_4614EBAD0222
- MEPROP UID '4614EBAD0222'
- MEPROP Name 'ActiveChangeableBase'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4614E97E01C5 // TimeStampSync
- ;
- UP "need UC" True
- UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync\ActiveChangeableBase.cpp'
- UP extprop:rc:isAcceptableForScripts True
- UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync\ActiveChangeableBase.h'
- UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ActiveChangeableBase.pas'
-
-ENDME // ME_4614EBAD0222 ActiveChangeableBase
-
 ME ME_4614E97E01C5
  MEPROP UID '4614E97E01C5'
  MEPROP Name 'TimeStampSync'
@@ -91,9 +17,9 @@ ME ME_4614E97E01C5
  MELINK Parent WL? 'ME_456EA3D2031C' // GblAdapterLib
  ;
  MELIST Children
-   Seq: ( HWL ME_4614E05A0222 // ActiveChangeableProxy
- HWL ME_4614E03B02EE // TimeStampObjectManager
- HWL ME_4614EBAD0222 // ActiveChangeableBase
+   Seq: ( WL? 'ME_4614E05A0222' // ActiveChangeableProxy
+ WL? 'ME_4614E03B02EE' // TimeStampObjectManager
+ WL? 'ME_4614EBAD0222' // ActiveChangeableBase
  )
  ; // Children
  MESTRINGLIST DiagramsNames

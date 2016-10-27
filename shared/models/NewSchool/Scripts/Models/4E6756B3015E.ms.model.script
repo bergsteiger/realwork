@@ -1,0 +1,76 @@
+// TevdDocumentSubsEliminator 4E6756B3015E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E6756B3015E
+
+ME ME_4E6756F70264
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E6756B3015E // TevdDocumentSubsEliminator
+ ;
+ MELINK Target WL 'ME_484CDAC302F7' '469D0AC7005E.ms.model.script' // Sub Layers
+ ;
+
+ENDME // ME_4E6756F70264 
+
+ME ME_4E6756FB004E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E6756B3015E // TevdDocumentSubsEliminator
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4E6756FB004E 
+
+MEREF ME_49E48829016F_ME_4E6756B3015E_over
+ MELINK Original WL 'ME_49E48829016F' '49E487650342.ms.model.script' // NeedWritePara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E48829016F_ME_4E6756B3015E_over NeedWritePara
+
+MEREF ME_4E664CB30360_ME_4E6756B3015E_G
+ MELINK Original WL? 'ME_4E664CB30360' // TevdDocumentMarksEliminator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E664CB30360_ME_4E6756B3015E_G TevdDocumentMarksEliminator
+
+%%InheritedBy ME_4E664CB30360 ME_4E6756B3015E
+
+ME ME_4E6756B3015E
+ MEPROP UID '4E6756B3015E'
+ MEPROP Name 'TevdDocumentSubsEliminator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECB8BD00A8' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E664CB30360_ME_4E6756B3015E_G // TevdDocumentMarksEliminator
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49E48829016F_ME_4E6756B3015E_over // NeedWritePara
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E6756F70264 // Sub Layers
+ ME_4E6756FB004E // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '07.09.2011 15:24'
+ UP extprop:pas:UnitName 'evdDocumentSubsEliminator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dDocumentSubsEliminator'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdDocumentSubsEliminator.pas'
+
+ENDME // ME_4E6756B3015E TevdDocumentSubsEliminator

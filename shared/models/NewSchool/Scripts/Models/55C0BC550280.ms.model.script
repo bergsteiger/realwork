@@ -1,0 +1,66 @@
+// TtfwDictionaryCachePrim 55C0BC550280 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55C0BC550280
+
+ME ME_55C0BC7100F7
+ MEPROP UID '55C0BC7100F7'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55C0BC550280 // TtfwDictionaryCachePrim
+ ;
+ MELINK Target WL? 'ME_559E8B2E0385' // TtfwDictionaryEx
+ ;
+
+ENDME // ME_55C0BC7100F7 ItemType
+
+MEREF ME_55B0E773009A_ME_55C0BC550280_G
+ MELINK Original WL? 'ME_55B0E773009A' // tfwSortedDictionaryList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55B0E773009A_ME_55C0BC550280_G tfwSortedDictionaryList
+
+MEREF ME_55A63C1701BE_ME_55C0BC550280_R
+ MELINK Original WL? 'ME_55A63C1701BE' // tfwNamedDictionaryList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55A63C1701BE_ME_55C0BC550280_R tfwNamedDictionaryList
+
+%%ImplementedBy ME_55A63C1701BE ME_55C0BC550280
+
+%%InheritedBy ME_55B0E773009A ME_55C0BC550280
+
+ME ME_55C0BC550280
+ MEPROP UID '55C0BC550280'
+ MEPROP Name 'TtfwDictionaryCachePrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F2275C00012' // ScriptingKeywordsCore
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_55B0E773009A_ME_55C0BC550280_G // tfwSortedDictionaryList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_55A63C1701BE_ME_55C0BC550280_R // tfwNamedDictionaryList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55C0BC7100F7 // ItemType
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'tfwDictionaryCachePrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DictionaryCachePrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryCachePrim.pas'
+
+ENDME // ME_55C0BC550280 TtfwDictionaryCachePrim

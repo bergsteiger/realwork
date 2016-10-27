@@ -1,0 +1,354 @@
+// TafwPreviewPageSpy 4CB6DFDE0374 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4CB6E3800078
+
+FORWARD ME_4CB6DFDE0374
+
+FORWARD ME_4CB6E3800078
+
+FORWARD ME_4CB6E39A019E
+
+ME ME_4CB6E3BC01A0
+ MEPROP Name 'aPage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_474155B703C6' // TafwPreviewPage
+ ;
+
+ENDME // ME_4CB6E3BC01A0 aPage
+
+ME ME_4CB6E99C0229
+ MEPROP Name 'aCounter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CB6E99C0229 aCounter
+
+ME ME_4CB6E39A019E
+ MEPROP UID '4CB6E39A019E'
+ MEPROP Name 'LogPage'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CB6E3800078 // IafwPagesLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB6E3BC01A0 // aPage
+ ME_4CB6E99C0229 // aCounter
+ )
+ ; // Parameters
+
+ENDME // ME_4CB6E39A019E LogPage
+
+ME ME_51ADB60602BB
+ MEPROP UID '51ADB60602BB'
+ MEPROP Name 'IncCounterPageNumer'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CB6E3800078 // IafwPagesLogger
+ ;
+
+ENDME // ME_51ADB60602BB IncCounterPageNumer
+
+ME ME_4CB6E3800078
+ MEPROP UID '4CB6E3800078'
+ MEPROP GUID '19361554-2DE2-4E58-B896-503677BDD13B'
+ MEPROP Name 'IafwPagesLogger'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CB6DFDE0374 // TafwPreviewPageSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB6E39A019E // LogPage
+ HWL ME_51ADB60602BB // IncCounterPageNumer
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwPagesLogger'
+
+ENDME // ME_4CB6E3800078 IafwPagesLogger
+
+ME ME_4CB6E53B029A
+ MEPROP UID '4CB6E53B029A'
+ MEPROP Name 'f_Logger'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CB6DFDE0374 // TafwPreviewPageSpy
+ ;
+ MELINK Target HWL ME_4CB6E3800078 // IafwPagesLogger
+ ;
+
+ENDME // ME_4CB6E53B029A f_Logger
+
+FORWARD ME_4CB6E34302AD
+
+ME ME_4CB6E34D031B
+ MEPROP UID '4CB6E34D031B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6E34302AD // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CB6E34D031B DoIt
+
+ME ME_4CB6E34302AD
+ MEPROP UID '4CB6E34302AD'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6DFDE0374 // TafwPreviewPageSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB6E34D031B // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4CB6E34302AD Exists
+
+FORWARD ME_4CB6E54D0386
+
+FORWARD ME_4CB6E55B02C7
+
+ME ME_4CB6E56302E0
+ MEPROP Name 'aLogger'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4CB6E3800078 // IafwPagesLogger
+ ;
+
+ENDME // ME_4CB6E56302E0 aLogger
+
+ME ME_4CB6E55B02C7
+ MEPROP UID '4CB6E55B02C7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6E54D0386 // SetLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB6E56302E0 // aLogger
+ )
+ ; // Parameters
+
+ENDME // ME_4CB6E55B02C7 DoIt
+
+ME ME_4CB6E54D0386
+ MEPROP UID '4CB6E54D0386'
+ MEPROP Name 'SetLogger'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6DFDE0374 // TafwPreviewPageSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB6E55B02C7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CB6E54D0386 SetLogger
+
+FORWARD ME_4CB6E5690252
+
+FORWARD ME_4CB6E575028E
+
+ME ME_4CB6E57601CA
+ MEPROP Name 'aLogger'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4CB6E3800078 // IafwPagesLogger
+ ;
+
+ENDME // ME_4CB6E57601CA aLogger
+
+ME ME_4CB6E575028E
+ MEPROP UID '4CB6E575028E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6E5690252 // RemoveLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB6E57601CA // aLogger
+ )
+ ; // Parameters
+
+ENDME // ME_4CB6E575028E DoIt
+
+ME ME_4CB6E5690252
+ MEPROP UID '4CB6E5690252'
+ MEPROP Name 'RemoveLogger'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6DFDE0374 // TafwPreviewPageSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB6E575028E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CB6E5690252 RemoveLogger
+
+FORWARD ME_4CB6E596010B
+
+FORWARD ME_4CB6E5A403BE
+
+ME ME_4CB6E5AB00F4
+ MEPROP Name 'aPage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_474155B703C6' // TafwPreviewPage
+ ;
+
+ENDME // ME_4CB6E5AB00F4 aPage
+
+ME ME_4CB6E99603B7
+ MEPROP Name 'aCounter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CB6E99603B7 aCounter
+
+ME ME_4CB6E5A403BE
+ MEPROP UID '4CB6E5A403BE'
+ MEPROP Name 'LogPage'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6E596010B // LogPage
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB6E5AB00F4 // aPage
+ ME_4CB6E99603B7 // aCounter
+ )
+ ; // Parameters
+
+ENDME // ME_4CB6E5A403BE LogPage
+
+ME ME_4CB6E596010B
+ MEPROP UID '4CB6E596010B'
+ MEPROP Name 'LogPage'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6DFDE0374 // TafwPreviewPageSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB6E5A403BE // LogPage
+ )
+ ; // Operations
+
+ENDME // ME_4CB6E596010B LogPage
+
+FORWARD ME_51ADB624017D
+
+ME ME_51ADB639028C
+ MEPROP UID '51ADB639028C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51ADB624017D // IncCounterNumber
+ ;
+
+ENDME // ME_51ADB639028C DoIt
+
+ME ME_51ADB624017D
+ MEPROP UID '51ADB624017D'
+ MEPROP Name 'IncCounterNumber'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6DFDE0374 // TafwPreviewPageSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51ADB639028C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51ADB624017D IncCounterNumber
+
+MEREF ME_49E7754802A9_ME_4CB6DFDE0374_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4CB6DFDE0374_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_4CB6DFDE0374
+
+ME ME_4CB6DFDE0374
+ MEPROP UID '4CB6DFDE0374'
+ MEPROP Name 'TafwPreviewPageSpy'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Следилка за TafwPreviewPage, для {RequestLink:235873282}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_474144E20301' // Draw
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_4CB6DFDE0374_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4CB6E53B029A // f_Logger
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CB6E34302AD // Exists
+ HWL ME_4CB6E54D0386 // SetLogger
+ HWL ME_4CB6E5690252 // RemoveLogger
+ HWL ME_4CB6E596010B // LogPage
+ HWL ME_51ADB624017D // IncCounterNumber
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4CB6E3800078 // IafwPagesLogger
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "ifdef" 'nsTest'
+ UP "no hands" True
+ UP "singleton" True
+ UP "started" '14.10.2010 14:50'
+ UP extprop:pas:UnitName 'afwPreviewPageSpy'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwPreviewPageSpy'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPageSpy.pas'
+
+ENDME // ME_4CB6DFDE0374 TafwPreviewPageSpy

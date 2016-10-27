@@ -1,0 +1,81 @@
+// K517772970_TalcuAutoExportTask 53214FDB01D3 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53214FDB01D3
+
+ME ME_5321500C0072
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53214FDB01D3 // K517772970_TalcuAutoExportTask
+ ;
+ MELINK Target WL? 'ME_5317054100F1' // TalcuAutoExportTask
+ ;
+
+ENDME // ME_5321500C0072 
+
+ME ME_54045B840229
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53214FDB01D3 // K517772970_TalcuAutoExportTask
+ ;
+ MELINK Target WL 'ME_53FED300014A' '53AAEDC101AB.ms.model.script' // TaeStages
+ ;
+
+ENDME // ME_54045B840229 
+
+MEREF ME_5320088202FB_ME_53214FDB01D3_over
+ MELINK Original WL 'ME_5320088202FB' '532008240001.ms.model.script' // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5320088202FB_ME_53214FDB01D3_over TaskClass
+
+MEREF ME_532008D203BA_ME_53214FDB01D3_over
+ MELINK Original WL 'ME_532008D203BA' '532008240001.ms.model.script' // InitTask
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_532008D203BA_ME_53214FDB01D3_over InitTask
+
+MEREF ME_53200B5D0155_ME_53214FDB01D3_G
+ MELINK Original WL? 'ME_53200B5D0155' // K517772970_TddProcessTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53200B5D0155_ME_53214FDB01D3_G K517772970_TddProcessTask
+
+%%InheritedBy ME_53200B5D0155 ME_53214FDB01D3
+
+ME ME_53214FDB01D3
+ MEPROP UID '53214FDB01D3'
+ MEPROP Name 'K517772970_TalcuAutoExportTask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_531FF6280311' // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B5D0155_ME_53214FDB01D3_G // K517772970_TddProcessTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53214FDB01D3_over // TaskClass
+ ME_532008D203BA_ME_53214FDB01D3_over // InitTask
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5321500C0072 // TalcuAutoExportTask
+ ME_54045B840229 // TaeStages
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TK517772970_TalcuAutoExportTask'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K517772970_TalcuAutoExportTask'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuAutoExportTask.pas'
+
+ENDME // ME_53214FDB01D3 K517772970_TalcuAutoExportTask

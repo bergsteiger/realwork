@@ -1,0 +1,41 @@
+// Preview 530B30360258 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_530B30360258
+
+ME ME_530B30B7008B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_530B30360258 // Preview
+ ;
+ MELINK Target WL 'ME_530B2FD003B4' '4E4B5F29031C.ms.model.script' // acMakePreview
+ ;
+
+ENDME // ME_530B30B7008B 
+
+ME ME_530B30360258
+ MEPROP UID '530B30360258'
+ MEPROP Name 'Preview'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F6195640184' // CommonArchiWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_530B30B7008B // acMakePreview
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwPreview'
+ UP extprop:pas:UnitName 'kwPreview'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Preview'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwPreview.pas'
+
+ENDME // ME_530B30360258 Preview

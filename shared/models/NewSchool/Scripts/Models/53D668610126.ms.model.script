@@ -1,0 +1,69 @@
+// TevReqRowHotSpotTester 53D668610126 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D668610126
+
+ME ME_53D6687F003B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D668610126 // TevReqRowHotSpotTester
+ ;
+ MELINK Target WL? 'ME_4857EAD30281' // TevReqRow
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D6687F003B 
+
+ME ME_53D6689B01B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D668610126 // TevReqRowHotSpotTester
+ ;
+ MELINK Target WL 'ME_4A250DB2035E' '4A1FCBA0014C.ms.model.script' // InevHotSpotTester2
+ ;
+ UP "needs processor" True
+
+ENDME // ME_53D6689B01B3 
+
+MEREF ME_53D0FCB60027_ME_53D668610126_G
+ MELINK Original WL 'ME_53D0FCB60027' '53D0FC9901A6.ms.model.script' // TevTableRowHotSpotTester
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53D0FCB60027_ME_53D668610126_G TevTableRowHotSpotTester
+
+%%InjectedBy ME_4857EAD30281 ME_53D668610126
+
+%%InheritedBy ME_53D0FCB60027 ME_53D668610126
+
+ME ME_53D668610126
+ MEPROP UID '53D668610126'
+ MEPROP Name 'TevReqRowHotSpotTester'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A267EE3017B' // HotSpots
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53D0FCB60027_ME_53D668610126_G // TevTableRowHotSpotTester
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_53D6687F003B // TevReqRow
+ ME_53D6689B01B3 // InevHotSpotTester2
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP "ifndef" 'evCanEditControlsAsText'
+ UP extprop:pas:UnitName 'evReqRowHotSpotTester'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ReqRowHotSpotTester'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evReqRowHotSpotTester.pas'
+
+ENDME // ME_53D668610126 TevReqRowHotSpotTester

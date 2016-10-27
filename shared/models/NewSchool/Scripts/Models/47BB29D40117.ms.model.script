@@ -1,0 +1,70 @@
+// Tl3LongintList 47BB29D40117 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47BB29D40117
+
+ME ME_4B89231E0398
+ MEPROP UID '4B89231E0398'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47BB29D40117 // Tl3LongintList
+ ;
+ MELINK Target WL? 'ME_4773DC930147' // Tl3LongintListPrim
+ ;
+
+ENDME // ME_4B89231E0398 ListType
+
+MEREF ME_4773DC930147_ME_47BB29D40117_G
+ MELINK Original WL? 'ME_4773DC930147' // Tl3LongintListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773DC930147_ME_47BB29D40117_G Tl3LongintListPrim
+
+MEREF ME_47BB26AF027F_ME_47BB29D40117_R
+ MELINK Original WL? 'ME_47BB26AF027F' // l3ListOperations
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BB26AF027F_ME_47BB29D40117_R l3ListOperations
+
+%%ImplementedBy ME_47BB26AF027F ME_47BB29D40117
+
+%%InheritedBy ME_4773DC930147 ME_47BB29D40117
+
+ME ME_47BB29D40117
+ MEPROP UID '47BB29D40117'
+ MEPROP Name 'Tl3LongintList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список целых чисел' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4773DC930147_ME_47BB29D40117_G // Tl3LongintListPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47BB26AF027F_ME_47BB29D40117_R // l3ListOperations
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B89231E0398 // ListType
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'l3LongintList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LongintList'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3LongintList.pas'
+
+ENDME // ME_47BB29D40117 Tl3LongintList

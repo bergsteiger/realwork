@@ -1,0 +1,68 @@
+// Tl3ProtoIntegerList 4CA9A2EB01E4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA9A2EB01E4
+
+ME ME_4CA9A33B036A
+ MEPROP UID '4CA9A33B036A'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CA9A2EB01E4 // Tl3ProtoIntegerList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4CA9A33B036A ItemType
+
+MEREF ME_47A1B04702C2_ME_4CA9A2EB01E4_G
+ MELINK Original WL? 'ME_47A1B04702C2' // l3AtomicList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47A1B04702C2_ME_4CA9A2EB01E4_G l3AtomicList
+
+MEREF ME_4A54DD4E036F_ME_4CA9A2EB01E4_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4CA9A2EB01E4_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47A1B04702C2 ME_4CA9A2EB01E4
+%%InheritedBy ME_4A54DD4E036F ME_4CA9A2EB01E4
+
+ME ME_4CA9A2EB01E4
+ MEPROP UID '4CA9A2EB01E4'
+ MEPROP Name 'Tl3ProtoIntegerList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47A1B04702C2_ME_4CA9A2EB01E4_G // l3AtomicList
+ HWL ME_4A54DD4E036F_ME_4CA9A2EB01E4_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4CA9A33B036A // ItemType
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '04.10.2010 13:49'
+ UP extprop:pas:UnitName 'l3ProtoIntegerList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ProtoIntegerList'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ProtoIntegerList.pas'
+
+ENDME // ME_4CA9A2EB01E4 Tl3ProtoIntegerList

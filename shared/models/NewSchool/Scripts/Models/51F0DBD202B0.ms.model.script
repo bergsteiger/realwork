@@ -1,0 +1,62 @@
+// TddJustList 51F0DBD202B0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51F0DBD202B0
+
+ME ME_51F0DBF402BE
+ MEPROP UID '51F0DBF402BE'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51F0DBD202B0 // TddJustList
+ ;
+ MELINK Target WL 'ME_51F0DB1A03C4' '52CFA9D5031E.ms.model.script' // TJust
+ ;
+
+ENDME // ME_51F0DBF402BE ItemType
+
+MEREF ME_47BC3A07027F_ME_51F0DBD202B0_G
+ MELINK Original WL? 'ME_47BC3A07027F' // Tl3SimpleDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC3A07027F_ME_51F0DBD202B0_G Tl3SimpleDataContainer
+
+MEREF ME_49142D7000F3_ME_51F0DBD202B0_G
+ MELINK Original WL? 'ME_49142D7000F3' // l3EnumList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49142D7000F3_ME_51F0DBD202B0_G l3EnumList
+
+%%InheritedBy ME_47BC3A07027F ME_51F0DBD202B0
+%%InheritedBy ME_49142D7000F3 ME_51F0DBD202B0
+
+ME ME_51F0DBD202B0
+ MEPROP UID '51F0DBD202B0'
+ MEPROP Name 'TddJustList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6843C101D1' // ddCommon
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47BC3A07027F_ME_51F0DBD202B0_G // Tl3SimpleDataContainer
+ HWL ME_49142D7000F3_ME_51F0DBD202B0_G // l3EnumList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51F0DBF402BE // ItemType
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'ddJustList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddJustList'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddJustList.pas'
+
+ENDME // ME_51F0DBD202B0 TddJustList

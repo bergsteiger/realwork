@@ -1,0 +1,59 @@
+// ReleaseToK2 CFD0344B37B4 TestResults Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4B7AB0B6016E_ME_CFD0344B37B4_impl
+ MELINK Original WL 'ME_4B7AB0B6016E' '4B2A6D4303A9.ms.model.script' // CommandLineKey
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B7AB0B6016E_ME_CFD0344B37B4_impl CommandLineKey
+
+MEREF ME_4B7C0B43005B_ME_CFD0344B37B4_impl
+ MELINK Original WL 'ME_4B7C0B43005B' '4B2A6D4303A9.ms.model.script' // TimesPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B7C0B43005B_ME_CFD0344B37B4_impl TimesPage
+
+MEREF ME_4B7C0B670215_ME_CFD0344B37B4_impl
+ MELINK Original WL 'ME_4B7C0B670215' '4B2A6D4303A9.ms.model.script' // ResultsPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B7C0B670215_ME_CFD0344B37B4_impl ResultsPage
+
+MEREF ME_4B7AAC7A031D_ME_CFD0344B37B4_G
+ MELINK Original WL 'ME_4B7AAC7A031D' '4B2A6D4303A9.ms.model.script' // TTestResultsPlace
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B7AAC7A031D_ME_CFD0344B37B4_G TTestResultsPlace
+
+%%InheritedBy ME_4B7AAC7A031D ME_CFD0344B37B4
+
+ME ME_CFD0344B37B4
+ MEPROP UID 'CFD0344B37B4'
+ MEPROP Name 'ReleaseToK2'
+ UP IsSummoned true
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestResults ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY ' (релизный вариант)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4114A74FDFBC' // ReleaseSearch
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B7AAC7A031D_ME_CFD0344B37B4_G // TTestResultsPlace
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4B7AB0B6016E_ME_CFD0344B37B4_impl // CommandLineKey
+ ME_4B7C0B43005B_ME_CFD0344B37B4_impl // TimesPage
+ ME_4B7C0B670215_ME_CFD0344B37B4_impl // ResultsPage
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName 'TReleaseToK2'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ReleaseToK2'
+ UP intf.pas:Path 'common\components\SearchTest\ReleaseToK2.pas'
+
+ENDME // ME_CFD0344B37B4 ReleaseToK2

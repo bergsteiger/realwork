@@ -1,0 +1,211 @@
+// Tl3LongintListPrim 4773DC930147 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4773DC930147
+
+ME ME_4B8922C902AD
+ MEPROP UID '4B8922C902AD'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4773DC930147 // Tl3LongintListPrim
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B8922C902AD ItemType
+
+FORWARD ME_47AAC5B30149
+
+ME ME_47AAC5B80132
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_47AAC5B80132 aStream
+
+ME ME_47AAC5B30149
+ MEPROP UID '47AAC5B30149'
+ MEPROP Name 'Load'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4773DC930147 // Tl3LongintListPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_47AAC5B80132 // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_47AAC5B30149 Load
+
+FORWARD ME_47AAC5BE01E3
+
+ME ME_47AAC5C1025B
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_47AAC5C1025B aStream
+
+ME ME_47AAC5BE01E3
+ MEPROP UID '47AAC5BE01E3'
+ MEPROP Name 'Save'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4773DC930147 // Tl3LongintListPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_47AAC5C1025B // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_47AAC5BE01E3 Save
+
+FORWARD ME_47AAC7E50323
+
+ME ME_47AAC7EF0074
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47AAC7EF0074 anIndex
+
+ME ME_47AAC7E50323
+ MEPROP UID '47AAC7E50323'
+ MEPROP Name 'Delete'
+ MEPROP Class class_Operation
+ %SUMMARY 'удалить элемент с индексом Index.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4773DC930147 // Tl3LongintListPrim
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_47AAC7EF0074 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_47AAC7E50323 Delete
+
+ME ME_47AB22620289
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4773DC930147 // Tl3LongintListPrim
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_47AB22620289 
+
+MEREF ME_47B17EEC020C_ME_4773DC930147_impl
+ MELINK Original WL 'ME_47B17EEC020C' '47B17CBC0356.ms.model.script' // SaveToStream
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B17EEC020C_ME_4773DC930147_impl SaveToStream
+
+MEREF ME_47B19BBB00BA_ME_4773DC930147_impl
+ MELINK Original WL 'ME_47B19BBB00BA' '47B17CBC0356.ms.model.script' // LoadFromStream
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B19BBB00BA_ME_4773DC930147_impl LoadFromStream
+
+MEREF ME_47A6FEE600FC_ME_4773DC930147_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_4773DC930147_over IsCacheable
+
+MEREF ME_47A1B04702C2_ME_4773DC930147_G
+ MELINK Original WL? 'ME_47A1B04702C2' // l3AtomicList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47A1B04702C2_ME_4773DC930147_G l3AtomicList
+
+MEREF ME_47BC3A07027F_ME_4773DC930147_G
+ MELINK Original WL? 'ME_47BC3A07027F' // Tl3SimpleDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC3A07027F_ME_4773DC930147_G Tl3SimpleDataContainer
+
+MEREF ME_47B17CBC0356_ME_4773DC930147_R
+ MELINK Original WL? 'ME_47B17CBC0356' // l3Storable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B17CBC0356_ME_4773DC930147_R l3Storable
+
+%%ImplementedBy ME_47B17CBC0356 ME_4773DC930147
+
+%%InheritedBy ME_47A1B04702C2 ME_4773DC930147
+%%InheritedBy ME_47BC3A07027F ME_4773DC930147
+
+ME ME_4773DC930147
+ MEPROP UID '4773DC930147'
+ MEPROP Name 'Tl3LongintListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список целых чисел.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47A1B04702C2_ME_4773DC930147_G // l3AtomicList
+ HWL ME_47BC3A07027F_ME_4773DC930147_G // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B17CBC0356_ME_4773DC930147_R // l3Storable
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B8922C902AD // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47AAC5B30149 // Load
+ HWL ME_47AAC5BE01E3 // Save
+ HWL ME_47AAC7E50323 // Delete
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B17EEC020C_ME_4773DC930147_impl // SaveToStream
+ ME_47B19BBB00BA_ME_4773DC930147_impl // LoadFromStream
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_4773DC930147_over // IsCacheable
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_47AB22620289 // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "need UC" True
+ UP "no hands" True
+ UP "started" '07.02.2008 11:44'
+ UP extprop:pas:UnitName 'l3LongintListPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LongintListPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3LongintListPrim.pas'
+
+ENDME // ME_4773DC930147 Tl3LongintListPrim

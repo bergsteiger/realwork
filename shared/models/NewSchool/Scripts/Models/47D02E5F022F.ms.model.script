@@ -1,0 +1,279 @@
+// Tl3ImageList 47D02E5F022F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47D02E5F022F
+
+ME ME_47D149FA02C8
+ MEPROP UID '47D149FA02C8'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D02E5F022F // Tl3ImageList
+ ;
+ MELINK Target WL 'ME_473DA2AF0168' '4AB0F6DB029C.ms.model.script' // TCustomImageList
+ ;
+
+ENDME // ME_47D149FA02C8 f_List
+
+FORWARD ME_47D14ADF03A0
+
+ME ME_47D14AF70335
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473DA2AF0168' '4AB0F6DB029C.ms.model.script' // TCustomImageList
+ ;
+
+ENDME // ME_47D14AF70335 aList
+
+ME ME_47D14ADF03A0
+ MEPROP UID '47D14ADF03A0'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_vctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D02E5F022F // Tl3ImageList
+ ;
+ MELIST Parameters
+   Seq: ( ME_47D14AF70335 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_47D14ADF03A0 Create
+
+FORWARD ME_47D14B01003A
+
+ME ME_47D14B040160
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473DA2AF0168' '4AB0F6DB029C.ms.model.script' // TCustomImageList
+ ;
+
+ENDME // ME_47D14B040160 aList
+
+ME ME_47D14B01003A
+ MEPROP UID '47D14B01003A'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47D02E5F022F // Tl3ImageList
+ ;
+ MELINK Target WL 'ME_4728C6AC0070' '467C0CAA02AB.ms.model.script' // Il3ImageList
+ ;
+ MELIST Parameters
+   Seq: ( ME_47D14B040160 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_47D14B01003A Make
+
+ME ME_47D14E0C0120
+ MEPROP UID '47D14E0C0120'
+ MEPROP Name 'DoGetBigSize'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D02E5F022F // Tl3ImageList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47D14E0C0120 DoGetBigSize
+
+FORWARD ME_47D14E1A009A
+
+ME ME_47D14E200098
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47D14E200098 aValue
+
+ME ME_47D14E1A009A
+ MEPROP UID '47D14E1A009A'
+ MEPROP Name 'DoSetBigSize'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D02E5F022F // Tl3ImageList
+ ;
+ MELIST Parameters
+   Seq: ( ME_47D14E200098 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_47D14E1A009A DoSetBigSize
+
+ME ME_47D1506A01C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47D02E5F022F // Tl3ImageList
+ ;
+ MELINK Target WL? 'ME_47D15062022A' // Tl3Bitmap
+ ;
+
+ENDME // ME_47D1506A01C9 
+
+ME ME_47D151310194
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47D02E5F022F // Tl3ImageList
+ ;
+ MELINK Target WL 'ME_46A4659D003A' '47D15712022D.ms.model.script' // TCanvas$Stub
+ ;
+
+ENDME // ME_47D151310194 
+
+ME ME_47D1528B00DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47D02E5F022F // Tl3ImageList
+ ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_47D1528B00DD 
+
+MEREF ME_4728C6D400FA_ME_47D02E5F022F_impl
+ MELINK Original WL 'ME_4728C6D400FA' '467C0CAA02AB.ms.model.script' // Draw
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4728C6D400FA_ME_47D02E5F022F_impl Draw
+
+MEREF ME_4728C6F401E6_ME_47D02E5F022F_impl
+ MELINK Original WL 'ME_4728C6F401E6' '467C0CAA02AB.ms.model.script' // Draw
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4728C6F401E6_ME_47D02E5F022F_impl Draw
+
+MEREF ME_4728C76E03C2_ME_47D02E5F022F_impl
+ MELINK Original WL 'ME_4728C76E03C2' '467C0CAA02AB.ms.model.script' // Draw
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4728C76E03C2_ME_47D02E5F022F_impl Draw
+
+MEREF ME_4728C79B0269_ME_47D02E5F022F_impl
+ MELINK Original WL 'ME_4728C79B0269' '467C0CAA02AB.ms.model.script' // Hack
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4728C79B0269_ME_47D02E5F022F_impl Hack
+
+MEREF ME_4728C7A90345_ME_47D02E5F022F_impl
+ MELINK Original WL 'ME_4728C7A90345' '467C0CAA02AB.ms.model.script' // Width
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4728C7A90345_ME_47D02E5F022F_impl Width
+
+MEREF ME_4728C7B50144_ME_47D02E5F022F_impl
+ MELINK Original WL 'ME_4728C7B50144' '467C0CAA02AB.ms.model.script' // Height
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4728C7B50144_ME_47D02E5F022F_impl Height
+
+MEREF ME_4728C7C7006D_ME_47D02E5F022F_impl
+ MELINK Original WL 'ME_4728C7C7006D' '467C0CAA02AB.ms.model.script' // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4728C7C7006D_ME_47D02E5F022F_impl Count
+
+MEREF ME_4728C7D202A4_ME_47D02E5F022F_impl
+ MELINK Original WL 'ME_4728C7D202A4' '467C0CAA02AB.ms.model.script' // Handle
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4728C7D202A4_ME_47D02E5F022F_impl Handle
+
+MEREF ME_4728C7DC01EA_ME_47D02E5F022F_impl
+ MELINK Original WL 'ME_4728C7DC01EA' '467C0CAA02AB.ms.model.script' // BigSize
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4728C7DC01EA_ME_47D02E5F022F_impl BigSize
+
+MEREF ME_4AE5CA2D0034_ME_47D02E5F022F_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_47D02E5F022F_G Tl3CProtoObject
+
+MEREF ME_4728C6AC0070_ME_47D02E5F022F_R
+ MELINK Original WL 'ME_4728C6AC0070' '467C0CAA02AB.ms.model.script' // Il3ImageList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4728C6AC0070_ME_47D02E5F022F_R Il3ImageList
+
+%%ImplementedBy ME_4728C6AC0070 ME_47D02E5F022F
+
+%%InheritedBy ME_4AE5CA2D0034 ME_47D02E5F022F
+
+ME ME_47D02E5F022F
+ MEPROP UID '47D02E5F022F'
+ MEPROP Name 'Tl3ImageList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_473C3BEE0334' // l3Canvas
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AE5CA2D0034_ME_47D02E5F022F_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4728C6AC0070_ME_47D02E5F022F_R // Il3ImageList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47D149FA02C8 // f_List
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47D14ADF03A0 // Create
+ HWL ME_47D14B01003A // Make
+ HWL ME_47D14E0C0120 // DoGetBigSize
+ HWL ME_47D14E1A009A // DoSetBigSize
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4728C6D400FA_ME_47D02E5F022F_impl // Draw
+ ME_4728C6F401E6_ME_47D02E5F022F_impl // Draw
+ ME_4728C76E03C2_ME_47D02E5F022F_impl // Draw
+ ME_4728C79B0269_ME_47D02E5F022F_impl // Hack
+ ME_4728C7A90345_ME_47D02E5F022F_impl // Width
+ ME_4728C7B50144_ME_47D02E5F022F_impl // Height
+ ME_4728C7C7006D_ME_47D02E5F022F_impl // Count
+ ME_4728C7D202A4_ME_47D02E5F022F_impl // Handle
+ ME_4728C7DC01EA_ME_47D02E5F022F_impl // BigSize
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_47D1506A01C9 // Tl3Bitmap
+ ME_47D151310194 // TCanvas$Stub
+ ME_47D1528B00DD // TRect
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "started" '28.07.2005 15:50'
+ UP extprop:pas:UnitName 'l3ImageList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ImageList'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ImageList.pas'
+
+ENDME // ME_47D02E5F022F Tl3ImageList

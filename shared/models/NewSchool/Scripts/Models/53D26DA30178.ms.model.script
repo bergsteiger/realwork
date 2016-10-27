@@ -1,0 +1,67 @@
+// TnevDocument 53D26DA30178 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D26DA30178
+
+ME ME_53D26DC60154
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D26DA30178 // TnevDocument
+ ;
+ MELINK Target WL? 'ME_4857B637007C' // TevDocument
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D26DC60154 
+
+ME ME_53D26DE400EC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D26DA30178 // TnevDocument
+ ;
+ MELINK Target WL 'ME_47C6A6570369' '47C5207602D1.ms.model.script' // InevParaList
+ ;
+
+ENDME // ME_53D26DE400EC 
+
+MEREF ME_48CE0B85029C_ME_53D26DA30178_G
+ MELINK Original WL? 'ME_48CE0B85029C' // TnevParaList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48CE0B85029C_ME_53D26DA30178_G TnevParaList
+
+%%InjectedBy ME_4857B637007C ME_53D26DA30178
+
+%%InheritedBy ME_48CE0B85029C ME_53D26DA30178
+
+ME ME_53D26DA30178
+ MEPROP UID '53D26DA30178'
+ MEPROP Name 'TnevDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48CE0A0A03B4' // ParagraphsImplementation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48CE0B85029C_ME_53D26DA30178_G // TnevParaList
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_53D26DC60154 // TevDocument
+ ME_53D26DE400EC // InevParaList
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:pas:UnitName 'nevDocument'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Document'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_nevDocument.pas'
+
+ENDME // ME_53D26DA30178 TnevDocument

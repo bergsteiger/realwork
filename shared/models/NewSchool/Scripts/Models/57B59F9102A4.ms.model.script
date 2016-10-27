@@ -1,0 +1,66 @@
+// TmsmEventList 57B59F9102A4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57B59F9102A4
+
+ME ME_57B59FCD00C8
+ MEPROP UID '57B59FCD00C8'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B59F9102A4 // TmsmEventList
+ ;
+ MELINK Target WL 'ME_57B5682D00D1' '57B5730D0123.ms.model.script' // TmsmEvent
+ ;
+
+ENDME // ME_57B59FCD00C8 ItemType
+
+MEREF ME_4A54DD4E036F_ME_57B59F9102A4_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_57B59F9102A4_G Tl3ProtoDataContainer
+
+MEREF ME_47B57B7800A7_ME_57B59F9102A4_R
+ MELINK Original WL? 'ME_47B57B7800A7' // l3ObjectPtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57B7800A7_ME_57B59F9102A4_R l3ObjectPtrList
+
+%%ImplementedBy ME_47B57B7800A7 ME_57B59F9102A4
+
+%%InheritedBy ME_4A54DD4E036F ME_57B59F9102A4
+
+ME ME_57B59F9102A4
+ MEPROP UID '57B59F9102A4'
+ MEPROP Name 'TmsmEventList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CE85BE0100' // Events
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_57B59F9102A4_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B57B7800A7_ME_57B59F9102A4_R // l3ObjectPtrList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57B59FCD00C8 // ItemType
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'msmEventList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmEventList'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmEventList.pas'
+
+ENDME // ME_57B59F9102A4 TmsmEventList

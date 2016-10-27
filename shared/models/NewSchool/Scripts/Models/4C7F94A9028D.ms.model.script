@@ -47,7 +47,7 @@ ENDME // ME_5481C7BC035A DoIt
 ME ME_5481C789009F
  MEPROP UID '5481C789009F'
  MEPROP Name 'GetHotSpot'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -114,7 +114,7 @@ ENDME // ME_5481D1B900E0 DoIt
 ME ME_5481D1B20067
  MEPROP UID '5481D1B20067'
  MEPROP Name 'CheckSubOnPoint'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -173,7 +173,7 @@ ME ME_548707B70059
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C7F94A9028D // TeeSubPanelExport
  ;
- MELINK Target WL 'ME_54817DA2016E' '4912E16B01B4.ms.model.script' // TeeSub
+ MELINK Target WL? 'ME_54817DA2016E' // TeeSub
  ;
 
 ENDME // ME_548707B70059 
@@ -183,17 +183,29 @@ ME ME_54870CC80160
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C7F94A9028D // TeeSubPanelExport
  ;
- MELINK Target WL 'ME_5481DD0C0363' '4912E16B01B4.ms.model.script' // TeeHotSpot
+ MELINK Target WL? 'ME_5481DD0C0363' // TeeHotSpot
  ;
 
 ENDME // ME_54870CC80160 
 
-ME ME_5481A0B20112_ME_4C7F94A9028D
+MEREF ME_5481A0B20112_ME_4C7F94A9028D_impl
  MELINK Original WL 'ME_5481A0B20112' '4912DD020283.ms.model.script' // SubViewDescriptors
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" False
-ENDME // ME_5481A0B20112_ME_4C7F94A9028D SubViewDescriptors
+ENDMEREF // ME_5481A0B20112_ME_4C7F94A9028D_impl SubViewDescriptors
+
+MEREF ME_547DC47400EC_ME_4C7F94A9028D_G
+ MELINK Original WL 'ME_547DC47400EC' '547DB02F034B.ms.model.script' // TevCustomSubPanel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_547DC47400EC_ME_4C7F94A9028D_G TevCustomSubPanel
+
+MEREF ME_5481A06803E5_ME_4C7F94A9028D_R
+ MELINK Original WL 'ME_5481A06803E5' '4912DD020283.ms.model.script' // IeeSubPanel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5481A06803E5_ME_4C7F94A9028D_R IeeSubPanel
 
 %%ImplementedBy ME_5481A06803E5 ME_4C7F94A9028D
 
@@ -211,11 +223,11 @@ ME ME_4C7F94A9028D
  MELINK Parent WL? 'ME_54817B05034F' // eeSubPanel
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_547DC47400EC' '547DB02F034B.ms.model.script' // TevCustomSubPanel
+   Seq: ( HWL ME_547DC47400EC_ME_4C7F94A9028D_G // TevCustomSubPanel
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_5481A06803E5' '4912DD020283.ms.model.script' // IeeSubPanel
+   Seq: ( HWL ME_5481A06803E5_ME_4C7F94A9028D_R // IeeSubPanel
  )
  ; // Implements
  MELIST Operations
@@ -224,7 +236,7 @@ ME ME_4C7F94A9028D
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_5481A0B20112_ME_4C7F94A9028D // SubViewDescriptors
+   Seq: ( ME_5481A0B20112_ME_4C7F94A9028D_impl // SubViewDescriptors
  )
  ; // Implemented
  MELIST Dependencies

@@ -1,0 +1,153 @@
+// TmsmModelElementFactory 57AB39D10325 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57AB39D10325
+
+ME ME_57C0222700A3
+ MEPROP UID '57C0222700A3'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57AB39D10325 // TmsmModelElementFactory
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57C0222700A3 FindDataType
+
+FORWARD ME_57AB3A620365
+
+FORWARD ME_57AB3A7E01EB
+
+ME ME_57AB3AA60008
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57AB3AA60008 aWord
+
+ME ME_57AB3A7E01EB
+ MEPROP UID '57AB3A7E01EB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AB3A620365 // Make
+ ;
+ MELINK Target WL 'ME_57A9F4D30086' '57A9F4A003C8.ms.model.script' // ImsmModelElement
+ ;
+ MELIST Parameters
+   Seq: ( ME_57AB3AA60008 // aWord
+ )
+ ; // Parameters
+
+ENDME // ME_57AB3A7E01EB DoIt
+
+ME ME_57AB3A620365
+ MEPROP UID '57AB3A620365'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AB39D10325 // TmsmModelElementFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57AB3A7E01EB // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_57AB3A620365 Make
+
+ME ME_57CE91870394
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57AB39D10325 // TmsmModelElementFactory
+ ;
+ MELINK Target WL? 'ME_57CE8E0B0357' // l3PointerUtils
+ ;
+
+ENDME // ME_57CE91870394 
+
+MEREF ME_47A042E100E2_ME_57AB39D10325_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_57AB39D10325_over InitFields
+
+MEREF ME_47B9BAFD01F4_ME_57AB39D10325_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_57AB39D10325_over CompareItemWithData
+
+MEREF ME_57C021910000_ME_57AB39D10325_G
+ MELINK Original WL? 'ME_57C021910000' // TmsmModelElementFactoryPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57C021910000_ME_57AB39D10325_G TmsmModelElementFactoryPrim
+
+MEREF ME_47B47E230134_ME_57AB39D10325_R
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_57AB39D10325_R l3Searcher
+
+%%ImplementedBy ME_47B47E230134 ME_57AB39D10325
+
+%%InheritedBy ME_57C021910000 ME_57AB39D10325
+
+ME ME_57AB39D10325
+ MEPROP UID '57AB39D10325'
+ MEPROP Name 'TmsmModelElementFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57A9D5CD0111' // ModelLoading
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57C021910000_ME_57AB39D10325_G // TmsmModelElementFactoryPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B47E230134_ME_57AB39D10325_R // l3Searcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57C0222700A3 // FindDataType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57AB3A620365 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_57AB39D10325_over // InitFields
+ ME_47B9BAFD01F4_ME_57AB39D10325_over // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57CE91870394 // l3PointerUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:pas:UnitName 'msmModelElementFactory'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmModelElementFactory'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmModelElementFactory.pas'
+
+ENDME // ME_57AB39D10325 TmsmModelElementFactory

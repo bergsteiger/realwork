@@ -26,7 +26,7 @@ ME ME_55C371760122
  MEPROP Name 'anOther'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_55BF2B000047' '55BF29CB003B.ms.model.script' // TtfwValueTypes
+ MELINK Target WL? 'ME_55BF2B000047' // TtfwValueTypes
  ;
 
 ENDME // ME_55C371760122 anOther
@@ -86,7 +86,7 @@ ME ME_55C371A5006C
  MEPROP Name 'anOther'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_55BF2B000047' '55BF29CB003B.ms.model.script' // TtfwValueTypes
+ MELINK Target WL? 'ME_55BF2B000047' // TtfwValueTypes
  ;
 
 ENDME // ME_55C371A5006C anOther
@@ -100,7 +100,7 @@ ME ME_55C371A1027E
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_55C3714E020D // tfwValueTypesWordsPack
  ;
- MELINK Target WL 'ME_55BF2B000047' '55BF29CB003B.ms.model.script' // TtfwValueTypes
+ MELINK Target WL? 'ME_55BF2B000047' // TtfwValueTypes
  ;
  MELIST Parameters
    Seq: ( ME_55C371A5006C // anOther
@@ -146,7 +146,7 @@ ME ME_55C371CD0247
  MEPROP Name 'anOther'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_55BF2B000047' '55BF29CB003B.ms.model.script' // TtfwValueTypes
+ MELINK Target WL? 'ME_55BF2B000047' // TtfwValueTypes
  ;
 
 ENDME // ME_55C371CD0247 anOther
@@ -205,7 +205,7 @@ ME ME_55CDF4C902F2
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_55C3714E020D // tfwValueTypesWordsPack
  ;
- MELINK Target WL 'ME_55BF2B000047' '55BF29CB003B.ms.model.script' // TtfwValueTypes
+ MELINK Target WL? 'ME_55BF2B000047' // TtfwValueTypes
  ;
  MELIST Parameters
    Seq: ( ME_55CDF4D302E0 // aName
@@ -220,7 +220,7 @@ ME ME_560D01F60335
  MEPROP Name 'anOther'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_55BF2B000047' '55BF29CB003B.ms.model.script' // TtfwValueTypes
+ MELINK Target WL? 'ME_55BF2B000047' // TtfwValueTypes
  ;
 
 ENDME // ME_560D01F60335 anOther
@@ -234,7 +234,7 @@ ME ME_560D01EA014E
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_55C3714E020D // tfwValueTypesWordsPack
  ;
- MELINK Target WL 'ME_560D019703E6' '55BF29CB003B.ms.model.script' // TtfwValueTypesAccepts
+ MELINK Target WL 'ME_560D019703E6' '55BF2B000047.ms.model.script' // TtfwValueTypesAccepts
  ;
  MELIST Parameters
    Seq: ( ME_560D01F60335 // anOther
@@ -242,6 +242,12 @@ ME ME_560D01EA014E
  ; // Parameters
 
 ENDME // ME_560D01EA014E Accepts
+
+MEREF ME_55BF2B000047_ME_55C3714E020D_G
+ MELINK Original WL? 'ME_55BF2B000047' // TtfwValueTypes
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55BF2B000047_ME_55C3714E020D_G TtfwValueTypes
 
 %%InheritedBy ME_55BF2B000047 ME_55C3714E020D
 
@@ -257,7 +263,7 @@ ME ME_55C3714E020D
  MELINK Parent WL? 'ME_4F37B7E60283' // Words RTTI
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_55BF2B000047' '55BF29CB003B.ms.model.script' // TtfwValueTypes
+   Seq: ( HWL ME_55BF2B000047_ME_55C3714E020D_G // TtfwValueTypes
  )
  ; // Inherits
  MELIST Attributes

@@ -1,0 +1,332 @@
+// TpgField 5627445F00C1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5627445F00C1
+
+ME ME_5627452D02A2
+ MEPROP UID '5627452D02A2'
+ MEPROP Name 'f_ClientInfo'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5627445F00C1 // TpgField
+ ;
+ MELINK Target WL 'ME_5551DC0F012D' '5432518A0316.ms.model.script' // IdaSelectField
+ ;
+
+ENDME // ME_5627452D02A2 f_ClientInfo
+
+ME ME_5627453A03E5
+ MEPROP UID '5627453A03E5'
+ MEPROP Name 'f_DataBuffer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5627445F00C1 // TpgField
+ ;
+ MELINK Target WL 'ME_55A63E0A00E7' '5432518A0316.ms.model.script' // IdaResultBuffer
+ ;
+
+ENDME // ME_5627453A03E5 f_DataBuffer
+
+ME ME_5627455001BF
+ MEPROP UID '5627455001BF'
+ MEPROP Name 'f_DataConverter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5627445F00C1 // TpgField
+ ;
+ MELINK Target WL 'ME_55E41C6E00E2' '55DAD4150001.ms.model.script' // IpgDataConverter
+ ;
+
+ENDME // ME_5627455001BF f_DataConverter
+
+ME ME_56274FD301C2
+ MEPROP UID '56274FD301C2'
+ MEPROP Name 'f_FieldIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5627445F00C1 // TpgField
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_56274FD301C2 f_FieldIndex
+
+FORWARD ME_562744D501B9
+
+FORWARD ME_562744E703AE
+
+ME ME_562744FD010B
+ MEPROP Name 'aDataBuffer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_55A63E0A00E7' '5432518A0316.ms.model.script' // IdaResultBuffer
+ ;
+
+ENDME // ME_562744FD010B aDataBuffer
+
+ME ME_562744FD012B
+ MEPROP Name 'aDataConverter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_55E41C6E00E2' '55DAD4150001.ms.model.script' // IpgDataConverter
+ ;
+
+ENDME // ME_562744FD012B aDataConverter
+
+ME ME_562744FD013A
+ MEPROP Name 'aClientInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5551DC0F012D' '5432518A0316.ms.model.script' // IdaSelectField
+ ;
+
+ENDME // ME_562744FD013A aClientInfo
+
+ME ME_56274FBF0193
+ MEPROP Name 'aFieldIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_56274FBF0193 aFieldIndex
+
+ME ME_562744E703AE
+ MEPROP UID '562744E703AE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_562744D501B9 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_562744FD010B // aDataBuffer
+ ME_562744FD012B // aDataConverter
+ ME_562744FD013A // aClientInfo
+ ME_56274FBF0193 // aFieldIndex
+ )
+ ; // Parameters
+
+ENDME // ME_562744E703AE DoIt
+
+ME ME_562744D501B9
+ MEPROP UID '562744D501B9'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5627445F00C1 // TpgField
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_562744E703AE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_562744D501B9 Create
+
+MEREF ME_562744D501B9_ME_5627450303CF_G
+ MELINK Original HWL ME_562744D501B9 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_562744D501B9_ME_5627450303CF_G Create
+
+MEREF ME_5590FD3101DE_ME_5627450303CF_R
+ MELINK Original WL 'ME_5590FD3101DE' '5432518A0316.ms.model.script' // IdaField
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5590FD3101DE_ME_5627450303CF_R IdaField
+
+%%ImplementedBy ME_5590FD3101DE ME_5627450303CF
+
+%%InheritedBy ME_562744D501B9 ME_5627450303CF
+
+ME ME_5627450303CF
+ MEPROP UID '5627450303CF'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5627445F00C1 // TpgField
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_562744D501B9_ME_5627450303CF_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5590FD3101DE_ME_5627450303CF_R // IdaField
+ )
+ ; // Implements
+
+ENDME // ME_5627450303CF Make
+
+FORWARD ME_56274C87017A
+
+ME ME_56274C930032
+ MEPROP UID '56274C930032'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56274C87017A // BufferPtr
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_56274C930032 DoIt
+
+ME ME_56274C87017A
+ MEPROP UID '56274C87017A'
+ MEPROP Name 'BufferPtr'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5627445F00C1 // TpgField
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56274C930032 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56274C87017A BufferPtr
+
+MEREF ME_5593905401D1_ME_5627445F00C1_impl
+ MELINK Original WL 'ME_5593905401D1' '5432518A0316.ms.model.script' // AsLargeInt
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_5593905401D1_ME_5627445F00C1_impl AsLargeInt
+
+MEREF ME_55939068000C_ME_5627445F00C1_impl
+ MELINK Original WL 'ME_55939068000C' '5432518A0316.ms.model.script' // AsInteger
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_55939068000C_ME_5627445F00C1_impl AsInteger
+
+MEREF ME_559393510239_ME_5627445F00C1_impl
+ MELINK Original WL 'ME_559393510239' '5432518A0316.ms.model.script' // AsStDate
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_559393510239_ME_5627445F00C1_impl AsStDate
+
+MEREF ME_5593936A031A_ME_5627445F00C1_impl
+ MELINK Original WL 'ME_5593936A031A' '5432518A0316.ms.model.script' // AsStTime
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_5593936A031A_ME_5627445F00C1_impl AsStTime
+
+MEREF ME_55FA82A80085_ME_5627445F00C1_impl
+ MELINK Original WL 'ME_55FA82A80085' '5432518A0316.ms.model.script' // AsString
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_55FA82A80085_ME_5627445F00C1_impl AsString
+
+MEREF ME_562E07C801CF_ME_5627445F00C1_impl
+ MELINK Original WL 'ME_562E07C801CF' '5432518A0316.ms.model.script' // AsByte
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_562E07C801CF_ME_5627445F00C1_impl AsByte
+
+MEREF ME_56375577038B_ME_5627445F00C1_impl
+ MELINK Original WL 'ME_56375577038B' '5432518A0316.ms.model.script' // Alias
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_56375577038B_ME_5627445F00C1_impl Alias
+
+MEREF ME_479731C50290_ME_5627445F00C1_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5627445F00C1_over Cleanup
+
+MEREF ME_49E7754802A9_ME_5627445F00C1_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5627445F00C1_G Tl3ProtoObject
+
+MEREF ME_5590FD3101DE_ME_5627445F00C1_R
+ MELINK Original WL 'ME_5590FD3101DE' '5432518A0316.ms.model.script' // IdaField
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5590FD3101DE_ME_5627445F00C1_R IdaField
+
+%%ImplementedBy ME_5590FD3101DE ME_5627445F00C1
+
+%%InheritedBy ME_49E7754802A9 ME_5627445F00C1
+
+ME ME_5627445F00C1
+ MEPROP UID '5627445F00C1'
+ MEPROP Name 'TpgField'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55D6CF3B014B' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_5627445F00C1_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5590FD3101DE_ME_5627445F00C1_R // IdaField
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5627452D02A2 // f_ClientInfo
+ HWL ME_5627453A03E5 // f_DataBuffer
+ HWL ME_5627455001BF // f_DataConverter
+ HWL ME_56274FD301C2 // f_FieldIndex
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_562744D501B9 // Create
+ HWL ME_5627450303CF // Make
+ HWL ME_56274C87017A // BufferPtr
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5593905401D1_ME_5627445F00C1_impl // AsLargeInt
+ ME_55939068000C_ME_5627445F00C1_impl // AsInteger
+ ME_559393510239_ME_5627445F00C1_impl // AsStDate
+ ME_5593936A031A_ME_5627445F00C1_impl // AsStTime
+ ME_55FA82A80085_ME_5627445F00C1_impl // AsString
+ ME_562E07C801CF_ME_5627445F00C1_impl // AsByte
+ ME_56375577038B_ME_5627445F00C1_impl // Alias
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5627445F00C1_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'pgField'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'pgField'
+ UP intf.pas:Path 'common\components\rtl\Garant\PG\pgField.pas'
+
+ENDME // ME_5627445F00C1 TpgField

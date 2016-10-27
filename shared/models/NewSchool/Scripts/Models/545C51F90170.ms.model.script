@@ -9,7 +9,7 @@ ME ME_545C538C0260
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_545C51F90170 // TvcmDropDownMenuForChromeLike
  ;
- MELINK Target WL 'ME_545C535201B3' '533D53FF00C2.ms.model.script' // TvcmMenuForChromeLikeItems
+ MELINK Target WL? 'ME_545C535201B3' // TvcmMenuForChromeLikeItems
  ;
 
 ENDME // ME_545C538C0260 
@@ -34,6 +34,12 @@ ME ME_545C5C9E00B2
 
 ENDME // ME_545C5C9E00B2 
 
+MEREF ME_545C51CB0171_ME_545C51F90170_G
+ MELINK Original WL? 'ME_545C51CB0171' // TvcmBaseMenuForChromeLike
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_545C51CB0171_ME_545C51F90170_G TvcmBaseMenuForChromeLike
+
 %%InheritedBy ME_545C51CB0171 ME_545C51F90170
 
 ME ME_545C51F90170
@@ -48,7 +54,7 @@ ME ME_545C51F90170
  MELINK Parent WL? 'ME_533D53FF00C2' // Visual$ChromeLike
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_545C51CB0171' // TvcmBaseMenuForChromeLike
+   Seq: ( HWL ME_545C51CB0171_ME_545C51F90170_G // TvcmBaseMenuForChromeLike
  )
  ; // Inherits
  MELIST Dependencies

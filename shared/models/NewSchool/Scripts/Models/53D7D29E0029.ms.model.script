@@ -1,0 +1,110 @@
+// TnevLeafParaInevLeafParaMapper 53D7D29E0029 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D7D29E0029
+
+ME ME_53D7D2C1020D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D7D29E0029 // TnevLeafParaInevLeafParaMapper
+ ;
+ MELINK Target WL? 'ME_48567B6E010E' // TevLeafPara
+ ;
+ UP "injects as" 'mapper'
+
+ENDME // ME_53D7D2C1020D 
+
+ME ME_53D7D2DF02DE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53D7D29E0029 // TnevLeafParaInevLeafParaMapper
+ ;
+ MELINK Target WL 'ME_47C6A7FF02C1' '47C5207602D1.ms.model.script' // InevLeafPara
+ ;
+
+ENDME // ME_53D7D2DF02DE 
+
+ME ME_53D7D2F901F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D7D29E0029 // TnevLeafParaInevLeafParaMapper
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_53D7D2F901F6 
+
+ME ME_53D7D3140254
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D7D29E0029 // TnevLeafParaInevLeafParaMapper
+ ;
+ MELINK Target WL 'ME_47C6A7C0029F' '47C5207602D1.ms.model.script' // InevParaInternal
+ ;
+
+ENDME // ME_53D7D3140254 
+
+ME ME_53D7D327034D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53D7D29E0029 // TnevLeafParaInevLeafParaMapper
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_53D7D327034D 
+
+MEREF ME_53D639B601D7_ME_53D7D29E0029_impl
+ MELINK Original WL 'ME_53D639B601D7' '53D6399F03E1.ms.model.script' // Make
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" True
+ENDMEREF // ME_53D639B601D7_ME_53D7D29E0029_impl Make
+
+MEREF ME_53D6399F03E1_ME_53D7D29E0029_G
+ MELINK Original WL? 'ME_53D6399F03E1' // Tk2InterfaceMapper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53D6399F03E1_ME_53D7D29E0029_G Tk2InterfaceMapper
+
+%%InjectedBy ME_48567B6E010E ME_53D7D29E0029
+
+%%InheritedBy ME_53D6399F03E1 ME_53D7D29E0029
+
+ME ME_53D7D29E0029
+ MEPROP UID '53D7D29E0029'
+ MEPROP Name 'TnevLeafParaInevLeafParaMapper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48CE0A0A03B4' // ParagraphsImplementation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53D6399F03E1_ME_53D7D29E0029_G // Tk2InterfaceMapper
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53D639B601D7_ME_53D7D29E0029_impl // Make
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53D7D2C1020D // TevLeafPara
+ ME_53D7D2DF02DE // InevLeafPara
+ ME_53D7D2F901F6 // InevPara
+ ME_53D7D3140254 // InevParaInternal
+ ME_53D7D327034D // Supports
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nevLeafParaInevLeafParaMapper'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LeafParaInevLeafParaMapper'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevLeafParaInevLeafParaMapper.pas'
+
+ENDME // ME_53D7D29E0029 TnevLeafParaInevLeafParaMapper

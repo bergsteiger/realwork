@@ -1,0 +1,150 @@
+// TtfwModuleOperationWord 4DB060930263 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DB060930263
+
+ME ME_4DB079E00084
+ MEPROP UID '4DB079E00084'
+ MEPROP Name 'GetModuleOperationCode'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ MELINK Target WL 'ME_4683CF84010A' '467BAB7F021E.ms.model.script' // TvcmMOPID
+ ;
+
+ENDME // ME_4DB079E00084 GetModuleOperationCode
+
+ME ME_4DB060EE029C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ MELINK Target WL 'ME_4AA936DC0154' '47F25BC801DB.ms.model.script' // vcmDispatcher
+ ;
+
+ENDME // ME_4DB060EE029C 
+
+ME ME_52A086F10182
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ MELINK Target WL? 'ME_4DB6CD4203D4' // TkwString
+ ;
+
+ENDME // ME_52A086F10182 
+
+ME ME_52A091370167
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ MELINK Target WL? 'ME_4D7A109601C2' // TvcmBaseOperationsCollectionItem
+ ;
+
+ENDME // ME_52A091370167 
+
+ME ME_52A0914F023E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ MELINK Target WL? 'ME_52A08E6701A1' // TvcmModulesCollectionItem
+ ;
+
+ENDME // ME_52A0914F023E 
+
+ME ME_52A097EC005A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ MELINK Target WL 'ME_4787B1BA031F' '4787B0A8007B.ms.model.script' // El3DuplicateItem
+ ;
+
+ENDME // ME_52A097EC005A 
+
+ME ME_52A0A2780007
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ MELINK Target WL? 'ME_4AB24EF502BB' // vcmBaseMenuManager
+ ;
+
+ENDME // ME_52A0A2780007 
+
+ME ME_535E8B0702EB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB060930263 // TtfwModuleOperationWord
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_535E8B0702EB 
+
+MEREF ME_4DAEEDE10285_ME_4DB060930263_impl
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DAEEDE10285_ME_4DB060930263_impl DoDoIt
+
+MEREF ME_54D229E702B6_ME_4DB060930263_G
+ MELINK Original WL? 'ME_54D229E702B6' // TtfwRegisterableWordPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54D229E702B6_ME_4DB060930263_G TtfwRegisterableWordPrim
+
+%%InheritedBy ME_54D229E702B6 ME_4DB060930263
+
+ME ME_4DB060930263
+ MEPROP UID '4DB060930263'
+ MEPROP Name 'TtfwModuleOperationWord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Слово для выполнения операции модуля' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4E200FED0213' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54D229E702B6_ME_4DB060930263_G // TtfwRegisterableWordPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DB079E00084 // GetModuleOperationCode
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DB060930263_impl // DoDoIt
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4DB060EE029C // vcmDispatcher
+ ME_52A086F10182 // TkwString
+ ME_52A091370167 // TvcmBaseOperationsCollectionItem
+ ME_52A0914F023E // TvcmModulesCollectionItem
+ ME_52A097EC005A // El3DuplicateItem
+ ME_52A0A2780007 // vcmBaseMenuManager
+ ME_535E8B0702EB // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "ifndef" 'NoVCM'
+ UP "no hands" True
+ UP "started" '21.04.2011 20:52'
+ UP extprop:pas:UnitName 'tfwModuleOperationWord'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ModuleOperationWord'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\tfwModuleOperationWord.pas'
+
+ENDME // ME_4DB060930263 TtfwModuleOperationWord

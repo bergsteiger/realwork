@@ -24,17 +24,23 @@ ME ME_55B0F67D0299
 
 ENDME // ME_55B0F67D0299 
 
-ME ME_47B99D4503A2_ME_55B0E773009A
+MEREF ME_47B99D4503A2_ME_55B0E773009A_impl
  MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47B99D4503A2_ME_55B0E773009A CompareExistingItems
+ENDMEREF // ME_47B99D4503A2_ME_55B0E773009A_impl CompareExistingItems
 
-ME ME_47A042E100E2_ME_55B0E773009A
+MEREF ME_47A042E100E2_ME_55B0E773009A_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_55B0E773009A InitFields
+ENDMEREF // ME_47A042E100E2_ME_55B0E773009A_over InitFields
+
+MEREF ME_55B0E6F2013C_ME_55B0E773009A_G
+ MELINK Original WL? 'ME_55B0E6F2013C' // tfwDictionaryListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55B0E6F2013C_ME_55B0E773009A_G tfwDictionaryListPrim
 
 %%InheritedBy ME_55B0E6F2013C ME_55B0E773009A
 
@@ -50,15 +56,15 @@ ME ME_55B0E773009A
  MELINK Parent WL? 'ME_4F2275C00012' // ScriptingKeywordsCore
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_55B0E6F2013C' // tfwDictionaryListPrim
+   Seq: ( HWL ME_55B0E6F2013C_ME_55B0E773009A_G // tfwDictionaryListPrim
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_47B99D4503A2_ME_55B0E773009A // CompareExistingItems
+   Seq: ( ME_47B99D4503A2_ME_55B0E773009A_impl // CompareExistingItems
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_47A042E100E2_ME_55B0E773009A // InitFields
+   Seq: ( ME_47A042E100E2_ME_55B0E773009A_over // InitFields
  )
  ; // Overridden
  MELIST Dependencies

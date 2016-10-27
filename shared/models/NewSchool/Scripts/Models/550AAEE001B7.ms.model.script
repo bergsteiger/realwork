@@ -14,12 +14,24 @@ ME ME_550C0DC2012C
 
 ENDME // ME_550C0DC2012C 
 
-ME ME_550C0D1A00CC_ME_550AAEE001B7
+MEREF ME_550C0D1A00CC_ME_550AAEE001B7_impl
  MELINK Original WL 'ME_550C0D1A00CC' '4AC241AC01FC.ms.model.script' // dsInpharmMainMenuData
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_550C0D1A00CC_ME_550AAEE001B7 dsInpharmMainMenuData
+ENDMEREF // ME_550C0D1A00CC_ME_550AAEE001B7_impl dsInpharmMainMenuData
+
+MEREF ME_494778CD004F_ME_550AAEE001B7_G
+ MELINK Original WL? 'ME_494778CD004F' // vcmTinyUseCaseController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_494778CD004F_ME_550AAEE001B7_G vcmTinyUseCaseController
+
+MEREF ME_550AA65C0212_ME_550AAEE001B7_R
+ MELINK Original WL 'ME_550AA65C0212' '4AC241AC01FC.ms.model.script' // IsdsInpharmMainMenu
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_550AA65C0212_ME_550AAEE001B7_R IsdsInpharmMainMenu
 
 %%ImplementedBy ME_550AA65C0212 ME_550AAEE001B7
 
@@ -37,15 +49,15 @@ ME ME_550AAEE001B7
  MELINK Parent WL? 'ME_550AA7200370' // InpharmMainMenuControllerRealization
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_494778CD004F' // vcmTinyUseCaseController
+   Seq: ( HWL ME_494778CD004F_ME_550AAEE001B7_G // vcmTinyUseCaseController
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_550AA65C0212' '4AC241AC01FC.ms.model.script' // IsdsInpharmMainMenu
+   Seq: ( HWL ME_550AA65C0212_ME_550AAEE001B7_R // IsdsInpharmMainMenu
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_550C0D1A00CC_ME_550AAEE001B7 // dsInpharmMainMenuData
+   Seq: ( ME_550C0D1A00CC_ME_550AAEE001B7_impl // dsInpharmMainMenuData
  )
  ; // Implemented
  MELIST Dependencies

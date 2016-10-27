@@ -1,0 +1,54 @@
+// Tl3SimpleObject 47BC391D0259 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47BC391D0259
+
+ME ME_4DD3B7AB0108
+ MEPROP UID '4DD3B7AB0108'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_vctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47BC391D0259 // Tl3SimpleObject
+ ;
+
+ENDME // ME_4DD3B7AB0108 Create
+
+MEREF ME_4DD26D570378_ME_47BC391D0259_G
+ MELINK Original WL? 'ME_4DD26D570378' // Tl3ProtoObjectWithCOMQI
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DD26D570378_ME_47BC391D0259_G Tl3ProtoObjectWithCOMQI
+
+%%InheritedBy ME_4DD26D570378 ME_47BC391D0259
+
+ME ME_47BC391D0259
+ MEPROP UID '47BC391D0259'
+ MEPROP Name 'Tl3SimpleObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DD26D570378_ME_47BC391D0259_G // Tl3ProtoObjectWithCOMQI
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DD3B7AB0108 // Create
+ )
+ ; // Operations
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '20.02.2008 17:29'
+ UP extprop:pas:UnitName 'l3SimpleObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SimpleObject'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3SimpleObject.pas'
+
+ENDME // ME_47BC391D0259 Tl3SimpleObject

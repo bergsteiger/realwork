@@ -1,0 +1,223 @@
+// TddAutolinkArbitraryDocEntry 51F258B701B2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51F258B701B2
+
+ME ME_51F259D2002D
+ MEPROP UID '51F259D2002D'
+ MEPROP Name 'f_DocID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51F258B701B2 // TddAutolinkArbitraryDocEntry
+ ;
+ MELINK Target WL 'ME_4DE60AE303AD' '47BC51FE018B.ms.model.script' // TDocID
+ ;
+
+ENDME // ME_51F259D2002D f_DocID
+
+ME ME_51F259F50197
+ MEPROP UID '51F259F50197'
+ MEPROP Name 'f_TypesList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51F258B701B2 // TddAutolinkArbitraryDocEntry
+ ;
+ MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
+ ;
+
+ENDME // ME_51F259F50197 f_TypesList
+
+FORWARD ME_51F269D40190
+
+FORWARD ME_51F25FC60329
+
+ME ME_51F25FF403BB
+ MEPROP Name 'aDocID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60AE303AD' '47BC51FE018B.ms.model.script' // TDocID
+ ;
+
+ENDME // ME_51F25FF403BB aDocID
+
+ME ME_51F269E702A4
+ MEPROP Name 'aTypesList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
+ ;
+
+ENDME // ME_51F269E702A4 aTypesList
+
+ME ME_51F25FC60329
+ MEPROP UID '51F25FC60329'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51F269D40190 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_51F25FF403BB // aDocID
+ ME_51F269E702A4 // aTypesList
+ )
+ ; // Parameters
+
+ENDME // ME_51F25FC60329 DoIt
+
+ME ME_51F269D40190
+ MEPROP UID '51F269D40190'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51F258B701B2 // TddAutolinkArbitraryDocEntry
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51F25FC60329 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51F269D40190 Create
+
+MEREF ME_51F269D40190_ME_51F25FA8022A_G
+ MELINK Original HWL ME_51F269D40190 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51F269D40190_ME_51F25FA8022A_G Create
+
+MEREF ME_51F251C90183_ME_51F25FA8022A_R
+ MELINK Original WL 'ME_51F251C90183' '4E8EAF5C020F.ms.model.script' // IddAutolinkArbitraryDocEntry
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51F251C90183_ME_51F25FA8022A_R IddAutolinkArbitraryDocEntry
+
+%%ImplementedBy ME_51F251C90183 ME_51F25FA8022A
+
+%%InheritedBy ME_51F269D40190 ME_51F25FA8022A
+
+ME ME_51F25FA8022A
+ MEPROP UID '51F25FA8022A'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51F258B701B2 // TddAutolinkArbitraryDocEntry
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_51F269D40190_ME_51F25FA8022A_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_51F251C90183_ME_51F25FA8022A_R // IddAutolinkArbitraryDocEntry
+ )
+ ; // Implements
+
+ENDME // ME_51F25FA8022A Make
+
+ME ME_51F26E38006D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51F258B701B2 // TddAutolinkArbitraryDocEntry
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_51F26E38006D 
+
+MEREF ME_51F2529E003F_ME_51F258B701B2_impl
+ MELINK Original WL 'ME_51F2529E003F' '4E8EAF5C020F.ms.model.script' // DocID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_51F2529E003F_ME_51F258B701B2_impl DocID
+
+MEREF ME_51F252E8038B_ME_51F258B701B2_impl
+ MELINK Original WL 'ME_51F252E8038B' '4E8EAF5C020F.ms.model.script' // TypesList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_51F252E8038B_ME_51F258B701B2_impl TypesList
+
+MEREF ME_479731C50290_ME_51F258B701B2_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_51F258B701B2_over Cleanup
+
+MEREF ME_49E7754802A9_ME_51F258B701B2_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_51F258B701B2_G Tl3ProtoObject
+
+MEREF ME_51F251C90183_ME_51F258B701B2_R
+ MELINK Original WL 'ME_51F251C90183' '4E8EAF5C020F.ms.model.script' // IddAutolinkArbitraryDocEntry
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51F251C90183_ME_51F258B701B2_R IddAutolinkArbitraryDocEntry
+
+%%ImplementedBy ME_51F251C90183 ME_51F258B701B2
+
+%%InheritedBy ME_49E7754802A9 ME_51F258B701B2
+
+ME ME_51F258B701B2
+ MEPROP UID '51F258B701B2'
+ MEPROP Name 'TddAutolinkArbitraryDocEntry'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E8EAE5901A0' // Autolink
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_51F258B701B2_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_51F251C90183_ME_51F258B701B2_R // IddAutolinkArbitraryDocEntry
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_51F259D2002D // f_DocID
+ HWL ME_51F259F50197 // f_TypesList
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51F269D40190 // Create
+ HWL ME_51F25FA8022A // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_51F2529E003F_ME_51F258B701B2_impl // DocID
+ ME_51F252E8038B_ME_51F258B701B2_impl // TypesList
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_51F258B701B2_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_51F26E38006D // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ddAutolinkArbitraryDocEntry'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddAutolinkArbitraryDocEntry'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddAutolinkArbitraryDocEntry.pas'
+
+ENDME // ME_51F258B701B2 TddAutolinkArbitraryDocEntry

@@ -1,0 +1,102 @@
+// TevStreamedDataObject 48EA32DB03E6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48EA32DB03E6
+
+FORWARD ME_48EA34990191
+
+ME ME_48EA34BC0117
+ MEPROP Name 'G'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_48EA34BC0117 G
+
+ME ME_48EA34BC013F
+ MEPROP Name 'aFlags'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BED2603D7' '48F4E61C0060.ms.model.script' // StoreFlags
+ ;
+
+ENDME // ME_48EA34BC013F aFlags
+
+ME ME_48EA34990191
+ MEPROP UID '48EA34990191'
+ MEPROP Name 'DoStore'
+ MEPROP Class class_Operation
+ %SUMMARY 'сохраняет поток в G' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48EA32DB03E6 // TevStreamedDataObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_48EA34BC0117 // G
+ ME_48EA34BC013F // aFlags
+ )
+ ; // Parameters
+
+ENDME // ME_48EA34990191 DoStore
+
+MEREF ME_47C68BFD011C_ME_48EA32DB03E6_impl
+ MELINK Original WL 'ME_47C68BFD011C' '47C5207602D1.ms.model.script' // Store
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "force overload" True
+ENDMEREF // ME_47C68BFD011C_ME_48EA32DB03E6_impl Store
+
+MEREF ME_46780E690001_ME_48EA32DB03E6_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_48EA32DB03E6_G Tl3CacheableBase
+
+MEREF ME_47C68BEF02B9_ME_48EA32DB03E6_R
+ MELINK Original WL 'ME_47C68BEF02B9' '47C5207602D1.ms.model.script' // InevStorable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C68BEF02B9_ME_48EA32DB03E6_R InevStorable
+
+%%ImplementedBy ME_47C68BEF02B9 ME_48EA32DB03E6
+
+%%InheritedBy ME_46780E690001 ME_48EA32DB03E6
+
+ME ME_48EA32DB03E6
+ MEPROP UID '48EA32DB03E6'
+ MEPROP Name 'TevStreamedDataObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4802FF41005C' // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46780E690001_ME_48EA32DB03E6_G // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47C68BEF02B9_ME_48EA32DB03E6_R // InevStorable
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_48EA34990191 // DoStore
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47C68BFD011C_ME_48EA32DB03E6_impl // Store
+ )
+ ; // Implemented
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '16.12.2004 14:32'
+ UP extprop:pas:UnitName 'evStreamedDataObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StreamedDataObject'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evStreamedDataObject.pas'
+
+ENDME // ME_48EA32DB03E6 TevStreamedDataObject

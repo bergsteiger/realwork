@@ -1,0 +1,302 @@
+// TbsListTreeStruct 47F4D386036C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4900379701A1
+
+FORWARD ME_47F4D386036C
+
+FORWARD ME_4900379701A1
+
+ME ME_4B1547A80016
+ MEPROP UID '4B1547A80016'
+ MEPROP Name 'dsList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_writeonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4900379701A1 // IbsListTreeStruct
+ ;
+ MELINK Target WL 'ME_47E9F00100A2' '491B305A0096.ms.model.script' // IdsList
+ ;
+ UP "pm" False
+
+ENDME // ME_4B1547A80016 dsList
+
+ME ME_4900379701A1
+ MEPROP UID '4900379701A1'
+ MEPROP GUID 'F2B07141-C4A5-4757-94AB-EB5EB33572AF'
+ MEPROP Name 'IbsListTreeStruct'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Данные дерева для списка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F4D386036C // TbsListTreeStruct
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B1547A80016 // dsList
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'bsListTreeStruct'
+
+ENDME // ME_4900379701A1 IbsListTreeStruct
+
+ME ME_491DDA8900F0
+ MEPROP UID '491DDA8900F0'
+ MEPROP Name 'f_dsList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47F4D386036C // TbsListTreeStruct
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_491DDA8900F0 f_dsList
+
+ME ME_49003C8C02FB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F4D386036C // TbsListTreeStruct
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_49003C8C02FB 
+
+ME ME_49003CE10184
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F4D386036C // TbsListTreeStruct
+ ;
+ MELINK Target WL? 'ME_48F740E40022' // TbsListDataObject
+ ;
+
+ENDME // ME_49003CE10184 
+
+ME ME_49004E650013
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F4D386036C // TbsListTreeStruct
+ ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_49004E650013 
+
+ME ME_49004ED20056
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F4D386036C // TbsListTreeStruct
+ ;
+ MELINK Target WL 'ME_456EB7430222' '456EA56002BF.ms.model.script' // AllContentIsFiltered
+ ;
+
+ENDME // ME_49004ED20056 
+
+ME ME_49004F2802BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F4D386036C // TbsListTreeStruct
+ ;
+ MELINK Target WL 'ME_48FF5116013C' '47ECAAF901F8.ms.model.script' // InsAdapterFilters
+ ;
+
+ENDME // ME_49004F2802BF 
+
+ME ME_49004F7301C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F4D386036C // TbsListTreeStruct
+ ;
+ MELINK Target WL? 'ME_48FF5126011C' // TnsAdapterFilters
+ ;
+
+ENDME // ME_49004F7301C6 
+
+ME ME_49005095026A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F4D386036C // TbsListTreeStruct
+ ;
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
+ ;
+
+ENDME // ME_49005095026A 
+
+ME ME_490050C10317
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F4D386036C // TbsListTreeStruct
+ ;
+ MELINK Target WL 'ME_48F73FF3029C' '47ECAAF901F8.ms.model.script' // IbsListTreeData
+ ;
+
+ENDME // ME_490050C10317 
+
+ME ME_490052690085
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F4D386036C // TbsListTreeStruct
+ ;
+ MELINK Target WL? 'ME_47F4D3AC0029' // TbsListTreeData
+ ;
+
+ENDME // ME_490052690085 
+
+MEREF ME_48FF64F60078_ME_47F4D386036C_impl
+ MELINK Original WL 'ME_48FF64F60078' '468361010204.ms.model.script' // ReAqurieUnfilteredRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48FF64F60078_ME_47F4D386036C_impl ReAqurieUnfilteredRoot
+
+MEREF ME_4B1547A80016_ME_47F4D386036C_impl
+ MELINK Original HWL ME_4B1547A80016 // dsList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4B1547A80016_ME_47F4D386036C_impl dsList
+
+MEREF ME_479731C50290_ME_47F4D386036C_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_47F4D386036C_over Cleanup
+
+MEREF ME_48FEE6210205_ME_47F4D386036C_over
+ MELINK Original WL 'ME_48FEE6210205' '46835B4001A4.ms.model.script' // DoMakeDataObject
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FEE6210205_ME_47F4D386036C_over DoMakeDataObject
+
+MEREF ME_48FEE78E01B2_ME_47F4D386036C_over
+ MELINK Original WL 'ME_48FEE78E01B2' '46835B4001A4.ms.model.script' // DoCanAcceptData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FEE78E01B2_ME_47F4D386036C_over DoCanAcceptData
+
+MEREF ME_48FEE9D303B6_ME_47F4D386036C_over
+ MELINK Original WL 'ME_48FEE9D303B6' '46835B4001A4.ms.model.script' // DoDropData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FEE9D303B6_ME_47F4D386036C_over DoDropData
+
+MEREF ME_48FF4C4F03CA_ME_47F4D386036C_over
+ MELINK Original WL 'ME_48FF4C4F03CA' '46835BD201D6.ms.model.script' // GetFilteredRoot
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FF4C4F03CA_ME_47F4D386036C_over GetFilteredRoot
+
+MEREF ME_48FF56D003E6_ME_47F4D386036C_over
+ MELINK Original WL 'ME_48FF56D003E6' '46835BD201D6.ms.model.script' // SettingsID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FF56D003E6_ME_47F4D386036C_over SettingsID
+
+MEREF ME_48FF5A9002CC_ME_47F4D386036C_over
+ MELINK Original WL 'ME_48FF5A9002CC' '46835BD201D6.ms.model.script' // DoMakeFiltered
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FF5A9002CC_ME_47F4D386036C_over DoMakeFiltered
+
+MEREF ME_4A60B23E00C3_ME_47F4D386036C_over
+ MELINK Original WL 'ME_4A60B23E00C3' '4A60B2220398.ms.model.script' // COMQueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A60B23E00C3_ME_47F4D386036C_over COMQueryInterface
+
+MEREF ME_4F1D334C0371_ME_47F4D386036C_over
+ MELINK Original WL 'ME_4F1D334C0371' '468361010204.ms.model.script' // ReAqurieUnfilteredRootForMakeResettedSimpleRoot
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4F1D334C0371_ME_47F4D386036C_over ReAqurieUnfilteredRootForMakeResettedSimpleRoot
+
+MEREF ME_468361010204_ME_47F4D386036C_G
+ MELINK Original WL? 'ME_468361010204' // TnsDataResetTreeStruct
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_468361010204_ME_47F4D386036C_G TnsDataResetTreeStruct
+
+MEREF ME_4900379701A1_ME_47F4D386036C_R
+ MELINK Original HWL ME_4900379701A1 // IbsListTreeStruct
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4900379701A1_ME_47F4D386036C_R IbsListTreeStruct
+
+%%ImplementedBy ME_4900379701A1 ME_47F4D386036C
+
+%%InheritedBy ME_468361010204 ME_47F4D386036C
+
+ME ME_47F4D386036C
+ MEPROP UID '47F4D386036C'
+ MEPROP Name 'TbsListTreeStruct'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Данные дерева списка. Надо отсязаться от IdsList путйм вуртуализации и вернуть исходное дерево в Data/List' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47F475660140' // List
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_468361010204_ME_47F4D386036C_G // TnsDataResetTreeStruct
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4900379701A1_ME_47F4D386036C_R // IbsListTreeStruct
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_491DDA8900F0 // f_dsList
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_48FF64F60078_ME_47F4D386036C_impl // ReAqurieUnfilteredRoot
+ ME_4B1547A80016_ME_47F4D386036C_impl // dsList
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47F4D386036C_over // Cleanup
+ ME_48FEE6210205_ME_47F4D386036C_over // DoMakeDataObject
+ ME_48FEE78E01B2_ME_47F4D386036C_over // DoCanAcceptData
+ ME_48FEE9D303B6_ME_47F4D386036C_over // DoDropData
+ ME_48FF4C4F03CA_ME_47F4D386036C_over // GetFilteredRoot
+ ME_48FF56D003E6_ME_47F4D386036C_over // SettingsID
+ ME_48FF5A9002CC_ME_47F4D386036C_over // DoMakeFiltered
+ ME_4A60B23E00C3_ME_47F4D386036C_over // COMQueryInterface
+ ME_4F1D334C0371_ME_47F4D386036C_over // ReAqurieUnfilteredRootForMakeResettedSimpleRoot
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4900379701A1 // IbsListTreeStruct
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_49003C8C02FB // SysUtils
+ ME_49003CE10184 // TbsListDataObject
+ ME_49004E650013 // DynList
+ ME_49004ED20056 // AllContentIsFiltered
+ ME_49004F2802BF // InsAdapterFilters
+ ME_49004F7301C6 // TnsAdapterFilters
+ ME_49005095026A // nsConst
+ ME_490050C10317 // IbsListTreeData
+ ME_490052690085 // TbsListTreeData
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP extprop:pas:UnitName 'bsListTreeStruct'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'bsListTreeStruct'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\List\bsListTreeStruct.pas'
+
+ENDME // ME_47F4D386036C TbsListTreeStruct

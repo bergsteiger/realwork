@@ -1,0 +1,86 @@
+// Tk2TypedSmallLeafTag 527A6D5A0248 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_527A6FD400FF
+
+FORWARD ME_527A6D5A0248
+
+ME ME_527A6FD400FF
+ MEPROP UID '527A6FD400FF'
+ MEPROP Name 'k2Tag_No_f_TagType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_527A6D5A0248 // Tk2TypedSmallLeafTag
+ ;
+ UP extprop:rc:SelfName 'Tag_No_f_TagType'
+
+ENDME // ME_527A6FD400FF k2Tag_No_f_TagType
+
+ME ME_4A64878701E1
+ MEPROP UID '4A64878701E1'
+ MEPROP Name 'HashType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_527A6D5A0248 // Tk2TypedSmallLeafTag
+ ;
+ MELINK Target WL 'ME_4A605C540221' '47AC5ABE00B6.ms.model.script' // Tl3OneBytePtrHash
+ ;
+
+ENDME // ME_4A64878701E1 HashType
+
+MEREF ME_47AC562D0134_ME_527A6D5A0248_G
+ MELINK Original WL? 'ME_47AC562D0134' // k2HashTag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47AC562D0134_ME_527A6D5A0248_G k2HashTag
+
+MEREF ME_532081A90261_ME_527A6D5A0248_G
+ MELINK Original WL? 'ME_532081A90261' // Tk2LeafTag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_532081A90261_ME_527A6D5A0248_G Tk2LeafTag
+
+%%InheritedBy ME_47AC562D0134 ME_527A6D5A0248
+%%InheritedBy ME_532081A90261 ME_527A6D5A0248
+
+ME ME_527A6D5A0248
+ MEPROP UID '527A6D5A0248'
+ MEPROP Name 'Tk2TypedSmallLeafTag'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Листьевой тег с заранее определённым типом и могущий иметь НЕ более 32 (включительно) атрибутов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47AC562D0134_ME_527A6D5A0248_G // k2HashTag
+ HWL ME_532081A90261_ME_527A6D5A0248_G // Tk2LeafTag
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A64878701E1 // HashType
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_527A6FD400FF // k2Tag_No_f_TagType
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'k2TypedSmallLeafTag'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TypedSmallLeafTag'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2TypedSmallLeafTag.pas'
+
+ENDME // ME_527A6D5A0248 Tk2TypedSmallLeafTag

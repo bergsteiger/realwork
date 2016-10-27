@@ -1,0 +1,62 @@
+// Tl3WndProcRetListenersList 4F731F1D00D9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F731F1D00D9
+
+ME ME_4F7322240158
+ MEPROP UID '4F7322240158'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F731F1D00D9 // Tl3WndProcRetListenersList
+ ;
+ MELINK Target WL 'ME_4F7321C602DF' '4677FBA70343.ms.model.script' // Il3WndProcRetListener
+ ;
+
+ENDME // ME_4F7322240158 ItemType
+
+MEREF ME_47B57D630029_ME_4F731F1D00D9_G
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_4F731F1D00D9_G l3InterfacePtrList
+
+MEREF ME_4A54DD4E036F_ME_4F731F1D00D9_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4F731F1D00D9_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57D630029 ME_4F731F1D00D9
+%%InheritedBy ME_4A54DD4E036F ME_4F731F1D00D9
+
+ME ME_4F731F1D00D9
+ MEPROP UID '4F731F1D00D9'
+ MEPROP Name 'Tl3WndProcRetListenersList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F635E1901E5' // l3Listeners
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57D630029_ME_4F731F1D00D9_G // l3InterfacePtrList
+ HWL ME_4A54DD4E036F_ME_4F731F1D00D9_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F7322240158 // ItemType
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'l3WndProcRetListenersList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'WndProcRetListenersList'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3WndProcRetListenersList.pas'
+
+ENDME // ME_4F731F1D00D9 Tl3WndProcRetListenersList

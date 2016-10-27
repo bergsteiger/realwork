@@ -7,7 +7,7 @@ FORWARD ME_57C5572B036F
 ME ME_57C5574D0227
  MEPROP UID '57C5574D0227'
  MEPROP Name 'Lock'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -20,7 +20,7 @@ ENDME // ME_57C5574D0227 Lock
 ME ME_57C5575903E6
  MEPROP UID '57C5575903E6'
  MEPROP Name 'Unlock'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -29,6 +29,12 @@ ME ME_57C5575903E6
  ;
 
 ENDME // ME_57C5575903E6 Unlock
+
+MEREF ME_57C55713006C_ME_57C5572B036F_G
+ MELINK Original WL? 'ME_57C55713006C' // seCriticalSectionHolderPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57C55713006C_ME_57C5572B036F_G seCriticalSectionHolderPrim
 
 %%InheritedBy ME_57C55713006C ME_57C5572B036F
 
@@ -44,7 +50,7 @@ ME ME_57C5572B036F
  MELINK Parent WL? 'ME_57C5569A0050' // MultiThread
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_57C55713006C' // seCriticalSectionHolderPrim
+   Seq: ( HWL ME_57C55713006C_ME_57C5572B036F_G // seCriticalSectionHolderPrim
  )
  ; // Inherits
  MELIST Operations

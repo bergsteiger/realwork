@@ -1,0 +1,301 @@
+// TmsmImages 57D909F3037B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57D909F3037B
+
+ME ME_57D912D403D3
+ MEPROP UID '57D912D403D3'
+ MEPROP Name 'f_ImageNames'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D909F3037B // TmsmImages
+ ;
+ MELINK Target WL? 'ME_57D968320359' // TmsmImageNames
+ ;
+
+ENDME // ME_57D912D403D3 f_ImageNames
+
+FORWARD ME_57EB8E2B00A5
+
+FORWARD ME_57EB8E42015A
+
+ME ME_57EB8E550302
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57EB8E550302 aFileName
+
+ME ME_57EB8E550331
+ MEPROP Name 'aImages'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_473DA2AF0168' '4AB0F6DB029C.ms.model.script' // TCustomImageList
+ ;
+
+ENDME // ME_57EB8E550331 aImages
+
+ME ME_57EB8E42015A
+ MEPROP UID '57EB8E42015A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EB8E2B00A5 // GetImage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EB8E550302 // aFileName
+ ME_57EB8E550331 // aImages
+ )
+ ; // Parameters
+
+ENDME // ME_57EB8E42015A DoIt
+
+ME ME_57EB8E2B00A5
+ MEPROP UID '57EB8E2B00A5'
+ MEPROP Name 'GetImage'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D909F3037B // TmsmImages
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EB8E42015A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EB8E2B00A5 GetImage
+
+FORWARD ME_57EBA4D403A8
+
+FORWARD ME_57EBA4F10310
+
+ME ME_57EBA5110173
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_57EBA5110173 anIndex
+
+ME ME_57EBA51101AB
+ MEPROP Name 'aImages'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_473DA2AF0168' '4AB0F6DB029C.ms.model.script' // TCustomImageList
+ ;
+
+ENDME // ME_57EBA51101AB aImages
+
+ME ME_57EBA4F10310
+ MEPROP UID '57EBA4F10310'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EBA4D403A8 // GetImageForOperation
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EBA5110173 // anIndex
+ ME_57EBA51101AB // aImages
+ )
+ ; // Parameters
+
+ENDME // ME_57EBA4F10310 DoIt
+
+ME ME_57EBA4D403A8
+ MEPROP UID '57EBA4D403A8'
+ MEPROP Name 'GetImageForOperation'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D909F3037B // TmsmImages
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EBA4F10310 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EBA4D403A8 GetImageForOperation
+
+FORWARD ME_57EBA51F024C
+
+ME ME_57EBA53A0153
+ MEPROP UID '57EBA53A0153'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EBA51F024C // GetImagesForOperations
+ ;
+ MELINK Target WL 'ME_473DA2AF0168' '4AB0F6DB029C.ms.model.script' // TCustomImageList
+ ;
+
+ENDME // ME_57EBA53A0153 DoIt
+
+ME ME_57EBA51F024C
+ MEPROP UID '57EBA51F024C'
+ MEPROP Name 'GetImagesForOperations'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D909F3037B // TmsmImages
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EBA53A0153 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EBA51F024C GetImagesForOperations
+
+FORWARD ME_57EBA71D02C5
+
+FORWARD ME_57EBA734013C
+
+ME ME_57EBA73E0114
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_57EBA73E0114 anIndex
+
+ME ME_57EBA734013C
+ MEPROP UID '57EBA734013C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EBA71D02C5 // GetImageForOperation$1
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EBA73E0114 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_57EBA734013C DoIt
+
+ME ME_57EBA71D02C5
+ MEPROP UID '57EBA71D02C5'
+ MEPROP Name 'GetImageForOperation'
+ MEPROP OriginalName 'GetImageForOperation$1'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D909F3037B // TmsmImages
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EBA734013C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EBA71D02C5 GetImageForOperation$1
+
+ME ME_57D968FD03C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D909F3037B // TmsmImages
+ ;
+ MELINK Target WL? 'ME_57D968320359' // TmsmImageNames
+ ;
+
+ENDME // ME_57D968FD03C6 
+
+ME ME_57EBA491003A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D909F3037B // TmsmImages
+ ;
+ MELINK Target WL? 'ME_57726B250063' // TtfwParserService
+ ;
+
+ENDME // ME_57EBA491003A 
+
+MEREF ME_479731C50290_ME_57D909F3037B_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57D909F3037B_over Cleanup
+
+MEREF ME_47A042E100E2_ME_57D909F3037B_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_57D909F3037B_over InitFields
+
+MEREF ME_49E7754802A9_ME_57D909F3037B_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57D909F3037B_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_57D909F3037B
+
+ME ME_57D909F3037B
+ MEPROP UID '57D909F3037B'
+ MEPROP Name 'TmsmImages'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CEB008027D' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_57D909F3037B_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57D912D403D3 // f_ImageNames
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57EB8E2B00A5 // GetImage
+ HWL ME_57EBA4D403A8 // GetImageForOperation
+ HWL ME_57EBA51F024C // GetImagesForOperations
+ HWL ME_57EBA71D02C5 // GetImageForOperation$1
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57D909F3037B_over // Cleanup
+ ME_47A042E100E2_ME_57D909F3037B_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57D968FD03C6 // TmsmImageNames
+ ME_57EBA491003A // TtfwParserService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" True
+ UP "singleton" True
+ UP extprop:pas:UnitName 'msmImages'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmImages'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmImages.pas'
+
+ENDME // ME_57D909F3037B TmsmImages

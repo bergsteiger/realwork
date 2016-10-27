@@ -105,8 +105,6 @@ ME ME_530DCFBB038F
 
 ENDME // ME_530DCFBB038F TseIntegerComboValueType
 
-FORWARD ME_5270B1E40331
-
 FORWARD ME_5270B24F0160
 
 ME ME_5270B2590122
@@ -143,6 +141,14 @@ ME ME_5270B2630242
 
 ENDME // ME_5270B2630242 2
 
+FORWARD ME_5270B1E40331
+
+MEREF ME_5270B1E40331_ME_5270B24F0160_G
+ MELINK Original HWL ME_5270B1E40331 // FontInheritance
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5270B1E40331_ME_5270B24F0160_G FontInheritance
+
 %%InheritedBy ME_5270B1E40331 ME_5270B24F0160
 
 ME ME_5270B24F0160
@@ -156,7 +162,7 @@ ME ME_5270B24F0160
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5270B1E40331 // FontInheritance
+   Seq: ( HWL ME_5270B1E40331_ME_5270B24F0160_G // FontInheritance
  )
  ; // Inherits
  MELIST Attributes
@@ -183,6 +189,12 @@ ME ME_530DD5BA0376
 
 ENDME // ME_530DD5BA0376 
 
+MEREF ME_530DCFBB038F_ME_530DD5430120_G
+ MELINK Original HWL ME_530DCFBB038F // TseIntegerComboValueType
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_530DCFBB038F_ME_530DD5430120_G TseIntegerComboValueType
+
 %%InheritedBy ME_530DCFBB038F ME_530DD5430120
 
 ME ME_530DD5430120
@@ -196,7 +208,7 @@ ME ME_530DD5430120
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( HWL ME_530DCFBB038F // TseIntegerComboValueType
+   Seq: ( HWL ME_530DCFBB038F_ME_530DD5430120_G // TseIntegerComboValueType
  )
  ; // Inherits
  MELIST Attributes
@@ -1212,7 +1224,7 @@ ME ME_4AE86D3103E4
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
- MELINK Target WL 'ME_480DB927035A' '47ECB2870309.ms.model.script' // TevStyleInterface
+ MELINK Target WL? 'ME_480DB927035A' // TevStyleInterface
  ;
 
 ENDME // ME_4AE86D3103E4 f_StyleInterface
@@ -1276,7 +1288,7 @@ ENDME // ME_4AE06BA103D0 DoIt
 ME ME_4AE06B9B01B9
  MEPROP UID '4AE06B9B01B9'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1321,7 +1333,7 @@ ENDME // ME_52709A9500B8 DoIt
 ME ME_52709A7B00B1
  MEPROP UID '52709A7B00B1'
  MEPROP Name 'SendToAggregateReloadStylesTreeNotify'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1370,7 +1382,7 @@ ENDME // ME_52709AD403A6 DoIt
 ME ME_52709AC30234
  MEPROP UID '52709AC30234'
  MEPROP Name 'SendToAggregateReloadStyleTableNotify'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1387,7 +1399,7 @@ ENDME // ME_52709AC30234 SendToAggregateReloadStyleTableNotify
 ME ME_52709AF200D7
  MEPROP UID '52709AF200D7'
  MEPROP Name 'DisableUpdate'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1400,7 +1412,7 @@ ENDME // ME_52709AF200D7 DisableUpdate
 ME ME_52709AFB00A3
  MEPROP UID '52709AFB00A3'
  MEPROP Name 'EnableUpdate'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1441,7 +1453,7 @@ ENDME // ME_52709B1401A4 DoIt
 ME ME_52709B0801C5
  MEPROP UID '52709B0801C5'
  MEPROP Name 'LoadCurrentStateFromStyleInterface'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1473,7 +1485,7 @@ ENDME // ME_52709CF903C5 DoIt
 ME ME_52709CE701BA
  MEPROP UID '52709CE701BA'
  MEPROP Name 'IsUpdateEnabled'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1532,7 +1544,7 @@ ENDME // ME_5270A23A0270 DoIt
 ME ME_52709F5D014F
  MEPROP UID '52709F5D014F'
  MEPROP Name 'UpdateControlsFromStyleInterface'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1549,7 +1561,7 @@ ENDME // ME_52709F5D014F UpdateControlsFromStyleInterface
 ME ME_5270A26E0251
  MEPROP UID '5270A26E0251'
  MEPROP Name 'ReloadFontNameList'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1590,7 +1602,7 @@ ENDME // ME_5270A28600BF DoIt
 ME ME_5270A27F012C
  MEPROP UID '5270A27F012C'
  MEPROP Name 'ReloadFontSizeList'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1645,7 +1657,7 @@ ENDME // ME_5270A2C5021A DoIt
 ME ME_5270A2B700C8
  MEPROP UID '5270A2B700C8'
  MEPROP Name 'SetCurrentComboBoxItemByString'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1690,7 +1702,7 @@ ENDME // ME_5270A31601E2 DoIt
 ME ME_5270A300021B
  MEPROP UID '5270A300021B'
  MEPROP Name 'SynchronizeFontNameComboBoxByFontName'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1761,7 +1773,7 @@ ENDME // ME_5270A3740361 DoIt
 ME ME_5270A3500235
  MEPROP UID '5270A3500235'
  MEPROP Name 'GetInheritanceFromFontByTagIndex'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1807,7 +1819,7 @@ ME ME_5270A3A003D5
  MEPROP UID '5270A3A003D5'
  MEPROP Name 'ModifyControlsJoinWithInheritanceButton'
  MEPROP OriginalName 'ModifyControlsJoinWithInheritanceButton$1'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1863,7 +1875,7 @@ ME ME_5270A3C90385
  MEPROP UID '5270A3C90385'
  MEPROP Name 'ModifyControlsJoinWithInheritanceButton'
  MEPROP OriginalName 'ModifyControlsJoinWithInheritanceButton$2'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1928,7 +1940,7 @@ ENDME // ME_52709F1601DC DoIt
 ME ME_52709F0702E9
  MEPROP UID '52709F0702E9'
  MEPROP Name 'UpdateFontInheritanceState'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1989,7 +2001,7 @@ ENDME // ME_5270A33D0362 DoIt
 ME ME_5270A33102D8
  MEPROP UID '5270A33102D8'
  MEPROP Name 'GetNextInheritance'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2036,7 +2048,7 @@ ENDME // ME_5270E52A006C DoIt
 ME ME_5270E51C0231
  MEPROP UID '5270E51C0231'
  MEPROP Name 'IsTransparentFont'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2051,12 +2063,18 @@ ME ME_5270E51C0231
 
 ENDME // ME_5270E51C0231 IsTransparentFont
 
+MEREF ME_47881B22005A_ME_5270A4A70280_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5270A4A70280_G TNotifyEvent
+
 %%InheritedBy ME_47881B22005A ME_5270A4A70280
 
 ME ME_5270A4A70280
  MEPROP UID '5270A4A70280'
  MEPROP Name 'FontBackColorBoxChange'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2064,18 +2082,24 @@ ME ME_5270A4A70280
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5270A4A70280_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5270A4A70280 FontBackColorBoxChange
+
+MEREF ME_47881B22005A_ME_5270A49C01A0_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5270A49C01A0_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_5270A49C01A0
 
 ME ME_5270A49C01A0
  MEPROP UID '5270A49C01A0'
  MEPROP Name 'FontBackColorInheritanceButtonClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2083,18 +2107,24 @@ ME ME_5270A49C01A0
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5270A49C01A0_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5270A49C01A0 FontBackColorInheritanceButtonClick
+
+MEREF ME_47881B22005A_ME_5270A4BB00A1_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5270A4BB00A1_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_5270A4BB00A1
 
 ME ME_5270A4BB00A1
  MEPROP UID '5270A4BB00A1'
  MEPROP Name 'FontBoldCheckBoxClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2102,18 +2132,24 @@ ME ME_5270A4BB00A1
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5270A4BB00A1_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5270A4BB00A1 FontBoldCheckBoxClick
+
+MEREF ME_47881B22005A_ME_5270A4B20394_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5270A4B20394_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_5270A4B20394
 
 ME ME_5270A4B20394
  MEPROP UID '5270A4B20394'
  MEPROP Name 'FontBoldInheritanceButtonClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2121,18 +2157,24 @@ ME ME_5270A4B20394
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5270A4B20394_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5270A4B20394 FontBoldInheritanceButtonClick
+
+MEREF ME_47881B22005A_ME_5270A4930193_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5270A4930193_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_5270A4930193
 
 ME ME_5270A4930193
  MEPROP UID '5270A4930193'
  MEPROP Name 'FontForeColorBoxChange'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2140,18 +2182,24 @@ ME ME_5270A4930193
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5270A4930193_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5270A4930193 FontForeColorBoxChange
+
+MEREF ME_47881B22005A_ME_5270A48B0154_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5270A48B0154_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_5270A48B0154
 
 ME ME_5270A48B0154
  MEPROP UID '5270A48B0154'
  MEPROP Name 'FontForeColorInheritanceButtonClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2159,18 +2207,24 @@ ME ME_5270A48B0154
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5270A48B0154_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5270A48B0154 FontForeColorInheritanceButtonClick
+
+MEREF ME_47881B22005A_ME_5270A4CC03E2_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5270A4CC03E2_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_5270A4CC03E2
 
 ME ME_5270A4CC03E2
  MEPROP UID '5270A4CC03E2'
  MEPROP Name 'FontItalicCheckBoxClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2178,18 +2232,24 @@ ME ME_5270A4CC03E2
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5270A4CC03E2_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5270A4CC03E2 FontItalicCheckBoxClick
+
+MEREF ME_47881B22005A_ME_5270A4C4013A_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5270A4C4013A_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_5270A4C4013A
 
 ME ME_5270A4C4013A
  MEPROP UID '5270A4C4013A'
  MEPROP Name 'FontItalicInheritanceButtonClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2197,18 +2257,24 @@ ME ME_5270A4C4013A
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5270A4C4013A_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5270A4C4013A FontItalicInheritanceButtonClick
+
+MEREF ME_47881B22005A_ME_5270A44F0105_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5270A44F0105_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_5270A44F0105
 
 ME ME_5270A44F0105
  MEPROP UID '5270A44F0105'
  MEPROP Name 'FontNameComboBoxChange'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2216,18 +2282,24 @@ ME ME_5270A44F0105
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5270A44F0105_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5270A44F0105 FontNameComboBoxChange
+
+MEREF ME_47881B22005A_ME_5270A4450142_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5270A4450142_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_5270A4450142
 
 ME ME_5270A4450142
  MEPROP UID '5270A4450142'
  MEPROP Name 'FontNameInheritanceButtonClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2235,18 +2307,24 @@ ME ME_5270A4450142
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5270A4450142_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5270A4450142 FontNameInheritanceButtonClick
+
+MEREF ME_47881B22005A_ME_5270A5010089_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5270A5010089_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_5270A5010089
 
 ME ME_5270A5010089
  MEPROP UID '5270A5010089'
  MEPROP Name 'FontScalableCheckBoxClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2254,18 +2332,24 @@ ME ME_5270A5010089
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5270A5010089_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5270A5010089 FontScalableCheckBoxClick
+
+MEREF ME_47881B22005A_ME_5270A47E0168_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5270A47E0168_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_5270A47E0168
 
 ME ME_5270A47E0168
  MEPROP UID '5270A47E0168'
  MEPROP Name 'FontSizeComboBoxChange'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2273,18 +2357,24 @@ ME ME_5270A47E0168
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5270A47E0168_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5270A47E0168 FontSizeComboBoxChange
+
+MEREF ME_47881B22005A_ME_5270A45A0310_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5270A45A0310_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_5270A45A0310
 
 ME ME_5270A45A0310
  MEPROP UID '5270A45A0310'
  MEPROP Name 'FontSizeInheritanceButtonClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2292,18 +2382,24 @@ ME ME_5270A45A0310
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5270A45A0310_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5270A45A0310 FontSizeInheritanceButtonClick
+
+MEREF ME_47881B22005A_ME_5270A4F801A8_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5270A4F801A8_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_5270A4F801A8
 
 ME ME_5270A4F801A8
  MEPROP UID '5270A4F801A8'
  MEPROP Name 'FontStrikeoutCheckBoxClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2311,18 +2407,24 @@ ME ME_5270A4F801A8
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5270A4F801A8_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5270A4F801A8 FontStrikeoutCheckBoxClick
+
+MEREF ME_47881B22005A_ME_5270A4EC0017_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5270A4EC0017_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_5270A4EC0017
 
 ME ME_5270A4EC0017
  MEPROP UID '5270A4EC0017'
  MEPROP Name 'FontStrikeoutInheritanceButtonClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2330,18 +2432,24 @@ ME ME_5270A4EC0017
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5270A4EC0017_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5270A4EC0017 FontStrikeoutInheritanceButtonClick
+
+MEREF ME_47881B22005A_ME_5270A4E30367_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5270A4E30367_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_5270A4E30367
 
 ME ME_5270A4E30367
  MEPROP UID '5270A4E30367'
  MEPROP Name 'FontUnderlineCheckBoxClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2349,18 +2457,24 @@ ME ME_5270A4E30367
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5270A4E30367_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5270A4E30367 FontUnderlineCheckBoxClick
+
+MEREF ME_47881B22005A_ME_5270A4D601A5_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5270A4D601A5_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_5270A4D601A5
 
 ME ME_5270A4D601A5
  MEPROP UID '5270A4D601A5'
  MEPROP Name 'FontUnderlineInheritanceButtonClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2368,18 +2482,24 @@ ME ME_5270A4D601A5
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5270A4D601A5_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5270A4D601A5 FontUnderlineInheritanceButtonClick
+
+MEREF ME_47881B22005A_ME_530DBD890048_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_530DBD890048_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_530DBD890048
 
 ME ME_530DBD890048
  MEPROP UID '530DBD890048'
  MEPROP Name 'LeftIndentInheritanceButtonClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2387,18 +2507,24 @@ ME ME_530DBD890048
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_530DBD890048_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_530DBD890048 LeftIndentInheritanceButtonClick
+
+MEREF ME_47881B22005A_ME_530DBD9A01B7_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_530DBD9A01B7_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_530DBD9A01B7
 
 ME ME_530DBD9A01B7
  MEPROP UID '530DBD9A01B7'
  MEPROP Name 'RightIndentInheritanceButtonClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2406,18 +2532,24 @@ ME ME_530DBD9A01B7
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_530DBD9A01B7_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_530DBD9A01B7 RightIndentInheritanceButtonClick
+
+MEREF ME_47881B22005A_ME_530DBDAC0212_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_530DBDAC0212_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_530DBDAC0212
 
 ME ME_530DBDAC0212
  MEPROP UID '530DBDAC0212'
  MEPROP Name 'FirstIndentInheritanceButtonClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2425,18 +2557,24 @@ ME ME_530DBDAC0212
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_530DBDAC0212_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_530DBDAC0212 FirstIndentInheritanceButtonClick
+
+MEREF ME_47881B22005A_ME_530DBDB602D7_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_530DBDB602D7_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_530DBDB602D7
 
 ME ME_530DBDB602D7
  MEPROP UID '530DBDB602D7'
  MEPROP Name 'SpaceBeforeInheritanceButtonClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2444,18 +2582,24 @@ ME ME_530DBDB602D7
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_530DBDB602D7_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_530DBDB602D7 SpaceBeforeInheritanceButtonClick
+
+MEREF ME_47881B22005A_ME_530DBDC801F6_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_530DBDC801F6_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_530DBDC801F6
 
 ME ME_530DBDC801F6
  MEPROP UID '530DBDC801F6'
  MEPROP Name 'SpaceAfterInheritanceButtonClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2463,18 +2607,24 @@ ME ME_530DBDC801F6
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_530DBDC801F6_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_530DBDC801F6 SpaceAfterInheritanceButtonClick
+
+MEREF ME_47881B22005A_ME_530DBE110062_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_530DBE110062_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_530DBE110062
 
 ME ME_530DBE110062
  MEPROP UID '530DBE110062'
  MEPROP Name 'LeftIndentComboBoxChange'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2482,18 +2632,24 @@ ME ME_530DBE110062
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_530DBE110062_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_530DBE110062 LeftIndentComboBoxChange
+
+MEREF ME_47881B22005A_ME_530DBE1D0076_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_530DBE1D0076_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_530DBE1D0076
 
 ME ME_530DBE1D0076
  MEPROP UID '530DBE1D0076'
  MEPROP Name 'RightIndentComboBoxChange'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2501,18 +2657,24 @@ ME ME_530DBE1D0076
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_530DBE1D0076_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_530DBE1D0076 RightIndentComboBoxChange
+
+MEREF ME_47881B22005A_ME_530DBE25012F_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_530DBE25012F_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_530DBE25012F
 
 ME ME_530DBE25012F
  MEPROP UID '530DBE25012F'
  MEPROP Name 'FirstIndentComboBoxChange'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2520,18 +2682,24 @@ ME ME_530DBE25012F
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_530DBE25012F_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_530DBE25012F FirstIndentComboBoxChange
+
+MEREF ME_47881B22005A_ME_530DBE600072_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_530DBE600072_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_530DBE600072
 
 ME ME_530DBE600072
  MEPROP UID '530DBE600072'
  MEPROP Name 'SpaceBeforeComboBoxChange'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2539,18 +2707,24 @@ ME ME_530DBE600072
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_530DBE600072_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_530DBE600072 SpaceBeforeComboBoxChange
+
+MEREF ME_47881B22005A_ME_530DBE6D008C_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_530DBE6D008C_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_530DBE6D008C
 
 ME ME_530DBE6D008C
  MEPROP UID '530DBE6D008C'
  MEPROP Name 'SpaceAfterComboBoxChange'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2558,7 +2732,7 @@ ME ME_530DBE6D008C
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_530DBE6D008C_G // TNotifyEvent
  )
  ; // Inherits
 
@@ -2605,7 +2779,7 @@ ENDME // ME_5270A31E00BC DoIt
 ME ME_5270A30903D4
  MEPROP UID '5270A30903D4'
  MEPROP Name 'SynchronizeIntegerComboBoxByText'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2650,7 +2824,7 @@ ENDME // ME_531052130360 DoIt
 ME ME_531051E20053
  MEPROP UID '531051E20053'
  MEPROP Name 'CheckComboBoxValue'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2664,12 +2838,18 @@ ME ME_531051E20053
 
 ENDME // ME_531051E20053 CheckComboBoxValue
 
+MEREF ME_47881B22005A_ME_53108AEA00D5_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_53108AEA00D5_G TNotifyEvent
+
 %%InheritedBy ME_47881B22005A ME_53108AEA00D5
 
 ME ME_53108AEA00D5
  MEPROP UID '53108AEA00D5'
  MEPROP Name 'SpacingComboExit'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2677,18 +2857,24 @@ ME ME_53108AEA00D5
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_53108AEA00D5_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_53108AEA00D5 SpacingComboExit
+
+MEREF ME_47881B22005A_ME_531868C7033D_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_531868C7033D_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_531868C7033D
 
 ME ME_531868C7033D
  MEPROP UID '531868C7033D'
  MEPROP Name 'StyleCaptionComboBoxChange'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -2696,7 +2882,7 @@ ME ME_531868C7033D
  MELINK Parent HWL ME_4AC642480314 // PrimStyleEditorFont
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_531868C7033D_G // TNotifyEvent
  )
  ; // Inherits
 
@@ -2902,7 +3088,7 @@ ME ME_54D4872F0032
 
 ENDME // ME_54D4872F0032 
 
-ME ME_4AE8696C001B_ME_4AC642480314
+MEREF ME_4AE8696C001B_ME_4AC642480314_impl
  MELINK Original WL 'ME_4AE8696C001B' '4AE824CB035A.ms.model.script' // RestoreStyleTable
  ;
  MEPROP OpKind opkind_Implemented
@@ -2914,9 +3100,9 @@ ME ME_4AE8696C001B_ME_4AC642480314
  UP "LongProcess" False
  UP "Needs Broadcast" False
  UP "no prefix" False
-ENDME // ME_4AE8696C001B_ME_4AC642480314 RestoreStyleTable
+ENDMEREF // ME_4AE8696C001B_ME_4AC642480314_impl RestoreStyleTable
 
-ME ME_4AE869C10245_ME_4AC642480314
+MEREF ME_4AE869C10245_ME_4AC642480314_impl
  MELINK Original WL 'ME_4AE869C10245' '4AE824CB035A.ms.model.script' // SaveStyleTable
  ;
  MEPROP OpKind opkind_Implemented
@@ -2928,9 +3114,9 @@ ME ME_4AE869C10245_ME_4AC642480314
  UP "LongProcess" False
  UP "Needs Broadcast" False
  UP "no prefix" False
-ENDME // ME_4AE869C10245_ME_4AC642480314 SaveStyleTable
+ENDMEREF // ME_4AE869C10245_ME_4AC642480314_impl SaveStyleTable
 
-ME ME_4AEAE333001D_ME_4AC642480314
+MEREF ME_4AEAE333001D_ME_4AC642480314_impl
  MELINK Original WL 'ME_4AEAE333001D' '4AE824CB035A.ms.model.script' // SetNewContent
  ;
  MEPROP OpKind opkind_Implemented
@@ -2942,37 +3128,49 @@ ME ME_4AEAE333001D_ME_4AC642480314
  UP "LongProcess" False
  UP "Needs Broadcast" False
  UP "no prefix" False
-ENDME // ME_4AEAE333001D_ME_4AC642480314 SetNewContent
+ENDMEREF // ME_4AEAE333001D_ME_4AC642480314_impl SetNewContent
 
-ME ME_479731C50290_ME_4AC642480314
+MEREF ME_479731C50290_ME_4AC642480314_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4AC642480314 Cleanup
+ENDMEREF // ME_479731C50290_ME_4AC642480314_over Cleanup
 
-ME ME_47A042E100E2_ME_4AC642480314
+MEREF ME_47A042E100E2_ME_4AC642480314_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_4AC642480314 InitFields
+ENDMEREF // ME_47A042E100E2_ME_4AC642480314_over InitFields
 
-ME ME_47D1602000C6_ME_4AC642480314
+MEREF ME_47D1602000C6_ME_4AC642480314_over
  MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47D1602000C6_ME_4AC642480314 Create
+ENDMEREF // ME_47D1602000C6_ME_4AC642480314_over Create
 
-ME ME_4A8E8F2E0195_ME_4AC642480314
+MEREF ME_4A8E8F2E0195_ME_4AC642480314_over
  MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8E8F2E0195_ME_4AC642480314 InitControls
+ENDMEREF // ME_4A8E8F2E0195_ME_4AC642480314_over InitControls
 
-ME ME_576149F20025_ME_4AC642480314
- MELINK Original WL 'ME_576149F20025' '4AADF9450143.ms.model.script' // IsVCMScalingNeeded
+MEREF ME_576149F20025_ME_4AC642480314_over
+ MELINK Original WL 'ME_576149F20025' '49525B34022A.ms.model.script' // IsVCMScalingNeeded
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_576149F20025_ME_4AC642480314 IsVCMScalingNeeded
+ENDMEREF // ME_576149F20025_ME_4AC642480314_over IsVCMScalingNeeded
+
+MEREF ME_49525B34022A_ME_4AC642480314_G
+ MELINK Original WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525B34022A_ME_4AC642480314_G TvcmEntityForm
+
+MEREF ME_4AE869590212_ME_4AC642480314_R
+ MELINK Original WL 'ME_4AE869590212' '4AE824CB035A.ms.model.script' // StyleEditor$Font
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE869590212_ME_4AC642480314_R StyleEditor$Font
 
 %%ImplementedBy ME_4AE869590212 ME_4AC642480314
 
@@ -2991,11 +3189,11 @@ ME ME_4AC642480314
  MELINK Parent WL? 'ME_4AA79F630309' // Settings
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+   Seq: ( HWL ME_49525B34022A_ME_4AC642480314_G // TvcmEntityForm
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4AE869590212' '4AE824CB035A.ms.model.script' // StyleEditor$Font
+   Seq: ( HWL ME_4AE869590212_ME_4AC642480314_R // StyleEditor$Font
  )
  ; // Implements
  MELIST Attributes
@@ -3059,17 +3257,17 @@ ME ME_4AC642480314
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4AE8696C001B_ME_4AC642480314 // RestoreStyleTable
- ME_4AE869C10245_ME_4AC642480314 // SaveStyleTable
- ME_4AEAE333001D_ME_4AC642480314 // SetNewContent
+   Seq: ( ME_4AE8696C001B_ME_4AC642480314_impl // RestoreStyleTable
+ ME_4AE869C10245_ME_4AC642480314_impl // SaveStyleTable
+ ME_4AEAE333001D_ME_4AC642480314_impl // SetNewContent
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4AC642480314 // Cleanup
- ME_47A042E100E2_ME_4AC642480314 // InitFields
- ME_47D1602000C6_ME_4AC642480314 // Create
- ME_4A8E8F2E0195_ME_4AC642480314 // InitControls
- ME_576149F20025_ME_4AC642480314 // IsVCMScalingNeeded
+   Seq: ( ME_479731C50290_ME_4AC642480314_over // Cleanup
+ ME_47A042E100E2_ME_4AC642480314_over // InitFields
+ ME_47D1602000C6_ME_4AC642480314_over // Create
+ ME_4A8E8F2E0195_ME_4AC642480314_over // InitControls
+ ME_576149F20025_ME_4AC642480314_over // IsVCMScalingNeeded
  )
  ; // Overridden
  MELIST Children

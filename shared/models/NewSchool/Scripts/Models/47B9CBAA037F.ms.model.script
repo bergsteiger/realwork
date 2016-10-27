@@ -1,0 +1,67 @@
+// Tl3StringList1 47B9CBAA037F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47B9CBAA037F
+
+ME ME_47B9CEAA02BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47B9CBAA037F // Tl3StringList1
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_47B9CEAA02BC 
+
+MEREF ME_47B1DFC40250_ME_47B9CBAA037F_G
+ MELINK Original WL? 'ME_47B1DFC40250' // Tl3StringListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B1DFC40250_ME_47B9CBAA037F_G Tl3StringListPrim
+
+MEREF ME_5304D68D03B2_ME_47B9CBAA037F_R
+ MELINK Original WL? 'ME_5304D68D03B2' // l3DelphiStringSearcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5304D68D03B2_ME_47B9CBAA037F_R l3DelphiStringSearcher
+
+%%ImplementedBy ME_5304D68D03B2 ME_47B9CBAA037F
+
+%%InheritedBy ME_47B1DFC40250 ME_47B9CBAA037F
+
+ME ME_47B9CBAA037F
+ MEPROP UID '47B9CBAA037F'
+ MEPROP Name 'Tl3StringList1'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B1DFC40250_ME_47B9CBAA037F_G // Tl3StringListPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5304D68D03B2_ME_47B9CBAA037F_R // l3DelphiStringSearcher
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_47B9CEAA02BC // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '18.02.2008 21:18'
+ UP extprop:pas:UnitName 'l3StringList1'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringList1'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3StringList1.pas'
+
+ENDME // ME_47B9CBAA037F Tl3StringList1

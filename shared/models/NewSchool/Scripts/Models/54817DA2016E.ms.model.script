@@ -1,0 +1,353 @@
+// TeeSub 54817DA2016E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54817DA2016E
+
+ME ME_548718BE0197
+ MEPROP UID '548718BE0197'
+ MEPROP Name 'f_ID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54817DA2016E // TeeSub
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_548718BE0197 f_ID
+
+ME ME_548718C603D9
+ MEPROP UID '548718C603D9'
+ MEPROP Name 'f_LayerID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54817DA2016E // TeeSub
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_548718C603D9 f_LayerID
+
+ME ME_548718CE017A
+ MEPROP UID '548718CE017A'
+ MEPROP Name 'f_Flag'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54817DA2016E // TeeSub
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_548718CE017A f_Flag
+
+FORWARD ME_5487199800AD
+
+FORWARD ME_5487199F01E3
+
+ME ME_548719A20047
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49523C96004A' '49523C640160.ms.model.script' // IeeDocumentEx
+ ;
+
+ENDME // ME_548719A20047 aDocument
+
+ME ME_548719A20063
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_548719A20063 anID
+
+ME ME_548719A2007D
+ MEPROP Name 'aLayerID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_548719A2007D aLayerID
+
+ME ME_548719A20097
+ MEPROP Name 'aFlag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_548719A20097 aFlag
+
+ME ME_5487199F01E3
+ MEPROP UID '5487199F01E3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5487199800AD // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_548719A20047 // aDocument
+ ME_548719A20063 // anID
+ ME_548719A2007D // aLayerID
+ ME_548719A20097 // aFlag
+ )
+ ; // Parameters
+
+ENDME // ME_5487199F01E3 DoIt
+
+ME ME_5487199800AD
+ MEPROP UID '5487199800AD'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54817DA2016E // TeeSub
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5487199F01E3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5487199800AD Create
+
+MEREF ME_5487199800AD_ME_548719A80358_G
+ MELINK Original HWL ME_5487199800AD // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5487199800AD_ME_548719A80358_G Create
+
+%%InheritedBy ME_5487199800AD ME_548719A80358
+
+ME ME_548719A80358
+ MEPROP UID '548719A80358'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54817DA2016E // TeeSub
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5487199800AD_ME_548719A80358_G // Create
+ )
+ ; // Inherits
+
+ENDME // ME_548719A80358 Make
+
+ME ME_548726AE03BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54817DA2016E // TeeSub
+ ;
+ MELINK Target WL? 'ME_47CFE7F00221' // l3InterfacesMisc
+ ;
+
+ENDME // ME_548726AE03BD 
+
+ME ME_548726DA0206
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54817DA2016E // TeeSub
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_548726DA0206 
+
+ME ME_5487272800B6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54817DA2016E // TeeSub
+ ;
+ MELINK Target WL 'ME_49523F8B0208' '54BE4D0B0117.ms.model.script' // TeePara
+ ;
+
+ENDME // ME_5487272800B6 
+
+ME ME_5487283602E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54817DA2016E // TeeSub
+ ;
+ MELINK Target WL 'ME_47C6B03200AF' '47C5207602D1.ms.model.script' // IevSub
+ ;
+
+ENDME // ME_5487283602E2 
+
+MEREF ME_548188CE0291_ME_54817DA2016E_impl
+ MELINK Original WL 'ME_548188CE0291' '4912DD020283.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_548188CE0291_ME_54817DA2016E_impl Delete
+
+MEREF ME_548188E50006_ME_54817DA2016E_impl
+ MELINK Original WL 'ME_548188E50006' '4912DD020283.ms.model.script' // Exists
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_548188E50006_ME_54817DA2016E_impl Exists
+
+MEREF ME_548188FC0305_ME_54817DA2016E_impl
+ MELINK Original WL 'ME_548188FC0305' '4912DD020283.ms.model.script' // Select
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_548188FC0305_ME_54817DA2016E_impl Select
+
+MEREF ME_5481891302A1_ME_54817DA2016E_impl
+ MELINK Original WL 'ME_5481891302A1' '4912DD020283.ms.model.script' // IsSame
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5481891302A1_ME_54817DA2016E_impl IsSame
+
+MEREF ME_548189A0022F_ME_54817DA2016E_impl
+ MELINK Original WL 'ME_548189A0022F' '4912DD020283.ms.model.script' // SubPlace
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_548189A0022F_ME_54817DA2016E_impl SubPlace
+
+MEREF ME_548189BC01DF_ME_54817DA2016E_impl
+ MELINK Original WL 'ME_548189BC01DF' '4912DD020283.ms.model.script' // ID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_548189BC01DF_ME_54817DA2016E_impl ID
+
+MEREF ME_548189D0014C_ME_54817DA2016E_impl
+ MELINK Original WL 'ME_548189D0014C' '4912DD020283.ms.model.script' // LayerID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_548189D0014C_ME_54817DA2016E_impl LayerID
+
+MEREF ME_548189EE0355_ME_54817DA2016E_impl
+ MELINK Original WL 'ME_548189EE0355' '4912DD020283.ms.model.script' // Flag
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_548189EE0355_ME_54817DA2016E_impl Flag
+
+MEREF ME_548189F9001A_ME_54817DA2016E_impl
+ MELINK Original WL 'ME_548189F9001A' '4912DD020283.ms.model.script' // Flags
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_548189F9001A_ME_54817DA2016E_impl Flags
+
+MEREF ME_54818A59008A_ME_54817DA2016E_impl
+ MELINK Original WL 'ME_54818A59008A' '4912DD020283.ms.model.script' // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_54818A59008A_ME_54817DA2016E_impl Name
+
+MEREF ME_54818A7B0210_ME_54817DA2016E_impl
+ MELINK Original WL 'ME_54818A7B0210' '4912DD020283.ms.model.script' // Next
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_54818A7B0210_ME_54817DA2016E_impl Next
+
+MEREF ME_54818A9700C3_ME_54817DA2016E_impl
+ MELINK Original WL 'ME_54818A9700C3' '4912DD020283.ms.model.script' // LeafPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_54818A9700C3_ME_54817DA2016E_impl LeafPara
+
+MEREF ME_54818AA901FF_ME_54817DA2016E_impl
+ MELINK Original WL 'ME_54818AA901FF' '4912DD020283.ms.model.script' // Para
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_54818AA901FF_ME_54817DA2016E_impl Para
+
+MEREF ME_54817DBA01BE_ME_54817DA2016E_G
+ MELINK Original WL? 'ME_54817DBA01BE' // TeeDocumentTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54817DBA01BE_ME_54817DA2016E_G TeeDocumentTool
+
+MEREF ME_4AE9DFBF0327_ME_54817DA2016E_R
+ MELINK Original WL 'ME_4AE9DFBF0327' '4912DD020283.ms.model.script' // IeeSub
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE9DFBF0327_ME_54817DA2016E_R IeeSub
+
+%%ImplementedBy ME_4AE9DFBF0327 ME_54817DA2016E
+
+%%InheritedBy ME_54817DBA01BE ME_54817DA2016E
+
+ME ME_54817DA2016E
+ MEPROP UID '54817DA2016E'
+ MEPROP Name 'TeeSub'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4912E16B01B4' // Engine Core
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54817DBA01BE_ME_54817DA2016E_G // TeeDocumentTool
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4AE9DFBF0327_ME_54817DA2016E_R // IeeSub
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_548718BE0197 // f_ID
+ HWL ME_548718C603D9 // f_LayerID
+ HWL ME_548718CE017A // f_Flag
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5487199800AD // Create
+ HWL ME_548719A80358 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_548188CE0291_ME_54817DA2016E_impl // Delete
+ ME_548188E50006_ME_54817DA2016E_impl // Exists
+ ME_548188FC0305_ME_54817DA2016E_impl // Select
+ ME_5481891302A1_ME_54817DA2016E_impl // IsSame
+ ME_548189A0022F_ME_54817DA2016E_impl // SubPlace
+ ME_548189BC01DF_ME_54817DA2016E_impl // ID
+ ME_548189D0014C_ME_54817DA2016E_impl // LayerID
+ ME_548189EE0355_ME_54817DA2016E_impl // Flag
+ ME_548189F9001A_ME_54817DA2016E_impl // Flags
+ ME_54818A59008A_ME_54817DA2016E_impl // Name
+ ME_54818A7B0210_ME_54817DA2016E_impl // Next
+ ME_54818A9700C3_ME_54817DA2016E_impl // LeafPara
+ ME_54818AA901FF_ME_54817DA2016E_impl // Para
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_548726AE03BD // l3InterfacesMisc
+ ME_548726DA0206 // l3String
+ ME_5487272800B6 // TeePara
+ ME_5487283602E2 // IevSub
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'eeSub'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'eeSub'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeSub.pas'
+
+ENDME // ME_54817DA2016E TeeSub

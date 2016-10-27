@@ -38,7 +38,7 @@ ENDME // ME_51E80E1B0036 DoIt
 ME ME_51E80E0D030D
  MEPROP UID '51E80E0D030D'
  MEPROP Name 'CreateList'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -62,6 +62,12 @@ ME ME_51E810C90005
 
 ENDME // ME_51E810C90005 
 
+MEREF ME_4B2A0DDE028B_ME_51E80DD30125_G
+ MELINK Original WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A0DDE028B_ME_51E80DD30125_G TTestCase
+
 %%InheritedBy ME_4B2A0DDE028B ME_51E80DD30125
 
 ME ME_51E80DD30125
@@ -76,7 +82,7 @@ ME ME_51E80DD30125
  MELINK Parent WL? 'ME_51DEB2C70024' // FinalContainersTests
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+   Seq: ( HWL ME_4B2A0DDE028B_ME_51E80DD30125_G // TTestCase
  )
  ; // Inherits
  MELIST Attributes

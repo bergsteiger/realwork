@@ -1,0 +1,138 @@
+// TatExecuteSavedQueryOperation 4FD23557001F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FD23557001F
+
+ME ME_4FD237B2033E
+ MEPROP UID '4FD237B2033E'
+ MEPROP Name 'FoldersNodeMatcher'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD23557001F // TatExecuteSavedQueryOperation
+ ;
+ MELINK Target WL 'ME_4FD2376601E4' '480864400141.ms.model.script' // TatQueryMatcher
+ ;
+
+ENDME // ME_4FD237B2033E FoldersNodeMatcher
+
+ME ME_4FD2382F03DD
+ MEPROP UID '4FD2382F03DD'
+ MEPROP Name 'ObjectType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD23557001F // TatExecuteSavedQueryOperation
+ ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_4FD2382F03DD ObjectType
+
+ME ME_4FD238C3032F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FD23557001F // TatExecuteSavedQueryOperation
+ ;
+ MELINK Target WL? 'ME_4A549C190378' // TatQuery
+ ;
+
+ENDME // ME_4FD238C3032F 
+
+ME ME_4FD238C70155
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FD23557001F // TatExecuteSavedQueryOperation
+ ;
+ MELINK Target WL? 'ME_4FC8DA4E01A4' // TatSearchHelper
+ ;
+
+ENDME // ME_4FD238C70155 
+
+MEREF ME_4FD0D2530143_ME_4FD23557001F_impl
+ MELINK Original WL 'ME_4FD0D2530143' '4FD0D1E00242.ms.model.script' // OnFoldersObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4FD0D2530143_ME_4FD23557001F_impl OnFoldersObject
+
+MEREF ME_48089F660238_ME_4FD23557001F_over
+ MELINK Original WL 'ME_48089F660238' '48089D120398.ms.model.script' // ExecuteChilds
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F660238_ME_4FD23557001F_over ExecuteChilds
+
+MEREF ME_484FA0FD0223_ME_4FD23557001F_G
+ MELINK Original WL? 'ME_484FA0FD0223' // atProcessNamedFoldersObjectOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484FA0FD0223_ME_4FD23557001F_G atProcessNamedFoldersObjectOperation
+
+MEREF ME_4FD0D1E00242_ME_4FD23557001F_R
+ MELINK Original WL? 'ME_4FD0D1E00242' // atOpenFoldersObjectAddon
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FD0D1E00242_ME_4FD23557001F_R atOpenFoldersObjectAddon
+
+MEREF ME_502A79B80186_ME_4FD23557001F_R
+ MELINK Original WL? 'ME_502A79B80186' // atExecutesQueryAddOn
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_502A79B80186_ME_4FD23557001F_R atExecutesQueryAddOn
+
+%%ImplementedBy ME_4FD0D1E00242 ME_4FD23557001F
+%%ImplementedBy ME_502A79B80186 ME_4FD23557001F
+
+%%InheritedBy ME_484FA0FD0223 ME_4FD23557001F
+
+ME ME_4FD23557001F
+ MEPROP UID '4FD23557001F'
+ MEPROP Name 'TatExecuteSavedQueryOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484FA0FD0223_ME_4FD23557001F_G // atProcessNamedFoldersObjectOperation
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4FD0D1E00242_ME_4FD23557001F_R // atOpenFoldersObjectAddon
+ HWL ME_502A79B80186_ME_4FD23557001F_R // atExecutesQueryAddOn
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4FD237B2033E // FoldersNodeMatcher
+ HWL ME_4FD2382F03DD // ObjectType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4FD0D2530143_ME_4FD23557001F_impl // OnFoldersObject
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F660238_ME_4FD23557001F_over // ExecuteChilds
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4FD238C3032F // TatQuery
+ ME_4FD238C70155 // TatSearchHelper
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atExecuteSavedQueryOperation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atExecuteSavedQueryOperation'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atExecuteSavedQueryOperation.pas'
+
+ENDME // ME_4FD23557001F TatExecuteSavedQueryOperation

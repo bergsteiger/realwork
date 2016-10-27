@@ -1,0 +1,256 @@
+// TnsMainMenuNode 490B0F4F021C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_490B0F4F021C
+
+ME ME_4ADF054A028C
+ MEPROP UID '4ADF054A028C'
+ MEPROP Name 'f_Caption'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_490B0F4F021C // TnsMainMenuNode
+ ;
+ MELINK Target WL? 'ME_4773DED9004C' // Tl3_String
+ ;
+
+ENDME // ME_4ADF054A028C f_Caption
+
+ME ME_4ADF05790253
+ MEPROP UID '4ADF05790253'
+ MEPROP Name 'f_NodeType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_490B0F4F021C // TnsMainMenuNode
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4ADF05790253 f_NodeType
+
+FORWARD ME_4ADF05C401AD
+
+ME ME_4ADF05D60004
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4ADF05D60004 aType
+
+ME ME_4ADF05D60041
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4ADF05D60041 aCaption
+
+ME ME_4ADF05D60078
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4ADF05D60078 aNode
+
+ME ME_4ADF05C401AD
+ MEPROP UID '4ADF05C401AD'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_490B0F4F021C // TnsMainMenuNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ADF05D60004 // aType
+ ME_4ADF05D60041 // aCaption
+ ME_4ADF05D60078 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4ADF05C401AD Create
+
+FORWARD ME_4ADF05E2020B
+
+ME ME_4ADF05EF005E
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4ADF05EF005E aType
+
+ME ME_4ADF05EF009B
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4ADF05EF009B aCaption
+
+ME ME_4ADF05EF00D6
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4ADF05EF00D6 aNode
+
+ME ME_4ADF05E2020B
+ MEPROP UID '4ADF05E2020B'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_490B0F4F021C // TnsMainMenuNode
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ADF05EF005E // aType
+ ME_4ADF05EF009B // aCaption
+ ME_4ADF05EF00D6 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4ADF05E2020B Make
+
+ME ME_4ADF08B20195
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490B0F4F021C // TnsMainMenuNode
+ ;
+ MELINK Target WL 'ME_4ADF0823017C' '47878E0E0191.ms.model.script' // l3IsNil
+ ;
+
+ENDME // ME_4ADF08B20195 
+
+ME ME_4ADF08BE00A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490B0F4F021C // TnsMainMenuNode
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4ADF08BE00A3 
+
+ME ME_4ADF093E0256
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490B0F4F021C // TnsMainMenuNode
+ ;
+ MELINK Target WL 'ME_4ADF092A0066' '4773D64E036C.ms.model.script' // l3Set
+ ;
+
+ENDME // ME_4ADF093E0256 
+
+MEREF ME_49904B470294_ME_490B0F4F021C_impl
+ MELINK Original WL 'ME_49904B470294' '49904AF102FD.ms.model.script' // NodeType
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_49904B470294_ME_490B0F4F021C_impl NodeType
+
+MEREF ME_479731C50290_ME_490B0F4F021C_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_490B0F4F021C_over Cleanup
+
+MEREF ME_47A869BB02DE_ME_490B0F4F021C_over
+ MELINK Original WL 'ME_47A869BB02DE' '53317D14019D.ms.model.script' // GetAsPCharLen
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A869BB02DE_ME_490B0F4F021C_over GetAsPCharLen
+
+MEREF ME_490AF9B0039B_ME_490B0F4F021C_G
+ MELINK Original WL? 'ME_490AF9B0039B' // TnsNewCachableNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_490AF9B0039B_ME_490B0F4F021C_G TnsNewCachableNode
+
+MEREF ME_49904B3802CD_ME_490B0F4F021C_R
+ MELINK Original WL 'ME_49904B3802CD' '49904AF102FD.ms.model.script' // InsMainMenuNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49904B3802CD_ME_490B0F4F021C_R InsMainMenuNode
+
+%%ImplementedBy ME_49904B3802CD ME_490B0F4F021C
+
+%%InheritedBy ME_490AF9B0039B ME_490B0F4F021C
+
+ME ME_490B0F4F021C
+ MEPROP UID '490B0F4F021C'
+ MEPROP Name 'TnsMainMenuNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4909EECE01D5' // MainMenu
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_490AF9B0039B_ME_490B0F4F021C_G // TnsNewCachableNode
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_49904B3802CD_ME_490B0F4F021C_R // InsMainMenuNode
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4ADF054A028C // f_Caption
+ HWL ME_4ADF05790253 // f_NodeType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4ADF05C401AD // Create
+ HWL ME_4ADF05E2020B // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49904B470294_ME_490B0F4F021C_impl // NodeType
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_490B0F4F021C_over // Cleanup
+ ME_47A869BB02DE_ME_490B0F4F021C_over // GetAsPCharLen
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4ADF08B20195 // l3IsNil
+ ME_4ADF08BE00A3 // FreeAndNil
+ ME_4ADF093E0256 // l3Set
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "ifndef" 'Admin,Monitorings'
+ UP "no hands" True
+ UP "started" '21.10.2009 16:59'
+ UP extprop:pas:UnitName 'nsMainMenuNode'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MainMenuNode'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsMainMenuNode.pas'
+
+ENDME // ME_490B0F4F021C TnsMainMenuNode

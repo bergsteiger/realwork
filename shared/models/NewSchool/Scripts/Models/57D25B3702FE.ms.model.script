@@ -1,0 +1,70 @@
+// TmsmListToListBinding 57D25B3702FE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57D25B3702FE
+
+ME ME_57D173BB00F4
+ MEPROP UID '57D173BB00F4'
+ MEPROP Name 'ModelToListen'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D25B3702FE // TmsmListToListBinding
+ ;
+ MELINK Target WL 'ME_57CD626402C0' '57ADC53E00B6.ms.model.script' // ImsmListLikeModel
+ ;
+
+ENDME // ME_57D173BB00F4 ModelToListen
+
+ME ME_57D173C70148
+ MEPROP UID '57D173C70148'
+ MEPROP Name 'ModelToFire'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D25B3702FE // TmsmListToListBinding
+ ;
+ MELINK Target WL 'ME_57CD626402C0' '57ADC53E00B6.ms.model.script' // ImsmListLikeModel
+ ;
+
+ENDME // ME_57D173C70148 ModelToFire
+
+MEREF ME_57B2B8FA0333_ME_57D25B3702FE_G
+ MELINK Original WL? 'ME_57B2B8FA0333' // msmModelToModelBinding
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B2B8FA0333_ME_57D25B3702FE_G msmModelToModelBinding
+
+%%InheritedBy ME_57B2B8FA0333 ME_57D25B3702FE
+
+ME ME_57D25B3702FE
+ MEPROP UID '57D25B3702FE'
+ MEPROP Name 'TmsmListToListBinding'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_57D263FC0311' // AbstractBindings
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57B2B8FA0333_ME_57D25B3702FE_G // msmModelToModelBinding
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57D173BB00F4 // ModelToListen
+ HWL ME_57D173C70148 // ModelToFire
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'msmListToListBinding'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmListToListBinding'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmListToListBinding.pas'
+
+ENDME // ME_57D25B3702FE TmsmListToListBinding

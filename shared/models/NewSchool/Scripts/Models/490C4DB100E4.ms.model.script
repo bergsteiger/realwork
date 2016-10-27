@@ -1,0 +1,140 @@
+// TmmmRegulatoryInformation 490C4DB100E4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_490C4DB100E4
+
+FORWARD ME_53D0D8AD0076
+
+ME ME_53D0D9800372
+ MEPROP UID '53D0D9800372'
+ MEPROP Name 'LegislationReview'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53D0D8AD0076 // Regulatory Information
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Обзор изменений законодательства'''
+
+ENDME // ME_53D0D9800372 LegislationReview
+
+ME ME_53D0D8AD0076
+ MEPROP UID '53D0D8AD0076'
+ MEPROP Name 'Regulatory Information'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_490C4DB100E4 // TmmmRegulatoryInformation
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53D0D9800372 // LegislationReview
+ )
+ ; // Attributes
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_53D0D8AD0076 Regulatory Information
+
+ME ME_490C4E13011B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490C4DB100E4 // TmmmRegulatoryInformation
+ ;
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
+ ;
+
+ENDME // ME_490C4E13011B 
+
+ME ME_490C4E1F03AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490C4DB100E4 // TmmmRegulatoryInformation
+ ;
+ MELINK Target WL? 'ME_47F25BC801DB' // vcmBase
+ ;
+
+ENDME // ME_490C4E1F03AA 
+
+ME ME_490C4E4601CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490C4DB100E4 // TmmmRegulatoryInformation
+ ;
+ MELINK Target WL 'ME_490C3BB20118' '4A6854C70390.ms.model.script' // TnsMedicMainMenuNodeType
+ ;
+
+ENDME // ME_490C4E4601CD 
+
+ME ME_490C4E6100A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490C4DB100E4 // TmmmRegulatoryInformation
+ ;
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
+ ;
+
+ENDME // ME_490C4E6100A3 
+
+MEREF ME_4909EF6E0361_ME_490C4DB100E4_over
+ MELINK Original WL 'ME_4909EF6E0361' '4909EF3B02B1.ms.model.script' // MakeRoot
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4909EF6E0361_ME_490C4DB100E4_over MakeRoot
+
+MEREF ME_490C3BE30324_ME_490C4DB100E4_G
+ MELINK Original WL? 'ME_490C3BE30324' // TmmmTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_490C3BE30324_ME_490C4DB100E4_G TmmmTree
+
+%%InheritedBy ME_490C3BE30324 ME_490C4DB100E4
+
+ME ME_490C4DB100E4
+ MEPROP UID '490C4DB100E4'
+ MEPROP Name 'TmmmRegulatoryInformation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Нормативная информация' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A9FB0A402AD' // MedicMainMenu
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_490C3BE30324_ME_490C4DB100E4_G // TmmmTree
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4909EF6E0361_ME_490C4DB100E4_over // MakeRoot
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_53D0D8AD0076 // Regulatory Information
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_490C4E13011B // StdRes
+ ME_490C4E1F03AA // vcmBase
+ ME_490C4E4601CD // TnsMedicMainMenuNodeType
+ ME_490C4E6100A3 // nsConst
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP extprop:pas:UnitName 'mmmRegulatoryInformation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'mmmRegulatoryInformation'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\mmmRegulatoryInformation.pas'
+
+ENDME // ME_490C4DB100E4 TmmmRegulatoryInformation

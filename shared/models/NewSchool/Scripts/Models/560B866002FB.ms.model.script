@@ -1,0 +1,62 @@
+// TpgParamList 560B866002FB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_560B866002FB
+
+ME ME_560B8C8801F5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_560B866002FB // TpgParamList
+ ;
+ MELINK Target WL 'ME_4B2A12BA0288' '47877EB202FB.ms.model.script' // IntToStr
+ ;
+
+ENDME // ME_560B8C8801F5 
+
+MEREF ME_5608FE9002D6_ME_560B866002FB_over
+ MELINK Original WL 'ME_5608FE9002D6' '5555C169038C.ms.model.script' // DoGetParamName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5608FE9002D6_ME_560B866002FB_over DoGetParamName
+
+MEREF ME_5555C169038C_ME_560B866002FB_G
+ MELINK Original WL? 'ME_5555C169038C' // TdaParamList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5555C169038C_ME_560B866002FB_G TdaParamList
+
+%%InheritedBy ME_5555C169038C ME_560B866002FB
+
+ME ME_560B866002FB
+ MEPROP UID '560B866002FB'
+ MEPROP Name 'TpgParamList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55D6CF3B014B' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5555C169038C_ME_560B866002FB_G // TdaParamList
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5608FE9002D6_ME_560B866002FB_over // DoGetParamName
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_560B8C8801F5 // IntToStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'pgParamList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'pgParamList'
+ UP intf.pas:Path 'common\components\rtl\Garant\PG\pgParamList.pas'
+
+ENDME // ME_560B866002FB TpgParamList

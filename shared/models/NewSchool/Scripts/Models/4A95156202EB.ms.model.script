@@ -9,6 +9,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4A95156202EB
 
+MEREF ME_4B2A2ADB0305_ME_4A9271340328_G
+ MELINK Original WL 'ME_4B2A2ADB0305' '470384F502CE.ms.model.script' // UsesContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A2ADB0305_ME_4A9271340328_G UsesContainer
+
 %%InheritedBy ME_4B2A2ADB0305 ME_4A9271340328
 
 ME ME_4A9271340328
@@ -23,7 +29,7 @@ ME ME_4A9271340328
  MELINK Parent HWL ME_4A95156202EB // MixIns
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4B2A2ADB0305' '470384F502CE.ms.model.script' // UsesContainer
+   Seq: ( HWL ME_4B2A2ADB0305_ME_4A9271340328_G // UsesContainer
  )
  ; // Inherits
  UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\MixIns\User'
@@ -65,27 +71,39 @@ ME ME_4F72C82A03BB
 
 ENDME // ME_4F72C82A03BB Need UC
 
-ME ME_4704C0E30186_ME_4A797DC60043
+MEREF ME_4704C0E30186_ME_4A797DC60043_impl
  MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4704C0E30186_ME_4A797DC60043 constraint
+ENDMEREF // ME_4704C0E30186_ME_4A797DC60043_impl constraint
 
-ME ME_470F1571031C_ME_4A797DC60043
+MEREF ME_470F1571031C_ME_4A797DC60043_impl
  MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
  ;
  MEPROP OpKind opkind_Implemented
  UP "lang id" 'delphi'
  UP "tab replace" '\\s'
-ENDME // ME_470F1571031C_ME_4A797DC60043 intf.pas
+ENDMEREF // ME_470F1571031C_ME_4A797DC60043_impl intf.pas
 
-ME ME_470F15B800CB_ME_4A797DC60043
+MEREF ME_470F15B800CB_ME_4A797DC60043_impl
  MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
  ;
  MEPROP OpKind opkind_Implemented
  UP "lang id" 'delphi'
  UP "tab replace" '\\s'
-ENDME // ME_470F15B800CB_ME_4A797DC60043 impl.pas
+ENDMEREF // ME_470F15B800CB_ME_4A797DC60043_impl impl.pas
+
+MEREF ME_471723E1037A_ME_4A797DC60043_G
+ MELINK Original WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_471723E1037A_ME_4A797DC60043_G WikiImplClass
+
+MEREF ME_470F151302FD_ME_4A797DC60043_R
+ MELINK Original WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_470F151302FD_ME_4A797DC60043_R Delphi интерфейсы и реализация
 
 %%ImplementedBy ME_470F151302FD ME_4A797DC60043
 
@@ -103,11 +121,11 @@ ME ME_4A797DC60043
  MELINK Parent HWL ME_4A95156202EB // MixIns
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+   Seq: ( HWL ME_471723E1037A_ME_4A797DC60043_G // WikiImplClass
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+   Seq: ( HWL ME_470F151302FD_ME_4A797DC60043_R // Delphi интерфейсы и реализация
  )
  ; // Implements
  MELIST Attributes
@@ -116,9 +134,9 @@ ME ME_4A797DC60043
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_4704C0E30186_ME_4A797DC60043 // constraint
- ME_470F1571031C_ME_4A797DC60043 // intf.pas
- ME_470F15B800CB_ME_4A797DC60043 // impl.pas
+   Seq: ( ME_4704C0E30186_ME_4A797DC60043_impl // constraint
+ ME_470F1571031C_ME_4A797DC60043_impl // intf.pas
+ ME_470F15B800CB_ME_4A797DC60043_impl // impl.pas
  )
  ; // Implemented
  UP "personal label" 'code_vcm_zone'

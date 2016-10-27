@@ -1,0 +1,135 @@
+// TCsClientInfo 537F4B3B03DD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_537F4B3B03DD
+
+ME ME_537F4B9A00F1
+ MEPROP UID '537F4B9A00F1'
+ MEPROP Name 'ClientId'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537F4B3B03DD // TCsClientInfo
+ ;
+ MELINK Target WL 'ME_537F4A04037C' '537F49C801FE.ms.model.script' // TCsClientId
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_537F4B9A00F1 ClientId
+
+ME ME_537F4BAD0139
+ MEPROP UID '537F4BAD0139'
+ MEPROP Name 'LoginName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537F4B3B03DD // TCsClientInfo
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_537F4BAD0139 LoginName
+
+ME ME_537F4BC5015A
+ MEPROP UID '537F4BC5015A'
+ MEPROP Name 'ListenIp'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537F4B3B03DD // TCsClientInfo
+ ;
+ MELINK Target WL 'ME_537F4A3A024C' '537F49C801FE.ms.model.script' // TCsIp
+ ;
+
+ENDME // ME_537F4BC5015A ListenIp
+
+ME ME_537F4BDD0351
+ MEPROP UID '537F4BDD0351'
+ MEPROP Name 'ListenPort'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537F4B3B03DD // TCsClientInfo
+ ;
+ MELINK Target WL 'ME_537F49E4025E' '537F49C801FE.ms.model.script' // TCsPort
+ ;
+
+ENDME // ME_537F4BDD0351 ListenPort
+
+ME ME_537F4C000221
+ MEPROP UID '537F4C000221'
+ MEPROP Name 'UID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537F4B3B03DD // TCsClientInfo
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_537F4C000221 UID
+
+ME ME_537F4C150009
+ MEPROP UID '537F4C150009'
+ MEPROP Name 'LastPing'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537F4B3B03DD // TCsClientInfo
+ ;
+ MELINK Target WL 'ME_47272C8B0128' '4807744200AA.ms.model.script' // TDateTime
+ ;
+
+ENDME // ME_537F4C150009 LastPing
+
+MEREF ME_52FBB30A01C6_ME_537F4B3B03DD_G
+ MELINK Original WL? 'ME_52FBB30A01C6' // TCsObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52FBB30A01C6_ME_537F4B3B03DD_G TCsObject
+
+%%InheritedBy ME_52FBB30A01C6 ME_537F4B3B03DD
+
+ME ME_537F4B3B03DD
+ MEPROP UID '537F4B3B03DD'
+ MEPROP Name 'TCsClientInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_537F4B1C01E5' // Clients
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52FBB30A01C6_ME_537F4B3B03DD_G // TCsObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_537F4B9A00F1 // ClientId
+ HWL ME_537F4BAD0139 // LoginName
+ HWL ME_537F4BC5015A // ListenIp
+ HWL ME_537F4BDD0351 // ListenPort
+ HWL ME_537F4C000221 // UID
+ HWL ME_537F4C150009 // LastPing
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'CsClientInfo'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CsClientInfo'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\CsClientInfo.pas'
+
+ENDME // ME_537F4B3B03DD TCsClientInfo

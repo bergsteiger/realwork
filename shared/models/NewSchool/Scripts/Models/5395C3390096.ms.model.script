@@ -5,56 +5,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_5395C3760014
 %%Inner ME_5395CD170333
 
-FORWARD ME_5395C3390096
-
-%%InheritedBy ME_52FBB30A01C6 ME_5395C3760014
-
-ME ME_5395C3760014
- MEPROP UID '5395C3760014'
- MEPROP Name 'TcsAction'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Действие инициируемое клиентом и выполняемое на сервере' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_5395C3390096 // Actions
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.ms.model.script' // TCsObject
- )
- ; // Inherits
- UP extprop:pas:UnitName 'csAction'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'csAction'
- UP intf.pas:Path 'common\components\rtl\Garant\cs\csAction.pas'
-
-ENDME // ME_5395C3760014 TcsAction
-
-%%InheritedBy ME_5395C3760014 ME_5395CD170333
-
-ME ME_5395CD170333
- MEPROP UID '5395CD170333'
- MEPROP Name 'TcsTaskedAction'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Действие на сервере с возможностью помещения в очередь' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_5395C3390096 // Actions
- ;
- MELIST Inherits
-   Seq: ( HWL ME_5395C3760014 // TcsAction
- )
- ; // Inherits
- UP extprop:pas:UnitName 'csTaskedAction'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'csTaskedAction'
- UP intf.pas:Path 'common\components\rtl\Garant\cs\csTaskedAction.pas'
-
-ENDME // ME_5395CD170333 TcsTaskedAction
-
 ME ME_5395C3390096
  MEPROP UID '5395C3390096'
  MEPROP Name 'Actions'
@@ -67,8 +17,8 @@ ME ME_5395C3390096
  MELINK Parent WL? 'ME_52F8C27F01AB' // cs
  ;
  MELIST Children
-   Seq: ( HWL ME_5395C3760014 // TcsAction
- HWL ME_5395CD170333 // TcsTaskedAction
+   Seq: ( WL? 'ME_5395C3760014' // TcsAction
+ WL? 'ME_5395CD170333' // TcsTaskedAction
  )
  ; // Children
  MELIST Depends

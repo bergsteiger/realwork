@@ -1,0 +1,111 @@
+// TevControlParaHotSpotTester 4A27A8C70359 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A27A8C70359
+
+ME ME_4A27A8EA027F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A27A8C70359 // TevControlParaHotSpotTester
+ ;
+ MELINK Target WL? 'ME_4A27A7D5019E' // TevControlParaHotSpot
+ ;
+
+ENDME // ME_4A27A8EA027F 
+
+ME ME_4A27A998000F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A27A8C70359 // TevControlParaHotSpotTester
+ ;
+ MELINK Target WL? 'ME_4A27A44403BE' // TevControlSegmentHotSpot
+ ;
+
+ENDME // ME_4A27A998000F 
+
+ME ME_53D64C2400A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4A27A8C70359 // TevControlParaHotSpotTester
+ ;
+ MELINK Target WL? 'ME_4858000901EF' // TevControlPara
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D64C2400A7 
+
+ME ME_53D64C3C0170
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_4A27A8C70359 // TevControlParaHotSpotTester
+ ;
+ MELINK Target WL 'ME_4A250DB2035E' '4A1FCBA0014C.ms.model.script' // InevHotSpotTester2
+ ;
+ UP "needs processor" False
+
+ENDME // ME_53D64C3C0170 
+
+MEREF ME_4A26B035006A_ME_4A27A8C70359_over
+ MELINK Original WL 'ME_4A26B035006A' '4A26AF690296.ms.model.script' // GetSegmentClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A26B035006A_ME_4A27A8C70359_over GetSegmentClass
+
+MEREF ME_4A26B4EB02EB_ME_4A27A8C70359_over
+ MELINK Original WL 'ME_4A26B4EB02EB' '4A26AF690296.ms.model.script' // DoGetAdvancedHotSpot
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A26B4EB02EB_ME_4A27A8C70359_over DoGetAdvancedHotSpot
+
+MEREF ME_4A26AF690296_ME_4A27A8C70359_G
+ MELINK Original WL? 'ME_4A26AF690296' // TevTextParaHotSpotTester
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A26AF690296_ME_4A27A8C70359_G TevTextParaHotSpotTester
+
+%%InjectedBy ME_4858000901EF ME_4A27A8C70359
+
+%%InheritedBy ME_4A26AF690296 ME_4A27A8C70359
+
+ME ME_4A27A8C70359
+ MEPROP UID '4A27A8C70359'
+ MEPROP Name 'TevControlParaHotSpotTester'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Парень, который определяет зону контрола (некий аналог WM_NCHITTEST)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A267EE3017B' // HotSpots
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A26AF690296_ME_4A27A8C70359_G // TevTextParaHotSpotTester
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4A26B035006A_ME_4A27A8C70359_over // GetSegmentClass
+ ME_4A26B4EB02EB_ME_4A27A8C70359_over // DoGetAdvancedHotSpot
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4A27A8EA027F // TevControlParaHotSpot
+ ME_4A27A998000F // TevControlSegmentHotSpot
+ ME_53D64C2400A7 // TevControlPara
+ ME_53D64C3C0170 // InevHotSpotTester2
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "ifndef" 'evCanEditControlsAsText'
+ UP "no hands" True
+ UP "started" '12.11.2004 15:46'
+ UP extprop:pas:UnitName 'evControlParaHotSpotTester'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ControlParaHotSpotTester'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evControlParaHotSpotTester.pas'
+
+ENDME // ME_4A27A8C70359 TevControlParaHotSpotTester

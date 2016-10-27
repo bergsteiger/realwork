@@ -1,0 +1,63 @@
+// K517772970_TddServerStatusRequest 532028C502D9 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_532028C502D9
+
+ME ME_53203EEE0396
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532028C502D9 // K517772970_TddServerStatusRequest
+ ;
+ MELINK Target WL? 'ME_5317080B0295' // csServerStatusRequest
+ ;
+
+ENDME // ME_53203EEE0396 
+
+MEREF ME_5320088202FB_ME_532028C502D9_over
+ MELINK Original WL 'ME_5320088202FB' '532008240001.ms.model.script' // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5320088202FB_ME_532028C502D9_over TaskClass
+
+MEREF ME_53200AD70286_ME_532028C502D9_G
+ MELINK Original WL? 'ME_53200AD70286' // K517772970_TddRequestTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53200AD70286_ME_532028C502D9_G K517772970_TddRequestTask
+
+%%InheritedBy ME_53200AD70286 ME_532028C502D9
+
+ME ME_532028C502D9
+ MEPROP UID '532028C502D9'
+ MEPROP Name 'K517772970_TddServerStatusRequest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_531FF6280311' // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200AD70286_ME_532028C502D9_G // K517772970_TddRequestTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_532028C502D9_over // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53203EEE0396 // csServerStatusRequest
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TK517772970_TddServerStatusRequest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K517772970_TddServerStatusRequest'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddServerStatusRequest.pas'
+
+ENDME // ME_532028C502D9 K517772970_TddServerStatusRequest

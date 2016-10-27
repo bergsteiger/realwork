@@ -1,0 +1,204 @@
+// ServiceTest 551962080380 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_551962080380
+
+FORWARD ME_55196221027E
+
+ME ME_5519622F010B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55196221027E // DoIt
+ ;
+ MELINK Target WL? 'ME_5519611903CF' // TIterateableService
+ ;
+
+ENDME // ME_5519622F010B 
+
+ME ME_5519623602D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55196221027E // DoIt
+ ;
+ MELINK Target WL? 'ME_5519612B01D3' // TIterateableServiceProvider
+ ;
+
+ENDME // ME_5519623602D4 
+
+ME ME_551A99110182
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55196221027E // DoIt
+ ;
+ MELINK Target WL? 'ME_47E13C6B0341' // Forms
+ ;
+
+ENDME // ME_551A99110182 
+
+ME ME_551AE4B102DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55196221027E // DoIt
+ ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_551AE4B102DA 
+
+ME ME_55196221027E
+ MEPROP UID '55196221027E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551962080380 // ServiceTest
+ ;
+ MELIST Dependencies
+   Seq: ( ME_5519622F010B // TIterateableService
+ ME_5519623602D4 // TIterateableServiceProvider
+ ME_551A99110182 // Forms
+ ME_551AE4B102DA // TComponent
+ )
+ ; // Dependencies
+
+ENDME // ME_55196221027E DoIt
+
+FORWARD ME_551BC0D201CF
+
+FORWARD ME_6211A607D3EF
+
+FORWARD ME_65EFE0FF65B8
+
+ME ME_247CE730B223
+ MEPROP Name 'anItem'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_247CE730B223 anItem
+
+ME ME_65EFE0FF65B8
+ MEPROP UID '65EFE0FF65B8'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_6211A607D3EF // DoIt
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_247CE730B223 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_65EFE0FF65B8 DoIt
+
+ME ME_6211A607D3EF
+ MEPROP UID '6211A607D3EF'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_localmethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Подитеративная функция для вызова Iterate из DoIter' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551BC0D201CF // DoIter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_65EFE0FF65B8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_6211A607D3EF DoIt
+
+ME ME_551BC0FC00B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_call::Dependency ;
+ MELINK Parent HWL ME_551BC0D201CF // DoIter
+ ;
+ MELINK Target WL 'ME_551961AE0005' '5519611903CF.ms.model.script' // Iterate
+ ;
+ UP "iterator func name" 'DoIt'
+ UP "iterator needs params" True
+ UP "needs after iterator UC" False
+
+ENDME // ME_551BC0FC00B4 
+
+ME ME_28023919DCF7
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_551BC0D201CF // DoIter
+ ;
+ MELINK Target WL? 'ME_5519611903CF' // TIterateableService
+ ;
+
+ENDME // ME_28023919DCF7 
+
+ME ME_551BC0D201CF
+ MEPROP UID '551BC0D201CF'
+ MEPROP Name 'DoIter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551962080380 // ServiceTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_6211A607D3EF // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_551BC0FC00B4 // Iterate
+ ME_28023919DCF7 // TIterateableService
+ )
+ ; // Dependencies
+
+ENDME // ME_551BC0D201CF DoIter
+
+MEREF ME_4B2A0DDE028B_ME_551962080380_G
+ MELINK Original WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A0DDE028B_ME_551962080380_G TTestCase
+
+%%InheritedBy ME_4B2A0DDE028B ME_551962080380
+
+ME ME_551962080380
+ MEPROP UID '551962080380'
+ MEPROP Name 'ServiceTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5161390500C1' // Core
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B2A0DDE028B_ME_551962080380_G // TTestCase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55196221027E // DoIt
+ HWL ME_551BC0D201CF // DoIter
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TServiceTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ServiceTest'
+ UP intf.pas:Path 'common\components\SandBox\ServiceTest.pas'
+
+ENDME // ME_551962080380 ServiceTest

@@ -4,8 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_3DBF74BFD9AD
 
-FORWARD ME_3DBF74BFD9AD
-
 FORWARD ME_4ABA142401CA
 
 ME ME_3DBF74BFD9AD
@@ -31,6 +29,18 @@ ME ME_3DBF74BFD9AD
 
 ENDME // ME_3DBF74BFD9AD StyleEditorContainer$Def
 
+MEREF ME_4C52B21801B6_ME_4ABA142401CA_G
+ MELINK Original WL? 'ME_4C52B21801B6' // PrimStyleEditorContainerOptions
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C52B21801B6_ME_4ABA142401CA_G PrimStyleEditorContainerOptions
+
+MEREF ME_3DBF74BFD9AD_ME_4ABA142401CA_R
+ MELINK Original HWL ME_3DBF74BFD9AD // StyleEditorContainer$Def
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBF74BFD9AD_ME_4ABA142401CA_R StyleEditorContainer$Def
+
 %%ImplementedBy ME_3DBF74BFD9AD ME_4ABA142401CA
 
 %%InheritedBy ME_4C52B21801B6 ME_4ABA142401CA
@@ -48,11 +58,11 @@ ME ME_4ABA142401CA
  MELINK Parent WL? 'ME_4AA79F72010A' // Settings
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4C52B21801B6' // PrimStyleEditorContainerOptions
+   Seq: ( HWL ME_4C52B21801B6_ME_4ABA142401CA_G // PrimStyleEditorContainerOptions
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_3DBF74BFD9AD // StyleEditorContainer$Def
+   Seq: ( HWL ME_3DBF74BFD9AD_ME_4ABA142401CA_R // StyleEditorContainer$Def
  )
  ; // Implements
  MELIST Children

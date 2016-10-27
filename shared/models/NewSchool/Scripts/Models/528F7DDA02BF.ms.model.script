@@ -22,7 +22,7 @@ ENDME // ME_528F73120209 DoIt
 ME ME_528F7301033E
  MEPROP UID '528F7301033E'
  MEPROP Name 'StackCheckingMessage'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -36,11 +36,17 @@ ME ME_528F7301033E
 
 ENDME // ME_528F7301033E StackCheckingMessage
 
-ME ME_4DAEEDE10285_ME_528F7DDA02BF
+MEREF ME_4DAEEDE10285_ME_528F7DDA02BF_impl
  MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DAEEDE10285_ME_528F7DDA02BF DoDoIt
+ENDMEREF // ME_4DAEEDE10285_ME_528F7DDA02BF_impl DoDoIt
+
+MEREF ME_528F7E620313_ME_528F7DDA02BF_R
+ MELINK Original WL 'ME_528F7E620313' '54F079B5035C.ms.model.script' // MtfwWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_528F7E620313_ME_528F7DDA02BF_R MtfwWord
 
 %%ImplementedBy ME_528F7E620313 ME_528F7DDA02BF
 
@@ -56,7 +62,7 @@ ME ME_528F7DDA02BF
  MELINK Parent WL? 'ME_4DAEEA14018A' // Scripting Axiomatics
  ;
  MELIST Implements
-   Seq: ( WL 'ME_528F7E620313' '54F079B5035C.ms.model.script' // MtfwWord
+   Seq: ( HWL ME_528F7E620313_ME_528F7DDA02BF_R // MtfwWord
  )
  ; // Implements
  MELIST Operations
@@ -64,7 +70,7 @@ ME ME_528F7DDA02BF
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4DAEEDE10285_ME_528F7DDA02BF // DoDoIt
+   Seq: ( ME_4DAEEDE10285_ME_528F7DDA02BF_impl // DoDoIt
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames

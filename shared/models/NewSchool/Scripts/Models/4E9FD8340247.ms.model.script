@@ -1,0 +1,70 @@
+// TevdHyperlinkEliminator 4E9FD8340247 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E9FD8340247
+
+ME ME_4E9FD911011D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E9FD8340247 // TevdHyperlinkEliminator
+ ;
+ MELINK Target WL 'ME_485649E10305' '484A470100DD.ms.model.script' // HyperLink
+ ;
+
+ENDME // ME_4E9FD911011D 
+
+MEREF ME_49E488070386_ME_4E9FD8340247_over
+ MELINK Original WL 'ME_49E488070386' '49E487650342.ms.model.script' // ParaTypeForFiltering
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E488070386_ME_4E9FD8340247_over ParaTypeForFiltering
+
+MEREF ME_49E48829016F_ME_4E9FD8340247_over
+ MELINK Original WL 'ME_49E48829016F' '49E487650342.ms.model.script' // NeedWritePara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E48829016F_ME_4E9FD8340247_over NeedWritePara
+
+MEREF ME_49E487650342_ME_4E9FD8340247_G
+ MELINK Original WL? 'ME_49E487650342' // TevdLeafParaFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487650342_ME_4E9FD8340247_G TevdLeafParaFilter
+
+%%InheritedBy ME_49E487650342 ME_4E9FD8340247
+
+ME ME_4E9FD8340247
+ MEPROP UID '4E9FD8340247'
+ MEPROP Name 'TevdHyperlinkEliminator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '‘ильтр, удал€ющий все гиперссылки в документе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECB8BD00A8' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E487650342_ME_4E9FD8340247_G // TevdLeafParaFilter
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49E488070386_ME_4E9FD8340247_over // ParaTypeForFiltering
+ ME_49E48829016F_ME_4E9FD8340247_over // NeedWritePara
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E9FD911011D // HyperLink
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evdHyperlinkEliminator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dHyperlinkEliminator'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdHyperlinkEliminator.pas'
+
+ENDME // ME_4E9FD8340247 TevdHyperlinkEliminator

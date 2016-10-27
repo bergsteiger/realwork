@@ -19,11 +19,23 @@ ME ME_4EDCF9EF0072
 
 ENDME // ME_4EDCF9EF0072 DocInfo
 
-ME ME_4EDCF99301CA_ME_4EDCF6BC00D9
+MEREF ME_4EDCF99301CA_ME_4EDCF6BC00D9_over
  MELINK Original WL 'ME_4EDCF99301CA' '492189D90209.ms.model.script' // DoGetDocInfo
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4EDCF99301CA_ME_4EDCF6BC00D9 DoGetDocInfo
+ENDMEREF // ME_4EDCF99301CA_ME_4EDCF6BC00D9_over DoGetDocInfo
+
+MEREF ME_492189D90209_ME_4EDCF6BC00D9_G
+ MELINK Original WL? 'ME_492189D90209' // TdsWarning
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492189D90209_ME_4EDCF6BC00D9_G TdsWarning
+
+MEREF ME_4EDCF71A016C_ME_4EDCF6BC00D9_R
+ MELINK Original WL 'ME_4EDCF71A016C' '484FA67302D7.ms.model.script' // Предупреждение к переводу документа должно показываться в виде баллона
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EDCF71A016C_ME_4EDCF6BC00D9_R Предупреждение к переводу документа должно показываться в виде баллона
 
 %%ImplementedBy ME_4EDCF71A016C ME_4EDCF6BC00D9
 
@@ -42,11 +54,11 @@ ME ME_4EDCF6BC00D9
  MELINK Parent WL? 'ME_4A9F83AD0235' // Document
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_492189D90209' // TdsWarning
+   Seq: ( HWL ME_492189D90209_ME_4EDCF6BC00D9_G // TdsWarning
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4EDCF71A016C' '484FA67302D7.ms.model.script' // Предупреждение к переводу документа должно показываться в виде баллона
+   Seq: ( HWL ME_4EDCF71A016C_ME_4EDCF6BC00D9_R // Предупреждение к переводу документа должно показываться в виде баллона
  )
  ; // Implements
  MELIST Attributes
@@ -54,7 +66,7 @@ ME ME_4EDCF6BC00D9
  )
  ; // Attributes
  MELIST Overridden
-   Seq: ( ME_4EDCF99301CA_ME_4EDCF6BC00D9 // DoGetDocInfo
+   Seq: ( ME_4EDCF99301CA_ME_4EDCF6BC00D9_over // DoGetDocInfo
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames

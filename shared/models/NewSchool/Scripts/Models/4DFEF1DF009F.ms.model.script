@@ -1,0 +1,390 @@
+// TevContentsNodeFilter 4DFEF1DF009F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DFEF1DF009F
+
+ME ME_4DFF00AE0106
+ MEPROP UID '4DFF00AE0106'
+ MEPROP Name 'f_FilteredNodeFlag'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DFEF1DF009F // TevContentsNodeFilter
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DFF00AE0106 f_FilteredNodeFlag
+
+ME ME_4DFF007B02F9
+ MEPROP UID '4DFF007B02F9'
+ MEPROP Name 'f_Document'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DFEF1DF009F // TevContentsNodeFilter
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_4DFF007B02F9 f_Document
+
+ME ME_4E09BC9603E0
+ MEPROP UID '4E09BC9603E0'
+ MEPROP Name 'f_FilterTagList'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Список удаленных тегов.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DFEF1DF009F // TevContentsNodeFilter
+ ;
+ MELINK Target WL? 'ME_5319CECC039A' // Tk2SimpleTagList
+ ;
+
+ENDME // ME_4E09BC9603E0 f_FilterTagList
+
+FORWARD ME_4ECA574B02DB
+
+FORWARD ME_4ECA575801A6
+
+ME ME_5343AE1202E2
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4811C7D800D6' '47C5207602D1.ms.model.script' // InevNode
+ ;
+
+ENDME // ME_5343AE1202E2 aNode
+
+ME ME_4ECA575801A6
+ MEPROP UID '4ECA575801A6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ECA574B02DB // NeedColor
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5343AE1202E2 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4ECA575801A6 DoIt
+
+ME ME_4ECA574B02DB
+ MEPROP UID '4ECA574B02DB'
+ MEPROP Name 'NeedColor'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DFEF1DF009F // TevContentsNodeFilter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4ECA575801A6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4ECA574B02DB NeedColor
+
+FORWARD ME_532BF0C70311
+
+ME ME_532BF0F10059
+ MEPROP UID '532BF0F10059'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532BF0C70311 // GetDocContentLevel
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_532BF0F10059 DoIt
+
+ME ME_532BF0C70311
+ MEPROP UID '532BF0C70311'
+ MEPROP Name 'GetDocContentLevel'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DFEF1DF009F // TevContentsNodeFilter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_532BF0F10059 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_532BF0C70311 GetDocContentLevel
+
+FORWARD ME_4DFEF2F303DD
+
+ME ME_5343AE1E00AA
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_5343AE1E00AA aDocument
+
+ME ME_4DFEF2F303DD
+ MEPROP UID '4DFEF2F303DD'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_vctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DFEF1DF009F // TevContentsNodeFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_5343AE1E00AA // aDocument
+ )
+ ; // Parameters
+
+ENDME // ME_4DFEF2F303DD Create
+
+FORWARD ME_4DFEF31A0273
+
+ME ME_5343AE250334
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_5343AE250334 aDocument
+
+ME ME_4DFEF31A0273
+ MEPROP UID '4DFEF31A0273'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DFEF1DF009F // TevContentsNodeFilter
+ ;
+ MELINK Target WL 'ME_4A2627EA0145' '47F088300159.ms.model.script' // InevContentsNodeFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_5343AE250334 // aDocument
+ )
+ ; // Parameters
+
+ENDME // ME_4DFEF31A0273 Make
+
+ME ME_4DFF04BE0309
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFEF1DF009F // TevContentsNodeFilter
+ ;
+ MELINK Target WL 'ME_484CDAC302F7' '469D0AC7005E.ms.model.script' // Sub Layers
+ ;
+
+ENDME // ME_4DFF04BE0309 
+
+ME ME_4DFF058D031B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFEF1DF009F // TevContentsNodeFilter
+ ;
+ MELINK Target WL 'ME_47723A1001D6' '4682595B0268.ms.model.script' // IterMode
+ ;
+
+ENDME // ME_4DFF058D031B 
+
+ME ME_4DFF05B700A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFEF1DF009F // TevContentsNodeFilter
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4DFF05B700A5 
+
+ME ME_4DFF076600F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFEF1DF009F // TevContentsNodeFilter
+ ;
+ MELINK Target WL 'ME_4DFF0695000B' '47F2612701D0.ms.model.script' // l3SetMask
+ ;
+
+ENDME // ME_4DFF076600F8 
+
+ME ME_4E09C23A01B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFEF1DF009F // TevContentsNodeFilter
+ ;
+ MELINK Target WL 'ME_476F9605006B' '4678193C009C.ms.model.script' // Indexes
+ ;
+
+ENDME // ME_4E09C23A01B1 
+
+ME ME_4ECA599B0060
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFEF1DF009F // TevContentsNodeFilter
+ ;
+ MELINK Target WL? 'ME_47A066980016' // l3MinMax
+ ;
+
+ENDME // ME_4ECA599B0060 
+
+ME ME_52C0FD4A0386
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFEF1DF009F // TevContentsNodeFilter
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_52C0FD4A0386 
+
+ME ME_532C011F0269
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFEF1DF009F // TevContentsNodeFilter
+ ;
+ MELINK Target WL 'ME_532BFF6403D5' '532BFF3F00CA.ms.model.script' // evGetContentLevel
+ ;
+
+ENDME // ME_532C011F0269 
+
+MEREF ME_4A2628130085_ME_4DFEF1DF009F_impl
+ MELINK Original WL 'ME_4A2628130085' '47F088300159.ms.model.script' // ColorNode
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A2628130085_ME_4DFEF1DF009F_impl ColorNode
+
+MEREF ME_4A26284D0339_ME_4DFEF1DF009F_impl
+ MELINK Original WL 'ME_4A26284D0339' '47F088300159.ms.model.script' // FilteredNodeFlag
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4A26284D0339_ME_4DFEF1DF009F_impl FilteredNodeFlag
+
+MEREF ME_4E09B99A0384_ME_4DFEF1DF009F_impl
+ MELINK Original WL 'ME_4E09B99A0384' '47F088300159.ms.model.script' // CheckTagList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4E09B99A0384_ME_4DFEF1DF009F_impl CheckTagList
+
+MEREF ME_4E09BCEA0004_ME_4DFEF1DF009F_impl
+ MELINK Original WL 'ME_4E09BCEA0004' '47F088300159.ms.model.script' // AddFilterTag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4E09BCEA0004_ME_4DFEF1DF009F_impl AddFilterTag
+
+MEREF ME_4EAE94530363_ME_4DFEF1DF009F_impl
+ MELINK Original WL 'ME_4EAE94530363' '47F088300159.ms.model.script' // ChangeDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4EAE94530363_ME_4DFEF1DF009F_impl ChangeDocument
+
+MEREF ME_4ECA564903B7_ME_4DFEF1DF009F_impl
+ MELINK Original WL 'ME_4ECA564903B7' '47F088300159.ms.model.script' // NeedCreate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4ECA564903B7_ME_4DFEF1DF009F_impl NeedCreate
+
+MEREF ME_479731C50290_ME_4DFEF1DF009F_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4DFEF1DF009F_over Cleanup
+
+MEREF ME_46780CCE037B_ME_4DFEF1DF009F_G
+ MELINK Original WL 'ME_46780CCE037B' '4773D64E036C.ms.model.script' // Tl3Base
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780CCE037B_ME_4DFEF1DF009F_G Tl3Base
+
+MEREF ME_4A2627EA0145_ME_4DFEF1DF009F_R
+ MELINK Original WL 'ME_4A2627EA0145' '47F088300159.ms.model.script' // InevContentsNodeFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A2627EA0145_ME_4DFEF1DF009F_R InevContentsNodeFilter
+
+%%ImplementedBy ME_4A2627EA0145 ME_4DFEF1DF009F
+
+%%InheritedBy ME_46780CCE037B ME_4DFEF1DF009F
+
+ME ME_4DFEF1DF009F
+ MEPROP UID '4DFEF1DF009F'
+ MEPROP Name 'TevContentsNodeFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'фильтр оглваления документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DFEEE4A017D' // ContentsTree
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46780CCE037B_ME_4DFEF1DF009F_G // Tl3Base
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4A2627EA0145_ME_4DFEF1DF009F_R // InevContentsNodeFilter
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4DFF00AE0106 // f_FilteredNodeFlag
+ HWL ME_4DFF007B02F9 // f_Document
+ HWL ME_4E09BC9603E0 // f_FilterTagList
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4ECA574B02DB // NeedColor
+ HWL ME_532BF0C70311 // GetDocContentLevel
+ HWL ME_4DFEF2F303DD // Create
+ HWL ME_4DFEF31A0273 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A2628130085_ME_4DFEF1DF009F_impl // ColorNode
+ ME_4A26284D0339_ME_4DFEF1DF009F_impl // FilteredNodeFlag
+ ME_4E09B99A0384_ME_4DFEF1DF009F_impl // CheckTagList
+ ME_4E09BCEA0004_ME_4DFEF1DF009F_impl // AddFilterTag
+ ME_4EAE94530363_ME_4DFEF1DF009F_impl // ChangeDocument
+ ME_4ECA564903B7_ME_4DFEF1DF009F_impl // NeedCreate
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4DFEF1DF009F_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DFF04BE0309 // Sub Layers
+ ME_4DFF058D031B // IterMode
+ ME_4DFF05B700A5 // Supports
+ ME_4DFF076600F8 // l3SetMask
+ ME_4E09C23A01B1 // Indexes
+ ME_4ECA599B0060 // l3MinMax
+ ME_52C0FD4A0386 // Tk2TagID
+ ME_532C011F0269 // evGetContentLevel
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP extprop:pas:UnitName 'evContentsNodeFilter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ContentsNodeFilter'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evContentsNodeFilter.pas'
+
+ENDME // ME_4DFEF1DF009F TevContentsNodeFilter

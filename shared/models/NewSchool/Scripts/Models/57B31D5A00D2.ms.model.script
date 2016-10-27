@@ -1,0 +1,139 @@
+// TmsmTreeModel 57B31D5A00D2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57B31D5A00D2
+
+FORWARD ME_57B31E3F034D
+
+FORWARD ME_57B31E4C02CD
+
+ME ME_57B326E202F6
+ MEPROP Name 'anElementView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57B3262B00D2' '57B565F200E5.ms.model.script' // TmsmModelElementView
+ ;
+
+ENDME // ME_57B326E202F6 anElementView
+
+ME ME_57B31E4C02CD
+ MEPROP UID '57B31E4C02CD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B31E3F034D // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57B326E202F6 // anElementView
+ )
+ ; // Parameters
+
+ENDME // ME_57B31E4C02CD DoIt
+
+ME ME_57B31E3F034D
+ MEPROP UID '57B31E3F034D'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B31D5A00D2 // TmsmTreeModel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57B31E4C02CD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57B31E3F034D Create
+
+MEREF ME_57B31E3F034D_ME_57B31DA5009A_G
+ MELINK Original HWL ME_57B31E3F034D // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B31E3F034D_ME_57B31DA5009A_G Create
+
+MEREF ME_57B198570162_ME_57B31DA5009A_R
+ MELINK Original WL 'ME_57B198570162' '57ADC53E00B6.ms.model.script' // ImsmTreeModel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B198570162_ME_57B31DA5009A_R ImsmTreeModel
+
+%%ImplementedBy ME_57B198570162 ME_57B31DA5009A
+
+%%InheritedBy ME_57B31E3F034D ME_57B31DA5009A
+
+ME ME_57B31DA5009A
+ MEPROP UID '57B31DA5009A'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B31D5A00D2 // TmsmTreeModel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57B31E3F034D_ME_57B31DA5009A_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57B198570162_ME_57B31DA5009A_R // ImsmTreeModel
+ )
+ ; // Implements
+
+ENDME // ME_57B31DA5009A Make
+
+ME ME_57B31E2A0058
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57B31D5A00D2 // TmsmTreeModel
+ ;
+ MELINK Target WL? 'ME_57AC3A8100E5' // TmsmModelElementTree
+ ;
+
+ENDME // ME_57B31E2A0058 
+
+MEREF ME_57B198B401A7_ME_57B31D5A00D2_G
+ MELINK Original WL? 'ME_57B198B401A7' // TmsmTreeModelPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B198B401A7_ME_57B31D5A00D2_G TmsmTreeModelPrim
+
+%%InheritedBy ME_57B198B401A7 ME_57B31D5A00D2
+
+ME ME_57B31D5A00D2
+ MEPROP UID '57B31D5A00D2'
+ MEPROP Name 'TmsmTreeModel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57AE0D6601AE' // ConcreteModels
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57B198B401A7_ME_57B31D5A00D2_G // TmsmTreeModelPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57B31E3F034D // Create
+ HWL ME_57B31DA5009A // Make
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57B31E2A0058 // TmsmModelElementTree
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmTreeModel'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmTreeModel'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmTreeModel.pas'
+
+ENDME // ME_57B31D5A00D2 TmsmTreeModel

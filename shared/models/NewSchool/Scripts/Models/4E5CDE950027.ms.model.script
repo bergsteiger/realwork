@@ -1,0 +1,150 @@
+// Tl3SearchNodePrim 4E5CDE950027 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E5CDE950027
+
+ME ME_4E5CDEE10152
+ MEPROP UID '4E5CDEE10152'
+ MEPROP Name 'Data'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E5CDE950027 // Tl3SearchNodePrim
+ ;
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_4E5CDEE10152 Data
+
+ME ME_4E5CDF19019F
+ MEPROP UID '4E5CDF19019F'
+ MEPROP Name 'Text'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E5CDE950027 // Tl3SearchNodePrim
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_4E5CDF19019F Text
+
+FORWARD ME_4E5CEE3601A1
+
+FORWARD ME_4E5CEE53007F
+
+ME ME_4E5CEE8502D6
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4E5CEE8502D6 aText
+
+ME ME_4E5CEE8502FD
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ ;
+
+ENDME // ME_4E5CEE8502FD aData
+
+ME ME_4E5CEE53007F
+ MEPROP UID '4E5CEE53007F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E5CEE3601A1 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E5CEE8502D6 // aText
+ ME_4E5CEE8502FD // aData
+ )
+ ; // Parameters
+
+ENDME // ME_4E5CEE53007F DoIt
+
+ME ME_4E5CEE3601A1
+ MEPROP UID '4E5CEE3601A1'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E5CDE950027 // Tl3SearchNodePrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E5CEE53007F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E5CEE3601A1 Create
+
+MEREF ME_479731C50290_ME_4E5CDE950027_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4E5CDE950027_over Cleanup
+
+MEREF ME_49E7754802A9_ME_4E5CDE950027_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4E5CDE950027_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_4E5CDE950027
+
+ME ME_4E5CDE950027
+ MEPROP UID '4E5CDE950027'
+ MEPROP Name 'Tl3SearchNodePrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A6D65B9022A' // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_4E5CDE950027_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4E5CDEE10152 // Data
+ HWL ME_4E5CDF19019F // Text
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E5CEE3601A1 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4E5CDE950027_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'l3SearchNodePrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SearchNodePrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3SearchNodePrim.pas'
+
+ENDME // ME_4E5CDE950027 Tl3SearchNodePrim

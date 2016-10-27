@@ -1,0 +1,260 @@
+// Tm3ReadOnlyRootStreamManager 5441022F00F3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5441022F00F3
+
+ME ME_544102710198
+ MEPROP UID '544102710198'
+ MEPROP Name 'f_Other'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5441022F00F3 // Tm3ReadOnlyRootStreamManager
+ ;
+ MELINK Target WL? 'ME_543FBAC30068' // Tm3RootStreamManagerPrim
+ ;
+
+ENDME // ME_544102710198 f_Other
+
+FORWARD ME_544102A6036C
+
+FORWARD ME_544102B30025
+
+ME ME_544102BF027E
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_543FBAC30068' // Tm3RootStreamManagerPrim
+ ;
+
+ENDME // ME_544102BF027E anOther
+
+ME ME_544102B30025
+ MEPROP UID '544102B30025'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_544102A6036C // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_544102BF027E // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_544102B30025 DoIt
+
+ME ME_544102A6036C
+ MEPROP UID '544102A6036C'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5441022F00F3 // Tm3ReadOnlyRootStreamManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_544102B30025 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_544102A6036C Create
+
+ME ME_54410A19024C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5441022F00F3 // Tm3ReadOnlyRootStreamManager
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54410A19024C 
+
+MEREF ME_541021B90213_ME_5441022F00F3_impl
+ MELINK Original WL 'ME_541021B90213' '543F7EF202C6.ms.model.script' // DoLockRegion
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_541021B90213_ME_5441022F00F3_impl DoLockRegion
+
+MEREF ME_541021E4022F_ME_5441022F00F3_impl
+ MELINK Original WL 'ME_541021E4022F' '543F7EF202C6.ms.model.script' // DoUnlockRegion
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_541021E4022F_ME_5441022F00F3_impl DoUnlockRegion
+
+MEREF ME_5411A48C0040_ME_5441022F00F3_impl
+ MELINK Original WL 'ME_5411A48C0040' '543FBAC30068.ms.model.script' // StoreHeaderDataClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5411A48C0040_ME_5441022F00F3_impl StoreHeaderDataClass
+
+MEREF ME_5411B3280387_ME_5441022F00F3_impl
+ MELINK Original WL 'ME_5411B3280387' '543FBAC30068.ms.model.script' // RootStorageFATElement
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_5411B3280387_ME_5441022F00F3_impl RootStorageFATElement
+
+MEREF ME_5411C6960184_ME_5441022F00F3_impl
+ MELINK Original WL 'ME_5411C6960184' '543F7EF202C6.ms.model.script' // RemoveTOCBuffData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5411C6960184_ME_5441022F00F3_impl RemoveTOCBuffData
+
+MEREF ME_5423BF3603A1_ME_5441022F00F3_impl
+ MELINK Original WL 'ME_5423BF3603A1' '543FBAC30068.ms.model.script' // AllocNewFATElement
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5423BF3603A1_ME_5441022F00F3_impl AllocNewFATElement
+
+MEREF ME_5423BF5A00DC_ME_5441022F00F3_impl
+ MELINK Original WL 'ME_5423BF5A00DC' '543FBAC30068.ms.model.script' // RemoveFATElementAtPos
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5423BF5A00DC_ME_5441022F00F3_impl RemoveFATElementAtPos
+
+MEREF ME_54253CB801D8_ME_5441022F00F3_impl
+ MELINK Original WL 'ME_54253CB801D8' '543F7EF202C6.ms.model.script' // ClusterHeaderSize
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" False
+ENDMEREF // ME_54253CB801D8_ME_5441022F00F3_impl ClusterHeaderSize
+
+MEREF ME_5425479101D1_ME_5441022F00F3_impl
+ MELINK Original WL 'ME_5425479101D1' '543F7EF202C6.ms.model.script' // ClusterBodySize
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5425479101D1_ME_5441022F00F3_impl ClusterBodySize
+
+MEREF ME_5429114F00E8_ME_5441022F00F3_impl
+ MELINK Original WL 'ME_5429114F00E8' '543F7EF202C6.ms.model.script' // AllocNewCluster
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5429114F00E8_ME_5441022F00F3_impl AllocNewCluster
+
+MEREF ME_542E69CA007F_ME_5441022F00F3_impl
+ MELINK Original WL 'ME_542E69CA007F' '543FBAC30068.ms.model.script' // ReadOnly
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_542E69CA007F_ME_5441022F00F3_impl ReadOnly
+
+MEREF ME_543F8E8F0358_ME_5441022F00F3_impl
+ MELINK Original WL 'ME_543F8E8F0358' '543F7EF202C6.ms.model.script' // ReadData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_543F8E8F0358_ME_5441022F00F3_impl ReadData
+
+MEREF ME_543F8ED700E2_ME_5441022F00F3_impl
+ MELINK Original WL 'ME_543F8ED700E2' '543F7EF202C6.ms.model.script' // WriteData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_543F8ED700E2_ME_5441022F00F3_impl WriteData
+
+MEREF ME_543F90700143_ME_5441022F00F3_impl
+ MELINK Original WL 'ME_543F90700143' '543F7EF202C6.ms.model.script' // AllocatedStreamSize
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_543F90700143_ME_5441022F00F3_impl AllocatedStreamSize
+
+MEREF ME_543F960901AE_ME_5441022F00F3_impl
+ MELINK Original WL 'ME_543F960901AE' '543F7EF202C6.ms.model.script' // SetPositionAndValidateIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_543F960901AE_ME_5441022F00F3_impl SetPositionAndValidateIt
+
+MEREF ME_543FAEB90303_ME_5441022F00F3_impl
+ MELINK Original WL 'ME_543FAEB90303' '543F7EF202C6.ms.model.script' // ReloadHeader
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_543FAEB90303_ME_5441022F00F3_impl ReloadHeader
+
+MEREF ME_54411B71009B_ME_5441022F00F3_impl
+ MELINK Original WL 'ME_54411B71009B' '543F7EF202C6.ms.model.script' // ReadDataAtCurrent
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54411B71009B_ME_5441022F00F3_impl ReadDataAtCurrent
+
+MEREF ME_479731C50290_ME_5441022F00F3_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5441022F00F3_over Cleanup
+
+MEREF ME_540EFD500389_ME_5441022F00F3_over
+ MELINK Original WL 'ME_540EFD500389' '543F7EF202C6.ms.model.script' // DoIsValidPosition
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_540EFD500389_ME_5441022F00F3_over DoIsValidPosition
+
+MEREF ME_543FBAC30068_ME_5441022F00F3_G
+ MELINK Original WL? 'ME_543FBAC30068' // Tm3RootStreamManagerPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_543FBAC30068_ME_5441022F00F3_G Tm3RootStreamManagerPrim
+
+%%InheritedBy ME_543FBAC30068 ME_5441022F00F3
+
+ME ME_5441022F00F3
+ MEPROP UID '5441022F00F3'
+ MEPROP Name 'Tm3ReadOnlyRootStreamManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_543FBAC30068_ME_5441022F00F3_G // Tm3RootStreamManagerPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_544102710198 // f_Other
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_544102A6036C // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_541021B90213_ME_5441022F00F3_impl // DoLockRegion
+ ME_541021E4022F_ME_5441022F00F3_impl // DoUnlockRegion
+ ME_5411A48C0040_ME_5441022F00F3_impl // StoreHeaderDataClass
+ ME_5411B3280387_ME_5441022F00F3_impl // RootStorageFATElement
+ ME_5411C6960184_ME_5441022F00F3_impl // RemoveTOCBuffData
+ ME_5423BF3603A1_ME_5441022F00F3_impl // AllocNewFATElement
+ ME_5423BF5A00DC_ME_5441022F00F3_impl // RemoveFATElementAtPos
+ ME_54253CB801D8_ME_5441022F00F3_impl // ClusterHeaderSize
+ ME_5425479101D1_ME_5441022F00F3_impl // ClusterBodySize
+ ME_5429114F00E8_ME_5441022F00F3_impl // AllocNewCluster
+ ME_542E69CA007F_ME_5441022F00F3_impl // ReadOnly
+ ME_543F8E8F0358_ME_5441022F00F3_impl // ReadData
+ ME_543F8ED700E2_ME_5441022F00F3_impl // WriteData
+ ME_543F90700143_ME_5441022F00F3_impl // AllocatedStreamSize
+ ME_543F960901AE_ME_5441022F00F3_impl // SetPositionAndValidateIt
+ ME_543FAEB90303_ME_5441022F00F3_impl // ReloadHeader
+ ME_54411B71009B_ME_5441022F00F3_impl // ReadDataAtCurrent
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5441022F00F3_over // Cleanup
+ ME_540EFD500389_ME_5441022F00F3_over // DoIsValidPosition
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54410A19024C // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'm3ReadOnlyRootStreamManager'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3ReadOnlyRootStreamManager'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3ReadOnlyRootStreamManager.pas'
+
+ENDME // ME_5441022F00F3 Tm3ReadOnlyRootStreamManager

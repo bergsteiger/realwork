@@ -1,0 +1,238 @@
+// TarBelaPubList 56AF378901B9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_56AF38200030
+%%Inner ME_56AF54CC00BD
+
+FORWARD ME_56AF378901B9
+
+FORWARD ME_56AF38200030
+
+ME ME_56AF387603BA
+ MEPROP UID '56AF387603BA'
+ MEPROP Name 'rPubSource'
+ MEPROP Class class_Attribute
+ %SUMMARY 'IST Ц источник публикации правового акта (код значение) (м);' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56AF38200030 // TarBelaPubInfo
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_56AF387603BA rPubSource
+
+ME ME_56AF38F702EE
+ MEPROP UID '56AF38F702EE'
+ MEPROP Name 'rDate'
+ MEPROP Class class_Attribute
+ %SUMMARY 'IDAT Ц дата издани€ источника публикации (M);' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56AF38200030 // TarBelaPubInfo
+ ;
+ MELINK Target WL 'ME_4E8EDFCA01C0' '47D02918035D.ms.model.script' // TStDate
+ ;
+
+ENDME // ME_56AF38F702EE rDate
+
+ME ME_56AF3A2900D4
+ MEPROP UID '56AF3A2900D4'
+ MEPROP Name 'rYear'
+ MEPROP Class class_Attribute
+ %SUMMARY 'YEAR Ц год публикации (M);' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56AF38200030 // TarBelaPubInfo
+ ;
+ MELINK Target WL 'ME_476F71A701AB' '4807744200AA.ms.model.script' // Word
+ ;
+
+ENDME // ME_56AF3A2900D4 rYear
+
+ME ME_56AF3A4601D6
+ MEPROP UID '56AF3A4601D6'
+ MEPROP Name 'rNum'
+ MEPROP Class class_Attribute
+ %SUMMARY 'NUMB Ц номер источника публикации (M);' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56AF38200030 // TarBelaPubInfo
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_56AF3A4601D6 rNum
+
+ME ME_56AF3A6C0358
+ MEPROP UID '56AF3A6C0358'
+ MEPROP Name 'rArticle'
+ MEPROP Class class_Attribute
+ %SUMMARY 'IN Ц номер статьи (M). ѕри отсутствии информации о номере статьи за идентификатором пол€ через пробел ставитс€ символ Ђ-ї (минус);' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56AF38200030 // TarBelaPubInfo
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_56AF3A6C0358 rArticle
+
+ME ME_56AF38200030
+ MEPROP UID '56AF38200030'
+ MEPROP Name 'TarBelaPubInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56AF378901B9 // TarBelaPubList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_56AF387603BA // rPubSource
+ HWL ME_56AF38F702EE // rDate
+ HWL ME_56AF3A2900D4 // rYear
+ HWL ME_56AF3A4601D6 // rNum
+ HWL ME_56AF3A6C0358 // rArticle
+ )
+ ; // Attributes
+
+ENDME // ME_56AF38200030 TarBelaPubInfo
+
+MEREF ME_56AF38200030_ME_56AF54CC00BD_G
+ MELINK Original HWL ME_56AF38200030 // TarBelaPubInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_56AF38200030_ME_56AF54CC00BD_G TarBelaPubInfo
+
+%%InheritedBy ME_56AF38200030 ME_56AF54CC00BD
+
+ME ME_56AF54CC00BD
+ MEPROP UID '56AF54CC00BD'
+ MEPROP Name 'ParBelaPubInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56AF378901B9 // TarBelaPubList
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_56AF38200030_ME_56AF54CC00BD_G // TarBelaPubInfo
+ )
+ ; // Inherits
+ UP "isPointer" True
+
+ENDME // ME_56AF54CC00BD ParBelaPubInfo
+
+ME ME_56AF38390076
+ MEPROP UID '56AF38390076'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56AF378901B9 // TarBelaPubList
+ ;
+ MELINK Target HWL ME_56AF38200030 // TarBelaPubInfo
+ ;
+
+ENDME // ME_56AF38390076 ItemType
+
+ME ME_56AF3B0902FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56AF378901B9 // TarBelaPubList
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_56AF3B0902FD 
+
+MEREF ME_47B07CF403D0_ME_56AF378901B9_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_56AF378901B9_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_56AF378901B9_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_56AF378901B9_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_56AF378901B9_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_56AF378901B9_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_56AF378901B9_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_56AF378901B9_G Tl3ProtoDataContainer
+
+MEREF ME_4B223ADC02BF_ME_56AF378901B9_G
+ MELINK Original WL? 'ME_4B223ADC02BF' // l3RecordListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223ADC02BF_ME_56AF378901B9_G l3RecordListPrim
+
+%%InheritedBy ME_4A54DD4E036F ME_56AF378901B9
+%%InheritedBy ME_4B223ADC02BF ME_56AF378901B9
+
+ME ME_56AF378901B9
+ MEPROP UID '56AF378901B9'
+ MEPROP Name 'TarBelaPubList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_56A5E0300333' // Belarus
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_56AF378901B9_G // Tl3ProtoDataContainer
+ HWL ME_4B223ADC02BF_ME_56AF378901B9_G // l3RecordListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_56AF38390076 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_56AF378901B9_impl // IsSameItems
+ ME_47B2C42A0163_ME_56AF378901B9_impl // AssignItem
+ ME_47B99D4503A2_ME_56AF378901B9_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_56AF38200030 // TarBelaPubInfo
+ HWL ME_56AF54CC00BD // ParBelaPubInfo
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_56AF3B0902FD // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'arBelaPubList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arBelaPubList'
+ UP intf.pas:Path 'common\components\rtl\Garant\ar\arBelaPubList.pas'
+
+ENDME // ME_56AF378901B9 TarBelaPubList

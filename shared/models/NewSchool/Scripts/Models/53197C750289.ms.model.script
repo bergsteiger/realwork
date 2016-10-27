@@ -1,0 +1,63 @@
+// K517772970_TddServerStatusRequestDefault 53197C750289 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53197C750289
+
+ME ME_53197CAA0341
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53197C750289 // K517772970_TddServerStatusRequestDefault
+ ;
+ MELINK Target WL? 'ME_5317080B0295' // csServerStatusRequest
+ ;
+
+ENDME // ME_53197CAA0341 
+
+MEREF ME_53170E4100CF_ME_53197C750289_impl
+ MELINK Original WL 'ME_53170E4100CF' '53170DE90011.ms.model.script' // GetTaskClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_53170E4100CF_ME_53197C750289_impl GetTaskClass
+
+MEREF ME_53170DE90011_ME_53197C750289_G
+ MELINK Original WL? 'ME_53170DE90011' // K517772970_TCheckSaveToStreamDefault
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53170DE90011_ME_53197C750289_G K517772970_TCheckSaveToStreamDefault
+
+%%InheritedBy ME_53170DE90011 ME_53197C750289
+
+ME ME_53197C750289
+ MEPROP UID '53197C750289'
+ MEPROP Name 'K517772970_TddServerStatusRequestDefault'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53185EDF0306' // TasksSaveLoadWithDefault
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53170DE90011_ME_53197C750289_G // K517772970_TCheckSaveToStreamDefault
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53170E4100CF_ME_53197C750289_impl // GetTaskClass
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53197CAA0341 // csServerStatusRequest
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TK517772970_TddServerStatusRequestDefault'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K517772970_TddServerStatusRequestDefault'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TddServerStatusRequestDefault.pas'
+
+ENDME // ME_53197C750289 K517772970_TddServerStatusRequestDefault

@@ -1,0 +1,192 @@
+// Tk2TypedAtomicTag 5273CF4602B7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5273CFB50063
+%%Inner ME_5273D4CD0067
+%%Inner ME_5273DA510261
+
+FORWARD ME_5273CF4602B7
+
+ME ME_5273CFB50063
+ MEPROP UID '5273CFB50063'
+ MEPROP Name 'k2TagIsAtomic'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5273CF4602B7 // Tk2TypedAtomicTag
+ ;
+ UP extprop:rc:SelfName 'TagIsAtomic'
+
+ENDME // ME_5273CFB50063 k2TagIsAtomic
+
+ME ME_5273D4CD0067
+ MEPROP UID '5273D4CD0067'
+ MEPROP Name 'k2Tag_No_f_TagType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5273CF4602B7 // Tk2TypedAtomicTag
+ ;
+ UP extprop:rc:SelfName 'Tag_No_f_TagType'
+
+ENDME // ME_5273D4CD0067 k2Tag_No_f_TagType
+
+MEREF ME_5273CF4602B7_ME_5273DA510261_G
+ MELINK Original HWL ME_5273CF4602B7 // Tk2TypedAtomicTag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5273CF4602B7_ME_5273DA510261_G Tk2TypedAtomicTag
+
+%%InheritedBy ME_5273CF4602B7 ME_5273DA510261
+
+ME ME_5273DA510261
+ MEPROP UID '5273DA510261'
+ MEPROP Name 'Rk2TypedAtomicTag'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5273CF4602B7 // Tk2TypedAtomicTag
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5273CF4602B7_ME_5273DA510261_G // Tk2TypedAtomicTag
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_5273DA510261 Rk2TypedAtomicTag
+
+FORWARD ME_5273CF7E0177
+
+FORWARD ME_5273CF89010F
+
+ME ME_5273CF900107
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5273CF900107 aValue
+
+ME ME_5273CF900127
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_5273CF900127 aType
+
+ME ME_5273CF89010F
+ MEPROP UID '5273CF89010F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5273CF7E0177 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5273CF900107 // aValue
+ ME_5273CF900127 // aType
+ )
+ ; // Parameters
+
+ENDME // ME_5273CF89010F Create
+
+ME ME_5273CF7E0177
+ MEPROP UID '5273CF7E0177'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5273CF4602B7 // Tk2TypedAtomicTag
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5273CF89010F // Create
+ )
+ ; // Operations
+
+ENDME // ME_5273CF7E0177 Create
+
+MEREF ME_49A545580241_ME_5273CF4602B7_impl
+ MELINK Original WL 'ME_49A545580241' '53280B9801E7.ms.model.script' // SetAtomPrim
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'k2TagIsAtomic'
+ENDMEREF // ME_49A545580241_ME_5273CF4602B7_impl SetAtomPrim
+
+MEREF ME_47A6FEE600FC_ME_5273CF4602B7_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_5273CF4602B7_over IsCacheable
+
+MEREF ME_47AC5591007B_ME_5273CF4602B7_G
+ MELINK Original WL? 'ME_47AC5591007B' // k2Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47AC5591007B_ME_5273CF4602B7_G k2Tag
+
+MEREF ME_53207C0102F8_ME_5273CF4602B7_G
+ MELINK Original WL? 'ME_53207C0102F8' // Tk2AtomicTag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53207C0102F8_ME_5273CF4602B7_G Tk2AtomicTag
+
+%%InheritedBy ME_47AC5591007B ME_5273CF4602B7
+%%InheritedBy ME_53207C0102F8 ME_5273CF4602B7
+
+ME ME_5273CF4602B7
+ MEPROP UID '5273CF4602B7'
+ MEPROP Name 'Tk2TypedAtomicTag'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47AC5591007B_ME_5273CF4602B7_G // k2Tag
+ HWL ME_53207C0102F8_ME_5273CF4602B7_G // Tk2AtomicTag
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5273CF7E0177 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49A545580241_ME_5273CF4602B7_impl // SetAtomPrim
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_5273CF4602B7_over // IsCacheable
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_5273CFB50063 // k2TagIsAtomic
+ HWL ME_5273D4CD0067 // k2Tag_No_f_TagType
+ HWL ME_5273DA510261 // Rk2TypedAtomicTag
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'k2TypedAtomicTag'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TypedAtomicTag'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2TypedAtomicTag.pas'
+
+ENDME // ME_5273CF4602B7 Tk2TypedAtomicTag

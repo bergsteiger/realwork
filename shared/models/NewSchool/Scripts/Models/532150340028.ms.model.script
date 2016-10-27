@@ -1,0 +1,63 @@
+// K517772970_TDeleteDocsQuery 532150340028 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_532150340028
+
+ME ME_532150740293
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532150340028 // K517772970_TDeleteDocsQuery
+ ;
+ MELINK Target WL? 'ME_52FA591401FA' // csServerTaskTypes
+ ;
+
+ENDME // ME_532150740293 
+
+MEREF ME_5320088202FB_ME_532150340028_over
+ MELINK Original WL 'ME_5320088202FB' '532008240001.ms.model.script' // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5320088202FB_ME_532150340028_over TaskClass
+
+MEREF ME_53200B5D0155_ME_532150340028_G
+ MELINK Original WL? 'ME_53200B5D0155' // K517772970_TddProcessTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53200B5D0155_ME_532150340028_G K517772970_TddProcessTask
+
+%%InheritedBy ME_53200B5D0155 ME_532150340028
+
+ME ME_532150340028
+ MEPROP UID '532150340028'
+ MEPROP Name 'K517772970_TDeleteDocsQuery'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_531FF6280311' // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B5D0155_ME_532150340028_G // K517772970_TddProcessTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_532150340028_over // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_532150740293 // csServerTaskTypes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TK517772970_TDeleteDocsQuery'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K517772970_TDeleteDocsQuery'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TDeleteDocsQuery.pas'
+
+ENDME // ME_532150340028 K517772970_TDeleteDocsQuery

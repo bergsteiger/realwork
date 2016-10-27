@@ -1,0 +1,157 @@
+// TvgVisualObject 4D49562A01B7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D49562A01B7
+
+ME ME_4D5E5BB000A5
+ MEPROP UID '4D5E5BB000A5'
+ MEPROP Name 'OnClick'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D49562A01B7 // TvgVisualObject
+ ;
+ MELINK Target WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4D5E5BB000A5 OnClick
+
+ME ME_4D5EA2BC0109
+ MEPROP UID '4D5EA2BC0109'
+ MEPROP Name 'FTabList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D49562A01B7 // TvgVisualObject
+ ;
+ MELINK Target WL? 'ME_4D5EA20700F4' // TvgObjectList
+ ;
+
+ENDME // ME_4D5EA2BC0109 FTabList
+
+ME ME_4D5EB53101A4
+ MEPROP UID '4D5EB53101A4'
+ MEPROP Name 'Align'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D49562A01B7 // TvgVisualObject
+ ;
+ MELINK Target WL 'ME_4D5EB41C02CB' '4D5420EC039D.ms.model.script' // TvgAlign
+ ;
+ UP "pm" True
+
+ENDME // ME_4D5EB53101A4 Align
+
+ME ME_4D5EB5860298
+ MEPROP UID '4D5EB5860298'
+ MEPROP Name 'DragMode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D49562A01B7 // TvgVisualObject
+ ;
+ MELINK Target WL 'ME_4D5EB55602EC' '4D5420EC039D.ms.model.script' // TvgDragMode
+ ;
+ UP "pm" True
+
+ENDME // ME_4D5EB5860298 DragMode
+
+ME ME_4D5EC23E012F
+ MEPROP UID '4D5EC23E012F'
+ MEPROP Name 'Margins'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D49562A01B7 // TvgVisualObject
+ ;
+ MELINK Target WL? 'ME_4D5EC22400DA' // TvgBounds
+ ;
+ UP "pm" True
+
+ENDME // ME_4D5EC23E012F Margins
+
+ME ME_4D5EC27D0219
+ MEPROP UID '4D5EC27D0219'
+ MEPROP Name 'Position'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D49562A01B7 // TvgVisualObject
+ ;
+ MELINK Target WL? 'ME_4D5EC25B0067' // TvgPosition
+ ;
+ UP "pm" True
+
+ENDME // ME_4D5EC27D0219 Position
+
+MEREF ME_4D5EAD10009D_ME_4D49562A01B7_over
+ MELINK Original WL 'ME_4D5EAD10009D' '4D542078016E.ms.model.script' // IsVisual
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" False
+ UP "pm" True
+ENDMEREF // ME_4D5EAD10009D_ME_4D49562A01B7_over IsVisual
+
+MEREF ME_4D4956480326_ME_4D49562A01B7_G
+ MELINK Original WL? 'ME_4D4956480326' // TvgObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D4956480326_ME_4D49562A01B7_G TvgObject
+
+%%InheritedBy ME_4D4956480326 ME_4D49562A01B7
+
+ME ME_4D49562A01B7
+ MEPROP UID '4D49562A01B7'
+ MEPROP Name 'TvgVisualObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4CFCE51A00B0' // Impl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D4956480326_ME_4D49562A01B7_G // TvgObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D5E5BB000A5 // OnClick
+ HWL ME_4D5EA2BC0109 // FTabList
+ HWL ME_4D5EB53101A4 // Align
+ HWL ME_4D5EB5860298 // DragMode
+ HWL ME_4D5EC23E012F // Margins
+ HWL ME_4D5EC27D0219 // Position
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4D5EAD10009D_ME_4D49562A01B7_over // IsVisual
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP "register in scripts" True
+ UP extprop:pas:UnitName 'vgVisualObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'VisualObject'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgVisualObject.pas'
+
+ENDME // ME_4D49562A01B7 TvgVisualObject

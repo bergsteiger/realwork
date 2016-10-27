@@ -1,0 +1,455 @@
+// Tm3FileStream 4FA276920090 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FA276920090
+
+ME ME_5481A6C4007A
+ MEPROP UID '5481A6C4007A'
+ MEPROP Name 'FHandle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA276920090 // Tm3FileStream
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+
+ENDME // ME_5481A6C4007A FHandle
+
+ME ME_5481A6DE0141
+ MEPROP UID '5481A6DE0141'
+ MEPROP Name 'f_Name'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA276920090 // Tm3FileStream
+ ;
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
+ ;
+
+ENDME // ME_5481A6DE0141 f_Name
+
+ME ME_5481A6F3022A
+ MEPROP UID '5481A6F3022A'
+ MEPROP Name 'f_SharedMode'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA276920090 // Tm3FileStream
+ ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_5481A6F3022A f_SharedMode
+
+FORWARD ME_5481A7080336
+
+FORWARD ME_5481A71800FC
+
+ME ME_5481A71E01F9
+ MEPROP Name 'AResult'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4F82F5BC0086' '4807744200AA.ms.model.script' // LongBool
+ ;
+
+ENDME // ME_5481A71E01F9 AResult
+
+ME ME_5481A71800FC
+ MEPROP UID '5481A71800FC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5481A7080336 // SysCheck
+ ;
+ MELIST Parameters
+   Seq: ( ME_5481A71E01F9 // AResult
+ )
+ ; // Parameters
+
+ENDME // ME_5481A71800FC DoIt
+
+ME ME_5481A7080336
+ MEPROP UID '5481A7080336'
+ MEPROP Name 'SysCheck'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA276920090 // Tm3FileStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5481A71800FC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5481A7080336 SysCheck
+
+FORWARD ME_5481A82803BB
+
+FORWARD ME_5481A83601C3
+
+ME ME_5481A86301E8
+ MEPROP Name 'AName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
+ ;
+
+ENDME // ME_5481A86301E8 AName
+
+ME ME_5481A8630212
+ MEPROP Name 'AAccess'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_5481A8630212 AAccess
+
+ME ME_5481A8630236
+ MEPROP Name 'ASharedMode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_5481A8630236 ASharedMode
+
+ME ME_5481A8630256
+ MEPROP Name 'ADistribution'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_5481A8630256 ADistribution
+
+ME ME_5481A86302A2
+ MEPROP Name 'AFlags'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_5481A86302A2 AFlags
+
+ME ME_5481A83601C3
+ MEPROP UID '5481A83601C3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5481A82803BB // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5481A86301E8 // AName
+ ME_5481A8630212 // AAccess
+ ME_5481A8630236 // ASharedMode
+ ME_5481A8630256 // ADistribution
+ ME_5481A86302A2 // AFlags
+ )
+ ; // Parameters
+
+ENDME // ME_5481A83601C3 DoIt
+
+ME ME_5481A82803BB
+ MEPROP UID '5481A82803BB'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA276920090 // Tm3FileStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5481A83601C3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5481A82803BB Create
+
+MEREF ME_5481A82803BB_ME_5481A86E016C_G
+ MELINK Original HWL ME_5481A82803BB // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5481A82803BB_ME_5481A86E016C_G Create
+
+MEREF ME_46A5AFF103CA_ME_5481A86E016C_R
+ MELINK Original WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46A5AFF103CA_ME_5481A86E016C_R IStream
+
+%%ImplementedBy ME_46A5AFF103CA ME_5481A86E016C
+
+%%InheritedBy ME_5481A82803BB ME_5481A86E016C
+
+ME ME_5481A86E016C
+ MEPROP UID '5481A86E016C'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA276920090 // Tm3FileStream
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5481A82803BB_ME_5481A86E016C_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_46A5AFF103CA_ME_5481A86E016C_R // IStream
+ )
+ ; // Implements
+
+ENDME // ME_5481A86E016C Make
+
+FORWARD ME_5481A8860001
+
+FORWARD ME_5481A88F01C5
+
+ME ME_5481A8A4027F
+ MEPROP Name 'AProtect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_5481A8A4027F AProtect
+
+ME ME_5481A8A402AB
+ MEPROP Name 'AAccess'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_5481A8A402AB AAccess
+
+ME ME_5481A88F01C5
+ MEPROP UID '5481A88F01C5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5481A8860001 // CreateMapView
+ ;
+ MELINK Target WL? 'ME_54808E830154' // Tm3FileStreamMapView
+ ;
+ MELIST Parameters
+   Seq: ( ME_5481A8A4027F // AProtect
+ ME_5481A8A402AB // AAccess
+ )
+ ; // Parameters
+
+ENDME // ME_5481A88F01C5 DoIt
+
+ME ME_5481A8860001
+ MEPROP UID '5481A8860001'
+ MEPROP Name 'CreateMapView'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA276920090 // Tm3FileStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5481A88F01C5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5481A8860001 CreateMapView
+
+ME ME_5481ACCE0257
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA276920090 // Tm3FileStream
+ ;
+ MELINK Target WL? 'ME_4981AC0701C1' // ComObj
+ ;
+
+ENDME // ME_5481ACCE0257 
+
+ME ME_5481ACE302E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA276920090 // Tm3FileStream
+ ;
+ MELINK Target WL 'ME_4DE89E560091' '47877EB202FB.ms.model.script' // Format
+ ;
+
+ENDME // ME_5481ACE302E9 
+
+ME ME_5481ACF600FF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA276920090 // Tm3FileStream
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_5481ACF600FF 
+
+ME ME_5481AD6C032E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA276920090 // Tm3FileStream
+ ;
+ MELINK Target WL? 'ME_53FE05DC02E7' // m2AddPrc
+ ;
+
+ENDME // ME_5481AD6C032E 
+
+ME ME_5481ADD5015D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA276920090 // Tm3FileStream
+ ;
+ MELINK Target WL 'ME_4B570AFF0023' '483C378301CB.ms.model.script' // AnsiReplaceStr
+ ;
+
+ENDME // ME_5481ADD5015D 
+
+MEREF ME_479731C50290_ME_4FA276920090_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4FA276920090_over Cleanup
+
+MEREF ME_4FA27CF501C4_ME_4FA276920090_over
+ MELINK Original WL 'ME_4FA27CF501C4' '5481CCCF0319.ms.model.script' // DoRead
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27CF501C4_ME_4FA276920090_over DoRead
+
+MEREF ME_4FA27D310344_ME_4FA276920090_over
+ MELINK Original WL 'ME_4FA27D310344' '5481CCCF0319.ms.model.script' // DoWrite
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27D310344_ME_4FA276920090_over DoWrite
+
+MEREF ME_4FA27D5302C5_ME_4FA276920090_over
+ MELINK Original WL 'ME_4FA27D5302C5' '5481CCCF0319.ms.model.script' // DoSeek
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27D5302C5_ME_4FA276920090_over DoSeek
+
+MEREF ME_4FA27DCD02B4_ME_4FA276920090_over
+ MELINK Original WL 'ME_4FA27DCD02B4' '5481CCCF0319.ms.model.script' // DoSetSize
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27DCD02B4_ME_4FA276920090_over DoSetSize
+
+MEREF ME_4FA27E100218_ME_4FA276920090_over
+ MELINK Original WL 'ME_4FA27E100218' '5481CCCF0319.ms.model.script' // LockRegion
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27E100218_ME_4FA276920090_over LockRegion
+
+MEREF ME_4FA27E4C0342_ME_4FA276920090_over
+ MELINK Original WL 'ME_4FA27E4C0342' '5481CCCF0319.ms.model.script' // UnlockRegion
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27E4C0342_ME_4FA276920090_over UnlockRegion
+
+MEREF ME_4FA2802E0231_ME_4FA276920090_over
+ MELINK Original WL 'ME_4FA2802E0231' '4FA276650046.ms.model.script' // DoGetSize
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA2802E0231_ME_4FA276920090_over DoGetSize
+
+MEREF ME_4FA2805002E3_ME_4FA276920090_over
+ MELINK Original WL 'ME_4FA2805002E3' '4FA276650046.ms.model.script' // DoGetLocksSupported
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA2805002E3_ME_4FA276920090_over DoGetLocksSupported
+
+MEREF ME_4FA280DB0288_ME_4FA276920090_over
+ MELINK Original WL 'ME_4FA280DB0288' '5481CCCF0319.ms.model.script' // Commit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA280DB0288_ME_4FA276920090_over Commit
+
+MEREF ME_5412FB880320_ME_4FA276920090_over
+ MELINK Original WL 'ME_5412FB880320' '4FA276650046.ms.model.script' // DoGetName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5412FB880320_ME_4FA276920090_over DoGetName
+
+MEREF ME_4FA276800294_ME_4FA276920090_G
+ MELINK Original WL? 'ME_4FA276800294' // Tm3BaseStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FA276800294_ME_4FA276920090_G Tm3BaseStream
+
+%%InheritedBy ME_4FA276800294 ME_4FA276920090
+
+ME ME_4FA276920090
+ MEPROP UID '4FA276920090'
+ MEPROP Name 'Tm3FileStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5485B0D1026C' // Streams
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FA276800294_ME_4FA276920090_G // Tm3BaseStream
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5481A6C4007A // FHandle
+ HWL ME_5481A6DE0141 // f_Name
+ HWL ME_5481A6F3022A // f_SharedMode
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5481A7080336 // SysCheck
+ HWL ME_5481A82803BB // Create
+ HWL ME_5481A86E016C // Make
+ HWL ME_5481A8860001 // CreateMapView
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4FA276920090_over // Cleanup
+ ME_4FA27CF501C4_ME_4FA276920090_over // DoRead
+ ME_4FA27D310344_ME_4FA276920090_over // DoWrite
+ ME_4FA27D5302C5_ME_4FA276920090_over // DoSeek
+ ME_4FA27DCD02B4_ME_4FA276920090_over // DoSetSize
+ ME_4FA27E100218_ME_4FA276920090_over // LockRegion
+ ME_4FA27E4C0342_ME_4FA276920090_over // UnlockRegion
+ ME_4FA2802E0231_ME_4FA276920090_over // DoGetSize
+ ME_4FA2805002E3_ME_4FA276920090_over // DoGetLocksSupported
+ ME_4FA280DB0288_ME_4FA276920090_over // Commit
+ ME_5412FB880320_ME_4FA276920090_over // DoGetName
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5481ACCE0257 // ComObj
+ ME_5481ACE302E9 // Format
+ ME_5481ACF600FF // l3Base
+ ME_5481AD6C032E // m2AddPrc
+ ME_5481ADD5015D // AnsiReplaceStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'm3FileStream'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3FileStream'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3FileStream.pas'
+
+ENDME // ME_4FA276920090 Tm3FileStream

@@ -1,0 +1,238 @@
+// TnevTableRow 48CE2103031C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48CE2103031C
+
+FORWARD ME_48CE21520287
+
+ME ME_48CE21560171
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_48CE21560171 aTag
+
+ME ME_48CE21520287
+ MEPROP UID '48CE21520287'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CE2103031C // TnevTableRow
+ ;
+ MELIST Parameters
+   Seq: ( ME_48CE21560171 // aTag
+ )
+ ; // Parameters
+
+ENDME // ME_48CE21520287 Make
+
+ME ME_48CE3C8D0273
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CE2103031C // TnevTableRow
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_48CE3C8D0273 
+
+ME ME_48CE3E1F01F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CE2103031C // TnevTableRow
+ ;
+ MELINK Target WL? 'ME_47AC6F0B025E' // k2Base
+ ;
+
+ENDME // ME_48CE3E1F01F4 
+
+ME ME_48CE405002B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CE2103031C // TnevTableRow
+ ;
+ MELINK Target WL? 'ME_47D00CC20108' // nevFacade
+ ;
+
+ENDME // ME_48CE405002B3 
+
+ME ME_48CE46900201
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CE2103031C // TnevTableRow
+ ;
+ MELINK Target WL 'ME_468E49730365' '469D0AC7005E.ms.model.script' // MergeStatus
+ ;
+
+ENDME // ME_48CE46900201 
+
+ME ME_4A24C33302AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CE2103031C // TnevTableRow
+ ;
+ MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+
+ENDME // ME_4A24C33302AB 
+
+ME ME_4DDFB60B0204
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_48CE2103031C // TnevTableRow
+ ;
+ MELINK Target WL? 'ME_4857D32B011E' // TevTableRow
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_4DDFB60B0204 
+
+ME ME_4F2A46380134
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CE2103031C // TnevTableRow
+ ;
+ MELINK Target WL 'ME_4F2A40EA0064' '4A3918BB0114.ms.model.script' // evCellWidthEpsilon
+ ;
+
+ENDME // ME_4F2A46380134 
+
+ME ME_4F2A473C012E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CE2103031C // TnevTableRow
+ ;
+ MELINK Target WL? 'ME_4C3849220132' // evTableCellUtils
+ ;
+
+ENDME // ME_4F2A473C012E 
+
+ME ME_52B2B32A007E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CE2103031C // TnevTableRow
+ ;
+ MELINK Target WL 'ME_47AC7BD90281' '47AC7B760263.ms.model.script' // Tag Consts
+ ;
+
+ENDME // ME_52B2B32A007E 
+
+ME ME_53D6767800D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_48CE2103031C // TnevTableRow
+ ;
+ MELINK Target WL 'ME_47C7F156016D' '47C5207602D1.ms.model.script' // InevTableRow
+ ;
+
+ENDME // ME_53D6767800D4 
+
+ME ME_53D6769600F3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_48CE2103031C // TnevTableRow
+ ;
+ MELINK Target WL 'ME_47C6A6570369' '47C5207602D1.ms.model.script' // InevParaList
+ ;
+
+ENDME // ME_53D6769600F3 
+
+MEREF ME_47C7F168011D_ME_48CE2103031C_impl
+ MELINK Original WL 'ME_47C7F168011D' '47C5207602D1.ms.model.script' // FindCell
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C7F168011D_ME_48CE2103031C_impl FindCell
+
+MEREF ME_4C8DE3B00073_ME_48CE2103031C_over
+ MELINK Original WL 'ME_4C8DE3B00073' '48CE0B85029C.ms.model.script' // CheckPrev
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C8DE3B00073_ME_48CE2103031C_over CheckPrev
+
+MEREF ME_52B29B2E013C_ME_48CE2103031C_over
+ MELINK Original WL 'ME_52B29B2E013C' '48CE0A490377.ms.model.script' // DoGetBackColor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52B29B2E013C_ME_48CE2103031C_over DoGetBackColor
+
+MEREF ME_48CE0B85029C_ME_48CE2103031C_G
+ MELINK Original WL? 'ME_48CE0B85029C' // TnevParaList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48CE0B85029C_ME_48CE2103031C_G TnevParaList
+
+MEREF ME_47C7F156016D_ME_48CE2103031C_R
+ MELINK Original WL 'ME_47C7F156016D' '47C5207602D1.ms.model.script' // InevTableRow
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C7F156016D_ME_48CE2103031C_R InevTableRow
+
+%%InjectedBy ME_4857D32B011E ME_48CE2103031C
+
+%%ImplementedBy ME_47C7F156016D ME_48CE2103031C
+
+%%InheritedBy ME_48CE0B85029C ME_48CE2103031C
+
+ME ME_48CE2103031C
+ MEPROP UID '48CE2103031C'
+ MEPROP Name 'TnevTableRow'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48CE0A0A03B4' // ParagraphsImplementation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48CE0B85029C_ME_48CE2103031C_G // TnevParaList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47C7F156016D_ME_48CE2103031C_R // InevTableRow
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_48CE21520287 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47C7F168011D_ME_48CE2103031C_impl // FindCell
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C8DE3B00073_ME_48CE2103031C_over // CheckPrev
+ ME_52B29B2E013C_ME_48CE2103031C_over // DoGetBackColor
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48CE3C8D0273 // Tk2TagID
+ ME_48CE3E1F01F4 // k2Base
+ ME_48CE405002B3 // nevFacade
+ ME_48CE46900201 // MergeStatus
+ ME_4A24C33302AB // evL3CoreConsts
+ ME_4DDFB60B0204 // TevTableRow
+ ME_4F2A46380134 // evCellWidthEpsilon
+ ME_4F2A473C012E // evTableCellUtils
+ ME_52B2B32A007E // Tag Consts
+ ME_53D6767800D4 // InevTableRow
+ ME_53D6769600F3 // InevParaList
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '14.07.2006 15:25'
+ UP extprop:pas:UnitName 'nevTableRow'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TableRow'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevTableRow.pas'
+
+ENDME // ME_48CE2103031C TnevTableRow

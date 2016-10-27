@@ -1,0 +1,62 @@
+// TInscContextFilterStateList 49083E6F02D8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49083E6F02D8
+
+ME ME_49083E83005D
+ MEPROP UID '49083E83005D'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49083E6F02D8 // TInscContextFilterStateList
+ ;
+ MELINK Target WL 'ME_4908393001C5' '490838E10313.ms.model.script' // InscContextFilterState
+ ;
+
+ENDME // ME_49083E83005D ItemType
+
+MEREF ME_47B57D830369_ME_49083E6F02D8_G
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_49083E6F02D8_G l3InterfaceRefList
+
+MEREF ME_4A54DD4E036F_ME_49083E6F02D8_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_49083E6F02D8_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57D830369 ME_49083E6F02D8
+%%InheritedBy ME_4A54DD4E036F ME_49083E6F02D8
+
+ME ME_49083E6F02D8
+ MEPROP UID '49083E6F02D8'
+ MEPROP Name 'TInscContextFilterStateList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49083E150027' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57D830369_ME_49083E6F02D8_G // l3InterfaceRefList
+ HWL ME_4A54DD4E036F_ME_49083E6F02D8_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_49083E83005D // ItemType
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'InscContextFilterStateList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'InscContextFilterStateList'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\InscContextFilterStateList.pas'
+
+ENDME // ME_49083E6F02D8 TInscContextFilterStateList

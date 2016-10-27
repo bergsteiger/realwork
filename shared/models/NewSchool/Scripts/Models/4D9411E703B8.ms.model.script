@@ -1,0 +1,84 @@
+// TWrongSearchTest 4D9411E703B8 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D9411E703B8
+
+ME ME_4D942C5D0279
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D9411E703B8 // TWrongSearchTest
+ ;
+ MELINK Target WL 'ME_48E4E22902C0' '48452B7D0314.ms.model.script' // EevSearchFailed
+ ;
+
+ENDME // ME_4D942C5D0279 
+
+MEREF ME_4BE13147032C_ME_4D9411E703B8_over
+ MELINK Original WL 'ME_4BE13147032C' '4BE111D30229.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BE13147032C_ME_4D9411E703B8_over Process
+
+MEREF ME_4C288BFC002C_ME_4D9411E703B8_over
+ MELINK Original WL 'ME_4C288BFC002C' '4C288B4D012F.ms.model.script' // Replacer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C288BFC002C_ME_4D9411E703B8_over Replacer
+
+MEREF ME_4C288CC60231_ME_4D9411E703B8_over
+ MELINK Original WL 'ME_4C288CC60231' '4C288B4D012F.ms.model.script' // Options
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C288CC60231_ME_4D9411E703B8_over Options
+
+MEREF ME_4C937013031D_ME_4D9411E703B8_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4D9411E703B8_over GetFolder
+
+MEREF ME_4BE04F030356_ME_4D9411E703B8_G
+ MELINK Original WL? 'ME_4BE04F030356' // TSearchAndReplaceTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE04F030356_ME_4D9411E703B8_G TSearchAndReplaceTest
+
+%%InheritedBy ME_4BE04F030356 ME_4D9411E703B8
+
+ME ME_4D9411E703B8
+ MEPROP UID '4D9411E703B8'
+ MEPROP Name 'TWrongSearchTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поиск строки не должен проходить.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4D02566F01E6' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE04F030356_ME_4D9411E703B8_G // TSearchAndReplaceTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4BE13147032C_ME_4D9411E703B8_over // Process
+ ME_4C288BFC002C_ME_4D9411E703B8_over // Replacer
+ ME_4C288CC60231_ME_4D9411E703B8_over // Options
+ ME_4C937013031D_ME_4D9411E703B8_over // GetFolder
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D942C5D0279 // EevSearchFailed
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'WrongSearchTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'WrongSearchTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\WrongSearchTest.pas'
+
+ENDME // ME_4D9411E703B8 TWrongSearchTest

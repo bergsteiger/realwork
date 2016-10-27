@@ -1,0 +1,707 @@
+// TnsFindIteratorNewForAutoreferat 4CE6B3E90338 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4CE6BCB900E2
+%%Inner ME_4CE6B4D6016C
+%%Inner ME_4CE6C58C01DE
+
+FORWARD ME_4CE6B3E90338
+
+FORWARD ME_4CE6BCB900E2
+
+ME ME_4CE6BCD802B6
+ MEPROP UID '4CE6BCD802B6'
+ MEPROP Name 'rIt'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CE6BCB900E2 // TnsFindIteratorDef
+ ;
+ MELINK Target WL 'ME_45EEC282029F' '457450470167.ms.model.script' // FindIterator
+ ;
+
+ENDME // ME_4CE6BCD802B6 rIt
+
+ME ME_4CE6BCFF03AB
+ MEPROP UID '4CE6BCFF03AB'
+ MEPROP Name 'rDoc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CE6BCB900E2 // TnsFindIteratorDef
+ ;
+ MELINK Target WL 'ME_49D0E657022F' '4678209200A6.ms.model.script' // InevObjectPrim
+ ;
+
+ENDME // ME_4CE6BCFF03AB rDoc
+
+FORWARD ME_4CE6BD260353
+
+FORWARD ME_4CE6BD2D006D
+
+ME ME_4CE6BD330029
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49D0E657022F' '4678209200A6.ms.model.script' // InevObjectPrim
+ ;
+
+ENDME // ME_4CE6BD330029 aDoc
+
+ME ME_4CE6BD33004F
+ MEPROP Name 'anIt'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC282029F' '457450470167.ms.model.script' // FindIterator
+ ;
+
+ENDME // ME_4CE6BD33004F anIt
+
+ME ME_4CE6BD2D006D
+ MEPROP UID '4CE6BD2D006D'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CE6BD260353 // C
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CE6BD330029 // aDoc
+ ME_4CE6BD33004F // anIt
+ )
+ ; // Parameters
+
+ENDME // ME_4CE6BD2D006D C
+
+ME ME_4CE6BD260353
+ MEPROP UID '4CE6BD260353'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CE6BCB900E2 // TnsFindIteratorDef
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CE6BD2D006D // C
+ )
+ ; // Operations
+
+ENDME // ME_4CE6BD260353 C
+
+FORWARD ME_4CE6BEF30100
+
+FORWARD ME_4CE6BF0402F5
+
+ME ME_4CE6BF1402F9
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4CE6BCB900E2 // TnsFindIteratorDef
+ ;
+
+ENDME // ME_4CE6BF1402F9 anOther
+
+ME ME_4CE6BF0402F5
+ MEPROP UID '4CE6BF0402F5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CE6BEF30100 // EQ
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CE6BF1402F9 // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_4CE6BF0402F5 DoIt
+
+ME ME_4CE6BEF30100
+ MEPROP UID '4CE6BEF30100'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CE6BCB900E2 // TnsFindIteratorDef
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CE6BF0402F5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CE6BEF30100 EQ
+
+ME ME_4CE6BCB900E2
+ MEPROP UID '4CE6BCB900E2'
+ MEPROP Name 'TnsFindIteratorDef'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CE6B3E90338 // TnsFindIteratorNewForAutoreferat
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4CE6BCD802B6 // rIt
+ HWL ME_4CE6BCFF03AB // rDoc
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CE6BD260353 // C
+ HWL ME_4CE6BEF30100 // EQ
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'FindIteratorDef'
+
+ENDME // ME_4CE6BCB900E2 TnsFindIteratorDef
+
+FORWARD ME_4CE6B4D6016C
+
+ME ME_4CE6B5210107
+ MEPROP UID '4CE6B5210107'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CE6B4D6016C // TnsIFindIteratorList
+ ;
+ MELINK Target HWL ME_4CE6BCB900E2 // TnsFindIteratorDef
+ ;
+
+ENDME // ME_4CE6B5210107 ItemType
+
+MEREF ME_47B2C42A0163_ME_4CE6B4D6016C_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4CE6B4D6016C_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_4CE6B4D6016C_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4CE6B4D6016C_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_4CE6B4D6016C_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4CE6B4D6016C_G Tl3ProtoDataContainer
+
+MEREF ME_4B223DB5024B_ME_4CE6B4D6016C_G
+ MELINK Original WL? 'ME_4B223DB5024B' // l3RecordWithEQList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223DB5024B_ME_4CE6B4D6016C_G l3RecordWithEQList
+
+%%InheritedBy ME_4A54DD4E036F ME_4CE6B4D6016C
+%%InheritedBy ME_4B223DB5024B ME_4CE6B4D6016C
+
+ME ME_4CE6B4D6016C
+ MEPROP UID '4CE6B4D6016C'
+ MEPROP Name 'TnsIFindIteratorList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список IFindIterator' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CE6B3E90338 // TnsFindIteratorNewForAutoreferat
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_4CE6B4D6016C_G // Tl3ProtoDataContainer
+ HWL ME_4B223DB5024B_ME_4CE6B4D6016C_G // l3RecordWithEQList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4CE6B5210107 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_4CE6B4D6016C_impl // AssignItem
+ ME_47B99D4503A2_ME_4CE6B4D6016C_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '19.11.2010 20:34'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IFindIteratorList'
+
+ENDME // ME_4CE6B4D6016C TnsIFindIteratorList
+
+FORWARD ME_4CE6C58C01DE
+
+ME ME_4CE6C7920084
+ MEPROP UID '4CE6C7920084'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CE6C58C01DE // TnsFindIteratorNewForAutoreferatFindPositionList
+ ;
+ MELINK Target WL 'ME_45EEC2C0005D' '457450470167.ms.model.script' // FindPositionList
+ ;
+
+ENDME // ME_4CE6C7920084 f_List
+
+ME ME_4CE6C7A1038B
+ MEPROP UID '4CE6C7A1038B'
+ MEPROP Name 'f_Doc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CE6C58C01DE // TnsFindIteratorNewForAutoreferatFindPositionList
+ ;
+ MELINK Target WL 'ME_49D0E657022F' '4678209200A6.ms.model.script' // InevObjectPrim
+ ;
+
+ENDME // ME_4CE6C7A1038B f_Doc
+
+FORWARD ME_4CE6C60002B8
+
+FORWARD ME_4CE6C60D00E6
+
+ME ME_4CE6C7CA034B
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49D0E657022F' '4678209200A6.ms.model.script' // InevObjectPrim
+ ;
+
+ENDME // ME_4CE6C7CA034B aDoc
+
+ME ME_4CE6C7CA0378
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC2C0005D' '457450470167.ms.model.script' // FindPositionList
+ ;
+
+ENDME // ME_4CE6C7CA0378 aList
+
+ME ME_4CE6C60D00E6
+ MEPROP UID '4CE6C60D00E6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CE6C60002B8 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CE6C7CA034B // aDoc
+ ME_4CE6C7CA0378 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_4CE6C60D00E6 DoIt
+
+ME ME_4CE6C60002B8
+ MEPROP UID '4CE6C60002B8'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CE6C58C01DE // TnsFindIteratorNewForAutoreferatFindPositionList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CE6C60D00E6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CE6C60002B8 Create
+
+MEREF ME_4CE6C60002B8_ME_4CE6C5F20104_G
+ MELINK Original HWL ME_4CE6C60002B8 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CE6C60002B8_ME_4CE6C5F20104_G Create
+
+MEREF ME_45EEC2C0005D_ME_4CE6C5F20104_R
+ MELINK Original WL 'ME_45EEC2C0005D' '457450470167.ms.model.script' // FindPositionList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45EEC2C0005D_ME_4CE6C5F20104_R FindPositionList
+
+%%ImplementedBy ME_45EEC2C0005D ME_4CE6C5F20104
+
+%%InheritedBy ME_4CE6C60002B8 ME_4CE6C5F20104
+
+ME ME_4CE6C5F20104
+ MEPROP UID '4CE6C5F20104'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CE6C58C01DE // TnsFindIteratorNewForAutoreferatFindPositionList
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CE6C60002B8_ME_4CE6C5F20104_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_45EEC2C0005D_ME_4CE6C5F20104_R // FindPositionList
+ )
+ ; // Implements
+
+ENDME // ME_4CE6C5F20104 Make
+
+ME ME_4CE6C97100B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE6C58C01DE // TnsFindIteratorNewForAutoreferatFindPositionList
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48FF556602BA.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_4CE6C97100B8 
+
+MEREF ME_4C9C9A0603D6_ME_4CE6C58C01DE_G
+ MELINK Original WL? 'ME_4C9C9A0603D6' // Tl3ProtoObjectForTie
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C9C9A0603D6_ME_4CE6C58C01DE_G Tl3ProtoObjectForTie
+
+MEREF ME_45EEC2C0005D_ME_4CE6C58C01DE_R
+ MELINK Original WL 'ME_45EEC2C0005D' '457450470167.ms.model.script' // FindPositionList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45EEC2C0005D_ME_4CE6C58C01DE_R FindPositionList
+
+%%ImplementedBy ME_45EEC2C0005D ME_4CE6C58C01DE
+
+%%InheritedBy ME_4C9C9A0603D6 ME_4CE6C58C01DE
+
+ME ME_4CE6C58C01DE
+ MEPROP UID '4CE6C58C01DE'
+ MEPROP Name 'TnsFindIteratorNewForAutoreferatFindPositionList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CE6B3E90338 // TnsFindIteratorNewForAutoreferat
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C9C9A0603D6_ME_4CE6C58C01DE_G // Tl3ProtoObjectForTie
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_45EEC2C0005D_ME_4CE6C58C01DE_R // FindPositionList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CE6C7920084 // f_List
+ HWL ME_4CE6C7A1038B // f_Doc
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CE6C60002B8 // Create
+ HWL ME_4CE6C5F20104 // Make
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4CE6C97100B8 // DefDataAdapter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FindIteratorNewForAutoreferatFindPositionList'
+
+ENDME // ME_4CE6C58C01DE TnsFindIteratorNewForAutoreferatFindPositionList
+
+ME ME_4CE6B60401CF
+ MEPROP UID '4CE6B60401CF'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CE6B3E90338 // TnsFindIteratorNewForAutoreferat
+ ;
+ MELINK Target HWL ME_4CE6B4D6016C // TnsIFindIteratorList
+ ;
+
+ENDME // ME_4CE6B60401CF f_List
+
+ME ME_4CE6B7ED0091
+ MEPROP UID '4CE6B7ED0091'
+ MEPROP Name 'f_Current'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CE6B3E90338 // TnsFindIteratorNewForAutoreferat
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4CE6B7ED0091 f_Current
+
+ME ME_4CE6B9480059
+ MEPROP UID '4CE6B9480059'
+ MEPROP Name 'f_Count'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CE6B3E90338 // TnsFindIteratorNewForAutoreferat
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4CE6B9480059 f_Count
+
+FORWARD ME_4CE6B761017A
+
+FORWARD ME_4CE6B76B0092
+
+ME ME_4CE6B776005D
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4CE6B4D6016C // TnsIFindIteratorList
+ ;
+
+ENDME // ME_4CE6B776005D aList
+
+ME ME_4CE6B76B0092
+ MEPROP UID '4CE6B76B0092'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CE6B761017A // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CE6B776005D // aList
+ )
+ ; // Parameters
+
+ENDME // ME_4CE6B76B0092 DoIt
+
+ME ME_4CE6B761017A
+ MEPROP UID '4CE6B761017A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CE6B3E90338 // TnsFindIteratorNewForAutoreferat
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CE6B76B0092 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CE6B761017A Create
+
+MEREF ME_4CE6B761017A_ME_4CE6B77A020D_G
+ MELINK Original HWL ME_4CE6B761017A // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CE6B761017A_ME_4CE6B77A020D_G Create
+
+MEREF ME_45EEC282029F_ME_4CE6B77A020D_R
+ MELINK Original WL 'ME_45EEC282029F' '457450470167.ms.model.script' // FindIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45EEC282029F_ME_4CE6B77A020D_R FindIterator
+
+%%ImplementedBy ME_45EEC282029F ME_4CE6B77A020D
+
+%%InheritedBy ME_4CE6B761017A ME_4CE6B77A020D
+
+ME ME_4CE6B77A020D
+ MEPROP UID '4CE6B77A020D'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CE6B3E90338 // TnsFindIteratorNewForAutoreferat
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CE6B761017A_ME_4CE6B77A020D_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_45EEC282029F_ME_4CE6B77A020D_R // FindIterator
+ )
+ ; // Implements
+
+ENDME // ME_4CE6B77A020D Make
+
+ME ME_4CE6B62901E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE6B3E90338 // TnsFindIteratorNewForAutoreferat
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4CE6B62901E1 
+
+ME ME_4CE6C24E0335
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE6B3E90338 // TnsFindIteratorNewForAutoreferat
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48FF556602BA.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_4CE6C24E0335 
+
+MEREF ME_45EEC28202A0_ME_4CE6B3E90338_impl
+ MELINK Original WL 'ME_45EEC28202A0' '457450470167.ms.model.script' // next
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_45EEC28202A0_ME_4CE6B3E90338_impl next
+
+MEREF ME_45EEC28202A1_ME_4CE6B3E90338_impl
+ MELINK Original WL 'ME_45EEC28202A1' '457450470167.ms.model.script' // prev
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_45EEC28202A1_ME_4CE6B3E90338_impl prev
+
+MEREF ME_45EEC28202A2_ME_4CE6B3E90338_impl
+ MELINK Original WL 'ME_45EEC28202A2' '457450470167.ms.model.script' // is_good
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_45EEC28202A2_ME_4CE6B3E90338_impl is_good
+
+MEREF ME_461D00B9005D_ME_4CE6B3E90338_impl
+ MELINK Original WL 'ME_461D00B9005D' '457450470167.ms.model.script' // get_position
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_461D00B9005D_ME_4CE6B3E90338_impl get_position
+
+MEREF ME_49FEC51501D8_ME_4CE6B3E90338_impl
+ MELINK Original WL 'ME_49FEC51501D8' '457450470167.ms.model.script' // is_first
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_49FEC51501D8_ME_4CE6B3E90338_impl is_first
+
+MEREF ME_49FFDC8B015D_ME_4CE6B3E90338_impl
+ MELINK Original WL 'ME_49FFDC8B015D' '457450470167.ms.model.script' // count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_49FFDC8B015D_ME_4CE6B3E90338_impl count
+
+MEREF ME_479731C50290_ME_4CE6B3E90338_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4CE6B3E90338_over Cleanup
+
+MEREF ME_4C9C9A0603D6_ME_4CE6B3E90338_G
+ MELINK Original WL? 'ME_4C9C9A0603D6' // Tl3ProtoObjectForTie
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C9C9A0603D6_ME_4CE6B3E90338_G Tl3ProtoObjectForTie
+
+MEREF ME_45EEC282029F_ME_4CE6B3E90338_R
+ MELINK Original WL 'ME_45EEC282029F' '457450470167.ms.model.script' // FindIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45EEC282029F_ME_4CE6B3E90338_R FindIterator
+
+%%ImplementedBy ME_45EEC282029F ME_4CE6B3E90338
+
+%%InheritedBy ME_4C9C9A0603D6 ME_4CE6B3E90338
+
+ME ME_4CE6B3E90338
+ MEPROP UID '4CE6B3E90338'
+ MEPROP Name 'TnsFindIteratorNewForAutoreferat'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация IFindIterator для нового представления автореферата' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D8A25430335' // ContextSearchInEVDDocument
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C9C9A0603D6_ME_4CE6B3E90338_G // Tl3ProtoObjectForTie
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_45EEC282029F_ME_4CE6B3E90338_R // FindIterator
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CE6B60401CF // f_List
+ HWL ME_4CE6B7ED0091 // f_Current
+ HWL ME_4CE6B9480059 // f_Count
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CE6B761017A // Create
+ HWL ME_4CE6B77A020D // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_45EEC28202A0_ME_4CE6B3E90338_impl // next
+ ME_45EEC28202A1_ME_4CE6B3E90338_impl // prev
+ ME_45EEC28202A2_ME_4CE6B3E90338_impl // is_good
+ ME_461D00B9005D_ME_4CE6B3E90338_impl // get_position
+ ME_49FEC51501D8_ME_4CE6B3E90338_impl // is_first
+ ME_49FFDC8B015D_ME_4CE6B3E90338_impl // count
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4CE6B3E90338_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4CE6BCB900E2 // TnsFindIteratorDef
+ HWL ME_4CE6B4D6016C // TnsIFindIteratorList
+ HWL ME_4CE6C58C01DE // TnsFindIteratorNewForAutoreferatFindPositionList
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4CE6B62901E1 // FreeAndNil
+ ME_4CE6C24E0335 // DefDataAdapter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '19.11.2010 20:29'
+ UP extprop:pas:UnitName 'nsFindIteratorNewForAutoreferat'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FindIteratorNewForAutoreferat'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsFindIteratorNewForAutoreferat.pas'
+
+ENDME // ME_4CE6B3E90338 TnsFindIteratorNewForAutoreferat

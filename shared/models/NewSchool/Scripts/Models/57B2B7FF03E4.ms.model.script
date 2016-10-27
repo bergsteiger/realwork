@@ -83,7 +83,7 @@ ENDME // ME_57B2B89C029E DoIt
 ME ME_57B2B8940291
  MEPROP UID '57B2B8940291'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -97,6 +97,18 @@ ME ME_57B2B8940291
 
 ENDME // ME_57B2B8940291 Create
 
+MEREF ME_57B2B8940291_ME_57B2B8AE032C_G
+ MELINK Original HWL ME_57B2B8940291 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B2B8940291_ME_57B2B8AE032C_G Create
+
+MEREF ME_57B1E89F02AE_ME_57B2B8AE032C_R
+ MELINK Original WL 'ME_57B1E89F02AE' '57AAE8D403E5.ms.model.script' // ImsmController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B1E89F02AE_ME_57B2B8AE032C_R ImsmController
+
 %%ImplementedBy ME_57B1E89F02AE ME_57B2B8AE032C
 
 %%InheritedBy ME_57B2B8940291 ME_57B2B8AE032C
@@ -104,7 +116,7 @@ ENDME // ME_57B2B8940291 Create
 ME ME_57B2B8AE032C
  MEPROP UID '57B2B8AE032C'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -112,15 +124,21 @@ ME ME_57B2B8AE032C
  MELINK Parent HWL ME_57B2B7FF03E4 // msmConcreteModelController
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57B2B8940291 // Create
+   Seq: ( HWL ME_57B2B8940291_ME_57B2B8AE032C_G // Create
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_57B1E89F02AE' '57AAE8D403E5.ms.model.script' // ImsmController
+   Seq: ( HWL ME_57B1E89F02AE_ME_57B2B8AE032C_R // ImsmController
  )
  ; // Implements
 
 ENDME // ME_57B2B8AE032C Make
+
+MEREF ME_57B1F28B030D_ME_57B2B7FF03E4_G
+ MELINK Original WL? 'ME_57B1F28B030D' // TmsmController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B1F28B030D_ME_57B2B7FF03E4_G TmsmController
 
 %%InheritedBy ME_57B1F28B030D ME_57B2B7FF03E4
 
@@ -136,7 +154,7 @@ ME ME_57B2B7FF03E4
  MELINK Parent WL? 'ME_57AAE90E02B6' // Controllers
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_57B1F28B030D' '57AAE90E02B6.ms.model.script' // TmsmController
+   Seq: ( HWL ME_57B1F28B030D_ME_57B2B7FF03E4_G // TmsmController
  )
  ; // Inherits
  MELIST Attributes

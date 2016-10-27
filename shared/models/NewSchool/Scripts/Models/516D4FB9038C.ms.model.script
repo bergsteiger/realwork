@@ -1,0 +1,80 @@
+// TmyInterfacedObjectTest 516D4FB9038C TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_516D4FB9038C
+
+ME ME_516D4FDE0133
+ MEPROP UID '516D4FDE0133'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_516D4FB9038C // TmyInterfacedObjectTest
+ ;
+
+ENDME // ME_516D4FDE0133 DoIt
+
+ME ME_516D4FCB02C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516D4FB9038C // TmyInterfacedObjectTest
+ ;
+ MELINK Target WL? 'ME_516D4F4E0326' // TmyInterfacedObject
+ ;
+
+ENDME // ME_516D4FCB02C5 
+
+ME ME_516D4FCF02FB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516D4FB9038C // TmyInterfacedObjectTest
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_516D4FCF02FB 
+
+MEREF ME_4B2A0DDE028B_ME_516D4FB9038C_G
+ MELINK Original WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A0DDE028B_ME_516D4FB9038C_G TTestCase
+
+%%InheritedBy ME_4B2A0DDE028B ME_516D4FB9038C
+
+ME ME_516D4FB9038C
+ MEPROP UID '516D4FB9038C'
+ MEPROP Name 'TmyInterfacedObjectTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5161390500C1' // Core
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B2A0DDE028B_ME_516D4FB9038C_G // TTestCase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_516D4FDE0133 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_516D4FCB02C5 // TmyInterfacedObject
+ ME_516D4FCF02FB // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'myInterfacedObjectTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'myInterfacedObjectTest'
+ UP intf.pas:Path 'common\components\SandBox\myInterfacedObjectTest.pas'
+
+ENDME // ME_516D4FB9038C TmyInterfacedObjectTest

@@ -1,0 +1,250 @@
+// TbsOpenListInfo 4AA4D8A6012B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA4D8A6012B
+
+ME ME_4DF216F70363
+ MEPROP UID '4DF216F70363'
+ MEPROP Name 'f_Data'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4AA4D8A6012B // TbsOpenListInfo
+ ;
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ ;
+
+ENDME // ME_4DF216F70363 f_Data
+
+ME ME_4DF2171B00F8
+ MEPROP UID '4DF2171B00F8'
+ MEPROP Name 'Data'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'данные необходимые для инициализации сборки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA4D8A6012B // TbsOpenListInfo
+ ;
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4DF2171B00F8 Data
+
+ME ME_4DF2173B01FE
+ MEPROP UID '4DF2173B01FE'
+ MEPROP Name 'LinkType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'тип ссылки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA4D8A6012B // TbsOpenListInfo
+ ;
+ MELINK Target WL 'ME_4AA4E1BB00D0' '4AA4E182008E.ms.model.script' // TbsLinkType
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4DF2173B01FE LinkType
+
+FORWARD ME_4DF2178601C8
+
+FORWARD ME_4DF217930214
+
+ME ME_4DF21797023F
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F20DEA0340' '4B1D3D250382.ms.model.script' // IdeList
+ ;
+
+ENDME // ME_4DF21797023F aList
+
+ME ME_4DF217930214
+ MEPROP UID '4DF217930214'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DF2178601C8 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DF21797023F // aList
+ )
+ ; // Parameters
+
+ENDME // ME_4DF217930214 DoIt
+
+ME ME_4DF2178601C8
+ MEPROP UID '4DF2178601C8'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA4D8A6012B // TbsOpenListInfo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DF217930214 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DF2178601C8 Create
+
+FORWARD ME_4DF217A402DE
+
+FORWARD ME_4DF217B1036A
+
+ME ME_4DF217B503A1
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F20DEA0340' '4B1D3D250382.ms.model.script' // IdeList
+ ;
+
+ENDME // ME_4DF217B503A1 aList
+
+ME ME_4DF217B1036A
+ MEPROP UID '4DF217B1036A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DF217A402DE // Init
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DF217B503A1 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_4DF217B1036A DoIt
+
+ME ME_4DF217A402DE
+ MEPROP UID '4DF217A402DE'
+ MEPROP Name 'Init'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA4D8A6012B // TbsOpenListInfo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DF217B1036A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DF217A402DE Init
+
+ME ME_4DF218120197
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA4D8A6012B // TbsOpenListInfo
+ ;
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
+ ;
+
+ENDME // ME_4DF218120197 
+
+ME ME_4DF21842030D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA4D8A6012B // TbsOpenListInfo
+ ;
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
+ ;
+
+ENDME // ME_4DF21842030D 
+
+ME ME_4DF218770219
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA4D8A6012B // TbsOpenListInfo
+ ;
+ MELINK Target WL? 'ME_47F21FE90379' // bsUtils
+ ;
+
+ENDME // ME_4DF218770219 
+
+ME ME_4DF218BF01BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA4D8A6012B // TbsOpenListInfo
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4DF218BF01BD 
+
+ME ME_4DF21B64025A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA4D8A6012B // TbsOpenListInfo
+ ;
+ MELINK Target WL 'ME_491D757000A4' '47EA07FA02CE.ms.model.script' // TbsWhatDoingIfOneDoc
+ ;
+
+ENDME // ME_4DF21B64025A 
+
+MEREF ME_4B17D7FA023F_ME_4AA4D8A6012B_G
+ MELINK Original WL? 'ME_4B17D7FA023F' // TbsBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B17D7FA023F_ME_4AA4D8A6012B_G TbsBase
+
+%%InheritedBy ME_4B17D7FA023F ME_4AA4D8A6012B
+
+ME ME_4AA4D8A6012B
+ MEPROP UID '4AA4D8A6012B'
+ MEPROP Name 'TbsOpenListInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47F475660140' // List
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B17D7FA023F_ME_4AA4D8A6012B_G // TbsBase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DF216F70363 // f_Data
+ HWL ME_4DF2171B00F8 // Data
+ HWL ME_4DF2173B01FE // LinkType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DF2178601C8 // Create
+ HWL ME_4DF217A402DE // Init
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4DF218120197 // afwFacade
+ ME_4DF21842030D // nsConst
+ ME_4DF218770219 // bsUtils
+ ME_4DF218BF01BD // NodeBase
+ ME_4DF21B64025A // TbsWhatDoingIfOneDoc
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP extprop:pas:UnitName 'bsOpenListInfo'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'bsOpenListInfo'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\List\bsOpenListInfo.pas'
+
+ENDME // ME_4AA4D8A6012B TbsOpenListInfo

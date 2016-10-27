@@ -1,0 +1,68 @@
+// TevSBSRowHotSpotTester 53D0FD000009 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D0FD000009
+
+ME ME_53D0FD230146
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D0FD000009 // TevSBSRowHotSpotTester
+ ;
+ MELINK Target WL? 'ME_4857D3F1028D' // TevSBSRow
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D0FD230146 
+
+ME ME_53D23D2301D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D0FD000009 // TevSBSRowHotSpotTester
+ ;
+ MELINK Target WL 'ME_4A250DB2035E' '4A1FCBA0014C.ms.model.script' // InevHotSpotTester2
+ ;
+ UP "needs processor" True
+
+ENDME // ME_53D23D2301D4 
+
+MEREF ME_53D0FCB60027_ME_53D0FD000009_G
+ MELINK Original WL 'ME_53D0FCB60027' '53D0FC9901A6.ms.model.script' // TevTableRowHotSpotTester
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53D0FCB60027_ME_53D0FD000009_G TevTableRowHotSpotTester
+
+%%InjectedBy ME_4857D3F1028D ME_53D0FD000009
+
+%%InheritedBy ME_53D0FCB60027 ME_53D0FD000009
+
+ME ME_53D0FD000009
+ MEPROP UID '53D0FD000009'
+ MEPROP Name 'TevSBSRowHotSpotTester'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A267EE3017B' // HotSpots
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53D0FCB60027_ME_53D0FD000009_G // TevTableRowHotSpotTester
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_53D0FD230146 // TevSBSRow
+ ME_53D23D2301D4 // InevHotSpotTester2
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:pas:UnitName 'evSBSRowHotSpotTester'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SBSRowHotSpotTester'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evSBSRowHotSpotTester.pas'
+
+ENDME // ME_53D0FD000009 TevSBSRowHotSpotTester

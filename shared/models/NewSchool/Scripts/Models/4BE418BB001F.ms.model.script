@@ -1,0 +1,163 @@
+// TTextEditorVisitorPrim 4BE418BB001F TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BE418BB001F
+
+FORWARD ME_4BE4196E0367
+
+FORWARD ME_4BE4197F033A
+
+ME ME_4BE419880116
+ MEPROP Name 'aStr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MEPROP Value '''Load'''
+ MELINK ValueType WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP extprop:pas:Value '''Load'''
+
+ENDME // ME_4BE419880116 aStr
+
+ME ME_4BE4197F033A
+ MEPROP UID '4BE4197F033A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BE4196E0367 // VisitText
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BE419880116 // aStr
+ )
+ ; // Parameters
+
+ENDME // ME_4BE4197F033A DoIt
+
+ME ME_4BFD2A8D0168
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BE4196E0367 // VisitText
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_4BFD2A8D0168 
+
+ME ME_4DCCFC9E009D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BE4196E0367 // VisitText
+ ;
+ MELINK Target WL? 'ME_47E3C78502FB' // Tk2OperationContainer
+ ;
+
+ENDME // ME_4DCCFC9E009D 
+
+ME ME_4BE4196E0367
+ MEPROP UID '4BE4196E0367'
+ MEPROP Name 'VisitText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Собственно процедура обработки текста' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BE418BB001F // TTextEditorVisitorPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BE4197F033A // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4BFD2A8D0168 // l3Base
+ ME_4DCCFC9E009D // Tk2OperationContainer
+ )
+ ; // Dependencies
+
+ENDME // ME_4BE4196E0367 VisitText
+
+FORWARD ME_4BE419AF0217
+
+ME ME_4BE419C00214
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4BE419C00214 aForm
+
+ME ME_4BE419AF0217
+ MEPROP UID '4BE419AF0217'
+ MEPROP Name 'DoVisit'
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработать текст' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BE418BB001F // TTextEditorVisitorPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BE419C00214 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4BE419AF0217 DoVisit
+
+ME ME_4BFD1B5A0200
+ MEPROP UID '4BFD1B5A0200'
+ MEPROP Name 'TreatExceptionAsSuccess'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BE418BB001F // TTextEditorVisitorPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BFD1B5A0200 TreatExceptionAsSuccess
+
+MEREF ME_4BE047320379_ME_4BE418BB001F_G
+ MELINK Original WL? 'ME_4BE047320379' // TTextViaEditorProcessorPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE047320379_ME_4BE418BB001F_G TTextViaEditorProcessorPrim
+
+%%InheritedBy ME_4BE047320379 ME_4BE418BB001F
+
+ME ME_4BE418BB001F
+ MEPROP UID '4BE418BB001F'
+ MEPROP Name 'TTextEditorVisitorPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест, работающий с текстом документа через редактор, но не изменяющий его' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B30C89F035F' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE047320379_ME_4BE418BB001F_G // TTextViaEditorProcessorPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4BE4196E0367 // VisitText
+ HWL ME_4BE419AF0217 // DoVisit
+ HWL ME_4BFD1B5A0200 // TreatExceptionAsSuccess
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '07.05.2010 17:42'
+ UP extprop:pas:UnitName 'TextEditorVisitorPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextEditorVisitorPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\TextEditorVisitorPrim.pas'
+
+ENDME // ME_4BE418BB001F TTextEditorVisitorPrim

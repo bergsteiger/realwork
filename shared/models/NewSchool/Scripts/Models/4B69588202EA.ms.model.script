@@ -1,0 +1,332 @@
+// TsdsCompareEditionsState 4B69588202EA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B69588202EA
+
+ME ME_4B6958F60052
+ MEPROP UID '4B6958F60052'
+ MEPROP Name 'f_EditionForCompare'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B69588202EA // TsdsCompareEditionsState
+ ;
+ MELINK Target WL 'ME_45EED84C01FD' '4570511E038A.ms.model.script' // RedactionID
+ ;
+
+ENDME // ME_4B6958F60052 f_EditionForCompare
+
+ME ME_4B695DAE02EB
+ MEPROP UID '4B695DAE02EB'
+ MEPROP Name 'IvcmRealData'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B69588202EA // TsdsCompareEditionsState
+ ;
+ MELINK Target WL 'ME_4B6875DF0310' '4A7181A301E3.ms.model.script' // IsdsCompareEditionsState
+ ;
+
+ENDME // ME_4B695DAE02EB IvcmRealData
+
+ME ME_4B69646E01F3
+ MEPROP UID '4B69646E01F3'
+ MEPROP Name 'f_UseCaseData'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4B69588202EA // TsdsCompareEditionsState
+ ;
+ MELINK Target WL 'ME_4A784CC802B0' '4A6D56B00065.ms.model.script' // InsCompareEditionsInfo
+ ;
+
+ENDME // ME_4B69646E01F3 f_UseCaseData
+
+ME ME_4B6972E10210
+ MEPROP UID '4B6972E10210'
+ MEPROP Name 'f_Compared'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Было ли проведено сравнение' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B69588202EA // TsdsCompareEditionsState
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B6972E10210 f_Compared
+
+ME ME_4D00DFAA0154
+ MEPROP UID '4D00DFAA0154'
+ MEPROP Name 'f_CompareRootPair'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Результат сравнения' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B69588202EA // TsdsCompareEditionsState
+ ;
+ MELINK Target WL 'ME_4CCE7B23028E' '4A7181A301E3.ms.model.script' // TnsDiffData$FromDTP
+ ;
+
+ENDME // ME_4D00DFAA0154 f_CompareRootPair
+
+FORWARD ME_4B695A9C0194
+
+FORWARD ME_4B695AC0007B
+
+ME ME_4B69643D021E
+ MEPROP Name 'aUseCaseData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A784CC802B0' '4A6D56B00065.ms.model.script' // InsCompareEditionsInfo
+ ;
+
+ENDME // ME_4B69643D021E aUseCaseData
+
+ME ME_4B695ADD02FD
+ MEPROP Name 'anEditionForCompare'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED84C01FD' '4570511E038A.ms.model.script' // RedactionID
+ ;
+
+ENDME // ME_4B695ADD02FD anEditionForCompare
+
+ME ME_4B695AC0007B
+ MEPROP UID '4B695AC0007B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B695A9C0194 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B69643D021E // aUseCaseData
+ ME_4B695ADD02FD // anEditionForCompare
+ )
+ ; // Parameters
+
+ENDME // ME_4B695AC0007B DoIt
+
+ME ME_4B695A9C0194
+ MEPROP UID '4B695A9C0194'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B69588202EA // TsdsCompareEditionsState
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B695AC0007B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B695A9C0194 Create
+
+MEREF ME_4B695A9C0194_ME_4B695AE20338_G
+ MELINK Original HWL ME_4B695A9C0194 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B695A9C0194_ME_4B695AE20338_G Create
+
+%%InheritedBy ME_4B695A9C0194 ME_4B695AE20338
+
+ME ME_4B695AE20338
+ MEPROP UID '4B695AE20338'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B69588202EA // TsdsCompareEditionsState
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B695A9C0194_ME_4B695AE20338_G // Create
+ )
+ ; // Inherits
+
+ENDME // ME_4B695AE20338 Make
+
+FORWARD ME_4A785700011C
+
+ME ME_4A7857350018
+ MEPROP UID '4A7857350018'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A785700011C // CheckCompare
+ ;
+
+ENDME // ME_4A7857350018 DoIt
+
+ME ME_4B60504B0030
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A785700011C // CheckCompare
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_4B60504B0030 
+
+ME ME_4A785700011C
+ MEPROP UID '4A785700011C'
+ MEPROP Name 'CheckCompare'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проверяет было ли проведено сравнение и если не было, то сравнивает' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B69588202EA // TsdsCompareEditionsState
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A7857350018 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B60504B0030 // CanNotFindData
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4A785700011C CheckCompare
+
+MEREF ME_4B69581F0199_ME_4B69588202EA_impl
+ MELINK Original WL 'ME_4B69581F0199' '4A7181A301E3.ms.model.script' // EditionForCompare
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4B69581F0199_ME_4B69588202EA_impl EditionForCompare
+
+MEREF ME_4B69683A00C4_ME_4B69588202EA_impl
+ MELINK Original WL 'ME_4B69683A00C4' '4A7181A301E3.ms.model.script' // UseCaseData
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4B69683A00C4_ME_4B69588202EA_impl UseCaseData
+
+MEREF ME_4B6972AA017A_ME_4B69588202EA_impl
+ MELINK Original WL 'ME_4B6972AA017A' '4A7181A301E3.ms.model.script' // CompareRootPair
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4B6972AA017A_ME_4B69588202EA_impl CompareRootPair
+
+MEREF ME_479731C50290_ME_4B69588202EA_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4B69588202EA_over Cleanup
+
+MEREF ME_47EA4E9002C6_ME_4B69588202EA_over
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BEF0140.ms.model.script' // FinishDataUpdate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47EA4E9002C6_ME_4B69588202EA_over FinishDataUpdate
+
+MEREF ME_4B16B8CF0307_ME_4B69588202EA_over
+ MELINK Original WL 'ME_4B16B8CF0307' '4B16B85D03A1.ms.model.script' // AssignData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B16B8CF0307_ME_4B69588202EA_over AssignData
+
+MEREF ME_4B16B85D03A1_ME_4B69588202EA_G
+ MELINK Original WL? 'ME_4B16B85D03A1' // vcmData
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B16B85D03A1_ME_4B69588202EA_G vcmData
+
+MEREF ME_47EA4BEF0140_ME_4B69588202EA_R
+ MELINK Original WL? 'ME_47EA4BEF0140' // afwApplicationDataUpdate
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47EA4BEF0140_ME_4B69588202EA_R afwApplicationDataUpdate
+
+MEREF ME_4B6875DF0310_ME_4B69588202EA_R
+ MELINK Original WL 'ME_4B6875DF0310' '4A7181A301E3.ms.model.script' // IsdsCompareEditionsState
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B6875DF0310_ME_4B69588202EA_R IsdsCompareEditionsState
+
+MEREF ME_4EA7FCF9025D_ME_4B69588202EA_R
+ MELINK Original WL 'ME_4EA7FCF9025D' '484900780017.ms.model.script' // После переключения баз СР должно перестраиваться
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EA7FCF9025D_ME_4B69588202EA_R После переключения баз СР должно перестраиваться
+
+%%ImplementedBy ME_47EA4BEF0140 ME_4B69588202EA
+%%ImplementedBy ME_4B6875DF0310 ME_4B69588202EA
+%%ImplementedBy ME_4EA7FCF9025D ME_4B69588202EA
+
+%%InheritedBy ME_4B16B85D03A1 ME_4B69588202EA
+
+ME ME_4B69588202EA
+ MEPROP UID '4B69588202EA'
+ MEPROP Name 'TsdsCompareEditionsState'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A717F3D0221' // Editions
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B16B85D03A1_ME_4B69588202EA_G // vcmData
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47EA4BEF0140_ME_4B69588202EA_R // afwApplicationDataUpdate
+ HWL ME_4B6875DF0310_ME_4B69588202EA_R // IsdsCompareEditionsState
+ HWL ME_4EA7FCF9025D_ME_4B69588202EA_R // После переключения баз СР должно перестраиваться
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B6958F60052 // f_EditionForCompare
+ HWL ME_4B695DAE02EB // IvcmRealData
+ HWL ME_4B69646E01F3 // f_UseCaseData
+ HWL ME_4B6972E10210 // f_Compared
+ HWL ME_4D00DFAA0154 // f_CompareRootPair
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B695A9C0194 // Create
+ HWL ME_4B695AE20338 // Make
+ HWL ME_4A785700011C // CheckCompare
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4B69581F0199_ME_4B69588202EA_impl // EditionForCompare
+ ME_4B69683A00C4_ME_4B69588202EA_impl // UseCaseData
+ ME_4B6972AA017A_ME_4B69588202EA_impl // CompareRootPair
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4B69588202EA_over // Cleanup
+ ME_47EA4E9002C6_ME_4B69588202EA_over // FinishDataUpdate
+ ME_4B16B8CF0307_ME_4B69588202EA_over // AssignData
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'sdsCompareEditionsState'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'sdsCompareEditionsState'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Editions\sdsCompareEditionsState.pas'
+
+ENDME // ME_4B69588202EA TsdsCompareEditionsState

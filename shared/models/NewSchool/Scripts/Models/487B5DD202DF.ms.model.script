@@ -1,0 +1,236 @@
+// TnevSelection 487B5DD202DF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_487B5DD202DF
+
+ME ME_48E3A5E503CD
+ MEPROP UID '48E3A5E503CD'
+ MEPROP Name 'Mouse'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_487B5DD202DF // TnevSelection
+ ;
+ MELINK Target WL 'ME_47C5B56900DA' '47C5207602D1.ms.model.script' // InevPoint
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_48E3A5E503CD Mouse
+
+ME ME_48E3A614017E
+ MEPROP UID '48E3A614017E'
+ MEPROP Name 'FoundBlock'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_487B5DD202DF // TnevSelection
+ ;
+ MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_48E3A614017E FoundBlock
+
+ME ME_48E3A5C203E1
+ MEPROP UID '48E3A5C203E1'
+ MEPROP Name 'DeleteFoundBlockBeforeSearch'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_487B5DD202DF // TnevSelection
+ ;
+
+ENDME // ME_48E3A5C203E1 DeleteFoundBlockBeforeSearch
+
+FORWARD ME_48E3A6260063
+
+ME ME_48E3A63A014E
+ MEPROP Name 'aTarget'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C695D90332' '47C695A10172.ms.model.script' // TevSelectTarget
+ ;
+
+ENDME // ME_48E3A63A014E aTarget
+
+ME ME_48E3A63A018F
+ MEPROP Name 'aCursor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B56900DA' '47C5207602D1.ms.model.script' // InevPoint
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_47C5B56900DA' '47C5207602D1.ms.model.script' // InevPoint
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_48E3A63A018F aCursor
+
+ME ME_48E3A63A01D3
+ MEPROP Name 'Start'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_48E3A63A01D3 Start
+
+ME ME_48E3A6260063
+ MEPROP UID '48E3A6260063'
+ MEPROP Name 'Select'
+ MEPROP Class class_Operation
+ %SUMMARY 'выделить часть документа (выделить текущее слово, строку, параграф etc)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_487B5DD202DF // TnevSelection
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E3A63A014E // aTarget
+ ME_48E3A63A018F // aCursor
+ ME_48E3A63A01D3 // Start
+ )
+ ; // Parameters
+
+ENDME // ME_48E3A6260063 Select
+
+ME ME_48E3A8540197
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_487B5DD202DF // TnevSelection
+ ;
+ MELINK Target WL? 'ME_47CFE7F00221' // l3InterfacesMisc
+ ;
+
+ENDME // ME_48E3A8540197 
+
+ME ME_48E3A9700259
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_487B5DD202DF // TnevSelection
+ ;
+ MELINK Target WL 'ME_47ECAB310336' '47ECAB0B0265.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_48E3A9700259 
+
+ME ME_48E3A9F90392
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_487B5DD202DF // TnevSelection
+ ;
+ MELINK Target WL 'ME_48E3A9D401E7' '48E3A9B902F6.ms.model.script' // SelectConsts
+ ;
+
+ENDME // ME_48E3A9F90392 
+
+MEREF ME_479731C50290_ME_487B5DD202DF_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_487B5DD202DF_over Cleanup
+
+MEREF ME_48E252D40298_ME_487B5DD202DF_over
+ MELINK Original WL 'ME_48E252D40298' '487B5D2D004E.ms.model.script' // DoGetBlock
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E252D40298_ME_487B5DD202DF_over DoGetBlock
+
+MEREF ME_48E271FC0130_ME_487B5DD202DF_over
+ MELINK Original WL 'ME_48E271FC0130' '487B5D2D004E.ms.model.script' // GetContains
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E271FC0130_ME_487B5DD202DF_over GetContains
+
+MEREF ME_48E276B10286_ME_487B5DD202DF_over
+ MELINK Original WL 'ME_48E276B10286' '487B5D2D004E.ms.model.script' // DoSetDocument
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E276B10286_ME_487B5DD202DF_over DoSetDocument
+
+MEREF ME_48E3723E0107_ME_487B5DD202DF_over
+ MELINK Original WL 'ME_48E3723E0107' '487B5D7202DC.ms.model.script' // Collapsed
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" False
+ UP "pm" True
+ENDMEREF // ME_48E3723E0107_ME_487B5DD202DF_over Collapsed
+
+MEREF ME_48E38E83007A_ME_487B5DD202DF_over
+ MELINK Original WL 'ME_48E38E83007A' '487B5D8D00ED.ms.model.script' // AfterProcessCommand
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E38E83007A_ME_487B5DD202DF_over AfterProcessCommand
+
+MEREF ME_487B5D8D00ED_ME_487B5DD202DF_G
+ MELINK Original WL? 'ME_487B5D8D00ED' // TevBlockCursor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_487B5D8D00ED_ME_487B5DD202DF_G TevBlockCursor
+
+%%InheritedBy ME_487B5D8D00ED ME_487B5DD202DF
+
+ME ME_487B5DD202DF
+ MEPROP UID '487B5DD202DF'
+ MEPROP Name 'TnevSelection'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Курсор с выделением. Для конечного использования.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4829D7D50156' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_487B5D8D00ED_ME_487B5DD202DF_G // TevBlockCursor
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48E3A5E503CD // Mouse
+ HWL ME_48E3A614017E // FoundBlock
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48E3A5C203E1 // DeleteFoundBlockBeforeSearch
+ HWL ME_48E3A6260063 // Select
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_487B5DD202DF_over // Cleanup
+ ME_48E252D40298_ME_487B5DD202DF_over // DoGetBlock
+ ME_48E271FC0130_ME_487B5DD202DF_over // GetContains
+ ME_48E276B10286_ME_487B5DD202DF_over // DoSetDocument
+ ME_48E3723E0107_ME_487B5DD202DF_over // Collapsed
+ ME_48E38E83007A_ME_487B5DD202DF_over // AfterProcessCommand
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48E3A8540197 // l3InterfacesMisc
+ ME_48E3A9700259 // Msg Codes
+ ME_48E3A9F90392 // SelectConsts
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '09.12.1998 16:17'
+ UP extprop:pas:UnitName 'nevSelection'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Selection'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevSelection.pas'
+
+ENDME // ME_487B5DD202DF TnevSelection

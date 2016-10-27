@@ -36,23 +36,29 @@ ME ME_492D93380239
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_492D91B7037E // nsContextFilter
  ;
- MELINK Target WL 'ME_4908462903E0' '49083E150027.ms.model.script' // TnscContextFilterState
+ MELINK Target WL? 'ME_4908462903E0' // TnscContextFilterState
  ;
 
 ENDME // ME_492D93380239 
 
-ME ME_492D9071038D_ME_492D91B7037E
+MEREF ME_492D9071038D_ME_492D91B7037E_impl
  MELINK Original WL 'ME_492D9071038D' '491DD2830110.ms.model.script' // CurrentContextFilter
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_492D9071038D_ME_492D91B7037E CurrentContextFilter
+ENDMEREF // ME_492D9071038D_ME_492D91B7037E_impl CurrentContextFilter
 
-ME ME_492D90AA0118_ME_492D91B7037E
+MEREF ME_492D90AA0118_ME_492D91B7037E_impl
  MELINK Original WL 'ME_492D90AA0118' '491DD2830110.ms.model.script' // FiltrateByContext
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_492D90AA0118_ME_492D91B7037E FiltrateByContext
+ENDMEREF // ME_492D90AA0118_ME_492D91B7037E_impl FiltrateByContext
+
+MEREF ME_492D901E03E1_ME_492D91B7037E_R
+ MELINK Original WL 'ME_492D901E03E1' '491DD2830110.ms.model.script' // InsContextFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492D901E03E1_ME_492D91B7037E_R InsContextFilter
 
 %%ImplementedBy ME_492D901E03E1 ME_492D91B7037E
 
@@ -69,7 +75,7 @@ ME ME_492D91B7037E
  MELINK Parent WL? 'ME_47F282AE0082' // Tree
  ;
  MELIST Implements
-   Seq: ( WL 'ME_492D901E03E1' '491DD2830110.ms.model.script' // InsContextFilter
+   Seq: ( HWL ME_492D901E03E1_ME_492D91B7037E_R // InsContextFilter
  )
  ; // Implements
  MELIST Attributes
@@ -81,8 +87,8 @@ ME ME_492D91B7037E
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_492D9071038D_ME_492D91B7037E // CurrentContextFilter
- ME_492D90AA0118_ME_492D91B7037E // FiltrateByContext
+   Seq: ( ME_492D9071038D_ME_492D91B7037E_impl // CurrentContextFilter
+ ME_492D90AA0118_ME_492D91B7037E_impl // FiltrateByContext
  )
  ; // Implemented
  MELIST Dependencies

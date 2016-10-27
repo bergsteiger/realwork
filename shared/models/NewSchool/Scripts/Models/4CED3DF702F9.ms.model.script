@@ -1,0 +1,518 @@
+// TnsNativeCommentPara 4CED3DF702F9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4CEE3A2502C0
+
+FORWARD ME_4CED3DF702F9
+
+FORWARD ME_4CEE3A2502C0
+
+ME ME_4CEE3A4D004C
+ MEPROP UID '4CEE3A4D004C'
+ MEPROP Name 'f_Comment'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CEE3A2502C0 // TnsNativeCommentParaSink
+ ;
+ MELINK Target HWL ME_4CED3DF702F9 // TnsNativeCommentPara
+ ;
+
+ENDME // ME_4CEE3A4D004C f_Comment
+
+FORWARD ME_4CEE3A6702A7
+
+FORWARD ME_4CEE3A700100
+
+ME ME_4CEE3A7901FB
+ MEPROP Name 'aComment'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4CED3DF702F9 // TnsNativeCommentPara
+ ;
+
+ENDME // ME_4CEE3A7901FB aComment
+
+ME ME_4CEE3A700100
+ MEPROP UID '4CEE3A700100'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEE3A6702A7 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CEE3A7901FB // aComment
+ )
+ ; // Parameters
+
+ENDME // ME_4CEE3A700100 DoIt
+
+ME ME_4CEE3A6702A7
+ MEPROP UID '4CEE3A6702A7'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEE3A2502C0 // TnsNativeCommentParaSink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CEE3A700100 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CEE3A6702A7 Create
+
+MEREF ME_4CEE3A6702A7_ME_4CEE3A8C0279_G
+ MELINK Original HWL ME_4CEE3A6702A7 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CEE3A6702A7_ME_4CEE3A8C0279_G Create
+
+MEREF ME_4CEE380000F1_ME_4CEE3A8C0279_R
+ MELINK Original WL 'ME_4CEE380000F1' '4C6E92E9016E.ms.model.script' // If1CommentSink
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CEE380000F1_ME_4CEE3A8C0279_R If1CommentSink
+
+%%ImplementedBy ME_4CEE380000F1 ME_4CEE3A8C0279
+
+%%InheritedBy ME_4CEE3A6702A7 ME_4CEE3A8C0279
+
+ME ME_4CEE3A8C0279
+ MEPROP UID '4CEE3A8C0279'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEE3A2502C0 // TnsNativeCommentParaSink
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CEE3A6702A7_ME_4CEE3A8C0279_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4CEE380000F1_ME_4CEE3A8C0279_R // If1CommentSink
+ )
+ ; // Implements
+
+ENDME // ME_4CEE3A8C0279 Make
+
+ME ME_4CEE730A0025
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEE3A2502C0 // TnsNativeCommentParaSink
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4CEE730A0025 
+
+ME ME_4CEE732D024B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEE3A2502C0 // TnsNativeCommentParaSink
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4CEE732D024B 
+
+ME ME_4CEE737B02E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEE3A2502C0 // TnsNativeCommentParaSink
+ ;
+ MELINK Target WL 'ME_4C5AA5CA02DF' '4570511E038A.ms.model.script' // DocumentTextProvider
+ ;
+
+ENDME // ME_4CEE737B02E7 
+
+ME ME_4CEE747C021F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEE3A2502C0 // TnsNativeCommentParaSink
+ ;
+ MELINK Target WL 'ME_4C6E935500EF' '4C6E92E9016E.ms.model.script' // If1TagDataProvider
+ ;
+
+ENDME // ME_4CEE747C021F 
+
+ME ME_4DB80127002B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEE3A2502C0 // TnsNativeCommentParaSink
+ ;
+ MELINK Target WL? 'ME_47F1F3BC0330' // evParaTools
+ ;
+
+ENDME // ME_4DB80127002B 
+
+ME ME_4DB804A10230
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEE3A2502C0 // TnsNativeCommentParaSink
+ ;
+ MELINK Target WL 'ME_4CEBC4B702DD' '48492FC0029D.ms.model.script' // LeafParaDecorationsHolder
+ ;
+
+ENDME // ME_4DB804A10230 
+
+MEREF ME_4CEE38DA0365_ME_4CEE3A2502C0_impl
+ MELINK Original WL 'ME_4CEE38DA0365' '4C6E92E9016E.ms.model.script' // State
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4CEE38DA0365_ME_4CEE3A2502C0_impl State
+
+MEREF ME_4CEE3904013D_ME_4CEE3A2502C0_impl
+ MELINK Original WL 'ME_4CEE3904013D' '4C6E92E9016E.ms.model.script' // Store
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CEE3904013D_ME_4CEE3A2502C0_impl Store
+
+MEREF ME_49E7754802A9_ME_4CEE3A2502C0_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4CEE3A2502C0_G Tl3ProtoObject
+
+MEREF ME_4CEE380000F1_ME_4CEE3A2502C0_R
+ MELINK Original WL 'ME_4CEE380000F1' '4C6E92E9016E.ms.model.script' // If1CommentSink
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CEE380000F1_ME_4CEE3A2502C0_R If1CommentSink
+
+%%ImplementedBy ME_4CEE380000F1 ME_4CEE3A2502C0
+
+%%InheritedBy ME_49E7754802A9 ME_4CEE3A2502C0
+
+ME ME_4CEE3A2502C0
+ MEPROP UID '4CEE3A2502C0'
+ MEPROP Name 'TnsNativeCommentParaSink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CED3DF702F9 // TnsNativeCommentPara
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_4CEE3A2502C0_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4CEE380000F1_ME_4CEE3A2502C0_R // If1CommentSink
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CEE3A4D004C // f_Comment
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CEE3A6702A7 // Create
+ HWL ME_4CEE3A8C0279 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4CEE38DA0365_ME_4CEE3A2502C0_impl // State
+ ME_4CEE3904013D_ME_4CEE3A2502C0_impl // Store
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4CEE730A0025 // Supports
+ ME_4CEE732D024B // InevPara
+ ME_4CEE737B02E7 // DocumentTextProvider
+ ME_4CEE747C021F // If1TagDataProvider
+ ME_4DB80127002B // evParaTools
+ ME_4DB804A10230 // LeafParaDecorationsHolder
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '25.11.2010 13:28'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NativeCommentParaSink'
+
+ENDME // ME_4CEE3A2502C0 TnsNativeCommentParaSink
+
+ME ME_4CED5AD801CD
+ MEPROP UID '4CED5AD801CD'
+ MEPROP Name 'f_State'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CED3DF702F9 // TnsNativeCommentPara
+ ;
+ MELINK Target WL 'ME_4C6D1B8E023F' '4C6E92E9016E.ms.model.script' // TnsNodeStates
+ ;
+
+ENDME // ME_4CED5AD801CD f_State
+
+FORWARD ME_4CEFB6910213
+
+FORWARD ME_535A3ED500E4
+
+ME ME_535A3EDB0337
+ MEPROP Name 'aStyle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_535A3EDB0337 aStyle
+
+ME ME_535A3EDB036A
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_535A3EDB036A anOwner
+
+ME ME_535A3ED500E4
+ MEPROP UID '535A3ED500E4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEFB6910213 // MakeFromStyle
+ ;
+ MELINK Target WL 'ME_5346BD53015A' '53317D14019D.ms.model.script' // Il3TagRef
+ ;
+ MELIST Parameters
+   Seq: ( ME_535A3EDB0337 // aStyle
+ ME_535A3EDB036A // anOwner
+ )
+ ; // Parameters
+
+ENDME // ME_535A3ED500E4 DoIt
+
+ME ME_535A3F0102CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFB6910213 // MakeFromStyle
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_535A3F0102CF 
+
+ME ME_4CEFB6910213
+ MEPROP UID '4CEFB6910213'
+ MEPROP Name 'MakeFromStyle'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CED3DF702F9 // TnsNativeCommentPara
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_535A3ED500E4 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_535A3F0102CF // FreeAndNil
+ )
+ ; // Dependencies
+ UP "is static" True
+
+ENDME // ME_4CEFB6910213 MakeFromStyle
+
+FORWARD ME_4CEFB6B202FF
+
+FORWARD ME_4CEFB6C4000A
+
+ME ME_4CEFB6CD0232
+ MEPROP Name 'aStyle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4CEFB6CD0232 aStyle
+
+ME ME_4EA98A0B006E
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_4EA98A0B006E anOwner
+
+ME ME_4CEFB6C4000A
+ MEPROP UID '4CEFB6C4000A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEFB6B202FF // CreateFromStyle
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CEFB6CD0232 // aStyle
+ ME_4EA98A0B006E // anOwner
+ )
+ ; // Parameters
+
+ENDME // ME_4CEFB6C4000A DoIt
+
+ME ME_4CEFB6B202FF
+ MEPROP UID '4CEFB6B202FF'
+ MEPROP Name 'CreateFromStyle'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CED3DF702F9 // TnsNativeCommentPara
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CEFB6C4000A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CEFB6B202FF CreateFromStyle
+
+ME ME_5307379402E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED3DF702F9 // TnsNativeCommentPara
+ ;
+ MELINK Target WL 'ME_4857C9C20131' '48492FC0029D.ms.model.script' // CommentPara
+ ;
+
+ENDME // ME_5307379402E4 
+
+MEREF ME_479731C50290_ME_4CED3DF702F9_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4CED3DF702F9_over Cleanup
+
+MEREF ME_47A042E100E2_ME_4CED3DF702F9_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4CED3DF702F9_over InitFields
+
+MEREF ME_4A60B23E00C3_ME_4CED3DF702F9_over
+ MELINK Original WL 'ME_4A60B23E00C3' '4A60B2220398.ms.model.script' // COMQueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A60B23E00C3_ME_4CED3DF702F9_over COMQueryInterface
+
+MEREF ME_4857C9C20131_ME_4CED3DF702F9_G
+ MELINK Original WL 'ME_4857C9C20131' '48492FC0029D.ms.model.script' // CommentPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857C9C20131_ME_4CED3DF702F9_G CommentPara
+
+MEREF ME_4CED4C700123_ME_4CED3DF702F9_G
+ MELINK Original WL? 'ME_4CED4C700123' // nsNativePara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CED4C700123_ME_4CED3DF702F9_G nsNativePara
+
+MEREF ME_4A5CB93700CF_ME_4CED3DF702F9_R
+ MELINK Original WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A5CB93700CF_ME_4CED3DF702F9_R Ml3Unknown
+
+MEREF ME_4CED570E029C_ME_4CED3DF702F9_R
+ MELINK Original WL 'ME_4CED570E029C' '467FC43F01F9.ms.model.script' // Mk2Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CED570E029C_ME_4CED3DF702F9_R Mk2Tag
+
+MEREF ME_4CED5B570326_ME_4CED3DF702F9_R
+ MELINK Original WL 'ME_4CED5B570326' '47BB24D30205.ms.model.script' // Ml3COMQueryInterface
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CED5B570326_ME_4CED3DF702F9_R Ml3COMQueryInterface
+
+MEREF ME_4CEFBA3C0323_ME_4CED3DF702F9_R
+ MELINK Original WL? 'ME_4CEFBA3C0323' // StyleParser
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CEFBA3C0323_ME_4CED3DF702F9_R StyleParser
+
+%%ImplementedBy ME_4A5CB93700CF ME_4CED3DF702F9
+%%ImplementedBy ME_4CED570E029C ME_4CED3DF702F9
+%%ImplementedBy ME_4CED5B570326 ME_4CED3DF702F9
+%%ImplementedBy ME_4CEFBA3C0323 ME_4CED3DF702F9
+
+%%InheritedBy ME_4857C9C20131 ME_4CED3DF702F9
+%%InheritedBy ME_4CED4C700123 ME_4CED3DF702F9
+
+ME ME_4CED3DF702F9
+ MEPROP UID '4CED3DF702F9'
+ MEPROP Name 'TnsNativeCommentPara'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C726B20031E' // TagDataProviders
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4857C9C20131_ME_4CED3DF702F9_G // CommentPara
+ HWL ME_4CED4C700123_ME_4CED3DF702F9_G // nsNativePara
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4A5CB93700CF_ME_4CED3DF702F9_R // Ml3Unknown
+ HWL ME_4CED570E029C_ME_4CED3DF702F9_R // Mk2Tag
+ HWL ME_4CED5B570326_ME_4CED3DF702F9_R // Ml3COMQueryInterface
+ HWL ME_4CEFBA3C0323_ME_4CED3DF702F9_R // StyleParser
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CED5AD801CD // f_State
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CEFB6910213 // MakeFromStyle
+ HWL ME_4CEFB6B202FF // CreateFromStyle
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4CED3DF702F9_over // Cleanup
+ ME_47A042E100E2_ME_4CED3DF702F9_over // InitFields
+ ME_4A60B23E00C3_ME_4CED3DF702F9_over // COMQueryInterface
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4CEE3A2502C0 // TnsNativeCommentParaSink
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5307379402E4 // CommentPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '24.11.2010 19:32'
+ UP extprop:pas:UnitName 'nsNativeCommentPara'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NativeCommentPara'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsNativeCommentPara.pas'
+
+ENDME // ME_4CED3DF702F9 TnsNativeCommentPara

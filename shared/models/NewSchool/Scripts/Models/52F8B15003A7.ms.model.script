@@ -1,0 +1,628 @@
+// TddPicturePathListner 52F8B15003A7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5524073901EA
+
+FORWARD ME_52F8B15003A7
+
+FORWARD ME_5524073901EA
+
+ME ME_55240748011C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_5524073901EA // TddPicturePathService
+ ;
+ MELINK Target WL? 'ME_552406830331' // Tl3PicturePathService
+ ;
+
+ENDME // ME_55240748011C 
+
+MEREF ME_49E7754802A9_ME_5524073901EA_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5524073901EA_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_5524073901EA
+
+ME ME_5524073901EA
+ MEPROP UID '5524073901EA'
+ MEPROP Name 'TddPicturePathService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8B15003A7 // TddPicturePathListner
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_5524073901EA_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_55240748011C // Tl3PicturePathService
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddPicturePathService'
+
+ENDME // ME_5524073901EA TddPicturePathService
+
+FORWARD ME_537DC78A0360
+
+ME ME_537DC9370122
+ MEPROP UID '537DC9370122'
+ MEPROP Name 'csPictureSubDir'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537DC78A0360 // PathConstants
+ ;
+ MEPROP Value '''ForPicture'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''ForPicture'''
+
+ENDME // ME_537DC9370122 csPictureSubDir
+
+ME ME_537DC78A0360
+ MEPROP UID '537DC78A0360'
+ MEPROP Name 'PathConstants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F8B15003A7 // TddPicturePathListner
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_537DC9370122 // csPictureSubDir
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_537DC78A0360 PathConstants
+
+ME ME_52F8B1A0024D
+ MEPROP UID '52F8B1A0024D'
+ MEPROP Name 'f_PicturePath'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F8B15003A7 // TddPicturePathListner
+ ;
+ MELINK Target WL 'ME_48721F730220' '48721EA10381.ms.model.script' // Tl3Strings
+ ;
+
+ENDME // ME_52F8B1A0024D f_PicturePath
+
+ME ME_53354774005B
+ MEPROP UID '53354774005B'
+ MEPROP Name 'TestName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Имя текущего теста.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F8B15003A7 // TddPicturePathListner
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_53354774005B TestName
+
+ME ME_534BB02F0268
+ MEPROP UID '534BB02F0268'
+ MEPROP Name 'EnableSave'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F8B15003A7 // TddPicturePathListner
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_534BB02F0268 EnableSave
+
+ME ME_534BB0E20257
+ MEPROP UID '534BB0E20257'
+ MEPROP Name 'f_PictureID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F8B15003A7 // TddPicturePathListner
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_534BB0E20257 f_PictureID
+
+ME ME_54646E1000FC
+ MEPROP UID '54646E1000FC'
+ MEPROP Name 'PDF4Etalon'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Если выставлен в True, то генеритя PDF, удобный для сравнения (сжатие отсутствует, вырезаны бинартные потоки, даты создания и модификации зафиксированы). В противном случае, генерятся "настоящие" PDF.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F8B15003A7 // TddPicturePathListner
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_54646E1000FC PDF4Etalon
+
+FORWARD ME_52F8B4E801C7
+
+FORWARD ME_52F8B4F701A2
+
+ME ME_52F8B50B0331
+ MEPROP Name 'aPath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52F8B50B0331 aPath
+
+ME ME_52F8B4F701A2
+ MEPROP UID '52F8B4F701A2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8B4E801C7 // AddPicturePath
+ ;
+ MELIST Parameters
+   Seq: ( ME_52F8B50B0331 // aPath
+ )
+ ; // Parameters
+
+ENDME // ME_52F8B4F701A2 DoIt
+
+ME ME_52F8B4E801C7
+ MEPROP UID '52F8B4E801C7'
+ MEPROP Name 'AddPicturePath'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8B15003A7 // TddPicturePathListner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F8B4F701A2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52F8B4E801C7 AddPicturePath
+
+FORWARD ME_52F8B512004B
+
+ME ME_52F8B51E0127
+ MEPROP UID '52F8B51E0127'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8B512004B // Clear
+ ;
+
+ENDME // ME_52F8B51E0127 DoIt
+
+ME ME_52F8B512004B
+ MEPROP UID '52F8B512004B'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8B15003A7 // TddPicturePathListner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F8B51E0127 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52F8B512004B Clear
+
+FORWARD ME_52F8B5270128
+
+ME ME_52F8B53A03B8
+ MEPROP UID '52F8B53A03B8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8B5270128 // PathCount
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52F8B53A03B8 DoIt
+
+ME ME_52F8B5270128
+ MEPROP UID '52F8B5270128'
+ MEPROP Name 'PathCount'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8B15003A7 // TddPicturePathListner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F8B53A03B8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52F8B5270128 PathCount
+
+FORWARD ME_52F8B54903AD
+
+FORWARD ME_52F8B553037D
+
+ME ME_52F8B56002DF
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52F8B56002DF anIndex
+
+ME ME_52F8B553037D
+ MEPROP UID '52F8B553037D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8B54903AD // GetPath
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_52F8B56002DF // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_52F8B553037D DoIt
+
+ME ME_52F8B54903AD
+ MEPROP UID '52F8B54903AD'
+ MEPROP Name 'GetPath'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8B15003A7 // TddPicturePathListner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F8B553037D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52F8B54903AD GetPath
+
+FORWARD ME_5304791300D1
+
+ME ME_530479210300
+ MEPROP UID '530479210300'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5304791300D1 // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_530479210300 DoIt
+
+ME ME_5304791300D1
+ MEPROP UID '5304791300D1'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8B15003A7 // TddPicturePathListner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_530479210300 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_5304791300D1 Exists
+
+FORWARD ME_534BB10401D6
+
+FORWARD ME_534BB11D02FA
+
+ME ME_53735810005F
+ MEPROP Name 'aForRTF'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_53735810005F aForRTF
+
+ME ME_534BB11D02FA
+ MEPROP UID '534BB11D02FA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_534BB10401D6 // GetUniqPictureName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_53735810005F // aForRTF
+ )
+ ; // Parameters
+
+ENDME // ME_534BB11D02FA DoIt
+
+ME ME_534BB10401D6
+ MEPROP UID '534BB10401D6'
+ MEPROP Name 'GetUniqPictureName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8B15003A7 // TddPicturePathListner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_534BB11D02FA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_534BB10401D6 GetUniqPictureName
+
+FORWARD ME_53733795015A
+
+FORWARD ME_537337D0015D
+
+ME ME_5373583200C7
+ MEPROP Name 'aFormat'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5373583200C7 aFormat
+
+ME ME_5373583200D7
+ MEPROP Name 'aForRTF'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5373583200D7 aForRTF
+
+ME ME_537337D0015D
+ MEPROP UID '537337D0015D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53733795015A // GetUniqPictureNameWithPath
+ ;
+ MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
+ ;
+ MELIST Parameters
+   Seq: ( ME_5373583200C7 // aFormat
+ ME_5373583200D7 // aForRTF
+ )
+ ; // Parameters
+
+ENDME // ME_537337D0015D DoIt
+
+ME ME_53733795015A
+ MEPROP UID '53733795015A'
+ MEPROP Name 'GetUniqPictureNameWithPath'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8B15003A7 // TddPicturePathListner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_537337D0015D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53733795015A GetUniqPictureNameWithPath
+
+FORWARD ME_537DD7740336
+
+FORWARD ME_537DD78600AA
+
+ME ME_537DE2EC0117
+ MEPROP Name 'aStartPath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
+ ;
+
+ENDME // ME_537DE2EC0117 aStartPath
+
+ME ME_537DE2EC0127
+ MEPROP Name 'aOtherPath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
+ ;
+
+ENDME // ME_537DE2EC0127 aOtherPath
+
+ME ME_537DD78600AA
+ MEPROP UID '537DD78600AA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537DD7740336 // CorrectCVSPath
+ ;
+ MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
+ ;
+ MELIST Parameters
+   Seq: ( ME_537DE2EC0117 // aStartPath
+ ME_537DE2EC0127 // aOtherPath
+ )
+ ; // Parameters
+
+ENDME // ME_537DD78600AA DoIt
+
+ME ME_537DD7740336
+ MEPROP UID '537DD7740336'
+ MEPROP Name 'CorrectCVSPath'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8B15003A7 // TddPicturePathListner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_537DD78600AA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_537DD7740336 CorrectCVSPath
+
+ME ME_534BC6B9038B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8B15003A7 // TddPicturePathListner
+ ;
+ MELINK Target WL 'ME_4DE89E560091' '47877EB202FB.ms.model.script' // Format
+ ;
+
+ENDME // ME_534BC6B9038B 
+
+ME ME_53733AF90320
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8B15003A7 // TddPicturePathListner
+ ;
+ MELINK Target WL 'ME_521AFDE50046' '521AFDDA02E4.ms.model.script' // PictureFormat
+ ;
+
+ENDME // ME_53733AF90320 
+
+ME ME_53733B470144
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8B15003A7 // TddPicturePathListner
+ ;
+ MELINK Target WL 'ME_534CD3ED02E9' '5214B1470139.ms.model.script' // GetOutputDirName4Test
+ ;
+
+ENDME // ME_53733B470144 
+
+MEREF ME_479731C50290_ME_52F8B15003A7_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_52F8B15003A7_over Cleanup
+
+MEREF ME_47BC391D0259_ME_52F8B15003A7_G
+ MELINK Original WL? 'ME_47BC391D0259' // Tl3SimpleObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC391D0259_ME_52F8B15003A7_G Tl3SimpleObject
+
+%%InheritedBy ME_47BC391D0259 ME_52F8B15003A7
+
+ME ME_52F8B15003A7
+ MEPROP UID '52F8B15003A7'
+ MEPROP Name 'TddPicturePathListner'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6843C101D1' // ddCommon
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47BC391D0259_ME_52F8B15003A7_G // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52F8B1A0024D // f_PicturePath
+ HWL ME_53354774005B // TestName
+ HWL ME_534BB02F0268 // EnableSave
+ HWL ME_534BB0E20257 // f_PictureID
+ HWL ME_54646E1000FC // PDF4Etalon
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52F8B4E801C7 // AddPicturePath
+ HWL ME_52F8B512004B // Clear
+ HWL ME_52F8B5270128 // PathCount
+ HWL ME_52F8B54903AD // GetPath
+ HWL ME_5304791300D1 // Exists
+ HWL ME_534BB10401D6 // GetUniqPictureName
+ HWL ME_53733795015A // GetUniqPictureNameWithPath
+ HWL ME_537DD7740336 // CorrectCVSPath
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_52F8B15003A7_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_5524073901EA // TddPicturePathService
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_537DC78A0360 // PathConstants
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_534BC6B9038B // Format
+ ME_53733AF90320 // PictureFormat
+ ME_53733B470144 // GetOutputDirName4Test
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP "UseNewGen" True
+ UP extprop:pas:UnitName 'ddPicturePathListner'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddPicturePathListner'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddPicturePathListner.pas'
+
+ENDME // ME_52F8B15003A7 TddPicturePathListner

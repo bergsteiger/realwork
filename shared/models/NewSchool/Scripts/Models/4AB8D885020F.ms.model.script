@@ -4,8 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_DA935FDF40EA
 
-FORWARD ME_DA935FDF40EA
-
 FORWARD ME_4AB8D885020F
 
 ME ME_DA935FDF40EA
@@ -48,6 +46,18 @@ ME ME_4901E1AE4F7C
 
 ENDME // ME_4901E1AE4F7C Ini_FormFactory_OldSituationSearch$Def
 
+MEREF ME_4C44149E023F_ME_4AB8D885020F_G
+ MELINK Original WL? 'ME_4C44149E023F' // PrimOldSituationSearchOptions
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C44149E023F_ME_4AB8D885020F_G PrimOldSituationSearchOptions
+
+MEREF ME_DA935FDF40EA_ME_4AB8D885020F_R
+ MELINK Original HWL ME_DA935FDF40EA // OldSituationSearch$Def
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_DA935FDF40EA_ME_4AB8D885020F_R OldSituationSearch$Def
+
 %%ImplementedBy ME_DA935FDF40EA ME_4AB8D885020F
 
 %%InheritedBy ME_4C44149E023F ME_4AB8D885020F
@@ -65,11 +75,11 @@ ME ME_4AB8D885020F
  MELINK Parent WL? 'ME_4AA641A3036C' // Search
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4C44149E023F' // PrimOldSituationSearchOptions
+   Seq: ( HWL ME_4C44149E023F_ME_4AB8D885020F_G // PrimOldSituationSearchOptions
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_DA935FDF40EA // OldSituationSearch$Def
+   Seq: ( HWL ME_DA935FDF40EA_ME_4AB8D885020F_R // OldSituationSearch$Def
  )
  ; // Implements
  MELIST Operations

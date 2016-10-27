@@ -1,0 +1,258 @@
+// TtfwTypeRegistrator 5527F8330362 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5527F8330362
+
+FORWARD ME_5527F84D01B5
+
+FORWARD ME_5527F867010F
+
+ME ME_5527F86901E6
+ MEPROP Name 'aTypeInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4767749802D1' '4767743E00E5.ms.model.script' // PTypeInfo
+ ;
+
+ENDME // ME_5527F86901E6 aTypeInfo
+
+ME ME_5527F867010F
+ MEPROP UID '5527F867010F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5527F84D01B5 // RegisterType
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5527F86901E6 // aTypeInfo
+ )
+ ; // Parameters
+
+ENDME // ME_5527F867010F DoIt
+
+ME ME_55C360ED03B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5527F84D01B5 // RegisterType
+ ;
+ MELINK Target WL 'ME_46A44A2F01C7' '47D15712022D.ms.model.script' // TColor
+ ;
+
+ENDME // ME_55C360ED03B0 
+
+ME ME_5527F84D01B5
+ MEPROP UID '5527F84D01B5'
+ MEPROP Name 'RegisterType'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5527F8330362 // TtfwTypeRegistrator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5527F867010F // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55C360ED03B0 // TColor
+ )
+ ; // Dependencies
+ UP "is static" True
+
+ENDME // ME_5527F84D01B5 RegisterType
+
+FORWARD ME_55C361080119
+
+FORWARD ME_55C3611503B0
+
+ME ME_55C3612A02B8
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51546CAE03B7' '4807744200AA.ms.model.script' // String$XE
+ ;
+
+ENDME // ME_55C3612A02B8 aValue
+
+ME ME_55C3611503B0
+ MEPROP UID '55C3611503B0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C361080119 // RegisterColorValue
+ ;
+ MELIST Parameters
+   Seq: ( ME_55C3612A02B8 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_55C3611503B0 DoIt
+
+ME ME_55C361080119
+ MEPROP UID '55C361080119'
+ MEPROP Name 'RegisterColorValue'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5527F8330362 // TtfwTypeRegistrator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55C3611503B0 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_55C361080119 RegisterColorValue
+
+FORWARD ME_55C48B0D0230
+
+FORWARD ME_55C48B1A0197
+
+ME ME_55C48B1B01CE
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51546CAE03B7' '4807744200AA.ms.model.script' // String$XE
+ ;
+
+ENDME // ME_55C48B1B01CE aValue
+
+ME ME_55C48B1A0197
+ MEPROP UID '55C48B1A0197'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C48B0D0230 // RegisterCharsetValue
+ ;
+ MELIST Parameters
+   Seq: ( ME_55C48B1B01CE // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_55C48B1A0197 DoIt
+
+ME ME_55C48B0D0230
+ MEPROP UID '55C48B0D0230'
+ MEPROP Name 'RegisterCharsetValue'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5527F8330362 // TtfwTypeRegistrator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55C48B1A0197 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_55C48B0D0230 RegisterCharsetValue
+
+ME ME_5527F84002EC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5527F8330362 // TtfwTypeRegistrator
+ ;
+ MELINK Target WL? 'ME_53C7E84E012D' // TtfwEnumRegistrator
+ ;
+
+ENDME // ME_5527F84002EC 
+
+ME ME_5527F880016C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5527F8330362 // TtfwTypeRegistrator
+ ;
+ MELINK Target WL? 'ME_508528D10384' // TtfwClassRef
+ ;
+
+ENDME // ME_5527F880016C 
+
+ME ME_55311CBC01C1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5527F8330362 // TtfwTypeRegistrator
+ ;
+ MELINK Target WL? 'ME_55311C9F022C' // TtfwInterfaceRegistrator
+ ;
+
+ENDME // ME_55311CBC01C1 
+
+ME ME_5571AC9A00B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5527F8330362 // TtfwTypeRegistrator
+ ;
+ MELINK Target WL? 'ME_5571AC8301BE' // TtfwTypeModifier
+ ;
+
+ENDME // ME_5571AC9A00B7 
+
+ME ME_55C35FEE034A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5527F8330362 // TtfwTypeRegistrator
+ ;
+ MELINK Target WL? 'ME_55C0D99E0109' // TtfwEnumConstantRegistrator
+ ;
+
+ENDME // ME_55C35FEE034A 
+
+ME ME_55C4847001A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_5527F8330362 // TtfwTypeRegistrator
+ ;
+ MELINK Target WL? 'ME_508528D10384' // TtfwClassRef
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_55C4847001A3 
+
+%%InjectedBy ME_508528D10384 ME_5527F8330362
+
+ME ME_5527F8330362
+ MEPROP UID '5527F8330362'
+ MEPROP Name 'TtfwTypeRegistrator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5527F81C020E' // TypesRegistration
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5527F84D01B5 // RegisterType
+ HWL ME_55C361080119 // RegisterColorValue
+ HWL ME_55C48B0D0230 // RegisterCharsetValue
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5527F84002EC // TtfwEnumRegistrator
+ ME_5527F880016C // TtfwClassRef
+ ME_55311CBC01C1 // TtfwInterfaceRegistrator
+ ME_5571AC9A00B7 // TtfwTypeModifier
+ ME_55C35FEE034A // TtfwEnumConstantRegistrator
+ ME_55C4847001A3 // TtfwClassRef
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'tfwTypeRegistrator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TypeRegistrator'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwTypeRegistrator.pas'
+
+ENDME // ME_5527F8330362 TtfwTypeRegistrator

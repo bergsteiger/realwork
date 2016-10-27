@@ -1,0 +1,66 @@
+// TevReqRowPainter 50D3F54E00A8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50D3F54E00A8
+
+ME ME_53D667F403CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_50D3F54E00A8 // TevReqRowPainter
+ ;
+ MELINK Target WL? 'ME_4857EAD30281' // TevReqRow
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D667F403CC 
+
+ME ME_53D668150164
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_50D3F54E00A8 // TevReqRowPainter
+ ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_53D668150164 
+
+MEREF ME_48C7E98600AB_ME_50D3F54E00A8_G
+ MELINK Original WL? 'ME_48C7E98600AB' // TevTableRowPainter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48C7E98600AB_ME_50D3F54E00A8_G TevTableRowPainter
+
+%%InjectedBy ME_4857EAD30281 ME_50D3F54E00A8
+
+%%InheritedBy ME_48C7E98600AB ME_50D3F54E00A8
+
+ME ME_50D3F54E00A8
+ MEPROP UID '50D3F54E00A8'
+ MEPROP Name 'TevReqRowPainter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49DCC860038B' // ParaList Painters
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48C7E98600AB_ME_50D3F54E00A8_G // TevTableRowPainter
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_53D667F403CC // TevReqRow
+ ME_53D668150164 // IevPainter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evReqRowPainter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ReqRowPainter'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evReqRowPainter.pas'
+
+ENDME // ME_50D3F54E00A8 TevReqRowPainter

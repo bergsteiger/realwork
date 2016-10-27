@@ -1,0 +1,106 @@
+// Wk2RawData 53C0068E01BC Wrapper Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53C0068E01BC
+
+ME ME_53C006E303A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C0068E01BC // Wk2RawData
+ ;
+ MELINK Target WL 'ME_47A8693601A1' '53317D14019D.ms.model.script' // Tl3PrimString
+ ;
+
+ENDME // ME_53C006E303A5 
+
+ME ME_53C00742031B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C0068E01BC // Wk2RawData
+ ;
+ MELINK Target WL? 'ME_47A080670100' // l3Stream
+ ;
+
+ENDME // ME_53C00742031B 
+
+ME ME_53C0075D00AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C0068E01BC // Wk2RawData
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53C0075D00AC 
+
+ME ME_53C009D60267
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C0068E01BC // Wk2RawData
+ ;
+ MELINK Target WL 'ME_53076BA10113' '53B5469D0049.ms.model.script' // Tk2SizedMemoryPool
+ ;
+
+ENDME // ME_53C009D60267 
+
+MEREF ME_484CEAD301AE_ME_53C0068E01BC_over
+ MELINK Original WL 'ME_484CEAD301AE' '47AC6F0B025E.ms.model.script' // ObjToTag
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_484CEAD301AE_ME_53C0068E01BC_over ObjToTag
+
+MEREF ME_48493F800373_ME_53C0068E01BC_G
+ MELINK Original WL? 'ME_48493F800373' // WPersistent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48493F800373_ME_53C0068E01BC_G WPersistent
+
+MEREF ME_48492B0701D8_ME_53C0068E01BC_R
+ MELINK Original WL 'ME_48492B0701D8' '4849284D0067.ms.model.script' // RawData
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48492B0701D8_ME_53C0068E01BC_R RawData
+
+%%ImplementedBy ME_48492B0701D8 ME_53C0068E01BC
+
+%%InheritedBy ME_48493F800373 ME_53C0068E01BC
+
+ME ME_53C0068E01BC
+ MEPROP UID '53C0068E01BC'
+ MEPROP Name 'Wk2RawData'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Wrapper ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4849284D0067' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48493F800373_ME_53C0068E01BC_G // WPersistent
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_48492B0701D8_ME_53C0068E01BC_R // RawData
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_484CEAD301AE_ME_53C0068E01BC_over // ObjToTag
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53C006E303A5 // Tl3PrimString
+ ME_53C00742031B // l3Stream
+ ME_53C0075D00AC // FreeAndNil
+ ME_53C009D60267 // Tk2SizedMemoryPool
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'k2RawData_Wrap'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2RawData_Wrap.pas'
+
+ENDME // ME_53C0068E01BC Wk2RawData

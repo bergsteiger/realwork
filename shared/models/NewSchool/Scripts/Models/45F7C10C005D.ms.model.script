@@ -1,0 +1,123 @@
+// NodeServerTree 45F7C10C005D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_45F7C10C005D
+
+ME ME_45F7C4C801F4
+ MEPROP UID '45F7C4C801F4'
+ MEPROP Name 'NodeDelegateType_'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_template::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_45F7C10C005D // NodeServerTree
+ ;
+
+ENDME // ME_45F7C4C801F4 NodeDelegateType_
+
+FORWARD ME_45F7C1B5035B
+
+ME ME_4600EA4D009C
+ MEPROP Name 'name'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEE30C0130' '45F66C67007D.ms.model.script' // AttributeTag
+ ;
+
+ENDME // ME_4600EA4D009C name
+
+ME ME_45F7C1B5035B
+ MEPROP UID '45F7C1B5035B'
+ MEPROP Name 'make_tree'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7C10C005D // NodeServerTree
+ ;
+ MELINK Target WL? 'ME_45F554750213' // TreeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_4600EA4D009C // name
+ )
+ ; // Parameters
+
+ENDME // ME_45F7C1B5035B make_tree
+
+FORWARD ME_4F143FBE01E5
+
+ME ME_4F143FBE01E5
+ MEPROP Name 'NodeType_'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target ME_4F143FBE01E5 // NodeType_
+ ;
+
+ENDME // ME_4F143FBE01E5 NodeType_
+
+MEREF ME_45EEDE9D01C5_ME_45F7C10C005D_impl
+ MELINK Original WL 'ME_45EEDE9D01C5' '45EEA85502B4.ms.model.script' // fire
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_45EEDE9D01C5_ME_45F7C10C005D_impl fire
+
+MEREF ME_45F585F802AF_ME_45F7C10C005D_G
+ MELINK Original WL? 'ME_45F585F802AF' // Tree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45F585F802AF_ME_45F7C10C005D_G Tree
+
+MEREF ME_45EEDE9D01C4_ME_45F7C10C005D_R
+ MELINK Original WL 'ME_45EEDE9D01C4' '45EEA85502B4.ms.model.script' // Listener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45EEDE9D01C4_ME_45F7C10C005D_R Listener
+
+%%ImplementedBy ME_45EEDE9D01C4 ME_45F7C10C005D
+
+%%InheritedBy ME_45F585F802AF ME_45F7C10C005D
+
+ME ME_45F7C10C005D
+ MEPROP UID '45F7C10C005D'
+ MEPROP Name 'NodeServerTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_ParameterizedClass
+ %SUMMARY 'јдаптерное дерево, с кешом сервантов (эмул€ци€ мультифабрики)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_45EEA4490239' // DynamicTree_i
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_45F585F802AF_ME_45F7C10C005D_G // Tree
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_45EEDE9D01C4_ME_45F7C10C005D_R // Listener
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_45F7C4C801F4 // NodeDelegateType_
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_45F7C1B5035B // make_tree
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_45EEDE9D01C5_ME_45F7C10C005D_impl // fire
+ )
+ ; // Implemented
+ MELIST Parameters
+   Seq: ( ME_4F143FBE01E5 // NodeType_
+ )
+ ; // Parameters
+ UP "need UC" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DynamicTree_i\NodeServerTree.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\NodeServerTree.pas'
+
+ENDME // ME_45F7C10C005D NodeServerTree

@@ -9,6 +9,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4F0C0B6801C7
 
+MEREF ME_578F5E310137_ME_552E443E0209_G
+ MELINK Original WL 'ME_578F5E310137' '578F5E1601B5.ms.model.script' // TDragDataState
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_578F5E310137_ME_552E443E0209_G TDragDataState
+
 %%InheritedBy ME_578F5E310137 ME_552E443E0209
 
 ME ME_552E443E0209
@@ -22,7 +28,7 @@ ME ME_552E443E0209
  MELINK Parent HWL ME_4F0C0B6801C7 // DragData
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_578F5E310137' '578F5E1601B5.ms.model.script' // TDragDataState
+   Seq: ( HWL ME_578F5E310137_ME_552E443E0209_G // TDragDataState
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -91,6 +97,12 @@ ME ME_5530C7180149
 
 ENDME // ME_5530C7180149 Create
 
+MEREF ME_4787B1960023_ME_552FCE4601AC_G
+ MELINK Original WL 'ME_4787B1960023' '4787B0A8007B.ms.model.script' // El3NoLoggedException
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4787B1960023_ME_552FCE4601AC_G El3NoLoggedException
+
 %%InheritedBy ME_4787B1960023 ME_552FCE4601AC
 
 ME ME_552FCE4601AC
@@ -104,7 +116,7 @@ ME ME_552FCE4601AC
  MELINK Parent HWL ME_4F0C0B6801C7 // DragData
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4787B1960023' '4787B0A8007B.ms.model.script' // El3NoLoggedException
+   Seq: ( HWL ME_4787B1960023_ME_552FCE4601AC_G // El3NoLoggedException
  )
  ; // Inherits
  MELIST Operations
@@ -319,7 +331,7 @@ ENDME // ME_552FDEBE02A5 f_NeedStop
 ME ME_552FDEE30376
  MEPROP UID '552FDEE30376'
  MEPROP Name 'InitListeners'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -332,7 +344,7 @@ ENDME // ME_552FDEE30376 InitListeners
 ME ME_552FDEFB010E
  MEPROP UID '552FDEFB010E'
  MEPROP Name 'RemoveListeners'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -379,7 +391,7 @@ ENDME // ME_552FDF3B03DB DoIt
 ME ME_552FDF3003B5
  MEPROP UID '552FDF3003B5'
  MEPROP Name 'DoDrop'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -426,7 +438,7 @@ ENDME // ME_552FDF6B03BA DoIt
 ME ME_552FDF5D03B3
  MEPROP UID '552FDF5D03B3'
  MEPROP Name 'Execute'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -471,7 +483,7 @@ ENDME // ME_552FDF950216 DoIt
 ME ME_552FDF8E01C9
  MEPROP UID '552FDF8E01C9'
  MEPROP Name 'RunDragData'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -516,7 +528,7 @@ ENDME // ME_552FDFFB018A DoIt
 ME ME_552FDFF10077
  MEPROP UID '552FDFF10077'
  MEPROP Name 'Stop'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -533,7 +545,7 @@ ENDME // ME_552FDFF10077 Stop
 ME ME_552FE00B02AA
  MEPROP UID '552FE00B02AA'
  MEPROP Name 'Pause'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -546,7 +558,7 @@ ENDME // ME_552FE00B02AA Pause
 ME ME_552FE0130188
  MEPROP UID '552FE0130188'
  MEPROP Name 'Restore'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -559,7 +571,7 @@ ENDME // ME_552FE0130188 Restore
 ME ME_552FE01A0138
  MEPROP UID '552FE01A0138'
  MEPROP Name 'CheckInProgress'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -569,23 +581,47 @@ ME ME_552FE01A0138
 
 ENDME // ME_552FE01A0138 CheckInProgress
 
-ME ME_4F79CEDF005A_ME_4F0C0B870141
+MEREF ME_4F79CEDF005A_ME_4F0C0B870141_impl
  MELINK Original WL 'ME_4F79CEDF005A' '4677FBA70343.ms.model.script' // MouseListenerNotify
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F79CEDF005A_ME_4F0C0B870141 MouseListenerNotify
+ENDMEREF // ME_4F79CEDF005A_ME_4F0C0B870141_impl MouseListenerNotify
 
-ME ME_4F79CF3400BB_ME_4F0C0B870141
+MEREF ME_4F79CF3400BB_ME_4F0C0B870141_impl
  MELINK Original WL 'ME_4F79CF3400BB' '4677FBA70343.ms.model.script' // WndProcListenerNotify
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F79CF3400BB_ME_4F0C0B870141 WndProcListenerNotify
+ENDMEREF // ME_4F79CF3400BB_ME_4F0C0B870141_impl WndProcListenerNotify
 
-ME ME_4F79CF9200A0_ME_4F0C0B870141
+MEREF ME_4F79CF9200A0_ME_4F0C0B870141_impl
  MELINK Original WL 'ME_4F79CF9200A0' '4677FBA70343.ms.model.script' // WndProcRetListenerNotify
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F79CF9200A0_ME_4F0C0B870141 WndProcRetListenerNotify
+ENDMEREF // ME_4F79CF9200A0_ME_4F0C0B870141_impl WndProcRetListenerNotify
+
+MEREF ME_46780CCE037B_ME_4F0C0B870141_G
+ MELINK Original WL 'ME_46780CCE037B' '4773D64E036C.ms.model.script' // Tl3Base
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780CCE037B_ME_4F0C0B870141_G Tl3Base
+
+MEREF ME_46A5B4170363_ME_4F0C0B870141_R
+ MELINK Original WL 'ME_46A5B4170363' '4677FBA70343.ms.model.script' // Il3WndProcListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46A5B4170363_ME_4F0C0B870141_R Il3WndProcListener
+
+MEREF ME_4F7321C602DF_ME_4F0C0B870141_R
+ MELINK Original WL 'ME_4F7321C602DF' '4677FBA70343.ms.model.script' // Il3WndProcRetListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F7321C602DF_ME_4F0C0B870141_R Il3WndProcRetListener
+
+MEREF ME_4F741B37029A_ME_4F0C0B870141_R
+ MELINK Original WL 'ME_4F741B37029A' '4677FBA70343.ms.model.script' // Il3MouseListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F741B37029A_ME_4F0C0B870141_R Il3MouseListener
 
 %%ImplementedBy ME_46A5B4170363 ME_4F0C0B870141
 %%ImplementedBy ME_4F7321C602DF ME_4F0C0B870141
@@ -604,13 +640,13 @@ ME ME_4F0C0B870141
  MELINK Parent HWL ME_4F0C0B6801C7 // DragData
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_46780CCE037B' '4773D64E036C.ms.model.script' // Tl3Base
+   Seq: ( HWL ME_46780CCE037B_ME_4F0C0B870141_G // Tl3Base
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_46A5B4170363' '4677FBA70343.ms.model.script' // Il3WndProcListener
- WL 'ME_4F7321C602DF' '4677FBA70343.ms.model.script' // Il3WndProcRetListener
- WL 'ME_4F741B37029A' '4677FBA70343.ms.model.script' // Il3MouseListener
+   Seq: ( HWL ME_46A5B4170363_ME_4F0C0B870141_R // Il3WndProcListener
+ HWL ME_4F7321C602DF_ME_4F0C0B870141_R // Il3WndProcRetListener
+ HWL ME_4F741B37029A_ME_4F0C0B870141_R // Il3MouseListener
  )
  ; // Implements
  MELIST Attributes
@@ -641,9 +677,9 @@ ME ME_4F0C0B870141
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4F79CEDF005A_ME_4F0C0B870141 // MouseListenerNotify
- ME_4F79CF3400BB_ME_4F0C0B870141 // WndProcListenerNotify
- ME_4F79CF9200A0_ME_4F0C0B870141 // WndProcRetListenerNotify
+   Seq: ( ME_4F79CEDF005A_ME_4F0C0B870141_impl // MouseListenerNotify
+ ME_4F79CF3400BB_ME_4F0C0B870141_impl // WndProcListenerNotify
+ ME_4F79CF9200A0_ME_4F0C0B870141_impl // WndProcRetListenerNotify
  )
  ; // Implemented
  MELIST Injected
@@ -751,7 +787,7 @@ ME ME_5530D14D03C9
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F0C0B6801C7 // DragData
  ;
- MELINK Target WL 'ME_4F636139008F' '4F635E1901E5.ms.model.script' // Tl3ListenersManager
+ MELINK Target WL? 'ME_4F636139008F' // Tl3ListenersManager
  ;
 
 ENDME // ME_5530D14D03C9 

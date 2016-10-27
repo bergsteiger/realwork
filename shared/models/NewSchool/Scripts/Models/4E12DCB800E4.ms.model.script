@@ -1,0 +1,67 @@
+// TRowSelectionTest 4E12DCB800E4 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4BE13147032C_ME_4E12DCB800E4_impl
+ MELINK Original WL 'ME_4BE13147032C' '4BE111D30229.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE13147032C_ME_4E12DCB800E4_impl Process
+
+MEREF ME_4BE111D30229_ME_4E12DCB800E4_G
+ MELINK Original WL? 'ME_4BE111D30229' // TTextViaEditorProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE111D30229_ME_4E12DCB800E4_G TTextViaEditorProcessor
+
+MEREF ME_4CE1344403AC_ME_4E12DCB800E4_R
+ MELINK Original WL? 'ME_4CE1344403AC' // ClipboardOperations
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CE1344403AC_ME_4E12DCB800E4_R ClipboardOperations
+
+MEREF ME_4DDF61B503D1_ME_4E12DCB800E4_R
+ MELINK Original WL? 'ME_4DDF61B503D1' // MouseClickOnPoint
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DDF61B503D1_ME_4E12DCB800E4_R MouseClickOnPoint
+
+%%ImplementedBy ME_4CE1344403AC ME_4E12DCB800E4
+%%ImplementedBy ME_4DDF61B503D1 ME_4E12DCB800E4
+
+%%InheritedBy ME_4BE111D30229 ME_4E12DCB800E4
+
+ME ME_4E12DCB800E4
+ MEPROP UID '4E12DCB800E4'
+ MEPROP Name 'TRowSelectionTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест выделения строки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4D02566F01E6' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE111D30229_ME_4E12DCB800E4_G // TTextViaEditorProcessor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4CE1344403AC_ME_4E12DCB800E4_R // ClipboardOperations
+ HWL ME_4DDF61B503D1_ME_4E12DCB800E4_R // MouseClickOnPoint
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4BE13147032C_ME_4E12DCB800E4_impl // Process
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'RowSelectionTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RowSelectionTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\RowSelectionTest.pas'
+
+ENDME // ME_4E12DCB800E4 TRowSelectionTest

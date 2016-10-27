@@ -1,0 +1,121 @@
+// TnevControlsBlockIevCommonControlMapper 53D637420240 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D637420240
+
+ME ME_53D6375D0205
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D637420240 // TnevControlsBlockIevCommonControlMapper
+ ;
+ MELINK Target WL? 'ME_485807480091' // TevControlsBlock
+ ;
+ UP "injects as" 'mapper'
+
+ENDME // ME_53D6375D0205 
+
+ME ME_53D6378E03E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D637420240 // TnevControlsBlockIevCommonControlMapper
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_53D6378E03E4 
+
+ME ME_53D637AD01CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D637420240 // TnevControlsBlockIevCommonControlMapper
+ ;
+ MELINK Target WL 'ME_47C6A7C0029F' '47C5207602D1.ms.model.script' // InevParaInternal
+ ;
+
+ENDME // ME_53D637AD01CF 
+
+ME ME_53D637CF01CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D637420240 // TnevControlsBlockIevCommonControlMapper
+ ;
+ MELINK Target WL 'ME_47C6A6570369' '47C5207602D1.ms.model.script' // InevParaList
+ ;
+
+ENDME // ME_53D637CF01CC 
+
+ME ME_53D638FD00EB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53D637420240 // TnevControlsBlockIevCommonControlMapper
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_53D638FD00EB 
+
+ME ME_53D649B70015
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53D637420240 // TnevControlsBlockIevCommonControlMapper
+ ;
+ MELINK Target WL 'ME_47C6AFC8021F' '47C5207602D1.ms.model.script' // IevCommonControl
+ ;
+
+ENDME // ME_53D649B70015 
+
+MEREF ME_53D639B601D7_ME_53D637420240_impl
+ MELINK Original WL 'ME_53D639B601D7' '53D6399F03E1.ms.model.script' // Make
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" True
+ENDMEREF // ME_53D639B601D7_ME_53D637420240_impl Make
+
+MEREF ME_53D6399F03E1_ME_53D637420240_G
+ MELINK Original WL? 'ME_53D6399F03E1' // Tk2InterfaceMapper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53D6399F03E1_ME_53D637420240_G Tk2InterfaceMapper
+
+%%InjectedBy ME_485807480091 ME_53D637420240
+
+%%InheritedBy ME_53D6399F03E1 ME_53D637420240
+
+ME ME_53D637420240
+ MEPROP UID '53D637420240'
+ MEPROP Name 'TnevControlsBlockIevCommonControlMapper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48CE0A0A03B4' // ParagraphsImplementation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53D6399F03E1_ME_53D637420240_G // Tk2InterfaceMapper
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53D639B601D7_ME_53D637420240_impl // Make
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53D6375D0205 // TevControlsBlock
+ ME_53D6378E03E4 // InevPara
+ ME_53D637AD01CF // InevParaInternal
+ ME_53D637CF01CC // InevParaList
+ ME_53D638FD00EB // Supports
+ ME_53D649B70015 // IevCommonControl
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nevControlsBlockIevCommonControlMapper'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ControlsBlockIevCommonControlMapper'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevControlsBlockIevCommonControlMapper.pas'
+
+ENDME // ME_53D637420240 TnevControlsBlockIevCommonControlMapper

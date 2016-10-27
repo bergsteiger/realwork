@@ -1,0 +1,119 @@
+// TatOpenSavedListOperation 4FD234F20321 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FD234F20321
+
+ME ME_4FD23589008B
+ MEPROP UID '4FD23589008B'
+ MEPROP Name 'FoldersNodeMatcher'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD234F20321 // TatOpenSavedListOperation
+ ;
+ MELINK Target WL 'ME_484FE8AF001E' '480864400141.ms.model.script' // TatListMatcher
+ ;
+
+ENDME // ME_4FD23589008B FoldersNodeMatcher
+
+ME ME_4FD2385E03D1
+ MEPROP UID '4FD2385E03D1'
+ MEPROP Name 'ObjectType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD234F20321 // TatOpenSavedListOperation
+ ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_4FD2385E03D1 ObjectType
+
+ME ME_4FD238990324
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FD234F20321 // TatOpenSavedListOperation
+ ;
+ MELINK Target WL? 'ME_4A4CDD01023F' // TatListHelper
+ ;
+
+ENDME // ME_4FD238990324 
+
+MEREF ME_4FD0D2530143_ME_4FD234F20321_impl
+ MELINK Original WL 'ME_4FD0D2530143' '4FD0D1E00242.ms.model.script' // OnFoldersObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4FD0D2530143_ME_4FD234F20321_impl OnFoldersObject
+
+MEREF ME_48089F660238_ME_4FD234F20321_over
+ MELINK Original WL 'ME_48089F660238' '48089D120398.ms.model.script' // ExecuteChilds
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F660238_ME_4FD234F20321_over ExecuteChilds
+
+MEREF ME_484FA0FD0223_ME_4FD234F20321_G
+ MELINK Original WL? 'ME_484FA0FD0223' // atProcessNamedFoldersObjectOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484FA0FD0223_ME_4FD234F20321_G atProcessNamedFoldersObjectOperation
+
+MEREF ME_4FD0D1E00242_ME_4FD234F20321_R
+ MELINK Original WL? 'ME_4FD0D1E00242' // atOpenFoldersObjectAddon
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FD0D1E00242_ME_4FD234F20321_R atOpenFoldersObjectAddon
+
+%%ImplementedBy ME_4FD0D1E00242 ME_4FD234F20321
+
+%%InheritedBy ME_484FA0FD0223 ME_4FD234F20321
+
+ME ME_4FD234F20321
+ MEPROP UID '4FD234F20321'
+ MEPROP Name 'TatOpenSavedListOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484FA0FD0223_ME_4FD234F20321_G // atProcessNamedFoldersObjectOperation
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4FD0D1E00242_ME_4FD234F20321_R // atOpenFoldersObjectAddon
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4FD23589008B // FoldersNodeMatcher
+ HWL ME_4FD2385E03D1 // ObjectType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4FD0D2530143_ME_4FD234F20321_impl // OnFoldersObject
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F660238_ME_4FD234F20321_over // ExecuteChilds
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4FD238990324 // TatListHelper
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atOpenSavedListOperation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atOpenSavedListOperation'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atOpenSavedListOperation.pas'
+
+ENDME // ME_4FD234F20321 TatOpenSavedListOperation

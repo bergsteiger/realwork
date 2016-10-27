@@ -5,35 +5,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_4DD4F6EA03D9
 %%Inner ME_4DD4F7060070
 
-FORWARD ME_4DD4F6C40009
-
-%%InheritedBy ME_4DD4F6FB0012 ME_4DD4F7060070
-
-ME ME_4DD4F7060070
- MEPROP UID '4DD4F7060070'
- MEPROP Name 'TevOperationDispatcherEx'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4DD4F6C40009 // Dispatcher
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4DD4F6FB0012' '4DD4F6EA03D9.ms.model.script' // TevOperationDispatcher
- )
- ; // Inherits
- UP "author" 'Ëþëèí À.Â.'
- UP "no hands" True
- UP "singleton" True
- UP "started" '19.05.2011 14:55'
- UP extprop:pas:UnitName 'evOperationDispatcherEx'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'OperationDispatcherEx'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\evOperationDispatcherEx.pas'
-
-ENDME // ME_4DD4F7060070 TevOperationDispatcherEx
-
 ME ME_4DD4F6C40009
  MEPROP UID '4DD4F6C40009'
  MEPROP Name 'Dispatcher'
@@ -46,7 +17,7 @@ ME ME_4DD4F6C40009
  ;
  MELIST Children
    Seq: ( WL? 'ME_4DD4F6EA03D9' // evDisp
- HWL ME_4DD4F7060070 // TevOperationDispatcherEx
+ WL? 'ME_4DD4F7060070' // TevOperationDispatcherEx
  )
  ; // Children
  MELIST Depends

@@ -1,0 +1,66 @@
+// Tl3VCLFormPtrList 4DAEBDD2010D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DAEBDD2010D
+
+ME ME_4DAEBE10008C
+ MEPROP UID '4DAEBE10008C'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DAEBDD2010D // Tl3VCLFormPtrList
+ ;
+ MELINK Target WL 'ME_484529DC0276' '47E13C6B0341.ms.model.script' // TCustomForm
+ ;
+
+ENDME // ME_4DAEBE10008C ItemType
+
+MEREF ME_47B57B7800A7_ME_4DAEBDD2010D_G
+ MELINK Original WL? 'ME_47B57B7800A7' // l3ObjectPtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57B7800A7_ME_4DAEBDD2010D_G l3ObjectPtrList
+
+MEREF ME_4A54DD4E036F_ME_4DAEBDD2010D_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4DAEBDD2010D_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57B7800A7 ME_4DAEBDD2010D
+%%InheritedBy ME_4A54DD4E036F ME_4DAEBDD2010D
+
+ME ME_4DAEBDD2010D
+ MEPROP UID '4DAEBDD2010D'
+ MEPROP Name 'Tl3VCLFormPtrList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ñïèñîê ÓÊÀÇÀÒÅËÅÉ íà ôîðìû VCL' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A6D65B9022A' // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57B7800A7_ME_4DAEBDD2010D_G // l3ObjectPtrList
+ HWL ME_4A54DD4E036F_ME_4DAEBDD2010D_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DAEBE10008C // ItemType
+ )
+ ; // Attributes
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '20.04.2011 15:05'
+ UP extprop:pas:UnitName 'l3VCLFormPtrList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'VCLFormPtrList'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3VCLFormPtrList.pas'
+
+ENDME // ME_4DAEBDD2010D Tl3VCLFormPtrList

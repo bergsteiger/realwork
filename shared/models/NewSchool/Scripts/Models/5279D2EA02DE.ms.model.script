@@ -1,0 +1,76 @@
+// TTestDocumentList 5279D2EA02DE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5279D2EA02DE
+
+FORWARD ME_5279D3220116
+
+ME ME_5279D3410056
+ MEPROP UID '5279D3410056'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5279D3220116 // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5279D3410056 DoIt
+
+ME ME_5279D3220116
+ MEPROP UID '5279D3220116'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5279D2EA02DE // TTestDocumentList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5279D3410056 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_5279D3220116 Exists
+
+MEREF ME_4773DCE302FF_ME_5279D2EA02DE_G
+ MELINK Original WL? 'ME_4773DCE302FF' // Tl3StringList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773DCE302FF_ME_5279D2EA02DE_G Tl3StringList
+
+%%InheritedBy ME_4773DCE302FF ME_5279D2EA02DE
+
+ME ME_5279D2EA02DE
+ MEPROP UID '5279D2EA02DE'
+ MEPROP Name 'TTestDocumentList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B2A112B011A' // Source
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4773DCE302FF_ME_5279D2EA02DE_G // Tl3StringList
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5279D3220116 // Exists
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:pas:UnitName 'TestDocumentList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TestDocumentList'
+ UP intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\TestDocumentList.pas'
+
+ENDME // ME_5279D2EA02DE TTestDocumentList

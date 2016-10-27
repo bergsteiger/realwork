@@ -1,0 +1,213 @@
+// TdaSortField 5680EF290107 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5680EF290107
+
+ME ME_5680EFB301F6
+ MEPROP UID '5680EFB301F6'
+ MEPROP Name 'f_SelectField'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5680EF290107 // TdaSortField
+ ;
+ MELINK Target WL 'ME_5551DC0F012D' '5432518A0316.ms.model.script' // IdaSelectField
+ ;
+
+ENDME // ME_5680EFB301F6 f_SelectField
+
+ME ME_5680EFBF00EA
+ MEPROP UID '5680EFBF00EA'
+ MEPROP Name 'f_SortOrder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5680EF290107 // TdaSortField
+ ;
+ MELINK Target WL 'ME_567CF81B01BA' '5432448401BC.ms.model.script' // TdaSortOrder
+ ;
+
+ENDME // ME_5680EFBF00EA f_SortOrder
+
+FORWARD ME_5680EF4703D5
+
+FORWARD ME_5680EF5003B8
+
+ME ME_568130210076
+ MEPROP Name 'aSelectField'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5551DC0F012D' '5432518A0316.ms.model.script' // IdaSelectField
+ ;
+
+ENDME // ME_568130210076 aSelectField
+
+ME ME_568130210085
+ MEPROP Name 'aSortOrder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_567CF81B01BA' '5432448401BC.ms.model.script' // TdaSortOrder
+ ;
+ MEPROP Value 'da_soAscending'
+ MELINK ValueType WL 'ME_567CF81B01BA' '5432448401BC.ms.model.script' // TdaSortOrder
+ ;
+ UP extprop:pas:Value 'daTypes.da_soAscending'
+
+ENDME // ME_568130210085 aSortOrder
+
+ME ME_5680EF5003B8
+ MEPROP UID '5680EF5003B8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5680EF4703D5 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_568130210076 // aSelectField
+ ME_568130210085 // aSortOrder
+ )
+ ; // Parameters
+
+ENDME // ME_5680EF5003B8 DoIt
+
+ME ME_5680EF4703D5
+ MEPROP UID '5680EF4703D5'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5680EF290107 // TdaSortField
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5680EF5003B8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5680EF4703D5 Create
+
+MEREF ME_5680EF4703D5_ME_5680EF7D0314_G
+ MELINK Original HWL ME_5680EF4703D5 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5680EF4703D5_ME_5680EF7D0314_G Create
+
+MEREF ME_5680EE9A00EC_ME_5680EF7D0314_R
+ MELINK Original WL 'ME_5680EE9A00EC' '5432518A0316.ms.model.script' // IdaSortField
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5680EE9A00EC_ME_5680EF7D0314_R IdaSortField
+
+%%ImplementedBy ME_5680EE9A00EC ME_5680EF7D0314
+
+%%InheritedBy ME_5680EF4703D5 ME_5680EF7D0314
+
+ME ME_5680EF7D0314
+ MEPROP UID '5680EF7D0314'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5680EF290107 // TdaSortField
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5680EF4703D5_ME_5680EF7D0314_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5680EE9A00EC_ME_5680EF7D0314_R // IdaSortField
+ )
+ ; // Implements
+
+ENDME // ME_5680EF7D0314 Make
+
+MEREF ME_5680EEB20163_ME_5680EF290107_impl
+ MELINK Original WL 'ME_5680EEB20163' '5432518A0316.ms.model.script' // SelectField
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_5680EEB20163_ME_5680EF290107_impl SelectField
+
+MEREF ME_5680EEDA03E3_ME_5680EF290107_impl
+ MELINK Original WL 'ME_5680EEDA03E3' '5432518A0316.ms.model.script' // SortOrder
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_5680EEDA03E3_ME_5680EF290107_impl SortOrder
+
+MEREF ME_479731C50290_ME_5680EF290107_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5680EF290107_over Cleanup
+
+MEREF ME_49E7754802A9_ME_5680EF290107_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5680EF290107_G Tl3ProtoObject
+
+MEREF ME_5680EE9A00EC_ME_5680EF290107_R
+ MELINK Original WL 'ME_5680EE9A00EC' '5432518A0316.ms.model.script' // IdaSortField
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5680EE9A00EC_ME_5680EF290107_R IdaSortField
+
+%%ImplementedBy ME_5680EE9A00EC ME_5680EF290107
+
+%%InheritedBy ME_49E7754802A9 ME_5680EF290107
+
+ME ME_5680EF290107
+ MEPROP UID '5680EF290107'
+ MEPROP Name 'TdaSortField'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F85B2500FB' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_5680EF290107_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5680EE9A00EC_ME_5680EF290107_R // IdaSortField
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5680EFB301F6 // f_SelectField
+ HWL ME_5680EFBF00EA // f_SortOrder
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5680EF4703D5 // Create
+ HWL ME_5680EF7D0314 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5680EEB20163_ME_5680EF290107_impl // SelectField
+ ME_5680EEDA03E3_ME_5680EF290107_impl // SortOrder
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5680EF290107_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'daSortField'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'daSortField'
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daSortField.pas'
+
+ENDME // ME_5680EF290107 TdaSortField

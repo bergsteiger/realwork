@@ -20,6 +20,18 @@ ME ME_A3B7ABF2FDF1
 
 ENDME // ME_A3B7ABF2FDF1 Ini_FormFactory_UserList
 
+MEREF ME_4C7CE50101B3_ME_4AA8E45C00A8_G
+ MELINK Original WL? 'ME_4C7CE50101B3' // PrimUserListOptions
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C7CE50101B3_ME_4AA8E45C00A8_G PrimUserListOptions
+
+MEREF ME_4FFBFFFD00A6_ME_4AA8E45C00A8_R
+ MELINK Original WL 'ME_4FFBFFFD00A6' '4FFBFDCA01DE.ms.model.script' // UserList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FFBFFFD00A6_ME_4AA8E45C00A8_R UserList
+
 %%ImplementedBy ME_4FFBFFFD00A6 ME_4AA8E45C00A8
 
 %%InheritedBy ME_4C7CE50101B3 ME_4AA8E45C00A8
@@ -36,11 +48,11 @@ ME ME_4AA8E45C00A8
  MELINK Parent WL? 'ME_4AA5120303E5' // Admin
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4C7CE50101B3' // PrimUserListOptions
+   Seq: ( HWL ME_4C7CE50101B3_ME_4AA8E45C00A8_G // PrimUserListOptions
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4FFBFFFD00A6' '4FFBFDCA01DE.ms.model.script' // UserList
+   Seq: ( HWL ME_4FFBFFFD00A6_ME_4AA8E45C00A8_R // UserList
  )
  ; // Implements
  MELIST Operations

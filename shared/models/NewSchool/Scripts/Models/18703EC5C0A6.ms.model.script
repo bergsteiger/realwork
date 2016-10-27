@@ -4,57 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_46C66075B1E8
 
-FORWARD ME_18703EC5C0A6
-
-ME ME_4B7AB0B6016E_ME_46C66075B1E8
- MELINK Original WL 'ME_4B7AB0B6016E' '4B2A6D4303A9.ms.model.script' // CommandLineKey
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4B7AB0B6016E_ME_46C66075B1E8 CommandLineKey
-
-ME ME_4B7C0B43005B_ME_46C66075B1E8
- MELINK Original WL 'ME_4B7C0B43005B' '4B2A6D4303A9.ms.model.script' // TimesPage
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4B7C0B43005B_ME_46C66075B1E8 TimesPage
-
-ME ME_4B7C0B670215_ME_46C66075B1E8
- MELINK Original WL 'ME_4B7C0B670215' '4B2A6D4303A9.ms.model.script' // ResultsPage
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4B7C0B670215_ME_46C66075B1E8 ResultsPage
-
-%%InheritedBy ME_4B7AAC7A031D ME_46C66075B1E8
-
-ME ME_46C66075B1E8
- MEPROP UID '46C66075B1E8'
- MEPROP Name 'ReleaseItsLAW'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_TestResults ;
- MEPROP Kind kind_NormalClass
- %SUMMARY ' (релизный вариант)' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_18703EC5C0A6 // ReleaseNewGen
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A6D4303A9.ms.model.script' // TTestResultsPlace
- )
- ; // Inherits
- MELIST Implemented
-   Seq: ( ME_4B7AB0B6016E_ME_46C66075B1E8 // CommandLineKey
- ME_4B7C0B43005B_ME_46C66075B1E8 // TimesPage
- ME_4B7C0B670215_ME_46C66075B1E8 // ResultsPage
- )
- ; // Implemented
- UP extprop:pas:TypeName 'TReleaseItsLAW'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'ReleaseItsLAW'
- UP intf.pas:Path 'MDProcess\NewGenTest\ReleaseItsLAW.pas'
-
-ENDME // ME_46C66075B1E8 ReleaseItsLAW
-
 ME ME_18703EC5C0A6
  MEPROP UID '18703EC5C0A6'
  MEPROP Name 'ReleaseNewGen'
@@ -68,7 +17,7 @@ ME ME_18703EC5C0A6
  MELINK Parent WL? 'ME_4F5F65870086' // MDProcess$NewGen
  ;
  MELIST Children
-   Seq: ( HWL ME_46C66075B1E8 // ReleaseItsLAW
+   Seq: ( WL? 'ME_46C66075B1E8' // ReleaseItsLAW
  )
  ; // Children
  MELIST Depends

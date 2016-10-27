@@ -1,0 +1,504 @@
+// K517772970_TCheckSaveToStream 532008240001 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_532008240001
+
+ME ME_5320084E020E
+ MEPROP UID '5320084E020E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+
+ENDME // ME_5320084E020E DoIt
+
+ME ME_5320086A0278
+ MEPROP UID '5320086A0278'
+ MEPROP Name 'CheckLoad'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+
+ENDME // ME_5320086A0278 CheckLoad
+
+FORWARD ME_5320088202FB
+
+ME ME_5320089A03C6
+ MEPROP UID '5320089A03C6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5320088202FB // TaskClass
+ ;
+ MELINK Target WL 'ME_53170EB30071' '52FA49C7022C.ms.model.script' // TddTaskClass
+ ;
+
+ENDME // ME_5320089A03C6 DoIt
+
+ME ME_5320088202FB
+ MEPROP UID '5320088202FB'
+ MEPROP Name 'TaskClass'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5320089A03C6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5320088202FB TaskClass
+
+FORWARD ME_532008D203BA
+
+FORWARD ME_5320090E0362
+
+ME ME_5320093300BA
+ MEPROP Name 'Task'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52FA49DF00EF' '52FA49C7022C.ms.model.script' // TddTaskItem
+ ;
+
+ENDME // ME_5320093300BA Task
+
+ME ME_5320090E0362
+ MEPROP UID '5320090E0362'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008D203BA // InitTask
+ ;
+ MELIST Parameters
+   Seq: ( ME_5320093300BA // Task
+ )
+ ; // Parameters
+
+ENDME // ME_5320090E0362 DoIt
+
+ME ME_532008D203BA
+ MEPROP UID '532008D203BA'
+ MEPROP Name 'InitTask'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5320090E0362 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_532008D203BA InitTask
+
+FORWARD ME_537382BA038D
+
+ME ME_537382C60280
+ MEPROP UID '537382C60280'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537382BA038D // MakeTask
+ ;
+ MELINK Target WL 'ME_52FA49DF00EF' '52FA49C7022C.ms.model.script' // TddTaskItem
+ ;
+
+ENDME // ME_537382C60280 DoIt
+
+ME ME_537382BA038D
+ MEPROP UID '537382BA038D'
+ MEPROP Name 'MakeTask'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_537382C60280 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_537382BA038D MakeTask
+
+ME ME_537383380115
+ MEPROP UID '537383380115'
+ MEPROP Name 'DoItPiped'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+
+ENDME // ME_537383380115 DoItPiped
+
+FORWARD ME_5373834C015D
+
+FORWARD ME_53738355020D
+
+ME ME_5373835E0314
+ MEPROP Name 'aPiped'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5373835E0314 aPiped
+
+ME ME_53AC317F00ED
+ MEPROP Name 'aAsEVD'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_53AC317F00ED aAsEVD
+
+ME ME_53738355020D
+ MEPROP UID '53738355020D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5373834C015D // CheckSave
+ ;
+ MELIST Parameters
+   Seq: ( ME_5373835E0314 // aPiped
+ ME_53AC317F00ED // aAsEVD
+ )
+ ; // Parameters
+
+ENDME // ME_53738355020D DoIt
+
+ME ME_5373834C015D
+ MEPROP UID '5373834C015D'
+ MEPROP Name 'CheckSave'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53738355020D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5373834C015D CheckSave
+
+FORWARD ME_5374A4480241
+
+FORWARD ME_5374A465033E
+
+ME ME_5374A46D0319
+ MEPROP Name 'aPiped'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5374A46D0319 aPiped
+
+ME ME_53B5767D007F
+ MEPROP Name 'aAsEVD'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_53B5767D007F aAsEVD
+
+ME ME_5374A465033E
+ MEPROP UID '5374A465033E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5374A4480241 // DoCheckLoad
+ ;
+ MELIST Parameters
+   Seq: ( ME_5374A46D0319 // aPiped
+ ME_53B5767D007F // aAsEVD
+ )
+ ; // Parameters
+
+ENDME // ME_5374A465033E DoIt
+
+ME ME_5374A4480241
+ MEPROP UID '5374A4480241'
+ MEPROP Name 'DoCheckLoad'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5374A465033E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5374A4480241 DoCheckLoad
+
+ME ME_5374A4750344
+ MEPROP UID '5374A4750344'
+ MEPROP Name 'CheckLoadPiped'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+
+ENDME // ME_5374A4750344 CheckLoadPiped
+
+FORWARD ME_5388508D03DE
+
+FORWARD ME_538850A1031E
+
+ME ME_5388514C02BD
+ MEPROP Name 'aUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_5388514C02BD aUserID
+
+ME ME_538850A1031E
+ MEPROP UID '538850A1031E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5388508D03DE // CreateTask
+ ;
+ MELINK Target WL 'ME_52FA49DF00EF' '52FA49C7022C.ms.model.script' // TddTaskItem
+ ;
+ MELIST Parameters
+   Seq: ( ME_5388514C02BD // aUserID
+ )
+ ; // Parameters
+
+ENDME // ME_538850A1031E DoIt
+
+ME ME_5388508D03DE
+ MEPROP UID '5388508D03DE'
+ MEPROP Name 'CreateTask'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_538850A1031E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5388508D03DE CreateTask
+
+ME ME_53AC2B1D0102
+ MEPROP UID '53AC2B1D0102'
+ MEPROP Name 'CheckSaveToEVD'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+
+ENDME // ME_53AC2B1D0102 CheckSaveToEVD
+
+ME ME_53B5768B002F
+ MEPROP UID '53B5768B002F'
+ MEPROP Name 'CheckLoadEVD'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+
+ENDME // ME_53B5768B002F CheckLoadEVD
+
+ME ME_53C0122C003B
+ MEPROP UID '53C0122C003B'
+ MEPROP Name 'CheckSaveToEVDPiped'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+
+ENDME // ME_53C0122C003B CheckSaveToEVDPiped
+
+ME ME_5320096101B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELINK Target WL? 'ME_47A0686803A5' // l3Filer
+ ;
+
+ENDME // ME_5320096101B0 
+
+ME ME_5320096C0195
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_5320096C0195 
+
+ME ME_53200970020A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELINK Target WL? 'ME_4B2A6D4303A9' // KTestRunner
+ ;
+
+ENDME // ME_53200970020A 
+
+ME ME_5373830301DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5373830301DC 
+
+ME ME_5374AC820313
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELINK Target WL? 'ME_4B990EF000AA' // ddAppConfig
+ ;
+
+ENDME // ME_5374AC820313 
+
+ME ME_5374B7950287
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELINK Target WL? 'ME_4B57004201BD' // l3FileUtils
+ ;
+
+ENDME // ME_5374B7950287 
+
+ME ME_53BBF94A00F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELINK Target WL? 'ME_53A953FD016B' // evdTaskTypes
+ ;
+
+ENDME // ME_53BBF94A00F6 
+
+MEREF ME_4B2A11BC0255_ME_532008240001_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_532008240001_G TBaseTest
+
+MEREF ME_53739B29005D_ME_532008240001_R
+ MELINK Original WL? 'ME_53739B29005D' // TaskSaver
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53739B29005D_ME_532008240001_R TaskSaver
+
+%%ImplementedBy ME_53739B29005D ME_532008240001
+
+%%InheritedBy ME_4B2A11BC0255 ME_532008240001
+
+ME ME_532008240001
+ MEPROP UID '532008240001'
+ MEPROP Name 'K517772970_TCheckSaveToStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_531FF6280311' // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B2A11BC0255_ME_532008240001_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53739B29005D_ME_532008240001_R // TaskSaver
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_5320084E020E // DoIt
+ HWL ME_5320086A0278 // CheckLoad
+ HWL ME_5320088202FB // TaskClass
+ HWL ME_532008D203BA // InitTask
+ HWL ME_537382BA038D // MakeTask
+ HWL ME_537383380115 // DoItPiped
+ HWL ME_5373834C015D // CheckSave
+ HWL ME_5374A4480241 // DoCheckLoad
+ HWL ME_5374A4750344 // CheckLoadPiped
+ HWL ME_5388508D03DE // CreateTask
+ HWL ME_53AC2B1D0102 // CheckSaveToEVD
+ HWL ME_53B5768B002F // CheckLoadEVD
+ HWL ME_53C0122C003B // CheckSaveToEVDPiped
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5320096101B0 // l3Filer
+ ME_5320096C0195 // l3Base
+ ME_53200970020A // KTestRunner
+ ME_5373830301DC // FreeAndNil
+ ME_5374AC820313 // ddAppConfig
+ ME_5374B7950287 // l3FileUtils
+ ME_53BBF94A00F6 // evdTaskTypes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TK517772970_TCheckSaveToStream'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K517772970_TCheckSaveToStream'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TCheckSaveToStream.pas'
+
+ENDME // ME_532008240001 K517772970_TCheckSaveToStream

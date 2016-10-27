@@ -1,0 +1,228 @@
+// TatExecutionContext 480869EE029E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_48086B0F0399
+
+FORWARD ME_480869EE029E
+
+FORWARD ME_48086B0F0399
+
+ME ME_48086B1A0138
+ MEPROP UID '48086B1A0138'
+ MEPROP Name 'Login'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48086B0F0399 // TatLoginData
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_48086B1A0138 Login
+
+ME ME_48086B22022C
+ MEPROP UID '48086B22022C'
+ MEPROP Name 'Password'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48086B0F0399 // TatLoginData
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_48086B22022C Password
+
+ME ME_48086B0F0399
+ MEPROP UID '48086B0F0399'
+ MEPROP Name 'TatLoginData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480869EE029E // TatExecutionContext
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_48086B1A0138 // Login
+ HWL ME_48086B22022C // Password
+ )
+ ; // Attributes
+
+ENDME // ME_48086B0F0399 TatLoginData
+
+ME ME_48086AA10191
+ MEPROP UID '48086AA10191'
+ MEPROP Name 'MinDelay'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480869EE029E // TatExecutionContext
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_48086AA10191 MinDelay
+
+ME ME_48086AB200BF
+ MEPROP UID '48086AB200BF'
+ MEPROP Name 'MaxDelay'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480869EE029E // TatExecutionContext
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_48086AB200BF MaxDelay
+
+ME ME_48086ABF005F
+ MEPROP UID '48086ABF005F'
+ MEPROP Name 'UserWorkContext'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Рабочий контекст пользователя. Текущие документ, список, папка и т.п. вещи.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480869EE029E // TatExecutionContext
+ ;
+ MELINK Target WL? 'ME_4808672500A0' // TatUserWorkContext
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_48086ABF005F UserWorkContext
+
+ME ME_48086B410047
+ MEPROP UID '48086B410047'
+ MEPROP Name 'F_LoginData'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480869EE029E // TatExecutionContext
+ ;
+ MELINK Target HWL ME_48086B0F0399 // TatLoginData
+ ;
+
+ENDME // ME_48086B410047 F_LoginData
+
+ME ME_483C18680261
+ MEPROP UID '483C18680261'
+ MEPROP Name 'GblAdapterWorker'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480869EE029E // TatExecutionContext
+ ;
+ MELINK Target WL 'ME_483C0B6B0167' '483C0AEA0186.ms.model.script' // TatGblAdapterWorker
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_483C18680261 GblAdapterWorker
+
+ME ME_48086AF9022F
+ MEPROP UID '48086AF9022F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480869EE029E // TatExecutionContext
+ ;
+
+ENDME // ME_48086AF9022F Create
+
+ME ME_48086C100100
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480869EE029E // TatExecutionContext
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_48086C100100 
+
+MEREF ME_48077504027E_ME_480869EE029E_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_480869EE029E_over Destroy
+
+MEREF ME_4807745602C8_ME_480869EE029E_G
+ MELINK Original WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807745602C8_ME_480869EE029E_G TObject
+
+%%InheritedBy ME_4807745602C8 ME_480869EE029E
+
+ME ME_480869EE029E
+ MEPROP UID '480869EE029E'
+ MEPROP Name 'TatExecutionContext'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_480865840083' // OperationsFramework
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4807745602C8_ME_480869EE029E_G // TObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48086AA10191 // MinDelay
+ HWL ME_48086AB200BF // MaxDelay
+ HWL ME_48086ABF005F // UserWorkContext
+ HWL ME_48086B410047 // F_LoginData
+ HWL ME_483C18680261 // GblAdapterWorker
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48086AF9022F // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_480869EE029E_over // Destroy
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_48086B0F0399 // TatLoginData
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_48086C100100 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atExecutionContext'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atExecutionContext'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\OperationsFramework\atExecutionContext.pas'
+
+ENDME // ME_480869EE029E TatExecutionContext

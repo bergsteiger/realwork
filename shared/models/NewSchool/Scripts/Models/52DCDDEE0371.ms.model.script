@@ -1,0 +1,431 @@
+// TddTextSegmentQueue 52DCDDEE0371 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52DCDDEE0371
+
+ME ME_52DCDEBC0067
+ MEPROP UID '52DCDEBC0067'
+ MEPROP Name 'BraceCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52DCDDEE0371 // TddTextSegmentQueue
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_52DCDEBC0067 BraceCount
+
+ME ME_52DE1BB20195
+ MEPROP UID '52DE1BB20195'
+ MEPROP Name 'f_HyperlinkIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52DCDDEE0371 // TddTextSegmentQueue
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52DE1BB20195 f_HyperlinkIndex
+
+FORWARD ME_52DCDE4E003E
+
+ME ME_52DCDE56038C
+ MEPROP UID '52DCDE56038C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDE4E003E // Pop
+ ;
+ MELINK Target WL? 'ME_5111FC5402AA' // TddTextSegment
+ ;
+
+ENDME // ME_52DCDE56038C DoIt
+
+ME ME_52DCDE4E003E
+ MEPROP UID '52DCDE4E003E'
+ MEPROP Name 'Pop'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDDEE0371 // TddTextSegmentQueue
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DCDE56038C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DCDE4E003E Pop
+
+FORWARD ME_52DCDE6801A9
+
+FORWARD ME_52DCDE720104
+
+ME ME_52DCDE7F0210
+ MEPROP Name 'aTextSegment'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL? 'ME_5111FC5402AA' // TddTextSegment
+ ;
+
+ENDME // ME_52DCDE7F0210 aTextSegment
+
+ME ME_52DCDE720104
+ MEPROP UID '52DCDE720104'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDE6801A9 // Push
+ ;
+ MELIST Parameters
+   Seq: ( ME_52DCDE7F0210 // aTextSegment
+ )
+ ; // Parameters
+
+ENDME // ME_52DCDE720104 DoIt
+
+ME ME_52DCDE6801A9
+ MEPROP UID '52DCDE6801A9'
+ MEPROP Name 'Push'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDDEE0371 // TddTextSegmentQueue
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DCDE720104 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DCDE6801A9 Push
+
+FORWARD ME_52DCDEEE0039
+
+FORWARD ME_52DCDEF600CA
+
+ME ME_52DCDEFE00E9
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52DCDEFE00E9 aValue
+
+ME ME_52DCDEF600CA
+ MEPROP UID '52DCDEF600CA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDEEE0039 // IncBraceCount
+ ;
+ MELIST Parameters
+   Seq: ( ME_52DCDEFE00E9 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_52DCDEF600CA DoIt
+
+ME ME_52DCDEEE0039
+ MEPROP UID '52DCDEEE0039'
+ MEPROP Name 'IncBraceCount'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDDEE0371 // TddTextSegmentQueue
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DCDEF600CA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DCDEEE0039 IncBraceCount
+
+FORWARD ME_52DCDF030006
+
+FORWARD ME_52DCDF1000C1
+
+ME ME_52DCDF210193
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52DCDF210193 aValue
+
+ME ME_52DCDF1000C1
+ MEPROP UID '52DCDF1000C1'
+ MEPROP Name 'DotIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDF030006 // DecBraceCount
+ ;
+ MELIST Parameters
+   Seq: ( ME_52DCDF210193 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_52DCDF1000C1 DotIt
+
+ME ME_52DCDF030006
+ MEPROP UID '52DCDF030006'
+ MEPROP Name 'DecBraceCount'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDDEE0371 // TddTextSegmentQueue
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DCDF1000C1 // DotIt
+ )
+ ; // Operations
+
+ENDME // ME_52DCDF030006 DecBraceCount
+
+FORWARD ME_52DD04AD0004
+
+ME ME_52DD04B70090
+ MEPROP UID '52DD04B70090'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DD04AD0004 // PopLast
+ ;
+ MELINK Target WL? 'ME_5111FC5402AA' // TddTextSegment
+ ;
+
+ENDME // ME_52DD04B70090 DoIt
+
+ME ME_52DD04AD0004
+ MEPROP UID '52DD04AD0004'
+ MEPROP Name 'PopLast'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDDEE0371 // TddTextSegmentQueue
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DD04B70090 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DD04AD0004 PopLast
+
+FORWARD ME_52DE04E903A9
+
+ME ME_52DE051002A4
+ MEPROP UID '52DE051002A4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DE04E903A9 // GetHyperlink
+ ;
+ MELINK Target WL? 'ME_5111FC5402AA' // TddTextSegment
+ ;
+
+ENDME // ME_52DE051002A4 DoIt
+
+ME ME_52DE04E903A9
+ MEPROP UID '52DE04E903A9'
+ MEPROP Name 'GetHyperlink'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDDEE0371 // TddTextSegmentQueue
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DE051002A4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DE04E903A9 GetHyperlink
+
+FORWARD ME_52DE1ECE0311
+
+FORWARD ME_52DE1ED80293
+
+ME ME_52DE1EEB015C
+ MEPROP Name 'aSeg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL? 'ME_5111FC5402AA' // TddTextSegment
+ ;
+
+ENDME // ME_52DE1EEB015C aSeg
+
+ME ME_52DE1ED80293
+ MEPROP UID '52DE1ED80293'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DE1ECE0311 // ClearHyperlinkID
+ ;
+ MELIST Parameters
+   Seq: ( ME_52DE1EEB015C // aSeg
+ )
+ ; // Parameters
+
+ENDME // ME_52DE1ED80293 DoIt
+
+ME ME_52DE1ECE0311
+ MEPROP UID '52DE1ECE0311'
+ MEPROP Name 'ClearHyperlinkID'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDDEE0371 // TddTextSegmentQueue
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DE1ED80293 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DE1ECE0311 ClearHyperlinkID
+
+FORWARD ME_52DE217B02CB
+
+ME ME_52DE21AB0030
+ MEPROP UID '52DE21AB0030'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DE217B02CB // MoveHyperlinkToBottom
+ ;
+
+ENDME // ME_52DE21AB0030 DoIt
+
+ME ME_52DE217B02CB
+ MEPROP UID '52DE217B02CB'
+ MEPROP Name 'MoveHyperlinkToBottom'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Переместить гиперссылку в конец очереди.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DCDDEE0371 // TddTextSegmentQueue
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DE21AB0030 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DE217B02CB MoveHyperlinkToBottom
+
+ME ME_54D9D68A030C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52DCDDEE0371 // TddTextSegmentQueue
+ ;
+ MELINK Target WL? 'ME_54D9AC570374' // TddHyperlink
+ ;
+
+ENDME // ME_54D9D68A030C 
+
+MEREF ME_479731C50290_ME_52DCDDEE0371_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_52DCDDEE0371_over Cleanup
+
+MEREF ME_47A042E100E2_ME_52DCDDEE0371_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_52DCDDEE0371_over InitFields
+
+MEREF ME_47B1C16D0188_ME_52DCDDEE0371_over
+ MELINK Original WL 'ME_47B1C16D0188' '47A74A5F0123.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B1C16D0188_ME_52DCDDEE0371_over Clear
+
+MEREF ME_525D40F1024C_ME_52DCDDEE0371_G
+ MELINK Original WL? 'ME_525D40F1024C' // TddTextSegmentsList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_525D40F1024C_ME_52DCDDEE0371_G TddTextSegmentsList
+
+%%InheritedBy ME_525D40F1024C ME_52DCDDEE0371
+
+ME ME_52DCDDEE0371
+ MEPROP UID '52DCDDEE0371'
+ MEPROP Name 'TddTextSegmentQueue'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48F4BA770180' // Writers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_525D40F1024C_ME_52DCDDEE0371_G // TddTextSegmentsList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52DCDEBC0067 // BraceCount
+ HWL ME_52DE1BB20195 // f_HyperlinkIndex
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52DCDE4E003E // Pop
+ HWL ME_52DCDE6801A9 // Push
+ HWL ME_52DCDEEE0039 // IncBraceCount
+ HWL ME_52DCDF030006 // DecBraceCount
+ HWL ME_52DD04AD0004 // PopLast
+ HWL ME_52DE04E903A9 // GetHyperlink
+ HWL ME_52DE1ECE0311 // ClearHyperlinkID
+ HWL ME_52DE217B02CB // MoveHyperlinkToBottom
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_52DCDDEE0371_over // Cleanup
+ ME_47A042E100E2_ME_52DCDDEE0371_over // InitFields
+ ME_47B1C16D0188_ME_52DCDDEE0371_over // Clear
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54D9D68A030C // TddHyperlink
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ddTextSegmentQueue'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddTextSegmentQueue'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddTextSegmentQueue.pas'
+
+ENDME // ME_52DCDDEE0371 TddTextSegmentQueue

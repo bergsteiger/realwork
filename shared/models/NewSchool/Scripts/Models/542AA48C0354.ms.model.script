@@ -1,0 +1,68 @@
+// Tm3LZOInflateStreamNew 542AA48C0354 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_542AA48C0354
+
+ME ME_542AA49B00D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_542AA48C0354 // Tm3LZOInflateStreamNew
+ ;
+ MELINK Target WL? 'ME_542AA47B0241' // Tm3LZODeflateStreamNew
+ ;
+
+ENDME // ME_542AA49B00D5 
+
+MEREF ME_53FDFAF900ED_ME_542AA48C0354_over
+ MELINK Original WL 'ME_53FDFAF900ED' '53FDFADD027F.ms.model.script' // HeaderID
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDMEREF // ME_53FDFAF900ED_ME_542AA48C0354_over HeaderID
+
+MEREF ME_5408826C0072_ME_542AA48C0354_over
+ MELINK Original WL 'ME_5408826C0072' '53FDCEC40006.ms.model.script' // NeedHeaderAlignment
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDMEREF // ME_5408826C0072_ME_542AA48C0354_over NeedHeaderAlignment
+
+MEREF ME_542AA02E0128_ME_542AA48C0354_G
+ MELINK Original WL 'ME_542AA02E0128' '542A9FC5028B.ms.model.script' // Tm3LZOInflateStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_542AA02E0128_ME_542AA48C0354_G Tm3LZOInflateStream
+
+%%InheritedBy ME_542AA02E0128 ME_542AA48C0354
+
+ME ME_542AA48C0354
+ MEPROP UID '542AA48C0354'
+ MEPROP Name 'Tm3LZOInflateStreamNew'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54870DB502F5' // ArchiveStreams
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_542AA02E0128_ME_542AA48C0354_G // Tm3LZOInflateStream
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_53FDFAF900ED_ME_542AA48C0354_over // HeaderID
+ ME_5408826C0072_ME_542AA48C0354_over // NeedHeaderAlignment
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_542AA49B00D5 // Tm3LZODeflateStreamNew
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'm3LZOInflateStreamNew'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3LZOInflateStreamNew'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3LZOInflateStreamNew.pas'
+
+ENDME // ME_542AA48C0354 Tm3LZOInflateStreamNew

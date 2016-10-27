@@ -1,0 +1,62 @@
+// TnsWorkJournalListeners 4A83AC9D0128 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A83AC9D0128
+
+ME ME_4A83ACC6021F
+ MEPROP UID '4A83ACC6021F'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A83AC9D0128 // TnsWorkJournalListeners
+ ;
+ MELINK Target WL 'ME_4A83AA5202C1' '4D7A05A000C1.ms.model.script' // InsWorkJournalListener
+ ;
+
+ENDME // ME_4A83ACC6021F ItemType
+
+MEREF ME_47B57D630029_ME_4A83AC9D0128_G
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_4A83AC9D0128_G l3InterfacePtrList
+
+MEREF ME_47BC3A07027F_ME_4A83AC9D0128_G
+ MELINK Original WL? 'ME_47BC3A07027F' // Tl3SimpleDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC3A07027F_ME_4A83AC9D0128_G Tl3SimpleDataContainer
+
+%%InheritedBy ME_47B57D630029 ME_4A83AC9D0128
+%%InheritedBy ME_47BC3A07027F ME_4A83AC9D0128
+
+ME ME_4A83AC9D0128
+ MEPROP UID '4A83AC9D0128'
+ MEPROP Name 'TnsWorkJournalListeners'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A825D760190' // WorkJournalImpl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57D630029_ME_4A83AC9D0128_G // l3InterfacePtrList
+ HWL ME_47BC3A07027F_ME_4A83AC9D0128_G // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A83ACC6021F // ItemType
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'nsWorkJournalListeners'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'WorkJournalListeners'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\WorkJournal\nsWorkJournalListeners.pas'
+
+ENDME // ME_4A83AC9D0128 TnsWorkJournalListeners

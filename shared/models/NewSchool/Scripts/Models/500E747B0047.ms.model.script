@@ -9,28 +9,40 @@ ME ME_500E76A600B2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_500E747B0047 // TdsAACDocumentRight
  ;
- MELINK Target WL 'ME_500E75C90024' '4FF2E66802B4.ms.model.script' // TnsAACRightDocumentContainer
+ MELINK Target WL? 'ME_500E75C90024' // TnsAACRightDocumentContainer
  ;
 
 ENDME // ME_500E76A600B2 
 
-ME ME_500E74C30088_ME_500E747B0047
+MEREF ME_500E74C30088_ME_500E747B0047_impl
  MELINK Original WL 'ME_500E74C30088' '500E749D0046.ms.model.script' // BlockViewKind
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_500E74C30088_ME_500E747B0047 BlockViewKind
+ENDMEREF // ME_500E74C30088_ME_500E747B0047_impl BlockViewKind
 
-ME ME_491C263E03AF_ME_500E747B0047
+MEREF ME_491C263E03AF_ME_500E747B0047_over
  MELINK Original WL 'ME_491C263E03AF' '47EA20430108.ms.model.script' // GetIsReadOnly
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_491C263E03AF_ME_500E747B0047 GetIsReadOnly
+ENDMEREF // ME_491C263E03AF_ME_500E747B0047_over GetIsReadOnly
 
-ME ME_4C6AB38800F3_ME_500E747B0047
+MEREF ME_4C6AB38800F3_ME_500E747B0047_over
  MELINK Original WL 'ME_4C6AB38800F3' '47EA20430108.ms.model.script' // MakeContainer
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4C6AB38800F3_ME_500E747B0047 MakeContainer
+ENDMEREF // ME_4C6AB38800F3_ME_500E747B0047_over MakeContainer
+
+MEREF ME_500E749D0046_ME_500E747B0047_G
+ MELINK Original WL? 'ME_500E749D0046' // TdsAACDocumentPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_500E749D0046_ME_500E747B0047_G TdsAACDocumentPrim
+
+MEREF ME_500FF3E20023_ME_500E747B0047_R
+ MELINK Original WL 'ME_500FF3E20023' '484FA67302D7.ms.model.script' // `Правые` блоки должны показываться в правой половине окна, а `левые` в левой
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_500FF3E20023_ME_500E747B0047_R `Правые` блоки должны показываться в правой половине окна, а `левые` в левой
 
 %%ImplementedBy ME_500FF3E20023 ME_500E747B0047
 
@@ -48,20 +60,20 @@ ME ME_500E747B0047
  MELINK Parent WL? 'ME_4FF2E66802B4' // AACImplementation
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_500E749D0046' // TdsAACDocumentPrim
+   Seq: ( HWL ME_500E749D0046_ME_500E747B0047_G // TdsAACDocumentPrim
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_500FF3E20023' '484FA67302D7.ms.model.script' // `Правые` блоки должны показываться в правой половине окна, а `левые` в левой
+   Seq: ( HWL ME_500FF3E20023_ME_500E747B0047_R // `Правые` блоки должны показываться в правой половине окна, а `левые` в левой
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_500E74C30088_ME_500E747B0047 // BlockViewKind
+   Seq: ( ME_500E74C30088_ME_500E747B0047_impl // BlockViewKind
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_491C263E03AF_ME_500E747B0047 // GetIsReadOnly
- ME_4C6AB38800F3_ME_500E747B0047 // MakeContainer
+   Seq: ( ME_491C263E03AF_ME_500E747B0047_over // GetIsReadOnly
+ ME_4C6AB38800F3_ME_500E747B0047_over // MakeContainer
  )
  ; // Overridden
  MELIST Dependencies

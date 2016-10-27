@@ -1,0 +1,566 @@
+// TnevBaseDetachedView 48120C1C0060 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48120C1C0060
+
+ME ME_48120C6202B8
+ MEPROP UID '48120C6202B8'
+ MEPROP Name 'f_Text'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48120C1C0060 // TnevBaseDetachedView
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_48120C6202B8 f_Text
+
+ME ME_48120CC20355
+ MEPROP UID '48120CC20355'
+ MEPROP Name 'f_LimitWidth'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48120C1C0060 // TnevBaseDetachedView
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48120CC20355 f_LimitWidth
+
+ME ME_48120C7D0266
+ MEPROP UID '48120C7D0266'
+ MEPROP Name 'Canvas'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48120C1C0060 // TnevBaseDetachedView
+ ;
+ MELINK Target WL 'ME_4811ED8A030D' '47C5207602D1.ms.model.script' // InevCanvas
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_48120C7D0266 Canvas
+
+FORWARD ME_4CB5BDF6031A
+
+FORWARD ME_4CB5BDFD01BC
+
+ME ME_4CB5BDFF03B3
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_4CB5BDFF03B3 aText
+
+ME ME_4CB5BE000034
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF9230071' '4678209200A6.ms.model.script' // InevCanvas
+ ;
+
+ENDME // ME_4CB5BE000034 aCanvas
+
+ME ME_4CB5BDFD01BC
+ MEPROP UID '4CB5BDFD01BC'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB5BDF6031A // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB5BDFF03B3 // aText
+ ME_4CB5BE000034 // aCanvas
+ )
+ ; // Parameters
+
+ENDME // ME_4CB5BDFD01BC Create
+
+ME ME_4CB5BDF6031A
+ MEPROP UID '4CB5BDF6031A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48120C1C0060 // TnevBaseDetachedView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB5BDFD01BC // Create
+ )
+ ; // Operations
+
+ENDME // ME_4CB5BDF6031A Create
+
+MEREF ME_4CB5BDF6031A_ME_4CB5BE5903D2_G
+ MELINK Original HWL ME_4CB5BDF6031A // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CB5BDF6031A_ME_4CB5BE5903D2_G Create
+
+MEREF ME_47C5B97302B2_ME_4CB5BE5903D2_R
+ MELINK Original WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C5B97302B2_ME_4CB5BE5903D2_R InevView
+
+%%ImplementedBy ME_47C5B97302B2 ME_4CB5BE5903D2
+
+%%InheritedBy ME_4CB5BDF6031A ME_4CB5BE5903D2
+
+ME ME_4CB5BE5903D2
+ MEPROP UID '4CB5BE5903D2'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48120C1C0060 // TnevBaseDetachedView
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CB5BDF6031A_ME_4CB5BE5903D2_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47C5B97302B2_ME_4CB5BE5903D2_R // InevView
+ )
+ ; // Implements
+
+ENDME // ME_4CB5BE5903D2 Make
+
+FORWARD ME_4F66FDB60040
+
+ME ME_4F66FDC902AE
+ MEPROP UID '4F66FDC902AE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F66FDB60040 // DoGetExcludeSuper
+ ;
+ MELINK Target WL 'ME_4AEAE869023A' '4678209200A6.ms.model.script' // TevNormalSegLayerHandleSet
+ ;
+
+ENDME // ME_4F66FDC902AE DoIt
+
+ME ME_4F66FDB60040
+ MEPROP UID '4F66FDB60040'
+ MEPROP Name 'DoGetExcludeSuper'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48120C1C0060 // TnevBaseDetachedView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F66FDC902AE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F66FDB60040 DoGetExcludeSuper
+
+FORWARD ME_565F0492012D
+
+ME ME_565F049B030B
+ MEPROP UID '565F049B030B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_565F0492012D // GetNeedTotalRecalc
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_565F049B030B DoIt
+
+ME ME_565F0492012D
+ MEPROP UID '565F0492012D'
+ MEPROP Name 'GetNeedTotalRecalc'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48120C1C0060 // TnevBaseDetachedView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_565F049B030B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_565F0492012D GetNeedTotalRecalc
+
+ME ME_48120CED0107
+ MEPROP UID '48120CED0107'
+ MEPROP Name 'GetIsWebStyle'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48120C1C0060 // TnevBaseDetachedView
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48120CED0107 GetIsWebStyle
+
+ME ME_48120D0300D4
+ MEPROP UID '48120D0300D4'
+ MEPROP Name 'GetShowDocumentParts'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48120C1C0060 // TnevBaseDetachedView
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48120D0300D4 GetShowDocumentParts
+
+ME ME_48120D270114
+ MEPROP UID '48120D270114'
+ MEPROP Name 'GetShowSpecial'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48120C1C0060 // TnevBaseDetachedView
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48120D270114 GetShowSpecial
+
+ME ME_48120D32035F
+ MEPROP UID '48120D32035F'
+ MEPROP Name 'GetHiddenStyles'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48120C1C0060 // TnevBaseDetachedView
+ ;
+ MELINK Target WL 'ME_476BE38D01B0' '476BE0350329.ms.model.script' // StandardStyles
+ ;
+
+ENDME // ME_48120D32035F GetHiddenStyles
+
+ME ME_48121CB0013E
+ MEPROP UID '48121CB0013E'
+ MEPROP Name 'GetLimitWidth'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48120C1C0060 // TnevBaseDetachedView
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48121CB0013E GetLimitWidth
+
+ME ME_4BED6EF003DD
+ MEPROP UID '4BED6EF003DD'
+ MEPROP Name 'GetAllowRubberTables'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48120C1C0060 // TnevBaseDetachedView
+ ;
+ MELINK Target WL 'ME_4DFF70B60031' '4678209200A6.ms.model.script' // TnevRubberTablesMode
+ ;
+
+ENDME // ME_4BED6EF003DD GetAllowRubberTables
+
+ME ME_48120EB201E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48120C1C0060 // TnevBaseDetachedView
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_48120EB201E9 
+
+ME ME_48120F910021
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48120C1C0060 // TnevBaseDetachedView
+ ;
+ MELINK Target WL? 'ME_480DBA760390' // k2Facade
+ ;
+
+ENDME // ME_48120F910021 
+
+ME ME_481210070326
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48120C1C0060 // TnevBaseDetachedView
+ ;
+ MELINK Target WL? 'ME_47AC6F0B025E' // k2Base
+ ;
+
+ENDME // ME_481210070326 
+
+ME ME_49AD836C02E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48120C1C0060 // TnevBaseDetachedView
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_49AD836C02E8 
+
+ME ME_4D67AF9D0380
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48120C1C0060 // TnevBaseDetachedView
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_4D67AF9D0380 
+
+MEREF ME_476BFB3C007A_ME_48120C1C0060_impl
+ MELINK Original WL 'ME_476BFB3C007A' '4678209200A6.ms.model.script' // LimitWidth
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_476BFB3C007A_ME_48120C1C0060_impl LimitWidth
+
+MEREF ME_476BFBE10164_ME_48120C1C0060_impl
+ MELINK Original WL 'ME_476BFBE10164' '4678209200A6.ms.model.script' // InfoCanvas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_476BFBE10164_ME_48120C1C0060_impl InfoCanvas
+
+MEREF ME_476BFC120188_ME_48120C1C0060_impl
+ MELINK Original WL 'ME_476BFC120188' '4678209200A6.ms.model.script' // IsWebStyle
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_476BFC120188_ME_48120C1C0060_impl IsWebStyle
+
+MEREF ME_476BFC2101FB_ME_48120C1C0060_impl
+ MELINK Original WL 'ME_476BFC2101FB' '4678209200A6.ms.model.script' // ShowDocumentParts
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_476BFC2101FB_ME_48120C1C0060_impl ShowDocumentParts
+
+MEREF ME_476BFC34010B_ME_48120C1C0060_impl
+ MELINK Original WL 'ME_476BFC34010B' '4678209200A6.ms.model.script' // ShowSpecial
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_476BFC34010B_ME_48120C1C0060_impl ShowSpecial
+
+MEREF ME_476BFC420000_ME_48120C1C0060_impl
+ MELINK Original WL 'ME_476BFC420000' '4678209200A6.ms.model.script' // HiddenStyles
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_476BFC420000_ME_48120C1C0060_impl HiddenStyles
+
+MEREF ME_486D2C6702FA_ME_48120C1C0060_impl
+ MELINK Original WL 'ME_486D2C6702FA' '4678209200A6.ms.model.script' // Extent
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_486D2C6702FA_ME_48120C1C0060_impl Extent
+
+MEREF ME_4AEAE49B024D_ME_48120C1C0060_impl
+ MELINK Original WL 'ME_4AEAE49B024D' '4678209200A6.ms.model.script' // ExcludeSuper
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4AEAE49B024D_ME_48120C1C0060_impl ExcludeSuper
+
+MEREF ME_4B7E744702C0_ME_48120C1C0060_impl
+ MELINK Original WL 'ME_4B7E744702C0' '4678209200A6.ms.model.script' // FormatCanvas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4B7E744702C0_ME_48120C1C0060_impl FormatCanvas
+
+MEREF ME_4BED6E9300FD_ME_48120C1C0060_impl
+ MELINK Original WL 'ME_4BED6E9300FD' '4678209200A6.ms.model.script' // AllowRubberTables
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4BED6E9300FD_ME_48120C1C0060_impl AllowRubberTables
+
+MEREF ME_4D5A80DC029D_ME_48120C1C0060_impl
+ MELINK Original WL 'ME_4D5A80DC029D' '4678209200A6.ms.model.script' // IsTagCollapsed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4D5A80DC029D_ME_48120C1C0060_impl IsTagCollapsed
+
+MEREF ME_4E5E285C0166_ME_48120C1C0060_impl
+ MELINK Original WL 'ME_4E5E285C0166' '4678209200A6.ms.model.script' // Data
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4E5E285C0166_ME_48120C1C0060_impl Data
+
+MEREF ME_501F96A80050_ME_48120C1C0060_impl
+ MELINK Original WL 'ME_501F96A80050' '4678209200A6.ms.model.script' // AACLike
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_501F96A80050_ME_48120C1C0060_impl AACLike
+
+MEREF ME_565F03C80029_ME_48120C1C0060_impl
+ MELINK Original WL 'ME_565F03C80029' '4678209200A6.ms.model.script' // NeedTotalRecalc
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_565F03C80029_ME_48120C1C0060_impl NeedTotalRecalc
+
+MEREF ME_479731C50290_ME_48120C1C0060_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_48120C1C0060_over Cleanup
+
+MEREF ME_4811D60B0043_ME_48120C1C0060_over
+ MELINK Original WL 'ME_4811D60B0043' '4811D544006F.ms.model.script' // Shape
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" False
+ UP "pm" True
+ENDMEREF // ME_4811D60B0043_ME_48120C1C0060_over Shape
+
+MEREF ME_4811D7DC0254_ME_48120C1C0060_over
+ MELINK Original WL 'ME_4811D7DC0254' '4811D544006F.ms.model.script' // DoGetMetrics
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4811D7DC0254_ME_48120C1C0060_over DoGetMetrics
+
+MEREF ME_4D5A46930182_ME_48120C1C0060_over
+ MELINK Original WL 'ME_4D5A46930182' '4811D544006F.ms.model.script' // IsObjectCollapsed
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" False
+ UP "pm" True
+ENDMEREF // ME_4D5A46930182_ME_48120C1C0060_over IsObjectCollapsed
+
+MEREF ME_4811D544006F_ME_48120C1C0060_G
+ MELINK Original WL? 'ME_4811D544006F' // TnevBaseView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4811D544006F_ME_48120C1C0060_G TnevBaseView
+
+MEREF ME_4811D9740382_ME_48120C1C0060_R
+ MELINK Original WL 'ME_4811D9740382' '47C5207602D1.ms.model.script' // InevViewMetrics
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4811D9740382_ME_48120C1C0060_R InevViewMetrics
+
+MEREF ME_4F33E5FD009E_ME_48120C1C0060_R
+ MELINK Original WL? 'ME_4F33E5FD009E' // nevDocumentContainerDecorationRules
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F33E5FD009E_ME_48120C1C0060_R nevDocumentContainerDecorationRules
+
+%%ImplementedBy ME_4811D9740382 ME_48120C1C0060
+%%ImplementedBy ME_4F33E5FD009E ME_48120C1C0060
+
+%%InheritedBy ME_4811D544006F ME_48120C1C0060
+
+ME ME_48120C1C0060
+ MEPROP UID '48120C1C0060'
+ MEPROP Name 'TnevBaseDetachedView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4811D4EC0237' // Views
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4811D544006F_ME_48120C1C0060_G // TnevBaseView
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4811D9740382_ME_48120C1C0060_R // InevViewMetrics
+ HWL ME_4F33E5FD009E_ME_48120C1C0060_R // nevDocumentContainerDecorationRules
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_48120C6202B8 // f_Text
+ HWL ME_48120CC20355 // f_LimitWidth
+ HWL ME_48120C7D0266 // Canvas
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CB5BDF6031A // Create
+ HWL ME_4CB5BE5903D2 // Make
+ HWL ME_4F66FDB60040 // DoGetExcludeSuper
+ HWL ME_565F0492012D // GetNeedTotalRecalc
+ HWL ME_48120CED0107 // GetIsWebStyle
+ HWL ME_48120D0300D4 // GetShowDocumentParts
+ HWL ME_48120D270114 // GetShowSpecial
+ HWL ME_48120D32035F // GetHiddenStyles
+ HWL ME_48121CB0013E // GetLimitWidth
+ HWL ME_4BED6EF003DD // GetAllowRubberTables
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_476BFB3C007A_ME_48120C1C0060_impl // LimitWidth
+ ME_476BFBE10164_ME_48120C1C0060_impl // InfoCanvas
+ ME_476BFC120188_ME_48120C1C0060_impl // IsWebStyle
+ ME_476BFC2101FB_ME_48120C1C0060_impl // ShowDocumentParts
+ ME_476BFC34010B_ME_48120C1C0060_impl // ShowSpecial
+ ME_476BFC420000_ME_48120C1C0060_impl // HiddenStyles
+ ME_486D2C6702FA_ME_48120C1C0060_impl // Extent
+ ME_4AEAE49B024D_ME_48120C1C0060_impl // ExcludeSuper
+ ME_4B7E744702C0_ME_48120C1C0060_impl // FormatCanvas
+ ME_4BED6E9300FD_ME_48120C1C0060_impl // AllowRubberTables
+ ME_4D5A80DC029D_ME_48120C1C0060_impl // IsTagCollapsed
+ ME_4E5E285C0166_ME_48120C1C0060_impl // Data
+ ME_501F96A80050_ME_48120C1C0060_impl // AACLike
+ ME_565F03C80029_ME_48120C1C0060_impl // NeedTotalRecalc
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48120C1C0060_over // Cleanup
+ ME_4811D60B0043_ME_48120C1C0060_over // Shape
+ ME_4811D7DC0254_ME_48120C1C0060_over // DoGetMetrics
+ ME_4D5A46930182_ME_48120C1C0060_over // IsObjectCollapsed
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48120EB201E9 // Tk2TagID
+ ME_48120F910021 // k2Facade
+ ME_481210070326 // k2Base
+ ME_49AD836C02E8 // TextPara
+ ME_4D67AF9D0380 // Standard
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Λσκόÿνεφ Π.Β.'
+ UP "no hands" True
+ UP "started" '22.10.2007 14:23'
+ UP extprop:pas:UnitName 'nevBaseDetachedView'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BaseDetachedView'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevBaseDetachedView.pas'
+
+ENDME // ME_48120C1C0060 TnevBaseDetachedView

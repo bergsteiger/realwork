@@ -1,0 +1,68 @@
+// TevDocumentAnchorIndex 53D26E830045 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D26E830045
+
+ME ME_53D26EC8036A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D26E830045 // TevDocumentAnchorIndex
+ ;
+ MELINK Target WL? 'ME_4857B637007C' // TevDocument
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D26EC8036A 
+
+ME ME_53D26EE30231
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D26E830045 // TevDocumentAnchorIndex
+ ;
+ MELINK Target WL 'ME_467820F9027B' '4678209200A6.ms.model.script' // IevAnchorIndex
+ ;
+ UP "needs processor" True
+
+ENDME // ME_53D26EE30231 
+
+MEREF ME_467C18BF0367_ME_53D26E830045_G
+ MELINK Original WL? 'ME_467C18BF0367' // Tk2ProcTagTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467C18BF0367_ME_53D26E830045_G Tk2ProcTagTool
+
+%%InjectedBy ME_4857B637007C ME_53D26E830045
+
+%%InheritedBy ME_467C18BF0367 ME_53D26E830045
+
+ME ME_53D26E830045
+ MEPROP UID '53D26E830045'
+ MEPROP Name 'TevDocumentAnchorIndex'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48CE0A0A03B4' // ParagraphsImplementation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_467C18BF0367_ME_53D26E830045_G // Tk2ProcTagTool
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_53D26EC8036A // TevDocument
+ ME_53D26EE30231 // IevAnchorIndex
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:pas:UnitName 'evDocumentAnchorIndex'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentAnchorIndex'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_evDocumentAnchorIndex.pas'
+
+ENDME // ME_53D26E830045 TevDocumentAnchorIndex

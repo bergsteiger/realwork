@@ -4,24 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_561D40680110
 
-FORWARD ME_561D3DAD017D
-
-ME ME_561D40680110
- MEPROP UID '561D40680110'
- MEPROP Name 'Tl3CustomString'
- MEPROP Class class_Class
- MELINK Stereotype st_ClassProxy ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_561D3DAD017D // Strings
- ;
- UP extprop:pas:UnitName 'Tl3CustomString_Proxy'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'String'
-
-ENDME // ME_561D40680110 Tl3CustomString
-
 ME ME_561D3DAD017D
  MEPROP UID '561D3DAD017D'
  MEPROP Name 'Strings'
@@ -33,7 +15,7 @@ ME ME_561D3DAD017D
  MELINK Parent WL? 'ME_561D37540316' // L3$Interface
  ;
  MELIST Children
-   Seq: ( HWL ME_561D40680110 // Tl3CustomString
+   Seq: ( WL? 'ME_561D40680110' // Tl3CustomString
  )
  ; // Children
  MESTRINGLIST DiagramsNames

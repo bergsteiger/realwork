@@ -1,0 +1,313 @@
+// TatBaseSearchHelper 483C01430224 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4FE0D6740127
+
+FORWARD ME_483C01430224
+
+ME ME_4FE0D6740127
+ MEPROP UID '4FE0D6740127'
+ MEPROP Name 'EUnknownInfoKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483C01430224 // TatBaseSearchHelper
+ ;
+
+ENDME // ME_4FE0D6740127 EUnknownInfoKind
+
+ME ME_483C06250290
+ MEPROP UID '483C06250290'
+ MEPROP Name 'Context'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Контекст, который будем искать' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C01430224 // TatBaseSearchHelper
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_483C06250290 Context
+
+ME ME_483C064C02DE
+ MEPROP UID '483C064C02DE'
+ MEPROP Name 'InfoKind'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Тип информации, которую будем искать' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C01430224 // TatBaseSearchHelper
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_483C064C02DE InfoKind
+
+ME ME_483C066A003E
+ MEPROP UID '483C066A003E'
+ MEPROP Name 'InvalidWords'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Строка со словами из запроса, которые нельзя использовать' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C01430224 // TatBaseSearchHelper
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_483C066A003E InvalidWords
+
+ME ME_48A4449F0134
+ MEPROP UID '48A4449F0134'
+ MEPROP Name 'CorrectedContext'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Скорректированный контекст' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C01430224 // TatBaseSearchHelper
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_48A4449F0134 CorrectedContext
+
+ME ME_4B57077C01F1
+ MEPROP UID '4B57077C01F1'
+ MEPROP Name 'IsShortList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C01430224 // TatBaseSearchHelper
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4B57077C01F1 IsShortList
+
+ME ME_48A448300134
+ MEPROP UID '48A448300134'
+ MEPROP Name 'CheckContext'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'проверяет контекст на валидность' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483C01430224 // TatBaseSearchHelper
+ ;
+
+ENDME // ME_48A448300134 CheckContext
+
+ME ME_4FC8D877000A
+ MEPROP UID '4FC8D877000A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_vctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483C01430224 // TatBaseSearchHelper
+ ;
+
+ENDME // ME_4FC8D877000A Create
+
+ME ME_483C2AC20082
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C01430224 // TatBaseSearchHelper
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_483C2AC20082 
+
+ME ME_483C306C0322
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C01430224 // TatBaseSearchHelper
+ ;
+ MELINK Target WL? 'ME_483C378301CB' // StrUtils
+ ;
+
+ENDME // ME_483C306C0322 
+
+ME ME_483C31A70082
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C01430224 // TatBaseSearchHelper
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_483C31A70082 
+
+ME ME_483C32760209
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C01430224 // TatBaseSearchHelper
+ ;
+ MELINK Target WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ ;
+
+ENDME // ME_483C32760209 
+
+ME ME_483C344B00A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C01430224 // TatBaseSearchHelper
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_483C344B00A2 
+
+ME ME_4A4C9FC003C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C01430224 // TatBaseSearchHelper
+ ;
+ MELINK Target WL? 'ME_483C0AEA0186' // atGblAdapterWorker
+ ;
+
+ENDME // ME_4A4C9FC003C7 
+
+ME ME_4B911199014E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C01430224 // TatBaseSearchHelper
+ ;
+ MELINK Target WL? 'ME_4A549C190378' // TatQuery
+ ;
+
+ENDME // ME_4B911199014E 
+
+ME ME_4C03D58C001D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C01430224 // TatBaseSearchHelper
+ ;
+ MELINK Target WL? 'ME_48B5671301C7' // TatStringHelper
+ ;
+
+ENDME // ME_4C03D58C001D 
+
+ME ME_4FC8E15C007B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C01430224 // TatBaseSearchHelper
+ ;
+ MELINK Target WL 'ME_45EEE50F0320' '45EEAA8E034E.ms.model.script' // QueryLogicOperation
+ ;
+
+ENDME // ME_4FC8E15C007B 
+
+ME ME_4FE0D56F0070
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C01430224 // TatBaseSearchHelper
+ ;
+ MELINK Target WL? 'ME_48078D230277' // TatNodeHelper
+ ;
+
+ENDME // ME_4FE0D56F0070 
+
+MEREF ME_5000565C019C_ME_483C01430224_over
+ MELINK Original WL 'ME_5000565C019C' '47913F4E02E0.ms.model.script' // ClearFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5000565C019C_ME_483C01430224_over ClearFields
+
+MEREF ME_4FC8DA4E01A4_ME_483C01430224_G
+ MELINK Original WL? 'ME_4FC8DA4E01A4' // TatSearchHelper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FC8DA4E01A4_ME_483C01430224_G TatSearchHelper
+
+%%InheritedBy ME_4FC8DA4E01A4 ME_483C01430224
+
+ME ME_483C01430224
+ MEPROP UID '483C01430224'
+ MEPROP Name 'TatBaseSearchHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Класс, для проведения базового поиска' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_483AC9040361' // SearchHelpers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FC8DA4E01A4_ME_483C01430224_G // TatSearchHelper
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_483C06250290 // Context
+ HWL ME_483C064C02DE // InfoKind
+ HWL ME_483C066A003E // InvalidWords
+ HWL ME_48A4449F0134 // CorrectedContext
+ HWL ME_4B57077C01F1 // IsShortList
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48A448300134 // CheckContext
+ HWL ME_4FC8D877000A // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_5000565C019C_ME_483C01430224_over // ClearFields
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4FE0D6740127 // EUnknownInfoKind
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_483C2AC20082 // String
+ ME_483C306C0322 // StrUtils
+ ME_483C31A70082 // NodeBase
+ ME_483C32760209 // Exception
+ ME_483C344B00A2 // SysUtils
+ ME_4A4C9FC003C7 // atGblAdapterWorker
+ ME_4B911199014E // TatQuery
+ ME_4C03D58C001D // TatStringHelper
+ ME_4FC8E15C007B // QueryLogicOperation
+ ME_4FE0D56F0070 // TatNodeHelper
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atBaseSearchHelper'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atBaseSearchHelper'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\SearchHelpers\atBaseSearchHelper.pas'
+
+ENDME // ME_483C01430224 TatBaseSearchHelper

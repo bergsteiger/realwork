@@ -1,0 +1,288 @@
+// TevTableCursor 4EF9B84C0137 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EF9B84C0137
+
+ME ME_4F50B2DD0177
+ MEPROP UID '4F50B2DD0177'
+ MEPROP Name 'f_Offset'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Запомненное смещение курсора в таблице.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EF9B84C0137 // TevTableCursor
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_4F50B2DD0177 f_Offset
+
+ME ME_4F50B2F4038E
+ MEPROP UID '4F50B2F4038E'
+ MEPROP Name 'f_Width'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Запомненная ширина ячейки.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EF9B84C0137 // TevTableCursor
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_4F50B2F4038E f_Width
+
+ME ME_50DAC5F702C6
+ MEPROP UID '50DAC5F702C6'
+ MEPROP Name 'f_InnerPID'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Закешированный PID дочерней точки для использования после изменения.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EF9B84C0137 // TevTableCursor
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_50DAC5F702C6 f_InnerPID
+
+ME ME_5110C21F01AD
+ MEPROP UID '5110C21F01AD'
+ MEPROP Name 'f_IgnoreSetX'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Не использовать установку SetX.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EF9B84C0137 // TevTableCursor
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5110C21F01AD f_IgnoreSetX
+
+FORWARD ME_4F50B310020B
+
+FORWARD ME_4F50B3230081
+
+ME ME_4F50B33C00A9
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4F50B33C00A9 aView
+
+ME ME_4F50B33C00C7
+ MEPROP Name 'aStart'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F50B33C00C7 aStart
+
+ME ME_4F50B3230081
+ MEPROP UID '4F50B3230081'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F50B310020B // CorrectPosition
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F50B33C00A9 // aView
+ ME_4F50B33C00C7 // aStart
+ )
+ ; // Parameters
+
+ENDME // ME_4F50B3230081 DoIt
+
+ME ME_4F50B310020B
+ MEPROP UID '4F50B310020B'
+ MEPROP Name 'CorrectPosition'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Корректируем позицию. http://mdp.garant.ru/pages/viewpage.action?pageId=89096655&focusedCommentId=119474205#comment-119474205' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EF9B84C0137 // TevTableCursor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F50B3230081 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F50B310020B CorrectPosition
+
+ME ME_4F50B62D01A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EF9B84C0137 // TevTableCursor
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4F50B62D01A1 
+
+ME ME_4F50B64F001B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EF9B84C0137 // TevTableCursor
+ ;
+ MELINK Target WL 'ME_468E49730365' '469D0AC7005E.ms.model.script' // MergeStatus
+ ;
+
+ENDME // ME_4F50B64F001B 
+
+ME ME_4F5C976A00B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EF9B84C0137 // TevTableCursor
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4F5C976A00B4 
+
+ME ME_52BD34220087
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EF9B84C0137 // TevTableCursor
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_52BD34220087 
+
+ME ME_53D26CE400D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4EF9B84C0137 // TevTableCursor
+ ;
+ MELINK Target WL? 'ME_4857E163036B' // TevTable
+ ;
+ UP "injects as" 'cursor'
+
+ENDME // ME_53D26CE400D5 
+
+MEREF ME_479731C50290_ME_4EF9B84C0137_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4EF9B84C0137_over Cleanup
+
+MEREF ME_47A042E100E2_ME_4EF9B84C0137_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4EF9B84C0137_over InitFields
+
+MEREF ME_49E31657038E_ME_4EF9B84C0137_over
+ MELINK Original WL 'ME_49E31657038E' '49DE2726027E.ms.model.script' // DoMovePrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E31657038E_ME_4EF9B84C0137_over DoMovePrim
+
+MEREF ME_4BE284D00262_ME_4EF9B84C0137_over
+ MELINK Original WL 'ME_4BE284D00262' '49DE2726027E.ms.model.script' // DoAssignPointInt
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BE284D00262_ME_4EF9B84C0137_over DoAssignPointInt
+
+MEREF ME_4C495DAA024B_ME_4EF9B84C0137_over
+ MELINK Original WL 'ME_4C495DAA024B' '4A3A237A01C0.ms.model.script' // CanRedraw
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C495DAA024B_ME_4EF9B84C0137_over CanRedraw
+
+MEREF ME_4F50B34C0260_ME_4EF9B84C0137_over
+ MELINK Original WL 'ME_4F50B34C0260' '4A3A237A01C0.ms.model.script' // NeedGotoHidden
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4F50B34C0260_ME_4EF9B84C0137_over NeedGotoHidden
+
+MEREF ME_4FFC353A03C4_ME_4EF9B84C0137_over
+ MELINK Original WL 'ME_4FFC353A03C4' '4A3A237A01C0.ms.model.script' // CheckFirst
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FFC353A03C4_ME_4EF9B84C0137_over CheckFirst
+
+MEREF ME_50DAB0190074_ME_4EF9B84C0137_over
+ MELINK Original WL 'ME_50DAB0190074' '49D245770337.ms.model.script' // DoCorrectMoveRight
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_50DAB0190074_ME_4EF9B84C0137_over DoCorrectMoveRight
+
+MEREF ME_4EF9B83D010D_ME_4EF9B84C0137_G
+ MELINK Original WL? 'ME_4EF9B83D010D' // TevTableCursorPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EF9B83D010D_ME_4EF9B84C0137_G TevTableCursorPrim
+
+%%InjectedBy ME_4857E163036B ME_4EF9B84C0137
+
+%%InheritedBy ME_4EF9B83D010D ME_4EF9B84C0137
+
+ME ME_4EF9B84C0137
+ MEPROP UID '4EF9B84C0137'
+ MEPROP Name 'TevTableCursor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Курсор для таблицы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3A233900C9' // ParaList Cursors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4EF9B83D010D_ME_4EF9B84C0137_G // TevTableCursorPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F50B2DD0177 // f_Offset
+ HWL ME_4F50B2F4038E // f_Width
+ HWL ME_50DAC5F702C6 // f_InnerPID
+ HWL ME_5110C21F01AD // f_IgnoreSetX
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F50B310020B // CorrectPosition
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4EF9B84C0137_over // Cleanup
+ ME_47A042E100E2_ME_4EF9B84C0137_over // InitFields
+ ME_49E31657038E_ME_4EF9B84C0137_over // DoMovePrim
+ ME_4BE284D00262_ME_4EF9B84C0137_over // DoAssignPointInt
+ ME_4C495DAA024B_ME_4EF9B84C0137_over // CanRedraw
+ ME_4F50B34C0260_ME_4EF9B84C0137_over // NeedGotoHidden
+ ME_4FFC353A03C4_ME_4EF9B84C0137_over // CheckFirst
+ ME_50DAB0190074_ME_4EF9B84C0137_over // DoCorrectMoveRight
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F50B62D01A1 // Operations
+ ME_4F50B64F001B // MergeStatus
+ ME_4F5C976A00B4 // Supports
+ ME_52BD34220087 // Tk2TagID
+ ME_53D26CE400D5 // TevTable
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evTableCursor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TableCursor'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evTableCursor.pas'
+
+ENDME // ME_4EF9B84C0137 TevTableCursor

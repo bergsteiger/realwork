@@ -1,0 +1,222 @@
+// Tm3DBProxyStream 49BFBF3E00CD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49BFBF3E00CD
+
+ME ME_49BFBFBE01D9
+ MEPROP UID '49BFBFBE01D9'
+ MEPROP Name 'DB'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'База, с которой работает поток' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49BFBF3E00CD // Tm3DBProxyStream
+ ;
+ MELINK Target WL? 'ME_49BFBC690162' // Tm3PrimDB
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_49BFBFBE01D9 DB
+
+ME ME_49BFC6C603D4
+ MEPROP UID '49BFC6C603D4'
+ MEPROP Name 'ID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Идентификатор потока' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49BFBF3E00CD // Tm3DBProxyStream
+ ;
+ MELINK Target WL 'ME_49BFCF61009F' '4720831F012D.ms.model.script' // Tm3DBStreamIndexEx
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_49BFC6C603D4 ID
+
+FORWARD ME_49BFC03402A2
+
+ME ME_49BFC35301F9
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_49BFC35301F9 aStream
+
+ME ME_49BFC0410253
+ MEPROP Name 'aDB'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_49BFBC690162' // Tm3PrimDB
+ ;
+
+ENDME // ME_49BFC0410253 aDB
+
+ME ME_49BFC6ED0068
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49BFCF61009F' '4720831F012D.ms.model.script' // Tm3DBStreamIndexEx
+ ;
+
+ENDME // ME_49BFC6ED0068 anID
+
+ME ME_49BFC03402A2
+ MEPROP UID '49BFC03402A2'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49BFBF3E00CD // Tm3DBProxyStream
+ ;
+ MELIST Parameters
+   Seq: ( ME_49BFC35301F9 // aStream
+ ME_49BFC0410253 // aDB
+ ME_49BFC6ED0068 // anID
+ )
+ ; // Parameters
+
+ENDME // ME_49BFC03402A2 Create
+
+FORWARD ME_49BFC3620118
+
+ME ME_49BFC37902A4
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_49BFC37902A4 aStream
+
+ME ME_49BFC37902D1
+ MEPROP Name 'aDB'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_49BFBC690162' // Tm3PrimDB
+ ;
+
+ENDME // ME_49BFC37902D1 aDB
+
+ME ME_49BFC709005C
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49BFCF61009F' '4720831F012D.ms.model.script' // Tm3DBStreamIndexEx
+ ;
+
+ENDME // ME_49BFC709005C anID
+
+ME ME_49BFC3620118
+ MEPROP UID '49BFC3620118'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'Создаёт обёртку' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49BFBF3E00CD // Tm3DBProxyStream
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+ MELIST Parameters
+   Seq: ( ME_49BFC37902A4 // aStream
+ ME_49BFC37902D1 // aDB
+ ME_49BFC709005C // anID
+ )
+ ; // Parameters
+
+ENDME // ME_49BFC3620118 Make
+
+ME ME_49BFC00C019B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49BFBF3E00CD // Tm3DBProxyStream
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_49BFC00C019B 
+
+ME ME_49BFC01D032F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49BFBF3E00CD // Tm3DBProxyStream
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_49BFC01D032F 
+
+MEREF ME_479731C50290_ME_49BFBF3E00CD_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_49BFBF3E00CD_over Cleanup
+
+MEREF ME_49BE68B201D1_ME_49BFBF3E00CD_G
+ MELINK Original WL? 'ME_49BE68B201D1' // Tl3ProxyStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49BE68B201D1_ME_49BFBF3E00CD_G Tl3ProxyStream
+
+%%InheritedBy ME_49BE68B201D1 ME_49BFBF3E00CD
+
+ME ME_49BFBF3E00CD
+ MEPROP UID '49BFBF3E00CD'
+ MEPROP Name 'Tm3DBProxyStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поток, знающий про базу, с которой он работает' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4742C9DB033A' // m3DB
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49BE68B201D1_ME_49BFBF3E00CD_G // Tl3ProxyStream
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_49BFBFBE01D9 // DB
+ HWL ME_49BFC6C603D4 // ID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49BFC03402A2 // Create
+ HWL ME_49BFC3620118 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_49BFBF3E00CD_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49BFC00C019B // SysUtils
+ ME_49BFC01D032F // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '17.03.2009 18:19'
+ UP extprop:pas:UnitName 'm3DBProxyStream'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3DBProxyStream'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3DBProxyStream.pas'
+
+ENDME // ME_49BFBF3E00CD Tm3DBProxyStream

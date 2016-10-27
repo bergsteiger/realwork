@@ -1,0 +1,331 @@
+// TevDecorHotSpot 4E1D961D02D6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E1D961D02D6
+
+ME ME_4E1DB8A102D8
+ MEPROP UID '4E1DB8A102D8'
+ MEPROP Name 'f_Para'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4E1D961D02D6 // TevDecorHotSpot
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4E1DB8A102D8 f_Para
+
+FORWARD ME_4E1D79FC01E9
+
+FORWARD ME_4E1D7A070074
+
+ME ME_4E1D7A110140
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4E1D7A110140 aPara
+
+ME ME_4E1D7A110169
+ MEPROP Name 'aHotSpot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48E2665A0259' '4A1FCBA0014C.ms.model.script' // IevHotSpot
+ ;
+
+ENDME // ME_4E1D7A110169 aHotSpot
+
+ME ME_4E1D7A070074
+ MEPROP UID '4E1D7A070074'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E1D79FC01E9 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E1D7A110140 // aPara
+ ME_4E1D7A110169 // aHotSpot
+ )
+ ; // Parameters
+
+ENDME // ME_4E1D7A070074 DoIt
+
+ME ME_4E1D79FC01E9
+ MEPROP UID '4E1D79FC01E9'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E1D961D02D6 // TevDecorHotSpot
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E1D7A070074 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E1D79FC01E9 Create
+
+MEREF ME_4E1D79FC01E9_ME_4E1D7A1F0027_G
+ MELINK Original HWL ME_4E1D79FC01E9 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E1D79FC01E9_ME_4E1D7A1F0027_G Create
+
+MEREF ME_48E2665A0259_ME_4E1D7A1F0027_R
+ MELINK Original WL 'ME_48E2665A0259' '4A1FCBA0014C.ms.model.script' // IevHotSpot
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48E2665A0259_ME_4E1D7A1F0027_R IevHotSpot
+
+%%ImplementedBy ME_48E2665A0259 ME_4E1D7A1F0027
+
+%%InheritedBy ME_4E1D79FC01E9 ME_4E1D7A1F0027
+
+ME ME_4E1D7A1F0027
+ MEPROP UID '4E1D7A1F0027'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E1D961D02D6 // TevDecorHotSpot
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E1D79FC01E9_ME_4E1D7A1F0027_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_48E2665A0259_ME_4E1D7A1F0027_R // IevHotSpot
+ )
+ ; // Implements
+
+ENDME // ME_4E1D7A1F0027 Make
+
+FORWARD ME_552FAB2002BB
+
+ME ME_552FAB52027A
+ MEPROP UID '552FAB52027A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552FAB2002BB // NeedProxyHyperlink
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_552FAB52027A DoIt
+
+ME ME_552FAB2002BB
+ MEPROP UID '552FAB2002BB'
+ MEPROP Name 'NeedProxyHyperlink'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E1D961D02D6 // TevDecorHotSpot
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_552FAB52027A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_552FAB2002BB NeedProxyHyperlink
+
+FORWARD ME_55F6D02B0013
+
+ME ME_55F6D04703C9
+ MEPROP UID '55F6D04703C9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55F6D02B0013 // GetDecorHyperlinkClass
+ ;
+ MELINK Target WL 'ME_55F6CFF70320' '4E1DD8400344.ms.model.script' // RevDecorHyperlink
+ ;
+
+ENDME // ME_55F6D04703C9 DoIt
+
+ME ME_55F6D02B0013
+ MEPROP UID '55F6D02B0013'
+ MEPROP Name 'GetDecorHyperlinkClass'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E1D961D02D6 // TevDecorHotSpot
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55F6D04703C9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55F6D02B0013 GetDecorHyperlinkClass
+
+FORWARD ME_55F7C7110022
+
+ME ME_55F7C7230222
+ MEPROP UID '55F7C7230222'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55F7C7110022 // GetDecorActiveHyperlinkClass
+ ;
+ MELINK Target WL 'ME_55F7C6E0039F' '4E1D96B8035A.ms.model.script' // RnevDecorActiveHyperlinkClass
+ ;
+
+ENDME // ME_55F7C7230222 DoIt
+
+ME ME_55F7C7110022
+ MEPROP UID '55F7C7110022'
+ MEPROP Name 'GetDecorActiveHyperlinkClass'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E1D961D02D6 // TevDecorHotSpot
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55F7C7230222 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55F7C7110022 GetDecorActiveHyperlinkClass
+
+ME ME_4E1D97420301
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E1D961D02D6 // TevDecorHotSpot
+ ;
+ MELINK Target WL? 'ME_4E1D96B8035A' // TnevDecorActiveHyperlink
+ ;
+
+ENDME // ME_4E1D97420301 
+
+ME ME_4E1DD7600109
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E1D961D02D6 // TevDecorHotSpot
+ ;
+ MELINK Target WL 'ME_4B17E8E10102' '47CFE7F00221.ms.model.script' // l3IOK
+ ;
+
+ENDME // ME_4E1DD7600109 
+
+ME ME_4E1DD85E039A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E1D961D02D6 // TevDecorHotSpot
+ ;
+ MELINK Target WL? 'ME_4E1DD8400344' // TevDecorHyperlink
+ ;
+
+ENDME // ME_4E1DD85E039A 
+
+ME ME_4E1DDD84039F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E1D961D02D6 // TevDecorHotSpot
+ ;
+ MELINK Target WL 'ME_4E1DDD650025' '47877EB202FB.ms.model.script' // IsEqualGUID
+ ;
+
+ENDME // ME_4E1DDD84039F 
+
+ME ME_4E1DDDA4015C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E1D961D02D6 // TevDecorHotSpot
+ ;
+ MELINK Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.ms.model.script' // IevHyperlink
+ ;
+
+ENDME // ME_4E1DDDA4015C 
+
+MEREF ME_47A0AD3A01F7_ME_4E1D961D02D6_over
+ MELINK Original WL 'ME_47A0AD3A01F7' '47A0ACE90008.ms.model.script' // QueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "calling conventions" 'stdcall'
+ENDMEREF // ME_47A0AD3A01F7_ME_4E1D961D02D6_over QueryInterface
+
+MEREF ME_4E1D94EF002C_ME_4E1D961D02D6_over
+ MELINK Original WL 'ME_4E1D94EF002C' '4E1D76D101D0.ms.model.script' // DoTransMouseMove
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E1D94EF002C_ME_4E1D961D02D6_over DoTransMouseMove
+
+MEREF ME_4E1D76D101D0_ME_4E1D961D02D6_G
+ MELINK Original WL? 'ME_4E1D76D101D0' // TevHotSpotProxy
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E1D76D101D0_ME_4E1D961D02D6_G TevHotSpotProxy
+
+%%InheritedBy ME_4E1D76D101D0 ME_4E1D961D02D6
+
+ME ME_4E1D961D02D6
+ MEPROP UID '4E1D961D02D6'
+ MEPROP Name 'TevDecorHotSpot'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A267EE3017B' // HotSpots
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E1D76D101D0_ME_4E1D961D02D6_G // TevHotSpotProxy
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4E1DB8A102D8 // f_Para
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E1D79FC01E9 // Create
+ HWL ME_4E1D7A1F0027 // Make
+ HWL ME_552FAB2002BB // NeedProxyHyperlink
+ HWL ME_55F6D02B0013 // GetDecorHyperlinkClass
+ HWL ME_55F7C7110022 // GetDecorActiveHyperlinkClass
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A0AD3A01F7_ME_4E1D961D02D6_over // QueryInterface
+ ME_4E1D94EF002C_ME_4E1D961D02D6_over // DoTransMouseMove
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E1D97420301 // TnevDecorActiveHyperlink
+ ME_4E1DD7600109 // l3IOK
+ ME_4E1DD85E039A // TevDecorHyperlink
+ ME_4E1DDD84039F // IsEqualGUID
+ ME_4E1DDDA4015C // IevHyperlink
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '13.07.2011 16:57'
+ UP extprop:pas:UnitName 'evDecorHotSpot'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DecorHotSpot'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evDecorHotSpot.pas'
+
+ENDME // ME_4E1D961D02D6 TevDecorHotSpot

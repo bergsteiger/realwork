@@ -2,11 +2,17 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-ME ME_554CA3BF011D_ME_4AC5DAE50246
+MEREF ME_554CA3BF011D_ME_4AC5DAE50246_over
  MELINK Original WL 'ME_554CA3BF011D' '4AA8AB7B038F.ms.model.script' // MakeCalendar
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_554CA3BF011D_ME_4AC5DAE50246 MakeCalendar
+ENDMEREF // ME_554CA3BF011D_ME_4AC5DAE50246_over MakeCalendar
+
+MEREF ME_4AA8AB7B038F_ME_4AC5DAE50246_G
+ MELINK Original WL? 'ME_4AA8AB7B038F' // TvtDateEdit
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AA8AB7B038F_ME_4AC5DAE50246_G TvtDateEdit
 
 %%InheritedBy ME_4AA8AB7B038F ME_4AC5DAE50246
 
@@ -22,11 +28,11 @@ ME ME_4AC5DAE50246
  MELINK Parent WL? 'ME_4AC5DADB00C9' // DateEdit
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4AA8AB7B038F' // TvtDateEdit
+   Seq: ( HWL ME_4AA8AB7B038F_ME_4AC5DAE50246_G // TvtDateEdit
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_554CA3BF011D_ME_4AC5DAE50246 // MakeCalendar
+   Seq: ( ME_554CA3BF011D_ME_4AC5DAE50246_over // MakeCalendar
  )
  ; // Overridden
  UP extprop:pas:UnitName 'vtDblClickDateEdit'

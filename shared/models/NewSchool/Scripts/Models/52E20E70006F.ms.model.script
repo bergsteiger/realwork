@@ -1,0 +1,64 @@
+// ImageEnViewer_SaveBitmap 52E20E70006F ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52E20E70006F
+
+ME ME_52E5E9F30266
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52E20E70006F // ImageEnViewer_SaveBitmap
+ ;
+ MELINK Target WL 'ME_4DF870EA0062' '47877EB202FB.ms.model.script' // ChangeFileExt
+ ;
+
+ENDME // ME_52E5E9F30266 
+
+MEREF ME_52E20FD6017C_ME_52E20E70006F_impl
+ MELINK Original WL 'ME_52E20FD6017C' '52E20F060237.ms.model.script' // DoWithImageEn
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52E20FD6017C_ME_52E20E70006F_impl DoWithImageEn
+
+MEREF ME_52E20F060237_ME_52E20E70006F_G
+ MELINK Original WL? 'ME_52E20F060237' // TkwImageEnControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52E20F060237_ME_52E20E70006F_G TkwImageEnControl
+
+%%InheritedBy ME_52E20F060237 ME_52E20E70006F
+
+ME ME_52E20E70006F
+ MEPROP UID '52E20E70006F'
+ MEPROP Name 'ImageEnViewer_SaveBitmap'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Формат:'#13#10'{code}'#13#10'aFileName ImageEnViewer:SaveBitmap'#13#10'{code}'#13#10'где aFileName - имя файла, куда сохранять.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_52E20E0E0059' // ImageEnView
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52E20F060237_ME_52E20E70006F_G // TkwImageEnControl
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52E20FD6017C_ME_52E20E70006F_impl // DoWithImageEn
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_52E5E9F30266 // ChangeFileExt
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwImageEnViewerSaveBitmap'
+ UP extprop:pas:UnitName 'kwImageEnViewerSaveBitmap'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ImageEnViewerSaveBitmap'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwImageEnViewerSaveBitmap.pas'
+
+ENDME // ME_52E20E70006F ImageEnViewer_SaveBitmap

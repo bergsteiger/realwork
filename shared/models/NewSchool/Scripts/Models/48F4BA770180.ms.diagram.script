@@ -9,7 +9,7 @@ MEDIAGRAMS ME_48F4BA770180_diagrams
   MELINK Original WL? 'ME_48F4BA770180' ; // Writers
 
   MEVIEW ME_52DCDDEE0371_view
-   MELINK Original WL 'ME_52DCDDEE0371' '48F4BA770180.ms.model.script' ; // TddTextSegmentQueue
+   MELINK Original WL? 'ME_52DCDDEE0371' ; // TddTextSegmentQueue
    MEPROP X 40
    MEPROP Y 40
   ENDMEVIEW // ME_52DCDDEE0371_view
@@ -33,19 +33,19 @@ MEDIAGRAMS ME_48F4BA770180_diagrams
   ENDMEVIEW // ME_4B9E545B0118_view
 
   MEVIEW ME_52DCDD6201E9_view
-   MELINK Original WL 'ME_52DCDD6201E9' '48F4BA770180.ms.model.script' ; // TddRTFSegmentWriter
+   MELINK Original WL? 'ME_52DCDD6201E9' ; // TddRTFSegmentWriter
    MEPROP X 680
    MEPROP Y 40
   ENDMEVIEW // ME_52DCDD6201E9_view
 
   MEVIEW ME_55BB1F310213_view
-   MELINK Original WL 'ME_55BB1F310213' '48F4BA770180.ms.model.script' ; // TddRTFExpandedTextWriter
+   MELINK Original WL? 'ME_55BB1F310213' ; // TddRTFExpandedTextWriter
    MEPROP X 840
    MEPROP Y 40
   ENDMEVIEW // ME_55BB1F310213_view
 
   MEVIEW ME_541690C10301_view
-   MELINK Original WL 'ME_541690C10301' '48F4BA770180.ms.model.script' ; // TddFillAACStack
+   MELINK Original WL? 'ME_541690C10301' ; // TddFillAACStack
    MEPROP X 1000
    MEPROP Y 40
   ENDMEVIEW // ME_541690C10301_view
@@ -57,19 +57,13 @@ MEDIAGRAMS ME_48F4BA770180_diagrams
   ENDMEVIEW // ME_48F4BA89000D_view
 
   MEVIEW ME_576119AE00C1_view
-   MELINK Original WL 'ME_576119AE00C1' '48F4BA770180.ms.model.script' ; // TddProfNewsHTMLWriter
+   MELINK Original WL? 'ME_576119AE00C1' ; // TddProfNewsHTMLWriter
    MEPROP X 200
    MEPROP Y 180
   ENDMEVIEW // ME_576119AE00C1_view
 
-  MEVIEWLINK ME_4B9E54A6001B_viewlink
-   MELINK Original WL 'ME_4B9E54A6001B' '4B9E545B0118.ms.model.script' ;
-   MELINK From ME_4B9E545B0118_view ;
-   MELINK To ME_4B9E548D0157_view ;
-  ENDMEVIEWLINK // ME_4B9E54A6001B_viewlink
-
   MEVIEWLINK ME_52DCEBE902DA_viewlink
-   MELINK Original WL 'ME_52DCEBE902DA' '48F4BA770180.ms.model.script' ;
+   MELINK Original WL 'ME_52DCEBE902DA' '52DCDD6201E9.ms.model.script' ;
    MELINK From ME_52DCDD6201E9_view ;
    MELINK To ME_52DCDDEE0371_view ;
   ENDMEVIEWLINK // ME_52DCEBE902DA_viewlink
@@ -79,12 +73,6 @@ MEDIAGRAMS ME_48F4BA770180_diagrams
    MELINK To ME_52DCDD6201E9_view ;
    MEPROP Class class_Inherits
   ENDMEVIEWLINK // ME_55BB1F310213_ME_52DCDD6201E9_Inherits
-
-  MEVIEWLINK ME_4E1C27BE0129_viewlink
-   MELINK Original WL 'ME_4E1C27BE0129' '48F4BA89000D.ms.model.script' ;
-   MELINK From ME_48F4BA89000D_view ;
-   MELINK To ME_4E1C271501E5_view ;
-  ENDMEVIEWLINK // ME_4E1C27BE0129_viewlink
 
   MELIST Views
    Seq: ( ME_52DCDDEE0371_view // TddTextSegmentQueue
@@ -96,10 +84,8 @@ MEDIAGRAMS ME_48F4BA770180_diagrams
    ME_541690C10301_view // TddFillAACStack
    ME_48F4BA89000D_view // ddRTFWriter
    ME_576119AE00C1_view // TddProfNewsHTMLWriter
-   ME_4B9E54A6001B_viewlink // ddHTMLWriter -> ddHTMLWriterRes
    ME_52DCEBE902DA_viewlink // TddRTFSegmentWriter -> TddTextSegmentQueue
    ME_55BB1F310213_ME_52DCDD6201E9_Inherits // TddRTFExpandedTextWriter -> TddRTFSegmentWriter
-   ME_4E1C27BE0129_viewlink // ddRTFWriter -> ddDocument
    )
   ; // Views
  ENDMEDIAGRAM // ME_48F4BA770180_main

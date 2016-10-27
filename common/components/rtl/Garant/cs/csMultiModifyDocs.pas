@@ -13,8 +13,6 @@ uses
  l3IntfUses
  , csPersonificatedMessage
  , k2SizedMemoryPool
- , l3MarshalledTypes
- , evdTasksHelpers
  , k2Base
 ;
 

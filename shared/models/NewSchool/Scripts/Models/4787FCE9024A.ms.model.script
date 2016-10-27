@@ -6,11 +6,17 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4787FCE9024A
 
-ME ME_499D3BE0004D_ME_4787FD4002B4
+MEREF ME_499D3BE0004D_ME_4787FD4002B4_impl
  MELINK Original WL 'ME_499D3BE0004D' '478CF30500C1.ms.model.script' // Execute
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_499D3BE0004D_ME_4787FD4002B4 Execute
+ENDMEREF // ME_499D3BE0004D_ME_4787FD4002B4_impl Execute
+
+MEREF ME_4787FD9103E6_ME_4787FD4002B4_G
+ MELINK Original WL 'ME_4787FD9103E6' '478CF30500C1.ms.model.script' // TThread$Stub
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4787FD9103E6_ME_4787FD4002B4_G TThread$Stub
 
 %%InheritedBy ME_4787FD9103E6 ME_4787FD4002B4
 
@@ -25,11 +31,11 @@ ME ME_4787FD4002B4
  MELINK Parent HWL ME_4787FCE9024A // l3AsincMessageWindow
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4787FD9103E6' '478CF30500C1.ms.model.script' // TThread$Stub
+   Seq: ( HWL ME_4787FD9103E6_ME_4787FD4002B4_G // TThread$Stub
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_499D3BE0004D_ME_4787FD4002B4 // Execute
+   Seq: ( ME_499D3BE0004D_ME_4787FD4002B4_impl // Execute
  )
  ; // Implemented
  UP extprop:rc:isAcceptableForScripts True

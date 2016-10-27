@@ -1,0 +1,302 @@
+// TnsDocumentContainerSub 4A7AA075008F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A7AA075008F
+
+ME ME_4C9B0B360325
+ MEPROP UID '4C9B0B360325'
+ MEPROP Name 'f_SubPara'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A7AA075008F // TnsDocumentContainerSub
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_4C9B0B360325 f_SubPara
+
+FORWARD ME_4C9B0D0A035C
+
+FORWARD ME_4C9B0D150004
+
+ME ME_4C9B0D2C0175
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_4C9B0D2C0175 aDocument
+
+ME ME_4C9B0D2C01A4
+ MEPROP Name 'aProcessor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BEF270278' '4678209200A6.ms.model.script' // InevProcessor
+ ;
+
+ENDME // ME_4C9B0D2C01A4 aProcessor
+
+ME ME_4C9B0D2C01CC
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C9B0D2C01CC anID
+
+ME ME_4C9B0D2C01F6
+ MEPROP Name 'aLayerID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C9B0D2C01F6 aLayerID
+
+ME ME_4C9B0D150004
+ MEPROP UID '4C9B0D150004'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C9B0D0A035C // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C9B0D2C0175 // aDocument
+ ME_4C9B0D2C01A4 // aProcessor
+ ME_4C9B0D2C01CC // anID
+ ME_4C9B0D2C01F6 // aLayerID
+ )
+ ; // Parameters
+
+ENDME // ME_4C9B0D150004 DoIt
+
+ME ME_4C9B0D0A035C
+ MEPROP UID '4C9B0D0A035C'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A7AA075008F // TnsDocumentContainerSub
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C9B0D150004 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C9B0D0A035C Create
+
+MEREF ME_4C9B0D0A035C_ME_4C9B0D300296_G
+ MELINK Original HWL ME_4C9B0D0A035C // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C9B0D0A035C_ME_4C9B0D300296_G Create
+
+MEREF ME_47C6B03200AF_ME_4C9B0D300296_R
+ MELINK Original WL 'ME_47C6B03200AF' '47C5207602D1.ms.model.script' // IevSub
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C6B03200AF_ME_4C9B0D300296_R IevSub
+
+%%ImplementedBy ME_47C6B03200AF ME_4C9B0D300296
+
+%%InheritedBy ME_4C9B0D0A035C ME_4C9B0D300296
+
+ME ME_4C9B0D300296
+ MEPROP UID '4C9B0D300296'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A7AA075008F // TnsDocumentContainerSub
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C9B0D0A035C_ME_4C9B0D300296_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47C6B03200AF_ME_4C9B0D300296_R // IevSub
+ )
+ ; // Implements
+
+ENDME // ME_4C9B0D300296 Make
+
+ME ME_4C99E84400C4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A7AA075008F // TnsDocumentContainerSub
+ ;
+ MELINK Target WL 'ME_4C99D9AF02E2' '4C99DF8C0241.ms.model.script' // nsFindTagByID
+ ;
+
+ENDME // ME_4C99E84400C4 
+
+ME ME_4C9B0BCF0202
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A7AA075008F // TnsDocumentContainerSub
+ ;
+ MELINK Target WL 'ME_484CDAC302F7' '469D0AC7005E.ms.model.script' // Sub Layers
+ ;
+
+ENDME // ME_4C9B0BCF0202 
+
+ME ME_4C9B0C0C0023
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A7AA075008F // TnsDocumentContainerSub
+ ;
+ MELINK Target WL 'ME_4857A87D0337' '48492FC0029D.ms.model.script' // Block
+ ;
+
+ENDME // ME_4C9B0C0C0023 
+
+ME ME_4C9B0C1D0375
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A7AA075008F // TnsDocumentContainerSub
+ ;
+ MELINK Target WL 'ME_4857C9C20131' '48492FC0029D.ms.model.script' // CommentPara
+ ;
+
+ENDME // ME_4C9B0C1D0375 
+
+ME ME_4C9B0C3E0264
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A7AA075008F // TnsDocumentContainerSub
+ ;
+ MELINK Target WL 'ME_484F95C1026A' '484A470100DD.ms.model.script' // Sub
+ ;
+
+ENDME // ME_4C9B0C3E0264 
+
+ME ME_4C9B0C4F02F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A7AA075008F // TnsDocumentContainerSub
+ ;
+ MELINK Target WL 'ME_484FABB7008B' '484A470100DD.ms.model.script' // Mark
+ ;
+
+ENDME // ME_4C9B0C4F02F4 
+
+ME ME_4C9B0C6D024C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A7AA075008F // TnsDocumentContainerSub
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4C9B0C6D024C 
+
+ME ME_4C9B12850276
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A7AA075008F // TnsDocumentContainerSub
+ ;
+ MELINK Target WL 'ME_484FAB98031E' '484A470100DD.ms.model.script' // Bookmark
+ ;
+
+ENDME // ME_4C9B12850276 
+
+ME ME_535A7ADC0063
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A7AA075008F // TnsDocumentContainerSub
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_535A7ADC0063 
+
+MEREF ME_479731C50290_ME_4A7AA075008F_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4A7AA075008F_over Cleanup
+
+MEREF ME_4C9B0AD90093_ME_4A7AA075008F_over
+ MELINK Original WL 'ME_4C9B0AD90093' '46835879030A.ms.model.script' // Tag
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C9B0AD90093_ME_4A7AA075008F_over Tag
+
+MEREF ME_4C9B0AEF009B_ME_4A7AA075008F_over
+ MELINK Original WL 'ME_4C9B0AEF009B' '46835879030A.ms.model.script' // SubPara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C9B0AEF009B_ME_4A7AA075008F_over SubPara
+
+MEREF ME_46835879030A_ME_4A7AA075008F_G
+ MELINK Original WL? 'ME_46835879030A' // TnsSubPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46835879030A_ME_4A7AA075008F_G TnsSubPrim
+
+%%InheritedBy ME_46835879030A ME_4A7AA075008F
+
+ME ME_4A7AA075008F
+ MEPROP UID '4A7AA075008F'
+ MEPROP Name 'TnsDocumentContainerSub'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C6A7BA001A5' // F1DocumentContainers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46835879030A_ME_4A7AA075008F_G // TnsSubPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4C9B0B360325 // f_SubPara
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4C9B0D0A035C // Create
+ HWL ME_4C9B0D300296 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4A7AA075008F_over // Cleanup
+ ME_4C9B0AD90093_ME_4A7AA075008F_over // Tag
+ ME_4C9B0AEF009B_ME_4A7AA075008F_over // SubPara
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4C99E84400C4 // nsFindTagByID
+ ME_4C9B0BCF0202 // Sub Layers
+ ME_4C9B0C0C0023 // Block
+ ME_4C9B0C1D0375 // CommentPara
+ ME_4C9B0C3E0264 // Sub
+ ME_4C9B0C4F02F4 // Mark
+ ME_4C9B0C6D024C // Tk2TagID
+ ME_4C9B12850276 // Bookmark
+ ME_535A7ADC0063 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '2005/12/03 21:22:17'
+ UP extprop:pas:UnitName 'nsDocumentContainerSub'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentContainerSub'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainerSub.pas'
+
+ENDME // ME_4A7AA075008F TnsDocumentContainerSub

@@ -1,0 +1,263 @@
+// TevDefaultStylesFontSizesPrim 4E3173F50217 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4E3175000369
+
+FORWARD ME_4E3173F50217
+
+FORWARD ME_4E3175000369
+
+ME ME_4E3175520059
+ MEPROP UID '4E3175520059'
+ MEPROP Name 'rStyleID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4E3175000369 // TevDefaultStyleFontSize
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E3175520059 rStyleID
+
+ME ME_4E31758703CE
+ MEPROP UID '4E31758703CE'
+ MEPROP Name 'rFontSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4E3175000369 // TevDefaultStyleFontSize
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E31758703CE rFontSize
+
+FORWARD ME_4E317595024E
+
+FORWARD ME_4E31759E0155
+
+ME ME_4E3175B0000C
+ MEPROP Name 'aStyleID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E3175B0000C aStyleID
+
+ME ME_4E3175B0003F
+ MEPROP Name 'aFontSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E3175B0003F aFontSize
+
+ME ME_4E31759E0155
+ MEPROP UID '4E31759E0155'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E317595024E // C
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E3175B0000C // aStyleID
+ ME_4E3175B0003F // aFontSize
+ )
+ ; // Parameters
+
+ENDME // ME_4E31759E0155 DoIt
+
+ME ME_4E317595024E
+ MEPROP UID '4E317595024E'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3175000369 // TevDefaultStyleFontSize
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E31759E0155 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E317595024E C
+
+FORWARD ME_4E3175CA0048
+
+FORWARD ME_4E3175D402C9
+
+ME ME_4E3175E40031
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4E3175000369 // TevDefaultStyleFontSize
+ ;
+
+ENDME // ME_4E3175E40031 anOther
+
+ME ME_4E3175D402C9
+ MEPROP UID '4E3175D402C9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3175CA0048 // EQ
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E3175E40031 // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_4E3175D402C9 DoIt
+
+ME ME_4E3175CA0048
+ MEPROP UID '4E3175CA0048'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3175000369 // TevDefaultStyleFontSize
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E3175D402C9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E3175CA0048 EQ
+
+ME ME_4E3175000369
+ MEPROP UID '4E3175000369'
+ MEPROP Name 'TevDefaultStyleFontSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E3173F50217 // TevDefaultStylesFontSizesPrim
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E3175520059 // rStyleID
+ HWL ME_4E31758703CE // rFontSize
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E317595024E // C
+ HWL ME_4E3175CA0048 // EQ
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'DefaultStyleFontSize'
+
+ENDME // ME_4E3175000369 TevDefaultStyleFontSize
+
+ME ME_4E3175210334
+ MEPROP UID '4E3175210334'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E3173F50217 // TevDefaultStylesFontSizesPrim
+ ;
+ MELINK Target HWL ME_4E3175000369 // TevDefaultStyleFontSize
+ ;
+
+ENDME // ME_4E3175210334 ItemType
+
+MEREF ME_47B2C42A0163_ME_4E3173F50217_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4E3173F50217_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_4E3173F50217_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4E3173F50217_impl CompareExistingItems
+
+MEREF ME_47A042E100E2_ME_4E3173F50217_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4E3173F50217_over InitFields
+
+MEREF ME_4A54DD4E036F_ME_4E3173F50217_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4E3173F50217_G Tl3ProtoDataContainer
+
+MEREF ME_4B223DB5024B_ME_4E3173F50217_G
+ MELINK Original WL? 'ME_4B223DB5024B' // l3RecordWithEQList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223DB5024B_ME_4E3173F50217_G l3RecordWithEQList
+
+%%InheritedBy ME_4A54DD4E036F ME_4E3173F50217
+%%InheritedBy ME_4B223DB5024B ME_4E3173F50217
+
+ME ME_4E3173F50217
+ MEPROP UID '4E3173F50217'
+ MEPROP Name 'TevDefaultStylesFontSizesPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Размеры шрифтов для стилей по-умолчанию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECB2870309' // StyleTable
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_4E3173F50217_G // Tl3ProtoDataContainer
+ HWL ME_4B223DB5024B_ME_4E3173F50217_G // l3RecordWithEQList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4E3175210334 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_4E3173F50217_impl // AssignItem
+ ME_47B99D4503A2_ME_4E3173F50217_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4E3173F50217_over // InitFields
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4E3175000369 // TevDefaultStyleFontSize
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '28.07.2011 18:48'
+ UP extprop:pas:UnitName 'evDefaultStylesFontSizesPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DefaultStylesFontSizesPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evDefaultStylesFontSizesPrim.pas'
+
+ENDME // ME_4E3173F50217 TevDefaultStylesFontSizesPrim

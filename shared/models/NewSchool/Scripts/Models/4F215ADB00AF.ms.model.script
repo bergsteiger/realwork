@@ -1,0 +1,54 @@
+// vcm_FindForm 4F215ADB00AF ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F215ADB00AF
+
+ME ME_4F2168A500CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F215ADB00AF // vcm_FindForm
+ ;
+ MELINK Target WL 'ME_476A84380187' '4683F37902CF.ms.model.script' // TvcmFormID
+ ;
+
+ENDME // ME_4F2168A500CB 
+
+MEREF ME_4DB94A660083_ME_4F215ADB00AF_R
+ MELINK Original WL? 'ME_4DB94A660083' // VCMWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB94A660083_ME_4F215ADB00AF_R VCMWord
+
+%%ImplementedBy ME_4DB94A660083 ME_4F215ADB00AF
+
+ME ME_4F215ADB00AF
+ MEPROP UID '4F215ADB00AF'
+ MEPROP Name 'vcm_FindForm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F69B9040391' // VCMWords
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_4DB94A660083_ME_4F215ADB00AF_R // VCMWord
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_4F2168A500CB // TvcmFormID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoVCM'
+ UP extprop:pas:TypeName 'TkwVcmFindForm'
+ UP extprop:pas:UnitName 'kwVcmFindForm'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'VcmFindForm'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmFindForm.pas'
+
+ENDME // ME_4F215ADB00AF vcm_FindForm

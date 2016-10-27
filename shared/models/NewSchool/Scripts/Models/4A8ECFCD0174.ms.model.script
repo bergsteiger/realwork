@@ -20,6 +20,18 @@ ME ME_4CAA38D5E807
 
 ENDME // ME_4CAA38D5E807 Ini_FormFactory_NewsLine
 
+MEREF ME_4C87BB9C0143_ME_4A8ECFCD0174_G
+ MELINK Original WL? 'ME_4C87BB9C0143' // PrimNewsLineOptions
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C87BB9C0143_ME_4A8ECFCD0174_G PrimNewsLineOptions
+
+MEREF ME_4EC3A4A80189_ME_4A8ECFCD0174_R
+ MELINK Original WL 'ME_4EC3A4A80189' '4BD856E802F9.ms.model.script' // NewsLine
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EC3A4A80189_ME_4A8ECFCD0174_R NewsLine
+
 %%ImplementedBy ME_4EC3A4A80189 ME_4A8ECFCD0174
 
 %%InheritedBy ME_4C87BB9C0143 ME_4A8ECFCD0174
@@ -37,11 +49,11 @@ ME ME_4A8ECFCD0174
  MELINK Parent WL? 'ME_4A8ECF3001D2' // PrimMonitorings
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4C87BB9C0143' // PrimNewsLineOptions
+   Seq: ( HWL ME_4C87BB9C0143_ME_4A8ECFCD0174_G // PrimNewsLineOptions
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4EC3A4A80189' '4BD856E802F9.ms.model.script' // NewsLine
+   Seq: ( HWL ME_4EC3A4A80189_ME_4A8ECFCD0174_R // NewsLine
  )
  ; // Implements
  MELIST Operations

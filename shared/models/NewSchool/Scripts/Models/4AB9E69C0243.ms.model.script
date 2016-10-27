@@ -20,6 +20,18 @@ ME ME_8D90B8858B94
 
 ENDME // ME_8D90B8858B94 Ini_FormFactory_MedicFirmList
 
+MEREF ME_4C7E3A320074_ME_4AB9E69C0243_G
+ MELINK Original WL? 'ME_4C7E3A320074' // PrimMedicFirmListOptions
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C7E3A320074_ME_4AB9E69C0243_G PrimMedicFirmListOptions
+
+MEREF ME_4BD96AFB0212_ME_4AB9E69C0243_R
+ MELINK Original WL 'ME_4BD96AFB0212' '4BD856E802F9.ms.model.script' // MedicFirmList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BD96AFB0212_ME_4AB9E69C0243_R MedicFirmList
+
 %%ImplementedBy ME_4BD96AFB0212 ME_4AB9E69C0243
 
 %%InheritedBy ME_4C7E3A320074 ME_4AB9E69C0243
@@ -38,11 +50,11 @@ ME ME_4AB9E69C0243
  MELINK Parent WL? 'ME_4AA0D66F0159' // Inpharm
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4C7E3A320074' // PrimMedicFirmListOptions
+   Seq: ( HWL ME_4C7E3A320074_ME_4AB9E69C0243_G // PrimMedicFirmListOptions
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4BD96AFB0212' '4BD856E802F9.ms.model.script' // MedicFirmList
+   Seq: ( HWL ME_4BD96AFB0212_ME_4AB9E69C0243_R // MedicFirmList
  )
  ; // Implements
  MELIST Operations

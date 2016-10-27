@@ -1,0 +1,160 @@
+// TnsFindIteratorNewFindPositionList 4D18F1F2033A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D18F1F2033A
+
+ME ME_4D39835E01C6
+ MEPROP UID '4D39835E01C6'
+ MEPROP Name 'f_GotList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4D18F1F2033A // TnsFindIteratorNewFindPositionList
+ ;
+ MELINK Target WL 'ME_4D39697600E4' '4570511E038A.ms.model.script' // FragmentList
+ ;
+
+ENDME // ME_4D39835E01C6 f_GotList
+
+FORWARD ME_4D18F2830080
+
+FORWARD ME_4D18F2950382
+
+ME ME_4D18F2990367
+ MEPROP Name 'aGotList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D39697600E4' '4570511E038A.ms.model.script' // FragmentList
+ ;
+
+ENDME // ME_4D18F2990367 aGotList
+
+ME ME_4D18F2950382
+ MEPROP UID '4D18F2950382'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D18F2830080 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D18F2990367 // aGotList
+ )
+ ; // Parameters
+
+ENDME // ME_4D18F2950382 DoIt
+
+ME ME_4D18F2830080
+ MEPROP UID '4D18F2830080'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D18F1F2033A // TnsFindIteratorNewFindPositionList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D18F2950382 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D18F2830080 Create
+
+MEREF ME_4D18F2830080_ME_4D18F2A20195_G
+ MELINK Original HWL ME_4D18F2830080 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D18F2830080_ME_4D18F2A20195_G Create
+
+MEREF ME_45EEC2C0005D_ME_4D18F2A20195_R
+ MELINK Original WL 'ME_45EEC2C0005D' '457450470167.ms.model.script' // FindPositionList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45EEC2C0005D_ME_4D18F2A20195_R FindPositionList
+
+%%ImplementedBy ME_45EEC2C0005D ME_4D18F2A20195
+
+%%InheritedBy ME_4D18F2830080 ME_4D18F2A20195
+
+ME ME_4D18F2A20195
+ MEPROP UID '4D18F2A20195'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D18F1F2033A // TnsFindIteratorNewFindPositionList
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D18F2830080_ME_4D18F2A20195_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_45EEC2C0005D_ME_4D18F2A20195_R // FindPositionList
+ )
+ ; // Implements
+
+ENDME // ME_4D18F2A20195 Make
+
+MEREF ME_4C9C9A0603D6_ME_4D18F1F2033A_G
+ MELINK Original WL? 'ME_4C9C9A0603D6' // Tl3ProtoObjectForTie
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C9C9A0603D6_ME_4D18F1F2033A_G Tl3ProtoObjectForTie
+
+MEREF ME_45EEC2C0005D_ME_4D18F1F2033A_R
+ MELINK Original WL 'ME_45EEC2C0005D' '457450470167.ms.model.script' // FindPositionList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45EEC2C0005D_ME_4D18F1F2033A_R FindPositionList
+
+%%ImplementedBy ME_45EEC2C0005D ME_4D18F1F2033A
+
+%%InheritedBy ME_4C9C9A0603D6 ME_4D18F1F2033A
+
+ME ME_4D18F1F2033A
+ MEPROP UID '4D18F1F2033A'
+ MEPROP Name 'TnsFindIteratorNewFindPositionList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фасадная реализация IFindPositionList' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D8A25430335' // ContextSearchInEVDDocument
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C9C9A0603D6_ME_4D18F1F2033A_G // Tl3ProtoObjectForTie
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_45EEC2C0005D_ME_4D18F1F2033A_R // FindPositionList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4D39835E01C6 // f_GotList
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D18F2830080 // Create
+ HWL ME_4D18F2A20195 // Make
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "need UC" True
+ UP "no hands" True
+ UP "started" '27.10.2010 23:07'
+ UP extprop:pas:UnitName 'nsFindIteratorNewFindPositionList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FindIteratorNewFindPositionList'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsFindIteratorNewFindPositionList.pas'
+
+ENDME // ME_4D18F1F2033A TnsFindIteratorNewFindPositionList

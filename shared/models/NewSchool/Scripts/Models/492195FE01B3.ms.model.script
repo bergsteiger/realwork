@@ -38,23 +38,35 @@ ME ME_492196820127
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_492195FE01B3 // TdsFolderElement
  ;
- MELINK Target WL 'ME_4921953602C1' '4921954E019B.ms.model.script' // TdeSaveObject
+ MELINK Target WL? 'ME_4921953602C1' // TdeSaveObject
  ;
 
 ENDME // ME_492196820127 
 
-ME ME_492192AA0144_ME_492195FE01B3
+MEREF ME_492192AA0144_ME_492195FE01B3_impl
  MELINK Original WL 'ME_492192AA0144' '492192300095.ms.model.script' // SaveObject
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_492192AA0144_ME_492195FE01B3 SaveObject
+ENDMEREF // ME_492192AA0144_ME_492195FE01B3_impl SaveObject
 
-ME ME_479731C50290_ME_492195FE01B3
+MEREF ME_479731C50290_ME_492195FE01B3_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_492195FE01B3 Cleanup
+ENDMEREF // ME_479731C50290_ME_492195FE01B3_over Cleanup
+
+MEREF ME_47ECE94D03D4_ME_492195FE01B3_G
+ MELINK Original WL? 'ME_47ECE94D03D4' // vcmFormDataSourcePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47ECE94D03D4_ME_492195FE01B3_G vcmFormDataSourcePrim
+
+MEREF ME_4921928D038A_ME_492195FE01B3_R
+ MELINK Original WL 'ME_4921928D038A' '492192300095.ms.model.script' // IdsFolderElement
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4921928D038A_ME_492195FE01B3_R IdsFolderElement
 
 %%ImplementedBy ME_4921928D038A ME_492195FE01B3
 
@@ -72,11 +84,11 @@ ME ME_492195FE01B3
  MELINK Parent WL? 'ME_4921954E019B' // Folders
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47ECE94D03D4' // vcmFormDataSourcePrim
+   Seq: ( HWL ME_47ECE94D03D4_ME_492195FE01B3_G // vcmFormDataSourcePrim
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4921928D038A' '492192300095.ms.model.script' // IdsFolderElement
+   Seq: ( HWL ME_4921928D038A_ME_492195FE01B3_R // IdsFolderElement
  )
  ; // Implements
  MELIST Attributes
@@ -85,11 +97,11 @@ ME ME_492195FE01B3
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_492192AA0144_ME_492195FE01B3 // SaveObject
+   Seq: ( ME_492192AA0144_ME_492195FE01B3_impl // SaveObject
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_492195FE01B3 // Cleanup
+   Seq: ( ME_479731C50290_ME_492195FE01B3_over // Cleanup
  )
  ; // Overridden
  MELIST Dependencies

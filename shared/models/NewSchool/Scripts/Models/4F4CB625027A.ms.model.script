@@ -1,0 +1,107 @@
+// TkwEditorFromStackWord 4F4CB625027A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F4CB625027A
+
+FORWARD ME_4F4CB81200CA
+
+FORWARD ME_4F4CB8220060
+
+ME ME_4F4CB85701C6
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4F4CB85701C6 aCtx
+
+ME ME_4F4CB85701E5
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4829D92A037B' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4F4CB85701E5 anEditor
+
+ME ME_4F4CB8220060
+ MEPROP UID '4F4CB8220060'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F4CB85701C6 // aCtx
+ ME_4F4CB85701E5 // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_4F4CB8220060 DoIt
+
+ME ME_4F4CB81200CA
+ MEPROP UID '4F4CB81200CA'
+ MEPROP Name 'DoWithEditor'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F4CB8220060 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F4CB81200CA DoWithEditor
+
+MEREF ME_4F212C3A015A_ME_4F4CB625027A_impl
+ MELINK Original WL 'ME_4F212C3A015A' '4F212C120371.ms.model.script' // DoControl
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F212C3A015A_ME_4F4CB625027A_impl DoControl
+
+MEREF ME_4F212C120371_ME_4F4CB625027A_G
+ MELINK Original WL? 'ME_4F212C120371' // kwControlFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F212C120371_ME_4F4CB625027A_G kwControlFromStackWord
+
+%%InheritedBy ME_4F212C120371 ME_4F4CB625027A
+
+ME ME_4F4CB625027A
+ MEPROP UID '4F4CB625027A'
+ MEPROP Name 'TkwEditorFromStackWord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F212C120371_ME_4F4CB625027A_G // kwControlFromStackWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F4CB81200CA // DoWithEditor
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F212C3A015A_ME_4F4CB625027A_impl // DoControl
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'kwEditorFromStackWord'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EditorFromStackWord'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwEditorFromStackWord.pas'
+
+ENDME // ME_4F4CB625027A TkwEditorFromStackWord

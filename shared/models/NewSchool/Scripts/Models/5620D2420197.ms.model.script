@@ -1,0 +1,60 @@
+// TvcmBaseOperationStates 5620D2420197 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5621097F0137
+
+FORWARD ME_5620D2420197
+
+MEREF ME_5620D2420197_ME_5621097F0137_G
+ MELINK Original HWL ME_5620D2420197 // TvcmBaseOperationStates
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5620D2420197_ME_5621097F0137_G TvcmBaseOperationStates
+
+%%InheritedBy ME_5620D2420197 ME_5621097F0137
+
+ME ME_5621097F0137
+ MEPROP UID '5621097F0137'
+ MEPROP Name 'RvcmBaseOperationStates'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5620D2420197 // TvcmBaseOperationStates
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5620D2420197_ME_5621097F0137_G // TvcmBaseOperationStates
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_5621097F0137 RvcmBaseOperationStates
+
+ME ME_5620D2420197
+ MEPROP UID '5620D2420197'
+ MEPROP Name 'TvcmBaseOperationStates'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AB34028023E' // Components
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5621097F0137 // RvcmBaseOperationStates
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:pas:UnitName 'vcmBaseOperationStates'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OperationStates'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmBaseOperationStates.pas'
+
+ENDME // ME_5620D2420197 TvcmBaseOperationStates

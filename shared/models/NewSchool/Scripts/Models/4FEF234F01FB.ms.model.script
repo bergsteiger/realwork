@@ -1,0 +1,74 @@
+// pop_QueryCard_Attribute_GetFocus 4FEF234F01FB ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FEF234F01FB
+
+ME ME_4FFC39420060
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FEF234F01FB // pop_QueryCard_Attribute_GetFocus
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4FFC39420060 
+
+ME ME_4FFC394500CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FEF234F01FB // pop_QueryCard_Attribute_GetFocus
+ ;
+ MELINK Target WL 'ME_47CD601B0048' '47CD5C7602CD.ms.model.script' // IevEditorControl
+ ;
+
+ENDME // ME_4FFC394500CB 
+
+MEREF ME_4E808E8B01BB_ME_4FEF234F01FB_impl
+ MELINK Original WL 'ME_4E808E8B01BB' '4E808D48037D.ms.model.script' // DoCard
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4E808E8B01BB_ME_4FEF234F01FB_impl DoCard
+
+MEREF ME_4E808D48037D_ME_4FEF234F01FB_G
+ MELINK Original WL? 'ME_4E808D48037D' // TkwQueryCardFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E808D48037D_ME_4FEF234F01FB_G TkwQueryCardFromStackWord
+
+%%InheritedBy ME_4E808D48037D ME_4FEF234F01FB
+
+ME ME_4FEF234F01FB
+ MEPROP UID '4FEF234F01FB'
+ MEPROP Name 'pop_QueryCard_Attribute_GetFocus'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F6994E701CB' // QueryCardProcessing
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E808D48037D_ME_4FEF234F01FB_G // TkwQueryCardFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4E808E8B01BB_ME_4FEF234F01FB_impl // DoCard
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4FFC39420060 // SysUtils
+ ME_4FFC394500CB // IevEditorControl
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwPopQueryCardAttributeGetFocus'
+ UP extprop:pas:UnitName 'kwPopQueryCardAttributeGetFocus'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PopQueryCardAttributeGetFocus'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeGetFocus.pas'
+
+ENDME // ME_4FEF234F01FB pop_QueryCard_Attribute_GetFocus

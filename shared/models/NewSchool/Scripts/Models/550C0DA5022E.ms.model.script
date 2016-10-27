@@ -14,11 +14,23 @@ ME ME_55113FC40368
 
 ENDME // ME_55113FC40368 
 
-ME ME_55097FF5008E_ME_550C0DA5022E
+MEREF ME_55097FF5008E_ME_550C0DA5022E_over
  MELINK Original WL 'ME_55097FF5008E' '5017EAF4027D.ms.model.script' // GetIsDataAvailable
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_55097FF5008E_ME_550C0DA5022E GetIsDataAvailable
+ENDMEREF // ME_55097FF5008E_ME_550C0DA5022E_over GetIsDataAvailable
+
+MEREF ME_47ECE94D03D4_ME_550C0DA5022E_G
+ MELINK Original WL? 'ME_47ECE94D03D4' // vcmFormDataSourcePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47ECE94D03D4_ME_550C0DA5022E_G vcmFormDataSourcePrim
+
+MEREF ME_550C0CF90324_ME_550C0DA5022E_R
+ MELINK Original WL 'ME_550C0CF90324' '4AC241AC01FC.ms.model.script' // IdsInpharmMainMenu
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_550C0CF90324_ME_550C0DA5022E_R IdsInpharmMainMenu
 
 %%ImplementedBy ME_550C0CF90324 ME_550C0DA5022E
 
@@ -36,15 +48,15 @@ ME ME_550C0DA5022E
  MELINK Parent WL? 'ME_550AA7200370' // InpharmMainMenuControllerRealization
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47ECE94D03D4' // vcmFormDataSourcePrim
+   Seq: ( HWL ME_47ECE94D03D4_ME_550C0DA5022E_G // vcmFormDataSourcePrim
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_550C0CF90324' '4AC241AC01FC.ms.model.script' // IdsInpharmMainMenu
+   Seq: ( HWL ME_550C0CF90324_ME_550C0DA5022E_R // IdsInpharmMainMenu
  )
  ; // Implements
  MELIST Overridden
-   Seq: ( ME_55097FF5008E_ME_550C0DA5022E // GetIsDataAvailable
+   Seq: ( ME_55097FF5008E_ME_550C0DA5022E_over // GetIsDataAvailable
  )
  ; // Overridden
  MELIST Dependencies

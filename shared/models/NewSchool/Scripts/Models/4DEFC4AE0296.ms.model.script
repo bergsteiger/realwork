@@ -1,0 +1,178 @@
+// Tl3CustomRecListView 4DEFC4AE0296 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_578F43AF0239
+
+FORWARD ME_4DEFC4AE0296
+
+MEREF ME_4DEFC19A0263_ME_578F43AF0239_G
+ MELINK Original WL 'ME_4DEFC19A0263' '4DEFB2450043.ms.model.script' // PItemType
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DEFC19A0263_ME_578F43AF0239_G PItemType
+
+%%InheritedBy ME_4DEFC19A0263 ME_578F43AF0239
+
+ME ME_578F43AF0239
+ MEPROP UID '578F43AF0239'
+ MEPROP Name 'PRecForCompare'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DEFC4AE0296 // Tl3CustomRecListView
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DEFC19A0263_ME_578F43AF0239_G // PItemType
+ )
+ ; // Inherits
+
+ENDME // ME_578F43AF0239 PRecForCompare
+
+ME ME_4DEFC4D5035F
+ MEPROP UID '4DEFC4D5035F'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DEFC4AE0296 // Tl3CustomRecListView
+ ;
+ MELINK Target WL? 'ME_479DF9C5033A' // Tl3ProtoPtrRecListPrim
+ ;
+
+ENDME // ME_4DEFC4D5035F ListType
+
+ME ME_4DEFC4F903A7
+ MEPROP UID '4DEFC4F903A7'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DEFC4AE0296 // Tl3CustomRecListView
+ ;
+ MELINK Target WL 'ME_47B99B600208' '47B433E500BC.ms.model.script' // VOID
+ ;
+
+ENDME // ME_4DEFC4F903A7 ItemType
+
+FORWARD ME_4DEFCA7603C4
+
+FORWARD ME_4DEFCA8C01DE
+
+ME ME_4DEFCA9B0168
+ MEPROP Name 'aRec1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_578F43AF0239 // PRecForCompare
+ ;
+
+ENDME // ME_4DEFCA9B0168 aRec1
+
+ME ME_4DEFCA9B0192
+ MEPROP Name 'aRec2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_578F43AF0239 // PRecForCompare
+ ;
+
+ENDME // ME_4DEFCA9B0192 aRec2
+
+ME ME_4DEFCA8C01DE
+ MEPROP UID '4DEFCA8C01DE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DEFCA7603C4 // CompareRecs
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DEFCA9B0168 // aRec1
+ ME_4DEFCA9B0192 // aRec2
+ )
+ ; // Parameters
+
+ENDME // ME_4DEFCA8C01DE DoIt
+
+ME ME_4DEFCA7603C4
+ MEPROP UID '4DEFCA7603C4'
+ MEPROP Name 'CompareRecs'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DEFC4AE0296 // Tl3CustomRecListView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DEFCA8C01DE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DEFCA7603C4 CompareRecs
+
+MEREF ME_4DEFB2D90167_ME_4DEFC4AE0296_impl
+ MELINK Original WL 'ME_4DEFB2D90167' '4DEFB2450043.ms.model.script' // CompareData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DEFB2D90167_ME_4DEFC4AE0296_impl CompareData
+
+MEREF ME_4DEFB2450043_ME_4DEFC4AE0296_G
+ MELINK Original WL? 'ME_4DEFB2450043' // l3OtherListView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DEFB2450043_ME_4DEFC4AE0296_G l3OtherListView
+
+%%InheritedBy ME_4DEFB2450043 ME_4DEFC4AE0296
+
+ME ME_4DEFC4AE0296
+ MEPROP UID '4DEFC4AE0296'
+ MEPROP Name 'Tl3CustomRecListView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4DEFC483033B' // RecListView
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DEFB2450043_ME_4DEFC4AE0296_G // l3OtherListView
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DEFC4D5035F // ListType
+ HWL ME_4DEFC4F903A7 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DEFCA7603C4 // CompareRecs
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DEFB2D90167_ME_4DEFC4AE0296_impl // CompareData
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_578F43AF0239 // PRecForCompare
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '08.06.2011 22:51'
+ UP extprop:pas:UnitName 'l3CustomRecListView'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RecListView'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3CustomRecListView.pas'
+
+ENDME // ME_4DEFC4AE0296 Tl3CustomRecListView

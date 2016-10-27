@@ -1,0 +1,288 @@
+// TmsmListViewController 57AAF18F0065 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57AAF18F0065
+
+ME ME_57AAFF5803AB
+ MEPROP UID '57AAFF5803AB'
+ MEPROP Name 'OwnViewClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57AAF18F0065 // TmsmListViewController
+ ;
+ MELINK Target WL? 'ME_57B4564702F8' // TmsmListView
+ ;
+
+ENDME // ME_57AAFF5803AB OwnViewClass
+
+ME ME_57AE019E00A7
+ MEPROP UID '57AE019E00A7'
+ MEPROP Name 'ConcreteModel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57AAF18F0065 // TmsmListViewController
+ ;
+ MELINK Target WL 'ME_57B178F400EB' '57ADC53E00B6.ms.model.script' // ImsmListModel
+ ;
+
+ENDME // ME_57AE019E00A7 ConcreteModel
+
+ME ME_57B45B5B0175
+ MEPROP UID '57B45B5B0175'
+ MEPROP Name 'InitContext'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57AAF18F0065 // TmsmListViewController
+ ;
+ MELINK Target WL 'ME_57B45B380244' '57B45AC9019C.ms.model.script' // TmsmListViewtInitContext
+ ;
+
+ENDME // ME_57B45B5B0175 InitContext
+
+FORWARD ME_57E56BDF005B
+
+FORWARD ME_A4560C9A081E
+
+ME ME_34F0987DD51B
+ MEPROP Name 'Sender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_34F0987DD51B Sender
+
+ME ME_A4560C9A081E
+ MEPROP UID 'A4560C9A081E'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E56BDF005B // DoGetTotal
+ ;
+ MELIST Parameters
+   Seq: ( ME_34F0987DD51B // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_A4560C9A081E DoIt
+
+MEREF ME_47881B22005A_ME_57E56BDF005B_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_57E56BDF005B_G TNotifyEvent
+
+%%InheritedBy ME_47881B22005A ME_57E56BDF005B
+
+ME ME_57E56BDF005B
+ MEPROP UID '57E56BDF005B'
+ MEPROP Name 'DoGetTotal'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57AAF18F0065 // TmsmListViewController
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47881B22005A_ME_57E56BDF005B_G // TNotifyEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_A4560C9A081E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57E56BDF005B DoGetTotal
+
+FORWARD ME_57EAE5C500B3
+
+FORWARD ME_FCAD1FFBBB8A
+
+ME ME_CAC8C1D09AF3
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_CAC8C1D09AF3 aSender
+
+ME ME_42AEB4612BFB
+ MEPROP Name 'anIndex'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_42AEB4612BFB anIndex
+
+ME ME_6A5F590DB15B
+ MEPROP Name 'theNode'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_6A5F590DB15B theNode
+
+ME ME_FCAD1FFBBB8A
+ MEPROP UID 'FCAD1FFBBB8A'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EAE5C500B3 // DoGetNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_CAC8C1D09AF3 // aSender
+ ME_42AEB4612BFB // anIndex
+ ME_6A5F590DB15B // theNode
+ )
+ ; // Parameters
+
+ENDME // ME_FCAD1FFBBB8A DoIt
+
+MEREF ME_57EAE3770314_ME_57EAE5C500B3_G
+ MELINK Original WL 'ME_57EAE3770314' '57B4564702F8.ms.model.script' // TmsmGetNodeEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57EAE3770314_ME_57EAE5C500B3_G TmsmGetNodeEvent
+
+%%InheritedBy ME_57EAE3770314 ME_57EAE5C500B3
+
+ME ME_57EAE5C500B3
+ MEPROP UID '57EAE5C500B3'
+ MEPROP Name 'DoGetNode'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57AAF18F0065 // TmsmListViewController
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57EAE3770314_ME_57EAE5C500B3_G // TmsmGetNodeEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_FCAD1FFBBB8A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EAE5C500B3 DoGetNode
+
+ME ME_57AAF20F0140
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57AAF18F0065 // TmsmListViewController
+ ;
+ MELINK Target WL? 'ME_4CFFE3470249' // TvtLister
+ ;
+
+ENDME // ME_57AAF20F0140 
+
+MEREF ME_57B6C9A5037B_ME_57AAF18F0065_impl
+ MELINK Original WL 'ME_57B6C9A5037B' '57B6C958008A.ms.model.script' // CallDropDrawPoints
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57B6C9A5037B_ME_57AAF18F0065_impl CallDropDrawPoints
+
+MEREF ME_57ADFB33027D_ME_57AAF18F0065_over
+ MELINK Original WL 'ME_57ADFB33027D' '57AB5C9A00F3.ms.model.script' // InitOwnView
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57ADFB33027D_ME_57AAF18F0065_over InitOwnView
+
+MEREF ME_57B490B60385_ME_57AAF18F0065_over
+ MELINK Original WL 'ME_57B490B60385' '57ADB523009E.ms.model.script' // InitViewContext
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57B490B60385_ME_57AAF18F0065_over InitViewContext
+
+MEREF ME_57B179D70299_ME_57AAF18F0065_G
+ MELINK Original WL? 'ME_57B179D70299' // msmConcreteModelOwnViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B179D70299_ME_57AAF18F0065_G msmConcreteModelOwnViewController
+
+MEREF ME_57C9879A032D_ME_57AAF18F0065_R
+ MELINK Original WL? 'ME_57C9879A032D' // msmMEListViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57C9879A032D_ME_57AAF18F0065_R msmMEListViewController
+
+%%ImplementedBy ME_57C9879A032D ME_57AAF18F0065
+
+%%InheritedBy ME_57B179D70299 ME_57AAF18F0065
+
+ME ME_57AAF18F0065
+ MEPROP UID '57AAF18F0065'
+ MEPROP Name 'TmsmListViewController'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57AE0E4B00C5' // ConcreteViewControllers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57B179D70299_ME_57AAF18F0065_G // msmConcreteModelOwnViewController
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57C9879A032D_ME_57AAF18F0065_R // msmMEListViewController
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57AAFF5803AB // OwnViewClass
+ HWL ME_57AE019E00A7 // ConcreteModel
+ HWL ME_57B45B5B0175 // InitContext
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57E56BDF005B // DoGetTotal
+ HWL ME_57EAE5C500B3 // DoGetNode
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57B6C9A5037B_ME_57AAF18F0065_impl // CallDropDrawPoints
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_57ADFB33027D_ME_57AAF18F0065_over // InitOwnView
+ ME_57B490B60385_ME_57AAF18F0065_over // InitViewContext
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57AAF20F0140 // TvtLister
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmListViewController'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmListViewController'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmListViewController.pas'
+
+ENDME // ME_57AAF18F0065 TmsmListViewController

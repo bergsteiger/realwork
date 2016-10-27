@@ -1,0 +1,116 @@
+// TatNotification 480781120349 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_480781120349
+
+ME ME_480781560287
+ MEPROP UID '480781560287'
+ MEPROP Name 'f_Data'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480781120349 // TatNotification
+ ;
+ MELINK Target WL 'ME_48077EC0001D' '4807744200AA.ms.model.script' // Variant
+ ;
+
+ENDME // ME_480781560287 f_Data
+
+FORWARD ME_48078161002A
+
+ME ME_4807816C029A
+ MEPROP Name 'data'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48077EC0001D' '4807744200AA.ms.model.script' // Variant
+ ;
+
+ENDME // ME_4807816C029A data
+
+ME ME_48078161002A
+ MEPROP UID '48078161002A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480781120349 // TatNotification
+ ;
+ MELIST Parameters
+   Seq: ( ME_4807816C029A // data
+ )
+ ; // Parameters
+
+ENDME // ME_48078161002A Create
+
+MEREF ME_48077ED302B8_ME_480781120349_impl
+ MELINK Original WL 'ME_48077ED302B8' '48077E620315.ms.model.script' // GetData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48077ED302B8_ME_480781120349_impl GetData
+
+MEREF ME_48077504027E_ME_480781120349_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_480781120349_over Destroy
+
+MEREF ME_48077FF80141_ME_480781120349_G
+ MELINK Original WL 'ME_48077FF80141' '4807744200AA.ms.model.script' // TInterfacedObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48077FF80141_ME_480781120349_G TInterfacedObject
+
+MEREF ME_48077E810317_ME_480781120349_R
+ MELINK Original WL 'ME_48077E810317' '48077E620315.ms.model.script' // IatNotification
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48077E810317_ME_480781120349_R IatNotification
+
+%%ImplementedBy ME_48077E810317 ME_480781120349
+
+%%InheritedBy ME_48077FF80141 ME_480781120349
+
+ME ME_480781120349
+ MEPROP UID '480781120349'
+ MEPROP Name 'TatNotification'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48077FF80141_ME_480781120349_G // TInterfacedObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_48077E810317_ME_480781120349_R // IatNotification
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_480781560287 // f_Data
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48078161002A // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48077ED302B8_ME_480781120349_impl // GetData
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_480781120349_over // Destroy
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'atNotification'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atNotification'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atNotification.pas'
+
+ENDME // ME_480781120349 TatNotification

@@ -143,7 +143,7 @@ ME ME_492440A200EC
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_492437620004 // TdsTreeAttributeSelect
  ;
- MELINK Target WL 'ME_468364C70131' '49006FAB024A.ms.model.script' // TnsAttributeTreeStruct
+ MELINK Target WL? 'ME_468364C70131' // TnsAttributeTreeStruct
  ;
 
 ENDME // ME_492440A200EC 
@@ -173,41 +173,53 @@ ME ME_4AE5902403A8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_492437620004 // TdsTreeAttributeSelect
  ;
- MELINK Target WL 'ME_4AE58E7C00A4' '4AA005310028.ms.model.script' // TnsSelectedAttributesIterators
+ MELINK Target WL? 'ME_4AE58E7C00A4' // TnsSelectedAttributesIterators
  ;
 
 ENDME // ME_4AE5902403A8 
 
-ME ME_47F4C2B9014A_ME_492437620004
+MEREF ME_47F4C2B9014A_ME_492437620004_impl
  MELINK Original WL 'ME_47F4C2B9014A' '47F0C1410011.ms.model.script' // MakeSimpleTree
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47F4C2B9014A_ME_492437620004 MakeSimpleTree
+ENDMEREF // ME_47F4C2B9014A_ME_492437620004_impl MakeSimpleTree
 
-ME ME_4924354D01CC_ME_492437620004
+MEREF ME_4924354D01CC_ME_492437620004_impl
  MELINK Original WL 'ME_4924354D01CC' '491DAF4202EE.ms.model.script' // RefreshValues
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_4924354D01CC_ME_492437620004 RefreshValues
+ENDMEREF // ME_4924354D01CC_ME_492437620004_impl RefreshValues
 
-ME ME_4959149300F9_ME_492437620004
+MEREF ME_4959149300F9_ME_492437620004_impl
  MELINK Original WL 'ME_4959149300F9' '491DAF4202EE.ms.model.script' // UpdateSelectedAttributes
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4959149300F9_ME_492437620004 UpdateSelectedAttributes
+ENDMEREF // ME_4959149300F9_ME_492437620004_impl UpdateSelectedAttributes
 
-ME ME_479731C50290_ME_492437620004
+MEREF ME_479731C50290_ME_492437620004_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_492437620004 Cleanup
+ENDMEREF // ME_479731C50290_ME_492437620004_over Cleanup
 
-ME ME_491476B001D3_ME_492437620004
+MEREF ME_491476B001D3_ME_492437620004_over
  MELINK Original WL 'ME_491476B001D3' '5017EAF4027D.ms.model.script' // MakeDisplayName
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_491476B001D3_ME_492437620004 MakeDisplayName
+ENDMEREF // ME_491476B001D3_ME_492437620004_over MakeDisplayName
+
+MEREF ME_49242CB201D0_ME_492437620004_G
+ MELINK Original WL? 'ME_49242CB201D0' // dsSituation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49242CB201D0_ME_492437620004_G dsSituation
+
+MEREF ME_4924352E01C3_ME_492437620004_R
+ MELINK Original WL 'ME_4924352E01C3' '491DAF4202EE.ms.model.script' // IdsTreeAttributeSelect
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4924352E01C3_ME_492437620004_R IdsTreeAttributeSelect
 
 %%ImplementedBy ME_4924352E01C3 ME_492437620004
 
@@ -226,11 +238,11 @@ ME ME_492437620004
  MELINK Parent WL? 'ME_4AA005310028' // Search
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_49242CB201D0' // dsSituation
+   Seq: ( HWL ME_49242CB201D0_ME_492437620004_G // dsSituation
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4924352E01C3' '491DAF4202EE.ms.model.script' // IdsTreeAttributeSelect
+   Seq: ( HWL ME_4924352E01C3_ME_492437620004_R // IdsTreeAttributeSelect
  )
  ; // Implements
  MELIST Attributes
@@ -240,14 +252,14 @@ ME ME_492437620004
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_47F4C2B9014A_ME_492437620004 // MakeSimpleTree
- ME_4924354D01CC_ME_492437620004 // RefreshValues
- ME_4959149300F9_ME_492437620004 // UpdateSelectedAttributes
+   Seq: ( ME_47F4C2B9014A_ME_492437620004_impl // MakeSimpleTree
+ ME_4924354D01CC_ME_492437620004_impl // RefreshValues
+ ME_4959149300F9_ME_492437620004_impl // UpdateSelectedAttributes
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_492437620004 // Cleanup
- ME_491476B001D3_ME_492437620004 // MakeDisplayName
+   Seq: ( ME_479731C50290_ME_492437620004_over // Cleanup
+ ME_491476B001D3_ME_492437620004_over // MakeDisplayName
  )
  ; // Overridden
  MELIST Dependencies

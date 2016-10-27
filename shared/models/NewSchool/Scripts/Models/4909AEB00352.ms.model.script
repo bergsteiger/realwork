@@ -1,0 +1,105 @@
+// TnsINodeWrap 4909AEB00352 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4682731701C6
+
+FORWARD ME_4909AEB00352
+
+FORWARD ME_4682731701C6
+
+ME ME_48FEE3B402EB
+ MEPROP UID '48FEE3B402EB'
+ MEPROP Name 'ChildNodeClass'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4682731701C6 // InsNodeImplementationInfo
+ ;
+ MELINK Target WL 'ME_48FEE2EB01ED' '4682732A02F9.ms.model.script' // RnsINodeWrap
+ ;
+
+ENDME // ME_48FEE3B402EB ChildNodeClass
+
+ME ME_4682731701C6
+ MEPROP UID '4682731701C6'
+ MEPROP GUID '93EEF340-A8DC-4727-A03A-E109D044C685'
+ MEPROP Name 'InsNodeImplementationInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4909AEB00352 // TnsINodeWrap
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_48FEE3B402EB // ChildNodeClass
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NodeImplementationInfo'
+
+ENDME // ME_4682731701C6 InsNodeImplementationInfo
+
+MEREF ME_48FEE3B402EB_ME_4909AEB00352_impl
+ MELINK Original HWL ME_48FEE3B402EB // ChildNodeClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48FEE3B402EB_ME_4909AEB00352_impl ChildNodeClass
+
+MEREF ME_4682732A02F9_ME_4909AEB00352_G
+ MELINK Original WL? 'ME_4682732A02F9' // TnsINodeWrapBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4682732A02F9_ME_4909AEB00352_G TnsINodeWrapBase
+
+MEREF ME_4682731701C6_ME_4909AEB00352_R
+ MELINK Original HWL ME_4682731701C6 // InsNodeImplementationInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4682731701C6_ME_4909AEB00352_R InsNodeImplementationInfo
+
+%%ImplementedBy ME_4682731701C6 ME_4909AEB00352
+
+%%InheritedBy ME_4682732A02F9 ME_4909AEB00352
+
+ME ME_4909AEB00352
+ MEPROP UID '4909AEB00352'
+ MEPROP Name 'TnsINodeWrap'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация узла дерева с поддержкой информации о дочерних узлах' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48FD8B2702F6' // Tree
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4682732A02F9_ME_4909AEB00352_G // TnsINodeWrapBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4682731701C6_ME_4909AEB00352_R // InsNodeImplementationInfo
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_48FEE3B402EB_ME_4909AEB00352_impl // ChildNodeClass
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4682731701C6 // InsNodeImplementationInfo
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '30.10.2008 15:55'
+ UP extprop:pas:UnitName 'nsINodeWrap'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'INodeWrap'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsINodeWrap.pas'
+
+ENDME // ME_4909AEB00352 TnsINodeWrap

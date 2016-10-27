@@ -13,7 +13,7 @@ ME ME_57B59FD9030C
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriber
  ;
- MELINK Target WL 'ME_57B59F9102A4' '57CE85BE0100.ms.model.script' // TmsmEventList
+ MELINK Target WL? 'ME_57B59F9102A4' // TmsmEventList
  ;
 
 ENDME // ME_57B59FD9030C f_DisabledEvents
@@ -27,7 +27,7 @@ ME ME_57CD7F9503CF
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriber
  ;
- MELINK Target WL 'ME_57B59F9102A4' '57CE85BE0100.ms.model.script' // TmsmEventList
+ MELINK Target WL? 'ME_57B59F9102A4' // TmsmEventList
  ;
 
 ENDME // ME_57CD7F9503CF f_EnabledEvents
@@ -41,7 +41,7 @@ ME ME_57CE889100B7
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriber
  ;
- MELINK Target WL 'ME_57CE887A00A0' '57CE85BE0100.ms.model.script' // TmsmEventHandlers
+ MELINK Target WL? 'ME_57CE887A00A0' // TmsmEventHandlers
  ;
 
 ENDME // ME_57CE889100B7 f_EventHandlers
@@ -76,12 +76,18 @@ ME ME_5B8FF71FA37F
 
 ENDME // ME_5B8FF71FA37F DoIt
 
+MEREF ME_57AD8E570241_ME_57ADDC3A0071_G
+ MELINK Original WL 'ME_57AD8E570241' '57B5730D0123.ms.model.script' // HandleEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AD8E570241_ME_57ADDC3A0071_G HandleEvent
+
 %%InheritedBy ME_57AD8E570241 ME_57ADDC3A0071
 
 ME ME_57ADDC3A0071
  MEPROP UID '57ADDC3A0071'
  MEPROP Name 'DoFire'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -89,7 +95,7 @@ ME ME_57ADDC3A0071
  MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriber
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_57AD8E570241' '57B5730D0123.ms.model.script' // HandleEvent
+   Seq: ( HWL ME_57AD8E570241_ME_57ADDC3A0071_G // HandleEvent
  )
  ; // Inherits
  MELIST Operations
@@ -117,7 +123,7 @@ ENDME // ME_57B6B9DD0337 DoIt
 ME ME_57B6B9CD03B7
  MEPROP UID '57B6B9CD03B7'
  MEPROP Name 'Publisher'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -149,7 +155,7 @@ ENDME // ME_E88D94AA729B DoIt
 ME ME_57CD83CA037F
  MEPROP UID '57CD83CA037F'
  MEPROP Name 'LinkEventHandlers'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -204,7 +210,7 @@ ENDME // ME_57CD83F1006B DoIt
 ME ME_57CD83DE0170
  MEPROP UID '57CD83DE0170'
  MEPROP Name 'LinkEventHandler'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -228,41 +234,59 @@ ME ME_57B6B64502C7
 
 ENDME // ME_57B6B64502C7 
 
-ME ME_57AD8E570241_ME_57B6B5D00202
+MEREF ME_57AD8E570241_ME_57B6B5D00202_impl
  MELINK Original WL 'ME_57AD8E570241' '57B5730D0123.ms.model.script' // HandleEvent
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_57AD8E570241_ME_57B6B5D00202 HandleEvent
+ENDMEREF // ME_57AD8E570241_ME_57B6B5D00202_impl HandleEvent
 
-ME ME_57B59F2B03A1_ME_57B6B5D00202
+MEREF ME_57B59F2B03A1_ME_57B6B5D00202_impl
  MELINK Original WL 'ME_57B59F2B03A1' '57B5730D0123.ms.model.script' // DisableEvent
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_57B59F2B03A1_ME_57B6B5D00202 DisableEvent
+ENDMEREF // ME_57B59F2B03A1_ME_57B6B5D00202_impl DisableEvent
 
-ME ME_57CD7F790309_ME_57B6B5D00202
+MEREF ME_57CD7F790309_ME_57B6B5D00202_impl
  MELINK Original WL 'ME_57CD7F790309' '57B5730D0123.ms.model.script' // EnableEvent
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_57CD7F790309_ME_57B6B5D00202 EnableEvent
+ENDMEREF // ME_57CD7F790309_ME_57B6B5D00202_impl EnableEvent
 
-ME ME_479731C50290_ME_57B6B5D00202
+MEREF ME_479731C50290_ME_57B6B5D00202_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_57B6B5D00202 Cleanup
+ENDMEREF // ME_479731C50290_ME_57B6B5D00202_over Cleanup
 
-ME ME_47A042E100E2_ME_57B6B5D00202
+MEREF ME_47A042E100E2_ME_57B6B5D00202_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_57B6B5D00202 InitFields
+ENDMEREF // ME_47A042E100E2_ME_57B6B5D00202_over InitFields
 
-ME ME_49BFC98902FF_ME_57B6B5D00202
+MEREF ME_49BFC98902FF_ME_57B6B5D00202_over
  MELINK Original WL 'ME_49BFC98902FF' '51612ED700B4.ms.model.script' // BeforeRelease
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49BFC98902FF_ME_57B6B5D00202 BeforeRelease
+ENDMEREF // ME_49BFC98902FF_ME_57B6B5D00202_over BeforeRelease
+
+MEREF ME_4A5CB93700CF_ME_57B6B5D00202_R
+ MELINK Original WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A5CB93700CF_ME_57B6B5D00202_R Ml3Unknown
+
+MEREF ME_57AD9309039B_ME_57B6B5D00202_R
+ MELINK Original WL 'ME_57AD9309039B' '57B5730D0123.ms.model.script' // ImsmEventsSubscriber
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AD9309039B_ME_57B6B5D00202_R ImsmEventsSubscriber
+
+MEREF ME_57B59EFD01DD_ME_57B6B5D00202_R
+ MELINK Original WL 'ME_57B59EFD01DD' '57B5730D0123.ms.model.script' // MmsmEventsManaging
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B59EFD01DD_ME_57B6B5D00202_R MmsmEventsManaging
 
 %%ImplementedBy ME_4A5CB93700CF ME_57B6B5D00202
 %%ImplementedBy ME_57AD9309039B ME_57B6B5D00202
@@ -280,9 +304,9 @@ ME ME_57B6B5D00202
  MELINK Parent WL? 'ME_57CE85BE0100' // Events
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
- WL 'ME_57AD9309039B' '57B5730D0123.ms.model.script' // ImsmEventsSubscriber
- WL 'ME_57B59EFD01DD' '57B5730D0123.ms.model.script' // MmsmEventsManaging
+   Seq: ( HWL ME_4A5CB93700CF_ME_57B6B5D00202_R // Ml3Unknown
+ HWL ME_57AD9309039B_ME_57B6B5D00202_R // ImsmEventsSubscriber
+ HWL ME_57B59EFD01DD_ME_57B6B5D00202_R // MmsmEventsManaging
  )
  ; // Implements
  MELIST Attributes
@@ -299,15 +323,15 @@ ME ME_57B6B5D00202
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_57AD8E570241_ME_57B6B5D00202 // HandleEvent
- ME_57B59F2B03A1_ME_57B6B5D00202 // DisableEvent
- ME_57CD7F790309_ME_57B6B5D00202 // EnableEvent
+   Seq: ( ME_57AD8E570241_ME_57B6B5D00202_impl // HandleEvent
+ ME_57B59F2B03A1_ME_57B6B5D00202_impl // DisableEvent
+ ME_57CD7F790309_ME_57B6B5D00202_impl // EnableEvent
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_57B6B5D00202 // Cleanup
- ME_47A042E100E2_ME_57B6B5D00202 // InitFields
- ME_49BFC98902FF_ME_57B6B5D00202 // BeforeRelease
+   Seq: ( ME_479731C50290_ME_57B6B5D00202_over // Cleanup
+ ME_47A042E100E2_ME_57B6B5D00202_over // InitFields
+ ME_49BFC98902FF_ME_57B6B5D00202_over // BeforeRelease
  )
  ; // Overridden
  MELIST Dependencies

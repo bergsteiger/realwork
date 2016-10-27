@@ -1,0 +1,58 @@
+// TFailedTest 4CA0B2BA01AC TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA0B2BA01AC
+
+ME ME_4CA0B2E40378
+ MEPROP UID '4CA0B2E40378'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA0B2BA01AC // TFailedTest
+ ;
+
+ENDME // ME_4CA0B2E40378 DoIt
+
+MEREF ME_4B2A11BC0255_ME_4CA0B2BA01AC_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_4CA0B2BA01AC_G TBaseTest
+
+%%InheritedBy ME_4B2A11BC0255 ME_4CA0B2BA01AC
+
+ME ME_4CA0B2BA01AC
+ MEPROP UID '4CA0B2BA01AC'
+ MEPROP Name 'TFailedTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4CA0B2660199' // TFWTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B2A11BC0255_ME_4CA0B2BA01AC_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4CA0B2E40378 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '27.09.2010 19:05'
+ UP extprop:pas:UnitName 'FailedTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FailedTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\TestForTFW\FailedTest.pas'
+
+ENDME // ME_4CA0B2BA01AC TFailedTest

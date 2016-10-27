@@ -1,0 +1,1106 @@
+// Tm3SplittedFileStream 4FA278B00247 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4FA27FBD02D4
+%%Inner ME_4FA3D66401BD
+
+FORWARD ME_4FA278B00247
+
+MEREF ME_4FA276920090_ME_4FA27FBD02D4_G
+ MELINK Original WL? 'ME_4FA276920090' // Tm3FileStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FA276920090_ME_4FA27FBD02D4_G Tm3FileStream
+
+%%InheritedBy ME_4FA276920090 ME_4FA27FBD02D4
+
+ME ME_4FA27FBD02D4
+ MEPROP UID '4FA27FBD02D4'
+ MEPROP Name 'Tm3InnerFileStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FA276920090_ME_4FA27FBD02D4_G // Tm3FileStream
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3InnerFileStream'
+
+ENDME // ME_4FA27FBD02D4 Tm3InnerFileStream
+
+FORWARD ME_4FA3D66401BD
+
+ME ME_4FA3D673012B
+ MEPROP UID '4FA3D673012B'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA3D66401BD // Tm3InnerFileStreamList
+ ;
+ MELINK Target HWL ME_4FA27FBD02D4 // Tm3InnerFileStream
+ ;
+
+ENDME // ME_4FA3D673012B ItemType
+
+MEREF ME_47B2C42A0163_ME_4FA3D66401BD_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4FA3D66401BD_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_4FA3D66401BD_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4FA3D66401BD_impl CompareExistingItems
+
+MEREF ME_47B99E920196_ME_4FA3D66401BD_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_4FA3D66401BD_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_4FA3D66401BD_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4FA3D66401BD_G Tl3ProtoDataContainer
+
+MEREF ME_4B86890E0307_ME_4FA3D66401BD_R
+ MELINK Original WL? 'ME_4B86890E0307' // l3OpenArray
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B86890E0307_ME_4FA3D66401BD_R l3OpenArray
+
+%%ImplementedBy ME_4B86890E0307 ME_4FA3D66401BD
+
+%%InheritedBy ME_47B99E920196 ME_4FA3D66401BD
+%%InheritedBy ME_4A54DD4E036F ME_4FA3D66401BD
+
+ME ME_4FA3D66401BD
+ MEPROP UID '4FA3D66401BD'
+ MEPROP Name 'Tm3InnerFileStreamList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B99E920196_ME_4FA3D66401BD_G // l3UncomparabeObjectRefList
+ HWL ME_4A54DD4E036F_ME_4FA3D66401BD_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4B86890E0307_ME_4FA3D66401BD_R // l3OpenArray
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4FA3D673012B // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_4FA3D66401BD_impl // AssignItem
+ ME_47B99D4503A2_ME_4FA3D66401BD_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3InnerFileStreamList'
+
+ENDME // ME_4FA3D66401BD Tm3InnerFileStreamList
+
+FORWARD ME_4FA5309201FE
+
+ME ME_4FA5309C0108
+ MEPROP UID '4FA5309C0108'
+ MEPROP Name 'm3_cInfoFileNameExt'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA5309201FE // Constants
+ ;
+ MEPROP Value '''.cnt'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''.cnt'''
+
+ENDME // ME_4FA5309C0108 m3_cInfoFileNameExt
+
+ME ME_4FA5309201FE
+ MEPROP UID '4FA5309201FE'
+ MEPROP Name 'Constants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4FA5309C0108 // m3_cInfoFileNameExt
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_4FA5309201FE Constants
+
+ME ME_4FA27C550112
+ MEPROP UID '4FA27C550112'
+ MEPROP Name 'f_SharedMode'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4FA27C550112 f_SharedMode
+
+ME ME_4FA27C610343
+ MEPROP UID '4FA27C610343'
+ MEPROP Name 'f_Distribution'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4FA27C610343 f_Distribution
+
+ME ME_4FA27C7002D9
+ MEPROP UID '4FA27C7002D9'
+ MEPROP Name 'f_Flags'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4FA27C7002D9 f_Flags
+
+ME ME_4FA27C7D0360
+ MEPROP UID '4FA27C7D0360'
+ MEPROP Name 'f_Name'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
+ ;
+
+ENDME // ME_4FA27C7D0360 f_Name
+
+ME ME_4FA27C97032F
+ MEPROP UID '4FA27C97032F'
+ MEPROP Name 'f_OpenedStreams'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target HWL ME_4FA3D66401BD // Tm3InnerFileStreamList
+ ;
+
+ENDME // ME_4FA27C97032F f_OpenedStreams
+
+ME ME_4FA39742009F
+ MEPROP UID '4FA39742009F'
+ MEPROP Name 'f_Position'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_4FA39742009F f_Position
+
+ME ME_4FA39939034C
+ MEPROP UID '4FA39939034C'
+ MEPROP Name 'f_Access'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4FA39939034C f_Access
+
+ME ME_4FA3ADF301EC
+ MEPROP UID '4FA3ADF301EC'
+ MEPROP Name 'f_SizeLimit'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_4FA3ADF301EC f_SizeLimit
+
+ME ME_4FA3B7D9019B
+ MEPROP UID '4FA3B7D9019B'
+ MEPROP Name 'f_Ext'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4FA3B7D9019B f_Ext
+
+ME ME_4FA3B7E90112
+ MEPROP UID '4FA3B7E90112'
+ MEPROP Name 'f_AnsiName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4FA3B7E90112 f_AnsiName
+
+ME ME_4FA3CE4C03CB
+ MEPROP UID '4FA3CE4C03CB'
+ MEPROP Name 'FilesCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_4FA3CE4C03CB FilesCount
+
+ME ME_4FA5271E00E7
+ MEPROP UID '4FA5271E00E7'
+ MEPROP Name 'f_InfoStream'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL? 'ME_4FA276920090' // Tm3FileStream
+ ;
+
+ENDME // ME_4FA5271E00E7 f_InfoStream
+
+ME ME_540F18AE022A
+ MEPROP UID '540F18AE022A'
+ MEPROP Name 'g_DefaultSizeLimit'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_540F18AE022A g_DefaultSizeLimit
+
+FORWARD ME_4FA27BC90091
+
+FORWARD ME_4FA27BCF01CF
+
+ME ME_4FA27C0C0097
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
+ ;
+
+ENDME // ME_4FA27C0C0097 aName
+
+ME ME_4FA27C0C00DA
+ MEPROP Name 'anAccess'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4FA27C0C00DA anAccess
+
+ME ME_4FA27C0C0122
+ MEPROP Name 'aSharedMode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4FA27C0C0122 aSharedMode
+
+ME ME_4FA27C0C0164
+ MEPROP Name 'aDistribution'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4FA27C0C0164 aDistribution
+
+ME ME_4FA27C0C01D1
+ MEPROP Name 'aFlags'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4FA27C0C01D1 aFlags
+
+ME ME_4FA27BCF01CF
+ MEPROP UID '4FA27BCF01CF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA27BC90091 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FA27C0C0097 // aName
+ ME_4FA27C0C00DA // anAccess
+ ME_4FA27C0C0122 // aSharedMode
+ ME_4FA27C0C0164 // aDistribution
+ ME_4FA27C0C01D1 // aFlags
+ )
+ ; // Parameters
+
+ENDME // ME_4FA27BCF01CF DoIt
+
+ME ME_4FA27BC90091
+ MEPROP UID '4FA27BC90091'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FA27BCF01CF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FA27BC90091 Create
+
+MEREF ME_4FA27BC90091_ME_4FA27C130287_G
+ MELINK Original HWL ME_4FA27BC90091 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FA27BC90091_ME_4FA27C130287_G Create
+
+MEREF ME_46A5B0060013_ME_4FA27C130287_R
+ MELINK Original WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46A5B0060013_ME_4FA27C130287_R IStream
+
+%%ImplementedBy ME_46A5B0060013 ME_4FA27C130287
+
+%%InheritedBy ME_4FA27BC90091 ME_4FA27C130287
+
+ME ME_4FA27C130287
+ MEPROP UID '4FA27C130287'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FA27BC90091_ME_4FA27C130287_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_46A5B0060013_ME_4FA27C130287_R // IStream
+ )
+ ; // Implements
+
+ENDME // ME_4FA27C130287 Make
+
+FORWARD ME_4FA3AF4E0094
+
+FORWARD ME_4FA3AF5C0379
+
+ME ME_4FA3AF86037D
+ MEPROP Name 'aPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_4FA3AF86037D aPos
+
+ME ME_4FA3AF8603CC
+ MEPROP Name 'theFileOffset'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_4FA3AF8603CC theFileOffset
+
+ME ME_4FA3AF5C0379
+ MEPROP UID '4FA3AF5C0379'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA3AF4E0094 // FileByPos
+ ;
+ MELINK Target HWL ME_4FA27FBD02D4 // Tm3InnerFileStream
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FA3AF86037D // aPos
+ ME_4FA3AF8603CC // theFileOffset
+ )
+ ; // Parameters
+
+ENDME // ME_4FA3AF5C0379 DoIt
+
+ME ME_4FA3AF4E0094
+ MEPROP UID '4FA3AF4E0094'
+ MEPROP Name 'FileByPos'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FA3AF5C0379 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FA3AF4E0094 FileByPos
+
+FORWARD ME_4FA3B62102E6
+
+FORWARD ME_4FA3B6400121
+
+ME ME_4FA3B644014A
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FA3B644014A anIndex
+
+ME ME_4FA3B6400121
+ MEPROP UID '4FA3B6400121'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA3B62102E6 // FileNameByIndex
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FA3B644014A // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_4FA3B6400121 DoIt
+
+ME ME_4FA3B62102E6
+ MEPROP UID '4FA3B62102E6'
+ MEPROP Name 'FileNameByIndex'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FA3B6400121 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FA3B62102E6 FileNameByIndex
+
+FORWARD ME_4FA3BFAE01B0
+
+FORWARD ME_4FA3BFBC0032
+
+ME ME_4FA3BFCC0177
+ MEPROP Name 'aPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_4FA3BFCC0177 aPos
+
+ME ME_4FA3BFBC0032
+ MEPROP UID '4FA3BFBC0032'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA3BFAE01B0 // FileIndexByPos
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FA3BFCC0177 // aPos
+ )
+ ; // Parameters
+
+ENDME // ME_4FA3BFBC0032 DoIt
+
+ME ME_4FA3BFAE01B0
+ MEPROP UID '4FA3BFAE01B0'
+ MEPROP Name 'FileIndexByPos'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FA3BFBC0032 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FA3BFAE01B0 FileIndexByPos
+
+FORWARD ME_4FA4EF94004A
+
+FORWARD ME_4FA4EFA6035C
+
+ME ME_4FA4EFB802E1
+ MEPROP Name 'aPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_4FA4EFB802E1 aPos
+
+ME ME_4FA4EFB80330
+ MEPROP Name 'aSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FA4EFB80330 aSize
+
+ME ME_4FA4EFA6035C
+ MEPROP UID '4FA4EFA6035C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA4EF94004A // NormalizePartSize
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FA4EFB802E1 // aPos
+ ME_4FA4EFB80330 // aSize
+ )
+ ; // Parameters
+
+ENDME // ME_4FA4EFA6035C DoIt
+
+ME ME_4FA4EF94004A
+ MEPROP UID '4FA4EF94004A'
+ MEPROP Name 'NormalizePartSize'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FA4EFA6035C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FA4EF94004A NormalizePartSize
+
+FORWARD ME_4FA52DFA0143
+
+FORWARD ME_4FA52E040209
+
+ME ME_4FA52F410035
+ MEPROP Name 'aNeedCreate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FA52F410035 aNeedCreate
+
+ME ME_4FA52E040209
+ MEPROP UID '4FA52E040209'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA52DFA0143 // CheckInfoStream
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FA52F410035 // aNeedCreate
+ )
+ ; // Parameters
+
+ENDME // ME_4FA52E040209 DoIt
+
+ME ME_4FA52DFA0143
+ MEPROP UID '4FA52DFA0143'
+ MEPROP Name 'CheckInfoStream'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FA52E040209 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FA52DFA0143 CheckInfoStream
+
+FORWARD ME_4FBB8E7F0101
+
+FORWARD ME_4FBB8E920096
+
+ME ME_4FBB8EA10240
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4FBB8EA10240 aFileName
+
+ME ME_4FBB8E920096
+ MEPROP UID '4FBB8E920096'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FBB8E7F0101 // NormalizeFileName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FBB8EA10240 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_4FBB8E920096 DoIt
+
+ME ME_4FBB8E7F0101
+ MEPROP UID '4FBB8E7F0101'
+ MEPROP Name 'NormalizeFileName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FBB8E920096 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4FBB8E7F0101 NormalizeFileName
+
+FORWARD ME_540F18CB01AF
+
+FORWARD ME_540F18EE014A
+
+ME ME_540F18F502A2
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_540F18F502A2 aValue
+
+ME ME_540F18EE014A
+ MEPROP UID '540F18EE014A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_540F18CB01AF // SetDefaultSizeLimit
+ ;
+ MELIST Parameters
+   Seq: ( ME_540F18F502A2 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_540F18EE014A DoIt
+
+ME ME_540F18CB01AF
+ MEPROP UID '540F18CB01AF'
+ MEPROP Name 'SetDefaultSizeLimit'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_540F18EE014A // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_540F18CB01AF SetDefaultSizeLimit
+
+ME ME_4FA27B7B015E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL? 'ME_4FA276920090' // Tm3FileStream
+ ;
+
+ENDME // ME_4FA27B7B015E 
+
+ME ME_4FA27DBA0116
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4FA27DBA0116 
+
+ME ME_4FA39BA00328
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_4FA39BA00328 
+
+ME ME_4FA39BD001FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL 'ME_4FA27F3E0193' '46A0E6C5023A.ms.model.script' // TStatStg
+ ;
+
+ENDME // ME_4FA39BD001FD 
+
+ME ME_4FA3AA390212
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4FA3AA390212 
+
+ME ME_4FA3AFE3019F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_4FA3AFE3019F 
+
+ME ME_4FA3B2E7031B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL? 'ME_4B57004201BD' // l3FileUtils
+ ;
+
+ENDME // ME_4FA3B2E7031B 
+
+ME ME_4FA3BB2103E3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL? 'ME_49B952CD03A6' // m2COMLib
+ ;
+
+ENDME // ME_4FA3BB2103E3 
+
+ME ME_4FA3CFC901B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL 'ME_4C74ED51025F' '47A080670100.ms.model.script' // Tl3FileStream
+ ;
+
+ENDME // ME_4FA3CFC901B8 
+
+ME ME_4FA3D0E50365
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_4FA3D0E50365 
+
+ME ME_54116A06004D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA278B00247 // Tm3SplittedFileStream
+ ;
+ MELINK Target WL? 'ME_4981AC0701C1' // ComObj
+ ;
+
+ENDME // ME_54116A06004D 
+
+MEREF ME_479731C50290_ME_4FA278B00247_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4FA278B00247_over Cleanup
+
+MEREF ME_4FA27CF501C4_ME_4FA278B00247_over
+ MELINK Original WL 'ME_4FA27CF501C4' '5481CCCF0319.ms.model.script' // DoRead
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27CF501C4_ME_4FA278B00247_over DoRead
+
+MEREF ME_4FA27D310344_ME_4FA278B00247_over
+ MELINK Original WL 'ME_4FA27D310344' '5481CCCF0319.ms.model.script' // DoWrite
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27D310344_ME_4FA278B00247_over DoWrite
+
+MEREF ME_4FA27D5302C5_ME_4FA278B00247_over
+ MELINK Original WL 'ME_4FA27D5302C5' '5481CCCF0319.ms.model.script' // DoSeek
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27D5302C5_ME_4FA278B00247_over DoSeek
+
+MEREF ME_4FA27DCD02B4_ME_4FA278B00247_over
+ MELINK Original WL 'ME_4FA27DCD02B4' '5481CCCF0319.ms.model.script' // DoSetSize
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27DCD02B4_ME_4FA278B00247_over DoSetSize
+
+MEREF ME_4FA27E100218_ME_4FA278B00247_over
+ MELINK Original WL 'ME_4FA27E100218' '5481CCCF0319.ms.model.script' // LockRegion
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27E100218_ME_4FA278B00247_over LockRegion
+
+MEREF ME_4FA27E4C0342_ME_4FA278B00247_over
+ MELINK Original WL 'ME_4FA27E4C0342' '5481CCCF0319.ms.model.script' // UnlockRegion
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27E4C0342_ME_4FA278B00247_over UnlockRegion
+
+MEREF ME_4FA27E6A001B_ME_4FA278B00247_over
+ MELINK Original WL 'ME_4FA27E6A001B' '5481CCCF0319.ms.model.script' // Stat
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27E6A001B_ME_4FA278B00247_over Stat
+
+MEREF ME_4FA280090314_ME_4FA278B00247_over
+ MELINK Original WL 'ME_4FA280090314' '4FA276650046.ms.model.script' // DoGetPosition
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA280090314_ME_4FA278B00247_over DoGetPosition
+
+MEREF ME_4FA2802E0231_ME_4FA278B00247_over
+ MELINK Original WL 'ME_4FA2802E0231' '4FA276650046.ms.model.script' // DoGetSize
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA2802E0231_ME_4FA278B00247_over DoGetSize
+
+MEREF ME_4FA2805002E3_ME_4FA278B00247_over
+ MELINK Original WL 'ME_4FA2805002E3' '4FA276650046.ms.model.script' // DoGetLocksSupported
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA2805002E3_ME_4FA278B00247_over DoGetLocksSupported
+
+MEREF ME_4FA280DB0288_ME_4FA278B00247_over
+ MELINK Original WL 'ME_4FA280DB0288' '5481CCCF0319.ms.model.script' // Commit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA280DB0288_ME_4FA278B00247_over Commit
+
+MEREF ME_5412FB880320_ME_4FA278B00247_over
+ MELINK Original WL 'ME_5412FB880320' '4FA276650046.ms.model.script' // DoGetName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5412FB880320_ME_4FA278B00247_over DoGetName
+
+MEREF ME_4FA276800294_ME_4FA278B00247_G
+ MELINK Original WL? 'ME_4FA276800294' // Tm3BaseStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FA276800294_ME_4FA278B00247_G Tm3BaseStream
+
+%%InheritedBy ME_4FA276800294 ME_4FA278B00247
+
+ME ME_4FA278B00247
+ MEPROP UID '4FA278B00247'
+ MEPROP Name 'Tm3SplittedFileStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Файловый поток порезанный на куски' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5485B0D1026C' // Streams
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FA276800294_ME_4FA278B00247_G // Tm3BaseStream
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4FA27C550112 // f_SharedMode
+ HWL ME_4FA27C610343 // f_Distribution
+ HWL ME_4FA27C7002D9 // f_Flags
+ HWL ME_4FA27C7D0360 // f_Name
+ HWL ME_4FA27C97032F // f_OpenedStreams
+ HWL ME_4FA39742009F // f_Position
+ HWL ME_4FA39939034C // f_Access
+ HWL ME_4FA3ADF301EC // f_SizeLimit
+ HWL ME_4FA3B7D9019B // f_Ext
+ HWL ME_4FA3B7E90112 // f_AnsiName
+ HWL ME_4FA3CE4C03CB // FilesCount
+ HWL ME_4FA5271E00E7 // f_InfoStream
+ HWL ME_540F18AE022A // g_DefaultSizeLimit
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FA27BC90091 // Create
+ HWL ME_4FA27C130287 // Make
+ HWL ME_4FA3AF4E0094 // FileByPos
+ HWL ME_4FA3B62102E6 // FileNameByIndex
+ HWL ME_4FA3BFAE01B0 // FileIndexByPos
+ HWL ME_4FA4EF94004A // NormalizePartSize
+ HWL ME_4FA52DFA0143 // CheckInfoStream
+ HWL ME_4FBB8E7F0101 // NormalizeFileName
+ HWL ME_540F18CB01AF // SetDefaultSizeLimit
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4FA278B00247_over // Cleanup
+ ME_4FA27CF501C4_ME_4FA278B00247_over // DoRead
+ ME_4FA27D310344_ME_4FA278B00247_over // DoWrite
+ ME_4FA27D5302C5_ME_4FA278B00247_over // DoSeek
+ ME_4FA27DCD02B4_ME_4FA278B00247_over // DoSetSize
+ ME_4FA27E100218_ME_4FA278B00247_over // LockRegion
+ ME_4FA27E4C0342_ME_4FA278B00247_over // UnlockRegion
+ ME_4FA27E6A001B_ME_4FA278B00247_over // Stat
+ ME_4FA280090314_ME_4FA278B00247_over // DoGetPosition
+ ME_4FA2802E0231_ME_4FA278B00247_over // DoGetSize
+ ME_4FA2805002E3_ME_4FA278B00247_over // DoGetLocksSupported
+ ME_4FA280DB0288_ME_4FA278B00247_over // Commit
+ ME_5412FB880320_ME_4FA278B00247_over // DoGetName
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4FA27FBD02D4 // Tm3InnerFileStream
+ HWL ME_4FA3D66401BD // Tm3InnerFileStreamList
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4FA5309201FE // Constants
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4FA27B7B015E // Tm3FileStream
+ ME_4FA27DBA0116 // FreeAndNil
+ ME_4FA39BA00328 // Windows
+ ME_4FA39BD001FD // TStatStg
+ ME_4FA3AA390212 // l3String
+ ME_4FA3AFE3019F // l3Base
+ ME_4FA3B2E7031B // l3FileUtils
+ ME_4FA3BB2103E3 // m2COMLib
+ ME_4FA3CFC901B8 // Tl3FileStream
+ ME_4FA3D0E50365 // Tl3FileMode
+ ME_54116A06004D // ComObj
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'm3SplittedFileStream'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3SplittedFileStream'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3SplittedFileStream.pas'
+
+ENDME // ME_4FA278B00247 Tm3SplittedFileStream

@@ -1,0 +1,107 @@
+// TkwImageEnControl 52E20F060237 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52E20F060237
+
+FORWARD ME_52E20FD6017C
+
+FORWARD ME_52E2102002AA
+
+ME ME_52E2163B0209
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4ACDBC6101A6' '4ACDBC4A0003.ms.model.script' // TImageEnView
+ ;
+
+ENDME // ME_52E2163B0209 aControl
+
+ME ME_52E2163B0219
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_52E2163B0219 aCtx
+
+ME ME_52E2102002AA
+ MEPROP UID '52E2102002AA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52E20FD6017C // DoWithImageEn
+ ;
+ MELIST Parameters
+   Seq: ( ME_52E2163B0209 // aControl
+ ME_52E2163B0219 // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_52E2102002AA DoIt
+
+ME ME_52E20FD6017C
+ MEPROP UID '52E20FD6017C'
+ MEPROP Name 'DoWithImageEn'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52E20F060237 // TkwImageEnControl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52E2102002AA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52E20FD6017C DoWithImageEn
+
+MEREF ME_4F212C3A015A_ME_52E20F060237_impl
+ MELINK Original WL 'ME_4F212C3A015A' '4F212C120371.ms.model.script' // DoControl
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F212C3A015A_ME_52E20F060237_impl DoControl
+
+MEREF ME_4F212C120371_ME_52E20F060237_G
+ MELINK Original WL? 'ME_4F212C120371' // kwControlFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F212C120371_ME_52E20F060237_G kwControlFromStackWord
+
+%%InheritedBy ME_4F212C120371 ME_52E20F060237
+
+ME ME_52E20F060237
+ MEPROP UID '52E20F060237'
+ MEPROP Name 'TkwImageEnControl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_52E20E0E0059' // ImageEnView
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F212C120371_ME_52E20F060237_G // kwControlFromStackWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_52E20FD6017C // DoWithImageEn
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F212C3A015A_ME_52E20F060237_impl // DoControl
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'kwImageEnControl'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ImageEnControl'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwImageEnControl.pas'
+
+ENDME // ME_52E20F060237 TkwImageEnControl

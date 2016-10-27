@@ -1,0 +1,84 @@
+// TevSavedCursorListPrim 47E3E5A102C9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47E3E5A102C9
+
+ME ME_47E3E5B801CF
+ MEPROP UID '47E3E5B801CF'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E3E5A102C9 // TevSavedCursorListPrim
+ ;
+ MELINK Target WL 'ME_47E3DFD00379' '47E3E20C02D1.ms.model.script' // TevSavedCursor
+ ;
+
+ENDME // ME_47E3E5B801CF ItemType
+
+MEREF ME_47B2C42A0163_ME_47E3E5A102C9_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_47E3E5A102C9_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_47E3E5A102C9_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_47E3E5A102C9_impl CompareExistingItems
+
+MEREF ME_47B99E920196_ME_47E3E5A102C9_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_47E3E5A102C9_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_47E3E5A102C9_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_47E3E5A102C9_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B99E920196 ME_47E3E5A102C9
+%%InheritedBy ME_4A54DD4E036F ME_47E3E5A102C9
+
+ME ME_47E3E5A102C9
+ MEPROP UID '47E3E5A102C9'
+ MEPROP Name 'TevSavedCursorListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E3DF460095' // Cursors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B99E920196_ME_47E3E5A102C9_G // l3UncomparabeObjectRefList
+ HWL ME_4A54DD4E036F_ME_47E3E5A102C9_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47E3E5B801CF // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_47E3E5A102C9_impl // AssignItem
+ ME_47B99D4503A2_ME_47E3E5A102C9_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '21.03.2008'
+ UP extprop:pas:UnitName 'evSavedCursorListPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SavedCursorListPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evSavedCursorListPrim.pas'
+
+ENDME // ME_47E3E5A102C9 TevSavedCursorListPrim

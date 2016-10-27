@@ -2,11 +2,17 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-ME ME_57B6A49900F4_ME_57C97EB8036C
- MELINK Original WL 'ME_57B6A49900F4' '57AAE90E02B6.ms.model.script' // LinkDataToView
+MEREF ME_57B6A49900F4_ME_57C97EB8036C_over
+ MELINK Original WL 'ME_57B6A49900F4' '57B1F28B030D.ms.model.script' // LinkDataToView
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_57B6A49900F4_ME_57C97EB8036C LinkDataToView
+ENDMEREF // ME_57B6A49900F4_ME_57C97EB8036C_over LinkDataToView
+
+MEREF ME_57B6BF8A0210_ME_57C97EB8036C_G
+ MELINK Original WL? 'ME_57B6BF8A0210' // msmListLikeViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B6BF8A0210_ME_57C97EB8036C_G msmListLikeViewController
 
 %%InheritedBy ME_57B6BF8A0210 ME_57C97EB8036C
 
@@ -22,11 +28,11 @@ ME ME_57C97EB8036C
  MELINK Parent WL? 'ME_57CD261B0318' // ListAndTree
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_57B6BF8A0210' // msmListLikeViewController
+   Seq: ( HWL ME_57B6BF8A0210_ME_57C97EB8036C_G // msmListLikeViewController
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_57B6A49900F4_ME_57C97EB8036C // LinkDataToView
+   Seq: ( ME_57B6A49900F4_ME_57C97EB8036C_over // LinkDataToView
  )
  ; // Overridden
  UP extprop:pas:TypeName '_msmTreeViewController_'

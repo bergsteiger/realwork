@@ -1,0 +1,89 @@
+// TkwStringList 4F3E476202B8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F3E476202B8
+
+ME ME_4F3E47F30327
+ MEPROP UID '4F3E47F30327'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F3E476202B8 // TkwStringList
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4F3E47F30327 FindDataType
+
+ME ME_4F3E47D701E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F3E476202B8 // TkwStringList
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4F3E47D701E8 
+
+MEREF ME_47B9BAFD01F4_ME_4F3E476202B8_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_4F3E476202B8_over CompareItemWithData
+
+MEREF ME_47B47E230134_ME_4F3E476202B8_G
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_4F3E476202B8_G l3Searcher
+
+MEREF ME_4F3E417A013A_ME_4F3E476202B8_G
+ MELINK Original WL? 'ME_4F3E417A013A' // TkwStringListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F3E417A013A_ME_4F3E476202B8_G TkwStringListPrim
+
+%%InheritedBy ME_47B47E230134 ME_4F3E476202B8
+%%InheritedBy ME_4F3E417A013A ME_4F3E476202B8
+
+ME ME_4F3E476202B8
+ MEPROP UID '4F3E476202B8'
+ MEPROP Name 'TkwStringList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F3E3F5F0160' // PrimitiveWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B47E230134_ME_4F3E476202B8_G // l3Searcher
+ HWL ME_4F3E417A013A_ME_4F3E476202B8_G // TkwStringListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F3E47F30327 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_4F3E476202B8_over // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F3E47D701E8 // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'kwStringList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringList'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwStringList.pas'
+
+ENDME // ME_4F3E476202B8 TkwStringList

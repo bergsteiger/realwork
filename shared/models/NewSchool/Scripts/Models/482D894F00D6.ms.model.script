@@ -1,0 +1,94 @@
+// TevCustomEditDocumentContainer 482D894F00D6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_482D894F00D6
+
+ME ME_482D8BAB00EC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_482D894F00D6 // TevCustomEditDocumentContainer
+ ;
+ MELINK Target WL? 'ME_482D8B94020E' // TevEditProcessor
+ ;
+
+ENDME // ME_482D8BAB00EC 
+
+ME ME_482D9681022C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_482D894F00D6 // TevCustomEditDocumentContainer
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_482D9681022C 
+
+ME ME_49AE3A56027D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_482D894F00D6 // TevCustomEditDocumentContainer
+ ;
+ MELINK Target WL 'ME_4857C63802A0' '48492FC0029D.ms.model.script' // TinyDocument
+ ;
+
+ENDME // ME_49AE3A56027D 
+
+MEREF ME_47F35245009A_ME_482D894F00D6_over
+ MELINK Original WL 'ME_47F35245009A' '47F3513A017F.ms.model.script' // MakeProcessor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F35245009A_ME_482D894F00D6_over MakeProcessor
+
+MEREF ME_4A8D226F0164_ME_482D894F00D6_over
+ MELINK Original WL 'ME_4A8D226F0164' '47F0870E0034.ms.model.script' // GetDocumentType
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A8D226F0164_ME_482D894F00D6_over GetDocumentType
+
+MEREF ME_482D888D039E_ME_482D894F00D6_G
+ MELINK Original WL? 'ME_482D888D039E' // TevCustomMemoContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_482D888D039E_ME_482D894F00D6_G TevCustomMemoContainer
+
+%%InheritedBy ME_482D888D039E ME_482D894F00D6
+
+ME ME_482D894F00D6
+ MEPROP UID '482D894F00D6'
+ MEPROP Name 'TevCustomEditDocumentContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4829D7D50156' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_482D888D039E_ME_482D894F00D6_G // TevCustomMemoContainer
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47F35245009A_ME_482D894F00D6_over // MakeProcessor
+ ME_4A8D226F0164_ME_482D894F00D6_over // GetDocumentType
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_482D8BAB00EC // TevEditProcessor
+ ME_482D9681022C // Tk2TagID
+ ME_49AE3A56027D // TinyDocument
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '13.05.2008 20:35'
+ UP extprop:pas:UnitName 'evCustomEditDocumentContainer'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EditDocumentContainer'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCustomEditDocumentContainer.pas'
+
+ENDME // ME_482D894F00D6 TevCustomEditDocumentContainer

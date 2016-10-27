@@ -1,0 +1,150 @@
+// TkwSystemIncluded 4E207A9201A5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E207A9201A5
+
+ME ME_4E207B820088
+ MEPROP UID '4E207B820088'
+ MEPROP Name 'f_Stream'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4E207A9201A5 // TkwSystemIncluded
+ ;
+ MELINK Target WL? 'ME_52F4E6AA02BB' // TtfwStreamFactory
+ ;
+
+ENDME // ME_4E207B820088 f_Stream
+
+FORWARD ME_4E207B920217
+
+FORWARD ME_4E207BA6003C
+
+ME ME_4E207BAD0025
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_52F4E6AA02BB' // TtfwStreamFactory
+ ;
+
+ENDME // ME_4E207BAD0025 aStream
+
+ME ME_4E207BA6003C
+ MEPROP UID '4E207BA6003C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E207B920217 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E207BAD0025 // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_4E207BA6003C DoIt
+
+ME ME_4E207B920217
+ MEPROP UID '4E207B920217'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E207A9201A5 // TkwSystemIncluded
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E207BA6003C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E207B920217 Create
+
+ME ME_52F4F24A0290
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E207A9201A5 // TkwSystemIncluded
+ ;
+ MELINK Target WL? 'ME_52F4F1AA01E1' // TtfwCOMStreamFactory
+ ;
+
+ENDME // ME_52F4F24A0290 
+
+ME ME_52F503EB0110
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E207A9201A5 // TkwSystemIncluded
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_52F503EB0110 
+
+MEREF ME_479731C50290_ME_4E207A9201A5_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4E207A9201A5_over Cleanup
+
+MEREF ME_4DAEEDE10285_ME_4E207A9201A5_over
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DAEEDE10285_ME_4E207A9201A5_over DoDoIt
+
+MEREF ME_4E207A0002B2_ME_4E207A9201A5_G
+ MELINK Original WL? 'ME_4E207A0002B2' // TkwIncludedPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E207A0002B2_ME_4E207A9201A5_G TkwIncludedPrim
+
+%%InheritedBy ME_4E207A0002B2 ME_4E207A9201A5
+
+ME ME_4E207A9201A5
+ MEPROP UID '4E207A9201A5'
+ MEPROP Name 'TkwSystemIncluded'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DAEEA14018A' // Scripting Axiomatics
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E207A0002B2_ME_4E207A9201A5_G // TkwIncludedPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4E207B820088 // f_Stream
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E207B920217 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4E207A9201A5_over // Cleanup
+ ME_4DAEEDE10285_ME_4E207A9201A5_over // DoDoIt
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52F4F24A0290 // TtfwCOMStreamFactory
+ ME_52F503EB0110 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '15.07.2011 21:36'
+ UP extprop:pas:UnitName 'kwSystemIncluded'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SystemIncluded'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSystemIncluded.pas'
+
+ENDME // ME_4E207A9201A5 TkwSystemIncluded

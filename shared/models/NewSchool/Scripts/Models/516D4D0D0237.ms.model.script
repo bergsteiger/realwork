@@ -2,26 +2,38 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-ME ME_47913C24007F_ME_516D4D0D0237
+MEREF ME_47913C24007F_ME_516D4D0D0237_impl
  MELINK Original WL 'ME_47913C24007F' '4807744200AA.ms.model.script' // __AddRef
  ;
  MEPROP OpKind opkind_Implemented
  UP "calling conventions" 'stdcall'
-ENDME // ME_47913C24007F_ME_516D4D0D0237 __AddRef
+ENDMEREF // ME_47913C24007F_ME_516D4D0D0237_impl __AddRef
 
-ME ME_47913C5301A1_ME_516D4D0D0237
+MEREF ME_47913C5301A1_ME_516D4D0D0237_impl
  MELINK Original WL 'ME_47913C5301A1' '4807744200AA.ms.model.script' // __Release
  ;
  MEPROP OpKind opkind_Implemented
  UP "calling conventions" 'stdcall'
-ENDME // ME_47913C5301A1_ME_516D4D0D0237 __Release
+ENDMEREF // ME_47913C5301A1_ME_516D4D0D0237_impl __Release
 
-ME ME_47913CBF0265_ME_516D4D0D0237
+MEREF ME_47913CBF0265_ME_516D4D0D0237_impl
  MELINK Original WL 'ME_47913CBF0265' '4807744200AA.ms.model.script' // QueryInterface
  ;
  MEPROP OpKind opkind_Implemented
  UP "calling conventions" 'stdcall'
-ENDME // ME_47913CBF0265_ME_516D4D0D0237 QueryInterface
+ENDMEREF // ME_47913CBF0265_ME_516D4D0D0237_impl QueryInterface
+
+MEREF ME_51614065019A_ME_516D4D0D0237_G
+ MELINK Original WL? 'ME_51614065019A' // RefCounted
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51614065019A_ME_516D4D0D0237_G RefCounted
+
+MEREF ME_516D4A8D0232_ME_516D4D0D0237_R
+ MELINK Original WL 'ME_516D4A8D0232' '4807744200AA.ms.model.script' // MIUnknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_516D4A8D0232_ME_516D4D0D0237_R MIUnknown
 
 %%ImplementedBy ME_516D4A8D0232 ME_516D4D0D0237
 
@@ -39,17 +51,17 @@ ME ME_516D4D0D0237
  MELINK Parent WL? 'ME_51612EBB02F5' // Ref Counting
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_51614065019A' // RefCounted
+   Seq: ( HWL ME_51614065019A_ME_516D4D0D0237_G // RefCounted
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_516D4A8D0232' '4807744200AA.ms.model.script' // MIUnknown
+   Seq: ( HWL ME_516D4A8D0232_ME_516D4D0D0237_R // MIUnknown
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_47913C24007F_ME_516D4D0D0237 // __AddRef
- ME_47913C5301A1_ME_516D4D0D0237 // __Release
- ME_47913CBF0265_ME_516D4D0D0237 // QueryInterface
+   Seq: ( ME_47913C24007F_ME_516D4D0D0237_impl // __AddRef
+ ME_47913C5301A1_ME_516D4D0D0237_impl // __Release
+ ME_47913CBF0265_ME_516D4D0D0237_impl // QueryInterface
  )
  ; // Implemented
  UP extprop:pas:TypeName '_UnknownImpl_'

@@ -1,0 +1,168 @@
+// TnsNewCachableNodeThatNeedKeepRoot 4E737EFA0153 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E737EFA0153
+
+ME ME_4E737F3A0192
+ MEPROP UID '4E737F3A0192'
+ MEPROP Name 'f_RootToKeep'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4E737EFA0153 // TnsNewCachableNodeThatNeedKeepRoot
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4E737F3A0192 f_RootToKeep
+
+FORWARD ME_4E737F9900B3
+
+FORWARD ME_4E737FA20211
+
+ME ME_4E737FB4001C
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4E737FB4001C aNode
+
+ME ME_4E737FB40052
+ MEPROP Name 'aRootToKeep'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4E737FB40052 aRootToKeep
+
+ME ME_4E737FA20211
+ MEPROP UID '4E737FA20211'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E737F9900B3 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E737FB4001C // aNode
+ ME_4E737FB40052 // aRootToKeep
+ )
+ ; // Parameters
+
+ENDME // ME_4E737FA20211 DoIt
+
+ME ME_4E737F9900B3
+ MEPROP UID '4E737F9900B3'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E737EFA0153 // TnsNewCachableNodeThatNeedKeepRoot
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E737FA20211 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E737F9900B3 Create
+
+MEREF ME_4E737F9900B3_ME_4E737FBB011E_G
+ MELINK Original HWL ME_4E737F9900B3 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E737F9900B3_ME_4E737FBB011E_G Create
+
+MEREF ME_476BF22B03E1_ME_4E737FBB011E_R
+ MELINK Original WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_476BF22B03E1_ME_4E737FBB011E_R Il3Node
+
+%%ImplementedBy ME_476BF22B03E1 ME_4E737FBB011E
+
+%%InheritedBy ME_4E737F9900B3 ME_4E737FBB011E
+
+ME ME_4E737FBB011E
+ MEPROP UID '4E737FBB011E'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E737EFA0153 // TnsNewCachableNodeThatNeedKeepRoot
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E737F9900B3_ME_4E737FBB011E_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_476BF22B03E1_ME_4E737FBB011E_R // Il3Node
+ )
+ ; // Implements
+
+ENDME // ME_4E737FBB011E Make
+
+MEREF ME_490AF9B0039B_ME_4E737EFA0153_G
+ MELINK Original WL? 'ME_490AF9B0039B' // TnsNewCachableNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_490AF9B0039B_ME_4E737EFA0153_G TnsNewCachableNode
+
+MEREF ME_4E70D70C0055_ME_4E737EFA0153_R
+ MELINK Original WL 'ME_4E70D70C0055' '48563BA400A9.ms.model.script' // Основное меню должно уметь зависеть от должности пользователя
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E70D70C0055_ME_4E737EFA0153_R Основное меню должно уметь зависеть от должности пользователя
+
+%%ImplementedBy ME_4E70D70C0055 ME_4E737EFA0153
+
+%%InheritedBy ME_490AF9B0039B ME_4E737EFA0153
+
+ME ME_4E737EFA0153
+ MEPROP UID '4E737EFA0153'
+ MEPROP Name 'TnsNewCachableNodeThatNeedKeepRoot'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4908A8A20107' // OldTree
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_490AF9B0039B_ME_4E737EFA0153_G // TnsNewCachableNode
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4E70D70C0055_ME_4E737EFA0153_R // Основное меню должно уметь зависеть от должности пользователя
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4E737F3A0192 // f_RootToKeep
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E737F9900B3 // Create
+ HWL ME_4E737FBB011E // Make
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '16.09.2011 20:53'
+ UP extprop:pas:UnitName 'nsNewCachableNodeThatNeedKeepRoot'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NewCachableNodeThatNeedKeepRoot'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNewCachableNodeThatNeedKeepRoot.pas'
+
+ENDME // ME_4E737EFA0153 TnsNewCachableNodeThatNeedKeepRoot

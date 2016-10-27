@@ -1,0 +1,99 @@
+// OperationParamWord 5230147B0151 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5230147B0151
+
+FORWARD ME_5230151C02BA
+
+ME ME_52301527009A
+ MEPROP UID '52301527009A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5230151C02BA // Flag
+ ;
+ MELINK Target WL 'ME_4683D6ED03C5' '467BAB7F021E.ms.model.script' // TvcmOpFlag
+ ;
+
+ENDME // ME_52301527009A DoIt
+
+ME ME_5230151C02BA
+ MEPROP UID '5230151C02BA'
+ MEPROP Name 'Flag'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5230147B0151 // OperationParamWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52301527009A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5230151C02BA Flag
+
+ME ME_523014F6022D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5230147B0151 // OperationParamWord
+ ;
+ MELINK Target WL 'ME_47E7659001C3' '4683F37902CF.ms.model.script' // IvcmTestParams
+ ;
+
+ENDME // ME_523014F6022D 
+
+MEREF ME_5230185F0140_ME_5230147B0151_impl
+ MELINK Original WL 'ME_5230185F0140' '5230182A02A3.ms.model.script' // DoParams
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5230185F0140_ME_5230147B0151_impl DoParams
+
+MEREF ME_5230182A02A3_ME_5230147B0151_G
+ MELINK Original WL? 'ME_5230182A02A3' // OperationParamWordPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5230182A02A3_ME_5230147B0151_G OperationParamWordPrim
+
+%%InheritedBy ME_5230182A02A3 ME_5230147B0151
+
+ME ME_5230147B0151
+ MEPROP UID '5230147B0151'
+ MEPROP Name 'OperationParamWord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F69B9040391' // VCMWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5230182A02A3_ME_5230147B0151_G // OperationParamWordPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5230151C02BA // Flag
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5230185F0140_ME_5230147B0151_impl // DoParams
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_523014F6022D // IvcmTestParams
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwOperationParamWord'
+ UP extprop:pas:UnitName 'kwOperationParamWord'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OperationParamWord'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwOperationParamWord.pas'
+
+ENDME // ME_5230147B0151 OperationParamWord

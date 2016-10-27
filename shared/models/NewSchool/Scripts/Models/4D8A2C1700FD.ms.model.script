@@ -1,0 +1,98 @@
+// TnsFoundRangeCollector 4D8A2C1700FD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D8A2C1700FD
+
+ME ME_4D8A2C7C0014
+ MEPROP UID '4D8A2C7C0014'
+ MEPROP Name 'FoundRanges'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D8A2C1700FD // TnsFoundRangeCollector
+ ;
+ MELINK Target WL? 'ME_47E26A16008E' // TnevRangeList
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_4D8A2C7C0014 FoundRanges
+
+ME ME_4D8A2CEA0153
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D8A2C1700FD // TnsFoundRangeCollector
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4D8A2CEA0153 
+
+MEREF ME_4D553AC103A3_ME_4D8A2C1700FD_impl
+ MELINK Original WL 'ME_4D553AC103A3' '47F1F94201F6.ms.model.script' // ReplaceFunc
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4D553AC103A3_ME_4D8A2C1700FD_impl ReplaceFunc
+
+MEREF ME_479731C50290_ME_4D8A2C1700FD_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4D8A2C1700FD_over Cleanup
+
+MEREF ME_4D553A4A005D_ME_4D8A2C1700FD_G
+ MELINK Original WL 'ME_4D553A4A005D' '47F1F94201F6.ms.model.script' // TevBaseReplacer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D553A4A005D_ME_4D8A2C1700FD_G TevBaseReplacer
+
+%%InheritedBy ME_4D553A4A005D ME_4D8A2C1700FD
+
+ME ME_4D8A2C1700FD
+ MEPROP UID '4D8A2C1700FD'
+ MEPROP Name 'TnsFoundRangeCollector'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D8A25430335' // ContextSearchInEVDDocument
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D553A4A005D_ME_4D8A2C1700FD_G // TevBaseReplacer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D8A2C7C0014 // FoundRanges
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4D553AC103A3_ME_4D8A2C1700FD_impl // ReplaceFunc
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4D8A2C1700FD_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D8A2CEA0153 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '23.03.2011 20:32'
+ UP extprop:pas:UnitName 'nsFoundRangeCollector'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FoundRangeCollector'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsFoundRangeCollector.pas'
+
+ENDME // ME_4D8A2C1700FD TnsFoundRangeCollector

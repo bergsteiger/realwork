@@ -1,0 +1,97 @@
+// ContentsView 4CA06D4A0272 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA06D4A0272
+
+ME ME_4CA06DBA018E
+ MEPROP UID '4CA06DBA018E'
+ MEPROP Name 'NodeDelegateType_'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_template::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4CA06D4A0272 // ContentsView
+ ;
+
+ENDME // ME_4CA06DBA018E NodeDelegateType_
+
+ME ME_4CA06E69018C
+ MEPROP UID '4CA06E69018C'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA06D4A0272 // ContentsView
+ ;
+
+ENDME // ME_4CA06E69018C make
+
+ME ME_4CA06D9B027B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA06D4A0272 // ContentsView
+ ;
+
+ENDME // ME_4CA06D9B027B 
+
+MEREF ME_46011F130203_ME_4CA06D4A0272_over
+ MELINK Original WL 'ME_46011F130203' '45F554750213.ms.model.script' // add_notifier
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_46011F130203_ME_4CA06D4A0272_over add_notifier
+
+MEREF ME_460127E400EA_ME_4CA06D4A0272_over
+ MELINK Original WL 'ME_460127E400EA' '45F554750213.ms.model.script' // alloc_new_view
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_460127E400EA_ME_4CA06D4A0272_over alloc_new_view
+
+MEREF ME_45F6583E001F_ME_4CA06D4A0272_R
+ MELINK Original WL? 'ME_45F6583E001F' // View
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45F6583E001F_ME_4CA06D4A0272_R View
+
+%%ImplementedBy ME_45F6583E001F ME_4CA06D4A0272
+
+ME ME_4CA06D4A0272
+ MEPROP UID '4CA06D4A0272'
+ MEPROP Name 'ContentsView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_45EEB07D00E9' // DocTree_i
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_45F6583E001F_ME_4CA06D4A0272_R // View
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CA06DBA018E // NodeDelegateType_
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CA06E69018C // make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_46011F130203_ME_4CA06D4A0272_over // add_notifier
+ ME_460127E400EA_ME_4CA06D4A0272_over // alloc_new_view
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CA06D9B027B // 
+ )
+ ; // Dependencies
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i\ContentsView.cpp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i\ContentsView.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ContentsView.pas'
+
+ENDME // ME_4CA06D4A0272 ContentsView

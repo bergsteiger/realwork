@@ -45,16 +45,22 @@ ME ME_55019A3D01DF
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4B30EEEB01EF // TVCMBaseTest
  ;
- MELINK Target WL 'ME_550199070251' '550198F60382.ms.model.script' // Tl3MenuManagerHelper
+ MELINK Target WL? 'ME_550199070251' // Tl3MenuManagerHelper
  ;
 
 ENDME // ME_55019A3D01DF 
 
-ME ME_4B30EEA10210_ME_4B30EEEB01EF
+MEREF ME_4B30EEA10210_ME_4B30EEEB01EF_over
  MELINK Original WL 'ME_4B30EEA10210' '4B2A0DCE03A9.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4B30EEA10210_ME_4B30EEEB01EF InitFields
+ENDMEREF // ME_4B30EEA10210_ME_4B30EEEB01EF_over InitFields
+
+MEREF ME_4B2A11BC0255_ME_4B30EEEB01EF_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_4B30EEEB01EF_G TBaseTest
 
 %%InheritedBy ME_4B2A11BC0255 ME_4B30EEEB01EF
 
@@ -70,11 +76,11 @@ ME ME_4B30EEEB01EF
  MELINK Parent HWL ME_4B3235370235 // VCMBaseTest
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+   Seq: ( HWL ME_4B2A11BC0255_ME_4B30EEEB01EF_G // TBaseTest
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_4B30EEA10210_ME_4B30EEEB01EF // InitFields
+   Seq: ( ME_4B30EEA10210_ME_4B30EEEB01EF_over // InitFields
  )
  ; // Overridden
  MELIST Dependencies
@@ -109,7 +115,7 @@ ENDME // ME_4B3235920286 DoIt
 ME ME_4B323587024D
  MEPROP UID '4B323587024D'
  MEPROP Name 'FreeMM'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess

@@ -1,0 +1,96 @@
+// K228691360 4C4FDCEA03CB TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C4FDCEA03CB
+
+ME ME_4C4FE5AE0178
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C4FDCEA03CB // K228691360
+ ;
+ MELINK Target WL 'ME_47ECAB310336' '47ECAB0B0265.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4C4FE5AE0178 
+
+ME ME_4C4FE7E5030D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C4FDCEA03CB // K228691360
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4C4FE7E5030D 
+
+MEREF ME_4C4FDCBA002F_ME_4C4FDCEA03CB_impl
+ MELINK Original WL 'ME_4C4FDCBA002F' '4C4FDC620374.ms.model.script' // TextForInsert
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C4FDCBA002F_ME_4C4FDCEA03CB_impl TextForInsert
+
+MEREF ME_4C4FE56300FB_ME_4C4FDCEA03CB_impl
+ MELINK Original WL 'ME_4C4FE56300FB' '4C9210B70244.ms.model.script' // Navigate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C4FE56300FB_ME_4C4FDCEA03CB_impl Navigate
+
+MEREF ME_4C4FDC620374_ME_4C4FDCEA03CB_G
+ MELINK Original WL? 'ME_4C4FDC620374' // TInsertStreamTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C4FDC620374_ME_4C4FDCEA03CB_G TInsertStreamTest
+
+MEREF ME_4C500D6101D8_ME_4C4FDCEA03CB_R
+ MELINK Original WL? 'ME_4C500D6101D8' // CursorMover
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C500D6101D8_ME_4C4FDCEA03CB_R CursorMover
+
+%%ImplementedBy ME_4C500D6101D8 ME_4C4FDCEA03CB
+
+%%InheritedBy ME_4C4FDC620374 ME_4C4FDCEA03CB
+
+ME ME_4C4FDCEA03CB
+ MEPROP UID '4C4FDCEA03CB'
+ MEPROP Name 'K228691360'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:228691360}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C288F1202F8' // 7.6
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C4FDC620374_ME_4C4FDCEA03CB_G // TInsertStreamTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4C500D6101D8_ME_4C4FDCEA03CB_R // CursorMover
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4C4FDCBA002F_ME_4C4FDCEA03CB_impl // TextForInsert
+ ME_4C4FE56300FB_ME_4C4FDCEA03CB_impl // Navigate
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4C4FE5AE0178 // Msg Codes
+ ME_4C4FE7E5030D // Operations
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '28.07.2010 11:32'
+ UP extprop:pas:TypeName 'TK228691360'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K228691360'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K228691360.pas'
+
+ENDME // ME_4C4FDCEA03CB K228691360

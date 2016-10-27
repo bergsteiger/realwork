@@ -1,0 +1,55 @@
+// TddNSRCGenerator 4B59FBCA0096 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B59FBCA0096
+
+FORWARD ME_4D70C8250128
+
+ME ME_4D70C8360384
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4D70C8360384 aFileName
+
+ME ME_4D70C8250128
+ MEPROP UID '4D70C8250128'
+ MEPROP Name 'SaveObjFileName'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B59FBCA0096 // TddNSRCGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D70C8360384 // aFileName
+ )
+ ; // Parameters
+ UP "ifdef" 'nsTest'
+
+ENDME // ME_4D70C8250128 SaveObjFileName
+
+ME ME_4B59FBCA0096
+ MEPROP UID '4B59FBCA0096'
+ MEPROP Name 'TddNSRCGenerator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_47ECB8BD00A8' // Generators
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D70C8250128 // SaveObjFileName
+ )
+ ; // Operations
+ UP "finished" False
+ UP extprop:pas:UnitName 'ddNSRCGenerator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddNSRCGenerator'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\NOT_FINISHED_ddNSRCGenerator.pas'
+
+ENDME // ME_4B59FBCA0096 TddNSRCGenerator

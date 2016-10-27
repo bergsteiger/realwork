@@ -13,9 +13,6 @@ interface
 uses
  l3IntfUses
  , ListUserTypes_lftUserCRList2_SynchorForm_UserType
- {$If NOT Defined(NoVCM)}
- , vcmUserControls
- {$IfEnd} // NOT Defined(NoVCM)
  , l3StringIDEx
 ;
 

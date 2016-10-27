@@ -1,0 +1,232 @@
+// TvcmWinControlActionLink 52A845E50292 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52A8472D025B
+%%Inner ME_52AEDB2903C5
+
+FORWARD ME_52A845E50292
+
+MEREF ME_47E1201703C3_ME_52A8472D025B_G
+ MELINK Original WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E1201703C3_ME_52A8472D025B_G TControl
+
+%%InheritedBy ME_47E1201703C3 ME_52A8472D025B
+
+ME ME_52A8472D025B
+ MEPROP UID '52A8472D025B'
+ MEPROP Name 'THackControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A845E50292 // TvcmWinControlActionLink
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47E1201703C3_ME_52A8472D025B_G // TControl
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HackControl'
+
+ENDME // ME_52A8472D025B THackControl
+
+ME ME_52AEDB2903C5
+ MEPROP UID '52AEDB2903C5'
+ MEPROP Name '_UnknownNeedsQI'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A845E50292 // TvcmWinControlActionLink
+ ;
+
+ENDME // ME_52AEDB2903C5 _UnknownNeedsQI
+
+FORWARD ME_52A8469903AF
+
+FORWARD ME_52A846A1002A
+
+ME ME_52A846A40388
+ MEPROP Name 'anAction'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683E8080191' '467BAB7F021E.ms.model.script' // IvcmAction
+ ;
+
+ENDME // ME_52A846A40388 anAction
+
+ME ME_52A846A1002A
+ MEPROP UID '52A846A1002A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A8469903AF // DoParamsChanged
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A846A40388 // anAction
+ )
+ ; // Parameters
+
+ENDME // ME_52A846A1002A DoIt
+
+ME ME_52A847480274
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52A8469903AF // DoParamsChanged
+ ;
+ MELINK Target WL? 'ME_47D15712022D' // Graphics
+ ;
+
+ENDME // ME_52A847480274 
+
+ME ME_52A8469903AF
+ MEPROP UID '52A8469903AF'
+ MEPROP Name 'DoParamsChanged'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A845E50292 // TvcmWinControlActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A846A1002A // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_52A847480274 // Graphics
+ )
+ ; // Dependencies
+
+ENDME // ME_52A8469903AF DoParamsChanged
+
+FORWARD ME_52A846AF0108
+
+FORWARD ME_52A846B50199
+
+ME ME_52A846B8032D
+ MEPROP Name 'anAction'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683E8080191' '467BAB7F021E.ms.model.script' // IvcmAction
+ ;
+
+ENDME // ME_52A846B8032D anAction
+
+ME ME_52A846B50199
+ MEPROP UID '52A846B50199'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A846AF0108 // DoParamsChanging
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A846B8032D // anAction
+ )
+ ; // Parameters
+
+ENDME // ME_52A846B50199 DoIt
+
+ME ME_52A846AF0108
+ MEPROP UID '52A846AF0108'
+ MEPROP Name 'DoParamsChanging'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A845E50292 // TvcmWinControlActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A846B50199 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A846AF0108 DoParamsChanging
+
+MEREF ME_476961930017_ME_52A845E50292_impl
+ MELINK Original WL 'ME_476961930017' '467BAB7F021E.ms.model.script' // ParamsChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_476961930017_ME_52A845E50292_impl ParamsChanged
+
+MEREF ME_476961A40369_ME_52A845E50292_impl
+ MELINK Original WL 'ME_476961A40369' '467BAB7F021E.ms.model.script' // ParamsChanging
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_476961A40369_ME_52A845E50292_impl ParamsChanging
+
+MEREF ME_52A8462B0355_ME_52A845E50292_G
+ MELINK Original WL 'ME_52A8462B0355' '47E11FC3021E.ms.model.script' // TWinControlActionLink
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52A8462B0355_ME_52A845E50292_G TWinControlActionLink
+
+MEREF ME_476961870161_ME_52A845E50292_R
+ MELINK Original WL 'ME_476961870161' '467BAB7F021E.ms.model.script' // IvcmActionLink
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_476961870161_ME_52A845E50292_R IvcmActionLink
+
+MEREF ME_47913F970159_ME_52A845E50292_R
+ MELINK Original WL? 'ME_47913F970159' // l3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47913F970159_ME_52A845E50292_R l3Unknown
+
+%%ImplementedBy ME_476961870161 ME_52A845E50292
+%%ImplementedBy ME_47913F970159 ME_52A845E50292
+
+%%InheritedBy ME_52A8462B0355 ME_52A845E50292
+
+ME ME_52A845E50292
+ MEPROP UID '52A845E50292'
+ MEPROP Name 'TvcmWinControlActionLink'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AADF9450143' // Visual
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52A8462B0355_ME_52A845E50292_G // TWinControlActionLink
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_476961870161_ME_52A845E50292_R // IvcmActionLink
+ HWL ME_47913F970159_ME_52A845E50292_R // l3Unknown
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_52A8469903AF // DoParamsChanged
+ HWL ME_52A846AF0108 // DoParamsChanging
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_476961930017_ME_52A845E50292_impl // ParamsChanged
+ ME_476961A40369_ME_52A845E50292_impl // ParamsChanging
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_52A8472D025B // THackControl
+ HWL ME_52AEDB2903C5 // _UnknownNeedsQI
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'vcmWinControlActionLink'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'WinControlActionLink'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmWinControlActionLink.pas'
+
+ENDME // ME_52A845E50292 TvcmWinControlActionLink

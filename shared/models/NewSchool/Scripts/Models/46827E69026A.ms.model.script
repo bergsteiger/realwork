@@ -1,0 +1,79 @@
+// TnsContentsNode 46827E69026A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_46827E69026A
+
+ME ME_46827EB40286
+ MEPROP UID '46827EB40286'
+ MEPROP Name 'f_Document'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Документ.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_46827E69026A // TnsContentsNode
+ ;
+ MELINK Target WL 'ME_533C138F0003' '4678137501EA.ms.model.script' // Ik2Tag
+ ;
+
+ENDME // ME_46827EB40286 f_Document
+
+MEREF ME_46827CAF03CD_ME_46827E69026A_impl
+ MELINK Original WL 'ME_46827CAF03CD' '4682595B0268.ms.model.script' // Handle
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_46827CAF03CD_ME_46827E69026A_impl Handle
+
+MEREF ME_4682732A02F9_ME_46827E69026A_G
+ MELINK Original WL? 'ME_4682732A02F9' // TnsINodeWrapBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4682732A02F9_ME_46827E69026A_G TnsINodeWrapBase
+
+MEREF ME_46827C88016E_ME_46827E69026A_R
+ MELINK Original WL 'ME_46827C88016E' '4682595B0268.ms.model.script' // Il3HandleNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46827C88016E_ME_46827E69026A_R Il3HandleNode
+
+%%ImplementedBy ME_46827C88016E ME_46827E69026A
+
+%%InheritedBy ME_4682732A02F9 ME_46827E69026A
+
+ME ME_46827E69026A
+ MEPROP UID '46827E69026A'
+ MEPROP Name 'TnsContentsNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Нода оглавления.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC9F80281' // DocumentTagNodes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4682732A02F9_ME_46827E69026A_G // TnsINodeWrapBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_46827C88016E_ME_46827E69026A_R // Il3HandleNode
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_46827EB40286 // f_Document
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_46827CAF03CD_ME_46827E69026A_impl // Handle
+ )
+ ; // Implemented
+ UP "finished" False
+ UP extprop:pas:UnitName 'nsContentsNode'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ContentsNode'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_FINISHED_nsContentsNode.pas'
+
+ENDME // ME_46827E69026A TnsContentsNode

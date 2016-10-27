@@ -100,7 +100,7 @@ ENDME // ME_4D5E5AD3030B DoIt
 ME ME_4D5E5ACA029B
  MEPROP UID '4D5E5ACA029B'
  MEPROP Name 'SetText'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -113,6 +113,12 @@ ME ME_4D5E5ACA029B
  ; // Operations
 
 ENDME // ME_4D5E5ACA029B SetText
+
+MEREF ME_4D49560D0013_ME_4D4955ED018F_G
+ MELINK Original WL 'ME_4D49560D0013' '4CFE3E000371.ms.model.script' // TvgControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D49560D0013_ME_4D4955ED018F_G TvgControl
 
 %%InheritedBy ME_4D49560D0013 ME_4D4955ED018F
 
@@ -127,7 +133,7 @@ ME ME_4D4955ED018F
  MELINK Parent HWL ME_4CFCE531013A // vg_controls
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4D49560D0013' '4CFE3E000371.ms.model.script' // TvgControl
+   Seq: ( HWL ME_4D49560D0013_ME_4D4955ED018F_G // TvgControl
  )
  ; // Inherits
  MELIST Operations
@@ -162,6 +168,12 @@ ME ME_4D5E5B530342
 
 ENDME // ME_4D5E5B530342 ModalResult
 
+MEREF ME_4D4955ED018F_ME_4D4955DB0282_G
+ MELINK Original HWL ME_4D4955ED018F // TvgTextControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D4955ED018F_ME_4D4955DB0282_G TvgTextControl
+
 %%InheritedBy ME_4D4955ED018F ME_4D4955DB0282
 
 ME ME_4D4955DB0282
@@ -175,7 +187,7 @@ ME ME_4D4955DB0282
  MELINK Parent HWL ME_4CFCE531013A // vg_controls
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4D4955ED018F // TvgTextControl
+   Seq: ( HWL ME_4D4955ED018F_ME_4D4955DB0282_G // TvgTextControl
  )
  ; // Inherits
  MELIST Attributes
@@ -228,6 +240,12 @@ ME ME_4D5E5C27000E
 
 ENDME // ME_4D5E5C27000E Cancel
 
+MEREF ME_4D4955DB0282_ME_4CFF5690033D_G
+ MELINK Original HWL ME_4D4955DB0282 // TvgCustomButton
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D4955DB0282_ME_4CFF5690033D_G TvgCustomButton
+
 %%InheritedBy ME_4D4955DB0282 ME_4CFF5690033D
 
 ME ME_4CFF5690033D
@@ -241,7 +259,7 @@ ME ME_4CFF5690033D
  MELINK Parent HWL ME_4CFCE531013A // vg_controls
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4D4955DB0282 // TvgCustomButton
+   Seq: ( HWL ME_4D4955DB0282_ME_4CFF5690033D_G // TvgCustomButton
  )
  ; // Inherits
  MELIST Attributes
@@ -273,6 +291,12 @@ ME ME_4F91672600DC
 
 ENDME // ME_4F91672600DC TvgCheckBox
 
+MEREF ME_4D49560D0013_ME_4FC76491011E_G
+ MELINK Original WL 'ME_4D49560D0013' '4CFE3E000371.ms.model.script' // TvgControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D49560D0013_ME_4FC76491011E_G TvgControl
+
 %%InheritedBy ME_4D49560D0013 ME_4FC76491011E
 
 ME ME_4FC76491011E
@@ -286,13 +310,19 @@ ME ME_4FC76491011E
  MELINK Parent HWL ME_4CFCE531013A // vg_controls
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4D49560D0013' '4CFE3E000371.ms.model.script' // TvgControl
+   Seq: ( HWL ME_4D49560D0013_ME_4FC76491011E_G // TvgControl
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'Panel'
 
 ENDME // ME_4FC76491011E TvgPanel
+
+MEREF ME_4FC76491011E_ME_4FC7649B002C_G
+ MELINK Original HWL ME_4FC76491011E // TvgPanel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FC76491011E_ME_4FC7649B002C_G TvgPanel
 
 %%InheritedBy ME_4FC76491011E ME_4FC7649B002C
 
@@ -307,7 +337,7 @@ ME ME_4FC7649B002C
  MELINK Parent HWL ME_4CFCE531013A // vg_controls
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4FC76491011E // TvgPanel
+   Seq: ( HWL ME_4FC76491011E_ME_4FC7649B002C_G // TvgPanel
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True

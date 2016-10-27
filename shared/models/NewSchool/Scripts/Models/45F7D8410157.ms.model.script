@@ -1,0 +1,833 @@
+// RealNodeBase 45F7D8410157 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_45FF97A70109
+%%Inner ME_45FF99BC0399
+
+FORWARD ME_45F7D8410157
+
+FORWARD ME_45FF97A70109
+
+ME ME_45FF997B035B
+ MEPROP UID '45FF997B035B'
+ MEPROP Name 'transaction_data'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45FF97A70109 // NodeChangeTransaction
+ ;
+
+ENDME // ME_45FF997B035B transaction_data
+
+ME ME_45FF999202BF
+ MEPROP UID '45FF999202BF'
+ MEPROP Name 'nested_count'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45FF97A70109 // NodeChangeTransaction
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_45FF999202BF nested_count
+
+ME ME_45FF99A101D4
+ MEPROP UID '45FF99A101D4'
+ MEPROP Name 'node'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_45FF97A70109 // NodeChangeTransaction
+ ;
+ MELINK Target HWL ME_45F7D8410157 // RealNodeBase
+ ;
+
+ENDME // ME_45FF99A101D4 node
+
+FORWARD ME_45FF97C502FD
+
+ME ME_45FF9B2A0251
+ MEPROP Name 'node'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_45F7D8410157 // RealNodeBase
+ ;
+
+ENDME // ME_45FF9B2A0251 node
+
+ME ME_45FF97C502FD
+ MEPROP UID '45FF97C502FD'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45FF97A70109 // NodeChangeTransaction
+ ;
+ MELIST Parameters
+   Seq: ( ME_45FF9B2A0251 // node
+ )
+ ; // Parameters
+
+ENDME // ME_45FF97C502FD make
+
+ME ME_45FF97E20251
+ MEPROP UID '45FF97E20251'
+ MEPROP Name 'open'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45FF97A70109 // NodeChangeTransaction
+ ;
+
+ENDME // ME_45FF97E20251 open
+
+ME ME_45FF97EA030D
+ MEPROP UID '45FF97EA030D'
+ MEPROP Name 'close'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45FF97A70109 // NodeChangeTransaction
+ ;
+
+ENDME // ME_45FF97EA030D close
+
+FORWARD ME_45FF97F2031C
+
+ME ME_4625FE7A01C5
+ MEPROP Name 'name'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_4625FE7A01C5 name
+
+ME ME_45FF97F2031C
+ MEPROP UID '45FF97F2031C'
+ MEPROP Name 'set_name'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45FF97A70109 // NodeChangeTransaction
+ ;
+ MELIST Parameters
+   Seq: ( ME_4625FE7A01C5 // name
+ )
+ ; // Parameters
+
+ENDME // ME_45FF97F2031C set_name
+
+ME ME_45FF9837030D
+ MEPROP UID '45FF9837030D'
+ MEPROP Name 'set_value'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45FF97A70109 // NodeChangeTransaction
+ ;
+ MEPROP TargetStereotype 'const,cached'
+
+ENDME // ME_45FF9837030D set_value
+
+FORWARD ME_45FF990800AB
+
+ME ME_4625FE8601F4
+ MEPROP Name 'entity'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_4625FE8601F4 entity
+
+ME ME_45FF990800AB
+ MEPROP UID '45FF990800AB'
+ MEPROP Name 'set_entity'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45FF97A70109 // NodeChangeTransaction
+ ;
+ MELIST Parameters
+   Seq: ( ME_4625FE8601F4 // entity
+ )
+ ; // Parameters
+
+ENDME // ME_45FF990800AB set_entity
+
+ME ME_45FF991B038A
+ MEPROP UID '45FF991B038A'
+ MEPROP Name 'transaction_data'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45FF97A70109 // NodeChangeTransaction
+ ;
+ MEPROP TargetStereotype 'const,cached'
+
+ENDME // ME_45FF991B038A transaction_data
+
+ME ME_45FF97A70109
+ MEPROP UID '45FF97A70109'
+ MEPROP Name 'NodeChangeTransaction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45FF997B035B // transaction_data
+ HWL ME_45FF999202BF // nested_count
+ HWL ME_45FF99A101D4 // node
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_45FF97C502FD // make
+ HWL ME_45FF97E20251 // open
+ HWL ME_45FF97EA030D // close
+ HWL ME_45FF97F2031C // set_name
+ HWL ME_45FF9837030D // set_value
+ HWL ME_45FF990800AB // set_entity
+ HWL ME_45FF991B038A // transaction_data
+ )
+ ; // Operations
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DynamicTree_i\RealNodeBase_NodeChangeTransaction.cpp'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_45FF97A70109 NodeChangeTransaction
+
+FORWARD ME_45FF99BC0399
+
+ME ME_45FF9A04037A
+ MEPROP UID '45FF9A04037A'
+ MEPROP Name 'transaction'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_45FF99BC0399 // NodeChangeTransactionHolder
+ ;
+ MELINK Target HWL ME_45FF97A70109 // NodeChangeTransaction
+ ;
+
+ENDME // ME_45FF9A04037A transaction
+
+FORWARD ME_45FF99D90203
+
+ME ME_45FFEECE033C
+ MEPROP Name 'node'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_45F7D8410157 // RealNodeBase
+ ;
+
+ENDME // ME_45FFEECE033C node
+
+ME ME_45FF99D90203
+ MEPROP UID '45FF99D90203'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45FF99BC0399 // NodeChangeTransactionHolder
+ ;
+ MELIST Parameters
+   Seq: ( ME_45FFEECE033C // node
+ )
+ ; // Parameters
+
+ENDME // ME_45FF99D90203 make
+
+ME ME_45FF99BC0399
+ MEPROP UID '45FF99BC0399'
+ MEPROP Name 'NodeChangeTransactionHolder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45FF9A04037A // transaction
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_45FF99D90203 // make
+ )
+ ; // Operations
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DynamicTree_i\RealNodeBase_NodeChangeTransactionHolder.cpp'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_45FF99BC0399 NodeChangeTransactionHolder
+
+ME ME_45FFE31602BF
+ MEPROP UID '45FFE31602BF'
+ MEPROP Name 'server_point'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+
+ENDME // ME_45FFE31602BF server_point
+
+ME ME_45FFE327036B
+ MEPROP UID '45FFE327036B'
+ MEPROP Name 'name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" True
+
+ENDME // ME_45FFE327036B name
+
+ME ME_45FFE3850399
+ MEPROP UID '45FFE3850399'
+ MEPROP Name 'current_transaction'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+ MELINK Target HWL ME_45FF97A70109 // NodeChangeTransaction
+ ;
+
+ENDME // ME_45FFE3850399 current_transaction
+
+FORWARD ME_45FFDF2B03B9
+
+ME ME_46276E6E01E4
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+
+ENDME // ME_46276E6E01E4 value
+
+ME ME_45FFDF2B03B9
+ MEPROP UID '45FFDF2B03B9'
+ MEPROP Name 'fill_value'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_46276E6E01E4 // value
+ )
+ ; // Parameters
+
+ENDME // ME_45FFDF2B03B9 fill_value
+
+FORWARD ME_45FFDF540213
+
+ME ME_45FFDF6B0167
+ MEPROP Name 'entity'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_45FFDF6B0167 entity
+
+ME ME_45FFDF540213
+ MEPROP UID '45FFDF540213'
+ MEPROP Name 'fill_entity'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_45FFDF6B0167 // entity
+ )
+ ; // Parameters
+
+ENDME // ME_45FFDF540213 fill_entity
+
+FORWARD ME_45FFDF6E005D
+
+ME ME_4613B5D701D4
+ MEPROP Name 'owner_tree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL? 'ME_45F554750213' // TreeBase
+ ;
+
+ENDME // ME_4613B5D701D4 owner_tree
+
+ME ME_45FFDF6E005D
+ MEPROP UID '45FFDF6E005D'
+ MEPROP Name 'init'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_4613B5D701D4 // owner_tree
+ )
+ ; // Parameters
+
+ENDME // ME_45FFDF6E005D init
+
+FORWARD ME_45FFDFAF0232
+
+ME ME_4614A046006D
+ MEPROP Name 'owner_tree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_45F554750213' // TreeBase
+ ;
+
+ENDME // ME_4614A046006D owner_tree
+
+ME ME_45FFDFAF0232
+ MEPROP UID '45FFDFAF0232'
+ MEPROP Name 'reset'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_4614A046006D // owner_tree
+ )
+ ; // Parameters
+
+ENDME // ME_45FFDFAF0232 reset
+
+FORWARD ME_45FFDFBA003E
+
+ME ME_4613B739032C
+ MEPROP Name 'owner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL? 'ME_45F554750213' // TreeBase
+ ;
+
+ENDME // ME_4613B739032C owner
+
+ME ME_4613B73903B9
+ MEPROP Name 'data'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_4613B73903B9 data
+
+ME ME_45FFDFBA003E
+ MEPROP UID '45FFDFBA003E'
+ MEPROP Name 'init_inserted'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_4613B739032C // owner
+ ME_4613B73903B9 // data
+ )
+ ; // Parameters
+
+ENDME // ME_45FFDFBA003E init_inserted
+
+FORWARD ME_45FFE07E034B
+
+ME ME_45FFE08202EE
+ MEPROP Name 'level'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_450A6117003E' '3DBFDB23006E.ms.model.script' // unsigned integer
+ ;
+
+ENDME // ME_45FFE08202EE level
+
+ME ME_45FFE082036B
+ MEPROP Name 'index'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_450A6117003E' '3DBFDB23006E.ms.model.script' // unsigned integer
+ ;
+
+ENDME // ME_45FFE082036B index
+
+ME ME_45FFE07E034B
+ MEPROP UID '45FFE07E034B'
+ MEPROP Name 'draw_node'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_45FFE08202EE // level
+ ME_45FFE082036B // index
+ )
+ ; // Parameters
+
+ENDME // ME_45FFE07E034B draw_node
+
+FORWARD ME_45FFE0D503D8
+
+ME ME_4613B906030D
+ MEPROP Name 'e'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_4613B906030D e
+
+ME ME_45FFE0D503D8
+ MEPROP UID '45FFE0D503D8'
+ MEPROP Name 'is_equal'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4613B906030D // e
+ )
+ ; // Parameters
+
+ENDME // ME_45FFE0D503D8 is_equal
+
+ME ME_45FFE0FD030D
+ MEPROP UID '45FFE0FD030D'
+ MEPROP Name 'get_current_transaction'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+ MELINK Target HWL ME_45FF97A70109 // NodeChangeTransaction
+ ;
+
+ENDME // ME_45FFE0FD030D get_current_transaction
+
+ME ME_45FFE11C0261
+ MEPROP UID '45FFE11C0261'
+ MEPROP Name 'delete_current_transaction'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+
+ENDME // ME_45FFE11C0261 delete_current_transaction
+
+ME ME_45FFE12C031C
+ MEPROP UID '45FFE12C031C'
+ MEPROP Name 'commit_and_remove_transaction'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+
+ENDME // ME_45FFE12C031C commit_and_remove_transaction
+
+FORWARD ME_45FFE20201C5
+
+ME ME_4613BC5F02CE
+ MEPROP Name 'ptype'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_4613BC5F02CE ptype
+
+ME ME_4613BC9F0196
+ MEPROP Name 'node'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL? 'ME_45F7ECA8034B' // DefaultNodeBase
+ ;
+
+ENDME // ME_4613BC9F0196 node
+
+ME ME_45FFE20201C5
+ MEPROP UID '45FFE20201C5'
+ MEPROP Name 'paste_node'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_4613BC5F02CE // ptype
+ ME_4613BC9F0196 // node
+ )
+ ; // Parameters
+
+ENDME // ME_45FFE20201C5 paste_node
+
+FORWARD ME_45FFE26E001F
+
+ME ME_45FFE2810213
+ MEPROP Name 'ptype'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_45FFE2810213 ptype
+
+ME ME_45FFE28102BF
+ MEPROP Name 'holder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_45FFE28102BF holder
+
+ME ME_45FFE26E001F
+ MEPROP UID '45FFE26E001F'
+ MEPROP Name 'paste_nodes'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_45FFE2810213 // ptype
+ ME_45FFE28102BF // holder
+ )
+ ; // Parameters
+
+ENDME // ME_45FFE26E001F paste_nodes
+
+ME ME_45FFE2AF035B
+ MEPROP UID '45FFE2AF035B'
+ MEPROP Name 'apply_transaction'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+
+ENDME // ME_45FFE2AF035B apply_transaction
+
+FORWARD ME_45FFE2BC03A9
+
+ME ME_46276B270242
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_46276B270242 value
+
+ME ME_45FFE2BC03A9
+ MEPROP UID '45FFE2BC03A9'
+ MEPROP Name 'change_node_value'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_46276B270242 // value
+ )
+ ; // Parameters
+
+ENDME // ME_45FFE2BC03A9 change_node_value
+
+FORWARD ME_45FFE2FB038A
+
+ME ME_46276B2F03A9
+ MEPROP Name 'entity'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_46276B2F03A9 entity
+
+ME ME_45FFE2FB038A
+ MEPROP UID '45FFE2FB038A'
+ MEPROP Name 'change_node_entity'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_46276B2F03A9 // entity
+ )
+ ; // Parameters
+
+ENDME // ME_45FFE2FB038A change_node_entity
+
+ME ME_45FFF0060399
+ MEPROP UID '45FFF0060399'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+
+ENDME // ME_45FFF0060399 make
+
+FORWARD ME_45FFF06B0157
+
+ME ME_4613A2440222
+ MEPROP Name 'owner_tree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL? 'ME_45F554750213' // TreeBase
+ ;
+
+ENDME // ME_4613A2440222 owner_tree
+
+ME ME_4613A24402AF
+ MEPROP Name 'snode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_4613A24402AF snode
+
+ME ME_45FFF06B0157
+ MEPROP UID '45FFF06B0157'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_4613A2440222 // owner_tree
+ ME_4613A24402AF // snode
+ )
+ ; // Parameters
+
+ENDME // ME_45FFF06B0157 make
+
+ME ME_4613BE5F01F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_friend::Dependency ;
+ MELINK Parent HWL ME_45F7D8410157 // RealNodeBase
+ ;
+ MELINK Target WL? 'ME_45F6C139000F' // DelegateNodeBase
+ ;
+
+ENDME // ME_4613BE5F01F4 
+
+MEREF ME_45F94B820290_ME_45F7D8410157_impl
+ MELINK Original WL 'ME_45F94B820290' '45F7ECA8034B.ms.model.script' // get_server_pointer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_45F94B820290_ME_45F7D8410157_impl get_server_pointer
+
+MEREF ME_45F94D570138_ME_45F7D8410157_impl
+ MELINK Original WL 'ME_45F94D570138' '45F7ECA8034B.ms.model.script' // node_name
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_45F94D570138_ME_45F7D8410157_impl node_name
+
+MEREF ME_45F95B9A0000_ME_45F7D8410157_impl
+ MELINK Original WL 'ME_45F95B9A0000' '45F7ECA8034B.ms.model.script' // apply_change_delta
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_45F95B9A0000_ME_45F7D8410157_impl apply_change_delta
+
+MEREF ME_45F7ECA8034B_ME_45F7D8410157_G
+ MELINK Original WL? 'ME_45F7ECA8034B' // DefaultNodeBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45F7ECA8034B_ME_45F7D8410157_G DefaultNodeBase
+
+%%InheritedBy ME_45F7ECA8034B ME_45F7D8410157
+
+ME ME_45F7D8410157
+ MEPROP UID '45F7D8410157'
+ MEPROP Name 'RealNodeBase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_45EEA4490239' // DynamicTree_i
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_45F7ECA8034B_ME_45F7D8410157_G // DefaultNodeBase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_45FFE31602BF // server_point
+ HWL ME_45FFE327036B // name
+ HWL ME_45FFE3850399 // current_transaction
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_45FFDF2B03B9 // fill_value
+ HWL ME_45FFDF540213 // fill_entity
+ HWL ME_45FFDF6E005D // init
+ HWL ME_45FFDFAF0232 // reset
+ HWL ME_45FFDFBA003E // init_inserted
+ HWL ME_45FFE07E034B // draw_node
+ HWL ME_45FFE0D503D8 // is_equal
+ HWL ME_45FFE0FD030D // get_current_transaction
+ HWL ME_45FFE11C0261 // delete_current_transaction
+ HWL ME_45FFE12C031C // commit_and_remove_transaction
+ HWL ME_45FFE20201C5 // paste_node
+ HWL ME_45FFE26E001F // paste_nodes
+ HWL ME_45FFE2AF035B // apply_transaction
+ HWL ME_45FFE2BC03A9 // change_node_value
+ HWL ME_45FFE2FB038A // change_node_entity
+ HWL ME_45FFF0060399 // make
+ HWL ME_45FFF06B0157 // make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_45F94B820290_ME_45F7D8410157_impl // get_server_pointer
+ ME_45F94D570138_ME_45F7D8410157_impl // node_name
+ ME_45F95B9A0000_ME_45F7D8410157_impl // apply_change_delta
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_45FF97A70109 // NodeChangeTransaction
+ HWL ME_45FF99BC0399 // NodeChangeTransactionHolder
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4613BE5F01F4 // DelegateNodeBase
+ )
+ ; // Dependencies
+ UP "need UC" True
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DynamicTree_i\RealNodeBase.cpp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DynamicTree_i\RealNodeBase.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\RealNodeBase.pas'
+
+ENDME // ME_45F7D8410157 RealNodeBase

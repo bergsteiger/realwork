@@ -2,11 +2,17 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-ME ME_5304D6C5002B_ME_5304D68D03B2
+MEREF ME_5304D6C5002B_ME_5304D68D03B2_impl
  MELINK Original WL 'ME_5304D6C5002B' '4B891136016F.ms.model.script' // ItemToWStr
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_5304D6C5002B_ME_5304D68D03B2 ItemToWStr
+ENDMEREF // ME_5304D6C5002B_ME_5304D68D03B2_impl ItemToWStr
+
+MEREF ME_4B891136016F_ME_5304D68D03B2_G
+ MELINK Original WL? 'ME_4B891136016F' // l3DelphiStringSearcherPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B891136016F_ME_5304D68D03B2_G l3DelphiStringSearcherPrim
 
 %%InheritedBy ME_4B891136016F ME_5304D68D03B2
 
@@ -22,11 +28,11 @@ ME ME_5304D68D03B2
  MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4B891136016F' // l3DelphiStringSearcherPrim
+   Seq: ( HWL ME_4B891136016F_ME_5304D68D03B2_G // l3DelphiStringSearcherPrim
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_5304D6C5002B_ME_5304D68D03B2 // ItemToWStr
+   Seq: ( ME_5304D6C5002B_ME_5304D68D03B2_impl // ItemToWStr
  )
  ; // Implemented
  UP extprop:pas:TypeName '_l3DelphiStringSearcher_'

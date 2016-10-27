@@ -1,0 +1,45 @@
+// TcsMultiModifyDocs 57DA77B80161 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_57F25AF103B0_ME_57DA77B80161_G
+ MELINK Original WL? 'ME_57F25AF103B0' // TcsPersonificatedMessage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57F25AF103B0_ME_57DA77B80161_G TcsPersonificatedMessage
+
+MEREF ME_57DA505703B1_ME_57DA77B80161_R
+ MELINK Original WL 'ME_57DA505703B1' '484A470100DD.ms.model.script' // csMultiModifyDocs
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57DA505703B1_ME_57DA77B80161_R csMultiModifyDocs
+
+%%ImplementedBy ME_57DA505703B1 ME_57DA77B80161
+
+%%InheritedBy ME_57F25AF103B0 ME_57DA77B80161
+
+ME ME_57DA77B80161
+ MEPROP UID '57DA77B80161'
+ MEPROP Name 'TcsMultiModifyDocs'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57C686B70253' // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57F25AF103B0_ME_57DA77B80161_G // TcsPersonificatedMessage
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57DA505703B1_ME_57DA77B80161_R // csMultiModifyDocs
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'csMultiModifyDocs'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'csMultiModifyDocs'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csMultiModifyDocs.pas'
+
+ENDME // ME_57DA77B80161 TcsMultiModifyDocs

@@ -1,0 +1,113 @@
+// Tl3InterfacedComponent 47541E17024E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47541E17024E
+
+FORWARD ME_47D16038003C
+
+ME ME_47D1604A02E3
+ MEPROP Name 'IID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478CF8F202C7' '478CF8070260.ms.model.script' // Tl3GUID
+ ;
+
+ENDME // ME_47D1604A02E3 IID
+
+ME ME_47D1604A0301
+ MEPROP Name 'Obj'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+
+ENDME // ME_47D1604A0301 Obj
+
+ME ME_47D16038003C
+ MEPROP UID '47D16038003C'
+ MEPROP Name 'COMQueryInterface'
+ MEPROP Class class_Operation
+ %SUMMARY 'метод для реализации QueryInterface (Для перекрытия в потомках).' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47541E17024E // Tl3InterfacedComponent
+ ;
+ MELINK Target WL 'ME_49427DEE015B' '478CF8070260.ms.model.script' // Tl3HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_47D1604A02E3 // IID
+ ME_47D1604A0301 // Obj
+ )
+ ; // Parameters
+
+ENDME // ME_47D16038003C COMQueryInterface
+
+ME ME_47D16214006E
+ MEPROP UID '47D16214006E'
+ MEPROP Name 'CreateX'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47541E17024E // Tl3InterfacedComponent
+ ;
+
+ENDME // ME_47D16214006E CreateX
+
+MEREF ME_47D160620295_ME_47541E17024E_over
+ MELINK Original WL 'ME_47D160620295' '478CF30500C1.ms.model.script' // QueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "calling conventions" 'stdcall'
+ENDMEREF // ME_47D160620295_ME_47541E17024E_over QueryInterface
+
+MEREF ME_47913F970159_ME_47541E17024E_G
+ MELINK Original WL? 'ME_47913F970159' // l3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47913F970159_ME_47541E17024E_G l3Unknown
+
+MEREF ME_479878FA0103_ME_47541E17024E_G
+ MELINK Original WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_479878FA0103_ME_47541E17024E_G TComponent
+
+%%InheritedBy ME_47913F970159 ME_47541E17024E
+%%InheritedBy ME_479878FA0103 ME_47541E17024E
+
+ME ME_47541E17024E
+ MEPROP UID '47541E17024E'
+ MEPROP Name 'Tl3InterfacedComponent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс компонентов, поддерживающих счетчик ссылок и интерфейсы IUnknown.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47913F970159_ME_47541E17024E_G // l3Unknown
+ HWL ME_479878FA0103_ME_47541E17024E_G // TComponent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_47D16038003C // COMQueryInterface
+ HWL ME_47D16214006E // CreateX
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47D160620295_ME_47541E17024E_over // QueryInterface
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В. ©'
+ UP "need UC" True
+ UP "no hands" True
+ UP "started" '20.10.1998 11:34'
+ UP extprop:pas:UnitName 'l3InterfacedComponent'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'InterfacedComponent'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3InterfacedComponent.pas'
+
+ENDME // ME_47541E17024E Tl3InterfacedComponent

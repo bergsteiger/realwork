@@ -13,9 +13,6 @@ interface
 uses
  l3IntfUses
  , DocumentUserTypes_dftTranslation_UserType
- {$If NOT Defined(NoVCM)}
- , vcmUserControls
- {$IfEnd} // NOT Defined(NoVCM)
  , l3StringIDEx
 ;
 

@@ -4,115 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_4DE8C9DB02AD
 
-FORWARD ME_4DE8C9A603C1
-
-FORWARD ME_4DE8C9DB02AD
-
-FORWARD ME_4DE8CA530214
-
-ME ME_4DE8CA6E00E3
- MEPROP UID '4DE8CA6E00E3'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4DE8CA530214 // Run
- ;
-
-ENDME // ME_4DE8CA6E00E3 DoIt
-
-ME ME_4DE8CA530214
- MEPROP UID '4DE8CA530214'
- MEPROP Name 'Run'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4DE8C9DB02AD // TRunner
- ;
- MELIST Operations
-   Seq: ( HWL ME_4DE8CA6E00E3 // DoIt
- )
- ; // Operations
- UP "is static" True
-
-ENDME // ME_4DE8CA530214 Run
-
-ME ME_4DE8CA3100E3
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4DE8C9DB02AD // TRunner
- ;
- MELINK Target WL 'ME_4AC3488802F7' '4AC347B00177.ms.model.script' // TatAdapterTest
- ;
-
-ENDME // ME_4DE8CA3100E3 
-
-ME ME_4DE8CA930288
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4DE8C9DB02AD // TRunner
- ;
- MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
- ;
-
-ENDME // ME_4DE8CA930288 
-
-ME ME_4DE8CABF039D
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4DE8C9DB02AD // TRunner
- ;
- MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
- ;
-
-ENDME // ME_4DE8CABF039D 
-
-ME ME_4DE8CAE200F5
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4DE8C9DB02AD // TRunner
- ;
- MELINK Target WL 'ME_4B72E1CE0002' '4AB112DF005B.ms.model.script' // eeDocument
- ;
-
-ENDME // ME_4DE8CAE200F5 
-
-ME ME_4DE8C9DB02AD
- MEPROP UID '4DE8C9DB02AD'
- MEPROP Name 'TRunner'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4DE8C9A603C1 // AdapterTest$Target
- ;
- MELIST Operations
-   Seq: ( HWL ME_4DE8CA530214 // Run
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_4DE8CA3100E3 // TatAdapterTest
- ME_4DE8CA930288 // FreeAndNil
- ME_4DE8CABF039D // IStream
- ME_4DE8CAE200F5 // eeDocument
- )
- ; // Dependencies
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP "author" 'Ëþëèí À.Â.'
- UP "no hands" True
- UP "started" '03.06.2011 15:47'
- UP extprop:pas:UnitName 'Runner'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'Runner'
- UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Runner.pas'
-
-ENDME // ME_4DE8C9DB02AD TRunner
-
 ME ME_4DE8C9A603C1
  MEPROP UID '4DE8C9A603C1'
  MEPROP Name 'AdapterTest'
@@ -126,7 +17,7 @@ ME ME_4DE8C9A603C1
  MELINK Parent WL? 'ME_480759E50328' // garant6x_test
  ;
  MELIST Children
-   Seq: ( HWL ME_4DE8C9DB02AD // TRunner
+   Seq: ( WL? 'ME_4DE8C9DB02AD' // TRunner
  )
  ; // Children
  MELIST Depends

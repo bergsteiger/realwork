@@ -1,0 +1,105 @@
+// TmsmModel 57ADBFD200CA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57ADBFD200CA
+
+MEREF ME_57ADBE5B024A_ME_57ADC0130133_R
+ MELINK Original WL 'ME_57ADBE5B024A' '57CEB4640283.ms.model.script' // ImsmModel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57ADBE5B024A_ME_57ADC0130133_R ImsmModel
+
+%%ImplementedBy ME_57ADBE5B024A ME_57ADC0130133
+
+ME ME_57ADC0130133
+ MEPROP UID '57ADC0130133'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57ADBFD200CA // TmsmModel
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_57ADBE5B024A_ME_57ADC0130133_R // ImsmModel
+ )
+ ; // Implements
+
+ENDME // ME_57ADC0130133 Make
+
+MEREF ME_479731C50290_ME_57ADBFD200CA_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57ADBFD200CA_over Cleanup
+
+MEREF ME_49E7754802A9_ME_57ADBFD200CA_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57ADBFD200CA_G Tl3ProtoObject
+
+MEREF ME_57B6B275018D_ME_57ADBFD200CA_G
+ MELINK Original WL? 'ME_57B6B275018D' // msmEventsPublisher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B6B275018D_ME_57ADBFD200CA_G msmEventsPublisher
+
+MEREF ME_57ADBE5B024A_ME_57ADBFD200CA_R
+ MELINK Original WL 'ME_57ADBE5B024A' '57CEB4640283.ms.model.script' // ImsmModel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57ADBE5B024A_ME_57ADBFD200CA_R ImsmModel
+
+MEREF ME_57B6A905031E_ME_57ADBFD200CA_R
+ MELINK Original WL? 'ME_57B6A905031E' // msmEventFire
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B6A905031E_ME_57ADBFD200CA_R msmEventFire
+
+%%ImplementedBy ME_57ADBE5B024A ME_57ADBFD200CA
+%%ImplementedBy ME_57B6A905031E ME_57ADBFD200CA
+
+%%InheritedBy ME_49E7754802A9 ME_57ADBFD200CA
+%%InheritedBy ME_57B6B275018D ME_57ADBFD200CA
+
+ME ME_57ADBFD200CA
+ MEPROP UID '57ADBFD200CA'
+ MEPROP Name 'TmsmModel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B1B48C00F8' // Models
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_57ADBFD200CA_G // Tl3ProtoObject
+ HWL ME_57B6B275018D_ME_57ADBFD200CA_G // msmEventsPublisher
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57ADBE5B024A_ME_57ADBFD200CA_R // ImsmModel
+ HWL ME_57B6A905031E_ME_57ADBFD200CA_R // msmEventFire
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_57ADC0130133 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57ADBFD200CA_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmModel'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmModel'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmModel.pas'
+
+ENDME // ME_57ADBFD200CA TmsmModel

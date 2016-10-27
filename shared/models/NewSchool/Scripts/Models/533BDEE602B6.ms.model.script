@@ -1,0 +1,49 @@
+// TvcmGlassForm 533BDEE602B6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_49525B34022A_ME_533BDEE602B6_G
+ MELINK Original WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525B34022A_ME_533BDEE602B6_G TvcmEntityForm
+
+MEREF ME_5339219B0225_ME_533BDEE602B6_R
+ MELINK Original WL? 'ME_5339219B0225' // vcmGlassForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5339219B0225_ME_533BDEE602B6_R vcmGlassForm
+
+%%ImplementedBy ME_5339219B0225 ME_533BDEE602B6
+
+%%InheritedBy ME_49525B34022A ME_533BDEE602B6
+
+ME ME_533BDEE602B6
+ MEPROP UID '533BDEE602B6'
+ MEPROP Name 'TvcmGlassForm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_533D53FF00C2' // Visual$ChromeLike
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49525B34022A_ME_533BDEE602B6_G // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5339219B0225_ME_533BDEE602B6_R // vcmGlassForm
+ )
+ ; // Implements
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoVGScene, NoVCM'
+ UP extprop:pas:UnitName 'vcmGlassForm'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'GlassForm'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmGlassForm.pas'
+
+ENDME // ME_533BDEE602B6 TvcmGlassForm

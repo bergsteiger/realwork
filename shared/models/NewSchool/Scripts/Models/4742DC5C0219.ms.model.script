@@ -1,0 +1,155 @@
+// Tm3BaseObject 4742DC5C0219 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4742DC5C0219
+
+ME ME_555B266B0290
+ MEPROP UID '555B266B0290'
+ MEPROP Name 'f_DB'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4742DC5C0219 // Tm3BaseObject
+ ;
+ MELINK Target WL? 'ME_49BFBC690162' // Tm3PrimDB
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_555B266B0290 f_DB
+
+FORWARD ME_555B269800C2
+
+FORWARD ME_555B26A70340
+
+ME ME_555B26AC00AC
+ MEPROP Name 'aDB'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_49BFBC690162' // Tm3PrimDB
+ ;
+
+ENDME // ME_555B26AC00AC aDB
+
+ME ME_555B26A70340
+ MEPROP UID '555B26A70340'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_555B269800C2 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_555B26AC00AC // aDB
+ )
+ ; // Parameters
+
+ENDME // ME_555B26A70340 DoIt
+
+ME ME_555B269800C2
+ MEPROP UID '555B269800C2'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4742DC5C0219 // Tm3BaseObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_555B26A70340 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_555B269800C2 Create
+
+ME ME_555B26D501BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4742DC5C0219 // Tm3BaseObject
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_555B26D501BD 
+
+MEREF ME_4720847C026F_ME_4742DC5C0219_impl
+ MELINK Original WL 'ME_4720847C026F' '4720831F012D.ms.model.script' // DB
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4720847C026F_ME_4742DC5C0219_impl DB
+
+MEREF ME_479731C50290_ME_4742DC5C0219_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4742DC5C0219_over Cleanup
+
+MEREF ME_4AE5CA2D0034_ME_4742DC5C0219_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_4742DC5C0219_G Tl3CProtoObject
+
+MEREF ME_4720844C0099_ME_4742DC5C0219_R
+ MELINK Original WL 'ME_4720844C0099' '4720831F012D.ms.model.script' // Im3DBObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4720844C0099_ME_4742DC5C0219_R Im3DBObject
+
+%%ImplementedBy ME_4720844C0099 ME_4742DC5C0219
+
+%%InheritedBy ME_4AE5CA2D0034 ME_4742DC5C0219
+
+ME ME_4742DC5C0219
+ MEPROP UID '4742DC5C0219'
+ MEPROP Name 'Tm3BaseObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовая реализация объекта хранилища.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4742C9DB033A' // m3DB
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AE5CA2D0034_ME_4742DC5C0219_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4720844C0099_ME_4742DC5C0219_R // Im3DBObject
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_555B266B0290 // f_DB
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_555B269800C2 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4720847C026F_ME_4742DC5C0219_impl // DB
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4742DC5C0219_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_555B26D501BD // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'm3BaseObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3BaseObject'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3BaseObject.pas'
+
+ENDME // ME_4742DC5C0219 Tm3BaseObject

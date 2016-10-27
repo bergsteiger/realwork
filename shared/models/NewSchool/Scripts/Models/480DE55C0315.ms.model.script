@@ -1,0 +1,310 @@
+// TafwMultiDocumentPreview 480DE55C0315 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_480DE55C0315
+
+ME ME_480DE5BF01E4
+ MEPROP UID '480DE5BF01E4'
+ MEPROP Name 'f_Docs'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DE55C0315 // TafwMultiDocumentPreview
+ ;
+ MELINK Target WL? 'ME_47E2661C0224' // TafwDocumentPreviewList
+ ;
+
+ENDME // ME_480DE5BF01E4 f_Docs
+
+ME ME_480DE5E300CD
+ MEPROP UID '480DE5E300CD'
+ MEPROP Name 'f_Printer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DE55C0315 // TafwMultiDocumentPreview
+ ;
+ MELINK Target WL 'ME_47750D8F0051' '467823B7002C.ms.model.script' // IafwPrinter
+ ;
+
+ENDME // ME_480DE5E300CD f_Printer
+
+ME ME_480DE6060036
+ MEPROP UID '480DE6060036'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'создает экземпляр класса в виде интерфейса IafwMultiDocumentPreview.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480DE55C0315 // TafwMultiDocumentPreview
+ ;
+ MELINK Target WL 'ME_47F9FD13007A' '467823B7002C.ms.model.script' // IafwMultiDocumentPreview
+ ;
+
+ENDME // ME_480DE6060036 Make
+
+ME ME_480DE6420179
+ MEPROP UID '480DE6420179'
+ MEPROP Name 'GetDocumentName'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480DE55C0315 // TafwMultiDocumentPreview
+ ;
+ MELINK Target WL 'ME_4683C9110178' '467823B7002C.ms.model.script' // IafwCString
+ ;
+
+ENDME // ME_480DE6420179 GetDocumentName
+
+ME ME_480DE96B03A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480DE55C0315 // TafwMultiDocumentPreview
+ ;
+ MELINK Target WL 'ME_4799D40F0004' '4799D83F0260.ms.model.script' // Tl3Printer
+ ;
+
+ENDME // ME_480DE96B03A8 
+
+ME ME_480DEA6400C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480DE55C0315 // TafwMultiDocumentPreview
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_480DEA6400C0 
+
+MEREF ME_473D8C450198_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_473D8C450198' '467823B7002C.ms.model.script' // DocumentName
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8C450198_ME_480DE55C0315_impl DocumentName
+
+MEREF ME_473D8C5C0187_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_473D8C5C0187' '467823B7002C.ms.model.script' // InProcess
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8C5C0187_ME_480DE55C0315_impl InProcess
+
+MEREF ME_473D8C6C0266_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_473D8C6C0266' '467823B7002C.ms.model.script' // InPagesCounting
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8C6C0266_ME_480DE55C0315_impl InPagesCounting
+
+MEREF ME_473D8C7C01B5_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_473D8C7C01B5' '467823B7002C.ms.model.script' // InUpdate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8C7C01B5_ME_480DE55C0315_impl InUpdate
+
+MEREF ME_473D8C90022C_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_473D8C90022C' '467823B7002C.ms.model.script' // InPrinting
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8C90022C_ME_480DE55C0315_impl InPrinting
+
+MEREF ME_473D8CA002D9_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_473D8CA002D9' '467823B7002C.ms.model.script' // Update
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8CA002D9_ME_480DE55C0315_impl Update
+
+MEREF ME_473D8CAF028B_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_473D8CAF028B' '467823B7002C.ms.model.script' // Print
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8CAF028B_ME_480DE55C0315_impl Print
+
+MEREF ME_473D8CE9007C_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_473D8CE9007C' '467823B7002C.ms.model.script' // Stop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8CE9007C_ME_480DE55C0315_impl Stop
+
+MEREF ME_473D8CF80037_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_473D8CF80037' '467823B7002C.ms.model.script' // Stopped
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8CF80037_ME_480DE55C0315_impl Stopped
+
+MEREF ME_473D8D0A01D7_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_473D8D0A01D7' '467823B7002C.ms.model.script' // CloseRequested
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8D0A01D7_ME_480DE55C0315_impl CloseRequested
+
+MEREF ME_473D8D1E01B8_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_473D8D1E01B8' '467823B7002C.ms.model.script' // PreviewResetting
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8D1E01B8_ME_480DE55C0315_impl PreviewResetting
+
+MEREF ME_473D8D3800B1_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_473D8D3800B1' '467823B7002C.ms.model.script' // SetCurrentPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8D3800B1_ME_480DE55C0315_impl SetCurrentPage
+
+MEREF ME_473D8D4A019D_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_473D8D4A019D' '467823B7002C.ms.model.script' // SetCurrentPagePara
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8D4A019D_ME_480DE55C0315_impl SetCurrentPagePara
+
+MEREF ME_473D8D5D032B_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_473D8D5D032B' '467823B7002C.ms.model.script' // SetCurrentPageNumber
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8D5D032B_ME_480DE55C0315_impl SetCurrentPageNumber
+
+MEREF ME_473D8D72010F_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_473D8D72010F' '467823B7002C.ms.model.script' // CurrentPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8D72010F_ME_480DE55C0315_impl CurrentPage
+
+MEREF ME_473D8D830163_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_473D8D830163' '467823B7002C.ms.model.script' // HasCurrentPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8D830163_ME_480DE55C0315_impl HasCurrentPage
+
+MEREF ME_473D8D9500C9_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_473D8D9500C9' '467823B7002C.ms.model.script' // Printer
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_473D8D9500C9_ME_480DE55C0315_impl Printer
+
+MEREF ME_473D8DB10141_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_473D8DB10141' '467823B7002C.ms.model.script' // HasText
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_473D8DB10141_ME_480DE55C0315_impl HasText
+
+MEREF ME_47FB296803AD_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_47FB296803AD' '467823B7002C.ms.model.script' // AddDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47FB296803AD_ME_480DE55C0315_impl AddDocument
+
+MEREF ME_48902EA0010E_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_48902EA0010E' '467823B7002C.ms.model.script' // DocCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_48902EA0010E_ME_480DE55C0315_impl DocCount
+
+MEREF ME_4CC6A6FF0362_ME_480DE55C0315_impl
+ MELINK Original WL 'ME_4CC6A6FF0362' '467823B7002C.ms.model.script' // PagesInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4CC6A6FF0362_ME_480DE55C0315_impl PagesInfo
+
+MEREF ME_479731C50290_ME_480DE55C0315_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_480DE55C0315_over Cleanup
+
+MEREF ME_46780E690001_ME_480DE55C0315_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_480DE55C0315_G Tl3CacheableBase
+
+MEREF ME_467BB4640328_ME_480DE55C0315_R
+ MELINK Original WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467BB4640328_ME_480DE55C0315_R IafwDocumentPreview
+
+MEREF ME_47F9FD13007A_ME_480DE55C0315_R
+ MELINK Original WL 'ME_47F9FD13007A' '467823B7002C.ms.model.script' // IafwMultiDocumentPreview
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F9FD13007A_ME_480DE55C0315_R IafwMultiDocumentPreview
+
+%%ImplementedBy ME_467BB4640328 ME_480DE55C0315
+%%ImplementedBy ME_47F9FD13007A ME_480DE55C0315
+
+%%InheritedBy ME_46780E690001 ME_480DE55C0315
+
+ME ME_480DE55C0315
+ MEPROP UID '480DE55C0315'
+ MEPROP Name 'TafwMultiDocumentPreview'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_474144E20301' // Draw
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46780E690001_ME_480DE55C0315_G // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_467BB4640328_ME_480DE55C0315_R // IafwDocumentPreview
+ HWL ME_47F9FD13007A_ME_480DE55C0315_R // IafwMultiDocumentPreview
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_480DE5BF01E4 // f_Docs
+ HWL ME_480DE5E300CD // f_Printer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_480DE6060036 // Make
+ HWL ME_480DE6420179 // GetDocumentName
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_473D8C450198_ME_480DE55C0315_impl // DocumentName
+ ME_473D8C5C0187_ME_480DE55C0315_impl // InProcess
+ ME_473D8C6C0266_ME_480DE55C0315_impl // InPagesCounting
+ ME_473D8C7C01B5_ME_480DE55C0315_impl // InUpdate
+ ME_473D8C90022C_ME_480DE55C0315_impl // InPrinting
+ ME_473D8CA002D9_ME_480DE55C0315_impl // Update
+ ME_473D8CAF028B_ME_480DE55C0315_impl // Print
+ ME_473D8CE9007C_ME_480DE55C0315_impl // Stop
+ ME_473D8CF80037_ME_480DE55C0315_impl // Stopped
+ ME_473D8D0A01D7_ME_480DE55C0315_impl // CloseRequested
+ ME_473D8D1E01B8_ME_480DE55C0315_impl // PreviewResetting
+ ME_473D8D3800B1_ME_480DE55C0315_impl // SetCurrentPage
+ ME_473D8D4A019D_ME_480DE55C0315_impl // SetCurrentPagePara
+ ME_473D8D5D032B_ME_480DE55C0315_impl // SetCurrentPageNumber
+ ME_473D8D72010F_ME_480DE55C0315_impl // CurrentPage
+ ME_473D8D830163_ME_480DE55C0315_impl // HasCurrentPage
+ ME_473D8D9500C9_ME_480DE55C0315_impl // Printer
+ ME_473D8DB10141_ME_480DE55C0315_impl // HasText
+ ME_47FB296803AD_ME_480DE55C0315_impl // AddDocument
+ ME_48902EA0010E_ME_480DE55C0315_impl // DocCount
+ ME_4CC6A6FF0362_ME_480DE55C0315_impl // PagesInfo
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_480DE55C0315_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_480DE96B03A8 // Tl3Printer
+ ME_480DEA6400C0 // SysUtils
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'afwMultiDocumentPreview'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwMultiDocumentPreview'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwMultiDocumentPreview.pas'
+
+ENDME // ME_480DE55C0315 TafwMultiDocumentPreview

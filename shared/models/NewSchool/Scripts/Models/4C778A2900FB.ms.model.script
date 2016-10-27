@@ -1,0 +1,137 @@
+// ContentsTree 4C778A2900FB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C778A2900FB
+
+ME ME_4C778A6800F6
+ MEPROP UID '4C778A6800F6'
+ MEPROP Name 'NodeType_'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_template::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4C778A2900FB // ContentsTree
+ ;
+
+ENDME // ME_4C778A6800F6 NodeType_
+
+ME ME_4C778AB00320
+ MEPROP UID '4C778AB00320'
+ MEPROP Name 'NodeDelegateType_'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_template::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4C778A2900FB // ContentsTree
+ ;
+
+ENDME // ME_4C778AB00320 NodeDelegateType_
+
+FORWARD ME_4C778AE80242
+
+ME ME_4C778AFB01F5
+ MEPROP Name 'tree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_4C778AFB01F5 tree
+
+ME ME_4C778AE80242
+ MEPROP UID '4C778AE80242'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C778A2900FB // ContentsTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C778AFB01F5 // tree
+ )
+ ; // Parameters
+
+ENDME // ME_4C778AE80242 make
+
+ME ME_4C77D0E20141
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C778A2900FB // ContentsTree
+ ;
+
+ENDME // ME_4C77D0E20141 
+
+ME ME_4C9CA69F0357
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C778A2900FB // ContentsTree
+ ;
+
+ENDME // ME_4C9CA69F0357 
+
+ME ME_4CA06D610151
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C778A2900FB // ContentsTree
+ ;
+ MELINK Target WL? 'ME_4CA06D4A0272' // ContentsView
+ ;
+
+ENDME // ME_4CA06D610151 
+
+MEREF ME_460127E400EA_ME_4C778A2900FB_over
+ MELINK Original WL 'ME_460127E400EA' '45F554750213.ms.model.script' // alloc_new_view
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_460127E400EA_ME_4C778A2900FB_over alloc_new_view
+
+MEREF ME_45F585F802AF_ME_4C778A2900FB_R
+ MELINK Original WL? 'ME_45F585F802AF' // Tree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45F585F802AF_ME_4C778A2900FB_R Tree
+
+%%ImplementedBy ME_45F585F802AF ME_4C778A2900FB
+
+ME ME_4C778A2900FB
+ MEPROP UID '4C778A2900FB'
+ MEPROP Name 'ContentsTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_45EEB07D00E9' // DocTree_i
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_45F585F802AF_ME_4C778A2900FB_R // Tree
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4C778A6800F6 // NodeType_
+ HWL ME_4C778AB00320 // NodeDelegateType_
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4C778AE80242 // make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_460127E400EA_ME_4C778A2900FB_over // alloc_new_view
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4C77D0E20141 // 
+ ME_4C9CA69F0357 // 
+ ME_4CA06D610151 // ContentsView
+ )
+ ; // Dependencies
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i\ContentsTree.cpp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i\ContentsTree.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ContentsTree.pas'
+
+ENDME // ME_4C778A2900FB ContentsTree

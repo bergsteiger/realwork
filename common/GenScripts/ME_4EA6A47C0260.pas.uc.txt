@@ -21,22 +21,26 @@
    else
    begin
     l_Pt := (f_Point as InevLocation).AsPoint;
-    l_DocP := aContainer.Document.SubList.Block[l_Pt.Obj.Owner.IntA[k2_tiHandle]];
-    if Supports(l_DocP, IevDocumentPoint, l_DocPt) then
+    l_Handle := l_Pt.Obj.Owner.IntA[k2_tiHandle];
+    if l_Handle > 0 then
     begin
-     l_DPara := l_DocPt.Obj.AsPara;
-     l_NewPt := l_DPara.MakePoint;
-     l_NewPt.SetEntryPoint(l_Pt.Obj.PID + 1);
-     l_Start := l_NewPt.ClonePoint(l_Control.View).Inner;
-     l_Start.SetEntryPoint(f_FoundBlock.Borders.rStart);
-     l_Start := l_Start.PointToParent;
-     l_Finish := l_NewPt.ClonePoint(l_Control.View).Inner;
-     l_Finish.SetEntryPoint(f_FoundBlock.Borders.rFinish);
-     l_Finish := l_Finish.PointToParent;
-     l_NewSel := l_Sel.GetBlock;
-     (l_NewSel as InevRangeFactory).Init(l_Start, l_Finish);
-     l_Sel.Select(l_NewSel, false);
-    end; // if Supports(l_DocP, IevDocumentPoint, l_DocPt) then
+     l_DocP := aContainer.Document.SubList.Block[l_Handle];
+     if Supports(l_DocP, IevDocumentPoint, l_DocPt) then
+     begin
+      l_DPara := l_DocPt.Obj.AsPara;
+      l_NewPt := l_DPara.MakePoint;
+      l_NewPt.SetEntryPoint(l_Pt.Obj.PID + 1);
+      l_Start := l_NewPt.ClonePoint(l_Control.View).Inner;
+      l_Start.SetEntryPoint(f_FoundBlock.Borders.rStart);
+      l_Start := l_Start.PointToParent;
+      l_Finish := l_NewPt.ClonePoint(l_Control.View).Inner;
+      l_Finish.SetEntryPoint(f_FoundBlock.Borders.rFinish);
+      l_Finish := l_Finish.PointToParent;
+      l_NewSel := l_Sel.GetBlock;
+      (l_NewSel as InevRangeFactory).Init(l_Start, l_Finish);
+      l_Sel.Select(l_NewSel, false);
+     end; // if Supports(l_DocP, IevDocumentPoint, l_DocPt) then
+    end; // if l_Handle > 0 then
     Result := True;
    end;
   end;
@@ -51,6 +55,7 @@ var
  l_NewPt   : InevPoint;
  l_Start   : InevBasePoint;
  l_Finish  : InevBasePoint;
+ l_Handle  : Integer;
  l_NewSel  : InevRange;
  l_Control : InevControl;
 //#UC END# *47C6B3040133_4EA6A47C0260_var*

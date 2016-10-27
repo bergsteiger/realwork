@@ -1,0 +1,179 @@
+// TnsBaseSearchServiceImpl 563208C60299 ServiceImplementation Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_56320A830305
+
+FORWARD ME_563208C60299
+
+FORWARD ME_56320A830305
+
+ME ME_56320B980313
+ MEPROP UID '56320B980313'
+ MEPROP Name 'KeyType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56320A830305 // TnsContainerToBaseSearcherMap
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_56320B980313 KeyType
+
+ME ME_56320BBF00FE
+ MEPROP UID '56320BBF00FE'
+ MEPROP Name 'ValueType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56320A830305 // TnsContainerToBaseSearcherMap
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_56320BBF00FE ValueType
+
+MEREF ME_5609091B00C0_ME_56320A830305_impl
+ MELINK Original WL 'ME_5609091B00C0' '560907E00134.ms.model.script' // CompareKeys
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5609091B00C0_ME_56320A830305_impl CompareKeys
+
+MEREF ME_4A54DD4E036F_ME_56320A830305_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_56320A830305_G Tl3ProtoDataContainer
+
+MEREF ME_5609096C03BE_ME_56320A830305_R
+ MELINK Original WL? 'ME_5609096C03BE' // l3Map
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5609096C03BE_ME_56320A830305_R l3Map
+
+%%ImplementedBy ME_5609096C03BE ME_56320A830305
+
+%%InheritedBy ME_4A54DD4E036F ME_56320A830305
+
+ME ME_56320A830305
+ MEPROP UID '56320A830305'
+ MEPROP Name 'TnsContainerToBaseSearcherMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_563208C60299 // TnsBaseSearchServiceImpl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_56320A830305_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5609096C03BE_ME_56320A830305_R // l3Map
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_56320B980313 // KeyType
+ HWL ME_56320BBF00FE // ValueType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_5609091B00C0_ME_56320A830305_impl // CompareKeys
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ContainerToBaseSearcherMap'
+
+ENDME // ME_56320A830305 TnsContainerToBaseSearcherMap
+
+ME ME_56320BFE0215
+ MEPROP UID '56320BFE0215'
+ MEPROP Name 'f_SearcherMap'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_563208C60299 // TnsBaseSearchServiceImpl
+ ;
+ MELINK Target HWL ME_56320A830305 // TnsContainerToBaseSearcherMap
+ ;
+
+ENDME // ME_56320BFE0215 f_SearcherMap
+
+ME ME_56388A940067
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_563208C60299 // TnsBaseSearchServiceImpl
+ ;
+ MELINK Target WL? 'ME_563875050317' // TnsBaseSearchService
+ ;
+
+ENDME // ME_56388A940067 
+
+MEREF ME_479731C50290_ME_563208C60299_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_563208C60299_over Cleanup
+
+MEREF ME_47A042E100E2_ME_563208C60299_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_563208C60299_over InitFields
+
+MEREF ME_49E7754802A9_ME_563208C60299_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_563208C60299_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_563208C60299
+
+ME ME_563208C60299
+ MEPROP UID '563208C60299'
+ MEPROP Name 'TnsBaseSearchServiceImpl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4AC225E70273' // BaseSearch
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_563208C60299_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_56320BFE0215 // f_SearcherMap
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_563208C60299_over // Cleanup
+ ME_47A042E100E2_ME_563208C60299_over // InitFields
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_56320A830305 // TnsContainerToBaseSearcherMap
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_56388A940067 // TnsBaseSearchService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nsBaseSearchServiceImpl'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BaseSearchServiceImpl'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\nsBaseSearchServiceImpl.pas'
+
+ENDME // ME_563208C60299 TnsBaseSearchServiceImpl

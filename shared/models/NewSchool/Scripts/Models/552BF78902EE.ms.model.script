@@ -13,7 +13,7 @@ ME ME_552BF7BB011A
  MELINK Stereotype st_implements::Dependency ;
  MELINK Parent HWL ME_552BF7B201EE // TddAutolinkService
  ;
- MELINK Target WL 'ME_552BF69B039B' '552BF68E0188.ms.model.script' // Tl3AutolinkService
+ MELINK Target WL? 'ME_552BF69B039B' // Tl3AutolinkService
  ;
 
 ENDME // ME_552BF7BB011A 
@@ -28,6 +28,12 @@ ME ME_552BF7C8008A
 
 ENDME // ME_552BF7C8008A 
 
+MEREF ME_49E7754802A9_ME_552BF7B201EE_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_552BF7B201EE_G Tl3ProtoObject
+
 %%InheritedBy ME_49E7754802A9 ME_552BF7B201EE
 
 ME ME_552BF7B201EE
@@ -41,7 +47,7 @@ ME ME_552BF7B201EE
  MELINK Parent HWL ME_552BF78902EE // ddAutoLinkServices
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_552BF7B201EE_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Dependencies

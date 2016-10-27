@@ -1,0 +1,316 @@
+// TcallMSSRunner 55C482EC023E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55C482EC023E
+
+FORWARD ME_55C483850136
+
+ME ME_FDC9EB6DED6D
+ MEPROP UID 'FDC9EB6DED6D'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода Run' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C483850136 // Run
+ ;
+
+ENDME // ME_FDC9EB6DED6D DoIt
+
+ME ME_55C483970098
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C483850136 // Run
+ ;
+ MELINK Target WL? 'ME_4DC90A1E03C2' // TkwMain
+ ;
+
+ENDME // ME_55C483970098 
+
+ME ME_55C483AE017E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C483850136 // Run
+ ;
+ MELINK Target WL? 'ME_55C482690029' // TtfwDefaultScriptCaller
+ ;
+
+ENDME // ME_55C483AE017E 
+
+ME ME_55C483FC02E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C483850136 // Run
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_55C483FC02E8 
+
+ME ME_55C48FF70223
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C483850136 // Run
+ ;
+ MELINK Target WL? 'ME_55C48FCE03AB' // TtfwConsoleScriptCaller
+ ;
+
+ENDME // ME_55C48FF70223 
+
+ME ME_55C4A5E5036C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C483850136 // Run
+ ;
+ MELINK Target WL? 'ME_4DAEEA9E0049' // TtfwScriptEngine
+ ;
+
+ENDME // ME_55C4A5E5036C 
+
+ME ME_55C4A60F0269
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C483850136 // Run
+ ;
+ MELINK Target WL? 'ME_4DEF306102FF' // TtfwScriptEngineEX
+ ;
+
+ENDME // ME_55C4A60F0269 
+
+ME ME_55C4BD780384
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C483850136 // Run
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_55C4BD780384 
+
+ME ME_56373E06004E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C483850136 // Run
+ ;
+ MELINK Target WL? 'ME_4B57004201BD' // l3FileUtils
+ ;
+
+ENDME // ME_56373E06004E 
+
+ME ME_563743080237
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C483850136 // Run
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_563743080237 
+
+ME ME_5637464A010A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C483850136 // Run
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_5637464A010A 
+
+ME ME_563CB35E0235
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C483850136 // Run
+ ;
+ MELINK Target WL? 'ME_483C378301CB' // StrUtils
+ ;
+
+ENDME // ME_563CB35E0235 
+
+ME ME_563CB8030308
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C483850136 // Run
+ ;
+ MELINK Target WL? 'ME_4773DCE302FF' // Tl3StringList
+ ;
+
+ENDME // ME_563CB8030308 
+
+ME ME_56456EFB02A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C483850136 // Run
+ ;
+ MELINK Target WL? 'ME_56456E3E01E4' // TtfwOutToFileScriptCaller
+ ;
+
+ENDME // ME_56456EFB02A4 
+
+ME ME_55C483850136
+ MEPROP UID '55C483850136'
+ MEPROP Name 'Run'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55C482EC023E // TcallMSSRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_FDC9EB6DED6D // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55C483970098 // TkwMain
+ ME_55C483AE017E // TtfwDefaultScriptCaller
+ ME_55C483FC02E8 // l3String
+ ME_55C48FF70223 // TtfwConsoleScriptCaller
+ ME_55C4A5E5036C // TtfwScriptEngine
+ ME_55C4A60F0269 // TtfwScriptEngineEX
+ ME_55C4BD780384 // SysUtils
+ ME_56373E06004E // l3FileUtils
+ ME_563743080237 // l3Base
+ ME_5637464A010A // Windows
+ ME_563CB35E0235 // StrUtils
+ ME_563CB8030308 // Tl3StringList
+ ME_56456EFB02A4 // TtfwOutToFileScriptCaller
+ )
+ ; // Dependencies
+ UP "is static" True
+
+ENDME // ME_55C483850136 Run
+
+FORWARD ME_57B6E409029C
+
+FORWARD ME_57B6E42902A8
+
+ME ME_57B6E4510380
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
+ ;
+
+ENDME // ME_57B6E4510380 aFileName
+
+ME ME_57B6E451039E
+ MEPROP Name 'aCaller'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.ms.model.script' // ItfwScriptCaller
+ ;
+
+ENDME // ME_57B6E451039E aCaller
+
+ME ME_57B6E42902A8
+ MEPROP UID '57B6E42902A8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B6E409029C // DoRunScript
+ ;
+ MELIST Parameters
+   Seq: ( ME_57B6E4510380 // aFileName
+ ME_57B6E451039E // aCaller
+ )
+ ; // Parameters
+
+ENDME // ME_57B6E42902A8 DoIt
+
+ME ME_57B6E409029C
+ MEPROP UID '57B6E409029C'
+ MEPROP Name 'DoRunScript'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55C482EC023E // TcallMSSRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57B6E42902A8 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_57B6E409029C DoRunScript
+
+FORWARD ME_57B6F81500E3
+
+FORWARD ME_57B6F8240001
+
+ME ME_57B6F87B0050
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57B6F87B0050 aFileName
+
+ME ME_57B6F8240001
+ MEPROP UID '57B6F8240001'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B6F81500E3 // CheckFileExists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_57B6F87B0050 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_57B6F8240001 DoIt
+
+ME ME_57B6F81500E3
+ MEPROP UID '57B6F81500E3'
+ MEPROP Name 'CheckFileExists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55C482EC023E // TcallMSSRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57B6F8240001 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_57B6F81500E3 CheckFileExists
+
+ME ME_55C482EC023E
+ MEPROP UID '55C482EC023E'
+ MEPROP Name 'TcallMSSRunner'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55C482960214' // callMSS
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55C483850136 // Run
+ HWL ME_57B6E409029C // DoRunScript
+ HWL ME_57B6F81500E3 // CheckFileExists
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "UseNewGen" True
+ UP extprop:pas:UnitName 'callMSSRunner'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'callMSSRunner'
+ UP intf.pas:Path 'common\components\callMSS\callMSSRunner.pas'
+
+ENDME // ME_55C482EC023E TcallMSSRunner

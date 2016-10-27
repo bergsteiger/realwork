@@ -1,0 +1,142 @@
+// TnsDocumentPreview 47F22D5701A7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F22D5701A7
+
+ME ME_4BCED5D9028D
+ MEPROP UID '4BCED5D9028D'
+ MEPROP Name 'f_Event'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47F22D5701A7 // TnsDocumentPreview
+ ;
+ MELINK Target WL 'ME_4B0FA5B8011B' '49913F2C020C.ms.model.script' // InsDefferedEvent
+ ;
+
+ENDME // ME_4BCED5D9028D f_Event
+
+ME ME_4BCED62300ED
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F22D5701A7 // TnsDocumentPreview
+ ;
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
+ ;
+
+ENDME // ME_4BCED62300ED 
+
+ME ME_4BCED646005A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F22D5701A7 // TnsDocumentPreview
+ ;
+ MELINK Target WL 'ME_47FB51FA0178' '47FB50E4008E.ms.model.script' // Settings
+ ;
+
+ENDME // ME_4BCED646005A 
+
+ME ME_4BCED68600E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F22D5701A7 // TnsDocumentPreview
+ ;
+ MELINK Target WL 'ME_4BCED67800F1' '47877EB202FB.ms.model.script' // ANSISameText
+ ;
+
+ENDME // ME_4BCED68600E9 
+
+MEREF ME_499140B20354_ME_47F22D5701A7_impl
+ MELINK Original WL 'ME_499140B20354' '49913F2C020C.ms.model.script' // SetEvent
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_499140B20354_ME_47F22D5701A7_impl SetEvent
+
+MEREF ME_47ECFAD101B9_ME_47F22D5701A7_over
+ MELINK Original WL 'ME_47ECFAD101B9' '47EA97410130.ms.model.script' // IsSettingAffectsUs
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47ECFAD101B9_ME_47F22D5701A7_over IsSettingAffectsUs
+
+MEREF ME_48FD8A1C0307_ME_47F22D5701A7_over
+ MELINK Original WL 'ME_48FD8A1C0307' '47EA97410130.ms.model.script' // AfterPrint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FD8A1C0307_ME_47F22D5701A7_over AfterPrint
+
+MEREF ME_4A2E97A4021B_ME_47F22D5701A7_over
+ MELINK Original WL 'ME_4A2E97A4021B' '47EA97410130.ms.model.script' // NeedAddBlockNames
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A2E97A4021B_ME_47F22D5701A7_over NeedAddBlockNames
+
+MEREF ME_49CBD11A02CF_ME_47F22D5701A7_G
+ MELINK Original WL? 'ME_49CBD11A02CF' // TevDocumentPreview
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49CBD11A02CF_ME_47F22D5701A7_G TevDocumentPreview
+
+MEREF ME_499140AB00DE_ME_47F22D5701A7_R
+ MELINK Original WL 'ME_499140AB00DE' '49913F2C020C.ms.model.script' // InsEventHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_499140AB00DE_ME_47F22D5701A7_R InsEventHolder
+
+%%ImplementedBy ME_499140AB00DE ME_47F22D5701A7
+
+%%InheritedBy ME_49CBD11A02CF ME_47F22D5701A7
+
+ME ME_47F22D5701A7
+ MEPROP UID '47F22D5701A7'
+ MEPROP Name 'TnsDocumentPreview'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Предварительный просмотр документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_491DCA2C00A9' // Search
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49CBD11A02CF_ME_47F22D5701A7_G // TevDocumentPreview
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_499140AB00DE_ME_47F22D5701A7_R // InsEventHolder
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4BCED5D9028D // f_Event
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_499140B20354_ME_47F22D5701A7_impl // SetEvent
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47ECFAD101B9_ME_47F22D5701A7_over // IsSettingAffectsUs
+ ME_48FD8A1C0307_ME_47F22D5701A7_over // AfterPrint
+ ME_4A2E97A4021B_ME_47F22D5701A7_over // NeedAddBlockNames
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4BCED62300ED // afwFacade
+ ME_4BCED646005A // Settings
+ ME_4BCED68600E9 // ANSISameText
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '2003/07/02 19:45:58'
+ UP extprop:pas:UnitName 'nsDocumentPreview'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentPreview'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\nsDocumentPreview.pas'
+
+ENDME // ME_47F22D5701A7 TnsDocumentPreview

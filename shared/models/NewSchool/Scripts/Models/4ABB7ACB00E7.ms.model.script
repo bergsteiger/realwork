@@ -5,8 +5,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_D488F1933FE9
 %%Inner ME_ED7C58FBBB35
 
-FORWARD ME_ED7C58FBBB35
-
 FORWARD ME_4ABB7ACB00E7
 
 ME ME_D488F1933FE9
@@ -52,6 +50,18 @@ ME ME_ED7C58FBBB35
 
 ENDME // ME_ED7C58FBBB35 RegistrationForm$Def
 
+MEREF ME_525AE04E0326_ME_4ABB7ACB00E7_G
+ MELINK Original WL? 'ME_525AE04E0326' // PrimRegistration
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_525AE04E0326_ME_4ABB7ACB00E7_G PrimRegistration
+
+MEREF ME_ED7C58FBBB35_ME_4ABB7ACB00E7_R
+ MELINK Original HWL ME_ED7C58FBBB35 // RegistrationForm$Def
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_ED7C58FBBB35_ME_4ABB7ACB00E7_R RegistrationForm$Def
+
 %%ImplementedBy ME_ED7C58FBBB35 ME_4ABB7ACB00E7
 
 %%InheritedBy ME_525AE04E0326 ME_4ABB7ACB00E7
@@ -69,11 +79,11 @@ ME ME_4ABB7ACB00E7
  MELINK Parent WL? 'ME_4A92C1380380' // PrimF1Common
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_525AE04E0326' // PrimRegistration
+   Seq: ( HWL ME_525AE04E0326_ME_4ABB7ACB00E7_G // PrimRegistration
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_ED7C58FBBB35 // RegistrationForm$Def
+   Seq: ( HWL ME_ED7C58FBBB35_ME_4ABB7ACB00E7_R // RegistrationForm$Def
  )
  ; // Implements
  MELIST Children

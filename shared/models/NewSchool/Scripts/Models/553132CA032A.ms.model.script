@@ -1,0 +1,140 @@
+// TtfwStringToEnumValue 553132CA032A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_553132CA032A
+
+ME ME_5531331902AE
+ MEPROP UID '5531331902AE'
+ MEPROP Name 'f_TypeInfo'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553132CA032A // TtfwStringToEnumValue
+ ;
+ MELINK Target WL 'ME_4767749802D1' '4767743E00E5.ms.model.script' // PTypeInfo
+ ;
+
+ENDME // ME_5531331902AE f_TypeInfo
+
+FORWARD ME_55313331027C
+
+FORWARD ME_5531333A0311
+
+ME ME_5531333D016E
+ MEPROP Name 'aTypeInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4767749802D1' '4767743E00E5.ms.model.script' // PTypeInfo
+ ;
+
+ENDME // ME_5531333D016E aTypeInfo
+
+ME ME_5531333A0311
+ MEPROP UID '5531333A0311'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55313331027C // Register
+ ;
+ MELIST Parameters
+   Seq: ( ME_5531333D016E // aTypeInfo
+ )
+ ; // Parameters
+
+ENDME // ME_5531333A0311 DoIt
+
+ME ME_55313331027C
+ MEPROP UID '55313331027C'
+ MEPROP Name 'Register'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553132CA032A // TtfwStringToEnumValue
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5531333A0311 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_55313331027C Register
+
+ME ME_5531332002CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_553132CA032A // TtfwStringToEnumValue
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_5531332002CF 
+
+MEREF ME_4DAEEDE10285_ME_553132CA032A_impl
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DAEEDE10285_ME_553132CA032A_impl DoDoIt
+
+MEREF ME_551544E2001A_ME_553132CA032A_over
+ MELINK Original WL 'ME_551544E2001A' '4DAF19F600C5.ms.model.script' // GetResultTypeInfo
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_551544E2001A_ME_553132CA032A_over GetResultTypeInfo
+
+MEREF ME_54D229E702B6_ME_553132CA032A_G
+ MELINK Original WL? 'ME_54D229E702B6' // TtfwRegisterableWordPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54D229E702B6_ME_553132CA032A_G TtfwRegisterableWordPrim
+
+%%InheritedBy ME_54D229E702B6 ME_553132CA032A
+
+ME ME_553132CA032A
+ MEPROP UID '553132CA032A'
+ MEPROP Name 'TtfwStringToEnumValue'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53C7C3100231' // ConstantsRegistration
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54D229E702B6_ME_553132CA032A_G // TtfwRegisterableWordPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5531331902AE // f_TypeInfo
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55313331027C // Register
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_553132CA032A_impl // DoDoIt
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_551544E2001A_ME_553132CA032A_over // GetResultTypeInfo
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5531332002CF // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'tfwStringToEnumValue'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringToEnumValue'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwStringToEnumValue.pas'
+
+ENDME // ME_553132CA032A TtfwStringToEnumValue

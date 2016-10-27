@@ -1,0 +1,148 @@
+// RegExpTest 4F68409203D1 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F68409203D1
+
+FORWARD ME_4F6840D602F3
+
+ME ME_4F6841350129
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6840D602F3 // DoIt
+ ;
+ MELINK Target WL? 'ME_483D7D8C001A' // l3RegEx
+ ;
+
+ENDME // ME_4F6841350129 
+
+ME ME_4F6854A20277
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6840D602F3 // DoIt
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4F6854A20277 
+
+ME ME_4F6860B80194
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6840D602F3 // DoIt
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4F6860B80194 
+
+ME ME_51BAE47E0290
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6840D602F3 // DoIt
+ ;
+ MELINK Target WL? 'ME_51BAE2BF011A' // l3IniFile
+ ;
+
+ENDME // ME_51BAE47E0290 
+
+ME ME_51BAEAB6021A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6840D602F3 // DoIt
+ ;
+ MELINK Target WL? 'ME_4C1B475101C5' // l3Parser
+ ;
+
+ENDME // ME_51BAEAB6021A 
+
+ME ME_51BAEF37036F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6840D602F3 // DoIt
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_51BAEF37036F 
+
+ME ME_51BB071F02E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6840D602F3 // DoIt
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_51BB071F02E0 
+
+ME ME_51BB092403AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6840D602F3 // DoIt
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_51BB092403AB 
+
+ME ME_4F6840D602F3
+ MEPROP UID '4F6840D602F3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F68409203D1 // RegExpTest
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F6841350129 // l3RegEx
+ ME_4F6854A20277 // l3String
+ ME_4F6860B80194 // SysUtils
+ ME_51BAE47E0290 // l3IniFile
+ ME_51BAEAB6021A // l3Parser
+ ME_51BAEF37036F // l3CStr
+ ME_51BB071F02E0 // Il3CString
+ ME_51BB092403AB // Tl3CustomFiler
+ )
+ ; // Dependencies
+
+ENDME // ME_4F6840D602F3 DoIt
+
+MEREF ME_4B2A11BC0255_ME_4F68409203D1_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_4F68409203D1_G TBaseTest
+
+%%InheritedBy ME_4B2A11BC0255 ME_4F68409203D1
+
+ME ME_4F68409203D1
+ MEPROP UID '4F68409203D1'
+ MEPROP Name 'RegExpTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F683FAE0205' // RegExp
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B2A11BC0255_ME_4F68409203D1_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F6840D602F3 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TRegExpTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RegExpTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\RegExpTest.pas'
+
+ENDME // ME_4F68409203D1 RegExpTest

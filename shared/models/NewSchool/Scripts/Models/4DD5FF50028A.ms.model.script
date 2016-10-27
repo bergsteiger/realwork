@@ -1,0 +1,59 @@
+// TSelectCommentAndDelete 4DD5FF50028A TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4BE13147032C_ME_4DD5FF50028A_impl
+ MELINK Original WL 'ME_4BE13147032C' '4BE111D30229.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE13147032C_ME_4DD5FF50028A_impl Process
+
+MEREF ME_4BE111D30229_ME_4DD5FF50028A_G
+ MELINK Original WL? 'ME_4BE111D30229' // TTextViaEditorProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE111D30229_ME_4DD5FF50028A_G TTextViaEditorProcessor
+
+MEREF ME_4D4137E30326_ME_4DD5FF50028A_R
+ MELINK Original WL? 'ME_4D4137E30326' // SelectOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D4137E30326_ME_4DD5FF50028A_R SelectOperation
+
+%%ImplementedBy ME_4D4137E30326 ME_4DD5FF50028A
+
+%%InheritedBy ME_4BE111D30229 ME_4DD5FF50028A
+
+ME ME_4DD5FF50028A
+ MEPROP UID '4DD5FF50028A'
+ MEPROP Name 'TSelectCommentAndDelete'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выделить комментарий и удалить.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4D02566F01E6' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE111D30229_ME_4DD5FF50028A_G // TTextViaEditorProcessor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4D4137E30326_ME_4DD5FF50028A_R // SelectOperation
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4BE13147032C_ME_4DD5FF50028A_impl // Process
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'SelectCommentAndDelete'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SelectCommentAndDelete'
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\SelectCommentAndDelete.pas'
+
+ENDME // ME_4DD5FF50028A TSelectCommentAndDelete

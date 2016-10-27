@@ -1,0 +1,154 @@
+// TatStringToBitMaskConverterBase 504F268A02FD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_504F268A02FD
+
+ME ME_504F2741033D
+ MEPROP UID '504F2741033D'
+ MEPROP Name 'BitMaskValueType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_504F268A02FD // TatStringToBitMaskConverterBase
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_504F2741033D BitMaskValueType
+
+ME ME_504F275C019D
+ MEPROP UID '504F275C019D'
+ MEPROP Name 'BitMaskType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_504F268A02FD // TatStringToBitMaskConverterBase
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_504F275C019D BitMaskType
+
+FORWARD ME_504F3866005D
+
+ME ME_504F388D00D4
+ MEPROP Name 'aValues'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_504F326001E9' '504F22BD0284.ms.model.script' // array of _BitMaskValueType_
+ ;
+
+ENDME // ME_504F388D00D4 aValues
+
+ME ME_504F3866005D
+ MEPROP UID '504F3866005D'
+ MEPROP Name 'ToMaskCI'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_504F268A02FD // TatStringToBitMaskConverterBase
+ ;
+ MELINK Target WL 'ME_504F22D5027D' '48076E7F0260.ms.model.script' // BitMaskType
+ ;
+ MELIST Parameters
+   Seq: ( ME_504F388D00D4 // aValues
+ )
+ ; // Parameters
+
+ENDME // ME_504F3866005D ToMaskCI
+
+FORWARD ME_504F8645031F
+
+ME ME_504F86AA016E
+ MEPROP Name 'aMask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_504F22D5027D' '48076E7F0260.ms.model.script' // BitMaskType
+ ;
+
+ENDME // ME_504F86AA016E aMask
+
+ME ME_504F86AA01AD
+ MEPROP Name 'aDelim'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_504F86AA01AD aDelim
+
+ME ME_504F8645031F
+ MEPROP UID '504F8645031F'
+ MEPROP Name 'ToValues'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_504F268A02FD // TatStringToBitMaskConverterBase
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_504F86AA016E // aMask
+ ME_504F86AA01AD // aDelim
+ )
+ ; // Parameters
+ UP "force overload" True
+
+ENDME // ME_504F8645031F ToValues
+
+MEREF ME_504F22BD0284_ME_504F268A02FD_G
+ MELINK Original WL? 'ME_504F22BD0284' // atBitMaskConverter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_504F22BD0284_ME_504F268A02FD_G atBitMaskConverter
+
+MEREF ME_503E313601ED_ME_504F268A02FD_R
+ MELINK Original WL? 'ME_503E313601ED' // atStringConverterImp
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_503E313601ED_ME_504F268A02FD_R atStringConverterImp
+
+%%ImplementedBy ME_503E313601ED ME_504F268A02FD
+
+%%InheritedBy ME_504F22BD0284 ME_504F268A02FD
+
+ME ME_504F268A02FD
+ MEPROP UID '504F268A02FD'
+ MEPROP Name 'TatStringToBitMaskConverterBase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_504F22BD0284_ME_504F268A02FD_G // atBitMaskConverter
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_503E313601ED_ME_504F268A02FD_R // atStringConverterImp
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_504F2741033D // BitMaskValueType
+ HWL ME_504F275C019D // BitMaskType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_504F3866005D // ToMaskCI
+ HWL ME_504F8645031F // ToValues
+ )
+ ; // Operations
+ UP extprop:pas:UnitName 'atStringToBitMaskConverterBase'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atStringToBitMaskConverterBase'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atStringToBitMaskConverterBase.pas'
+
+ENDME // ME_504F268A02FD TatStringToBitMaskConverterBase

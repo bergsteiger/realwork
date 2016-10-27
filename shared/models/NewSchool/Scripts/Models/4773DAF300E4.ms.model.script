@@ -1,0 +1,47 @@
+// Tl3CObjectRefList 4773DAF300E4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_47A6FEE600FC_ME_4773DAF300E4_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_4773DAF300E4_over IsCacheable
+
+MEREF ME_4773DAAA02AA_ME_4773DAF300E4_G
+ MELINK Original WL? 'ME_4773DAAA02AA' // Tl3ObjectRefList1
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773DAAA02AA_ME_4773DAF300E4_G Tl3ObjectRefList1
+
+%%InheritedBy ME_4773DAAA02AA ME_4773DAF300E4
+
+ME ME_4773DAF300E4
+ MEPROP UID '4773DAF300E4'
+ MEPROP Name 'Tl3CObjectRefList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Кешируемый список ссылок на объекты.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4773DAAA02AA_ME_4773DAF300E4_G // Tl3ObjectRefList1
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_4773DAF300E4_over // IsCacheable
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP extprop:pas:UnitName 'l3CObjectRefList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CObjectRefList'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3CObjectRefList.pas'
+
+ENDME // ME_4773DAF300E4 Tl3CObjectRefList

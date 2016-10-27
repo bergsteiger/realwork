@@ -1,0 +1,269 @@
+// Tm3BranchHandlePrim 5453AB7202EC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5453AD480340
+%%Inner ME_5453ACB101F8
+%%Inner ME_5453B699001A
+
+FORWARD ME_5453AB7202EC
+
+FORWARD ME_5453AD480340
+
+ME ME_5453AD700166
+ MEPROP UID '5453AD700166'
+ MEPROP Name 'Hash'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5453AD480340 // Tm3BranchHandlePrimData
+ ;
+ MELINK Target WL 'ME_476F71A701AB' '4807744200AA.ms.model.script' // Word
+ ;
+
+ENDME // ME_5453AD700166 Hash
+
+ME ME_5453AD84031B
+ MEPROP UID '5453AD84031B'
+ MEPROP Name 'Value'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5453AD480340 // Tm3BranchHandlePrimData
+ ;
+ MELINK Target WL 'ME_4FA284CE011F' '4807744200AA.ms.model.script' // PWideChar
+ ;
+
+ENDME // ME_5453AD84031B Value
+
+ME ME_5453AD480340
+ MEPROP UID '5453AD480340'
+ MEPROP Name 'Tm3BranchHandlePrimData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5453AB7202EC // Tm3BranchHandlePrim
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5453AD700166 // Hash
+ HWL ME_5453AD84031B // Value
+ )
+ ; // Attributes
+
+ENDME // ME_5453AD480340 Tm3BranchHandlePrimData
+
+MEREF ME_5453AB7202EC_ME_5453ACB101F8_G
+ MELINK Original HWL ME_5453AB7202EC // Tm3BranchHandlePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5453AB7202EC_ME_5453ACB101F8_G Tm3BranchHandlePrim
+
+%%InheritedBy ME_5453AB7202EC ME_5453ACB101F8
+
+ME ME_5453ACB101F8
+ MEPROP UID '5453ACB101F8'
+ MEPROP Name 'Pm3BranchHandlePrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5453AB7202EC // Tm3BranchHandlePrim
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5453AB7202EC_ME_5453ACB101F8_G // Tm3BranchHandlePrim
+ )
+ ; // Inherits
+ UP "isPointer" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_5453ACB101F8 Pm3BranchHandlePrim
+
+FORWARD ME_5453B699001A
+
+FORWARD ME_5453B6CA01AD
+
+ME ME_5453B6D403C5
+ MEPROP UID '5453B6D403C5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5453B6CA01AD // Create
+ ;
+
+ENDME // ME_5453B6D403C5 DoIt
+
+ME ME_5453B6CA01AD
+ MEPROP UID '5453B6CA01AD'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5453B699001A // Tm3BranchHandlesManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5453B6D403C5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5453B6CA01AD Create
+
+ME ME_5459E38403B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5453B699001A // Tm3BranchHandlesManager
+ ;
+ MELINK Target WL? 'ME_5453ACDE0177' // Tm3BranchHandle
+ ;
+
+ENDME // ME_5459E38403B3 
+
+MEREF ME_5453AE0C0100_ME_5453B699001A_G
+ MELINK Original WL? 'ME_5453AE0C0100' // Tl3SimpleMemoryManager
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5453AE0C0100_ME_5453B699001A_G Tl3SimpleMemoryManager
+
+%%InheritedBy ME_5453AE0C0100 ME_5453B699001A
+
+ME ME_5453B699001A
+ MEPROP UID '5453B699001A'
+ MEPROP Name 'Tm3BranchHandlesManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5453AB7202EC // Tm3BranchHandlePrim
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5453AE0C0100_ME_5453B699001A_G // Tl3SimpleMemoryManager
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5453B6CA01AD // Create
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5459E38403B3 // Tm3BranchHandle
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3BranchHandlesManager'
+
+ENDME // ME_5453B699001A Tm3BranchHandlesManager
+
+ME ME_5453AD5300BB
+ MEPROP UID '5453AD5300BB'
+ MEPROP Name 'Data'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5453AB7202EC // Tm3BranchHandlePrim
+ ;
+ MELINK Target HWL ME_5453AD480340 // Tm3BranchHandlePrimData
+ ;
+
+ENDME // ME_5453AD5300BB Data
+
+ME ME_545B9F4D021A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5453AB7202EC // Tm3BranchHandlePrim
+ ;
+ MELINK Target WL? 'ME_5459E3FB0365' // Tm3WideStringManager
+ ;
+
+ENDME // ME_545B9F4D021A 
+
+MEREF ME_479731C50290_ME_5453AB7202EC_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5453AB7202EC_over Cleanup
+
+MEREF ME_47A6FEE600FC_ME_5453AB7202EC_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_5453AB7202EC_over IsCacheable
+
+MEREF ME_5453AC3702B2_ME_5453AB7202EC_over
+ MELINK Original WL 'ME_5453AC3702B2' '47913F4E02E0.ms.model.script' // AllocInstanceMem
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDMEREF // ME_5453AC3702B2_ME_5453AB7202EC_over AllocInstanceMem
+
+MEREF ME_5453AC66022A_ME_5453AB7202EC_over
+ MELINK Original WL 'ME_5453AC66022A' '47913F4E02E0.ms.model.script' // FreeInstanceMem
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5453AC66022A_ME_5453AB7202EC_over FreeInstanceMem
+
+MEREF ME_49E7754802A9_ME_5453AB7202EC_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5453AB7202EC_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_5453AB7202EC
+
+ME ME_5453AB7202EC
+ MEPROP UID '5453AB7202EC'
+ MEPROP Name 'Tm3BranchHandlePrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_5453AB7202EC_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5453AD5300BB // Data
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5453AB7202EC_over // Cleanup
+ ME_47A6FEE600FC_ME_5453AB7202EC_over // IsCacheable
+ ME_5453AC3702B2_ME_5453AB7202EC_over // AllocInstanceMem
+ ME_5453AC66022A_ME_5453AB7202EC_over // FreeInstanceMem
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_5453AD480340 // Tm3BranchHandlePrimData
+ HWL ME_5453ACB101F8 // Pm3BranchHandlePrim
+ HWL ME_5453B699001A // Tm3BranchHandlesManager
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_545B9F4D021A // Tm3WideStringManager
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'm3BranchHandlePrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3BranchHandlePrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3BranchHandlePrim.pas'
+
+ENDME // ME_5453AB7202EC Tm3BranchHandlePrim

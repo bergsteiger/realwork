@@ -1,0 +1,158 @@
+// TtfwCOMStreamFactory 52F4F1AA01E1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52F4F1AA01E1
+
+ME ME_52F4F1F5021A
+ MEPROP UID '52F4F1F5021A'
+ MEPROP Name 'f_COMStream'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_52F4F1AA01E1 // TtfwCOMStreamFactory
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_52F4F1F5021A f_COMStream
+
+FORWARD ME_52F4F21D036E
+
+FORWARD ME_52F4F22401EF
+
+ME ME_52F4F2300041
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_52F4F2300041 aStream
+
+ME ME_52F4F22401EF
+ MEPROP UID '52F4F22401EF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F4F21D036E // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_52F4F2300041 // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_52F4F22401EF DoIt
+
+ME ME_52F4F21D036E
+ MEPROP UID '52F4F21D036E'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F4F1AA01E1 // TtfwCOMStreamFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F4F22401EF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52F4F21D036E Create
+
+ME ME_52F4F1D10260
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F4F1AA01E1 // TtfwCOMStreamFactory
+ ;
+ MELINK Target WL? 'ME_47A080670100' // l3Stream
+ ;
+
+ENDME // ME_52F4F1D10260 
+
+ME ME_52F4F9D3034A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F4F1AA01E1 // TtfwCOMStreamFactory
+ ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_52F4F9D3034A 
+
+ME ME_55A6514602A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F4F1AA01E1 // TtfwCOMStreamFactory
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_55A6514602A9 
+
+MEREF ME_52F4E6E90067_ME_52F4F1AA01E1_impl
+ MELINK Original WL 'ME_52F4E6E90067' '52F4E6AA02BB.ms.model.script' // Stream
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52F4E6E90067_ME_52F4F1AA01E1_impl Stream
+
+MEREF ME_55A649CC0040_ME_52F4F1AA01E1_impl
+ MELINK Original WL 'ME_55A649CC0040' '52F4E6AA02BB.ms.model.script' // FileDateTime
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55A649CC0040_ME_52F4F1AA01E1_impl FileDateTime
+
+MEREF ME_52F4E6AA02BB_ME_52F4F1AA01E1_G
+ MELINK Original WL? 'ME_52F4E6AA02BB' // TtfwStreamFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52F4E6AA02BB_ME_52F4F1AA01E1_G TtfwStreamFactory
+
+%%InheritedBy ME_52F4E6AA02BB ME_52F4F1AA01E1
+
+ME ME_52F4F1AA01E1
+ MEPROP UID '52F4F1AA01E1'
+ MEPROP Name 'TtfwCOMStreamFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F4734A40270' // Parser
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52F4E6AA02BB_ME_52F4F1AA01E1_G // TtfwStreamFactory
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52F4F1F5021A // f_COMStream
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52F4F21D036E // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_52F4E6E90067_ME_52F4F1AA01E1_impl // Stream
+ ME_55A649CC0040_ME_52F4F1AA01E1_impl // FileDateTime
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_52F4F1D10260 // l3Stream
+ ME_52F4F9D3034A // TStream
+ ME_55A6514602A9 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'tfwCOMStreamFactory'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'COMStreamFactory'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCOMStreamFactory.pas'
+
+ENDME // ME_52F4F1AA01E1 TtfwCOMStreamFactory

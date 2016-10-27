@@ -7,6 +7,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_51DEB07E03E4
 
+MEREF ME_51DEB1B30171_ME_51DEB77702EC_G
+ MELINK Original WL 'ME_51DEB1B30171' '51DEB06A03CB.ms.model.script' // ItemType
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51DEB1B30171_ME_51DEB77702EC_G ItemType
+
 %%InheritedBy ME_51DEB1B30171 ME_51DEB77702EC
 
 ME ME_51DEB77702EC
@@ -20,12 +26,18 @@ ME ME_51DEB77702EC
  MELINK Parent HWL ME_51DEB07E03E4 // List
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_51DEB1B30171' '51DEB06A03CB.ms.model.script' // ItemType
+   Seq: ( HWL ME_51DEB1B30171_ME_51DEB77702EC_G // ItemType
  )
  ; // Inherits
  UP "isPointer" True
 
 ENDME // ME_51DEB77702EC PItemType
+
+MEREF ME_46A606AC03B2_ME_51DEB8CB0127_G
+ MELINK Original WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46A606AC03B2_ME_51DEB8CB0127_G Integer
 
 %%InheritedBy ME_46A606AC03B2 ME_51DEB8CB0127
 
@@ -40,7 +52,7 @@ ME ME_51DEB8CB0127
  MELINK Parent HWL ME_51DEB07E03E4 // List
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+   Seq: ( HWL ME_46A606AC03B2_ME_51DEB8CB0127_G // Integer
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -285,7 +297,7 @@ ENDME // ME_51DEB88500A7 DoIt
 ME ME_51DEB8770017
  MEPROP UID '51DEB8770017'
  MEPROP Name 'ReAllocList'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -334,7 +346,7 @@ ENDME // ME_51DEB97B0238 DoIt
 ME ME_51DEB95E00BD
  MEPROP UID '51DEB95E00BD'
  MEPROP Name 'CheckIndex'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'проверяет валидность индекса и поднимает исключение, если он неправильный' ;
@@ -382,7 +394,7 @@ ENDME // ME_51DEBE3C008D DoIt
 ME ME_51DEBE2D008A
  MEPROP UID '51DEBE2D008A'
  MEPROP Name 'ItemSlot'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -429,7 +441,7 @@ ENDME // ME_51DEC16501B0 DoIt
 ME ME_51DEC11F0058
  MEPROP UID '51DEC11F0058'
  MEPROP Name 'ExpandSize'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -478,7 +490,7 @@ ENDME // ME_51DECAD7026F DoIt
 ME ME_51DECAA8035E
  MEPROP UID '51DECAA8035E'
  MEPROP Name 'CheckSetItem'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Проверяет валидность индекса при вставке' ;
@@ -528,7 +540,7 @@ ENDME // ME_51E6A280028E DoIt
 ME ME_51E6A2660270
  MEPROP UID '51E6A2660270'
  MEPROP Name 'Delete'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'удалить элемент с индексом anIndex' ;
@@ -584,7 +596,7 @@ ENDME // ME_51E6A2CA0230 DoIt
 ME ME_51E6A2AA02E4
  MEPROP UID '51E6A2AA02E4'
  MEPROP Name 'DirectInsert'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Непосредственная вставка элемента. Без проверки валидности индекса' ;
@@ -644,7 +656,7 @@ ENDME // ME_51E6A31F0310 DoIt
 ME ME_51E6A3140016
  MEPROP UID '51E6A3140016'
  MEPROP Name 'Insert'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Вставка элемента' ;
@@ -710,7 +722,7 @@ ENDME // ME_51E6A821031E DoIt
 ME ME_51E6A8190252
  MEPROP UID '51E6A8190252'
  MEPROP Name 'MoveItems'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -755,7 +767,7 @@ ENDME // ME_51E801A800E9 DoIt
 ME ME_51E80192036C
  MEPROP UID '51E80192036C'
  MEPROP Name 'Add'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Добавляет элемент списка' ;
@@ -803,7 +815,7 @@ ENDME // ME_51E801F402F6 DoIt
 ME ME_51E801D503C5
  MEPROP UID '51E801D503C5'
  MEPROP Name 'IndexOf'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Возвращает индекс элемента списка или -1, если элемента в списке нет' ;
@@ -849,7 +861,7 @@ ENDME // ME_51E80242014A DoIt
 ME ME_51E802290167
  MEPROP UID '51E802290167'
  MEPROP Name 'Remove'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Удаляет элемент из списка' ;
@@ -867,7 +879,7 @@ ENDME // ME_51E802290167 Remove
 ME ME_51E8026302B4
  MEPROP UID '51E8026302B4'
  MEPROP Name 'Clear'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Очищает список' ;
@@ -1001,11 +1013,17 @@ ME ME_51DEC5570076
 
 ENDME // ME_51DEC5570076 
 
-ME ME_479731C50290_ME_51DEB07E03E4
+MEREF ME_479731C50290_ME_51DEB07E03E4_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_51DEB07E03E4 Cleanup
+ENDMEREF // ME_479731C50290_ME_51DEB07E03E4_over Cleanup
+
+MEREF ME_51DEB13301ED_ME_51DEB07E03E4_R
+ MELINK Original WL 'ME_51DEB13301ED' '51612EBB02F5.ms.model.script' // MRefCounted
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51DEB13301ED_ME_51DEB07E03E4_R MRefCounted
 
 %%ImplementedBy ME_51DEB13301ED ME_51DEB07E03E4
 
@@ -1022,7 +1040,7 @@ ME ME_51DEB07E03E4
  MELINK Parent WL? 'ME_51DEB06A03CB' // STLLike
  ;
  MELIST Implements
-   Seq: ( WL 'ME_51DEB13301ED' '51612EBB02F5.ms.model.script' // MRefCounted
+   Seq: ( HWL ME_51DEB13301ED_ME_51DEB07E03E4_R // MRefCounted
  )
  ; // Implements
  MELIST Attributes
@@ -1056,7 +1074,7 @@ ME ME_51DEB07E03E4
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_51DEB07E03E4 // Cleanup
+   Seq: ( ME_479731C50290_ME_51DEB07E03E4_over // Cleanup
  )
  ; // Overridden
  MELIST Children

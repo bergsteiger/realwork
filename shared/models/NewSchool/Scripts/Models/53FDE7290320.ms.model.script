@@ -1,0 +1,190 @@
+// Tm3RootStream 53FDE7290320 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53FEFB4C03AE
+%%Inner ME_54072E7803D1
+
+FORWARD ME_53FDE7290320
+
+ME ME_53FEFB4C03AE
+ MEPROP UID '53FEFB4C03AE'
+ MEPROP Name 'Tm3RootStreamHeader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '«аголовок потока в котором живет IStorage.'#13#10''#13#10'ƒанные определ€ютс€ через пользовательскую секцию, чтобы они не дай бог местами не переставились.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53FDE7290320 // Tm3RootStream
+ ;
+ UP "need UC" True
+ UP "packed" True
+
+ENDME // ME_53FEFB4C03AE Tm3RootStreamHeader
+
+MEREF ME_53FDE7290320_ME_54072E7803D1_G
+ MELINK Original HWL ME_53FDE7290320 // Tm3RootStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53FDE7290320_ME_54072E7803D1_G Tm3RootStream
+
+%%InheritedBy ME_53FDE7290320 ME_54072E7803D1
+
+ME ME_54072E7803D1
+ MEPROP UID '54072E7803D1'
+ MEPROP Name 'Rm3RootStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53FDE7290320 // Tm3RootStream
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53FDE7290320_ME_54072E7803D1_G // Tm3RootStream
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_54072E7803D1 Rm3RootStream
+
+ME ME_53FF3849037C
+ MEPROP UID '53FF3849037C'
+ MEPROP Name 'HeaderType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FDE7290320 // Tm3RootStream
+ ;
+ MELINK Target HWL ME_53FEFB4C03AE // Tm3RootStreamHeader
+ ;
+
+ENDME // ME_53FF3849037C HeaderType
+
+FORWARD ME_542BEDF501C7
+
+ME ME_542BEE36022D
+ MEPROP UID '542BEE36022D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542BEDF501C7 // ForceLockHeader
+ ;
+
+ENDME // ME_542BEE36022D DoIt
+
+ME ME_542BF37D00EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_542BEDF501C7 // ForceLockHeader
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_542BF37D00EF 
+
+ME ME_542BEDF501C7
+ MEPROP UID '542BEDF501C7'
+ MEPROP Name 'ForceLockHeader'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '√арантированно блокирует заголовок потока.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FDE7290320 // Tm3RootStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542BEE36022D // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_542BF37D00EF // Windows
+ )
+ ; // Dependencies
+
+ENDME // ME_542BEDF501C7 ForceLockHeader
+
+ME ME_5411CAF803AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FDE7290320 // Tm3RootStream
+ ;
+ MELINK Target WL? 'ME_5411C54C0194' // m3StorageBlock
+ ;
+
+ENDME // ME_5411CAF803AD 
+
+MEREF ME_53FDFAF900ED_ME_53FDE7290320_impl
+ MELINK Original WL 'ME_53FDFAF900ED' '53FDFADD027F.ms.model.script' // HeaderID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" True
+ENDMEREF // ME_53FDFAF900ED_ME_53FDE7290320_impl HeaderID
+
+MEREF ME_53FF37DC003A_ME_53FDE7290320_impl
+ MELINK Original WL 'ME_53FF37DC003A' '53FDCEC40006.ms.model.script' // DefaultHeaderValue
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" True
+ENDMEREF // ME_53FF37DC003A_ME_53FDE7290320_impl DefaultHeaderValue
+
+MEREF ME_54073B760302_ME_53FDE7290320_G
+ MELINK Original WL? 'ME_54073B760302' // m3RootStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54073B760302_ME_53FDE7290320_G m3RootStream
+
+%%InheritedBy ME_54073B760302 ME_53FDE7290320
+
+ME ME_53FDE7290320
+ MEPROP UID '53FDE7290320'
+ MEPROP Name 'Tm3RootStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54073B760302_ME_53FDE7290320_G // m3RootStream
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53FF3849037C // HeaderType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_542BEDF501C7 // ForceLockHeader
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_53FDFAF900ED_ME_53FDE7290320_impl // HeaderID
+ ME_53FF37DC003A_ME_53FDE7290320_impl // DefaultHeaderValue
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_53FEFB4C03AE // Tm3RootStreamHeader
+ HWL ME_54072E7803D1 // Rm3RootStream
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5411CAF803AD // m3StorageBlock
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'm3RootStream'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3RootStream'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3RootStream.pas'
+
+ENDME // ME_53FDE7290320 Tm3RootStream

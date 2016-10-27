@@ -1,0 +1,92 @@
+// TevTableMarker 4ED31E52002F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ED31E52002F
+
+ME ME_4ED3281F01B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ED31E52002F // TevTableMarker
+ ;
+ MELINK Target WL 'ME_47AC818702E5' '47AC80BD020B.ms.model.script' // Ek2ConversionError
+ ;
+
+ENDME // ME_4ED3281F01B0 
+
+ME ME_4ED328B70097
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ED31E52002F // TevTableMarker
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_4ED328B70097 
+
+ME ME_4F4C674F0068
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ED31E52002F // TevTableMarker
+ ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_4F4C674F0068 
+
+MEREF ME_4ECF8E2C007D_ME_4ED31E52002F_over
+ MELINK Original WL 'ME_4ECF8E2C007D' '4A38AB2A00E2.ms.model.script' // DoGetValue
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4ECF8E2C007D_ME_4ED31E52002F_over DoGetValue
+
+MEREF ME_4ED31DEA0077_ME_4ED31E52002F_over
+ MELINK Original WL 'ME_4ED31DEA0077' '4A38AB2A00E2.ms.model.script' // DoSetValue
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4ED31DEA0077_ME_4ED31E52002F_over DoSetValue
+
+MEREF ME_4A38AB2A00E2_ME_4ED31E52002F_G
+ MELINK Original WL? 'ME_4A38AB2A00E2' // TevMarker
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A38AB2A00E2_ME_4ED31E52002F_G TevMarker
+
+%%InheritedBy ME_4A38AB2A00E2 ME_4ED31E52002F
+
+ME ME_4ED31E52002F
+ MEPROP UID '4ED31E52002F'
+ MEPROP Name 'TevTableMarker'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'маркер отступа таблиц' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E3DF460095' // Cursors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A38AB2A00E2_ME_4ED31E52002F_G // TevMarker
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4ECF8E2C007D_ME_4ED31E52002F_over // DoGetValue
+ ME_4ED31DEA0077_ME_4ED31E52002F_over // DoSetValue
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4ED3281F01B0 // Ek2ConversionError
+ ME_4ED328B70097 // Tl3Point
+ ME_4F4C674F0068 // TnevFormatInfoPrim
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evTableMarker'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TableMarker'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evTableMarker.pas'
+
+ENDME // ME_4ED31E52002F TevTableMarker

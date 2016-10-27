@@ -1,0 +1,201 @@
+// TevFramedParaListPainter 48C9300A02EF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48C9300A02EF
+
+FORWARD ME_51B96E5A0285
+
+ME ME_51B96E860363
+ MEPROP UID '51B96E860363'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51B96E5A0285 // GetFameObjectBehaviur
+ ;
+ MELINK Target WL 'ME_51B9640502D4' '467C0CAA02AB.ms.model.script' // Tl3FrameObjectBehaviour
+ ;
+
+ENDME // ME_51B96E860363 DoIt
+
+ME ME_51B96E5A0285
+ MEPROP UID '51B96E5A0285'
+ MEPROP Name 'GetFameObjectBehaviur'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C9300A02EF // TevFramedParaListPainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51B96E860363 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51B96E5A0285 GetFameObjectBehaviur
+
+ME ME_48C9339E0013
+ MEPROP UID '48C9339E0013'
+ MEPROP Name 'GetColorArray'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C9300A02EF // TevFramedParaListPainter
+ ;
+ MELINK Target WL 'ME_475E5EC90186' '4677FBA70343.ms.model.script' // Tl3LinesColorArray
+ ;
+
+ENDME // ME_48C9339E0013 GetColorArray
+
+ME ME_4D0203AA016F
+ MEPROP UID '4D0203AA016F'
+ MEPROP Name 'NeedLog'
+ MEPROP Class class_Operation
+ %SUMMARY 'Поддерживает ли табличный объект запись в лог для тестов.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48C9300A02EF // TevFramedParaListPainter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "ifdef" 'nsTest'
+
+ENDME // ME_4D0203AA016F NeedLog
+
+ME ME_48C9335D0133
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48C9300A02EF // TevFramedParaListPainter
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_48C9335D0133 
+
+ME ME_48C934420187
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48C9300A02EF // TevFramedParaListPainter
+ ;
+ MELINK Target WL? 'ME_47D15712022D' // Graphics
+ ;
+
+ENDME // ME_48C934420187 
+
+ME ME_527A46A402F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48C9300A02EF // TevFramedParaListPainter
+ ;
+ MELINK Target WL? 'ME_47AC6F0B025E' // k2Base
+ ;
+
+ENDME // ME_527A46A402F2 
+
+ME ME_52BD340C0308
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48C9300A02EF // TevFramedParaListPainter
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_52BD340C0308 
+
+MEREF ME_4804B5FC02A3_ME_48C9300A02EF_over
+ MELINK Original WL 'ME_4804B5FC02A3' '4804A2C101A5.ms.model.script' // DoInitAlignObjects
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4804B5FC02A3_ME_48C9300A02EF_over DoInitAlignObjects
+
+MEREF ME_4804B60E033E_ME_48C9300A02EF_over
+ MELINK Original WL 'ME_4804B60E033E' '4804A2C101A5.ms.model.script' // DoFinisAlignObjects
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4804B60E033E_ME_48C9300A02EF_over DoFinisAlignObjects
+
+MEREF ME_4804B86403BE_ME_48C9300A02EF_over
+ MELINK Original WL 'ME_4804B86403BE' '4804A2C101A5.ms.model.script' // DoFillSelection
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4804B86403BE_ME_48C9300A02EF_over DoFillSelection
+
+MEREF ME_4804BC2401C2_ME_48C9300A02EF_over
+ MELINK Original WL 'ME_4804BC2401C2' '4804A2C101A5.ms.model.script' // DoDraw
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4804BC2401C2_ME_48C9300A02EF_over DoDraw
+
+MEREF ME_49DB948303B9_ME_48C9300A02EF_over
+ MELINK Original WL 'ME_49DB948303B9' '4804A2C101A5.ms.model.script' // GetPaintersHolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49DB948303B9_ME_48C9300A02EF_over GetPaintersHolder
+
+MEREF ME_48C928EE0282_ME_48C9300A02EF_G
+ MELINK Original WL? 'ME_48C928EE0282' // evDelayedPainters
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48C928EE0282_ME_48C9300A02EF_G evDelayedPainters
+
+MEREF ME_49DB5FEF01D8_ME_48C9300A02EF_G
+ MELINK Original WL? 'ME_49DB5FEF01D8' // TevParaListPainter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49DB5FEF01D8_ME_48C9300A02EF_G TevParaListPainter
+
+%%InheritedBy ME_48C928EE0282 ME_48C9300A02EF
+%%InheritedBy ME_49DB5FEF01D8 ME_48C9300A02EF
+
+ME ME_48C9300A02EF
+ MEPROP UID '48C9300A02EF'
+ MEPROP Name 'TevFramedParaListPainter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'общая функциональность для рисователей таблиц' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49DCC860038B' // ParaList Painters
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48C928EE0282_ME_48C9300A02EF_G // evDelayedPainters
+ HWL ME_49DB5FEF01D8_ME_48C9300A02EF_G // TevParaListPainter
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_51B96E5A0285 // GetFameObjectBehaviur
+ HWL ME_48C9339E0013 // GetColorArray
+ HWL ME_4D0203AA016F // NeedLog
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4804B5FC02A3_ME_48C9300A02EF_over // DoInitAlignObjects
+ ME_4804B60E033E_ME_48C9300A02EF_over // DoFinisAlignObjects
+ ME_4804B86403BE_ME_48C9300A02EF_over // DoFillSelection
+ ME_4804BC2401C2_ME_48C9300A02EF_over // DoDraw
+ ME_49DB948303B9_ME_48C9300A02EF_over // GetPaintersHolder
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48C9335D0133 // SysUtils
+ ME_48C934420187 // Graphics
+ ME_527A46A402F2 // k2Base
+ ME_52BD340C0308 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '20.02.2008 10:18'
+ UP extprop:pas:UnitName 'evFramedParaListPainter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FramedParaListPainter'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evFramedParaListPainter.pas'
+
+ENDME // ME_48C9300A02EF TevFramedParaListPainter

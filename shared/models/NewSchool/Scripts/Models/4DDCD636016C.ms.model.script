@@ -137,7 +137,7 @@ ENDME // ME_4DDD07AF0283 DoIt
 ME ME_4DDD07AA02FD
  MEPROP UID '4DDD07AA02FD'
  MEPROP Name 'MakeDocumentContainer'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -166,12 +166,18 @@ ME ME_4E8B2FAE0265
 
 ENDME // ME_4E8B2FAE0265 DoIt
 
+MEREF ME_4E8B2A6701A5_ME_4E8B2F9B02AF_R
+ MELINK Original WL 'ME_4E8B2A6701A5' '484900780017.ms.model.script' // Из просмотра изменений документа должна быть возможность переключится в сравнение редакций
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E8B2A6701A5_ME_4E8B2F9B02AF_R Из просмотра изменений документа должна быть возможность переключится в сравнение редакций
+
 %%ImplementedBy ME_4E8B2A6701A5 ME_4E8B2F9B02AF
 
 ME ME_4E8B2F9B02AF
  MEPROP UID '4E8B2F9B02AF'
  MEPROP Name 'Document'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -179,7 +185,7 @@ ME ME_4E8B2F9B02AF
  MELINK Parent HWL ME_4DDCD636016C // PrimChangesBetweenEditons
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E8B2A6701A5' '484900780017.ms.model.script' // Из просмотра изменений документа должна быть возможность переключится в сравнение редакций
+   Seq: ( HWL ME_4E8B2A6701A5_ME_4E8B2F9B02AF_R // Из просмотра изменений документа должна быть возможность переключится в сравнение редакций
  )
  ; // Implements
  MELIST Operations
@@ -240,7 +246,7 @@ ENDME // ME_5228247B003C DoIt
 ME ME_5228246A01D9
  MEPROP UID '5228246A01D9'
  MEPROP Name 'TextSourceDocumentChanged'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -279,7 +285,7 @@ ME ME_4E8C3B400161
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DDCD636016C // PrimChangesBetweenEditons
  ;
- MELINK Target WL 'ME_49871E4F01AF' '49871D5103B9.ms.model.script' // TnscStatusBarOperationDef
+ MELINK Target WL? 'ME_49871E4F01AF' // TnscStatusBarOperationDef
  ;
 
 ENDME // ME_4E8C3B400161 
@@ -325,135 +331,135 @@ ME ME_5416C06C0387
 
 ENDME // ME_5416C06C0387 
 
-ME ME_496B4C41023E_ME_4DDCD636016C
+MEREF ME_496B4C41023E_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_496B4C41023E' '4A9F98B901A5.ms.model.script' // WindowRequired
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_496B4C41023E_ME_4DDCD636016C WindowRequired
+ENDMEREF // ME_496B4C41023E_ME_4DDCD636016C_impl WindowRequired
 
-ME ME_496B4C500246_ME_4DDCD636016C
+MEREF ME_496B4C500246_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_496B4C500246' '4A9F98B901A5.ms.model.script' // WindowCloseable
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_496B4C500246_ME_4DDCD636016C WindowCloseable
+ENDMEREF // ME_496B4C500246_ME_4DDCD636016C_impl WindowCloseable
 
-ME ME_496B4CA000B6_ME_4DDCD636016C
+MEREF ME_496B4CA000B6_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_496B4CA000B6' '4A9F98B901A5.ms.model.script' // CanCloseWindow
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_496B4CA000B6_ME_4DDCD636016C CanCloseWindow
+ENDMEREF // ME_496B4CA000B6_ME_4DDCD636016C_impl CanCloseWindow
 
-ME ME_496B4CD9005F_ME_4DDCD636016C
+MEREF ME_496B4CD9005F_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_496B4CD9005F' '4A9F98B901A5.ms.model.script' // IsQueryCard
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_496B4CD9005F_ME_4DDCD636016C IsQueryCard
+ENDMEREF // ME_496B4CD9005F_ME_4DDCD636016C_impl IsQueryCard
 
-ME ME_496B4CE30132_ME_4DDCD636016C
+MEREF ME_496B4CE30132_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_496B4CE30132' '4A9F98B901A5.ms.model.script' // TreatSuccessSearchAsManualOpen
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_496B4CE30132_ME_4DDCD636016C TreatSuccessSearchAsManualOpen
+ENDMEREF // ME_496B4CE30132_ME_4DDCD636016C_impl TreatSuccessSearchAsManualOpen
 
-ME ME_496B4CED0306_ME_4DDCD636016C
+MEREF ME_496B4CED0306_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_496B4CED0306' '4A9F98B901A5.ms.model.script' // AutoActivateWindow
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_496B4CED0306_ME_4DDCD636016C AutoActivateWindow
+ENDMEREF // ME_496B4CED0306_ME_4DDCD636016C_impl AutoActivateWindow
 
-ME ME_4A7C0E1A005C_ME_4DDCD636016C
+MEREF ME_4A7C0E1A005C_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4A7C0E1A005C' '4A7C0BF5008B.ms.model.script' // DocumentIsValid
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A7C0E1A005C_ME_4DDCD636016C DocumentIsValid
+ENDMEREF // ME_4A7C0E1A005C_ME_4DDCD636016C_impl DocumentIsValid
 
-ME ME_4A7FCEA9025D_ME_4DDCD636016C
+MEREF ME_4A7FCEA9025D_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4A7FCEA9025D' '4A7B03ED01E3.ms.model.script' // RedactionCurrentPara
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A7FCEA9025D_ME_4DDCD636016C RedactionCurrentPara
+ENDMEREF // ME_4A7FCEA9025D_ME_4DDCD636016C_impl RedactionCurrentPara
 
-ME ME_4A8164E801AE_ME_4DDCD636016C
+MEREF ME_4A8164E801AE_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4A8164E801AE' '4A815C200111.ms.model.script' // GotoPoint
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A8164E801AE_ME_4DDCD636016C GotoPoint
+ENDMEREF // ME_4A8164E801AE_ME_4DDCD636016C_impl GotoPoint
 
-ME ME_4A8168BB0217_ME_4DDCD636016C
+MEREF ME_4A8168BB0217_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4A8168BB0217' '4A815C200111.ms.model.script' // HyperlinkDocument
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A8168BB0217_ME_4DDCD636016C HyperlinkDocument
+ENDMEREF // ME_4A8168BB0217_ME_4DDCD636016C_impl HyperlinkDocument
 
-ME ME_4A82BC390036_ME_4DDCD636016C
+MEREF ME_4A82BC390036_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4A82BC390036' '4A815C200111.ms.model.script' // HyperlinkText
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs field" False
  UP "pm" True
-ENDME // ME_4A82BC390036_ME_4DDCD636016C HyperlinkText
+ENDMEREF // ME_4A82BC390036_ME_4DDCD636016C_impl HyperlinkText
 
-ME ME_4A8931130363_ME_4DDCD636016C
+MEREF ME_4A8931130363_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4A8931130363' '4A7B03ED01E3.ms.model.script' // CanBeChanged
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A8931130363_ME_4DDCD636016C CanBeChanged
+ENDMEREF // ME_4A8931130363_ME_4DDCD636016C_impl CanBeChanged
 
-ME ME_4A8A9DB0001A_ME_4DDCD636016C
+MEREF ME_4A8A9DB0001A_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4A8A9DB0001A' '4A815C200111.ms.model.script' // IsFloating
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A8A9DB0001A_ME_4DDCD636016C IsFloating
+ENDMEREF // ME_4A8A9DB0001A_ME_4DDCD636016C_impl IsFloating
 
-ME ME_4A8AAD450084_ME_4DDCD636016C
+MEREF ME_4A8AAD450084_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4A8AAD450084' '4A8AACAE0356.ms.model.script' // TextWithComments
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs field" False
  UP "pm" True
-ENDME // ME_4A8AAD450084_ME_4DDCD636016C TextWithComments
+ENDMEREF // ME_4A8AAD450084_ME_4DDCD636016C_impl TextWithComments
 
-ME ME_4A8E5E4702C6_ME_4DDCD636016C
+MEREF ME_4A8E5E4702C6_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4A8E5E4702C6' '4A8E5BBF0391.ms.model.script' // FillList
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A8E5E4702C6_ME_4DDCD636016C FillList
+ENDMEREF // ME_4A8E5E4702C6_ME_4DDCD636016C_impl FillList
 
-ME ME_4ACA195801CB_ME_4DDCD636016C
+MEREF ME_4ACA195801CB_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4ACA195801CB' '4A9F98B901A5.ms.model.script' // ContainerForBaseSearch
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" False
-ENDME // ME_4ACA195801CB_ME_4DDCD636016C ContainerForBaseSearch
+ENDMEREF // ME_4ACA195801CB_ME_4DDCD636016C_impl ContainerForBaseSearch
 
-ME ME_4AD6EAA3034A_ME_4DDCD636016C
+MEREF ME_4AD6EAA3034A_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4AD6EAA3034A' '4A9F98B901A5.ms.model.script' // ContextSearcher
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" False
-ENDME // ME_4AD6EAA3034A_ME_4DDCD636016C ContextSearcher
+ENDMEREF // ME_4AD6EAA3034A_ME_4DDCD636016C_impl ContextSearcher
 
-ME ME_4AE1B48A0120_ME_4DDCD636016C
+MEREF ME_4AE1B48A0120_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4AE1B48A0120' '4AE1A69E0156.ms.model.script' // DocumentForExport
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4AE1B48A0120_ME_4DDCD636016C DocumentForExport
+ENDMEREF // ME_4AE1B48A0120_ME_4DDCD636016C_impl DocumentForExport
 
-ME ME_4AE1C7A8016C_ME_4DDCD636016C
+MEREF ME_4AE1C7A8016C_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4AE1C7A8016C' '4AE1A69E0156.ms.model.script' // HasDoc
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs field" False
  UP "pm" True
-ENDME // ME_4AE1C7A8016C_ME_4DDCD636016C HasDoc
+ENDMEREF // ME_4AE1C7A8016C_ME_4DDCD636016C_impl HasDoc
 
-ME ME_4AE1C9890311_ME_4DDCD636016C
+MEREF ME_4AE1C9890311_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4AE1C9890311' '4AE1A69E0156.ms.model.script' // IsDrug
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4AE1C9890311_ME_4DDCD636016C IsDrug
+ENDMEREF // ME_4AE1C9890311_ME_4DDCD636016C_impl IsDrug
 
-ME ME_4AE9D38A02DA_ME_4DDCD636016C
+MEREF ME_4AE9D38A02DA_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4AE9D38A02DA' '4A77058200BA.ms.model.script' // SetPosition
  ;
  MEPROP OpKind opkind_Implemented
@@ -465,9 +471,9 @@ ME ME_4AE9D38A02DA_ME_4DDCD636016C
  UP "LongProcess" False
  UP "Needs Broadcast" False
  UP "no prefix" False
-ENDME // ME_4AE9D38A02DA_ME_4DDCD636016C SetPosition
+ENDMEREF // ME_4AE9D38A02DA_ME_4DDCD636016C_impl SetPosition
 
-ME ME_4B1E37CE00C1_ME_4DDCD636016C
+MEREF ME_4B1E37CE00C1_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4B1E37CE00C1' '4A77058200BA.ms.model.script' // ReturnToDocument
  ;
  MEPROP OpKind opkind_Implemented
@@ -480,15 +486,15 @@ ME ME_4B1E37CE00C1_ME_4DDCD636016C
  UP "no prefix" False
  UP "ShowInContextMenu" 'undefined'
  UP "ShowInToolbar" 'undefined'
-ENDME // ME_4B1E37CE00C1_ME_4DDCD636016C ReturnToDocument
+ENDMEREF // ME_4B1E37CE00C1_ME_4DDCD636016C_impl ReturnToDocument
 
-ME ME_4B4EF0A200BD_ME_4DDCD636016C
+MEREF ME_4B4EF0A200BD_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4B4EF0A200BD' '4B4DB88E01B6.ms.model.script' // DocumentForSearch
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4B4EF0A200BD_ME_4DDCD636016C DocumentForSearch
+ENDMEREF // ME_4B4EF0A200BD_ME_4DDCD636016C_impl DocumentForSearch
 
-ME ME_4B506F4D0196_ME_4DDCD636016C
+MEREF ME_4B506F4D0196_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4B506F4D0196' '4A77058200BA.ms.model.script' // GetParaForPositionning
  ;
  MEPROP OpKind opkind_Implemented
@@ -500,22 +506,22 @@ ME ME_4B506F4D0196_ME_4DDCD636016C
  UP "LongProcess" False
  UP "Needs Broadcast" False
  UP "no prefix" False
-ENDME // ME_4B506F4D0196_ME_4DDCD636016C GetParaForPositionning
+ENDMEREF // ME_4B506F4D0196_ME_4DDCD636016C_impl GetParaForPositionning
 
-ME ME_4F1D607E0027_ME_4DDCD636016C
+MEREF ME_4F1D607E0027_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4F1D607E0027' '4A9F98B901A5.ms.model.script' // NeedSaveActiveClassBeforeSearch
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" False
-ENDME // ME_4F1D607E0027_ME_4DDCD636016C NeedSaveActiveClassBeforeSearch
+ENDMEREF // ME_4F1D607E0027_ME_4DDCD636016C_impl NeedSaveActiveClassBeforeSearch
 
-ME ME_53A303BE03A8_ME_4DDCD636016C
+MEREF ME_53A303BE03A8_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_53A303BE03A8' '4A815C200111.ms.model.script' // OpenRedactionGlobalLink
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_53A303BE03A8_ME_4DDCD636016C OpenRedactionGlobalLink
+ENDMEREF // ME_53A303BE03A8_ME_4DDCD636016C_impl OpenRedactionGlobalLink
 
-ME ME_49521D8E0295_ME_4DDCD636016C
+MEREF ME_49521D8E0295_ME_4DDCD636016C_over
  MELINK Original WL 'ME_49521D8E0295' '494F898C013E.ms.model.script' // Print
  ;
  MEPROP OpKind opkind_Overridden
@@ -528,9 +534,9 @@ ME ME_49521D8E0295_ME_4DDCD636016C
  UP "no prefix" False
  UP "ShowInContextMenu" False
  UP "ShowInToolbar" 'undefined'
-ENDME // ME_49521D8E0295_ME_4DDCD636016C Print
+ENDMEREF // ME_49521D8E0295_ME_4DDCD636016C_over Print
 
-ME ME_495220DE0298_ME_4DDCD636016C
+MEREF ME_495220DE0298_ME_4DDCD636016C_over
  MELINK Original WL 'ME_495220DE0298' '494F898C013E.ms.model.script' // PrintDialog
  ;
  MEPROP OpKind opkind_Overridden
@@ -543,25 +549,145 @@ ME ME_495220DE0298_ME_4DDCD636016C
  UP "no prefix" False
  UP "ShowInContextMenu" True
  UP "ShowInToolbar" 'undefined'
-ENDME // ME_495220DE0298_ME_4DDCD636016C PrintDialog
+ENDMEREF // ME_495220DE0298_ME_4DDCD636016C_over PrintDialog
 
-ME ME_4A8E8F2E0195_ME_4DDCD636016C
+MEREF ME_4A8E8F2E0195_ME_4DDCD636016C_over
  MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8E8F2E0195_ME_4DDCD636016C InitControls
+ENDMEREF // ME_4A8E8F2E0195_ME_4DDCD636016C_over InitControls
 
-ME ME_4B4EF0D2016A_ME_4DDCD636016C
+MEREF ME_4B4EF0D2016A_ME_4DDCD636016C_over
  MELINK Original WL 'ME_4B4EF0D2016A' '4B4DB88E01B6.ms.model.script' // ContinueSearchInWholeBase
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4B4EF0D2016A_ME_4DDCD636016C ContinueSearchInWholeBase
+ENDMEREF // ME_4B4EF0D2016A_ME_4DDCD636016C_over ContinueSearchInWholeBase
 
-ME ME_4F2BEF740060_ME_4DDCD636016C
+MEREF ME_4F2BEF740060_ME_4DDCD636016C_over
  MELINK Original WL 'ME_4F2BEF740060' '4A7B03ED01E3.ms.model.script' // GetRedactionOnLeftEdition
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4F2BEF740060_ME_4DDCD636016C GetRedactionOnLeftEdition
+ENDMEREF // ME_4F2BEF740060_ME_4DDCD636016C_over GetRedactionOnLeftEdition
+
+MEREF ME_49525B34022A_ME_4DDCD636016C_G
+ MELINK Original WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525B34022A_ME_4DDCD636016C_G TvcmEntityForm
+
+MEREF ME_496B4C2700D5_ME_4DDCD636016C_R
+ MELINK Original WL 'ME_496B4C2700D5' '4A9F98B901A5.ms.model.script' // InsBaseSearchPresentation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_496B4C2700D5_ME_4DDCD636016C_R InsBaseSearchPresentation
+
+MEREF ME_4A7B03ED01E3_ME_4DDCD636016C_R
+ MELINK Original WL? 'ME_4A7B03ED01E3' // WorkWithRedactions
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A7B03ED01E3_ME_4DDCD636016C_R WorkWithRedactions
+
+MEREF ME_4A7C0BF5008B_ME_4DDCD636016C_R
+ MELINK Original WL? 'ME_4A7C0BF5008B' // DocumentPresentation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A7C0BF5008B_ME_4DDCD636016C_R DocumentPresentation
+
+MEREF ME_4A8AACAE0356_ME_4DDCD636016C_R
+ MELINK Original WL? 'ME_4A8AACAE0356' // TextWithComments
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A8AACAE0356_ME_4DDCD636016C_R TextWithComments
+
+MEREF ME_4A8AC2DB0210_ME_4DDCD636016C_R
+ MELINK Original WL? 'ME_4A8AC2DB0210' // HyperlinkProcessorWithOwnLocalLink
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A8AC2DB0210_ME_4DDCD636016C_R HyperlinkProcessorWithOwnLocalLink
+
+MEREF ME_4A8E5BBF0391_ME_4DDCD636016C_R
+ MELINK Original WL? 'ME_4A8E5BBF0391' // StatusBarItems
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A8E5BBF0391_ME_4DDCD636016C_R StatusBarItems
+
+MEREF ME_4AD5E6A60262_ME_4DDCD636016C_R
+ MELINK Original WL? 'ME_4AD5E6A60262' // BaseSearchPresentation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AD5E6A60262_ME_4DDCD636016C_R BaseSearchPresentation
+
+MEREF ME_4AE1A69E0156_ME_4DDCD636016C_R
+ MELINK Original WL? 'ME_4AE1A69E0156' // BaseTextOperations
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE1A69E0156_ME_4DDCD636016C_R BaseTextOperations
+
+MEREF ME_4B4DB88E01B6_ME_4DDCD636016C_R
+ MELINK Original WL? 'ME_4B4DB88E01B6' // DocumentBaseSearcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B4DB88E01B6_ME_4DDCD636016C_R DocumentBaseSearcher
+
+MEREF ME_4E8B2A6701A5_ME_4DDCD636016C_R
+ MELINK Original WL 'ME_4E8B2A6701A5' '484900780017.ms.model.script' // Из просмотра изменений документа должна быть возможность переключится в сравнение редакций
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E8B2A6701A5_ME_4DDCD636016C_R Из просмотра изменений документа должна быть возможность переключится в сравнение редакций
+
+MEREF ME_4E8B360E006C_ME_4DDCD636016C_R
+ MELINK Original WL 'ME_4E8B360E006C' '4A77058200BA.ms.model.script' // Document$SetPosition
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E8B360E006C_ME_4DDCD636016C_R Document$SetPosition
+
+MEREF ME_4E8C3C6C0244_ME_4DDCD636016C_R
+ MELINK Original WL 'ME_4E8C3C6C0244' '4A77058200BA.ms.model.script' // Edition
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E8C3C6C0244_ME_4DDCD636016C_R Edition
+
+MEREF ME_4E8C3CFE029A_ME_4DDCD636016C_R
+ MELINK Original WL 'ME_4E8C3CFE029A' '484900780017.ms.model.script' // В статусной строке должна быть операция "Сравнить полные тексты редакций"
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E8C3CFE029A_ME_4DDCD636016C_R В статусной строке должна быть операция "Сравнить полные тексты редакций"
+
+MEREF ME_4E8C3D3202B1_ME_4DDCD636016C_R
+ MELINK Original WL 'ME_4E8C3D3202B1' '484900780017.ms.model.script' // В статусной строке должна быть операция "Вернуться в текст документа"
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E8C3D3202B1_ME_4DDCD636016C_R В статусной строке должна быть операция "Вернуться в текст документа"
+
+MEREF ME_4E9C33A802C8_ME_4DDCD636016C_R
+ MELINK Original WL? 'ME_4E9C33A802C8' // HyperlinkProcessorForDocumentCompare
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E9C33A802C8_ME_4DDCD636016C_R HyperlinkProcessorForDocumentCompare
+
+MEREF ME_4ED8D48C0329_ME_4DDCD636016C_R
+ MELINK Original WL? 'ME_4ED8D48C0329' // EditionsListCaller
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4ED8D48C0329_ME_4DDCD636016C_R EditionsListCaller
+
+MEREF ME_4F10411202FB_ME_4DDCD636016C_R
+ MELINK Original WL 'ME_4F10411202FB' '484900780017.ms.model.script' // Должна быть навигация по ссылкам с клавиатуры
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F10411202FB_ME_4DDCD636016C_R Должна быть навигация по ссылкам с клавиатуры
+
+MEREF ME_4F1044DD0281_ME_4DDCD636016C_R
+ MELINK Original WL? 'ME_4F1044DD0281' // HyperlinkOperations
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F1044DD0281_ME_4DDCD636016C_R HyperlinkOperations
+
+MEREF ME_4F991E420079_ME_4DDCD636016C_R
+ MELINK Original WL 'ME_4F991E420079' '4A77058200BA.ms.model.script' // Document$GetParaForPositioning
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F991E420079_ME_4DDCD636016C_R Document$GetParaForPositioning
 
 %%ImplementedBy ME_496B4C2700D5 ME_4DDCD636016C
 %%ImplementedBy ME_4A7B03ED01E3 ME_4DDCD636016C
@@ -598,29 +724,29 @@ ME ME_4DDCD636016C
  MELINK Parent WL? 'ME_4DDBAF0A0029' // ChangesBetweenEditons
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+   Seq: ( HWL ME_49525B34022A_ME_4DDCD636016C_G // TvcmEntityForm
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_496B4C2700D5' '4A9F98B901A5.ms.model.script' // InsBaseSearchPresentation
- WL? 'ME_4A7B03ED01E3' // WorkWithRedactions
- WL? 'ME_4A7C0BF5008B' // DocumentPresentation
- WL? 'ME_4A8AACAE0356' // TextWithComments
- WL? 'ME_4A8AC2DB0210' // HyperlinkProcessorWithOwnLocalLink
- WL? 'ME_4A8E5BBF0391' // StatusBarItems
- WL? 'ME_4AD5E6A60262' // BaseSearchPresentation
- WL? 'ME_4AE1A69E0156' // BaseTextOperations
- WL? 'ME_4B4DB88E01B6' // DocumentBaseSearcher
- WL 'ME_4E8B2A6701A5' '484900780017.ms.model.script' // Из просмотра изменений документа должна быть возможность переключится в сравнение редакций
- WL 'ME_4E8B360E006C' '4A77058200BA.ms.model.script' // Document$SetPosition
- WL 'ME_4E8C3C6C0244' '4A77058200BA.ms.model.script' // Edition
- WL 'ME_4E8C3CFE029A' '484900780017.ms.model.script' // В статусной строке должна быть операция "Сравнить полные тексты редакций"
- WL 'ME_4E8C3D3202B1' '484900780017.ms.model.script' // В статусной строке должна быть операция "Вернуться в текст документа"
- WL? 'ME_4E9C33A802C8' // HyperlinkProcessorForDocumentCompare
- WL? 'ME_4ED8D48C0329' // EditionsListCaller
- WL 'ME_4F10411202FB' '484900780017.ms.model.script' // Должна быть навигация по ссылкам с клавиатуры
- WL? 'ME_4F1044DD0281' // HyperlinkOperations
- WL 'ME_4F991E420079' '4A77058200BA.ms.model.script' // Document$GetParaForPositioning
+   Seq: ( HWL ME_496B4C2700D5_ME_4DDCD636016C_R // InsBaseSearchPresentation
+ HWL ME_4A7B03ED01E3_ME_4DDCD636016C_R // WorkWithRedactions
+ HWL ME_4A7C0BF5008B_ME_4DDCD636016C_R // DocumentPresentation
+ HWL ME_4A8AACAE0356_ME_4DDCD636016C_R // TextWithComments
+ HWL ME_4A8AC2DB0210_ME_4DDCD636016C_R // HyperlinkProcessorWithOwnLocalLink
+ HWL ME_4A8E5BBF0391_ME_4DDCD636016C_R // StatusBarItems
+ HWL ME_4AD5E6A60262_ME_4DDCD636016C_R // BaseSearchPresentation
+ HWL ME_4AE1A69E0156_ME_4DDCD636016C_R // BaseTextOperations
+ HWL ME_4B4DB88E01B6_ME_4DDCD636016C_R // DocumentBaseSearcher
+ HWL ME_4E8B2A6701A5_ME_4DDCD636016C_R // Из просмотра изменений документа должна быть возможность переключится в сравнение редакций
+ HWL ME_4E8B360E006C_ME_4DDCD636016C_R // Document$SetPosition
+ HWL ME_4E8C3C6C0244_ME_4DDCD636016C_R // Edition
+ HWL ME_4E8C3CFE029A_ME_4DDCD636016C_R // В статусной строке должна быть операция "Сравнить полные тексты редакций"
+ HWL ME_4E8C3D3202B1_ME_4DDCD636016C_R // В статусной строке должна быть операция "Вернуться в текст документа"
+ HWL ME_4E9C33A802C8_ME_4DDCD636016C_R // HyperlinkProcessorForDocumentCompare
+ HWL ME_4ED8D48C0329_ME_4DDCD636016C_R // EditionsListCaller
+ HWL ME_4F10411202FB_ME_4DDCD636016C_R // Должна быть навигация по ссылкам с клавиатуры
+ HWL ME_4F1044DD0281_ME_4DDCD636016C_R // HyperlinkOperations
+ HWL ME_4F991E420079_ME_4DDCD636016C_R // Document$GetParaForPositioning
  )
  ; // Implements
  MELIST Attributes
@@ -634,40 +760,40 @@ ME ME_4DDCD636016C
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_496B4C41023E_ME_4DDCD636016C // WindowRequired
- ME_496B4C500246_ME_4DDCD636016C // WindowCloseable
- ME_496B4CA000B6_ME_4DDCD636016C // CanCloseWindow
- ME_496B4CD9005F_ME_4DDCD636016C // IsQueryCard
- ME_496B4CE30132_ME_4DDCD636016C // TreatSuccessSearchAsManualOpen
- ME_496B4CED0306_ME_4DDCD636016C // AutoActivateWindow
- ME_4A7C0E1A005C_ME_4DDCD636016C // DocumentIsValid
- ME_4A7FCEA9025D_ME_4DDCD636016C // RedactionCurrentPara
- ME_4A8164E801AE_ME_4DDCD636016C // GotoPoint
- ME_4A8168BB0217_ME_4DDCD636016C // HyperlinkDocument
- ME_4A82BC390036_ME_4DDCD636016C // HyperlinkText
- ME_4A8931130363_ME_4DDCD636016C // CanBeChanged
- ME_4A8A9DB0001A_ME_4DDCD636016C // IsFloating
- ME_4A8AAD450084_ME_4DDCD636016C // TextWithComments
- ME_4A8E5E4702C6_ME_4DDCD636016C // FillList
- ME_4ACA195801CB_ME_4DDCD636016C // ContainerForBaseSearch
- ME_4AD6EAA3034A_ME_4DDCD636016C // ContextSearcher
- ME_4AE1B48A0120_ME_4DDCD636016C // DocumentForExport
- ME_4AE1C7A8016C_ME_4DDCD636016C // HasDoc
- ME_4AE1C9890311_ME_4DDCD636016C // IsDrug
- ME_4AE9D38A02DA_ME_4DDCD636016C // SetPosition
- ME_4B1E37CE00C1_ME_4DDCD636016C // ReturnToDocument
- ME_4B4EF0A200BD_ME_4DDCD636016C // DocumentForSearch
- ME_4B506F4D0196_ME_4DDCD636016C // GetParaForPositionning
- ME_4F1D607E0027_ME_4DDCD636016C // NeedSaveActiveClassBeforeSearch
- ME_53A303BE03A8_ME_4DDCD636016C // OpenRedactionGlobalLink
+   Seq: ( ME_496B4C41023E_ME_4DDCD636016C_impl // WindowRequired
+ ME_496B4C500246_ME_4DDCD636016C_impl // WindowCloseable
+ ME_496B4CA000B6_ME_4DDCD636016C_impl // CanCloseWindow
+ ME_496B4CD9005F_ME_4DDCD636016C_impl // IsQueryCard
+ ME_496B4CE30132_ME_4DDCD636016C_impl // TreatSuccessSearchAsManualOpen
+ ME_496B4CED0306_ME_4DDCD636016C_impl // AutoActivateWindow
+ ME_4A7C0E1A005C_ME_4DDCD636016C_impl // DocumentIsValid
+ ME_4A7FCEA9025D_ME_4DDCD636016C_impl // RedactionCurrentPara
+ ME_4A8164E801AE_ME_4DDCD636016C_impl // GotoPoint
+ ME_4A8168BB0217_ME_4DDCD636016C_impl // HyperlinkDocument
+ ME_4A82BC390036_ME_4DDCD636016C_impl // HyperlinkText
+ ME_4A8931130363_ME_4DDCD636016C_impl // CanBeChanged
+ ME_4A8A9DB0001A_ME_4DDCD636016C_impl // IsFloating
+ ME_4A8AAD450084_ME_4DDCD636016C_impl // TextWithComments
+ ME_4A8E5E4702C6_ME_4DDCD636016C_impl // FillList
+ ME_4ACA195801CB_ME_4DDCD636016C_impl // ContainerForBaseSearch
+ ME_4AD6EAA3034A_ME_4DDCD636016C_impl // ContextSearcher
+ ME_4AE1B48A0120_ME_4DDCD636016C_impl // DocumentForExport
+ ME_4AE1C7A8016C_ME_4DDCD636016C_impl // HasDoc
+ ME_4AE1C9890311_ME_4DDCD636016C_impl // IsDrug
+ ME_4AE9D38A02DA_ME_4DDCD636016C_impl // SetPosition
+ ME_4B1E37CE00C1_ME_4DDCD636016C_impl // ReturnToDocument
+ ME_4B4EF0A200BD_ME_4DDCD636016C_impl // DocumentForSearch
+ ME_4B506F4D0196_ME_4DDCD636016C_impl // GetParaForPositionning
+ ME_4F1D607E0027_ME_4DDCD636016C_impl // NeedSaveActiveClassBeforeSearch
+ ME_53A303BE03A8_ME_4DDCD636016C_impl // OpenRedactionGlobalLink
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_49521D8E0295_ME_4DDCD636016C // Print
- ME_495220DE0298_ME_4DDCD636016C // PrintDialog
- ME_4A8E8F2E0195_ME_4DDCD636016C // InitControls
- ME_4B4EF0D2016A_ME_4DDCD636016C // ContinueSearchInWholeBase
- ME_4F2BEF740060_ME_4DDCD636016C // GetRedactionOnLeftEdition
+   Seq: ( ME_49521D8E0295_ME_4DDCD636016C_over // Print
+ ME_495220DE0298_ME_4DDCD636016C_over // PrintDialog
+ ME_4A8E8F2E0195_ME_4DDCD636016C_over // InitControls
+ ME_4B4EF0D2016A_ME_4DDCD636016C_over // ContinueSearchInWholeBase
+ ME_4F2BEF740060_ME_4DDCD636016C_over // GetRedactionOnLeftEdition
  )
  ; // Overridden
  MELIST Children

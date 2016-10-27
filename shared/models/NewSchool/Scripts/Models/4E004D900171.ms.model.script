@@ -1,0 +1,346 @@
+// TarDocumentContainerWithContentsTree 4E004D900171 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E004D900171
+
+FORWARD ME_52738BEE00C9
+
+ME ME_52738C07012D
+ MEPROP UID '52738C07012D'
+ MEPROP Name 'cnUndefAACSubID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52738BEE00C9 // Defaults
+ ;
+ MEPROP Value '-1'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '-1'
+
+ENDME // ME_52738C07012D cnUndefAACSubID
+
+ME ME_52738BEE00C9
+ MEPROP UID '52738BEE00C9'
+ MEPROP Name 'Defaults'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52738C07012D // cnUndefAACSubID
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_52738BEE00C9 Defaults
+
+ME ME_4E0064AA0302
+ MEPROP UID '4E0064AA0302'
+ MEPROP Name 'f_ContentsTree'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Дерево оглавления.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ MELINK Target WL 'ME_476BF13201C4' '476BF10A0280.ms.model.script' // Il3Tree
+ ;
+
+ENDME // ME_4E0064AA0302 f_ContentsTree
+
+ME ME_52738BA7013D
+ MEPROP UID '52738BA7013D'
+ MEPROP Name 'f_RightSubID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
+ ;
+
+ENDME // ME_52738BA7013D f_RightSubID
+
+ME ME_560BD476013A
+ MEPROP UID '560BD476013A'
+ MEPROP Name 'f_LeftSubID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
+ ;
+
+ENDME // ME_560BD476013A f_LeftSubID
+
+FORWARD ME_4E0056E503BE
+
+ME ME_4E0056FC00E8
+ MEPROP UID '4E0056FC00E8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E0056E503BE // MakeContentsTree
+ ;
+
+ENDME // ME_4E0056FC00E8 DoIt
+
+ME ME_4E0056E503BE
+ MEPROP UID '4E0056E503BE'
+ MEPROP Name 'MakeContentsTree'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Создать, если нужно, дерево оглваления.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E0056FC00E8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E0056E503BE MakeContentsTree
+
+ME ME_4E0059A302DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ MELINK Target WL? 'ME_4DFEEEA000DA' // TevContentsTree
+ ;
+
+ENDME // ME_4E0059A302DF 
+
+ME ME_4E005A1902DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ MELINK Target WL 'ME_4A2627EA0145' '47F088300159.ms.model.script' // InevContentsNodeFilter
+ ;
+
+ENDME // ME_4E005A1902DA 
+
+ME ME_4E005A56034B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ MELINK Target WL 'ME_48EDB1DC023D' '47C5207602D1.ms.model.script' // InevSubChangeListener
+ ;
+
+ENDME // ME_4E005A56034B 
+
+ME ME_4E005C050004
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4E005C050004 
+
+ME ME_4E25535502F7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ MELINK Target WL 'ME_4E005E5500A7' '4E255287019F.ms.model.script' // ContentsTreeConst
+ ;
+
+ENDME // ME_4E25535502F7 
+
+ME ME_4EB22DC50030
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ MELINK Target WL 'ME_47F0B9190003' '4678193C009C.ms.model.script' // Notify Consts
+ ;
+
+ENDME // ME_4EB22DC50030 
+
+ME ME_4EB22DF9016F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ MELINK Target WL 'ME_4857A87D0337' '48492FC0029D.ms.model.script' // Block
+ ;
+
+ENDME // ME_4EB22DF9016F 
+
+ME ME_4EB230040383
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4EB230040383 
+
+ME ME_52739848039C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ MELINK Target WL 'ME_484F95C1026A' '484A470100DD.ms.model.script' // Sub
+ ;
+
+ENDME // ME_52739848039C 
+
+MEREF ME_52738B050043_ME_4E004D900171_impl
+ MELINK Original WL 'ME_52738B050043' '52E788B40110.ms.model.script' // HasAACBlock
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52738B050043_ME_4E004D900171_impl HasAACBlock
+
+MEREF ME_52738B2F02B7_ME_4E004D900171_impl
+ MELINK Original WL 'ME_52738B2F02B7' '52E788B40110.ms.model.script' // SetBlockKind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52738B2F02B7_ME_4E004D900171_impl SetBlockKind
+
+MEREF ME_479731C50290_ME_4E004D900171_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4E004D900171_over Cleanup
+
+MEREF ME_47A042E100E2_ME_4E004D900171_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4E004D900171_over InitFields
+
+MEREF ME_47F0BA6E0019_ME_4E004D900171_over
+ MELINK Original WL 'ME_47F0BA6E0019' '47F0870E0034.ms.model.script' // SendTOCCreatedNotify
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F0BA6E0019_ME_4E004D900171_over SendTOCCreatedNotify
+
+MEREF ME_47F226170180_ME_4E004D900171_over
+ MELINK Original WL 'ME_47F226170180' '47F0870E0034.ms.model.script' // DoBeforeFinishAtom1
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F226170180_ME_4E004D900171_over DoBeforeFinishAtom1
+
+MEREF ME_47F2802003C4_ME_4E004D900171_over
+ MELINK Original WL 'ME_47F2802003C4' '47F0870E0034.ms.model.script' // GetContentsTree
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F2802003C4_ME_4E004D900171_over GetContentsTree
+
+MEREF ME_49184A180301_ME_4E004D900171_over
+ MELINK Original WL 'ME_49184A180301' '48185C4002DC.ms.model.script' // DoPropChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49184A180301_ME_4E004D900171_over DoPropChanged
+
+MEREF ME_527384840253_ME_4E004D900171_over
+ MELINK Original WL 'ME_527384840253' '47F0870E0034.ms.model.script' // SubDeleted
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_527384840253_ME_4E004D900171_over SubDeleted
+
+MEREF ME_4E007C3803DC_ME_4E004D900171_G
+ MELINK Original WL? 'ME_4E007C3803DC' // TarDocumentContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E007C3803DC_ME_4E004D900171_G TarDocumentContainer
+
+MEREF ME_52738AF30116_ME_4E004D900171_R
+ MELINK Original WL 'ME_52738AF30116' '52E788B40110.ms.model.script' // IarCheckLeftOrRightBlock
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52738AF30116_ME_4E004D900171_R IarCheckLeftOrRightBlock
+
+%%ImplementedBy ME_52738AF30116 ME_4E004D900171
+
+%%InheritedBy ME_4E007C3803DC ME_4E004D900171
+
+ME ME_4E004D900171
+ MEPROP UID '4E004D900171'
+ MEPROP Name 'TarDocumentContainerWithContentsTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E004D460329' // DocumentContainer
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E007C3803DC_ME_4E004D900171_G // TarDocumentContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_52738AF30116_ME_4E004D900171_R // IarCheckLeftOrRightBlock
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4E0064AA0302 // f_ContentsTree
+ HWL ME_52738BA7013D // f_RightSubID
+ HWL ME_560BD476013A // f_LeftSubID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E0056E503BE // MakeContentsTree
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_52738B050043_ME_4E004D900171_impl // HasAACBlock
+ ME_52738B2F02B7_ME_4E004D900171_impl // SetBlockKind
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4E004D900171_over // Cleanup
+ ME_47A042E100E2_ME_4E004D900171_over // InitFields
+ ME_47F0BA6E0019_ME_4E004D900171_over // SendTOCCreatedNotify
+ ME_47F226170180_ME_4E004D900171_over // DoBeforeFinishAtom1
+ ME_47F2802003C4_ME_4E004D900171_over // GetContentsTree
+ ME_49184A180301_ME_4E004D900171_over // DoPropChanged
+ ME_527384840253_ME_4E004D900171_over // SubDeleted
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_52738BEE00C9 // Defaults
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4E0059A302DF // TevContentsTree
+ ME_4E005A1902DA // InevContentsNodeFilter
+ ME_4E005A56034B // InevSubChangeListener
+ ME_4E005C050004 // Supports
+ ME_4E25535502F7 // ContentsTreeConst
+ ME_4EB22DC50030 // Notify Consts
+ ME_4EB22DF9016F // Block
+ ME_4EB230040383 // Tk2TagID
+ ME_52739848039C // Sub
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'arDocumentContainerWithContentsTree'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arDocumentContainerWithContentsTree'
+ UP intf.pas:Path 'archi\source\projects\Archi\Editor\arDocumentContainerWithContentsTree.pas'
+
+ENDME // ME_4E004D900171 TarDocumentContainerWithContentsTree

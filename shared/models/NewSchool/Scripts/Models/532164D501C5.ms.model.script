@@ -4,32 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_532164F50223
 
-FORWARD ME_532164D501C5
-
-%%InheritedBy ME_4DE4827600CA ME_532164F50223
-
-ME ME_532164F50223
- MEPROP UID '532164F50223'
- MEPROP Name 'K517783699'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- %SUMMARY '{Requestlink:517783699}' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_532164D501C5 // PreivewTests
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4DE4827600CA' '4DE3425B01DA.ms.model.script' // TArchiInsiderTest
- )
- ; // Inherits
- UP extprop:pas:TypeName 'TK517783699'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'K517783699'
- UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\Tests\K517783699.pas'
-
-ENDME // ME_532164F50223 K517783699
-
 ME ME_532164D501C5
  MEPROP UID '532164D501C5'
  MEPROP Name 'PreivewTests'
@@ -42,7 +16,7 @@ ME ME_532164D501C5
  MELINK Parent WL? 'ME_512B1731031D' // EverestLiteTests
  ;
  MELIST Children
-   Seq: ( HWL ME_532164F50223 // K517783699
+   Seq: ( WL? 'ME_532164F50223' // K517783699
  )
  ; // Children
  MELIST Depends

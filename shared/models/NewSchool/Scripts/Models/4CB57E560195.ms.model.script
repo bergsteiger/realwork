@@ -1,0 +1,272 @@
+// TnevDocumentProvider 4CB57E560195 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CB57E560195
+
+ME ME_4CB57EA70257
+ MEPROP UID '4CB57EA70257'
+ MEPROP Name 'f_Storable'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CB57E560195 // TnevDocumentProvider
+ ;
+ MELINK Target WL 'ME_47C68BEF02B9' '47C5207602D1.ms.model.script' // InevStorable
+ ;
+
+ENDME // ME_4CB57EA70257 f_Storable
+
+ME ME_4CB589C80045
+ MEPROP UID '4CB589C80045'
+ MEPROP Name 'CanProvideOriginalDocument'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CB57E560195 // TnevDocumentProvider
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4CB589C80045 CanProvideOriginalDocument
+
+ME ME_4CB589F902EA
+ MEPROP UID '4CB589F902EA'
+ MEPROP Name 'OriginalDocument'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CB57E560195 // TnevDocumentProvider
+ ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4CB589F902EA OriginalDocument
+
+ME ME_4D18832500B4
+ MEPROP UID '4D18832500B4'
+ MEPROP Name 'PageSetup'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CB57E560195 // TnevDocumentProvider
+ ;
+ MELINK Target WL 'ME_473D8F0C021D' '467823B7002C.ms.model.script' // IafwPageSetup
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4D18832500B4 PageSetup
+
+FORWARD ME_4CB57EB40216
+
+FORWARD ME_4CB57EBB02EA
+
+ME ME_4CB57EC8020E
+ MEPROP Name 'aStorable'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C68BEF02B9' '47C5207602D1.ms.model.script' // InevStorable
+ ;
+
+ENDME // ME_4CB57EC8020E aStorable
+
+ME ME_4CB57EBB02EA
+ MEPROP UID '4CB57EBB02EA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB57EB40216 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB57EC8020E // aStorable
+ )
+ ; // Parameters
+
+ENDME // ME_4CB57EBB02EA DoIt
+
+ME ME_4CB57EB40216
+ MEPROP UID '4CB57EB40216'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB57E560195 // TnevDocumentProvider
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB57EBB02EA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CB57EB40216 Create
+
+MEREF ME_4CB57EB40216_ME_4CB57EDA0325_G
+ MELINK Original HWL ME_4CB57EB40216 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CB57EB40216_ME_4CB57EDA0325_G Create
+
+MEREF ME_4CB57C920381_ME_4CB57EDA0325_R
+ MELINK Original WL 'ME_4CB57C920381' '47C5207602D1.ms.model.script' // InevDocumentProvider
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CB57C920381_ME_4CB57EDA0325_R InevDocumentProvider
+
+%%ImplementedBy ME_4CB57C920381 ME_4CB57EDA0325
+
+%%InheritedBy ME_4CB57EB40216 ME_4CB57EDA0325
+
+ME ME_4CB57EDA0325
+ MEPROP UID '4CB57EDA0325'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB57E560195 // TnevDocumentProvider
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CB57EB40216_ME_4CB57EDA0325_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4CB57C920381_ME_4CB57EDA0325_R // InevDocumentProvider
+ )
+ ; // Implements
+
+ENDME // ME_4CB57EDA0325 Make
+
+ME ME_4D1886260173
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CB57E560195 // TnevDocumentProvider
+ ;
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
+ ;
+
+ENDME // ME_4D1886260173 
+
+ME ME_4D1893E9038E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CB57E560195 // TnevDocumentProvider
+ ;
+ MELINK Target WL? 'ME_4D1893A20013' // evPreviewForTestsTuning
+ ;
+
+ENDME // ME_4D1893E9038E 
+
+MEREF ME_47C68BFD011C_ME_4CB57E560195_impl
+ MELINK Original WL 'ME_47C68BFD011C' '47C5207602D1.ms.model.script' // Store
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "force overload" True
+ENDMEREF // ME_47C68BFD011C_ME_4CB57E560195_impl Store
+
+MEREF ME_4CB5897501F9_ME_4CB57E560195_impl
+ MELINK Original WL 'ME_4CB5897501F9' '47C5207602D1.ms.model.script' // CanProvideOriginalDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4CB5897501F9_ME_4CB57E560195_impl CanProvideOriginalDocument
+
+MEREF ME_4D1882B00158_ME_4CB57E560195_impl
+ MELINK Original WL 'ME_4D1882B00158' '47C5207602D1.ms.model.script' // PageSetup
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4D1882B00158_ME_4CB57E560195_impl PageSetup
+
+MEREF ME_5343C5D2028A_ME_4CB57E560195_impl
+ MELINK Original WL 'ME_5343C5D2028A' '47C5207602D1.ms.model.script' // OriginalDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_5343C5D2028A_ME_4CB57E560195_impl OriginalDocument
+
+MEREF ME_49E7754802A9_ME_4CB57E560195_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4CB57E560195_G Tl3ProtoObject
+
+MEREF ME_4CB57C920381_ME_4CB57E560195_R
+ MELINK Original WL 'ME_4CB57C920381' '47C5207602D1.ms.model.script' // InevDocumentProvider
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CB57C920381_ME_4CB57E560195_R InevDocumentProvider
+
+%%ImplementedBy ME_4CB57C920381 ME_4CB57E560195
+
+%%InheritedBy ME_49E7754802A9 ME_4CB57E560195
+
+ME ME_4CB57E560195
+ MEPROP UID '4CB57E560195'
+ MEPROP Name 'TnevDocumentProvider'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47EA968D0155' // Printing
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_4CB57E560195_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4CB57C920381_ME_4CB57E560195_R // InevDocumentProvider
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CB57EA70257 // f_Storable
+ HWL ME_4CB589C80045 // CanProvideOriginalDocument
+ HWL ME_4CB589F902EA // OriginalDocument
+ HWL ME_4D18832500B4 // PageSetup
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CB57EB40216 // Create
+ HWL ME_4CB57EDA0325 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47C68BFD011C_ME_4CB57E560195_impl // Store
+ ME_4CB5897501F9_ME_4CB57E560195_impl // CanProvideOriginalDocument
+ ME_4D1882B00158_ME_4CB57E560195_impl // PageSetup
+ ME_5343C5D2028A_ME_4CB57E560195_impl // OriginalDocument
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4D1886260173 // afwFacade
+ ME_4D1893E9038E // evPreviewForTestsTuning
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '13.10.2010 13:39'
+ UP extprop:pas:UnitName 'nevDocumentProvider'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentProvider'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevDocumentProvider.pas'
+
+ENDME // ME_4CB57E560195 TnevDocumentProvider

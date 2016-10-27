@@ -1,0 +1,96 @@
+// Tl3DynamicArrayEx 479DFD65024D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_479DFD65024D
+
+ME ME_479DFD7202F3
+ MEPROP UID '479DFD7202F3'
+ MEPROP Name 'f_ItemSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_479DFD65024D // Tl3DynamicArrayEx
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_479DFD7202F3 f_ItemSize
+
+FORWARD ME_479F082A0193
+
+ME ME_479F083A01C8
+ MEPROP Name 'anItemSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_479F083A01C8 anItemSize
+
+ME ME_479F082A0193
+ MEPROP UID '479F082A0193'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_479DFD65024D // Tl3DynamicArrayEx
+ ;
+ MELIST Parameters
+   Seq: ( ME_479F083A01C8 // anItemSize
+ )
+ ; // Parameters
+
+ENDME // ME_479F082A0193 Create
+
+MEREF ME_47BEE7FD01DC_ME_479DFD65024D_impl
+ MELINK Original WL 'ME_47BEE7FD01DC' '47B433E500BC.ms.model.script' // ItemSize
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" False
+ UP "pm" True
+ENDMEREF // ME_47BEE7FD01DC_ME_479DFD65024D_impl ItemSize
+
+MEREF ME_479DFD5300C5_ME_479DFD65024D_G
+ MELINK Original WL? 'ME_479DFD5300C5' // Tl3DynamicArray
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_479DFD5300C5_ME_479DFD65024D_G Tl3DynamicArray
+
+%%InheritedBy ME_479DFD5300C5 ME_479DFD65024D
+
+ME ME_479DFD65024D
+ MEPROP UID '479DFD65024D'
+ MEPROP Name 'Tl3DynamicArrayEx'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B880BC203B6' // RecLists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_479DFD5300C5_ME_479DFD65024D_G // Tl3DynamicArray
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_479DFD7202F3 // f_ItemSize
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_479F082A0193 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47BEE7FD01DC_ME_479DFD65024D_impl // ItemSize
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'l3DynamicArrayEx'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DynamicArrayEx'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3DynamicArrayEx.pas'
+
+ENDME // ME_479DFD65024D Tl3DynamicArrayEx

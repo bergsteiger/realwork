@@ -4,8 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_578933EECBD8
 
-FORWARD ME_578933EECBD8
-
 FORWARD ME_4A6971D00157
 
 ME ME_578933EECBD8
@@ -48,6 +46,18 @@ ME ME_C5F7B5BDDA69
 
 ENDME // ME_C5F7B5BDDA69 Ini_FormFactory_ContactList$Def
 
+MEREF ME_4C84D11E01E2_ME_4A6971D00157_G
+ MELINK Original WL? 'ME_4C84D11E01E2' // PrimContactListOptions
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C84D11E01E2_ME_4A6971D00157_G PrimContactListOptions
+
+MEREF ME_578933EECBD8_ME_4A6971D00157_R
+ MELINK Original HWL ME_578933EECBD8 // ContactList$Def
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_578933EECBD8_ME_4A6971D00157_R ContactList$Def
+
 %%ImplementedBy ME_578933EECBD8 ME_4A6971D00157
 
 %%InheritedBy ME_4C84D11E01E2 ME_4A6971D00157
@@ -65,11 +75,11 @@ ME ME_4A6971D00157
  MELINK Parent WL? 'ME_4A6971B802A6' // BaseChat
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4C84D11E01E2' // PrimContactListOptions
+   Seq: ( HWL ME_4C84D11E01E2_ME_4A6971D00157_G // PrimContactListOptions
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_578933EECBD8 // ContactList$Def
+   Seq: ( HWL ME_578933EECBD8_ME_4A6971D00157_R // ContactList$Def
  )
  ; // Implements
  MELIST Operations

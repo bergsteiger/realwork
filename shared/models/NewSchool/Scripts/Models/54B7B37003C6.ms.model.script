@@ -1,0 +1,281 @@
+// TncsGetPartialTaskDescriptionExecutor 54B7B37003C6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54B7B37003C6
+
+ME ME_54B8DB0C02A0
+ MEPROP UID '54B8DB0C02A0'
+ MEPROP Name 'f_FileName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54B7B37003C6 // TncsGetPartialTaskDescriptionExecutor
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_54B8DB0C02A0 f_FileName
+
+ME ME_54B8DB170118
+ MEPROP UID '54B8DB170118'
+ MEPROP Name 'f_BasePath'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54B7B37003C6 // TncsGetPartialTaskDescriptionExecutor
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_54B8DB170118 f_BasePath
+
+FORWARD ME_54B7B6C70011
+
+FORWARD ME_54B7CAE50200
+
+ME ME_54B8DB2F0058
+ MEPROP Name 'aBasePath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_54B8DB2F0058 aBasePath
+
+ME ME_54B7CAE7027A
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_54B7CAE7027A aFileName
+
+ME ME_54B7CAE50200
+ MEPROP UID '54B7CAE50200'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B7B6C70011 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B8DB2F0058 // aBasePath
+ ME_54B7CAE7027A // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_54B7CAE50200 DoIt
+
+ME ME_54B7B6C70011
+ MEPROP UID '54B7B6C70011'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B7B37003C6 // TncsGetPartialTaskDescriptionExecutor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B7CAE50200 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B7B6C70011 Create
+
+MEREF ME_54B7B6C70011_ME_54B7B6D000AE_G
+ MELINK Original HWL ME_54B7B6C70011 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54B7B6C70011_ME_54B7B6D000AE_G Create
+
+MEREF ME_5460731E025E_ME_54B7B6D000AE_R
+ MELINK Original WL 'ME_5460731E025E' '5460A4DB018A.ms.model.script' // IncsExecutor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5460731E025E_ME_54B7B6D000AE_R IncsExecutor
+
+%%ImplementedBy ME_5460731E025E ME_54B7B6D000AE
+
+%%InheritedBy ME_54B7B6C70011 ME_54B7B6D000AE
+
+ME ME_54B7B6D000AE
+ MEPROP UID '54B7B6D000AE'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B7B37003C6 // TncsGetPartialTaskDescriptionExecutor
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54B7B6C70011_ME_54B7B6D000AE_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5460731E025E_ME_54B7B6D000AE_R // IncsExecutor
+ )
+ ; // Implements
+
+ENDME // ME_54B7B6D000AE Make
+
+ME ME_54B7C06C0288
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B7B37003C6 // TncsGetPartialTaskDescriptionExecutor
+ ;
+ MELINK Target WL? 'ME_546B442D0343' // TncsGetTaskDescriptionReply
+ ;
+
+ENDME // ME_54B7C06C0288 
+
+ME ME_54B7C07101A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B7B37003C6 // TncsGetPartialTaskDescriptionExecutor
+ ;
+ MELINK Target WL? 'ME_54B66DB30346' // TncsGetPartialTaskDescription
+ ;
+
+ENDME // ME_54B7C07101A8 
+
+ME ME_54B7C0970297
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B7B37003C6 // TncsGetPartialTaskDescriptionExecutor
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54B7C0970297 
+
+ME ME_54B7C1320297
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B7B37003C6 // TncsGetPartialTaskDescriptionExecutor
+ ;
+ MELINK Target WL? 'ME_546C52C001ED' // TncsFileDesc
+ ;
+
+ENDME // ME_54B7C1320297 
+
+ME ME_54B7C136035C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B7B37003C6 // TncsGetPartialTaskDescriptionExecutor
+ ;
+ MELINK Target WL 'ME_4C74ED51025F' '47A080670100.ms.model.script' // Tl3FileStream
+ ;
+
+ENDME // ME_54B7C136035C 
+
+ME ME_54B7C13A0395
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B7B37003C6 // TncsGetPartialTaskDescriptionExecutor
+ ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_54B7C13A0395 
+
+ME ME_54B7C13E0257
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B7B37003C6 // TncsGetPartialTaskDescriptionExecutor
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_54B7C13E0257 
+
+ME ME_54B7C14302DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B7B37003C6 // TncsGetPartialTaskDescriptionExecutor
+ ;
+ MELINK Target WL 'ME_546F0E81033E' '546F0E690374.ms.model.script' // l3CalcCRC32
+ ;
+
+ENDME // ME_54B7C14302DC 
+
+MEREF ME_54607DDC0159_ME_54B7B37003C6_impl
+ MELINK Original WL 'ME_54607DDC0159' '5460A4DB018A.ms.model.script' // Execute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54607DDC0159_ME_54B7B37003C6_impl Execute
+
+MEREF ME_49E7754802A9_ME_54B7B37003C6_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_54B7B37003C6_G Tl3ProtoObject
+
+MEREF ME_5460731E025E_ME_54B7B37003C6_R
+ MELINK Original WL 'ME_5460731E025E' '5460A4DB018A.ms.model.script' // IncsExecutor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5460731E025E_ME_54B7B37003C6_R IncsExecutor
+
+%%ImplementedBy ME_5460731E025E ME_54B7B37003C6
+
+%%InheritedBy ME_49E7754802A9 ME_54B7B37003C6
+
+ME ME_54B7B37003C6
+ MEPROP UID '54B7B37003C6'
+ MEPROP Name 'TncsGetPartialTaskDescriptionExecutor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54855BDB033D' // TaskSend
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_54B7B37003C6_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5460731E025E_ME_54B7B37003C6_R // IncsExecutor
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_54B8DB0C02A0 // f_FileName
+ HWL ME_54B8DB170118 // f_BasePath
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54B7B6C70011 // Create
+ HWL ME_54B7B6D000AE // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_54607DDC0159_ME_54B7B37003C6_impl // Execute
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_54B7C06C0288 // TncsGetTaskDescriptionReply
+ ME_54B7C07101A8 // TncsGetPartialTaskDescription
+ ME_54B7C0970297 // FreeAndNil
+ ME_54B7C1320297 // TncsFileDesc
+ ME_54B7C136035C // Tl3FileStream
+ ME_54B7C13A0395 // TStream
+ ME_54B7C13E0257 // Tl3FileMode
+ ME_54B7C14302DC // l3CalcCRC32
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ncsGetPartialTaskDescriptionExecutor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ncsGetPartialTaskDescriptionExecutor'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsGetPartialTaskDescriptionExecutor.pas'
+
+ENDME // ME_54B7B37003C6 TncsGetPartialTaskDescriptionExecutor

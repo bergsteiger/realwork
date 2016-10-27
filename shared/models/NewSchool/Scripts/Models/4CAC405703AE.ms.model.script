@@ -1,0 +1,170 @@
+// TDrawTestPrim 4CAC405703AE TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CAC405703AE
+
+ME ME_4CADE91E011A
+ MEPROP UID '4CADE91E011A'
+ MEPROP Name 'f_Editor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CAC405703AE // TDrawTestPrim
+ ;
+ MELINK Target WL? 'ME_4829D92A037B' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4CADE91E011A f_Editor
+
+FORWARD ME_4CAC45AE011E
+
+ME ME_4CAC45C60369
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4CAC45C60369 aForm
+
+ME ME_4CAC45AE011E
+ MEPROP UID '4CAC45AE011E'
+ MEPROP Name 'DoBeforeDrawing'
+ MEPROP Class class_Operation
+ %SUMMARY 'ѕроизвести какие-нибудь операции перед отрисовкой.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CAC405703AE // TDrawTestPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CAC45C60369 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4CAC45AE011E DoBeforeDrawing
+
+ME ME_4CAC52DB000E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAC405703AE // TDrawTestPrim
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4CAC52DB000E 
+
+MEREF ME_4BE419AF0217_ME_4CAC405703AE_impl
+ MELINK Original WL 'ME_4BE419AF0217' '4BE418BB001F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE419AF0217_ME_4CAC405703AE_impl DoVisit
+
+MEREF ME_4E1C0C6C026C_ME_4CAC405703AE_impl
+ MELINK Original WL 'ME_4E1C0C6C026C' '4E1C016B0011.ms.model.script' // DoOpenLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4E1C0C6C026C_ME_4CAC405703AE_impl DoOpenLog
+
+MEREF ME_4E1C0C8C0007_ME_4CAC405703AE_impl
+ MELINK Original WL 'ME_4E1C0C8C0007' '4E1C016B0011.ms.model.script' // DoCloseLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4E1C0C8C0007_ME_4CAC405703AE_impl DoCloseLog
+
+MEREF ME_4B4F588B0241_ME_4CAC405703AE_over
+ MELINK Original WL 'ME_4B4F588B0241' '4B2A11BC0255.ms.model.script' // FileForOutput
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B4F588B0241_ME_4CAC405703AE_over FileForOutput
+
+MEREF ME_4C08CF4300BE_ME_4CAC405703AE_over
+ MELINK Original WL 'ME_4C08CF4300BE' '4BE047320379.ms.model.script' // WebStyle
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C08CF4300BE_ME_4CAC405703AE_over WebStyle
+
+MEREF ME_4C937013031D_ME_4CAC405703AE_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4CAC405703AE_over GetFolder
+
+MEREF ME_4CA5DAD4014C_ME_4CAC405703AE_over
+ MELINK Original WL 'ME_4CA5DAD4014C' '4B2A11BC0255.ms.model.script' // RaiseIfEtalonCreated
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CA5DAD4014C_ME_4CAC405703AE_over RaiseIfEtalonCreated
+
+MEREF ME_4BE425C70228_ME_4CAC405703AE_G
+ MELINK Original WL? 'ME_4BE425C70228' // TTextEditorVisitor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE425C70228_ME_4CAC405703AE_G TTextEditorVisitor
+
+MEREF ME_4E1C016B0011_ME_4CAC405703AE_R
+ MELINK Original WL? 'ME_4E1C016B0011' // DrawOutputSupport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E1C016B0011_ME_4CAC405703AE_R DrawOutputSupport
+
+%%ImplementedBy ME_4E1C016B0011 ME_4CAC405703AE
+
+%%InheritedBy ME_4BE425C70228 ME_4CAC405703AE
+
+ME ME_4CAC405703AE
+ MEPROP UID '4CAC405703AE'
+ MEPROP Name 'TDrawTestPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ѕазовый тест дл€ отрисовки и сравнени€.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B30C89F035F' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE425C70228_ME_4CAC405703AE_G // TTextEditorVisitor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4E1C016B0011_ME_4CAC405703AE_R // DrawOutputSupport
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CADE91E011A // f_Editor
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CAC45AE011E // DoBeforeDrawing
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BE419AF0217_ME_4CAC405703AE_impl // DoVisit
+ ME_4E1C0C6C026C_ME_4CAC405703AE_impl // DoOpenLog
+ ME_4E1C0C8C0007_ME_4CAC405703AE_impl // DoCloseLog
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4B4F588B0241_ME_4CAC405703AE_over // FileForOutput
+ ME_4C08CF4300BE_ME_4CAC405703AE_over // WebStyle
+ ME_4C937013031D_ME_4CAC405703AE_over // GetFolder
+ ME_4CA5DAD4014C_ME_4CAC405703AE_over // RaiseIfEtalonCreated
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CAC52DB000E // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" True
+ UP extprop:pas:UnitName 'DrawTestPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DrawTestPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\DrawTestPrim.pas'
+
+ENDME // ME_4CAC405703AE TDrawTestPrim

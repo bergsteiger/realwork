@@ -35,7 +35,7 @@ ENDME // ME_4E32C9F001A8 DoIt
 ME ME_4E32C9D70275
  MEPROP UID '4E32C9D70275'
  MEPROP Name 'SelectColumn'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -67,7 +67,7 @@ ENDME // ME_4E32CA27009A DoIt
 ME ME_4E32CA120170
  MEPROP UID '4E32CA120170'
  MEPROP Name 'GetKeys'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -122,7 +122,7 @@ ENDME // ME_4E32CA450015 DoIt
 ME ME_4E32CA35008A
  MEPROP UID '4E32CA35008A'
  MEPROP Name 'GetColumnAndRow'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -154,7 +154,7 @@ ENDME // ME_4E32CA70023E DoIt
 ME ME_4E32CA5E0115
  MEPROP UID '4E32CA5E0115'
  MEPROP Name 'GetDelta'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -168,17 +168,29 @@ ME ME_4E32CA5E0115
 
 ENDME // ME_4E32CA5E0115 GetDelta
 
-ME ME_4BF4E6A00093_ME_4E32C9540390
+MEREF ME_4BF4E6A00093_ME_4E32C9540390_over
  MELINK Original WL 'ME_4BF4E6A00093' '4CED0194038A.ms.model.script' // GetInnerPara
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4BF4E6A00093_ME_4E32C9540390 GetInnerPara
+ENDMEREF // ME_4BF4E6A00093_ME_4E32C9540390_over GetInnerPara
 
-ME ME_4C3C927B027E_ME_4E32C9540390
+MEREF ME_4C3C927B027E_ME_4E32C9540390_over
  MELINK Original WL 'ME_4C3C927B027E' '4CED0194038A.ms.model.script' // GetPoint
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4C3C927B027E_ME_4E32C9540390 GetPoint
+ENDMEREF // ME_4C3C927B027E_ME_4E32C9540390_over GetPoint
+
+MEREF ME_4CED0194038A_ME_4E32C9540390_G
+ MELINK Original WL? 'ME_4CED0194038A' // Para2Point
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CED0194038A_ME_4E32C9540390_G Para2Point
+
+MEREF ME_4D53D342026E_ME_4E32C9540390_G
+ MELINK Original WL? 'ME_4D53D342026E' // HotSpotTools
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D53D342026E_ME_4E32C9540390_G HotSpotTools
 
 %%InheritedBy ME_4CED0194038A ME_4E32C9540390
 %%InheritedBy ME_4D53D342026E ME_4E32C9540390
@@ -195,8 +207,8 @@ ME ME_4E32C9540390
  MELINK Parent WL? 'ME_4C500D470030' // MixIns
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4CED0194038A' // Para2Point
- WL? 'ME_4D53D342026E' // HotSpotTools
+   Seq: ( HWL ME_4CED0194038A_ME_4E32C9540390_G // Para2Point
+ HWL ME_4D53D342026E_ME_4E32C9540390_G // HotSpotTools
  )
  ; // Inherits
  MELIST Operations
@@ -207,8 +219,8 @@ ME ME_4E32C9540390
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_4BF4E6A00093_ME_4E32C9540390 // GetInnerPara
- ME_4C3C927B027E_ME_4E32C9540390 // GetPoint
+   Seq: ( ME_4BF4E6A00093_ME_4E32C9540390_over // GetInnerPara
+ ME_4C3C927B027E_ME_4E32C9540390_over // GetPoint
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames

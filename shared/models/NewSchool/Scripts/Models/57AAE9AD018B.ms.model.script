@@ -93,7 +93,7 @@ ENDME // ME_57AAEA5B02E3 DoIt
 ME ME_57AAEA5202AA
  MEPROP UID '57AAEA5202AA'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -107,6 +107,18 @@ ME ME_57AAEA5202AA
 
 ENDME // ME_57AAEA5202AA Create
 
+MEREF ME_57AAEA5202AA_ME_57AAEAA10264_G
+ MELINK Original HWL ME_57AAEA5202AA // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AAEA5202AA_ME_57AAEAA10264_G Create
+
+MEREF ME_57AB05790383_ME_57AAEAA10264_R
+ MELINK Original WL 'ME_57AB05790383' '57AAE8D403E5.ms.model.script' // ImsmViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AB05790383_ME_57AAEAA10264_R ImsmViewController
+
 %%ImplementedBy ME_57AB05790383 ME_57AAEAA10264
 
 %%InheritedBy ME_57AAEA5202AA ME_57AAEAA10264
@@ -114,7 +126,7 @@ ENDME // ME_57AAEA5202AA Create
 ME ME_57AAEAA10264
  MEPROP UID '57AAEAA10264'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -122,11 +134,11 @@ ME ME_57AAEAA10264
  MELINK Parent HWL ME_57AAE9AD018B // msmConcreteModelOwnViewControllerMixin
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57AAEA5202AA // Create
+   Seq: ( HWL ME_57AAEA5202AA_ME_57AAEAA10264_G // Create
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_57AB05790383' '57AAE8D403E5.ms.model.script' // ImsmViewController
+   Seq: ( HWL ME_57AB05790383_ME_57AAEAA10264_R // ImsmViewController
  )
  ; // Implements
 
@@ -184,7 +196,7 @@ ME ME_57B466EE01D6
  MEPROP UID '57B466EE01D6'
  MEPROP Name 'Create'
  MEPROP OriginalName 'Create$WithContext'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -198,6 +210,18 @@ ME ME_57B466EE01D6
 
 ENDME // ME_57B466EE01D6 Create$WithContext
 
+MEREF ME_57B466EE01D6_ME_57B46717036B_G
+ MELINK Original HWL ME_57B466EE01D6 // Create$WithContext
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B466EE01D6_ME_57B46717036B_G Create$WithContext
+
+MEREF ME_57AB05790383_ME_57B46717036B_R
+ MELINK Original WL 'ME_57AB05790383' '57AAE8D403E5.ms.model.script' // ImsmViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AB05790383_ME_57B46717036B_R ImsmViewController
+
 %%ImplementedBy ME_57AB05790383 ME_57B46717036B
 
 %%InheritedBy ME_57B466EE01D6 ME_57B46717036B
@@ -206,7 +230,7 @@ ME ME_57B46717036B
  MEPROP UID '57B46717036B'
  MEPROP Name 'Make'
  MEPROP OriginalName 'Make$WithContext'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -214,21 +238,27 @@ ME ME_57B46717036B
  MELINK Parent HWL ME_57AAE9AD018B // msmConcreteModelOwnViewControllerMixin
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57B466EE01D6 // Create$WithContext
+   Seq: ( HWL ME_57B466EE01D6_ME_57B46717036B_G // Create$WithContext
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_57AB05790383' '57AAE8D403E5.ms.model.script' // ImsmViewController
+   Seq: ( HWL ME_57AB05790383_ME_57B46717036B_R // ImsmViewController
  )
  ; // Implements
 
 ENDME // ME_57B46717036B Make$WithContext
 
-ME ME_479731C50290_ME_57AAE9AD018B
+MEREF ME_479731C50290_ME_57AAE9AD018B_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_57AAE9AD018B Cleanup
+ENDMEREF // ME_479731C50290_ME_57AAE9AD018B_over Cleanup
+
+MEREF ME_51DEB13301ED_ME_57AAE9AD018B_R
+ MELINK Original WL 'ME_51DEB13301ED' '51612EBB02F5.ms.model.script' // MRefCounted
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51DEB13301ED_ME_57AAE9AD018B_R MRefCounted
 
 %%ImplementedBy ME_51DEB13301ED ME_57AAE9AD018B
 
@@ -244,7 +274,7 @@ ME ME_57AAE9AD018B
  MELINK Parent WL? 'ME_57AAE90E02B6' // Controllers
  ;
  MELIST Implements
-   Seq: ( WL 'ME_51DEB13301ED' '51612EBB02F5.ms.model.script' // MRefCounted
+   Seq: ( HWL ME_51DEB13301ED_ME_57AAE9AD018B_R // MRefCounted
  )
  ; // Implements
  MELIST Attributes
@@ -260,7 +290,7 @@ ME ME_57AAE9AD018B
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_57AAE9AD018B // Cleanup
+   Seq: ( ME_479731C50290_ME_57AAE9AD018B_over // Cleanup
  )
  ; // Overridden
  MELIST Children

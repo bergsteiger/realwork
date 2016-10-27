@@ -1,0 +1,143 @@
+// TnsDownloaderGUIService 57BC05FD03A1 Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_FDE5A9800749
+
+FORWARD ME_57BC05FD03A1
+
+FORWARD ME_FDE5A9800749
+
+FORWARD ME_57BC0608023A
+
+FORWARD ME_A56660AF8F69
+
+ME ME_D50F955899A6
+ MEPROP Name 'aParams'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57BC055302B9' '57BD366C02FD.ms.model.script' // InsDownloadParams
+ ;
+
+ENDME // ME_D50F955899A6 aParams
+
+ME ME_A56660AF8F69
+ MEPROP UID 'A56660AF8F69'
+ MEPROP Name 'EditParams'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_FDE5A9800749 // MnsDownloaderGUIService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_D50F955899A6 // aParams
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_57BC0608023A // EditParams
+ ;
+
+ENDME // ME_A56660AF8F69 EditParams
+
+ME ME_FDE5A9800749
+ MEPROP UID 'FDE5A9800749'
+ MEPROP Name 'MnsDownloaderGUIService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TnsDownloaderGUIService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57BC05FD03A1 // TnsDownloaderGUIService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_A56660AF8F69 // EditParams
+ )
+ ; // Operations
+
+ENDME // ME_FDE5A9800749 MnsDownloaderGUIService
+
+ME ME_57BC061602DD
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57BC055302B9' '57BD366C02FD.ms.model.script' // InsDownloadParams
+ ;
+
+ENDME // ME_57BC061602DD aParams
+
+ME ME_57BC0608023A
+ MEPROP UID '57BC0608023A'
+ MEPROP Name 'EditParams'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57BC05FD03A1 // TnsDownloaderGUIService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_57BC061602DD // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_57BC0608023A EditParams
+
+ME ME_57BC063D0132
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57BC05FD03A1 // TnsDownloaderGUIService
+ ;
+ MELINK Target WL? 'ME_57BC062801FF' // nsOpenOrSaveInternetFileDialog
+ ;
+
+ENDME // ME_57BC063D0132 
+
+MEREF ME_49E7754802A9_ME_57BC05FD03A1_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57BC05FD03A1_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_57BC05FD03A1
+
+ME ME_57BC05FD03A1
+ MEPROP UID '57BC05FD03A1'
+ MEPROP Name 'TnsDownloaderGUIService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_57BC0538037B' // Downloader
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_57BC05FD03A1_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57BC0608023A // EditParams
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_FDE5A9800749 // MnsDownloaderGUIService
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_57BC063D0132 // nsOpenOrSaveInternetFileDialog
+ )
+ ; // Dependencies
+ UP "auto translate to alien" 'undefined'
+ UP "finished" False
+ UP extprop:pas:UnitName 'nsDownloaderGUIService'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DownloaderGUIService'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nsDownloaderGUIService.pas'
+
+ENDME // ME_57BC05FD03A1 TnsDownloaderGUIService

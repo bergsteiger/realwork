@@ -1,0 +1,188 @@
+// TdestShp 5461CBCB01F3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5461CBCB01F3
+
+ME ME_5461CC6202E0
+ MEPROP UID '5461CC6202E0'
+ MEPROP Name 'ShapeTxt'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5461CBCB01F3 // TdestShp
+ ;
+ MELINK Target WL? 'ME_5461C20002DF' // TdestShapeTxt
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_5461CC6202E0 ShapeTxt
+
+ME ME_5461CC9100A1
+ MEPROP UID '5461CC9100A1'
+ MEPROP Name 'ShapeInst'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5461CBCB01F3 // TdestShp
+ ;
+ MELINK Target WL? 'ME_5460C1530245' // TdestShapeInst
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_5461CC9100A1 ShapeInst
+
+ME ME_54E33EC80349
+ MEPROP UID '54E33EC80349'
+ MEPROP Name 'Norm'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5461CBCB01F3 // TdestShp
+ ;
+ MELINK Target WL? 'ME_51D278280093' // TdestNorm
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_54E33EC80349 Norm
+
+ME ME_557579970327
+ MEPROP UID '557579970327'
+ MEPROP Name 'ShapeRslt'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5461CBCB01F3 // TdestShp
+ ;
+ MELINK Target WL? 'ME_5575752B029E' // TdestShapeRslt
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_557579970327 ShapeRslt
+
+ME ME_55967AFB003B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5461CBCB01F3 // TdestShp
+ ;
+ MELINK Target WL? 'ME_5596481703C3' // TddRTFShape
+ ;
+
+ENDME // ME_55967AFB003B 
+
+ME ME_559BACD30123
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5461CBCB01F3 // TdestShp
+ ;
+ MELINK Target WL? 'ME_51E8DC3E0361' // TddPicture
+ ;
+
+ENDME // ME_559BACD30123 
+
+ME ME_559BCAB3034B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5461CBCB01F3 // TdestShp
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_559BCAB3034B 
+
+MEREF ME_5461BEC2017D_ME_5461CBCB01F3_impl
+ MELINK Original WL 'ME_5461BEC2017D' '5190A37F0134.ms.model.script' // Close
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5461BEC2017D_ME_5461CBCB01F3_impl Close
+
+MEREF ME_54E1F08400F9_ME_5461CBCB01F3_impl
+ MELINK Original WL 'ME_54E1F08400F9' '5190A37F0134.ms.model.script' // WriteText$1
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54E1F08400F9_ME_5461CBCB01F3_impl WriteText$1
+
+MEREF ME_479731C50290_ME_5461CBCB01F3_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5461CBCB01F3_over Cleanup
+
+MEREF ME_51D27A48038E_ME_5461CBCB01F3_over
+ MELINK Original WL 'ME_51D27A48038E' '5190A37F0134.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51D27A48038E_ME_5461CBCB01F3_over Clear
+
+MEREF ME_51D276C40106_ME_5461CBCB01F3_G
+ MELINK Original WL 'ME_51D276C40106' '5190A37F0134.ms.model.script' // TddRTFDestination
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51D276C40106_ME_5461CBCB01F3_G TddRTFDestination
+
+%%InheritedBy ME_51D276C40106 ME_5461CBCB01F3
+
+ME ME_5461CBCB01F3
+ MEPROP UID '5461CBCB01F3'
+ MEPROP Name 'TdestShp'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5190A3470397' // RTFSupport
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_51D276C40106_ME_5461CBCB01F3_G // TddRTFDestination
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5461CC6202E0 // ShapeTxt
+ HWL ME_5461CC9100A1 // ShapeInst
+ HWL ME_54E33EC80349 // Norm
+ HWL ME_557579970327 // ShapeRslt
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_5461BEC2017D_ME_5461CBCB01F3_impl // Close
+ ME_54E1F08400F9_ME_5461CBCB01F3_impl // WriteText$1
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5461CBCB01F3_over // Cleanup
+ ME_51D27A48038E_ME_5461CBCB01F3_over // Clear
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_55967AFB003B // TddRTFShape
+ ME_559BACD30123 // TddPicture
+ ME_559BCAB3034B // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'destShp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'destShp'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\destShp.pas'
+
+ENDME // ME_5461CBCB01F3 TdestShp

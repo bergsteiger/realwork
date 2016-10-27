@@ -7,134 +7,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_509B8C5A0200
 %%Inner ME_509B9A8A0270
 
-FORWARD ME_509A5CB50110
-
-%%ImplementedBy ME_509B4CC20221 ME_509A5CCB022A
-
-ME ME_509A5CCB022A
- MEPROP UID '509A5CCB022A'
- MEPROP Name 'LoadFromFile'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeyword ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Загружает файл в форму дочернего класса TPrimTextLoadForm. '#13#10'*Формат:* имя_файла LoadFromFile'#13#10'*Примечание:* Создан специально для тестов DailyTests в результате переделок form:Needs. Имя файла можно подавать без пути - будет автоматически добавлен путь к данным для тестов.' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_509A5CB50110 // SupportWords
- ;
- MELIST Implements
-   Seq: ( WL? 'ME_509B4CC20221' // LoadUnits
- )
- ; // Implements
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP extprop:pas:TypeName 'TkwLoadFromFile'
- UP extprop:pas:UnitName 'kwLoadFromFile'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'LoadFromFile'
- UP intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\kwLoadFromFile.pas'
-
-ENDME // ME_509A5CCB022A LoadFromFile
-
-FORWARD ME_509B8C5A0200
-
-ME ME_509B92AC027B
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_509B8C5A0200 // SetFontSize
- ;
- MELINK Target WL 'ME_480DB927035A' '47ECB2870309.ms.model.script' // TevStyleInterface
- ;
-
-ENDME // ME_509B92AC027B 
-
-ME ME_509B9AEC03D3
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_509B8C5A0200 // SetFontSize
- ;
- MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
- ;
-
-ENDME // ME_509B9AEC03D3 
-
-ME ME_509B8C5A0200
- MEPROP UID '509B8C5A0200'
- MEPROP Name 'SetFontSize'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeyword ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Устанавливает размер шрифта для стиля "Нормальный".' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_509A5CB50110 // SupportWords
- ;
- MELIST Dependencies
-   Seq: ( ME_509B92AC027B // TevStyleInterface
- ME_509B9AEC03D3 // FreeAndNil
- )
- ; // Dependencies
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP extprop:pas:TypeName 'TkwSetFontSize'
- UP extprop:pas:UnitName 'kwSetFontSize'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'SetFontSize'
- UP intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\kwSetFontSize.pas'
-
-ENDME // ME_509B8C5A0200 SetFontSize
-
-FORWARD ME_509B9A8A0270
-
-ME ME_509B9AC5027F
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_509B9A8A0270 // GetFontSize
- ;
- MELINK Target WL 'ME_480DB927035A' '47ECB2870309.ms.model.script' // TevStyleInterface
- ;
-
-ENDME // ME_509B9AC5027F 
-
-ME ME_509B9AE3017C
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_509B9A8A0270 // GetFontSize
- ;
- MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
- ;
-
-ENDME // ME_509B9AE3017C 
-
-ME ME_509B9A8A0270
- MEPROP UID '509B9A8A0270'
- MEPROP Name 'GetFontSize'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeyword ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Возвращает установленный размер шрифта для стиля "Нормальный".' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_509A5CB50110 // SupportWords
- ;
- MELIST Dependencies
-   Seq: ( ME_509B9AC5027F // TevStyleInterface
- ME_509B9AE3017C // FreeAndNil
- )
- ; // Dependencies
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP extprop:pas:TypeName 'TkwGetFontSize'
- UP extprop:pas:UnitName 'kwGetFontSize'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'GetFontSize'
- UP intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\kwGetFontSize.pas'
-
-ENDME // ME_509B9A8A0270 GetFontSize
-
 ME ME_509A5CB50110
  MEPROP UID '509A5CB50110'
  MEPROP Name 'SupportWords'
@@ -146,10 +18,10 @@ ME ME_509A5CB50110
  MELINK Parent WL? 'ME_509A5C8903C7' // Keywords4Daily
  ;
  MELIST Children
-   Seq: ( HWL ME_509A5CCB022A // LoadFromFile
+   Seq: ( WL? 'ME_509A5CCB022A' // LoadFromFile
  WL? 'ME_509A5D0D0141' // SupportKeyWords
- HWL ME_509B8C5A0200 // SetFontSize
- HWL ME_509B9A8A0270 // GetFontSize
+ WL? 'ME_509B8C5A0200' // SetFontSize
+ WL? 'ME_509B9A8A0270' // GetFontSize
  )
  ; // Children
  MELIST Depends

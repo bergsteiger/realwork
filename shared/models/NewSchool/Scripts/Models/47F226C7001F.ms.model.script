@@ -1,0 +1,281 @@
+// Tk2DocumentGenerator 47F226C7001F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47F2272B0394
+
+FORWARD ME_47F226C7001F
+
+ME ME_47F2272B0394
+ MEPROP UID '47F2272B0394'
+ MEPROP Name 'Tk2StackAtom'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F226C7001F // Tk2DocumentGenerator
+ ;
+
+ENDME // ME_47F2272B0394 Tk2StackAtom
+
+FORWARD ME_4836B39C025E
+
+ME ME_4836B39F025A
+ MEPROP Name 'Atom'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_47F2272B0394 // Tk2StackAtom
+ ;
+
+ENDME // ME_4836B39F025A Atom
+
+ME ME_4836B39C025E
+ MEPROP UID '4836B39C025E'
+ MEPROP Name 'DoStartAtom'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F226C7001F // Tk2DocumentGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836B39F025A // Atom
+ )
+ ; // Parameters
+
+ENDME // ME_4836B39C025E DoStartAtom
+
+FORWARD ME_4836B3A70291
+
+ME ME_4836B3A90172
+ MEPROP Name 'anAtom'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_47F2272B0394 // Tk2StackAtom
+ ;
+
+ENDME // ME_4836B3A90172 anAtom
+
+ME ME_4836B3A70291
+ MEPROP UID '4836B3A70291'
+ MEPROP Name 'DoFinishAtom'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F226C7001F // Tk2DocumentGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836B3A90172 // anAtom
+ )
+ ; // Parameters
+
+ENDME // ME_4836B3A70291 DoFinishAtom
+
+FORWARD ME_4836B3B80074
+
+ME ME_4836B3BC009B
+ MEPROP Name 'Atom'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_47F2272B0394 // Tk2StackAtom
+ ;
+
+ENDME // ME_4836B3BC009B Atom
+
+ME ME_4836B3B80074
+ MEPROP UID '4836B3B80074'
+ MEPROP Name 'DoBeforeFinishAtom'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F226C7001F // Tk2DocumentGenerator
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836B3BC009B // Atom
+ )
+ ; // Parameters
+
+ENDME // ME_4836B3B80074 DoBeforeFinishAtom
+
+FORWARD ME_4836B3DB01C9
+
+ME ME_4836B3F40284
+ MEPROP Name 'Atom'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47F2272B0394 // Tk2StackAtom
+ ;
+
+ENDME // ME_4836B3F40284 Atom
+
+ME ME_4836B3F402AB
+ MEPROP Name 'Prop'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4836B3F402AB Prop
+
+ME ME_530E010C0141
+ MEPROP Name 'aSource'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_530E010C0141 aSource
+
+ME ME_4836B3DB01C9
+ MEPROP UID '4836B3DB01C9'
+ MEPROP Name 'DoAddAtom'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F226C7001F // Tk2DocumentGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836B3F40284 // Atom
+ ME_4836B3F402AB // Prop
+ ME_530E010C0141 // aSource
+ )
+ ; // Parameters
+
+ENDME // ME_4836B3DB01C9 DoAddAtom
+
+FORWARD ME_4836B3FC032A
+
+ME ME_4836B40103BA
+ MEPROP Name 'aChild'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_47F2272B0394 // Tk2StackAtom
+ ;
+
+ENDME // ME_4836B40103BA aChild
+
+ME ME_4836B3FC032A
+ MEPROP UID '4836B3FC032A'
+ MEPROP Name 'AddChild'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F226C7001F // Tk2DocumentGenerator
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836B40103BA // aChild
+ )
+ ; // Parameters
+
+ENDME // ME_4836B3FC032A AddChild
+
+FORWARD ME_4836B4080275
+
+ME ME_4836B40E02EF
+ MEPROP Name 'aChild'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47F2272B0394 // Tk2StackAtom
+ ;
+
+ENDME // ME_4836B40E02EF aChild
+
+ME ME_4836B4080275
+ MEPROP UID '4836B4080275'
+ MEPROP Name 'DeleteChild'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F226C7001F // Tk2DocumentGenerator
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836B40E02EF // aChild
+ )
+ ; // Parameters
+
+ENDME // ME_4836B4080275 DeleteChild
+
+FORWARD ME_4836B42200AF
+
+ME ME_4836B42B0330
+ MEPROP Name 'aChild'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47F2272B0394 // Tk2StackAtom
+ ;
+
+ENDME // ME_4836B42B0330 aChild
+
+ME ME_4836B42200AF
+ MEPROP UID '4836B42200AF'
+ MEPROP Name 'NeedPreAddChild'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F226C7001F // Tk2DocumentGenerator
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836B42B0330 // aChild
+ )
+ ; // Parameters
+
+ENDME // ME_4836B42200AF NeedPreAddChild
+
+MEREF ME_4836B2EC01DE_ME_47F226C7001F_G
+ MELINK Original WL? 'ME_4836B2EC01DE' // Tk2BaseStackGenerator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4836B2EC01DE_ME_47F226C7001F_G Tk2BaseStackGenerator
+
+%%InheritedBy ME_4836B2EC01DE ME_47F226C7001F
+
+ME ME_47F226C7001F
+ MEPROP UID '47F226C7001F'
+ MEPROP Name 'Tk2DocumentGenerator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Генератор образа документа в оперативной памяти.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECA80B000D' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4836B2EC01DE_ME_47F226C7001F_G // Tk2BaseStackGenerator
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4836B39C025E // DoStartAtom
+ HWL ME_4836B3A70291 // DoFinishAtom
+ HWL ME_4836B3B80074 // DoBeforeFinishAtom
+ HWL ME_4836B3DB01C9 // DoAddAtom
+ HWL ME_4836B3FC032A // AddChild
+ HWL ME_4836B4080275 // DeleteChild
+ HWL ME_4836B42200AF // NeedPreAddChild
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_47F2272B0394 // Tk2StackAtom
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '18.05.98 15:19'
+ UP extprop:pas:UnitName 'k2DocumentGenerator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentGenerator'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2DocumentGenerator.pas'
+
+ENDME // ME_47F226C7001F Tk2DocumentGenerator

@@ -19,11 +19,17 @@ ME ME_492D74ED009A
 
 ENDME // ME_492D74ED009A InitDataType
 
-ME ME_492ACF630072_ME_492D687F0214
+MEREF ME_492ACF630072_ME_492D687F0214_over
  MELINK Original WL 'ME_492ACF630072' '501802270075.ms.model.script' // GotData
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_492ACF630072_ME_492D687F0214 GotData
+ENDMEREF // ME_492ACF630072_ME_492D687F0214_over GotData
+
+MEREF ME_47E9EDC602B2_ME_492D687F0214_G
+ MELINK Original WL? 'ME_47E9EDC602B2' // dsDocumentList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E9EDC602B2_ME_492D687F0214_G dsDocumentList
 
 %%InheritedBy ME_47E9EDC602B2 ME_492D687F0214
 
@@ -40,7 +46,7 @@ ME ME_492D687F0214
  MELINK Parent WL? 'ME_493D465902FA' // DocumentAndList
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47E9EDC602B2' // dsDocumentList
+   Seq: ( HWL ME_47E9EDC602B2_ME_492D687F0214_G // dsDocumentList
  )
  ; // Inherits
  MELIST Attributes
@@ -48,7 +54,7 @@ ME ME_492D687F0214
  )
  ; // Attributes
  MELIST Overridden
-   Seq: ( ME_492ACF630072_ME_492D687F0214 // GotData
+   Seq: ( ME_492ACF630072_ME_492D687F0214_over // GotData
  )
  ; // Overridden
  UP "author" 'Ëþëèí À.Â.'

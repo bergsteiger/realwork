@@ -1,0 +1,152 @@
+// TnsFormCoordinates 4AC0ABB70051 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC0ABB70051
+
+ME ME_4AC0AC5200A6
+ MEPROP UID '4AC0AC5200A6'
+ MEPROP Name 'f_Coord'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC0ABB70051 // TnsFormCoordinates
+ ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_4AC0AC5200A6 f_Coord
+
+FORWARD ME_4AC0AC2800FE
+
+ME ME_4AC0AC2C009C
+ MEPROP Name 'aRect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_4AC0AC2C009C aRect
+
+ME ME_4AC0AC2800FE
+ MEPROP UID '4AC0AC2800FE'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC0ABB70051 // TnsFormCoordinates
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AC0AC2C009C // aRect
+ )
+ ; // Parameters
+
+ENDME // ME_4AC0AC2800FE Create
+
+FORWARD ME_4AC0AC34022C
+
+ME ME_4AC0AC36035A
+ MEPROP Name 'aRect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_4AC0AC36035A aRect
+
+ME ME_4AC0AC34022C
+ MEPROP UID '4AC0AC34022C'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC0ABB70051 // TnsFormCoordinates
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AC0AC36035A // aRect
+ )
+ ; // Parameters
+
+ENDME // ME_4AC0AC34022C Make
+
+MEREF ME_4AC0AC110099_ME_4AC0ABB70051_impl
+ MELINK Original WL 'ME_4AC0AC110099' '5795D66F0385.ms.model.script' // Rect
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4AC0AC110099_ME_4AC0ABB70051_impl Rect
+
+MEREF ME_47A6FEE600FC_ME_4AC0ABB70051_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_4AC0ABB70051_over IsCacheable
+
+MEREF ME_49E7754802A9_ME_4AC0ABB70051_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4AC0ABB70051_G Tl3ProtoObject
+
+MEREF ME_4AC0ABED023F_ME_4AC0ABB70051_R
+ MELINK Original WL 'ME_4AC0ABED023F' '5795D66F0385.ms.model.script' // InsFormCoordinates
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AC0ABED023F_ME_4AC0ABB70051_R InsFormCoordinates
+
+%%ImplementedBy ME_4AC0ABED023F ME_4AC0ABB70051
+
+%%InheritedBy ME_49E7754802A9 ME_4AC0ABB70051
+
+ME ME_4AC0ABB70051
+ MEPROP UID '4AC0ABB70051'
+ MEPROP Name 'TnsFormCoordinates'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_497DCBF8017B' // Folders
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_4AC0ABB70051_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4AC0ABED023F_ME_4AC0ABB70051_R // InsFormCoordinates
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AC0AC5200A6 // f_Coord
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AC0AC2800FE // Create
+ HWL ME_4AC0AC34022C // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4AC0AC110099_ME_4AC0ABB70051_impl // Rect
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_4AC0ABB70051_over // IsCacheable
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '28.09.2009 16:27'
+ UP extprop:pas:UnitName 'nsFormCoordinates'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FormCoordinates'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Folders\nsFormCoordinates.pas'
+
+ENDME // ME_4AC0ABB70051 TnsFormCoordinates

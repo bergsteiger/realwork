@@ -1,0 +1,41 @@
+// mouse_GetCursorPosition 4EF0937D000A ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EF0937D000A
+
+ME ME_4F22A7BC0324
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EF0937D000A // mouse_GetCursorPosition
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_4F22A7BC0324 
+
+ME ME_4EF0937D000A
+ MEPROP UID '4EF0937D000A'
+ MEPROP Name 'mouse_GetCursorPosition'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F8EC875027E' // MouseInput
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F22A7BC0324 // Windows
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwMouseGetCursorPosition'
+ UP extprop:pas:UnitName 'kwMouseGetCursorPosition'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MouseGetCursorPosition'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseGetCursorPosition.pas'
+
+ENDME // ME_4EF0937D000A mouse_GetCursorPosition

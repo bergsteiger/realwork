@@ -12,6 +12,12 @@ FORWARD ME_48076ECB00C3
 
 FORWARD ME_48076E9D013E
 
+MEREF ME_4787A405013D_ME_4808ACF6022D_G
+ MELINK Original WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4787A405013D_ME_4808ACF6022D_G Exception
+
 %%InheritedBy ME_4787A405013D ME_4808ACF6022D
 
 ME ME_4808ACF6022D
@@ -25,7 +31,7 @@ ME ME_4808ACF6022D
  MELINK Parent HWL ME_48076E9D013E // TatOperationBase
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+   Seq: ( HWL ME_4787A405013D_ME_4808ACF6022D_G // Exception
  )
  ; // Inherits
 
@@ -41,7 +47,7 @@ ME ME_484CF1D900E3
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48076E9D013E // TatOperationBase
  ;
- MELINK Target WL 'ME_480869EE029E' '480865840083.ms.model.script' // TatExecutionContext
+ MELINK Target WL? 'ME_480869EE029E' // TatExecutionContext
  ;
  UP "needs field" True
  UP "pm" True
@@ -59,7 +65,7 @@ ME ME_48089D7202B7
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48076E9D013E // TatOperationBase
  ;
- MELINK Target WL 'ME_48089BA60088' '480865840083.ms.model.script' // TatOperationParametersList
+ MELINK Target WL? 'ME_48089BA60088' // TatOperationParametersList
  ;
 
 ENDME // ME_48089D7202B7 f_ParamList
@@ -104,7 +110,7 @@ ME ME_4808A004003A
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48076E9D013E // TatOperationBase
  ;
- MELINK Target WL 'ME_48089A46022D' '480865840083.ms.model.script' // TatOperationParameter
+ MELINK Target WL? 'ME_48089A46022D' // TatOperationParameter
  ;
  MELIST Attributes
    Seq: ( HWL ME_4808A026038F // aName
@@ -125,7 +131,7 @@ ME ME_5396F1F60329
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48076E9D013E // TatOperationBase
  ;
- MELINK Target WL 'ME_5396EA3E0230' '480865840083.ms.model.script' // TatOperationEnv
+ MELINK Target WL? 'ME_5396EA3E0230' // TatOperationEnv
  ;
  UP "needs field" False
  UP "pm" True
@@ -185,7 +191,7 @@ ME ME_484CF2430383
  MEPROP Name 'eCtxt'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_480869EE029E' '480865840083.ms.model.script' // TatExecutionContext
+ MELINK Target WL? 'ME_480869EE029E' // TatExecutionContext
  ;
 
 ENDME // ME_484CF2430383 eCtxt
@@ -274,17 +280,23 @@ ME ME_4811FDCE0122
 
 ENDME // ME_4811FDCE0122 
 
-ME ME_479731C50290_ME_48076E9D013E
+MEREF ME_479731C50290_ME_48076E9D013E_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_48076E9D013E Cleanup
+ENDMEREF // ME_479731C50290_ME_48076E9D013E_over Cleanup
 
-ME ME_47A042E100E2_ME_48076E9D013E
+MEREF ME_47A042E100E2_ME_48076E9D013E_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_48076E9D013E InitFields
+ENDMEREF // ME_47A042E100E2_ME_48076E9D013E_over InitFields
+
+MEREF ME_47879856035F_ME_48076E9D013E_G
+ MELINK Original WL? 'ME_47879856035F' // Tl3_Base
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47879856035F_ME_48076E9D013E_G Tl3_Base
 
 %%InheritedBy ME_47879856035F ME_48076E9D013E
 
@@ -299,7 +311,7 @@ ME ME_48076E9D013E
  MELINK Parent HWL ME_48089D120398 // atOperationBase
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47879856035F' '47913B47006E.ms.model.script' // Tl3_Base
+   Seq: ( HWL ME_47879856035F_ME_48076E9D013E_G // Tl3_Base
  )
  ; // Inherits
  MELIST Attributes
@@ -321,8 +333,8 @@ ME ME_48076E9D013E
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_48076E9D013E // Cleanup
- ME_47A042E100E2_ME_48076E9D013E // InitFields
+   Seq: ( ME_479731C50290_ME_48076E9D013E_over // Cleanup
+ ME_47A042E100E2_ME_48076E9D013E_over // InitFields
  )
  ; // Overridden
  MELIST Children
@@ -363,6 +375,18 @@ ME ME_48076EE503C2
 
 ENDME // ME_48076EE503C2 ObjectListElement
 
+MEREF ME_4807688A0144_ME_48076ECB00C3_G
+ MELINK Original WL 'ME_4807688A0144' '4807687301D4.ms.model.script' // TObjectList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807688A0144_ME_48076ECB00C3_G TObjectList
+
+MEREF ME_4807692D0057_ME_48076ECB00C3_G
+ MELINK Original WL? 'ME_4807692D0057' // atTypedObjectList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807692D0057_ME_48076ECB00C3_G atTypedObjectList
+
 %%InheritedBy ME_4807688A0144 ME_48076ECB00C3
 %%InheritedBy ME_4807692D0057 ME_48076ECB00C3
 
@@ -377,8 +401,8 @@ ME ME_48076ECB00C3
  MELINK Parent HWL ME_48089D120398 // atOperationBase
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4807688A0144' '4807687301D4.ms.model.script' // TObjectList
- WL? 'ME_4807692D0057' // atTypedObjectList
+   Seq: ( HWL ME_4807688A0144_ME_48076ECB00C3_G // TObjectList
+ HWL ME_4807692D0057_ME_48076ECB00C3_G // atTypedObjectList
  )
  ; // Inherits
  MELIST Attributes
@@ -389,6 +413,12 @@ ME ME_48076ECB00C3
  UP extprop:rc:SelfName 'atOperationsList'
 
 ENDME // ME_48076ECB00C3 TatOperationsList
+
+MEREF ME_48076E9D013E_ME_4808A2FF00D6_G
+ MELINK Original HWL ME_48076E9D013E // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_4808A2FF00D6_G TatOperationBase
 
 %%InheritedBy ME_48076E9D013E ME_4808A2FF00D6
 
@@ -403,7 +433,7 @@ ME ME_4808A2FF00D6
  MELINK Parent HWL ME_48089D120398 // atOperationBase
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48076E9D013E // TatOperationBase
+   Seq: ( HWL ME_48076E9D013E_ME_4808A2FF00D6_G // TatOperationBase
  )
  ; // Inherits
  UP "isClassRef" True

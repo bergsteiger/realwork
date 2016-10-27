@@ -1,0 +1,38 @@
+// LoadFromFile 509A5CCB022A ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_509B4CC20221_ME_509A5CCB022A_R
+ MELINK Original WL? 'ME_509B4CC20221' // LoadUnits
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_509B4CC20221_ME_509A5CCB022A_R LoadUnits
+
+%%ImplementedBy ME_509B4CC20221 ME_509A5CCB022A
+
+ME ME_509A5CCB022A
+ MEPROP UID '509A5CCB022A'
+ MEPROP Name 'LoadFromFile'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Загружает файл в форму дочернего класса TPrimTextLoadForm. '#13#10'*Формат:* имя_файла LoadFromFile'#13#10'*Примечание:* Создан специально для тестов DailyTests в результате переделок form:Needs. Имя файла можно подавать без пути - будет автоматически добавлен путь к данным для тестов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_509A5CB50110' // SupportWords
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_509B4CC20221_ME_509A5CCB022A_R // LoadUnits
+ )
+ ; // Implements
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwLoadFromFile'
+ UP extprop:pas:UnitName 'kwLoadFromFile'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LoadFromFile'
+ UP intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\kwLoadFromFile.pas'
+
+ENDME // ME_509A5CCB022A LoadFromFile

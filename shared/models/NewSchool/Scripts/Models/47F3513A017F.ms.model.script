@@ -1,0 +1,171 @@
+// TevDocumentContainerWithProcessor 47F3513A017F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F3513A017F
+
+ME ME_483D903003C8
+ MEPROP UID '483D903003C8'
+ MEPROP Name 'Processor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Процессор операций.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F3513A017F // TevDocumentContainerWithProcessor
+ ;
+ MELINK Target WL 'ME_47F3521002C7' '47F351BC0145.ms.model.script' // TevCustomUndoProcessor
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_483D903003C8 Processor
+
+FORWARD ME_47F35245009A
+
+ME ME_47F3524C02CE
+ MEPROP Name 'theProcessor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_47F3521002C7' '47F351BC0145.ms.model.script' // TevCustomUndoProcessor
+ ;
+
+ENDME // ME_47F3524C02CE theProcessor
+
+ME ME_47F35245009A
+ MEPROP UID '47F35245009A'
+ MEPROP Name 'MakeProcessor'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F3513A017F // TevDocumentContainerWithProcessor
+ ;
+ MELIST Parameters
+   Seq: ( ME_47F3524C02CE // theProcessor
+ )
+ ; // Parameters
+
+ENDME // ME_47F35245009A MakeProcessor
+
+ME ME_483D929C02CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F3513A017F // TevDocumentContainerWithProcessor
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_483D929C02CC 
+
+ME ME_483D92E0034B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F3513A017F // TevDocumentContainerWithProcessor
+ ;
+ MELINK Target WL? 'ME_47F35FBA0208' // TevDefaultContext
+ ;
+
+ENDME // ME_483D92E0034B 
+
+MEREF ME_479731C50290_ME_47F3513A017F_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_47F3513A017F_over Cleanup
+
+MEREF ME_47F10A0502B8_ME_47F3513A017F_over
+ MELINK Original WL 'ME_47F10A0502B8' '47F0870E0034.ms.model.script' // StartOp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F10A0502B8_ME_47F3513A017F_over StartOp
+
+MEREF ME_47F2714A0216_ME_47F3513A017F_over
+ MELINK Original WL 'ME_47F2714A0216' '47F0870E0034.ms.model.script' // DoGetProcessor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F2714A0216_ME_47F3513A017F_over DoGetProcessor
+
+MEREF ME_47F27268004F_ME_47F3513A017F_over
+ MELINK Original WL 'ME_47F27268004F' '47F0870E0034.ms.model.script' // DoGetDocumentLimits
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F27268004F_ME_47F3513A017F_over DoGetDocumentLimits
+
+MEREF ME_47F27286016C_ME_47F3513A017F_over
+ MELINK Original WL 'ME_47F27286016C' '47F0870E0034.ms.model.script' // DoGetDocumentInfo
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F27286016C_ME_47F3513A017F_over DoGetDocumentInfo
+
+MEREF ME_47F2729800DD_ME_47F3513A017F_over
+ MELINK Original WL 'ME_47F2729800DD' '47F0870E0034.ms.model.script' // GetHasProcessor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F2729800DD_ME_47F3513A017F_over GetHasProcessor
+
+MEREF ME_4A60B23E00C3_ME_47F3513A017F_over
+ MELINK Original WL 'ME_4A60B23E00C3' '4A60B2220398.ms.model.script' // COMQueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A60B23E00C3_ME_47F3513A017F_over COMQueryInterface
+
+MEREF ME_47F0870E0034_ME_47F3513A017F_G
+ MELINK Original WL? 'ME_47F0870E0034' // TnevDocumentContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F0870E0034_ME_47F3513A017F_G TnevDocumentContainer
+
+%%InheritedBy ME_47F0870E0034 ME_47F3513A017F
+
+ME ME_47F3513A017F
+ MEPROP UID '47F3513A017F'
+ MEPROP Name 'TevDocumentContainerWithProcessor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контейнер документа с процессором операций.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47F086170200' // DocumentContainers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47F0870E0034_ME_47F3513A017F_G // TnevDocumentContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_483D903003C8 // Processor
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47F35245009A // MakeProcessor
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47F3513A017F_over // Cleanup
+ ME_47F10A0502B8_ME_47F3513A017F_over // StartOp
+ ME_47F2714A0216_ME_47F3513A017F_over // DoGetProcessor
+ ME_47F27268004F_ME_47F3513A017F_over // DoGetDocumentLimits
+ ME_47F27286016C_ME_47F3513A017F_over // DoGetDocumentInfo
+ ME_47F2729800DD_ME_47F3513A017F_over // GetHasProcessor
+ ME_4A60B23E00C3_ME_47F3513A017F_over // COMQueryInterface
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_483D929C02CC // l3Base
+ ME_483D92E0034B // TevDefaultContext
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '28.09.2004 17:36'
+ UP extprop:pas:UnitName 'evDocumentContainerWithProcessor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentContainerWithProcessor'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\evDocumentContainerWithProcessor.pas'
+
+ENDME // ME_47F3513A017F TevDocumentContainerWithProcessor

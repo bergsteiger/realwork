@@ -1,0 +1,545 @@
+// TvcmBaseOperationsCollection 55D30E6601A8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55D30E6601A8
+
+FORWARD ME_56116D4D02C6
+
+ME ME_56116D5303C0
+ MEPROP UID '56116D5303C0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56116D4D02C6 // NeedToBeStored
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_56116D5303C0 DoIt
+
+ME ME_56116D4D02C6
+ MEPROP UID '56116D4D02C6'
+ MEPROP Name 'NeedToBeStored'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55D30E6601A8 // TvcmBaseOperationsCollection
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56116D5303C0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56116D4D02C6 NeedToBeStored
+
+FORWARD ME_56116D7B0216
+
+FORWARD ME_56116D810142
+
+ME ME_56116D8D02F9
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_56116D8D02F9 aControl
+
+ME ME_56116D8D030E
+ MEPROP Name 'aTarget'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ ;
+
+ENDME // ME_56116D8D030E aTarget
+
+ME ME_56116D8D0323
+ MEPROP Name 'anOperationID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683C8750015' '467BAB7F021E.ms.model.script' // TvcmControlID
+ ;
+
+ENDME // ME_56116D8D0323 anOperationID
+
+ME ME_56116D8D0349
+ MEPROP Name 'aMode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683F5860071' '499EAAE502A8.ms.model.script' // TvcmOperationMode
+ ;
+
+ENDME // ME_56116D8D0349 aMode
+
+ME ME_56116D8D038B
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4987048B02EF' '4683F37902CF.ms.model.script' // IvcmParams
+ ;
+
+ENDME // ME_56116D8D038B aParams
+
+ME ME_56116D810142
+ MEPROP UID '56116D810142'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56116D7B0216 // Operation
+ ;
+ MELIST Parameters
+   Seq: ( ME_56116D8D02F9 // aControl
+ ME_56116D8D030E // aTarget
+ ME_56116D8D0323 // anOperationID
+ ME_56116D8D0349 // aMode
+ ME_56116D8D038B // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_56116D810142 DoIt
+
+ME ME_56116D7B0216
+ MEPROP UID '56116D7B0216'
+ MEPROP Name 'Operation'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'выполняет операцию сущности' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55D30E6601A8 // TvcmBaseOperationsCollection
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56116D810142 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56116D7B0216 Operation
+
+FORWARD ME_56116DA502E0
+
+FORWARD ME_56116DAB014C
+
+ME ME_56116DAD0147
+ MEPROP Name 'anOperations'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_559D25D60004' // TvcmOperationDefList
+ ;
+
+ENDME // ME_56116DAD0147 anOperations
+
+ME ME_56116DAB014C
+ MEPROP UID '56116DAB014C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56116DA502E0 // GetOperations
+ ;
+ MELIST Parameters
+   Seq: ( ME_56116DAD0147 // anOperations
+ )
+ ; // Parameters
+
+ENDME // ME_56116DAB014C DoIt
+
+ME ME_56116DA502E0
+ MEPROP UID '56116DA502E0'
+ MEPROP Name 'GetOperations'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'возвращает список описателей операций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55D30E6601A8 // TvcmBaseOperationsCollection
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56116DAB014C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56116DA502E0 GetOperations
+
+ME ME_56116DBA001A
+ MEPROP UID '56116DBA001A'
+ MEPROP Name 'RegisterInRep'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55D30E6601A8 // TvcmBaseOperationsCollection
+ ;
+
+ENDME // ME_56116DBA001A RegisterInRep
+
+FORWARD ME_56116DD0036F
+
+FORWARD ME_56116DD60284
+
+ME ME_56116DE100AE
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_56116DE100AE aControl
+
+ME ME_56116DE100C2
+ MEPROP Name 'anOperation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CDED0141' '467BAB7F021E.ms.model.script' // TvcmString
+ ;
+
+ENDME // ME_56116DE100C2 anOperation
+
+ME ME_56116DE100D6
+ MEPROP Name 'anExecute'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476953D2039F' '467BAB7F021E.ms.model.script' // TvcmControlExecuteEvent
+ ;
+
+ENDME // ME_56116DE100D6 anExecute
+
+ME ME_56116DE100EA
+ MEPROP Name 'aTest'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47694CD40080' '467BAB7F021E.ms.model.script' // TvcmControlTestEvent
+ ;
+
+ENDME // ME_56116DE100EA aTest
+
+ME ME_56116DE10108
+ MEPROP Name 'aGetState'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49886B8400D0' '467BAB7F021E.ms.model.script' // TvcmControlGetStateEvent
+ ;
+
+ENDME // ME_56116DE10108 aGetState
+
+ME ME_56116DD60284
+ MEPROP UID '56116DD60284'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56116DD0036F // PublishOp
+ ;
+ MELIST Parameters
+   Seq: ( ME_56116DE100AE // aControl
+ ME_56116DE100C2 // anOperation
+ ME_56116DE100D6 // anExecute
+ ME_56116DE100EA // aTest
+ ME_56116DE10108 // aGetState
+ )
+ ; // Parameters
+
+ENDME // ME_56116DD60284 DoIt
+
+ME ME_56116DD0036F
+ MEPROP UID '56116DD0036F'
+ MEPROP Name 'PublishOp'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'опубликовать операцию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55D30E6601A8 // TvcmBaseOperationsCollection
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56116DD60284 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56116DD0036F PublishOp
+
+FORWARD ME_56116E0A026F
+
+FORWARD ME_56116E100319
+
+ME ME_56116E19028C
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_56116E19028C aControl
+
+ME ME_56116E1902A0
+ MEPROP Name 'anOperation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CDED0141' '467BAB7F021E.ms.model.script' // TvcmString
+ ;
+
+ENDME // ME_56116E1902A0 anOperation
+
+ME ME_56116E1902B5
+ MEPROP Name 'anExecute'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52A1D97A009E' '47F25BC801DB.ms.model.script' // TvcmExecuteEvent
+ ;
+
+ENDME // ME_56116E1902B5 anExecute
+
+ME ME_56116E1902C9
+ MEPROP Name 'aTest'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47694CD40080' '467BAB7F021E.ms.model.script' // TvcmControlTestEvent
+ ;
+
+ENDME // ME_56116E1902C9 aTest
+
+ME ME_56116E1902DE
+ MEPROP Name 'aGetState'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49886B8400D0' '467BAB7F021E.ms.model.script' // TvcmControlGetStateEvent
+ ;
+
+ENDME // ME_56116E1902DE aGetState
+
+ME ME_56116E100319
+ MEPROP UID '56116E100319'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56116E0A026F // PublishOpWithResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_56116E19028C // aControl
+ ME_56116E1902A0 // anOperation
+ ME_56116E1902B5 // anExecute
+ ME_56116E1902C9 // aTest
+ ME_56116E1902DE // aGetState
+ )
+ ; // Parameters
+
+ENDME // ME_56116E100319 DoIt
+
+ME ME_56116E0A026F
+ MEPROP UID '56116E0A026F'
+ MEPROP Name 'PublishOpWithResult'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'опубликовать операцию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55D30E6601A8 // TvcmBaseOperationsCollection
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56116E100319 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56116E0A026F PublishOpWithResult
+
+FORWARD ME_56116E2E0246
+
+FORWARD ME_56116E350052
+
+ME ME_56116DFC00FA
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_56116DFC00FA aControl
+
+ME ME_56116E350052
+ MEPROP UID '56116E350052'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56116E2E0246 // UnlinkControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_56116DFC00FA // aControl
+ )
+ ; // Parameters
+
+ENDME // ME_56116E350052 DoIt
+
+ME ME_56116E2E0246
+ MEPROP UID '56116E2E0246'
+ MEPROP Name 'UnlinkControl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'отвязать контрол' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55D30E6601A8 // TvcmBaseOperationsCollection
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56116E350052 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56116E2E0246 UnlinkControl
+
+ME ME_56116EB201D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55D30E6601A8 // TvcmBaseOperationsCollection
+ ;
+ MELINK Target WL 'ME_4767748503B5' '4767743E00E5.ms.model.script' // TTypeInfo
+ ;
+
+ENDME // ME_56116EB201D8 
+
+ME ME_56116EBC00CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55D30E6601A8 // TvcmBaseOperationsCollection
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_56116EBC00CA 
+
+ME ME_56116ECE020F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55D30E6601A8 // TvcmBaseOperationsCollection
+ ;
+ MELINK Target WL? 'ME_4D7A109601C2' // TvcmBaseOperationsCollectionItem
+ ;
+
+ENDME // ME_56116ECE020F 
+
+ME ME_56116EF001B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55D30E6601A8 // TvcmBaseOperationsCollection
+ ;
+ MELINK Target WL? 'ME_5603F60C018E' // TvcmOperationsCollectionItem
+ ;
+
+ENDME // ME_56116EF001B4 
+
+ME ME_56116F5A01EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55D30E6601A8 // TvcmBaseOperationsCollection
+ ;
+ MELINK Target WL? 'ME_4AB33E14004E' // TvcmModule
+ ;
+
+ENDME // ME_56116F5A01EF 
+
+ME ME_5611807D017B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55D30E6601A8 // TvcmBaseOperationsCollection
+ ;
+ MELINK Target WL? 'ME_47E7ABAE0110' // Menus
+ ;
+
+ENDME // ME_5611807D017B 
+
+MEREF ME_5607EE71032D_ME_55D30E6601A8_over
+ MELINK Original WL 'ME_5607EE71032D' '4FFC4C800030.ms.model.script' // GetItemClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDMEREF // ME_5607EE71032D_ME_55D30E6601A8_over GetItemClass
+
+MEREF ME_560A9DA80335_ME_55D30E6601A8_over
+ MELINK Original WL 'ME_560A9DA80335' '478CF30500C1.ms.model.script' // GetAttrCount
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_560A9DA80335_ME_55D30E6601A8_over GetAttrCount
+
+MEREF ME_560A9DCD009D_ME_55D30E6601A8_over
+ MELINK Original WL 'ME_560A9DCD009D' '478CF30500C1.ms.model.script' // GetAttr
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_560A9DCD009D_ME_55D30E6601A8_over GetAttr
+
+MEREF ME_560A9DEB0155_ME_55D30E6601A8_over
+ MELINK Original WL 'ME_560A9DEB0155' '478CF30500C1.ms.model.script' // GetItemAttr
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_560A9DEB0155_ME_55D30E6601A8_over GetItemAttr
+
+MEREF ME_4FFC4C800030_ME_55D30E6601A8_G
+ MELINK Original WL? 'ME_4FFC4C800030' // TvcmBaseCollection
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FFC4C800030_ME_55D30E6601A8_G TvcmBaseCollection
+
+%%InheritedBy ME_4FFC4C800030 ME_55D30E6601A8
+
+ME ME_55D30E6601A8
+ MEPROP UID '55D30E6601A8'
+ MEPROP Name 'TvcmBaseOperationsCollection'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Коллекция операций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AB34028023E' // Components
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FFC4C800030_ME_55D30E6601A8_G // TvcmBaseCollection
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_56116D4D02C6 // NeedToBeStored
+ HWL ME_56116D7B0216 // Operation
+ HWL ME_56116DA502E0 // GetOperations
+ HWL ME_56116DBA001A // RegisterInRep
+ HWL ME_56116DD0036F // PublishOp
+ HWL ME_56116E0A026F // PublishOpWithResult
+ HWL ME_56116E2E0246 // UnlinkControl
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_5607EE71032D_ME_55D30E6601A8_over // GetItemClass
+ ME_560A9DA80335_ME_55D30E6601A8_over // GetAttrCount
+ ME_560A9DCD009D_ME_55D30E6601A8_over // GetAttr
+ ME_560A9DEB0155_ME_55D30E6601A8_over // GetItemAttr
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_56116EB201D8 // TTypeInfo
+ ME_56116EBC00CA // SysUtils
+ ME_56116ECE020F // TvcmBaseOperationsCollectionItem
+ ME_56116EF001B4 // TvcmOperationsCollectionItem
+ ME_56116F5A01EF // TvcmModule
+ ME_5611807D017B // Menus
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'vcmBaseOperationsCollection'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OperationsCollection'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmBaseOperationsCollection.pas'
+
+ENDME // ME_55D30E6601A8 TvcmBaseOperationsCollection

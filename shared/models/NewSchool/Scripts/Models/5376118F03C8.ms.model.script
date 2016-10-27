@@ -1,0 +1,105 @@
+// TvgRemindersLineNotificationProxy 5376118F03C8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5376118F03C8
+
+ME ME_53763C3A0170
+ MEPROP UID '53763C3A0170'
+ MEPROP Name 'new_ini_op'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5376118F03C8 // TvgRemindersLineNotificationProxy
+ ;
+
+ENDME // ME_53763C3A0170 new_ini_op
+
+ME ME_5376125600A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5376118F03C8 // TvgRemindersLineNotificationProxy
+ ;
+ MELINK Target WL? 'ME_533EABAE0351' // TvgRemindersLineManager
+ ;
+
+ENDME // ME_5376125600A3 
+
+MEREF ME_53760DC000EE_ME_5376118F03C8_impl
+ MELINK Original WL 'ME_53760DC000EE' '53760B2701DD.ms.model.script' // HelpShown
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_53760DC000EE_ME_5376118F03C8_impl HelpShown
+
+MEREF ME_479731C50290_ME_5376118F03C8_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5376118F03C8_over Cleanup
+
+MEREF ME_47A042E100E2_ME_5376118F03C8_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_5376118F03C8_over InitFields
+
+MEREF ME_49E7754802A9_ME_5376118F03C8_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5376118F03C8_G Tl3ProtoObject
+
+MEREF ME_53760C2B0357_ME_5376118F03C8_R
+ MELINK Original WL 'ME_53760C2B0357' '53760B2701DD.ms.model.script' // IspHelpNotifyListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53760C2B0357_ME_5376118F03C8_R IspHelpNotifyListener
+
+%%ImplementedBy ME_53760C2B0357 ME_5376118F03C8
+
+%%InheritedBy ME_49E7754802A9 ME_5376118F03C8
+
+ME ME_5376118F03C8
+ MEPROP UID '5376118F03C8'
+ MEPROP Name 'TvgRemindersLineNotificationProxy'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53288DFA03A7' // NewReminders
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_5376118F03C8_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53760C2B0357_ME_5376118F03C8_R // IspHelpNotifyListener
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_53763C3A0170 // new_ini_op
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_53760DC000EE_ME_5376118F03C8_impl // HelpShown
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5376118F03C8_over // Cleanup
+ ME_47A042E100E2_ME_5376118F03C8_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5376125600A3 // TvgRemindersLineManager
+ )
+ ; // Dependencies
+ UP "singleton" True
+ UP extprop:pas:UnitName 'vgRemindersLineNotificationProxy'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RemindersLineNotificationProxy'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vgRemindersLineNotificationProxy.pas'
+
+ENDME // ME_5376118F03C8 TvgRemindersLineNotificationProxy

@@ -1,0 +1,59 @@
+// TnsNodeDataObject 468270DC0341 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_468270DC0341
+
+ME ME_52EBD76D038E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_468270DC0341 // TnsNodeDataObject
+ ;
+ MELINK Target WL? 'ME_468271030094' // TnsNodeStorable
+ ;
+
+ENDME // ME_52EBD76D038E 
+
+MEREF ME_48F8CD5401AD_ME_468270DC0341_over
+ MELINK Original WL 'ME_48F8CD5401AD' '48F8C3780325.ms.model.script' // DataClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48F8CD5401AD_ME_468270DC0341_over DataClass
+
+MEREF ME_48F4DC5A018D_ME_468270DC0341_G
+ MELINK Original WL? 'ME_48F4DC5A018D' // TevNodeDataObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48F4DC5A018D_ME_468270DC0341_G TevNodeDataObject
+
+%%InheritedBy ME_48F4DC5A018D ME_468270DC0341
+
+ME ME_468270DC0341
+ MEPROP UID '468270DC0341'
+ MEPROP Name 'TnsNodeDataObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52DE57B200A5' // Tree$WithDnD
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F4DC5A018D_ME_468270DC0341_G // TevNodeDataObject
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48F8CD5401AD_ME_468270DC0341_over // DataClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52EBD76D038E // TnsNodeStorable
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'nsNodeDataObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NodeDataObject'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Components\nsNodeDataObject.pas'
+
+ENDME // ME_468270DC0341 TnsNodeDataObject

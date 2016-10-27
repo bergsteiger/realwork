@@ -1,0 +1,66 @@
+// TvcmIEntityFormList 4AC4B66801FC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC4B66801FC
+
+ME ME_4AC4B6BB02C8
+ MEPROP UID '4AC4B6BB02C8'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC4B66801FC // TvcmIEntityFormList
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4AC4B6BB02C8 ItemType
+
+MEREF ME_47B57D830369_ME_4AC4B66801FC_G
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_4AC4B66801FC_G l3InterfaceRefList
+
+MEREF ME_4A54DD4E036F_ME_4AC4B66801FC_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4AC4B66801FC_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57D830369 ME_4AC4B66801FC
+%%InheritedBy ME_4A54DD4E036F ME_4AC4B66801FC
+
+ME ME_4AC4B66801FC
+ MEPROP UID '4AC4B66801FC'
+ MEPROP Name 'TvcmIEntityFormList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список IvcmEntityForm' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A8D6EF403E4' // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57D830369_ME_4AC4B66801FC_G // l3InterfaceRefList
+ HWL ME_4A54DD4E036F_ME_4AC4B66801FC_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4AC4B6BB02C8 // ItemType
+ )
+ ; // Attributes
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '01.10.2009 18:02'
+ UP extprop:pas:UnitName 'vcmIEntityFormList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IEntityFormList'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmIEntityFormList.pas'
+
+ENDME // ME_4AC4B66801FC TvcmIEntityFormList

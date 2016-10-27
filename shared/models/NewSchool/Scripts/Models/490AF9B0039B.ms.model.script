@@ -1,0 +1,235 @@
+// TnsNewCachableNode 490AF9B0039B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_490AF9B0039B
+
+ME ME_4ADF00C901A9
+ MEPROP UID '4ADF00C901A9'
+ MEPROP Name 'AdapterNode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_490AF9B0039B // TnsNewCachableNode
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4ADF00C901A9 AdapterNode
+
+FORWARD ME_4AE058130153
+
+FORWARD ME_4AE058190281
+
+ME ME_4AE0581D028F
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4AE0581D028F aNode
+
+ME ME_4AE058190281
+ MEPROP UID '4AE058190281'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE058130153 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AE0581D028F // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4AE058190281 DoIt
+
+ME ME_4AE058130153
+ MEPROP UID '4AE058130153'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_490AF9B0039B // TnsNewCachableNode
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AE058190281 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4AE058130153 Create
+
+MEREF ME_4AE058130153_ME_4AE05D3D0255_G
+ MELINK Original HWL ME_4AE058130153 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE058130153_ME_4AE05D3D0255_G Create
+
+MEREF ME_476BF22B03E1_ME_4AE05D3D0255_R
+ MELINK Original WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_476BF22B03E1_ME_4AE05D3D0255_R Il3Node
+
+%%ImplementedBy ME_476BF22B03E1 ME_4AE05D3D0255
+
+%%InheritedBy ME_4AE058130153 ME_4AE05D3D0255
+
+ME ME_4AE05D3D0255
+ MEPROP UID '4AE05D3D0255'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_490AF9B0039B // TnsNewCachableNode
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AE058130153_ME_4AE05D3D0255_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_476BF22B03E1_ME_4AE05D3D0255_R // Il3Node
+ )
+ ; // Implements
+
+ENDME // ME_4AE05D3D0255 Make
+
+ME ME_4ADF036B01BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490AF9B0039B // TnsNewCachableNode
+ ;
+ MELINK Target WL 'ME_4ADEE542029C' '4A6854C70390.ms.model.script' // nsWStr
+ ;
+
+ENDME // ME_4ADF036B01BC 
+
+ME ME_4ADF037700D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490AF9B0039B // TnsNewCachableNode
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4ADF037700D4 
+
+ME ME_4ADF04220359
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490AF9B0039B // TnsNewCachableNode
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4ADF04220359 
+
+ME ME_4ADF0434036F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490AF9B0039B // TnsNewCachableNode
+ ;
+ MELINK Target WL 'ME_4ADEE4C90303' '47CFE7F00221.ms.model.script' // l3IEQ
+ ;
+
+ENDME // ME_4ADF0434036F 
+
+MEREF ME_479731C50290_ME_490AF9B0039B_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_490AF9B0039B_over Cleanup
+
+MEREF ME_47A869BB02DE_ME_490AF9B0039B_over
+ MELINK Original WL 'ME_47A869BB02DE' '53317D14019D.ms.model.script' // GetAsPCharLen
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A869BB02DE_ME_490AF9B0039B_over GetAsPCharLen
+
+MEREF ME_4A60B23E00C3_ME_490AF9B0039B_over
+ MELINK Original WL 'ME_4A60B23E00C3' '4A60B2220398.ms.model.script' // COMQueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A60B23E00C3_ME_490AF9B0039B_over COMQueryInterface
+
+MEREF ME_54C78D4603D6_ME_490AF9B0039B_over
+ MELINK Original WL 'ME_54C78D4603D6' '54C61BFC0342.ms.model.script' // DoGetLevel
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_54C78D4603D6_ME_490AF9B0039B_over DoGetLevel
+
+MEREF ME_54C78D9201B9_ME_490AF9B0039B_over
+ MELINK Original WL 'ME_54C78D9201B9' '54C61BFC0342.ms.model.script' // GetIsSame
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_54C78D9201B9_ME_490AF9B0039B_over GetIsSame
+
+MEREF ME_4A573D2F00C6_ME_490AF9B0039B_G
+ MELINK Original WL 'ME_4A573D2F00C6' '54C61BFC0342.ms.model.script' // Tl3PlaceNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A573D2F00C6_ME_490AF9B0039B_G Tl3PlaceNode
+
+%%InheritedBy ME_4A573D2F00C6 ME_490AF9B0039B
+
+ME ME_490AF9B0039B
+ MEPROP UID '490AF9B0039B'
+ MEPROP Name 'TnsNewCachableNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4908A8A20107' // OldTree
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A573D2F00C6_ME_490AF9B0039B_G // Tl3PlaceNode
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4ADF00C901A9 // AdapterNode
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AE058130153 // Create
+ HWL ME_4AE05D3D0255 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_490AF9B0039B_over // Cleanup
+ ME_47A869BB02DE_ME_490AF9B0039B_over // GetAsPCharLen
+ ME_4A60B23E00C3_ME_490AF9B0039B_over // COMQueryInterface
+ ME_54C78D4603D6_ME_490AF9B0039B_over // DoGetLevel
+ ME_54C78D9201B9_ME_490AF9B0039B_over // GetIsSame
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4ADF036B01BC // nsWStr
+ ME_4ADF037700D4 // String
+ ME_4ADF04220359 // Supports
+ ME_4ADF0434036F // l3IEQ
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '21.10.2009 16:42'
+ UP extprop:pas:UnitName 'nsNewCachableNode'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NewCachableNode'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNewCachableNode.pas'
+
+ENDME // ME_490AF9B0039B TnsNewCachableNode

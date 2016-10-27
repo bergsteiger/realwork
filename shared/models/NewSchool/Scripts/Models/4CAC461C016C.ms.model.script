@@ -1,0 +1,63 @@
+// TDeleteSectionBreakTest 4CAC461C016C TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CAC461C016C
+
+ME ME_4CAC65F2009E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAC461C016C // TDeleteSectionBreakTest
+ ;
+ MELINK Target WL? 'ME_48453B7601F9' // evCursorTools
+ ;
+
+ENDME // ME_4CAC65F2009E 
+
+MEREF ME_4CAC45AE011E_ME_4CAC461C016C_impl
+ MELINK Original WL 'ME_4CAC45AE011E' '4CAC405703AE.ms.model.script' // DoBeforeDrawing
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CAC45AE011E_ME_4CAC461C016C_impl DoBeforeDrawing
+
+MEREF ME_4CAC405703AE_ME_4CAC461C016C_G
+ MELINK Original WL? 'ME_4CAC405703AE' // TDrawTestPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CAC405703AE_ME_4CAC461C016C_G TDrawTestPrim
+
+%%InheritedBy ME_4CAC405703AE ME_4CAC461C016C
+
+ME ME_4CAC461C016C
+ MEPROP UID '4CAC461C016C'
+ MEPROP Name 'TDeleteSectionBreakTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест на удаление раздела.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B30C89F035F' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CAC405703AE_ME_4CAC461C016C_G // TDrawTestPrim
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4CAC45AE011E_ME_4CAC461C016C_impl // DoBeforeDrawing
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4CAC65F2009E // evCursorTools
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'DeleteSectionBreakTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DeleteSectionBreakTest'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\DeleteSectionBreakTest.pas'
+
+ENDME // ME_4CAC461C016C TDeleteSectionBreakTest

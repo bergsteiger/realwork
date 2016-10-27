@@ -1,0 +1,132 @@
+// TnsRedactionCurrentPara 4A7FF2C901C8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A7FF2C901C8
+
+ME ME_4A7FD12103C1
+ MEPROP UID '4A7FD12103C1'
+ MEPROP Name 'f_Para'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Параграф для синхронизации' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A7FF2C901C8 // TnsRedactionCurrentPara
+ ;
+ MELINK Target WL 'ME_4A7FC9C9008F' '4912DD020283.ms.model.script' // IeeLeafPara
+ ;
+
+ENDME // ME_4A7FD12103C1 f_Para
+
+FORWARD ME_4B5853E10268
+
+FORWARD ME_4B5853E800BA
+
+ME ME_4B5853ED02DD
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A7FC9C9008F' '4912DD020283.ms.model.script' // IeeLeafPara
+ ;
+
+ENDME // ME_4B5853ED02DD aPara
+
+ME ME_4B5853E800BA
+ MEPROP UID '4B5853E800BA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5853E10268 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B5853ED02DD // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_4B5853E800BA DoIt
+
+ME ME_4B5853E10268
+ MEPROP UID '4B5853E10268'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A7FF2C901C8 // TnsRedactionCurrentPara
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B5853E800BA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B5853E10268 Create
+
+MEREF ME_4A7FF1AC035C_ME_4A7FF2C901C8_impl
+ MELINK Original WL 'ME_4A7FF1AC035C' '4A6D56B00065.ms.model.script' // RedactionCurrentPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4A7FF1AC035C_ME_4A7FF2C901C8_impl RedactionCurrentPara
+
+MEREF ME_49E7754802A9_ME_4A7FF2C901C8_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4A7FF2C901C8_G Tl3ProtoObject
+
+MEREF ME_4A7FF1760065_ME_4A7FF2C901C8_R
+ MELINK Original WL 'ME_4A7FF1760065' '4A6D56B00065.ms.model.script' // MnsRedactionCurrentPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A7FF1760065_ME_4A7FF2C901C8_R MnsRedactionCurrentPara
+
+%%ImplementedBy ME_4A7FF1760065 ME_4A7FF2C901C8
+
+%%InheritedBy ME_49E7754802A9 ME_4A7FF2C901C8
+
+ME ME_4A7FF2C901C8
+ MEPROP UID '4A7FF2C901C8'
+ MEPROP Name 'TnsRedactionCurrentPara'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A785027038D' // CommonObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_4A7FF2C901C8_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4A7FF1760065_ME_4A7FF2C901C8_R // MnsRedactionCurrentPara
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A7FD12103C1 // f_Para
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B5853E10268 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A7FF1AC035C_ME_4A7FF2C901C8_impl // RedactionCurrentPara
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '10.08.2009 14:25'
+ UP extprop:pas:UnitName 'nsRedactionCurrentPara'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RedactionCurrentPara'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Editions\nsRedactionCurrentPara.pas'
+
+ENDME // ME_4A7FF2C901C8 TnsRedactionCurrentPara

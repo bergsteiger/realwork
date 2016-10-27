@@ -1,0 +1,367 @@
+// TatFilterHelper 503F84050182 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_503CE9590299
+%%Inner ME_5040D3EE02D5
+
+FORWARD ME_503F84050182
+
+FORWARD ME_503CE9590299
+
+ME ME_503CE9800087
+ MEPROP UID '503CE9800087'
+ MEPROP Name 'ContextPlace'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_503CE9590299 // ContextFilterParams
+ ;
+ MELINK Target WL 'ME_45EEBBE501D4' '457450470167.ms.model.script' // ContextPlace
+ ;
+
+ENDME // ME_503CE9800087 ContextPlace
+
+ME ME_503CE988004C
+ MEPROP UID '503CE988004C'
+ MEPROP Name 'FindOrder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_503CE9590299 // ContextFilterParams
+ ;
+ MELINK Target WL 'ME_45EEC3260222' '457450470167.ms.model.script' // FindOrder
+ ;
+
+ENDME // ME_503CE988004C FindOrder
+
+ME ME_503CE98E02F0
+ MEPROP UID '503CE98E02F0'
+ MEPROP Name 'SearchArea'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_503CE9590299 // ContextFilterParams
+ ;
+ MELINK Target WL 'ME_45EECCFE0251' '457450470167.ms.model.script' // SearchArea
+ ;
+
+ENDME // ME_503CE98E02F0 SearchArea
+
+ME ME_503CE9590299
+ MEPROP UID '503CE9590299'
+ MEPROP Name 'ContextFilterParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_503F84050182 // TatFilterHelper
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_503CE9800087 // ContextPlace
+ HWL ME_503CE988004C // FindOrder
+ HWL ME_503CE98E02F0 // SearchArea
+ )
+ ; // Attributes
+
+ENDME // ME_503CE9590299 ContextFilterParams
+
+FORWARD ME_5040D3EE02D5
+
+ME ME_5040D48103B0
+ MEPROP UID '5040D48103B0'
+ MEPROP Name 'Context'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5040D3EE02D5 // TatContextFilter
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "pm" True
+
+ENDME // ME_5040D48103B0 Context
+
+ME ME_5040D4F90189
+ MEPROP UID '5040D4F90189'
+ MEPROP Name 'TweakContextOnAssignment'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Изменяет контекст при присвоении в соответствии с настройками фильтра' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5040D3EE02D5 // TatContextFilter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_5040D4F90189 TweakContextOnAssignment
+
+ME ME_5040D40F02BC
+ MEPROP UID '5040D40F02BC'
+ MEPROP Name 'Filter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5040D3EE02D5 // TatContextFilter
+ ;
+ MELINK Target WL 'ME_45EEBB5002CE' '457450470167.ms.model.script' // ContextFilter
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_5040D40F02BC Filter
+
+ME ME_5040D43501FA
+ MEPROP UID '5040D43501FA'
+ MEPROP Name 'Area'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5040D3EE02D5 // TatContextFilter
+ ;
+ MELINK Target WL 'ME_45EECCFE0251' '457450470167.ms.model.script' // SearchArea
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_5040D43501FA Area
+
+ME ME_5040D43E004C
+ MEPROP UID '5040D43E004C'
+ MEPROP Name 'Order'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5040D3EE02D5 // TatContextFilter
+ ;
+ MELINK Target WL 'ME_45EEC3260222' '457450470167.ms.model.script' // FindOrder
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_5040D43E004C Order
+
+ME ME_5040D44600D3
+ MEPROP UID '5040D44600D3'
+ MEPROP Name 'Place'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5040D3EE02D5 // TatContextFilter
+ ;
+ MELINK Target WL 'ME_45EEBBE501D4' '457450470167.ms.model.script' // ContextPlace
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_5040D44600D3 Place
+
+FORWARD ME_5040D4A501C2
+
+ME ME_5040D4B2016F
+ MEPROP Name 'aFilter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_45EEBB5002CE' '457450470167.ms.model.script' // ContextFilter
+ ;
+
+ENDME // ME_5040D4B2016F aFilter
+
+ME ME_5040D4A501C2
+ MEPROP UID '5040D4A501C2'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5040D3EE02D5 // TatContextFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_5040D4B2016F // aFilter
+ )
+ ; // Parameters
+
+ENDME // ME_5040D4A501C2 Create
+
+ME ME_5040D5BC01FF
+ MEPROP UID '5040D5BC01FF'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5040D3EE02D5 // TatContextFilter
+ ;
+
+ENDME // ME_5040D5BC01FF Create
+
+ME ME_5040D6940299
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5040D3EE02D5 // TatContextFilter
+ ;
+ MELINK Target WL? 'ME_483C0AEA0186' // atGblAdapterWorker
+ ;
+
+ENDME // ME_5040D6940299 
+
+ME ME_5040D82B03D9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5040D3EE02D5 // TatContextFilter
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_5040D82B03D9 
+
+ME ME_5040D3EE02D5
+ MEPROP UID '5040D3EE02D5'
+ MEPROP Name 'TatContextFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_503F84050182 // TatFilterHelper
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5040D48103B0 // Context
+ HWL ME_5040D4F90189 // TweakContextOnAssignment
+ HWL ME_5040D40F02BC // Filter
+ HWL ME_5040D43501FA // Area
+ HWL ME_5040D43E004C // Order
+ HWL ME_5040D44600D3 // Place
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5040D4A501C2 // Create
+ HWL ME_5040D5BC01FF // Create
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5040D6940299 // atGblAdapterWorker
+ ME_5040D82B03D9 // String
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atContextFilter'
+
+ENDME // ME_5040D3EE02D5 TatContextFilter
+
+FORWARD ME_503F85120338
+
+ME ME_503F852600D4
+ MEPROP UID '503F852600D4'
+ MEPROP Name 'DEFAULT_CONTEXT_FILTER_PARAMS'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_503F85120338 // Consts
+ ;
+ MELINK Target HWL ME_503CE9590299 // ContextFilterParams
+ ;
+ MEPROP Value '(ContextPlace: CP_ANY; FindOrder : FO_ANY; SearchArea : SA_ALL_LEVEL)'
+ MELINK ValueType HWL ME_503CE9590299 // ContextFilterParams
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(ContextPlace: CP_ANY; FindOrder : FO_ANY; SearchArea : SA_ALL_LEVEL)'
+
+ENDME // ME_503F852600D4 DEFAULT_CONTEXT_FILTER_PARAMS
+
+ME ME_503F85120338
+ MEPROP UID '503F85120338'
+ MEPROP Name 'Consts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_503F84050182 // TatFilterHelper
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_503F852600D4 // DEFAULT_CONTEXT_FILTER_PARAMS
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_503F85120338 Consts
+
+ME ME_503F876E01CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_503F84050182 // TatFilterHelper
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_503F876E01CA 
+
+ME ME_503FCB8101E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_503F84050182 // TatFilterHelper
+ ;
+ MELINK Target WL? 'ME_48B5671301C7' // TatStringHelper
+ ;
+
+ENDME // ME_503FCB8101E7 
+
+ME ME_503F84050182
+ MEPROP UID '503F84050182'
+ MEPROP Name 'TatFilterHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48078CC202EC' // AdapterHelpers
+ ;
+ MELIST Children
+   Seq: ( HWL ME_503CE9590299 // ContextFilterParams
+ HWL ME_5040D3EE02D5 // TatContextFilter
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_503F85120338 // Consts
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_503F876E01CA // SysUtils
+ ME_503FCB8101E7 // TatStringHelper
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atFilterHelper'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atFilterHelper'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\AdapterHelpers\atFilterHelper.pas'
+
+ENDME // ME_503F84050182 TatFilterHelper

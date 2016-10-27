@@ -1,0 +1,175 @@
+// TarBelaCountryList 56B08EB602EB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_56B08F0B016E
+
+FORWARD ME_56B08EB602EB
+
+FORWARD ME_56B08F0B016E
+
+ME ME_56B08F8E0282
+ MEPROP UID '56B08F8E0282'
+ MEPROP Name 'rName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56B08F0B016E // TarBelaCountryRec
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_56B08F8E0282 rName
+
+ME ME_56B08F9D0203
+ MEPROP UID '56B08F9D0203'
+ MEPROP Name 'rSigned'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56B08F0B016E // TarBelaCountryRec
+ ;
+ MELINK Target WL 'ME_4E8EDFCA01C0' '47D02918035D.ms.model.script' // TStDate
+ ;
+
+ENDME // ME_56B08F9D0203 rSigned
+
+ME ME_56B08FAC007C
+ MEPROP UID '56B08FAC007C'
+ MEPROP Name 'rRatify'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56B08F0B016E // TarBelaCountryRec
+ ;
+ MELINK Target WL 'ME_4E8EDFCA01C0' '47D02918035D.ms.model.script' // TStDate
+ ;
+
+ENDME // ME_56B08FAC007C rRatify
+
+ME ME_56B08F0B016E
+ MEPROP UID '56B08F0B016E'
+ MEPROP Name 'TarBelaCountryRec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56B08EB602EB // TarBelaCountryList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_56B08F8E0282 // rName
+ HWL ME_56B08F9D0203 // rSigned
+ HWL ME_56B08FAC007C // rRatify
+ )
+ ; // Attributes
+
+ENDME // ME_56B08F0B016E TarBelaCountryRec
+
+ME ME_56B08F1F0375
+ MEPROP UID '56B08F1F0375'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56B08EB602EB // TarBelaCountryList
+ ;
+ MELINK Target HWL ME_56B08F0B016E // TarBelaCountryRec
+ ;
+
+ENDME // ME_56B08F1F0375 ItemType
+
+ME ME_56B08F02019C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56B08EB602EB // TarBelaCountryList
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_56B08F02019C 
+
+MEREF ME_47B07CF403D0_ME_56B08EB602EB_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_56B08EB602EB_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_56B08EB602EB_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_56B08EB602EB_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_56B08EB602EB_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_56B08EB602EB_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_56B08EB602EB_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_56B08EB602EB_G Tl3ProtoDataContainer
+
+MEREF ME_4B223ADC02BF_ME_56B08EB602EB_G
+ MELINK Original WL? 'ME_4B223ADC02BF' // l3RecordListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223ADC02BF_ME_56B08EB602EB_G l3RecordListPrim
+
+%%InheritedBy ME_4A54DD4E036F ME_56B08EB602EB
+%%InheritedBy ME_4B223ADC02BF ME_56B08EB602EB
+
+ME ME_56B08EB602EB
+ MEPROP UID '56B08EB602EB'
+ MEPROP Name 'TarBelaCountryList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_56A5E0300333' // Belarus
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_56B08EB602EB_G // Tl3ProtoDataContainer
+ HWL ME_4B223ADC02BF_ME_56B08EB602EB_G // l3RecordListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_56B08F1F0375 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_56B08EB602EB_impl // IsSameItems
+ ME_47B2C42A0163_ME_56B08EB602EB_impl // AssignItem
+ ME_47B99D4503A2_ME_56B08EB602EB_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_56B08F0B016E // TarBelaCountryRec
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_56B08F02019C // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'arBelaCountryList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arBelaCountryList'
+ UP intf.pas:Path 'common\components\rtl\Garant\ar\arBelaCountryList.pas'
+
+ENDME // ME_56B08EB602EB TarBelaCountryList

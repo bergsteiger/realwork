@@ -13,7 +13,7 @@ ME ME_555DB6380224
  MELINK Stereotype st_implements::Dependency ;
  MELINK Parent HWL ME_555DB62E036B // TevdEVDReaderService
  ;
- MELINK Target WL 'ME_555DB43B00BD' '482D6E960087.ms.model.script' // Tk2EVDReaderService
+ MELINK Target WL? 'ME_555DB43B00BD' // Tk2EVDReaderService
  ;
 
 ENDME // ME_555DB6380224 
@@ -23,7 +23,7 @@ ME ME_555DB64C03E4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_555DB62E036B // TevdEVDReaderService
  ;
- MELINK Target WL 'ME_483E80FA0312' '483E80C9025F.ms.model.script' // TevdNativeReader
+ MELINK Target WL? 'ME_483E80FA0312' // TevdNativeReader
  ;
 
 ENDME // ME_555DB64C03E4 
@@ -38,6 +38,12 @@ ME ME_55702B7603B3
 
 ENDME // ME_55702B7603B3 
 
+MEREF ME_49E7754802A9_ME_555DB62E036B_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_555DB62E036B_G Tl3ProtoObject
+
 %%InheritedBy ME_49E7754802A9 ME_555DB62E036B
 
 ME ME_555DB62E036B
@@ -51,7 +57,7 @@ ME ME_555DB62E036B
  MELINK Parent HWL ME_555DB607006F // evdNativeReaderServices
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_555DB62E036B_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Dependencies

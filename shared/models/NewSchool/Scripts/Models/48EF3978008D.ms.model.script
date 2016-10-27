@@ -1,0 +1,161 @@
+// TevDataObject 48EF3978008D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48EF3978008D
+
+ME ME_48F4685000ED
+ MEPROP UID '48F4685000ED'
+ MEPROP Name 'Block'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48EF3978008D // TevDataObject
+ ;
+ MELINK Target WL 'ME_47C68C4500D2' '48F4E61C0060.ms.model.script' // DataObject
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_48F4685000ED Block
+
+ME ME_48F468670155
+ MEPROP UID '48F468670155'
+ MEPROP Name 'f_Filters'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48EF3978008D // TevDataObject
+ ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_48F468670155 f_Filters
+
+FORWARD ME_48F4687B02D0
+
+ME ME_48F4688E015F
+ MEPROP Name 'aBlock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C68C4500D2' '48F4E61C0060.ms.model.script' // DataObject
+ ;
+
+ENDME // ME_48F4688E015F aBlock
+
+ME ME_48F4688E0188
+ MEPROP Name 'aFormats'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A449C50391' '4677FBA70343.ms.model.script' // Tl3ClipboardFormats
+ ;
+
+ENDME // ME_48F4688E0188 aFormats
+
+ME ME_48F4688E01AF
+ MEPROP Name 'aFilters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_48F4688E01AF aFilters
+
+ME ME_48F4687B02D0
+ MEPROP UID '48F4687B02D0'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EF3978008D // TevDataObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F4688E015F // aBlock
+ ME_48F4688E0188 // aFormats
+ ME_48F4688E01AF // aFilters
+ )
+ ; // Parameters
+
+ENDME // ME_48F4687B02D0 Create
+
+MEREF ME_48F37AC50290_ME_48EF3978008D_impl
+ MELINK Original WL 'ME_48F37AC50290' '4680F7E70110.ms.model.script' // Store
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48F37AC50290_ME_48EF3978008D_impl Store
+
+MEREF ME_479731C50290_ME_48EF3978008D_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_48EF3978008D_over Cleanup
+
+MEREF ME_48F359680368_ME_48EF3978008D_over
+ MELINK Original WL 'ME_48F359680368' '4680F5AA0274.ms.model.script' // DoQueryGetData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48F359680368_ME_48EF3978008D_over DoQueryGetData
+
+MEREF ME_4A60B23E00C3_ME_48EF3978008D_over
+ MELINK Original WL 'ME_4A60B23E00C3' '4A60B2220398.ms.model.script' // COMQueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A60B23E00C3_ME_48EF3978008D_over COMQueryInterface
+
+MEREF ME_4680F7E70110_ME_48EF3978008D_G
+ MELINK Original WL? 'ME_4680F7E70110' // Tl3StorableDataObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4680F7E70110_ME_48EF3978008D_G Tl3StorableDataObject
+
+%%InheritedBy ME_4680F7E70110 ME_48EF3978008D
+
+ME ME_48EF3978008D
+ MEPROP UID '48EF3978008D'
+ MEPROP Name 'TevDataObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация интерфейса IDataObject для выделения текста редактора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4802FF41005C' // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4680F7E70110_ME_48EF3978008D_G // Tl3StorableDataObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48F4685000ED // Block
+ HWL ME_48F468670155 // f_Filters
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48F4687B02D0 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48F37AC50290_ME_48EF3978008D_impl // Store
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48EF3978008D_over // Cleanup
+ ME_48F359680368_ME_48EF3978008D_over // DoQueryGetData
+ ME_4A60B23E00C3_ME_48EF3978008D_over // COMQueryInterface
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '06.04.2001 14:55'
+ UP extprop:pas:UnitName 'evDataObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DataObject'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evDataObject.pas'
+
+ENDME // ME_48EF3978008D TevDataObject

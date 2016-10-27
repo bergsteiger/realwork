@@ -133,7 +133,7 @@ ME ME_53BFCE0A0380
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53BFC8CF0329 // vcmComponentDestroyer
  ;
- MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
 ENDME // ME_53BFCE0A0380 
@@ -158,6 +158,12 @@ ME ME_55110D7F0064
 
 ENDME // ME_55110D7F0064 
 
+MEREF ME_4A82BCFA02EF_ME_53BFC8CF0329_R
+ MELINK Original WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A82BCFA02EF_ME_53BFC8CF0329_R MvcmEntityForm
+
 %%ImplementedBy ME_4A82BCFA02EF ME_53BFC8CF0329
 
 ME ME_53BFC8CF0329
@@ -172,7 +178,7 @@ ME ME_53BFC8CF0329
  MELINK Parent WL? 'ME_4AADF9450143' // Visual
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+   Seq: ( HWL ME_4A82BCFA02EF_ME_53BFC8CF0329_R // MvcmEntityForm
  )
  ; // Implements
  MELIST Operations

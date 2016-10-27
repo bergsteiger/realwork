@@ -1,0 +1,226 @@
+// TnevFormatInfoArray 49196E5F01CD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49196E5F01CD
+
+ME ME_49196F440022
+ MEPROP UID '49196F440022'
+ MEPROP Name 'f_Children'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49196E5F01CD // TnevFormatInfoArray
+ ;
+ MELINK Target WL? 'ME_4815C64B0373' // TnevFormatInfoList
+ ;
+
+ENDME // ME_49196F440022 f_Children
+
+FORWARD ME_49196FB8039F
+
+ME ME_49196FC60023
+ MEPROP UID '49196FC60023'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49196FB8039F // Items
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_49196FC60023 anIndex
+
+ME ME_49196FB8039F
+ MEPROP UID '49196FB8039F'
+ MEPROP Name 'Items'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49196E5F01CD // TnevFormatInfoArray
+ ;
+ MELINK Target WL? 'ME_4810DFE100B4' // TnevFormatInfo
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49196FC60023 // anIndex
+ )
+ ; // Attributes
+ UP "is default" True
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_49196FB8039F Items
+
+ME ME_49197E3A035D
+ MEPROP UID '49197E3A035D'
+ MEPROP Name 'f_IndexOfs'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49196E5F01CD // TnevFormatInfoArray
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_49197E3A035D f_IndexOfs
+
+FORWARD ME_4EA57037029A
+
+ME ME_4EA57043013B
+ MEPROP UID '4EA57043013B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EA57037029A // ClearReferencesToParentFormatInfo
+ ;
+
+ENDME // ME_4EA57043013B DoIt
+
+ME ME_4EA57037029A
+ MEPROP UID '4EA57037029A'
+ MEPROP Name 'ClearReferencesToParentFormatInfo'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49196E5F01CD // TnevFormatInfoArray
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EA57043013B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EA57037029A ClearReferencesToParentFormatInfo
+
+FORWARD ME_491972F102A1
+
+ME ME_491972FE0186
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_491972FE0186 anIndex
+
+ME ME_491972F102A1
+ MEPROP UID '491972F102A1'
+ MEPROP Name 'ChildAdded'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49196E5F01CD // TnevFormatInfoArray
+ ;
+ MELIST Parameters
+   Seq: ( ME_491972FE0186 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_491972F102A1 ChildAdded
+
+FORWARD ME_491973120092
+
+ME ME_491973190056
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_491973190056 anIndex
+
+ME ME_491973120092
+ MEPROP UID '491973120092'
+ MEPROP Name 'ChildDeleted'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49196E5F01CD // TnevFormatInfoArray
+ ;
+ MELIST Parameters
+   Seq: ( ME_491973190056 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_491973120092 ChildDeleted
+
+ME ME_491970F500E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49196E5F01CD // TnevFormatInfoArray
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_491970F500E0 
+
+MEREF ME_479731C50290_ME_49196E5F01CD_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_49196E5F01CD_over Cleanup
+
+MEREF ME_4AE5CA2D0034_ME_49196E5F01CD_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_49196E5F01CD_G Tl3CProtoObject
+
+%%InheritedBy ME_4AE5CA2D0034 ME_49196E5F01CD
+
+ME ME_49196E5F01CD
+ MEPROP UID '49196E5F01CD'
+ MEPROP Name 'TnevFormatInfoArray'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '"Разреженный" массив с информацией о форматировании параграфов, см. [$122672470]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48185390010A' // Rendering
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AE5CA2D0034_ME_49196E5F01CD_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_49196F440022 // f_Children
+ HWL ME_49196FB8039F // Items
+ HWL ME_49197E3A035D // f_IndexOfs
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4EA57037029A // ClearReferencesToParentFormatInfo
+ HWL ME_491972F102A1 // ChildAdded
+ HWL ME_491973120092 // ChildDeleted
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_49196E5F01CD_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_491970F500E0 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '11.11.2008 14:41'
+ UP extprop:pas:UnitName 'nevFormatInfoArray'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FormatInfoArray'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevFormatInfoArray.pas'
+
+ENDME // ME_49196E5F01CD TnevFormatInfoArray

@@ -1,0 +1,815 @@
+// TevCommentDecorator 4D88BFEA013A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53B27E6E03B0
+%%Inner ME_53B3E8B500B4
+
+FORWARD ME_4D88BFEA013A
+
+FORWARD ME_53B27E6E03B0
+
+ME ME_53B27E7803C7
+ MEPROP UID '53B27E7803C7'
+ MEPROP Name 'ev_wnoNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53B27E6E03B0 // TevWhatOpen
+ ;
+
+ENDME // ME_53B27E7803C7 ev_wnoNone
+
+ME ME_53B27E8100B1
+ MEPROP UID '53B27E8100B1'
+ MEPROP Name 'ev_wnoRow'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53B27E6E03B0 // TevWhatOpen
+ ;
+
+ENDME // ME_53B27E8100B1 ev_wnoRow
+
+ME ME_53B27E89009A
+ MEPROP UID '53B27E89009A'
+ MEPROP Name 'ev_wnoTable'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53B27E6E03B0 // TevWhatOpen
+ ;
+
+ENDME // ME_53B27E89009A ev_wnoTable
+
+ME ME_53B27E6E03B0
+ MEPROP UID '53B27E6E03B0'
+ MEPROP Name 'TevWhatOpen'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53B27E7803C7 // ev_wnoNone
+ HWL ME_53B27E8100B1 // ev_wnoRow
+ HWL ME_53B27E89009A // ev_wnoTable
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_53B27E6E03B0 TevWhatOpen
+
+FORWARD ME_53B3E8B500B4
+
+ME ME_53B3E8C7007A
+ MEPROP UID '53B3E8C7007A'
+ MEPROP Name 'ev_pcNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53B3E8B500B4 // TevPrevClosed
+ ;
+
+ENDME // ME_53B3E8C7007A ev_pcNone
+
+ME ME_53B3E8D200BB
+ MEPROP UID '53B3E8D200BB'
+ MEPROP Name 'ev_pcTable'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53B3E8B500B4 // TevPrevClosed
+ ;
+
+ENDME // ME_53B3E8D200BB ev_pcTable
+
+ME ME_53B3E8DB0076
+ MEPROP UID '53B3E8DB0076'
+ MEPROP Name 'ev_pcAACTable'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53B3E8B500B4 // TevPrevClosed
+ ;
+
+ENDME // ME_53B3E8DB0076 ev_pcAACTable
+
+ME ME_53B3E8B500B4
+ MEPROP UID '53B3E8B500B4'
+ MEPROP Name 'TevPrevClosed'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Флаг предыдущей таблицы: нет, обычная, "стильная".' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53B3E8C7007A // ev_pcNone
+ HWL ME_53B3E8D200BB // ev_pcTable
+ HWL ME_53B3E8DB0076 // ev_pcAACTable
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_53B3E8B500B4 TevPrevClosed
+
+FORWARD ME_53B285390095
+
+ME ME_53B2855601E8
+ MEPROP UID '53B2855601E8'
+ MEPROP Name 'cnDefIndentValue'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Цифра взята от настоящего стиля, но её значение вообщем-то фиолетово, т.к. все равно пересчитывается на уровне RTFWriter''а.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53B285390095 // CommentDecoratorConsts
+ ;
+ MEPROP Value 420
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 420
+
+ENDME // ME_53B2855601E8 cnDefIndentValue
+
+ME ME_53B285390095
+ MEPROP UID '53B285390095'
+ MEPROP Name 'CommentDecoratorConsts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53B2855601E8 // cnDefIndentValue
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_53B285390095 CommentDecoratorConsts
+
+ME ME_53B27E900130
+ MEPROP UID '53B27E900130'
+ MEPROP Name 'f_WhatOpen'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Флаг, показывающий какая часть таблицы открыта (записана в генератор)' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target HWL ME_53B27E6E03B0 // TevWhatOpen
+ ;
+
+ENDME // ME_53B27E900130 f_WhatOpen
+
+ME ME_53B27F040399
+ MEPROP UID '53B27F040399'
+ MEPROP Name 'f_InTable'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53B27F040399 f_InTable
+
+ME ME_53B27F1801BF
+ MEPROP UID '53B27F1801BF'
+ MEPROP Name 'f_AACStyle'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Текущий используемый стиль. Стиль выставляется блоком/текстовым параграфом и сохраняется до следующего блока/текстового параграфа.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53B27F1801BF f_AACStyle
+
+ME ME_53B27F2300DB
+ MEPROP UID '53B27F2300DB'
+ MEPROP Name 'f_InAACBlock'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Вложаенность стильных блоков. Вложенные "нестильные" блоки не считаются.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53B27F2300DB f_InAACBlock
+
+ME ME_53B3E8F201BA
+ MEPROP UID '53B3E8F201BA'
+ MEPROP Name 'f_WhatClosed'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target HWL ME_53B3E8B500B4 // TevPrevClosed
+ ;
+
+ENDME // ME_53B3E8F201BA f_WhatClosed
+
+ME ME_56EAD8D60059
+ MEPROP UID '56EAD8D60059'
+ MEPROP Name 'f_CurrBlockStyle'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Текущий стиль блока.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_56EAD8D60059 f_CurrBlockStyle
+
+FORWARD ME_53B27F3E0397
+
+ME ME_53B27F5200DA
+ MEPROP UID '53B27F5200DA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53B27F3E0397 // StartAACTable
+ ;
+
+ENDME // ME_53B27F5200DA DoIt
+
+ME ME_53B27F3E0397
+ MEPROP UID '53B27F3E0397'
+ MEPROP Name 'StartAACTable'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Начало таблицы-обертки.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53B27F5200DA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53B27F3E0397 StartAACTable
+
+FORWARD ME_53B27F93031A
+
+ME ME_53B27FB50026
+ MEPROP UID '53B27FB50026'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53B27F93031A // AddHeaderRow
+ ;
+
+ENDME // ME_53B27FB50026 DoIt
+
+ME ME_53B27F93031A
+ MEPROP UID '53B27F93031A'
+ MEPROP Name 'AddHeaderRow'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Строка табилцы с картинкой.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53B27FB50026 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53B27F93031A AddHeaderRow
+
+FORWARD ME_53B27FD8022F
+
+ME ME_53B27FED01B0
+ MEPROP UID '53B27FED01B0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53B27FD8022F // AddSpaceRow
+ ;
+
+ENDME // ME_53B27FED01B0 DoIt
+
+ME ME_53B27FD8022F
+ MEPROP UID '53B27FD8022F'
+ MEPROP Name 'AddSpaceRow'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Добавляем отступ перед стилем.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53B27FED01B0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53B27FD8022F AddSpaceRow
+
+FORWARD ME_53B280110031
+
+ME ME_53B28019016C
+ MEPROP UID '53B28019016C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ %SUMMARY 'Начинаем строку с основным текстом.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53B280110031 // StartAACRow
+ ;
+
+ENDME // ME_53B28019016C DoIt
+
+ME ME_53B280110031
+ MEPROP UID '53B280110031'
+ MEPROP Name 'StartAACRow'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53B28019016C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53B280110031 StartAACRow
+
+FORWARD ME_53B280490098
+
+ME ME_53B2805E020C
+ MEPROP UID '53B2805E020C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53B280490098 // StartAACRow4Table
+ ;
+
+ENDME // ME_53B2805E020C DoIt
+
+ME ME_53B280490098
+ MEPROP UID '53B280490098'
+ MEPROP Name 'StartAACRow4Table'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Начинаем строку для талицы (нет правого отступа)' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53B2805E020C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53B280490098 StartAACRow4Table
+
+FORWARD ME_53B280860287
+
+ME ME_53B280B20387
+ MEPROP UID '53B280B20387'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53B280860287 // StartAACStyle
+ ;
+
+ENDME // ME_53B280B20387 DoIt
+
+ME ME_53B280860287
+ MEPROP UID '53B280860287'
+ MEPROP Name 'StartAACStyle'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Начинает таблицу и предварительные строки.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53B280B20387 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53B280860287 StartAACStyle
+
+FORWARD ME_53B282200211
+
+ME ME_53B2823800E2
+ MEPROP UID '53B2823800E2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53B282200211 // EndRow
+ ;
+
+ENDME // ME_53B2823800E2 DoIt
+
+ME ME_53B282200211
+ MEPROP UID '53B282200211'
+ MEPROP Name 'EndRow'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Закрываем строку оберточной таблицы.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53B2823800E2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53B282200211 EndRow
+
+FORWARD ME_53B2824F0246
+
+ME ME_53B282670174
+ MEPROP UID '53B282670174'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53B2824F0246 // EndRowAndTable
+ ;
+
+ENDME // ME_53B282670174 DoIt
+
+ME ME_53B2824F0246
+ MEPROP UID '53B2824F0246'
+ MEPROP Name 'EndRowAndTable'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Закрывает строку и таблицу.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53B282670174 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53B2824F0246 EndRowAndTable
+
+FORWARD ME_53B282B3010A
+
+FORWARD ME_53B282E70339
+
+ME ME_53B282F200F6
+ MEPROP Name 'aForTable'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_53B282F200F6 aForTable
+
+ME ME_53B282E70339
+ MEPROP UID '53B282E70339'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53B282B3010A // CheckWhatOpen
+ ;
+ MELIST Parameters
+   Seq: ( ME_53B282F200F6 // aForTable
+ )
+ ; // Parameters
+
+ENDME // ME_53B282E70339 DoIt
+
+ME ME_53B282B3010A
+ MEPROP UID '53B282B3010A'
+ MEPROP Name 'CheckWhatOpen'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Открытие обертночной таблицы или строки таблицы с проверкой, что уже было открыто.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53B282E70339 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53B282B3010A CheckWhatOpen
+
+ME ME_53B285A701E3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53B285A701E3 
+
+ME ME_53B285C3031D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_47F245BD01E1' '47F2458300E4.ms.model.script' // Defaults
+ ;
+
+ENDME // ME_53B285C3031D 
+
+ME ME_53B286040308
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_484D2BAB02BB' '484A470100DD.ms.model.script' // Frame
+ ;
+
+ENDME // ME_53B286040308 
+
+ME ME_53B2864703D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_48F473650362' '47AB1FDE03E4.ms.model.script' // Tl3MemoryStream
+ ;
+
+ENDME // ME_53B2864703D8 
+
+ME ME_53B2868F0276
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_4857A87D0337' '48492FC0029D.ms.model.script' // Block
+ ;
+
+ENDME // ME_53B2868F0276 
+
+ME ME_53B2869303D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_53B2869303D7 
+
+ME ME_53B286AC0036
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_4FD091CD0011' '4FD091B803AB.ms.model.script' // TevdStyles_Res
+ ;
+
+ENDME // ME_53B286AC0036 
+
+ME ME_53B286DB0108
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_4858116B0355' '48492FC0029D.ms.model.script' // BitmapPara
+ ;
+
+ENDME // ME_53B286DB0108 
+
+ME ME_53B286E4002F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_53B286E4002F 
+
+ME ME_53B2872F022F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_53B2872F022F 
+
+ME ME_53B2877C0139
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_5069781D0126' '47F1F3BC0330.ms.model.script' // evAACStyle
+ ;
+
+ENDME // ME_53B2877C0139 
+
+ME ME_53B28797014D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_53B28797014D 
+
+ME ME_53B2882A0084
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_53B2882A0084 
+
+ME ME_53BA57770163
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_4857CD8D0093' '48492FC0029D.ms.model.script' // TableCell
+ ;
+
+ENDME // ME_53BA57770163 
+
+ME ME_53C64CCF0338
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
+ ;
+ MELINK Target WL 'ME_4A2E44B70095' '48492FC0029D.ms.model.script' // ContentsElement
+ ;
+
+ENDME // ME_53C64CCF0338 
+
+MEREF ME_4836D4650177_ME_4D88BFEA013A_over
+ MELINK Original WL 'ME_4836D4650177' '47ECAA270135.ms.model.script' // StartChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D4650177_ME_4D88BFEA013A_over StartChild
+
+MEREF ME_4836D49800CA_ME_4D88BFEA013A_over
+ MELINK Original WL 'ME_4836D49800CA' '47ECAA270135.ms.model.script' // OpenStream
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D49800CA_ME_4D88BFEA013A_over OpenStream
+
+MEREF ME_4836D4C20059_ME_4D88BFEA013A_over
+ MELINK Original WL 'ME_4836D4C20059' '47ECAA270135.ms.model.script' // CloseStructure
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D4C20059_ME_4D88BFEA013A_over CloseStructure
+
+MEREF ME_4836D52400D9_ME_4D88BFEA013A_over
+ MELINK Original WL 'ME_4836D52400D9' '47ECAA270135.ms.model.script' // AddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D52400D9_ME_4D88BFEA013A_over AddAtomEx
+
+MEREF ME_49E4883E0176_ME_4D88BFEA013A_over
+ MELINK Original WL 'ME_49E4883E0176' '49E487650342.ms.model.script' // DoWritePara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E4883E0176_ME_4D88BFEA013A_over DoWritePara
+
+MEREF ME_49E48A670254_ME_4D88BFEA013A_G
+ MELINK Original WL? 'ME_49E48A670254' // TevCommentParaDecorator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E48A670254_ME_4D88BFEA013A_G TevCommentParaDecorator
+
+%%InheritedBy ME_49E48A670254 ME_4D88BFEA013A
+
+ME ME_4D88BFEA013A
+ MEPROP UID '4D88BFEA013A'
+ MEPROP Name 'TevCommentDecorator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поддержка экспорта стилей для ААК. Фактически оборачивает содержимое блока/текствого параграфа в таблицу с отступами в виде строк или ячеек, убирая сам блок. Приваивает стиль блока/текстового параграфа таблице. Ридер должен знать о таком преобразовании и иметь записывать таблицу. Выполняет объединение двух блоков с одинаковыми стилями как при отрисовке/печати. Для HTML-экспорта не совсем правлиьное решение, лучше бы использовать div.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E48A670254_ME_4D88BFEA013A_G // TevCommentParaDecorator
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53B27E900130 // f_WhatOpen
+ HWL ME_53B27F040399 // f_InTable
+ HWL ME_53B27F1801BF // f_AACStyle
+ HWL ME_53B27F2300DB // f_InAACBlock
+ HWL ME_53B3E8F201BA // f_WhatClosed
+ HWL ME_56EAD8D60059 // f_CurrBlockStyle
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53B27F3E0397 // StartAACTable
+ HWL ME_53B27F93031A // AddHeaderRow
+ HWL ME_53B27FD8022F // AddSpaceRow
+ HWL ME_53B280110031 // StartAACRow
+ HWL ME_53B280490098 // StartAACRow4Table
+ HWL ME_53B280860287 // StartAACStyle
+ HWL ME_53B282200211 // EndRow
+ HWL ME_53B2824F0246 // EndRowAndTable
+ HWL ME_53B282B3010A // CheckWhatOpen
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4836D4650177_ME_4D88BFEA013A_over // StartChild
+ ME_4836D49800CA_ME_4D88BFEA013A_over // OpenStream
+ ME_4836D4C20059_ME_4D88BFEA013A_over // CloseStructure
+ ME_4836D52400D9_ME_4D88BFEA013A_over // AddAtomEx
+ ME_49E4883E0176_ME_4D88BFEA013A_over // DoWritePara
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_53B27E6E03B0 // TevWhatOpen
+ HWL ME_53B3E8B500B4 // TevPrevClosed
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_53B285390095 // CommentDecoratorConsts
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_53B285A701E3 // FreeAndNil
+ ME_53B285C3031D // Defaults
+ ME_53B286040308 // Frame
+ ME_53B2864703D8 // Tl3MemoryStream
+ ME_53B2868F0276 // Block
+ ME_53B2869303D7 // Document
+ ME_53B286AC0036 // TevdStyles_Res
+ ME_53B286DB0108 // BitmapPara
+ ME_53B286E4002F // Table
+ ME_53B2872F022F // TextPara
+ ME_53B2877C0139 // evAACStyle
+ ME_53B28797014D // Tk2TagID
+ ME_53B2882A0084 // Standard
+ ME_53BA57770163 // TableCell
+ ME_53C64CCF0338 // ContentsElement
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evCommentDecorator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CommentDecorator'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCommentDecorator.pas'
+
+ENDME // ME_4D88BFEA013A TevCommentDecorator

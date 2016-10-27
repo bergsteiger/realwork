@@ -39,7 +39,7 @@ ENDME // ME_55FACCE20172 f_CurrentStatus
 ME ME_55FACCF500B4
  MEPROP UID '55FACCF500B4'
  MEPROP Name 'UpdateUnread'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -52,7 +52,7 @@ ENDME // ME_55FACCF500B4 UpdateUnread
 ME ME_55FACD130143
  MEPROP UID '55FACD130143'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -62,6 +62,18 @@ ME ME_55FACD130143
 
 ENDME // ME_55FACD130143 Create
 
+MEREF ME_55FACD130143_ME_55FACD4C0399_G
+ MELINK Original HWL ME_55FACD130143 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55FACD130143_ME_55FACD4C0399_G Create
+
+MEREF ME_49527999013D_ME_55FACD4C0399_R
+ MELINK Original WL 'ME_49527999013D' '47ECAAF901F8.ms.model.script' // IbsConsultationManager
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49527999013D_ME_55FACD4C0399_R IbsConsultationManager
+
 %%ImplementedBy ME_49527999013D ME_55FACD4C0399
 
 %%InheritedBy ME_55FACD130143 ME_55FACD4C0399
@@ -69,7 +81,7 @@ ENDME // ME_55FACD130143 Create
 ME ME_55FACD4C0399
  MEPROP UID '55FACD4C0399'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -77,11 +89,11 @@ ME ME_55FACD4C0399
  MELINK Parent HWL ME_492FFDF7011A // TbsConsultationManager
  ;
  MELIST Inherits
-   Seq: ( HWL ME_55FACD130143 // Create
+   Seq: ( HWL ME_55FACD130143_ME_55FACD4C0399_G // Create
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_49527999013D' '47ECAAF901F8.ms.model.script' // IbsConsultationManager
+   Seq: ( HWL ME_49527999013D_ME_55FACD4C0399_R // IbsConsultationManager
  )
  ; // Implements
 
@@ -97,49 +109,67 @@ ME ME_55FAF45A03B1
 
 ENDME // ME_55FAF45A03B1 
 
-ME ME_495279E501CB_ME_492FFDF7011A
+MEREF ME_495279E501CB_ME_492FFDF7011A_impl
  MELINK Original WL 'ME_495279E501CB' '47ECAAF901F8.ms.model.script' // UnreadChanged
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_495279E501CB_ME_492FFDF7011A UnreadChanged
+ENDMEREF // ME_495279E501CB_ME_492FFDF7011A_impl UnreadChanged
 
-ME ME_495279F20005_ME_492FFDF7011A
+MEREF ME_495279F20005_ME_492FFDF7011A_impl
  MELINK Original WL 'ME_495279F20005' '47ECAAF901F8.ms.model.script' // NoConnection
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_495279F20005_ME_492FFDF7011A NoConnection
+ENDMEREF // ME_495279F20005_ME_492FFDF7011A_impl NoConnection
 
-ME ME_495279FD039E_ME_492FFDF7011A
+MEREF ME_495279FD039E_ME_492FFDF7011A_impl
  MELINK Original WL 'ME_495279FD039E' '47ECAAF901F8.ms.model.script' // NoSubscription
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_495279FD039E_ME_492FFDF7011A NoSubscription
+ENDMEREF // ME_495279FD039E_ME_492FFDF7011A_impl NoSubscription
 
-ME ME_49527A1B0162_ME_492FFDF7011A
+MEREF ME_49527A1B0162_ME_492FFDF7011A_impl
  MELINK Original WL 'ME_49527A1B0162' '47ECAAF901F8.ms.model.script' // InternetConnected
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_49527A1B0162_ME_492FFDF7011A InternetConnected
+ENDMEREF // ME_49527A1B0162_ME_492FFDF7011A_impl InternetConnected
 
-ME ME_49527A2702F4_ME_492FFDF7011A
+MEREF ME_49527A2702F4_ME_492FFDF7011A_impl
  MELINK Original WL 'ME_49527A2702F4' '47ECAAF901F8.ms.model.script' // HasUnread
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_49527A2702F4_ME_492FFDF7011A HasUnread
+ENDMEREF // ME_49527A2702F4_ME_492FFDF7011A_impl HasUnread
 
-ME ME_4BCD8E0B00AE_ME_492FFDF7011A
+MEREF ME_4BCD8E0B00AE_ME_492FFDF7011A_impl
  MELINK Original WL 'ME_4BCD8E0B00AE' '47ECAAF901F8.ms.model.script' // InternetDisConnected
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4BCD8E0B00AE_ME_492FFDF7011A InternetDisConnected
+ENDMEREF // ME_4BCD8E0B00AE_ME_492FFDF7011A_impl InternetDisConnected
 
-ME ME_5501366003A9_ME_492FFDF7011A
+MEREF ME_5501366003A9_ME_492FFDF7011A_impl
  MELINK Original WL 'ME_5501366003A9' '47ECAAF901F8.ms.model.script' // CurrentStatus
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_5501366003A9_ME_492FFDF7011A CurrentStatus
+ENDMEREF // ME_5501366003A9_ME_492FFDF7011A_impl CurrentStatus
+
+MEREF ME_47F25BEE0389_ME_492FFDF7011A_G
+ MELINK Original WL 'ME_47F25BEE0389' '47F25BC801DB.ms.model.script' // TvcmBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F25BEE0389_ME_492FFDF7011A_G TvcmBase
+
+MEREF ME_47F07B3E02E4_ME_492FFDF7011A_R
+ MELINK Original WL? 'ME_47F07B3E02E4' // l3Notifier
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F07B3E02E4_ME_492FFDF7011A_R l3Notifier
+
+MEREF ME_49527999013D_ME_492FFDF7011A_R
+ MELINK Original WL 'ME_49527999013D' '47ECAAF901F8.ms.model.script' // IbsConsultationManager
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49527999013D_ME_492FFDF7011A_R IbsConsultationManager
 
 %%ImplementedBy ME_47F07B3E02E4 ME_492FFDF7011A
 %%ImplementedBy ME_49527999013D ME_492FFDF7011A
@@ -157,12 +187,12 @@ ME ME_492FFDF7011A
  MELINK Parent HWL ME_55FAEA9B0079 // bsConsultationManager
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47F25BEE0389' '47F25BC801DB.ms.model.script' // TvcmBase
+   Seq: ( HWL ME_47F25BEE0389_ME_492FFDF7011A_G // TvcmBase
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_47F07B3E02E4' // l3Notifier
- WL 'ME_49527999013D' '47ECAAF901F8.ms.model.script' // IbsConsultationManager
+   Seq: ( HWL ME_47F07B3E02E4_ME_492FFDF7011A_R // l3Notifier
+ HWL ME_49527999013D_ME_492FFDF7011A_R // IbsConsultationManager
  )
  ; // Implements
  MELIST Attributes
@@ -177,13 +207,13 @@ ME ME_492FFDF7011A
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_495279E501CB_ME_492FFDF7011A // UnreadChanged
- ME_495279F20005_ME_492FFDF7011A // NoConnection
- ME_495279FD039E_ME_492FFDF7011A // NoSubscription
- ME_49527A1B0162_ME_492FFDF7011A // InternetConnected
- ME_49527A2702F4_ME_492FFDF7011A // HasUnread
- ME_4BCD8E0B00AE_ME_492FFDF7011A // InternetDisConnected
- ME_5501366003A9_ME_492FFDF7011A // CurrentStatus
+   Seq: ( ME_495279E501CB_ME_492FFDF7011A_impl // UnreadChanged
+ ME_495279F20005_ME_492FFDF7011A_impl // NoConnection
+ ME_495279FD039E_ME_492FFDF7011A_impl // NoSubscription
+ ME_49527A1B0162_ME_492FFDF7011A_impl // InternetConnected
+ ME_49527A2702F4_ME_492FFDF7011A_impl // HasUnread
+ ME_4BCD8E0B00AE_ME_492FFDF7011A_impl // InternetDisConnected
+ ME_5501366003A9_ME_492FFDF7011A_impl // CurrentStatus
  )
  ; // Implemented
  MELIST Dependencies
@@ -234,7 +264,7 @@ ENDME // ME_55FAEB3702D1 DoIt
 ME ME_55FAEB22015B
  MEPROP UID '55FAEB22015B'
  MEPROP Name 'g__ConsultationManager'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -266,7 +296,7 @@ ENDME // ME_55FBE4390193 DoIt
 ME ME_55FBE42C03DF
  MEPROP UID '55FBE42C03DF'
  MEPROP Name 'IsConsultationManagerAssigned'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess

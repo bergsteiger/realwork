@@ -1,0 +1,44 @@
+// TevCollapserHyperlink 55F6C74B033E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_55F6C6DC018B_ME_55F6C74B033E_over
+ MELINK Original WL 'ME_55F6C6DC018B' '4E1DD7720136.ms.model.script' // DoGetKind
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55F6C6DC018B_ME_55F6C74B033E_over DoGetKind
+
+MEREF ME_4E1DD8400344_ME_55F6C74B033E_G
+ MELINK Original WL? 'ME_4E1DD8400344' // TevDecorHyperlink
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E1DD8400344_ME_55F6C74B033E_G TevDecorHyperlink
+
+%%InheritedBy ME_4E1DD8400344 ME_55F6C74B033E
+
+ME ME_55F6C74B033E
+ MEPROP UID '55F6C74B033E'
+ MEPROP Name 'TevCollapserHyperlink'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сворачивающая гиперссылка.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A267EE3017B' // HotSpots
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E1DD8400344_ME_55F6C74B033E_G // TevDecorHyperlink
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_55F6C6DC018B_ME_55F6C74B033E_over // DoGetKind
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'evCollapserHyperlink'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CollapserHyperlink'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCollapserHyperlink.pas'
+
+ENDME // ME_55F6C74B033E TevCollapserHyperlink

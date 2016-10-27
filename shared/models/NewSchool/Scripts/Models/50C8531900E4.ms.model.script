@@ -1,0 +1,44 @@
+// Mouse_WheelUp 50C8531900E4 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_50C861750031_ME_50C8531900E4_impl
+ MELINK Original WL 'ME_50C861750031' '50C852B30225.ms.model.script' // GetLineCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_50C861750031_ME_50C8531900E4_impl GetLineCount
+
+MEREF ME_50C852B30225_ME_50C8531900E4_G
+ MELINK Original WL? 'ME_50C852B30225' // TkwMouseWheelSupport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50C852B30225_ME_50C8531900E4_G TkwMouseWheelSupport
+
+%%InheritedBy ME_50C852B30225 ME_50C8531900E4
+
+ME ME_50C8531900E4
+ MEPROP UID '50C8531900E4'
+ MEPROP Name 'Mouse_WheelUp'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F8EC875027E' // MouseInput
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50C852B30225_ME_50C8531900E4_G // TkwMouseWheelSupport
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_50C861750031_ME_50C8531900E4_impl // GetLineCount
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName 'TkwMouseWheelUp'
+ UP extprop:pas:UnitName 'kwMouseWheelUp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MouseWheelUp'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseWheelUp.pas'
+
+ENDME // ME_50C8531900E4 Mouse_WheelUp

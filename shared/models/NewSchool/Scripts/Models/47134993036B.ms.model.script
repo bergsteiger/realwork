@@ -10,11 +10,18 @@ FORWARD ME_47134993036B
 
 FORWARD ME_471349EE01E4
 
+MEREF ME_47049A0701B5_ME_47134A6500AB_G
+ MELINK Original WL 'ME_47049A0701B5' '470384F502CE.ms.model.script' // Attr
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47049A0701B5_ME_47134A6500AB_G Attr
+
 %%InheritedBy ME_47049A0701B5 ME_47134A6500AB
 
 ME ME_47134A6500AB
  MEPROP UID '47134A6500AB'
  MEPROP Name 'attr'
+ MEPROP FullName 'attr::Attribute'
  MEPROP Class class_Class
  MELINK Stereotype st_MDAAttribute ;
  MEPROP Kind kind_NormalClass
@@ -24,7 +31,7 @@ ME ME_47134A6500AB
  MELINK Parent HWL ME_471349EE01E4 // ClientInterceptor
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47049A0701B5' '470384F502CE.ms.model.script' // Attr
+   Seq: ( HWL ME_47049A0701B5_ME_47134A6500AB_G // Attr
  )
  ; // Inherits
  UP "unstereotyped" True
@@ -34,6 +41,12 @@ ME ME_47134A6500AB
 ENDME // ME_47134A6500AB attr
 
 FORWARD ME_47134A7602EE
+
+MEREF ME_47144994003E_ME_47134A900157_G
+ MELINK Original WL 'ME_47144994003E' '470384F502CE.ms.model.script' // param
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47144994003E_ME_47134A900157_G param
 
 %%InheritedBy ME_47144994003E ME_47134A900157
 
@@ -49,7 +62,7 @@ ME ME_47134A900157
  MELINK Parent HWL ME_47134A7602EE // op
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47144994003E' '470384F502CE.ms.model.script' // param
+   Seq: ( HWL ME_47144994003E_ME_47134A900157_G // param
  )
  ; // Inherits
  UP "personal label" 'code_param'
@@ -59,11 +72,18 @@ ME ME_47134A900157
 
 ENDME // ME_47134A900157 param
 
+MEREF ME_47049A220138_ME_47134A7602EE_G
+ MELINK Original WL 'ME_47049A220138' '470384F502CE.ms.model.script' // Operation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47049A220138_ME_47134A7602EE_G Operation
+
 %%InheritedBy ME_47049A220138 ME_47134A7602EE
 
 ME ME_47134A7602EE
  MEPROP UID '47134A7602EE'
  MEPROP Name 'op'
+ MEPROP FullName 'op::Operation'
  MEPROP Class class_Class
  MELINK Stereotype st_MDAOperation ;
  MEPROP Kind kind_NormalClass
@@ -73,7 +93,7 @@ ME ME_47134A7602EE
  MELINK Parent HWL ME_471349EE01E4 // ClientInterceptor
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47049A220138' '470384F502CE.ms.model.script' // Operation
+   Seq: ( HWL ME_47049A220138_ME_47134A7602EE_G // Operation
  )
  ; // Inherits
  MELIST Children
@@ -89,17 +109,24 @@ ME ME_47134A7602EE
 
 ENDME // ME_47134A7602EE op
 
-ME ME_4705CBD6003E_ME_47134AA601A5
+MEREF ME_4705CBD6003E_ME_47134AA601A5_impl
  MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4705CBD6003E_ME_47134AA601A5 wiki_child_kind
+ENDMEREF // ME_4705CBD6003E_ME_47134AA601A5_impl wiki_child_kind
+
+MEREF ME_4703212700DA_ME_47134AA601A5_R
+ MELINK Original WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4703212700DA_ME_47134AA601A5_R Java
 
 %%ImplementedBy ME_4703212700DA ME_47134AA601A5
 
 ME ME_47134AA601A5
  MEPROP UID '47134AA601A5'
  MEPROP Name 'uses'
+ MEPROP FullName 'uses::Dependency'
  MEPROP Class class_Class
  MELINK Stereotype st_MDADependency ;
  MEPROP Kind kind_NormalClass
@@ -109,11 +136,11 @@ ME ME_47134AA601A5
  MELINK Parent HWL ME_471349EE01E4 // ClientInterceptor
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+   Seq: ( HWL ME_4703212700DA_ME_47134AA601A5_R // Java
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_4705CBD6003E_ME_47134AA601A5 // wiki_child_kind
+   Seq: ( ME_4705CBD6003E_ME_47134AA601A5_impl // wiki_child_kind
  )
  ; // Implemented
  UP "personal label" 'code_dep_uses'
@@ -122,17 +149,24 @@ ME ME_47134AA601A5
 
 ENDME // ME_47134AA601A5 uses
 
-ME ME_4705CBD6003E_ME_47134AB3003E
+MEREF ME_4705CBD6003E_ME_47134AB3003E_impl
  MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4705CBD6003E_ME_47134AB3003E wiki_child_kind
+ENDMEREF // ME_4705CBD6003E_ME_47134AB3003E_impl wiki_child_kind
+
+MEREF ME_4703212700DA_ME_47134AB3003E_R
+ MELINK Original WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4703212700DA_ME_47134AB3003E_R Java
 
 %%ImplementedBy ME_4703212700DA ME_47134AB3003E
 
 ME ME_47134AB3003E
  MEPROP UID '47134AB3003E'
  MEPROP Name 'connect'
+ MEPROP FullName 'connect::Dependency'
  MEPROP Class class_Class
  MELINK Stereotype st_MDADependency ;
  MEPROP Kind kind_NormalClass
@@ -142,11 +176,11 @@ ME ME_47134AB3003E
  MELINK Parent HWL ME_471349EE01E4 // ClientInterceptor
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+   Seq: ( HWL ME_4703212700DA_ME_47134AB3003E_R // Java
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_4705CBD6003E_ME_47134AB3003E // wiki_child_kind
+   Seq: ( ME_4705CBD6003E_ME_47134AB3003E_impl // wiki_child_kind
  )
  ; // Implemented
  UP "personal label" 'code_dep_connect'
@@ -167,33 +201,51 @@ ME ME_49B8FB1E0134
 
 ENDME // ME_49B8FB1E0134 additional_condition
 
-ME ME_47022C88029F_ME_471349EE01E4
+MEREF ME_47022C88029F_ME_471349EE01E4_impl
  MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef_suffix" 'H'
  UP "lang id" 'cpp'
-ENDME // ME_47022C88029F_ME_471349EE01E4 h
+ENDMEREF // ME_47022C88029F_ME_471349EE01E4_impl h
 
-ME ME_47022CB8034B_ME_471349EE01E4
+MEREF ME_47022CB8034B_ME_471349EE01E4_impl
  MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
  ;
  MEPROP OpKind opkind_Implemented
  UP "lang id" 'cpp'
-ENDME // ME_47022CB8034B_ME_471349EE01E4 cpp
+ENDMEREF // ME_47022CB8034B_ME_471349EE01E4_impl cpp
 
-ME ME_470321950119_ME_471349EE01E4
+MEREF ME_470321950119_ME_471349EE01E4_impl
  MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
  ;
  MEPROP OpKind opkind_Implemented
  UP "lang id" 'java'
-ENDME // ME_470321950119_ME_471349EE01E4 java
+ENDMEREF // ME_470321950119_ME_471349EE01E4_impl java
 
-ME ME_4704C0E30186_ME_471349EE01E4
+MEREF ME_4704C0E30186_ME_471349EE01E4_impl
  MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4704C0E30186_ME_471349EE01E4 constraint
+ENDMEREF // ME_4704C0E30186_ME_471349EE01E4_impl constraint
+
+MEREF ME_471723E1037A_ME_471349EE01E4_G
+ MELINK Original WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_471723E1037A_ME_471349EE01E4_G WikiImplClass
+
+MEREF ME_47022C670251_ME_471349EE01E4_R
+ MELINK Original WL 'ME_47022C670251' '4773969402E9.ms.model.script' // C++ интерфейсы и реализация
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47022C670251_ME_471349EE01E4_R C++ интерфейсы и реализация
+
+MEREF ME_4703212700DA_ME_471349EE01E4_R
+ MELINK Original WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4703212700DA_ME_471349EE01E4_R Java
 
 %%ImplementedBy ME_47022C670251 ME_471349EE01E4
 %%ImplementedBy ME_4703212700DA ME_471349EE01E4
@@ -212,12 +264,12 @@ ME ME_471349EE01E4
  MELINK Parent HWL ME_47134993036B // Interceptors
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+   Seq: ( HWL ME_471723E1037A_ME_471349EE01E4_G // WikiImplClass
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_47022C670251' '4773969402E9.ms.model.script' // C++ интерфейсы и реализация
- WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+   Seq: ( HWL ME_47022C670251_ME_471349EE01E4_R // C++ интерфейсы и реализация
+ HWL ME_4703212700DA_ME_471349EE01E4_R // Java
  )
  ; // Implements
  MELIST Operations
@@ -225,10 +277,10 @@ ME ME_471349EE01E4
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_47022C88029F_ME_471349EE01E4 // h
- ME_47022CB8034B_ME_471349EE01E4 // cpp
- ME_470321950119_ME_471349EE01E4 // java
- ME_4704C0E30186_ME_471349EE01E4 // constraint
+   Seq: ( ME_47022C88029F_ME_471349EE01E4_impl // h
+ ME_47022CB8034B_ME_471349EE01E4_impl // cpp
+ ME_470321950119_ME_471349EE01E4_impl // java
+ ME_4704C0E30186_ME_471349EE01E4_impl // constraint
  )
  ; // Implemented
  MELIST Children
@@ -254,19 +306,25 @@ ME ME_471349EE01E4
 
 ENDME // ME_471349EE01E4 ClientInterceptor
 
-ME ME_47022CCF00EA_ME_47134AE700FA
+MEREF ME_47022CCF00EA_ME_47134AE700FA_impl
  MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
  ;
  MEPROP OpKind opkind_Implemented
  UP "lang id" 'cpp'
-ENDME // ME_47022CCF00EA_ME_47134AE700FA i.h
+ENDMEREF // ME_47022CCF00EA_ME_47134AE700FA_impl i.h
 
-ME ME_470321C1038A_ME_47134AE700FA
+MEREF ME_470321C1038A_ME_47134AE700FA_impl
  MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
  ;
  MEPROP OpKind opkind_Implemented
  UP "lang id" 'java'
-ENDME // ME_470321C1038A_ME_47134AE700FA fctr.java
+ENDMEREF // ME_470321C1038A_ME_47134AE700FA_impl fctr.java
+
+MEREF ME_471349EE01E4_ME_47134AE700FA_G
+ MELINK Original HWL ME_471349EE01E4 // ClientInterceptor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_471349EE01E4_ME_47134AE700FA_G ClientInterceptor
 
 %%InheritedBy ME_471349EE01E4 ME_47134AE700FA
 
@@ -282,12 +340,12 @@ ME ME_47134AE700FA
  MELINK Parent HWL ME_47134993036B // Interceptors
  ;
  MELIST Inherits
-   Seq: ( HWL ME_471349EE01E4 // ClientInterceptor
+   Seq: ( HWL ME_471349EE01E4_ME_47134AE700FA_G // ClientInterceptor
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_47022CCF00EA_ME_47134AE700FA // i.h
- ME_470321C1038A_ME_47134AE700FA // fctr.java
+   Seq: ( ME_47022CCF00EA_ME_47134AE700FA_impl // i.h
+ ME_470321C1038A_ME_47134AE700FA_impl // fctr.java
  )
  ; // Implemented
  UP mda.inc:PathOnly '\MDProcess\CommonTemplates\ServerLib\Interceptors\ServerInterceptor'
@@ -296,11 +354,23 @@ ME ME_47134AE700FA
 
 ENDME // ME_47134AE700FA ServerInterceptor
 
-ME ME_4704C0E30186_ME_47134AFB01E4
+MEREF ME_4704C0E30186_ME_47134AFB01E4_impl
  MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4704C0E30186_ME_47134AFB01E4 constraint
+ENDMEREF // ME_4704C0E30186_ME_47134AFB01E4_impl constraint
+
+MEREF ME_47022C670251_ME_47134AFB01E4_R
+ MELINK Original WL 'ME_47022C670251' '4773969402E9.ms.model.script' // C++ интерфейсы и реализация
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47022C670251_ME_47134AFB01E4_R C++ интерфейсы и реализация
+
+MEREF ME_4703212700DA_ME_47134AFB01E4_R
+ MELINK Original WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4703212700DA_ME_47134AFB01E4_R Java
 
 %%ImplementedBy ME_47022C670251 ME_47134AFB01E4
 %%ImplementedBy ME_4703212700DA ME_47134AFB01E4
@@ -317,12 +387,12 @@ ME ME_47134AFB01E4
  MELINK Parent HWL ME_47134993036B // Interceptors
  ;
  MELIST Implements
-   Seq: ( WL 'ME_47022C670251' '4773969402E9.ms.model.script' // C++ интерфейсы и реализация
- WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+   Seq: ( HWL ME_47022C670251_ME_47134AFB01E4_R // C++ интерфейсы и реализация
+ HWL ME_4703212700DA_ME_47134AFB01E4_R // Java
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_4704C0E30186_ME_47134AFB01E4 // constraint
+   Seq: ( ME_4704C0E30186_ME_47134AFB01E4_impl // constraint
  )
  ; // Implemented
  UP "personal label" 'code_current_slot'

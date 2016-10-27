@@ -1,0 +1,573 @@
+// TevHAFPainter 4C22178C0102 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C22178C0102
+
+ME ME_5243CB170207
+ MEPROP UID '5243CB170207'
+ MEPROP Name 'PagesCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_5243CB170207 PagesCount
+
+ME ME_5243CB3A0332
+ MEPROP UID '5243CB3A0332'
+ MEPROP Name 'MacroReplacer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELINK Target WL 'ME_49539CF5018B' '467C0CAA02AB.ms.model.script' // Il3HAFMacroReplacer
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_5243CB3A0332 MacroReplacer
+
+FORWARD ME_5243CC9F00C7
+
+FORWARD ME_5243CCAC00B4
+
+ME ME_5243CCAE0306
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4727449A00A2' '467C0CAA02AB.ms.model.script' // Il3Canvas
+ ;
+
+ENDME // ME_5243CCAE0306 aCanvas
+
+ME ME_5243CCAC00B4
+ MEPROP UID '5243CCAC00B4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5243CC9F00C7 // MacroDocCurrentPage
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MELIST Parameters
+   Seq: ( ME_5243CCAE0306 // aCanvas
+ )
+ ; // Parameters
+
+ENDME // ME_5243CCAC00B4 DoIt
+
+ME ME_5243CC9F00C7
+ MEPROP UID '5243CC9F00C7'
+ MEPROP Name 'MacroDocCurrentPage'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5243CCAC00B4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5243CC9F00C7 MacroDocCurrentPage
+
+FORWARD ME_5243CCBB0100
+
+ME ME_5243CCC300D0
+ MEPROP UID '5243CCC300D0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5243CCBB0100 // MacroDocPagesCount
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_5243CCC300D0 DoIt
+
+ME ME_5243CCBB0100
+ MEPROP UID '5243CCBB0100'
+ MEPROP Name 'MacroDocPagesCount'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5243CCC300D0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5243CCBB0100 MacroDocPagesCount
+
+FORWARD ME_5243CCEE0271
+
+FORWARD ME_5243CD0600AE
+
+ME ME_5243CD0903DB
+ MEPROP Name 'aMacroReplacer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49539CF5018B' '467C0CAA02AB.ms.model.script' // Il3HAFMacroReplacer
+ ;
+
+ENDME // ME_5243CD0903DB aMacroReplacer
+
+ME ME_5243CD0600AE
+ MEPROP UID '5243CD0600AE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5243CCEE0271 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5243CD0903DB // aMacroReplacer
+ )
+ ; // Parameters
+
+ENDME // ME_5243CD0600AE DoIt
+
+ME ME_5243CCEE0271
+ MEPROP UID '5243CCEE0271'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5243CD0600AE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5243CCEE0271 Create
+
+MEREF ME_5243CCEE0271_ME_5243CD17020A_G
+ MELINK Original HWL ME_5243CCEE0271 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5243CCEE0271_ME_5243CD17020A_G Create
+
+%%InheritedBy ME_5243CCEE0271 ME_5243CD17020A
+
+ME ME_5243CD17020A
+ MEPROP UID '5243CD17020A'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5243CCEE0271_ME_5243CD17020A_G // Create
+ )
+ ; // Inherits
+
+ENDME // ME_5243CD17020A Make
+
+FORWARD ME_5243CD850286
+
+FORWARD ME_5243CD9A0008
+
+ME ME_5243CD9C030C
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4727449A00A2' '467C0CAA02AB.ms.model.script' // Il3Canvas
+ ;
+
+ENDME // ME_5243CD9C030C aCanvas
+
+ME ME_5243CD9C034C
+ MEPROP Name 'aHeader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_5243CD9C034C aHeader
+
+ME ME_5243CD9C03A0
+ MEPROP Name 'aTop'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5243CD9C03A0 aTop
+
+ME ME_5243CD9A0008
+ MEPROP UID '5243CD9A0008'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5243CD850286 // TuneHeader
+ ;
+ MELIST Parameters
+   Seq: ( ME_5243CD9C030C // aCanvas
+ ME_5243CD9C034C // aHeader
+ ME_5243CD9C03A0 // aTop
+ )
+ ; // Parameters
+
+ENDME // ME_5243CD9A0008 DoIt
+
+ME ME_5243CD850286
+ MEPROP UID '5243CD850286'
+ MEPROP Name 'TuneHeader'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5243CD9A0008 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5243CD850286 TuneHeader
+
+FORWARD ME_5243DA2102ED
+
+ME ME_5243DA3001A9
+ MEPROP UID '5243DA3001A9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5243DA2102ED // DoNeedPagesCount
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5243DA3001A9 DoIt
+
+ME ME_5243DA2102ED
+ MEPROP UID '5243DA2102ED'
+ MEPROP Name 'DoNeedPagesCount'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5243DA3001A9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5243DA2102ED DoNeedPagesCount
+
+ME ME_5243DFC1017F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_5243DFC1017F 
+
+ME ME_5243E00B0339
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELINK Target WL? 'ME_4C88DA310019' // evHAFPainterMacros
+ ;
+
+ENDME // ME_5243E00B0339 
+
+ME ME_5243E03400D9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_5243E03400D9 
+
+ME ME_5243E05C0163
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_5243E05C0163 
+
+ME ME_5243E1170397
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_5243E1170397 
+
+ME ME_5243E18302E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELINK Target WL? 'ME_47D15712022D' // Graphics
+ ;
+
+ENDME // ME_5243E18302E8 
+
+ME ME_5243E1860130
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_5243E1860130 
+
+ME ME_5243E1CB0108
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELINK Target WL 'ME_4E242F4E002C' '476BEA0B0103.ms.model.script' // evPageNames
+ ;
+
+ENDME // ME_5243E1CB0108 
+
+ME ME_5243E1F20289
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELINK Target WL 'ME_47F245BD01E1' '47F2458300E4.ms.model.script' // Defaults
+ ;
+
+ENDME // ME_5243E1F20289 
+
+ME ME_5243E26F0093
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_5243E26F0093 
+
+ME ME_5243E2E402D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELINK Target WL 'ME_4857E2A70175' '48492FC0029D.ms.model.script' // SBS
+ ;
+
+ENDME // ME_5243E2E402D5 
+
+ME ME_5243E30601A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_5243E30601A3 
+
+ME ME_5243E48600AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELINK Target WL? 'ME_5243E47602D9' // evSBSPar
+ ;
+
+ENDME // ME_5243E48600AA 
+
+ME ME_5243E60002EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELINK Target WL 'ME_4688D85301B2' '469D0AC7005E.ms.model.script' // IndentType
+ ;
+
+ENDME // ME_5243E60002EF 
+
+ME ME_5243E65400CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELINK Target WL? 'ME_481DB3AA03CD' // TnevHAFPainterView
+ ;
+
+ENDME // ME_5243E65400CA 
+
+ME ME_52BC39A202CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22178C0102 // TevHAFPainter
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_52BC39A202CB 
+
+MEREF ME_4728C10B0096_ME_4C22178C0102_impl
+ MELINK Original WL 'ME_4728C10B0096' '467C0CAA02AB.ms.model.script' // DocumentName
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4728C10B0096_ME_4C22178C0102_impl DocumentName
+
+MEREF ME_4728C12F0048_ME_4C22178C0102_impl
+ MELINK Original WL 'ME_4728C12F0048' '467C0CAA02AB.ms.model.script' // NeedPagesCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4728C12F0048_ME_4C22178C0102_impl NeedPagesCount
+
+MEREF ME_4728C140024B_ME_4C22178C0102_impl
+ MELINK Original WL 'ME_4728C140024B' '467C0CAA02AB.ms.model.script' // SetPagesCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4728C140024B_ME_4C22178C0102_impl SetPagesCount
+
+MEREF ME_4728C1490398_ME_4C22178C0102_impl
+ MELINK Original WL 'ME_4728C1490398' '467C0CAA02AB.ms.model.script' // StartPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4728C1490398_ME_4C22178C0102_impl StartPage
+
+MEREF ME_49539D77008C_ME_4C22178C0102_impl
+ MELINK Original WL 'ME_49539D77008C' '467C0CAA02AB.ms.model.script' // MacroReplacer
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_49539D77008C_ME_4C22178C0102_impl MacroReplacer
+
+MEREF ME_479731C50290_ME_4C22178C0102_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4C22178C0102_over Cleanup
+
+MEREF ME_49E7754802A9_ME_4C22178C0102_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4C22178C0102_G Tl3ProtoObject
+
+MEREF ME_4728C0FF02A2_ME_4C22178C0102_R
+ MELINK Original WL 'ME_4728C0FF02A2' '467C0CAA02AB.ms.model.script' // Il3HAFPainter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4728C0FF02A2_ME_4C22178C0102_R Il3HAFPainter
+
+%%ImplementedBy ME_4728C0FF02A2 ME_4C22178C0102
+
+%%InheritedBy ME_49E7754802A9 ME_4C22178C0102
+
+ME ME_4C22178C0102
+ MEPROP UID '4C22178C0102'
+ MEPROP Name 'TevHAFPainter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47EA968D0155' // Printing
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_4C22178C0102_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4728C0FF02A2_ME_4C22178C0102_R // Il3HAFPainter
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5243CB170207 // PagesCount
+ HWL ME_5243CB3A0332 // MacroReplacer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5243CC9F00C7 // MacroDocCurrentPage
+ HWL ME_5243CCBB0100 // MacroDocPagesCount
+ HWL ME_5243CCEE0271 // Create
+ HWL ME_5243CD17020A // Make
+ HWL ME_5243CD850286 // TuneHeader
+ HWL ME_5243DA2102ED // DoNeedPagesCount
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4728C10B0096_ME_4C22178C0102_impl // DocumentName
+ ME_4728C12F0048_ME_4C22178C0102_impl // NeedPagesCount
+ ME_4728C140024B_ME_4C22178C0102_impl // SetPagesCount
+ ME_4728C1490398_ME_4C22178C0102_impl // StartPage
+ ME_49539D77008C_ME_4C22178C0102_impl // MacroReplacer
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4C22178C0102_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5243DFC1017F // l3String
+ ME_5243E00B0339 // evHAFPainterMacros
+ ME_5243E03400D9 // IevPainter
+ ME_5243E05C0163 // Tl3Point
+ ME_5243E1170397 // InevView
+ ME_5243E18302E8 // Graphics
+ ME_5243E1860130 // Windows
+ ME_5243E1CB0108 // evPageNames
+ ME_5243E1F20289 // Defaults
+ ME_5243E26F0093 // Document
+ ME_5243E2E402D5 // SBS
+ ME_5243E30601A3 // Tk2TagID
+ ME_5243E48600AA // evSBSPar
+ ME_5243E60002EF // IndentType
+ ME_5243E65400CA // TnevHAFPainterView
+ ME_52BC39A202CB // l3CStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evHAFPainter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HAFPainter'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evHAFPainter.pas'
+
+ENDME // ME_4C22178C0102 TevHAFPainter

@@ -1,0 +1,289 @@
+// TnsLastOpenDocTree 490AE59703A6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_490AE59703A6
+
+ME ME_490AE5D70316
+ MEPROP UID '490AE5D70316'
+ MEPROP Name 'f_FullDocName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_490AE5D70316 f_FullDocName
+
+ME ME_490AE5E00025
+ MEPROP UID '490AE5E00025'
+ MEPROP Name 'f_ForInpharm'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_490AE5E00025 f_ForInpharm
+
+FORWARD ME_490AE5F60009
+
+ME ME_490AE60B02C6
+ MEPROP Name 'aBookmark'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A8A8F640192' '4570511E038A.ms.model.script' // JournalBookmark
+ ;
+
+ENDME // ME_490AE60B02C6 aBookmark
+
+ME ME_490AE5F60009
+ MEPROP UID '490AE5F60009'
+ MEPROP Name 'CreateNode'
+ MEPROP Class class_Operation
+ %SUMMARY 'создаёт узел который умеет работать с IBookmark' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+ MELIST Parameters
+   Seq: ( ME_490AE60B02C6 // aBookmark
+ )
+ ; // Parameters
+
+ENDME // ME_490AE5F60009 CreateNode
+
+FORWARD ME_490AE8170294
+
+ME ME_490AE8290007
+ MEPROP Name 'aMaxCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_490AE8290007 aMaxCount
+
+ME ME_4A82A68C01BE
+ MEPROP Name 'aForInpharm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A82A68C01BE aForInpharm
+
+ME ME_490AE8290047
+ MEPROP Name 'aFullDocName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_490AE8290047 aFullDocName
+
+ME ME_490AE8170294
+ MEPROP UID '490AE8170294'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_490AE8290007 // aMaxCount
+ ME_4A82A68C01BE // aForInpharm
+ ME_490AE8290047 // aFullDocName
+ )
+ ; // Parameters
+
+ENDME // ME_490AE8170294 Create
+
+FORWARD ME_490AE82D01F7
+
+ME ME_490AE83E01BC
+ MEPROP Name 'aMaxCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_490AE83E01BC aMaxCount
+
+ME ME_4A82A692006D
+ MEPROP Name 'aForInpharm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A82A692006D aForInpharm
+
+ME ME_490AE83E0206
+ MEPROP Name 'aFullDocName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_490AE83E0206 aFullDocName
+
+ME ME_490AE82D01F7
+ MEPROP UID '490AE82D01F7'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_490AE83E01BC // aMaxCount
+ ME_4A82A692006D // aForInpharm
+ ME_490AE83E0206 // aFullDocName
+ )
+ ; // Parameters
+
+ENDME // ME_490AE82D01F7 Make
+
+ME ME_490AEAEE013B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
+ ;
+ MELINK Target WL? 'ME_47F60E8E019C' // nsNodes
+ ;
+
+ENDME // ME_490AEAEE013B 
+
+ME ME_490AEE6B01BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
+ ;
+ MELINK Target WL? 'ME_47F25BC801DB' // vcmBase
+ ;
+
+ENDME // ME_490AEE6B01BB 
+
+ME ME_490AEEA7037E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
+ ;
+ MELINK Target WL 'ME_490885C402F8' '47F260EC02C7.ms.model.script' // Messages
+ ;
+
+ENDME // ME_490AEEA7037E 
+
+ME ME_490AEEEA001B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
+ ;
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
+ ;
+
+ENDME // ME_490AEEEA001B 
+
+ME ME_490AEF320329
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_490AEF320329 
+
+ME ME_4ADF249D01DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490AE59703A6 // TnsLastOpenDocTree
+ ;
+ MELINK Target WL? 'ME_4ADDF4D901D1' // TnsJournalBookmarkNode
+ ;
+
+ENDME // ME_4ADF249D01DD 
+
+MEREF ME_4909EF6E0361_ME_490AE59703A6_over
+ MELINK Original WL 'ME_4909EF6E0361' '4909EF3B02B1.ms.model.script' // MakeRoot
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4909EF6E0361_ME_490AE59703A6_over MakeRoot
+
+MEREF ME_490AE2C7034B_ME_490AE59703A6_G
+ MELINK Original WL? 'ME_490AE2C7034B' // TnsHistoryTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_490AE2C7034B_ME_490AE59703A6_G TnsHistoryTree
+
+%%InheritedBy ME_490AE2C7034B ME_490AE59703A6
+
+ME ME_490AE59703A6
+ MEPROP UID '490AE59703A6'
+ MEPROP Name 'TnsLastOpenDocTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дерево последних открытых документов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4909EECE01D5' // MainMenu
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_490AE2C7034B_ME_490AE59703A6_G // TnsHistoryTree
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_490AE5D70316 // f_FullDocName
+ HWL ME_490AE5E00025 // f_ForInpharm
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_490AE5F60009 // CreateNode
+ HWL ME_490AE8170294 // Create
+ HWL ME_490AE82D01F7 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4909EF6E0361_ME_490AE59703A6_over // MakeRoot
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_490AEAEE013B // nsNodes
+ ME_490AEE6B01BB // vcmBase
+ ME_490AEEA7037E // Messages
+ ME_490AEEEA001B // DataAdapter
+ ME_490AEF320329 // CanNotFindData
+ ME_4ADF249D01DD // TnsJournalBookmarkNode
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А.'
+ UP "need UC" True
+ UP "no hands" True
+ UP extprop:pas:UnitName 'nsLastOpenDocTree'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LastOpenDocTree'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsLastOpenDocTree.pas'
+
+ENDME // ME_490AE59703A6 TnsLastOpenDocTree

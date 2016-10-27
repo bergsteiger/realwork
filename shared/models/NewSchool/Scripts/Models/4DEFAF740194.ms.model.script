@@ -1,0 +1,334 @@
+// Tl3CustomOtherListView 4DEFAF740194 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DEFAF2300F9
+
+FORWARD ME_4DEFAF740194
+
+FORWARD ME_4DEFAF2300F9
+
+ME ME_4DEFAFCF002D
+ MEPROP UID '4DEFAFCF002D'
+ MEPROP Name 'f_View'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4DEFAF2300F9 // Tl3OtherListSorter
+ ;
+ MELINK Target HWL ME_4DEFAF740194 // Tl3CustomOtherListView
+ ;
+
+ENDME // ME_4DEFAFCF002D f_View
+
+FORWARD ME_4DEFB06A0296
+
+FORWARD ME_4DEFB0720039
+
+ME ME_4DEFB079039B
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4DEFAF740194 // Tl3CustomOtherListView
+ ;
+
+ENDME // ME_4DEFB079039B aView
+
+ME ME_4DEFB0720039
+ MEPROP UID '4DEFB0720039'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DEFB06A0296 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DEFB079039B // aView
+ )
+ ; // Parameters
+
+ENDME // ME_4DEFB0720039 DoIt
+
+ME ME_4DEFB06A0296
+ MEPROP UID '4DEFB06A0296'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DEFAF2300F9 // Tl3OtherListSorter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DEFB0720039 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DEFB06A0296 Create
+
+MEREF ME_4DEFACE1002D_ME_4DEFAF2300F9_impl
+ MELINK Original WL 'ME_4DEFACE1002D' '4DEFAA880377.ms.model.script' // CompareItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DEFACE1002D_ME_4DEFAF2300F9_impl CompareItems
+
+MEREF ME_4DEFAA880377_ME_4DEFAF2300F9_G
+ MELINK Original WL? 'ME_4DEFAA880377' // Tl3CustomSortIntegerList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DEFAA880377_ME_4DEFAF2300F9_G Tl3CustomSortIntegerList
+
+%%InheritedBy ME_4DEFAA880377 ME_4DEFAF2300F9
+
+ME ME_4DEFAF2300F9
+ MEPROP UID '4DEFAF2300F9'
+ MEPROP Name 'Tl3OtherListSorter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DEFAF740194 // Tl3CustomOtherListView
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DEFAA880377_ME_4DEFAF2300F9_G // Tl3CustomSortIntegerList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DEFAFCF002D // f_View
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DEFB06A0296 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DEFACE1002D_ME_4DEFAF2300F9_impl // CompareItems
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "need UC" True
+ UP "no hands" True
+ UP "started" '08.06.2011 21:20'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OtherListSorter'
+
+ENDME // ME_4DEFAF2300F9 Tl3OtherListSorter
+
+ME ME_4DEFAFAB019E
+ MEPROP UID '4DEFAFAB019E'
+ MEPROP Name 'f_Sorter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4DEFAF740194 // Tl3CustomOtherListView
+ ;
+ MELINK Target HWL ME_4DEFAF2300F9 // Tl3OtherListSorter
+ ;
+
+ENDME // ME_4DEFAFAB019E f_Sorter
+
+FORWARD ME_4DEFAFF80100
+
+FORWARD ME_4DEFB01F025D
+
+ME ME_4DEFB31800BE
+ MEPROP Name 'anIndex1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DEFB31800BE anIndex1
+
+ME ME_4DEFB31800E6
+ MEPROP Name 'anIndex2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DEFB31800E6 anIndex2
+
+ME ME_4DEFB01F025D
+ MEPROP UID '4DEFB01F025D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DEFAFF80100 // CompareItems
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DEFB31800BE // anIndex1
+ ME_4DEFB31800E6 // anIndex2
+ )
+ ; // Parameters
+
+ENDME // ME_4DEFB01F025D DoIt
+
+ME ME_4DEFAFF80100
+ MEPROP UID '4DEFAFF80100'
+ MEPROP Name 'CompareItems'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DEFAF740194 // Tl3CustomOtherListView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DEFB01F025D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DEFAFF80100 CompareItems
+
+FORWARD ME_4DEFB88B038D
+
+ME ME_4DEFB89700FE
+ MEPROP UID '4DEFB89700FE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DEFB88B038D // Sort
+ ;
+
+ENDME // ME_4DEFB89700FE DoIt
+
+ME ME_4DEFB88B038D
+ MEPROP UID '4DEFB88B038D'
+ MEPROP Name 'Sort'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DEFAF740194 // Tl3CustomOtherListView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DEFB89700FE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DEFB88B038D Sort
+
+FORWARD ME_4DEFB991020F
+
+ME ME_4DEFB99E039B
+ MEPROP UID '4DEFB99E039B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DEFB991020F // OtherListCount
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DEFB99E039B DoIt
+
+ME ME_4DEFB991020F
+ MEPROP UID '4DEFB991020F'
+ MEPROP Name 'OtherListCount'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DEFAF740194 // Tl3CustomOtherListView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DEFB99E039B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DEFB991020F OtherListCount
+
+ME ME_4DEFB6C501A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DEFAF740194 // Tl3CustomOtherListView
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4DEFB6C501A4 
+
+MEREF ME_479731C50290_ME_4DEFAF740194_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4DEFAF740194_over Cleanup
+
+MEREF ME_47A042E100E2_ME_4DEFAF740194_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4DEFAF740194_over InitFields
+
+MEREF ME_49E7754802A9_ME_4DEFAF740194_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4DEFAF740194_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_4DEFAF740194
+
+ME ME_4DEFAF740194
+ MEPROP UID '4DEFAF740194'
+ MEPROP Name 'Tl3CustomOtherListView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4A6D65B9022A' // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_4DEFAF740194_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DEFAFAB019E // f_Sorter
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DEFAFF80100 // CompareItems
+ HWL ME_4DEFB88B038D // Sort
+ HWL ME_4DEFB991020F // OtherListCount
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4DEFAF740194_over // Cleanup
+ ME_47A042E100E2_ME_4DEFAF740194_over // InitFields
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4DEFAF2300F9 // Tl3OtherListSorter
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4DEFB6C501A4 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '08.06.2011 21:21'
+ UP extprop:pas:UnitName 'l3CustomOtherListView'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OtherListView'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3CustomOtherListView.pas'
+
+ENDME // ME_4DEFAF740194 Tl3CustomOtherListView

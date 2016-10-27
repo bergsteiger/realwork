@@ -1,0 +1,59 @@
+// TMouseSelectPtTest 4D8890B102E6 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4BE419AF0217_ME_4D8890B102E6_impl
+ MELINK Original WL 'ME_4BE419AF0217' '4BE418BB001F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE419AF0217_ME_4D8890B102E6_impl DoVisit
+
+MEREF ME_4BE425C70228_ME_4D8890B102E6_G
+ MELINK Original WL? 'ME_4BE425C70228' // TTextEditorVisitor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE425C70228_ME_4D8890B102E6_G TTextEditorVisitor
+
+MEREF ME_4DDF61B503D1_ME_4D8890B102E6_R
+ MELINK Original WL? 'ME_4DDF61B503D1' // MouseClickOnPoint
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DDF61B503D1_ME_4D8890B102E6_R MouseClickOnPoint
+
+%%ImplementedBy ME_4DDF61B503D1 ME_4D8890B102E6
+
+%%InheritedBy ME_4BE425C70228 ME_4D8890B102E6
+
+ME ME_4D8890B102E6
+ MEPROP UID '4D8890B102E6'
+ MEPROP Name 'TMouseSelectPtTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '“ест щелкань€ мышью по определенной точке.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4D02566F01E6' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE425C70228_ME_4D8890B102E6_G // TTextEditorVisitor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4DDF61B503D1_ME_4D8890B102E6_R // MouseClickOnPoint
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4BE419AF0217_ME_4D8890B102E6_impl // DoVisit
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'MouseSelectPtTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MouseSelectPtTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\MouseSelectPtTest.pas'
+
+ENDME // ME_4D8890B102E6 TMouseSelectPtTest

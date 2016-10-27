@@ -1,0 +1,376 @@
+// TalcuMdpProtoSyncronizer 574C0E84031E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_574C0E84031E
+
+ME ME_574C388C00C1
+ MEPROP UID '574C388C00C1'
+ MEPROP Name 'f_Sync'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ ;
+ MELINK Target WL? 'ME_574C16470035' // TcsMdpSyncPrim
+ ;
+
+ENDME // ME_574C388C00C1 f_Sync
+
+FORWARD ME_574C359C0010
+
+FORWARD ME_574C35BB0369
+
+ME ME_574C36C20305
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_574C36C20305 aStream
+
+ME ME_574C35BB0369
+ MEPROP UID '574C35BB0369'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574C359C0010 // PrepareData
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_574C36C20305 // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_574C35BB0369 DoIt
+
+ME ME_574C359C0010
+ MEPROP UID '574C359C0010'
+ MEPROP Name 'PrepareData'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_574C35BB0369 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_574C359C0010 PrepareData
+
+FORWARD ME_574C36DA009E
+
+ME ME_09940413CC65
+ MEPROP UID '09940413CC65'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода BeforeSync' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574C36DA009E // BeforeSync
+ ;
+
+ENDME // ME_09940413CC65 DoIt
+
+ME ME_574C36DA009E
+ MEPROP UID '574C36DA009E'
+ MEPROP Name 'BeforeSync'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_09940413CC65 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_574C36DA009E BeforeSync
+
+FORWARD ME_574C37130370
+
+ME ME_F608A789830D
+ MEPROP UID 'F608A789830D'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода AfterSuccessfulSync' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574C37130370 // AfterSuccessfulSync
+ ;
+
+ENDME // ME_F608A789830D DoIt
+
+ME ME_574C37130370
+ MEPROP UID '574C37130370'
+ MEPROP Name 'AfterSuccessfulSync'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_F608A789830D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_574C37130370 AfterSuccessfulSync
+
+FORWARD ME_574C37390202
+
+FORWARD ME_574C3763007B
+
+ME ME_574C37780374
+ MEPROP Name 'aSync'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_574C16470035' // TcsMdpSyncPrim
+ ;
+
+ENDME // ME_574C37780374 aSync
+
+ME ME_574C3763007B
+ MEPROP UID '574C3763007B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574C37390202 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_574C37780374 // aSync
+ )
+ ; // Parameters
+
+ENDME // ME_574C3763007B DoIt
+
+ME ME_574C37390202
+ MEPROP UID '574C37390202'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_574C3763007B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_574C37390202 Create
+
+FORWARD ME_574C38C2015A
+
+ME ME_574D977C0172
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_574C38C2015A // Execute
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_574D977C0172 
+
+ME ME_574D97E000A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_574C38C2015A // Execute
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
+ ;
+
+ENDME // ME_574D97E000A5 
+
+ME ME_574D982E0349
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_574C38C2015A // Execute
+ ;
+ MELINK Target WL 'ME_48F473650362' '47AB1FDE03E4.ms.model.script' // Tl3MemoryStream
+ ;
+
+ENDME // ME_574D982E0349 
+
+ME ME_574C38C2015A
+ MEPROP UID '574C38C2015A'
+ MEPROP Name 'Execute'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ ;
+ MELIST Dependencies
+   Seq: ( ME_574D977C0172 // FreeAndNil
+ ME_574D97E000A5 // l3System
+ ME_574D982E0349 // Tl3MemoryStream
+ )
+ ; // Dependencies
+
+ENDME // ME_574C38C2015A Execute
+
+FORWARD ME_574C39080008
+
+FORWARD ME_574C392600E6
+
+ME ME_574C394300E0
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_574C394300E0 aStream
+
+ME ME_574C392600E6
+ MEPROP UID '574C392600E6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574C39080008 // PostToGardoc
+ ;
+ MELIST Parameters
+   Seq: ( ME_574C394300E0 // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_574C392600E6 DoIt
+
+ME ME_574ECC47014E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_574C39080008 // PostToGardoc
+ ;
+ MELINK Target WL 'ME_4C74ED51025F' '47A080670100.ms.model.script' // Tl3FileStream
+ ;
+
+ENDME // ME_574ECC47014E 
+
+ME ME_574ECC4B031A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_574C39080008 // PostToGardoc
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_574ECC4B031A 
+
+ME ME_574C39080008
+ MEPROP UID '574C39080008'
+ MEPROP Name 'PostToGardoc'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_574C392600E6 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_574ECC47014E // Tl3FileStream
+ ME_574ECC4B031A // Tl3FileMode
+ )
+ ; // Dependencies
+
+ENDME // ME_574C39080008 PostToGardoc
+
+FORWARD ME_574C395100E9
+
+ME ME_574C3965012A
+ MEPROP UID '574C3965012A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574C395100E9 // GetTitle
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_574C3965012A DoIt
+
+ME ME_574C395100E9
+ MEPROP UID '574C395100E9'
+ MEPROP Name 'GetTitle'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_574C3965012A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_574C395100E9 GetTitle
+
+MEREF ME_49E7754802A9_ME_574C0E84031E_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_574C0E84031E_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_574C0E84031E
+
+ME ME_574C0E84031E
+ MEPROP UID '574C0E84031E'
+ MEPROP Name 'TalcuMdpProtoSyncronizer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_54041E840266' // Process
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_574C0E84031E_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_574C388C00C1 // f_Sync
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_574C359C0010 // PrepareData
+ HWL ME_574C36DA009E // BeforeSync
+ HWL ME_574C37130370 // AfterSuccessfulSync
+ HWL ME_574C37390202 // Create
+ HWL ME_574C38C2015A // Execute
+ HWL ME_574C39080008 // PostToGardoc
+ HWL ME_574C395100E9 // GetTitle
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" True
+ UP extprop:pas:UnitName 'alcuMdpProtoSyncronizer'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuMdpProtoSyncronizer'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Process\alcuMdpProtoSyncronizer.pas'
+
+ENDME // ME_574C0E84031E TalcuMdpProtoSyncronizer

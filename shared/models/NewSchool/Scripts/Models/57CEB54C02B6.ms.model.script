@@ -93,7 +93,7 @@ ENDME // ME_57CEB5FE037D DoIt
 ME ME_57CEB5F50141
  MEPROP UID '57CEB5F50141'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -107,6 +107,18 @@ ME ME_57CEB5F50141
 
 ENDME // ME_57CEB5F50141 Create
 
+MEREF ME_57CEB5F50141_ME_57CEB5D90345_G
+ MELINK Original HWL ME_57CEB5F50141 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57CEB5F50141_ME_57CEB5D90345_G Create
+
+MEREF ME_57B568620397_ME_57CEB5D90345_R
+ MELINK Original WL 'ME_57B568620397' '57CEABF60269.ms.model.script' // ImsmOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B568620397_ME_57CEB5D90345_R ImsmOperation
+
 %%ImplementedBy ME_57B568620397 ME_57CEB5D90345
 
 %%InheritedBy ME_57CEB5F50141 ME_57CEB5D90345
@@ -114,7 +126,7 @@ ENDME // ME_57CEB5F50141 Create
 ME ME_57CEB5D90345
  MEPROP UID '57CEB5D90345'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -122,15 +134,21 @@ ME ME_57CEB5D90345
  MELINK Parent HWL ME_57CEB54C02B6 // msmConcreteModelOperation
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57CEB5F50141 // Create
+   Seq: ( HWL ME_57CEB5F50141_ME_57CEB5D90345_G // Create
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_57B568620397' '57CEABF60269.ms.model.script' // ImsmOperation
+   Seq: ( HWL ME_57B568620397_ME_57CEB5D90345_R // ImsmOperation
  )
  ; // Implements
 
 ENDME // ME_57CEB5D90345 Make
+
+MEREF ME_57CEB1C1010D_ME_57CEB54C02B6_G
+ MELINK Original WL? 'ME_57CEB1C1010D' // TmsmOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57CEB1C1010D_ME_57CEB54C02B6_G TmsmOperation
 
 %%InheritedBy ME_57CEB1C1010D ME_57CEB54C02B6
 
@@ -146,7 +164,7 @@ ME ME_57CEB54C02B6
  MELINK Parent WL? 'ME_57CEB008027D' // Operations
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_57CEB1C1010D' '57CEB008027D.ms.model.script' // TmsmOperation
+   Seq: ( HWL ME_57CEB1C1010D_ME_57CEB54C02B6_G // TmsmOperation
  )
  ; // Inherits
  MELIST Attributes

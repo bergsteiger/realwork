@@ -1,0 +1,121 @@
+// TkwParaCoordsToScreen 4F955027033B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F955027033B
+
+ME ME_4F956C040018
+ MEPROP UID '4F956C040018'
+ MEPROP Name 'f_Point'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4F955027033B // TkwParaCoordsToScreen
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4F956C040018 f_Point
+
+ME ME_4F9575F80222
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F955027033B // TkwParaCoordsToScreen
+ ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_4F9575F80222 
+
+ME ME_54F084E3031F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_friend::Dependency ;
+ MELINK Parent HWL ME_4F955027033B // TkwParaCoordsToScreen
+ ;
+ MELINK Target WL? 'ME_48E0E5C1032A' // TnevControl
+ ;
+
+ENDME // ME_54F084E3031F 
+
+MEREF ME_4F4CB81200CA_ME_4F955027033B_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_4F955027033B_impl DoWithEditor
+
+MEREF ME_4BF4E6A00093_ME_4F955027033B_over
+ MELINK Original WL 'ME_4BF4E6A00093' '4CED0194038A.ms.model.script' // GetInnerPara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BF4E6A00093_ME_4F955027033B_over GetInnerPara
+
+MEREF ME_4F4CB625027A_ME_4F955027033B_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_4F955027033B_G TkwEditorFromStackWord
+
+MEREF ME_4CED0194038A_ME_4F955027033B_R
+ MELINK Original WL? 'ME_4CED0194038A' // Para2Point
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CED0194038A_ME_4F955027033B_R Para2Point
+
+MEREF ME_54F06F760196_ME_4F955027033B_R
+ MELINK Original WL? 'ME_54F06F760196' // kwParaCoordsToScreenUses
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54F06F760196_ME_4F955027033B_R kwParaCoordsToScreenUses
+
+%%ImplementedBy ME_4CED0194038A ME_4F955027033B
+%%ImplementedBy ME_54F06F760196 ME_4F955027033B
+
+%%InheritedBy ME_4F4CB625027A ME_4F955027033B
+
+ME ME_4F955027033B
+ MEPROP UID '4F955027033B'
+ MEPROP Name 'TkwParaCoordsToScreen'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F954EC9038E' // MoveMouseByPara
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A_ME_4F955027033B_G // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4CED0194038A_ME_4F955027033B_R // Para2Point
+ HWL ME_54F06F760196_ME_4F955027033B_R // kwParaCoordsToScreenUses
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4F956C040018 // f_Point
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4F955027033B_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4BF4E6A00093_ME_4F955027033B_over // GetInnerPara
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F9575F80222 // TPoint
+ ME_54F084E3031F // TnevControl
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'kwParaCoordsToScreen'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ParaCoordsToScreen'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwParaCoordsToScreen.pas'
+
+ENDME // ME_4F955027033B TkwParaCoordsToScreen

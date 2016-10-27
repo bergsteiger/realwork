@@ -1,0 +1,66 @@
+// Tk2HugeTagObject 467FC49800E8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_467FC49800E8
+
+ME ME_4A6433BF0110
+ MEPROP UID '4A6433BF0110'
+ MEPROP Name 'HashType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_467FC49800E8 // Tk2HugeTagObject
+ ;
+ MELINK Target WL 'ME_47AC5BBC025C' '47AC5ABE00B6.ms.model.script' // Tl3PtrHash
+ ;
+
+ENDME // ME_4A6433BF0110 HashType
+
+MEREF ME_47AC562D0134_ME_467FC49800E8_G
+ MELINK Original WL? 'ME_47AC562D0134' // k2HashTag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47AC562D0134_ME_467FC49800E8_G k2HashTag
+
+MEREF ME_532080BB027A_ME_467FC49800E8_G
+ MELINK Original WL? 'ME_532080BB027A' // Tk2NonAtomicTag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_532080BB027A_ME_467FC49800E8_G Tk2NonAtomicTag
+
+%%InheritedBy ME_47AC562D0134 ME_467FC49800E8
+%%InheritedBy ME_532080BB027A ME_467FC49800E8
+
+ME ME_467FC49800E8
+ MEPROP UID '467FC49800E8'
+ MEPROP Name 'Tk2HugeTagObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Одна из реализаций хранилища тегов. С неограниченным количеством свойств' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47AC562D0134_ME_467FC49800E8_G // k2HashTag
+ HWL ME_532080BB027A_ME_467FC49800E8_G // Tk2NonAtomicTag
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A6433BF0110 // HashType
+ )
+ ; // Attributes
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '15.12.1999 17:30'
+ UP extprop:pas:UnitName 'k2HugeTagObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HugeTagObject'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2HugeTagObject.pas'
+
+ENDME // ME_467FC49800E8 Tk2HugeTagObject

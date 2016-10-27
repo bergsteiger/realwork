@@ -1,0 +1,179 @@
+// TcsNotifyObj 52FB990303A4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52FB99170003
+
+FORWARD ME_52FB990303A4
+
+FORWARD ME_52FB99170003
+
+FORWARD ME_52FB992D02DD
+
+ME ME_52FB994600AA
+ MEPROP Name 'aNotificationType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52FB98DE00E8' '52FB98CB008D.ms.model.script' // TCsNotificationType
+ ;
+
+ENDME // ME_52FB994600AA aNotificationType
+
+ME ME_52FB994600DB
+ MEPROP Name 'aNumber'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52FB994600DB aNumber
+
+ME ME_52FB995100C2
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52FB995100C2 aText
+
+ME ME_52FB992D02DD
+ MEPROP UID '52FB992D02DD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52FB99170003 // TCsOnNotificationProc
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52FB994600AA // aNotificationType
+ ME_52FB994600DB // aNumber
+ ME_52FB995100C2 // aText
+ )
+ ; // Parameters
+
+ENDME // ME_52FB992D02DD DoIt
+
+ME ME_52FB99170003
+ MEPROP UID '52FB99170003'
+ MEPROP Name 'TCsOnNotificationProc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FB990303A4 // TcsNotifyObj
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52FB992D02DD // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_52FB99170003 TCsOnNotificationProc
+
+ME ME_52FB996503AD
+ MEPROP UID '52FB996503AD'
+ MEPROP Name 'Proc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52FB990303A4 // TcsNotifyObj
+ ;
+ MELINK Target HWL ME_52FB99170003 // TCsOnNotificationProc
+ ;
+
+ENDME // ME_52FB996503AD Proc
+
+FORWARD ME_52FB999100DA
+
+FORWARD ME_52FB9999034D
+
+ME ME_52FB99A001F2
+ MEPROP Name 'aProc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_52FB99170003 // TCsOnNotificationProc
+ ;
+
+ENDME // ME_52FB99A001F2 aProc
+
+ME ME_52FB9999034D
+ MEPROP UID '52FB9999034D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52FB999100DA // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_52FB99A001F2 // aProc
+ )
+ ; // Parameters
+
+ENDME // ME_52FB9999034D DoIt
+
+ME ME_52FB999100DA
+ MEPROP UID '52FB999100DA'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52FB990303A4 // TcsNotifyObj
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52FB9999034D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52FB999100DA Create
+
+MEREF ME_49E7754802A9_ME_52FB990303A4_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_52FB990303A4_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_52FB990303A4
+
+ME ME_52FB990303A4
+ MEPROP UID '52FB990303A4'
+ MEPROP Name 'TcsNotifyObj'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_52FB990303A4_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52FB996503AD // Proc
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52FB999100DA // Create
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_52FB99170003 // TCsOnNotificationProc
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'csNotifyObj'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'csNotifyObj'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csNotifyObj.pas'
+
+ENDME // ME_52FB990303A4 TcsNotifyObj

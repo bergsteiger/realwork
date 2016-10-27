@@ -1,0 +1,134 @@
+// Tm4Word 4AB37F0D0301 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB37F0D0301
+
+ME ME_4AB37F9903CA
+ MEPROP UID '4AB37F9903CA'
+ MEPROP Name 'f_ID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AB37F0D0301 // Tm4Word
+ ;
+ MELINK Target WL 'ME_4AB38B45023C' '4AB38D7F0007.ms.model.script' // Tm4WordID
+ ;
+
+ENDME // ME_4AB37F9903CA f_ID
+
+ME ME_4AB773690008
+ MEPROP UID '4AB773690008'
+ MEPROP Name 'FirstWordIDStrID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Первый элемент словаря который начинается с данного слова' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AB37F0D0301 // Tm4Word
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_4AB773690008 FirstWordIDStrID
+
+FORWARD ME_4AB37FB103D8
+
+ME ME_4AB37FCC0111
+ MEPROP Name 'aStr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_4AB37FCC0111 aStr
+
+ME ME_4AB3917D0200
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4AB38B45023C' '4AB38D7F0007.ms.model.script' // Tm4WordID
+ ;
+
+ENDME // ME_4AB3917D0200 anID
+
+ME ME_4AB37FB103D8
+ MEPROP UID '4AB37FB103D8'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AB37F0D0301 // Tm4Word
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AB37FCC0111 // aStr
+ ME_4AB3917D0200 // anID
+ )
+ ; // Parameters
+
+ENDME // ME_4AB37FB103D8 Create
+
+MEREF ME_47BC3BFD017F_ME_4AB37F0D0301_over
+ MELINK Original WL 'ME_47BC3BFD017F' '53317D14019D.ms.model.script' // StringID
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" False
+ UP "pm" True
+ENDMEREF // ME_47BC3BFD017F_ME_4AB37F0D0301_over StringID
+
+MEREF ME_4773DED9004C_ME_4AB37F0D0301_G
+ MELINK Original WL? 'ME_4773DED9004C' // Tl3_String
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773DED9004C_ME_4AB37F0D0301_G Tl3_String
+
+%%InheritedBy ME_4773DED9004C ME_4AB37F0D0301
+
+ME ME_4AB37F0D0301
+ MEPROP UID '4AB37F0D0301'
+ MEPROP Name 'Tm4Word'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Слово словаря' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AB37BE502EA' // Dict
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4773DED9004C_ME_4AB37F0D0301_G // Tl3_String
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4AB37F9903CA // f_ID
+ HWL ME_4AB773690008 // FirstWordIDStrID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AB37FB103D8 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47BC3BFD017F_ME_4AB37F0D0301_over // StringID
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '18.09.2009 12:57'
+ UP extprop:pas:UnitName 'm4Word'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm4Word'
+ UP intf.pas:Path 'common\components\rtl\Garant\m4\m4Word.pas'
+
+ENDME // ME_4AB37F0D0301 Tm4Word

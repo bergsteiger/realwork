@@ -1,0 +1,79 @@
+// TevCustomTextFormatter 4836BEB200A2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4836BEB200A2
+
+ME ME_4A116B45039B
+ MEPROP UID '4A116B45039B'
+ MEPROP Name 'NeedAddSpaces'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4836BEB200A2 // TevCustomTextFormatter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A116B45039B NeedAddSpaces
+
+MEREF ME_4F26660203CB_ME_4836BEB200A2_G
+ MELINK Original WL? 'ME_4F26660203CB' // TevCustomTextFormatterModelPart
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F26660203CB_ME_4836BEB200A2_G TevCustomTextFormatterModelPart
+
+MEREF ME_4BBB34EC029C_ME_4836BEB200A2_R
+ MELINK Original WL 'ME_4BBB34EC029C' '4F266203018F.ms.model.script' // Выливка в формат NSRC
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BBB34EC029C_ME_4836BEB200A2_R Выливка в формат NSRC
+
+MEREF ME_4F2663560035_ME_4836BEB200A2_R
+ MELINK Original WL 'ME_4F2663560035' '4F266203018F.ms.model.script' // Сегменты и параграфы оформленные стилем Объект и не являющиеся формулами должны выливаться как оформленные стилем Нормальный
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F2663560035_ME_4836BEB200A2_R Сегменты и параграфы оформленные стилем Объект и не являющиеся формулами должны выливаться как оформленные стилем Нормальный
+
+%%ImplementedBy ME_4BBB34EC029C ME_4836BEB200A2
+%%ImplementedBy ME_4F2663560035 ME_4836BEB200A2
+
+%%InheritedBy ME_4F26660203CB ME_4836BEB200A2
+
+ME ME_4836BEB200A2
+ MEPROP UID '4836BEB200A2'
+ MEPROP Name 'TevCustomTextFormatter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтр для форматирования текста по строкам и пребразования таблиц в псевдографику.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F26660203CB_ME_4836BEB200A2_G // TevCustomTextFormatterModelPart
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4BBB34EC029C_ME_4836BEB200A2_R // Выливка в формат NSRC
+ HWL ME_4F2663560035_ME_4836BEB200A2_R // Сегменты и параграфы оформленные стилем Объект и не являющиеся формулами должны выливаться как оформленные стилем Нормальный
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4A116B45039B // NeedAddSpaces
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '14.06.1997 12:10'
+ UP extprop:pas:UnitName 'evCustomTextFormatter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextFormatter'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evCustomTextFormatter.pas'
+
+ENDME // ME_4836BEB200A2 TevCustomTextFormatter

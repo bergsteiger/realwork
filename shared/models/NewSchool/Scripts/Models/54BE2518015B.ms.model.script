@@ -1,0 +1,85 @@
+// TalcuDetachedExecutorList 54BE2518015B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54BE2518015B
+
+ME ME_54BE25A40181
+ MEPROP UID '54BE25A40181'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54BE2518015B // TalcuDetachedExecutorList
+ ;
+ MELINK Target WL 'ME_4911B24C01F6' '4773D64E036C.ms.model.script' // Tl3ThreadContainer
+ ;
+
+ENDME // ME_54BE25A40181 ItemType
+
+MEREF ME_47B2C42A0163_ME_54BE2518015B_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_54BE2518015B_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_54BE2518015B_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_54BE2518015B_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_54BE2518015B_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_54BE2518015B_G Tl3ProtoDataContainer
+
+MEREF ME_47B99E920196_ME_54BE2518015B_R
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_54BE2518015B_R l3UncomparabeObjectRefList
+
+%%ImplementedBy ME_47B99E920196 ME_54BE2518015B
+
+%%InheritedBy ME_4A54DD4E036F ME_54BE2518015B
+
+ME ME_54BE2518015B
+ MEPROP UID '54BE2518015B'
+ MEPROP Name 'TalcuDetachedExecutorList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54856B680023' // TaskSend
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_54BE2518015B_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B99E920196_ME_54BE2518015B_R // l3UncomparabeObjectRefList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_54BE25A40181 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_54BE2518015B_impl // AssignItem
+ ME_47B99D4503A2_ME_54BE2518015B_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'alcuDetachedExecutorList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuDetachedExecutorList'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuDetachedExecutorList.pas'
+
+ENDME // ME_54BE2518015B TalcuDetachedExecutorList

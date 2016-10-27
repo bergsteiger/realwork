@@ -1,0 +1,88 @@
+// TatListEntryInfo 5051EA2101A5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5051EA2101A5
+
+ME ME_5051EA300103
+ MEPROP UID '5051EA300103'
+ MEPROP Name 'EntityInterface'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5051EA2101A5 // TatListEntryInfo
+ ;
+ MELINK Target WL 'ME_45EEDB87037E' '45700BFD0251.ms.model.script' // ListEntryInfo
+ ;
+
+ENDME // ME_5051EA300103 EntityInterface
+
+ME ME_5051EB280111
+ MEPROP UID '5051EB280111'
+ MEPROP Name 'Document'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5051EA2101A5 // TatListEntryInfo
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+ UP "pm" True
+
+ENDME // ME_5051EB280111 Document
+
+ME ME_5061FF260047
+ MEPROP UID '5061FF260047'
+ MEPROP Name 'PID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5051EA2101A5 // TatListEntryInfo
+ ;
+ MELINK Target WL 'ME_456EA676037A' '456EA56002BF.ms.model.script' // PId
+ ;
+ UP "pm" True
+
+ENDME // ME_5061FF260047 PID
+
+MEREF ME_4FC8E3BF0125_ME_5051EA2101A5_G
+ MELINK Original WL? 'ME_4FC8E3BF0125' // atEntity
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FC8E3BF0125_ME_5051EA2101A5_G atEntity
+
+%%InheritedBy ME_4FC8E3BF0125 ME_5051EA2101A5
+
+ME ME_5051EA2101A5
+ MEPROP UID '5051EA2101A5'
+ MEPROP Name 'TatListEntryInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48078CC202EC' // AdapterHelpers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FC8E3BF0125_ME_5051EA2101A5_G // atEntity
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5051EA300103 // EntityInterface
+ HWL ME_5051EB280111 // Document
+ HWL ME_5061FF260047 // PID
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'atListEntryInfo'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atListEntryInfo'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\AdapterHelpers\atListEntryInfo.pas'
+
+ENDME // ME_5051EA2101A5 TatListEntryInfo

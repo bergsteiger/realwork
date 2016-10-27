@@ -1,0 +1,179 @@
+// Tl3ProtoPtrRecListPrim 479DF9C5033A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B88025F00AD
+%%Inner ME_52FCA68802C2
+%%Inner ME_52FCA9120078
+
+FORWARD ME_479DF9C5033A
+
+ME ME_4B88025F00AD
+ MEPROP UID '4B88025F00AD'
+ MEPROP Name 'l3Items_NeedsBeforeFreeItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ;
+ UP extprop:rc:SelfName 'Items_NeedsBeforeFreeItem'
+
+ENDME // ME_4B88025F00AD l3Items_NeedsBeforeFreeItem
+
+ME ME_52FCA68802C2
+ MEPROP UID '52FCA68802C2'
+ MEPROP Name 'l3Items_HasChanging'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ;
+ UP extprop:rc:SelfName 'Items_HasChanging'
+
+ENDME // ME_52FCA68802C2 l3Items_HasChanging
+
+ME ME_52FCA9120078
+ MEPROP UID '52FCA9120078'
+ MEPROP Name 'l3Items_IsProto'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ;
+ UP extprop:rc:SelfName 'Items_IsProto'
+
+ENDME // ME_52FCA9120078 l3Items_IsProto
+
+ME ME_47B5951701F0
+ MEPROP UID '47B5951701F0'
+ MEPROP Name 'DataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ;
+ MELINK Target WL 'ME_47AB20F40050' '47AB1FDE03E4.ms.model.script' // Tl3Ptr
+ ;
+
+ENDME // ME_47B5951701F0 DataType
+
+ME ME_47B1DA4902C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_47B1DA4902C6 
+
+ME ME_47B1DD0A03C4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ;
+ MELINK Target WL 'ME_479F1E0803A0' '479F1DEA0057.ms.model.script' // Errors
+ ;
+
+ENDME // ME_47B1DD0A03C4 
+
+ME ME_47B3205602D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_47B3205602D4 
+
+ME ME_47B320E602FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ;
+ MELINK Target WL? 'ME_47A066980016' // l3MinMax
+ ;
+
+ENDME // ME_47B320E602FA 
+
+MEREF ME_4A54DD4E036F_ME_479DF9C5033A_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_479DF9C5033A_G Tl3ProtoDataContainer
+
+MEREF ME_4A5CBFAB03AF_ME_479DF9C5033A_G
+ MELINK Original WL? 'ME_4A5CBFAB03AF' // l3Changing
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A5CBFAB03AF_ME_479DF9C5033A_G l3Changing
+
+MEREF ME_47B433E500BC_ME_479DF9C5033A_R
+ MELINK Original WL? 'ME_47B433E500BC' // l3UntypedList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B433E500BC_ME_479DF9C5033A_R l3UntypedList
+
+%%ImplementedBy ME_47B433E500BC ME_479DF9C5033A
+
+%%InheritedBy ME_4A54DD4E036F ME_479DF9C5033A
+%%InheritedBy ME_4A5CBFAB03AF ME_479DF9C5033A
+
+ME ME_479DF9C5033A
+ MEPROP UID '479DF9C5033A'
+ MEPROP Name 'Tl3ProtoPtrRecListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B880BC203B6' // RecLists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_479DF9C5033A_G // Tl3ProtoDataContainer
+ HWL ME_4A5CBFAB03AF_ME_479DF9C5033A_G // l3Changing
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B433E500BC_ME_479DF9C5033A_R // l3UntypedList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47B5951701F0 // DataType
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4B88025F00AD // l3Items_NeedsBeforeFreeItem
+ HWL ME_52FCA68802C2 // l3Items_HasChanging
+ HWL ME_52FCA9120078 // l3Items_IsProto
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_47B1DA4902C6 // SysUtils
+ ME_47B1DD0A03C4 // Errors
+ ME_47B3205602D4 // l3Base
+ ME_47B320E602FA // l3MinMax
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '20.04.2006 17:10'
+ UP extprop:pas:UnitName 'l3ProtoPtrRecListPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ProtoPtrRecListPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ProtoPtrRecListPrim.pas'
+
+ENDME // ME_479DF9C5033A Tl3ProtoPtrRecListPrim

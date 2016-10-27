@@ -1,0 +1,135 @@
+// TvgGradientPoints 4D55623200CE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4D55645D000A
+%%Inner ME_4D55646500FE
+
+FORWARD ME_4D55623200CE
+
+ME ME_4D55645D000A
+ MEPROP UID '4D55645D000A'
+ MEPROP Name '_UnknownForDesign'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D55623200CE // TvgGradientPoints
+ ;
+
+ENDME // ME_4D55645D000A _UnknownForDesign
+
+ME ME_4D55646500FE
+ MEPROP UID '4D55646500FE'
+ MEPROP Name 'l3Unknown_NoIUnknown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D55623200CE // TvgGradientPoints
+ ;
+ UP extprop:rc:SelfName 'Unknown_NoIUnknown'
+
+ENDME // ME_4D55646500FE l3Unknown_NoIUnknown
+
+FORWARD ME_4D55624903C3
+
+ME ME_4D5562680091
+ MEPROP UID '4D5562680091'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D55624903C3 // Points
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D5562680091 anIndex
+
+ME ME_4D55624903C3
+ MEPROP UID '4D55624903C3'
+ MEPROP Name 'Points'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D55623200CE // TvgGradientPoints
+ ;
+ MELINK Target WL? 'ME_4D555E3901BF' // TvgGradientPoint
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4D5562680091 // anIndex
+ )
+ ; // Attributes
+ UP "is default" True
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4D55624903C3 Points
+
+MEREF ME_47A6FEE600FC_ME_4D55623200CE_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_4D55623200CE_over IsCacheable
+
+MEREF ME_47913F970159_ME_4D55623200CE_G
+ MELINK Original WL? 'ME_47913F970159' // l3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47913F970159_ME_4D55623200CE_G l3Unknown
+
+MEREF ME_4D555B78015F_ME_4D55623200CE_G
+ MELINK Original WL 'ME_4D555B78015F' '478CF30500C1.ms.model.script' // TCollection
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D555B78015F_ME_4D55623200CE_G TCollection
+
+%%InheritedBy ME_47913F970159 ME_4D55623200CE
+%%InheritedBy ME_4D555B78015F ME_4D55623200CE
+
+ME ME_4D55623200CE
+ MEPROP UID '4D55623200CE'
+ MEPROP Name 'TvgGradientPoints'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4CFCE51A00B0' // Impl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47913F970159_ME_4D55623200CE_G // l3Unknown
+ HWL ME_4D555B78015F_ME_4D55623200CE_G // TCollection
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D55624903C3 // Points
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_4D55623200CE_over // IsCacheable
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4D55645D000A // _UnknownForDesign
+ HWL ME_4D55646500FE // l3Unknown_NoIUnknown
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" True
+ UP extprop:pas:UnitName 'vgGradientPoints'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'GradientPoints'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgGradientPoints.pas'
+
+ENDME // ME_4D55623200CE TvgGradientPoints

@@ -62,17 +62,23 @@ ME ME_503E67610170
 
 ENDME // ME_503E67610170 ToName
 
-ME ME_503E3A040395_ME_50005E6B0318
+MEREF ME_503E3A040395_ME_50005E6B0318_impl
  MELINK Original WL 'ME_503E3A040395' '503E2BCA01E8.ms.model.script' // InitConvertMap
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_503E3A040395_ME_50005E6B0318 InitConvertMap
+ENDMEREF // ME_503E3A040395_ME_50005E6B0318_impl InitConvertMap
 
-ME ME_503E3CC102AE_ME_50005E6B0318
+MEREF ME_503E3CC102AE_ME_50005E6B0318_over
  MELINK Original WL 'ME_503E3CC102AE' '503E2BCA01E8.ms.model.script' // Error2nd
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_503E3CC102AE_ME_50005E6B0318 Error2nd
+ENDMEREF // ME_503E3CC102AE_ME_50005E6B0318_over Error2nd
+
+MEREF ME_504F25E90064_ME_50005E6B0318_G
+ MELINK Original WL? 'ME_504F25E90064' // atStringConverter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_504F25E90064_ME_50005E6B0318_G atStringConverter
 
 %%InheritedBy ME_504F25E90064 ME_50005E6B0318
 
@@ -88,7 +94,7 @@ ME ME_50005E6B0318
  MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_504F25E90064' // atStringConverter
+   Seq: ( HWL ME_504F25E90064_ME_50005E6B0318_G // atStringConverter
  )
  ; // Inherits
  MELIST Attributes
@@ -101,11 +107,11 @@ ME ME_50005E6B0318
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_503E3A040395_ME_50005E6B0318 // InitConvertMap
+   Seq: ( ME_503E3A040395_ME_50005E6B0318_impl // InitConvertMap
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_503E3CC102AE_ME_50005E6B0318 // Error2nd
+   Seq: ( ME_503E3CC102AE_ME_50005E6B0318_over // Error2nd
  )
  ; // Overridden
  UP extprop:pas:TypeName '_atEnumConverter_'

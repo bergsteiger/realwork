@@ -1,0 +1,174 @@
+// TafwCaretPair 480DD9F600F6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_480DD9F600F6
+
+FORWARD ME_480DDA2403DE
+
+ME ME_480DDA33028E
+ MEPROP UID '480DDA33028E'
+ MEPROP Name 'DefInsMode'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DDA2403DE // Defaults
+ ;
+ MEPROP Value True
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value True
+
+ENDME // ME_480DDA33028E DefInsMode
+
+ME ME_480DDA2403DE
+ MEPROP UID '480DDA2403DE'
+ MEPROP Name 'Defaults'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480DD9F600F6 // TafwCaretPair
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_480DDA33028E // DefInsMode
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_480DDA2403DE Defaults
+
+ME ME_480DDA5902F7
+ MEPROP UID '480DDA5902F7'
+ MEPROP Name 'InsertMode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'режим вставки?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DD9F600F6 // TafwCaretPair
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_480DDA5902F7 InsertMode
+
+ME ME_480DDA71036A
+ MEPROP UID '480DDA71036A'
+ MEPROP Name 'InsCaretType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'тип каретки для режима вставки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DD9F600F6 // TafwCaretPair
+ ;
+ MELINK Target WL? 'ME_480DD275003D' // TafwInsCaretType
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_480DDA71036A InsCaretType
+
+ME ME_480DDAA60276
+ MEPROP UID '480DDAA60276'
+ MEPROP Name 'OvrCaretType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'тип каретки для режима замены.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DD9F600F6 // TafwCaretPair
+ ;
+ MELINK Target WL? 'ME_480DD2B200D2' // TafwOvrCaretType
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_480DDAA60276 OvrCaretType
+
+ME ME_480DDC10001D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480DD9F600F6 // TafwCaretPair
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_480DDC10001D 
+
+MEREF ME_479731C50290_ME_480DD9F600F6_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_480DD9F600F6_over Cleanup
+
+MEREF ME_52FCEEE902D1_ME_480DD9F600F6_over
+ MELINK Original WL 'ME_52FCEEE902D1' '480DD00B02E8.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52FCEEE902D1_ME_480DD9F600F6_over Create
+
+MEREF ME_480DD00B02E8_ME_480DD9F600F6_G
+ MELINK Original WL? 'ME_480DD00B02E8' // TafwSingleCaret
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_480DD00B02E8_ME_480DD9F600F6_G TafwSingleCaret
+
+%%InheritedBy ME_480DD00B02E8 ME_480DD9F600F6
+
+ME ME_480DD9F600F6
+ MEPROP UID '480DD9F600F6'
+ MEPROP Name 'TafwCaretPair'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пара кареток (для вставки и замены).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47877A6F000A' // Visual
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_480DD00B02E8_ME_480DD9F600F6_G // TafwSingleCaret
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_480DDA5902F7 // InsertMode
+ HWL ME_480DDA71036A // InsCaretType
+ HWL ME_480DDAA60276 // OvrCaretType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_480DD9F600F6_over // Cleanup
+ ME_52FCEEE902D1_ME_480DD9F600F6_over // Create
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_480DDA2403DE // Defaults
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_480DDC10001D // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'afwCaretPair'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwCaretPair'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwCaretPair.pas'
+
+ENDME // ME_480DD9F600F6 TafwCaretPair

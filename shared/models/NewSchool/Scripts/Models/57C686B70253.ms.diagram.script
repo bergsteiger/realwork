@@ -9,13 +9,13 @@ MEDIAGRAMS ME_57C686B70253_diagrams
   MELINK Original WL? 'ME_57C686B70253' ; // DocStreamTransfer
 
   MEVIEW ME_57BFF6EA005F_view
-   MELINK Original WL 'ME_57BFF6EA005F' '57C686B70253.ms.model.script' ; // TcsDownloadDocStreamReply
+   MELINK Original WL? 'ME_57BFF6EA005F' ; // TcsDownloadDocStreamReply
    MEPROP X 40
    MEPROP Y 40
   ENDMEVIEW // ME_57BFF6EA005F_view
 
   MEVIEW ME_57F25AF103B0_view
-   MELINK Original WL 'ME_57F25AF103B0' '57C686B70253.ms.model.script' ; // TcsPersonificatedMessage
+   MELINK Original WL? 'ME_57F25AF103B0' ; // TcsPersonificatedMessage
    MEPROP X 200
    MEPROP Y 40
   ENDMEVIEW // ME_57F25AF103B0_view
@@ -27,58 +27,70 @@ MEDIAGRAMS ME_57C686B70253_diagrams
   ENDMEVIEW // ME_57C6874900D4_view
 
   MEVIEW ME_57D2706902F8_view
-   MELINK Original WL 'ME_57D2706902F8' '57C686B70253.ms.model.script' ; // TcsUploadDocStream
+   MELINK Original WL? 'ME_57D2706902F8' ; // TcsUploadDocStream
    MEPROP X 520
    MEPROP Y 40
   ENDMEVIEW // ME_57D2706902F8_view
 
   MEVIEW ME_57D270880150_view
-   MELINK Original WL 'ME_57D270880150' '57C686B70253.ms.model.script' ; // TcsUploadDocStreamReply
+   MELINK Original WL? 'ME_57D270880150' ; // TcsUploadDocStreamReply
    MEPROP X 680
    MEPROP Y 40
   ENDMEVIEW // ME_57D270880150_view
 
   MEVIEW ME_57DA7796002F_view
-   MELINK Original WL 'ME_57DA7796002F' '57C686B70253.ms.model.script' ; // TcsMultiModifyDocsReply
+   MELINK Original WL? 'ME_57DA7796002F' ; // TcsMultiModifyDocsReply
    MEPROP X 840
    MEPROP Y 40
   ENDMEVIEW // ME_57DA7796002F_view
 
   MEVIEW ME_57DA77B80161_view
-   MELINK Original WL 'ME_57DA77B80161' '57C686B70253.ms.model.script' ; // TcsMultiModifyDocs
+   MELINK Original WL? 'ME_57DA77B80161' ; // TcsMultiModifyDocs
    MEPROP X 1000
    MEPROP Y 40
   ENDMEVIEW // ME_57DA77B80161_view
 
   MEVIEW ME_57EBA06202BE_view
-   MELINK Original WL 'ME_57EBA06202BE' '57C686B70253.ms.model.script' ; // TcsMultiClearAttributesReply
+   MELINK Original WL? 'ME_57EBA06202BE' ; // TcsMultiClearAttributesReply
    MEPROP X 40
    MEPROP Y 180
   ENDMEVIEW // ME_57EBA06202BE_view
 
   MEVIEW ME_57EBA087012F_view
-   MELINK Original WL 'ME_57EBA087012F' '57C686B70253.ms.model.script' ; // TcsMultiClearAttributes
+   MELINK Original WL? 'ME_57EBA087012F' ; // TcsMultiClearAttributes
    MEPROP X 200
    MEPROP Y 180
   ENDMEVIEW // ME_57EBA087012F_view
 
   MEVIEW ME_57EE517102EC_view
-   MELINK Original WL 'ME_57EE517102EC' '57C686B70253.ms.model.script' ; // TcsMultiOperationReply
+   MELINK Original WL? 'ME_57EE517102EC' ; // TcsMultiOperationReply
    MEPROP X 360
    MEPROP Y 180
   ENDMEVIEW // ME_57EE517102EC_view
 
   MEVIEW ME_57EE51860032_view
-   MELINK Original WL 'ME_57EE51860032' '57C686B70253.ms.model.script' ; // TcsMultiOperation
+   MELINK Original WL? 'ME_57EE51860032' ; // TcsMultiOperation
    MEPROP X 520
    MEPROP Y 180
   ENDMEVIEW // ME_57EE51860032_view
 
   MEVIEW ME_57BECED40109_view
-   MELINK Original WL 'ME_57BECED40109' '57C686B70253.ms.model.script' ; // TcsDownloadDocStream
+   MELINK Original WL? 'ME_57BECED40109' ; // TcsDownloadDocStream
    MEPROP X 680
    MEPROP Y 180
   ENDMEVIEW // ME_57BECED40109_view
+
+  MEVIEW ME_5800BD8000B6_view
+   MELINK Original WL? 'ME_5800BD8000B6' ; // TcsMultiChangeHyperLinksReply
+   MEPROP X 840
+   MEPROP Y 180
+  ENDMEVIEW // ME_5800BD8000B6_view
+
+  MEVIEW ME_5800BD960017_view
+   MELINK Original WL? 'ME_5800BD960017' ; // TcsMultiChangeHyperLinks
+   MEPROP X 1000
+   MEPROP Y 180
+  ENDMEVIEW // ME_5800BD960017_view
 
   MEVIEWLINK ME_57D2706902F8_ME_57F25AF103B0_Inherits
    MELINK From ME_57D2706902F8_view ;
@@ -110,6 +122,12 @@ MEDIAGRAMS ME_57C686B70253_diagrams
    MEPROP Class class_Inherits
   ENDMEVIEWLINK // ME_57BECED40109_ME_57F25AF103B0_Inherits
 
+  MEVIEWLINK ME_5800BD960017_ME_57F25AF103B0_Inherits
+   MELINK From ME_5800BD960017_view ;
+   MELINK To ME_57F25AF103B0_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5800BD960017_ME_57F25AF103B0_Inherits
+
   MELIST Views
    Seq: ( ME_57BFF6EA005F_view // TcsDownloadDocStreamReply
    ME_57F25AF103B0_view // TcsPersonificatedMessage
@@ -123,11 +141,14 @@ MEDIAGRAMS ME_57C686B70253_diagrams
    ME_57EE517102EC_view // TcsMultiOperationReply
    ME_57EE51860032_view // TcsMultiOperation
    ME_57BECED40109_view // TcsDownloadDocStream
+   ME_5800BD8000B6_view // TcsMultiChangeHyperLinksReply
+   ME_5800BD960017_view // TcsMultiChangeHyperLinks
    ME_57D2706902F8_ME_57F25AF103B0_Inherits // TcsUploadDocStream -> TcsPersonificatedMessage
    ME_57DA77B80161_ME_57F25AF103B0_Inherits // TcsMultiModifyDocs -> TcsPersonificatedMessage
    ME_57EBA087012F_ME_57F25AF103B0_Inherits // TcsMultiClearAttributes -> TcsPersonificatedMessage
    ME_57EE51860032_ME_57F25AF103B0_Inherits // TcsMultiOperation -> TcsPersonificatedMessage
    ME_57BECED40109_ME_57F25AF103B0_Inherits // TcsDownloadDocStream -> TcsPersonificatedMessage
+   ME_5800BD960017_ME_57F25AF103B0_Inherits // TcsMultiChangeHyperLinks -> TcsPersonificatedMessage
    )
   ; // Views
  ENDMEDIAGRAM // ME_57C686B70253_main

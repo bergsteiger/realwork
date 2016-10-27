@@ -1,0 +1,124 @@
+// TnsUserProperty 4B5038B80195 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B5038B80195
+
+FORWARD ME_4B503BEC02DB
+
+ME ME_4B503BFF0108
+ MEPROP Name 'aProfile'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED78501B5' '45EEAA96039C.ms.model.script' // UserProfile
+ ;
+
+ENDME // ME_4B503BFF0108 aProfile
+
+ME ME_4B503BEC02DB
+ MEPROP UID '4B503BEC02DB'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5038B80195 // TnsUserProperty
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B503BFF0108 // aProfile
+ )
+ ; // Parameters
+
+ENDME // ME_4B503BEC02DB Make
+
+FORWARD ME_4B503E400115
+
+ME ME_4B503E400134
+ MEPROP Name 'aProfile'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED78501B5' '45EEAA96039C.ms.model.script' // UserProfile
+ ;
+
+ENDME // ME_4B503E400134 aProfile
+
+ME ME_4B503E400115
+ MEPROP UID '4B503E400115'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5038B80195 // TnsUserProperty
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B503E400134 // aProfile
+ )
+ ; // Parameters
+
+ENDME // ME_4B503E400115 Create
+
+MEREF ME_4B50439D03B6_ME_4B5038B80195_impl
+ MELINK Original WL 'ME_4B50439D03B6' '4B50388A00E5.ms.model.script' // DefaultGroupID
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B50439D03B6_ME_4B5038B80195_impl DefaultGroupID
+
+MEREF ME_47BC391D0259_ME_4B5038B80195_G
+ MELINK Original WL? 'ME_47BC391D0259' // Tl3SimpleObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC391D0259_ME_4B5038B80195_G Tl3SimpleObject
+
+MEREF ME_4B50388A00E5_ME_4B5038B80195_G
+ MELINK Original WL? 'ME_4B50388A00E5' // nsUserPropertyImpl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B50388A00E5_ME_4B5038B80195_G nsUserPropertyImpl
+
+MEREF ME_4B50250E0139_ME_4B5038B80195_R
+ MELINK Original WL 'ME_4B50250E0139' '49903C95009E.ms.model.script' // InsUserProperty
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B50250E0139_ME_4B5038B80195_R InsUserProperty
+
+%%ImplementedBy ME_4B50250E0139 ME_4B5038B80195
+
+%%InheritedBy ME_47BC391D0259 ME_4B5038B80195
+%%InheritedBy ME_4B50388A00E5 ME_4B5038B80195
+
+ME ME_4B5038B80195
+ MEPROP UID '4B5038B80195'
+ MEPROP Name 'TnsUserProperty'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4ACF68160358' // Users$CommonForAdminAndF1
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47BC391D0259_ME_4B5038B80195_G // Tl3SimpleObject
+ HWL ME_4B50388A00E5_ME_4B5038B80195_G // nsUserPropertyImpl
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4B50250E0139_ME_4B5038B80195_R // InsUserProperty
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4B503BEC02DB // Make
+ HWL ME_4B503E400115 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4B50439D03B6_ME_4B5038B80195_impl // DefaultGroupID
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'nsUserProperty'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'UserProperty'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserProperty.pas'
+
+ENDME // ME_4B5038B80195 TnsUserProperty

@@ -1,0 +1,85 @@
+// pop_editor_JumpToHyperlink 4F75BC5F03A0 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F75BC5F03A0
+
+ME ME_4F75BCBB02DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F75BC5F03A0 // pop_editor_JumpToHyperlink
+ ;
+ MELINK Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.ms.model.script' // IevHyperlink
+ ;
+
+ENDME // ME_4F75BCBB02DD 
+
+ME ME_4F75BCD6014B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F75BC5F03A0 // pop_editor_JumpToHyperlink
+ ;
+ MELINK Target WL 'ME_47C5BD35000A' '4A23935A0282.ms.model.script' // IevMoniker
+ ;
+
+ENDME // ME_4F75BCD6014B 
+
+ME ME_4F75C09801D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F75BC5F03A0 // pop_editor_JumpToHyperlink
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4F75C09801D4 
+
+MEREF ME_4F4CB81200CA_ME_4F75BC5F03A0_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_4F75BC5F03A0_impl DoWithEditor
+
+MEREF ME_4F4CB625027A_ME_4F75BC5F03A0_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_4F75BC5F03A0_G TkwEditorFromStackWord
+
+%%InheritedBy ME_4F4CB625027A ME_4F75BC5F03A0
+
+ME ME_4F75BC5F03A0
+ MEPROP UID '4F75BC5F03A0'
+ MEPROP Name 'pop_editor_JumpToHyperlink'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A_ME_4F75BC5F03A0_G // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4F75BC5F03A0_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4F75BCBB02DD // IevHyperlink
+ ME_4F75BCD6014B // IevMoniker
+ ME_4F75C09801D4 // Supports
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwPopEditorJumpToHyperlink'
+ UP extprop:pas:UnitName 'kwPopEditorJumpToHyperlink'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PopEditorJumpToHyperlink'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorJumpToHyperlink.pas'
+
+ENDME // ME_4F75BC5F03A0 pop_editor_JumpToHyperlink

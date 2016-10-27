@@ -1,0 +1,260 @@
+// TbsUserTreeData 49F592D400E6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49F592D400E6
+
+ME ME_49F593C60146
+ MEPROP UID '49F593C60146'
+ MEPROP Name 'f_Users'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49F592D400E6 // TbsUserTreeData
+ ;
+ MELINK Target WL 'ME_49F1AD9B00B6' '47ECAAF901F8.ms.model.script' // IbsSelectedUsers
+ ;
+
+ENDME // ME_49F593C60146 f_Users
+
+ME ME_49F5945B027A
+ MEPROP UID '49F5945B027A'
+ MEPROP Name 'f_Node'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49F592D400E6 // TbsUserTreeData
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49F5945B027A f_Node
+
+FORWARD ME_49F59364009C
+
+ME ME_49F59BA100A6
+ MEPROP Name 'aTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46825CE0014B' '4682595B0268.ms.model.script' // Il3ExpandedSimpleTree
+ ;
+
+ENDME // ME_49F59BA100A6 aTree
+
+ME ME_49F59BA100D5
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49F59BA100D5 aNode
+
+ME ME_49F59364009C
+ MEPROP UID '49F59364009C'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49F592D400E6 // TbsUserTreeData
+ ;
+ MELIST Parameters
+   Seq: ( ME_49F59BA100A6 // aTree
+ ME_49F59BA100D5 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_49F59364009C Create
+
+FORWARD ME_49F593A70243
+
+ME ME_49F59BA80221
+ MEPROP Name 'aTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46825CE0014B' '4682595B0268.ms.model.script' // Il3ExpandedSimpleTree
+ ;
+
+ENDME // ME_49F59BA80221 aTree
+
+ME ME_49F59BA80250
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49F59BA80250 aNode
+
+ME ME_49F593A70243
+ MEPROP UID '49F593A70243'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49F592D400E6 // TbsUserTreeData
+ ;
+ MELIST Parameters
+   Seq: ( ME_49F59BA80221 // aTree
+ ME_49F59BA80250 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_49F593A70243 Make
+
+ME ME_49F59C7A01DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F592D400E6 // TbsUserTreeData
+ ;
+ MELINK Target WL? 'ME_49F59C46028B' // TbsSelectedUsers
+ ;
+
+ENDME // ME_49F59C7A01DA 
+
+ME ME_49F5A19702EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F592D400E6 // TbsUserTreeData
+ ;
+ MELINK Target WL 'ME_45EED730037A' '45EEAA96039C.ms.model.script' // ProfileNode
+ ;
+
+ENDME // ME_49F5A19702EF 
+
+ME ME_49F5A2FC0047
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F592D400E6 // TbsUserTreeData
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_49F5A2FC0047 
+
+ME ME_49F5A37D03DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F592D400E6 // TbsUserTreeData
+ ;
+ MELINK Target WL 'ME_48FF569700F6' '4A6854C70390.ms.model.script' // StringRoutines
+ ;
+
+ENDME // ME_49F5A37D03DC 
+
+ME ME_49F5A3AC015F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F592D400E6 // TbsUserTreeData
+ ;
+ MELINK Target WL 'ME_45EEC3DE0232' '457450470167.ms.model.script' // FlagsConst
+ ;
+
+ENDME // ME_49F5A3AC015F 
+
+ME ME_49F5A3F2015C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F592D400E6 // TbsUserTreeData
+ ;
+ MELINK Target WL? 'ME_47F25741021C' // l3Nodes
+ ;
+
+ENDME // ME_49F5A3F2015C 
+
+MEREF ME_49F17C070091_ME_49F592D400E6_impl
+ MELINK Original WL 'ME_49F17C070091' '47ECAAF901F8.ms.model.script' // Node
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_49F17C070091_ME_49F592D400E6_impl Node
+
+MEREF ME_49F1AE1D02A4_ME_49F592D400E6_impl
+ MELINK Original WL 'ME_49F1AE1D02A4' '47ECAAF901F8.ms.model.script' // Users
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_49F1AE1D02A4_ME_49F592D400E6_impl Users
+
+MEREF ME_479731C50290_ME_49F592D400E6_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_49F592D400E6_over Cleanup
+
+MEREF ME_47BC391D0259_ME_49F592D400E6_G
+ MELINK Original WL? 'ME_47BC391D0259' // Tl3SimpleObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC391D0259_ME_49F592D400E6_G Tl3SimpleObject
+
+MEREF ME_49F17AE6005F_ME_49F592D400E6_R
+ MELINK Original WL 'ME_49F17AE6005F' '47ECAAF901F8.ms.model.script' // IbsUserTreeData
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49F17AE6005F_ME_49F592D400E6_R IbsUserTreeData
+
+%%ImplementedBy ME_49F17AE6005F ME_49F592D400E6
+
+%%InheritedBy ME_47BC391D0259 ME_49F592D400E6
+
+ME ME_49F592D400E6
+ MEPROP UID '49F592D400E6'
+ MEPROP Name 'TbsUserTreeData'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49F17D370263' // UsersDataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47BC391D0259_ME_49F592D400E6_G // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_49F17AE6005F_ME_49F592D400E6_R // IbsUserTreeData
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49F593C60146 // f_Users
+ HWL ME_49F5945B027A // f_Node
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49F59364009C // Create
+ HWL ME_49F593A70243 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49F17C070091_ME_49F592D400E6_impl // Node
+ ME_49F1AE1D02A4_ME_49F592D400E6_impl // Users
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_49F592D400E6_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49F59C7A01DA // TbsSelectedUsers
+ ME_49F5A19702EF // ProfileNode
+ ME_49F5A2FC0047 // SysUtils
+ ME_49F5A37D03DC // StringRoutines
+ ME_49F5A3AC015F // FlagsConst
+ ME_49F5A3F2015C // l3Nodes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'bsUserTreeData'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'bsUserTreeData'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\bsUserTreeData.pas'
+
+ENDME // ME_49F592D400E6 TbsUserTreeData

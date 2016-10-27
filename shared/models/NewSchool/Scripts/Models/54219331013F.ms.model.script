@@ -1,0 +1,256 @@
+// Tm3TOCHandle 54219331013F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54219331013F
+
+ME ME_5421939F018F
+ MEPROP UID '5421939F018F'
+ MEPROP Name 'HandleName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'имя вхождения директории' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54219331013F // Tm3TOCHandle
+ ;
+ MELINK Target WL? 'ME_4773DED9004C' // Tl3_String
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_5421939F018F HandleName
+
+ME ME_542193DF0377
+ MEPROP UID '542193DF0377'
+ MEPROP Name 'StoreInfo'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54219331013F // Tm3TOCHandle
+ ;
+ MELINK Target WL 'ME_47208CA50237' '4720862F0238.ms.model.script' // Tm3StoreInfo
+ ;
+
+ENDME // ME_542193DF0377 StoreInfo
+
+FORWARD ME_542193BF033E
+
+ME ME_542193C70278
+ MEPROP UID '542193C70278'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542193BF033E // Create
+ ;
+
+ENDME // ME_542193C70278 DoIt
+
+ME ME_542193BF033E
+ MEPROP UID '542193BF033E'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54219331013F // Tm3TOCHandle
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542193C70278 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_542193BF033E Create
+
+FORWARD ME_5421943000C9
+
+FORWARD ME_542194420037
+
+ME ME_542194670015
+ MEPROP Name 'aManager'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_543FBAC30068' // Tm3RootStreamManagerPrim
+ ;
+
+ENDME // ME_542194670015 aManager
+
+ME ME_542194670042
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_542194670042 aName
+
+ME ME_542194670066
+ MEPROP Name 'aStoreType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4720876A01FF' '4720862F0238.ms.model.script' // Tm3StoreType
+ ;
+
+ENDME // ME_542194670066 aStoreType
+
+ME ME_542194420037
+ MEPROP UID '542194420037'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5421943000C9 // CreateNew
+ ;
+ MELINK Target HWL ME_54219331013F // Tm3TOCHandle
+ ;
+ MELIST Parameters
+   Seq: ( ME_542194670015 // aManager
+ ME_542194670042 // aName
+ ME_542194670066 // aStoreType
+ )
+ ; // Parameters
+
+ENDME // ME_542194420037 DoIt
+
+ME ME_5421943000C9
+ MEPROP UID '5421943000C9'
+ MEPROP Name 'CreateNew'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54219331013F // Tm3TOCHandle
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542194420037 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_5421943000C9 CreateNew
+
+ME ME_54219A71007B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54219331013F // Tm3TOCHandle
+ ;
+ MELINK Target WL 'ME_49082AE80393' '476BE98C01B8.ms.model.script' // Code Pages
+ ;
+
+ENDME // ME_54219A71007B 
+
+ME ME_54219AC90172
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54219331013F // Tm3TOCHandle
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54219AC90172 
+
+ME ME_54219B03001E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54219331013F // Tm3TOCHandle
+ ;
+ MELINK Target WL? 'ME_540725D100E7' // m3Exceptions
+ ;
+
+ENDME // ME_54219B03001E 
+
+MEREF ME_542194B001E1_ME_54219331013F_impl
+ MELINK Original WL 'ME_542194B001E1' '5421799C0066.ms.model.script' // Load
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_542194B001E1_ME_54219331013F_impl Load
+
+MEREF ME_542194C102F7_ME_54219331013F_impl
+ MELINK Original WL 'ME_542194C102F7' '5421799C0066.ms.model.script' // Save
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_542194C102F7_ME_54219331013F_impl Save
+
+MEREF ME_479731C50290_ME_54219331013F_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_54219331013F_over Cleanup
+
+MEREF ME_479F2B3302C1_ME_54219331013F_over
+ MELINK Original WL 'ME_479F2B3302C1' '47913F4E02E0.ms.model.script' // BeforeAddToCache
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479F2B3302C1_ME_54219331013F_over BeforeAddToCache
+
+MEREF ME_47A6FEE600FC_ME_54219331013F_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_54219331013F_over IsCacheable
+
+MEREF ME_5421799C0066_ME_54219331013F_G
+ MELINK Original WL? 'ME_5421799C0066' // Tm3Persistent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5421799C0066_ME_54219331013F_G Tm3Persistent
+
+%%InheritedBy ME_5421799C0066 ME_54219331013F
+
+ME ME_54219331013F
+ MEPROP UID '54219331013F'
+ MEPROP Name 'Tm3TOCHandle'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5421799C0066_ME_54219331013F_G // Tm3Persistent
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5421939F018F // HandleName
+ HWL ME_542193DF0377 // StoreInfo
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_542193BF033E // Create
+ HWL ME_5421943000C9 // CreateNew
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_542194B001E1_ME_54219331013F_impl // Load
+ ME_542194C102F7_ME_54219331013F_impl // Save
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_54219331013F_over // Cleanup
+ ME_479F2B3302C1_ME_54219331013F_over // BeforeAddToCache
+ ME_47A6FEE600FC_ME_54219331013F_over // IsCacheable
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54219A71007B // Code Pages
+ ME_54219AC90172 // FreeAndNil
+ ME_54219B03001E // m3Exceptions
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'm3TOCHandle'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3TOCHandle'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3TOCHandle.pas'
+
+ENDME // ME_54219331013F Tm3TOCHandle

@@ -1,0 +1,124 @@
+// TatStringProvider 5037CED40333 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5037CED40333
+
+ME ME_502A45C60318
+ MEPROP UID '502A45C60318'
+ MEPROP Name 'Random'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5037CED40333 // TatStringProvider
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_502A45C60318 Random
+
+ME ME_502A45D90210
+ MEPROP UID '502A45D90210'
+ MEPROP Name 'Looped'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5037CED40333 // TatStringProvider
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_502A45D90210 Looped
+
+FORWARD ME_502A459F005A
+
+ME ME_502A45B300A8
+ MEPROP Name 'theString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_502A45B300A8 theString
+
+ME ME_502A459F005A
+ MEPROP UID '502A459F005A'
+ MEPROP Name 'AcquireNext'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5037CED40333 // TatStringProvider
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_502A45B300A8 // theString
+ )
+ ; // Parameters
+
+ENDME // ME_502A459F005A AcquireNext
+
+ME ME_502AACD103A6
+ MEPROP UID '502AACD103A6'
+ MEPROP Name 'Reset'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5037CED40333 // TatStringProvider
+ ;
+
+ENDME // ME_502AACD103A6 Reset
+
+MEREF ME_4807745602C8_ME_5037CED40333_G
+ MELINK Original WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807745602C8_ME_5037CED40333_G TObject
+
+%%InheritedBy ME_4807745602C8 ME_5037CED40333
+
+ME ME_5037CED40333
+ MEPROP UID '5037CED40333'
+ MEPROP Name 'TatStringProvider'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4807745602C8_ME_5037CED40333_G // TObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_502A45C60318 // Random
+ HWL ME_502A45D90210 // Looped
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_502A459F005A // AcquireNext
+ HWL ME_502AACD103A6 // Reset
+ )
+ ; // Operations
+ UP extprop:pas:UnitName 'atStringProvider'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atStringProvider'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atStringProvider.pas'
+
+ENDME // ME_5037CED40333 TatStringProvider

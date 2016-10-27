@@ -1,0 +1,110 @@
+// TnevBitmapFormatInfo 4E5F35FF01B4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E5F35FF01B4
+
+ME ME_530CBB4C015D
+ MEPROP UID '530CBB4C015D'
+ MEPROP Name 'f_Rendered'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4E5F35FF01B4 // TnevBitmapFormatInfo
+ ;
+ MELINK Target WL 'ME_476F70910097' '467C0CAA02AB.ms.model.script' // Il3Bitmap
+ ;
+
+ENDME // ME_530CBB4C015D f_Rendered
+
+ME ME_4E60F4F40057
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E5F35FF01B4 // TnevBitmapFormatInfo
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4E60F4F40057 
+
+ME ME_4E70AA42031A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E5F35FF01B4 // TnevBitmapFormatInfo
+ ;
+ MELINK Target WL? 'ME_47E0C36201C7' // l3Math
+ ;
+
+ENDME // ME_4E70AA42031A 
+
+MEREF ME_4E5E7D240227_ME_4E5F35FF01B4_over
+ MELINK Original WL 'ME_4E5E7D240227' '4810DFE100B4.ms.model.script' // ClearCache
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E5E7D240227_ME_4E5F35FF01B4_over ClearCache
+
+MEREF ME_4E60F48503E6_ME_4E5F35FF01B4_over
+ MELINK Original WL 'ME_4E60F48503E6' '4810DFE100B4.ms.model.script' // Rendered
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" False
+ UP "pm" True
+ENDMEREF // ME_4E60F48503E6_ME_4E5F35FF01B4_over Rendered
+
+MEREF ME_4E7094780214_ME_4E5F35FF01B4_over
+ MELINK Original WL 'ME_4E7094780214' '4810DFE100B4.ms.model.script' // DoRecalc
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E7094780214_ME_4E5F35FF01B4_over DoRecalc
+
+MEREF ME_481F0442026B_ME_4E5F35FF01B4_G
+ MELINK Original WL? 'ME_481F0442026B' // TnevLeafRenderInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_481F0442026B_ME_4E5F35FF01B4_G TnevLeafRenderInfo
+
+%%InheritedBy ME_481F0442026B ME_4E5F35FF01B4
+
+ME ME_4E5F35FF01B4
+ MEPROP UID '4E5F35FF01B4'
+ MEPROP Name 'TnevBitmapFormatInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48185390010A' // Rendering
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_481F0442026B_ME_4E5F35FF01B4_G // TnevLeafRenderInfo
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_530CBB4C015D // f_Rendered
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4E5E7D240227_ME_4E5F35FF01B4_over // ClearCache
+ ME_4E60F48503E6_ME_4E5F35FF01B4_over // Rendered
+ ME_4E7094780214_ME_4E5F35FF01B4_over // DoRecalc
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E60F4F40057 // Tk2TagID
+ ME_4E70AA42031A // l3Math
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '01.09.2011 11:36'
+ UP extprop:pas:UnitName 'nevBitmapFormatInfo'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BitmapFormatInfo'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevBitmapFormatInfo.pas'
+
+ENDME // ME_4E5F35FF01B4 TnevBitmapFormatInfo

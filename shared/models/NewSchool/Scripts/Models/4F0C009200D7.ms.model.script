@@ -1,0 +1,96 @@
+// TkwEndAddSubByMouse 4F0C009200D7 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F0C009200D7
+
+ME ME_4F0C090E01A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F0C009200D7 // TkwEndAddSubByMouse
+ ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_4F0C090E01A1 
+
+ME ME_4F0C0BFE0194
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F0C009200D7 // TkwEndAddSubByMouse
+ ;
+ MELINK Target WL 'ME_4F0C0B870141' '4F0C0B6801C7.ms.model.script' // TDragDataSupport
+ ;
+
+ENDME // ME_4F0C0BFE0194 
+
+ME ME_4F0C37BC03D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F0C009200D7 // TkwEndAddSubByMouse
+ ;
+ MELINK Target WL 'ME_4F0C37850322' '4E4B5F29031C.ms.model.script' // acEndDragAndDrop
+ ;
+
+ENDME // ME_4F0C37BC03D2 
+
+MEREF ME_4DB98B990054_ME_4F0C009200D7_impl
+ MELINK Original WL 'ME_4DB98B990054' '4DB98B4B0382.ms.model.script' // DoControl
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DB98B990054_ME_4F0C009200D7_impl DoControl
+
+MEREF ME_4DB0614603C8_ME_4F0C009200D7_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB0614603C8_ME_4F0C009200D7_over GetWordNameForRegister
+
+MEREF ME_4DB98B4B0382_ME_4F0C009200D7_G
+ MELINK Original WL? 'ME_4DB98B4B0382' // TkwControlWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB98B4B0382_ME_4F0C009200D7_G TkwControlWord
+
+%%InheritedBy ME_4DB98B4B0382 ME_4F0C009200D7
+
+ME ME_4F0C009200D7
+ MEPROP UID '4F0C009200D7'
+ MEPROP Name 'TkwEndAddSubByMouse'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Закончить простановку ссылки на саб с помощью мыши (Drag&Drop):'#13#10'окно_редактора:постановить_ссылку_мышью' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DB98B4B0382_ME_4F0C009200D7_G // TkwControlWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DB98B990054_ME_4F0C009200D7_impl // DoControl
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4F0C009200D7_over // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F0C090E01A1 // TMessage
+ ME_4F0C0BFE0194 // TDragDataSupport
+ ME_4F0C37BC03D2 // acEndDragAndDrop
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'окно_редактора:постановить_ссылку_мышью'
+ UP extprop:pas:UnitName 'kwEndAddSubByMouse'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EndAddSubByMouse'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwEndAddSubByMouse.pas'
+
+ENDME // ME_4F0C009200D7 TkwEndAddSubByMouse

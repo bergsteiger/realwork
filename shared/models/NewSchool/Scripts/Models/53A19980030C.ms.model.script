@@ -1,0 +1,242 @@
+// TalcuNotSortedTaskList 53A19980030C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53A19980030C
+
+FORWARD ME_56A07FA50144
+
+ME ME_56A07FAF00C7
+ MEPROP UID '56A07FAF00C7'
+ MEPROP Name 'cMaxDayAge'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56A07FA50144 // Consts
+ ;
+ MEPROP Value 5
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 5
+
+ENDME // ME_56A07FAF00C7 cMaxDayAge
+
+ME ME_56A07FA50144
+ MEPROP UID '56A07FA50144'
+ MEPROP Name 'Consts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A19980030C // TalcuNotSortedTaskList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_56A07FAF00C7 // cMaxDayAge
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_56A07FA50144 Consts
+
+FORWARD ME_53A1A06B0290
+
+FORWARD ME_53A1A0740195
+
+ME ME_53A1A07A00C0
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
+ ;
+
+ENDME // ME_53A1A07A00C0 anItem
+
+ME ME_53A1A0740195
+ MEPROP UID '53A1A0740195'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A1A06B0290 // Add
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_53A1A07A00C0 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_53A1A0740195 DoIt
+
+ME ME_53A1A06B0290
+ MEPROP UID '53A1A06B0290'
+ MEPROP Name 'Add'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A19980030C // TalcuNotSortedTaskList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A1A0740195 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A1A06B0290 Add
+
+FORWARD ME_53A1A65A030A
+
+FORWARD ME_53A1A6610263
+
+ME ME_53A1A66A003D
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
+ ;
+
+ENDME // ME_53A1A66A003D anItem
+
+ME ME_53A1A6610263
+ MEPROP UID '53A1A6610263'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A1A65A030A // Has
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_53A1A66A003D // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_53A1A6610263 DoIt
+
+ME ME_53A1A65A030A
+ MEPROP UID '53A1A65A030A'
+ MEPROP Name 'Has'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A19980030C // TalcuNotSortedTaskList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A1A6610263 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A1A65A030A Has
+
+FORWARD ME_55F283340044
+
+FORWARD ME_56A07F6E0360
+
+ME ME_56A07F9E0258
+ MEPROP Name 'MaxDayAge'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 'cMaxDayAge'
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 'cMaxDayAge'
+
+ENDME // ME_56A07F9E0258 MaxDayAge
+
+ME ME_56A07F6E0360
+ MEPROP UID '56A07F6E0360'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55F283340044 // PackUnimportant
+ ;
+ MELIST Parameters
+   Seq: ( ME_56A07F9E0258 // MaxDayAge
+ )
+ ; // Parameters
+
+ENDME // ME_56A07F6E0360 DoIt
+
+ME ME_56A088B600A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55F283340044 // PackUnimportant
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_56A088B600A8 
+
+ME ME_55F283340044
+ MEPROP UID '55F283340044'
+ MEPROP Name 'PackUnimportant'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A19980030C // TalcuNotSortedTaskList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56A07F6E0360 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_56A088B600A8 // SysUtils
+ )
+ ; // Dependencies
+
+ENDME // ME_55F283340044 PackUnimportant
+
+MEREF ME_53A038090050_ME_53A19980030C_G
+ MELINK Original WL 'ME_53A038090050' '53A051A703D1.ms.model.script' // TalcuTaskListBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53A038090050_ME_53A19980030C_G TalcuTaskListBase
+
+%%InheritedBy ME_53A038090050 ME_53A19980030C
+
+ME ME_53A19980030C
+ MEPROP UID '53A19980030C'
+ MEPROP Name 'TalcuNotSortedTaskList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53A05123034C' // TasksLists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53A038090050_ME_53A19980030C_G // TalcuTaskListBase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_53A1A06B0290 // Add
+ HWL ME_53A1A65A030A // Has
+ HWL ME_55F283340044 // PackUnimportant
+ )
+ ; // Operations
+ MELIST Constants
+   Seq: ( HWL ME_56A07FA50144 // Consts
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'alcuNotSortedTaskList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuNotSortedTaskList'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuNotSortedTaskList.pas'
+
+ENDME // ME_53A19980030C TalcuNotSortedTaskList

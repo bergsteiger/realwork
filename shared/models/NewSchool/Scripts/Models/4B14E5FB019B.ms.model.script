@@ -1,0 +1,68 @@
+// TnsForwardEvent 4B14E5FB019B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B14E5FB019B
+
+ME ME_4B14E63700DE
+ MEPROP UID '4B14E63700DE'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B14E5FB019B // TnsForwardEvent
+ ;
+
+ENDME // ME_4B14E63700DE Log
+
+ME ME_4B14E64F00C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B14E5FB019B // TnsForwardEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B14E64F00C7 
+
+MEREF ME_4B0A6109010C_ME_4B14E5FB019B_G
+ MELINK Original WL? 'ME_4B0A6109010C' // TnsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0A6109010C_ME_4B14E5FB019B_G TnsLogEvent
+
+%%InheritedBy ME_4B0A6109010C ME_4B14E5FB019B
+
+ME ME_4B14E5FB019B
+ MEPROP UID '4B14E5FB019B'
+ MEPROP Name 'TnsForwardEvent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55B793700105' // Events
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B0A6109010C_ME_4B14E5FB019B_G // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B14E63700DE // Log
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B14E64F00C7 // LogEvent
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nsForwardEvent'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ForwardEvent'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsForwardEvent.pas'
+
+ENDME // ME_4B14E5FB019B TnsForwardEvent

@@ -1,0 +1,347 @@
+// TnevActiveHyperlink 4A27C4D20100 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4A27C5A7004E
+
+FORWARD ME_4A27C4D20100
+
+FORWARD ME_4A27C5A7004E
+
+ME ME_4A27C5C600AC
+ MEPROP UID '4A27C5C600AC'
+ MEPROP Name 'Hyperlink'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A27C5A7004E // InevActiveHyperlink
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+ UP "pm" False
+
+ENDME // ME_4A27C5C600AC Hyperlink
+
+MEREF ME_4A27C48E017F_ME_4A27C5A7004E_impl
+ MELINK Original WL 'ME_4A27C48E017F' '47C5207602D1.ms.model.script' // IsSame
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A27C48E017F_ME_4A27C5A7004E_impl IsSame
+
+MEREF ME_4A27C5CD001C_ME_4A27C5A7004E_impl
+ MELINK Original WL 'ME_4A27C5CD001C' '47C5207602D1.ms.model.script' // Para
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4A27C5CD001C_ME_4A27C5A7004E_impl Para
+
+MEREF ME_4FBF5595010C_ME_4A27C5A7004E_impl
+ MELINK Original WL 'ME_4FBF5595010C' '47C5207602D1.ms.model.script' // Invalidate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4FBF5595010C_ME_4A27C5A7004E_impl Invalidate
+
+MEREF ME_4A27C46801A9_ME_4A27C5A7004E_G
+ MELINK Original WL 'ME_4A27C46801A9' '47C5207602D1.ms.model.script' // InevActiveElement
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A27C46801A9_ME_4A27C5A7004E_G InevActiveElement
+
+%%InheritedBy ME_4A27C46801A9 ME_4A27C5A7004E
+
+ME ME_4A27C5A7004E
+ MEPROP UID '4A27C5A7004E'
+ MEPROP GUID '2FAD6248-B71E-4E2F-8F01-263AE880319D'
+ MEPROP Name 'InevActiveHyperlink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A27C4D20100 // TnevActiveHyperlink
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A27C46801A9_ME_4A27C5A7004E_G // InevActiveElement
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A27C5C600AC // Hyperlink
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4A27C48E017F_ME_4A27C5A7004E_impl // IsSame
+ ME_4A27C5CD001C_ME_4A27C5A7004E_impl // Para
+ ME_4FBF5595010C_ME_4A27C5A7004E_impl // Invalidate
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ActiveHyperlink'
+
+ENDME // ME_4A27C5A7004E InevActiveHyperlink
+
+ME ME_4A27C58A0376
+ MEPROP UID '4A27C58A0376'
+ MEPROP Name 'f_Para'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A27C4D20100 // TnevActiveHyperlink
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4A27C58A0376 f_Para
+
+ME ME_4A27C59D027C
+ MEPROP UID '4A27C59D027C'
+ MEPROP Name 'f_Hyperlink'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A27C4D20100 // TnevActiveHyperlink
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_4A27C59D027C f_Hyperlink
+
+FORWARD ME_4A27C50D027C
+
+ME ME_4A27C54301F6
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4A27C54301F6 aPara
+
+ME ME_4A27C543021C
+ MEPROP Name 'aHyperlink'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4A27C543021C aHyperlink
+
+ME ME_4A27C50D027C
+ MEPROP UID '4A27C50D027C'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A27C4D20100 // TnevActiveHyperlink
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A27C54301F6 // aPara
+ ME_4A27C543021C // aHyperlink
+ )
+ ; // Parameters
+
+ENDME // ME_4A27C50D027C Create
+
+FORWARD ME_4A27C5470260
+
+ME ME_4A27C54C00DC
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4A27C54C00DC aPara
+
+ME ME_4A27C54C0103
+ MEPROP Name 'aHyperlink'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4A27C54C0103 aHyperlink
+
+ME ME_4A27C5470260
+ MEPROP UID '4A27C5470260'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A27C4D20100 // TnevActiveHyperlink
+ ;
+ MELINK Target HWL ME_4A27C5A7004E // InevActiveHyperlink
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A27C54C00DC // aPara
+ ME_4A27C54C0103 // aHyperlink
+ )
+ ; // Parameters
+
+ENDME // ME_4A27C5470260 Make
+
+ME ME_4A27C56F0324
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A27C4D20100 // TnevActiveHyperlink
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4A27C56F0324 
+
+ME ME_4A27E91B02FF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A27C4D20100 // TnevActiveHyperlink
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4A27E91B02FF 
+
+ME ME_4F7C823F030A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A27C4D20100 // TnevActiveHyperlink
+ ;
+ MELINK Target WL 'ME_4A27C46801A9' '47C5207602D1.ms.model.script' // InevActiveElement
+ ;
+
+ENDME // ME_4F7C823F030A 
+
+ME ME_5346A5F00078
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A27C4D20100 // TnevActiveHyperlink
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5346A5F00078 
+
+MEREF ME_4A27C48E017F_ME_4A27C4D20100_impl
+ MELINK Original WL 'ME_4A27C48E017F' '47C5207602D1.ms.model.script' // IsSame
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A27C48E017F_ME_4A27C4D20100_impl IsSame
+
+MEREF ME_4A27C5C600AC_ME_4A27C4D20100_impl
+ MELINK Original HWL ME_4A27C5C600AC // Hyperlink
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4A27C5C600AC_ME_4A27C4D20100_impl Hyperlink
+
+MEREF ME_4A27C5CD001C_ME_4A27C4D20100_impl
+ MELINK Original WL 'ME_4A27C5CD001C' '47C5207602D1.ms.model.script' // Para
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4A27C5CD001C_ME_4A27C4D20100_impl Para
+
+MEREF ME_4FBF5595010C_ME_4A27C4D20100_impl
+ MELINK Original WL 'ME_4FBF5595010C' '47C5207602D1.ms.model.script' // Invalidate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4FBF5595010C_ME_4A27C4D20100_impl Invalidate
+
+MEREF ME_479731C50290_ME_4A27C4D20100_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4A27C4D20100_over Cleanup
+
+MEREF ME_47A6FEE600FC_ME_4A27C4D20100_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_4A27C4D20100_over IsCacheable
+
+MEREF ME_4AE5CA2D0034_ME_4A27C4D20100_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_4A27C4D20100_G Tl3CProtoObject
+
+MEREF ME_4A27C5A7004E_ME_4A27C4D20100_R
+ MELINK Original HWL ME_4A27C5A7004E // InevActiveHyperlink
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A27C5A7004E_ME_4A27C4D20100_R InevActiveHyperlink
+
+%%ImplementedBy ME_4A27C5A7004E ME_4A27C4D20100
+
+%%InheritedBy ME_4AE5CA2D0034 ME_4A27C4D20100
+
+ME ME_4A27C4D20100
+ MEPROP UID '4A27C4D20100'
+ MEPROP Name 'TnevActiveHyperlink'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Активная гиперссылка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A267EE3017B' // HotSpots
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AE5CA2D0034_ME_4A27C4D20100_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4A27C5A7004E_ME_4A27C4D20100_R // InevActiveHyperlink
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A27C58A0376 // f_Para
+ HWL ME_4A27C59D027C // f_Hyperlink
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A27C50D027C // Create
+ HWL ME_4A27C5470260 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A27C48E017F_ME_4A27C4D20100_impl // IsSame
+ ME_4A27C5C600AC_ME_4A27C4D20100_impl // Hyperlink
+ ME_4A27C5CD001C_ME_4A27C4D20100_impl // Para
+ ME_4FBF5595010C_ME_4A27C4D20100_impl // Invalidate
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4A27C4D20100_over // Cleanup
+ ME_47A6FEE600FC_ME_4A27C4D20100_over // IsCacheable
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4A27C5A7004E // InevActiveHyperlink
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4A27C56F0324 // SysUtils
+ ME_4A27E91B02FF // Tk2TagID
+ ME_4F7C823F030A // InevActiveElement
+ ME_5346A5F00078 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '04.06.2009 17:29'
+ UP extprop:pas:UnitName 'nevActiveHyperlink'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ActiveHyperlink'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevActiveHyperlink.pas'
+
+ENDME // ME_4A27C4D20100 TnevActiveHyperlink

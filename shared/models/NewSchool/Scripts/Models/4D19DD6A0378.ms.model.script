@@ -1,0 +1,74 @@
+// TTextMetricsAfterCopyPasteTest 4D19DD6A0378 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4BE13147032C_ME_4D19DD6A0378_over
+ MELINK Original WL 'ME_4BE13147032C' '4BE111D30229.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BE13147032C_ME_4D19DD6A0378_over Process
+
+MEREF ME_4C937013031D_ME_4D19DD6A0378_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4D19DD6A0378_over GetFolder
+
+MEREF ME_4D076A0C03C4_ME_4D19DD6A0378_G
+ MELINK Original WL? 'ME_4D076A0C03C4' // TTextMetricsTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D076A0C03C4_ME_4D19DD6A0378_G TTextMetricsTest
+
+MEREF ME_4CE1344403AC_ME_4D19DD6A0378_R
+ MELINK Original WL? 'ME_4CE1344403AC' // ClipboardOperations
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CE1344403AC_ME_4D19DD6A0378_R ClipboardOperations
+
+MEREF ME_4D4137E30326_ME_4D19DD6A0378_R
+ MELINK Original WL? 'ME_4D4137E30326' // SelectOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D4137E30326_ME_4D19DD6A0378_R SelectOperation
+
+%%ImplementedBy ME_4CE1344403AC ME_4D19DD6A0378
+%%ImplementedBy ME_4D4137E30326 ME_4D19DD6A0378
+
+%%InheritedBy ME_4D076A0C03C4 ME_4D19DD6A0378
+
+ME ME_4D19DD6A0378
+ MEPROP UID '4D19DD6A0378'
+ MEPROP Name 'TTextMetricsAfterCopyPasteTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ѕроверка метрик после вставки-копировани€ текста.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C4FDBF703DB' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D076A0C03C4_ME_4D19DD6A0378_G // TTextMetricsTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4CE1344403AC_ME_4D19DD6A0378_R // ClipboardOperations
+ HWL ME_4D4137E30326_ME_4D19DD6A0378_R // SelectOperation
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4BE13147032C_ME_4D19DD6A0378_over // Process
+ ME_4C937013031D_ME_4D19DD6A0378_over // GetFolder
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'TextMetricsAfterCopyPasteTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextMetricsAfterCopyPasteTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\TextMetricsAfterCopyPasteTest.pas'
+
+ENDME // ME_4D19DD6A0378 TTextMetricsAfterCopyPasteTest

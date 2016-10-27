@@ -1,0 +1,56 @@
+// TevControlParaCursorPair 53D64B7400B9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D64B7400B9
+
+ME ME_53D64B8A02A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D64B7400B9 // TevControlParaCursorPair
+ ;
+ MELINK Target WL? 'ME_4858000901EF' // TevControlPara
+ ;
+ UP "injects as" 'range'
+
+ENDME // ME_53D64B8A02A8 
+
+MEREF ME_53D64B570304_ME_53D64B7400B9_G
+ MELINK Original WL? 'ME_53D64B570304' // TevTextCursorPair
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53D64B570304_ME_53D64B7400B9_G TevTextCursorPair
+
+%%InjectedBy ME_4858000901EF ME_53D64B7400B9
+
+%%InheritedBy ME_53D64B570304 ME_53D64B7400B9
+
+ME ME_53D64B7400B9
+ MEPROP UID '53D64B7400B9'
+ MEPROP Name 'TevControlParaCursorPair'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E3DF460095' // Cursors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53D64B570304_ME_53D64B7400B9_G // TevTextCursorPair
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_53D64B8A02A8 // TevControlPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:pas:UnitName 'evControlParaCursorPair'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ControlParaCursorPair'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evControlParaCursorPair.pas'
+
+ENDME // ME_53D64B7400B9 TevControlParaCursorPair

@@ -13,7 +13,7 @@ ME ME_551442F10375
  MELINK Stereotype st_implements::Dependency ;
  MELINK Parent HWL ME_551442CF02AD // TvcmFormatActionInfoHelper
  ;
- MELINK Target WL 'ME_551442110069' '55001317029B.ms.model.script' // Tl3FormatActionInfoHelper
+ MELINK Target WL? 'ME_551442110069' // Tl3FormatActionInfoHelper
  ;
 
 ENDME // ME_551442F10375 
@@ -23,7 +23,7 @@ ME ME_551443C501AE
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_551442CF02AD // TvcmFormatActionInfoHelper
  ;
- MELINK Target WL 'ME_4F82EFD20255' '47E7617C0275.ms.model.script' // TvcmModuleAction
+ MELINK Target WL? 'ME_4F82EFD20255' // TvcmModuleAction
  ;
 
 ENDME // ME_551443C501AE 
@@ -33,7 +33,7 @@ ME ME_551443CB002F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_551442CF02AD // TvcmFormatActionInfoHelper
  ;
- MELINK Target WL 'ME_4F82EFBE018A' '47E7617C0275.ms.model.script' // TvcmOperationAction
+ MELINK Target WL? 'ME_4F82EFBE018A' // TvcmOperationAction
  ;
 
 ENDME // ME_551443CB002F 
@@ -43,10 +43,16 @@ ME ME_551443D00014
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_551442CF02AD // TvcmFormatActionInfoHelper
  ;
- MELINK Target WL 'ME_4F82EFAB02D4' '47E7617C0275.ms.model.script' // TvcmEntityAction
+ MELINK Target WL? 'ME_4F82EFAB02D4' // TvcmEntityAction
  ;
 
 ENDME // ME_551443D00014 
+
+MEREF ME_49E7754802A9_ME_551442CF02AD_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_551442CF02AD_G Tl3ProtoObject
 
 %%InheritedBy ME_49E7754802A9 ME_551442CF02AD
 
@@ -61,7 +67,7 @@ ME ME_551442CF02AD
  MELINK Parent HWL ME_551442A301CD // vcmCustomHelpers
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_551442CF02AD_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Dependencies

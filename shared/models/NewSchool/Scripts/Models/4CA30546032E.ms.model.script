@@ -1,0 +1,102 @@
+// TDeleteCharTest 4CA30546032E TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA30546032E
+
+FORWARD ME_4DF781CB0217
+
+ME ME_4DF781D803D4
+ MEPROP UID '4DF781D803D4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DF781CB0217 // CharCount
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DF781D803D4 DoIt
+
+ME ME_4DF781CB0217
+ MEPROP UID '4DF781CB0217'
+ MEPROP Name 'CharCount'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA30546032E // TDeleteCharTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DF781D803D4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DF781CB0217 CharCount
+
+MEREF ME_4C4FE56300FB_ME_4CA30546032E_impl
+ MELINK Original WL 'ME_4C4FE56300FB' '4C9210B70244.ms.model.script' // Navigate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C4FE56300FB_ME_4CA30546032E_impl Navigate
+
+MEREF ME_4C9214F6002C_ME_4CA30546032E_impl
+ MELINK Original WL 'ME_4C9214F6002C' '4C9214C80098.ms.model.script' // DoProcess
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C9214F6002C_ME_4CA30546032E_impl DoProcess
+
+MEREF ME_4C500D6101D8_ME_4CA30546032E_G
+ MELINK Original WL? 'ME_4C500D6101D8' // CursorMover
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C500D6101D8_ME_4CA30546032E_G CursorMover
+
+MEREF ME_4C9214C80098_ME_4CA30546032E_G
+ MELINK Original WL? 'ME_4C9214C80098' // TTextViaEditorProcessorWithNavigate
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C9214C80098_ME_4CA30546032E_G TTextViaEditorProcessorWithNavigate
+
+%%InheritedBy ME_4C500D6101D8 ME_4CA30546032E
+%%InheritedBy ME_4C9214C80098 ME_4CA30546032E
+
+ME ME_4CA30546032E
+ MEPROP UID '4CA30546032E'
+ MEPROP Name 'TDeleteCharTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C4FDBF703DB' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C500D6101D8_ME_4CA30546032E_G // CursorMover
+ HWL ME_4C9214C80098_ME_4CA30546032E_G // TTextViaEditorProcessorWithNavigate
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DF781CB0217 // CharCount
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4C4FE56300FB_ME_4CA30546032E_impl // Navigate
+ ME_4C9214F6002C_ME_4CA30546032E_impl // DoProcess
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '28.09.2010 13:22'
+ UP extprop:pas:UnitName 'DeleteCharTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DeleteCharTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\DeleteCharTest.pas'
+
+ENDME // ME_4CA30546032E TDeleteCharTest

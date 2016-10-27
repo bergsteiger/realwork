@@ -1,0 +1,81 @@
+// TmsmLabel 57FD7A310226 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57FD7A61020D
+
+FORWARD ME_57FD7A310226
+
+MEREF ME_4F29240F0204_ME_57FD7A61020D_G
+ MELINK Original WL 'ME_4F29240F0204' '4AE8541A01AE.ms.model.script' // TvtCustomLabel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F29240F0204_ME_57FD7A61020D_G TvtCustomLabel
+
+%%InheritedBy ME_4F29240F0204 ME_57FD7A61020D
+
+ME ME_57FD7A61020D
+ MEPROP UID '57FD7A61020D'
+ MEPROP Name 'TmsmCustomLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57FD7A310226 // TmsmLabel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F29240F0204_ME_57FD7A61020D_G // TvtCustomLabel
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmCustomLabel'
+
+ENDME // ME_57FD7A61020D TmsmCustomLabel
+
+MEREF ME_47D1602000C6_ME_57FD7A310226_over
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47D1602000C6_ME_57FD7A310226_over Create
+
+MEREF ME_4AE8541A01AE_ME_57FD7A310226_G
+ MELINK Original WL? 'ME_4AE8541A01AE' // TvtLabel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE8541A01AE_ME_57FD7A310226_G TvtLabel
+
+%%InheritedBy ME_4AE8541A01AE ME_57FD7A310226
+
+ME ME_57FD7A310226
+ MEPROP UID '57FD7A310226'
+ MEPROP Name 'TmsmLabel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B42D1A0044' // DefaultUsedControls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AE8541A01AE_ME_57FD7A310226_G // TvtLabel
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57FD7A310226_over // Create
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_57FD7A61020D // TmsmCustomLabel
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmLabel'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmLabel'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmLabel.pas'
+
+ENDME // ME_57FD7A310226 TmsmLabel

@@ -1,0 +1,183 @@
+// Tk2EVDReaderService 555DB43B00BD Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_30860C64BDA8
+
+FORWARD ME_555DB43B00BD
+
+FORWARD ME_30860C64BDA8
+
+FORWARD ME_555DB53301DC
+
+ME ME_9F46A5A9DAF5
+ MEPROP UID '9F46A5A9DAF5'
+ MEPROP Name 'GetReader'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_30860C64BDA8 // Mk2EVDReaderService
+ ;
+ MELINK Target WL? 'ME_482D6EB4003A' // Tk2CustomFileReader
+ ;
+ UPLINK Speller HWL ME_555DB53301DC // GetReader
+ ;
+
+ENDME // ME_9F46A5A9DAF5 GetReader
+
+FORWARD ME_55701A7A01B4
+
+FORWARD ME_6A9002DE6C1A
+
+ME ME_A8321E95D8B4
+ MEPROP Name 'aFileName'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_A8321E95D8B4 aFileName
+
+ME ME_A8321E95D8B5
+ MEPROP Name 'aFilter'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4678160E01BE' '53317D14019D.ms.model.script' // Ik2TagGenerator
+ ;
+
+ENDME // ME_A8321E95D8B5 aFilter
+
+ME ME_6A9002DE6C1A
+ MEPROP UID '6A9002DE6C1A'
+ MEPROP Name 'MakeReader'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_30860C64BDA8 // Mk2EVDReaderService
+ ;
+ MELINK Target WL 'ME_46781657008C' '4677FBA70343.ms.model.script' // Il3Reader
+ ;
+ MELIST Parameters
+   Seq: ( ME_A8321E95D8B4 // aFileName
+ ME_A8321E95D8B5 // aFilter
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_55701A7A01B4 // MakeReader
+ ;
+
+ENDME // ME_6A9002DE6C1A MakeReader
+
+ME ME_30860C64BDA8
+ MEPROP UID '30860C64BDA8'
+ MEPROP Name 'Mk2EVDReaderService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tk2EVDReaderService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_555DB43B00BD // Tk2EVDReaderService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_9F46A5A9DAF5 // GetReader
+ HWL ME_6A9002DE6C1A // MakeReader
+ )
+ ; // Operations
+
+ENDME // ME_30860C64BDA8 Mk2EVDReaderService
+
+ME ME_555DB53301DC
+ MEPROP UID '555DB53301DC'
+ MEPROP Name 'GetReader'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_555DB43B00BD // Tk2EVDReaderService
+ ;
+ MELINK Target WL? 'ME_482D6EB4003A' // Tk2CustomFileReader
+ ;
+
+ENDME // ME_555DB53301DC GetReader
+
+ME ME_55701AA60342
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55701AA60342 aFileName
+
+ME ME_55701AA6037A
+ MEPROP Name 'aFilter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4678160E01BE' '53317D14019D.ms.model.script' // Ik2TagGenerator
+ ;
+
+ENDME // ME_55701AA6037A aFilter
+
+ME ME_55701A7A01B4
+ MEPROP UID '55701A7A01B4'
+ MEPROP Name 'MakeReader'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_555DB43B00BD // Tk2EVDReaderService
+ ;
+ MELINK Target WL 'ME_46781657008C' '4677FBA70343.ms.model.script' // Il3Reader
+ ;
+ MELIST Parameters
+   Seq: ( ME_55701AA60342 // aFileName
+ ME_55701AA6037A // aFilter
+ )
+ ; // Parameters
+
+ENDME // ME_55701A7A01B4 MakeReader
+
+MEREF ME_49E7754802A9_ME_555DB43B00BD_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_555DB43B00BD_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_555DB43B00BD
+
+ME ME_555DB43B00BD
+ MEPROP UID '555DB43B00BD'
+ MEPROP Name 'Tk2EVDReaderService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_482D6E960087' // Readers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_555DB43B00BD_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_555DB53301DC // GetReader
+ HWL ME_55701A7A01B4 // MakeReader
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_30860C64BDA8 // Mk2EVDReaderService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP extprop:pas:UnitName 'k2EVDReaderService'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EVDReaderService'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2EVDReaderService.pas'
+
+ENDME // ME_555DB43B00BD Tk2EVDReaderService

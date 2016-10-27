@@ -1,0 +1,117 @@
+// TddRegSeacherOwner 5245698300DC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5245698300DC
+
+ME ME_52456E6703B3
+ MEPROP UID '52456E6703B3'
+ MEPROP Name 'HREFSearcher'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5245698300DC // TddRegSeacherOwner
+ ;
+ MELINK Target WL 'ME_483D7DF50251' '483D7D8C001A.ms.model.script' // Tl3RegularSearch
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_52456E6703B3 HREFSearcher
+
+FORWARD ME_52456E7802FA
+
+ME ME_52456E8C002F
+ MEPROP UID '52456E8C002F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52456E7802FA // InitRegSearcher
+ ;
+
+ENDME // ME_52456E8C002F DoIt
+
+ME ME_52456E7802FA
+ MEPROP UID '52456E7802FA'
+ MEPROP Name 'InitRegSearcher'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5245698300DC // TddRegSeacherOwner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52456E8C002F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52456E7802FA InitRegSearcher
+
+ME ME_525BA8A50085
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5245698300DC // TddRegSeacherOwner
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_525BA8A50085 
+
+MEREF ME_479731C50290_ME_5245698300DC_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5245698300DC_over Cleanup
+
+MEREF ME_483E81520007_ME_5245698300DC_G
+ MELINK Original WL? 'ME_483E81520007' // Tk2CustomFileParser
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_483E81520007_ME_5245698300DC_G Tk2CustomFileParser
+
+%%InheritedBy ME_483E81520007 ME_5245698300DC
+
+ME ME_5245698300DC
+ MEPROP UID '5245698300DC'
+ MEPROP Name 'TddRegSeacherOwner'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_51F0E61101F9' // HTMLSupport
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_483E81520007_ME_5245698300DC_G // Tk2CustomFileParser
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52456E6703B3 // HREFSearcher
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52456E7802FA // InitRegSearcher
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5245698300DC_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_525BA8A50085 // l3Free
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ddRegSeacherOwner'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddRegSeacherOwner'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddRegSeacherOwner.pas'
+
+ENDME // ME_5245698300DC TddRegSeacherOwner

@@ -1,0 +1,63 @@
+// K517772970_TGetDictEditQuery 532186F3030B TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_532186F3030B
+
+ME ME_532187B20329
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532186F3030B // K517772970_TGetDictEditQuery
+ ;
+ MELINK Target WL? 'ME_52FA591401FA' // csServerTaskTypes
+ ;
+
+ENDME // ME_532187B20329 
+
+MEREF ME_5320088202FB_ME_532186F3030B_over
+ MELINK Original WL 'ME_5320088202FB' '532008240001.ms.model.script' // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5320088202FB_ME_532186F3030B_over TaskClass
+
+MEREF ME_532150C50123_ME_532186F3030B_G
+ MELINK Original WL? 'ME_532150C50123' // K517772970_TDictEditQuery
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_532150C50123_ME_532186F3030B_G K517772970_TDictEditQuery
+
+%%InheritedBy ME_532150C50123 ME_532186F3030B
+
+ME ME_532186F3030B
+ MEPROP UID '532186F3030B'
+ MEPROP Name 'K517772970_TGetDictEditQuery'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_531FF6280311' // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_532150C50123_ME_532186F3030B_G // K517772970_TDictEditQuery
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_532186F3030B_over // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_532187B20329 // csServerTaskTypes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TK517772970_TGetDictEditQuery'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K517772970_TGetDictEditQuery'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TGetDictEditQuery.pas'
+
+ENDME // ME_532186F3030B K517772970_TGetDictEditQuery

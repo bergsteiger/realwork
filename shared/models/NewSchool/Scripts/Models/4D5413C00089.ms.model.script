@@ -1,0 +1,116 @@
+// TvgInterfacedPersistent 4D5413C00089 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4D5413F3033B
+%%Inner ME_4D5414420341
+
+FORWARD ME_4D5413C00089
+
+ME ME_4D5413F3033B
+ MEPROP UID '4D5413F3033B'
+ MEPROP Name 'l3Unknown_NoIUnknown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5413C00089 // TvgInterfacedPersistent
+ ;
+ UP extprop:rc:SelfName 'Unknown_NoIUnknown'
+
+ENDME // ME_4D5413F3033B l3Unknown_NoIUnknown
+
+ME ME_4D5414420341
+ MEPROP UID '4D5414420341'
+ MEPROP Name '_UnknownForDesign'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5413C00089 // TvgInterfacedPersistent
+ ;
+
+ENDME // ME_4D5414420341 _UnknownForDesign
+
+FORWARD ME_4D54144F020F
+
+ME ME_4D54145903DE
+ MEPROP Name 'Dummy'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D54145903DE Dummy
+
+ME ME_4D54144F020F
+ MEPROP UID '4D54144F020F'
+ MEPROP Name 'Free'
+ MEPROP Class class_Operation
+ %SUMMARY 'Для ловли Free' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5413C00089 // TvgInterfacedPersistent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D54145903DE // Dummy
+ )
+ ; // Parameters
+
+ENDME // ME_4D54144F020F Free
+
+MEREF ME_47913F970159_ME_4D5413C00089_G
+ MELINK Original WL? 'ME_47913F970159' // l3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47913F970159_ME_4D5413C00089_G l3Unknown
+
+MEREF ME_47E1214E00F2_ME_4D5413C00089_G
+ MELINK Original WL 'ME_47E1214E00F2' '478CF30500C1.ms.model.script' // TInterfacedPersistent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E1214E00F2_ME_4D5413C00089_G TInterfacedPersistent
+
+%%InheritedBy ME_47913F970159 ME_4D5413C00089
+%%InheritedBy ME_47E1214E00F2 ME_4D5413C00089
+
+ME ME_4D5413C00089
+ MEPROP UID '4D5413C00089'
+ MEPROP Name 'TvgInterfacedPersistent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D52A63D0365' // lulin
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47913F970159_ME_4D5413C00089_G // l3Unknown
+ HWL ME_47E1214E00F2_ME_4D5413C00089_G // TInterfacedPersistent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D54144F020F // Free
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4D5413F3033B // l3Unknown_NoIUnknown
+ HWL ME_4D5414420341 // _UnknownForDesign
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "need UC" True
+ UP "no hands" True
+ UP "started" '10.02.2011 19:35'
+ UP extprop:pas:UnitName 'vgInterfacedPersistent'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'InterfacedPersistent'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgInterfacedPersistent.pas'
+
+ENDME // ME_4D5413C00089 TvgInterfacedPersistent

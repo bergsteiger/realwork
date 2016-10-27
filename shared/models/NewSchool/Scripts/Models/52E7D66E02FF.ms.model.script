@@ -1,0 +1,62 @@
+// TtfwCodeIterator 52E7D66E02FF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52E7D66E02FF
+
+ME ME_52E7D73800CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52E7D66E02FF // TtfwCodeIterator
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_52E7D73800CE 
+
+MEREF ME_479731C50290_ME_52E7D66E02FF_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_52E7D66E02FF_over Cleanup
+
+MEREF ME_55ED4D040017_ME_52E7D66E02FF_G
+ MELINK Original WL? 'ME_55ED4D040017' // TtfwWordsIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55ED4D040017_ME_52E7D66E02FF_G TtfwWordsIterator
+
+%%InheritedBy ME_55ED4D040017 ME_52E7D66E02FF
+
+ME ME_52E7D66E02FF
+ MEPROP UID '52E7D66E02FF'
+ MEPROP Name 'TtfwCodeIterator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F50310E03D7' // ArrayProcessing
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_55ED4D040017_ME_52E7D66E02FF_G // TtfwWordsIterator
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_52E7D66E02FF_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52E7D73800CE // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'tfwCodeIterator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CodeIterator'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCodeIterator.pas'
+
+ENDME // ME_52E7D66E02FF TtfwCodeIterator

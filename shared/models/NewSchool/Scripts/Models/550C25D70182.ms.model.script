@@ -92,7 +92,7 @@ ENDME // ME_567A8E1200B3 DoIt
 ME ME_567A8DFB0357
  MEPROP UID '567A8DFB0357'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -106,6 +106,18 @@ ME ME_567A8DFB0357
 
 ENDME // ME_567A8DFB0357 Create
 
+MEREF ME_567A8DFB0357_ME_567A8E63036E_G
+ MELINK Original HWL ME_567A8DFB0357 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_567A8DFB0357_ME_567A8E63036E_G Create
+
+MEREF ME_567A8D710267_ME_567A8E63036E_R
+ MELINK Original HWL ME_567A8D710267 // ItfwWordBox
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_567A8D710267_ME_567A8E63036E_R ItfwWordBox
+
 %%ImplementedBy ME_567A8D710267 ME_567A8E63036E
 
 %%InheritedBy ME_567A8DFB0357 ME_567A8E63036E
@@ -113,7 +125,7 @@ ENDME // ME_567A8DFB0357 Create
 ME ME_567A8E63036E
  MEPROP UID '567A8E63036E'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -121,11 +133,11 @@ ME ME_567A8E63036E
  MELINK Parent HWL ME_567A8DB002B6 // TtfwWordBox
  ;
  MELIST Inherits
-   Seq: ( HWL ME_567A8DFB0357 // Create
+   Seq: ( HWL ME_567A8DFB0357_ME_567A8E63036E_G // Create
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_567A8D710267 // ItfwWordBox
+   Seq: ( HWL ME_567A8D710267_ME_567A8E63036E_R // ItfwWordBox
  )
  ; // Implements
 
@@ -141,18 +153,30 @@ ME ME_567A8E8E00DE
 
 ENDME // ME_567A8E8E00DE 
 
-ME ME_567A8D840243_ME_567A8DB002B6
+MEREF ME_567A8D840243_ME_567A8DB002B6_impl
  MELINK Original HWL ME_567A8D840243 // Boxed
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" False
-ENDME // ME_567A8D840243_ME_567A8DB002B6 Boxed
+ENDMEREF // ME_567A8D840243_ME_567A8DB002B6_impl Boxed
 
-ME ME_479731C50290_ME_567A8DB002B6
+MEREF ME_479731C50290_ME_567A8DB002B6_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_567A8DB002B6 Cleanup
+ENDMEREF // ME_479731C50290_ME_567A8DB002B6_over Cleanup
+
+MEREF ME_4AE5CA2D0034_ME_567A8DB002B6_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_567A8DB002B6_G Tl3CProtoObject
+
+MEREF ME_567A8D710267_ME_567A8DB002B6_R
+ MELINK Original HWL ME_567A8D710267 // ItfwWordBox
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_567A8D710267_ME_567A8DB002B6_R ItfwWordBox
 
 %%ImplementedBy ME_567A8D710267 ME_567A8DB002B6
 
@@ -169,11 +193,11 @@ ME ME_567A8DB002B6
  MELINK Parent HWL ME_550C25D70182 // WordsRTTIPack
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.ms.model.script' // Tl3CProtoObject
+   Seq: ( HWL ME_4AE5CA2D0034_ME_567A8DB002B6_G // Tl3CProtoObject
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_567A8D710267 // ItfwWordBox
+   Seq: ( HWL ME_567A8D710267_ME_567A8DB002B6_R // ItfwWordBox
  )
  ; // Implements
  MELIST Attributes
@@ -186,11 +210,11 @@ ME ME_567A8DB002B6
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_567A8D840243_ME_567A8DB002B6 // Boxed
+   Seq: ( ME_567A8D840243_ME_567A8DB002B6_impl // Boxed
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_567A8DB002B6 // Cleanup
+   Seq: ( ME_479731C50290_ME_567A8DB002B6_over // Cleanup
  )
  ; // Overridden
  MELIST Dependencies
@@ -600,7 +624,7 @@ ME ME_55E727A202B7
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_550C25D70182 // WordsRTTIPack
  ;
- MELINK Target WL 'ME_4DAEECD90016' '4F2275C00012.ms.model.script' // TtfwDictionary
+ MELINK Target WL? 'ME_4DAEECD90016' // TtfwDictionary
  ;
 
 ENDME // ME_55E727A202B7 InnerDictionary
@@ -757,7 +781,7 @@ ME ME_55A3D8EE01F8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_550C25D70182 // WordsRTTIPack
  ;
- MELINK Target WL 'ME_4DAEECD90016' '4F2275C00012.ms.model.script' // TtfwDictionary
+ MELINK Target WL? 'ME_4DAEECD90016' // TtfwDictionary
  ;
 
 ENDME // ME_55A3D8EE01F8 
@@ -767,7 +791,7 @@ ME ME_55E7085C0393
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_550C25D70182 // WordsRTTIPack
  ;
- MELINK Target WL 'ME_52E29F1A037E' '4F50310E03D7.ms.model.script' // TtfwMembersIterator
+ MELINK Target WL? 'ME_52E29F1A037E' // TtfwMembersIterator
  ;
 
 ENDME // ME_55E7085C0393 
@@ -777,7 +801,7 @@ ME ME_55E70E9E0110
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_550C25D70182 // WordsRTTIPack
  ;
- MELINK Target WL 'ME_4F4BB70D0144' '4F2275C00012.ms.model.script' // TkwForwardDeclaration
+ MELINK Target WL? 'ME_4F4BB70D0144' // TkwForwardDeclaration
  ;
 
 ENDME // ME_55E70E9E0110 
@@ -787,7 +811,7 @@ ME ME_55E8419A0180
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_550C25D70182 // WordsRTTIPack
  ;
- MELINK Target WL 'ME_52E7D66E02FF' '4F50310E03D7.ms.model.script' // TtfwCodeIterator
+ MELINK Target WL? 'ME_52E7D66E02FF' // TtfwCodeIterator
  ;
 
 ENDME // ME_55E8419A0180 
@@ -797,7 +821,7 @@ ME ME_55E841F20218
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_550C25D70182 // WordsRTTIPack
  ;
- MELINK Target WL 'ME_52D3C5F90029' '54F079B5035C.ms.model.script' // TkwCompiledWordPrim
+ MELINK Target WL? 'ME_52D3C5F90029' // TkwCompiledWordPrim
  ;
 
 ENDME // ME_55E841F20218 
@@ -807,7 +831,7 @@ ME ME_55E841F90309
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_550C25D70182 // WordsRTTIPack
  ;
- MELINK Target WL 'ME_4DB6E4630256' '54F079B5035C.ms.model.script' // TkwCompiledWordContainer
+ MELINK Target WL? 'ME_4DB6E4630256' // TkwCompiledWordContainer
  ;
 
 ENDME // ME_55E841F90309 
@@ -817,7 +841,7 @@ ME ME_55E842150283
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_550C25D70182 // WordsRTTIPack
  ;
- MELINK Target WL 'ME_4DBAC27801EF' '54F079B5035C.ms.model.script' // TkwDualCompiledWordContainer
+ MELINK Target WL? 'ME_4DBAC27801EF' // TkwDualCompiledWordContainer
  ;
 
 ENDME // ME_55E842150283 
@@ -827,7 +851,7 @@ ME ME_55E8421B007C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_550C25D70182 // WordsRTTIPack
  ;
- MELINK Target WL 'ME_52D55D7B0178' '54F079B5035C.ms.model.script' // TkwRuntimeWordWithCode
+ MELINK Target WL? 'ME_52D55D7B0178' // TkwRuntimeWordWithCode
  ;
 
 ENDME // ME_55E8421B007C 
@@ -837,7 +861,7 @@ ME ME_55E842260329
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_550C25D70182 // WordsRTTIPack
  ;
- MELINK Target WL 'ME_4F4BC6DB02F4' '54F079B5035C.ms.model.script' // TkwForwardDeclarationHolder
+ MELINK Target WL? 'ME_4F4BC6DB02F4' // TkwForwardDeclarationHolder
  ;
 
 ENDME // ME_55E842260329 
@@ -847,7 +871,7 @@ ME ME_55E842330360
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_550C25D70182 // WordsRTTIPack
  ;
- MELINK Target WL 'ME_4DCBD50101CB' '54F079B5035C.ms.model.script' // TkwCompiledWordWorker
+ MELINK Target WL? 'ME_4DCBD50101CB' // TkwCompiledWordWorker
  ;
 
 ENDME // ME_55E842330360 
@@ -857,7 +881,7 @@ ME ME_55E84272002C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_550C25D70182 // WordsRTTIPack
  ;
- MELINK Target WL 'ME_4F4BB70D0144' '4F2275C00012.ms.model.script' // TkwForwardDeclaration
+ MELINK Target WL? 'ME_4F4BB70D0144' // TkwForwardDeclaration
  ;
 
 ENDME // ME_55E84272002C 
@@ -867,7 +891,7 @@ ME ME_55E84F4402C8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_550C25D70182 // WordsRTTIPack
  ;
- MELINK Target WL 'ME_4DB6CAC402B4' '54F07F0302C2.ms.model.script' // TtfwWordRefList
+ MELINK Target WL? 'ME_4DB6CAC402B4' // TtfwWordRefList
  ;
 
 ENDME // ME_55E84F4402C8 
@@ -882,11 +906,17 @@ ME ME_55ED4986029B
 
 ENDME // ME_55ED4986029B 
 
-ME ME_4DAEEDE10285_ME_550C25D70182
+MEREF ME_4DAEEDE10285_ME_550C25D70182_impl
  MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DAEEDE10285_ME_550C25D70182 DoDoIt
+ENDMEREF // ME_4DAEEDE10285_ME_550C25D70182_impl DoDoIt
+
+MEREF ME_4DAEED140007_ME_550C25D70182_G
+ MELINK Original WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DAEED140007_ME_550C25D70182_G TtfwWord
 
 %%InheritedBy ME_4DAEED140007 ME_550C25D70182
 
@@ -902,7 +932,7 @@ ME ME_550C25D70182
  MELINK Parent WL? 'ME_4F37B7E60283' // Words RTTI
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+   Seq: ( HWL ME_4DAEED140007_ME_550C25D70182_G // TtfwWord
  )
  ; // Inherits
  MELIST Attributes
@@ -942,7 +972,7 @@ ME ME_550C25D70182
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4DAEEDE10285_ME_550C25D70182 // DoDoIt
+   Seq: ( ME_4DAEEDE10285_ME_550C25D70182_impl // DoDoIt
  )
  ; // Implemented
  MELIST Children
@@ -968,9 +998,9 @@ ME ME_550C25D70182
  )
  ; // Dependencies
  MELIST Injected
-   Seq: ( WL 'ME_55E8424D038F' '4DAEEA14018A.ms.model.script' // TkwCompiledWordWorkerWordRunner
- WL 'ME_55E842570180' '4DAEEA14018A.ms.model.script' // TkwCompiledWordWorkerWord
- WL 'ME_55E842A30109' '5284E8850019.ms.model.script' // TkwCompiledIfElse
+   Seq: ( WL 'ME_55E8424D038F' '4F2198430108.ms.model.script' // TkwCompiledWordWorkerWordRunner
+ WL 'ME_55E842570180' '4F21976E01C2.ms.model.script' // TkwCompiledWordWorkerWord
+ WL 'ME_55E842A30109' '5284E9510053.ms.model.script' // TkwCompiledIfElse
  )
  ; // Injected
  MESTRINGLIST DiagramsNames

@@ -1,0 +1,100 @@
+// Tm3StorageHolderListPrim1 542E8D2902F1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_542E8D2902F1
+
+ME ME_542E8DAB027E
+ MEPROP UID '542E8DAB027E'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_542E8D2902F1 // Tm3StorageHolderListPrim1
+ ;
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
+ ;
+
+ENDME // ME_542E8DAB027E FindDataType
+
+ME ME_542E8DD7027C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_542E8D2902F1 // Tm3StorageHolderListPrim1
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_542E8DD7027C 
+
+ME ME_542E8DEC03E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_542E8D2902F1 // Tm3StorageHolderListPrim1
+ ;
+ MELINK Target WL 'ME_476F9605006B' '4678193C009C.ms.model.script' // Indexes
+ ;
+
+ENDME // ME_542E8DEC03E4 
+
+MEREF ME_47B9BAFD01F4_ME_542E8D2902F1_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_542E8D2902F1_over CompareItemWithData
+
+MEREF ME_47B47E230134_ME_542E8D2902F1_G
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_542E8D2902F1_G l3Searcher
+
+MEREF ME_542E7AB80220_ME_542E8D2902F1_G
+ MELINK Original WL? 'ME_542E7AB80220' // Tm3StorageHolderListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_542E7AB80220_ME_542E8D2902F1_G Tm3StorageHolderListPrim
+
+%%InheritedBy ME_47B47E230134 ME_542E8D2902F1
+%%InheritedBy ME_542E7AB80220 ME_542E8D2902F1
+
+ME ME_542E8D2902F1
+ MEPROP UID '542E8D2902F1'
+ MEPROP Name 'Tm3StorageHolderListPrim1'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5486E32B0191' // StorageHolder
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B47E230134_ME_542E8D2902F1_G // l3Searcher
+ HWL ME_542E7AB80220_ME_542E8D2902F1_G // Tm3StorageHolderListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_542E8DAB027E // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_542E8D2902F1_over // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_542E8DD7027C // l3String
+ ME_542E8DEC03E4 // Indexes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'm3StorageHolderListPrim1'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3StorageHolderListPrim1'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3StorageHolderListPrim1.pas'
+
+ENDME // ME_542E8D2902F1 Tm3StorageHolderListPrim1

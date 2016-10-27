@@ -386,7 +386,7 @@ ENDME // ME_52F9FB13006F Count
 ME ME_52F9FB7F0011
  MEPROP UID '52F9FB7F0011'
  MEPROP Name 'LoadChildren'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'загружает список рассылок.' ;
@@ -400,7 +400,7 @@ ENDME // ME_52F9FB7F0011 LoadChildren
 ME ME_52F9FBB9027F
  MEPROP UID '52F9FBB9027F'
  MEPROP Name 'LoadSettings'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'загружает настройки для дерева.' ;
@@ -429,7 +429,7 @@ ENDME // ME_52F9FC5D01C4 DoIt
 ME ME_52F9FC4C00A0
  MEPROP UID '52F9FC4C00A0'
  MEPROP Name 'MakeCurrentPrimeName'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -446,7 +446,7 @@ ENDME // ME_52F9FC4C00A0 MakeCurrentPrimeName
 ME ME_52F9FCAF0340
  MEPROP UID '52F9FCAF0340'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -489,7 +489,7 @@ ENDME // ME_52F9FCEA0253 DoIt
 ME ME_52F9FCCE016F
  MEPROP UID '52F9FCCE016F'
  MEPROP Name 'SaveQuery2Adapter'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'сохраняет запрос в базу.' ;
@@ -507,7 +507,7 @@ ENDME // ME_52F9FCCE016F SaveQuery2Adapter
 ME ME_52F9FD21020E
  MEPROP UID '52F9FD21020E'
  MEPROP Name 'SaveXMLForServer'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'если новостаная лента была изменена, нужно вылить папки для файл-серверной версии системы.' ;
@@ -549,7 +549,7 @@ ENDME // ME_56BA0A250138 DoIt
 ME ME_52F9FD4D014F
  MEPROP UID '52F9FD4D014F'
  MEPROP Name 'CheckAndChangeCaption'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'передает дереву новое значение _Caption редактируемого узла.' ;
@@ -595,7 +595,7 @@ ENDME // ME_52F9FD71029C DoIt
 ME ME_52F9FD68005A
  MEPROP UID '52F9FD68005A'
  MEPROP Name 'DeletePosting'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'удаляет рассылку из списка рассылок (одновременно на адаптере и дереве в оболочке).' ;
@@ -641,7 +641,7 @@ ENDME // ME_52F9FDC70044 DoIt
 ME ME_52F9FDC0007C
  MEPROP UID '52F9FDC0007C'
  MEPROP Name 'DeleteSelectedPostings'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -696,7 +696,7 @@ ENDME // ME_52F9FDE10338 DoIt
 ME ME_52F9FDDA019A
  MEPROP UID '52F9FDDA019A'
  MEPROP Name 'ExportSelected'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -728,7 +728,7 @@ ENDME // ME_52F9FDFB0131 DoIt
 ME ME_52F9FDF500F5
  MEPROP UID '52F9FDF500F5'
  MEPROP Name 'GetFirstQuery'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'возвращает запрос для первой рассылки в списке.' ;
@@ -761,7 +761,7 @@ ENDME // ME_52F9FE1901ED DoIt
 ME ME_52F9FE130263
  MEPROP UID '52F9FE130263'
  MEPROP Name 'SaveOrCreateQuery'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'чтобы не мотаться по формам, сделан некоторый реверанс в сторону "ручного" программирования, тем более, что все данные для этого есть.' ;
@@ -776,23 +776,35 @@ ME ME_52F9FE130263
 
 ENDME // ME_52F9FE130263 SaveOrCreateQuery
 
-ME ME_54F5D89D02FD_ME_4ADEF93B0159
- MELINK Original WL 'ME_54F5D89D02FD' '54F5D55D00C6.ms.model.script' // ServerDownNotification
+MEREF ME_54F5D89D02FD_ME_4ADEF93B0159_impl
+ MELINK Original WL 'ME_54F5D89D02FD' '54F5D5E002E0.ms.model.script' // ServerDownNotification
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_54F5D89D02FD_ME_4ADEF93B0159 ServerDownNotification
+ENDMEREF // ME_54F5D89D02FD_ME_4ADEF93B0159_impl ServerDownNotification
 
-ME ME_479731C50290_ME_4ADEF93B0159
+MEREF ME_479731C50290_ME_4ADEF93B0159_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4ADEF93B0159 Cleanup
+ENDMEREF // ME_479731C50290_ME_4ADEF93B0159_over Cleanup
 
-ME ME_47A042E100E2_ME_4ADEF93B0159
+MEREF ME_47A042E100E2_ME_4ADEF93B0159_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_4ADEF93B0159 InitFields
+ENDMEREF // ME_47A042E100E2_ME_4ADEF93B0159_over InitFields
+
+MEREF ME_519A130C00B6_ME_4ADEF93B0159_G
+ MELINK Original WL 'ME_519A130C00B6' '47F25BC801DB.ms.model.script' // TvcmCacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_519A130C00B6_ME_4ADEF93B0159_G TvcmCacheableBase
+
+MEREF ME_54F5D8820129_ME_4ADEF93B0159_R
+ MELINK Original WL 'ME_54F5D8820129' '54F5D5E002E0.ms.model.script' // If1NotificationListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54F5D8820129_ME_4ADEF93B0159_R If1NotificationListener
 
 %%ImplementedBy ME_54F5D8820129 ME_4ADEF93B0159
 
@@ -809,11 +821,11 @@ ME ME_4ADEF93B0159
  MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_519A130C00B6' '47F25BC801DB.ms.model.script' // TvcmCacheableBase
+   Seq: ( HWL ME_519A130C00B6_ME_4ADEF93B0159_G // TvcmCacheableBase
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_54F5D8820129' '54F5D55D00C6.ms.model.script' // If1NotificationListener
+   Seq: ( HWL ME_54F5D8820129_ME_4ADEF93B0159_R // If1NotificationListener
  )
  ; // Implements
  MELIST Attributes
@@ -850,12 +862,12 @@ ME ME_4ADEF93B0159
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_54F5D89D02FD_ME_4ADEF93B0159 // ServerDownNotification
+   Seq: ( ME_54F5D89D02FD_ME_4ADEF93B0159_impl // ServerDownNotification
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4ADEF93B0159 // Cleanup
- ME_47A042E100E2_ME_4ADEF93B0159 // InitFields
+   Seq: ( ME_479731C50290_ME_4ADEF93B0159_over // Cleanup
+ ME_47A042E100E2_ME_4ADEF93B0159_over // InitFields
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames
@@ -871,7 +883,7 @@ ME ME_4ADF433701AC
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
  ;
- MELINK Target WL 'ME_4AC21C8401A8' '5267C3880201.ms.model.script' // TnsPrimeNode
+ MELINK Target WL? 'ME_4AC21C8401A8' // TnsPrimeNode
  ;
 
 ENDME // ME_4ADF433701AC 

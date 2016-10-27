@@ -1,0 +1,144 @@
+// TkwSourcePointWord 556427250160 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_556427250160
+
+ME ME_556317770068
+ MEPROP UID '556317770068'
+ MEPROP Name 'f_SourceFileName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_556427250160 // TkwSourcePointWord
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_556317770068 f_SourceFileName
+
+ME ME_556317C6033F
+ MEPROP UID '556317C6033F'
+ MEPROP Name 'f_SourceLine'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_556427250160 // TkwSourcePointWord
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_556317C6033F f_SourceLine
+
+FORWARD ME_556427DD0163
+
+FORWARD ME_556427E500A4
+
+ME ME_556427E9017A
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_556427E9017A aCtx
+
+ME ME_556427E500A4
+ MEPROP UID '556427E500A4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_556427DD0163 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_556427E9017A // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_556427E500A4 DoIt
+
+ME ME_556427DD0163
+ MEPROP UID '556427DD0163'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_556427250160 // TkwSourcePointWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_556427E500A4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_556427DD0163 Create
+
+ME ME_556427B901BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_556427250160 // TkwSourcePointWord
+ ;
+ MELINK Target WL 'ME_4DDA4CFE00E8' '47877EB202FB.ms.model.script' // ExtractFilePath
+ ;
+
+ENDME // ME_556427B901BD 
+
+MEREF ME_556317DE02B5_ME_556427250160_over
+ MELINK Original WL 'ME_556317DE02B5' '4DAF19F600C5.ms.model.script' // SourcePoint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_556317DE02B5_ME_556427250160_over SourcePoint
+
+MEREF ME_4DAEED140007_ME_556427250160_G
+ MELINK Original WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DAEED140007_ME_556427250160_G TtfwWord
+
+%%InheritedBy ME_4DAEED140007 ME_556427250160
+
+ME ME_556427250160
+ MEPROP UID '556427250160'
+ MEPROP Name 'TkwSourcePointWord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_54F079B5035C' // CompiledWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DAEED140007_ME_556427250160_G // TtfwWord
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_556317770068 // f_SourceFileName
+ HWL ME_556317C6033F // f_SourceLine
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_556427DD0163 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_556317DE02B5_ME_556427250160_over // SourcePoint
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_556427B901BD // ExtractFilePath
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'kwSourcePointWord'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SourcePointWord'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSourcePointWord.pas'
+
+ENDME // ME_556427250160 TkwSourcePointWord

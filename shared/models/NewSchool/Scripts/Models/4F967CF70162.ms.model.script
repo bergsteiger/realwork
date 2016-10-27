@@ -1,0 +1,44 @@
+// Mouse_MiddleDown 4F967CF70162 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4F967BED0186_ME_4F967CF70162_impl
+ MELINK Original WL 'ME_4F967BED0186' '4F967BAD0127.ms.model.script' // GetMouseEventFlag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F967BED0186_ME_4F967CF70162_impl GetMouseEventFlag
+
+MEREF ME_4F967BAD0127_ME_4F967CF70162_G
+ MELINK Original WL? 'ME_4F967BAD0127' // TkwMouseUpDownSupport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F967BAD0127_ME_4F967CF70162_G TkwMouseUpDownSupport
+
+%%InheritedBy ME_4F967BAD0127 ME_4F967CF70162
+
+ME ME_4F967CF70162
+ MEPROP UID '4F967CF70162'
+ MEPROP Name 'Mouse_MiddleDown'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F8EC875027E' // MouseInput
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F967BAD0127_ME_4F967CF70162_G // TkwMouseUpDownSupport
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F967BED0186_ME_4F967CF70162_impl // GetMouseEventFlag
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName 'TkwMouseMiddleDown'
+ UP extprop:pas:UnitName 'kwMouseMiddleDown'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MouseMiddleDown'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseMiddleDown.pas'
+
+ENDME // ME_4F967CF70162 Mouse_MiddleDown

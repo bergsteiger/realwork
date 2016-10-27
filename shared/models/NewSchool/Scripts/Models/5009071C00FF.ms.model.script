@@ -1,0 +1,212 @@
+// pop_editor_PrintAcnhor 5009071C00FF ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5009071C00FF
+
+FORWARD ME_500925030215
+
+FORWARD ME_500926380206
+
+ME ME_50096EF00103
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_50096EF00103 aCtx
+
+ME ME_50096EF00126
+ MEPROP Name 'anAnchor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_50096EF00126 anAnchor
+
+ME ME_50096EF00144
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4829D92A037B' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_50096EF00144 anEditor
+
+ME ME_500926380206
+ MEPROP UID '500926380206'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_500925030215 // SaveAnchor
+ ;
+ MELIST Parameters
+   Seq: ( ME_50096EF00103 // aCtx
+ ME_50096EF00126 // anAnchor
+ ME_50096EF00144 // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_500926380206 DoIt
+
+ME ME_500925030215
+ MEPROP UID '500925030215'
+ MEPROP Name 'SaveAnchor'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5009071C00FF // pop_editor_PrintAcnhor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_500926380206 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_500925030215 SaveAnchor
+
+FORWARD ME_5009264E0377
+
+FORWARD ME_5009267C0000
+
+ME ME_50096EFC0108
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_50096EFC0108 aCtx
+
+ME ME_50096EFC0128
+ MEPROP Name 'anAnchor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_50096EFC0128 anAnchor
+
+ME ME_50096EFC0147
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4829D92A037B' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_50096EFC0147 anEditor
+
+ME ME_5009267C0000
+ MEPROP UID '5009267C0000'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5009264E0377 // CheckBaseLine
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_50096EFC0108 // aCtx
+ ME_50096EFC0128 // anAnchor
+ ME_50096EFC0147 // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_5009267C0000 DoIt
+
+ME ME_5009264E0377
+ MEPROP UID '5009264E0377'
+ MEPROP Name 'CheckBaseLine'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5009071C00FF // pop_editor_PrintAcnhor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5009267C0000 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5009264E0377 CheckBaseLine
+
+ME ME_50092F850114
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5009071C00FF // pop_editor_PrintAcnhor
+ ;
+ MELINK Target WL 'ME_4DE89E560091' '47877EB202FB.ms.model.script' // Format
+ ;
+
+ENDME // ME_50092F850114 
+
+ME ME_50094F8F0169
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5009071C00FF // pop_editor_PrintAcnhor
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_50094F8F0169 
+
+MEREF ME_4F4CB81200CA_ME_5009071C00FF_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_5009071C00FF_impl DoWithEditor
+
+MEREF ME_4F4CB625027A_ME_5009071C00FF_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_5009071C00FF_G TkwEditorFromStackWord
+
+%%InheritedBy ME_4F4CB625027A ME_5009071C00FF
+
+ME ME_5009071C00FF
+ MEPROP UID '5009071C00FF'
+ MEPROP Name 'pop_editor_PrintAcnhor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* aTopAnchor anEditorControl pop:editor:PrintAcnhor'#13#10'*Описание:* Печатает текущее значение якоря, включая дочерние, позицию, PID параграф и т.п. aTopAnchor - true - верхния якорь, false - нижний якорь.'#13#10'*Пример:*'#13#10'{code} '#13#10'true focused:control:push pop:editor:PrintAcnhor'#13#10'{code} '#13#10'*Результат:* В засимости от значения поля в будет напечатано значение "true" или "false"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A_ME_5009071C00FF_G // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_500925030215 // SaveAnchor
+ HWL ME_5009264E0377 // CheckBaseLine
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_5009071C00FF_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_50092F850114 // Format
+ ME_50094F8F0169 // l3CStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwPopEditorPrintAcnhor'
+ UP extprop:pas:UnitName 'kwPopEditorPrintAcnhor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PopEditorPrintAcnhor'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorPrintAcnhor.pas'
+
+ENDME // ME_5009071C00FF pop_editor_PrintAcnhor

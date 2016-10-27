@@ -1,0 +1,147 @@
+// TTextViaEditorProcessor 4BE111D30229 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BE111D30229
+
+FORWARD ME_4D0769150130
+
+ME ME_4D07693300DA
+ MEPROP UID '4D07693300DA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D0769150130 // EtalonFileExtension
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4D07693300DA DoIt
+
+ME ME_4D0769150130
+ MEPROP UID '4D0769150130'
+ MEPROP Name 'EtalonFileExtension'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Расширение эталонного файла' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BE111D30229 // TTextViaEditorProcessor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D07693300DA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D0769150130 EtalonFileExtension
+
+FORWARD ME_4D07693F0262
+
+ME ME_4D07695101D3
+ MEPROP UID '4D07695101D3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D07693F0262 // HeaderBegin
+ ;
+ MELINK Target WL 'ME_482C48430205' '4807744200AA.ms.model.script' // Char
+ ;
+
+ENDME // ME_4D07695101D3 DoIt
+
+ME ME_4D07693F0262
+ MEPROP UID '4D07693F0262'
+ MEPROP Name 'HeaderBegin'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BE111D30229 // TTextViaEditorProcessor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D07695101D3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D07693F0262 HeaderBegin
+
+FORWARD ME_4BE13147032C
+
+ME ME_4BE1315B0159
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4BE1315B0159 aForm
+
+ME ME_4BE13147032C
+ MEPROP UID '4BE13147032C'
+ MEPROP Name 'Process'
+ MEPROP Class class_Operation
+ %SUMMARY 'Собственно процесс обработки текста' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BE111D30229 // TTextViaEditorProcessor
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BE1315B0159 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4BE13147032C Process
+
+MEREF ME_4BE419AF0217_ME_4BE111D30229_impl
+ MELINK Original WL 'ME_4BE419AF0217' '4BE418BB001F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE419AF0217_ME_4BE111D30229_impl DoVisit
+
+MEREF ME_4BE425C70228_ME_4BE111D30229_G
+ MELINK Original WL? 'ME_4BE425C70228' // TTextEditorVisitor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE425C70228_ME_4BE111D30229_G TTextEditorVisitor
+
+%%InheritedBy ME_4BE425C70228 ME_4BE111D30229
+
+ME ME_4BE111D30229
+ MEPROP UID '4BE111D30229'
+ MEPROP Name 'TTextViaEditorProcessor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обработчик текста через редактор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B30C89F035F' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE425C70228_ME_4BE111D30229_G // TTextEditorVisitor
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D0769150130 // EtalonFileExtension
+ HWL ME_4D07693F0262 // HeaderBegin
+ HWL ME_4BE13147032C // Process
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BE419AF0217_ME_4BE111D30229_impl // DoVisit
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'TextViaEditorProcessor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextViaEditorProcessor'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\TextViaEditorProcessor.pas'
+
+ENDME // ME_4BE111D30229 TTextViaEditorProcessor

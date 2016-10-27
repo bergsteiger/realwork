@@ -1,0 +1,45 @@
+// TafwOvrCaretType 480DD2B200D2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_480DCA5C03B7_ME_480DD2B200D2_over
+ MELINK Original WL 'ME_480DCA5C03B7' '480DC4B90226.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_480DCA5C03B7_ME_480DD2B200D2_over Create
+
+MEREF ME_480DC4B90226_ME_480DD2B200D2_G
+ MELINK Original WL? 'ME_480DC4B90226' // TafwCustomCaretType
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_480DC4B90226_ME_480DD2B200D2_G TafwCustomCaretType
+
+%%InheritedBy ME_480DC4B90226 ME_480DD2B200D2
+
+ME ME_480DD2B200D2
+ MEPROP UID '480DD2B200D2'
+ MEPROP Name 'TafwOvrCaretType'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47877A6F000A' // Visual
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_480DC4B90226_ME_480DD2B200D2_G // TafwCustomCaretType
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_480DCA5C03B7_ME_480DD2B200D2_over // Create
+ )
+ ; // Overridden
+ UP "need UC" True
+ UP "no hands" True
+ UP extprop:pas:UnitName 'afwOvrCaretType'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwOvrCaretType'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwOvrCaretType.pas'
+
+ENDME // ME_480DD2B200D2 TafwOvrCaretType

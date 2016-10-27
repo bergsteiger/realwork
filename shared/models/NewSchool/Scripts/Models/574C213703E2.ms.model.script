@@ -1,0 +1,64 @@
+// TalcuMdpSyncImport 574C213703E2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_574C213703E2
+
+ME ME_574D92A502C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_574C213703E2 // TalcuMdpSyncImport
+ ;
+ MELINK Target WL? 'ME_574D928F01C4' // alcuMdpSyncParamUtils
+ ;
+
+ENDME // ME_574D92A502C5 
+
+ME ME_574D93000030
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_574C213703E2 // TalcuMdpSyncImport
+ ;
+ MELINK Target WL? 'ME_574C0FA701BB' // TalcuMdpImportSyncronizer
+ ;
+
+ENDME // ME_574D93000030 
+
+MEREF ME_574C16DD0300_ME_574C213703E2_G
+ MELINK Original WL? 'ME_574C16DD0300' // TcsMdpSyncImport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_574C16DD0300_ME_574C213703E2_G TcsMdpSyncImport
+
+%%InheritedBy ME_574C16DD0300 ME_574C213703E2
+
+ME ME_574C213703E2
+ MEPROP UID '574C213703E2'
+ MEPROP Name 'TalcuMdpSyncImport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52FA3DD30094' // Lists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_574C16DD0300_ME_574C213703E2_G // TcsMdpSyncImport
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_574D92A502C5 // alcuMdpSyncParamUtils
+ ME_574D93000030 // TalcuMdpImportSyncronizer
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:pas:UnitName 'alcuMdpSyncImport'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuMdpSyncImport'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuMdpSyncImport.pas'
+
+ENDME // ME_574C213703E2 TalcuMdpSyncImport

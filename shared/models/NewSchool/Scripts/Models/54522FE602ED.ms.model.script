@@ -2,11 +2,17 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-ME ME_51629D8E02C8_ME_54522FE602ED
+MEREF ME_51629D8E02C8_ME_54522FE602ED_over
  MELINK Original WL 'ME_51629D8E02C8' '515DA5860015.ms.model.script' // SetTreeStructFromHistory
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_51629D8E02C8_ME_54522FE602ED SetTreeStructFromHistory
+ENDMEREF // ME_51629D8E02C8_ME_54522FE602ED_over SetTreeStructFromHistory
+
+MEREF ME_52DE57DF007B_ME_54522FE602ED_G
+ MELINK Original WL? 'ME_52DE57DF007B' // TnscTreeViewWithAdapterDragDrop
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52DE57DF007B_ME_54522FE602ED_G TnscTreeViewWithAdapterDragDrop
 
 %%InheritedBy ME_52DE57DF007B ME_54522FE602ED
 
@@ -22,11 +28,11 @@ ME ME_54522FE602ED
  MELINK Parent WL? 'ME_54522F8A01A8' // Tree
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_52DE57DF007B' // TnscTreeViewWithAdapterDragDrop
+   Seq: ( HWL ME_52DE57DF007B_ME_54522FE602ED_G // TnscTreeViewWithAdapterDragDrop
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_51629D8E02C8_ME_54522FE602ED // SetTreeStructFromHistory
+   Seq: ( ME_51629D8E02C8_ME_54522FE602ED_over // SetTreeStructFromHistory
  )
  ; // Overridden
  UP extprop:pas:UnitName 'nscTreeViewForNewsLine'

@@ -1,0 +1,277 @@
+// WevCommentPara 4CED2FED0255 Wrapper Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4CED304B0270
+%%Inner ME_4CED308601B6
+%%Inner ME_4CEE61DE01C6
+%%Inner ME_4CEE621101B2
+
+FORWARD ME_4CED2FED0255
+
+FORWARD ME_4CED304B0270
+
+FORWARD ME_4CED30D901C7
+
+FORWARD ME_4CED30EC029E
+
+ME ME_4CED30F8020E
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4CED30F8020E aTag
+
+ME ME_4CED30EC029E
+ MEPROP UID '4CED30EC029E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CED30D901C7 // ForceStore
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CED30F8020E // aTag
+ )
+ ; // Parameters
+
+ENDME // ME_4CED30EC029E DoIt
+
+ME ME_4CED30D901C7
+ MEPROP UID '4CED30D901C7'
+ MEPROP Name 'ForceStore'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CED304B0270 // TevCommentStorer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CED30EC029E // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4CED30D901C7 ForceStore
+
+ME ME_4CED304B0270
+ MEPROP UID '4CED304B0270'
+ MEPROP Name 'TevCommentStorer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект умеющий сохранять комментарии' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CED2FED0255 // WevCommentPara
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CED30D901C7 // ForceStore
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '24.11.2010 18:34'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CommentStorer'
+
+ENDME // ME_4CED304B0270 TevCommentStorer
+
+MEREF ME_4CED304B0270_ME_4CED308601B6_G
+ MELINK Original HWL ME_4CED304B0270 // TevCommentStorer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CED304B0270_ME_4CED308601B6_G TevCommentStorer
+
+%%InheritedBy ME_4CED304B0270 ME_4CED308601B6
+
+ME ME_4CED308601B6
+ MEPROP UID '4CED308601B6'
+ MEPROP Name 'RevCommentStorer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CED2FED0255 // WevCommentPara
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CED304B0270_ME_4CED308601B6_G // TevCommentStorer
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4CED308601B6 RevCommentStorer
+
+MEREF ME_4CEE60C90052_ME_4CEE61DE01C6_G
+ MELINK Original WL 'ME_4CEE60C90052' '484FD34600BA.ms.model.script' // TevdParaModifier
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CEE60C90052_ME_4CEE61DE01C6_G TevdParaModifier
+
+%%InheritedBy ME_4CEE60C90052 ME_4CEE61DE01C6
+
+ME ME_4CEE61DE01C6
+ MEPROP UID '4CEE61DE01C6'
+ MEPROP Name 'TevCommentModifier'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CED2FED0255 // WevCommentPara
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CEE60C90052_ME_4CEE61DE01C6_G // TevdParaModifier
+ )
+ ; // Inherits
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '25.11.2010 16:17'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CommentModifier'
+
+ENDME // ME_4CEE61DE01C6 TevCommentModifier
+
+MEREF ME_4CEE61DE01C6_ME_4CEE621101B2_G
+ MELINK Original HWL ME_4CEE61DE01C6 // TevCommentModifier
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CEE61DE01C6_ME_4CEE621101B2_G TevCommentModifier
+
+%%InheritedBy ME_4CEE61DE01C6 ME_4CEE621101B2
+
+ME ME_4CEE621101B2
+ MEPROP UID '4CEE621101B2'
+ MEPROP Name 'RevCommentModifier'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CED2FED0255 // WevCommentPara
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CEE61DE01C6_ME_4CEE621101B2_G // TevCommentModifier
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4CEE621101B2 RevCommentModifier
+
+ME ME_4CED30A00102
+ MEPROP UID '4CED30A00102'
+ MEPROP Name 'g_CommentStorer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CED2FED0255 // WevCommentPara
+ ;
+ MELINK Target HWL ME_4CED308601B6 // RevCommentStorer
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4CED30A00102 g_CommentStorer
+
+ME ME_4CEE6226037A
+ MEPROP UID '4CEE6226037A'
+ MEPROP Name 'g_CommentModifier'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CED2FED0255 // WevCommentPara
+ ;
+ MELINK Target HWL ME_4CEE621101B2 // RevCommentModifier
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4CEE6226037A g_CommentModifier
+
+MEREF ME_4CED2E7E010A_ME_4CED2FED0255_over
+ MELINK Original WL 'ME_4CED2E7E010A' '47AC6F0B025E.ms.model.script' // ForceStore
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CED2E7E010A_ME_4CED2FED0255_over ForceStore
+
+MEREF ME_4CEE5D3002FC_ME_4CED2FED0255_over
+ MELINK Original WL 'ME_4CEE5D3002FC' '47AC6F0B025E.ms.model.script' // MarkModified
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CEE5D3002FC_ME_4CED2FED0255_over MarkModified
+
+MEREF ME_484FD34600BA_ME_4CED2FED0255_G
+ MELINK Original WL? 'ME_484FD34600BA' // WevPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484FD34600BA_ME_4CED2FED0255_G WevPara
+
+MEREF ME_4857C9C20131_ME_4CED2FED0255_R
+ MELINK Original WL 'ME_4857C9C20131' '48492FC0029D.ms.model.script' // CommentPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857C9C20131_ME_4CED2FED0255_R CommentPara
+
+%%ImplementedBy ME_4857C9C20131 ME_4CED2FED0255
+
+%%InheritedBy ME_484FD34600BA ME_4CED2FED0255
+
+ME ME_4CED2FED0255
+ MEPROP UID '4CED2FED0255'
+ MEPROP Name 'WevCommentPara'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Wrapper ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обёртка для CommentPara' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48492FC0029D' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484FD34600BA_ME_4CED2FED0255_G // WevPara
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4857C9C20131_ME_4CED2FED0255_R // CommentPara
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CED30A00102 // g_CommentStorer
+ HWL ME_4CEE6226037A // g_CommentModifier
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4CED2E7E010A_ME_4CED2FED0255_over // ForceStore
+ ME_4CEE5D3002FC_ME_4CED2FED0255_over // MarkModified
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4CED304B0270 // TevCommentStorer
+ HWL ME_4CED308601B6 // RevCommentStorer
+ HWL ME_4CEE61DE01C6 // TevCommentModifier
+ HWL ME_4CEE621101B2 // RevCommentModifier
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '24.11.2010 18:32'
+ UP extprop:pas:UnitName 'evCommentPara_Wrap'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCommentPara_Wrap.pas'
+
+ENDME // ME_4CED2FED0255 WevCommentPara

@@ -1,0 +1,98 @@
+// TnsSingleAttributeStorable 4682704E0347 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4682704E0347
+
+ME ME_48F5F2EF0221
+ MEPROP UID '48F5F2EF0221'
+ MEPROP Name 'f_Text'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4682704E0347 // TnsSingleAttributeStorable
+ ;
+ MELINK Target WL? 'ME_4773DED9004C' // Tl3_String
+ ;
+
+ENDME // ME_48F5F2EF0221 f_Text
+
+ME ME_48F5F30E0215
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4682704E0347 // TnsSingleAttributeStorable
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_48F5F30E0215 
+
+ME ME_48F5F3E70070
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4682704E0347 // TnsSingleAttributeStorable
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_48F5F3E70070 
+
+MEREF ME_479731C50290_ME_4682704E0347_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4682704E0347_over Cleanup
+
+MEREF ME_48F494FD001D_ME_4682704E0347_over
+ MELINK Original WL 'ME_48F494FD001D' '48F4945A02FF.ms.model.script' // Text
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48F494FD001D_ME_4682704E0347_over Text
+
+MEREF ME_48F4D8230366_ME_4682704E0347_G
+ MELINK Original WL? 'ME_48F4D8230366' // TevNodeStorable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48F4D8230366_ME_4682704E0347_G TevNodeStorable
+
+%%InheritedBy ME_48F4D8230366 ME_4682704E0347
+
+ME ME_4682704E0347
+ MEPROP UID '4682704E0347'
+ MEPROP Name 'TnsSingleAttributeStorable'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48F5EE2702FF' // DocumentDataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F4D8230366_ME_4682704E0347_G // TevNodeStorable
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48F5F2EF0221 // f_Text
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4682704E0347_over // Cleanup
+ ME_48F494FD001D_ME_4682704E0347_over // Text
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48F5F30E0215 // l3Base
+ ME_48F5F3E70070 // Il3SimpleNode
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nsSingleAttributeStorable'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SingleAttributeStorable'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsSingleAttributeStorable.pas'
+
+ENDME // ME_4682704E0347 TnsSingleAttributeStorable

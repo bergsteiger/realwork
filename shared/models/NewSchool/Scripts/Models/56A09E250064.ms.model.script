@@ -1,0 +1,41 @@
+// ClearConfig 56A09E250064 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56A09E250064
+
+ME ME_56A09F4A0059
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56A09E250064 // ClearConfig
+ ;
+ MELINK Target WL 'ME_56A09EF601E1' '4E4B5F29031C.ms.model.script' // acClearConfig
+ ;
+
+ENDME // ME_56A09F4A0059 
+
+ME ME_56A09E250064
+ MEPROP UID '56A09E250064'
+ MEPROP Name 'ClearConfig'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F6195640184' // CommonArchiWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_56A09F4A0059 // acClearConfig
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwClearConfig'
+ UP extprop:pas:UnitName 'kwClearConfig'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ClearConfig'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearConfig.pas'
+
+ENDME // ME_56A09E250064 ClearConfig

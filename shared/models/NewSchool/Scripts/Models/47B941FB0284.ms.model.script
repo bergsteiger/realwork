@@ -2,11 +2,17 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-ME ME_47B94A5C006E_ME_47B941FB0284
+MEREF ME_47B94A5C006E_ME_47B941FB0284_impl
  MELINK Original WL 'ME_47B94A5C006E' '47B45152003F.ms.model.script' // FreeItem
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47B94A5C006E_ME_47B941FB0284 FreeItem
+ENDMEREF // ME_47B94A5C006E_ME_47B941FB0284_impl FreeItem
+
+MEREF ME_47B594B50330_ME_47B941FB0284_G
+ MELINK Original WL? 'ME_47B594B50330' // l3StandardTypedList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B594B50330_ME_47B941FB0284_G l3StandardTypedList
 
 %%InheritedBy ME_47B594B50330 ME_47B941FB0284
 
@@ -23,11 +29,11 @@ ME ME_47B941FB0284
  MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47B594B50330' // l3StandardTypedList
+   Seq: ( HWL ME_47B594B50330_ME_47B941FB0284_G // l3StandardTypedList
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_47B94A5C006E_ME_47B941FB0284 // FreeItem
+   Seq: ( ME_47B94A5C006E_ME_47B941FB0284_impl // FreeItem
  )
  ; // Implemented
  UP extprop:pas:TypeName '_l3PtrListPrim_'

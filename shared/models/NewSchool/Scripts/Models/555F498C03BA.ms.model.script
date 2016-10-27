@@ -4,133 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_555F49A0015B
 
-FORWARD ME_555F498C03BA
-
-FORWARD ME_555F49A0015B
-
-ME ME_2B5260926DBC
- MEPROP UID '2B5260926DBC'
- MEPROP Name 'Ml3EtalonsService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3EtalonsService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_555F49A0015B // Tl3EtalonsService
- ;
-
-ENDME // ME_2B5260926DBC Ml3EtalonsService
-
-ME ME_555F49BD0098
- MEPROP UID '555F49BD0098'
- MEPROP Name 'EtalonNeedsComputerName'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_555F49A0015B // Tl3EtalonsService
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_555F49BD0098 EtalonNeedsComputerName
-
-ME ME_555F49DE0060
- MEPROP UID '555F49DE0060'
- MEPROP Name 'EtalonNeedsOSName'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_555F49A0015B // Tl3EtalonsService
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_555F49DE0060 EtalonNeedsOSName
-
-ME ME_555F49FD0175
- MEPROP UID '555F49FD0175'
- MEPROP Name 'EtalonNeedsXE'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_555F49A0015B // Tl3EtalonsService
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- UP "ifdef" 'XE'
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_555F49FD0175 EtalonNeedsXE
-
-ME ME_555F4A16032F
- MEPROP UID '555F4A16032F'
- MEPROP Name 'EtalonNeeds64'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_555F49A0015B // Tl3EtalonsService
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_555F4A16032F EtalonNeeds64
-
-%%InheritedBy ME_49E7754802A9 ME_555F49A0015B
-
-ME ME_555F49A0015B
- MEPROP UID '555F49A0015B'
- MEPROP Name 'Tl3EtalonsService'
- MEPROP Class class_Class
- MELINK Stereotype st_Service ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_555F498C03BA // EtalonsServices
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_555F49BD0098 // EtalonNeedsComputerName
- HWL ME_555F49DE0060 // EtalonNeedsOSName
- HWL ME_555F49FD0175 // EtalonNeedsXE
- HWL ME_555F4A16032F // EtalonNeeds64
- )
- ; // Attributes
- MELIST Children
-   Seq: ( HWL ME_2B5260926DBC // Ml3EtalonsService
- )
- ; // Children
- UP "auto translate to alien" 'undefined'
- UP extprop:pas:UnitName 'l3EtalonsService'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'EtalonsService'
- UP intf.pas:Path 'common\components\rtl\Garant\L3\l3EtalonsService.pas'
-
-ENDME // ME_555F49A0015B Tl3EtalonsService
-
 ME ME_555F498C03BA
  MEPROP UID '555F498C03BA'
  MEPROP Name 'EtalonsServices'
@@ -142,7 +15,7 @@ ME ME_555F498C03BA
  MELINK Parent WL? 'ME_550012C403C4' // L3$AFW
  ;
  MELIST Children
-   Seq: ( HWL ME_555F49A0015B // Tl3EtalonsService
+   Seq: ( WL? 'ME_555F49A0015B' // Tl3EtalonsService
  )
  ; // Children
  MELIST Depends

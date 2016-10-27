@@ -23,7 +23,7 @@ ME ME_52A6FBB20278
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_52A1D6020217 // TvcmOperationManager
  ;
- MELINK Target WL 'ME_4D7A109601C2' '4AB34028023E.ms.model.script' // TvcmBaseOperationsCollectionItem
+ MELINK Target WL? 'ME_4D7A109601C2' // TvcmBaseOperationsCollectionItem
  ;
  UP "pm" True
  UP "reads field" True
@@ -40,7 +40,7 @@ ME ME_52A6FBC9005C
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_52A1D6020217 // TvcmOperationManager
  ;
- MELINK Target WL 'ME_52A1D70F0135' '4AB34028023E.ms.model.script' // TvcmFormActivate
+ MELINK Target WL 'ME_52A1D70F0135' '4E3012700155.ms.model.script' // TvcmFormActivate
  ;
  UP "pm" True
  UP "reads field" True
@@ -151,7 +151,7 @@ ME ME_52A1D785008F
  MEPROP Name 'aFormActivate'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_52A1D70F0135' '4AB34028023E.ms.model.script' // TvcmFormActivate
+ MELINK Target WL 'ME_52A1D70F0135' '4E3012700155.ms.model.script' // TvcmFormActivate
  ;
 
 ENDME // ME_52A1D785008F aFormActivate
@@ -160,7 +160,7 @@ ME ME_52A1D78500A8
  MEPROP Name 'aOperation'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4D7A109601C2' '4AB34028023E.ms.model.script' // TvcmBaseOperationsCollectionItem
+ MELINK Target WL? 'ME_4D7A109601C2' // TvcmBaseOperationsCollectionItem
  ;
 
 ENDME // ME_52A1D78500A8 aOperation
@@ -185,7 +185,7 @@ ENDME // ME_52A1D7810332 DoIt
 ME ME_52A1D76D0351
  MEPROP UID '52A1D76D0351'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -240,7 +240,7 @@ ENDME // ME_52A1D7B602E2 DoIt
 ME ME_52A1D7950232
  MEPROP UID '52A1D7950232'
  MEPROP Name 'DoTest'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'проверяет наличие и активность формы' ;
@@ -296,7 +296,7 @@ ENDME // ME_52A1D7D2036A DoIt
 ME ME_52A1D7CA00CD
  MEPROP UID '52A1D7CA00CD'
  MEPROP Name 'DoExecute'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'скрывает форму если активна, или активирует' ;
@@ -342,7 +342,7 @@ ENDME // ME_52A1D81602C7 DoIt
 ME ME_52A1D8080172
  MEPROP UID '52A1D8080172'
  MEPROP Name 'OnTest'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'проверяет наличие и активность формы' ;
@@ -388,7 +388,7 @@ ENDME // ME_52A1D84C02E7 DoIt
 ME ME_52A1D8460273
  MEPROP UID '52A1D8460273'
  MEPROP Name 'OnExecute'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'скрывает форму если активна, или активирует' ;
@@ -434,7 +434,7 @@ ENDME // ME_52A1D8690242 DoIt
 ME ME_52A1D8630372
  MEPROP UID '52A1D8630372'
  MEPROP Name 'OnContextTest'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'проверяет наличие и активность формы' ;
@@ -480,7 +480,7 @@ ENDME // ME_52A1D88E018E DoIt
 ME ME_52A1D87D00CD
  MEPROP UID '52A1D87D00CD'
  MEPROP Name 'OnContextExecute'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'скрывает форму если активна, или активирует' ;
@@ -542,7 +542,7 @@ ENDME // ME_52A1D8AF0160 DoIt
 ME ME_52A1D8A90263
  MEPROP UID '52A1D8A90263'
  MEPROP Name 'FindForm'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'ищет форму в приложении используя информацию поля FormActivate' ;
@@ -557,11 +557,17 @@ ME ME_52A1D8A90263
 
 ENDME // ME_52A1D8A90263 FindForm
 
-ME ME_479731C50290_ME_52A1D6020217
+MEREF ME_479731C50290_ME_52A1D6020217_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_52A1D6020217 Cleanup
+ENDMEREF // ME_479731C50290_ME_52A1D6020217_over Cleanup
+
+MEREF ME_519A130C00B6_ME_52A1D6020217_G
+ MELINK Original WL 'ME_519A130C00B6' '47F25BC801DB.ms.model.script' // TvcmCacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_519A130C00B6_ME_52A1D6020217_G TvcmCacheableBase
 
 %%InheritedBy ME_519A130C00B6 ME_52A1D6020217
 
@@ -577,7 +583,7 @@ ME ME_52A1D6020217
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_519A130C00B6' '47F25BC801DB.ms.model.script' // TvcmCacheableBase
+   Seq: ( HWL ME_519A130C00B6_ME_52A1D6020217_G // TvcmCacheableBase
  )
  ; // Inherits
  MELIST Attributes
@@ -603,7 +609,7 @@ ME ME_52A1D6020217
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_52A1D6020217 // Cleanup
+   Seq: ( ME_479731C50290_ME_52A1D6020217_over // Cleanup
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames
@@ -625,7 +631,7 @@ ME ME_52A6FC78017B
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_52A1DD06008F // TvcmOperationManagers
  ;
- MELINK Target WL 'ME_4CE521C80107' '4A6D65B9022A.ms.model.script' // Tl3ProtoObjectRefList
+ MELINK Target WL? 'ME_4CE521C80107' // Tl3ProtoObjectRefList
  ;
  UP "ifndef" 'DesignTimeLibrary'
 
@@ -687,7 +693,7 @@ ENDME // ME_52A6FC9C0200 Items
 ME ME_52A1DDD400EE
  MEPROP UID '52A1DDD400EE'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -728,7 +734,7 @@ ENDME // ME_52A6FD030026 DoIt
 ME ME_52A6FCF10268
  MEPROP UID '52A6FCF10268'
  MEPROP Name 'Add'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -773,7 +779,7 @@ ENDME // ME_52A6FD1A011F DoIt
 ME ME_52A6FD0E01FE
  MEPROP UID '52A6FD0E01FE'
  MEPROP Name 'Delete'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -787,11 +793,17 @@ ME ME_52A6FD0E01FE
 
 ENDME // ME_52A6FD0E01FE Delete
 
-ME ME_479731C50290_ME_52A1DD06008F
+MEREF ME_479731C50290_ME_52A1DD06008F_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_52A1DD06008F Cleanup
+ENDMEREF // ME_479731C50290_ME_52A1DD06008F_over Cleanup
+
+MEREF ME_519A130C00B6_ME_52A1DD06008F_G
+ MELINK Original WL 'ME_519A130C00B6' '47F25BC801DB.ms.model.script' // TvcmCacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_519A130C00B6_ME_52A1DD06008F_G TvcmCacheableBase
 
 %%InheritedBy ME_519A130C00B6 ME_52A1DD06008F
 
@@ -807,7 +819,7 @@ ME ME_52A1DD06008F
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_519A130C00B6' '47F25BC801DB.ms.model.script' // TvcmCacheableBase
+   Seq: ( HWL ME_519A130C00B6_ME_52A1DD06008F_G // TvcmCacheableBase
  )
  ; // Inherits
  MELIST Attributes
@@ -823,7 +835,7 @@ ME ME_52A1DD06008F
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_52A1DD06008F // Cleanup
+   Seq: ( ME_479731C50290_ME_52A1DD06008F_over // Cleanup
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames
@@ -920,7 +932,7 @@ ME ME_52A6FAB70156
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_52A1DDF20272 // TvcmFormActivateOperations
  ;
- MELINK Target WL 'ME_4D7A109601C2' '4AB34028023E.ms.model.script' // TvcmBaseOperationsCollectionItem
+ MELINK Target WL? 'ME_4D7A109601C2' // TvcmBaseOperationsCollectionItem
  ;
  MELIST Attributes
    Seq: ( HWL ME_52A6FAC702A6 // anIndex
@@ -933,7 +945,7 @@ ENDME // ME_52A6FAB70156 Items
 ME ME_52A1DE69039A
  MEPROP UID '52A1DE69039A'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -951,7 +963,7 @@ ME ME_52A1DEA402F0
  MEPROP Name 'aOperation'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4D7A109601C2' '4AB34028023E.ms.model.script' // TvcmBaseOperationsCollectionItem
+ MELINK Target WL? 'ME_4D7A109601C2' // TvcmBaseOperationsCollectionItem
  ;
 
 ENDME // ME_52A1DEA402F0 aOperation
@@ -964,7 +976,7 @@ ME ME_52A1DEA200F7
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_52A1DE8F0369 // GetFormActivate
  ;
- MELINK Target WL 'ME_52A1D70F0135' '4AB34028023E.ms.model.script' // TvcmFormActivate
+ MELINK Target WL 'ME_52A1D70F0135' '4E3012700155.ms.model.script' // TvcmFormActivate
  ;
  MELIST Parameters
    Seq: ( ME_52A1DEA402F0 // aOperation
@@ -976,7 +988,7 @@ ENDME // ME_52A1DEA200F7 DoIt
 ME ME_52A1DE8F0369
  MEPROP UID '52A1DE8F0369'
  MEPROP Name 'GetFormActivate'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'возвращает FormActivate, если операция заявлена на управление формой' ;
@@ -999,7 +1011,7 @@ ME ME_52A1DECB0108
  MEPROP Name 'aOperation'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4E3012700155' '4AB34028023E.ms.model.script' // TvcmRepOperationsCollectionItem
+ MELINK Target WL? 'ME_4E3012700155' // TvcmRepOperationsCollectionItem
  ;
 
 ENDME // ME_52A1DECB0108 aOperation
@@ -1022,7 +1034,7 @@ ENDME // ME_52A1DEC9008F DoIt
 ME ME_52A1DEB300EC
  MEPROP UID '52A1DEB300EC'
  MEPROP Name 'AddOperation'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'добавляет в список операцию заявленную на управление формой' ;
@@ -1040,7 +1052,7 @@ ENDME // ME_52A1DEB300EC AddOperation
 ME ME_52A1DF8C0277
  MEPROP UID '52A1DF8C0277'
  MEPROP Name 'LoadOperations'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -1050,11 +1062,17 @@ ME ME_52A1DF8C0277
 
 ENDME // ME_52A1DF8C0277 LoadOperations
 
-ME ME_479731C50290_ME_52A1DDF20272
+MEREF ME_479731C50290_ME_52A1DDF20272_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_52A1DDF20272 Cleanup
+ENDMEREF // ME_479731C50290_ME_52A1DDF20272_over Cleanup
+
+MEREF ME_519A130C00B6_ME_52A1DDF20272_G
+ MELINK Original WL 'ME_519A130C00B6' '47F25BC801DB.ms.model.script' // TvcmCacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_519A130C00B6_ME_52A1DDF20272_G TvcmCacheableBase
 
 %%InheritedBy ME_519A130C00B6 ME_52A1DDF20272
 
@@ -1070,7 +1088,7 @@ ME ME_52A1DDF20272
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_519A130C00B6' '47F25BC801DB.ms.model.script' // TvcmCacheableBase
+   Seq: ( HWL ME_519A130C00B6_ME_52A1DDF20272_G // TvcmCacheableBase
  )
  ; // Inherits
  MELIST Attributes
@@ -1089,7 +1107,7 @@ ME ME_52A1DDF20272
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_52A1DDF20272 // Cleanup
+   Seq: ( ME_479731C50290_ME_52A1DDF20272_over // Cleanup
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames
@@ -1188,7 +1206,7 @@ ENDME // ME_52A6FB7B02B7 f_Managers
 ME ME_52A1E4770365
  MEPROP UID '52A1E4770365'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1229,7 +1247,7 @@ ENDME // ME_52A1E49B00DF DoIt
 ME ME_52A1E48D0308
  MEPROP UID '52A1E48D0308'
  MEPROP Name 'AddForm'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'регистрирует операции сущностей' ;
@@ -1275,7 +1293,7 @@ ENDME // ME_52A1E4B0010B DoIt
 ME ME_52A1E4AA035B
  MEPROP UID '52A1E4AA035B'
  MEPROP Name 'RemoveForm'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'при удалении формы удаляет созданные TvcmOperationManager-ы' ;
@@ -1298,7 +1316,7 @@ ME ME_52A1E4ED015F
  MEPROP Name 'aModule'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4AB33E14004E' '47D0E1500033.ms.model.script' // TvcmModule
+ MELINK Target WL? 'ME_4AB33E14004E' // TvcmModule
  ;
 
 ENDME // ME_52A1E4ED015F aModule
@@ -1321,7 +1339,7 @@ ENDME // ME_52A1E4EB002E DoIt
 ME ME_52A1E4DC01BE
  MEPROP UID '52A1E4DC01BE'
  MEPROP Name 'AddModule'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'регистрирует операции модуля' ;
@@ -1344,7 +1362,7 @@ ME ME_52A1E51903D1
  MEPROP Name 'aOperation'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4D7A109601C2' '4AB34028023E.ms.model.script' // TvcmBaseOperationsCollectionItem
+ MELINK Target WL? 'ME_4D7A109601C2' // TvcmBaseOperationsCollectionItem
  ;
 
 ENDME // ME_52A1E51903D1 aOperation
@@ -1377,7 +1395,7 @@ ENDME // ME_52A1E51702A3 DoIt
 ME ME_52A1E4FC035C
  MEPROP UID '52A1E4FC035C'
  MEPROP Name 'RegOperation'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'если данная операция заявлена на управление формой, то получает FormActivate у TvcmFormActivateOperations и создаёт TvcmOperationManager' ;
@@ -1392,11 +1410,17 @@ ME ME_52A1E4FC035C
 
 ENDME // ME_52A1E4FC035C RegOperation
 
-ME ME_479731C50290_ME_52A1D5F50368
+MEREF ME_479731C50290_ME_52A1D5F50368_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_52A1D5F50368 Cleanup
+ENDMEREF // ME_479731C50290_ME_52A1D5F50368_over Cleanup
+
+MEREF ME_519A130C00B6_ME_52A1D5F50368_G
+ MELINK Original WL 'ME_519A130C00B6' '47F25BC801DB.ms.model.script' // TvcmCacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_519A130C00B6_ME_52A1D5F50368_G TvcmCacheableBase
 
 %%InheritedBy ME_519A130C00B6 ME_52A1D5F50368
 
@@ -1412,7 +1436,7 @@ ME ME_52A1D5F50368
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_519A130C00B6' '47F25BC801DB.ms.model.script' // TvcmCacheableBase
+   Seq: ( HWL ME_519A130C00B6_ME_52A1D5F50368_G // TvcmCacheableBase
  )
  ; // Inherits
  MELIST Attributes
@@ -1431,7 +1455,7 @@ ME ME_52A1D5F50368
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_52A1D5F50368 // Cleanup
+   Seq: ( ME_479731C50290_ME_52A1D5F50368_over // Cleanup
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames
@@ -1567,7 +1591,7 @@ ME ME_52A6F87B015A
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AD5DBBD0147 // TvcmBaseMenuManagerPrim
  ;
- MELINK Target WL 'ME_52A1F31601D0' '4AB34028023E.ms.model.script' // TvcmStringCollection
+ MELINK Target WL? 'ME_52A1F31601D0' // TvcmStringCollection
  ;
  UP "pm" True
  UP "reads field" True
@@ -1640,7 +1664,7 @@ ME ME_52A6F909022C
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AD5DBBD0147 // TvcmBaseMenuManagerPrim
  ;
- MELINK Target WL 'ME_4AB34044026A' '4AB34028023E.ms.model.script' // TvcmModulesCollection
+ MELINK Target WL? 'ME_4AB34044026A' // TvcmModulesCollection
  ;
  UP "needs field" True
  UP "pm" True
@@ -1657,7 +1681,7 @@ ME ME_52A6F92B0035
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AD5DBBD0147 // TvcmBaseMenuManagerPrim
  ;
- MELINK Target WL 'ME_52A1F6C102E8' '4AB34028023E.ms.model.script' // TvcmFormsCollection
+ MELINK Target WL? 'ME_52A1F6C102E8' // TvcmFormsCollection
  ;
  UP "pm" True
  UP "reads field" True
@@ -1674,7 +1698,7 @@ ME ME_52A6F9410290
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AD5DBBD0147 // TvcmBaseMenuManagerPrim
  ;
- MELINK Target WL 'ME_52A1F7AE03B2' '4AB34028023E.ms.model.script' // TvcmMessagesCollection
+ MELINK Target WL? 'ME_52A1F7AE03B2' // TvcmMessagesCollection
  ;
  UP "pm" True
  UP "reads field" True
@@ -1725,7 +1749,7 @@ ME ME_52A6F9960242
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AD5DBBD0147 // TvcmBaseMenuManagerPrim
  ;
- MELINK Target WL 'ME_4C8E3AC40306' '52A1ACC102FE.ms.model.script' // TvcmPopupMenuPrim
+ MELINK Target WL? 'ME_4C8E3AC40306' // TvcmPopupMenuPrim
  ;
  UP "pm" True
  UP "reads field" True
@@ -1859,7 +1883,7 @@ ME ME_53E9DE6F0274
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AD5DBBD0147 // TvcmBaseMenuManagerPrim
  ;
- MELINK Target WL 'ME_53E9DCDF0259' '4AADF9450143.ms.model.script' // TvcmMenuItemClickListenerList
+ MELINK Target WL? 'ME_53E9DCDF0259' // TvcmMenuItemClickListenerList
  ;
  UP "needs field" True
  UP "pm" True
@@ -1869,7 +1893,7 @@ ENDME // ME_53E9DE6F0274 MenuItemClickListeners
 ME ME_52A1FA92012A
  MEPROP UID '52A1FA92012A'
  MEPROP Name 'WriteRes'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -1883,7 +1907,7 @@ ENDME // ME_52A1FA92012A WriteRes
 ME ME_52A1FAC302BD
  MEPROP UID '52A1FAC302BD'
  MEPROP Name 'RegisterEntities'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -1927,7 +1951,7 @@ ENDME // ME_52A1FAE702F9 DoIt
 ME ME_52A1FAE000ED
  MEPROP UID '52A1FAE000ED'
  MEPROP Name 'DoShortCutCommand'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -1951,7 +1975,7 @@ ME ME_52A1FB800239
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_52A1FB7300B9 // GetModulesCollectionClass
  ;
- MELINK Target WL 'ME_52A1FB5C0299' '4AB34028023E.ms.model.script' // RvcmModulesCollection
+ MELINK Target WL 'ME_52A1FB5C0299' '4AB34044026A.ms.model.script' // RvcmModulesCollection
  ;
 
 ENDME // ME_52A1FB800239 DoIt
@@ -1959,7 +1983,7 @@ ENDME // ME_52A1FB800239 DoIt
 ME ME_52A1FB7300B9
  MEPROP UID '52A1FB7300B9'
  MEPROP Name 'GetModulesCollectionClass'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -2014,7 +2038,7 @@ ENDME // ME_52A1FBB101CB DoIt
 ME ME_52A1FB9A0265
  MEPROP UID '52A1FB9A0265'
  MEPROP Name 'OperationExecuteNotify'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'нотификация о выполении операции. Вызывается перед выполением операции. При вызове ShortCut, anAction не заполняется, вызывается непосредственно операция. Если будет необходимо обязательно получать имя операции, то параметр anAction нужно будет переделать например на IvcmOperationDef' ;
@@ -2032,7 +2056,7 @@ ENDME // ME_52A1FB9A0265 OperationExecuteNotify
 ME ME_52A1FBE502A6
  MEPROP UID '52A1FBE502A6'
  MEPROP Name 'RegisterKeywords'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2050,7 +2074,7 @@ ME ME_52A1FC2101AE
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
 ENDME // ME_52A1FC2101AE aForm
@@ -2083,7 +2107,7 @@ ENDME // ME_52A1FC1D03D2 DoIt
 ME ME_52A1FC0C0333
  MEPROP UID '52A1FC0C0333'
  MEPROP Name 'RegisterModuleInMenu'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'регистрирует модуль в меню, toolbar''ах, etc. Для перекрытия в потомках.' ;
@@ -2107,7 +2131,7 @@ ME ME_52A1FC4B02DB
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
 ENDME // ME_52A1FC4B02DB aForm
@@ -2130,7 +2154,7 @@ ENDME // ME_52A1FC4901EF DoIt
 ME ME_52A1FC3D0231
  MEPROP UID '52A1FC3D0231'
  MEPROP Name 'MainCreated'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2153,7 +2177,7 @@ ME ME_52A1FC600113
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
 ENDME // ME_52A1FC600113 aForm
@@ -2176,7 +2200,7 @@ ENDME // ME_52A1FC5D0390 DoIt
 ME ME_52A1FC5500AC
  MEPROP UID '52A1FC5500AC'
  MEPROP Name 'RegisterMainInMenu'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'регистрирует основную форму в меню, toolbar''ах, etc. Для перекрытия в потомках.' ;
@@ -2199,7 +2223,7 @@ ME ME_52A1FC860094
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
 ENDME // ME_52A1FC860094 aForm
@@ -2222,7 +2246,7 @@ ENDME // ME_52A1FC8200D1 DoIt
 ME ME_52A1FC79004A
  MEPROP UID '52A1FC79004A'
  MEPROP Name 'RegisterChildInMenu'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'регистрирует дочернюю форму в меню, toolbar''ах, etc. Для перекрытия в потомках.' ;
@@ -2256,7 +2280,7 @@ ENDME // ME_52A1FCAA00BD DoIt
 ME ME_52A1FCA20227
  MEPROP UID '52A1FCA20227'
  MEPROP Name 'GetPopupMenu'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2291,7 +2315,7 @@ ME ME_52A1FCBD02F0
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_52A1FCB70149 // GetOperationableObjectByID
  ;
- MELINK Target WL 'ME_52A5714300FB' '4AB34028023E.ms.model.script' // TvcmRepEntitiesCollectionItem
+ MELINK Target WL? 'ME_52A5714300FB' // TvcmRepEntitiesCollectionItem
  ;
  MELIST Parameters
    Seq: ( ME_52A1FCC0021A // anID
@@ -2303,7 +2327,7 @@ ENDME // ME_52A1FCBD02F0 DoIt
 ME ME_52A1FCB70149
  MEPROP UID '52A1FCB70149'
  MEPROP Name 'GetOperationableObjectByID'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2347,7 +2371,7 @@ ME ME_52A1FCE602B0
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_52A1FCDB0027 // GetOperationableObjectByName
  ;
- MELINK Target WL 'ME_52A5714300FB' '4AB34028023E.ms.model.script' // TvcmRepEntitiesCollectionItem
+ MELINK Target WL? 'ME_52A5714300FB' // TvcmRepEntitiesCollectionItem
  ;
  MELIST Parameters
    Seq: ( ME_52A1FCE8038F // aName
@@ -2360,7 +2384,7 @@ ENDME // ME_52A1FCE602B0 DoIt
 ME ME_52A1FCDB0027
  MEPROP UID '52A1FCDB0027'
  MEPROP Name 'GetOperationableObjectByName'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2435,7 +2459,7 @@ ENDME // ME_52A1FD0901C1 DoIt
 ME ME_52A1FD0300F5
  MEPROP UID '52A1FD0300F5'
  MEPROP Name 'RegisterOperation'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2480,7 +2504,7 @@ ENDME // ME_52A1FD2E03AC DoIt
 ME ME_52A1FD28019A
  MEPROP UID '52A1FD28019A'
  MEPROP Name 'AddForm'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2525,7 +2549,7 @@ ENDME // ME_52A1FD40024F DoIt
 ME ME_52A1FD3B0252
  MEPROP UID '52A1FD3B0252'
  MEPROP Name 'RemoveForm'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2570,7 +2594,7 @@ ENDME // ME_52A1FD5201B7 DoIt
 ME ME_52A1FD4C002A
  MEPROP UID '52A1FD4C002A'
  MEPROP Name 'ReloadToolbars'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2587,7 +2611,7 @@ ENDME // ME_52A1FD4C002A ReloadToolbars
 ME ME_52A1FD5E02DC
  MEPROP UID '52A1FD5E02DC'
  MEPROP Name 'ReloadAllToolbars'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2605,7 +2629,7 @@ ME ME_52A1FD7C0185
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
 ENDME // ME_52A1FD7C0185 aForm
@@ -2642,7 +2666,7 @@ ENDME // ME_52A1FD790304 DoIt
 ME ME_52A1FD7301A8
  MEPROP UID '52A1FD7301A8'
  MEPROP Name 'PostBuild'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2691,7 +2715,7 @@ ENDME // ME_52A1FDA202AE DoIt
 ME ME_52A1FD960246
  MEPROP UID '52A1FD960246'
  MEPROP Name 'LoadShortcuts'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2713,7 +2737,7 @@ ME ME_52A1FDB60193
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
 ENDME // ME_52A1FDB60193 aForm
@@ -2738,7 +2762,7 @@ ENDME // ME_52A1FDB4016C DoIt
 ME ME_52A1FDAE0139
  MEPROP UID '52A1FDAE0139'
  MEPROP Name 'MergedToMainForm'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2760,7 +2784,7 @@ ME ME_52A1FDCA0188
  MEPROP Name 'aModule'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4AB33E14004E' '47D0E1500033.ms.model.script' // TvcmModule
+ MELINK Target WL? 'ME_4AB33E14004E' // TvcmModule
  ;
 
 ENDME // ME_52A1FDCA0188 aModule
@@ -2783,7 +2807,7 @@ ENDME // ME_52A1FDC80036 DoIt
 ME ME_52A1FDC20289
  MEPROP UID '52A1FDC20289'
  MEPROP Name 'AddModule'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2815,7 +2839,7 @@ ENDME // ME_3AA2579CACEC DoIt
 ME ME_52A1FDD7006C
  MEPROP UID '52A1FDD7006C'
  MEPROP Name 'BackupOpStatus'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2847,7 +2871,7 @@ ENDME // ME_B36D79B04732 DoIt
 ME ME_52A1FE020318
  MEPROP UID '52A1FE020318'
  MEPROP Name 'RestoreOpStatus'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2879,7 +2903,7 @@ ENDME // ME_64251E27DDA9 DoIt
 ME ME_52A1FE1602AA
  MEPROP UID '52A1FE1602AA'
  MEPROP Name 'BeginOp'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2911,7 +2935,7 @@ ENDME // ME_52A1FE3A0260 DoIt
 ME ME_52A1FE2E0059
  MEPROP UID '52A1FE2E0059'
  MEPROP Name 'GetOpLock'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2943,7 +2967,7 @@ ENDME // ME_5C1FF8AE5F8B DoIt
 ME ME_52A1FE4B0329
  MEPROP UID '52A1FE4B0329'
  MEPROP Name 'EndOp'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2975,7 +2999,7 @@ ENDME // ME_A63377BF341A DoIt
 ME ME_52A1FE58028C
  MEPROP UID '52A1FE58028C'
  MEPROP Name 'FastenToolbars'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3007,7 +3031,7 @@ ENDME // ME_52A1FE7A0357 DoIt
 ME ME_52A1FE730278
  MEPROP UID '52A1FE730278'
  MEPROP Name 'GetFastenMode'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3029,7 +3053,7 @@ ME ME_52A1FEDC00EC
  MEPROP Name 'aFormClass'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_52A58D6E003A' '4AADF9450143.ms.model.script' // RvcmEntityForm
+ MELINK Target WL 'ME_52A58D6E003A' '49525B34022A.ms.model.script' // RvcmEntityForm
  ;
 
 ENDME // ME_52A1FEDC00EC aFormClass
@@ -3064,7 +3088,7 @@ ME ME_52A1FED9027D
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_52A1FEC30321 // BuildVirtualForm
  ;
- MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
  MELIST Parameters
    Seq: ( ME_52A1FEDC00EC // aFormClass
@@ -3078,7 +3102,7 @@ ENDME // ME_52A1FED9027D DoIt
 ME ME_52A1FEC30321
  MEPROP UID '52A1FEC30321'
  MEPROP Name 'BuildVirtualForm'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3148,7 +3172,7 @@ ME ME_52A1FF210214
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_52A1FF0902CE // ObjectByType
  ;
- MELINK Target WL 'ME_4FFC3347011F' '4FFC33380166.ms.model.script' // TvcmBaseCollectionItem
+ MELINK Target WL? 'ME_4FFC3347011F' // TvcmBaseCollectionItem
  ;
  MELIST Parameters
    Seq: ( ME_52A1FF26034C // anObject
@@ -3163,7 +3187,7 @@ ENDME // ME_52A1FF210214 DoIt
 ME ME_52A1FF0902CE
  MEPROP UID '52A1FF0902CE'
  MEPROP Name 'ObjectByType'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3248,7 +3272,7 @@ ENDME // ME_52A1FFB20213 DoIt
 ME ME_52A1FF9A0004
  MEPROP UID '52A1FF9A0004'
  MEPROP Name 'DefineObjectProp'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3295,7 +3319,7 @@ ENDME // ME_52A2005A01AE DoIt
 ME ME_52A2005103CF
  MEPROP UID '52A2005103CF'
  MEPROP Name 'OpDefBySelector'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3356,7 +3380,7 @@ ENDME // ME_52A2007B01C4 DoIt
 ME ME_52A20071016B
  MEPROP UID '52A20071016B'
  MEPROP Name 'BuildAction'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3388,7 +3412,7 @@ ENDME // ME_52A2009302BD DoIt
 ME ME_52A2008D00DA
  MEPROP UID '52A2008D00DA'
  MEPROP Name 'UnlockInProgress'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3433,7 +3457,7 @@ ENDME // ME_52A200AA020E DoIt
 ME ME_52A200A001C8
  MEPROP UID '52A200A001C8'
  MEPROP Name 'AddControlForUnlockPostBuild'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3478,7 +3502,7 @@ ENDME // ME_52A200CB00AE DoIt
 ME ME_52A200C203A4
  MEPROP UID '52A200C203A4'
  MEPROP Name 'ListenerControlDestroying'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3523,7 +3547,7 @@ ENDME // ME_53E9DC8300D2 DoIt
 ME ME_53E9DC69036C
  MEPROP UID '53E9DC69036C'
  MEPROP Name 'SubscribeMenuItemClickListener'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3568,7 +3592,7 @@ ENDME // ME_53E9DCA70240 DoIt
 ME ME_53E9DC960383
  MEPROP UID '53E9DC960383'
  MEPROP Name 'UnsubscribeMenuItemClickListener'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3613,7 +3637,7 @@ ENDME // ME_53E9E9D100A3 DoIt
 ME ME_53E9E9BC021D
  MEPROP UID '53E9E9BC021D'
  MEPROP Name 'NotifyMenuItemClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3658,7 +3682,7 @@ ENDME // ME_53E9EA1A01E3 DoIt
 ME ME_53E9E9EC013B
  MEPROP UID '53E9E9EC013B'
  MEPROP Name 'NotifyMenuItemClickListeners'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -3672,48 +3696,60 @@ ME ME_53E9E9EC013B
 
 ENDME // ME_53E9E9EC013B NotifyMenuItemClickListeners
 
-ME ME_4BB9C06901AE_ME_4AD5DBBD0147
+MEREF ME_4BB9C06901AE_ME_4AD5DBBD0147_impl
  MELINK Original WL 'ME_4BB9C06901AE' '4677FBA70343.ms.model.script' // Define
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4BB9C06901AE_ME_4AD5DBBD0147 Define
+ENDMEREF // ME_4BB9C06901AE_ME_4AD5DBBD0147_impl Define
 
-ME ME_479731C50290_ME_4AD5DBBD0147
+MEREF ME_479731C50290_ME_4AD5DBBD0147_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4AD5DBBD0147 Cleanup
+ENDMEREF // ME_479731C50290_ME_4AD5DBBD0147_over Cleanup
 
-ME ME_47D1602000C6_ME_4AD5DBBD0147
+MEREF ME_47D1602000C6_ME_4AD5DBBD0147_over
  MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47D1602000C6_ME_4AD5DBBD0147 Create
+ENDMEREF // ME_47D1602000C6_ME_4AD5DBBD0147_over Create
 
-ME ME_484516C00214_ME_4AD5DBBD0147
+MEREF ME_484516C00214_ME_4AD5DBBD0147_over
  MELINK Original WL 'ME_484516C00214' '478CF30500C1.ms.model.script' // Loaded
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_484516C00214_ME_4AD5DBBD0147 Loaded
+ENDMEREF // ME_484516C00214_ME_4AD5DBBD0147_over Loaded
 
-ME ME_4F884378016A_ME_4AD5DBBD0147
+MEREF ME_4F884378016A_ME_4AD5DBBD0147_over
  MELINK Original WL 'ME_4F884378016A' '478CF30500C1.ms.model.script' // Notification
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4F884378016A_ME_4AD5DBBD0147 Notification
+ENDMEREF // ME_4F884378016A_ME_4AD5DBBD0147_over Notification
 
-ME ME_4FD092040227_ME_4AD5DBBD0147
+MEREF ME_4FD092040227_ME_4AD5DBBD0147_over
  MELINK Original WL 'ME_4FD092040227' '478CF30500C1.ms.model.script' // WriteState
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4FD092040227_ME_4AD5DBBD0147 WriteState
+ENDMEREF // ME_4FD092040227_ME_4AD5DBBD0147_over WriteState
 
-ME ME_52A1ED12039D_ME_4AD5DBBD0147
- MELINK Original WL 'ME_52A1ED12039D' '4AB34028023E.ms.model.script' // GetEntitiesCollectionClass
+MEREF ME_52A1ED12039D_ME_4AD5DBBD0147_over
+ MELINK Original WL 'ME_52A1ED12039D' '52A1EA2A0184.ms.model.script' // GetEntitiesCollectionClass
  ;
  MEPROP OpKind opkind_Overridden
  UP "is static" True
-ENDME // ME_52A1ED12039D_ME_4AD5DBBD0147 GetEntitiesCollectionClass
+ENDMEREF // ME_52A1ED12039D_ME_4AD5DBBD0147_over GetEntitiesCollectionClass
+
+MEREF ME_52A1EA2A0184_ME_4AD5DBBD0147_G
+ MELINK Original WL? 'ME_52A1EA2A0184' // TvcmBaseEntities
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52A1EA2A0184_ME_4AD5DBBD0147_G TvcmBaseEntities
+
+MEREF ME_476964360112_ME_4AD5DBBD0147_R
+ MELINK Original WL 'ME_476964360112' '467BAB7F021E.ms.model.script' // IvcmResources
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_476964360112_ME_4AD5DBBD0147_R IvcmResources
 
 %%ImplementedBy ME_476964360112 ME_4AD5DBBD0147
 
@@ -3730,11 +3766,11 @@ ME ME_4AD5DBBD0147
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_52A1EA2A0184' '4AB34028023E.ms.model.script' // TvcmBaseEntities
+   Seq: ( HWL ME_52A1EA2A0184_ME_4AD5DBBD0147_G // TvcmBaseEntities
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_476964360112' '467BAB7F021E.ms.model.script' // IvcmResources
+   Seq: ( HWL ME_476964360112_ME_4AD5DBBD0147_R // IvcmResources
  )
  ; // Implements
  MELIST Attributes
@@ -3803,16 +3839,16 @@ ME ME_4AD5DBBD0147
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4BB9C06901AE_ME_4AD5DBBD0147 // Define
+   Seq: ( ME_4BB9C06901AE_ME_4AD5DBBD0147_impl // Define
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4AD5DBBD0147 // Cleanup
- ME_47D1602000C6_ME_4AD5DBBD0147 // Create
- ME_484516C00214_ME_4AD5DBBD0147 // Loaded
- ME_4F884378016A_ME_4AD5DBBD0147 // Notification
- ME_4FD092040227_ME_4AD5DBBD0147 // WriteState
- ME_52A1ED12039D_ME_4AD5DBBD0147 // GetEntitiesCollectionClass
+   Seq: ( ME_479731C50290_ME_4AD5DBBD0147_over // Cleanup
+ ME_47D1602000C6_ME_4AD5DBBD0147_over // Create
+ ME_484516C00214_ME_4AD5DBBD0147_over // Loaded
+ ME_4F884378016A_ME_4AD5DBBD0147_over // Notification
+ ME_4FD092040227_ME_4AD5DBBD0147_over // WriteState
+ ME_52A1ED12039D_ME_4AD5DBBD0147_over // GetEntitiesCollectionClass
  )
  ; // Overridden
  MELIST Children
@@ -3821,8 +3857,8 @@ ME ME_4AD5DBBD0147
  )
  ; // Children
  MELIST Injected
-   Seq: ( WL 'ME_4E201EF90191' '4E200FED0213.ms.model.script' // TkwEntityOperation
- WL 'ME_54E7496D03D7' '4E200FED0213.ms.model.script' // TkwOperationsRegistrar
+   Seq: ( WL 'ME_4E201EF90191' '4DDBBDB00019.ms.model.script' // TkwEntityOperation
+ WL 'ME_54E7496D03D7' '52A73D1701B9.ms.model.script' // TkwOperationsRegistrar
  )
  ; // Injected
  MESTRINGLIST DiagramsNames
@@ -3861,7 +3897,7 @@ ME ME_5513EE61005F
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_55002183037A // TvcmPopupMenuHelper
  ;
- MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
 ENDME // ME_5513EE61005F f_PopupForm
@@ -3899,7 +3935,7 @@ ENDME // ME_51ED01A9022B DoIt
 ME ME_51ED0195036B
  MEPROP UID '51ED0195036B'
  MEPROP Name 'CheckPopup'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -3919,7 +3955,7 @@ ME ME_5503048C004D
  MELINK Stereotype st_implements::Dependency ;
  MELINK Parent HWL ME_55002183037A // TvcmPopupMenuHelper
  ;
- MELINK Target WL 'ME_550013770000' '55001317029B.ms.model.script' // Tl3PopupMenuHelper
+ MELINK Target WL? 'ME_550013770000' // Tl3PopupMenuHelper
  ;
 
 ENDME // ME_5503048C004D 
@@ -3939,10 +3975,16 @@ ME ME_551429D10176
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55002183037A // TvcmPopupMenuHelper
  ;
- MELINK Target WL 'ME_51D128930090' '4AB34028023E.ms.model.script' // TvcmEntitiesDefIteratorForContextMenu
+ MELINK Target WL? 'ME_51D128930090' // TvcmEntitiesDefIteratorForContextMenu
  ;
 
 ENDME // ME_551429D10176 
+
+MEREF ME_49E7754802A9_ME_55002183037A_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_55002183037A_G Tl3ProtoObject
 
 %%InheritedBy ME_49E7754802A9 ME_55002183037A
 
@@ -3957,7 +3999,7 @@ ME ME_55002183037A
  MELINK Parent HWL ME_52A1F4A201F9 // TvcmBaseMenuManager
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_55002183037A_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Attributes
@@ -4014,7 +4056,7 @@ ME ME_52A841CC0172
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_52A841C500C5 // FillPopupMenu
  ;
- MELINK Target WL 'ME_4C8E3AC40306' '52A1ACC102FE.ms.model.script' // TvcmPopupMenuPrim
+ MELINK Target WL? 'ME_4C8E3AC40306' // TvcmPopupMenuPrim
  ;
  MELIST Parameters
    Seq: ( ME_52A841CE01BE // aPopupPoint
@@ -4027,7 +4069,7 @@ ENDME // ME_52A841CC0172 DoIt
 ME ME_52A841C500C5
  MEPROP UID '52A841C500C5'
  MEPROP Name 'FillPopupMenu'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -4040,6 +4082,12 @@ ME ME_52A841C500C5
  ; // Operations
 
 ENDME // ME_52A841C500C5 FillPopupMenu
+
+MEREF ME_4AD5DBBD0147_ME_52A1F4A201F9_G
+ MELINK Original HWL ME_4AD5DBBD0147 // TvcmBaseMenuManagerPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AD5DBBD0147_ME_52A1F4A201F9_G TvcmBaseMenuManagerPrim
 
 %%InheritedBy ME_4AD5DBBD0147 ME_52A1F4A201F9
 
@@ -4054,7 +4102,7 @@ ME ME_52A1F4A201F9
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4AD5DBBD0147 // TvcmBaseMenuManagerPrim
+   Seq: ( HWL ME_4AD5DBBD0147_ME_52A1F4A201F9_G // TvcmBaseMenuManagerPrim
  )
  ; // Inherits
  MELIST Operations
@@ -4265,7 +4313,7 @@ ENDME // ME_52A1F951004B DoIt
 ME ME_52A1F94201E8
  MEPROP UID '52A1F94201E8'
  MEPROP Name '__DoInitConstString'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -4282,7 +4330,7 @@ ENDME // ME_52A1F94201E8 __DoInitConstString
 ME ME_52A1F95A0358
  MEPROP UID '52A1F95A0358'
  MEPROP Name 'vcmStartupComplete'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -4296,7 +4344,7 @@ ENDME // ME_52A1F95A0358 vcmStartupComplete
 ME ME_52A2012B01A7
  MEPROP UID '52A2012B01A7'
  MEPROP Name 'ConstStringsToMenuManager'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -4343,7 +4391,7 @@ ME ME_52A730220190
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
- MELINK Target WL 'ME_4BA2214002EE' '4F9BDEEE01BC.ms.model.script' // Tl3ConstStrings
+ MELINK Target WL? 'ME_4BA2214002EE' // Tl3ConstStrings
  ;
 
 ENDME // ME_52A730220190 
@@ -4413,7 +4461,7 @@ ME ME_52A73035025B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
- MELINK Target WL 'ME_52A08E6701A1' '4AB34028023E.ms.model.script' // TvcmModulesCollectionItem
+ MELINK Target WL? 'ME_52A08E6701A1' // TvcmModulesCollectionItem
  ;
 
 ENDME // ME_52A73035025B 
@@ -4433,7 +4481,7 @@ ME ME_52A7303A0278
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
- MELINK Target WL 'ME_4AB3405E0326' '4AB34028023E.ms.model.script' // TvcmRepEntitiesCollection
+ MELINK Target WL? 'ME_4AB3405E0326' // TvcmRepEntitiesCollection
  ;
 
 ENDME // ME_52A7303A0278 
@@ -4443,7 +4491,7 @@ ME ME_52A7303D0032
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
- MELINK Target WL 'ME_4DDBBD1103C3' '4AB34028023E.ms.model.script' // TvcmBaseEntitiesCollectionItem
+ MELINK Target WL? 'ME_4DDBBD1103C3' // TvcmBaseEntitiesCollectionItem
  ;
 
 ENDME // ME_52A7303D0032 
@@ -4453,7 +4501,7 @@ ME ME_52A7303F02FC
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
- MELINK Target WL 'ME_52A72E6B00B1' '4AB34028023E.ms.model.script' // TvcmBaseEntitiesCollection
+ MELINK Target WL? 'ME_52A72E6B00B1' // TvcmBaseEntitiesCollection
  ;
 
 ENDME // ME_52A7303F02FC 
@@ -4473,7 +4521,7 @@ ME ME_52A73045018F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
- MELINK Target WL 'ME_52A72EB701C5' '4AB34028023E.ms.model.script' // TvcmModuleDef
+ MELINK Target WL? 'ME_52A72EB701C5' // TvcmModuleDef
  ;
 
 ENDME // ME_52A73045018F 
@@ -4493,7 +4541,7 @@ ME ME_52A7304A017A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
- MELINK Target WL 'ME_475415C50224' '4754101B004F.ms.model.script' // TOvcController
+ MELINK Target WL? 'ME_475415C50224' // TOvcController
  ;
 
 ENDME // ME_52A7304A017A 
@@ -4513,7 +4561,7 @@ ME ME_52A7304F037F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
- MELINK Target WL 'ME_49525C7A0114' '4AADF9450143.ms.model.script' // TvcmMainForm
+ MELINK Target WL? 'ME_49525C7A0114' // TvcmMainForm
  ;
 
 ENDME // ME_52A7304F037F 
@@ -4523,7 +4571,7 @@ ME ME_52A7305201C5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
- MELINK Target WL 'ME_52A72F6A0171' '4AB34028023E.ms.model.script' // TvcmFormsCollectionItem
+ MELINK Target WL? 'ME_52A72F6A0171' // TvcmFormsCollectionItem
  ;
 
 ENDME // ME_52A7305201C5 
@@ -4553,7 +4601,7 @@ ME ME_52A7305A024B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
- MELINK Target WL 'ME_4F82EFD20255' '47E7617C0275.ms.model.script' // TvcmModuleAction
+ MELINK Target WL? 'ME_4F82EFD20255' // TvcmModuleAction
  ;
 
 ENDME // ME_52A7305A024B 
@@ -4563,7 +4611,7 @@ ME ME_52A7305D022C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
- MELINK Target WL 'ME_4F82EFAB02D4' '47E7617C0275.ms.model.script' // TvcmEntityAction
+ MELINK Target WL? 'ME_4F82EFAB02D4' // TvcmEntityAction
  ;
 
 ENDME // ME_52A7305D022C 
@@ -4573,7 +4621,7 @@ ME ME_52A7458800EF
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
- MELINK Target WL 'ME_52A73A5900E2' '52A73A4401B9.ms.model.script' // TvcmOperationsManager
+ MELINK Target WL? 'ME_52A73A5900E2' // TvcmOperationsManager
  ;
 
 ENDME // ME_52A7458800EF 
@@ -4583,7 +4631,7 @@ ME ME_53E9DE2F004C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
- MELINK Target WL 'ME_53E9DCDF0259' '4AADF9450143.ms.model.script' // TvcmMenuItemClickListenerList
+ MELINK Target WL? 'ME_53E9DCDF0259' // TvcmMenuItemClickListenerList
  ;
 
 ENDME // ME_53E9DE2F004C 
@@ -4633,7 +4681,7 @@ ME ME_5604057501A2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
- MELINK Target WL 'ME_5603F60C018E' '4AB34028023E.ms.model.script' // TvcmOperationsCollectionItem
+ MELINK Target WL? 'ME_5603F60C018E' // TvcmOperationsCollectionItem
  ;
 
 ENDME // ME_5604057501A2 
@@ -4643,7 +4691,7 @@ ME ME_560427F60127
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB24EF502BB // vcmBaseMenuManager
  ;
- MELINK Target WL 'ME_560419D10368' '4AB34028023E.ms.model.script' // TvcmEntitiesCollectionItem
+ MELINK Target WL? 'ME_560419D10368' // TvcmEntitiesCollectionItem
  ;
 
 ENDME // ME_560427F60127 

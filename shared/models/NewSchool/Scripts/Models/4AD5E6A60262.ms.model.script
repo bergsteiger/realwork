@@ -34,7 +34,7 @@ ENDME // ME_5437B85C0172 DoIt
 ME ME_5437B84A0305
  MEPROP UID '5437B84A0305'
  MEPROP Name 'ForceUpdateClassForHistory'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -103,7 +103,7 @@ ME ME_5631D74E0164
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AD5E6A60262 // BaseSearchPresentation
  ;
- MELINK Target WL 'ME_563875050317' '563874EF0183.ms.model.script' // TnsBaseSearchService
+ MELINK Target WL? 'ME_563875050317' // TnsBaseSearchService
  ;
 
 ENDME // ME_5631D74E0164 
@@ -118,29 +118,41 @@ ME ME_5745E589011F
 
 ENDME // ME_5745E589011F 
 
-ME ME_4F22C2D00369_ME_4AD5E6A60262
+MEREF ME_4F22C2D00369_ME_4AD5E6A60262_impl
  MELINK Original WL 'ME_4F22C2D00369' '4A9F98B901A5.ms.model.script' // FormCloseWasRequested
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F22C2D00369_ME_4AD5E6A60262 FormCloseWasRequested
+ENDMEREF // ME_4F22C2D00369_ME_4AD5E6A60262_impl FormCloseWasRequested
 
-ME ME_479731C50290_ME_4AD5E6A60262
+MEREF ME_479731C50290_ME_4AD5E6A60262_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4AD5E6A60262 Cleanup
+ENDMEREF // ME_479731C50290_ME_4AD5E6A60262_over Cleanup
 
-ME ME_49803F5503AA_ME_4AD5E6A60262
- MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+MEREF ME_49803F5503AA_ME_4AD5E6A60262_over
+ MELINK Original WL 'ME_49803F5503AA' '49525B34022A.ms.model.script' // DoInit
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49803F5503AA_ME_4AD5E6A60262 DoInit
+ENDMEREF // ME_49803F5503AA_ME_4AD5E6A60262_over DoInit
 
-ME ME_4A8AE0FA03B2_ME_4AD5E6A60262
- MELINK Original WL 'ME_4A8AE0FA03B2' '4AADF9450143.ms.model.script' // BecomeActive
+MEREF ME_4A8AE0FA03B2_ME_4AD5E6A60262_over
+ MELINK Original WL 'ME_4A8AE0FA03B2' '49525B34022A.ms.model.script' // BecomeActive
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8AE0FA03B2_ME_4AD5E6A60262 BecomeActive
+ENDMEREF // ME_4A8AE0FA03B2_ME_4AD5E6A60262_over BecomeActive
+
+MEREF ME_4A82BCFA02EF_ME_4AD5E6A60262_R
+ MELINK Original WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A82BCFA02EF_ME_4AD5E6A60262_R MvcmEntityForm
+
+MEREF ME_4F22C29301C6_ME_4AD5E6A60262_R
+ MELINK Original WL 'ME_4F22C29301C6' '4A9F98B901A5.ms.model.script' // MnsBaseSearchPresentationState
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F22C29301C6_ME_4AD5E6A60262_R MnsBaseSearchPresentationState
 
 %%ImplementedBy ME_4A82BCFA02EF ME_4AD5E6A60262
 %%ImplementedBy ME_4F22C29301C6 ME_4AD5E6A60262
@@ -158,8 +170,8 @@ ME ME_4AD5E6A60262
  MELINK Parent WL? 'ME_4A7C0BB70162' // Base Forms
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
- WL 'ME_4F22C29301C6' '4A9F98B901A5.ms.model.script' // MnsBaseSearchPresentationState
+   Seq: ( HWL ME_4A82BCFA02EF_ME_4AD5E6A60262_R // MvcmEntityForm
+ HWL ME_4F22C29301C6_ME_4AD5E6A60262_R // MnsBaseSearchPresentationState
  )
  ; // Implements
  MELIST Attributes
@@ -171,13 +183,13 @@ ME ME_4AD5E6A60262
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4F22C2D00369_ME_4AD5E6A60262 // FormCloseWasRequested
+   Seq: ( ME_4F22C2D00369_ME_4AD5E6A60262_impl // FormCloseWasRequested
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4AD5E6A60262 // Cleanup
- ME_49803F5503AA_ME_4AD5E6A60262 // DoInit
- ME_4A8AE0FA03B2_ME_4AD5E6A60262 // BecomeActive
+   Seq: ( ME_479731C50290_ME_4AD5E6A60262_over // Cleanup
+ ME_49803F5503AA_ME_4AD5E6A60262_over // DoInit
+ ME_4A8AE0FA03B2_ME_4AD5E6A60262_over // BecomeActive
  )
  ; // Overridden
  MELIST Dependencies

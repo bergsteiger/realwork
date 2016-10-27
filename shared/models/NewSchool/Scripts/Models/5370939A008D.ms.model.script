@@ -1,0 +1,42 @@
+// MainForm_ClearHistory 5370939A008D ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5370939A008D
+
+ME ME_537093EF023A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5370939A008D // MainForm_ClearHistory
+ ;
+ MELINK Target WL 'ME_4DFB4D5E0084' '4DFB4D3C01B5.ms.model.script' // TMainForm
+ ;
+
+ENDME // ME_537093EF023A 
+
+ME ME_5370939A008D
+ MEPROP UID '5370939A008D'
+ MEPROP Name 'MainForm_ClearHistory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Очищает историю переходов по документам.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F6195640184' // CommonArchiWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_537093EF023A // TMainForm
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwMainFormClearHistory'
+ UP extprop:pas:UnitName 'kwMainFormClearHistory'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MainFormClearHistory'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwMainFormClearHistory.pas'
+
+ENDME // ME_5370939A008D MainForm_ClearHistory

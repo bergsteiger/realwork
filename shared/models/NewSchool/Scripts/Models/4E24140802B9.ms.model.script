@@ -1,0 +1,168 @@
+// TnevNodeView 4E24140802B9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E24140802B9
+
+ME ME_4E242585007C
+ MEPROP UID '4E242585007C'
+ MEPROP Name 'f_Holder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E24140802B9 // TnevNodeView
+ ;
+ MELINK Target WL? 'ME_481866FC03E0' // TnevObjectHolder
+ ;
+
+ENDME // ME_4E242585007C f_Holder
+
+FORWARD ME_4E241455003A
+
+ME ME_565D99410318
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_565D99410318 aNode
+
+ME ME_565D99410340
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4811ED8A030D' '47C5207602D1.ms.model.script' // InevCanvas
+ ;
+
+ENDME // ME_565D99410340 aCanvas
+
+ME ME_4E241455003A
+ MEPROP UID '4E241455003A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E24140802B9 // TnevNodeView
+ ;
+ MELIST Parameters
+   Seq: ( ME_565D99410318 // aNode
+ ME_565D99410340 // aCanvas
+ )
+ ; // Parameters
+
+ENDME // ME_4E241455003A Create
+
+FORWARD ME_4E241480025C
+
+ME ME_565D9947025A
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_565D9947025A aNode
+
+ME ME_565D9947028C
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4811ED8A030D' '47C5207602D1.ms.model.script' // InevCanvas
+ ;
+
+ENDME // ME_565D9947028C aCanvas
+
+ME ME_4E241480025C
+ MEPROP UID '4E241480025C'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E24140802B9 // TnevNodeView
+ ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+ MELIST Parameters
+   Seq: ( ME_565D9947025A // aNode
+ ME_565D9947028C // aCanvas
+ )
+ ; // Parameters
+
+ENDME // ME_4E241480025C Make
+
+ME ME_4E24248B0194
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E24140802B9 // TnevNodeView
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_4E24248B0194 
+
+MEREF ME_479731C50290_ME_4E24140802B9_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4E24140802B9_over Cleanup
+
+MEREF ME_565F0492012D_ME_4E24140802B9_over
+ MELINK Original WL 'ME_565F0492012D' '48120C1C0060.ms.model.script' // GetNeedTotalRecalc
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_565F0492012D_ME_4E24140802B9_over GetNeedTotalRecalc
+
+MEREF ME_48120C1C0060_ME_4E24140802B9_G
+ MELINK Original WL? 'ME_48120C1C0060' // TnevBaseDetachedView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48120C1C0060_ME_4E24140802B9_G TnevBaseDetachedView
+
+%%InheritedBy ME_48120C1C0060 ME_4E24140802B9
+
+ME ME_4E24140802B9
+ MEPROP UID '4E24140802B9'
+ MEPROP Name 'TnevNodeView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E24128E002C' // PaintedNode
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48120C1C0060_ME_4E24140802B9_G // TnevBaseDetachedView
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4E242585007C // f_Holder
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E241455003A // Create
+ HWL ME_4E241480025C // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4E24140802B9_over // Cleanup
+ ME_565F0492012D_ME_4E24140802B9_over // GetNeedTotalRecalc
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E24248B0194 // l3Free
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nevNodeView'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NodeView'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevNodeView.pas'
+
+ENDME // ME_4E24140802B9 TnevNodeView

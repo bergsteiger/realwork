@@ -2,11 +2,17 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-ME ME_47B99D4503A2_ME_47A1B04702C2
+MEREF ME_47B99D4503A2_ME_47A1B04702C2_impl
  MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47B99D4503A2_ME_47A1B04702C2 CompareExistingItems
+ENDMEREF // ME_47B99D4503A2_ME_47A1B04702C2_impl CompareExistingItems
+
+MEREF ME_4B71611400B3_ME_47A1B04702C2_G
+ MELINK Original WL? 'ME_4B71611400B3' // l3AtomicListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B71611400B3_ME_47A1B04702C2_G l3AtomicListPrim
 
 %%InheritedBy ME_4B71611400B3 ME_47A1B04702C2
 
@@ -23,11 +29,11 @@ ME ME_47A1B04702C2
  MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4B71611400B3' // l3AtomicListPrim
+   Seq: ( HWL ME_4B71611400B3_ME_47A1B04702C2_G // l3AtomicListPrim
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_47B99D4503A2_ME_47A1B04702C2 // CompareExistingItems
+   Seq: ( ME_47B99D4503A2_ME_47A1B04702C2_impl // CompareExistingItems
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames

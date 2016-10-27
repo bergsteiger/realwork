@@ -1,0 +1,186 @@
+// Tl3RecListWithPartialFind 47BC6C30022F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47BC6C92017D
+
+FORWARD ME_47BC6C30022F
+
+FORWARD ME_47BC6C92017D
+
+ME ME_47BC6CA301E6
+ MEPROP UID '47BC6CA301E6'
+ MEPROP Name 'rData'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47BC6C92017D // Tl3DataAndSize
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_47BC6CA301E6 rData
+
+ME ME_47BC6CAB03E4
+ MEPROP UID '47BC6CAB03E4'
+ MEPROP Name 'rSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47BC6C92017D // Tl3DataAndSize
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_47BC6CAB03E4 rSize
+
+ME ME_47BC6C92017D
+ MEPROP UID '47BC6C92017D'
+ MEPROP Name 'Tl3DataAndSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47BC6C30022F // Tl3RecListWithPartialFind
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47BC6CA301E6 // rData
+ HWL ME_47BC6CAB03E4 // rSize
+ )
+ ; // Attributes
+
+ENDME // ME_47BC6C92017D Tl3DataAndSize
+
+ME ME_4B880C8E00F6
+ MEPROP UID '4B880C8E00F6'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47BC6C30022F // Tl3RecListWithPartialFind
+ ;
+ MELINK Target HWL ME_47BC6C92017D // Tl3DataAndSize
+ ;
+
+ENDME // ME_4B880C8E00F6 FindDataType
+
+FORWARD ME_47BF0AB902EB
+
+ME ME_47BF0ADC0391
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_47BF0ADC0391 aData
+
+ME ME_47BF0ADC03C9
+ MEPROP Name 'aDataSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_47BF0ADC03C9 aDataSize
+
+ME ME_47BF0ADD0019
+ MEPROP Name 'theIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47BF0ADD0019 theIndex
+
+ME ME_47BF0AB902EB
+ MEPROP UID '47BF0AB902EB'
+ MEPROP Name 'FindPart'
+ MEPROP Class class_Operation
+ %SUMMARY 'поиск по началу записи, размер сравниваемых данных в aDataSize' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47BC6C30022F // Tl3RecListWithPartialFind
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_47BF0ADC0391 // aData
+ ME_47BF0ADC03C9 // aDataSize
+ ME_47BF0ADD0019 // theIndex
+ )
+ ; // Parameters
+
+ENDME // ME_47BF0AB902EB FindPart
+
+MEREF ME_47B9BAFD01F4_ME_47BC6C30022F_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_47BC6C30022F_over CompareItemWithData
+
+MEREF ME_479DF9C5033A_ME_47BC6C30022F_G
+ MELINK Original WL? 'ME_479DF9C5033A' // Tl3ProtoPtrRecListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_479DF9C5033A_ME_47BC6C30022F_G Tl3ProtoPtrRecListPrim
+
+MEREF ME_47B47E230134_ME_47BC6C30022F_R
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_47BC6C30022F_R l3Searcher
+
+%%ImplementedBy ME_47B47E230134 ME_47BC6C30022F
+
+%%InheritedBy ME_479DF9C5033A ME_47BC6C30022F
+
+ME ME_47BC6C30022F
+ MEPROP UID '47BC6C30022F'
+ MEPROP Name 'Tl3RecListWithPartialFind'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B880BC203B6' // RecLists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_479DF9C5033A_ME_47BC6C30022F_G // Tl3ProtoPtrRecListPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B47E230134_ME_47BC6C30022F_R // l3Searcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B880C8E00F6 // FindDataType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47BF0AB902EB // FindPart
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_47BC6C30022F_over // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_47BC6C92017D // Tl3DataAndSize
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP extprop:pas:UnitName 'l3RecListWithPartialFind'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RecListWithPartialFind'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3RecListWithPartialFind.pas'
+
+ENDME // ME_47BC6C30022F Tl3RecListWithPartialFind

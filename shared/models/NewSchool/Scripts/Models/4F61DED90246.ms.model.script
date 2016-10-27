@@ -1,0 +1,181 @@
+// TnpControls 4F61DED90246 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F61DED90246
+
+ME ME_4F61E1200353
+ MEPROP UID '4F61E1200353'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4F61DED90246 // TnpControls
+ ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+
+ENDME // ME_4F61E1200353 ItemType
+
+ME ME_52CECD7C007B
+ MEPROP UID '52CECD7C007B'
+ MEPROP Name 'Navigator'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F61DED90246 // TnpControls
+ ;
+ MELINK Target WL 'ME_52BAD1C40174' '4C8A252E01C2.ms.model.script' // TvtNavigatorPrim
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_52CECD7C007B Navigator
+
+FORWARD ME_4F61EDD001B7
+
+FORWARD ME_4F61EDE103C4
+
+ME ME_4F61EDE50129
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+
+ENDME // ME_4F61EDE50129 aControl
+
+ME ME_4F61EDE103C4
+ MEPROP UID '4F61EDE103C4'
+ MEPROP Name 'DeleteControl'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F61EDD001B7 // DeleteControl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F61EDE50129 // aControl
+ )
+ ; // Parameters
+
+ENDME // ME_4F61EDE103C4 DeleteControl
+
+ME ME_4F61EDD001B7
+ MEPROP UID '4F61EDD001B7'
+ MEPROP Name 'DeleteControl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F61DED90246 // TnpControls
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F61EDE103C4 // DeleteControl
+ )
+ ; // Operations
+
+ENDME // ME_4F61EDD001B7 DeleteControl
+
+FORWARD ME_4F61F57501B6
+
+FORWARD ME_4F61F5850121
+
+ME ME_4F61F5940228
+ MEPROP Name 'aNavigator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52BAD1C40174' '4C8A252E01C2.ms.model.script' // TvtNavigatorPrim
+ ;
+
+ENDME // ME_4F61F5940228 aNavigator
+
+ME ME_4F61F5850121
+ MEPROP UID '4F61F5850121'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F61F57501B6 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F61F5940228 // aNavigator
+ )
+ ; // Parameters
+
+ENDME // ME_4F61F5850121 DoIt
+
+ME ME_4F61F57501B6
+ MEPROP UID '4F61F57501B6'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F61DED90246 // TnpControls
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F61F5850121 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F61F57501B6 Create
+
+MEREF ME_47B57B7800A7_ME_4F61DED90246_G
+ MELINK Original WL? 'ME_47B57B7800A7' // l3ObjectPtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57B7800A7_ME_4F61DED90246_G l3ObjectPtrList
+
+MEREF ME_4A54DD4E036F_ME_4F61DED90246_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4F61DED90246_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57B7800A7 ME_4F61DED90246
+%%InheritedBy ME_4A54DD4E036F ME_4F61DED90246
+
+ME ME_4F61DED90246
+ MEPROP UID '4F61DED90246'
+ MEPROP Name 'TnpControls'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'указывает от какого навигатора на форме был отстыкован компонент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47CD07B900E0' // vtNavigator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57B7800A7_ME_4F61DED90246_G // l3ObjectPtrList
+ HWL ME_4A54DD4E036F_ME_4F61DED90246_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F61E1200353 // ItemType
+ HWL ME_52CECD7C007B // Navigator
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F61EDD001B7 // DeleteControl
+ HWL ME_4F61F57501B6 // Create
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'npControls'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'npControls'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\npControls.pas'
+
+ENDME // ME_4F61DED90246 TnpControls

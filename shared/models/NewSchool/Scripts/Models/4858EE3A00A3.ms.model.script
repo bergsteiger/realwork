@@ -1,0 +1,51 @@
+// TevList 4858EE3A00A3 InterfaceFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_485678B701BD_ME_4858EE3A00A3_G
+ MELINK Original WL? 'ME_485678B701BD' // TevPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485678B701BD_ME_4858EE3A00A3_G TevPara
+
+MEREF ME_4858EE130209_ME_4858EE3A00A3_R
+ MELINK Original WL 'ME_4858EE130209' '48492FC0029D.ms.model.script' // List
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4858EE130209_ME_4858EE3A00A3_R List
+
+%%ImplementedBy ME_4858EE130209 ME_4858EE3A00A3
+
+%%InheritedBy ME_485678B701BD ME_4858EE3A00A3
+
+ME ME_4858EE3A00A3
+ MEPROP UID '4858EE3A00A3'
+ MEPROP Name 'TevList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_InterfaceFactory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фабрика интерфейсов для списка строк' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53D258F1004F' // InterfaceFactories
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_485678B701BD_ME_4858EE3A00A3_G // TevPara
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4858EE130209_ME_4858EE3A00A3_R // List
+ )
+ ; // Implements
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "ifdef" 'Archi'
+ UP "started" '18.06.2008 15:13'
+ UP extprop:pas:TypeName 'TevListInterfaceFactory'
+ UP extprop:pas:UnitName 'evList_InterfaceFactory'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ListInterfaceFactory'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evList_InterfaceFactory.pas'
+
+ENDME // ME_4858EE3A00A3 TevList

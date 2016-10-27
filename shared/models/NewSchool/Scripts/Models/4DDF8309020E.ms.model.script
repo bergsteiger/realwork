@@ -1,0 +1,44 @@
+// K267324701 4DDF8309020E TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4B8545CC03D2_ME_4DDF8309020E_impl
+ MELINK Original WL 'ME_4B8545CC03D2' '4B85456C0154.ms.model.script' // IsNSRCPlus
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B8545CC03D2_ME_4DDF8309020E_impl IsNSRCPlus
+
+MEREF ME_4B85456C0154_ME_4DDF8309020E_G
+ MELINK Original WL? 'ME_4B85456C0154' // TEVDtoNSRCWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B85456C0154_ME_4DDF8309020E_G TEVDtoNSRCWriterTest
+
+%%InheritedBy ME_4B85456C0154 ME_4DDF8309020E
+
+ME ME_4DDF8309020E
+ MEPROP UID '4DDF8309020E'
+ MEPROP Name 'K267324701'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$267324701]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D70933701D4' // NSRC 7.7
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B85456C0154_ME_4DDF8309020E_G // TEVDtoNSRCWriterTest
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4B8545CC03D2_ME_4DDF8309020E_impl // IsNSRCPlus
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName 'TK267324701'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K267324701'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K267324701.pas'
+
+ENDME // ME_4DDF8309020E K267324701

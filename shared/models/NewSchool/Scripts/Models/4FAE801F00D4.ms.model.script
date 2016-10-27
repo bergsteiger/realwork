@@ -1,0 +1,116 @@
+// Tl3CustomControlCanvas 4FAE801F00D4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4FAE597F00BE
+
+FORWARD ME_4FAE801F00D4
+
+MEREF ME_47E1388A03A7_ME_4FAE597F00BE_G
+ MELINK Original WL 'ME_47E1388A03A7' '47E11FC3021E.ms.model.script' // TCustomControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E1388A03A7_ME_4FAE597F00BE_G TCustomControl
+
+%%InheritedBy ME_47E1388A03A7 ME_4FAE597F00BE
+
+ME ME_4FAE597F00BE
+ MEPROP UID '4FAE597F00BE'
+ MEPROP Name 'THackControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FAE801F00D4 // Tl3CustomControlCanvas
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47E1388A03A7_ME_4FAE597F00BE_G // TCustomControl
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HackControl'
+
+ENDME // ME_4FAE597F00BE THackControl
+
+FORWARD ME_4FAE803503C7
+
+ME ME_4FAE804F00A3
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E1388A03A7' '47E11FC3021E.ms.model.script' // TCustomControl
+ ;
+
+ENDME // ME_4FAE804F00A3 aControl
+
+ME ME_4FAE804F00CB
+ MEPROP Name 'aCaret'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4728CC880316' '4677FBA70343.ms.model.script' // Il3Caret
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_4728CC880316' '4677FBA70343.ms.model.script' // Il3Caret
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4FAE804F00CB aCaret
+
+ME ME_4FAE803503C7
+ MEPROP UID '4FAE803503C7'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FAE801F00D4 // Tl3CustomControlCanvas
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FAE804F00A3 // aControl
+ ME_4FAE804F00CB // aCaret
+ )
+ ; // Parameters
+
+ENDME // ME_4FAE803503C7 Create
+
+MEREF ME_48C68AA40296_ME_4FAE801F00D4_G
+ MELINK Original WL? 'ME_48C68AA40296' // Tl3WinControlCanvas
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48C68AA40296_ME_4FAE801F00D4_G Tl3WinControlCanvas
+
+%%InheritedBy ME_48C68AA40296 ME_4FAE801F00D4
+
+ME ME_4FAE801F00D4
+ MEPROP UID '4FAE801F00D4'
+ MEPROP Name 'Tl3CustomControlCanvas'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_473C3BEE0334' // l3Canvas
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48C68AA40296_ME_4FAE801F00D4_G // Tl3WinControlCanvas
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4FAE803503C7 // Create
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4FAE597F00BE // THackControl
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'l3CustomControlCanvas'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ControlCanvas'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3CustomControlCanvas.pas'
+
+ENDME // ME_4FAE801F00D4 Tl3CustomControlCanvas

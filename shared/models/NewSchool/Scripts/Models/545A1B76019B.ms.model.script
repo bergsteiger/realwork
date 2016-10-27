@@ -1,0 +1,177 @@
+// Tm3NormalFormsManager 545A1B76019B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_545A1B76019B
+
+ME ME_545A2FD502A9
+ MEPROP UID '545A2FD502A9'
+ MEPROP Name 'f_CanFreeBlocks'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545A1B76019B // Tm3NormalFormsManager
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_545A2FD502A9 f_CanFreeBlocks
+
+FORWARD ME_545A1BD80041
+
+ME ME_545A1BE20084
+ MEPROP UID '545A1BE20084'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545A1BD80041 // Create
+ ;
+
+ENDME // ME_545A1BE20084 DoIt
+
+ME ME_545A1BD80041
+ MEPROP UID '545A1BD80041'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545A1B76019B // Tm3NormalFormsManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_545A1BE20084 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_545A1BD80041 Create
+
+ME ME_545A301E038D
+ MEPROP UID '545A301E038D'
+ MEPROP Name 'LockFree'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545A1B76019B // Tm3NormalFormsManager
+ ;
+
+ENDME // ME_545A301E038D LockFree
+
+ME ME_545A302902B2
+ MEPROP UID '545A302902B2'
+ MEPROP Name 'UnlockFree'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545A1B76019B // Tm3NormalFormsManager
+ ;
+
+ENDME // ME_545A302902B2 UnlockFree
+
+FORWARD ME_545A476801BA
+
+ME ME_545A477301B8
+ MEPROP UID '545A477301B8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545A476801BA // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_545A477301B8 DoIt
+
+ME ME_545A476801BA
+ MEPROP UID '545A476801BA'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545A1B76019B // Tm3NormalFormsManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_545A477301B8 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_545A476801BA Exists
+
+ME ME_545A1BC8019D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545A1B76019B // Tm3NormalFormsManager
+ ;
+ MELINK Target WL? 'ME_5453ADED01B4' // l3SimpleMM
+ ;
+
+ENDME // ME_545A1BC8019D 
+
+MEREF ME_545A2F6800D6_ME_545A1B76019B_over
+ MELINK Original WL 'ME_545A2F6800D6' '5453AE0C0100.ms.model.script' // CanFreeBlocks
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_545A2F6800D6_ME_545A1B76019B_over CanFreeBlocks
+
+MEREF ME_545A25F5016C_ME_545A1B76019B_G
+ MELINK Original WL? 'ME_545A25F5016C' // Tl3SizedPoolManager
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_545A25F5016C_ME_545A1B76019B_G Tl3SizedPoolManager
+
+%%InheritedBy ME_545A25F5016C ME_545A1B76019B
+
+ME ME_545A1B76019B
+ MEPROP UID '545A1B76019B'
+ MEPROP Name 'Tm3NormalFormsManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_545A25F5016C_ME_545A1B76019B_G // Tl3SizedPoolManager
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_545A2FD502A9 // f_CanFreeBlocks
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_545A1BD80041 // Create
+ HWL ME_545A301E038D // LockFree
+ HWL ME_545A302902B2 // UnlockFree
+ HWL ME_545A476801BA // Exists
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_545A2F6800D6_ME_545A1B76019B_over // CanFreeBlocks
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_545A1BC8019D // l3SimpleMM
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:pas:UnitName 'm3NormalFormsManager'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3NormalFormsManager'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3NormalFormsManager.pas'
+
+ENDME // ME_545A1B76019B Tm3NormalFormsManager

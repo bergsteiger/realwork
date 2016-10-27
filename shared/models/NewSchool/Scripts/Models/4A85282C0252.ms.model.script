@@ -18,94 +18,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_54F9C84101D5
 %%Inner ME_4AA0EAA5019F
 
-FORWARD ME_4A85282C0252
-
-FORWARD ME_5582D69A0367
-
-ME ME_5582D7310205
- MEPROP UID '5582D7310205'
- MEPROP Name 'ItemType'
- MEPROP Class class_Attribute
- MELINK Stereotype st_impurity_value::Attribute ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_abstract
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_5582D69A0367 // TnsNodeBaseList
- ;
- MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
- ;
-
-ENDME // ME_5582D7310205 ItemType
-
-%%ImplementedBy ME_47B57D830369 ME_5582D69A0367
-
-%%InheritedBy ME_4A54DD4E036F ME_5582D69A0367
-
-ME ME_5582D69A0367
- MEPROP UID '5582D69A0367'
- MEPROP Name 'TnsNodeBaseList'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4A85282C0252 // LiteSearch
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( WL? 'ME_47B57D830369' // l3InterfaceRefList
- )
- ; // Implements
- MELIST Attributes
-   Seq: ( HWL ME_5582D7310205 // ItemType
- )
- ; // Attributes
- UP extprop:pas:UnitName 'nsNodeBaseList'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'NodeBaseList'
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\nsNodeBaseList.pas'
-
-ENDME // ME_5582D69A0367 TnsNodeBaseList
-
-ME ME_5261119901B2
- MEPROP UID '5261119901B2'
- MEPROP Name 'TnsSelectedTreeStruct'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4A85282C0252 // LiteSearch
- ;
- UP "finished" False
- UP extprop:pas:UnitName 'nsSelectedTreeStruct'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'SelectedTreeStruct'
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\NOT_FINISHED_nsSelectedTreeStruct.pas'
-
-ENDME // ME_5261119901B2 TnsSelectedTreeStruct
-
-ME ME_54F9C84101D5
- MEPROP UID '54F9C84101D5'
- MEPROP Name 'TnsQueryExecuteProgressIndicator'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4A85282C0252 // LiteSearch
- ;
- UP "finished" False
- UP extprop:pas:UnitName 'nsQueryExecuteProgressIndicator'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'QueryExecuteProgressIndicator'
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\NOT_FINISHED_nsQueryExecuteProgressIndicator.pas'
-
-ENDME // ME_54F9C84101D5 TnsQueryExecuteProgressIndicator
-
 ME ME_4A85282C0252
  MEPROP UID '4A85282C0252'
  MEPROP Name 'LiteSearch'
@@ -119,7 +31,7 @@ ME ME_4A85282C0252
  MELIST Children
    Seq: ( WL? 'ME_4974652502DA' // TreeAttribute
  WL? 'ME_497ECC0E0325' // PrimTreeAttributeSelect
- HWL ME_5582D69A0367 // TnsNodeBaseList
+ WL? 'ME_5582D69A0367' // TnsNodeBaseList
  WL? 'ME_497EFC6002FC' // PrimAttributeSelect
  WL? 'ME_4C443A570168' // PrimTreeAttributeSelectOptions
  WL? 'ME_497EC3B20359' // PrimSelectedAttributes
@@ -129,8 +41,8 @@ ME ME_4A85282C0252
  WL? 'ME_4C87B3A50387' // PrimSelectedAttributesOptions
  WL? 'ME_4AA0EA76017F' // LiteSearch
  WL? 'ME_54F835DA0012' // tasSaveLoadProxy
- HWL ME_5261119901B2 // TnsSelectedTreeStruct
- HWL ME_54F9C84101D5 // TnsQueryExecuteProgressIndicator
+ WL? 'ME_5261119901B2' // TnsSelectedTreeStruct
+ WL? 'ME_54F9C84101D5' // TnsQueryExecuteProgressIndicator
  WL? 'ME_4AA0EAA5019F' // LiteSearch$FP
  )
  ; // Children

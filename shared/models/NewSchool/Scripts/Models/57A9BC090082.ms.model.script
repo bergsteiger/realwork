@@ -1,0 +1,70 @@
+// TmsmRunner 57A9BC090082 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57A9BC090082
+
+ME ME_57A9BCA20257
+ MEPROP UID '57A9BCA20257'
+ MEPROP Name 'Run'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A9BC090082 // TmsmRunner
+ ;
+ UP "is static" True
+
+ENDME // ME_57A9BCA20257 Run
+
+ME ME_57A9BC7D01F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57A9BC090082 // TmsmRunner
+ ;
+ MELINK Target WL? 'ME_47E13C6B0341' // Forms
+ ;
+
+ENDME // ME_57A9BC7D01F2 
+
+ME ME_57A9C17802F5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57A9BC090082 // TmsmRunner
+ ;
+ MELINK Target WL? 'ME_57A9C16601B9' // TmsmMainForm
+ ;
+
+ENDME // ME_57A9C17802F5 
+
+ME ME_57A9BC090082
+ MEPROP UID '57A9BC090082'
+ MEPROP Name 'TmsmRunner'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57A9BB9101F5' // msm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57A9BCA20257 // Run
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57A9BC7D01F2 // Forms
+ ME_57A9C17802F5 // TmsmMainForm
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" True
+ UP extprop:pas:UnitName 'msmRunner'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmRunner'
+ UP intf.pas:Path 'common\components\msm\msmRunner.pas'
+
+ENDME // ME_57A9BC090082 TmsmRunner

@@ -1,0 +1,113 @@
+// TevTabStopsFilter 4E5E1032016E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E5E1032016E
+
+ME ME_4E5E2ED90020
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E5E1032016E // TevTabStopsFilter
+ ;
+ MELINK Target WL 'ME_484FD50602E9' '484A470100DD.ms.model.script' // TabStop
+ ;
+
+ENDME // ME_4E5E2ED90020 
+
+ME ME_4E5E36B5013E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E5E1032016E // TevTabStopsFilter
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_4E5E36B5013E 
+
+MEREF ME_4836D52400D9_ME_4E5E1032016E_over
+ MELINK Original WL 'ME_4836D52400D9' '47ECAA270135.ms.model.script' // AddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D52400D9_ME_4E5E1032016E_over AddAtomEx
+
+MEREF ME_4A2D1217037A_ME_4E5E1032016E_over
+ MELINK Original WL 'ME_4A2D1217037A' '49E487A70144.ms.model.script' // DoStartChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A2D1217037A_ME_4E5E1032016E_over DoStartChild
+
+MEREF ME_4C56D54B002A_ME_4E5E1032016E_over
+ MELINK Original WL 'ME_4C56D54B002A' '49E496880120.ms.model.script' // NeedStartBuffering
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C56D54B002A_ME_4E5E1032016E_over NeedStartBuffering
+
+MEREF ME_4CF7BC520161_ME_4E5E1032016E_over
+ MELINK Original WL 'ME_4CF7BC520161' '49E496880120.ms.model.script' // NeedFlushBuffer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CF7BC520161_ME_4E5E1032016E_over NeedFlushBuffer
+
+MEREF ME_4E45166B0156_ME_4E5E1032016E_over
+ MELINK Original WL 'ME_4E45166B0156' '49E487A70144.ms.model.script' // DoCloseStructure
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E45166B0156_ME_4E5E1032016E_over DoCloseStructure
+
+MEREF ME_49E4965202A1_ME_4E5E1032016E_G
+ MELINK Original WL 'ME_49E4965202A1' '49E496880120.ms.model.script' // TevdBufferedFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E4965202A1_ME_4E5E1032016E_G TevdBufferedFilter
+
+MEREF ME_4E5E029D03AD_ME_4E5E1032016E_R
+ MELINK Original WL? 'ME_4E5E029D03AD' // DigitalSeparatorSupport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E5E029D03AD_ME_4E5E1032016E_R DigitalSeparatorSupport
+
+%%ImplementedBy ME_4E5E029D03AD ME_4E5E1032016E
+
+%%InheritedBy ME_49E4965202A1 ME_4E5E1032016E
+
+ME ME_4E5E1032016E
+ MEPROP UID '4E5E1032016E'
+ MEPROP Name 'TevTabStopsFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E4965202A1_ME_4E5E1032016E_G // TevdBufferedFilter
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4E5E029D03AD_ME_4E5E1032016E_R // DigitalSeparatorSupport
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4836D52400D9_ME_4E5E1032016E_over // AddAtomEx
+ ME_4A2D1217037A_ME_4E5E1032016E_over // DoStartChild
+ ME_4C56D54B002A_ME_4E5E1032016E_over // NeedStartBuffering
+ ME_4CF7BC520161_ME_4E5E1032016E_over // NeedFlushBuffer
+ ME_4E45166B0156_ME_4E5E1032016E_over // DoCloseStructure
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E5E2ED90020 // TabStop
+ ME_4E5E36B5013E // TextPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evTabStopsFilter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TabStopsFilter'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evTabStopsFilter.pas'
+
+ENDME // ME_4E5E1032016E TevTabStopsFilter

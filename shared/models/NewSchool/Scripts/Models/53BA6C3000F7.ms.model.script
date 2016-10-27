@@ -1,0 +1,45 @@
+// TddCaseCodeTaskPrim 53BA6C3000F7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_5303551501D6_ME_53BA6C3000F7_G
+ MELINK Original WL 'ME_5303551501D6' '530355040385.ms.model.script' // TcsExport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5303551501D6_ME_53BA6C3000F7_G TcsExport
+
+MEREF ME_53BA6BF50280_ME_53BA6C3000F7_R
+ MELINK Original WL 'ME_53BA6BF50280' '484A470100DD.ms.model.script' // CaseCodeTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53BA6BF50280_ME_53BA6C3000F7_R CaseCodeTask
+
+%%ImplementedBy ME_53BA6BF50280 ME_53BA6C3000F7
+
+%%InheritedBy ME_5303551501D6 ME_53BA6C3000F7
+
+ME ME_53BA6C3000F7
+ MEPROP UID '53BA6C3000F7'
+ MEPROP Name 'TddCaseCodeTaskPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5303551501D6_ME_53BA6C3000F7_G // TcsExport
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53BA6BF50280_ME_53BA6C3000F7_R // CaseCodeTask
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'ddCaseCodeTaskPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddCaseCodeTaskPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ddCaseCodeTaskPrim.pas'
+
+ENDME // ME_53BA6C3000F7 TddCaseCodeTaskPrim

@@ -1,0 +1,74 @@
+// TevdStartAndTimeEliminator 5358C3EA01ED SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5358C3EA01ED
+
+ME ME_5358C7C802A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5358C3EA01ED // TevdStartAndTimeEliminator
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_5358C7C802A9 
+
+ME ME_5358C7F20198
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5358C3EA01ED // TevdStartAndTimeEliminator
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_5358C7F20198 
+
+MEREF ME_4A2D1634025B_ME_5358C3EA01ED_over
+ MELINK Original WL 'ME_4A2D1634025B' '49E487A70144.ms.model.script' // DoAddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A2D1634025B_ME_5358C3EA01ED_over DoAddAtomEx
+
+MEREF ME_49E487A70144_ME_5358C3EA01ED_G
+ MELINK Original WL? 'ME_49E487A70144' // Tk2TagFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487A70144_ME_5358C3EA01ED_G Tk2TagFilter
+
+%%InheritedBy ME_49E487A70144 ME_5358C3EA01ED
+
+ME ME_5358C3EA01ED
+ MEPROP UID '5358C3EA01ED'
+ MEPROP Name 'TevdStartAndTimeEliminator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обнуляет Start и Time у документа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E487A70144_ME_5358C3EA01ED_G // Tk2TagFilter
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4A2D1634025B_ME_5358C3EA01ED_over // DoAddAtomEx
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5358C7C802A9 // Document
+ ME_5358C7F20198 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evdStartAndTimeEliminator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dStartAndTimeEliminator'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evdStartAndTimeEliminator.pas'
+
+ENDME // ME_5358C3EA01ED TevdStartAndTimeEliminator

@@ -1,0 +1,118 @@
+// TnsPrimNode 4ADDF4020322 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ADDF4020322
+
+ME ME_4ADEDD170125
+ MEPROP UID '4ADEDD170125'
+ MEPROP Name 'f_NumInParent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADDF4020322 // TnsPrimNode
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4ADEDD170125 f_NumInParent
+
+FORWARD ME_4AE030AF029D
+
+FORWARD ME_4AE030B703CB
+
+ME ME_4AE030BC0015
+ MEPROP Name 'aNumInParent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4AE030BC0015 aNumInParent
+
+ME ME_4AE030B703CB
+ MEPROP UID '4AE030B703CB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE030AF029D // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AE030BC0015 // aNumInParent
+ )
+ ; // Parameters
+
+ENDME // ME_4AE030B703CB DoIt
+
+ME ME_4AE030AF029D
+ MEPROP UID '4AE030AF029D'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADDF4020322 // TnsPrimNode
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AE030B703CB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4AE030AF029D Create
+
+MEREF ME_54C8E1F30128_ME_4ADDF4020322_over
+ MELINK Original WL 'ME_54C8E1F30128' '54C61BFC0342.ms.model.script' // DoGetNumInParent
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_54C8E1F30128_ME_4ADDF4020322_over DoGetNumInParent
+
+MEREF ME_4ADDF343009C_ME_4ADDF4020322_G
+ MELINK Original WL? 'ME_4ADDF343009C' // TeeVirtualNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4ADDF343009C_ME_4ADDF4020322_G TeeVirtualNode
+
+%%InheritedBy ME_4ADDF343009C ME_4ADDF4020322
+
+ME ME_4ADDF4020322
+ MEPROP UID '4ADDF4020322'
+ MEPROP Name 'TnsPrimNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4908A8A20107' // OldTree
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4ADDF343009C_ME_4ADDF4020322_G // TeeVirtualNode
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4ADEDD170125 // f_NumInParent
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AE030AF029D // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_54C8E1F30128_ME_4ADDF4020322_over // DoGetNumInParent
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '21.10.2009 14:19'
+ UP extprop:pas:UnitName 'nsPrimNode'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimNode'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsPrimNode.pas'
+
+ENDME // ME_4ADDF4020322 TnsPrimNode

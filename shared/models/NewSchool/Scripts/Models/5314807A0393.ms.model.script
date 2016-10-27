@@ -1,0 +1,72 @@
+// Tl3FontManagerPrim 5314807A0393 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5314807A0393
+
+ME ME_53149339029A
+ MEPROP UID '53149339029A'
+ MEPROP Name 'StringType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5314807A0393 // Tl3FontManagerPrim
+ ;
+ MELINK Target WL? 'ME_484CE8FF0292' // Tl3LogFont
+ ;
+
+ENDME // ME_53149339029A StringType
+
+MEREF ME_5304D6C5002B_ME_5314807A0393_impl
+ MELINK Original WL 'ME_5304D6C5002B' '4B891136016F.ms.model.script' // ItemToWStr
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5304D6C5002B_ME_5314807A0393_impl ItemToWStr
+
+MEREF ME_53147FD702AC_ME_5314807A0393_G
+ MELINK Original WL? 'ME_53147FD702AC' // Tl3FontManagerPrimPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53147FD702AC_ME_5314807A0393_G Tl3FontManagerPrimPrim
+
+MEREF ME_53148D6A00AE_ME_5314807A0393_G
+ MELINK Original WL? 'ME_53148D6A00AE' // l3DictionaryPrimPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53148D6A00AE_ME_5314807A0393_G l3DictionaryPrimPrim
+
+%%InheritedBy ME_53147FD702AC ME_5314807A0393
+%%InheritedBy ME_53148D6A00AE ME_5314807A0393
+
+ME ME_5314807A0393
+ MEPROP UID '5314807A0393'
+ MEPROP Name 'Tl3FontManagerPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_473C3BEE0334' // l3Canvas
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53147FD702AC_ME_5314807A0393_G // Tl3FontManagerPrimPrim
+ HWL ME_53148D6A00AE_ME_5314807A0393_G // l3DictionaryPrimPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53149339029A // StringType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_5304D6C5002B_ME_5314807A0393_impl // ItemToWStr
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'l3FontManagerPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FontManagerPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3FontManagerPrim.pas'
+
+ENDME // ME_5314807A0393 Tl3FontManagerPrim

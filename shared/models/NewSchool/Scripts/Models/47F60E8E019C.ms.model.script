@@ -9,6 +9,12 @@ FORWARD ME_47F60E8E019C
 
 FORWARD ME_4ADDF46000A4
 
+MEREF ME_4ADDF46000A4_ME_4ADDF4870333_G
+ MELINK Original HWL ME_4ADDF46000A4 // TnsCacheableNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4ADDF46000A4_ME_4ADDF4870333_G TnsCacheableNode
+
 %%InheritedBy ME_4ADDF46000A4 ME_4ADDF4870333
 
 ME ME_4ADDF4870333
@@ -22,7 +28,7 @@ ME ME_4ADDF4870333
  MELINK Parent HWL ME_4ADDF46000A4 // TnsCacheableNode
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4ADDF46000A4 // TnsCacheableNode
+   Seq: ( HWL ME_4ADDF46000A4_ME_4ADDF4870333_G // TnsCacheableNode
  )
  ; // Inherits
  UP "isClassRef" True
@@ -40,19 +46,25 @@ ME ME_4ADEF86001BE
 
 ENDME // ME_4ADEF86001BE 
 
-ME ME_5481A1DD0225_ME_4ADDF46000A4
+MEREF ME_5481A1DD0225_ME_4ADDF46000A4_impl
  MELINK Original WL 'ME_5481A1DD0225' '4912DD020283.ms.model.script' // IsFirst
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" False
-ENDME // ME_5481A1DD0225_ME_4ADDF46000A4 IsFirst
+ENDMEREF // ME_5481A1DD0225_ME_4ADDF46000A4_impl IsFirst
 
-ME ME_5481A1EA00F3_ME_4ADDF46000A4
+MEREF ME_5481A1EA00F3_ME_4ADDF46000A4_impl
  MELINK Original WL 'ME_5481A1EA00F3' '4912DD020283.ms.model.script' // IsLast
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" False
-ENDME // ME_5481A1EA00F3_ME_4ADDF46000A4 IsLast
+ENDMEREF // ME_5481A1EA00F3_ME_4ADDF46000A4_impl IsLast
+
+MEREF ME_4ADDF4470087_ME_4ADDF46000A4_G
+ MELINK Original WL? 'ME_4ADDF4470087' // TnsBaseNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4ADDF4470087_ME_4ADDF46000A4_G TnsBaseNode
 
 %%InheritedBy ME_4ADDF4470087 ME_4ADDF46000A4
 
@@ -67,12 +79,12 @@ ME ME_4ADDF46000A4
  MELINK Parent HWL ME_47F60E8E019C // nsNodes
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4ADDF4470087' '4908A8A20107.ms.model.script' // TnsBaseNode
+   Seq: ( HWL ME_4ADDF4470087_ME_4ADDF46000A4_G // TnsBaseNode
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_5481A1DD0225_ME_4ADDF46000A4 // IsFirst
- ME_5481A1EA00F3_ME_4ADDF46000A4 // IsLast
+   Seq: ( ME_5481A1DD0225_ME_4ADDF46000A4_impl // IsFirst
+ ME_5481A1EA00F3_ME_4ADDF46000A4_impl // IsLast
  )
  ; // Implemented
  MELIST Children
@@ -91,6 +103,12 @@ ME ME_4ADDF46000A4
 
 ENDME // ME_4ADDF46000A4 TnsCacheableNode
 
+MEREF ME_4AC230590004_ME_4ADDF51A00B8_G
+ MELINK Original WL? 'ME_4AC230590004' // TnsWrapperNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AC230590004_ME_4ADDF51A00B8_G TnsWrapperNode
+
 %%InheritedBy ME_4AC230590004 ME_4ADDF51A00B8
 
 ME ME_4ADDF51A00B8
@@ -104,7 +122,7 @@ ME ME_4ADDF51A00B8
  MELINK Parent HWL ME_47F60E8E019C // nsNodes
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4AC230590004' '4908A8A20107.ms.model.script' // TnsWrapperNode
+   Seq: ( HWL ME_4AC230590004_ME_4ADDF51A00B8_G // TnsWrapperNode
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -115,7 +133,7 @@ ENDME // ME_4ADDF51A00B8 TnsRootNode
 ME ME_4ABB8B1B031D
  MEPROP UID '4ABB8B1B031D'
  MEPROP Name 'nsMakeTreeLevel'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -129,7 +147,7 @@ ENDME // ME_4ABB8B1B031D nsMakeTreeLevel
 ME ME_4ADDF529018F
  MEPROP UID '4ADDF529018F'
  MEPROP Name 'nsGetCaption'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -143,7 +161,7 @@ ENDME // ME_4ADDF529018F nsGetCaption
 ME ME_4ADDF53403CA
  MEPROP UID '4ADDF53403CA'
  MEPROP Name 'nsGetHint'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess

@@ -1,0 +1,62 @@
+// UnicodeFormulasToUnicodeConverterTest 561E7EAF0288 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_561E7EAF0288
+
+ME ME_561E7EEA02AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_561E7EAF0288 // UnicodeFormulasToUnicodeConverterTest
+ ;
+ MELINK Target WL? 'ME_561E7E4B0034' // TevUnicodeFormulasToUnicodeConverter
+ ;
+
+ENDME // ME_561E7EEA02AD 
+
+MEREF ME_4C07BCBE01F2_ME_561E7EAF0288_over
+ MELINK Original WL 'ME_4C07BCBE01F2' '4BACDDB500CE.ms.model.script' // SetFilters
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C07BCBE01F2_ME_561E7EAF0288_over SetFilters
+
+MEREF ME_4C07B5E300F2_ME_561E7EAF0288_G
+ MELINK Original WL? 'ME_4C07B5E300F2' // EVDtoEVDWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C07B5E300F2_ME_561E7EAF0288_G EVDtoEVDWriterTest
+
+%%InheritedBy ME_4C07B5E300F2 ME_561E7EAF0288
+
+ME ME_561E7EAF0288
+ MEPROP UID '561E7EAF0288'
+ MEPROP Name 'UnicodeFormulasToUnicodeConverterTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C07B59F0382' // EVD
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C07B5E300F2_ME_561E7EAF0288_G // EVDtoEVDWriterTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C07BCBE01F2_ME_561E7EAF0288_over // SetFilters
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_561E7EEA02AD // TevUnicodeFormulasToUnicodeConverter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TUnicodeFormulasToUnicodeConverterTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'UnicodeFormulasToUnicodeConverterTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\UnicodeFormulasToUnicodeConverterTest.pas'
+
+ENDME // ME_561E7EAF0288 UnicodeFormulasToUnicodeConverterTest

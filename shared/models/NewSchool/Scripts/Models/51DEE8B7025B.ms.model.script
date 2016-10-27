@@ -1,0 +1,54 @@
+// TInt64List 51DEE8B7025B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51DEE8B7025B
+
+ME ME_51DEE8C70178
+ MEPROP UID '51DEE8C70178'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51DEE8B7025B // TInt64List
+ ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_51DEE8C70178 ItemType
+
+MEREF ME_51E809FD01DF_ME_51DEE8B7025B_G
+ MELINK Original WL? 'ME_51E809FD01DF' // StandardAtomicList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51E809FD01DF_ME_51DEE8B7025B_G StandardAtomicList
+
+%%InheritedBy ME_51E809FD01DF ME_51DEE8B7025B
+
+ME ME_51DEE8B7025B
+ MEPROP UID '51DEE8B7025B'
+ MEPROP Name 'TInt64List'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_51DEB22001AC' // FinalContainers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_51E809FD01DF_ME_51DEE8B7025B_G // StandardAtomicList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51DEE8C70178 // ItemType
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'Int64List'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Int64List'
+ UP intf.pas:Path 'common\components\SandBox\Int64List.pas'
+
+ENDME // ME_51DEE8B7025B TInt64List

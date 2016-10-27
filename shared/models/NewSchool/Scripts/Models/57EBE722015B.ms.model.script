@@ -4,41 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_57EBE76D0357
 
-FORWARD ME_57EBE722015B
-
-ME ME_479731C50290_ME_57EBE76D0357
- MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_57EBE76D0357 Cleanup
-
-%%InheritedBy ME_49E7754802A9 ME_57EBE76D0357
-
-ME ME_57EBE76D0357
- MEPROP UID '57EBE76D0357'
- MEPROP Name 'Tl3FakeProtoObject'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57EBE722015B // Core
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- )
- ; // Inherits
- MELIST Overridden
-   Seq: ( ME_479731C50290_ME_57EBE76D0357 // Cleanup
- )
- ; // Overridden
- UP extprop:pas:UnitName 'l3FakeProtoObject'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'FakeProtoObject'
- UP intf.pas:Path 'common\components\rtl\Garant\L3\l3FakeProtoObject.pas'
-
-ENDME // ME_57EBE76D0357 Tl3FakeProtoObject
-
 ME ME_57EBE722015B
  MEPROP UID '57EBE722015B'
  MEPROP Name 'Core'
@@ -50,7 +15,7 @@ ME ME_57EBE722015B
  MELINK Parent WL? 'ME_57EBE1BA0304' // L3$New
  ;
  MELIST Children
-   Seq: ( HWL ME_57EBE76D0357 // Tl3FakeProtoObject
+   Seq: ( WL? 'ME_57EBE76D0357' // Tl3FakeProtoObject
  )
  ; // Children
  MELIST Depends

@@ -1,0 +1,69 @@
+// TmsmViewOfModelElementList 57E3BE8101FE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57E3BE8101FE
+
+ME ME_57E3BECB002C
+ MEPROP UID '57E3BECB002C'
+ MEPROP Name 'List'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57E3BE8101FE // TmsmViewOfModelElementList
+ ;
+ MELINK Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_57E3BECB002C List
+
+MEREF ME_479731C50290_ME_57E3BE8101FE_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57E3BE8101FE_over Cleanup
+
+MEREF ME_57E3BD5101AF_ME_57E3BE8101FE_G
+ MELINK Original WL? 'ME_57E3BD5101AF' // TmsmViewOfModelElement
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57E3BD5101AF_ME_57E3BE8101FE_G TmsmViewOfModelElement
+
+%%InheritedBy ME_57E3BD5101AF ME_57E3BE8101FE
+
+ME ME_57E3BE8101FE
+ MEPROP UID '57E3BE8101FE'
+ MEPROP Name 'TmsmViewOfModelElementList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57A9D5CD0111' // ModelLoading
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57E3BD5101AF_ME_57E3BE8101FE_G // TmsmViewOfModelElement
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57E3BECB002C // List
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57E3BE8101FE_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmViewOfModelElementList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmViewOfModelElementList'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmViewOfModelElementList.pas'
+
+ENDME // ME_57E3BE8101FE TmsmViewOfModelElementList

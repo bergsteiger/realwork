@@ -1,0 +1,74 @@
+// pop_editor_InsertFormula 502A2F3203D2 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_502A2F3203D2
+
+ME ME_502A364900ED
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502A2F3203D2 // pop_editor_InsertFormula
+ ;
+ MELINK Target WL 'ME_4F57575F0146' '4F5755FB0362.ms.model.script' // evInsertFormula
+ ;
+
+ENDME // ME_502A364900ED 
+
+ME ME_502A3C8A0197
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502A2F3203D2 // pop_editor_InsertFormula
+ ;
+ MELINK Target WL? 'ME_4829D89703D2' // TevCustomEditor
+ ;
+
+ENDME // ME_502A3C8A0197 
+
+MEREF ME_4F4CB81200CA_ME_502A2F3203D2_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_502A2F3203D2_impl DoWithEditor
+
+MEREF ME_4F4CB625027A_ME_502A2F3203D2_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_502A2F3203D2_G TkwEditorFromStackWord
+
+%%InheritedBy ME_4F4CB625027A ME_502A2F3203D2
+
+ME ME_502A2F3203D2
+ MEPROP UID '502A2F3203D2'
+ MEPROP Name 'pop_editor_InsertFormula'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F5DA07B02CD' // EditorKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A_ME_502A2F3203D2_G // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_502A2F3203D2_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_502A364900ED // evInsertFormula
+ ME_502A3C8A0197 // TevCustomEditor
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwPopEditorInsertFormula'
+ UP extprop:pas:UnitName 'kwPopEditorInsertFormula'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PopEditorInsertFormula'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorInsertFormula.pas'
+
+ENDME // ME_502A2F3203D2 pop_editor_InsertFormula

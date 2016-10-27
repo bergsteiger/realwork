@@ -35,33 +35,45 @@ ME ME_4B193D0E0381
 
 ENDME // ME_4B193D0E0381 
 
-ME ME_4939245D0171_ME_47F085A9004C
+MEREF ME_4939245D0171_ME_47F085A9004C_impl
  MELINK Original WL 'ME_4939245D0171' '4D1B85BF03E4.ms.model.script' // ResetBooleans
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4939245D0171_ME_47F085A9004C ResetBooleans
+ENDMEREF // ME_4939245D0171_ME_47F085A9004C_impl ResetBooleans
 
-ME ME_958F281A6FD6_ME_47F085A9004C
+MEREF ME_958F281A6FD6_ME_47F085A9004C_impl
  MELINK Original WL 'ME_958F281A6FD6' '4D1B85BF03E4.ms.model.script' // dsAttributesRef
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs field" True
  UP "pm" True
-ENDME // ME_958F281A6FD6_ME_47F085A9004C dsAttributesRef
+ENDMEREF // ME_958F281A6FD6_ME_47F085A9004C_impl dsAttributesRef
 
-ME ME_E1561B99CC62_ME_47F085A9004C
+MEREF ME_E1561B99CC62_ME_47F085A9004C_impl
  MELINK Original WL 'ME_E1561B99CC62' '4D1B85BF03E4.ms.model.script' // HasAttributes
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs field" True
  UP "pm" True
-ENDME // ME_E1561B99CC62_ME_47F085A9004C HasAttributes
+ENDMEREF // ME_E1561B99CC62_ME_47F085A9004C_impl HasAttributes
 
-ME ME_4B16B8CF0307_ME_47F085A9004C
+MEREF ME_4B16B8CF0307_ME_47F085A9004C_over
  MELINK Original WL 'ME_4B16B8CF0307' '4B16B85D03A1.ms.model.script' // AssignData
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4B16B8CF0307_ME_47F085A9004C AssignData
+ENDMEREF // ME_4B16B8CF0307_ME_47F085A9004C_over AssignData
+
+MEREF ME_47EB3E2202E6_ME_47F085A9004C_G
+ MELINK Original WL? 'ME_47EB3E2202E6' // dBaseDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47EB3E2202E6_ME_47F085A9004C_G dBaseDocument
+
+MEREF ME_47F085420325_ME_47F085A9004C_R
+ MELINK Original WL 'ME_47F085420325' '4D1B85BF03E4.ms.model.script' // IdBaseDocumentWithAttributes
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F085420325_ME_47F085A9004C_R IdBaseDocumentWithAttributes
 
 %%ImplementedBy ME_47F085420325 ME_47F085A9004C
 
@@ -80,11 +92,11 @@ ME ME_47F085A9004C
  MELINK Parent WL? 'ME_47EA50050263' // BaseDocument
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47EB3E2202E6' // dBaseDocument
+   Seq: ( HWL ME_47EB3E2202E6_ME_47F085A9004C_G // dBaseDocument
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_47F085420325' '4D1B85BF03E4.ms.model.script' // IdBaseDocumentWithAttributes
+   Seq: ( HWL ME_47F085420325_ME_47F085A9004C_R // IdBaseDocumentWithAttributes
  )
  ; // Implements
  MELIST Operations
@@ -92,13 +104,13 @@ ME ME_47F085A9004C
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4939245D0171_ME_47F085A9004C // ResetBooleans
- ME_958F281A6FD6_ME_47F085A9004C // dsAttributesRef
- ME_E1561B99CC62_ME_47F085A9004C // HasAttributes
+   Seq: ( ME_4939245D0171_ME_47F085A9004C_impl // ResetBooleans
+ ME_958F281A6FD6_ME_47F085A9004C_impl // dsAttributesRef
+ ME_E1561B99CC62_ME_47F085A9004C_impl // HasAttributes
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_4B16B8CF0307_ME_47F085A9004C // AssignData
+   Seq: ( ME_4B16B8CF0307_ME_47F085A9004C_over // AssignData
  )
  ; // Overridden
  MELIST Dependencies

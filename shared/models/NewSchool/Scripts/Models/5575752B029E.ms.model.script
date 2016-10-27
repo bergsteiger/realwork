@@ -1,0 +1,167 @@
+// TdestShapeRslt 5575752B029E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5575752B029E
+
+FORWARD ME_559CC87403BA
+
+FORWARD ME_559CC881003B
+
+ME ME_559CD13400BC
+ MEPROP Name 'aState'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51D287250128' '51D2871702FA.ms.model.script' // TddRTFState
+ ;
+
+ENDME // ME_559CD13400BC aState
+
+ME ME_559CD13400CC
+ MEPROP Name 'aShape'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_5596481703C3' // TddRTFShape
+ ;
+
+ENDME // ME_559CD13400CC aShape
+
+ME ME_559CC881003B
+ MEPROP UID '559CC881003B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559CC87403BA // Apply2Shape
+ ;
+ MELIST Parameters
+   Seq: ( ME_559CD13400BC // aState
+ ME_559CD13400CC // aShape
+ )
+ ; // Parameters
+
+ENDME // ME_559CC881003B DoIt
+
+ME ME_559CC87403BA
+ MEPROP UID '559CC87403BA'
+ MEPROP Name 'Apply2Shape'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5575752B029E // TdestShapeRslt
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_559CC881003B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_559CC87403BA Apply2Shape
+
+ME ME_5575759C01CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5575752B029E // TdestShapeRslt
+ ;
+ MELINK Target WL? 'ME_51E8DC3E0361' // TddPicture
+ ;
+
+ENDME // ME_5575759C01CE 
+
+ME ME_559CC35D03A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5575752B029E // TdestShapeRslt
+ ;
+ MELINK Target WL? 'ME_5596481703C3' // TddRTFShape
+ ;
+
+ENDME // ME_559CC35D03A6 
+
+MEREF ME_51D27A48038E_ME_5575752B029E_over
+ MELINK Original WL 'ME_51D27A48038E' '5190A37F0134.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51D27A48038E_ME_5575752B029E_over Clear
+
+MEREF ME_51D27C0402E9_ME_5575752B029E_over
+ MELINK Original WL 'ME_51D27C0402E9' '5190A37F0134.ms.model.script' // AddAnsiChar
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51D27C0402E9_ME_5575752B029E_over AddAnsiChar
+
+MEREF ME_51D27C3302EC_ME_5575752B029E_over
+ MELINK Original WL 'ME_51D27C3302EC' '5190A37F0134.ms.model.script' // AddString
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51D27C3302EC_ME_5575752B029E_over AddString
+
+MEREF ME_51D27DFA0308_ME_5575752B029E_over
+ MELINK Original WL 'ME_51D27DFA0308' '5190A37F0134.ms.model.script' // AddUnicodeChar
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51D27DFA0308_ME_5575752B029E_over AddUnicodeChar
+
+MEREF ME_51E8CFEF027A_ME_5575752B029E_over
+ MELINK Original WL 'ME_51E8CFEF027A' '5190A37F0134.ms.model.script' // ParseSymbol
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51E8CFEF027A_ME_5575752B029E_over ParseSymbol
+
+MEREF ME_559516AA0098_ME_5575752B029E_over
+ MELINK Original WL 'ME_559516AA0098' '51D278280093.ms.model.script' // CanAddTable
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_559516AA0098_ME_5575752B029E_over CanAddTable
+
+MEREF ME_51D278280093_ME_5575752B029E_G
+ MELINK Original WL? 'ME_51D278280093' // TdestNorm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51D278280093_ME_5575752B029E_G TdestNorm
+
+%%InheritedBy ME_51D278280093 ME_5575752B029E
+
+ME ME_5575752B029E
+ MEPROP UID '5575752B029E'
+ MEPROP Name 'TdestShapeRslt'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5190A3470397' // RTFSupport
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_51D278280093_ME_5575752B029E_G // TdestNorm
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_559CC87403BA // Apply2Shape
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_51D27A48038E_ME_5575752B029E_over // Clear
+ ME_51D27C0402E9_ME_5575752B029E_over // AddAnsiChar
+ ME_51D27C3302EC_ME_5575752B029E_over // AddString
+ ME_51D27DFA0308_ME_5575752B029E_over // AddUnicodeChar
+ ME_51E8CFEF027A_ME_5575752B029E_over // ParseSymbol
+ ME_559516AA0098_ME_5575752B029E_over // CanAddTable
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5575759C01CE // TddPicture
+ ME_559CC35D03A6 // TddRTFShape
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'destShapeRslt'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'destShapeRslt'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\destShapeRslt.pas'
+
+ENDME // ME_5575752B029E TdestShapeRslt

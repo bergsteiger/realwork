@@ -24,7 +24,7 @@ ENDME // ME_4B4F4A550052 DoIt
 ME ME_4B4F4A4E0355
  MEPROP UID '4B4F4A4E0355'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -37,6 +37,18 @@ ME ME_4B4F4A4E0355
  ; // Operations
 
 ENDME // ME_4B4F4A4E0355 Make
+
+MEREF ME_49E7754802A9_ME_4B4F49FD03DF_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4B4F49FD03DF_G Tl3ProtoObject
+
+MEREF ME_4683CEAD00CF_ME_4B4F49FD03DF_R
+ MELINK Original WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4683CEAD00CF_ME_4B4F49FD03DF_R IvcmBase
 
 %%ImplementedBy ME_4683CEAD00CF ME_4B4F49FD03DF
 
@@ -53,11 +65,11 @@ ME ME_4B4F49FD03DF
  MELINK Parent HWL ME_4958DD7002B6 // PrimMainMenu
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_4B4F49FD03DF_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+   Seq: ( HWL ME_4683CEAD00CF_ME_4B4F49FD03DF_R // IvcmBase
  )
  ; // Implements
  MELIST Operations
@@ -259,7 +271,7 @@ ENDME // ME_4AC9B19700A6
 ME ME_4AC9B1BB022A
  MEPROP UID '4AC9B1BB022A'
  MEPROP Name 'ArrangeGrid'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'установить размеры таблицы' ;
@@ -297,7 +309,7 @@ ENDME // ME_4AC9B390021C DoIt
 ME ME_4AC9B367032D
  MEPROP UID '4AC9B367032D'
  MEPROP Name 'RecalcGrid'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -327,7 +339,7 @@ ENDME // ME_4AC9B6B30390 DoIt
 ME ME_4AC9B6A80163
  MEPROP UID '4AC9B6A80163'
  MEPROP Name 'BuildGrid'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -372,7 +384,7 @@ ENDME // ME_4AC9B7310086 DoIt
 ME ME_4AC9B71F032F
  MEPROP UID '4AC9B71F032F'
  MEPROP Name 'GridSizeChanged'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'изменился размер таблицы, возможно нужно будет изменить размер скроллеров' ;
@@ -405,7 +417,7 @@ ME ME_4AC9CB810054
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AC9CB6100E4 // InitKeyboardNavigation
  ;
- MELINK Target WL 'ME_4AC9CB12015D' '4AC9B14A02E3.ms.model.script' // TnscTabTable
+ MELINK Target WL? 'ME_4AC9CB12015D' // TnscTabTable
  ;
 
 ENDME // ME_4AC9CB810054 
@@ -413,7 +425,7 @@ ENDME // ME_4AC9CB810054
 ME ME_4AC9CB6100E4
  MEPROP UID '4AC9CB6100E4'
  MEPROP Name 'InitKeyboardNavigation'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -557,7 +569,7 @@ ENDME // ME_4AC9E458019F
 ME ME_4AC9E13902F9
  MEPROP UID '4AC9E13902F9'
  MEPROP Name 'ActionElement'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -618,7 +630,7 @@ ENDME // ME_4ACC82E10394 DoIt
 ME ME_4ACC82D6017B
  MEPROP UID '4ACC82D6017B'
  MEPROP Name 'pnlMainResize'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -837,53 +849,77 @@ ME ME_4ACDD79200DA
 
 ENDME // ME_4ACDD79200DA 
 
-ME ME_4A485B710126_ME_4958DD7002B6
+MEREF ME_4A485B710126_ME_4958DD7002B6_impl
  MELINK Original WL 'ME_4A485B710126' '4A485B0D0223.ms.model.script' // DoStyleTableChanged
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A485B710126_ME_4958DD7002B6 DoStyleTableChanged
+ENDMEREF // ME_4A485B710126_ME_4958DD7002B6_impl DoStyleTableChanged
 
-ME ME_4A83AA610299_ME_4958DD7002B6
+MEREF ME_4A83AA610299_ME_4958DD7002B6_impl
  MELINK Original WL 'ME_4A83AA610299' '4D7A05A000C1.ms.model.script' // JournalShrinked
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A83AA610299_ME_4958DD7002B6 JournalShrinked
+ENDMEREF // ME_4A83AA610299_ME_4958DD7002B6_impl JournalShrinked
 
-ME ME_479731C50290_ME_4958DD7002B6
+MEREF ME_479731C50290_ME_4958DD7002B6_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4958DD7002B6 Cleanup
+ENDMEREF // ME_479731C50290_ME_4958DD7002B6_over Cleanup
 
-ME ME_47EA4E9002C6_ME_4958DD7002B6
+MEREF ME_47EA4E9002C6_ME_4958DD7002B6_over
  MELINK Original WL 'ME_47EA4E9002C6' '47EA4BEF0140.ms.model.script' // FinishDataUpdate
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47EA4E9002C6_ME_4958DD7002B6 FinishDataUpdate
+ENDMEREF // ME_47EA4E9002C6_ME_4958DD7002B6_over FinishDataUpdate
 
-ME ME_49803F5503AA_ME_4958DD7002B6
- MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+MEREF ME_49803F5503AA_ME_4958DD7002B6_over
+ MELINK Original WL 'ME_49803F5503AA' '49525B34022A.ms.model.script' // DoInit
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49803F5503AA_ME_4958DD7002B6 DoInit
+ENDMEREF // ME_49803F5503AA_ME_4958DD7002B6_over DoInit
 
-ME ME_49807428008C_ME_4958DD7002B6
- MELINK Original WL 'ME_49807428008C' '4AADF9450143.ms.model.script' // DoLoadState
+MEREF ME_49807428008C_ME_4958DD7002B6_over
+ MELINK Original WL 'ME_49807428008C' '49525B34022A.ms.model.script' // DoLoadState
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49807428008C_ME_4958DD7002B6 DoLoadState
+ENDMEREF // ME_49807428008C_ME_4958DD7002B6_over DoLoadState
 
-ME ME_4A8E8F2E0195_ME_4958DD7002B6
+MEREF ME_4A8E8F2E0195_ME_4958DD7002B6_over
  MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8E8F2E0195_ME_4958DD7002B6 InitControls
+ENDMEREF // ME_4A8E8F2E0195_ME_4958DD7002B6_over InitControls
 
-ME ME_4B4F49900003_ME_4958DD7002B6
- MELINK Original WL 'ME_4B4F49900003' '4AADF9450143.ms.model.script' // SaveOwnFormState
+MEREF ME_4B4F49900003_ME_4958DD7002B6_over
+ MELINK Original WL 'ME_4B4F49900003' '49525B34022A.ms.model.script' // SaveOwnFormState
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4B4F49900003_ME_4958DD7002B6 SaveOwnFormState
+ENDMEREF // ME_4B4F49900003_ME_4958DD7002B6_over SaveOwnFormState
+
+MEREF ME_49525C240170_ME_4958DD7002B6_G
+ MELINK Original WL? 'ME_49525C240170' // TvcmContainerForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525C240170_ME_4958DD7002B6_G TvcmContainerForm
+
+MEREF ME_480DA68701CE_ME_4958DD7002B6_R
+ MELINK Original WL? 'ME_480DA68701CE' // evStyleTableListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_480DA68701CE_ME_4958DD7002B6_R evStyleTableListener
+
+MEREF ME_4958BD880163_ME_4958DD7002B6_R
+ MELINK Original WL? 'ME_4958BD880163' // nsUserSettingsListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4958BD880163_ME_4958DD7002B6_R nsUserSettingsListener
+
+MEREF ME_4A83AA5202C1_ME_4958DD7002B6_R
+ MELINK Original WL 'ME_4A83AA5202C1' '4D7A05A000C1.ms.model.script' // InsWorkJournalListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A83AA5202C1_ME_4958DD7002B6_R InsWorkJournalListener
 
 %%ImplementedBy ME_480DA68701CE ME_4958DD7002B6
 %%ImplementedBy ME_4958BD880163 ME_4958DD7002B6
@@ -904,13 +940,13 @@ ME ME_4958DD7002B6
  MELINK Parent WL? 'ME_4ABD0D6A0255' // MainMenu
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525C240170' '4AADF9450143.ms.model.script' // TvcmContainerForm
+   Seq: ( HWL ME_49525C240170_ME_4958DD7002B6_G // TvcmContainerForm
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_480DA68701CE' // evStyleTableListener
- WL? 'ME_4958BD880163' // nsUserSettingsListener
- WL 'ME_4A83AA5202C1' '4D7A05A000C1.ms.model.script' // InsWorkJournalListener
+   Seq: ( HWL ME_480DA68701CE_ME_4958DD7002B6_R // evStyleTableListener
+ HWL ME_4958BD880163_ME_4958DD7002B6_R // nsUserSettingsListener
+ HWL ME_4A83AA5202C1_ME_4958DD7002B6_R // InsWorkJournalListener
  )
  ; // Implements
  MELIST Attributes
@@ -942,17 +978,17 @@ ME ME_4958DD7002B6
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4A485B710126_ME_4958DD7002B6 // DoStyleTableChanged
- ME_4A83AA610299_ME_4958DD7002B6 // JournalShrinked
+   Seq: ( ME_4A485B710126_ME_4958DD7002B6_impl // DoStyleTableChanged
+ ME_4A83AA610299_ME_4958DD7002B6_impl // JournalShrinked
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4958DD7002B6 // Cleanup
- ME_47EA4E9002C6_ME_4958DD7002B6 // FinishDataUpdate
- ME_49803F5503AA_ME_4958DD7002B6 // DoInit
- ME_49807428008C_ME_4958DD7002B6 // DoLoadState
- ME_4A8E8F2E0195_ME_4958DD7002B6 // InitControls
- ME_4B4F49900003_ME_4958DD7002B6 // SaveOwnFormState
+   Seq: ( ME_479731C50290_ME_4958DD7002B6_over // Cleanup
+ ME_47EA4E9002C6_ME_4958DD7002B6_over // FinishDataUpdate
+ ME_49803F5503AA_ME_4958DD7002B6_over // DoInit
+ ME_49807428008C_ME_4958DD7002B6_over // DoLoadState
+ ME_4A8E8F2E0195_ME_4958DD7002B6_over // InitControls
+ ME_4B4F49900003_ME_4958DD7002B6_over // SaveOwnFormState
  )
  ; // Overridden
  MELIST Children

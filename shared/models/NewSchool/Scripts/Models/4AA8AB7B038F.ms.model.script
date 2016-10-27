@@ -12,8 +12,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_5562E38F0396
 %%Inner ME_5564521702CC
 
-FORWARD ME_52A9ACFF0183
-
 FORWARD ME_4AA8AB7B038F
 
 FORWARD ME_4F8D5553010A
@@ -221,7 +219,7 @@ ENDME // ME_5562DBF8031C DoIt
 ME ME_5562DBEF006B
  MEPROP UID '5562DBEF006B'
  MEPROP Name 'CalendarMouseUp'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -235,12 +233,18 @@ ME ME_5562DBEF006B
 
 ENDME // ME_5562DBEF006B CalendarMouseUp
 
+MEREF ME_47881B22005A_ME_5562DC2B00A8_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5562DC2B00A8_G TNotifyEvent
+
 %%InheritedBy ME_47881B22005A ME_5562DC2B00A8
 
 ME ME_5562DC2B00A8
  MEPROP UID '5562DC2B00A8'
  MEPROP Name 'PrevMonthBtnClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -248,18 +252,24 @@ ME ME_5562DC2B00A8
  MELINK Parent HWL ME_4F8D5553010A // TPopupCalendar
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5562DC2B00A8_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5562DC2B00A8 PrevMonthBtnClick
+
+MEREF ME_5562DC2B00A8_ME_5562DC4401F9_G
+ MELINK Original HWL ME_5562DC2B00A8 // PrevMonthBtnClick
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5562DC2B00A8_ME_5562DC4401F9_G PrevMonthBtnClick
 
 %%InheritedBy ME_5562DC2B00A8 ME_5562DC4401F9
 
 ME ME_5562DC4401F9
  MEPROP UID '5562DC4401F9'
  MEPROP Name 'NextMonthBtnClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -267,18 +277,24 @@ ME ME_5562DC4401F9
  MELINK Parent HWL ME_4F8D5553010A // TPopupCalendar
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5562DC2B00A8 // PrevMonthBtnClick
+   Seq: ( HWL ME_5562DC2B00A8_ME_5562DC4401F9_G // PrevMonthBtnClick
  )
  ; // Inherits
 
 ENDME // ME_5562DC4401F9 NextMonthBtnClick
+
+MEREF ME_5562DC4401F9_ME_5562DC4E02D2_G
+ MELINK Original HWL ME_5562DC4401F9 // NextMonthBtnClick
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5562DC4401F9_ME_5562DC4E02D2_G NextMonthBtnClick
 
 %%InheritedBy ME_5562DC4401F9 ME_5562DC4E02D2
 
 ME ME_5562DC4E02D2
  MEPROP UID '5562DC4E02D2'
  MEPROP Name 'PrevYearBtnClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -286,18 +302,24 @@ ME ME_5562DC4E02D2
  MELINK Parent HWL ME_4F8D5553010A // TPopupCalendar
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5562DC4401F9 // NextMonthBtnClick
+   Seq: ( HWL ME_5562DC4401F9_ME_5562DC4E02D2_G // NextMonthBtnClick
  )
  ; // Inherits
 
 ENDME // ME_5562DC4E02D2 PrevYearBtnClick
+
+MEREF ME_5562DC4E02D2_ME_5562DC56029A_G
+ MELINK Original HWL ME_5562DC4E02D2 // PrevYearBtnClick
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5562DC4E02D2_ME_5562DC56029A_G PrevYearBtnClick
 
 %%InheritedBy ME_5562DC4E02D2 ME_5562DC56029A
 
 ME ME_5562DC56029A
  MEPROP UID '5562DC56029A'
  MEPROP Name 'NextYearBtnClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -305,18 +327,24 @@ ME ME_5562DC56029A
  MELINK Parent HWL ME_4F8D5553010A // TPopupCalendar
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5562DC4E02D2 // PrevYearBtnClick
+   Seq: ( HWL ME_5562DC4E02D2_ME_5562DC56029A_G // PrevYearBtnClick
  )
  ; // Inherits
 
 ENDME // ME_5562DC56029A NextYearBtnClick
+
+MEREF ME_5562DC56029A_ME_5562DC5D03D9_G
+ MELINK Original HWL ME_5562DC56029A // NextYearBtnClick
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5562DC56029A_ME_5562DC5D03D9_G NextYearBtnClick
 
 %%InheritedBy ME_5562DC56029A ME_5562DC5D03D9
 
 ME ME_5562DC5D03D9
  MEPROP UID '5562DC5D03D9'
  MEPROP Name 'CalendarChange'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -324,18 +352,24 @@ ME ME_5562DC5D03D9
  MELINK Parent HWL ME_4F8D5553010A // TPopupCalendar
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5562DC56029A // NextYearBtnClick
+   Seq: ( HWL ME_5562DC56029A_ME_5562DC5D03D9_G // NextYearBtnClick
  )
  ; // Inherits
 
 ENDME // ME_5562DC5D03D9 CalendarChange
+
+MEREF ME_5562DC5D03D9_ME_5562DC65011C_G
+ MELINK Original HWL ME_5562DC5D03D9 // CalendarChange
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5562DC5D03D9_ME_5562DC65011C_G CalendarChange
 
 %%InheritedBy ME_5562DC5D03D9 ME_5562DC65011C
 
 ME ME_5562DC65011C
  MEPROP UID '5562DC65011C'
  MEPROP Name 'TopPanelDblClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -343,18 +377,24 @@ ME ME_5562DC65011C
  MELINK Parent HWL ME_4F8D5553010A // TPopupCalendar
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5562DC5D03D9 // CalendarChange
+   Seq: ( HWL ME_5562DC5D03D9_ME_5562DC65011C_G // CalendarChange
  )
  ; // Inherits
 
 ENDME // ME_5562DC65011C TopPanelDblClick
+
+MEREF ME_5562DC65011C_ME_5562DC710040_G
+ MELINK Original HWL ME_5562DC65011C // TopPanelDblClick
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5562DC65011C_ME_5562DC710040_G TopPanelDblClick
 
 %%InheritedBy ME_5562DC65011C ME_5562DC710040
 
 ME ME_5562DC710040
  MEPROP UID '5562DC710040'
  MEPROP Name 'MonthClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -362,18 +402,24 @@ ME ME_5562DC710040
  MELINK Parent HWL ME_4F8D5553010A // TPopupCalendar
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5562DC65011C // TopPanelDblClick
+   Seq: ( HWL ME_5562DC65011C_ME_5562DC710040_G // TopPanelDblClick
  )
  ; // Inherits
 
 ENDME // ME_5562DC710040 MonthClick
+
+MEREF ME_5562DC710040_ME_5562DC9B004D_G
+ MELINK Original HWL ME_5562DC710040 // MonthClick
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5562DC710040_ME_5562DC9B004D_G MonthClick
 
 %%InheritedBy ME_5562DC710040 ME_5562DC9B004D
 
 ME ME_5562DC9B004D
  MEPROP UID '5562DC9B004D'
  MEPROP Name 'MonthMenuSelect'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -381,18 +427,24 @@ ME ME_5562DC9B004D
  MELINK Parent HWL ME_4F8D5553010A // TPopupCalendar
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5562DC710040 // MonthClick
+   Seq: ( HWL ME_5562DC710040_ME_5562DC9B004D_G // MonthClick
  )
  ; // Inherits
 
 ENDME // ME_5562DC9B004D MonthMenuSelect
+
+MEREF ME_5562DC9B004D_ME_5562DCA501FA_G
+ MELINK Original HWL ME_5562DC9B004D // MonthMenuSelect
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5562DC9B004D_ME_5562DCA501FA_G MonthMenuSelect
 
 %%InheritedBy ME_5562DC9B004D ME_5562DCA501FA
 
 ME ME_5562DCA501FA
  MEPROP UID '5562DCA501FA'
  MEPROP Name 'YearClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -400,18 +452,24 @@ ME ME_5562DCA501FA
  MELINK Parent HWL ME_4F8D5553010A // TPopupCalendar
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5562DC9B004D // MonthMenuSelect
+   Seq: ( HWL ME_5562DC9B004D_ME_5562DCA501FA_G // MonthMenuSelect
  )
  ; // Inherits
 
 ENDME // ME_5562DCA501FA YearClick
+
+MEREF ME_5562DCA501FA_ME_5562DCAD03A9_G
+ MELINK Original HWL ME_5562DCA501FA // YearClick
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5562DCA501FA_ME_5562DCAD03A9_G YearClick
 
 %%InheritedBy ME_5562DCA501FA ME_5562DCAD03A9
 
 ME ME_5562DCAD03A9
  MEPROP UID '5562DCAD03A9'
  MEPROP Name 'YearMenuSelect'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -419,7 +477,7 @@ ME ME_5562DCAD03A9
  MELINK Parent HWL ME_4F8D5553010A // TPopupCalendar
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5562DCA501FA // YearClick
+   Seq: ( HWL ME_5562DCA501FA_ME_5562DCAD03A9_G // YearClick
  )
  ; // Inherits
 
@@ -440,12 +498,18 @@ ME ME_601F182089B3
 
 ENDME // ME_601F182089B3 DoIt
 
+MEREF ME_5562DCAD03A9_ME_5562DCBF022F_G
+ MELINK Original HWL ME_5562DCAD03A9 // YearMenuSelect
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5562DCAD03A9_ME_5562DCBF022F_G YearMenuSelect
+
 %%InheritedBy ME_5562DCAD03A9 ME_5562DCBF022F
 
 ME ME_5562DCBF022F
  MEPROP UID '5562DCBF022F'
  MEPROP Name 'CancelClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -453,7 +517,7 @@ ME ME_5562DCBF022F
  MELINK Parent HWL ME_4F8D5553010A // TPopupCalendar
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5562DCAD03A9 // YearMenuSelect
+   Seq: ( HWL ME_5562DCAD03A9_ME_5562DCBF022F_G // YearMenuSelect
  )
  ; // Inherits
  MELIST Operations
@@ -477,12 +541,18 @@ ME ME_F99FB93AAED0
 
 ENDME // ME_F99FB93AAED0 DoIt
 
+MEREF ME_5562DCBF022F_ME_5562DCCD00E0_G
+ MELINK Original HWL ME_5562DCBF022F // CancelClick
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5562DCBF022F_ME_5562DCCD00E0_G CancelClick
+
 %%InheritedBy ME_5562DCBF022F ME_5562DCCD00E0
 
 ME ME_5562DCCD00E0
  MEPROP UID '5562DCCD00E0'
  MEPROP Name 'ClickToday'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -490,7 +560,7 @@ ME ME_5562DCCD00E0
  MELINK Parent HWL ME_4F8D5553010A // TPopupCalendar
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5562DCBF022F // CancelClick
+   Seq: ( HWL ME_5562DCBF022F_ME_5562DCCD00E0_G // CancelClick
  )
  ; // Inherits
  MELIST Operations
@@ -518,7 +588,7 @@ ENDME // ME_5562DDEA00E1 DoIt
 ME ME_5562DDAF0285
  MEPROP UID '5562DDAF0285'
  MEPROP Name 'CalcTodayPadWidth'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -550,7 +620,7 @@ ENDME // ME_C39C8CDD63B8 DoIt
 ME ME_5562DE3A02DF
  MEPROP UID '5562DE3A02DF'
  MEPROP Name 'MakeTodayPad'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -595,7 +665,7 @@ ENDME // ME_5562DE58027F DoIt
 ME ME_5562DE4D0243
  MEPROP UID '5562DE4D0243'
  MEPROP Name 'AdjustTitleButtonFont'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -650,7 +720,7 @@ ENDME // ME_556497A70285 DoIt
 ME ME_556486A5039E
  MEPROP UID '556486A5039E'
  MEPROP Name 'DoKeyDown'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -664,23 +734,29 @@ ME ME_556486A5039E
 
 ENDME // ME_556486A5039E DoKeyDown
 
-ME ME_47D1602000C6_ME_4F8D5553010A
+MEREF ME_47D1602000C6_ME_4F8D5553010A_over
  MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47D1602000C6_ME_4F8D5553010A Create
+ENDMEREF // ME_47D1602000C6_ME_4F8D5553010A_over Create
 
-ME ME_48C7925A02E5_ME_4F8D5553010A
+MEREF ME_48C7925A02E5_ME_4F8D5553010A_over
  MELINK Original WL 'ME_48C7925A02E5' '47E11FC3021E.ms.model.script' // CreateParams
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48C7925A02E5_ME_4F8D5553010A CreateParams
+ENDMEREF // ME_48C7925A02E5_ME_4F8D5553010A_over CreateParams
 
-ME ME_554CABC100AC_ME_4F8D5553010A
+MEREF ME_554CABC100AC_ME_4F8D5553010A_over
  MELINK Original WL 'ME_554CABC100AC' '47E11FC3021E.ms.model.script' // KeyDown
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_554CABC100AC_ME_4F8D5553010A KeyDown
+ENDMEREF // ME_554CABC100AC_ME_4F8D5553010A_over KeyDown
+
+MEREF ME_4A7961A701CF_ME_4F8D5553010A_G
+ MELINK Original WL? 'ME_4A7961A701CF' // TvtPanel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A7961A701CF_ME_4F8D5553010A_G TvtPanel
 
 %%InheritedBy ME_4A7961A701CF ME_4F8D5553010A
 
@@ -695,7 +771,7 @@ ME ME_4F8D5553010A
  MELINK Parent HWL ME_4AA8AB7B038F // TvtDateEdit
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4A7961A701CF' // TvtPanel
+   Seq: ( HWL ME_4A7961A701CF_ME_4F8D5553010A_G // TvtPanel
  )
  ; // Inherits
  MELIST Attributes
@@ -731,9 +807,9 @@ ME ME_4F8D5553010A
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_47D1602000C6_ME_4F8D5553010A // Create
- ME_48C7925A02E5_ME_4F8D5553010A // CreateParams
- ME_554CABC100AC_ME_4F8D5553010A // KeyDown
+   Seq: ( ME_47D1602000C6_ME_4F8D5553010A_over // Create
+ ME_48C7925A02E5_ME_4F8D5553010A_over // CreateParams
+ ME_554CABC100AC_ME_4F8D5553010A_over // KeyDown
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames
@@ -915,6 +991,8 @@ ME ME_554C8F2B00A9
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_554C8F2B00A9 TYearDigits
+
+FORWARD ME_52A9ACFF0183
 
 ME ME_554C911D0364
  MEPROP UID '554C911D0364'
@@ -1253,7 +1331,7 @@ ENDME // ME_EC66472F354B DoIt
 ME ME_52A9AF0F021B
  MEPROP UID '52A9AF0F021B'
  MEPROP Name 'DoExecute'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -1285,7 +1363,7 @@ ENDME // ME_554C9CEF009F DoIt
 ME ME_554C9CE10330
  MEPROP UID '554C9CE10330'
  MEPROP Name 'FourDigitYear'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1332,7 +1410,7 @@ ENDME // ME_554C9D6F019B DoIt
 ME ME_554C9D670390
  MEPROP UID '554C9D670390'
  MEPROP Name 'FormatSettingsChange'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -1364,7 +1442,7 @@ ENDME // ME_F5B911D8E711 DoIt
 ME ME_554CA29100ED
  MEPROP UID '554CA29100ED'
  MEPROP Name 'TriggerAutoCorrectDate'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'сообщает об автокоррекции' ;
@@ -1397,7 +1475,7 @@ ENDME // ME_554CA3160336 DoIt
 ME ME_554CA2C1020B
  MEPROP UID '554CA2C1020B'
  MEPROP Name 'TriggerOnInvalidDate'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'возникает при неправильно введенной дате при выходе из компонента' ;
@@ -1430,7 +1508,7 @@ ENDME // ME_A139DBB04545 DoIt
 ME ME_554CA3BF011D
  MEPROP UID '554CA3BF011D'
  MEPROP Name 'MakeCalendar'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -1462,7 +1540,7 @@ ENDME // ME_554CA3F70305 DoIt
 ME ME_554CA3ED007F
  MEPROP UID '554CA3ED007F'
  MEPROP Name 'GetDateFormat'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -1507,7 +1585,7 @@ ENDME // ME_554CA427031E DoIt
 ME ME_554CA41F01D7
  MEPROP UID '554CA41F01D7'
  MEPROP Name 'ApplyDate'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -1524,7 +1602,7 @@ ENDME // ME_554CA41F01D7 ApplyDate
 ME ME_554CA47D03A0
  MEPROP UID '554CA47D03A0'
  MEPROP Name 'UpdateFormat'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -1537,7 +1615,7 @@ ENDME // ME_554CA47D03A0 UpdateFormat
 ME ME_554CA5170329
  MEPROP UID '554CA5170329'
  MEPROP Name 'CheckValidDate'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1565,7 +1643,7 @@ ENDME // ME_554CA539004F DoIt
 ME ME_554CA52902A3
  MEPROP UID '554CA52902A3'
  MEPROP Name 'GetDateMask'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1597,7 +1675,7 @@ ENDME // ME_E5E56082E430 DoIt
 ME ME_554CA555014B
  MEPROP UID '554CA555014B'
  MEPROP Name 'UpdateMask'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1614,7 +1692,7 @@ ENDME // ME_554CA555014B UpdateMask
 ME ME_554CA5630382
  MEPROP UID '554CA5630382'
  MEPROP Name 'ClearDate'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1642,7 +1720,7 @@ ENDME // ME_554CA5990198 DoIt
 ME ME_554CA580013A
  MEPROP UID '554CA580013A'
  MEPROP Name 'IsValid'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'введенная дата не является допустимой. '#13#10'Пустой бланк "__.__.____" тоже воспринимается как неверная дата.' ;
@@ -1657,12 +1735,18 @@ ME ME_554CA580013A
 
 ENDME // ME_554CA580013A IsValid
 
+MEREF ME_554CA580013A_ME_554CA652029E_G
+ MELINK Original HWL ME_554CA580013A // IsValid
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_554CA580013A_ME_554CA652029E_G IsValid
+
 %%InheritedBy ME_554CA580013A ME_554CA652029E
 
 ME ME_554CA652029E
  MEPROP UID '554CA652029E'
  MEPROP Name 'IsEmpty'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'False, только когда введена верная дата.'#13#10'Пустой бланк "__.__.____" воспринимается как неверная дата.' ;
@@ -1671,18 +1755,24 @@ ME ME_554CA652029E
  MELINK Parent HWL ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  MELIST Inherits
-   Seq: ( HWL ME_554CA580013A // IsValid
+   Seq: ( HWL ME_554CA580013A_ME_554CA652029E_G // IsValid
  )
  ; // Inherits
 
 ENDME // ME_554CA652029E IsEmpty
+
+MEREF ME_554CA652029E_ME_554CA67F0123_G
+ MELINK Original HWL ME_554CA652029E // IsEmpty
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_554CA652029E_ME_554CA67F0123_G IsEmpty
 
 %%InheritedBy ME_554CA652029E ME_554CA67F0123
 
 ME ME_554CA67F0123
  MEPROP UID '554CA67F0123'
  MEPROP Name 'IsBlank'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'пользователь ничего не ввел в поле редактирования ("__.__.____")' ;
@@ -1691,7 +1781,7 @@ ME ME_554CA67F0123
  MELINK Parent HWL ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  MELIST Inherits
-   Seq: ( HWL ME_554CA652029E // IsEmpty
+   Seq: ( HWL ME_554CA652029E_ME_554CA67F0123_G // IsEmpty
  )
  ; // Inherits
 
@@ -1700,7 +1790,7 @@ ENDME // ME_554CA67F0123 IsBlank
 ME ME_554CA6CB0191
  MEPROP UID '554CA6CB0191'
  MEPROP Name 'AutoResize'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1728,7 +1818,7 @@ ENDME // ME_55630590009B DoIt
 ME ME_556305870087
  MEPROP UID '556305870087'
  MEPROP Name 'TextStored'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -1854,85 +1944,91 @@ ME ME_554CA4E801D4
 
 ENDME // ME_554CA4E801D4 WMPaste
 
-ME ME_554CA8F903AE_ME_52A9ACFF0183
+MEREF ME_554CA8F903AE_ME_52A9ACFF0183_impl
  MELINK Original WL 'ME_554CA8F903AE' '51B5C8CB00A0.ms.model.script' // GetDropDownContainer
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_554CA8F903AE_ME_52A9ACFF0183 GetDropDownContainer
+ENDMEREF // ME_554CA8F903AE_ME_52A9ACFF0183_impl GetDropDownContainer
 
-ME ME_479731C50290_ME_52A9ACFF0183
+MEREF ME_479731C50290_ME_52A9ACFF0183_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_52A9ACFF0183 Cleanup
+ENDMEREF // ME_479731C50290_ME_52A9ACFF0183_over Cleanup
 
-ME ME_47D1602000C6_ME_52A9ACFF0183
+MEREF ME_47D1602000C6_ME_52A9ACFF0183_over
  MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47D1602000C6_ME_52A9ACFF0183 Create
+ENDMEREF // ME_47D1602000C6_ME_52A9ACFF0183_over Create
 
-ME ME_482C4E0E01E4_ME_52A9ACFF0183
+MEREF ME_482C4E0E01E4_ME_52A9ACFF0183_over
  MELINK Original WL 'ME_482C4E0E01E4' '47E11FC3021E.ms.model.script' // KeyPress
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_482C4E0E01E4_ME_52A9ACFF0183 KeyPress
+ENDMEREF // ME_482C4E0E01E4_ME_52A9ACFF0183_over KeyPress
 
-ME ME_48C67EB000EE_ME_52A9ACFF0183
+MEREF ME_48C67EB000EE_ME_52A9ACFF0183_over
  MELINK Original WL 'ME_48C67EB000EE' '47E11FC3021E.ms.model.script' // CreateWindowHandle
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48C67EB000EE_ME_52A9ACFF0183 CreateWindowHandle
+ENDMEREF // ME_48C67EB000EE_ME_52A9ACFF0183_over CreateWindowHandle
 
-ME ME_48C67EDF01C8_ME_52A9ACFF0183
+MEREF ME_48C67EDF01C8_ME_52A9ACFF0183_over
  MELINK Original WL 'ME_48C67EDF01C8' '47E11FC3021E.ms.model.script' // DestroyWindowHandle
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48C67EDF01C8_ME_52A9ACFF0183 DestroyWindowHandle
+ENDMEREF // ME_48C67EDF01C8_ME_52A9ACFF0183_over DestroyWindowHandle
 
-ME ME_52A9A8710199_ME_52A9ACFF0183
+MEREF ME_52A9A8710199_ME_52A9ACFF0183_over
  MELINK Original WL 'ME_52A9A8710199' '47E11FC3021E.ms.model.script' // ActionChange
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_52A9A8710199_ME_52A9ACFF0183 ActionChange
+ENDMEREF // ME_52A9A8710199_ME_52A9ACFF0183_over ActionChange
 
-ME ME_554CA18500FB_ME_52A9ACFF0183
+MEREF ME_554CA18500FB_ME_52A9ACFF0183_over
  MELINK Original WL 'ME_554CA18500FB' '51B5C8CB00A0.ms.model.script' // ProcessCommand
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_554CA18500FB_ME_52A9ACFF0183 ProcessCommand
+ENDMEREF // ME_554CA18500FB_ME_52A9ACFF0183_over ProcessCommand
 
-ME ME_554CAA8400E5_ME_52A9ACFF0183
+MEREF ME_554CAA8400E5_ME_52A9ACFF0183_over
  MELINK Original WL 'ME_554CAA8400E5' '48C78D5402A6.ms.model.script' // Change
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_554CAA8400E5_ME_52A9ACFF0183 Change
+ENDMEREF // ME_554CAA8400E5_ME_52A9ACFF0183_over Change
 
-ME ME_554CABC100AC_ME_52A9ACFF0183
+MEREF ME_554CABC100AC_ME_52A9ACFF0183_over
  MELINK Original WL 'ME_554CABC100AC' '47E11FC3021E.ms.model.script' // KeyDown
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_554CABC100AC_ME_52A9ACFF0183 KeyDown
+ENDMEREF // ME_554CABC100AC_ME_52A9ACFF0183_over KeyDown
 
-ME ME_554CBB4B0240_ME_52A9ACFF0183
+MEREF ME_554CBB4B0240_ME_52A9ACFF0183_over
  MELINK Original WL 'ME_554CBB4B0240' '52A9ADB60286.ms.model.script' // TextFromClipboard
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifdef" 'l3HackedVCL'
  UP "ifndef" 'DesignTimeLibrary'
-ENDME // ME_554CBB4B0240_ME_52A9ACFF0183 TextFromClipboard
+ENDMEREF // ME_554CBB4B0240_ME_52A9ACFF0183_over TextFromClipboard
 
-ME ME_554CBC32006E_ME_52A9ACFF0183
+MEREF ME_554CBC32006E_ME_52A9ACFF0183_over
  MELINK Original WL 'ME_554CBC32006E' '51B5C8CB00A0.ms.model.script' // DropDown
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_554CBC32006E_ME_52A9ACFF0183 DropDown
+ENDMEREF // ME_554CBC32006E_ME_52A9ACFF0183_over DropDown
 
-ME ME_554CBC4500ED_ME_52A9ACFF0183
+MEREF ME_554CBC4500ED_ME_52A9ACFF0183_over
  MELINK Original WL 'ME_554CBC4500ED' '51B5C8CB00A0.ms.model.script' // CloseUp
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_554CBC4500ED_ME_52A9ACFF0183 CloseUp
+ENDMEREF // ME_554CBC4500ED_ME_52A9ACFF0183_over CloseUp
+
+MEREF ME_52A9AD500267_ME_52A9ACFF0183_G
+ MELINK Original WL 'ME_52A9AD500267' '51B5C8CB00A0.ms.model.script' // TvtCustomCombo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52A9AD500267_ME_52A9ACFF0183_G TvtCustomCombo
 
 %%InheritedBy ME_52A9AD500267 ME_52A9ACFF0183
 
@@ -1947,7 +2043,7 @@ ME ME_52A9ACFF0183
  MELINK Parent HWL ME_4AA8AB7B038F // TvtDateEdit
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_52A9AD500267' '51B5C8CB00A0.ms.model.script' // TvtCustomCombo
+   Seq: ( HWL ME_52A9AD500267_ME_52A9ACFF0183_G // TvtCustomCombo
  )
  ; // Inherits
  MELIST Attributes
@@ -1997,22 +2093,22 @@ ME ME_52A9ACFF0183
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_554CA8F903AE_ME_52A9ACFF0183 // GetDropDownContainer
+   Seq: ( ME_554CA8F903AE_ME_52A9ACFF0183_impl // GetDropDownContainer
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_52A9ACFF0183 // Cleanup
- ME_47D1602000C6_ME_52A9ACFF0183 // Create
- ME_482C4E0E01E4_ME_52A9ACFF0183 // KeyPress
- ME_48C67EB000EE_ME_52A9ACFF0183 // CreateWindowHandle
- ME_48C67EDF01C8_ME_52A9ACFF0183 // DestroyWindowHandle
- ME_52A9A8710199_ME_52A9ACFF0183 // ActionChange
- ME_554CA18500FB_ME_52A9ACFF0183 // ProcessCommand
- ME_554CAA8400E5_ME_52A9ACFF0183 // Change
- ME_554CABC100AC_ME_52A9ACFF0183 // KeyDown
- ME_554CBB4B0240_ME_52A9ACFF0183 // TextFromClipboard
- ME_554CBC32006E_ME_52A9ACFF0183 // DropDown
- ME_554CBC4500ED_ME_52A9ACFF0183 // CloseUp
+   Seq: ( ME_479731C50290_ME_52A9ACFF0183_over // Cleanup
+ ME_47D1602000C6_ME_52A9ACFF0183_over // Create
+ ME_482C4E0E01E4_ME_52A9ACFF0183_over // KeyPress
+ ME_48C67EB000EE_ME_52A9ACFF0183_over // CreateWindowHandle
+ ME_48C67EDF01C8_ME_52A9ACFF0183_over // DestroyWindowHandle
+ ME_52A9A8710199_ME_52A9ACFF0183_over // ActionChange
+ ME_554CA18500FB_ME_52A9ACFF0183_over // ProcessCommand
+ ME_554CAA8400E5_ME_52A9ACFF0183_over // Change
+ ME_554CABC100AC_ME_52A9ACFF0183_over // KeyDown
+ ME_554CBB4B0240_ME_52A9ACFF0183_over // TextFromClipboard
+ ME_554CBC32006E_ME_52A9ACFF0183_over // DropDown
+ ME_554CBC4500ED_ME_52A9ACFF0183_over // CloseUp
  )
  ; // Overridden
  MELIST Children
@@ -2074,25 +2170,31 @@ ME ME_554CC0D002D0
 
 ENDME // ME_554CC0D002D0 DateText
 
-ME ME_47A042E100E2_ME_554CBF5C01D8
+MEREF ME_47A042E100E2_ME_554CBF5C01D8_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifndef" 'DesignTimeLibrary'
-ENDME // ME_47A042E100E2_ME_554CBF5C01D8 InitFields
+ENDMEREF // ME_47A042E100E2_ME_554CBF5C01D8_over InitFields
 
-ME ME_47E136A80191_ME_554CBF5C01D8
+MEREF ME_47E136A80191_ME_554CBF5C01D8_over
  MELINK Original WL 'ME_47E136A80191' '47E11FC3021E.ms.model.script' // WndProc
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47E136A80191_ME_554CBF5C01D8 WndProc
+ENDMEREF // ME_47E136A80191_ME_554CBF5C01D8_over WndProc
 
-ME ME_49F057120234_ME_554CBF5C01D8
+MEREF ME_49F057120234_ME_554CBF5C01D8_over
  MELINK Original WL 'ME_49F057120234' '4807744200AA.ms.model.script' // AfterConstruction
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifdef" 'DesignTimeLibrary'
-ENDME // ME_49F057120234_ME_554CBF5C01D8 AfterConstruction
+ENDMEREF // ME_49F057120234_ME_554CBF5C01D8_over AfterConstruction
+
+MEREF ME_4F0C239A01E1_ME_554CBF5C01D8_G
+ MELINK Original WL 'ME_4F0C239A01E1' '4F0C23870303.ms.model.script' // TvtForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F0C239A01E1_ME_554CBF5C01D8_G TvtForm
 
 %%InheritedBy ME_4F0C239A01E1 ME_554CBF5C01D8
 
@@ -2107,7 +2209,7 @@ ME ME_554CBF5C01D8
  MELINK Parent HWL ME_4AA8AB7B038F // TvtDateEdit
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F0C239A01E1' '4F0C23870303.ms.model.script' // TvtForm
+   Seq: ( HWL ME_4F0C239A01E1_ME_554CBF5C01D8_G // TvtForm
  )
  ; // Inherits
  MELIST Attributes
@@ -2117,9 +2219,9 @@ ME ME_554CBF5C01D8
  )
  ; // Attributes
  MELIST Overridden
-   Seq: ( ME_47A042E100E2_ME_554CBF5C01D8 // InitFields
- ME_47E136A80191_ME_554CBF5C01D8 // WndProc
- ME_49F057120234_ME_554CBF5C01D8 // AfterConstruction
+   Seq: ( ME_47A042E100E2_ME_554CBF5C01D8_over // InitFields
+ ME_47E136A80191_ME_554CBF5C01D8_over // WndProc
+ ME_49F057120234_ME_554CBF5C01D8_over // AfterConstruction
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames
@@ -2163,12 +2265,18 @@ ME ME_65FAF40E11A9
 
 ENDME // ME_65FAF40E11A9 DoIt
 
+MEREF ME_47881B22005A_ME_5562DEB2009F_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5562DEB2009F_G TNotifyEvent
+
 %%InheritedBy ME_47881B22005A ME_5562DEB2009F
 
 ME ME_5562DEB2009F
  MEPROP UID '5562DEB2009F'
  MEPROP Name 'OkClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -2176,7 +2284,7 @@ ME ME_5562DEB2009F
  MELINK Parent HWL ME_5562DE9702A4 // TDblClickPopupCalendar
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_5562DEB2009F_G // TNotifyEvent
  )
  ; // Inherits
  MELIST Operations
@@ -2186,29 +2294,35 @@ ME ME_5562DEB2009F
 
 ENDME // ME_5562DEB2009F OkClick
 
-ME ME_5562DBEF006B_ME_5562DE9702A4
+MEREF ME_5562DBEF006B_ME_5562DE9702A4_over
  MELINK Original HWL ME_5562DBEF006B // CalendarMouseUp
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_5562DBEF006B_ME_5562DE9702A4 CalendarMouseUp
+ENDMEREF // ME_5562DBEF006B_ME_5562DE9702A4_over CalendarMouseUp
 
-ME ME_5562DDAF0285_ME_5562DE9702A4
+MEREF ME_5562DDAF0285_ME_5562DE9702A4_over
  MELINK Original HWL ME_5562DDAF0285 // CalcTodayPadWidth
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_5562DDAF0285_ME_5562DE9702A4 CalcTodayPadWidth
+ENDMEREF // ME_5562DDAF0285_ME_5562DE9702A4_over CalcTodayPadWidth
 
-ME ME_5562DE3A02DF_ME_5562DE9702A4
+MEREF ME_5562DE3A02DF_ME_5562DE9702A4_over
  MELINK Original HWL ME_5562DE3A02DF // MakeTodayPad
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_5562DE3A02DF_ME_5562DE9702A4 MakeTodayPad
+ENDMEREF // ME_5562DE3A02DF_ME_5562DE9702A4_over MakeTodayPad
 
-ME ME_5562DE4D0243_ME_5562DE9702A4
+MEREF ME_5562DE4D0243_ME_5562DE9702A4_over
  MELINK Original HWL ME_5562DE4D0243 // AdjustTitleButtonFont
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_5562DE4D0243_ME_5562DE9702A4 AdjustTitleButtonFont
+ENDMEREF // ME_5562DE4D0243_ME_5562DE9702A4_over AdjustTitleButtonFont
+
+MEREF ME_4F8D5553010A_ME_5562DE9702A4_G
+ MELINK Original HWL ME_4F8D5553010A // TPopupCalendar
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F8D5553010A_ME_5562DE9702A4_G TPopupCalendar
 
 %%InheritedBy ME_4F8D5553010A ME_5562DE9702A4
 
@@ -2223,7 +2337,7 @@ ME ME_5562DE9702A4
  MELINK Parent HWL ME_4AA8AB7B038F // TvtDateEdit
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4F8D5553010A // TPopupCalendar
+   Seq: ( HWL ME_4F8D5553010A_ME_5562DE9702A4_G // TPopupCalendar
  )
  ; // Inherits
  MELIST Operations
@@ -2231,10 +2345,10 @@ ME ME_5562DE9702A4
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_5562DBEF006B_ME_5562DE9702A4 // CalendarMouseUp
- ME_5562DDAF0285_ME_5562DE9702A4 // CalcTodayPadWidth
- ME_5562DE3A02DF_ME_5562DE9702A4 // MakeTodayPad
- ME_5562DE4D0243_ME_5562DE9702A4 // AdjustTitleButtonFont
+   Seq: ( ME_5562DBEF006B_ME_5562DE9702A4_over // CalendarMouseUp
+ ME_5562DDAF0285_ME_5562DE9702A4_over // CalcTodayPadWidth
+ ME_5562DE3A02DF_ME_5562DE9702A4_over // MakeTodayPad
+ ME_5562DE4D0243_ME_5562DE9702A4_over // AdjustTitleButtonFont
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames
@@ -2258,6 +2372,12 @@ ME ME_5562E38F0396
 
 ENDME // ME_5562E38F0396 TodayPadPresent
 
+MEREF ME_4AAE399802A2_ME_5564521702CC_G
+ MELINK Original WL 'ME_4AAE399802A2' '49213DFA02CB.ms.model.script' // TvtStdResources
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AAE399802A2_ME_5564521702CC_G TvtStdResources
+
 %%InheritedBy ME_4AAE399802A2 ME_5564521702CC
 
 ME ME_5564521702CC
@@ -2272,7 +2392,7 @@ ME ME_5564521702CC
  MELINK Parent HWL ME_4AA8AB7B038F // TvtDateEdit
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4AAE399802A2' '49213DFA02CB.ms.model.script' // TvtStdResources
+   Seq: ( HWL ME_4AAE399802A2_ME_5564521702CC_G // TvtStdResources
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -2465,6 +2585,12 @@ ME ME_55670AFA0153
 
 ENDME // ME_55670AFA0153 
 
+MEREF ME_52A9ACFF0183_ME_4AA8AB7B038F_G
+ MELINK Original HWL ME_52A9ACFF0183 // TvtCustomDateEdit
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52A9ACFF0183_ME_4AA8AB7B038F_G TvtCustomDateEdit
+
 %%InheritedBy ME_52A9ACFF0183 ME_4AA8AB7B038F
 
 ME ME_4AA8AB7B038F
@@ -2479,7 +2605,7 @@ ME ME_4AA8AB7B038F
  MELINK Parent WL? 'ME_4AC5DADB00C9' // DateEdit
  ;
  MELIST Inherits
-   Seq: ( HWL ME_52A9ACFF0183 // TvtCustomDateEdit
+   Seq: ( HWL ME_52A9ACFF0183_ME_4AA8AB7B038F_G // TvtCustomDateEdit
  )
  ; // Inherits
  MELIST Children

@@ -1,0 +1,92 @@
+// TafwCaret 480DDF270394 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_480DDF270394
+
+ME ME_480DE1870298
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480DDF270394 // TafwCaret
+ ;
+ MELINK Target WL 'ME_47289677028A' '472745450206.ms.model.script' // Tl3SPoint
+ ;
+
+ENDME // ME_480DE1870298 
+
+MEREF ME_4728CCBC023F_ME_480DDF270394_impl
+ MELINK Original WL 'ME_4728CCBC023F' '4677FBA70343.ms.model.script' // Extent
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4728CCBC023F_ME_480DDF270394_impl Extent
+
+MEREF ME_4728CCC90157_ME_480DDF270394_impl
+ MELINK Original WL 'ME_4728CCC90157' '4677FBA70343.ms.model.script' // Position
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4728CCC90157_ME_480DDF270394_impl Position
+
+MEREF ME_4728CCD502A9_ME_480DDF270394_impl
+ MELINK Original WL 'ME_4728CCD502A9' '4677FBA70343.ms.model.script' // Visible
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4728CCD502A9_ME_480DDF270394_impl Visible
+
+MEREF ME_480DD9F600F6_ME_480DDF270394_G
+ MELINK Original WL? 'ME_480DD9F600F6' // TafwCaretPair
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_480DD9F600F6_ME_480DDF270394_G TafwCaretPair
+
+MEREF ME_478E4BF6002B_ME_480DDF270394_R
+ MELINK Original WL 'ME_478E4BF6002B' '467823B7002C.ms.model.script' // IafwCaret
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_478E4BF6002B_ME_480DDF270394_R IafwCaret
+
+%%ImplementedBy ME_478E4BF6002B ME_480DDF270394
+
+%%InheritedBy ME_480DD9F600F6 ME_480DDF270394
+
+ME ME_480DDF270394
+ MEPROP UID '480DDF270394'
+ MEPROP Name 'TafwCaret'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пара кареток (для окончательного использования).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47877A6F000A' // Visual
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_480DD9F600F6_ME_480DDF270394_G // TafwCaretPair
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_478E4BF6002B_ME_480DDF270394_R // IafwCaret
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4728CCBC023F_ME_480DDF270394_impl // Extent
+ ME_4728CCC90157_ME_480DDF270394_impl // Position
+ ME_4728CCD502A9_ME_480DDF270394_impl // Visible
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_480DE1870298 // Tl3SPoint
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '09.12.1998 16:25'
+ UP extprop:pas:UnitName 'afwCaret'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwCaret'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwCaret.pas'
+
+ENDME // ME_480DDF270394 TafwCaret

@@ -1,0 +1,84 @@
+// TTableToolsTest 4C345A91014E TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4C9999C50326_ME_4C345A91014E_impl
+ MELINK Original WL 'ME_4C9999C50326' '4CE38AD60265.ms.model.script' // CheckOperation
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C9999C50326_ME_4C345A91014E_impl CheckOperation
+
+MEREF ME_4BE13147032C_ME_4C345A91014E_over
+ MELINK Original WL 'ME_4BE13147032C' '4BE111D30229.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BE13147032C_ME_4C345A91014E_over Process
+
+MEREF ME_4C937013031D_ME_4C345A91014E_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4C345A91014E_over GetFolder
+
+MEREF ME_4CE38AD60265_ME_4C345A91014E_G
+ MELINK Original WL? 'ME_4CE38AD60265' // TTableToolsTestPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CE38AD60265_ME_4C345A91014E_G TTableToolsTestPrim
+
+MEREF ME_4C500D6101D8_ME_4C345A91014E_R
+ MELINK Original WL? 'ME_4C500D6101D8' // CursorMover
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C500D6101D8_ME_4C345A91014E_R CursorMover
+
+MEREF ME_4CC815A00031_ME_4C345A91014E_R
+ MELINK Original WL? 'ME_4CC815A00031' // SelectTablePart
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CC815A00031_ME_4C345A91014E_R SelectTablePart
+
+%%ImplementedBy ME_4C500D6101D8 ME_4C345A91014E
+%%ImplementedBy ME_4CC815A00031 ME_4C345A91014E
+
+%%InheritedBy ME_4CE38AD60265 ME_4C345A91014E
+
+ME ME_4C345A91014E
+ MEPROP UID '4C345A91014E'
+ MEPROP Name 'TTableToolsTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '“есты инструментов работы с таблицами' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C4FDBF703DB' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CE38AD60265_ME_4C345A91014E_G // TTableToolsTestPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4C500D6101D8_ME_4C345A91014E_R // CursorMover
+ HWL ME_4CC815A00031_ME_4C345A91014E_R // SelectTablePart
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4C9999C50326_ME_4C345A91014E_impl // CheckOperation
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4BE13147032C_ME_4C345A91014E_over // Process
+ ME_4C937013031D_ME_4C345A91014E_over // GetFolder
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'TableToolsTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TableToolsTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\TableToolsTest.pas'
+
+ENDME // ME_4C345A91014E TTableToolsTest

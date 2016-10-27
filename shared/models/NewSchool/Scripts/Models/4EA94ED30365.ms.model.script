@@ -1,0 +1,42 @@
+// TkwAddBlock 4EA94ED30365 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EA94ED30365
+
+ME ME_4EA9501F020F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EA94ED30365 // TkwAddBlock
+ ;
+ MELINK Target WL 'ME_4EA94FCA02CD' '4DE60853015A.ms.model.script' // arAddBlock
+ ;
+
+ENDME // ME_4EA9501F020F 
+
+ME ME_4EA94ED30365
+ MEPROP UID '4EA94ED30365'
+ MEPROP Name 'TkwAddBlock'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'окно_редактора:установить_блок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4EA9501F020F // arAddBlock
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'окно_редактора:установить_блок'
+ UP extprop:pas:UnitName 'kwAddBlock'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AddBlock'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwAddBlock.pas'
+
+ENDME // ME_4EA94ED30365 TkwAddBlock

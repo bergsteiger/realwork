@@ -1,0 +1,60 @@
+// Tdt_LinkServerService 57EB6297000B ServiceImplementation Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57EB6297000B
+
+ME ME_57EB62B302CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EB6297000B // Tdt_LinkServerService
+ ;
+ MELINK Target WL? 'ME_519B79940228' // dt_LinkServ
+ ;
+
+ENDME // ME_57EB62B302CB 
+
+ME ME_57EB665E0252
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_57EB6297000B // Tdt_LinkServerService
+ ;
+ MELINK Target WL? 'ME_57EB5FD6006A' // TdaLinkServerService
+ ;
+
+ENDME // ME_57EB665E0252 
+
+MEREF ME_49E7754802A9_ME_57EB6297000B_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57EB6297000B_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_57EB6297000B
+
+ME ME_57EB6297000B
+ MEPROP UID '57EB6297000B'
+ MEPROP Name 'Tdt_LinkServerService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_519B797A0048' // Servers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_57EB6297000B_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_57EB62B302CB // dt_LinkServ
+ ME_57EB665E0252 // TdaLinkServerService
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'dt_LinkServerService'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dt_LinkServerService'
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\dt_LinkServerService.pas'
+
+ENDME // ME_57EB6297000B Tdt_LinkServerService

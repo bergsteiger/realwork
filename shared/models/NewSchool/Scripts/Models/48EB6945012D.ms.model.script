@@ -1,0 +1,239 @@
+// TevReaderDataObject 48EB6945012D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_48EB69920154
+
+FORWARD ME_48EB6945012D
+
+MEREF ME_482D6EB4003A_ME_48EB69920154_G
+ MELINK Original WL? 'ME_482D6EB4003A' // Tk2CustomFileReader
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_482D6EB4003A_ME_48EB69920154_G Tk2CustomFileReader
+
+%%InheritedBy ME_482D6EB4003A ME_48EB69920154
+
+ME ME_48EB69920154
+ MEPROP UID '48EB69920154'
+ MEPROP Name 'Rk2CustomReader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48EB6945012D // TevReaderDataObject
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_482D6EB4003A_ME_48EB69920154_G // Tk2CustomFileReader
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_48EB69920154 Rk2CustomReader
+
+ME ME_4D3EDD3500E1
+ MEPROP UID '4D3EDD3500E1'
+ MEPROP Name 'f_Stream'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_48EB6945012D // TevReaderDataObject
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4D3EDD3500E1 f_Stream
+
+FORWARD ME_4D3EDD5301AA
+
+FORWARD ME_4D3EDD5C00FA
+
+ME ME_4D3EDD6A00CA
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4D3EDD6A00CA aStream
+
+ME ME_4D3EDD5C00FA
+ MEPROP UID '4D3EDD5C00FA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D3EDD5301AA // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D3EDD6A00CA // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_4D3EDD5C00FA DoIt
+
+ME ME_4D3EDD5301AA
+ MEPROP UID '4D3EDD5301AA'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EB6945012D // TevReaderDataObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D3EDD5C00FA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D3EDD5301AA Create
+
+MEREF ME_4D3EDD5301AA_ME_4D3EDD7701A0_G
+ MELINK Original HWL ME_4D3EDD5301AA // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D3EDD5301AA_ME_4D3EDD7701A0_G Create
+
+MEREF ME_47C68BEF02B9_ME_4D3EDD7701A0_R
+ MELINK Original WL 'ME_47C68BEF02B9' '47C5207602D1.ms.model.script' // InevStorable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C68BEF02B9_ME_4D3EDD7701A0_R InevStorable
+
+%%ImplementedBy ME_47C68BEF02B9 ME_4D3EDD7701A0
+
+%%InheritedBy ME_4D3EDD5301AA ME_4D3EDD7701A0
+
+ME ME_4D3EDD7701A0
+ MEPROP UID '4D3EDD7701A0'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EB6945012D // TevReaderDataObject
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D3EDD5301AA_ME_4D3EDD7701A0_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47C68BEF02B9_ME_4D3EDD7701A0_R // InevStorable
+ )
+ ; // Implements
+
+ENDME // ME_4D3EDD7701A0 Make
+
+ME ME_48EB6A0700D9
+ MEPROP UID '48EB6A0700D9'
+ MEPROP Name 'ReaderClass'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48EB6945012D // TevReaderDataObject
+ ;
+ MELINK Target HWL ME_48EB69920154 // Rk2CustomReader
+ ;
+
+ENDME // ME_48EB6A0700D9 ReaderClass
+
+ME ME_48EB69CA00A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48EB6945012D // TevReaderDataObject
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_48EB69CA00A7 
+
+ME ME_48EB69D70339
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48EB6945012D // TevReaderDataObject
+ ;
+ MELINK Target WL? 'ME_48C6811302CB' // l3SysUtils
+ ;
+
+ENDME // ME_48EB69D70339 
+
+ME ME_48EB69F20199
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48EB6945012D // TevReaderDataObject
+ ;
+ MELINK Target WL 'ME_48EA3BDD0023' '4678193C009C.ms.model.script' // ActiveXConsts
+ ;
+
+ENDME // ME_48EB69F20199 
+
+MEREF ME_48EA34990191_ME_48EB6945012D_impl
+ MELINK Original WL 'ME_48EA34990191' '48EA32DB03E6.ms.model.script' // DoStore
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48EA34990191_ME_48EB6945012D_impl DoStore
+
+MEREF ME_48EA32DB03E6_ME_48EB6945012D_G
+ MELINK Original WL? 'ME_48EA32DB03E6' // TevStreamedDataObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48EA32DB03E6_ME_48EB6945012D_G TevStreamedDataObject
+
+%%InheritedBy ME_48EA32DB03E6 ME_48EB6945012D
+
+ME ME_48EB6945012D
+ MEPROP UID '48EB6945012D'
+ MEPROP Name 'TevReaderDataObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4802FF41005C' // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48EA32DB03E6_ME_48EB6945012D_G // TevStreamedDataObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D3EDD3500E1 // f_Stream
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D3EDD5301AA // Create
+ HWL ME_4D3EDD7701A0 // Make
+ HWL ME_48EB6A0700D9 // ReaderClass
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48EA34990191_ME_48EB6945012D_impl // DoStore
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_48EB69920154 // Rk2CustomReader
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_48EB69CA00A7 // l3Base
+ ME_48EB69D70339 // l3SysUtils
+ ME_48EB69F20199 // ActiveXConsts
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â'
+ UP "no hands" True
+ UP "started" '07.10.2008 17:51'
+ UP extprop:pas:UnitName 'evReaderDataObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ReaderDataObject'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evReaderDataObject.pas'
+
+ENDME // ME_48EB6945012D TevReaderDataObject

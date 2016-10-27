@@ -1,0 +1,53 @@
+// TkwDocumentSpravka 4E5C937F00B2 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E5C937F00B2
+
+ME ME_4E5C948602EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E5C937F00B2 // TkwDocumentSpravka
+ ;
+ MELINK Target WL 'ME_4DFB4D5E0084' '4DFB4D3C01B5.ms.model.script' // TMainForm
+ ;
+
+ENDME // ME_4E5C948602EE 
+
+ME ME_4E5C9A0F007F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E5C937F00B2 // TkwDocumentSpravka
+ ;
+ MELINK Target WL 'ME_4DFB4B01001D' '4DFB4AD800BA.ms.model.script' // TDocEditorWindow
+ ;
+
+ENDME // ME_4E5C9A0F007F 
+
+ME ME_4E5C937F00B2
+ MEPROP UID '4E5C937F00B2'
+ MEPROP Name 'TkwDocumentSpravka'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E5B891C01DE' // ScriptEngine
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E5C948602EE // TMainForm
+ ME_4E5C9A0F007F // TDocEditorWindow
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'оп::Документ_Справка_к_документу'
+ UP "needs script" True
+ UP extprop:pas:UnitName 'kwDocumentSpravka'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentSpravka'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Script_Engine\kwDocumentSpravka.pas'
+
+ENDME // ME_4E5C937F00B2 TkwDocumentSpravka

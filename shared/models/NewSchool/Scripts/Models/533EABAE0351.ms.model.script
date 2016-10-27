@@ -1,0 +1,235 @@
+// TvgRemindersLineManager 533EABAE0351 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_533EABAE0351
+
+FORWARD ME_533EACEE02DC
+
+FORWARD ME_533EB20B0205
+
+ME ME_533EB21500BB
+ MEPROP Name 'aLine'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_532322D901A3' // TvgRemindersLine
+ ;
+
+ENDME // ME_533EB21500BB aLine
+
+ME ME_533EB20B0205
+ MEPROP UID '533EB20B0205'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533EACEE02DC // AddLine
+ ;
+ MELIST Parameters
+   Seq: ( ME_533EB21500BB // aLine
+ )
+ ; // Parameters
+
+ENDME // ME_533EB20B0205 DoIt
+
+ME ME_533EACEE02DC
+ MEPROP UID '533EACEE02DC'
+ MEPROP Name 'AddLine'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533EABAE0351 // TvgRemindersLineManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_533EB20B0205 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_533EACEE02DC AddLine
+
+FORWARD ME_533EAD3F0303
+
+FORWARD ME_533EB21E025B
+
+ME ME_533EB21F01E9
+ MEPROP Name 'aLine'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_532322D901A3' // TvgRemindersLine
+ ;
+
+ENDME // ME_533EB21F01E9 aLine
+
+ME ME_533EB21E025B
+ MEPROP UID '533EB21E025B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533EAD3F0303 // RemoveLine
+ ;
+ MELIST Parameters
+   Seq: ( ME_533EB21F01E9 // aLine
+ )
+ ; // Parameters
+
+ENDME // ME_533EB21E025B DoIt
+
+ME ME_533EAD3F0303
+ MEPROP UID '533EAD3F0303'
+ MEPROP Name 'RemoveLine'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533EABAE0351 // TvgRemindersLineManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_533EB21E025B // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_533EAD3F0303 RemoveLine
+
+ME ME_533EAD7C0130
+ MEPROP UID '533EAD7C0130'
+ MEPROP Name 'ClosePopupForms'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533EABAE0351 // TvgRemindersLineManager
+ ;
+ UP "is static" True
+
+ENDME // ME_533EAD7C0130 ClosePopupForms
+
+ME ME_537489FC01AE
+ MEPROP UID '537489FC01AE'
+ MEPROP Name 'CheckZOrder'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533EABAE0351 // TvgRemindersLineManager
+ ;
+ UP "is static" True
+
+ENDME // ME_537489FC01AE CheckZOrder
+
+ME ME_5410105B0256
+ MEPROP UID '5410105B0256'
+ MEPROP Name 'LockActivateProcessing'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533EABAE0351 // TvgRemindersLineManager
+ ;
+ UP "is static" True
+
+ENDME // ME_5410105B0256 LockActivateProcessing
+
+ME ME_54101F390084
+ MEPROP UID '54101F390084'
+ MEPROP Name 'UnlockActivateProcessing'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533EABAE0351 // TvgRemindersLineManager
+ ;
+ UP "is static" True
+
+ENDME // ME_54101F390084 UnlockActivateProcessing
+
+ME ME_54ED7069021A
+ MEPROP UID '54ED7069021A'
+ MEPROP Name 'UpdateRemindersActions'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533EABAE0351 // TvgRemindersLineManager
+ ;
+ UP "is static" True
+
+ENDME // ME_54ED7069021A UpdateRemindersActions
+
+ME ME_533EBA55024F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533EABAE0351 // TvgRemindersLineManager
+ ;
+ MELINK Target WL? 'ME_533EAC970267' // TvgRemindersLineList
+ ;
+
+ENDME // ME_533EBA55024F 
+
+ME ME_54ED70DC03DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533EABAE0351 // TvgRemindersLineManager
+ ;
+ MELINK Target WL 'ME_532973090394' '532972BD00EC.ms.model.script' // IvgRemindersLine
+ ;
+
+ENDME // ME_54ED70DC03DB 
+
+MEREF ME_49E7754802A9_ME_533EABAE0351_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_533EABAE0351_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_533EABAE0351
+
+ME ME_533EABAE0351
+ MEPROP UID '533EABAE0351'
+ MEPROP Name 'TvgRemindersLineManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53288DFA03A7' // NewReminders
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_533EABAE0351_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_533EACEE02DC // AddLine
+ HWL ME_533EAD3F0303 // RemoveLine
+ HWL ME_533EAD7C0130 // ClosePopupForms
+ HWL ME_537489FC01AE // CheckZOrder
+ HWL ME_5410105B0256 // LockActivateProcessing
+ HWL ME_54101F390084 // UnlockActivateProcessing
+ HWL ME_54ED7069021A // UpdateRemindersActions
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_533EBA55024F // TvgRemindersLineList
+ ME_54ED70DC03DB // IvgRemindersLine
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'vgRemindersLineManager'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RemindersLineManager'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vgRemindersLineManager.pas'
+
+ENDME // ME_533EABAE0351 TvgRemindersLineManager

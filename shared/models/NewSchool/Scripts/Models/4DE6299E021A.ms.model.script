@@ -1,0 +1,42 @@
+// TkwArchiOpenDocument 4DE6299E021A ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DE6299E021A
+
+ME ME_4DE62B2702A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE6299E021A // TkwArchiOpenDocument
+ ;
+ MELINK Target WL 'ME_4DE608AF027D' '4DE60853015A.ms.model.script' // arOpenDocumentByNumber
+ ;
+
+ENDME // ME_4DE62B2702A6 
+
+ME ME_4DE6299E021A
+ MEPROP UID '4DE6299E021A'
+ MEPROP Name 'TkwArchiOpenDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:*  Номер_документа Внутренний_номер Открыть'#13#10'*Описание:* Открывает документ по номеру. Позволяет установить флаг внутренний/внешний при задании номера документа.'#13#10' *Пример:*'#13#10' {code}'#13#10' 10003000 true Открыть'#13#10' {code}'#13#10' *Результат:* Открывает Конституцию РФ'#13#10' *Примечания:*'#13#10' Константы номеров документов в тестах, залитых в тестовую базу, находятся в файле:'#13#10' {code}'#13#10' w:\archi\source\projects\Archi\TestSet\Dictionary\DocumentConst.script"'#13#10' {code}'#13#10' В скриптах напрямую практически не используется, так как есть более удобные функции в файле:'#13#10' {code}'#13#10'  w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"'#13#10' {code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4DE62B2702A6 // arOpenDocumentByNumber
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'Открыть'
+ UP extprop:pas:UnitName 'kwArchiOpenDocument'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ArchiOpenDocument'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwArchiOpenDocument.pas'
+
+ENDME // ME_4DE6299E021A TkwArchiOpenDocument

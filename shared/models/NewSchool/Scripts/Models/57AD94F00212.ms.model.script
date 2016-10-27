@@ -1,0 +1,462 @@
+// TmsmUseCase 57AD94F00212 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57AD94F00212
+
+ME ME_57EA535D0273
+ MEPROP UID '57EA535D0273'
+ MEPROP Name 'f_OwnedViews'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57AD94F00212 // TmsmUseCase
+ ;
+ MELINK Target WL? 'ME_57EA53530213' // TmsmViewRefList
+ ;
+
+ENDME // ME_57EA535D0273 f_OwnedViews
+
+ME ME_57B1AEDB0188
+ MEPROP UID '57B1AEDB0188'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AD94F00212 // TmsmUseCase
+ ;
+
+ENDME // ME_57B1AEDB0188 Create
+
+MEREF ME_57B1AEDB0188_ME_57AD95590191_G
+ MELINK Original HWL ME_57B1AEDB0188 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B1AEDB0188_ME_57AD95590191_G Create
+
+MEREF ME_57AD9468006E_ME_57AD95590191_R
+ MELINK Original WL 'ME_57AD9468006E' '57CEAF3602AB.ms.model.script' // ImsmUseCase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AD9468006E_ME_57AD95590191_R ImsmUseCase
+
+%%ImplementedBy ME_57AD9468006E ME_57AD95590191
+
+%%InheritedBy ME_57B1AEDB0188 ME_57AD95590191
+
+ME ME_57AD95590191
+ MEPROP UID '57AD95590191'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AD94F00212 // TmsmUseCase
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57B1AEDB0188_ME_57AD95590191_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57AD9468006E_ME_57AD95590191_R // ImsmUseCase
+ )
+ ; // Implements
+
+ENDME // ME_57AD95590191 Make
+
+FORWARD ME_57EA53180247
+
+FORWARD ME_57EA532902E5
+
+ME ME_57EA533A016D
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57AAEAEC003A' '57AAE8D403E5.ms.model.script' // TmsmView
+ ;
+
+ENDME // ME_57EA533A016D aView
+
+ME ME_57EA532902E5
+ MEPROP UID '57EA532902E5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EA53180247 // AddViewForRelease
+ ;
+ MELINK Target WL 'ME_57AAEAEC003A' '57AAE8D403E5.ms.model.script' // TmsmView
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EA533A016D // aView
+ )
+ ; // Parameters
+
+ENDME // ME_57EA532902E5 DoIt
+
+ME ME_57EA53180247
+ MEPROP UID '57EA53180247'
+ MEPROP Name 'AddViewForRelease'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AD94F00212 // TmsmUseCase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EA532902E5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EA53180247 AddViewForRelease
+
+FORWARD ME_57EA53C501FF
+
+ME ME_471AE2A4B4F5
+ MEPROP UID '471AE2A4B4F5'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода ReleaseControllers' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EA53C501FF // ReleaseControllers
+ ;
+
+ENDME // ME_471AE2A4B4F5 DoIt
+
+ME ME_57EA53C501FF
+ MEPROP UID '57EA53C501FF'
+ MEPROP Name 'ReleaseControllers'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57AD94F00212 // TmsmUseCase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_471AE2A4B4F5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EA53C501FF ReleaseControllers
+
+FORWARD ME_57EA53D80032
+
+ME ME_8DBEF009EA25
+ MEPROP UID '8DBEF009EA25'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода ReleaseViews' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EA53D80032 // ReleaseViews
+ ;
+
+ENDME // ME_8DBEF009EA25 DoIt
+
+ME ME_57EA53D80032
+ MEPROP UID '57EA53D80032'
+ MEPROP Name 'ReleaseViews'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57AD94F00212 // TmsmUseCase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_8DBEF009EA25 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EA53D80032 ReleaseViews
+
+FORWARD ME_57EA5DFA0355
+
+FORWARD ME_57EA5E1100C0
+
+ME ME_57EA5E3B00F4
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57AAEAEC003A' '57AAE8D403E5.ms.model.script' // TmsmView
+ ;
+
+ENDME // ME_57EA5E3B00F4 aView
+
+ME ME_57EA5E3B0126
+ MEPROP Name 'aModel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57ADBE5B024A' '57CEB4640283.ms.model.script' // ImsmModel
+ ;
+
+ENDME // ME_57EA5E3B0126 aModel
+
+ME ME_57EA5E3B014E
+ MEPROP Name 'aZone'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57AAF0E701FA' '57AAE8D403E5.ms.model.script' // ImsmViewParent
+ ;
+
+ENDME // ME_57EA5E3B014E aZone
+
+ME ME_57EA5E1100C0
+ MEPROP UID '57EA5E1100C0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EA5DFA0355 // BindViewToModelAndZone
+ ;
+ MELINK Target WL 'ME_57AAEAEC003A' '57AAE8D403E5.ms.model.script' // TmsmView
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EA5E3B00F4 // aView
+ ME_57EA5E3B0126 // aModel
+ ME_57EA5E3B014E // aZone
+ )
+ ; // Parameters
+
+ENDME // ME_57EA5E1100C0 DoIt
+
+ME ME_57EA5DFA0355
+ MEPROP UID '57EA5DFA0355'
+ MEPROP Name 'BindViewToModelAndZone'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AD94F00212 // TmsmUseCase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EA5E1100C0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EA5DFA0355 BindViewToModelAndZone
+
+FORWARD ME_57EA65280280
+
+FORWARD ME_57EA65390259
+
+ME ME_57EA655A0187
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57B345B20359' '57AAE8D403E5.ms.model.script' // TmsmViewParentControl
+ ;
+
+ENDME // ME_57EA655A0187 aView
+
+ME ME_57EA65390259
+ MEPROP UID '57EA65390259'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EA65280280 // AddViewParentForRelease
+ ;
+ MELINK Target WL 'ME_57B345B20359' '57AAE8D403E5.ms.model.script' // TmsmViewParentControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EA655A0187 // aView
+ )
+ ; // Parameters
+
+ENDME // ME_57EA65390259 DoIt
+
+ME ME_57EA65280280
+ MEPROP UID '57EA65280280'
+ MEPROP Name 'AddViewParentForRelease'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AD94F00212 // TmsmUseCase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EA65390259 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EA65280280 AddViewParentForRelease
+
+FORWARD ME_57EA656D0399
+
+FORWARD ME_57EA65870073
+
+ME ME_57EA659700F1
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57B345B20359' '57AAE8D403E5.ms.model.script' // TmsmViewParentControl
+ ;
+
+ENDME // ME_57EA659700F1 aView
+
+ME ME_57EA65970133
+ MEPROP Name 'aModel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57ADBE5B024A' '57CEB4640283.ms.model.script' // ImsmModel
+ ;
+
+ENDME // ME_57EA65970133 aModel
+
+ME ME_57EA65970154
+ MEPROP Name 'aZone'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57AAF0E701FA' '57AAE8D403E5.ms.model.script' // ImsmViewParent
+ ;
+
+ENDME // ME_57EA65970154 aZone
+
+ME ME_57EA65870073
+ MEPROP UID '57EA65870073'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EA656D0399 // BindViewParentToModelAndZone
+ ;
+ MELINK Target WL 'ME_57B345B20359' '57AAE8D403E5.ms.model.script' // TmsmViewParentControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EA659700F1 // aView
+ ME_57EA65970133 // aModel
+ ME_57EA65970154 // aZone
+ )
+ ; // Parameters
+
+ENDME // ME_57EA65870073 DoIt
+
+ME ME_57EA656D0399
+ MEPROP UID '57EA656D0399'
+ MEPROP Name 'BindViewParentToModelAndZone'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AD94F00212 // TmsmUseCase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EA65870073 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EA656D0399 BindViewParentToModelAndZone
+
+ME ME_57EA5DE6011A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57AD94F00212 // TmsmUseCase
+ ;
+ MELINK Target WL? 'ME_57ADB523009E' // TmsmParentedViewController
+ ;
+
+ENDME // ME_57EA5DE6011A 
+
+MEREF ME_57AD949C0005_ME_57AD94F00212_impl
+ MELINK Original WL 'ME_57AD949C0005' '57CEAF3602AB.ms.model.script' // AddController
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57AD949C0005_ME_57AD94F00212_impl AddController
+
+MEREF ME_57D29826015D_ME_57AD94F00212_impl
+ MELINK Original WL 'ME_57D29826015D' '57CEAF3602AB.ms.model.script' // Bind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57D29826015D_ME_57AD94F00212_impl Bind
+
+MEREF ME_479731C50290_ME_57AD94F00212_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57AD94F00212_over Cleanup
+
+MEREF ME_57DA9E250137_ME_57AD94F00212_G
+ MELINK Original WL? 'ME_57DA9E250137' // TImsmControllerList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57DA9E250137_ME_57AD94F00212_G TImsmControllerList
+
+MEREF ME_57AD9468006E_ME_57AD94F00212_R
+ MELINK Original WL 'ME_57AD9468006E' '57CEAF3602AB.ms.model.script' // ImsmUseCase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AD9468006E_ME_57AD94F00212_R ImsmUseCase
+
+%%ImplementedBy ME_57AD9468006E ME_57AD94F00212
+
+%%InheritedBy ME_57DA9E250137 ME_57AD94F00212
+
+ME ME_57AD94F00212
+ MEPROP UID '57AD94F00212'
+ MEPROP Name 'TmsmUseCase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B1B6AE0204' // UseCases
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57DA9E250137_ME_57AD94F00212_G // TImsmControllerList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57AD9468006E_ME_57AD94F00212_R // ImsmUseCase
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57EA535D0273 // f_OwnedViews
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57B1AEDB0188 // Create
+ HWL ME_57AD95590191 // Make
+ HWL ME_57EA53180247 // AddViewForRelease
+ HWL ME_57EA53C501FF // ReleaseControllers
+ HWL ME_57EA53D80032 // ReleaseViews
+ HWL ME_57EA5DFA0355 // BindViewToModelAndZone
+ HWL ME_57EA65280280 // AddViewParentForRelease
+ HWL ME_57EA656D0399 // BindViewParentToModelAndZone
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57AD949C0005_ME_57AD94F00212_impl // AddController
+ ME_57D29826015D_ME_57AD94F00212_impl // Bind
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57AD94F00212_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57EA5DE6011A // TmsmParentedViewController
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmUseCase'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmUseCase'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmUseCase.pas'
+
+ENDME // ME_57AD94F00212 TmsmUseCase

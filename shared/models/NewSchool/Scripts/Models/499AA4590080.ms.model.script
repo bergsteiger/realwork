@@ -34,7 +34,7 @@ ME ME_499AA4C50300
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_499AA4880244 // TvcmProfilersCollection
  ;
- MELINK Target WL 'ME_499AA4AD0036' '47D0E1500033.ms.model.script' // TvcmProfiler
+ MELINK Target WL? 'ME_499AA4AD0036' // TvcmProfiler
  ;
  MELIST Attributes
    Seq: ( HWL ME_499AA4D102C1 // ProfilerID
@@ -42,6 +42,12 @@ ME ME_499AA4C50300
  ; // Attributes
 
 ENDME // ME_499AA4C50300 Profiler
+
+MEREF ME_499AA39D0014_ME_499AA4880244_G
+ MELINK Original WL? 'ME_499AA39D0014' // TvcmProfilersCollection
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_499AA39D0014_ME_499AA4880244_G TvcmProfilersCollection
 
 %%InheritedBy ME_499AA39D0014 ME_499AA4880244
 
@@ -56,7 +62,7 @@ ME ME_499AA4880244
  MELINK Parent HWL ME_499AA4590080 // Profilers
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_499AA39D0014' '47D0E1500033.ms.model.script' // TvcmProfilersCollection
+   Seq: ( HWL ME_499AA39D0014_ME_499AA4880244_G // TvcmProfilersCollection
  )
  ; // Inherits
  MELIST Attributes

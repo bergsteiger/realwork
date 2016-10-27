@@ -1,0 +1,65 @@
+// TvcmFormSetRefList 55E6A6BC0318 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55E6A6BC0318
+
+ME ME_55E6A721002B
+ MEPROP UID '55E6A721002B'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55E6A6BC0318 // TvcmFormSetRefList
+ ;
+ MELINK Target WL 'ME_491AF0FF01B6' '4683F37902CF.ms.model.script' // IvcmFormSet
+ ;
+
+ENDME // ME_55E6A721002B ItemType
+
+MEREF ME_47B57D630029_ME_55E6A6BC0318_G
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_55E6A6BC0318_G l3InterfacePtrList
+
+MEREF ME_4A54DD4E036F_ME_55E6A6BC0318_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_55E6A6BC0318_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57D630029 ME_55E6A6BC0318
+%%InheritedBy ME_4A54DD4E036F ME_55E6A6BC0318
+
+ME ME_55E6A6BC0318
+ MEPROP UID '55E6A6BC0318'
+ MEPROP Name 'TvcmFormSetRefList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47D0E1500033' // Implementation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57D630029_ME_55E6A6BC0318_G // l3InterfacePtrList
+ HWL ME_4A54DD4E036F_ME_55E6A6BC0318_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55E6A721002B // ItemType
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'vcmFormSetRefList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FormSetRefList'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmFormSetRefList.pas'
+
+ENDME // ME_55E6A6BC0318 TvcmFormSetRefList

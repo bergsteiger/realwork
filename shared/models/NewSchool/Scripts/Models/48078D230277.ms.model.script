@@ -1,0 +1,1031 @@
+// TatNodeHelper 48078D230277 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_48078D390280
+%%Inner ME_4A4DEF1D0195
+%%Inner ME_4B90F1E50070
+%%Inner ME_4B90F1F501DD
+%%Inner ME_4B9793EC02E8
+%%Inner ME_503F7E3800E2
+
+FORWARD ME_48078D230277
+
+FORWARD ME_48078D390280
+
+FORWARD ME_48078D490270
+
+ME ME_48078D5103E1
+ MEPROP Name 'node'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_48078D5103E1 node
+
+ME ME_48078D490270
+ MEPROP UID '48078D490270'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48078D390280 // TatNodeCallBackProcOfObj
+ ;
+ MELIST Parameters
+   Seq: ( ME_48078D5103E1 // node
+ )
+ ; // Parameters
+
+ENDME // ME_48078D490270 DoIt
+
+ME ME_48078D390280
+ MEPROP UID '48078D390280'
+ MEPROP Name 'TatNodeCallBackProcOfObj'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_48078D490270 // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_48078D390280 TatNodeCallBackProcOfObj
+
+FORWARD ME_4A4DEF1D0195
+
+FORWARD ME_4A4DEF3101A3
+
+ME ME_4A4DEF3101B3
+ MEPROP Name 'node'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4A4DEF3101B3 node
+
+ME ME_4A4DEF3101A3
+ MEPROP UID '4A4DEF3101A3'
+ MEPROP Name 'CallNodeCaption'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4DEF1D0195 // TatNodeCallbacks
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4DEF3101B3 // node
+ )
+ ; // Parameters
+
+ENDME // ME_4A4DEF3101A3 CallNodeCaption
+
+ME ME_4A4DEF1D0195
+ MEPROP UID '4A4DEF1D0195'
+ MEPROP Name 'TatNodeCallbacks'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A4DEF3101A3 // CallNodeCaption
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atNodeCallbacks'
+
+ENDME // ME_4A4DEF1D0195 TatNodeCallbacks
+
+FORWARD ME_4B90F1E50070
+
+FORWARD ME_4B90F20C01E7
+
+ME ME_4B910B7A0350
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4B910B7A0350 aNode
+
+ME ME_4B910B7A0360
+ MEPROP Name 'aParam'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48077EC0001D' '4807744200AA.ms.model.script' // Variant
+ ;
+
+ENDME // ME_4B910B7A0360 aParam
+
+ME ME_4B90F20C01E7
+ MEPROP UID '4B90F20C01E7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B90F1E50070 // TatNodeMatchFuncOfObj
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B910B7A0350 // aNode
+ ME_4B910B7A0360 // aParam
+ )
+ ; // Parameters
+
+ENDME // ME_4B90F20C01E7 DoIt
+
+ME ME_4B90F1E50070
+ MEPROP UID '4B90F1E50070'
+ MEPROP Name 'TatNodeMatchFuncOfObj'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B90F20C01E7 // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_4B90F1E50070 TatNodeMatchFuncOfObj
+
+FORWARD ME_4B90F1F501DD
+
+FORWARD ME_4B90F22700A3
+
+ME ME_4B910B6A0270
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4B910B6A0270 aNode
+
+ME ME_4B910B6A0271
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48077EC0001D' '4807744200AA.ms.model.script' // Variant
+ ;
+
+ENDME // ME_4B910B6A0271 aCaption
+
+ME ME_4B90F22700A3
+ MEPROP UID '4B90F22700A3'
+ MEPROP Name 'MatchByCaption'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B90F1F501DD // TatNodeMatchFuncs
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B910B6A0270 // aNode
+ ME_4B910B6A0271 // aCaption
+ )
+ ; // Parameters
+ UP extprop:pas:Value False
+
+ENDME // ME_4B90F22700A3 MatchByCaption
+
+FORWARD ME_50046733037B
+
+ME ME_5004676B00FB
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_5004676B00FB aNode
+
+ME ME_5004676B0101
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48077EC0001D' '4807744200AA.ms.model.script' // Variant
+ ;
+
+ENDME // ME_5004676B0101 aCaption
+
+ME ME_50046733037B
+ MEPROP UID '50046733037B'
+ MEPROP Name 'MatchByCaptionCI'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B90F1F501DD // TatNodeMatchFuncs
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5004676B00FB // aNode
+ ME_5004676B0101 // aCaption
+ )
+ ; // Parameters
+ UP extprop:pas:Value False
+
+ENDME // ME_50046733037B MatchByCaptionCI
+
+ME ME_4B9798E30212
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B90F1F501DD // TatNodeMatchFuncs
+ ;
+ MELINK Target WL? 'ME_48088D6800F9' // Variants
+ ;
+
+ENDME // ME_4B9798E30212 
+
+ME ME_500467980261
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B90F1F501DD // TatNodeMatchFuncs
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_500467980261 
+
+ME ME_500467CB038E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B90F1F501DD // TatNodeMatchFuncs
+ ;
+ MELINK Target WL 'ME_4807756101FE' '478CF30500C1.ms.model.script' // TStringList
+ ;
+
+ENDME // ME_500467CB038E 
+
+ME ME_4B90F1F501DD
+ MEPROP UID '4B90F1F501DD'
+ MEPROP Name 'TatNodeMatchFuncs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B90F22700A3 // MatchByCaption
+ HWL ME_50046733037B // MatchByCaptionCI
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B9798E30212 // Variants
+ ME_500467980261 // SysUtils
+ ME_500467CB038E // TStringList
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atNodeMatchFuncs'
+
+ENDME // ME_4B90F1F501DD TatNodeMatchFuncs
+
+FORWARD ME_4B9793EC02E8
+
+ME ME_4B9794080338
+ MEPROP UID '4B9794080338'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4B9793EC02E8 // array of Variant
+ ;
+ MELINK Target WL 'ME_48077EC0001D' '4807744200AA.ms.model.script' // Variant
+ ;
+
+ENDME // ME_4B9794080338 
+
+ME ME_4B9793EC02E8
+ MEPROP UID '4B9793EC02E8'
+ MEPROP Name 'array of Variant'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B9794080338 // 
+ )
+ ; // Attributes
+ UP "array type" 'open'
+
+ENDME // ME_4B9793EC02E8 array of Variant
+
+MEREF ME_503E3A040395_ME_503F7E3800E2_impl
+ MELINK Original WL 'ME_503E3A040395' '503E2BCA01E8.ms.model.script' // InitConvertMap
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_503E3A040395_ME_503F7E3800E2_impl InitConvertMap
+
+MEREF ME_503F793301B3_ME_503F7E3800E2_G
+ MELINK Original WL? 'ME_503F793301B3' // TatStringToStringConverterBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_503F793301B3_ME_503F7E3800E2_G TatStringToStringConverterBase
+
+%%InheritedBy ME_503F793301B3 ME_503F7E3800E2
+
+ME ME_503F7E3800E2
+ MEPROP UID '503F7E3800E2'
+ MEPROP Name 'TatTreeTagConverter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'конвертация между адаптерныи именем дерева  и тем как оно пишется в логе сервера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_503F793301B3_ME_503F7E3800E2_G // TatStringToStringConverterBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_503E3A040395_ME_503F7E3800E2_impl // InitConvertMap
+ )
+ ; // Implemented
+ UP "singleton" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atTreeTagConverter'
+
+ENDME // ME_503F7E3800E2 TatTreeTagConverter
+
+FORWARD ME_48078DCF011F
+
+ME ME_4A4DE36B00AC
+ MEPROP Name 'rootNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4A4DE36B00AC rootNode
+
+ME ME_4A4DE36B00BB
+ MEPROP Name 'level'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476F71A701AB' '4807744200AA.ms.model.script' // Word
+ ;
+
+ENDME // ME_4A4DE36B00BB level
+
+ME ME_4A4DE36B00BC
+ MEPROP Name 'count'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_48FD996601CE' '4807744200AA.ms.model.script' // Longword
+ ;
+
+ENDME // ME_4A4DE36B00BC count
+
+ME ME_4A4DE36B00BD
+ MEPROP Name 'nodeCallBack'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_48078D390280 // TatNodeCallBackProcOfObj
+ ;
+
+ENDME // ME_4A4DE36B00BD nodeCallBack
+
+ME ME_48078DCF011F
+ MEPROP UID '48078DCF011F'
+ MEPROP Name 'LoadNodesPriv'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4DE36B00AC // rootNode
+ ME_4A4DE36B00BB // level
+ ME_4A4DE36B00BC // count
+ ME_4A4DE36B00BD // nodeCallBack
+ )
+ ; // Parameters
+
+ENDME // ME_48078DCF011F LoadNodesPriv
+
+FORWARD ME_48078DFD028F
+
+ME ME_48078E260041
+ MEPROP Name 'rootNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_48078E260041 rootNode
+
+ME ME_48078E26005D
+ MEPROP Name 'nodeFlag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45F80B600000' '45F66E6A02BF.ms.model.script' // FlagMask
+ ;
+
+ENDME // ME_48078E26005D nodeFlag
+
+ME ME_48078E260077
+ MEPROP Name 'nodesCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48078E260077 nodesCount
+
+ME ME_48078E260091
+ MEPROP Name 'NodeCallBack'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_48078D390280 // TatNodeCallBackProcOfObj
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_48078D390280 // TatNodeCallBackProcOfObj
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_48078E260091 NodeCallBack
+
+ME ME_48078DFD028F
+ MEPROP UID '48078DFD028F'
+ MEPROP Name 'LoadNodesThrough'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48078E260041 // rootNode
+ ME_48078E26005D // nodeFlag
+ ME_48078E260077 // nodesCount
+ ME_48078E260091 // NodeCallBack
+ )
+ ; // Parameters
+ UP extprop:pas:Value False
+
+ENDME // ME_48078DFD028F LoadNodesThrough
+
+FORWARD ME_4840189501ED
+
+ME ME_484018B70364
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_456FE63B01D4' '456F02A50196.ms.model.script' // Node
+ ;
+
+ENDME // ME_484018B70364 aNode
+
+ME ME_4840189501ED
+ MEPROP UID '4840189501ED'
+ MEPROP Name 'GetCaption'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_484018B70364 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4840189501ED GetCaption
+
+FORWARD ME_4A4DE37502ED
+
+ME ME_4A4DE3AF01C5
+ MEPROP Name 'rootNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4A4DE3AF01C5 rootNode
+
+ME ME_4A4DE3AF01D5
+ MEPROP Name 'level'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476F71A701AB' '4807744200AA.ms.model.script' // Word
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_476F71A701AB' '4807744200AA.ms.model.script' // Word
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_4A4DE3AF01D5 level
+
+ME ME_4A4DE3AF01D6
+ MEPROP Name 'count'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48FD996601CE' '4807744200AA.ms.model.script' // Longword
+ ;
+ MEPROP Value '4294967295'
+ MELINK ValueType WL 'ME_48FD996601CE' '4807744200AA.ms.model.script' // Longword
+ ;
+ UP extprop:pas:Value '4294967295'
+
+ENDME // ME_4A4DE3AF01D6 count
+
+ME ME_4A4DE3AF01E4
+ MEPROP Name 'nodeCallBack'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_48078D390280 // TatNodeCallBackProcOfObj
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_48078D390280 // TatNodeCallBackProcOfObj
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4A4DE3AF01E4 nodeCallBack
+
+ME ME_4A4DE37502ED
+ MEPROP UID '4A4DE37502ED'
+ MEPROP Name 'LoadNodes'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4DE3AF01C5 // rootNode
+ ME_4A4DE3AF01D5 // level
+ ME_4A4DE3AF01D6 // count
+ ME_4A4DE3AF01E4 // nodeCallBack
+ )
+ ; // Parameters
+
+ENDME // ME_4A4DE37502ED LoadNodes
+
+FORWARD ME_4B90F261015F
+
+ME ME_50081A420183
+ MEPROP Name 'aRoot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_50081A420183 aRoot
+
+ME ME_50081A4201A2
+ MEPROP Name 'aPath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4B9793EC02E8 // array of Variant
+ ;
+
+ENDME // ME_50081A4201A2 aPath
+
+ME ME_50081A4201C1
+ MEPROP Name 'aMatchFunc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4B90F1E50070 // TatNodeMatchFuncOfObj
+ ;
+
+ENDME // ME_50081A4201C1 aMatchFunc
+
+ME ME_50081A4201E0
+ MEPROP Name 'isExcludeRoot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_50081A4201E0 isExcludeRoot
+
+ME ME_4B90F261015F
+ MEPROP UID '4B90F261015F'
+ MEPROP Name 'FindNodeByPath'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_50081A420183 // aRoot
+ ME_50081A4201A2 // aPath
+ ME_50081A4201C1 // aMatchFunc
+ ME_50081A4201E0 // isExcludeRoot
+ )
+ ; // Parameters
+
+ENDME // ME_4B90F261015F FindNodeByPath
+
+FORWARD ME_4B90F2D60278
+
+ME ME_4B90F2D60297
+ MEPROP Name 'rootNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4B90F2D60297 rootNode
+
+ME ME_4B90F2D60278
+ MEPROP UID '4B90F2D60278'
+ MEPROP Name 'CountNodes'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B90F2D60297 // rootNode
+ )
+ ; // Parameters
+ UP extprop:pas:Value 0
+
+ENDME // ME_4B90F2D60278 CountNodes
+
+FORWARD ME_4BAB7D76024F
+
+ME ME_4BAB7DC1030F
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4BAB7DC1030F aNode
+
+ME ME_4BAB7DC1035D
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48077EC0001D' '4807744200AA.ms.model.script' // Variant
+ ;
+
+ENDME // ME_4BAB7DC1035D aValue
+
+ME ME_4BAB7DC103AB
+ MEPROP Name 'aMatchFunc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4B90F1E50070 // TatNodeMatchFuncOfObj
+ ;
+
+ENDME // ME_4BAB7DC103AB aMatchFunc
+
+ME ME_4BAB7D76024F
+ MEPROP UID '4BAB7D76024F'
+ MEPROP Name 'FindNode'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BAB7DC1030F // aNode
+ ME_4BAB7DC1035D // aValue
+ ME_4BAB7DC103AB // aMatchFunc
+ )
+ ; // Parameters
+
+ENDME // ME_4BAB7D76024F FindNode
+
+FORWARD ME_4BACB88F0360
+
+ME ME_4BACB8A603C7
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4BACB8A603C7 aNode
+
+ME ME_4BACB88F0360
+ MEPROP UID '4BACB88F0360'
+ MEPROP Name 'GetCaption'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BACB8A603C7 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4BACB88F0360 GetCaption
+
+FORWARD ME_4FDB88BF0068
+
+ME ME_4FDB8B6C0272
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED5F0008E' '4570501E037A.ms.model.script' // FoldersNode
+ ;
+
+ENDME // ME_4FDB8B6C0272 aNode
+
+ME ME_4FDB88BF0068
+ MEPROP UID '4FDB88BF0068'
+ MEPROP Name 'GetCaption'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FDB8B6C0272 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4FDB88BF0068 GetCaption
+
+FORWARD ME_500466E70257
+
+ME ME_50081A2E028D
+ MEPROP Name 'aRoot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_50081A2E028D aRoot
+
+ME ME_50081A2E02AC
+ MEPROP Name 'aPath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_50081A2E02AC aPath
+
+ME ME_50081A2E02BB
+ MEPROP Name 'aPathDelimiter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_482C48430205' '4807744200AA.ms.model.script' // Char
+ ;
+ MEPROP Value '''\'''
+ MELINK ValueType WL 'ME_482C48430205' '4807744200AA.ms.model.script' // Char
+ ;
+ UP extprop:pas:Value '''\'''
+
+ENDME // ME_50081A2E02BB aPathDelimiter
+
+ME ME_50081A2E02EA
+ MEPROP Name 'isCaseInsensitive'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_50081A2E02EA isCaseInsensitive
+
+ME ME_50081A2E02FA
+ MEPROP Name 'isExcludeRoot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_50081A2E02FA isExcludeRoot
+
+ME ME_500466E70257
+ MEPROP UID '500466E70257'
+ MEPROP Name 'FindNodeByPath'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_50081A2E028D // aRoot
+ ME_50081A2E02AC // aPath
+ ME_50081A2E02BB // aPathDelimiter
+ ME_50081A2E02EA // isCaseInsensitive
+ ME_50081A2E02FA // isExcludeRoot
+ )
+ ; // Parameters
+
+ENDME // ME_500466E70257 FindNodeByPath
+
+FORWARD ME_50056589021B
+
+ME ME_50081A4B0117
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_50081A4B0117 aNode
+
+ME ME_50081A4B0126
+ MEPROP Name 'aPathDelimiter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MEPROP Value '''\'''
+ MELINK ValueType WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP extprop:pas:Value '''\'''
+
+ENDME // ME_50081A4B0126 aPathDelimiter
+
+ME ME_50081A4B0145
+ MEPROP Name 'isExcludeRoot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_50081A4B0145 isExcludeRoot
+
+ME ME_50056589021B
+ MEPROP UID '50056589021B'
+ MEPROP Name 'GetPath'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ %SUMMARY 'Возвращает текстовый путь (по Caption''ам) к ноде' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_50081A4B0117 // aNode
+ ME_50081A4B0126 // aPathDelimiter
+ ME_50081A4B0145 // isExcludeRoot
+ )
+ ; // Parameters
+
+ENDME // ME_50056589021B GetPath
+
+FORWARD ME_505216EC02EC
+
+ME ME_5052170303B1
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_5052170303B1 aNode
+
+ME ME_505216EC02EC
+ MEPROP UID '505216EC02EC'
+ MEPROP Name 'GetNext'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_5052170303B1 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_505216EC02EC GetNext
+
+ME ME_484018BF0018
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_484018BF0018 
+
+ME ME_4BAC95C8017D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48078D230277 // TatNodeHelper
+ ;
+ MELINK Target WL? 'ME_4815C75902A2' // TatDocumentHelper
+ ;
+
+ENDME // ME_4BAC95C8017D 
+
+ME ME_48078D230277
+ MEPROP UID '48078D230277'
+ MEPROP Name 'TatNodeHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48078CC202EC' // AdapterHelpers
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_48078DCF011F // LoadNodesPriv
+ HWL ME_48078DFD028F // LoadNodesThrough
+ HWL ME_4840189501ED // GetCaption
+ HWL ME_4A4DE37502ED // LoadNodes
+ HWL ME_4B90F261015F // FindNodeByPath
+ HWL ME_4B90F2D60278 // CountNodes
+ HWL ME_4BAB7D76024F // FindNode
+ HWL ME_4BACB88F0360 // GetCaption
+ HWL ME_4FDB88BF0068 // GetCaption
+ HWL ME_500466E70257 // FindNodeByPath
+ HWL ME_50056589021B // GetPath
+ HWL ME_505216EC02EC // GetNext
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_48078D390280 // TatNodeCallBackProcOfObj
+ HWL ME_4A4DEF1D0195 // TatNodeCallbacks
+ HWL ME_4B90F1E50070 // TatNodeMatchFuncOfObj
+ HWL ME_4B90F1F501DD // TatNodeMatchFuncs
+ HWL ME_4B9793EC02E8 // array of Variant
+ HWL ME_503F7E3800E2 // TatTreeTagConverter
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_484018BF0018 // String
+ ME_4BAC95C8017D // TatDocumentHelper
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atNodeHelper'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atNodeHelper'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\AdapterHelpers\atNodeHelper.pas'
+
+ENDME // ME_48078D230277 TatNodeHelper

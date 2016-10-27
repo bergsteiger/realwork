@@ -1,0 +1,70 @@
+// TmsmListToTreeOperation 57CEBBA601F1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57CEBBA601F1
+
+ME ME_57CEBBCC023D
+ MEPROP UID '57CEBBCC023D'
+ MEPROP Name 'ModelToListen'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57CEBBA601F1 // TmsmListToTreeOperation
+ ;
+ MELINK Target WL 'ME_57CD626402C0' '57ADC53E00B6.ms.model.script' // ImsmListLikeModel
+ ;
+
+ENDME // ME_57CEBBCC023D ModelToListen
+
+ME ME_57CEBBE2015F
+ MEPROP UID '57CEBBE2015F'
+ MEPROP Name 'ModelToFire'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57CEBBA601F1 // TmsmListToTreeOperation
+ ;
+ MELINK Target WL 'ME_57B198570162' '57ADC53E00B6.ms.model.script' // ImsmTreeModel
+ ;
+
+ENDME // ME_57CEBBE2015F ModelToFire
+
+MEREF ME_57CEBA960062_ME_57CEBBA601F1_G
+ MELINK Original WL? 'ME_57CEBA960062' // msmModelToModelOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57CEBA960062_ME_57CEBBA601F1_G msmModelToModelOperation
+
+%%InheritedBy ME_57CEBA960062 ME_57CEBBA601F1
+
+ME ME_57CEBBA601F1
+ MEPROP UID '57CEBBA601F1'
+ MEPROP Name 'TmsmListToTreeOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_57CEBB9200EA' // ConcreteOperations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57CEBA960062_ME_57CEBBA601F1_G // msmModelToModelOperation
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57CEBBCC023D // ModelToListen
+ HWL ME_57CEBBE2015F // ModelToFire
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'msmListToTreeOperation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmListToTreeOperation'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmListToTreeOperation.pas'
+
+ENDME // ME_57CEBBA601F1 TmsmListToTreeOperation

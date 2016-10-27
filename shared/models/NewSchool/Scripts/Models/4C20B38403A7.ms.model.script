@@ -1,0 +1,52 @@
+// K219123621 4C20B38403A7 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4C07AC6F036D_ME_4C20B38403A7_over
+ MELINK Original WL 'ME_4C07AC6F036D' '4BE425C70228.ms.model.script' // GetNormalFontSize
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C07AC6F036D_ME_4C20B38403A7_over GetNormalFontSize
+
+MEREF ME_51AF49E5001B_ME_4C20B38403A7_over
+ MELINK Original WL 'ME_51AF49E5001B' '4B2A11BC0255.ms.model.script' // EtalonNeedsXE
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef" 'XE'
+ENDMEREF // ME_51AF49E5001B_ME_4C20B38403A7_over EtalonNeedsXE
+
+MEREF ME_4BE429BA0233_ME_4C20B38403A7_G
+ MELINK Original WL? 'ME_4BE429BA0233' // TPreviewTestBefore235875079
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE429BA0233_ME_4C20B38403A7_G TPreviewTestBefore235875079
+
+%%InheritedBy ME_4BE429BA0233 ME_4C20B38403A7
+
+ME ME_4C20B38403A7
+ MEPROP UID '4C20B38403A7'
+ MEPROP Name 'K219123621'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$219123621]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4BAC88690141' // 7.5
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE429BA0233_ME_4C20B38403A7_G // TPreviewTestBefore235875079
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C07AC6F036D_ME_4C20B38403A7_over // GetNormalFontSize
+ ME_51AF49E5001B_ME_4C20B38403A7_over // EtalonNeedsXE
+ )
+ ; // Overridden
+ UP extprop:pas:TypeName 'TK219123621'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K219123621'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K219123621.pas'
+
+ENDME // ME_4C20B38403A7 K219123621

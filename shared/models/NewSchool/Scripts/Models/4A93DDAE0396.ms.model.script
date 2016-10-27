@@ -320,7 +320,7 @@ ENDME // ME_523ADAA8017C f_InLongProcess
 ME ME_523ABFDC0014
  MEPROP UID '523ABFDC0014'
  MEPROP Name 'Prepare'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'подготовка формы к открытию на основе данных f_Data' ;
@@ -362,7 +362,7 @@ ENDME // ME_523AC0D70019 DoIt
 ME ME_523AC0C700E6
  MEPROP UID '523AC0C700E6'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -376,12 +376,18 @@ ME ME_523AC0C700E6
 
 ENDME // ME_523AC0C700E6 Create
 
+MEREF ME_47881B22005A_ME_523AC9A902C2_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_523AC9A902C2_G TNotifyEvent
+
 %%InheritedBy ME_47881B22005A ME_523AC9A902C2
 
 ME ME_523AC9A902C2
  MEPROP UID '523AC9A902C2'
  MEPROP Name 'btnExitClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -389,18 +395,24 @@ ME ME_523AC9A902C2
  MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_523AC9A902C2_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_523AC9A902C2 btnExitClick
+
+MEREF ME_523AD9CB02EC_ME_523ADA5A023D_G
+ MELINK Original WL 'ME_523AD9CB02EC' '47E13C6B0341.ms.model.script' // TCloseQueryEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_523AD9CB02EC_ME_523ADA5A023D_G TCloseQueryEvent
 
 %%InheritedBy ME_523AD9CB02EC ME_523ADA5A023D
 
 ME ME_523ADA5A023D
  MEPROP UID '523ADA5A023D'
  MEPROP Name 'vcmEntityFormCloseQuery'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -408,7 +420,7 @@ ME ME_523ADA5A023D
  MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_523AD9CB02EC' '47E13C6B0341.ms.model.script' // TCloseQueryEvent
+   Seq: ( HWL ME_523AD9CB02EC_ME_523ADA5A023D_G // TCloseQueryEvent
  )
  ; // Inherits
  UP extprop:rc:SelfName 'EntityFormCloseQuery'
@@ -560,35 +572,41 @@ ME ME_574DC7A300E5
 
 ENDME // ME_574DC7A300E5 
 
-ME ME_479731C50290_ME_4A93DDAE0396
+MEREF ME_479731C50290_ME_4A93DDAE0396_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4A93DDAE0396 Cleanup
+ENDMEREF // ME_479731C50290_ME_4A93DDAE0396_over Cleanup
 
-ME ME_48C7925A02E5_ME_4A93DDAE0396
+MEREF ME_48C7925A02E5_ME_4A93DDAE0396_over
  MELINK Original WL 'ME_48C7925A02E5' '47E11FC3021E.ms.model.script' // CreateParams
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48C7925A02E5_ME_4A93DDAE0396 CreateParams
+ENDMEREF // ME_48C7925A02E5_ME_4A93DDAE0396_over CreateParams
 
-ME ME_4A8E8F2E0195_ME_4A93DDAE0396
+MEREF ME_4A8E8F2E0195_ME_4A93DDAE0396_over
  MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8E8F2E0195_ME_4A93DDAE0396 InitControls
+ENDMEREF // ME_4A8E8F2E0195_ME_4A93DDAE0396_over InitControls
 
-ME ME_520B42AF0115_ME_4A93DDAE0396
+MEREF ME_520B42AF0115_ME_4A93DDAE0396_over
  MELINK Original WL 'ME_520B42AF0115' '47E13C6B0341.ms.model.script' // ShowModal
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_520B42AF0115_ME_4A93DDAE0396 ShowModal
+ENDMEREF // ME_520B42AF0115_ME_4A93DDAE0396_over ShowModal
 
-ME ME_523AC062006F_ME_4A93DDAE0396
- MELINK Original WL 'ME_523AC062006F' '4AADF9450143.ms.model.script' // HasFormFloatingZoneTypeAndVisible
+MEREF ME_523AC062006F_ME_4A93DDAE0396_over
+ MELINK Original WL 'ME_523AC062006F' '49525B34022A.ms.model.script' // HasFormFloatingZoneTypeAndVisible
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_523AC062006F_ME_4A93DDAE0396 HasFormFloatingZoneTypeAndVisible
+ENDMEREF // ME_523AC062006F_ME_4A93DDAE0396_over HasFormFloatingZoneTypeAndVisible
+
+MEREF ME_49525B34022A_ME_4A93DDAE0396_G
+ MELINK Original WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525B34022A_ME_4A93DDAE0396_G TvcmEntityForm
 
 %%InheritedBy ME_49525B34022A ME_4A93DDAE0396
 
@@ -605,7 +623,7 @@ ME ME_4A93DDAE0396
  MELINK Parent WL? 'ME_4A924BCA0092' // PrimCommon
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+   Seq: ( HWL ME_49525B34022A_ME_4A93DDAE0396_G // TvcmEntityForm
  )
  ; // Inherits
  MELIST Attributes
@@ -627,11 +645,11 @@ ME ME_4A93DDAE0396
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4A93DDAE0396 // Cleanup
- ME_48C7925A02E5_ME_4A93DDAE0396 // CreateParams
- ME_4A8E8F2E0195_ME_4A93DDAE0396 // InitControls
- ME_520B42AF0115_ME_4A93DDAE0396 // ShowModal
- ME_523AC062006F_ME_4A93DDAE0396 // HasFormFloatingZoneTypeAndVisible
+   Seq: ( ME_479731C50290_ME_4A93DDAE0396_over // Cleanup
+ ME_48C7925A02E5_ME_4A93DDAE0396_over // CreateParams
+ ME_4A8E8F2E0195_ME_4A93DDAE0396_over // InitControls
+ ME_520B42AF0115_ME_4A93DDAE0396_over // ShowModal
+ ME_523AC062006F_ME_4A93DDAE0396_over // HasFormFloatingZoneTypeAndVisible
  )
  ; // Overridden
  MELIST Children

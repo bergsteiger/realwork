@@ -9,7 +9,7 @@ ME ME_5024E62302DD
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5024E60F00A6 // TdsSynchroViewDocument
  ;
- MELINK Target WL 'ME_5024E55600ED' '4C6A7BA001A5.ms.model.script' // TnsAACDocumentSynchroViewContainer
+ MELINK Target WL? 'ME_5024E55600ED' // TnsAACDocumentSynchroViewContainer
  ;
 
 ENDME // ME_5024E62302DD 
@@ -24,11 +24,17 @@ ME ME_5024E6C20323
 
 ENDME // ME_5024E6C20323 
 
-ME ME_4C6AB38800F3_ME_5024E60F00A6
+MEREF ME_4C6AB38800F3_ME_5024E60F00A6_over
  MELINK Original WL 'ME_4C6AB38800F3' '47EA20430108.ms.model.script' // MakeContainer
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4C6AB38800F3_ME_5024E60F00A6 MakeContainer
+ENDMEREF // ME_4C6AB38800F3_ME_5024E60F00A6_over MakeContainer
+
+MEREF ME_493D63D20049_ME_5024E60F00A6_G
+ MELINK Original WL? 'ME_493D63D20049' // TdsDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_493D63D20049_ME_5024E60F00A6_G TdsDocument
 
 %%InheritedBy ME_493D63D20049 ME_5024E60F00A6
 
@@ -44,11 +50,11 @@ ME ME_5024E60F00A6
  MELINK Parent WL? 'ME_4A9F90B7029E' // List
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_493D63D20049' // TdsDocument
+   Seq: ( HWL ME_493D63D20049_ME_5024E60F00A6_G // TdsDocument
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_4C6AB38800F3_ME_5024E60F00A6 // MakeContainer
+   Seq: ( ME_4C6AB38800F3_ME_5024E60F00A6_over // MakeContainer
  )
  ; // Overridden
  MELIST Dependencies

@@ -4,72 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_512DB031030F
 
-FORWARD ME_512DAFB70392
-
-FORWARD ME_512DB031030F
-
-ME ME_512DB0670276
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_512DB031030F // TEverestLiteTestSuite
- ;
- MELINK Target WL? 'ME_512D9BE30122' // EverestLiteKeyWords
- ;
-
-ENDME // ME_512DB0670276 
-
-ME ME_512DFDDE03D4
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_512DB031030F // TEverestLiteTestSuite
- ;
- MELINK Target WL? 'ME_4F5DA0BF025A' // kwEditorKeyWordsPack
- ;
-
-ENDME // ME_512DFDDE03D4 
-
-ME ME_5166B28E0215
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_512DB031030F // TEverestLiteTestSuite
- ;
- MELINK Target WL? 'ME_5166AFC5017A' // kwArchiEverestWordsPack
- ;
-
-ENDME // ME_5166B28E0215 
-
-%%InheritedBy ME_4DE342FA0300 ME_512DB031030F
-
-ME ME_512DB031030F
- MEPROP UID '512DB031030F'
- MEPROP Name 'TEverestLiteTestSuite'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_512DAFB70392 // EverestLiteInsiderTest
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4DE342FA0300' '4DE3425B01DA.ms.model.script' // TArchiAutoTestSuite
- )
- ; // Inherits
- MELIST Dependencies
-   Seq: ( ME_512DB0670276 // EverestLiteKeyWords
- ME_512DFDDE03D4 // kwEditorKeyWordsPack
- ME_5166B28E0215 // kwArchiEverestWordsPack
- )
- ; // Dependencies
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP extprop:pas:UnitName 'EverestLiteTestSuite'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'EverestLiteTestSuite'
- UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\EverestInsiderTests\EverestLiteTestSuite.pas'
-
-ENDME // ME_512DB031030F TEverestLiteTestSuite
-
 ME ME_512DAFB70392
  MEPROP UID '512DAFB70392'
  MEPROP Name 'EverestLiteInsiderTest'
@@ -81,7 +15,7 @@ ME ME_512DAFB70392
  MELINK Parent WL? 'ME_512DAF9001E3' // EverestInsiderTests
  ;
  MELIST Children
-   Seq: ( HWL ME_512DB031030F // TEverestLiteTestSuite
+   Seq: ( WL? 'ME_512DB031030F' // TEverestLiteTestSuite
  )
  ; // Children
  MELIST Depends

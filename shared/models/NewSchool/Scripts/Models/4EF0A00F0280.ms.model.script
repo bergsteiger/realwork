@@ -1,0 +1,55 @@
+// K321983051 4EF0A00F0280 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4EF0A04A0286_ME_4EF0A00F0280_over
+ MELINK Original WL 'ME_4EF0A04A0286' '4EEF59B40075.ms.model.script' // GetZoom
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4EF0A04A0286_ME_4EF0A00F0280_over GetZoom
+
+MEREF ME_51AF49E5001B_ME_4EF0A00F0280_over
+ MELINK Original WL 'ME_51AF49E5001B' '4B2A11BC0255.ms.model.script' // EtalonNeedsXE
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef" 'XE'
+ENDMEREF // ME_51AF49E5001B_ME_4EF0A00F0280_over EtalonNeedsXE
+
+MEREF ME_4EEF59B40075_ME_4EF0A00F0280_G
+ MELINK Original WL? 'ME_4EEF59B40075' // TFormulaRender
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EEF59B40075_ME_4EF0A00F0280_G TFormulaRender
+
+%%InheritedBy ME_4EEF59B40075 ME_4EF0A00F0280
+
+ME ME_4EF0A00F0280
+ MEPROP UID '4EF0A00F0280'
+ MEPROP Name 'K321983051'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:321983051}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D6BE7850038' // 7.7 Lulin
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4EEF59B40075_ME_4EF0A00F0280_G // TFormulaRender
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4EF0A04A0286_ME_4EF0A00F0280_over // GetZoom
+ ME_51AF49E5001B_ME_4EF0A00F0280_over // EtalonNeedsXE
+ )
+ ; // Overridden
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '20.12.2011 18:47'
+ UP extprop:pas:TypeName 'TK321983051'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K321983051'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K321983051.pas'
+
+ENDME // ME_4EF0A00F0280 K321983051

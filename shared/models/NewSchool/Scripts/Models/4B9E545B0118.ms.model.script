@@ -147,7 +147,7 @@ ENDME // ME_576117E40244 DoIt
 ME ME_576117CD013D
  MEPROP UID '576117CD013D'
  MEPROP Name 'WriteHTMLStyleTable'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -194,7 +194,7 @@ ENDME // ME_5761181701D9 DoIt
 ME ME_576117FD021D
  MEPROP UID '576117FD021D'
  MEPROP Name 'StyleName'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -249,7 +249,7 @@ ENDME // ME_5761186802EC DoIt
 ME ME_5761184D00CB
  MEPROP UID '5761184D00CB'
  MEPROP Name 'OpenPara'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -271,7 +271,7 @@ ME ME_57611F3B00B2
  MEPROP Name 'aPAP'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_51DBBDD6011E' '4F6843C101D1.ms.model.script' // TddParagraphProperty
+ MELINK Target WL? 'ME_51DBBDD6011E' // TddParagraphProperty
  ;
 
 ENDME // ME_57611F3B00B2 aPAP
@@ -316,7 +316,7 @@ ENDME // ME_57611964037B DoIt
 ME ME_5761194803AE
  MEPROP UID '5761194803AE'
  MEPROP Name 'PAP2HTML'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -329,6 +329,12 @@ ME ME_5761194803AE
  ; // Operations
 
 ENDME // ME_5761194803AE PAP2HTML
+
+MEREF ME_4F683DA30260_ME_4B9E54770095_G
+ MELINK Original WL 'ME_4F683DA30260' '4E1C271501E5.ms.model.script' // TddDocumentGenerator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F683DA30260_ME_4B9E54770095_G TddDocumentGenerator
 
 %%InheritedBy ME_4F683DA30260 ME_4B9E54770095
 
@@ -343,7 +349,7 @@ ME ME_4B9E54770095
  MELINK Parent HWL ME_4B9E545B0118 // ddHTMLWriter
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F683DA30260' '4E1C271501E5.ms.model.script' // TddDocumentGenerator
+   Seq: ( HWL ME_4F683DA30260_ME_4B9E54770095_G // TddDocumentGenerator
  )
  ; // Inherits
  MELIST Operations

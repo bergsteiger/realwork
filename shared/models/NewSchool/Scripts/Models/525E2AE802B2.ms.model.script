@@ -1,0 +1,207 @@
+// TddBorderPart 525E2AE802B2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_525E2AE802B2
+
+ME ME_525E2CFC01FA
+ MEPROP UID '525E2CFC01FA'
+ MEPROP Name 'Width'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_525E2AE802B2 // TddBorderPart
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_525E2CFC01FA Width
+
+ME ME_525E2D810174
+ MEPROP UID '525E2D810174'
+ MEPROP Name 'Space'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_525E2AE802B2 // TddBorderPart
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_525E2D810174 Space
+
+ME ME_525E2DB100D9
+ MEPROP UID '525E2DB100D9'
+ MEPROP Name 'Color'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_525E2AE802B2 // TddBorderPart
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_525E2DB100D9 Color
+
+ME ME_525E2E2E02E2
+ MEPROP UID '525E2E2E02E2'
+ MEPROP Name 'FrameType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_525E2AE802B2 // TddBorderPart
+ ;
+ MELINK Target WL 'ME_525E2DF80180' '518A1E9F0274.ms.model.script' // TddBorderType
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_525E2E2E02E2 FrameType
+
+ME ME_525E2E760175
+ MEPROP UID '525E2E760175'
+ MEPROP Name 'Enable'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_525E2AE802B2 // TddBorderPart
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_525E2E760175 Enable
+
+FORWARD ME_525E2CA7024F
+
+ME ME_525E2CB001C4
+ MEPROP UID '525E2CB001C4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_525E2CA7024F // Clear
+ ;
+
+ENDME // ME_525E2CB001C4 DoIt
+
+ME ME_525E2CA7024F
+ MEPROP UID '525E2CA7024F'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_525E2AE802B2 // TddBorderPart
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_525E2CB001C4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_525E2CA7024F Clear
+
+ME ME_525E30F70325
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_525E2AE802B2 // TddBorderPart
+ ;
+ MELINK Target WL 'ME_47CBD5980343' '47D15712022D.ms.model.script' // Colors
+ ;
+
+ENDME // ME_525E30F70325 
+
+MEREF ME_54DC9795018B_ME_525E2AE802B2_impl
+ MELINK Original WL 'ME_54DC9795018B' '52BACF040379.ms.model.script' // Write2Generator
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54DC9795018B_ME_525E2AE802B2_impl Write2Generator
+
+MEREF ME_52BACF8A01A9_ME_525E2AE802B2_over
+ MELINK Original WL 'ME_52BACF8A01A9' '52BACF040379.ms.model.script' // Assign
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52BACF8A01A9_ME_525E2AE802B2_over Assign
+
+MEREF ME_52BACF040379_ME_525E2AE802B2_G
+ MELINK Original WL? 'ME_52BACF040379' // TddBaseObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52BACF040379_ME_525E2AE802B2_G TddBaseObject
+
+%%InheritedBy ME_52BACF040379 ME_525E2AE802B2
+
+ME ME_525E2AE802B2
+ MEPROP UID '525E2AE802B2'
+ MEPROP Name 'TddBorderPart'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6843C101D1' // ddCommon
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52BACF040379_ME_525E2AE802B2_G // TddBaseObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_525E2CFC01FA // Width
+ HWL ME_525E2D810174 // Space
+ HWL ME_525E2DB100D9 // Color
+ HWL ME_525E2E2E02E2 // FrameType
+ HWL ME_525E2E760175 // Enable
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_525E2CA7024F // Clear
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_54DC9795018B_ME_525E2AE802B2_impl // Write2Generator
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_52BACF8A01A9_ME_525E2AE802B2_over // Assign
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_525E30F70325 // Colors
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ddBorderPart'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddBorderPart'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddBorderPart.pas'
+
+ENDME // ME_525E2AE802B2 TddBorderPart

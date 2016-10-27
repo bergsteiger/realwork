@@ -1,0 +1,77 @@
+// TMouseMoveCellsSelectTest 4D3D429001F4 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D3D429001F4
+
+ME ME_4D3D51E60211
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D3D429001F4 // TMouseMoveCellsSelectTest
+ ;
+ MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+
+ENDME // ME_4D3D51E60211 
+
+MEREF ME_4BF4E6A00093_ME_4D3D429001F4_over
+ MELINK Original WL 'ME_4BF4E6A00093' '4CED0194038A.ms.model.script' // GetInnerPara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BF4E6A00093_ME_4D3D429001F4_over GetInnerPara
+
+MEREF ME_4C3C927B027E_ME_4D3D429001F4_over
+ MELINK Original WL 'ME_4C3C927B027E' '4CED0194038A.ms.model.script' // GetPoint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C3C927B027E_ME_4D3D429001F4_over GetPoint
+
+MEREF ME_4C937013031D_ME_4D3D429001F4_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4D3D429001F4_over GetFolder
+
+MEREF ME_4D3D40C70045_ME_4D3D429001F4_G
+ MELINK Original WL? 'ME_4D3D40C70045' // TMouseMoveSelectionTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D3D40C70045_ME_4D3D429001F4_G TMouseMoveSelectionTest
+
+%%InheritedBy ME_4D3D40C70045 ME_4D3D429001F4
+
+ME ME_4D3D429001F4
+ MEPROP UID '4D3D429001F4'
+ MEPROP Name 'TMouseMoveCellsSelectTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест выделения с помощью мыши диапазона ячеек.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C4FDBF703DB' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D3D40C70045_ME_4D3D429001F4_G // TMouseMoveSelectionTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4BF4E6A00093_ME_4D3D429001F4_over // GetInnerPara
+ ME_4C3C927B027E_ME_4D3D429001F4_over // GetPoint
+ ME_4C937013031D_ME_4D3D429001F4_over // GetFolder
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D3D51E60211 // evL3CoreConsts
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'MouseMoveCellsSelectTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MouseMoveCellsSelectTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\MouseMoveCellsSelectTest.pas'
+
+ENDME // ME_4D3D429001F4 TMouseMoveCellsSelectTest

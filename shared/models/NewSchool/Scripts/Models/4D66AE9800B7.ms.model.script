@@ -1,0 +1,222 @@
+// Tf1DocumentTagDataFromDTPHandle 4D66AE9800B7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D66AE9800B7
+
+ME ME_4D66AF0A00D1
+ MEPROP UID '4D66AF0A00D1'
+ MEPROP Name 'f_Handle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D66AE9800B7 // Tf1DocumentTagDataFromDTPHandle
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4D66AF0A00D1 f_Handle
+
+ME ME_4D66AFCD01DC
+ MEPROP UID '4D66AFCD01DC'
+ MEPROP Name 'f_Doc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4D66AE9800B7 // Tf1DocumentTagDataFromDTPHandle
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4D66AFCD01DC f_Doc
+
+FORWARD ME_4D66AF7A025A
+
+FORWARD ME_4D66AF870061
+
+ME ME_4D66AFA1014F
+ MEPROP Name 'aHandle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4D66AFA1014F aHandle
+
+ME ME_4D66AFA10197
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4D66AFA10197 aDoc
+
+ME ME_4D66AF870061
+ MEPROP UID '4D66AF870061'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D66AF7A025A // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D66AFA1014F // aHandle
+ ME_4D66AFA10197 // aDoc
+ )
+ ; // Parameters
+
+ENDME // ME_4D66AF870061 DoIt
+
+ME ME_4D66AF7A025A
+ MEPROP UID '4D66AF7A025A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D66AE9800B7 // Tf1DocumentTagDataFromDTPHandle
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D66AF870061 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D66AF7A025A Create
+
+MEREF ME_4D66AF7A025A_ME_4D66AFA8027C_G
+ MELINK Original HWL ME_4D66AF7A025A // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D66AF7A025A_ME_4D66AFA8027C_G Create
+
+MEREF ME_4C6E935500EF_ME_4D66AFA8027C_R
+ MELINK Original WL 'ME_4C6E935500EF' '4C6E92E9016E.ms.model.script' // If1TagDataProvider
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C6E935500EF_ME_4D66AFA8027C_R If1TagDataProvider
+
+%%ImplementedBy ME_4C6E935500EF ME_4D66AFA8027C
+
+%%InheritedBy ME_4D66AF7A025A ME_4D66AFA8027C
+
+ME ME_4D66AFA8027C
+ MEPROP UID '4D66AFA8027C'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D66AE9800B7 // Tf1DocumentTagDataFromDTPHandle
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D66AF7A025A_ME_4D66AFA8027C_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4C6E935500EF_ME_4D66AFA8027C_R // If1TagDataProvider
+ )
+ ; // Implements
+
+ENDME // ME_4D66AFA8027C Make
+
+ME ME_4D66B32C00E3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D66AE9800B7 // Tf1DocumentTagDataFromDTPHandle
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4D66B32C00E3 
+
+ME ME_4D6E6D8B006E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D66AE9800B7 // Tf1DocumentTagDataFromDTPHandle
+ ;
+ MELINK Target WL 'ME_4D6E6B66010A' '48492FC0029D.ms.model.script' // AutoreferatDocument
+ ;
+
+ENDME // ME_4D6E6D8B006E 
+
+MEREF ME_4C727B320016_ME_4D66AE9800B7_over
+ MELINK Original WL 'ME_4C727B320016' '4C72A40000A6.ms.model.script' // f_Provider
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" False
+ UP "pm" True
+ENDMEREF // ME_4C727B320016_ME_4D66AE9800B7_over f_Provider
+
+MEREF ME_4C7294F40339_ME_4D66AE9800B7_over
+ MELINK Original WL 'ME_4C7294F40339' '4C72A40000A6.ms.model.script' // GetAllParaChildrenCount
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C7294F40339_ME_4D66AE9800B7_over GetAllParaChildrenCount
+
+MEREF ME_4D66B40B02C4_ME_4D66AE9800B7_over
+ MELINK Original WL 'ME_4D66B40B02C4' '4C72A40000A6.ms.model.script' // DoGetType
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D66B40B02C4_ME_4D66AE9800B7_over DoGetType
+
+MEREF ME_4C727C990284_ME_4D66AE9800B7_G
+ MELINK Original WL? 'ME_4C727C990284' // Tf1DocumentTagDataFromDTP
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C727C990284_ME_4D66AE9800B7_G Tf1DocumentTagDataFromDTP
+
+%%InheritedBy ME_4C727C990284 ME_4D66AE9800B7
+
+ME ME_4D66AE9800B7
+ MEPROP UID '4D66AE9800B7'
+ MEPROP Name 'Tf1DocumentTagDataFromDTPHandle'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C726B20031E' // TagDataProviders
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C727C990284_ME_4D66AE9800B7_G // Tf1DocumentTagDataFromDTP
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D66AF0A00D1 // f_Handle
+ HWL ME_4D66AFCD01DC // f_Doc
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D66AF7A025A // Create
+ HWL ME_4D66AFA8027C // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4C727B320016_ME_4D66AE9800B7_over // f_Provider
+ ME_4C7294F40339_ME_4D66AE9800B7_over // GetAllParaChildrenCount
+ ME_4D66B40B02C4_ME_4D66AE9800B7_over // DoGetType
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D66B32C00E3 // Document
+ ME_4D6E6D8B006E // AutoreferatDocument
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '24.02.2011 22:17'
+ UP extprop:pas:UnitName 'f1DocumentTagDataFromDTPHandle'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'f1DocumentTagDataFromDTPHandle'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1DocumentTagDataFromDTPHandle.pas'
+
+ENDME // ME_4D66AE9800B7 Tf1DocumentTagDataFromDTPHandle

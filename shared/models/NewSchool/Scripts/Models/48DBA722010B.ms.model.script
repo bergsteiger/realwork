@@ -1,0 +1,196 @@
+// TevQueryCardProcessor 48DBA722010B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48DBA722010B
+
+FORWARD ME_48E4CB1A03B7
+
+ME ME_48E4CB2F01B6
+ MEPROP Name 'Parent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_48E4CB2F01B6 Parent
+
+ME ME_48E4CB2F01EA
+ MEPROP Name 'Child'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_48E4CB2F01EA Child
+
+ME ME_48E4CB2F021F
+ MEPROP Name 'aIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48E4CB2F021F aIndex
+
+ME ME_48E4CB1A03B7
+ MEPROP UID '48E4CB1A03B7'
+ MEPROP Name 'NeedAdd'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48DBA722010B // TevQueryCardProcessor
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E4CB2F01B6 // Parent
+ ME_48E4CB2F01EA // Child
+ ME_48E4CB2F021F // aIndex
+ )
+ ; // Parameters
+
+ENDME // ME_48E4CB1A03B7 NeedAdd
+
+ME ME_48E4CC690175
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48DBA722010B // TevQueryCardProcessor
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_48E4CC690175 
+
+ME ME_48E4CC9202AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48DBA722010B // TevQueryCardProcessor
+ ;
+ MELINK Target WL 'ME_47D0018D03D9' '47D0015C0022.ms.model.script' // Control Types
+ ;
+
+ENDME // ME_48E4CC9202AD 
+
+ME ME_48E4CF600179
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48DBA722010B // TevQueryCardProcessor
+ ;
+ MELINK Target WL 'ME_47AC81B403B5' '47AC80BD020B.ms.model.script' // Ek2CannotAddChild
+ ;
+
+ENDME // ME_48E4CF600179 
+
+ME ME_48E4CF980038
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48DBA722010B // TevQueryCardProcessor
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_48E4CF980038 
+
+ME ME_49AE7CAD01DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48DBA722010B // TevQueryCardProcessor
+ ;
+ MELINK Target WL 'ME_4857EA97011D' '48492FC0029D.ms.model.script' // ReqRow
+ ;
+
+ENDME // ME_49AE7CAD01DB 
+
+ME ME_49AE7CB7014C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48DBA722010B // TevQueryCardProcessor
+ ;
+ MELINK Target WL 'ME_4857E9EE024A' '48492FC0029D.ms.model.script' // ReqCell
+ ;
+
+ENDME // ME_49AE7CB7014C 
+
+ME ME_49E8C8E102AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48DBA722010B // TevQueryCardProcessor
+ ;
+ MELINK Target WL 'ME_47C6BA1C0055' '47C5207602D1.ms.model.script' // InevQueryDocumentContainer
+ ;
+
+ENDME // ME_49E8C8E102AF 
+
+MEREF ME_48E4CB990000_ME_48DBA722010B_over
+ MELINK Original WL 'ME_48E4CB990000' '47F351BC0145.ms.model.script' // DoCheckParaOp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E4CB990000_ME_48DBA722010B_over DoCheckParaOp
+
+MEREF ME_48E4CBD6038B_ME_48DBA722010B_over
+ MELINK Original WL 'ME_48E4CBD6038B' '47F351BC0145.ms.model.script' // DoAfterUndoRedo
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E4CBD6038B_ME_48DBA722010B_over DoAfterUndoRedo
+
+MEREF ME_48E4CBE8018B_ME_48DBA722010B_over
+ MELINK Original WL 'ME_48E4CBE8018B' '47F351BC0145.ms.model.script' // DoParaOp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E4CBE8018B_ME_48DBA722010B_over DoParaOp
+
+MEREF ME_47F35EA70305_ME_48DBA722010B_G
+ MELINK Original WL? 'ME_47F35EA70305' // TevEditorWindowProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F35EA70305_ME_48DBA722010B_G TevEditorWindowProcessor
+
+%%InheritedBy ME_47F35EA70305 ME_48DBA722010B
+
+ME ME_48DBA722010B
+ MEPROP UID '48DBA722010B'
+ MEPROP Name 'TevQueryCardProcessor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47CEBC900123' // qf
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47F35EA70305_ME_48DBA722010B_G // TevEditorWindowProcessor
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_48E4CB1A03B7 // NeedAdd
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48E4CB990000_ME_48DBA722010B_over // DoCheckParaOp
+ ME_48E4CBD6038B_ME_48DBA722010B_over // DoAfterUndoRedo
+ ME_48E4CBE8018B_ME_48DBA722010B_over // DoParaOp
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48E4CC690175 // SysUtils
+ ME_48E4CC9202AD // Control Types
+ ME_48E4CF600179 // Ek2CannotAddChild
+ ME_48E4CF980038 // Tk2TagID
+ ME_49AE7CAD01DB // ReqRow
+ ME_49AE7CB7014C // ReqCell
+ ME_49E8C8E102AF // InevQueryDocumentContainer
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP "no hands" True
+ UP extprop:pas:UnitName 'evQueryCardProcessor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'QueryCardProcessor'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\qf\evQueryCardProcessor.pas'
+
+ENDME // ME_48DBA722010B TevQueryCardProcessor

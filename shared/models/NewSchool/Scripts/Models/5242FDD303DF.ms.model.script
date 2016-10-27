@@ -1,0 +1,233 @@
+// TafwSettingsChangePublisherPrim 5242FDD303DF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5242FDD303DF
+
+ME ME_4F6CAC820222
+ MEPROP UID '4F6CAC820222'
+ MEPROP Name 'f_SettingListeners'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5242FDD303DF // TafwSettingsChangePublisherPrim
+ ;
+ MELINK Target WL? 'ME_49143FC20016' // TIafwSettingListenerPtrList
+ ;
+
+ENDME // ME_4F6CAC820222 f_SettingListeners
+
+ME ME_4F6CB2070279
+ MEPROP UID '4F6CB2070279'
+ MEPROP Name 'f_ReplaceListeners'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5242FDD303DF // TafwSettingsChangePublisherPrim
+ ;
+ MELINK Target WL? 'ME_491441E201E0' // TIafwSettingsReplaceListenerPtrList
+ ;
+
+ENDME // ME_4F6CB2070279 f_ReplaceListeners
+
+FORWARD ME_524303770307
+
+FORWARD ME_5243038A023E
+
+ME ME_524303910012
+ MEPROP Name 'aSettingID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+
+ENDME // ME_524303910012 aSettingID
+
+ME ME_5243038A023E
+ MEPROP UID '5243038A023E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_524303770307 // NotifySettingChanged
+ ;
+ MELIST Parameters
+   Seq: ( ME_524303910012 // aSettingID
+ )
+ ; // Parameters
+
+ENDME // ME_5243038A023E DoIt
+
+ME ME_524303770307
+ MEPROP UID '524303770307'
+ MEPROP Name 'NotifySettingChanged'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5242FDD303DF // TafwSettingsChangePublisherPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5243038A023E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_524303770307 NotifySettingChanged
+
+FORWARD ME_524304C002EE
+
+FORWARD ME_524304D101FF
+
+ME ME_524304D60219
+ MEPROP Name 'aStart'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_524304D60219 aStart
+
+ME ME_524304D101FF
+ MEPROP UID '524304D101FF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_524304C002EE // NotifyReplace
+ ;
+ MELIST Parameters
+   Seq: ( ME_524304D60219 // aStart
+ )
+ ; // Parameters
+
+ENDME // ME_524304D101FF DoIt
+
+ME ME_524304C002EE
+ MEPROP UID '524304C002EE'
+ MEPROP Name 'NotifyReplace'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5242FDD303DF // TafwSettingsChangePublisherPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_524304D101FF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_524304C002EE NotifyReplace
+
+ME ME_5242FE4C01CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5242FDD303DF // TafwSettingsChangePublisherPrim
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_5242FE4C01CE 
+
+MEREF ME_475E8E410197_ME_5242FDD303DF_impl
+ MELINK Original WL 'ME_475E8E410197' '467823B7002C.ms.model.script' // AddListener
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_475E8E410197_ME_5242FDD303DF_impl AddListener
+
+MEREF ME_475E8E4D03E4_ME_5242FDD303DF_impl
+ MELINK Original WL 'ME_475E8E4D03E4' '467823B7002C.ms.model.script' // RemoveListener
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_475E8E4D03E4_ME_5242FDD303DF_impl RemoveListener
+
+MEREF ME_475E8E5E0286_ME_5242FDD303DF_impl
+ MELINK Original WL 'ME_475E8E5E0286' '467823B7002C.ms.model.script' // AddListener
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_475E8E5E0286_ME_5242FDD303DF_impl AddListener
+
+MEREF ME_475E8E7900A3_ME_5242FDD303DF_impl
+ MELINK Original WL 'ME_475E8E7900A3' '467823B7002C.ms.model.script' // RemoveListener
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_475E8E7900A3_ME_5242FDD303DF_impl RemoveListener
+
+MEREF ME_479731C50290_ME_5242FDD303DF_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5242FDD303DF_over Cleanup
+
+MEREF ME_49E7754802A9_ME_5242FDD303DF_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5242FDD303DF_G Tl3ProtoObject
+
+MEREF ME_5243000F03A2_ME_5242FDD303DF_R
+ MELINK Original WL 'ME_5243000F03A2' '467823B7002C.ms.model.script' // MafwSettingsNotify
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5243000F03A2_ME_5242FDD303DF_R MafwSettingsNotify
+
+%%ImplementedBy ME_5243000F03A2 ME_5242FDD303DF
+
+%%InheritedBy ME_49E7754802A9 ME_5242FDD303DF
+
+ME ME_5242FDD303DF
+ MEPROP UID '5242FDD303DF'
+ MEPROP Name 'TafwSettingsChangePublisherPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6C5511015F' // afwSettings
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_5242FDD303DF_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5243000F03A2_ME_5242FDD303DF_R // MafwSettingsNotify
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4F6CAC820222 // f_SettingListeners
+ HWL ME_4F6CB2070279 // f_ReplaceListeners
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_524303770307 // NotifySettingChanged
+ HWL ME_524304C002EE // NotifyReplace
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_475E8E410197_ME_5242FDD303DF_impl // AddListener
+ ME_475E8E4D03E4_ME_5242FDD303DF_impl // RemoveListener
+ ME_475E8E5E0286_ME_5242FDD303DF_impl // AddListener
+ ME_475E8E7900A3_ME_5242FDD303DF_impl // RemoveListener
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5242FDD303DF_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5242FE4C01CE // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'afwSettingsChangePublisherPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwSettingsChangePublisherPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\afwSettingsChangePublisherPrim.pas'
+
+ENDME // ME_5242FDD303DF TafwSettingsChangePublisherPrim

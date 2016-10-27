@@ -475,7 +475,7 @@ ME ME_5076951C03B4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F69DF91037E // ControlsProcessingPack
  ;
- MELINK Target WL 'ME_4F2141AD0203' '4F69DF560034.ms.model.script' // byname_control_push
+ MELINK Target WL? 'ME_4F2141AD0203' // byname_control_push
  ;
 
 ENDME // ME_5076951C03B4 
@@ -505,7 +505,7 @@ ME ME_5500152F0108
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F69DF91037E // ControlsProcessingPack
  ;
- MELINK Target WL 'ME_550013770000' '55001317029B.ms.model.script' // Tl3PopupMenuHelper
+ MELINK Target WL? 'ME_550013770000' // Tl3PopupMenuHelper
  ;
 
 ENDME // ME_5500152F0108 
@@ -515,7 +515,7 @@ ME ME_5506E80F03B2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F69DF91037E // ControlsProcessingPack
  ;
- MELINK Target WL 'ME_5506D56601D6' '5506D079035B.ms.model.script' // Tl3FormsService
+ MELINK Target WL? 'ME_5506D56601D6' // Tl3FormsService
  ;
 
 ENDME // ME_5506E80F03B2 
@@ -545,10 +545,16 @@ ME ME_556F266501AC
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F69DF91037E // ControlsProcessingPack
  ;
- MELINK Target WL 'ME_556F25860097' '55001317029B.ms.model.script' // Tl3ControlFontInfo
+ MELINK Target WL 'ME_556F25860097' '556F24A80035.ms.model.script' // Tl3ControlFontInfo
  ;
 
 ENDME // ME_556F266501AC 
+
+MEREF ME_47E1201703C3_ME_4F69DF91037E_G
+ MELINK Original WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E1201703C3_ME_4F69DF91037E_G TControl
 
 %%InheritedBy ME_47E1201703C3 ME_4F69DF91037E
 
@@ -564,7 +570,7 @@ ME ME_4F69DF91037E
  MELINK Parent WL? 'ME_4F69DF560034' // ControlsProcessing
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+   Seq: ( HWL ME_47E1201703C3_ME_4F69DF91037E_G // TControl
  )
  ; // Inherits
  MELIST Attributes

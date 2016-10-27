@@ -1,0 +1,42 @@
+// TkwInsertDocChanges 4E4BC07D0328 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E4BC07D0328
+
+ME ME_4E4BC0DF00D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4BC07D0328 // TkwInsertDocChanges
+ ;
+ MELINK Target WL 'ME_4E4B637A01C7' '4E4B5F29031C.ms.model.script' // arInsertDocChanges
+ ;
+
+ENDME // ME_4E4BC0DF00D1 
+
+ME ME_4E4BC07D0328
+ MEPROP UID '4E4BC07D0328'
+ MEPROP Name 'TkwInsertDocChanges'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'macros:InsertDocChanges' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E4BC0DF00D1 // arInsertDocChanges
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'macros:InsertDocChanges'
+ UP extprop:pas:UnitName 'kwInsertDocChanges'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'InsertDocChanges'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwInsertDocChanges.pas'
+
+ENDME // ME_4E4BC07D0328 TkwInsertDocChanges

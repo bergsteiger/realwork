@@ -1,0 +1,66 @@
+// TpgConnectionListenerList 5769249C0015 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5769249C0015
+
+ME ME_576924B2035C
+ MEPROP UID '576924B2035C'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5769249C0015 // TpgConnectionListenerList
+ ;
+ MELINK Target WL 'ME_5769241D02A0' '55DAD4150001.ms.model.script' // IpgConnectionListener
+ ;
+
+ENDME // ME_576924B2035C ItemType
+
+MEREF ME_4A54DD4E036F_ME_5769249C0015_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_5769249C0015_G Tl3ProtoDataContainer
+
+MEREF ME_47B57D630029_ME_5769249C0015_R
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_5769249C0015_R l3InterfacePtrList
+
+%%ImplementedBy ME_47B57D630029 ME_5769249C0015
+
+%%InheritedBy ME_4A54DD4E036F ME_5769249C0015
+
+ME ME_5769249C0015
+ MEPROP UID '5769249C0015'
+ MEPROP Name 'TpgConnectionListenerList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55D6CF3B014B' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_5769249C0015_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B57D630029_ME_5769249C0015_R // l3InterfacePtrList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_576924B2035C // ItemType
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'pgConnectionListenerList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'pgConnectionListenerList'
+ UP intf.pas:Path 'common\components\rtl\Garant\PG\pgConnectionListenerList.pas'
+
+ENDME // ME_5769249C0015 TpgConnectionListenerList

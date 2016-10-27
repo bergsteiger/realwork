@@ -29,12 +29,24 @@ ME ME_49EDE54203D9
 
 ENDME // ME_49EDE54203D9 
 
-ME ME_49EDE45A02EB_ME_49ECA9AA0000
+MEREF ME_49EDE45A02EB_ME_49ECA9AA0000_impl
  MELINK Original WL 'ME_49EDE45A02EB' '49EC6D9000EE.ms.model.script' // URL
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" False
-ENDME // ME_49EDE45A02EB_ME_49ECA9AA0000 URL
+ENDMEREF // ME_49EDE45A02EB_ME_49ECA9AA0000_impl URL
+
+MEREF ME_492ACB4100B2_ME_49ECA9AA0000_G
+ MELINK Original WL? 'ME_492ACB4100B2' // vcmFormDataSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492ACB4100B2_ME_49ECA9AA0000_G vcmFormDataSource
+
+MEREF ME_49EC6E080148_ME_49ECA9AA0000_R
+ MELINK Original WL 'ME_49EC6E080148' '49EC6D9000EE.ms.model.script' // IdsInternetAgent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49EC6E080148_ME_49ECA9AA0000_R IdsInternetAgent
 
 %%ImplementedBy ME_49EC6E080148 ME_49ECA9AA0000
 
@@ -53,11 +65,11 @@ ME ME_49ECA9AA0000
  MELINK Parent WL? 'ME_49EC6DB703E5' // InternetAgent
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_492ACB4100B2' // vcmFormDataSource
+   Seq: ( HWL ME_492ACB4100B2_ME_49ECA9AA0000_G // vcmFormDataSource
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_49EC6E080148' '49EC6D9000EE.ms.model.script' // IdsInternetAgent
+   Seq: ( HWL ME_49EC6E080148_ME_49ECA9AA0000_R // IdsInternetAgent
  )
  ; // Implements
  MELIST Attributes
@@ -65,7 +77,7 @@ ME ME_49ECA9AA0000
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_49EDE45A02EB_ME_49ECA9AA0000 // URL
+   Seq: ( ME_49EDE45A02EB_ME_49ECA9AA0000_impl // URL
  )
  ; // Implemented
  MELIST Dependencies

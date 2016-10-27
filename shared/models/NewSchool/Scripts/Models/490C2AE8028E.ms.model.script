@@ -1,0 +1,88 @@
+// TsmLawNewsTree 490C2AE8028E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_490C2AE8028E
+
+ME ME_490C2B4600A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490C2AE8028E // TsmLawNewsTree
+ ;
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
+ ;
+
+ENDME // ME_490C2B4600A2 
+
+ME ME_4E7316330357
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490C2AE8028E // TsmLawNewsTree
+ ;
+ MELINK Target WL 'ME_4E3011A101F7' '4DD24BD40021.ms.model.script' // SectionType
+ ;
+
+ENDME // ME_4E7316330357 
+
+MEREF ME_4909EF6E0361_ME_490C2AE8028E_over
+ MELINK Original WL 'ME_4909EF6E0361' '4909EF3B02B1.ms.model.script' // MakeRoot
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4909EF6E0361_ME_490C2AE8028E_over MakeRoot
+
+MEREF ME_490B0E9A02A2_ME_490C2AE8028E_G
+ MELINK Original WL? 'ME_490B0E9A02A2' // TsmTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_490B0E9A02A2_ME_490C2AE8028E_G TsmTree
+
+MEREF ME_4E70D70C0055_ME_490C2AE8028E_R
+ MELINK Original WL 'ME_4E70D70C0055' '48563BA400A9.ms.model.script' // Основное меню должно уметь зависеть от должности пользователя
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E70D70C0055_ME_490C2AE8028E_R Основное меню должно уметь зависеть от должности пользователя
+
+%%ImplementedBy ME_4E70D70C0055 ME_490C2AE8028E
+
+%%InheritedBy ME_490B0E9A02A2 ME_490C2AE8028E
+
+ME ME_490C2AE8028E
+ MEPROP UID '490C2AE8028E'
+ MEPROP Name 'TsmLawNewsTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дерево "Изменения в законодательстве" для простого основного меню' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A9FB4EE00FE' // MainMenuTrees
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_490B0E9A02A2_ME_490C2AE8028E_G // TsmTree
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4E70D70C0055_ME_490C2AE8028E_R // Основное меню должно уметь зависеть от должности пользователя
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4909EF6E0361_ME_490C2AE8028E_over // MakeRoot
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_490C2B4600A2 // nsConst
+ ME_4E7316330357 // SectionType
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP extprop:pas:UnitName 'smLawNewsTree'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'smLawNewsTree'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\MainMenu\smLawNewsTree.pas'
+
+ENDME // ME_490C2AE8028E TsmLawNewsTree

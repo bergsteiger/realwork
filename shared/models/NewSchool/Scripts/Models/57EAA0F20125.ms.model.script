@@ -1,0 +1,198 @@
+// TmsmButtonEditViewController 57EAA0F20125 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57EAA0F20125
+
+ME ME_57EAA115026D
+ MEPROP UID '57EAA115026D'
+ MEPROP Name 'OwnViewClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EAA0F20125 // TmsmButtonEditViewController
+ ;
+ MELINK Target WL? 'ME_57E450D600BF' // TmsmButtonEdit
+ ;
+
+ENDME // ME_57EAA115026D OwnViewClass
+
+ME ME_57EAA12A014D
+ MEPROP UID '57EAA12A014D'
+ MEPROP Name 'ConcreteModel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EAA0F20125 // TmsmButtonEditViewController
+ ;
+ MELINK Target WL 'ME_57B1A4520214' '57AAE8D403E5.ms.model.script' // ImsmCaptionModel
+ ;
+
+ENDME // ME_57EAA12A014D ConcreteModel
+
+ME ME_57EAA4870165
+ MEPROP UID '57EAA4870165'
+ MEPROP Name 'InitContext'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EAA0F20125 // TmsmButtonEditViewController
+ ;
+ MELINK Target WL 'ME_57B45BCC011C' '57B45BA30322.ms.model.script' // TmsmDefaultInitContext
+ ;
+
+ENDME // ME_57EAA4870165 InitContext
+
+FORWARD ME_57EAA4D102DD
+
+FORWARD ME_9D6F5520AB6F
+
+ME ME_FA79C3F8B02A
+ MEPROP Name 'Sender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_FA79C3F8B02A Sender
+
+ME ME_9D6F5520AB6F
+ MEPROP UID '9D6F5520AB6F'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EAA4D102DD // DoButtonClick
+ ;
+ MELIST Parameters
+   Seq: ( ME_FA79C3F8B02A // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_9D6F5520AB6F DoIt
+
+MEREF ME_47881B22005A_ME_57EAA4D102DD_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_57EAA4D102DD_G TNotifyEvent
+
+%%InheritedBy ME_47881B22005A ME_57EAA4D102DD
+
+ME ME_57EAA4D102DD
+ MEPROP UID '57EAA4D102DD'
+ MEPROP Name 'DoButtonClick'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57EAA0F20125 // TmsmButtonEditViewController
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47881B22005A_ME_57EAA4D102DD_G // TNotifyEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_9D6F5520AB6F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EAA4D102DD DoButtonClick
+
+ME ME_57EAA71803C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57EAA0F20125 // TmsmButtonEditViewController
+ ;
+ MELINK Target WL 'ME_57CD31A200FA' '57AAE8D403E5.ms.model.script' // CaptionChangedEvent
+ ;
+
+ENDME // ME_57EAA71803C2 
+
+ME ME_57EBB257028B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_friend::Dependency ;
+ MELINK Parent HWL ME_57EAA0F20125 // TmsmButtonEditViewController
+ ;
+ MELINK Target WL 'ME_57EBB21C0356' '57E450D600BF.ms.model.script' // TmsmButtonEditButton
+ ;
+
+ENDME // ME_57EBB257028B 
+
+MEREF ME_57ADFB33027D_ME_57EAA0F20125_impl
+ MELINK Original WL 'ME_57ADFB33027D' '57AB5C9A00F3.ms.model.script' // InitOwnView
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57ADFB33027D_ME_57EAA0F20125_impl InitOwnView
+
+MEREF ME_57B6A49900F4_ME_57EAA0F20125_over
+ MELINK Original WL 'ME_57B6A49900F4' '57B1F28B030D.ms.model.script' // LinkDataToView
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57B6A49900F4_ME_57EAA0F20125_over LinkDataToView
+
+MEREF ME_57B179D70299_ME_57EAA0F20125_G
+ MELINK Original WL? 'ME_57B179D70299' // msmConcreteModelOwnViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B179D70299_ME_57EAA0F20125_G msmConcreteModelOwnViewController
+
+%%InheritedBy ME_57B179D70299 ME_57EAA0F20125
+
+ME ME_57EAA0F20125
+ MEPROP UID '57EAA0F20125'
+ MEPROP Name 'TmsmButtonEditViewController'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57AE0E4B00C5' // ConcreteViewControllers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57B179D70299_ME_57EAA0F20125_G // msmConcreteModelOwnViewController
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57EAA115026D // OwnViewClass
+ HWL ME_57EAA12A014D // ConcreteModel
+ HWL ME_57EAA4870165 // InitContext
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57EAA4D102DD // DoButtonClick
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57ADFB33027D_ME_57EAA0F20125_impl // InitOwnView
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_57B6A49900F4_ME_57EAA0F20125_over // LinkDataToView
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57EAA71803C2 // CaptionChangedEvent
+ ME_57EBB257028B // TmsmButtonEditButton
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmButtonEditViewController'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmButtonEditViewController'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmButtonEditViewController.pas'
+
+ENDME // ME_57EAA0F20125 TmsmButtonEditViewController

@@ -14,6 +14,12 @@ FORWARD ME_571A211F0239
 
 FORWARD ME_4DCA5A94013D
 
+MEREF ME_49539DBA029D_ME_4F194996002E_G
+ MELINK Original WL? 'ME_49539DBA029D' // ExText
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49539DBA029D_ME_4F194996002E_G ExText
+
 %%InheritedBy ME_49539DBA029D ME_4F194996002E
 
 ME ME_4F194996002E
@@ -27,7 +33,7 @@ ME ME_4F194996002E
  MELINK Parent HWL ME_4DCA5A94013D // TkwExTextFormWord
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_49539DBA029D' // ExText
+   Seq: ( HWL ME_49539DBA029D_ME_4F194996002E_G // ExText
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -76,7 +82,7 @@ ENDME // ME_4DCA5B490175 DoIt
 ME ME_4DCA5B340360
  MEPROP UID '4DCA5B340360'
  MEPROP Name 'DoTextForm'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -120,11 +126,17 @@ ME ME_4DCA631202E8
 
 ENDME // ME_4DCA631202E8 
 
-ME ME_4EB25DE00396_ME_4DCA5A94013D
- MELINK Original WL 'ME_4EB25DE00396' '54DB92D203C9.ms.model.script' // DoForm
+MEREF ME_4EB25DE00396_ME_4DCA5A94013D_impl
+ MELINK Original WL 'ME_4EB25DE00396' '4EB25D530395.ms.model.script' // DoForm
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4EB25DE00396_ME_4DCA5A94013D DoForm
+ENDMEREF // ME_4EB25DE00396_ME_4DCA5A94013D_impl DoForm
+
+MEREF ME_4EB25D530395_ME_4DCA5A94013D_G
+ MELINK Original WL? 'ME_4EB25D530395' // TkwFormFromControlWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EB25D530395_ME_4DCA5A94013D_G TkwFormFromControlWord
 
 %%InheritedBy ME_4EB25D530395 ME_4DCA5A94013D
 
@@ -139,7 +151,7 @@ ME ME_4DCA5A94013D
  MELINK Parent HWL ME_571A211F0239 // ExTextFormWordsPack
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4EB25D530395' '54DB92D203C9.ms.model.script' // TkwFormFromControlWord
+   Seq: ( HWL ME_4EB25D530395_ME_4DCA5A94013D_G // TkwFormFromControlWord
  )
  ; // Inherits
  MELIST Operations
@@ -147,7 +159,7 @@ ME ME_4DCA5A94013D
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4EB25DE00396_ME_4DCA5A94013D // DoForm
+   Seq: ( ME_4EB25DE00396_ME_4DCA5A94013D_impl // DoForm
  )
  ; // Implemented
  MELIST Children
@@ -183,17 +195,23 @@ ME ME_4F1947FC01A0
 
 ENDME // ME_4F1947FC01A0 
 
-ME ME_4DCA5B340360_ME_4F1942440116
+MEREF ME_4DCA5B340360_ME_4F1942440116_impl
  MELINK Original HWL ME_4DCA5B340360 // DoTextForm
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DCA5B340360_ME_4F1942440116 DoTextForm
+ENDMEREF // ME_4DCA5B340360_ME_4F1942440116_impl DoTextForm
 
-ME ME_4DB0614603C8_ME_4F1942440116
- MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+MEREF ME_4DB0614603C8_ME_4F1942440116_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4DB0614603C8_ME_4F1942440116 GetWordNameForRegister
+ENDMEREF // ME_4DB0614603C8_ME_4F1942440116_over GetWordNameForRegister
+
+MEREF ME_4DCA5A94013D_ME_4F1942440116_G
+ MELINK Original HWL ME_4DCA5A94013D // TkwExTextFormWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCA5A94013D_ME_4F1942440116_G TkwExTextFormWord
 
 %%InheritedBy ME_4DCA5A94013D ME_4F1942440116
 
@@ -209,15 +227,15 @@ ME ME_4F1942440116
  MELINK Parent HWL ME_571A211F0239 // ExTextFormWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4DCA5A94013D // TkwExTextFormWord
+   Seq: ( HWL ME_4DCA5A94013D_ME_4F1942440116_G // TkwExTextFormWord
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_4DCA5B340360_ME_4F1942440116 // DoTextForm
+   Seq: ( ME_4DCA5B340360_ME_4F1942440116_impl // DoTextForm
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_4DB0614603C8_ME_4F1942440116 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_4F1942440116_over // GetWordNameForRegister
  )
  ; // Overridden
  MELIST Dependencies
@@ -236,17 +254,23 @@ ME ME_4F1942440116
 
 ENDME // ME_4F1942440116 TkwTextFormGetDocumentID
 
-ME ME_4DCA5B340360_ME_4F183D860083
+MEREF ME_4DCA5B340360_ME_4F183D860083_impl
  MELINK Original HWL ME_4DCA5B340360 // DoTextForm
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DCA5B340360_ME_4F183D860083 DoTextForm
+ENDMEREF // ME_4DCA5B340360_ME_4F183D860083_impl DoTextForm
 
-ME ME_4DB0614603C8_ME_4F183D860083
- MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+MEREF ME_4DB0614603C8_ME_4F183D860083_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4DB0614603C8_ME_4F183D860083 GetWordNameForRegister
+ENDMEREF // ME_4DB0614603C8_ME_4F183D860083_over GetWordNameForRegister
+
+MEREF ME_4DCA5A94013D_ME_4F183D860083_G
+ MELINK Original HWL ME_4DCA5A94013D // TkwExTextFormWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCA5A94013D_ME_4F183D860083_G TkwExTextFormWord
 
 %%InheritedBy ME_4DCA5A94013D ME_4F183D860083
 
@@ -261,15 +285,15 @@ ME ME_4F183D860083
  MELINK Parent HWL ME_571A211F0239 // ExTextFormWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4DCA5A94013D // TkwExTextFormWord
+   Seq: ( HWL ME_4DCA5A94013D_ME_4F183D860083_G // TkwExTextFormWord
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_4DCA5B340360_ME_4F183D860083 // DoTextForm
+   Seq: ( ME_4DCA5B340360_ME_4F183D860083_impl // DoTextForm
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_4DB0614603C8_ME_4F183D860083 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_4F183D860083_over // GetWordNameForRegister
  )
  ; // Overridden
  UP "author" 'Ëþëèí À.Â.'
@@ -281,11 +305,17 @@ ME ME_4F183D860083
 
 ENDME // ME_4F183D860083 TkwTextFormSetNeedShowIntranetWarning
 
-ME ME_4DCA5B340360_ME_500E876A0208
+MEREF ME_4DCA5B340360_ME_500E876A0208_impl
  MELINK Original HWL ME_4DCA5B340360 // DoTextForm
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DCA5B340360_ME_500E876A0208 DoTextForm
+ENDMEREF // ME_4DCA5B340360_ME_500E876A0208_impl DoTextForm
+
+MEREF ME_4DCA5A94013D_ME_500E876A0208_G
+ MELINK Original HWL ME_4DCA5A94013D // TkwExTextFormWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCA5A94013D_ME_500E876A0208_G TkwExTextFormWord
 
 %%InheritedBy ME_4DCA5A94013D ME_500E876A0208
 
@@ -300,11 +330,11 @@ ME ME_500E876A0208
  MELINK Parent HWL ME_571A211F0239 // ExTextFormWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4DCA5A94013D // TkwExTextFormWord
+   Seq: ( HWL ME_4DCA5A94013D_ME_500E876A0208_G // TkwExTextFormWord
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_4DCA5B340360_ME_500E876A0208 // DoTextForm
+   Seq: ( ME_4DCA5B340360_ME_500E876A0208_impl // DoTextForm
  )
  ; // Implemented
  UP extprop:pas:TypeName 'TkwDocumentLikeState'
@@ -359,7 +389,7 @@ ME ME_4DB82EC60013
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DB82E4D0197 // TkwDocumentsCacheClear
  ;
- MELINK Target WL 'ME_47F100430323' '47F086170200.ms.model.script' // TevDocumentsCache
+ MELINK Target WL? 'ME_47F100430323' // TevDocumentsCache
  ;
 
 ENDME // ME_4DB82EC60013 
@@ -462,7 +492,7 @@ ME ME_571E2007038D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_571A211F0239 // ExTextFormWordsPack
  ;
- MELINK Target WL 'ME_4DB7EA830363' '4F4CB50403CC.ms.model.script' // pop_editor_DeleteUserComment
+ MELINK Target WL? 'ME_4DB7EA830363' // pop_editor_DeleteUserComment
  ;
 
 ENDME // ME_571E2007038D 

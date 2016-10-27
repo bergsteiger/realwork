@@ -1,0 +1,289 @@
+// TnevSegmentObject 4E5FAE1700D5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E5FAE1700D5
+
+FORWARD ME_4E5FB49D0253
+
+FORWARD ME_4E5FB4A4037F
+
+ME ME_4E5FB4AC0160
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4E5FB4AC0160 aTag
+
+ME ME_4E5FB4A4037F
+ MEPROP UID '4E5FB4A4037F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E5FB49D0253 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E5FB4AC0160 // aTag
+ )
+ ; // Parameters
+
+ENDME // ME_4E5FB4A4037F DoIt
+
+ME ME_4E5FB49D0253
+ MEPROP UID '4E5FB49D0253'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E5FB4A4037F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E5FB49D0253 Create
+
+MEREF ME_4E5FB49D0253_ME_4E5FB4B90229_G
+ MELINK Original HWL ME_4E5FB49D0253 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E5FB49D0253_ME_4E5FB4B90229_G Create
+
+MEREF ME_49D0E657022F_ME_4E5FB4B90229_R
+ MELINK Original WL 'ME_49D0E657022F' '4678209200A6.ms.model.script' // InevObjectPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49D0E657022F_ME_4E5FB4B90229_R InevObjectPrim
+
+%%ImplementedBy ME_49D0E657022F ME_4E5FB4B90229
+
+%%InheritedBy ME_4E5FB49D0253 ME_4E5FB4B90229
+
+ME ME_4E5FB4B90229
+ MEPROP UID '4E5FB4B90229'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E5FB49D0253_ME_4E5FB4B90229_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_49D0E657022F_ME_4E5FB4B90229_R // InevObjectPrim
+ )
+ ; // Implements
+
+ENDME // ME_4E5FB4B90229 Make
+
+ME ME_4E708D6D0221
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ MELINK Target WL 'ME_4E7087BE0311' '47878E0E0191.ms.model.script' // l3AssignNil
+ ;
+
+ENDME // ME_4E708D6D0221 
+
+ME ME_53439D980196
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E5FAE1700D5 // TnevSegmentObject
+ ;
+ MELINK Target WL 'ME_484FDC4F013F' '484A470100DD.ms.model.script' // TextSegment
+ ;
+
+ENDME // ME_53439D980196 
+
+MEREF ME_47C6AB1D02C0_ME_4E5FAE1700D5_impl
+ MELINK Original WL 'ME_47C6AB1D02C0' '4678209200A6.ms.model.script' // Text
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_47C6AB1D02C0_ME_4E5FAE1700D5_impl Text
+
+MEREF ME_47C6AB2A0082_ME_4E5FAE1700D5_impl
+ MELINK Original WL 'ME_47C6AB2A0082' '4678209200A6.ms.model.script' // TabStops
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_47C6AB2A0082_ME_4E5FAE1700D5_impl TabStops
+
+MEREF ME_49D0BBEE0383_ME_4E5FAE1700D5_impl
+ MELINK Original WL 'ME_49D0BBEE0383' '4678209200A6.ms.model.script' // IsHiddenPrim
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_49D0BBEE0383_ME_4E5FAE1700D5_impl IsHiddenPrim
+
+MEREF ME_49D0C441019B_ME_4E5FAE1700D5_impl
+ MELINK Original WL 'ME_49D0C441019B' '4678209200A6.ms.model.script' // OffsetX
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_49D0C441019B_ME_4E5FAE1700D5_impl OffsetX
+
+MEREF ME_49D0E3CE00F5_ME_4E5FAE1700D5_impl
+ MELINK Original WL 'ME_49D0E3CE00F5' '4678209200A6.ms.model.script' // IsList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_49D0E3CE00F5_ME_4E5FAE1700D5_impl IsList
+
+MEREF ME_49D0E4E7009C_ME_4E5FAE1700D5_impl
+ MELINK Original WL 'ME_49D0E4E7009C' '4678209200A6.ms.model.script' // PID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_49D0E4E7009C_ME_4E5FAE1700D5_impl PID
+
+MEREF ME_49D0E75F00E4_ME_4E5FAE1700D5_impl
+ MELINK Original WL 'ME_49D0E75F00E4' '4678209200A6.ms.model.script' // IsVertical
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_49D0E75F00E4_ME_4E5FAE1700D5_impl IsVertical
+
+MEREF ME_49D104BB01AF_ME_4E5FAE1700D5_impl
+ MELINK Original WL 'ME_49D104BB01AF' '4678209200A6.ms.model.script' // OverlapType
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_49D104BB01AF_ME_4E5FAE1700D5_impl OverlapType
+
+MEREF ME_49D105D10274_ME_4E5FAE1700D5_impl
+ MELINK Original WL 'ME_49D105D10274' '4678209200A6.ms.model.script' // NeedIncludeHeight
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_49D105D10274_ME_4E5FAE1700D5_impl NeedIncludeHeight
+
+MEREF ME_4B7BDCA502F7_ME_4E5FAE1700D5_impl
+ MELINK Original WL 'ME_4B7BDCA502F7' '4678209200A6.ms.model.script' // IsLegalComment
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B7BDCA502F7_ME_4E5FAE1700D5_impl IsLegalComment
+
+MEREF ME_4E1AFECA025B_ME_4E5FAE1700D5_impl
+ MELINK Original WL 'ME_4E1AFECA025B' '4678209200A6.ms.model.script' // IsDecorationElement
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4E1AFECA025B_ME_4E5FAE1700D5_impl IsDecorationElement
+
+MEREF ME_4E243EF60356_ME_4E5FAE1700D5_impl
+ MELINK Original WL 'ME_4E243EF60356' '4678209200A6.ms.model.script' // DecorObj
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4E243EF60356_ME_4E5FAE1700D5_impl DecorObj
+
+MEREF ME_4E5E1CB9007D_ME_4E5FAE1700D5_impl
+ MELINK Original WL 'ME_4E5E1CB9007D' '4678209200A6.ms.model.script' // HolderPrim
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4E5E1CB9007D_ME_4E5FAE1700D5_impl HolderPrim
+
+MEREF ME_4E6F7B7902C4_ME_4E5FAE1700D5_impl
+ MELINK Original WL 'ME_4E6F7B7902C4' '4678209200A6.ms.model.script' // TreatCollapsedAsHidden
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4E6F7B7902C4_ME_4E5FAE1700D5_impl TreatCollapsedAsHidden
+
+MEREF ME_47A6FEE600FC_ME_4E5FAE1700D5_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_4E5FAE1700D5_over IsCacheable
+
+MEREF ME_4A48AFBD001D_ME_4E5FAE1700D5_over
+ MELINK Original WL 'ME_4A48AFBD001D' '467C185C03E7.ms.model.script' // NeedEvents
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A48AFBD001D_ME_4E5FAE1700D5_over NeedEvents
+
+MEREF ME_467C18A303CB_ME_4E5FAE1700D5_G
+ MELINK Original WL? 'ME_467C18A303CB' // Tk2TagTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467C18A303CB_ME_4E5FAE1700D5_G Tk2TagTool
+
+MEREF ME_49D0E657022F_ME_4E5FAE1700D5_R
+ MELINK Original WL 'ME_49D0E657022F' '4678209200A6.ms.model.script' // InevObjectPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49D0E657022F_ME_4E5FAE1700D5_R InevObjectPrim
+
+%%ImplementedBy ME_49D0E657022F ME_4E5FAE1700D5
+
+%%InheritedBy ME_467C18A303CB ME_4E5FAE1700D5
+
+ME ME_4E5FAE1700D5
+ MEPROP UID '4E5FAE1700D5'
+ MEPROP Name 'TnevSegmentObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E5FADDD00A1' // Segments
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_467C18A303CB_ME_4E5FAE1700D5_G // Tk2TagTool
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_49D0E657022F_ME_4E5FAE1700D5_R // InevObjectPrim
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4E5FB49D0253 // Create
+ HWL ME_4E5FB4B90229 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47C6AB1D02C0_ME_4E5FAE1700D5_impl // Text
+ ME_47C6AB2A0082_ME_4E5FAE1700D5_impl // TabStops
+ ME_49D0BBEE0383_ME_4E5FAE1700D5_impl // IsHiddenPrim
+ ME_49D0C441019B_ME_4E5FAE1700D5_impl // OffsetX
+ ME_49D0E3CE00F5_ME_4E5FAE1700D5_impl // IsList
+ ME_49D0E4E7009C_ME_4E5FAE1700D5_impl // PID
+ ME_49D0E75F00E4_ME_4E5FAE1700D5_impl // IsVertical
+ ME_49D104BB01AF_ME_4E5FAE1700D5_impl // OverlapType
+ ME_49D105D10274_ME_4E5FAE1700D5_impl // NeedIncludeHeight
+ ME_4B7BDCA502F7_ME_4E5FAE1700D5_impl // IsLegalComment
+ ME_4E1AFECA025B_ME_4E5FAE1700D5_impl // IsDecorationElement
+ ME_4E243EF60356_ME_4E5FAE1700D5_impl // DecorObj
+ ME_4E5E1CB9007D_ME_4E5FAE1700D5_impl // HolderPrim
+ ME_4E6F7B7902C4_ME_4E5FAE1700D5_impl // TreatCollapsedAsHidden
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_4E5FAE1700D5_over // IsCacheable
+ ME_4A48AFBD001D_ME_4E5FAE1700D5_over // NeedEvents
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E708D6D0221 // l3AssignNil
+ ME_53439D980196 // TextSegment
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nevSegmentObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SegmentObject'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevSegmentObject.pas'
+
+ENDME // ME_4E5FAE1700D5 TnevSegmentObject

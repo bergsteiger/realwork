@@ -67,7 +67,7 @@ ME ME_5453BB06034B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54538D8402D6 // LoadFromStream
  ;
- MELINK Target WL 'ME_53FDD3D902AA' '5485B0D1026C.ms.model.script' // Tm3BuffStream
+ MELINK Target WL? 'ME_53FDD3D902AA' // Tm3BuffStream
  ;
 
 ENDME // ME_5453BB06034B 
@@ -85,7 +85,7 @@ ENDME // ME_5453BBDE00B9
 ME ME_54538D8402D6
  MEPROP UID '54538D8402D6'
  MEPROP Name 'LoadFromStream'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -139,7 +139,7 @@ ENDME // ME_54538DD4013A DoIt
 ME ME_54538DB3032A
  MEPROP UID '54538DB3032A'
  MEPROP Name 'SaveToStream'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -158,7 +158,7 @@ ME ME_545392A10285
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_542179BD00BB // m3PersistentList
  ;
- MELINK Target WL 'ME_5421799C0066' '48294AA903A6.ms.model.script' // Tm3Persistent
+ MELINK Target WL? 'ME_5421799C0066' // Tm3Persistent
  ;
 
 ENDME // ME_545392A10285 
@@ -172,6 +172,12 @@ ME ME_545A1F2603BF
  ;
 
 ENDME // ME_545A1F2603BF 
+
+MEREF ME_545B7E6B00A1_ME_542179BD00BB_G
+ MELINK Original WL? 'ME_545B7E6B00A1' // m3ListWithFind
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_545B7E6B00A1_ME_542179BD00BB_G m3ListWithFind
 
 %%InheritedBy ME_545B7E6B00A1 ME_542179BD00BB
 
@@ -187,7 +193,7 @@ ME ME_542179BD00BB
  MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_545B7E6B00A1' // m3ListWithFind
+   Seq: ( HWL ME_545B7E6B00A1_ME_542179BD00BB_G // m3ListWithFind
  )
  ; // Inherits
  MELIST Operations

@@ -1,0 +1,47 @@
+// TddHexCharReader 5604FA0C031A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_5604FBB600CF_ME_5604FA0C031A_over
+ MELINK Original WL 'ME_5604FBB600CF' '5604FB3502B9.ms.model.script' // GetChar
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5604FBB600CF_ME_5604FA0C031A_over GetChar
+
+MEREF ME_5604FB3502B9_ME_5604FA0C031A_G
+ MELINK Original WL? 'ME_5604FB3502B9' // Tl3CharSkipper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5604FB3502B9_ME_5604FA0C031A_G Tl3CharSkipper
+
+%%InheritedBy ME_5604FB3502B9 ME_5604FA0C031A
+
+ME ME_5604FA0C031A
+ MEPROP UID '5604FA0C031A'
+ MEPROP Name 'TddHexCharReader'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Читает только шестнадцатиричные символы из потока. Если они представлены в верхнем регистре - переводит в нижний. Всякий мусор пропускает.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6843C101D1' // ddCommon
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5604FB3502B9_ME_5604FA0C031A_G // Tl3CharSkipper
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5604FBB600CF_ME_5604FA0C031A_over // GetChar
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ddHexCharReader'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddHexCharReader'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddHexCharReader.pas'
+
+ENDME // ME_5604FA0C031A TddHexCharReader

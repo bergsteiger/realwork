@@ -1,0 +1,75 @@
+// TkwClearDataBase 4E4A181002B0 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E4A181002B0
+
+ME ME_4E4A4140033A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4A181002B0 // TkwClearDataBase
+ ;
+ MELINK Target WL 'ME_4E4A366801E7' '4E4A364200F7.ms.model.script' // arUnackBaseFromArchive
+ ;
+
+ENDME // ME_4E4A4140033A 
+
+ME ME_4E4B5D9A03A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4A181002B0 // TkwClearDataBase
+ ;
+ MELINK Target WL 'ME_4E4B5D350252' '4DE60853015A.ms.model.script' // acInitDB
+ ;
+
+ENDME // ME_4E4B5D9A03A8 
+
+ME ME_5281F7EC0234
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4A181002B0 // TkwClearDataBase
+ ;
+ MELINK Target WL 'ME_5281F3A90273' '51B6C800005F.ms.model.script' // EdtBrokenFileLock
+ ;
+
+ENDME // ME_5281F7EC0234 
+
+ME ME_57E0FFB401BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4A181002B0 // TkwClearDataBase
+ ;
+ MELINK Target WL 'ME_54352FD00015' '54352FAB00E6.ms.model.script' // DoneClientBaseEngine
+ ;
+
+ENDME // ME_57E0FFB401BB 
+
+ME ME_4E4A181002B0
+ MEPROP UID '4E4A181002B0'
+ MEPROP Name 'TkwClearDataBase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:*  ''File_Name.zip'' ClearDataBase'#13#10'*Описание:* Рапаковывает базу из архива ''File_Name.zip'' в заданный каталог Путь к базе берется из ini-файла. Каталог, в который рапаковывается база, предварительно очищается.. '#13#10'*Пример:*'#13#10'{code}'#13#10'  ''testBase.zip'' ClearDataBase'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E4A4140033A // arUnackBaseFromArchive
+ ME_4E4B5D9A03A8 // acInitDB
+ ME_5281F7EC0234 // EdtBrokenFileLock
+ ME_57E0FFB401BB // DoneClientBaseEngine
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'ClearDataBase'
+ UP extprop:pas:UnitName 'kwClearDataBase'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ClearDataBase'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearDataBase.pas'
+
+ENDME // ME_4E4A181002B0 TkwClearDataBase

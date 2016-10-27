@@ -1,0 +1,63 @@
+// K228692043 4C56D8F602AF TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C56D8F602AF
+
+ME ME_4C56D93000EC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C56D8F602AF // K228692043
+ ;
+ MELINK Target WL? 'ME_4C56D4E002D2' // TevUnblockEmptyParaFilter
+ ;
+
+ENDME // ME_4C56D93000EC 
+
+MEREF ME_4C07BCBE01F2_ME_4C56D8F602AF_over
+ MELINK Original WL 'ME_4C07BCBE01F2' '4BACDDB500CE.ms.model.script' // SetFilters
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C07BCBE01F2_ME_4C56D8F602AF_over SetFilters
+
+MEREF ME_4C07B5E300F2_ME_4C56D8F602AF_G
+ MELINK Original WL? 'ME_4C07B5E300F2' // EVDtoEVDWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C07B5E300F2_ME_4C56D8F602AF_G EVDtoEVDWriterTest
+
+%%InheritedBy ME_4C07B5E300F2 ME_4C56D8F602AF
+
+ME ME_4C56D8F602AF
+ MEPROP UID '4C56D8F602AF'
+ MEPROP Name 'K228692043'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:228692043}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C288F1202F8' // 7.6
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C07B5E300F2_ME_4C56D8F602AF_G // EVDtoEVDWriterTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C07BCBE01F2_ME_4C56D8F602AF_over // SetFilters
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4C56D93000EC // TevUnblockEmptyParaFilter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TK228692043'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K228692043'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K228692043.pas'
+
+ENDME // ME_4C56D8F602AF K228692043

@@ -1,0 +1,375 @@
+// pop_QueryCard_SetAttribute 4E808E3E026E ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E808E3E026E
+
+FORWARD ME_4E81A3090197
+
+ME ME_55098BEE02F2
+ MEPROP UID '55098BEE02F2'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E81A3090197 // DoModelImpl
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "IsResult" False
+
+ENDME // ME_55098BEE02F2 Name
+
+ME ME_55098BFF022E
+ MEPROP UID '55098BFF022E'
+ MEPROP Name 'Value'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E81A3090197 // DoModelImpl
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "IsResult" False
+
+ENDME // ME_55098BFF022E Value
+
+ME ME_55098C11010B
+ MEPROP UID '55098C11010B'
+ MEPROP Name 'Op'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E81A3090197 // DoModelImpl
+ ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+ UP "IsResult" False
+
+ENDME // ME_55098C11010B Op
+
+FORWARD ME_4E81ADFF02AC
+
+ME ME_4E81AE080008
+ MEPROP UID '4E81AE080008'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E81ADFF02AC // CallIterator
+ ;
+
+ENDME // ME_4E81AE080008 DoIt
+
+FORWARD ME_6E7B54AC5B25
+
+FORWARD ME_C2DCF35628C7
+
+ME ME_441AC5B71293
+ MEPROP Name 'anItem'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CD6644026F' '47CD5C7602CD.ms.model.script' // IevReq
+ ;
+
+ENDME // ME_441AC5B71293 anItem
+
+ME ME_C2DCF35628C7
+ MEPROP UID 'C2DCF35628C7'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_6E7B54AC5B25 // DoIt
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_441AC5B71293 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_C2DCF35628C7 DoIt
+
+ME ME_6E7B54AC5B25
+ MEPROP UID '6E7B54AC5B25'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_localmethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Подитеративная функция для вызова DoReq из CallIterator' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E81ADFF02AC // CallIterator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_C2DCF35628C7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_6E7B54AC5B25 DoIt
+
+ME ME_4E81AEFC00B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_call::Dependency ;
+ MELINK Parent HWL ME_4E81ADFF02AC // CallIterator
+ ;
+ MELINK Target WL 'ME_4E81A119033D' '47CD5C7602CD.ms.model.script' // DoReq
+ ;
+ UP "iterator func name" 'DoIt'
+ UP "iterator needs params" True
+ UP "needs after iterator UC" False
+
+ENDME // ME_4E81AEFC00B8 
+
+ME ME_7E4EFC3FE96E
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E81ADFF02AC // CallIterator
+ ;
+ MELINK Target WL 'ME_4E81A28E00E5' '47CD5C7602CD.ms.model.script' // IevReqIterator
+ ;
+
+ENDME // ME_7E4EFC3FE96E 
+
+ME ME_4E81ADFF02AC
+ MEPROP UID '4E81ADFF02AC'
+ MEPROP Name 'CallIterator'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_localmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E81A3090197 // DoModelImpl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E81AE080008 // DoIt
+ HWL ME_6E7B54AC5B25 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E81AEFC00B8 // DoReq
+ ME_7E4EFC3FE96E // IevReqIterator
+ )
+ ; // Dependencies
+
+ENDME // ME_4E81ADFF02AC CallIterator
+
+FORWARD ME_4E81A32A014F
+
+ME ME_4E81A32C030D
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4E81A32C030D aCtx
+
+ME ME_4E81A32C0356
+ MEPROP Name 'aCard'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_48E22669037D' // TevQueryCardEditor
+ ;
+
+ENDME // ME_4E81A32C0356 aCard
+
+ME ME_4E81A32A014F
+ MEPROP UID '4E81A32A014F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E81A3090197 // DoModelImpl
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E81A32C030D // aCtx
+ ME_4E81A32C0356 // aCard
+ )
+ ; // Parameters
+
+ENDME // ME_4E81A32A014F DoIt
+
+ME ME_4E81B47D01DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E81A3090197 // DoModelImpl
+ ;
+ MELINK Target WL 'ME_4E81A28E00E5' '47CD5C7602CD.ms.model.script' // IevReqIterator
+ ;
+
+ENDME // ME_4E81B47D01DD 
+
+ME ME_4E81A3090197
+ MEPROP UID '4E81A3090197'
+ MEPROP Name 'DoModelImpl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E808E3E026E // pop_QueryCard_SetAttribute
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_55098BEE02F2 // Name
+ HWL ME_55098BFF022E // Value
+ HWL ME_55098C11010B // Op
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E81ADFF02AC // CallIterator
+ HWL ME_4E81A32A014F // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E81B47D01DD // IevReqIterator
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4E81A3090197 DoModelImpl
+
+ME ME_4E819655000A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E808E3E026E // pop_QueryCard_SetAttribute
+ ;
+ MELINK Target WL 'ME_47CD608201FA' '47CD5C7602CD.ms.model.script' // IevEditorControlField
+ ;
+
+ENDME // ME_4E819655000A 
+
+ME ME_4E81967F03D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E808E3E026E // pop_QueryCard_SetAttribute
+ ;
+ MELINK Target WL 'ME_4ADF0823017C' '47878E0E0191.ms.model.script' // l3IsNil
+ ;
+
+ENDME // ME_4E81967F03D1 
+
+ME ME_4E8196A3015D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E808E3E026E // pop_QueryCard_SetAttribute
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_4E8196A3015D 
+
+ME ME_4E81971001F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E808E3E026E // pop_QueryCard_SetAttribute
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4E81971001F0 
+
+ME ME_4E81A7110176
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E808E3E026E // pop_QueryCard_SetAttribute
+ ;
+ MELINK Target WL? 'ME_4E81A1D3027D' // TevReqIterator
+ ;
+
+ENDME // ME_4E81A7110176 
+
+MEREF ME_4E808E8B01BB_ME_4E808E3E026E_impl
+ MELINK Original WL 'ME_4E808E8B01BB' '4E808D48037D.ms.model.script' // DoCard
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4E808E8B01BB_ME_4E808E3E026E_impl DoCard
+
+MEREF ME_4DB0614603C8_ME_4E808E3E026E_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB0614603C8_ME_4E808E3E026E_over GetWordNameForRegister
+
+MEREF ME_4E808D48037D_ME_4E808E3E026E_G
+ MELINK Original WL? 'ME_4E808D48037D' // TkwQueryCardFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E808D48037D_ME_4E808E3E026E_G TkwQueryCardFromStackWord
+
+MEREF ME_4E82032103C9_ME_4E808E3E026E_R
+ MELINK Original WL 'ME_4E82032103C9' '4E5CF70B01E2.ms.model.script' // Карточки запроса должны уметь заполняться из скриптов
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E82032103C9_ME_4E808E3E026E_R Карточки запроса должны уметь заполняться из скриптов
+
+%%ImplementedBy ME_4E82032103C9 ME_4E808E3E026E
+
+%%InheritedBy ME_4E808D48037D ME_4E808E3E026E
+
+ME ME_4E808E3E026E
+ MEPROP UID '4E808E3E026E'
+ MEPROP Name 'pop_QueryCard_SetAttribute'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Добавляет атрибут к текущей карточке запроса.'#13#10''#13#10'*Пример:*'#13#10'{code}'#13#10' моп::Поиск_Поиск_лекарственного_средства'#13#10' ''AT_PHARM_NAME'' ''Аргинин'' Search:SetAttribute'#13#10' ''AT_PHARM_ATC'' ''A. Пищеварительный тракт и обмен веществ'' Search:SetAttribute'#13#10' ''AT_PHARM_ATC'' ''B. Препараты влияющие на кроветворение и кровь'' Search:SetAttribute'#13#10' Ok'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6994E701CB' // QueryCardProcessing
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E808D48037D_ME_4E808E3E026E_G // TkwQueryCardFromStackWord
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4E82032103C9_ME_4E808E3E026E_R // Карточки запроса должны уметь заполняться из скриптов
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4E81A3090197 // DoModelImpl
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4E808E8B01BB_ME_4E808E3E026E_impl // DoCard
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E808E3E026E_over // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E819655000A // IevEditorControlField
+ ME_4E81967F03D1 // l3IsNil
+ ME_4E8196A3015D // l3CStr
+ ME_4E81971001F0 // Il3CString
+ ME_4E81A7110176 // TevReqIterator
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '26.09.2011 18:38'
+ UP extprop:pas:TypeName 'TkwPopQueryCardSetAttribute'
+ UP extprop:pas:UnitName 'kwPopQueryCardSetAttribute'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PopQueryCardSetAttribute'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopQueryCardSetAttribute.pas'
+
+ENDME // ME_4E808E3E026E pop_QueryCard_SetAttribute

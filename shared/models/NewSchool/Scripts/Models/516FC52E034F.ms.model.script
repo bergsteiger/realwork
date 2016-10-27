@@ -178,19 +178,25 @@ ME ME_53E49B0D02C4
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
  ;
- MELINK Target WL 'ME_4773DBBD000D' '47913B47006E.ms.model.script' // Tl3ObjectList
+ MELINK Target WL? 'ME_4773DBBD000D' // Tl3ObjectList
  ;
  UP "needs field" True
  UP "pm" True
 
 ENDME // ME_53E49B0D02C4 ControlsToFree
 
+MEREF ME_47D63B6D0157_ME_516FC7390348_G
+ MELINK Original WL 'ME_47D63B6D0157' '47D036150077.ms.model.script' // Tl3GetItemImage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47D63B6D0157_ME_516FC7390348_G Tl3GetItemImage
+
 %%InheritedBy ME_47D63B6D0157 ME_516FC7390348
 
 ME ME_516FC7390348
  MEPROP UID '516FC7390348'
  MEPROP Name 'tvComplectInfoGetItemImage'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -198,18 +204,24 @@ ME ME_516FC7390348
  MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.ms.model.script' // Tl3GetItemImage
+   Seq: ( HWL ME_47D63B6D0157_ME_516FC7390348_G // Tl3GetItemImage
  )
  ; // Inherits
 
 ENDME // ME_516FC7390348 tvComplectInfoGetItemImage
+
+MEREF ME_516FC8210012_ME_516FC8600180_G
+ MELINK Original WL 'ME_516FC8210012' '49525B34022A.ms.model.script' // TvcmSetLocalizationInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_516FC8210012_ME_516FC8600180_G TvcmSetLocalizationInfo
 
 %%InheritedBy ME_516FC8210012 ME_516FC8600180
 
 ME ME_516FC8600180
  MEPROP UID '516FC8600180'
  MEPROP Name 'vcmEntityFormSetLocalizationInfo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -217,19 +229,25 @@ ME ME_516FC8600180
  MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_516FC8210012' '4AADF9450143.ms.model.script' // TvcmSetLocalizationInfo
+   Seq: ( HWL ME_516FC8210012_ME_516FC8600180_G // TvcmSetLocalizationInfo
  )
  ; // Inherits
  UP extprop:rc:SelfName 'EntityFormSetLocalizationInfo'
 
 ENDME // ME_516FC8600180 vcmEntityFormSetLocalizationInfo
 
+MEREF ME_516FC80A0307_ME_516FC885021E_G
+ MELINK Original WL 'ME_516FC80A0307' '49525B34022A.ms.model.script' // TvcmGetLocalizationInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_516FC80A0307_ME_516FC885021E_G TvcmGetLocalizationInfo
+
 %%InheritedBy ME_516FC80A0307 ME_516FC885021E
 
 ME ME_516FC885021E
  MEPROP UID '516FC885021E'
  MEPROP Name 'vcmEntityFormGetLocalizationInfo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -237,7 +255,7 @@ ME ME_516FC885021E
  MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_516FC80A0307' '4AADF9450143.ms.model.script' // TvcmGetLocalizationInfo
+   Seq: ( HWL ME_516FC80A0307_ME_516FC885021E_G // TvcmGetLocalizationInfo
  )
  ; // Inherits
  UP extprop:rc:SelfName 'EntityFormGetLocalizationInfo'
@@ -247,7 +265,7 @@ ENDME // ME_516FC885021E vcmEntityFormGetLocalizationInfo
 ME ME_53E0F4FA00B8
  MEPROP UID '53E0F4FA00B8'
  MEPROP Name 'InitVisualRepresentationData'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -260,7 +278,7 @@ ENDME // ME_53E0F4FA00B8 InitVisualRepresentationData
 ME ME_53E4A7FA0026
  MEPROP UID '53E4A7FA0026'
  MEPROP Name 'ReleaseResources'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -305,7 +323,7 @@ ME ME_516FCA760014
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
  ;
- MELINK Target WL 'ME_468368FC017F' '490873CD01B9.ms.model.script' // TnsComplectInfoTreeStruct
+ MELINK Target WL? 'ME_468368FC017F' // TnsComplectInfoTreeStruct
  ;
 
 ENDME // ME_516FCA760014 
@@ -315,7 +333,7 @@ ME ME_516FCA780215
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
  ;
- MELINK Target WL 'ME_4AD6FDC802F3' '491447590351.ms.model.script' // TnsSettings
+ MELINK Target WL? 'ME_4AD6FDC802F3' // TnsSettings
  ;
 
 ENDME // ME_516FCA780215 
@@ -415,7 +433,7 @@ ME ME_53E20A34031C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
  ;
- MELINK Target WL 'ME_4773DBBD000D' '47913B47006E.ms.model.script' // Tl3ObjectList
+ MELINK Target WL? 'ME_4773DBBD000D' // Tl3ObjectList
  ;
 
 ENDME // ME_53E20A34031C 
@@ -460,41 +478,53 @@ ME ME_543F611103A6
 
 ENDME // ME_543F611103A6 
 
-ME ME_479731C50290_ME_516FC52E034F
+MEREF ME_479731C50290_ME_516FC52E034F_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_516FC52E034F Cleanup
+ENDMEREF // ME_479731C50290_ME_516FC52E034F_over Cleanup
 
-ME ME_47EA4E9002C6_ME_516FC52E034F
+MEREF ME_47EA4E9002C6_ME_516FC52E034F_over
  MELINK Original WL 'ME_47EA4E9002C6' '47EA4BEF0140.ms.model.script' // FinishDataUpdate
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47EA4E9002C6_ME_516FC52E034F FinishDataUpdate
+ENDMEREF // ME_47EA4E9002C6_ME_516FC52E034F_over FinishDataUpdate
 
-ME ME_49803F5503AA_ME_516FC52E034F
- MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+MEREF ME_49803F5503AA_ME_516FC52E034F_over
+ MELINK Original WL 'ME_49803F5503AA' '49525B34022A.ms.model.script' // DoInit
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49803F5503AA_ME_516FC52E034F DoInit
+ENDMEREF // ME_49803F5503AA_ME_516FC52E034F_over DoInit
 
-ME ME_4A8E8F2E0195_ME_516FC52E034F
+MEREF ME_4A8E8F2E0195_ME_516FC52E034F_over
  MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8E8F2E0195_ME_516FC52E034F InitControls
+ENDMEREF // ME_4A8E8F2E0195_ME_516FC52E034F_over InitControls
 
-ME ME_53F1C6EF02C9_ME_516FC52E034F
- MELINK Original WL 'ME_53F1C6EF02C9' '4AADF9450143.ms.model.script' // DoGetTabCaption
+MEREF ME_53F1C6EF02C9_ME_516FC52E034F_over
+ MELINK Original WL 'ME_53F1C6EF02C9' '49525B34022A.ms.model.script' // DoGetTabCaption
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_53F1C6EF02C9_ME_516FC52E034F DoGetTabCaption
+ENDMEREF // ME_53F1C6EF02C9_ME_516FC52E034F_over DoGetTabCaption
 
-ME ME_543E3AA801D0_ME_516FC52E034F
+MEREF ME_543E3AA801D0_ME_516FC52E034F_over
  MELINK Original WL 'ME_543E3AA801D0' '543E3A600253.ms.model.script' // DoGetTabImageIndex
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_543E3AA801D0_ME_516FC52E034F DoGetTabImageIndex
+ENDMEREF // ME_543E3AA801D0_ME_516FC52E034F_over DoGetTabImageIndex
+
+MEREF ME_49525B34022A_ME_516FC52E034F_G
+ MELINK Original WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525B34022A_ME_516FC52E034F_G TvcmEntityForm
+
+MEREF ME_543E3A600253_ME_516FC52E034F_R
+ MELINK Original WL? 'ME_543E3A600253' // vcmChromeLikeTabIconUpdater
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_543E3A600253_ME_516FC52E034F_R vcmChromeLikeTabIconUpdater
 
 %%ImplementedBy ME_543E3A600253 ME_516FC52E034F
 
@@ -513,11 +543,11 @@ ME ME_516FC52E034F
  MELINK Parent WL? 'ME_497ED74F0032' // Common
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+   Seq: ( HWL ME_49525B34022A_ME_516FC52E034F_G // TvcmEntityForm
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_543E3A600253' // vcmChromeLikeTabIconUpdater
+   Seq: ( HWL ME_543E3A600253_ME_516FC52E034F_R // vcmChromeLikeTabIconUpdater
  )
  ; // Implements
  MELIST Attributes
@@ -535,12 +565,12 @@ ME ME_516FC52E034F
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_516FC52E034F // Cleanup
- ME_47EA4E9002C6_ME_516FC52E034F // FinishDataUpdate
- ME_49803F5503AA_ME_516FC52E034F // DoInit
- ME_4A8E8F2E0195_ME_516FC52E034F // InitControls
- ME_53F1C6EF02C9_ME_516FC52E034F // DoGetTabCaption
- ME_543E3AA801D0_ME_516FC52E034F // DoGetTabImageIndex
+   Seq: ( ME_479731C50290_ME_516FC52E034F_over // Cleanup
+ ME_47EA4E9002C6_ME_516FC52E034F_over // FinishDataUpdate
+ ME_49803F5503AA_ME_516FC52E034F_over // DoInit
+ ME_4A8E8F2E0195_ME_516FC52E034F_over // InitControls
+ ME_53F1C6EF02C9_ME_516FC52E034F_over // DoGetTabCaption
+ ME_543E3AA801D0_ME_516FC52E034F_over // DoGetTabImageIndex
  )
  ; // Overridden
  MELIST Constants

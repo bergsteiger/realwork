@@ -110,7 +110,7 @@ ENDME // ME_560909B8036A DoIt
 ME ME_560909B400E6
  MEPROP UID '560909B400E6'
  MEPROP Name 'C'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -155,7 +155,7 @@ ENDME // ME_560909E00255 DoIt
 ME ME_560909D5014E
  MEPROP UID '560909D5014E'
  MEPROP Name 'ForFind'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -197,6 +197,12 @@ ME ME_5609089D0006
 
 ENDME // ME_5609089D0006 Tl3KeyValuePair
 
+MEREF ME_560908710273_ME_5609145F03DE_G
+ MELINK Original HWL ME_560908710273 // ValueType
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_560908710273_ME_5609145F03DE_G ValueType
+
 %%InheritedBy ME_560908710273 ME_5609145F03DE
 
 ME ME_5609145F03DE
@@ -210,7 +216,7 @@ ME ME_5609145F03DE
  MELINK Parent HWL ME_560907E00134 // l3MapPrimPrim
  ;
  MELIST Inherits
-   Seq: ( HWL ME_560908710273 // ValueType
+   Seq: ( HWL ME_560908710273_ME_5609145F03DE_G // ValueType
  )
  ; // Inherits
  UP "isPointer" True
@@ -295,7 +301,7 @@ ENDME // ME_560909F900E9 DoiT
 ME ME_560909F101B3
  MEPROP UID '560909F101B3'
  MEPROP Name 'Has'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -350,7 +356,7 @@ ENDME // ME_56090A23002E DoIt
 ME ME_56090A1801B9
  MEPROP UID '56090A1801B9'
  MEPROP Name 'Add'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -397,7 +403,7 @@ ENDME // ME_5609149203A8 DoIt
 ME ME_560914720336
  MEPROP UID '560914720336'
  MEPROP Name 'ValueByKey'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -444,7 +450,7 @@ ENDME // ME_560914AE0062 DoIt
 ME ME_560914A20271
  MEPROP UID '560914A20271'
  MEPROP Name 'ValueSlotByKey'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -491,7 +497,7 @@ ENDME // ME_56092E150146 DoIt
 ME ME_56092E020346
  MEPROP UID '56092E020346'
  MEPROP Name 'IndexByKey'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -544,19 +550,31 @@ ME ME_5609091B00C0
 
 ENDME // ME_5609091B00C0 CompareKeys
 
-ME ME_47B2C42A0163_ME_560907E00134
+MEREF ME_47B2C42A0163_ME_560907E00134_impl
  MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
  UP "ifndef" 'l3Items_NoSort'
-ENDME // ME_47B2C42A0163_ME_560907E00134 AssignItem
+ENDMEREF // ME_47B2C42A0163_ME_560907E00134_impl AssignItem
 
-ME ME_47A042E100E2_ME_560907E00134
+MEREF ME_47A042E100E2_ME_560907E00134_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_560907E00134 InitFields
+ENDMEREF // ME_47A042E100E2_ME_560907E00134_over InitFields
+
+MEREF ME_4B223ADC02BF_ME_560907E00134_G
+ MELINK Original WL? 'ME_4B223ADC02BF' // l3RecordListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223ADC02BF_ME_560907E00134_G l3RecordListPrim
+
+MEREF ME_4A5CB93700CF_ME_560907E00134_R
+ MELINK Original WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A5CB93700CF_ME_560907E00134_R Ml3Unknown
 
 %%ImplementedBy ME_4A5CB93700CF ME_560907E00134
 
@@ -575,11 +593,11 @@ ME ME_560907E00134
  MELINK Parent WL? 'ME_4A6D65B9022A' // Containers
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4B223ADC02BF' // l3RecordListPrim
+   Seq: ( HWL ME_4B223ADC02BF_ME_560907E00134_G // l3RecordListPrim
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+   Seq: ( HWL ME_4A5CB93700CF_ME_560907E00134_R // Ml3Unknown
  )
  ; // Implements
  MELIST Attributes
@@ -598,11 +616,11 @@ ME ME_560907E00134
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_47B2C42A0163_ME_560907E00134 // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_560907E00134_impl // AssignItem
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_47A042E100E2_ME_560907E00134 // InitFields
+   Seq: ( ME_47A042E100E2_ME_560907E00134_over // InitFields
  )
  ; // Overridden
  MELIST Children

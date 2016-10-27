@@ -1,0 +1,259 @@
+// TcsIdIOHandlerAbstractAdapter 538DDC890328 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_538DDC890328
+
+FORWARD ME_538DB9C40271
+
+FORWARD ME_538DB9DA00AA
+
+ME ME_538DB9DE021D
+ MEPROP Name 'AThreshhold'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_538DB9DE021D AThreshhold
+
+ME ME_538DB9DA00AA
+ MEPROP UID '538DB9DA00AA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_538DB9C40271 // WriteBufferOpen
+ ;
+ MELIST Parameters
+   Seq: ( ME_538DB9DE021D // AThreshhold
+ )
+ ; // Parameters
+
+ENDME // ME_538DB9DA00AA DoIt
+
+ME ME_538DB9C40271
+ MEPROP UID '538DB9C40271'
+ MEPROP Name 'WriteBufferOpen'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_538DB9DA00AA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_538DB9C40271 WriteBufferOpen
+
+FORWARD ME_538DB9F30058
+
+ME ME_538DB9FB002B
+ MEPROP UID '538DB9FB002B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_538DB9F30058 // WriteBufferClose
+ ;
+
+ENDME // ME_538DB9FB002B DoIt
+
+ME ME_538DB9F30058
+ MEPROP UID '538DB9F30058'
+ MEPROP Name 'WriteBufferClose'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_538DB9FB002B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_538DB9F30058 WriteBufferClose
+
+FORWARD ME_538DBA0B009F
+
+ME ME_538DBA130368
+ MEPROP UID '538DBA130368'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_538DBA0B009F // WriteBufferClear
+ ;
+
+ENDME // ME_538DBA130368 DoIt
+
+ME ME_538DBA0B009F
+ MEPROP UID '538DBA0B009F'
+ MEPROP Name 'WriteBufferClear'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_538DBA130368 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_538DBA0B009F WriteBufferClear
+
+FORWARD ME_538DB93002B5
+
+ME ME_538DB9390207
+ MEPROP UID '538DB9390207'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_538DB93002B5 // Connected
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_538DB9390207 DoIt
+
+ME ME_538DB93002B5
+ MEPROP UID '538DB93002B5'
+ MEPROP Name 'Connected'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_538DB9390207 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_538DB93002B5 Connected
+
+FORWARD ME_538DB9810192
+
+FORWARD ME_538DB993038E
+
+ME ME_538DB99B014D
+ MEPROP Name 'aFile'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_538DB99B014D aFile
+
+ME ME_538DB993038E
+ MEPROP UID '538DB993038E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_538DB9810192 // WriteFile
+ ;
+ MELIST Parameters
+   Seq: ( ME_538DB99B014D // aFile
+ )
+ ; // Parameters
+
+ENDME // ME_538DB993038E DoIt
+
+ME ME_538DB9810192
+ MEPROP UID '538DB9810192'
+ MEPROP Name 'WriteFile'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_538DB993038E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_538DB9810192 WriteFile
+
+FORWARD ME_5476EDF200B5
+
+ME ME_5476EDFD017F
+ MEPROP UID '5476EDFD017F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5476EDF200B5 // InputBufferClear
+ ;
+
+ENDME // ME_5476EDFD017F DoIt
+
+ME ME_5476EDF200B5
+ MEPROP UID '5476EDF200B5'
+ MEPROP Name 'InputBufferClear'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5476EDFD017F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5476EDF200B5 InputBufferClear
+
+MEREF ME_538DB4F00335_ME_538DDC890328_G
+ MELINK Original WL? 'ME_538DB4F00335' // TcsIdIOHandlerAbstractAdapterPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_538DB4F00335_ME_538DDC890328_G TcsIdIOHandlerAbstractAdapterPrim
+
+%%InheritedBy ME_538DB4F00335 ME_538DDC890328
+
+ME ME_538DDC890328
+ MEPROP UID '538DDC890328'
+ MEPROP Name 'TcsIdIOHandlerAbstractAdapter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_52FBB2FC0386' // Core
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_538DB4F00335_ME_538DDC890328_G // TcsIdIOHandlerAbstractAdapterPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_538DB9C40271 // WriteBufferOpen
+ HWL ME_538DB9F30058 // WriteBufferClose
+ HWL ME_538DBA0B009F // WriteBufferClear
+ HWL ME_538DB93002B5 // Connected
+ HWL ME_538DB9810192 // WriteFile
+ HWL ME_5476EDF200B5 // InputBufferClear
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'csIdIOHandlerAbstractAdapter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'csIdIOHandlerAbstractAdapter'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csIdIOHandlerAbstractAdapter.pas'
+
+ENDME // ME_538DDC890328 TcsIdIOHandlerAbstractAdapter

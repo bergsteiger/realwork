@@ -1,0 +1,190 @@
+// Tdd_lcHiddenTextExtractor 538C1D82017A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_538C1D82017A
+
+ME ME_538C1DFC02CD
+ MEPROP UID '538C1DFC02CD'
+ MEPROP Name 'ClearFont'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_538C1D82017A // Tdd_lcHiddenTextExtractor
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_538C1DFC02CD ClearFont
+
+FORWARD ME_538C220C033A
+
+FORWARD ME_538C221F003E
+
+ME ME_538C22450274
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
+ ;
+
+ENDME // ME_538C22450274 aText
+
+ME ME_538C22450283
+ MEPROP Name 'IsSeg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_538C22450283 IsSeg
+
+ME ME_538C221F003E
+ MEPROP UID '538C221F003E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_538C220C033A // WriteToLog
+ ;
+ MELIST Parameters
+   Seq: ( ME_538C22450274 // aText
+ ME_538C22450283 // IsSeg
+ )
+ ; // Parameters
+
+ENDME // ME_538C221F003E DoIt
+
+ME ME_538C220C033A
+ MEPROP UID '538C220C033A'
+ MEPROP Name 'WriteToLog'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_538C1D82017A // Tdd_lcHiddenTextExtractor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_538C221F003E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_538C220C033A WriteToLog
+
+ME ME_538C27C20095
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_538C1D82017A // Tdd_lcHiddenTextExtractor
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_538C27C20095 
+
+ME ME_538C2875032A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_538C1D82017A // Tdd_lcHiddenTextExtractor
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
+ ;
+
+ENDME // ME_538C2875032A 
+
+ME ME_538C2ACD0063
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_538C1D82017A // Tdd_lcHiddenTextExtractor
+ ;
+ MELINK Target WL 'ME_47F24AFB0308' '469D0AC7005E.ms.model.script' // Layers
+ ;
+
+ENDME // ME_538C2ACD0063 
+
+ME ME_538C641E0106
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_538C1D82017A // Tdd_lcHiddenTextExtractor
+ ;
+ MELINK Target WL 'ME_48566A8103C1' '484A470100DD.ms.model.script' // PageBreak
+ ;
+
+ENDME // ME_538C641E0106 
+
+MEREF ME_479731C50290_ME_538C1D82017A_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_538C1D82017A_over Cleanup
+
+MEREF ME_49E48829016F_ME_538C1D82017A_over
+ MELINK Original WL 'ME_49E48829016F' '49E487650342.ms.model.script' // NeedWritePara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E48829016F_ME_538C1D82017A_over NeedWritePara
+
+MEREF ME_538C1F9A00C7_ME_538C1D82017A_over
+ MELINK Original WL 'ME_538C1F9A00C7' '47ECAA270135.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_538C1F9A00C7_ME_538C1D82017A_over Create
+
+MEREF ME_49E487650342_ME_538C1D82017A_G
+ MELINK Original WL? 'ME_49E487650342' // TevdLeafParaFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487650342_ME_538C1D82017A_G TevdLeafParaFilter
+
+%%InheritedBy ME_49E487650342 ME_538C1D82017A
+
+ME ME_538C1D82017A
+ MEPROP UID '538C1D82017A'
+ MEPROP Name 'Tdd_lcHiddenTextExtractor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B324F930103' // Filters
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E487650342_ME_538C1D82017A_G // TevdLeafParaFilter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_538C1DFC02CD // ClearFont
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_538C220C033A // WriteToLog
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_538C1D82017A_over // Cleanup
+ ME_49E48829016F_ME_538C1D82017A_over // NeedWritePara
+ ME_538C1F9A00C7_ME_538C1D82017A_over // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_538C27C20095 // Tk2TagID
+ ME_538C2875032A // l3System
+ ME_538C2ACD0063 // Layers
+ ME_538C641E0106 // PageBreak
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'dd_lcHiddenTextExtractor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dd_lcHiddenTextExtractor'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\dd_lcHiddenTextExtractor.pas'
+
+ENDME // ME_538C1D82017A Tdd_lcHiddenTextExtractor

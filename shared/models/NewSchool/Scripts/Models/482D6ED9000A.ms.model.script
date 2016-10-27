@@ -1,0 +1,75 @@
+// Tk2CustomReader 482D6ED9000A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_482D6ED9000A
+
+FORWARD ME_4F68343D038D
+
+ME ME_4F6834510218
+ MEPROP UID '4F6834510218'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F68343D038D // Read
+ ;
+
+ENDME // ME_4F6834510218 DoIt
+
+ME ME_4F68343D038D
+ MEPROP UID '4F68343D038D'
+ MEPROP Name 'Read'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482D6ED9000A // Tk2CustomReader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6834510218 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F68343D038D Read
+
+MEREF ME_482D6F380205_ME_482D6ED9000A_G
+ MELINK Original WL? 'ME_482D6F380205' // Tk2CustomStackGenerator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_482D6F380205_ME_482D6ED9000A_G Tk2CustomStackGenerator
+
+%%InheritedBy ME_482D6F380205 ME_482D6ED9000A
+
+ME ME_482D6ED9000A
+ MEPROP UID '482D6ED9000A'
+ MEPROP Name 'Tk2CustomReader'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_482D6E960087' // Readers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_482D6F380205_ME_482D6ED9000A_G // Tk2CustomStackGenerator
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F68343D038D // Read
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" False
+ UP "started" '22.09.1999 11:47'
+ UP extprop:pas:UnitName 'k2CustomReader'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Reader'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2CustomReader.pas'
+
+ENDME // ME_482D6ED9000A Tk2CustomReader

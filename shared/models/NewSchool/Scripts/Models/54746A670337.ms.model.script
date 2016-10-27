@@ -1,0 +1,45 @@
+// TncsTaskProgress 54746A670337 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_544E079E0253_ME_54746A670337_G
+ MELINK Original WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_544E079E0253_ME_54746A670337_G TncsMessage
+
+MEREF ME_547467D501F3_ME_54746A670337_R
+ MELINK Original WL 'ME_547467D501F3' '484A470100DD.ms.model.script' // csTaskProgress
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_547467D501F3_ME_54746A670337_R csTaskProgress
+
+%%ImplementedBy ME_547467D501F3 ME_54746A670337
+
+%%InheritedBy ME_544E079E0253 ME_54746A670337
+
+ME ME_54746A670337
+ MEPROP UID '54746A670337'
+ MEPROP Name 'TncsTaskProgress'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_546457E203C0' // ResultDelivery
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_544E079E0253_ME_54746A670337_G // TncsMessage
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_547467D501F3_ME_54746A670337_R // csTaskProgress
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'ncsTaskProgress'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ncsTaskProgress'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsTaskProgress.pas'
+
+ENDME // ME_54746A670337 TncsTaskProgress

@@ -1,0 +1,246 @@
+// TevDecorHyperlink 4E1DD8400344 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_55F6CFF70320
+
+FORWARD ME_4E1DD8400344
+
+MEREF ME_4E1DD8400344_ME_55F6CFF70320_G
+ MELINK Original HWL ME_4E1DD8400344 // TevDecorHyperlink
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E1DD8400344_ME_55F6CFF70320_G TevDecorHyperlink
+
+%%InheritedBy ME_4E1DD8400344 ME_55F6CFF70320
+
+ME ME_55F6CFF70320
+ MEPROP UID '55F6CFF70320'
+ MEPROP Name 'RevDecorHyperlink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E1DD8400344 // TevDecorHyperlink
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E1DD8400344_ME_55F6CFF70320_G // TevDecorHyperlink
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_55F6CFF70320 RevDecorHyperlink
+
+ME ME_4E1DD8700139
+ MEPROP UID '4E1DD8700139'
+ MEPROP Name 'f_Para'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4E1DD8400344 // TevDecorHyperlink
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4E1DD8700139 f_Para
+
+FORWARD ME_4E1DD88E02EE
+
+FORWARD ME_4E1DD89603A2
+
+ME ME_4E1DD8A00357
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4E1DD8A00357 aPara
+
+ME ME_4E1DD8A00386
+ MEPROP Name 'aLink'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.ms.model.script' // IevHyperlink
+ ;
+
+ENDME // ME_4E1DD8A00386 aLink
+
+ME ME_4E1DD89603A2
+ MEPROP UID '4E1DD89603A2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E1DD88E02EE // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E1DD8A00357 // aPara
+ ME_4E1DD8A00386 // aLink
+ )
+ ; // Parameters
+
+ENDME // ME_4E1DD89603A2 DoIt
+
+ME ME_4E1DD88E02EE
+ MEPROP UID '4E1DD88E02EE'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E1DD8400344 // TevDecorHyperlink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E1DD89603A2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E1DD88E02EE Create
+
+MEREF ME_4E1DD88E02EE_ME_4E1DD8B50181_G
+ MELINK Original HWL ME_4E1DD88E02EE // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E1DD88E02EE_ME_4E1DD8B50181_G Create
+
+MEREF ME_49E5FCDB02E9_ME_4E1DD8B50181_R
+ MELINK Original WL 'ME_49E5FCDB02E9' '4A251D6E00BD.ms.model.script' // IevHyperlink
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E5FCDB02E9_ME_4E1DD8B50181_R IevHyperlink
+
+%%ImplementedBy ME_49E5FCDB02E9 ME_4E1DD8B50181
+
+%%InheritedBy ME_4E1DD88E02EE ME_4E1DD8B50181
+
+ME ME_4E1DD8B50181
+ MEPROP UID '4E1DD8B50181'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E1DD8400344 // TevDecorHyperlink
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E1DD88E02EE_ME_4E1DD8B50181_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_49E5FCDB02E9_ME_4E1DD8B50181_R // IevHyperlink
+ )
+ ; // Implements
+
+ENDME // ME_4E1DD8B50181 Make
+
+ME ME_4E1DDBCE03A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E1DD8400344 // TevDecorHyperlink
+ ;
+ MELINK Target WL 'ME_4A829D3500A9' '47F1F3BC0330.ms.model.script' // evInPara
+ ;
+
+ENDME // ME_4E1DDBCE03A7 
+
+ME ME_4E1DDBDB026E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E1DD8400344 // TevDecorHyperlink
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4E1DDBDB026E 
+
+ME ME_4E25CE6901B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E1DD8400344 // TevDecorHyperlink
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4E25CE6901B5 
+
+ME ME_5346A6210258
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E1DD8400344 // TevDecorHyperlink
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_5346A6210258 
+
+MEREF ME_4E1DDB7D0368_ME_4E1DD8400344_over
+ MELINK Original WL 'ME_4E1DDB7D0368' '4E1DD7720136.ms.model.script' // DoFromDocumentExternalHandle
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E1DDB7D0368_ME_4E1DD8400344_over DoFromDocumentExternalHandle
+
+MEREF ME_4E1DD7720136_ME_4E1DD8400344_G
+ MELINK Original WL? 'ME_4E1DD7720136' // TevHyperlinkProxy
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E1DD7720136_ME_4E1DD8400344_G TevHyperlinkProxy
+
+%%InheritedBy ME_4E1DD7720136 ME_4E1DD8400344
+
+ME ME_4E1DD8400344
+ MEPROP UID '4E1DD8400344'
+ MEPROP Name 'TevDecorHyperlink'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A267EE3017B' // HotSpots
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E1DD7720136_ME_4E1DD8400344_G // TevHyperlinkProxy
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4E1DD8700139 // f_Para
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E1DD88E02EE // Create
+ HWL ME_4E1DD8B50181 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4E1DDB7D0368_ME_4E1DD8400344_over // DoFromDocumentExternalHandle
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_55F6CFF70320 // RevDecorHyperlink
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4E1DDBCE03A7 // evInPara
+ ME_4E1DDBDB026E // Document
+ ME_4E25CE6901B5 // Tk2TagID
+ ME_5346A6210258 // Tl3Tag
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '13.07.2011 21:39'
+ UP extprop:pas:UnitName 'evDecorHyperlink'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DecorHyperlink'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evDecorHyperlink.pas'
+
+ENDME // ME_4E1DD8400344 TevDecorHyperlink

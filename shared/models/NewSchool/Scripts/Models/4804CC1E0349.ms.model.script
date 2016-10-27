@@ -1,0 +1,189 @@
+// TevTextParaPainter 4804CC1E0349 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4804CC1E0349
+
+FORWARD ME_55CC63800051
+
+FORWARD ME_55CC638F0033
+
+ME ME_55CC63990317
+ MEPROP Name 'aFont'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A614A202CA' '4677FBA70343.ms.model.script' // Il3Font
+ ;
+
+ENDME // ME_55CC63990317 aFont
+
+ME ME_55CC63990327
+ MEPROP Name 'aStyle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_533D31A90231' '4678209200A6.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_55CC63990327 aStyle
+
+ME ME_55CC638F0033
+ MEPROP UID '55CC638F0033'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55CC63800051 // AssignFontFromStyle
+ ;
+ MELIST Parameters
+   Seq: ( ME_55CC63990317 // aFont
+ ME_55CC63990327 // aStyle
+ )
+ ; // Parameters
+
+ENDME // ME_55CC638F0033 DoIt
+
+ME ME_55CC63800051
+ MEPROP UID '55CC63800051'
+ MEPROP Name 'AssignFontFromStyle'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4804CC1E0349 // TevTextParaPainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55CC638F0033 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55CC63800051 AssignFontFromStyle
+
+ME ME_5062D55300EB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4804CC1E0349 // TevTextParaPainter
+ ;
+ MELINK Target WL 'ME_50629BBB03DC' '47F1F3BC0330.ms.model.script' // evHasAACStyle
+ ;
+
+ENDME // ME_5062D55300EB 
+
+ME ME_51FF903D01D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4804CC1E0349 // TevTextParaPainter
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_51FF903D01D1 
+
+MEREF ME_5062C0650076_ME_4804CC1E0349_impl
+ MELINK Original WL 'ME_5062C0650076' '5062BFDB025E.ms.model.script' // NeedCalcSpace
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5062C0650076_ME_4804CC1E0349_impl NeedCalcSpace
+
+MEREF ME_51FF6BC10266_ME_4804CC1E0349_impl
+ MELINK Original WL 'ME_51FF6BC10266' '5062BFDB025E.ms.model.script' // HeaderOwnSpace
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51FF6BC10266_ME_4804CC1E0349_impl HeaderOwnSpace
+
+MEREF ME_5208B63400C1_ME_4804CC1E0349_impl
+ MELINK Original WL 'ME_5208B63400C1' '5062BFDB025E.ms.model.script' // GetSpaceTop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5208B63400C1_ME_4804CC1E0349_impl GetSpaceTop
+
+MEREF ME_47A6FEE600FC_ME_4804CC1E0349_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_4804CC1E0349_over IsCacheable
+
+MEREF ME_49DA2BF5016E_ME_4804CC1E0349_G
+ MELINK Original WL? 'ME_49DA2BF5016E' // TevTextParaPainterPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49DA2BF5016E_ME_4804CC1E0349_G TevTextParaPainterPrim
+
+MEREF ME_5062BFDB025E_ME_4804CC1E0349_G
+ MELINK Original WL? 'ME_5062BFDB025E' // AACSpaceDrawing
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5062BFDB025E_ME_4804CC1E0349_G AACSpaceDrawing
+
+MEREF ME_5514FB530333_ME_4804CC1E0349_G
+ MELINK Original WL? 'ME_5514FB530333' // evCollapsedStylePainter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5514FB530333_ME_4804CC1E0349_G evCollapsedStylePainter
+
+MEREF ME_4E71FB8302C6_ME_4804CC1E0349_R
+ MELINK Original WL? 'ME_4E71FB8302C6' // nevStringCache
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E71FB8302C6_ME_4804CC1E0349_R nevStringCache
+
+%%ImplementedBy ME_4E71FB8302C6 ME_4804CC1E0349
+
+%%InheritedBy ME_49DA2BF5016E ME_4804CC1E0349
+%%InheritedBy ME_5062BFDB025E ME_4804CC1E0349
+%%InheritedBy ME_5514FB530333 ME_4804CC1E0349
+
+ME ME_4804CC1E0349
+ MEPROP UID '4804CC1E0349'
+ MEPROP Name 'TevTextParaPainter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Рисователь текстового параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4804A24003C1' // LeafPara Painters
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49DA2BF5016E_ME_4804CC1E0349_G // TevTextParaPainterPrim
+ HWL ME_5062BFDB025E_ME_4804CC1E0349_G // AACSpaceDrawing
+ HWL ME_5514FB530333_ME_4804CC1E0349_G // evCollapsedStylePainter
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4E71FB8302C6_ME_4804CC1E0349_R // nevStringCache
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_55CC63800051 // AssignFontFromStyle
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5062C0650076_ME_4804CC1E0349_impl // NeedCalcSpace
+ ME_51FF6BC10266_ME_4804CC1E0349_impl // HeaderOwnSpace
+ ME_5208B63400C1_ME_4804CC1E0349_impl // GetSpaceTop
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_4804CC1E0349_over // IsCacheable
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5062D55300EB // evHasAACStyle
+ ME_51FF903D01D1 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '14.03.1997 10:07'
+ UP extprop:pas:UnitName 'evTextParaPainter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextParaPainter'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evTextParaPainter.pas'
+
+ENDME // ME_4804CC1E0349 TevTextParaPainter

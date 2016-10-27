@@ -12,8 +12,6 @@ interface
 uses
  l3IntfUses
  , csImport
- , evdTasksHelpers
- , l3Variant
  , k2Base
  , daTypes
  , Classes

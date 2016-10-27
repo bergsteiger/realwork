@@ -1,0 +1,288 @@
+// TnsFiltersListenersManagerPrim 4F98242D007E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F98242D007E
+
+ME ME_4F9825B402BF
+ MEPROP UID '4F9825B402BF'
+ MEPROP Name 'f_Listeners'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F98242D007E // TnsFiltersListenersManagerPrim
+ ;
+ MELINK Target WL? 'ME_4F98251800B4' // TnsFiltersListenersList
+ ;
+
+ENDME // ME_4F9825B402BF f_Listeners
+
+FORWARD ME_4F982629031E
+
+FORWARD ME_4F98264901C1
+
+ME ME_4F98264C0270
+ MEPROP Name 'aListener'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4F98240403BA' '4CAC58E50231.ms.model.script' // InsFiltersListener
+ ;
+
+ENDME // ME_4F98264C0270 aListener
+
+ME ME_4F98264901C1
+ MEPROP UID '4F98264901C1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F982629031E // AddListener
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F98264C0270 // aListener
+ )
+ ; // Parameters
+
+ENDME // ME_4F98264901C1 DoIt
+
+ME ME_4F982629031E
+ MEPROP UID '4F982629031E'
+ MEPROP Name 'AddListener'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F98242D007E // TnsFiltersListenersManagerPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F98264901C1 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4F982629031E AddListener
+
+FORWARD ME_4F98265301F4
+
+FORWARD ME_4F982660011D
+
+ME ME_4F9826610133
+ MEPROP Name 'aListener'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4F98240403BA' '4CAC58E50231.ms.model.script' // InsFiltersListener
+ ;
+
+ENDME // ME_4F9826610133 aListener
+
+ME ME_4F982660011D
+ MEPROP UID '4F982660011D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F98265301F4 // RemoveListener
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F9826610133 // aListener
+ )
+ ; // Parameters
+
+ENDME // ME_4F982660011D DoIt
+
+ME ME_4F98265301F4
+ MEPROP UID '4F98265301F4'
+ MEPROP Name 'RemoveListener'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F98242D007E // TnsFiltersListenersManagerPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F982660011D // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4F98265301F4 RemoveListener
+
+FORWARD ME_4FFD459003A6
+
+ME ME_4FFD45B80343
+ MEPROP UID '4FFD45B80343'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFD459003A6 // GetInstance
+ ;
+ MELINK Target HWL ME_4F98242D007E // TnsFiltersListenersManagerPrim
+ ;
+
+ENDME // ME_4FFD45B80343 DoIt
+
+ME ME_4FFD459003A6
+ MEPROP UID '4FFD459003A6'
+ MEPROP Name 'GetInstance'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F98242D007E // TnsFiltersListenersManagerPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FFD45B80343 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4FFD459003A6 GetInstance
+
+FORWARD ME_4FFD45CD0313
+
+ME ME_4FFD45DD0294
+ MEPROP UID '4FFD45DD0294'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFD45CD0313 // HasInstance
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4FFD45DD0294 DoIt
+
+ME ME_4FFD45CD0313
+ MEPROP UID '4FFD45CD0313'
+ MEPROP Name 'HasInstance'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F98242D007E // TnsFiltersListenersManagerPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FFD45DD0294 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4FFD45CD0313 HasInstance
+
+ME ME_4FFD49A801C4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F98242D007E // TnsFiltersListenersManagerPrim
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_4FFD49A801C4 
+
+MEREF ME_4CB2B26B0365_ME_4F98242D007E_impl
+ MELINK Original WL 'ME_4CB2B26B0365' '45EEA48F011F.ms.model.script' // filters_changed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CB2B26B0365_ME_4F98242D007E_impl filters_changed
+
+MEREF ME_4CB2B27F03C3_ME_4F98242D007E_impl
+ MELINK Original WL 'ME_4CB2B27F03C3' '45EEA48F011F.ms.model.script' // filter_name_changed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CB2B27F03C3_ME_4F98242D007E_impl filter_name_changed
+
+MEREF ME_4CB2B2910052_ME_4F98242D007E_impl
+ MELINK Original WL 'ME_4CB2B2910052' '45EEA48F011F.ms.model.script' // filter_permanence_changed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CB2B2910052_ME_4F98242D007E_impl filter_permanence_changed
+
+MEREF ME_479731C50290_ME_4F98242D007E_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4F98242D007E_over Cleanup
+
+MEREF ME_47A042E100E2_ME_4F98242D007E_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4F98242D007E_over InitFields
+
+MEREF ME_49E7754802A9_ME_4F98242D007E_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4F98242D007E_G Tl3ProtoObject
+
+MEREF ME_4CB2B25302F7_ME_4F98242D007E_R
+ MELINK Original WL 'ME_4CB2B25302F7' '45EEA48F011F.ms.model.script' // FilterNotifier
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CB2B25302F7_ME_4F98242D007E_R FilterNotifier
+
+%%ImplementedBy ME_4CB2B25302F7 ME_4F98242D007E
+
+%%InheritedBy ME_49E7754802A9 ME_4F98242D007E
+
+ME ME_4F98242D007E
+ MEPROP UID '4F98242D007E'
+ MEPROP Name 'TnsFiltersListenersManagerPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F9823DB021B' // FiltersNotification
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_4F98242D007E_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4CB2B25302F7_ME_4F98242D007E_R // FilterNotifier
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4F9825B402BF // f_Listeners
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F982629031E // AddListener
+ HWL ME_4F98265301F4 // RemoveListener
+ HWL ME_4FFD459003A6 // GetInstance
+ HWL ME_4FFD45CD0313 // HasInstance
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4CB2B26B0365_ME_4F98242D007E_impl // filters_changed
+ ME_4CB2B27F03C3_ME_4F98242D007E_impl // filter_name_changed
+ ME_4CB2B2910052_ME_4F98242D007E_impl // filter_permanence_changed
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4F98242D007E_over // Cleanup
+ ME_47A042E100E2_ME_4F98242D007E_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4FFD49A801C4 // l3Free
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nsFiltersListenersManagerPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FiltersListenersManagerPrim'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersListenersManagerPrim.pas'
+
+ENDME // ME_4F98242D007E TnsFiltersListenersManagerPrim

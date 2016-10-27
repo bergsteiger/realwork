@@ -1,0 +1,67 @@
+// pop_editor_RepaintAndCheckWithEtalon 4E1B0DEA0240 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4F4CB81200CA_ME_4E1B0DEA0240_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_4E1B0DEA0240_impl DoWithEditor
+
+MEREF ME_4DB0614603C8_ME_4E1B0DEA0240_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB0614603C8_ME_4E1B0DEA0240_over GetWordNameForRegister
+
+MEREF ME_4F4CB625027A_ME_4E1B0DEA0240_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_4E1B0DEA0240_G TkwEditorFromStackWord
+
+MEREF ME_50D456F10356_ME_4E1B0DEA0240_G
+ MELINK Original WL? 'ME_50D456F10356' // kwCheckWithEtalonCommon
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50D456F10356_ME_4E1B0DEA0240_G kwCheckWithEtalonCommon
+
+%%InheritedBy ME_4F4CB625027A ME_4E1B0DEA0240
+%%InheritedBy ME_50D456F10356 ME_4E1B0DEA0240
+
+ME ME_4E1B0DEA0240
+ MEPROP UID '4E1B0DEA0240'
+ MEPROP Name 'pop_editor_RepaintAndCheckWithEtalon'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Описание:*'#13#10'Перерисовывает редактор сохраняя данные об отриосванном для тестов. Пересовка вызвается принудительно. Все отрисованные до этого данные стираются! Создается файл с именем NNN.shapes - где NNN - номер теста (Внимание! Имя теста дожно начинаться с TK) . Если до этого не существовало эталона, то он создается. О чем сообщается в конце выполнеия теста. Если эталон уже существовал, то производится сравнение новой версии файла с эталоном. Если сравнение не прошло, то об этом будет сообщено (тест будет считаться не прошедшим) и будет вызвана внешняя программа сравнения файлов.'#13#10'*Формат:*'#13#10'{code}'#13#10'anEditor pop:editor:RepaintCheckWithEtalon '#13#10'{code}'#13#10'где anEditor - указатель на редактор, в котором нужно вызвать перерисовку.'#13#10'*Пример:*'#13#10'{code}'#13#10'focused:control:push pop:editor:RepaintCheckWithEtalon '#13#10'{code}'#13#10'Вызывает перисовку в редакторе, где находится фокус.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A_ME_4E1B0DEA0240_G // TkwEditorFromStackWord
+ HWL ME_50D456F10356_ME_4E1B0DEA0240_G // kwCheckWithEtalonCommon
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4E1B0DEA0240_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E1B0DEA0240_over // GetWordNameForRegister
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifdef" 'nsTest'
+ UP extprop:pas:TypeName 'TkwPopEditorRepaintAndCheckWithEtalon'
+ UP extprop:pas:UnitName 'kwPopEditorRepaintAndCheckWithEtalon'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PopEditorRepaintAndCheckWithEtalon'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorRepaintAndCheckWithEtalon.pas'
+
+ENDME // ME_4E1B0DEA0240 pop_editor_RepaintAndCheckWithEtalon

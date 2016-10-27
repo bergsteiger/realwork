@@ -1,0 +1,74 @@
+// Tl3AsyncTask 549BC5C50174 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_549BC5C50174
+
+FORWARD ME_549BC64F01DE
+
+ME ME_71DEA970B38C
+ MEPROP UID '71DEA970B38C'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода Exec' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_549BC64F01DE // Exec
+ ;
+
+ENDME // ME_71DEA970B38C DoIt
+
+ME ME_549BC64F01DE
+ MEPROP UID '549BC64F01DE'
+ MEPROP Name 'Exec'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_549BC5C50174 // Tl3AsyncTask
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_71DEA970B38C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_549BC64F01DE Exec
+
+MEREF ME_49E7754802A9_ME_549BC5C50174_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_549BC5C50174_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_549BC5C50174
+
+ME ME_549BC5C50174
+ MEPROP UID '549BC5C50174'
+ MEPROP Name 'Tl3AsyncTask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53A038340371' // MultiThread
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_549BC5C50174_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_549BC64F01DE // Exec
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'l3AsyncTask'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AsyncTask'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3AsyncTask.pas'
+
+ENDME // ME_549BC5C50174 Tl3AsyncTask

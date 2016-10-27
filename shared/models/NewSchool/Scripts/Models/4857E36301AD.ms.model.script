@@ -1,0 +1,89 @@
+// TevSBS 4857E36301AD InterfaceFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4857E36301AD
+
+ME ME_9CA844C8FE9C
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857E36301AD // TevSBS
+ ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_9CA844C8FE9C 
+
+ME ME_8DB5136A0CCF
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857E36301AD // TevSBS
+ ;
+ MELINK Target WL 'ME_47C697030322' '49D2080D020C.ms.model.script' // InevDrawingShape
+ ;
+
+ENDME // ME_8DB5136A0CCF 
+
+MEREF ME_53CCBDA5026D_ME_4857E36301AD_over
+ MELINK Original WL 'ME_53CCBDA5026D' '4D63C2420229.ms.model.script' // COMQueryTool
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53CCBDA5026D_ME_4857E36301AD_over COMQueryTool
+
+MEREF ME_4857E163036B_ME_4857E36301AD_G
+ MELINK Original WL? 'ME_4857E163036B' // TevTable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857E163036B_ME_4857E36301AD_G TevTable
+
+MEREF ME_4857E2A70175_ME_4857E36301AD_R
+ MELINK Original WL 'ME_4857E2A70175' '48492FC0029D.ms.model.script' // SBS
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857E2A70175_ME_4857E36301AD_R SBS
+
+%%ImplementedBy ME_4857E2A70175 ME_4857E36301AD
+
+%%InheritedBy ME_4857E163036B ME_4857E36301AD
+
+ME ME_4857E36301AD
+ MEPROP UID '4857E36301AD'
+ MEPROP Name 'TevSBS'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_InterfaceFactory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53D258F1004F' // InterfaceFactories
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4857E163036B_ME_4857E36301AD_G // TevTable
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4857E2A70175_ME_4857E36301AD_R // SBS
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_53CCBDA5026D_ME_4857E36301AD_over // COMQueryTool
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_9CA844C8FE9C // IevPainter
+ ME_8DB5136A0CCF // InevDrawingShape
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_53D0D8400038' '48C9390D0155.ms.model.script' // TevSBSPainter
+ )
+ ; // Injected
+ UP extprop:pas:TypeName 'TevSBSInterfaceFactory'
+ UP extprop:pas:UnitName 'evSBS_InterfaceFactory'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SBSInterfaceFactory'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evSBS_InterfaceFactory.pas'
+
+ENDME // ME_4857E36301AD TevSBS

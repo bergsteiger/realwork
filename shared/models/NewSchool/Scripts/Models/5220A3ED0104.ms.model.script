@@ -1,0 +1,98 @@
+// KeyDown 5220A3ED0104 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5220A3ED0104
+
+ME ME_5220A4110125
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5220A3ED0104 // KeyDown
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_5220A4110125 
+
+ME ME_5220A41300FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5220A3ED0104 // KeyDown
+ ;
+ MELINK Target WL? 'ME_47E7ABAE0110' // Menus
+ ;
+
+ENDME // ME_5220A41300FA 
+
+ME ME_5220A41500B6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5220A3ED0104 // KeyDown
+ ;
+ MELINK Target WL? 'ME_478CF30500C1' // Classes
+ ;
+
+ENDME // ME_5220A41500B6 
+
+ME ME_5220A4170023
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5220A3ED0104 // KeyDown
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_5220A4170023 
+
+ME ME_5220B6AF017E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5220A3ED0104 // KeyDown
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_5220B6AF017E 
+
+ME ME_5507EA4F03B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5220A3ED0104 // KeyDown
+ ;
+ MELINK Target WL? 'ME_5506D3B202FA' // Tl3MessagesService
+ ;
+
+ENDME // ME_5507EA4F03B4 
+
+ME ME_5220A3ED0104
+ MEPROP UID '5220A3ED0104'
+ MEPROP Name 'KeyDown'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Alt'' KeyDown // зажать клавишу'#13#10'1000 SLEEP'#13#10'''Alt'' KeyUp // отпустить клавишу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_5019517A022F' // KeyBoardInput
+ ;
+ MELIST Dependencies
+   Seq: ( ME_5220A4110125 // Windows
+ ME_5220A41300FA // Menus
+ ME_5220A41500B6 // Classes
+ ME_5220A4170023 // Msg Codes
+ ME_5220B6AF017E // SysUtils
+ ME_5507EA4F03B4 // Tl3MessagesService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoVCL'
+ UP extprop:pas:TypeName 'TkwKeyDown'
+ UP extprop:pas:UnitName 'kwKeyDown'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'KeyDown'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwKeyDown.pas'
+
+ENDME // ME_5220A3ED0104 KeyDown

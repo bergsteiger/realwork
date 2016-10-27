@@ -1,0 +1,155 @@
+// TevSubPanelSubCollectionPrim 4B87D2A7029B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B87D2A7029B
+
+ME ME_4B87D31B0314
+ MEPROP UID '4B87D31B0314'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B87D2A7029B // TevSubPanelSubCollectionPrim
+ ;
+ MELINK Target WL? 'ME_4B87B6A2008E' // TevSubPanelSubArray
+ ;
+
+ENDME // ME_4B87D31B0314 ItemType
+
+ME ME_4B87D6AA0173
+ MEPROP UID '4B87D6AA0173'
+ MEPROP Name 'Owner'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B87D2A7029B // TevSubPanelSubCollectionPrim
+ ;
+ MELINK Target WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4B87D6AA0173 Owner
+
+FORWARD ME_4B87ECA700CD
+
+FORWARD ME_4B87ECAF026D
+
+ME ME_4B87ECC001A8
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+
+ENDME // ME_4B87ECC001A8 anOwner
+
+ME ME_4B87ECAF026D
+ MEPROP UID '4B87ECAF026D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B87ECA700CD // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B87ECC001A8 // anOwner
+ )
+ ; // Parameters
+
+ENDME // ME_4B87ECAF026D DoIt
+
+ME ME_4B87ECA700CD
+ MEPROP UID '4B87ECA700CD'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B87D2A7029B // TevSubPanelSubCollectionPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B87ECAF026D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B87ECA700CD Create
+
+MEREF ME_47B2C42A0163_ME_4B87D2A7029B_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4B87D2A7029B_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_4B87D2A7029B_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4B87D2A7029B_impl CompareExistingItems
+
+MEREF ME_47B99E920196_ME_4B87D2A7029B_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_4B87D2A7029B_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_4B87D2A7029B_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4B87D2A7029B_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B99E920196 ME_4B87D2A7029B
+%%InheritedBy ME_4A54DD4E036F ME_4B87D2A7029B
+
+ME ME_4B87D2A7029B
+ MEPROP UID '4B87D2A7029B'
+ MEPROP Name 'TevSubPanelSubCollectionPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B87B5720153' // SubPanel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B99E920196_ME_4B87D2A7029B_G // l3UncomparabeObjectRefList
+ HWL ME_4A54DD4E036F_ME_4B87D2A7029B_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B87D31B0314 // ItemType
+ HWL ME_4B87D6AA0173 // Owner
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B87ECA700CD // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_4B87D2A7029B_impl // AssignItem
+ ME_47B99D4503A2_ME_4B87D2A7029B_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '26.02.2010 16:55'
+ UP extprop:pas:UnitName 'evSubPanelSubCollectionPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SubPanelSubCollectionPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evSubPanelSubCollectionPrim.pas'
+
+ENDME // ME_4B87D2A7029B TevSubPanelSubCollectionPrim

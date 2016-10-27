@@ -1,0 +1,66 @@
+// TevdChildrenCountEliminator 4E84542E03B5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E84542E03B5
+
+ME ME_4E84549D0396
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E84542E03B5 // TevdChildrenCountEliminator
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4E84549D0396 
+
+MEREF ME_4A2D1634025B_ME_4E84542E03B5_over
+ MELINK Original WL 'ME_4A2D1634025B' '49E487A70144.ms.model.script' // DoAddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A2D1634025B_ME_4E84542E03B5_over DoAddAtomEx
+
+MEREF ME_49E487A70144_ME_4E84542E03B5_G
+ MELINK Original WL? 'ME_49E487A70144' // Tk2TagFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487A70144_ME_4E84542E03B5_G Tk2TagFilter
+
+%%InheritedBy ME_49E487A70144 ME_4E84542E03B5
+
+ME ME_4E84542E03B5
+ MEPROP UID '4E84542E03B5'
+ MEPROP Name 'TevdChildrenCountEliminator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выкидавает ChildrenCount из потока генерации, чтобы не распределялась лишняя память при буферизации на проходе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECB8BD00A8' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E487A70144_ME_4E84542E03B5_G // Tk2TagFilter
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4A2D1634025B_ME_4E84542E03B5_over // DoAddAtomEx
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E84549D0396 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '29.09.2011 15:19'
+ UP extprop:pas:UnitName 'evdChildrenCountEliminator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dChildrenCountEliminator'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdChildrenCountEliminator.pas'
+
+ENDME // ME_4E84542E03B5 TevdChildrenCountEliminator

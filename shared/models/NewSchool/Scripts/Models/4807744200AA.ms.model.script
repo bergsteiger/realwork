@@ -89,7 +89,7 @@ ENDME // ME_516131640085 DoIt
 ME ME_516131510341
  MEPROP UID '516131510341'
  MEPROP Name 'NewInstance'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -120,7 +120,7 @@ ENDME // ME_516131A80125 DoIt
 ME ME_5161317A0219
  MEPROP UID '5161317A0219'
  MEPROP Name 'FreeInstance'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -151,7 +151,7 @@ ENDME // ME_516D5BE90210 DoIt
 ME ME_516D582B011F
  MEPROP UID '516D582B011F'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -181,7 +181,7 @@ ENDME // ME_51DAEFEB0135 DoIt
 ME ME_51DAEFC6017B
  MEPROP UID '51DAEFC6017B'
  MEPROP Name 'BeforeDestruction'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -245,6 +245,12 @@ ME ME_4807745602C8
 
 ENDME // ME_4807745602C8 TObject
 
+MEREF ME_4807745602C8_ME_48077FF80141_G
+ MELINK Original HWL ME_4807745602C8 // TObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807745602C8_ME_48077FF80141_G TObject
+
 %%InheritedBy ME_4807745602C8 ME_48077FF80141
 
 ME ME_48077FF80141
@@ -258,7 +264,7 @@ ME ME_48077FF80141
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4807745602C8 // TObject
+   Seq: ( HWL ME_4807745602C8_ME_48077FF80141_G // TObject
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -296,6 +302,12 @@ ME ME_469F8577004B
 
 ENDME // ME_469F8577004B TObject$Stub
 
+MEREF ME_469F8577004B_ME_476775CB036A_G
+ MELINK Original HWL ME_469F8577004B // TObject$Stub
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_469F8577004B_ME_476775CB036A_G TObject$Stub
+
 %%InheritedBy ME_469F8577004B ME_476775CB036A
 
 ME ME_476775CB036A
@@ -310,7 +322,7 @@ ME ME_476775CB036A
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( HWL ME_469F8577004B // TObject$Stub
+   Seq: ( HWL ME_469F8577004B_ME_476775CB036A_G // TObject$Stub
  )
  ; // Inherits
  UP "isClassRef" True
@@ -332,6 +344,12 @@ ME ME_48077EC0001D
 
 ENDME // ME_48077EC0001D Variant
 
+MEREF ME_3DBFFDE101CA_ME_469F99BD026B_G
+ MELINK Original WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFDE101CA_ME_469F99BD026B_G unsigned long
+
 %%InheritedBy ME_3DBFFDE101CA ME_469F99BD026B
 
 ME ME_469F99BD026B
@@ -345,12 +363,18 @@ ME ME_469F99BD026B
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+   Seq: ( HWL ME_3DBFFDE101CA_ME_469F99BD026B_G // unsigned long
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_469F99BD026B HResult
+
+MEREF ME_469F99BD026B_ME_472094E70218_G
+ MELINK Original HWL ME_469F99BD026B // HResult
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_469F99BD026B_ME_472094E70218_G HResult
 
 %%InheritedBy ME_469F99BD026B ME_472094E70218
 
@@ -365,12 +389,18 @@ ME ME_472094E70218
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( HWL ME_469F99BD026B // HResult
+   Seq: ( HWL ME_469F99BD026B_ME_472094E70218_G // HResult
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_472094E70218 hResult
+
+MEREF ME_3DBFFDE101CA_ME_48FD996601CE_G
+ MELINK Original WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFDE101CA_ME_48FD996601CE_G unsigned long
 
 %%InheritedBy ME_3DBFFDE101CA ME_48FD996601CE
 
@@ -385,12 +415,18 @@ ME ME_48FD996601CE
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+   Seq: ( HWL ME_3DBFFDE101CA_ME_48FD996601CE_G // unsigned long
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_48FD996601CE Longword
+
+MEREF ME_4869B190025F_ME_498849D803A8_G
+ MELINK Original WL 'ME_4869B190025F' '3DBFDB23006E.ms.model.script' // a-wstring
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4869B190025F_ME_498849D803A8_G a-wstring
 
 %%InheritedBy ME_4869B190025F ME_498849D803A8
 
@@ -405,12 +441,18 @@ ME ME_498849D803A8
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4869B190025F' '3DBFDB23006E.ms.model.script' // a-wstring
+   Seq: ( HWL ME_4869B190025F_ME_498849D803A8_G // a-wstring
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_498849D803A8 WideString
+
+MEREF ME_3DBFFD7002C2_ME_46A606AC03B2_G
+ MELINK Original WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFD7002C2_ME_46A606AC03B2_G long
 
 %%InheritedBy ME_3DBFFD7002C2 ME_46A606AC03B2
 
@@ -425,12 +467,18 @@ ME ME_46A606AC03B2
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+   Seq: ( HWL ME_3DBFFD7002C2_ME_46A606AC03B2_G // long
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_46A606AC03B2 Integer
+
+MEREF ME_3ECB343C024C_ME_46A608F00301_G
+ MELINK Original WL 'ME_3ECB343C024C' '3DBFDB23006E.ms.model.script' // pointer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3ECB343C024C_ME_46A608F00301_G pointer
 
 %%InheritedBy ME_3ECB343C024C ME_46A608F00301
 
@@ -445,11 +493,17 @@ ME ME_46A608F00301
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3ECB343C024C' '3DBFDB23006E.ms.model.script' // pointer
+   Seq: ( HWL ME_3ECB343C024C_ME_46A608F00301_G // pointer
  )
  ; // Inherits
 
 ENDME // ME_46A608F00301 Pointer
+
+MEREF ME_3DBFFDE101CA_ME_46A618AF0053_G
+ MELINK Original WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFDE101CA_ME_46A618AF0053_G unsigned long
 
 %%InheritedBy ME_3DBFFDE101CA ME_46A618AF0053
 
@@ -465,12 +519,18 @@ ME ME_46A618AF0053
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+   Seq: ( HWL ME_3DBFFDE101CA_ME_46A618AF0053_G // unsigned long
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_46A618AF0053 Cardinal
+
+MEREF ME_46A618AF0053_ME_47BC524C0245_G
+ MELINK Original HWL ME_46A618AF0053 // Cardinal
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46A618AF0053_ME_47BC524C0245_G Cardinal
 
 %%InheritedBy ME_46A618AF0053 ME_47BC524C0245
 
@@ -485,12 +545,18 @@ ME ME_47BC524C0245
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( HWL ME_46A618AF0053 // Cardinal
+   Seq: ( HWL ME_46A618AF0053_ME_47BC524C0245_G // Cardinal
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_47BC524C0245 LongWord
+
+MEREF ME_3DBFFE100240_ME_46A603BB0391_G
+ MELINK Original WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFE100240_ME_46A603BB0391_G boolean
 
 %%InheritedBy ME_3DBFFE100240 ME_46A603BB0391
 
@@ -505,7 +571,7 @@ ME ME_46A603BB0391
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+   Seq: ( HWL ME_3DBFFE100240_ME_46A603BB0391_G // boolean
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -527,6 +593,12 @@ ME ME_4AB0D93C0108
 
 ENDME // ME_4AB0D93C0108 
 
+MEREF ME_46A603BB0391_ME_47CEB00B00F6_G
+ MELINK Original HWL ME_46A603BB0391 // Boolean
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46A603BB0391_ME_47CEB00B00F6_G Boolean
+
 %%InheritedBy ME_46A603BB0391 ME_47CEB00B00F6
 
 ME ME_47CEB00B00F6
@@ -540,7 +612,7 @@ ME ME_47CEB00B00F6
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( HWL ME_46A603BB0391 // Boolean
+   Seq: ( HWL ME_46A603BB0391_ME_47CEB00B00F6_G // Boolean
  )
  ; // Inherits
  MELIST Attributes
@@ -550,6 +622,12 @@ ME ME_47CEB00B00F6
  UP "array type" 'dynamic'
 
 ENDME // ME_47CEB00B00F6 array [Boolean] of Integer
+
+MEREF ME_46A603BB0391_ME_48FEE8A90247_G
+ MELINK Original HWL ME_46A603BB0391 // Boolean
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46A603BB0391_ME_48FEE8A90247_G Boolean
 
 %%InheritedBy ME_46A603BB0391 ME_48FEE8A90247
 
@@ -564,13 +642,19 @@ ME ME_48FEE8A90247
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( HWL ME_46A603BB0391 // Boolean
+   Seq: ( HWL ME_46A603BB0391_ME_48FEE8A90247_G // Boolean
  )
  ; // Inherits
  UP "isPointer" True
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_48FEE8A90247 PBoolean
+
+MEREF ME_3DBFFE6F0305_ME_482C48430205_G
+ MELINK Original WL 'ME_3DBFFE6F0305' '3DBFDB23006E.ms.model.script' // char
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFE6F0305_ME_482C48430205_G char
 
 %%InheritedBy ME_3DBFFE6F0305 ME_482C48430205
 
@@ -585,13 +669,19 @@ ME ME_482C48430205
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFE6F0305' '3DBFDB23006E.ms.model.script' // char
+   Seq: ( HWL ME_3DBFFE6F0305_ME_482C48430205_G // char
  )
  ; // Inherits
  UP extprop:pas:TypeName 'AnsiChar'
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_482C48430205 Char
+
+MEREF ME_3DBFFE6F0305_ME_47C6CC1A033B_G
+ MELINK Original WL 'ME_3DBFFE6F0305' '3DBFDB23006E.ms.model.script' // char
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFE6F0305_ME_47C6CC1A033B_G char
 
 %%InheritedBy ME_3DBFFE6F0305 ME_47C6CC1A033B
 
@@ -606,12 +696,18 @@ ME ME_47C6CC1A033B
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFE6F0305' '3DBFDB23006E.ms.model.script' // char
+   Seq: ( HWL ME_3DBFFE6F0305_ME_47C6CC1A033B_G // char
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_47C6CC1A033B ShortInt
+
+MEREF ME_3DBFFD9B0197_ME_47272C8B0128_G
+ MELINK Original WL 'ME_3DBFFD9B0197' '3DBFDB23006E.ms.model.script' // double
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFD9B0197_ME_47272C8B0128_G double
 
 %%InheritedBy ME_3DBFFD9B0197 ME_47272C8B0128
 
@@ -627,11 +723,17 @@ ME ME_47272C8B0128
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFD9B0197' '3DBFDB23006E.ms.model.script' // double
+   Seq: ( HWL ME_3DBFFD9B0197_ME_47272C8B0128_G // double
  )
  ; // Inherits
 
 ENDME // ME_47272C8B0128 TDateTime
+
+MEREF ME_3DBFFD9B0197_ME_475EA27A0131_G
+ MELINK Original WL 'ME_3DBFFD9B0197' '3DBFDB23006E.ms.model.script' // double
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFD9B0197_ME_475EA27A0131_G double
 
 %%InheritedBy ME_3DBFFD9B0197 ME_475EA27A0131
 
@@ -646,11 +748,17 @@ ME ME_475EA27A0131
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFD9B0197' '3DBFDB23006E.ms.model.script' // double
+   Seq: ( HWL ME_3DBFFD9B0197_ME_475EA27A0131_G // double
  )
  ; // Inherits
 
 ENDME // ME_475EA27A0131 Double
+
+MEREF ME_4242EBBB03B9_ME_46A451250363_G
+ MELINK Original WL 'ME_4242EBBB03B9' '3DBFDB23006E.ms.model.script' // object
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4242EBBB03B9_ME_46A451250363_G object
 
 %%InheritedBy ME_4242EBBB03B9 ME_46A451250363
 
@@ -666,7 +774,7 @@ ME ME_46A451250363
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4242EBBB03B9' '3DBFDB23006E.ms.model.script' // object
+   Seq: ( HWL ME_4242EBBB03B9_ME_46A451250363_G // object
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -723,6 +831,12 @@ ME ME_49ED9D5A015F
 
 ENDME // ME_49ED9D5A015F IDispatch
 
+MEREF ME_3DBFFE100240_ME_49ED88C9020B_G
+ MELINK Original WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFE100240_ME_49ED88C9020B_G boolean
+
 %%InheritedBy ME_3DBFFE100240 ME_49ED88C9020B
 
 ME ME_49ED88C9020B
@@ -736,7 +850,7 @@ ME ME_49ED88C9020B
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+   Seq: ( HWL ME_3DBFFE100240_ME_49ED88C9020B_G // boolean
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -757,6 +871,12 @@ ME ME_469F3EEF0024
 
 ENDME // ME_469F3EEF0024 TGUID
 
+MEREF ME_469F3EEF0024_ME_49956803035F_G
+ MELINK Original HWL ME_469F3EEF0024 // TGUID
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_469F3EEF0024_ME_49956803035F_G TGUID
+
 %%InheritedBy ME_469F3EEF0024 ME_49956803035F
 
 ME ME_49956803035F
@@ -770,12 +890,18 @@ ME ME_49956803035F
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( HWL ME_469F3EEF0024 // TGUID
+   Seq: ( HWL ME_469F3EEF0024_ME_49956803035F_G // TGUID
  )
  ; // Inherits
  UP "isPointer" True
 
 ENDME // ME_49956803035F PGUID
+
+MEREF ME_3DBFFD7002C2_ME_48F3385F0275_G
+ MELINK Original WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFD7002C2_ME_48F3385F0275_G long
 
 %%InheritedBy ME_3DBFFD7002C2 ME_48F3385F0275
 
@@ -790,13 +916,19 @@ ME ME_48F3385F0275
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+   Seq: ( HWL ME_3DBFFD7002C2_ME_48F3385F0275_G // long
  )
  ; // Inherits
  UP "isPointer" True
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_48F3385F0275 PLongint
+
+MEREF ME_3DBFFD860205_ME_47208C70028B_G
+ MELINK Original WL 'ME_3DBFFD860205' '3DBFDB23006E.ms.model.script' // long long
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFD860205_ME_47208C70028B_G long long
 
 %%InheritedBy ME_3DBFFD860205 ME_47208C70028B
 
@@ -812,11 +944,17 @@ ME ME_47208C70028B
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFD860205' '3DBFDB23006E.ms.model.script' // long long
+   Seq: ( HWL ME_3DBFFD860205_ME_47208C70028B_G // long long
  )
  ; // Inherits
 
 ENDME // ME_47208C70028B Int64
+
+MEREF ME_3DBFFE500260_ME_4720951F0382_G
+ MELINK Original WL 'ME_3DBFFE500260' '3DBFDB23006E.ms.model.script' // octet
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFE500260_ME_4720951F0382_G octet
 
 %%InheritedBy ME_3DBFFE500260 ME_4720951F0382
 
@@ -832,11 +970,17 @@ ME ME_4720951F0382
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFE500260' '3DBFDB23006E.ms.model.script' // octet
+   Seq: ( HWL ME_3DBFFE500260_ME_4720951F0382_G // octet
  )
  ; // Inherits
 
 ENDME // ME_4720951F0382 byte
+
+MEREF ME_3DBFFE500260_ME_476130E5023C_G
+ MELINK Original WL 'ME_3DBFFE500260' '3DBFDB23006E.ms.model.script' // octet
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFE500260_ME_476130E5023C_G octet
 
 %%InheritedBy ME_3DBFFE500260 ME_476130E5023C
 
@@ -852,11 +996,17 @@ ME ME_476130E5023C
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFE500260' '3DBFDB23006E.ms.model.script' // octet
+   Seq: ( HWL ME_3DBFFE500260_ME_476130E5023C_G // octet
  )
  ; // Inherits
 
 ENDME // ME_476130E5023C Byte
+
+MEREF ME_3DBFFDC502B0_ME_476F71A701AB_G
+ MELINK Original WL 'ME_3DBFFDC502B0' '3DBFDB23006E.ms.model.script' // unsigned short
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFDC502B0_ME_476F71A701AB_G unsigned short
 
 %%InheritedBy ME_3DBFFDC502B0 ME_476F71A701AB
 
@@ -872,11 +1022,17 @@ ME ME_476F71A701AB
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFDC502B0' '3DBFDB23006E.ms.model.script' // unsigned short
+   Seq: ( HWL ME_3DBFFDC502B0_ME_476F71A701AB_G // unsigned short
  )
  ; // Inherits
 
 ENDME // ME_476F71A701AB Word
+
+MEREF ME_452257A0036F_ME_476136D3010B_G
+ MELINK Original WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_452257A0036F_ME_476136D3010B_G a-string
 
 %%InheritedBy ME_452257A0036F ME_476136D3010B
 
@@ -892,13 +1048,19 @@ ME ME_476136D3010B
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+   Seq: ( HWL ME_452257A0036F_ME_476136D3010B_G // a-string
  )
  ; // Inherits
  UP extprop:pas:TypeName 'AnsiString'
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_476136D3010B String
+
+MEREF ME_3DBFFE240068_ME_4771179900D8_G
+ MELINK Original WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFE240068_ME_4771179900D8_G string
 
 %%InheritedBy ME_3DBFFE240068 ME_4771179900D8
 
@@ -914,12 +1076,18 @@ ME ME_4771179900D8
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+   Seq: ( HWL ME_3DBFFE240068_ME_4771179900D8_G // string
  )
  ; // Inherits
  UP extprop:pas:TypeName 'PAnsiChar'
 
 ENDME // ME_4771179900D8 PChar
+
+MEREF ME_452257A0036F_ME_483C2FA400B1_G
+ MELINK Original WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_452257A0036F_ME_483C2FA400B1_G a-string
 
 %%InheritedBy ME_452257A0036F ME_483C2FA400B1
 
@@ -934,7 +1102,7 @@ ME ME_483C2FA400B1
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+   Seq: ( HWL ME_452257A0036F_ME_483C2FA400B1_G // a-string
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -1079,6 +1247,12 @@ ME ME_516D4A8D0232
 
 ENDME // ME_516D4A8D0232 MIUnknown
 
+MEREF ME_3DBFFD5402AE_ME_479F11C800E4_G
+ MELINK Original WL 'ME_3DBFFD5402AE' '3DBFDB23006E.ms.model.script' // short
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFD5402AE_ME_479F11C800E4_G short
+
 %%InheritedBy ME_3DBFFD5402AE ME_479F11C800E4
 
 ME ME_479F11C800E4
@@ -1092,7 +1266,7 @@ ME ME_479F11C800E4
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFD5402AE' '3DBFDB23006E.ms.model.script' // short
+   Seq: ( HWL ME_3DBFFD5402AE_ME_479F11C800E4_G // short
  )
  ; // Inherits
 
@@ -1111,6 +1285,12 @@ ME ME_478E1F84022C
 
 ENDME // ME_478E1F84022C TResStringRec
 
+MEREF ME_478E1F84022C_ME_478E1F9100AC_G
+ MELINK Original HWL ME_478E1F84022C // TResStringRec
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_478E1F84022C_ME_478E1F9100AC_G TResStringRec
+
 %%InheritedBy ME_478E1F84022C ME_478E1F9100AC
 
 ME ME_478E1F9100AC
@@ -1124,7 +1304,7 @@ ME ME_478E1F9100AC
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( HWL ME_478E1F84022C // TResStringRec
+   Seq: ( HWL ME_478E1F84022C_ME_478E1F9100AC_G // TResStringRec
  )
  ; // Inherits
  UP "isPointer" True
@@ -1259,6 +1439,12 @@ ME ME_4B2B6CB403B7
 
 ENDME // ME_4B2B6CB403B7 TextFile
 
+MEREF ME_483C2FA400B1_ME_4CA0D7180013_G
+ MELINK Original HWL ME_483C2FA400B1 // AnsiString
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_483C2FA400B1_ME_4CA0D7180013_G AnsiString
+
 %%InheritedBy ME_483C2FA400B1 ME_4CA0D7180013
 
 ME ME_4CA0D7180013
@@ -1272,7 +1458,7 @@ ME ME_4CA0D7180013
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( HWL ME_483C2FA400B1 // AnsiString
+   Seq: ( HWL ME_483C2FA400B1_ME_4CA0D7180013_G // AnsiString
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -1292,6 +1478,12 @@ ME ME_4D542256019C
 
 ENDME // ME_4D542256019C single
 
+MEREF ME_3DBFFE7E0180_ME_4D5E80EF01B7_G
+ MELINK Original WL 'ME_3DBFFE7E0180' '3DBFDB23006E.ms.model.script' // wchar
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFE7E0180_ME_4D5E80EF01B7_G wchar
+
 %%InheritedBy ME_3DBFFE7E0180 ME_4D5E80EF01B7
 
 ME ME_4D5E80EF01B7
@@ -1305,7 +1497,7 @@ ME ME_4D5E80EF01B7
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFE7E0180' '3DBFDB23006E.ms.model.script' // wchar
+   Seq: ( HWL ME_3DBFFE7E0180_ME_4D5E80EF01B7_G // wchar
  )
  ; // Inherits
 
@@ -1344,6 +1536,12 @@ ME ME_4D5EB5D60394
 
 ENDME // ME_4D5EB5D60394 array of WideString
 
+MEREF ME_3DBFFD7002C2_ME_4DE60F5E00A6_G
+ MELINK Original WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFD7002C2_ME_4DE60F5E00A6_G long
+
 %%InheritedBy ME_3DBFFD7002C2 ME_4DE60F5E00A6
 
 ME ME_4DE60F5E00A6
@@ -1357,7 +1555,7 @@ ME ME_4DE60F5E00A6
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+   Seq: ( HWL ME_3DBFFD7002C2_ME_4DE60F5E00A6_G // long
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -1377,6 +1575,12 @@ ME ME_4F6C9243020F
 
 ENDME // ME_4F6C9243020F ByteBool
 
+MEREF ME_3DBFFE100240_ME_4F82F5BC0086_G
+ MELINK Original WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFE100240_ME_4F82F5BC0086_G boolean
+
 %%InheritedBy ME_3DBFFE100240 ME_4F82F5BC0086
 
 ME ME_4F82F5BC0086
@@ -1390,12 +1594,18 @@ ME ME_4F82F5BC0086
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+   Seq: ( HWL ME_3DBFFE100240_ME_4F82F5BC0086_G // boolean
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_4F82F5BC0086 LongBool
+
+MEREF ME_4D5E80EF01B7_ME_4FA284CE011F_G
+ MELINK Original HWL ME_4D5E80EF01B7 // WideChar
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D5E80EF01B7_ME_4FA284CE011F_G WideChar
 
 %%InheritedBy ME_4D5E80EF01B7 ME_4FA284CE011F
 
@@ -1410,12 +1620,18 @@ ME ME_4FA284CE011F
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4D5E80EF01B7 // WideChar
+   Seq: ( HWL ME_4D5E80EF01B7_ME_4FA284CE011F_G // WideChar
  )
  ; // Inherits
  UP "isPointer" True
 
 ENDME // ME_4FA284CE011F PWideChar
+
+MEREF ME_452257A0036F_ME_51546CAE03B7_G
+ MELINK Original WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_452257A0036F_ME_51546CAE03B7_G a-string
 
 %%InheritedBy ME_452257A0036F ME_51546CAE03B7
 
@@ -1431,12 +1647,18 @@ ME ME_51546CAE03B7
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+   Seq: ( HWL ME_452257A0036F_ME_51546CAE03B7_G // a-string
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_51546CAE03B7 String$XE
+
+MEREF ME_3DBFFE240068_ME_5154744C018F_G
+ MELINK Original WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFE240068_ME_5154744C018F_G string
 
 %%InheritedBy ME_3DBFFE240068 ME_5154744C018F
 
@@ -1452,7 +1674,7 @@ ME ME_5154744C018F
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+   Seq: ( HWL ME_3DBFFE240068_ME_5154744C018F_G // string
  )
  ; // Inherits
 
@@ -1493,6 +1715,12 @@ ME ME_515D492700B2
 
 ENDME // ME_515D492700B2 array of String$XE
 
+MEREF ME_4D5E80EF01B7_ME_515D4C4F020D_G
+ MELINK Original HWL ME_4D5E80EF01B7 // WideChar
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D5E80EF01B7_ME_515D4C4F020D_G WideChar
+
 %%InheritedBy ME_4D5E80EF01B7 ME_515D4C4F020D
 
 ME ME_515D4C4F020D
@@ -1507,33 +1735,39 @@ ME ME_515D4C4F020D
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4D5E80EF01B7 // WideChar
+   Seq: ( HWL ME_4D5E80EF01B7_ME_515D4C4F020D_G // WideChar
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_515D4C4F020D Char$XE
 
-ME ME_47913C24007F_ME_47913BA402ED
+MEREF ME_47913C24007F_ME_47913BA402ED_impl
  MELINK Original HWL ME_47913C24007F // __AddRef
  ;
  MEPROP OpKind opkind_Implemented
  UP "calling conventions" 'stdcall'
-ENDME // ME_47913C24007F_ME_47913BA402ED __AddRef
+ENDMEREF // ME_47913C24007F_ME_47913BA402ED_impl __AddRef
 
-ME ME_47913C5301A1_ME_47913BA402ED
+MEREF ME_47913C5301A1_ME_47913BA402ED_impl
  MELINK Original HWL ME_47913C5301A1 // __Release
  ;
  MEPROP OpKind opkind_Implemented
  UP "calling conventions" 'stdcall'
-ENDME // ME_47913C5301A1_ME_47913BA402ED __Release
+ENDMEREF // ME_47913C5301A1_ME_47913BA402ED_impl __Release
 
-ME ME_47913CBF0265_ME_47913BA402ED
+MEREF ME_47913CBF0265_ME_47913BA402ED_impl
  MELINK Original HWL ME_47913CBF0265 // QueryInterface
  ;
  MEPROP OpKind opkind_Implemented
  UP "calling conventions" 'stdcall'
-ENDME // ME_47913CBF0265_ME_47913BA402ED QueryInterface
+ENDMEREF // ME_47913CBF0265_ME_47913BA402ED_impl QueryInterface
+
+MEREF ME_516D4A8D0232_ME_47913BA402ED_R
+ MELINK Original HWL ME_516D4A8D0232 // MIUnknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_516D4A8D0232_ME_47913BA402ED_R MIUnknown
 
 %%ImplementedBy ME_516D4A8D0232 ME_47913BA402ED
 
@@ -1551,19 +1785,25 @@ ME ME_47913BA402ED
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Implements
-   Seq: ( HWL ME_516D4A8D0232 // MIUnknown
+   Seq: ( HWL ME_516D4A8D0232_ME_47913BA402ED_R // MIUnknown
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_47913C24007F_ME_47913BA402ED // __AddRef
- ME_47913C5301A1_ME_47913BA402ED // __Release
- ME_47913CBF0265_ME_47913BA402ED // QueryInterface
+   Seq: ( ME_47913C24007F_ME_47913BA402ED_impl // __AddRef
+ ME_47913C5301A1_ME_47913BA402ED_impl // __Release
+ ME_47913CBF0265_ME_47913BA402ED_impl // QueryInterface
  )
  ; // Implemented
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'Unknown'
 
 ENDME // ME_47913BA402ED IUnknown$Def
+
+MEREF ME_3DBFFE240068_ME_51DAD86D0324_G
+ MELINK Original WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFE240068_ME_51DAD86D0324_G string
 
 %%InheritedBy ME_3DBFFE240068 ME_51DAD86D0324
 
@@ -1578,7 +1818,7 @@ ME ME_51DAD86D0324
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+   Seq: ( HWL ME_3DBFFE240068_ME_51DAD86D0324_G // string
  )
  ; // Inherits
 
@@ -1630,6 +1870,12 @@ ME ME_53E0F89E000C
 
 ENDME // ME_53E0F89E000C array of TClass
 
+MEREF ME_3DBFFEB10300_ME_546330E2006B_G
+ MELINK Original WL 'ME_3DBFFEB10300' '3DBFDB23006E.ms.model.script' // float
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_3DBFFEB10300_ME_546330E2006B_G float
+
 %%InheritedBy ME_3DBFFEB10300 ME_546330E2006B
 
 ME ME_546330E2006B
@@ -1643,11 +1889,17 @@ ME ME_546330E2006B
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_3DBFFEB10300' '3DBFDB23006E.ms.model.script' // float
+   Seq: ( HWL ME_3DBFFEB10300_ME_546330E2006B_G // float
  )
  ; // Inherits
 
 ENDME // ME_546330E2006B Single
+
+MEREF ME_51DAD86D0324_ME_54B6A0D8000C_G
+ MELINK Original HWL ME_51DAD86D0324 // PANSIChar
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51DAD86D0324_ME_54B6A0D8000C_G PANSIChar
 
 %%InheritedBy ME_51DAD86D0324 ME_54B6A0D8000C
 
@@ -1662,7 +1914,7 @@ ME ME_54B6A0D8000C
  MELINK Parent HWL ME_4807744200AA // System
  ;
  MELIST Inherits
-   Seq: ( HWL ME_51DAD86D0324 // PANSIChar
+   Seq: ( HWL ME_51DAD86D0324_ME_54B6A0D8000C_G // PANSIChar
  )
  ; // Inherits
 

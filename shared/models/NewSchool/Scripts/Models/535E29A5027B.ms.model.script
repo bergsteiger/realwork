@@ -1,0 +1,168 @@
+// TevdParaStylePainter 535E29A5027B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_535E29A5027B
+
+ME ME_535E2B6A00F6
+ MEPROP UID '535E2B6A00F6'
+ MEPROP Name 'TargetStyle'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Стиль, которым будем красить все параграфы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_535E29A5027B // TevdParaStylePainter
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_535E2B6A00F6 TargetStyle
+
+FORWARD ME_535E2BDC0026
+
+FORWARD ME_535E2C3C0109
+
+ME ME_535E2C8E01EA
+ MEPROP Name 'theGenerator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
+ ;
+
+ENDME // ME_535E2C8E01EA theGenerator
+
+ME ME_535E2C8E0202
+ MEPROP Name 'aTargetStyle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_535E2C8E0202 aTargetStyle
+
+ME ME_535E2C3C0109
+ MEPROP UID '535E2C3C0109'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_535E2BDC0026 // SetTo
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+ MELIST Parameters
+   Seq: ( ME_535E2C8E01EA // theGenerator
+ ME_535E2C8E0202 // aTargetStyle
+ )
+ ; // Parameters
+
+ENDME // ME_535E2C3C0109 DoIt
+
+ME ME_535E2BDC0026
+ MEPROP UID '535E2BDC0026'
+ MEPROP Name 'SetTo'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_535E29A5027B // TevdParaStylePainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_535E2C3C0109 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_535E2BDC0026 SetTo
+
+ME ME_535E331902A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_535E29A5027B // TevdParaStylePainter
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_535E331902A8 
+
+ME ME_53C91F440316
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_535E29A5027B // TevdParaStylePainter
+ ;
+ MELINK Target WL? 'ME_47E3C78502FB' // Tk2OperationContainer
+ ;
+
+ENDME // ME_53C91F440316 
+
+ME ME_53C922520009
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_535E29A5027B // TevdParaStylePainter
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53C922520009 
+
+MEREF ME_49E4883E0176_ME_535E29A5027B_over
+ MELINK Original WL 'ME_49E4883E0176' '49E487650342.ms.model.script' // DoWritePara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E4883E0176_ME_535E29A5027B_over DoWritePara
+
+MEREF ME_49E487650342_ME_535E29A5027B_G
+ MELINK Original WL? 'ME_49E487650342' // TevdLeafParaFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487650342_ME_535E29A5027B_G TevdLeafParaFilter
+
+%%InheritedBy ME_49E487650342 ME_535E29A5027B
+
+ME ME_535E29A5027B
+ MEPROP UID '535E29A5027B'
+ MEPROP Name 'TevdParaStylePainter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECB8BD00A8' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E487650342_ME_535E29A5027B_G // TevdLeafParaFilter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_535E2B6A00F6 // TargetStyle
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_535E2BDC0026 // SetTo
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_49E4883E0176_ME_535E29A5027B_over // DoWritePara
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_535E331902A8 // Tk2TagID
+ ME_53C91F440316 // Tk2OperationContainer
+ ME_53C922520009 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evdParaStylePainter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dParaStylePainter'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdParaStylePainter.pas'
+
+ENDME // ME_535E29A5027B TevdParaStylePainter

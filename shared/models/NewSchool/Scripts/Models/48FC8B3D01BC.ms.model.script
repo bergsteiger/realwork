@@ -1,0 +1,105 @@
+// TevTreeDataObject 48FC8B3D01BC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48FC8B3D01BC
+
+ME ME_48FC8BA30315
+ MEPROP UID '48FC8BA30315'
+ MEPROP Name 'DataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FC8B3D01BC // TevTreeDataObject
+ ;
+ MELINK Target WL 'ME_48FC655F025C' '48F8A8480224.ms.model.script' // TevTreeStorableData
+ ;
+
+ENDME // ME_48FC8BA30315 DataType
+
+ME ME_48FC8BB700A7
+ MEPROP UID '48FC8BB700A7'
+ MEPROP Name 'StorableClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FC8B3D01BC // TevTreeDataObject
+ ;
+ MELINK Target WL? 'ME_48F8A8480224' // TevTreeStorable
+ ;
+
+ENDME // ME_48FC8BB700A7 StorableClass
+
+FORWARD ME_48FC8C4E001B
+
+ME ME_48FC8C5702EC
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48FC655F025C' '48F8A8480224.ms.model.script' // TevTreeStorableData
+ ;
+
+ENDME // ME_48FC8C5702EC aData
+
+ME ME_48FC8C4E001B
+ MEPROP UID '48FC8C4E001B'
+ MEPROP Name 'MakeStorable'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48FC8B3D01BC // TevTreeDataObject
+ ;
+ MELINK Target WL 'ME_47C68C9E00F9' '47C5207602D1.ms.model.script' // InevDataObjectPrim2
+ ;
+ MELIST Parameters
+   Seq: ( ME_48FC8C5702EC // aData
+ )
+ ; // Parameters
+
+ENDME // ME_48FC8C4E001B MakeStorable
+
+MEREF ME_48F8C3780325_ME_48FC8B3D01BC_G
+ MELINK Original WL? 'ME_48F8C3780325' // evDataObjectFromStorable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48F8C3780325_ME_48FC8B3D01BC_G evDataObjectFromStorable
+
+%%InheritedBy ME_48F8C3780325 ME_48FC8B3D01BC
+
+ME ME_48FC8B3D01BC
+ MEPROP UID '48FC8B3D01BC'
+ MEPROP Name 'TevTreeDataObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4802FF41005C' // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F8C3780325_ME_48FC8B3D01BC_G // evDataObjectFromStorable
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48FC8BA30315 // DataType
+ HWL ME_48FC8BB700A7 // StorableClass
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48FC8C4E001B // MakeStorable
+ )
+ ; // Operations
+ UP "author" 'Ëþëèí À.Â.'
+ UP "started" '27.12.2006 18:32'
+ UP extprop:pas:UnitName 'evTreeDataObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TreeDataObject'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evTreeDataObject.pas'
+
+ENDME // ME_48FC8B3D01BC TevTreeDataObject

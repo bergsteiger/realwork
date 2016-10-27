@@ -2,12 +2,18 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-ME ME_47B07CF403D0_ME_47B5A0AE03CC
+MEREF ME_47B07CF403D0_ME_47B5A0AE03CC_impl
  MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifndef" 'l3Items_IsAtomic'
-ENDME // ME_47B07CF403D0_ME_47B5A0AE03CC IsSameItems
+ENDMEREF // ME_47B07CF403D0_ME_47B5A0AE03CC_impl IsSameItems
+
+MEREF ME_47B5786C033A_ME_47B5A0AE03CC_G
+ MELINK Original WL? 'ME_47B5786C033A' // l3RefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B5786C033A_ME_47B5A0AE03CC_G l3RefList
 
 %%InheritedBy ME_47B5786C033A ME_47B5A0AE03CC
 
@@ -23,11 +29,11 @@ ME ME_47B5A0AE03CC
  MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47B5786C033A' // l3RefList
+   Seq: ( HWL ME_47B5786C033A_ME_47B5A0AE03CC_G // l3RefList
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_47B07CF403D0_ME_47B5A0AE03CC // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_47B5A0AE03CC_impl // IsSameItems
  )
  ; // Implemented
  UP extprop:pas:TypeName '_l3ObjectRefListPrim_'

@@ -1,0 +1,52 @@
+// TmsmCurrentElementSynchronizeBinding 57D1737F03CB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57D1737F03CB
+
+ME ME_57D173F20314
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57D1737F03CB // TmsmCurrentElementSynchronizeBinding
+ ;
+ MELINK Target WL 'ME_57B31D1000FA' '57C99A680247.ms.model.script' // CurrentElementChangedEvent
+ ;
+
+ENDME // ME_57D173F20314 
+
+MEREF ME_57D25B3702FE_ME_57D1737F03CB_G
+ MELINK Original WL? 'ME_57D25B3702FE' // TmsmListToListBinding
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57D25B3702FE_ME_57D1737F03CB_G TmsmListToListBinding
+
+%%InheritedBy ME_57D25B3702FE ME_57D1737F03CB
+
+ME ME_57D1737F03CB
+ MEPROP UID '57D1737F03CB'
+ MEPROP Name 'TmsmCurrentElementSynchronizeBinding'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CD2BB003D3' // ConcreteBindings
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57D25B3702FE_ME_57D1737F03CB_G // TmsmListToListBinding
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_57D173F20314 // CurrentElementChangedEvent
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmCurrentElementSynchronizeBinding'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmCurrentElementSynchronizeBinding'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmCurrentElementSynchronizeBinding.pas'
+
+ENDME // ME_57D1737F03CB TmsmCurrentElementSynchronizeBinding

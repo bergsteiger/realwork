@@ -1,0 +1,53 @@
+// OpenWith 5143073402A1 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5143073402A1
+
+ME ME_514307F9004B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5143073402A1 // OpenWith
+ ;
+ MELINK Target WL 'ME_512DBBB003CE' '512DBB5502E6.ms.model.script' // OpenDocument
+ ;
+
+ENDME // ME_514307F9004B 
+
+ME ME_514310840147
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5143073402A1 // OpenWith
+ ;
+ MELINK Target WL 'ME_4DF870EA0062' '47877EB202FB.ms.model.script' // ChangeFileExt
+ ;
+
+ENDME // ME_514310840147 
+
+ME ME_5143073402A1
+ MEPROP UID '5143073402A1'
+ MEPROP Name 'OpenWith'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:*  OpenWith aFileName'#13#10'*Описание:* Отрывает документ с именем aFileName в новом окне редактора.'#13#10' *Пример:*'#13#10' {code}'#13#10'OpenWith ''MyEvd.doc'''#13#10' {code}'#13#10' *Результат:* Будет открыт новый документ с именем файла ''MyEvd.doc''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_512D9BBE0307' // EverestLiteKeyWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_514307F9004B // OpenDocument
+ ME_514310840147 // ChangeFileExt
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwOpenWith'
+ UP extprop:pas:UnitName 'kwOpenWith'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OpenWith'
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwOpenWith.pas'
+
+ENDME // ME_5143073402A1 OpenWith

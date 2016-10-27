@@ -1,0 +1,171 @@
+// Tdestlfolevel 558298F60162 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_558298F60162
+
+ME ME_5582999B03AA
+ MEPROP UID '5582999B03AA'
+ MEPROP Name 'f_destListoverride'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_558298F60162 // Tdestlfolevel
+ ;
+ MELINK Target WL? 'ME_51DD4D0E00D8' // TdestListoverride
+ ;
+
+ENDME // ME_5582999B03AA f_destListoverride
+
+ME ME_5582EC840032
+ MEPROP UID '5582EC840032'
+ MEPROP Name 'f_Value'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_558298F60162 // Tdestlfolevel
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5582EC840032 f_Value
+
+FORWARD ME_5582993D0071
+
+FORWARD ME_55829947030E
+
+ME ME_5582998C038F
+ MEPROP Name 'aRTFReader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_51E7BF4200C0' // TddCustomRTFReader
+ ;
+
+ENDME // ME_5582998C038F aRTFReader
+
+ME ME_5582998C039F
+ MEPROP Name 'aListOverride'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_51DD4D0E00D8' // TdestListoverride
+ ;
+
+ENDME // ME_5582998C039F aListOverride
+
+ME ME_55829947030E
+ MEPROP UID '55829947030E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5582993D0071 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5582998C038F // aRTFReader
+ ME_5582998C039F // aListOverride
+ )
+ ; // Parameters
+
+ENDME // ME_55829947030E DoIt
+
+ME ME_5582993D0071
+ MEPROP UID '5582993D0071'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_558298F60162 // Tdestlfolevel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55829947030E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5582993D0071 Create
+
+MEREF ME_5461BEC2017D_ME_558298F60162_impl
+ MELINK Original WL 'ME_5461BEC2017D' '5190A37F0134.ms.model.script' // Close
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5461BEC2017D_ME_558298F60162_impl Close
+
+MEREF ME_54E1F08400F9_ME_558298F60162_impl
+ MELINK Original WL 'ME_54E1F08400F9' '5190A37F0134.ms.model.script' // WriteText$1
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54E1F08400F9_ME_558298F60162_impl WriteText$1
+
+MEREF ME_479731C50290_ME_558298F60162_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_558298F60162_over Cleanup
+
+MEREF ME_51D27A48038E_ME_558298F60162_over
+ MELINK Original WL 'ME_51D27A48038E' '5190A37F0134.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51D27A48038E_ME_558298F60162_over Clear
+
+MEREF ME_51D27EC50388_ME_558298F60162_over
+ MELINK Original WL 'ME_51D27EC50388' '5190A37F0134.ms.model.script' // ApplyProperty
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51D27EC50388_ME_558298F60162_over ApplyProperty
+
+MEREF ME_51D276C40106_ME_558298F60162_G
+ MELINK Original WL 'ME_51D276C40106' '5190A37F0134.ms.model.script' // TddRTFDestination
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51D276C40106_ME_558298F60162_G TddRTFDestination
+
+%%InheritedBy ME_51D276C40106 ME_558298F60162
+
+ME ME_558298F60162
+ MEPROP UID '558298F60162'
+ MEPROP Name 'Tdestlfolevel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5190A3470397' // RTFSupport
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_51D276C40106_ME_558298F60162_G // TddRTFDestination
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5582999B03AA // f_destListoverride
+ HWL ME_5582EC840032 // f_Value
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5582993D0071 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5461BEC2017D_ME_558298F60162_impl // Close
+ ME_54E1F08400F9_ME_558298F60162_impl // WriteText$1
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_558298F60162_over // Cleanup
+ ME_51D27A48038E_ME_558298F60162_over // Clear
+ ME_51D27EC50388_ME_558298F60162_over // ApplyProperty
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'destlfolevel'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'destlfolevel'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\destlfolevel.pas'
+
+ENDME // ME_558298F60162 Tdestlfolevel

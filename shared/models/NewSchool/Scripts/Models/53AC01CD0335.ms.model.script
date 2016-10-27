@@ -47,7 +47,7 @@ ME ME_53AC1ED30164
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53AC1EA102D7 // SaveToEVD
  ;
- MELINK Target WL 'ME_483D7C55027A' '47ECB8BD00A8.ms.model.script' // TevdNativeWriter
+ MELINK Target WL? 'ME_483D7C55027A' // TevdNativeWriter
  ;
 
 ENDME // ME_53AC1ED30164 
@@ -85,7 +85,7 @@ ENDME // ME_53C3B3400363
 ME ME_53AC1EA102D7
  MEPROP UID '53AC1EA102D7'
  MEPROP Name 'SaveToEVD'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -144,7 +144,7 @@ ME ME_53BFECC70314
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53BFEC6401A9 // CreateTaggedDataFromEVD
  ;
- MELINK Target WL 'ME_483E80FA0312' '483E80C9025F.ms.model.script' // TevdNativeReader
+ MELINK Target WL? 'ME_483E80FA0312' // TevdNativeReader
  ;
 
 ENDME // ME_53BFECC70314 
@@ -174,7 +174,7 @@ ME ME_53BFED030173
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53BFEC6401A9 // CreateTaggedDataFromEVD
  ;
- MELINK Target WL 'ME_47ECA82403AC' '47ECA80B000D.ms.model.script' // Tk2DocumentBuffer
+ MELINK Target WL? 'ME_47ECA82403AC' // Tk2DocumentBuffer
  ;
 
 ENDME // ME_53BFED030173 
@@ -182,7 +182,7 @@ ENDME // ME_53BFED030173
 ME ME_53BFEC6401A9
  MEPROP UID '53BFEC6401A9'
  MEPROP Name 'CreateTaggedDataFromEVD'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -238,7 +238,7 @@ ENDME // ME_53BFF35D03BF DoIt
 ME ME_53BFF34F0025
  MEPROP UID '53BFF34F0025'
  MEPROP Name 'LoadFromEVD'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -273,7 +273,7 @@ ENDME // ME_5494137601C6 DoIt
 ME ME_549413590379
  MEPROP UID '549413590379'
  MEPROP Name 'NeedSendRawDataAsBinary'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -300,6 +300,12 @@ ME ME_53AC036A02AE
 
 ENDME // ME_53AC036A02AE 
 
+MEREF ME_53B24E23037A_ME_53AC01CD0335_G
+ MELINK Original WL? 'ME_53B24E23037A' // k2TaggedDataHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B24E23037A_ME_53AC01CD0335_G k2TaggedDataHolder
+
 %%InheritedBy ME_53B24E23037A ME_53AC01CD0335
 
 ME ME_53AC01CD0335
@@ -314,7 +320,7 @@ ME ME_53AC01CD0335
  MELINK Parent WL? 'ME_53B15D5603E3' // TagHolder
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_53B24E23037A' // k2TaggedDataHolder
+   Seq: ( HWL ME_53B24E23037A_ME_53AC01CD0335_G // k2TaggedDataHolder
  )
  ; // Inherits
  MELIST Operations

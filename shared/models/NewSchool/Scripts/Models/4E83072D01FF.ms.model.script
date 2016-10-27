@@ -1,0 +1,42 @@
+// TkwIniRecSetZoom 4E83072D01FF ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E83072D01FF
+
+ME ME_4E830AB0011D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E83072D01FF // TkwIniRecSetZoom
+ ;
+ MELINK Target WL 'ME_4E83092C0076' '4E4B5F29031C.ms.model.script' // arIniRecSetZoom
+ ;
+
+ENDME // ME_4E830AB0011D 
+
+ME ME_4E83072D01FF
+ MEPROP UID '4E83072D01FF'
+ MEPROP Name 'TkwIniRecSetZoom'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'IniRec:SetZoom' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E830AB0011D // arIniRecSetZoom
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'IniRec:SetZoom'
+ UP extprop:pas:UnitName 'kwIniRecSetZoom'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IniRecSetZoom'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwIniRecSetZoom.pas'
+
+ENDME // ME_4E83072D01FF TkwIniRecSetZoom

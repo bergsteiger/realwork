@@ -1,0 +1,242 @@
+// TnsAnnotationHeaderTagNode 4D6E0C4A001F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D6E0C4A001F
+
+FORWARD ME_4D6E0CA20143
+
+FORWARD ME_4D6E0CAA00B3
+
+ME ME_4D6E0CCA00B7
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D6E0CCA00B7 anIndex
+
+ME ME_4D6E0CCA00EF
+ MEPROP Name 'aLeafCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D6E0CCA00EF aLeafCount
+
+ME ME_4D6E0CCA011C
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4D6E0CCA011C aDoc
+
+ME ME_4D6FA23601E0
+ MEPROP Name 'anAnno'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_4D6FA23601E0 anAnno
+
+ME ME_4D6E0CAA00B3
+ MEPROP UID '4D6E0CAA00B3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6E0CA20143 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D6E0CCA00B7 // anIndex
+ ME_4D6E0CCA00EF // aLeafCount
+ ME_4D6E0CCA011C // aDoc
+ ME_4D6FA23601E0 // anAnno
+ )
+ ; // Parameters
+
+ENDME // ME_4D6E0CAA00B3 DoIt
+
+ME ME_4D6E0CA20143
+ MEPROP UID '4D6E0CA20143'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D6E0CAA00B3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D6E0CA20143 Create
+
+FORWARD ME_4D6E0CDD033D
+
+FORWARD ME_535E669E02D8
+
+ME ME_535E66A40326
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_535E66A40326 anIndex
+
+ME ME_535E66A40361
+ MEPROP Name 'aLeafCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_535E66A40361 aLeafCount
+
+ME ME_535E66A40382
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_535E66A40382 aDoc
+
+ME ME_535E66A403A4
+ MEPROP Name 'anAnno'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_535E66A403A4 anAnno
+
+ME ME_535E669E02D8
+ MEPROP UID '535E669E02D8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6E0CDD033D // Make
+ ;
+ MELINK Target WL 'ME_5346BD53015A' '53317D14019D.ms.model.script' // Il3TagRef
+ ;
+ MELIST Parameters
+   Seq: ( ME_535E66A40326 // anIndex
+ ME_535E66A40361 // aLeafCount
+ ME_535E66A40382 // aDoc
+ ME_535E66A403A4 // anAnno
+ )
+ ; // Parameters
+
+ENDME // ME_535E669E02D8 DoIt
+
+ME ME_4D6E0CDD033D
+ MEPROP UID '4D6E0CDD033D'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_535E669E02D8 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4D6E0CDD033D Make
+
+ME ME_4D6E0D700068
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
+ ;
+ MELINK Target WL? 'ME_4D6E0D500395' // TnsAnnotationHeaderTagData
+ ;
+
+ENDME // ME_4D6E0D700068 
+
+ME ME_4D6E12E601C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4D6E12E601C8 
+
+MEREF ME_4CED5CEF011A_ME_4D6E0C4A001F_over
+ MELINK Original WL 'ME_4CED5CEF011A' '467FCE2703D6.ms.model.script' // NodeChildrenCount
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CED5CEF011A_ME_4D6E0C4A001F_over NodeChildrenCount
+
+MEREF ME_5335815D03DC_ME_4D6E0C4A001F_over
+ MELINK Original WL 'ME_5335815D03DC' '53317D14019D.ms.model.script' // ChildrenCount
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "pm" True
+ENDMEREF // ME_5335815D03DC_ME_4D6E0C4A001F_over ChildrenCount
+
+MEREF ME_4C6A750F024E_ME_4D6E0C4A001F_G
+ MELINK Original WL? 'ME_4C6A750F024E' // TnsF1DocumentTagNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C6A750F024E_ME_4D6E0C4A001F_G TnsF1DocumentTagNode
+
+%%InheritedBy ME_4C6A750F024E ME_4D6E0C4A001F
+
+ME ME_4D6E0C4A001F
+ MEPROP UID '4D6E0C4A001F'
+ MEPROP Name 'TnsAnnotationHeaderTagNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_491C3ADB03A5' // Autoreferat
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C6A750F024E_ME_4D6E0C4A001F_G // TnsF1DocumentTagNode
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D6E0CA20143 // Create
+ HWL ME_4D6E0CDD033D // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4CED5CEF011A_ME_4D6E0C4A001F_over // NodeChildrenCount
+ ME_5335815D03DC_ME_4D6E0C4A001F_over // ChildrenCount
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D6E0D700068 // TnsAnnotationHeaderTagData
+ ME_4D6E12E601C8 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '02.03.2011 12:22'
+ UP extprop:pas:UnitName 'nsAnnotationHeaderTagNode'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AnnotationHeaderTagNode'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Autoreferat\nsAnnotationHeaderTagNode.pas'
+
+ENDME // ME_4D6E0C4A001F TnsAnnotationHeaderTagNode

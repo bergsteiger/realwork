@@ -1,0 +1,363 @@
+// TpgJournal 5602A0790033 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5602A0790033
+
+ME ME_5649D8930133
+ MEPROP UID '5649D8930133'
+ MEPROP Name 'f_CacheCounter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5602A0790033 // TpgJournal
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5649D8930133 f_CacheCounter
+
+ME ME_564AD19F01F9
+ MEPROP UID '564AD19F01F9'
+ MEPROP Name 'f_Cache'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5602A0790033 // TpgJournal
+ ;
+ MELINK Target WL 'ME_564AD17C02DC' '564ACBC5032E.ms.model.script' // TpgJournalCacheList
+ ;
+
+ENDME // ME_564AD19F01F9 f_Cache
+
+ME ME_564B21700060
+ MEPROP UID '564B21700060'
+ MEPROP Name 'f_Modifier'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5602A0790033 // TpgJournal
+ ;
+ MELINK Target WL? 'ME_564B212F02DA' // TpgTableModifier
+ ;
+
+ENDME // ME_564B21700060 f_Modifier
+
+ME ME_564C5E0103AC
+ MEPROP UID '564C5E0103AC'
+ MEPROP Name 'f_Connection'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5602A0790033 // TpgJournal
+ ;
+ MELINK Target WL? 'ME_55F6875803A8' // TpgConnection
+ ;
+
+ENDME // ME_564C5E0103AC f_Connection
+
+FORWARD ME_5602A3C10042
+
+FORWARD ME_5602A3C803D0
+
+ME ME_564C5E20035D
+ MEPROP Name 'aConnection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_55F6875803A8' // TpgConnection
+ ;
+
+ENDME // ME_564C5E20035D aConnection
+
+ME ME_5602A3CB00B0
+ MEPROP Name 'aFactory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_554C78BD038C' '5432518A0316.ms.model.script' // IdaTableQueryFactory
+ ;
+
+ENDME // ME_5602A3CB00B0 aFactory
+
+ME ME_5602A3C803D0
+ MEPROP UID '5602A3C803D0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5602A3C10042 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_564C5E20035D // aConnection
+ ME_5602A3CB00B0 // aFactory
+ )
+ ; // Parameters
+
+ENDME // ME_5602A3C803D0 DoIt
+
+ME ME_5602A3C10042
+ MEPROP UID '5602A3C10042'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5602A0790033 // TpgJournal
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5602A3C803D0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5602A3C10042 Create
+
+MEREF ME_5602A3C10042_ME_5602A3D101FD_G
+ MELINK Original HWL ME_5602A3C10042 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5602A3C10042_ME_5602A3D101FD_G Create
+
+MEREF ME_5540922C0376_ME_5602A3D101FD_R
+ MELINK Original WL 'ME_5540922C0376' '5432518A0316.ms.model.script' // IdaJournal
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5540922C0376_ME_5602A3D101FD_R IdaJournal
+
+%%ImplementedBy ME_5540922C0376 ME_5602A3D101FD
+
+%%InheritedBy ME_5602A3C10042 ME_5602A3D101FD
+
+ME ME_5602A3D101FD
+ MEPROP UID '5602A3D101FD'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5602A0790033 // TpgJournal
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5602A3C10042_ME_5602A3D101FD_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5540922C0376_ME_5602A3D101FD_R // IdaJournal
+ )
+ ; // Implements
+
+ENDME // ME_5602A3D101FD Make
+
+ME ME_5649D8A70161
+ MEPROP UID '5649D8A70161'
+ MEPROP Name 'PurgeCache'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5602A0790033 // TpgJournal
+ ;
+
+ENDME // ME_5649D8A70161 PurgeCache
+
+FORWARD ME_564B218C013C
+
+ME ME_564B21A80006
+ MEPROP UID '564B21A80006'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_564B218C013C // Modifier
+ ;
+ MELINK Target WL? 'ME_564B212F02DA' // TpgTableModifier
+ ;
+
+ENDME // ME_564B21A80006 DoIt
+
+ME ME_564B218C013C
+ MEPROP UID '564B218C013C'
+ MEPROP Name 'Modifier'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5602A0790033 // TpgJournal
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_564B21A80006 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_564B218C013C Modifier
+
+ME ME_563B3AF60231
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5602A0790033 // TpgJournal
+ ;
+ MELINK Target WL? 'ME_552D07EB03CB' // TdaScheme
+ ;
+
+ENDME // ME_563B3AF60231 
+
+ME ME_563B4A0A0107
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5602A0790033 // TpgJournal
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_563B4A0A0107 
+
+ME ME_564B006D033B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5602A0790033 // TpgJournal
+ ;
+ MELINK Target WL 'ME_47289B590038' '4678193C009C.ms.model.script' // PLong
+ ;
+
+ENDME // ME_564B006D033B 
+
+ME ME_564B05270383
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5602A0790033 // TpgJournal
+ ;
+ MELINK Target WL 'ME_4CED3B270143' '4773D64E036C.ms.model.script' // l3L2IA
+ ;
+
+ENDME // ME_564B05270383 
+
+MEREF ME_5549F6220397_ME_5602A0790033_impl
+ MELINK Original WL 'ME_5549F6220397' '559A3BD901CC.ms.model.script' // DoLogEvent
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5549F6220397_ME_5602A0790033_impl DoLogEvent
+
+MEREF ME_559A42120304_ME_5602A0790033_impl
+ MELINK Original WL 'ME_559A42120304' '559A3BD901CC.ms.model.script' // CurStatTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ UP "reads field" True
+ENDMEREF // ME_559A42120304_ME_5602A0790033_impl CurStatTree
+
+MEREF ME_559B6A290200_ME_5602A0790033_impl
+ MELINK Original WL 'ME_559B6A290200' '559A3BD901CC.ms.model.script' // CheckUser
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_559B6A290200_ME_5602A0790033_impl CheckUser
+
+MEREF ME_559B6A7C03AA_ME_5602A0790033_impl
+ MELINK Original WL 'ME_559B6A7C03AA' '559A3BD901CC.ms.model.script' // UserChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_559B6A7C03AA_ME_5602A0790033_impl UserChanged
+
+MEREF ME_559B6A8C0034_ME_5602A0790033_impl
+ MELINK Original WL 'ME_559B6A8C0034' '559A3BD901CC.ms.model.script' // SessionChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_559B6A8C0034_ME_5602A0790033_impl SessionChanged
+
+MEREF ME_559B889B030B_ME_5602A0790033_impl
+ MELINK Original WL 'ME_559B889B030B' '559A3BD901CC.ms.model.script' // DoStartCaching
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_559B889B030B_ME_5602A0790033_impl DoStartCaching
+
+MEREF ME_559B88B00126_ME_5602A0790033_impl
+ MELINK Original WL 'ME_559B88B00126' '559A3BD901CC.ms.model.script' // DoStopCaching
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_559B88B00126_ME_5602A0790033_impl DoStopCaching
+
+MEREF ME_559CF9D300FA_ME_5602A0790033_impl
+ MELINK Original WL 'ME_559CF9D300FA' '559A3BD901CC.ms.model.script' // MakeResultSet
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_559CF9D300FA_ME_5602A0790033_impl MakeResultSet
+
+MEREF ME_479731C50290_ME_5602A0790033_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5602A0790033_over Cleanup
+
+MEREF ME_559A3BD901CC_ME_5602A0790033_G
+ MELINK Original WL? 'ME_559A3BD901CC' // TdaJournal
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_559A3BD901CC_ME_5602A0790033_G TdaJournal
+
+%%InheritedBy ME_559A3BD901CC ME_5602A0790033
+
+ME ME_5602A0790033
+ MEPROP UID '5602A0790033'
+ MEPROP Name 'TpgJournal'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55D6CF3B014B' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_559A3BD901CC_ME_5602A0790033_G // TdaJournal
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5649D8930133 // f_CacheCounter
+ HWL ME_564AD19F01F9 // f_Cache
+ HWL ME_564B21700060 // f_Modifier
+ HWL ME_564C5E0103AC // f_Connection
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5602A3C10042 // Create
+ HWL ME_5602A3D101FD // Make
+ HWL ME_5649D8A70161 // PurgeCache
+ HWL ME_564B218C013C // Modifier
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5549F6220397_ME_5602A0790033_impl // DoLogEvent
+ ME_559A42120304_ME_5602A0790033_impl // CurStatTree
+ ME_559B6A290200_ME_5602A0790033_impl // CheckUser
+ ME_559B6A7C03AA_ME_5602A0790033_impl // UserChanged
+ ME_559B6A8C0034_ME_5602A0790033_impl // SessionChanged
+ ME_559B889B030B_ME_5602A0790033_impl // DoStartCaching
+ ME_559B88B00126_ME_5602A0790033_impl // DoStopCaching
+ ME_559CF9D300FA_ME_5602A0790033_impl // MakeResultSet
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5602A0790033_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_563B3AF60231 // TdaScheme
+ ME_563B4A0A0107 // FreeAndNil
+ ME_564B006D033B // PLong
+ ME_564B05270383 // l3L2IA
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'pgJournal'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'pgJournal'
+ UP intf.pas:Path 'common\components\rtl\Garant\PG\pgJournal.pas'
+
+ENDME // ME_5602A0790033 TpgJournal

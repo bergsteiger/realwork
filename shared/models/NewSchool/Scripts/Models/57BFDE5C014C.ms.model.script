@@ -1,0 +1,38 @@
+// TnsDownloaderThread 57BFDE5C014C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57BFDE5C014C
+
+ME ME_57BFE7010374
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57BFDE5C014C // TnsDownloaderThread
+ ;
+ MELINK Target WL? 'ME_57BC06F603E1' // nsDownloader
+ ;
+
+ENDME // ME_57BFE7010374 
+
+ME ME_57BFDE5C014C
+ MEPROP UID '57BFDE5C014C'
+ MEPROP Name 'TnsDownloaderThread'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57BC0538037B' // Downloader
+ ;
+ MELIST Dependencies
+   Seq: ( ME_57BFE7010374 // nsDownloader
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'nsDownloaderThread'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DownloaderThread'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nsDownloaderThread.pas'
+
+ENDME // ME_57BFDE5C014C TnsDownloaderThread

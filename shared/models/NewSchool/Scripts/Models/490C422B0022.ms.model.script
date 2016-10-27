@@ -1,0 +1,140 @@
+// TmmmMainFeatures 490C422B0022 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_490C422B0022
+
+FORWARD ME_53D0CD0503A5
+
+ME ME_53D0CDB40322
+ MEPROP UID '53D0CDB40322'
+ MEPROP Name 'PharmPublishSearch'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53D0CD0503A5 // Main Features
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''СМИ по медицине и здравоохранению'''
+
+ENDME // ME_53D0CDB40322 PharmPublishSearch
+
+ME ME_53D0CD0503A5
+ MEPROP UID '53D0CD0503A5'
+ MEPROP Name 'Main Features'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_490C422B0022 // TmmmMainFeatures
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53D0CDB40322 // PharmPublishSearch
+ )
+ ; // Attributes
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_53D0CD0503A5 Main Features
+
+ME ME_490C4281022D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490C422B0022 // TmmmMainFeatures
+ ;
+ MELINK Target WL 'ME_490C3BB20118' '4A6854C70390.ms.model.script' // TnsMedicMainMenuNodeType
+ ;
+
+ENDME // ME_490C4281022D 
+
+ME ME_490C42A50127
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490C422B0022 // TmmmMainFeatures
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_490C42A50127 
+
+ME ME_490C44D2023E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490C422B0022 // TmmmMainFeatures
+ ;
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
+ ;
+
+ENDME // ME_490C44D2023E 
+
+ME ME_490C4546026D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490C422B0022 // TmmmMainFeatures
+ ;
+ MELINK Target WL? 'ME_490B0F4F021C' // TnsMainMenuNode
+ ;
+
+ENDME // ME_490C4546026D 
+
+MEREF ME_4909EF6E0361_ME_490C422B0022_over
+ MELINK Original WL 'ME_4909EF6E0361' '4909EF3B02B1.ms.model.script' // MakeRoot
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4909EF6E0361_ME_490C422B0022_over MakeRoot
+
+MEREF ME_490C3BE30324_ME_490C422B0022_G
+ MELINK Original WL? 'ME_490C3BE30324' // TmmmTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_490C3BE30324_ME_490C422B0022_G TmmmTree
+
+%%InheritedBy ME_490C3BE30324 ME_490C422B0022
+
+ME ME_490C422B0022
+ MEPROP UID '490C422B0022'
+ MEPROP Name 'TmmmMainFeatures'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Основные возможности' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A9FB0A402AD' // MedicMainMenu
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_490C3BE30324_ME_490C422B0022_G // TmmmTree
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4909EF6E0361_ME_490C422B0022_over // MakeRoot
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_53D0CD0503A5 // Main Features
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_490C4281022D // TnsMedicMainMenuNodeType
+ ME_490C42A50127 // NodeBase
+ ME_490C44D2023E // nsConst
+ ME_490C4546026D // TnsMainMenuNode
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP extprop:pas:UnitName 'mmmMainFeatures'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'mmmMainFeatures'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\mmmMainFeatures.pas'
+
+ENDME // ME_490C422B0022 TmmmMainFeatures

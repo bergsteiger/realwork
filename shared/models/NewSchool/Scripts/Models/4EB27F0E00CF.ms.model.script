@@ -1,0 +1,77 @@
+// pop_editor_GetParaByID 4EB27F0E00CF ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EB27F0E00CF
+
+ME ME_4EB27FA3019A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EB27F0E00CF // pop_editor_GetParaByID
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4EB27FA3019A 
+
+MEREF ME_4F4CB81200CA_ME_4EB27F0E00CF_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_4EB27F0E00CF_impl DoWithEditor
+
+MEREF ME_4DB0614603C8_ME_4EB27F0E00CF_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB0614603C8_ME_4EB27F0E00CF_over GetWordNameForRegister
+
+MEREF ME_4F4CB625027A_ME_4EB27F0E00CF_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_4EB27F0E00CF_G TkwEditorFromStackWord
+
+%%InheritedBy ME_4F4CB625027A ME_4EB27F0E00CF
+
+ME ME_4EB27F0E00CF
+ MEPROP UID '4EB27F0E00CF'
+ MEPROP Name 'pop_editor_GetParaByID'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Получает от редактора параграф по его ID.'#13#10''#13#10'Пример:'#13#10'{code}'#13#10' 12 editor:GetParaByID'#13#10' IF'#13#10'  Para:Text .'#13#10' ELSE'#13#10' ''Параграф не найден'' .'#13#10' ENDIF'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A_ME_4EB27F0E00CF_G // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4EB27F0E00CF_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4EB27F0E00CF_over // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4EB27FA3019A // InevPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '03.11.2011 15:47'
+ UP extprop:pas:TypeName 'TkwPopEditorGetParaByID'
+ UP extprop:pas:UnitName 'kwPopEditorGetParaByID'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PopEditorGetParaByID'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorGetParaByID.pas'
+
+ENDME // ME_4EB27F0E00CF pop_editor_GetParaByID

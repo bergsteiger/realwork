@@ -1,0 +1,81 @@
+// TmsmPanel 57B42D7C0217 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57FD5A71023A
+
+FORWARD ME_57B42D7C0217
+
+MEREF ME_50FD1AE5027A_ME_57FD5A71023A_G
+ MELINK Original WL 'ME_50FD1AE5027A' '4A7961A701CF.ms.model.script' // TvtCustomPanel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50FD1AE5027A_ME_57FD5A71023A_G TvtCustomPanel
+
+%%InheritedBy ME_50FD1AE5027A ME_57FD5A71023A
+
+ME ME_57FD5A71023A
+ MEPROP UID '57FD5A71023A'
+ MEPROP Name 'TmsmCustomPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B42D7C0217 // TmsmPanel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50FD1AE5027A_ME_57FD5A71023A_G // TvtCustomPanel
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmCustomPanel'
+
+ENDME // ME_57FD5A71023A TmsmCustomPanel
+
+MEREF ME_47D1602000C6_ME_57B42D7C0217_over
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47D1602000C6_ME_57B42D7C0217_over Create
+
+MEREF ME_4A7961A701CF_ME_57B42D7C0217_G
+ MELINK Original WL? 'ME_4A7961A701CF' // TvtPanel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A7961A701CF_ME_57B42D7C0217_G TvtPanel
+
+%%InheritedBy ME_4A7961A701CF ME_57B42D7C0217
+
+ME ME_57B42D7C0217
+ MEPROP UID '57B42D7C0217'
+ MEPROP Name 'TmsmPanel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B42D1A0044' // DefaultUsedControls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A7961A701CF_ME_57B42D7C0217_G // TvtPanel
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57B42D7C0217_over // Create
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_57FD5A71023A // TmsmCustomPanel
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmPanel'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmPanel'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmPanel.pas'
+
+ENDME // ME_57B42D7C0217 TmsmPanel

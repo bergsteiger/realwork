@@ -1,0 +1,66 @@
+// WevFramePart 484D270C03AD Wrapper Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_484D270C03AD
+
+ME ME_484D29B8022E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484D270C03AD // WevFramePart
+ ;
+ MELINK Target WL? 'ME_47AC6F0B025E' // k2Base
+ ;
+
+ENDME // ME_484D29B8022E 
+
+MEREF ME_484941DA0047_ME_484D270C03AD_G
+ MELINK Original WL? 'ME_484941DA0047' // Wk2Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484941DA0047_ME_484D270C03AD_G Wk2Tag
+
+MEREF ME_484D27FD005D_ME_484D270C03AD_R
+ MELINK Original WL 'ME_484D27FD005D' '484A470100DD.ms.model.script' // FramePart
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484D27FD005D_ME_484D270C03AD_R FramePart
+
+%%ImplementedBy ME_484D27FD005D ME_484D270C03AD
+
+%%InheritedBy ME_484941DA0047 ME_484D270C03AD
+
+ME ME_484D270C03AD
+ MEPROP UID '484D270C03AD'
+ MEPROP Name 'WevFramePart'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Wrapper ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_484A470100DD' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484941DA0047_ME_484D270C03AD_G // Wk2Tag
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_484D27FD005D_ME_484D270C03AD_R // FramePart
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_484D29B8022E // k2Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '16.04.1998 10:29'
+ UP extprop:pas:UnitName 'evFramePart_Wrap'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evFramePart_Wrap.pas'
+
+ENDME // ME_484D270C03AD WevFramePart

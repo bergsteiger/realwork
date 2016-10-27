@@ -8,40 +8,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_45740AC00271
 
-FORWARD ME_4D9D92AF02B8
-
-ME ME_460A63BD025C
- MEPROP UID '460A63BD025C'
- MEPROP Name 'get_document_pid'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_4D9D92AF02B8 // DocWithPid
- ;
- MEPROP TargetStereotype 'const,cached'
-
-ENDME // ME_460A63BD025C get_document_pid
-
-ME ME_4D9D92AF02B8
- MEPROP UID '4D9D92AF02B8'
- MEPROP Name 'DocWithPid'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_45740AC00271 // Document_i
- ;
- MELIST Operations
-   Seq: ( HWL ME_460A63BD025C // get_document_pid
- )
- ; // Operations
- UP extprop:rc:isAcceptableForScripts True
- UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Document_i\DocWithPid.h'
- UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DocWithPid.pas'
-
-ENDME // ME_4D9D92AF02B8 DocWithPid
-
 ME ME_556F16F000B8
  MEPROP UID '556F16F000B8'
  MEPROP Name 'LinkKindConvertor'
@@ -83,7 +49,7 @@ ME ME_45740AC00271
  MELINK Parent WL? 'ME_456EA3D2031C' // GblAdapterLib
  ;
  MELIST Children
-   Seq: ( HWL ME_4D9D92AF02B8 // DocWithPid
+   Seq: ( WL? 'ME_4D9D92AF02B8' // DocWithPid
  HWL ME_556F16F000B8 // LinkKindConvertor
  HWL ME_559F961D0114 // LinkedObjectTypeConvertor
  )

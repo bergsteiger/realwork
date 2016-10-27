@@ -1,0 +1,63 @@
+// TatAbortOperation 48A2A3F10001 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48A2A3F10001
+
+ME ME_48A4366200B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48A2A3F10001 // TatAbortOperation
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_48A4366200B7 
+
+MEREF ME_48089F460352_ME_48A2A3F10001_impl
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48089F460352_ME_48A2A3F10001_impl ExecuteSelf
+
+MEREF ME_48076E9D013E_ME_48A2A3F10001_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_48A2A3F10001_G TatOperationBase
+
+%%InheritedBy ME_48076E9D013E ME_48A2A3F10001
+
+ME ME_48A2A3F10001
+ MEPROP UID '48A2A3F10001'
+ MEPROP Name 'TatAbortOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ќемедленное прерывание работы теста' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48076E9D013E_ME_48A2A3F10001_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_48A2A3F10001_impl // ExecuteSelf
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_48A4366200B7 // Windows
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atAbortOperation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atAbortOperation'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atAbortOperation.pas'
+
+ENDME // ME_48A2A3F10001 TatAbortOperation

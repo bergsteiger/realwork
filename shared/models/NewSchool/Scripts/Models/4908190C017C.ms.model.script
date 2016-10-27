@@ -1,0 +1,247 @@
+// TnsDictCachePrim 4908190C017C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4908190C017C
+
+ME ME_49081A1B0099
+ MEPROP UID '49081A1B0099'
+ MEPROP Name 'IsRootReceived'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'определ€ет получали ли мы корень дерева толковани€ с адаптера. ƒл€'#13#10'           случа€, когда обновились на базу без толкового словар€ и дл€ кнопок'#13#10'           панели иснтрументов спрашиваем доступные €зыки, это позволит'#13#10'           избавитс€ от большого количества серверных вызоов' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4908190C017C // TnsDictCachePrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_49081A1B0099 IsRootReceived
+
+ME ME_490819AD0286
+ MEPROP UID '490819AD0286'
+ MEPROP Name 'f_AvailableLangs'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4908190C017C // TnsDictCachePrim
+ ;
+ MELINK Target WL? 'ME_4914266C02BE' // TnsLangList
+ ;
+
+ENDME // ME_490819AD0286 f_AvailableLangs
+
+ME ME_490819DA005E
+ MEPROP UID '490819DA005E'
+ MEPROP Name 'Root'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4908190C017C // TnsDictCachePrim
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_490819DA005E Root
+
+FORWARD ME_5571C22C03A5
+
+ME ME_5571C23C017B
+ MEPROP UID '5571C23C017B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5571C22C03A5 // DoGetRoot
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_5571C23C017B DoIt
+
+ME ME_5571C22C03A5
+ MEPROP UID '5571C22C03A5'
+ MEPROP Name 'DoGetRoot'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4908190C017C // TnsDictCachePrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5571C23C017B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5571C22C03A5 DoGetRoot
+
+ME ME_49081A3A00AC
+ MEPROP UID '49081A3A00AC'
+ MEPROP Name 'ClearCache'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4908190C017C // TnsDictCachePrim
+ ;
+
+ENDME // ME_49081A3A00AC ClearCache
+
+FORWARD ME_49081A4F001E
+
+ME ME_49081A5B00DB
+ MEPROP Name 'aLang'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47EA082B021A' '47EA07FA02CE.ms.model.script' // TbsLanguage
+ ;
+
+ENDME // ME_49081A5B00DB aLang
+
+ME ME_49081A4F001E
+ MEPROP UID '49081A4F001E'
+ MEPROP Name 'ContainsLang'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4908190C017C // TnsDictCachePrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49081A5B00DB // aLang
+ )
+ ; // Parameters
+
+ENDME // ME_49081A4F001E ContainsLang
+
+ME ME_49081BC80194
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4908190C017C // TnsDictCachePrim
+ ;
+ MELINK Target WL? 'ME_47F9CF5500D1' // bsConvert
+ ;
+
+ENDME // ME_49081BC80194 
+
+ME ME_49081BEE0045
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4908190C017C // TnsDictCachePrim
+ ;
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
+ ;
+
+ENDME // ME_49081BEE0045 
+
+ME ME_49081C4E02EC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4908190C017C // TnsDictCachePrim
+ ;
+ MELINK Target WL 'ME_48FF569700F6' '4A6854C70390.ms.model.script' // StringRoutines
+ ;
+
+ENDME // ME_49081C4E02EC 
+
+ME ME_556C256701F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4908190C017C // TnsDictCachePrim
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_556C256701F4 
+
+MEREF ME_479731C50290_ME_4908190C017C_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4908190C017C_over Cleanup
+
+MEREF ME_47EA4E9002C6_ME_4908190C017C_over
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BEF0140.ms.model.script' // FinishDataUpdate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47EA4E9002C6_ME_4908190C017C_over FinishDataUpdate
+
+MEREF ME_46780E690001_ME_4908190C017C_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_4908190C017C_G Tl3CacheableBase
+
+MEREF ME_47EA4BEF0140_ME_4908190C017C_G
+ MELINK Original WL? 'ME_47EA4BEF0140' // afwApplicationDataUpdate
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47EA4BEF0140_ME_4908190C017C_G afwApplicationDataUpdate
+
+%%InheritedBy ME_46780E690001 ME_4908190C017C
+%%InheritedBy ME_47EA4BEF0140 ME_4908190C017C
+
+ME ME_4908190C017C
+ MEPROP UID '4908190C017C'
+ MEPROP Name 'TnsDictCachePrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4902090401E7' // Diction$Unit
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46780E690001_ME_4908190C017C_G // Tl3CacheableBase
+ HWL ME_47EA4BEF0140_ME_4908190C017C_G // afwApplicationDataUpdate
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_49081A1B0099 // IsRootReceived
+ HWL ME_490819AD0286 // f_AvailableLangs
+ HWL ME_490819DA005E // Root
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5571C22C03A5 // DoGetRoot
+ HWL ME_49081A3A00AC // ClearCache
+ HWL ME_49081A4F001E // ContainsLang
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4908190C017C_over // Cleanup
+ ME_47EA4E9002C6_ME_4908190C017C_over // FinishDataUpdate
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49081BC80194 // bsConvert
+ ME_49081BEE0045 // DataAdapter
+ ME_49081C4E02EC // StringRoutines
+ ME_556C256701F4 // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" '“учнин ƒ.ј.'
+ UP "no hands" True
+ UP "started" '2004/02/20 08:36:17'
+ UP extprop:pas:UnitName 'nsDictCachePrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DictCachePrim'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\nsDictCachePrim.pas'
+
+ENDME // ME_4908190C017C TnsDictCachePrim

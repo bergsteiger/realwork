@@ -4,95 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_556EE57803CD
 
-FORWARD ME_556EE5640169
-
-FORWARD ME_556EE57803CD
-
-FORWARD ME_430D5008738D
-
-FORWARD ME_556EE5D60314
-
-ME ME_88066E5D0414
- MEPROP UID '88066E5D0414'
- MEPROP Name 'IC'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_430D5008738D // Ml3ScreenService
- ;
- MELINK Target WL 'ME_47274316023E' '467C0CAA02AB.ms.model.script' // Il3InfoCanvas
- ;
- UPLINK Speller HWL ME_556EE5D60314 // IC
- ;
-
-ENDME // ME_88066E5D0414 IC
-
-ME ME_430D5008738D
- MEPROP UID '430D5008738D'
- MEPROP Name 'Ml3ScreenService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3ScreenService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_556EE57803CD // Tl3ScreenService
- ;
- MELIST Operations
-   Seq: ( HWL ME_88066E5D0414 // IC
- )
- ; // Operations
-
-ENDME // ME_430D5008738D Ml3ScreenService
-
-ME ME_556EE5D60314
- MEPROP UID '556EE5D60314'
- MEPROP Name 'IC'
- MEPROP Class class_Operation
- MELINK Stereotype st_responsibility::Operation ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_556EE57803CD // Tl3ScreenService
- ;
- MELINK Target WL 'ME_47274316023E' '467C0CAA02AB.ms.model.script' // Il3InfoCanvas
- ;
-
-ENDME // ME_556EE5D60314 IC
-
-%%InheritedBy ME_49E7754802A9 ME_556EE57803CD
-
-ME ME_556EE57803CD
- MEPROP UID '556EE57803CD'
- MEPROP Name 'Tl3ScreenService'
- MEPROP Class class_Class
- MELINK Stereotype st_Service ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_556EE5640169 // ScreenServices
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_556EE5D60314 // IC
- )
- ; // Operations
- MELIST Children
-   Seq: ( HWL ME_430D5008738D // Ml3ScreenService
- )
- ; // Children
- UP "auto translate to alien" 'undefined'
- UP extprop:pas:UnitName 'l3ScreenService'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'ScreenService'
- UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ScreenService.pas'
-
-ENDME // ME_556EE57803CD Tl3ScreenService
-
 ME ME_556EE5640169
  MEPROP UID '556EE5640169'
  MEPROP Name 'ScreenServices'
@@ -104,7 +15,7 @@ ME ME_556EE5640169
  MELINK Parent WL? 'ME_4790D09A0378' // L3
  ;
  MELIST Children
-   Seq: ( HWL ME_556EE57803CD // Tl3ScreenService
+   Seq: ( WL? 'ME_556EE57803CD' // Tl3ScreenService
  )
  ; // Children
  MELIST Depends

@@ -47,7 +47,7 @@ ENDME // ME_4F9AB1860120 DoIt
 ME ME_4F9AB1780087
  MEPROP UID '4F9AB1780087'
  MEPROP Name 'DoLoadState'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -104,7 +104,7 @@ ENDME // ME_4F9AB1AA0369 DoIt
 ME ME_4F9AB19F020B
  MEPROP UID '4F9AB19F020B'
  MEPROP Name 'DoSaveState'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -118,17 +118,29 @@ ME ME_4F9AB19F020B
 
 ENDME // ME_4F9AB19F020B DoSaveState
 
-ME ME_4683E75B01D8_ME_4F9A6F66035C
+MEREF ME_4683E75B01D8_ME_4F9A6F66035C_impl
  MELINK Original WL 'ME_4683E75B01D8' '467BAB7F021E.ms.model.script' // SaveState
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4683E75B01D8_ME_4F9A6F66035C SaveState
+ENDMEREF // ME_4683E75B01D8_ME_4F9A6F66035C_impl SaveState
 
-ME ME_4683E79D0331_ME_4F9A6F66035C
+MEREF ME_4683E79D0331_ME_4F9A6F66035C_impl
  MELINK Original WL 'ME_4683E79D0331' '467BAB7F021E.ms.model.script' // LoadState
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4683E79D0331_ME_4F9A6F66035C LoadState
+ENDMEREF // ME_4683E79D0331_ME_4F9A6F66035C_impl LoadState
+
+MEREF ME_4F9A57620120_ME_4F9A6F66035C_G
+ MELINK Original WL? 'ME_4F9A57620120' // nsUnknownComponent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F9A57620120_ME_4F9A6F66035C_G nsUnknownComponent
+
+MEREF ME_467C166B007B_ME_4F9A6F66035C_R
+ MELINK Original WL 'ME_467C166B007B' '467BAB7F021E.ms.model.script' // IvcmState
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467C166B007B_ME_4F9A6F66035C_R IvcmState
 
 %%ImplementedBy ME_467C166B007B ME_4F9A6F66035C
 
@@ -146,11 +158,11 @@ ME ME_4F9A6F66035C
  MELINK Parent WL? 'ME_53288DFA03A7' // NewReminders
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4F9A57620120' // nsUnknownComponent
+   Seq: ( HWL ME_4F9A57620120_ME_4F9A6F66035C_G // nsUnknownComponent
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_467C166B007B' '467BAB7F021E.ms.model.script' // IvcmState
+   Seq: ( HWL ME_467C166B007B_ME_4F9A6F66035C_R // IvcmState
  )
  ; // Implements
  MELIST Operations
@@ -159,8 +171,8 @@ ME ME_4F9A6F66035C
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4683E75B01D8_ME_4F9A6F66035C // SaveState
- ME_4683E79D0331_ME_4F9A6F66035C // LoadState
+   Seq: ( ME_4683E75B01D8_ME_4F9A6F66035C_impl // SaveState
+ ME_4683E79D0331_ME_4F9A6F66035C_impl // LoadState
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames

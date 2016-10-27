@@ -1,0 +1,232 @@
+// TtfwArray 4DCC173A026C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DCC173A026C
+
+FORWARD ME_4DCC1E58031B
+
+ME ME_4DCC1E660097
+ MEPROP UID '4DCC1E660097'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCC1E58031B // Create
+ ;
+
+ENDME // ME_4DCC1E660097 DoIt
+
+ME ME_4DCC1E58031B
+ MEPROP UID '4DCC1E58031B'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCC173A026C // TtfwArray
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DCC1E660097 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DCC1E58031B Create
+
+MEREF ME_4DCC1E58031B_ME_4DCC1E770077_G
+ MELINK Original HWL ME_4DCC1E58031B // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCC1E58031B_ME_4DCC1E770077_G Create
+
+MEREF ME_4DCC12FC0125_ME_4DCC1E770077_R
+ MELINK Original WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCC12FC0125_ME_4DCC1E770077_R ItfwValueList
+
+%%ImplementedBy ME_4DCC12FC0125 ME_4DCC1E770077
+
+%%InheritedBy ME_4DCC1E58031B ME_4DCC1E770077
+
+ME ME_4DCC1E770077
+ MEPROP UID '4DCC1E770077'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCC173A026C // TtfwArray
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DCC1E58031B_ME_4DCC1E770077_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4DCC12FC0125_ME_4DCC1E770077_R // ItfwValueList
+ )
+ ; // Implements
+
+ENDME // ME_4DCC1E770077 Make
+
+MEREF ME_47D8233603DD_ME_4DCC173A026C_impl
+ MELINK Original WL 'ME_47D8233603DD' '47D810610398.ms.model.script' // First
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_47D8233603DD_ME_4DCC173A026C_impl First
+
+MEREF ME_47D823570315_ME_4DCC173A026C_impl
+ MELINK Original WL 'ME_47D823570315' '47D810610398.ms.model.script' // Last
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_47D823570315_ME_4DCC173A026C_impl Last
+
+MEREF ME_47D8248802AD_ME_4DCC173A026C_impl
+ MELINK Original WL 'ME_47D8248802AD' '47D810610398.ms.model.script' // Items
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is default" True
+ UP "pm" True
+ENDMEREF // ME_47D8248802AD_ME_4DCC173A026C_impl Items
+
+MEREF ME_47E381E203D2_ME_4DCC173A026C_impl
+ MELINK Original WL 'ME_47E381E203D2' '47D810610398.ms.model.script' // Empty
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_47E381E203D2_ME_4DCC173A026C_impl Empty
+
+MEREF ME_482955910076_ME_4DCC173A026C_impl
+ MELINK Original WL 'ME_482955910076' '47D810610398.ms.model.script' // IndexOf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_482955910076_ME_4DCC173A026C_impl IndexOf
+
+MEREF ME_482958A203D0_ME_4DCC173A026C_impl
+ MELINK Original WL 'ME_482958A203D0' '47D810610398.ms.model.script' // Add
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_482958A203D0_ME_4DCC173A026C_impl Add
+
+MEREF ME_4BB08B8902F2_ME_4DCC173A026C_impl
+ MELINK Original WL 'ME_4BB08B8902F2' '47D810610398.ms.model.script' // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4BB08B8902F2_ME_4DCC173A026C_impl Count
+
+MEREF ME_4F62FF5D0327_ME_4DCC173A026C_impl
+ MELINK Original WL 'ME_4F62FF5D0327' '4DAF19F600C5.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F62FF5D0327_ME_4DCC173A026C_impl Clear
+
+MEREF ME_52E23B7A00EC_ME_4DCC173A026C_impl
+ MELINK Original WL 'ME_52E23B7A00EC' '4DAF19F600C5.ms.model.script' // ForEach
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52E23B7A00EC_ME_4DCC173A026C_impl ForEach
+
+MEREF ME_52E23BB102FA_ME_4DCC173A026C_impl
+ MELINK Original WL 'ME_52E23BB102FA' '4DAF19F600C5.ms.model.script' // ForEachBack
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52E23BB102FA_ME_4DCC173A026C_impl ForEachBack
+
+MEREF ME_55CDF40C03D4_ME_4DCC173A026C_impl
+ MELINK Original WL 'ME_55CDF40C03D4' '4DAF19F600C5.ms.model.script' // SetItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55CDF40C03D4_ME_4DCC173A026C_impl SetItem
+
+MEREF ME_55E849210175_ME_4DCC173A026C_impl
+ MELINK Original WL 'ME_55E849210175' '4DAF19F600C5.ms.model.script' // ItemsCountInSlice
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55E849210175_ME_4DCC173A026C_impl ItemsCountInSlice
+
+MEREF ME_57B549300098_ME_4DCC173A026C_impl
+ MELINK Original WL 'ME_57B549300098' '4DAF19F600C5.ms.model.script' // IsView
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57B549300098_ME_4DCC173A026C_impl IsView
+
+MEREF ME_57C8213A0118_ME_4DCC173A026C_impl
+ MELINK Original WL 'ME_57C8213A0118' '4DAF19F600C5.ms.model.script' // SafeView
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57C8213A0118_ME_4DCC173A026C_impl SafeView
+
+MEREF ME_4DCC11A10187_ME_4DCC173A026C_G
+ MELINK Original WL? 'ME_4DCC11A10187' // TtfwValueList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCC11A10187_ME_4DCC173A026C_G TtfwValueList
+
+MEREF ME_4DCC12FC0125_ME_4DCC173A026C_R
+ MELINK Original WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCC12FC0125_ME_4DCC173A026C_R ItfwValueList
+
+%%ImplementedBy ME_4DCC12FC0125 ME_4DCC173A026C
+
+%%InheritedBy ME_4DCC11A10187 ME_4DCC173A026C
+
+ME ME_4DCC173A026C
+ MEPROP UID '4DCC173A026C'
+ MEPROP Name 'TtfwArray'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F0A4A302FF' // Array
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DCC11A10187_ME_4DCC173A026C_G // TtfwValueList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4DCC12FC0125_ME_4DCC173A026C_R // ItfwValueList
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4DCC1E58031B // Create
+ HWL ME_4DCC1E770077 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47D8233603DD_ME_4DCC173A026C_impl // First
+ ME_47D823570315_ME_4DCC173A026C_impl // Last
+ ME_47D8248802AD_ME_4DCC173A026C_impl // Items
+ ME_47E381E203D2_ME_4DCC173A026C_impl // Empty
+ ME_482955910076_ME_4DCC173A026C_impl // IndexOf
+ ME_482958A203D0_ME_4DCC173A026C_impl // Add
+ ME_4BB08B8902F2_ME_4DCC173A026C_impl // Count
+ ME_4F62FF5D0327_ME_4DCC173A026C_impl // Clear
+ ME_52E23B7A00EC_ME_4DCC173A026C_impl // ForEach
+ ME_52E23BB102FA_ME_4DCC173A026C_impl // ForEachBack
+ ME_55CDF40C03D4_ME_4DCC173A026C_impl // SetItem
+ ME_55E849210175_ME_4DCC173A026C_impl // ItemsCountInSlice
+ ME_57B549300098_ME_4DCC173A026C_impl // IsView
+ ME_57C8213A0118_ME_4DCC173A026C_impl // SafeView
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '12.05.2011 21:22'
+ UP extprop:pas:UnitName 'tfwArray'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Array'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwArray.pas'
+
+ENDME // ME_4DCC173A026C TtfwArray

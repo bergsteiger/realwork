@@ -1,0 +1,104 @@
+// TddClientMessageList 5386049503AC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_538604D802F8
+
+FORWARD ME_5386049503AC
+
+ME ME_538604D802F8
+ MEPROP UID '538604D802F8'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5386049503AC // TddClientMessageList
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_538604D802F8 l3Items_NoSort
+
+ME ME_538604A502C4
+ MEPROP UID '538604A502C4'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5386049503AC // TddClientMessageList
+ ;
+ MELINK Target WL 'ME_52FA505600C7' '52FA504602B0.ms.model.script' // TddClientMessage
+ ;
+
+ENDME // ME_538604A502C4 ItemType
+
+MEREF ME_47B2C42A0163_ME_5386049503AC_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_5386049503AC_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_5386049503AC_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_5386049503AC_impl CompareExistingItems
+
+MEREF ME_47B99E920196_ME_5386049503AC_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_5386049503AC_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_5386049503AC_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_5386049503AC_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B99E920196 ME_5386049503AC
+%%InheritedBy ME_4A54DD4E036F ME_5386049503AC
+
+ME ME_5386049503AC
+ MEPROP UID '5386049503AC'
+ MEPROP Name 'TddClientMessageList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B99E920196_ME_5386049503AC_G // l3UncomparabeObjectRefList
+ HWL ME_4A54DD4E036F_ME_5386049503AC_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_538604A502C4 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_5386049503AC_impl // AssignItem
+ ME_47B99D4503A2_ME_5386049503AC_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_538604D802F8 // l3Items_NoSort
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ddClientMessageList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddClientMessageList'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ddClientMessageList.pas'
+
+ENDME // ME_5386049503AC TddClientMessageList

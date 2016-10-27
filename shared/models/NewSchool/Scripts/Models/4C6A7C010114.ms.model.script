@@ -1,0 +1,178 @@
+// TnsF1DocumentContainerPrim 4C6A7C010114 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4C6A7C8A0167
+
+FORWARD ME_4C6A7C010114
+
+MEREF ME_4C6A7C010114_ME_4C6A7C8A0167_G
+ MELINK Original HWL ME_4C6A7C010114 // TnsF1DocumentContainerPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C6A7C010114_ME_4C6A7C8A0167_G TnsF1DocumentContainerPrim
+
+%%InheritedBy ME_4C6A7C010114 ME_4C6A7C8A0167
+
+ME ME_4C6A7C8A0167
+ MEPROP UID '4C6A7C8A0167'
+ MEPROP Name 'RnsF1DocumentContainerPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C6A7C010114 // TnsF1DocumentContainerPrim
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C6A7C010114_ME_4C6A7C8A0167_G // TnsF1DocumentContainerPrim
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4C6A7C8A0167 RnsF1DocumentContainerPrim
+
+FORWARD ME_506982B0037E
+
+ME ME_506982D100E8
+ MEPROP UID '506982D100E8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_506982B0037E // DocumentForFindPara
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_506982D100E8 DoIt
+
+ME ME_506982B0037E
+ MEPROP UID '506982B0037E'
+ MEPROP Name 'DocumentForFindPara'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C6A7C010114 // TnsF1DocumentContainerPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_506982D100E8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_506982B0037E DocumentForFindPara
+
+ME ME_4A79B7020303
+ MEPROP UID '4A79B7020303'
+ MEPROP Name 'CanFindParaAsNode'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C6A7C010114 // TnsF1DocumentContainerPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A79B7020303 CanFindParaAsNode
+
+ME ME_4C99D965020D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C6A7C010114 // TnsF1DocumentContainerPrim
+ ;
+ MELINK Target WL 'ME_485669C9009D' '484A470100DD.ms.model.script' // LeafPara
+ ;
+
+ENDME // ME_4C99D965020D 
+
+ME ME_4C99D9CC0287
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C6A7C010114 // TnsF1DocumentContainerPrim
+ ;
+ MELINK Target WL 'ME_4C99D9AF02E2' '4C99DF8C0241.ms.model.script' // nsFindTagByID
+ ;
+
+ENDME // ME_4C99D9CC0287 
+
+ME ME_4C9A1A14018B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C6A7C010114 // TnsF1DocumentContainerPrim
+ ;
+ MELINK Target WL? 'ME_4A7AA075008F' // TnsDocumentContainerSub
+ ;
+
+ENDME // ME_4C9A1A14018B 
+
+MEREF ME_47F11C2103DC_ME_4C6A7C010114_over
+ MELINK Original WL 'ME_47F11C2103DC' '47F0870E0034.ms.model.script' // DoFindParaByID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F11C2103DC_ME_4C6A7C010114_over DoFindParaByID
+
+MEREF ME_47F27721012A_ME_4C6A7C010114_over
+ MELINK Original WL 'ME_47F27721012A' '47F0870E0034.ms.model.script' // DoGetSubEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F27721012A_ME_4C6A7C010114_over DoGetSubEx
+
+MEREF ME_4680E83D00C8_ME_4C6A7C010114_G
+ MELINK Original WL? 'ME_4680E83D00C8' // TeeDocumentContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4680E83D00C8_ME_4C6A7C010114_G TeeDocumentContainer
+
+%%InheritedBy ME_4680E83D00C8 ME_4C6A7C010114
+
+ME ME_4C6A7C010114
+ MEPROP UID '4C6A7C010114'
+ MEPROP Name 'TnsF1DocumentContainerPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый контейнер документа для F1' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C6A7BA001A5' // F1DocumentContainers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4680E83D00C8_ME_4C6A7C010114_G // TeeDocumentContainer
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_506982B0037E // DocumentForFindPara
+ HWL ME_4A79B7020303 // CanFindParaAsNode
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47F11C2103DC_ME_4C6A7C010114_over // DoFindParaByID
+ ME_47F27721012A_ME_4C6A7C010114_over // DoGetSubEx
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4C6A7C8A0167 // RnsF1DocumentContainerPrim
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4C99D965020D // LeafPara
+ ME_4C99D9CC0287 // nsFindTagByID
+ ME_4C9A1A14018B // TnsDocumentContainerSub
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '17.08.2010 16:10'
+ UP extprop:pas:UnitName 'nsF1DocumentContainerPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'F1DocumentContainerPrim'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsF1DocumentContainerPrim.pas'
+
+ENDME // ME_4C6A7C010114 TnsF1DocumentContainerPrim

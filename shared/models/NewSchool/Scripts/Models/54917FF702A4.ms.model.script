@@ -1,0 +1,169 @@
+// TncsServerTransporterPtrPool 54917FF702A4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54917FF702A4
+
+ME ME_5492D81C00D8
+ MEPROP UID '5492D81C00D8'
+ MEPROP Name 'f_Data'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54917FF702A4 // TncsServerTransporterPtrPool
+ ;
+ MELINK Target WL? 'ME_5492D7AC0214' // TncsServerTransporterPtrList
+ ;
+
+ENDME // ME_5492D81C00D8 f_Data
+
+FORWARD ME_5492D83203D7
+
+ME ME_5492D83900EF
+ MEPROP Name 'aTransporter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5465A5AB0324' '5460A4DB018A.ms.model.script' // IncsServerTransporter
+ ;
+
+ENDME // ME_5492D83900EF aTransporter
+
+ME ME_5492D83203D7
+ MEPROP UID '5492D83203D7'
+ MEPROP Name 'Register'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54917FF702A4 // TncsServerTransporterPtrPool
+ ;
+ MELIST Parameters
+   Seq: ( ME_5492D83900EF // aTransporter
+ )
+ ; // Parameters
+
+ENDME // ME_5492D83203D7 Register
+
+FORWARD ME_5492D8470118
+
+ME ME_5492D84C01FA
+ MEPROP Name 'aTransporter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5465A5AB0324' '5460A4DB018A.ms.model.script' // IncsServerTransporter
+ ;
+
+ENDME // ME_5492D84C01FA aTransporter
+
+ME ME_5492D8470118
+ MEPROP UID '5492D8470118'
+ MEPROP Name 'UnRegister'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54917FF702A4 // TncsServerTransporterPtrPool
+ ;
+ MELIST Parameters
+   Seq: ( ME_5492D84C01FA // aTransporter
+ )
+ ; // Parameters
+
+ENDME // ME_5492D8470118 UnRegister
+
+FORWARD ME_5492D85A0389
+
+ME ME_5492D86002D4
+ MEPROP Name 'aSessionID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5492D86002D4 aSessionID
+
+ME ME_5492D85A0389
+ MEPROP UID '5492D85A0389'
+ MEPROP Name 'FindTransporter'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54917FF702A4 // TncsServerTransporterPtrPool
+ ;
+ MELINK Target WL 'ME_5465A5AB0324' '5460A4DB018A.ms.model.script' // IncsServerTransporter
+ ;
+ MELIST Parameters
+   Seq: ( ME_5492D86002D4 // aSessionID
+ )
+ ; // Parameters
+
+ENDME // ME_5492D85A0389 FindTransporter
+
+MEREF ME_479731C50290_ME_54917FF702A4_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_54917FF702A4_over Cleanup
+
+MEREF ME_47A042E100E2_ME_54917FF702A4_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_54917FF702A4_over InitFields
+
+MEREF ME_49E7754802A9_ME_54917FF702A4_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_54917FF702A4_G Tl3ProtoObject
+
+MEREF ME_53A03846011C_ME_54917FF702A4_R
+ MELINK Original WL? 'ME_53A03846011C' // l3CriticalSectionHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53A03846011C_ME_54917FF702A4_R l3CriticalSectionHolder
+
+%%ImplementedBy ME_53A03846011C ME_54917FF702A4
+
+%%InheritedBy ME_49E7754802A9 ME_54917FF702A4
+
+ME ME_54917FF702A4
+ MEPROP UID '54917FF702A4'
+ MEPROP Name 'TncsServerTransporterPtrPool'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_544E0148010D' // Messages
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_54917FF702A4_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53A03846011C_ME_54917FF702A4_R // l3CriticalSectionHolder
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5492D81C00D8 // f_Data
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5492D83203D7 // Register
+ HWL ME_5492D8470118 // UnRegister
+ HWL ME_5492D85A0389 // FindTransporter
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_54917FF702A4_over // Cleanup
+ ME_47A042E100E2_ME_54917FF702A4_over // InitFields
+ )
+ ; // Overridden
+ UP "singleton" True
+ UP extprop:pas:UnitName 'ncsServerTransporterPtrPool'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ncsServerTransporterPtrPool'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsServerTransporterPtrPool.pas'
+
+ENDME // ME_54917FF702A4 TncsServerTransporterPtrPool

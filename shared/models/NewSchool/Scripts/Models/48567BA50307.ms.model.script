@@ -1,0 +1,99 @@
+// TevPageBreak 48567BA50307 InterfaceFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48567BA50307
+
+ME ME_3477AE867EA8
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48567BA50307 // TevPageBreak
+ ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_3477AE867EA8 
+
+ME ME_C97D32AC42DB
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48567BA50307 // TevPageBreak
+ ;
+ MELINK Target WL 'ME_47C5B5BE009D' '47C5207602D1.ms.model.script' // InevAnchor
+ ;
+
+ENDME // ME_C97D32AC42DB 
+
+ME ME_BD0722741D4C
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48567BA50307 // TevPageBreak
+ ;
+ MELINK Target WL 'ME_47C697030322' '49D2080D020C.ms.model.script' // InevDrawingShape
+ ;
+
+ENDME // ME_BD0722741D4C 
+
+MEREF ME_4D63D26D033F_ME_48567BA50307_over
+ MELINK Original WL 'ME_4D63D26D033F' '4D63C2420229.ms.model.script' // QueryTool
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D63D26D033F_ME_48567BA50307_over QueryTool
+
+MEREF ME_53CCBDA5026D_ME_48567BA50307_over
+ MELINK Original WL 'ME_53CCBDA5026D' '4D63C2420229.ms.model.script' // COMQueryTool
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53CCBDA5026D_ME_48567BA50307_over COMQueryTool
+
+MEREF ME_48567B940173_ME_48567BA50307_G
+ MELINK Original WL? 'ME_48567B940173' // TevSolidPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48567B940173_ME_48567BA50307_G TevSolidPara
+
+%%InheritedBy ME_48567B940173 ME_48567BA50307
+
+ME ME_48567BA50307
+ MEPROP UID '48567BA50307'
+ MEPROP Name 'TevPageBreak'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_InterfaceFactory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '"фабрика интерфейсов" для разрыва страницы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53D258F1004F' // InterfaceFactories
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48567B940173_ME_48567BA50307_G // TevSolidPara
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4D63D26D033F_ME_48567BA50307_over // QueryTool
+ ME_53CCBDA5026D_ME_48567BA50307_over // COMQueryTool
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_3477AE867EA8 // IevPainter
+ ME_C97D32AC42DB // InevAnchor
+ ME_BD0722741D4C // InevDrawingShape
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_4DD67C0A0292' '480C9D5E01EE.ms.model.script' // TevPageBreakPainter
+ WL 'ME_53D09E860141' '4B1D20D500C2.ms.model.script' // TevBreakParaCursor
+ WL 'ME_53D0AF910359' '4A3BB09A0147.ms.model.script' // TnevBreakParaAnchor
+ )
+ ; // Injected
+ UP extprop:pas:TypeName 'TevPageBreakInterfaceFactory'
+ UP extprop:pas:UnitName 'evPageBreak_InterfaceFactory'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PageBreakInterfaceFactory'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evPageBreak_InterfaceFactory.pas'
+
+ENDME // ME_48567BA50307 TevPageBreak

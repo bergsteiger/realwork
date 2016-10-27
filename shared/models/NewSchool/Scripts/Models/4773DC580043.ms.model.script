@@ -1,0 +1,76 @@
+// Tl3InterfaceList 4773DC580043 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4773DC580043
+
+ME ME_47A351860039
+ MEPROP UID '47A351860039'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4773DC580043 // Tl3InterfaceList
+ ;
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ ;
+
+ENDME // ME_47A351860039 ItemType
+
+MEREF ME_47A6FEE600FC_ME_4773DC580043_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_4773DC580043_over IsCacheable
+
+MEREF ME_47B57D830369_ME_4773DC580043_G
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_4773DC580043_G l3InterfaceRefList
+
+MEREF ME_47BC3A07027F_ME_4773DC580043_G
+ MELINK Original WL? 'ME_47BC3A07027F' // Tl3SimpleDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC3A07027F_ME_4773DC580043_G Tl3SimpleDataContainer
+
+%%InheritedBy ME_47B57D830369 ME_4773DC580043
+%%InheritedBy ME_47BC3A07027F ME_4773DC580043
+
+ME ME_4773DC580043
+ MEPROP UID '4773DC580043'
+ MEPROP Name 'Tl3InterfaceList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список интерфейсов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57D830369_ME_4773DC580043_G // l3InterfaceRefList
+ HWL ME_47BC3A07027F_ME_4773DC580043_G // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47A351860039 // ItemType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_4773DC580043_over // IsCacheable
+ )
+ ; // Overridden
+ UP "no hands" True
+ UP "UseNewGen" True
+ UP extprop:pas:UnitName 'l3InterfaceList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'InterfaceList'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3InterfaceList.pas'
+
+ENDME // ME_4773DC580043 Tl3InterfaceList

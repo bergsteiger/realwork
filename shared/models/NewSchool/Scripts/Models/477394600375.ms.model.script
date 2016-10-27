@@ -98,11 +98,23 @@ ME ME_477387AE0356
 
 ENDME // ME_477387AE0356 
 
-ME ME_477395290327_ME_4773773E02F8
+MEREF ME_477395290327_ME_4773773E02F8_impl
  MELINK Original WL 'ME_477395290327' '477399050133.ms.model.script' // js
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_477395290327_ME_4773773E02F8 js
+ENDMEREF // ME_477395290327_ME_4773773E02F8_impl js
+
+MEREF ME_471738DF00DA_ME_4773773E02F8_G
+ MELINK Original WL 'ME_471738DF00DA' '46E80398003B.ms.model.script' // WikiPackageImpl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_471738DF00DA_ME_4773773E02F8_G WikiPackageImpl
+
+MEREF ME_4773950C0337_ME_4773773E02F8_R
+ MELINK Original WL 'ME_4773950C0337' '477399050133.ms.model.script' // Генерация JavaScript
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773950C0337_ME_4773773E02F8_R Генерация JavaScript
 
 %%ImplementedBy ME_4773950C0337 ME_4773773E02F8
 
@@ -120,15 +132,15 @@ ME ME_4773773E02F8
  MELINK Parent HWL ME_477394600375 // JSs
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_471738DF00DA' '46E80398003B.ms.model.script' // WikiPackageImpl
+   Seq: ( HWL ME_471738DF00DA_ME_4773773E02F8_G // WikiPackageImpl
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4773950C0337' '477399050133.ms.model.script' // Генерация JavaScript
+   Seq: ( HWL ME_4773950C0337_ME_4773773E02F8_R // Генерация JavaScript
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_477395290327_ME_4773773E02F8 // js
+   Seq: ( ME_477395290327_ME_4773773E02F8_impl // js
  )
  ; // Implemented
  MELIST Dependencies

@@ -1,0 +1,183 @@
+// TnsPrimCachedEventsProcessor 4B139F5C025B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B139F5C025B
+
+ME ME_4B139F8600C1
+ MEPROP UID '4B139F8600C1'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B139F5C025B // TnsPrimCachedEventsProcessor
+ ;
+ MELINK Target WL? 'ME_4B139EC502DF' // TInsDefferedEventList
+ ;
+
+ENDME // ME_4B139F8600C1 f_List
+
+ME ME_4B13A96B0315
+ MEPROP UID '4B13A96B0315'
+ MEPROP Name 'f_CacheWasWritten'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B139F5C025B // TnsPrimCachedEventsProcessor
+ ;
+ MELINK Target WL 'ME_47272C8B0128' '4807744200AA.ms.model.script' // TDateTime
+ ;
+
+ENDME // ME_4B13A96B0315 f_CacheWasWritten
+
+ME ME_4B139F9D008C
+ MEPROP UID '4B139F9D008C'
+ MEPROP Name 'Notify'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B139F5C025B // TnsPrimCachedEventsProcessor
+ ;
+
+ENDME // ME_4B139F9D008C Notify
+
+ME ME_4B139FDA0182
+ MEPROP UID '4B139FDA0182'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B139F5C025B // TnsPrimCachedEventsProcessor
+ ;
+
+ENDME // ME_4B139FDA0182 Create
+
+ME ME_4B139FFD02C0
+ MEPROP UID '4B139FFD02C0'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B139F5C025B // TnsPrimCachedEventsProcessor
+ ;
+
+ENDME // ME_4B139FFD02C0 Make
+
+ME ME_4B13C3CE01DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B139F5C025B // TnsPrimCachedEventsProcessor
+ ;
+ MELINK Target WL? 'ME_48D391C60190' // DateUtils
+ ;
+
+ENDME // ME_4B13C3CE01DF 
+
+ME ME_4B13C4600153
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B139F5C025B // TnsPrimCachedEventsProcessor
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4B13C4600153 
+
+MEREF ME_4B139E6B00C1_ME_4B139F5C025B_impl
+ MELINK Original WL 'ME_4B139E6B00C1' '49913F2C020C.ms.model.script' // RegisterEvent
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B139E6B00C1_ME_4B139F5C025B_impl RegisterEvent
+
+MEREF ME_4B139E860009_ME_4B139F5C025B_impl
+ MELINK Original WL 'ME_4B139E860009' '49913F2C020C.ms.model.script' // RequestWriteCache
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B139E860009_ME_4B139F5C025B_impl RequestWriteCache
+
+MEREF ME_56D435B2018B_ME_4B139F5C025B_impl
+ MELINK Original WL 'ME_56D435B2018B' '49913F2C020C.ms.model.script' // ForceWriteCache
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_56D435B2018B_ME_4B139F5C025B_impl ForceWriteCache
+
+MEREF ME_479731C50290_ME_4B139F5C025B_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4B139F5C025B_over Cleanup
+
+MEREF ME_47BC391D0259_ME_4B139F5C025B_G
+ MELINK Original WL? 'ME_47BC391D0259' // Tl3SimpleObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC391D0259_ME_4B139F5C025B_G Tl3SimpleObject
+
+MEREF ME_4B139E41024C_ME_4B139F5C025B_R
+ MELINK Original WL 'ME_4B139E41024C' '49913F2C020C.ms.model.script' // InsCachedEventsProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B139E41024C_ME_4B139F5C025B_R InsCachedEventsProcessor
+
+%%ImplementedBy ME_4B139E41024C ME_4B139F5C025B
+
+%%InheritedBy ME_47BC391D0259 ME_4B139F5C025B
+
+ME ME_4B139F5C025B
+ MEPROP UID '4B139F5C025B'
+ MEPROP Name 'TnsPrimCachedEventsProcessor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B0A60DF01F2' // Logging
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47BC391D0259_ME_4B139F5C025B_G // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4B139E41024C_ME_4B139F5C025B_R // InsCachedEventsProcessor
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B139F8600C1 // f_List
+ HWL ME_4B13A96B0315 // f_CacheWasWritten
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B139F9D008C // Notify
+ HWL ME_4B139FDA0182 // Create
+ HWL ME_4B139FFD02C0 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4B139E6B00C1_ME_4B139F5C025B_impl // RegisterEvent
+ ME_4B139E860009_ME_4B139F5C025B_impl // RequestWriteCache
+ ME_56D435B2018B_ME_4B139F5C025B_impl // ForceWriteCache
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4B139F5C025B_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4B13C3CE01DF // DateUtils
+ ME_4B13C4600153 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nsPrimCachedEventsProcessor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimCachedEventsProcessor'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Logging\nsPrimCachedEventsProcessor.pas'
+
+ENDME // ME_4B139F5C025B TnsPrimCachedEventsProcessor

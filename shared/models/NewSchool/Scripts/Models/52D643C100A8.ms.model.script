@@ -1,0 +1,45 @@
+// IterateSubDescriptors 52D643C100A8 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_52D6471802DC_ME_52D643C100A8_impl
+ MELINK Original WL 'ME_52D6471802DC' '52D646990049.ms.model.script' // DoWithSubPanel
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52D6471802DC_ME_52D643C100A8_impl DoWithSubPanel
+
+MEREF ME_52D646990049_ME_52D643C100A8_G
+ MELINK Original WL? 'ME_52D646990049' // TkwSubPanelFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52D646990049_ME_52D643C100A8_G TkwSubPanelFromStackWord
+
+%%InheritedBy ME_52D646990049 ME_52D643C100A8
+
+ME ME_52D643C100A8
+ MEPROP UID '52D643C100A8'
+ MEPROP Name 'IterateSubDescriptors'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Перебирает все SubDescriptot на SubPanel, которые могут быть использованы (!). Такой список задается на этапе проектирвоания/изменения компонета. И не зависит от вида отображения.'#13#10'Формат:'#13#10'{code}'#13#10'@ aWord aLayerID aSubPanel ItarateSubDescriptors'#13#10'{code}'#13#10'aLayerID - слой, в котором производится итерация'#13#10'aSubPanel - контрол сабпанели.'#13#10'aWord - функция для обработки вида:'#13#10'{code}'#13#10'PROCEDURE CheckDescription OBJECT IN aSubDescription'#13#10' // А здесь обрабатываем полученный aSubDescription'#13#10';'#13#10'{code}'#13#10'Для извлечения нужной инфорации из aSubDescription есть набор функций: subdescriptor:GetDrawType и т.п.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_52D643A301A9' // SubPanelWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52D646990049_ME_52D643C100A8_G // TkwSubPanelFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52D6471802DC_ME_52D643C100A8_impl // DoWithSubPanel
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName 'TkwIterateSubDescriptors'
+ UP extprop:pas:UnitName 'kwIterateSubDescriptors'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IterateSubDescriptors'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwIterateSubDescriptors.pas'
+
+ENDME // ME_52D643C100A8 IterateSubDescriptors

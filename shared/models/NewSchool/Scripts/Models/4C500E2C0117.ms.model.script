@@ -1,0 +1,69 @@
+// K228692531 4C500E2C0117 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4C4FDCBA002F_ME_4C500E2C0117_impl
+ MELINK Original WL 'ME_4C4FDCBA002F' '4C4FDC620374.ms.model.script' // TextForInsert
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C4FDCBA002F_ME_4C500E2C0117_impl TextForInsert
+
+MEREF ME_4C4FE56300FB_ME_4C500E2C0117_impl
+ MELINK Original WL 'ME_4C4FE56300FB' '4C9210B70244.ms.model.script' // Navigate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C4FE56300FB_ME_4C500E2C0117_impl Navigate
+
+MEREF ME_4C4FDC620374_ME_4C500E2C0117_G
+ MELINK Original WL? 'ME_4C4FDC620374' // TInsertStreamTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C4FDC620374_ME_4C500E2C0117_G TInsertStreamTest
+
+MEREF ME_4C500D6101D8_ME_4C500E2C0117_R
+ MELINK Original WL? 'ME_4C500D6101D8' // CursorMover
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C500D6101D8_ME_4C500E2C0117_R CursorMover
+
+%%ImplementedBy ME_4C500D6101D8 ME_4C500E2C0117
+
+%%InheritedBy ME_4C4FDC620374 ME_4C500E2C0117
+
+ME ME_4C500E2C0117
+ MEPROP UID '4C500E2C0117'
+ MEPROP Name 'K228692531'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:228692531}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C288F1202F8' // 7.6
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C4FDC620374_ME_4C500E2C0117_G // TInsertStreamTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4C500D6101D8_ME_4C500E2C0117_R // CursorMover
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4C4FDCBA002F_ME_4C500E2C0117_impl // TextForInsert
+ ME_4C4FE56300FB_ME_4C500E2C0117_impl // Navigate
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '28.07.2010 15:02'
+ UP extprop:pas:TypeName 'TK228692531'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K228692531'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K228692531.pas'
+
+ENDME // ME_4C500E2C0117 K228692531

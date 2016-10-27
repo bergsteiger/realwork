@@ -1,0 +1,104 @@
+// TvcmFormSetFormsCollection 4FFC32B60282 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FFC32B60282
+
+FORWARD ME_511CF09301D0
+
+FORWARD ME_511CF0CB0355
+
+ME ME_511CF0D4009A
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_511CF0D4009A aForm
+
+ME ME_511CF0CB0355
+ MEPROP UID '511CF0CB0355'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_511CF09301D0 // FindItemByForm
+ ;
+ MELINK Target WL? 'ME_4FFC337003AF' // TvcmFormSetFormsCollectionItemPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_511CF0D4009A // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_511CF0CB0355 DoIt
+
+ME ME_511CF09301D0
+ MEPROP UID '511CF09301D0'
+ MEPROP Name 'FindItemByForm'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ищет элемент коллекции соответствующий форме.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFC32B60282 // TvcmFormSetFormsCollection
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_511CF0CB0355 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_511CF09301D0 FindItemByForm
+
+ME ME_4FFC32C902F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FFC32B60282 // TvcmFormSetFormsCollection
+ ;
+ MELINK Target WL? 'ME_4FFC32AE0164' // TvcmFormSetFormsCollectionItem
+ ;
+
+ENDME // ME_4FFC32C902F4 
+
+MEREF ME_4FFC4CD30122_ME_4FFC32B60282_G
+ MELINK Original WL? 'ME_4FFC4CD30122' // TvcmFormSetFormsCollectionPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FFC4CD30122_ME_4FFC32B60282_G TvcmFormSetFormsCollectionPrim
+
+%%InheritedBy ME_4FFC4CD30122 ME_4FFC32B60282
+
+ME ME_4FFC32B60282
+ MEPROP UID '4FFC32B60282'
+ MEPROP Name 'TvcmFormSetFormsCollection'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47B9727603BE' // FormSets
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FFC4CD30122_ME_4FFC32B60282_G // TvcmFormSetFormsCollectionPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_511CF09301D0 // FindItemByForm
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4FFC32C902F4 // TvcmFormSetFormsCollectionItem
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'vcmFormSetFormsCollection'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FormSetFormsCollection'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFormsCollection.pas'
+
+ENDME // ME_4FFC32B60282 TvcmFormSetFormsCollection

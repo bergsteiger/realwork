@@ -19,11 +19,17 @@ ME ME_4B89195B00B1
 
 ENDME // ME_4B89195B00B1 FindDataType
 
-ME ME_47B9BAFD01F4_ME_4B8919220120
+MEREF ME_47B9BAFD01F4_ME_4B8919220120_impl
  MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47B9BAFD01F4_ME_4B8919220120 CompareItemWithData
+ENDMEREF // ME_47B9BAFD01F4_ME_4B8919220120_impl CompareItemWithData
+
+MEREF ME_47B47E230134_ME_4B8919220120_G
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_4B8919220120_G l3Searcher
 
 %%InheritedBy ME_47B47E230134 ME_4B8919220120
 
@@ -39,7 +45,7 @@ ME ME_4B8919220120
  MELINK Parent WL? 'ME_4B8931DC0339' // Garbage
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47B47E230134' // l3Searcher
+   Seq: ( HWL ME_47B47E230134_ME_4B8919220120_G // l3Searcher
  )
  ; // Inherits
  MELIST Attributes
@@ -47,7 +53,7 @@ ME ME_4B8919220120
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_47B9BAFD01F4_ME_4B8919220120 // CompareItemWithData
+   Seq: ( ME_47B9BAFD01F4_ME_4B8919220120_impl // CompareItemWithData
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames

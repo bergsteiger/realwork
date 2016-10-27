@@ -1,0 +1,57 @@
+// TdCommonDiction 4B220E9B0348 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B220E9B0348
+
+ME ME_4B220EB4017C
+ MEPROP UID '4B220EB4017C'
+ MEPROP Name 'IvcmRealData'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B220E9B0348 // TdCommonDiction
+ ;
+ MELINK Target WL 'ME_492545F700BF' '492540AF02CD.ms.model.script' // IdCommonDiction
+ ;
+
+ENDME // ME_4B220EB4017C IvcmRealData
+
+MEREF ME_4936B78E0024_ME_4B220E9B0348_G
+ MELINK Original WL? 'ME_4936B78E0024' // dCommonDiction
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4936B78E0024_ME_4B220E9B0348_G dCommonDiction
+
+%%InheritedBy ME_4936B78E0024 ME_4B220E9B0348
+
+ME ME_4B220E9B0348
+ MEPROP UID '4B220E9B0348'
+ MEPROP Name 'TdCommonDiction'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_492543E30278' // CommonDiction
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4936B78E0024_ME_4B220E9B0348_G // dCommonDiction
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B220EB4017C // IvcmRealData
+ )
+ ; // Attributes
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '11.12.2009 12:19'
+ UP extprop:pas:UnitName 'dCommonDiction'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dCommonDiction'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\CommonDiction\dCommonDiction.pas'
+
+ENDME // ME_4B220E9B0348 TdCommonDiction

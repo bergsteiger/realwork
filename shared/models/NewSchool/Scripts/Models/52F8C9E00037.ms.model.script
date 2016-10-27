@@ -1,0 +1,96 @@
+// TalcuServer 52F8C9E00037 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52F8C9E00037
+
+ME ME_52F8D9150172
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8C9E00037 // TalcuServer
+ ;
+ MELINK Target WL? 'ME_52F8D9000078' // TalcuStrings
+ ;
+
+ENDME // ME_52F8D9150172 
+
+ME ME_52F8D93D016A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8C9E00037 // TalcuServer
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
+ ;
+
+ENDME // ME_52F8D93D016A 
+
+ME ME_52F8DC1D037C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8C9E00037 // TalcuServer
+ ;
+ MELINK Target WL 'ME_52F8DC08020F' '47877EB202FB.ms.model.script' // FormatDateTime
+ ;
+
+ENDME // ME_52F8DC1D037C 
+
+ME ME_5583CD9E01F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8C9E00037 // TalcuServer
+ ;
+ MELINK Target WL? 'ME_5583CD3601BD' // TalcuTaskChangeHelper
+ ;
+
+ENDME // ME_5583CD9E01F4 
+
+MEREF ME_52BC2B9401F3_ME_52F8C9E00037_over
+ MELINK Original WL 'ME_52BC2B9401F3' '47913F4E02E0.ms.model.script' // AfterDestroyCalled
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52BC2B9401F3_ME_52F8C9E00037_over AfterDestroyCalled
+
+MEREF ME_52F8C97B02D6_ME_52F8C9E00037_G
+ MELINK Original WL 'ME_52F8C97B02D6' '52F8C95A006E.ms.model.script' // TalcuServerPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52F8C97B02D6_ME_52F8C9E00037_G TalcuServerPrim
+
+%%InheritedBy ME_52F8C97B02D6 ME_52F8C9E00037
+
+ME ME_52F8C9E00037
+ MEPROP UID '52F8C9E00037'
+ MEPROP Name 'TalcuServer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53D656130130' // Server
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52F8C97B02D6_ME_52F8C9E00037_G // TalcuServerPrim
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_52BC2B9401F3_ME_52F8C9E00037_over // AfterDestroyCalled
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52F8D9150172 // TalcuStrings
+ ME_52F8D93D016A // l3System
+ ME_52F8DC1D037C // FormatDateTime
+ ME_5583CD9E01F4 // TalcuTaskChangeHelper
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:pas:UnitName 'alcuServer'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuServer'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuServer.pas'
+
+ENDME // ME_52F8C9E00037 TalcuServer

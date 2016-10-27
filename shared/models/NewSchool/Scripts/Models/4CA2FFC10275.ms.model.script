@@ -1,0 +1,66 @@
+// TevStrictContentsElementEliminator 4CA2FFC10275 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA2FFC10275
+
+ME ME_4CA300B701DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA2FFC10275 // TevStrictContentsElementEliminator
+ ;
+ MELINK Target WL 'ME_4A2E44B70095' '48492FC0029D.ms.model.script' // ContentsElement
+ ;
+
+ENDME // ME_4CA300B701DC 
+
+MEREF ME_4CA3006302BC_ME_4CA2FFC10275_over
+ MELINK Original WL 'ME_4CA3006302BC' '49E487A70144.ms.model.script' // NeedTranslateChildToNext
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CA3006302BC_ME_4CA2FFC10275_over NeedTranslateChildToNext
+
+MEREF ME_49E487A70144_ME_4CA2FFC10275_G
+ MELINK Original WL? 'ME_49E487A70144' // Tk2TagFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487A70144_ME_4CA2FFC10275_G Tk2TagFilter
+
+%%InheritedBy ME_49E487A70144 ME_4CA2FFC10275
+
+ME ME_4CA2FFC10275
+ MEPROP UID '4CA2FFC10275'
+ MEPROP Name 'TevStrictContentsElementEliminator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтр, удаляющий "элементы оглавления" (k2_idContentsElement). Но не блоки, и никаких других наследников' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C407B410029' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E487A70144_ME_4CA2FFC10275_G // Tk2TagFilter
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4CA3006302BC_ME_4CA2FFC10275_over // NeedTranslateChildToNext
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CA300B701DC // ContentsElement
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '29.09.2010 13:00'
+ UP extprop:pas:UnitName 'evStrictContentsElementEliminator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StrictContentsElementEliminator'
+ UP intf.pas:Path 'common\components\gui\Garant\EverestCommon\evStrictContentsElementEliminator.pas'
+
+ENDME // ME_4CA2FFC10275 TevStrictContentsElementEliminator

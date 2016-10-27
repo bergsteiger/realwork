@@ -89,11 +89,17 @@ ME ME_48FD94F00280
 
 ENDME // ME_48FD94F00280 Create
 
-ME ME_479731C50290_ME_48FD94080208
+MEREF ME_479731C50290_ME_48FD94080208_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_48FD94080208 Cleanup
+ENDMEREF // ME_479731C50290_ME_48FD94080208_over Cleanup
+
+MEREF ME_46780E690001_ME_48FD94080208_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_48FD94080208_G Tl3CacheableBase
 
 %%InheritedBy ME_46780E690001 ME_48FD94080208
 
@@ -108,7 +114,7 @@ ME ME_48FD94080208
  MELINK Parent HWL ME_48FD8E460027 // l3ThreadNotifier
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_46780E690001' '47913B47006E.ms.model.script' // Tl3CacheableBase
+   Seq: ( HWL ME_46780E690001_ME_48FD94080208_G // Tl3CacheableBase
  )
  ; // Inherits
  MELIST Attributes
@@ -121,13 +127,19 @@ ME ME_48FD94080208
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_48FD94080208 // Cleanup
+   Seq: ( ME_479731C50290_ME_48FD94080208_over // Cleanup
  )
  ; // Overridden
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'DataHolder'
 
 ENDME // ME_48FD94080208 Tl3DataHolder
+
+MEREF ME_48FD94080208_ME_48FD945202B2_G
+ MELINK Original HWL ME_48FD94080208 // Tl3DataHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48FD94080208_ME_48FD945202B2_G Tl3DataHolder
 
 %%InheritedBy ME_48FD94080208 ME_48FD945202B2
 
@@ -142,7 +154,7 @@ ME ME_48FD945202B2
  MELINK Parent HWL ME_48FD8E460027 // l3ThreadNotifier
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48FD94080208 // Tl3DataHolder
+   Seq: ( HWL ME_48FD94080208_ME_48FD945202B2_G // Tl3DataHolder
  )
  ; // Inherits
  UP "isClassRef" True

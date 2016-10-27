@@ -1,0 +1,70 @@
+// TStyleCtoStyleJTest 4B59EDA60116 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B59EDA60116
+
+ME ME_4B59EDC70252
+ MEPROP UID '4B59EDC70252'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B59EDA60116 // TStyleCtoStyleJTest
+ ;
+
+ENDME // ME_4B59EDC70252 DoIt
+
+ME ME_4B59F9D70110
+ MEPROP UID '4B59F9D70110'
+ MEPROP Name 'ToOldNSRC'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B59EDA60116 // TStyleCtoStyleJTest
+ ;
+
+ENDME // ME_4B59F9D70110 ToOldNSRC
+
+MEREF ME_4B4F68EE006B_ME_4B59EDA60116_G
+ MELINK Original WL? 'ME_4B4F68EE006B' // TNSRCWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B4F68EE006B_ME_4B59EDA60116_G TNSRCWriterTest
+
+%%InheritedBy ME_4B4F68EE006B ME_4B59EDA60116
+
+ME ME_4B59EDA60116
+ MEPROP UID '4B59EDA60116'
+ MEPROP Name 'TStyleCtoStyleJTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$180060974]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B4F68D4033F' // NSRCTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B4F68EE006B_ME_4B59EDA60116_G // TNSRCWriterTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B59EDC70252 // DoIt
+ HWL ME_4B59F9D70110 // ToOldNSRC
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'StyleCtoStyleJTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StyleCtoStyleJTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\StyleCtoStyleJTest.pas'
+
+ENDME // ME_4B59EDA60116 TStyleCtoStyleJTest

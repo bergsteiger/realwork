@@ -1,0 +1,74 @@
+// TddCommonDataRequestPrim 53B6834C0385 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53B6834C0385
+
+ME ME_53B6A0550038
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B6834C0385 // TddCommonDataRequestPrim
+ ;
+ MELINK Target WL? 'ME_53A953FD016B' // evdTaskTypes
+ ;
+
+ENDME // ME_53B6A0550038 
+
+MEREF ME_53B3D8A8011F_ME_53B6834C0385_over
+ MELINK Original WL 'ME_53B3D8A8011F' '52FA49C7022C.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53B3D8A8011F_ME_53B6834C0385_over Create
+
+MEREF ME_52FA4AD90122_ME_53B6834C0385_G
+ MELINK Original WL 'ME_52FA4AD90122' '52FA4ACA0020.ms.model.script' // TddRequestTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52FA4AD90122_ME_53B6834C0385_G TddRequestTask
+
+MEREF ME_53B6806A02AC_ME_53B6834C0385_R
+ MELINK Original WL 'ME_53B6806A02AC' '484A470100DD.ms.model.script' // CommonDataRequest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B6806A02AC_ME_53B6834C0385_R CommonDataRequest
+
+%%ImplementedBy ME_53B6806A02AC ME_53B6834C0385
+
+%%InheritedBy ME_52FA4AD90122 ME_53B6834C0385
+
+ME ME_53B6834C0385
+ MEPROP UID '53B6834C0385'
+ MEPROP Name 'TddCommonDataRequestPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52FA4AD90122_ME_53B6834C0385_G // TddRequestTask
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53B6806A02AC_ME_53B6834C0385_R // CommonDataRequest
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_53B3D8A8011F_ME_53B6834C0385_over // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53B6A0550038 // evdTaskTypes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ddCommonDataRequestPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddCommonDataRequestPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ddCommonDataRequestPrim.pas'
+
+ENDME // ME_53B6834C0385 TddCommonDataRequestPrim

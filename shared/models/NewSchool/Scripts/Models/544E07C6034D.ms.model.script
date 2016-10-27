@@ -1,0 +1,45 @@
+// TncsLoginMessage 544E07C6034D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_544E079E0253_ME_544E07C6034D_G
+ MELINK Original WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_544E079E0253_ME_544E07C6034D_G TncsMessage
+
+MEREF ME_544E02580378_ME_544E07C6034D_R
+ MELINK Original WL 'ME_544E02580378' '484A470100DD.ms.model.script' // csLogin
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_544E02580378_ME_544E07C6034D_R csLogin
+
+%%ImplementedBy ME_544E02580378 ME_544E07C6034D
+
+%%InheritedBy ME_544E079E0253 ME_544E07C6034D
+
+ME ME_544E07C6034D
+ MEPROP UID '544E07C6034D'
+ MEPROP Name 'TncsLoginMessage'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_544E0148010D' // Messages
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_544E079E0253_ME_544E07C6034D_G // TncsMessage
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_544E02580378_ME_544E07C6034D_R // csLogin
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'ncsLoginMessage'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ncsLoginMessage'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsLoginMessage.pas'
+
+ENDME // ME_544E07C6034D TncsLoginMessage

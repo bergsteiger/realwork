@@ -1,0 +1,354 @@
+// TdestPicture 51E8E771003A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51E8E771003A
+
+ME ME_51E8E7DC003B
+ MEPROP UID '51E8E7DC003B'
+ MEPROP Name 'Picture'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51E8E771003A // TdestPicture
+ ;
+ MELINK Target WL? 'ME_51E8DC3E0361' // TddPicture
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_51E8E7DC003B Picture
+
+FORWARD ME_51E8E82F0299
+
+FORWARD ME_51E8E84003CB
+
+ME ME_51E8E85C00A3
+ MEPROP Name 'aWhat'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51D2877C03A1' '518A1E9F0274.ms.model.script' // TIProp
+ ;
+
+ENDME // ME_51E8E85C00A3 aWhat
+
+ME ME_51E8E85C00B3
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_51E8E85C00B3 aValue
+
+ME ME_51E8E84003CB
+ MEPROP UID '51E8E84003CB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E8E82F0299 // ApplyToPicture
+ ;
+ MELIST Parameters
+   Seq: ( ME_51E8E85C00A3 // aWhat
+ ME_51E8E85C00B3 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_51E8E84003CB DoIt
+
+ME ME_51E8E82F0299
+ MEPROP UID '51E8E82F0299'
+ MEPROP Name 'ApplyToPicture'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E8E771003A // TdestPicture
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51E8E84003CB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51E8E82F0299 ApplyToPicture
+
+FORWARD ME_534658E901B6
+
+FORWARD ME_5346590A007C
+
+ME ME_5346591B0051
+ MEPROP Name 'aFiler'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_5346591B0051 aFiler
+
+ME ME_5346590A007C
+ MEPROP UID '5346590A007C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_534658E901B6 // Try2ReadKnownPicture
+ ;
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
+ ;
+ MELIST Parameters
+   Seq: ( ME_5346591B0051 // aFiler
+ )
+ ; // Parameters
+
+ENDME // ME_5346590A007C DoIt
+
+ME ME_534658E901B6
+ MEPROP UID '534658E901B6'
+ MEPROP Name 'Try2ReadKnownPicture'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ѕытаемс€ передать обработку "знающим" объектам.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E8E771003A // TdestPicture
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5346590A007C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_534658E901B6 Try2ReadKnownPicture
+
+FORWARD ME_54E46D5F0045
+
+FORWARD ME_54E46D680157
+
+ME ME_54E486F301D7
+ MEPROP Name 'aParser'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4C1B47600258' '4C1B475101C5.ms.model.script' // Tl3CustomParser
+ ;
+
+ENDME // ME_54E486F301D7 aParser
+
+ME ME_54E46D680157
+ MEPROP UID '54E46D680157'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E46D5F0045 // TryToClearText
+ ;
+ MELIST Parameters
+   Seq: ( ME_54E486F301D7 // aParser
+ )
+ ; // Parameters
+
+ENDME // ME_54E46D680157 DoIt
+
+ME ME_54E46D5F0045
+ MEPROP UID '54E46D5F0045'
+ MEPROP Name 'TryToClearText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E8E771003A // TdestPicture
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54E46D680157 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54E46D5F0045 TryToClearText
+
+FORWARD ME_54E46DAF037C
+
+FORWARD ME_54E46DBB0129
+
+ME ME_56050C950103
+ MEPROP Name 'aHexStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
+ ;
+
+ENDME // ME_56050C950103 aHexStream
+
+ME ME_54E46DBB0129
+ MEPROP UID '54E46DBB0129'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E46DAF037C // AddHexData
+ ;
+ MELIST Parameters
+   Seq: ( ME_56050C950103 // aHexStream
+ )
+ ; // Parameters
+
+ENDME // ME_54E46DBB0129 DoIt
+
+ME ME_54E46DAF037C
+ MEPROP UID '54E46DAF037C'
+ MEPROP Name 'AddHexData'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E8E771003A // TdestPicture
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54E46DBB0129 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54E46DAF037C AddHexData
+
+ME ME_51E8FE39007B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51E8E771003A // TdestPicture
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_51E8FE39007B 
+
+ME ME_533D38B10132
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51E8E771003A // TdestPicture
+ ;
+ MELINK Target WL 'ME_521AFDE50046' '521AFDDA02E4.ms.model.script' // PictureFormat
+ ;
+
+ENDME // ME_533D38B10132 
+
+ME ME_560510E0036F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51E8E771003A // TdestPicture
+ ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_560510E0036F 
+
+MEREF ME_51D27A48038E_ME_51E8E771003A_over
+ MELINK Original WL 'ME_51D27A48038E' '5190A37F0134.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51D27A48038E_ME_51E8E771003A_over Clear
+
+MEREF ME_51D27C3302EC_ME_51E8E771003A_over
+ MELINK Original WL 'ME_51D27C3302EC' '5190A37F0134.ms.model.script' // AddString
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51D27C3302EC_ME_51E8E771003A_over AddString
+
+MEREF ME_51D27EC50388_ME_51E8E771003A_over
+ MELINK Original WL 'ME_51D27EC50388' '5190A37F0134.ms.model.script' // ApplyProperty
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51D27EC50388_ME_51E8E771003A_over ApplyProperty
+
+MEREF ME_51E7C9DB0213_ME_51E8E771003A_over
+ MELINK Original WL 'ME_51E7C9DB0213' '5190A37F0134.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51E7C9DB0213_ME_51E8E771003A_over Create
+
+MEREF ME_5461BEC2017D_ME_51E8E771003A_over
+ MELINK Original WL 'ME_5461BEC2017D' '5190A37F0134.ms.model.script' // Close
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5461BEC2017D_ME_51E8E771003A_over Close
+
+MEREF ME_54E1F08400F9_ME_51E8E771003A_over
+ MELINK Original WL 'ME_54E1F08400F9' '5190A37F0134.ms.model.script' // WriteText$1
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_54E1F08400F9_ME_51E8E771003A_over WriteText$1
+
+MEREF ME_550913790257_ME_51E8E771003A_over
+ MELINK Original WL 'ME_550913790257' '5190A37F0134.ms.model.script' // ReadData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_550913790257_ME_51E8E771003A_over ReadData
+
+MEREF ME_559516AA0098_ME_51E8E771003A_over
+ MELINK Original WL 'ME_559516AA0098' '51D278280093.ms.model.script' // CanAddTable
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_559516AA0098_ME_51E8E771003A_over CanAddTable
+
+MEREF ME_51D278280093_ME_51E8E771003A_G
+ MELINK Original WL? 'ME_51D278280093' // TdestNorm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51D278280093_ME_51E8E771003A_G TdestNorm
+
+%%InheritedBy ME_51D278280093 ME_51E8E771003A
+
+ME ME_51E8E771003A
+ MEPROP UID '51E8E771003A'
+ MEPROP Name 'TdestPicture'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5190A3470397' // RTFSupport
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_51D278280093_ME_51E8E771003A_G // TdestNorm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51E8E7DC003B // Picture
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51E8E82F0299 // ApplyToPicture
+ HWL ME_534658E901B6 // Try2ReadKnownPicture
+ HWL ME_54E46D5F0045 // TryToClearText
+ HWL ME_54E46DAF037C // AddHexData
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_51D27A48038E_ME_51E8E771003A_over // Clear
+ ME_51D27C3302EC_ME_51E8E771003A_over // AddString
+ ME_51D27EC50388_ME_51E8E771003A_over // ApplyProperty
+ ME_51E7C9DB0213_ME_51E8E771003A_over // Create
+ ME_5461BEC2017D_ME_51E8E771003A_over // Close
+ ME_54E1F08400F9_ME_51E8E771003A_over // WriteText$1
+ ME_550913790257_ME_51E8E771003A_over // ReadData
+ ME_559516AA0098_ME_51E8E771003A_over // CanAddTable
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_51E8FE39007B // FreeAndNil
+ ME_533D38B10132 // PictureFormat
+ ME_560510E0036F // Tl3WString
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'destPicture'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'destPicture'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\destPicture.pas'
+
+ENDME // ME_51E8E771003A TdestPicture

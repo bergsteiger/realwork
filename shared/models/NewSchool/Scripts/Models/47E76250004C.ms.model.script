@@ -12,6 +12,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_47E76250004C
 
+MEREF ME_47E762B6004C_ME_47E76278025E_G
+ MELINK Original WL 'ME_47E762B6004C' '478CF30500C1.ms.model.script' // TBasicAction
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E762B6004C_ME_47E76278025E_G TBasicAction
+
 %%InheritedBy ME_47E762B6004C ME_47E76278025E
 
 ME ME_47E76278025E
@@ -25,13 +31,19 @@ ME ME_47E76278025E
  MELINK Parent HWL ME_47E76250004C // ActnList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47E762B6004C' '478CF30500C1.ms.model.script' // TBasicAction
+   Seq: ( HWL ME_47E762B6004C_ME_47E76278025E_G // TBasicAction
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ContainedAction'
 
 ENDME // ME_47E76278025E TContainedAction
+
+MEREF ME_47E76278025E_ME_47E7626B0083_G
+ MELINK Original HWL ME_47E76278025E // TContainedAction
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E76278025E_ME_47E7626B0083_G TContainedAction
 
 %%InheritedBy ME_47E76278025E ME_47E7626B0083
 
@@ -46,7 +58,7 @@ ME ME_47E7626B0083
  MELINK Parent HWL ME_47E76250004C // ActnList
  ;
  MELIST Inherits
-   Seq: ( HWL ME_47E76278025E // TContainedAction
+   Seq: ( HWL ME_47E76278025E_ME_47E7626B0083_G // TContainedAction
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -69,6 +81,12 @@ ME ME_499563790006
 
 ENDME // ME_499563790006 TShortCutList
 
+MEREF ME_47E7626B0083_ME_4AC0EFDD029A_G
+ MELINK Original HWL ME_47E7626B0083 // TCustomAction
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E7626B0083_ME_4AC0EFDD029A_G TCustomAction
+
 %%InheritedBy ME_47E7626B0083 ME_4AC0EFDD029A
 
 ME ME_4AC0EFDD029A
@@ -82,7 +100,7 @@ ME ME_4AC0EFDD029A
  MELINK Parent HWL ME_47E76250004C // ActnList
  ;
  MELIST Inherits
-   Seq: ( HWL ME_47E7626B0083 // TCustomAction
+   Seq: ( HWL ME_47E7626B0083_ME_4AC0EFDD029A_G // TCustomAction
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -107,6 +125,12 @@ ENDME // ME_52A823770326 TCustomActionList
 
 FORWARD ME_508F9823023D
 
+MEREF ME_508F9823023D_ME_508F9AC6006D_G
+ MELINK Original HWL ME_508F9823023D // TActionLink
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_508F9823023D_ME_508F9AC6006D_G TActionLink
+
 %%InheritedBy ME_508F9823023D ME_508F9AC6006D
 
 ME ME_508F9AC6006D
@@ -120,7 +144,7 @@ ME ME_508F9AC6006D
  MELINK Parent HWL ME_508F9823023D // TActionLink
  ;
  MELIST Inherits
-   Seq: ( HWL ME_508F9823023D // TActionLink
+   Seq: ( HWL ME_508F9823023D_ME_508F9AC6006D_G // TActionLink
  )
  ; // Inherits
  UP "isClassRef" True
@@ -147,7 +171,7 @@ ENDME // ME_508F98CD03C9 DoIt
 ME ME_508F983B0344
  MEPROP UID '508F983B0344'
  MEPROP Name 'IsCaptionLinked'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -179,7 +203,7 @@ ENDME // ME_508F98D90170 DoIt
 ME ME_508F984903AB
  MEPROP UID '508F984903AB'
  MEPROP Name 'IsCheckedLinked'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -211,7 +235,7 @@ ENDME // ME_508F98DE0026 DoIt
 ME ME_508F985802BC
  MEPROP UID '508F985802BC'
  MEPROP Name 'IsEnabledLinked'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -243,7 +267,7 @@ ENDME // ME_508F98E2002D DoIt
 ME ME_508F986500A8
  MEPROP UID '508F986500A8'
  MEPROP Name 'IsGroupIndexLinked'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -275,7 +299,7 @@ ENDME // ME_508F98E60141 DoIt
 ME ME_508F98890136
  MEPROP UID '508F98890136'
  MEPROP Name 'IsHelpContextLinked'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -307,7 +331,7 @@ ENDME // ME_508F98EB00E7 DoIt
 ME ME_508F98940186
  MEPROP UID '508F98940186'
  MEPROP Name 'IsHelpLinked'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -339,7 +363,7 @@ ENDME // ME_508F98EF0101 DoIt
 ME ME_508F98A000B7
  MEPROP UID '508F98A000B7'
  MEPROP Name 'IsHintLinked'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -371,7 +395,7 @@ ENDME // ME_508F98F2027B DoIt
 ME ME_508F98AD0210
  MEPROP UID '508F98AD0210'
  MEPROP Name 'IsImageIndexLinked'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -403,7 +427,7 @@ ENDME // ME_508F98F602E6 DoIt
 ME ME_508F98B80325
  MEPROP UID '508F98B80325'
  MEPROP Name 'IsShortCutLinked'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -435,7 +459,7 @@ ENDME // ME_508F98FA0208 DoIt
 ME ME_508F98C402D2
  MEPROP UID '508F98C402D2'
  MEPROP Name 'IsVisibleLinked'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -480,7 +504,7 @@ ENDME // ME_508F99A903B0 DoIt
 ME ME_508F990A01A7
  MEPROP UID '508F990A01A7'
  MEPROP Name 'SetAutoCheck'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -525,7 +549,7 @@ ENDME // ME_508F99E6039C DoIt
 ME ME_508F991B003B
  MEPROP UID '508F991B003B'
  MEPROP Name 'SetCaption'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -570,7 +594,7 @@ ENDME // ME_508F99B7001E DoIt
 ME ME_508F992700F4
  MEPROP UID '508F992700F4'
  MEPROP Name 'SetChecked'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -615,7 +639,7 @@ ENDME // ME_508F99C600C7 DoIt
 ME ME_508F99340058
  MEPROP UID '508F99340058'
  MEPROP Name 'SetEnabled'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -660,7 +684,7 @@ ENDME // ME_508F9A120047 DoIt
 ME ME_508F993F026A
  MEPROP UID '508F993F026A'
  MEPROP Name 'SetGroupIndex'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -705,7 +729,7 @@ ENDME // ME_508F9A3502F9 DoIt
 ME ME_508F994C023C
  MEPROP UID '508F994C023C'
  MEPROP Name 'SetHelpContext'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -750,7 +774,7 @@ ENDME // ME_508F9A4901B0 DoIt
 ME ME_508F9958019E
  MEPROP UID '508F9958019E'
  MEPROP Name 'SetHelpKeyword'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -795,7 +819,7 @@ ENDME // ME_508F9A57006A DoIt
 ME ME_508F99650101
  MEPROP UID '508F99650101'
  MEPROP Name 'SetHelpType'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -840,7 +864,7 @@ ENDME // ME_508F99FF03D8 DoIt
 ME ME_508F99710030
  MEPROP UID '508F99710030'
  MEPROP Name 'SetHint'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -885,7 +909,7 @@ ENDME // ME_508F9A1F0301 DoIt
 ME ME_508F997C0142
  MEPROP UID '508F997C0142'
  MEPROP Name 'SetImageIndex'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -930,7 +954,7 @@ ENDME // ME_508F9A6902F3 DoIt
 ME ME_508F998A00F3
  MEPROP UID '508F998A00F3'
  MEPROP Name 'SetShortCut'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -975,7 +999,7 @@ ENDME // ME_508F99CE02C1 DoIt
 ME ME_508F99970386
  MEPROP UID '508F99970386'
  MEPROP Name 'SetVisible'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -988,6 +1012,12 @@ ME ME_508F99970386
  ; // Operations
 
 ENDME // ME_508F99970386 SetVisible
+
+MEREF ME_52A088B20026_ME_508F9823023D_G
+ MELINK Original WL 'ME_52A088B20026' '478CF30500C1.ms.model.script' // TBasicActionLink
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52A088B20026_ME_508F9823023D_G TBasicActionLink
 
 %%InheritedBy ME_52A088B20026 ME_508F9823023D
 
@@ -1002,7 +1032,7 @@ ME ME_508F9823023D
  MELINK Parent HWL ME_47E76250004C // ActnList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_52A088B20026' '478CF30500C1.ms.model.script' // TBasicActionLink
+   Seq: ( HWL ME_52A088B20026_ME_508F9823023D_G // TBasicActionLink
  )
  ; // Inherits
  MELIST Operations
@@ -1042,6 +1072,12 @@ ME ME_508F9823023D
 
 ENDME // ME_508F9823023D TActionLink
 
+MEREF ME_52A823770326_ME_4EF32DDB0235_G
+ MELINK Original HWL ME_52A823770326 // TCustomActionList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52A823770326_ME_4EF32DDB0235_G TCustomActionList
+
 %%InheritedBy ME_52A823770326 ME_4EF32DDB0235
 
 ME ME_4EF32DDB0235
@@ -1055,7 +1091,7 @@ ME ME_4EF32DDB0235
  MELINK Parent HWL ME_47E76250004C // ActnList
  ;
  MELIST Inherits
-   Seq: ( HWL ME_52A823770326 // TCustomActionList
+   Seq: ( HWL ME_52A823770326_ME_4EF32DDB0235_G // TCustomActionList
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True

@@ -1,0 +1,85 @@
+// TmsmFindWordsBinding 57EA9BC1025E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57EA9BC1025E
+
+ME ME_57EA9BEC0316
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57EA9BC1025E // TmsmFindWordsBinding
+ ;
+ MELINK Target WL 'ME_57CD31A200FA' '57AAE8D403E5.ms.model.script' // CaptionChangedEvent
+ ;
+
+ENDME // ME_57EA9BEC0316 
+
+ME ME_57EA9BF2021A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EA9BC1025E // TmsmFindWordsBinding
+ ;
+ MELINK Target WL? 'ME_57E457780235' // TmsmWordsManaging
+ ;
+
+ENDME // ME_57EA9BF2021A 
+
+ME ME_57EA9BF602C4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EA9BC1025E // TmsmFindWordsBinding
+ ;
+ MELINK Target WL? 'ME_57A9F5170275' // TmsmModelElement
+ ;
+
+ENDME // ME_57EA9BF602C4 
+
+ME ME_57EA9C38014A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EA9BC1025E // TmsmFindWordsBinding
+ ;
+ MELINK Target WL? 'ME_57E54DCD0141' // TmsmSomeModelElementsList
+ ;
+
+ENDME // ME_57EA9C38014A 
+
+MEREF ME_57EA9B7700BC_ME_57EA9BC1025E_G
+ MELINK Original WL? 'ME_57EA9B7700BC' // TmsmCaptionToListBinding
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57EA9B7700BC_ME_57EA9BC1025E_G TmsmCaptionToListBinding
+
+%%InheritedBy ME_57EA9B7700BC ME_57EA9BC1025E
+
+ME ME_57EA9BC1025E
+ MEPROP UID '57EA9BC1025E'
+ MEPROP Name 'TmsmFindWordsBinding'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CD2BB003D3' // ConcreteBindings
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57EA9B7700BC_ME_57EA9BC1025E_G // TmsmCaptionToListBinding
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_57EA9BEC0316 // CaptionChangedEvent
+ ME_57EA9BF2021A // TmsmWordsManaging
+ ME_57EA9BF602C4 // TmsmModelElement
+ ME_57EA9C38014A // TmsmSomeModelElementsList
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmFindWordsBinding'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmFindWordsBinding'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmFindWordsBinding.pas'
+
+ENDME // ME_57EA9BC1025E TmsmFindWordsBinding

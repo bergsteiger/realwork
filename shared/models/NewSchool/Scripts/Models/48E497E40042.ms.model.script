@@ -1,0 +1,134 @@
+// TevMultiSelectEditorWindowHotSpot 48E497E40042 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48E497E40042
+
+ME ME_48EF669402B4
+ MEPROP UID '48EF669402B4'
+ MEPROP Name 'f_MultiSelection'
+ MEPROP Class class_Attribute
+ %SUMMARY 'если иннициализировано, то находимся в процессе множественного выделения' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48E497E40042 // TevMultiSelectEditorWindowHotSpot
+ ;
+ MELINK Target WL? 'ME_48E3B50501DB' // TevMultiSelection
+ ;
+
+ENDME // ME_48EF669402B4 f_MultiSelection
+
+ME ME_48EF679C03BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E497E40042 // TevMultiSelectEditorWindowHotSpot
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_48EF679C03BB 
+
+ME ME_48EF682C004C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E497E40042 // TevMultiSelectEditorWindowHotSpot
+ ;
+ MELINK Target WL 'ME_473DA5F40175' '467823B7002C.ms.model.script' // TafwClickKind
+ ;
+
+ENDME // ME_48EF682C004C 
+
+ME ME_48EF694C0210
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E497E40042 // TevMultiSelectEditorWindowHotSpot
+ ;
+ MELINK Target WL 'ME_4728CE680258' '478CF30500C1.ms.model.script' // TShiftState
+ ;
+
+ENDME // ME_48EF694C0210 
+
+MEREF ME_479731C50290_ME_48E497E40042_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_48E497E40042_over Cleanup
+
+MEREF ME_48E4A99D02A2_ME_48E497E40042_over
+ MELINK Original WL 'ME_48E4A99D02A2' '48E229CC03DF.ms.model.script' // DoLButtonDown
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E4A99D02A2_ME_48E497E40042_over DoLButtonDown
+
+MEREF ME_48EF380C026E_ME_48E497E40042_over
+ MELINK Original WL 'ME_48EF380C026E' '48E229CC03DF.ms.model.script' // AlignMarks
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48EF380C026E_ME_48E497E40042_over AlignMarks
+
+MEREF ME_48EF3A860139_ME_48E497E40042_over
+ MELINK Original WL 'ME_48EF3A860139' '48E229CC03DF.ms.model.script' // DoExtendBlock
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48EF3A860139_ME_48E497E40042_over DoExtendBlock
+
+MEREF ME_48EF3C6E0276_ME_48E497E40042_over
+ MELINK Original WL 'ME_48EF3C6E0276' '48E229CC03DF.ms.model.script' // DoLButtonUp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48EF3C6E0276_ME_48E497E40042_over DoLButtonUp
+
+MEREF ME_48E229CC03DF_ME_48E497E40042_G
+ MELINK Original WL? 'ME_48E229CC03DF' // TevEditorWindowHotSpot
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48E229CC03DF_ME_48E497E40042_G TevEditorWindowHotSpot
+
+%%InheritedBy ME_48E229CC03DF ME_48E497E40042
+
+ME ME_48E497E40042
+ MEPROP UID '48E497E40042'
+ MEPROP Name 'TevMultiSelectEditorWindowHotSpot'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4829D7D50156' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48E229CC03DF_ME_48E497E40042_G // TevEditorWindowHotSpot
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48EF669402B4 // f_MultiSelection
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48E497E40042_over // Cleanup
+ ME_48E4A99D02A2_ME_48E497E40042_over // DoLButtonDown
+ ME_48EF380C026E_ME_48E497E40042_over // AlignMarks
+ ME_48EF3A860139_ME_48E497E40042_over // DoExtendBlock
+ ME_48EF3C6E0276_ME_48E497E40042_over // DoLButtonUp
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48EF679C03BB // l3Base
+ ME_48EF682C004C // TafwClickKind
+ ME_48EF694C0210 // TShiftState
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '19.01.2004 18:12'
+ UP extprop:pas:UnitName 'evMultiSelectEditorWindowHotSpot'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MultiSelectEditorWindowHotSpot'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evMultiSelectEditorWindowHotSpot.pas'
+
+ENDME // ME_48E497E40042 TevMultiSelectEditorWindowHotSpot

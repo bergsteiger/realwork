@@ -1,0 +1,280 @@
+// TalcuTaskFileTransferServices 54B638150163 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54B638150163
+
+ME ME_54B654350377
+ MEPROP UID '54B654350377'
+ MEPROP Name 'f_Transporter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54B638150163 // TalcuTaskFileTransferServices
+ ;
+ MELINK Target WL 'ME_5464B4730055' '5460A4DB018A.ms.model.script' // IncsTransporter
+ ;
+
+ENDME // ME_54B654350377 f_Transporter
+
+ME ME_54B683D20282
+ MEPROP UID '54B683D20282'
+ MEPROP Name 'f_TaskID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54B638150163 // TalcuTaskFileTransferServices
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_54B683D20282 f_TaskID
+
+FORWARD ME_54B64A7C0177
+
+FORWARD ME_54B654450014
+
+ME ME_54B654570160
+ MEPROP Name 'aTransporter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5464B4730055' '5460A4DB018A.ms.model.script' // IncsTransporter
+ ;
+
+ENDME // ME_54B654570160 aTransporter
+
+ME ME_54B683ED0045
+ MEPROP Name 'aTaskID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_54B683ED0045 aTaskID
+
+ME ME_54B654450014
+ MEPROP UID '54B654450014'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B64A7C0177 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B654570160 // aTransporter
+ ME_54B683ED0045 // aTaskID
+ )
+ ; // Parameters
+
+ENDME // ME_54B654450014 DoIt
+
+ME ME_54B64A7C0177
+ MEPROP UID '54B64A7C0177'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B638150163 // TalcuTaskFileTransferServices
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B654450014 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B64A7C0177 Create
+
+MEREF ME_54B64A7C0177_ME_54B64A8B0212_G
+ MELINK Original HWL ME_54B64A7C0177 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54B64A7C0177_ME_54B64A8B0212_G Create
+
+MEREF ME_54B6221D02E2_ME_54B64A8B0212_R
+ MELINK Original WL 'ME_54B6221D02E2' '52F8C2AE0042.ms.model.script' // IcsFileTransferServices
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54B6221D02E2_ME_54B64A8B0212_R IcsFileTransferServices
+
+%%ImplementedBy ME_54B6221D02E2 ME_54B64A8B0212
+
+%%InheritedBy ME_54B64A7C0177 ME_54B64A8B0212
+
+ME ME_54B64A8B0212
+ MEPROP UID '54B64A8B0212'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B638150163 // TalcuTaskFileTransferServices
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54B64A7C0177_ME_54B64A8B0212_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_54B6221D02E2_ME_54B64A8B0212_R // IcsFileTransferServices
+ )
+ ; // Implements
+
+ENDME // ME_54B64A8B0212 Make
+
+ME ME_54B67E460306
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B638150163 // TalcuTaskFileTransferServices
+ ;
+ MELINK Target WL? 'ME_546B442D0343' // TncsGetTaskDescriptionReply
+ ;
+
+ENDME // ME_54B67E460306 
+
+ME ME_54B67E4B01F5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B638150163 // TalcuTaskFileTransferServices
+ ;
+ MELINK Target WL? 'ME_54B66DB30346' // TncsGetPartialTaskDescription
+ ;
+
+ENDME // ME_54B67E4B01F5 
+
+ME ME_54B67E5E02A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B638150163 // TalcuTaskFileTransferServices
+ ;
+ MELINK Target WL? 'ME_546F3804032D' // TncsOneFileDeliverer
+ ;
+
+ENDME // ME_54B67E5E02A2 
+
+ME ME_54B6819C0147
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B638150163 // TalcuTaskFileTransferServices
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54B6819C0147 
+
+ME ME_54B683A00023
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B638150163 // TalcuTaskFileTransferServices
+ ;
+ MELINK Target WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ ;
+
+ENDME // ME_54B683A00023 
+
+ME ME_54B7768E02C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B638150163 // TalcuTaskFileTransferServices
+ ;
+ MELINK Target WL 'ME_546EF57803B0' '546EF5650026.ms.model.script' // FileDescHelper
+ ;
+
+ENDME // ME_54B7768E02C9 
+
+ME ME_54B7769C012D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B638150163 // TalcuTaskFileTransferServices
+ ;
+ MELINK Target WL? 'ME_546C52C001ED' // TncsFileDesc
+ ;
+
+ENDME // ME_54B7769C012D 
+
+MEREF ME_54B62A0501D7_ME_54B638150163_impl
+ MELINK Original WL 'ME_54B62A0501D7' '52F8C2AE0042.ms.model.script' // TransferFile
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54B62A0501D7_ME_54B638150163_impl TransferFile
+
+MEREF ME_479731C50290_ME_54B638150163_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_54B638150163_over Cleanup
+
+MEREF ME_49E7754802A9_ME_54B638150163_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_54B638150163_G Tl3ProtoObject
+
+MEREF ME_54B6221D02E2_ME_54B638150163_R
+ MELINK Original WL 'ME_54B6221D02E2' '52F8C2AE0042.ms.model.script' // IcsFileTransferServices
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54B6221D02E2_ME_54B638150163_R IcsFileTransferServices
+
+%%ImplementedBy ME_54B6221D02E2 ME_54B638150163
+
+%%InheritedBy ME_49E7754802A9 ME_54B638150163
+
+ME ME_54B638150163
+ MEPROP UID '54B638150163'
+ MEPROP Name 'TalcuTaskFileTransferServices'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54856B680023' // TaskSend
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_54B638150163_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_54B6221D02E2_ME_54B638150163_R // IcsFileTransferServices
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_54B654350377 // f_Transporter
+ HWL ME_54B683D20282 // f_TaskID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54B64A7C0177 // Create
+ HWL ME_54B64A8B0212 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_54B62A0501D7_ME_54B638150163_impl // TransferFile
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_54B638150163_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54B67E460306 // TncsGetTaskDescriptionReply
+ ME_54B67E4B01F5 // TncsGetPartialTaskDescription
+ ME_54B67E5E02A2 // TncsOneFileDeliverer
+ ME_54B6819C0147 // FreeAndNil
+ ME_54B683A00023 // TncsMessage
+ ME_54B7768E02C9 // FileDescHelper
+ ME_54B7769C012D // TncsFileDesc
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'alcuTaskFileTransferServices'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuTaskFileTransferServices'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuTaskFileTransferServices.pas'
+
+ENDME // ME_54B638150163 TalcuTaskFileTransferServices

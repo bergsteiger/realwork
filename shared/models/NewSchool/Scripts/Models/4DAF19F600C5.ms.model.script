@@ -209,7 +209,7 @@ ENDME // ME_4F72CF13026F DoIt
 ME ME_4F72CEFE016D
  MEPROP UID '4F72CEFE016D'
  MEPROP Name 'GetIsWritingToK'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -241,7 +241,7 @@ ENDME // ME_4F72CF340114 DoIt
 ME ME_4F72CF27029A
  MEPROP UID '4F72CF27029A'
  MEPROP Name 'GetIsFakeCVS'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -273,7 +273,7 @@ ENDME // ME_4F72CF860215 DoIt
 ME ME_4F72CF78027D
  MEPROP UID '4F72CF78027D'
  MEPROP Name 'GetCVSPath'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -303,7 +303,7 @@ ENDME // ME_4F851D8703E5 DoIt
 ME ME_4F851D7B0399
  MEPROP UID '4F851D7B0399'
  MEPROP Name 'DontRaiseIfEtalonCreated'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -368,7 +368,7 @@ ENDME // ME_511BC7DC0378 DoIt
 ME ME_511BC7C60063
  MEPROP UID '511BC7C60063'
  MEPROP Name 'TimeToLog'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -400,7 +400,7 @@ ENDME // ME_513866CA013D DoIt
 ME ME_513866B10237
  MEPROP UID '513866B10237'
  MEPROP Name 'GetTestSetFolderName'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -432,7 +432,7 @@ ENDME // ME_5138790C030D DoIt
 ME ME_5138790002FF
  MEPROP UID '5138790002FF'
  MEPROP Name 'GetEtalonSuffix'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -635,6 +635,12 @@ ME ME_4F0D796F0013
 
 ENDME // ME_4F0D796F0013 PrintingCaller
 
+MEREF ME_54F994E10154_ME_4F2162C80327_G
+ MELINK Original WL 'ME_54F994E10154' '55BB9712001F.ms.model.script' // EtfwException
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54F994E10154_ME_4F2162C80327_G EtfwException
+
 %%InheritedBy ME_54F994E10154 ME_4F2162C80327
 
 ME ME_4F2162C80327
@@ -648,11 +654,17 @@ ME ME_4F2162C80327
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_54F994E10154' '55BB9712001F.ms.model.script' // EtfwException
+   Seq: ( HWL ME_54F994E10154_ME_4F2162C80327_G // EtfwException
  )
  ; // Inherits
 
 ENDME // ME_4F2162C80327 EtfwCodeFlowException
+
+MEREF ME_4F2162C80327_ME_4F21892B0345_G
+ MELINK Original HWL ME_4F2162C80327 // EtfwCodeFlowException
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F2162C80327_ME_4F21892B0345_G EtfwCodeFlowException
 
 %%InheritedBy ME_4F2162C80327 ME_4F21892B0345
 
@@ -667,7 +679,7 @@ ME ME_4F21892B0345
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4F2162C80327 // EtfwCodeFlowException
+   Seq: ( HWL ME_4F2162C80327_ME_4F21892B0345_G // EtfwCodeFlowException
  )
  ; // Inherits
 
@@ -809,7 +821,7 @@ ENDME // ME_55647E6201CF DoIt
 ME ME_55647E560346
  MEPROP UID '55647E560346'
  MEPROP Name 'E'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -841,7 +853,7 @@ ENDME // ME_55648E89012B DoIt
 ME ME_55648E7E02DE
  MEPROP UID '55648E7E02DE'
  MEPROP Name 'Empty'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -873,7 +885,7 @@ ENDME // ME_556493DF0227 DoIt
 ME ME_556493D60163
  MEPROP UID '556493D60163'
  MEPROP Name 'ToString'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -918,6 +930,12 @@ ME ME_55647DF70372
 
 ENDME // ME_55647DF70372 TtfwSourcePoint
 
+MEREF ME_55BA4B91000E_ME_55BA4BE50215_G
+ MELINK Original WL 'ME_55BA4B91000E' '55BA28CE0290.ms.model.script' // TtfwAccessType
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55BA4B91000E_ME_55BA4BE50215_G TtfwAccessType
+
 %%InheritedBy ME_55BA4B91000E ME_55BA4BE50215
 
 ME ME_55BA4BE50215
@@ -931,12 +949,18 @@ ME ME_55BA4BE50215
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_55BA4B91000E' '55BA28CE0290.ms.model.script' // TtfwAccessType
+   Seq: ( HWL ME_55BA4B91000E_ME_55BA4BE50215_G // TtfwAccessType
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_55BA4BE50215 TtfwAccessType
+
+MEREF ME_55C23C6C00AD_ME_55C23DF0029B_G
+ MELINK Original WL 'ME_55C23C6C00AD' '55BA28CE0290.ms.model.script' // TtfwLinkType
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55C23C6C00AD_ME_55C23DF0029B_G TtfwLinkType
 
 %%InheritedBy ME_55C23C6C00AD ME_55C23DF0029B
 
@@ -951,7 +975,7 @@ ME ME_55C23DF0029B
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_55C23C6C00AD' '55BA28CE0290.ms.model.script' // TtfwLinkType
+   Seq: ( HWL ME_55C23C6C00AD_ME_55C23DF0029B_G // TtfwLinkType
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -993,7 +1017,7 @@ ENDME // ME_559D508400F4 DoIt
 ME ME_559D50760320
  MEPROP UID '559D50760320'
  MEPROP Name 'IncludeModifier'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1025,7 +1049,7 @@ ENDME // ME_559D50DA00CC DoIt
 ME ME_559D50D40233
  MEPROP UID '559D50D40233'
  MEPROP Name 'Empty'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1073,7 +1097,7 @@ ME ME_559D50EA02F1
  MEPROP UID '559D50EA02F1'
  MEPROP Name 'Has'
  MEPROP OriginalName 'Has$1'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1105,7 +1129,7 @@ ENDME // ME_559D62FA026C DoIt
 ME ME_559D62F40210
  MEPROP UID '559D62F40210'
  MEPROP Name 'Clone'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1137,7 +1161,7 @@ ENDME // ME_55B2544600CE DoIt
 ME ME_55B2543C0304
  MEPROP UID '55B2543C0304'
  MEPROP Name 'pRec'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1184,7 +1208,7 @@ ENDME // ME_55B264EE0252 DoIt
 ME ME_55B264D6035A
  MEPROP UID '55B264D6035A'
  MEPROP Name 'IncludeTypeModifier'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1232,7 +1256,7 @@ ME ME_55B2651800DB
  MEPROP UID '55B2651800DB'
  MEPROP Name 'Has'
  MEPROP OriginalName 'Has$2'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1279,7 +1303,7 @@ ENDME // ME_55B763D50345 DoIt
 ME ME_55B763C701FC
  MEPROP UID '55B763C701FC'
  MEPROP Name 'AcceptsValue'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1327,7 +1351,7 @@ ME ME_55B25CDC00AF
  MEPROP UID '55B25CDC00AF'
  MEPROP Name 'Make'
  MEPROP OriginalName 'Make$3'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1375,7 +1399,7 @@ ENDME // ME_559F83360373 DoIt
 ME ME_559D51990164
  MEPROP UID '559D51990164'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1424,7 +1448,7 @@ ME ME_55BA4C6D024B
  MEPROP UID '55BA4C6D024B'
  MEPROP Name 'Has'
  MEPROP OriginalName 'Has$3'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1471,7 +1495,7 @@ ENDME // ME_55BA4CC700DB DoIt
 ME ME_55BA4CB60097
  MEPROP UID '55BA4CB60097'
  MEPROP Name 'IncludeAccesType'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1549,7 +1573,7 @@ ME ME_55BB8EDE02C5
  MEPROP UID '55BB8EDE02C5'
  MEPROP Name 'Make'
  MEPROP OriginalName 'Make$1'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1597,7 +1621,7 @@ ENDME // ME_55BBB0E90043 DoIt
 ME ME_55BBB0DC0384
  MEPROP UID '55BBB0DC0384'
  MEPROP Name 'EQwm'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1644,7 +1668,7 @@ ENDME // ME_55BBB9110051 DoIt
 ME ME_55BBB8FE02C0
  MEPROP UID '55BBB8FE02C0'
  MEPROP Name 'IncludeType'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1676,7 +1700,7 @@ ENDME // ME_55BF06000261 DoIt
 ME ME_55BF05E70219
  MEPROP UID '55BF05E70219'
  MEPROP Name 'TypeName'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1724,7 +1748,7 @@ ME ME_55C0C85702A4
  MEPROP UID '55C0C85702A4'
  MEPROP Name 'Make'
  MEPROP OriginalName 'Make$4'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1749,7 +1773,7 @@ ME ME_55C0D6D602BD
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_55C0D6C20094 // ValueTypes
  ;
- MELINK Target WL 'ME_55BF2B000047' '55BF29CB003B.ms.model.script' // TtfwValueTypes
+ MELINK Target WL? 'ME_55BF2B000047' // TtfwValueTypes
  ;
 
 ENDME // ME_55C0D6D602BD DoIt
@@ -1757,7 +1781,7 @@ ENDME // ME_55C0D6D602BD DoIt
 ME ME_55C0D6C20094
  MEPROP UID '55C0D6C20094'
  MEPROP Name 'ValueTypes'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1804,7 +1828,7 @@ ENDME // ME_55C23CE2009A DoIt
 ME ME_55C23CD603CC
  MEPROP UID '55C23CD603CC'
  MEPROP Name 'IncludeLinkType'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1852,7 +1876,7 @@ ME ME_55C23DC202FE
  MEPROP UID '55C23DC202FE'
  MEPROP Name 'Has'
  MEPROP OriginalName 'Has$4'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1884,7 +1908,7 @@ ENDME // ME_55C34B91003A DoIt
 ME ME_55C34B8600C9
  MEPROP UID '55C34B8600C9'
  MEPROP Name 'LinkType'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1916,7 +1940,7 @@ ENDME // ME_55C34BD101F9 DoIt
 ME ME_55C34BC601FE
  MEPROP UID '55C34BC601FE'
  MEPROP Name 'AccessType'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1963,7 +1987,7 @@ ENDME // ME_55C3560E0390 DoIt
 ME ME_55C356030225
  MEPROP UID '55C356030225'
  MEPROP Name 'Compare'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1995,7 +2019,7 @@ ENDME // ME_55C385C602DC DoIt
 ME ME_55C385AD025D
  MEPROP UID '55C385AD025D'
  MEPROP Name 'Modifiers'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2027,7 +2051,7 @@ ENDME // ME_55C385E901CA DoIt
 ME ME_55C385DE0038
  MEPROP UID '55C385DE0038'
  MEPROP Name 'ToString'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2040,6 +2064,12 @@ ME ME_55C385DE0038
  ; // Operations
 
 ENDME // ME_55C385DE0038 ToString
+
+MEREF ME_49E7754802A9_ME_559D504A0081_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_559D504A0081_G Tl3ProtoObject
 
 %%InheritedBy ME_49E7754802A9 ME_559D504A0081
 
@@ -2055,7 +2085,7 @@ ME ME_559D504A0081
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_559D504A0081_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Operations
@@ -2094,6 +2124,12 @@ ME ME_559D504A0081
 
 ENDME // ME_559D504A0081 TtfwWordInfo
 
+MEREF ME_54F994E10154_ME_4DE6544101A1_G
+ MELINK Original WL 'ME_54F994E10154' '55BB9712001F.ms.model.script' // EtfwException
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54F994E10154_ME_4DE6544101A1_G EtfwException
+
 %%InheritedBy ME_54F994E10154 ME_4DE6544101A1
 
 ME ME_4DE6544101A1
@@ -2108,11 +2144,17 @@ ME ME_4DE6544101A1
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_54F994E10154' '55BB9712001F.ms.model.script' // EtfwException
+   Seq: ( HWL ME_54F994E10154_ME_4DE6544101A1_G // EtfwException
  )
  ; // Inherits
 
 ENDME // ME_4DE6544101A1 EtfwScriptException
+
+MEREF ME_4DB00A510300_ME_55C0A4F9013F_G
+ MELINK Original WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB00A510300_ME_55C0A4F9013F_G TtfwStackValue
 
 %%InheritedBy ME_4DB00A510300 ME_55C0A4F9013F
 
@@ -2127,7 +2169,7 @@ ME ME_55C0A4F9013F
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
+   Seq: ( HWL ME_4DB00A510300_ME_55C0A4F9013F_G // TtfwStackValue
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -2214,7 +2256,7 @@ ENDME // ME_56055566021D DoIt
 ME ME_5605555F003E
  MEPROP UID '5605555F003E'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2245,7 +2287,7 @@ ME ME_560555C3003C
  MEPROP UID '560555C3003C'
  MEPROP Name 'Create'
  MEPROP OriginalName 'Create$Static'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2259,12 +2301,18 @@ ME ME_560555C3003C
 
 ENDME // ME_560555C3003C Create$Static
 
-ME ME_5161317A0219_ME_5596255801C5
+MEREF ME_5161317A0219_ME_5596255801C5_over
  MELINK Original WL 'ME_5161317A0219' '4807744200AA.ms.model.script' // FreeInstance
  ;
  MEPROP OpKind opkind_Overridden
  UP "is static" False
-ENDME // ME_5161317A0219_ME_5596255801C5 FreeInstance
+ENDMEREF // ME_5161317A0219_ME_5596255801C5_over FreeInstance
+
+MEREF ME_4F2162C80327_ME_5596255801C5_G
+ MELINK Original HWL ME_4F2162C80327 // EtfwCodeFlowException
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F2162C80327_ME_5596255801C5_G EtfwCodeFlowException
 
 %%InheritedBy ME_4F2162C80327 ME_5596255801C5
 
@@ -2279,7 +2327,7 @@ ME ME_5596255801C5
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4F2162C80327 // EtfwCodeFlowException
+   Seq: ( HWL ME_4F2162C80327_ME_5596255801C5_G // EtfwCodeFlowException
  )
  ; // Inherits
  MELIST Attributes
@@ -2292,7 +2340,7 @@ ME ME_5596255801C5
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_5161317A0219_ME_5596255801C5 // FreeInstance
+   Seq: ( ME_5161317A0219_ME_5596255801C5_over // FreeInstance
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames
@@ -2301,6 +2349,12 @@ ME ME_5596255801C5
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_5596255801C5 EtfwExitOrBreak
+
+MEREF ME_5596255801C5_ME_4F2162EF0211_G
+ MELINK Original HWL ME_5596255801C5 // EtfwExitOrBreak
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5596255801C5_ME_4F2162EF0211_G EtfwExitOrBreak
 
 %%InheritedBy ME_5596255801C5 ME_4F2162EF0211
 
@@ -2315,13 +2369,19 @@ ME ME_4F2162EF0211
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5596255801C5 // EtfwExitOrBreak
+   Seq: ( HWL ME_5596255801C5_ME_4F2162EF0211_G // EtfwExitOrBreak
  )
  ; // Inherits
  UP "singleton" True
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_4F2162EF0211 EtfwContinue
+
+MEREF ME_5596255801C5_ME_4F2162FE036D_G
+ MELINK Original HWL ME_5596255801C5 // EtfwExitOrBreak
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5596255801C5_ME_4F2162FE036D_G EtfwExitOrBreak
 
 %%InheritedBy ME_5596255801C5 ME_4F2162FE036D
 
@@ -2336,13 +2396,19 @@ ME ME_4F2162FE036D
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5596255801C5 // EtfwExitOrBreak
+   Seq: ( HWL ME_5596255801C5_ME_4F2162FE036D_G // EtfwExitOrBreak
  )
  ; // Inherits
  UP "singleton" True
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_4F2162FE036D EtfwExit
+
+MEREF ME_5596255801C5_ME_4F21630F026F_G
+ MELINK Original HWL ME_5596255801C5 // EtfwExitOrBreak
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5596255801C5_ME_4F21630F026F_G EtfwExitOrBreak
 
 %%InheritedBy ME_5596255801C5 ME_4F21630F026F
 
@@ -2357,7 +2423,7 @@ ME ME_4F21630F026F
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5596255801C5 // EtfwExitOrBreak
+   Seq: ( HWL ME_5596255801C5_ME_4F21630F026F_G // EtfwExitOrBreak
  )
  ; // Inherits
  UP "singleton" True
@@ -2459,7 +2525,7 @@ ME ME_4DDE4CC50360
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_4DB0091E033E // TtfwContext
  ;
- MELINK Target WL 'ME_52F4E6AA02BB' '4F4734A40270.ms.model.script' // TtfwStreamFactory
+ MELINK Target WL? 'ME_52F4E6AA02BB' // TtfwStreamFactory
  ;
 
 ENDME // ME_4DDE4CC50360 rStreamFactory
@@ -2682,7 +2748,7 @@ ENDME // ME_55C3862000B0 DoIt
 ME ME_55C386170161
  MEPROP UID '55C386170161'
  MEPROP Name 'SetWordInfo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2731,7 +2797,7 @@ ME ME_57A9948300D6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55C89C5C015C // ResolveIncludedFilePath
  ;
- MELINK Target WL 'ME_57726B250063' '4F4734A40270.ms.model.script' // TtfwParserService
+ MELINK Target WL? 'ME_57726B250063' // TtfwParserService
  ;
 
 ENDME // ME_57A9948300D6 
@@ -2739,7 +2805,7 @@ ENDME // ME_57A9948300D6
 ME ME_55C89C5C015C
  MEPROP UID '55C89C5C015C'
  MEPROP Name 'ResolveIncludedFilePath'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2810,6 +2876,12 @@ ME ME_4DB0091E033E
 
 ENDME // ME_4DB0091E033E TtfwContext
 
+MEREF ME_4F473F9402D8_ME_4F4748B9023D_G
+ MELINK Original WL? 'ME_4F473F9402D8' // TtfwCStringFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F473F9402D8_ME_4F4748B9023D_G TtfwCStringFactory
+
 %%InheritedBy ME_4F473F9402D8 ME_4F4748B9023D
 
 ME ME_4F4748B9023D
@@ -2823,7 +2895,7 @@ ME ME_4F4748B9023D
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F473F9402D8' '4F473F0902B2.ms.model.script' // TtfwCStringFactory
+   Seq: ( HWL ME_4F473F9402D8_ME_4F4748B9023D_G // TtfwCStringFactory
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -2865,7 +2937,7 @@ ENDME // ME_4DB6CF84003A DoIt
 ME ME_4DB6CF7202CB
  MEPROP UID '4DB6CF7202CB'
  MEPROP Name 'IsCompiled'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2910,7 +2982,7 @@ ENDME // ME_4F4942A8000C DoIt
 ME ME_4F49428A01EA
  MEPROP UID '4F49428A01EA'
  MEPROP Name 'StoreState'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -2955,7 +3027,7 @@ ENDME // ME_4F4942E40355 DoIt
 ME ME_4F4942C50339
  MEPROP UID '4F4942C50339'
  MEPROP Name 'RestoreState'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -3004,7 +3076,7 @@ ENDME // ME_4F22777503A5 DoIt
 ME ME_4F22776902FC
  MEPROP UID '4F22776902FC'
  MEPROP Name 'DoIt'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3049,7 +3121,7 @@ ENDME // ME_4DAEEDEF0385 DoIt
 ME ME_4DAEEDE10285
  MEPROP UID '4DAEEDE10285'
  MEPROP Name 'DoDoIt'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -3094,7 +3166,7 @@ ENDME // ME_53C90ED2020E DoIt
 ME ME_53C90EC00136
  MEPROP UID '53C90EC00136'
  MEPROP Name 'ClearState'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -3126,7 +3198,7 @@ ENDME // ME_556317EB00A8 DoIt
 ME ME_556317DE02B5
  MEPROP UID '556317DE02B5'
  MEPROP Name 'SourcePoint'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3171,7 +3243,7 @@ ENDME // ME_55EED3B102AE DoIt
 ME ME_55EED3920052
  MEPROP UID '55EED3920052'
  MEPROP Name 'PushAdditionalParams'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -3200,7 +3272,7 @@ ME ME_57C3F37C0341
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_52EA594400DD // TtfwWordPrim
  ;
- MELINK Target WL 'ME_57C3F3540027' '57C3F2CB000D.ms.model.script' // TtfwCS
+ MELINK Target WL? 'ME_57C3F3540027' // TtfwCS
  ;
 
 ENDME // ME_57C3F37C0341 
@@ -3215,6 +3287,12 @@ ME ME_57C3F9940067
 
 ENDME // ME_57C3F9940067 
 
+MEREF ME_49E7754802A9_ME_52EA594400DD_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_52EA594400DD_G Tl3ProtoObject
+
 %%InheritedBy ME_49E7754802A9 ME_52EA594400DD
 
 ME ME_52EA594400DD
@@ -3228,7 +3306,7 @@ ME ME_52EA594400DD
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_52EA594400DD_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Attributes
@@ -3295,7 +3373,7 @@ ENDME // ME_55A7C9FE0197 DoIt
 ME ME_55A7C9EC0295
  MEPROP UID '55A7C9EC0295'
  MEPROP Name 'KeywordFinder'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3394,7 +3472,7 @@ ENDME // ME_559D25F703DC DoIt
 ME ME_559D25E90141
  MEPROP UID '559D25E90141'
  MEPROP Name 'DefineInParameter'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3463,7 +3541,7 @@ ENDME // ME_4F4658960386 CheckWord
 ME ME_4F46588B021E
  MEPROP UID '4F46588B021E'
  MEPROP Name 'CheckWord'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3497,23 +3575,41 @@ ME ME_55A8E78D00A9
 
 ENDME // ME_55A8E78D00A9 MtfwWordChecker
 
-ME ME_4F46588B021E_ME_559F9DDD0109
+MEREF ME_4F46588B021E_ME_559F9DDD0109_impl
  MELINK Original HWL ME_4F46588B021E // CheckWord
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F46588B021E_ME_559F9DDD0109 CheckWord
+ENDMEREF // ME_4F46588B021E_ME_559F9DDD0109_impl CheckWord
 
-ME ME_559D25E90141_ME_559F9DDD0109
+MEREF ME_559D25E90141_ME_559F9DDD0109_impl
  MELINK Original HWL ME_559D25E90141 // DefineInParameter
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_559D25E90141_ME_559F9DDD0109 DefineInParameter
+ENDMEREF // ME_559D25E90141_ME_559F9DDD0109_impl DefineInParameter
 
-ME ME_55A7C9EC0295_ME_559F9DDD0109
+MEREF ME_55A7C9EC0295_ME_559F9DDD0109_impl
  MELINK Original HWL ME_55A7C9EC0295 // KeywordFinder
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55A7C9EC0295_ME_559F9DDD0109 KeywordFinder
+ENDMEREF // ME_55A7C9EC0295_ME_559F9DDD0109_impl KeywordFinder
+
+MEREF ME_55899C2F01A5_ME_559F9DDD0109_G
+ MELINK Original HWL ME_55899C2F01A5 // MtfwKeywordFinderSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55899C2F01A5_ME_559F9DDD0109_G MtfwKeywordFinderSource
+
+MEREF ME_559D25C00172_ME_559F9DDD0109_G
+ MELINK Original HWL ME_559D25C00172 // MtfwInParameterDefinitor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_559D25C00172_ME_559F9DDD0109_G MtfwInParameterDefinitor
+
+MEREF ME_55A8E78D00A9_ME_559F9DDD0109_G
+ MELINK Original HWL ME_55A8E78D00A9 // MtfwWordChecker
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55A8E78D00A9_ME_559F9DDD0109_G MtfwWordChecker
 
 %%InheritedBy ME_55899C2F01A5 ME_559F9DDD0109
 %%InheritedBy ME_559D25C00172 ME_559F9DDD0109
@@ -3530,15 +3626,15 @@ ME ME_559F9DDD0109
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_55899C2F01A5 // MtfwKeywordFinderSource
- HWL ME_559D25C00172 // MtfwInParameterDefinitor
- HWL ME_55A8E78D00A9 // MtfwWordChecker
+   Seq: ( HWL ME_55899C2F01A5_ME_559F9DDD0109_G // MtfwKeywordFinderSource
+ HWL ME_559D25C00172_ME_559F9DDD0109_G // MtfwInParameterDefinitor
+ HWL ME_55A8E78D00A9_ME_559F9DDD0109_G // MtfwWordChecker
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_4F46588B021E_ME_559F9DDD0109 // CheckWord
- ME_559D25E90141_ME_559F9DDD0109 // DefineInParameter
- ME_55A7C9EC0295_ME_559F9DDD0109 // KeywordFinder
+   Seq: ( ME_4F46588B021E_ME_559F9DDD0109_impl // CheckWord
+ ME_559D25E90141_ME_559F9DDD0109_impl // DefineInParameter
+ ME_55A7C9EC0295_ME_559F9DDD0109_impl // KeywordFinder
  )
  ; // Implemented
 
@@ -3610,6 +3706,12 @@ ME ME_55A3BD6B03AE
 
 ENDME // ME_55A3BD6B03AE MtfwCodeCompiler
 
+MEREF ME_5596255801C5_ME_4F62FA59020B_G
+ MELINK Original HWL ME_5596255801C5 // EtfwExitOrBreak
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5596255801C5_ME_4F62FA59020B_G EtfwExitOrBreak
+
 %%InheritedBy ME_5596255801C5 ME_4F62FA59020B
 
 ME ME_4F62FA59020B
@@ -3623,7 +3725,7 @@ ME ME_4F62FA59020B
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5596255801C5 // EtfwExitOrBreak
+   Seq: ( HWL ME_5596255801C5_ME_4F62FA59020B_G // EtfwExitOrBreak
  )
  ; // Inherits
  UP "singleton" True
@@ -3651,7 +3753,7 @@ ENDME // ME_55A7C97C0321 DoIt
 ME ME_55A7C9680222
  MEPROP UID '55A7C9680222'
  MEPROP Name 'NewWordDefinitor'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3728,7 +3830,7 @@ ENDME // ME_4F416FC30256 DoIt
 ME ME_4F416F900048
  MEPROP UID '4F416F900048'
  MEPROP Name 'CompileInParameterPopCode'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Компилирует код извлечения входного параметра в код компилируемого слова' ;
@@ -3743,23 +3845,41 @@ ME ME_4F416F900048
 
 ENDME // ME_4F416F900048 CompileInParameterPopCode
 
-ME ME_4DB6E3090290_ME_559F9F760309
+MEREF ME_4DB6E3090290_ME_559F9F760309_impl
  MELINK Original HWL ME_4DB6E3090290 // AddCodePart
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB6E3090290_ME_559F9F760309 AddCodePart
+ENDMEREF // ME_4DB6E3090290_ME_559F9F760309_impl AddCodePart
 
-ME ME_55A7C9680222_ME_559F9F760309
+MEREF ME_55A7C9680222_ME_559F9F760309_impl
  MELINK Original HWL ME_55A7C9680222 // NewWordDefinitor
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55A7C9680222_ME_559F9F760309 NewWordDefinitor
+ENDMEREF // ME_55A7C9680222_ME_559F9F760309_impl NewWordDefinitor
 
-ME ME_55A7C9EC0295_ME_559F9F760309
+MEREF ME_55A7C9EC0295_ME_559F9F760309_impl
  MELINK Original HWL ME_55A7C9EC0295 // KeywordFinder
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55A7C9EC0295_ME_559F9F760309 KeywordFinder
+ENDMEREF // ME_55A7C9EC0295_ME_559F9F760309_impl KeywordFinder
+
+MEREF ME_55899C2F01A5_ME_559F9F760309_G
+ MELINK Original HWL ME_55899C2F01A5 // MtfwKeywordFinderSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55899C2F01A5_ME_559F9F760309_G MtfwKeywordFinderSource
+
+MEREF ME_55A3BD6B03AE_ME_559F9F760309_G
+ MELINK Original HWL ME_55A3BD6B03AE // MtfwCodeCompiler
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55A3BD6B03AE_ME_559F9F760309_G MtfwCodeCompiler
+
+MEREF ME_55A67DFF0382_ME_559F9F760309_G
+ MELINK Original HWL ME_55A67DFF0382 // MtfwNewWordDefinitorSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55A67DFF0382_ME_559F9F760309_G MtfwNewWordDefinitorSource
 
 %%InheritedBy ME_55899C2F01A5 ME_559F9F760309
 %%InheritedBy ME_55A3BD6B03AE ME_559F9F760309
@@ -3776,9 +3896,9 @@ ME ME_559F9F760309
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_55899C2F01A5 // MtfwKeywordFinderSource
- HWL ME_55A3BD6B03AE // MtfwCodeCompiler
- HWL ME_55A67DFF0382 // MtfwNewWordDefinitorSource
+   Seq: ( HWL ME_55899C2F01A5_ME_559F9F760309_G // MtfwKeywordFinderSource
+ HWL ME_55A3BD6B03AE_ME_559F9F760309_G // MtfwCodeCompiler
+ HWL ME_55A67DFF0382_ME_559F9F760309_G // MtfwNewWordDefinitorSource
  )
  ; // Inherits
  MELIST Operations
@@ -3786,9 +3906,9 @@ ME ME_559F9F760309
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4DB6E3090290_ME_559F9F760309 // AddCodePart
- ME_55A7C9680222_ME_559F9F760309 // NewWordDefinitor
- ME_55A7C9EC0295_ME_559F9F760309 // KeywordFinder
+   Seq: ( ME_4DB6E3090290_ME_559F9F760309_impl // AddCodePart
+ ME_55A7C9680222_ME_559F9F760309_impl // NewWordDefinitor
+ ME_55A7C9EC0295_ME_559F9F760309_impl // KeywordFinder
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -3832,7 +3952,7 @@ ENDME // ME_55ACD60501BA DoIt
 ME ME_55ACD5F10301
  MEPROP UID '55ACD5F10301'
  MEPROP Name 'KeywordByName'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3864,7 +3984,7 @@ ENDME // ME_55ACF0DD03D9 DoIt
 ME ME_55ACF0CF0320
  MEPROP UID '55ACF0CF0320'
  MEPROP Name 'ParentFinder'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3965,6 +4085,12 @@ ME ME_5617F4AD02A1
 
 ENDME // ME_5617F4AD02A1 PTypeInfoArray
 
+MEREF ME_4DAEED140007_ME_4DAEED6F03DD_G
+ MELINK Original HWL ME_4DAEED140007 // TtfwWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DAEED140007_ME_4DAEED6F03DD_G TtfwWord
+
 %%InheritedBy ME_4DAEED140007 ME_4DAEED6F03DD
 
 ME ME_4DAEED6F03DD
@@ -3978,7 +4104,7 @@ ME ME_4DAEED6F03DD
  MELINK Parent HWL ME_4DAEED140007 // TtfwWord
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4DAEED140007 // TtfwWord
+   Seq: ( HWL ME_4DAEED140007_ME_4DAEED6F03DD_G // TtfwWord
  )
  ; // Inherits
  UP "isClassRef" True
@@ -4032,7 +4158,7 @@ ME ME_4FFEEC5B0224
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_4DAEED140007 // TtfwWord
  ;
- MELINK Target WL 'ME_4FFEEC080367' '4F4734A40270.ms.model.script' // TtfwKeyWordPrim
+ MELINK Target WL? 'ME_4FFEEC080367' // TtfwKeyWordPrim
  ;
  UP "pm" True
  UP "reads field" True
@@ -4051,7 +4177,7 @@ ME ME_52B43311021D
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_4DAEED140007 // TtfwWord
  ;
- MELINK Target WL 'ME_4F4659980048' '4F463D910318.ms.model.script' // TtfwDictionaryPrim
+ MELINK Target WL? 'ME_4F4659980048' // TtfwDictionaryPrim
  ;
  UP "pm" True
 
@@ -4127,7 +4253,7 @@ ENDME // ME_4DBAF48A001E DoIt
 ME ME_4DBAF4630154
  MEPROP UID '4DBAF4630154'
  MEPROP Name 'IsDefaultBranch'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -4192,7 +4318,7 @@ ENDME // ME_4EF4AE550062 DoIt
 ME ME_4EF4AE480303
  MEPROP UID '4EF4AE480303'
  MEPROP Name 'RunnerAssert'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -4239,7 +4365,7 @@ ENDME // ME_4F3AB3790109 DoIt
 ME ME_4F3AB3600008
  MEPROP UID '4F3AB3600008'
  MEPROP Name 'IsAnonimous'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -4314,7 +4440,7 @@ ENDME // ME_4F3E36C401F0 DoIt
 ME ME_4F3E369002A2
  MEPROP UID '4F3E369002A2'
  MEPROP Name 'CompilerAssertFmt'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -4389,7 +4515,7 @@ ENDME // ME_4F3E36E402FD DoIt
 ME ME_4F3E36A5031F
  MEPROP UID '4F3E36A5031F'
  MEPROP Name 'RunnerAssertFmt'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -4436,7 +4562,7 @@ ENDME // ME_4F477C4000D4 DoIt
 ME ME_4F477C2C03B9
  MEPROP UID '4F477C2C03B9'
  MEPROP Name 'CompiledWordClassPrim'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -4468,7 +4594,7 @@ ENDME // ME_4F4BB6ED0256 DoIt
 ME ME_4F4BB6CD0359
  MEPROP UID '4F4BB6CD0359'
  MEPROP Name 'IsForwardDeclaration'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -4515,7 +4641,7 @@ ENDME // ME_52D399AA01CE DoIt
 ME ME_52D399A00173
  MEPROP UID '52D399A00173'
  MEPROP Name 'GetValue'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -4547,7 +4673,7 @@ ENDME // ME_52D399E10315 DoIt
 ME ME_52D399D40140
  MEPROP UID '52D399D40140'
  MEPROP Name 'IsVarLike'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -4602,7 +4728,7 @@ ENDME // ME_52D00B1301A3 DoIt
 ME ME_52D00B00031A
  MEPROP UID '52D00B00031A'
  MEPROP Name 'SetValuePrim'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -4634,7 +4760,7 @@ ENDME // ME_52D40F8D01BC DoIt
 ME ME_52D40F640308
  MEPROP UID '52D40F640308'
  MEPROP Name 'HasCode'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Есть ли у слова компилированный код' ;
@@ -4667,7 +4793,7 @@ ENDME // ME_52D40FC60241 DoIt
 ME ME_52D40FAA0073
  MEPROP UID '52D40FAA0073'
  MEPROP Name 'HasLocalDictionary'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Есть ли у слова локальный словарь' ;
@@ -4700,7 +4826,7 @@ ENDME // ME_52D4193B0175 DoIt
 ME ME_52D4191402A2
  MEPROP UID '52D4191402A2'
  MEPROP Name 'CodeCount'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Число элементов скомпилированного кода' ;
@@ -4748,7 +4874,7 @@ ENDME // ME_52D523B30005 DoIt
 ME ME_52D523A40118
  MEPROP UID '52D523A40118'
  MEPROP Name 'GetCompiler'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -4825,7 +4951,7 @@ ENDME // ME_4F4161E1020B DoIt
 ME ME_4F4161BC0024
  MEPROP UID '4F4161BC0024'
  MEPROP Name 'DoDefineInParameter'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Определяет слову входной параметр' ;
@@ -4881,7 +5007,7 @@ ENDME // ME_4F4177A5007E DoIt
 ME ME_4F4177910352
  MEPROP UID '4F4177910352'
  MEPROP Name 'CompileInParameterPopCodeFromString'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -4946,7 +5072,7 @@ ENDME // ME_4DB6CB210269 DoIt
 ME ME_4DB6CB1703AD
  MEPROP UID '4DB6CB1703AD'
  MEPROP Name 'DoAddCodePart'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -4978,7 +5104,7 @@ ENDME // ME_52D6ABEC0317 DoIt
 ME ME_52D6ABCB0026
  MEPROP UID '52D6ABCB0026'
  MEPROP Name 'IsCloseBracket'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5035,7 +5161,7 @@ ENDME // ME_52D6B63B021A DoIt
 ME ME_52D6B62E001B
  MEPROP UID '52D6B62E001B'
  MEPROP Name 'GetEndBracket'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5067,7 +5193,7 @@ ENDME // ME_52D7B68601D8 DoIt
 ME ME_52D7B67501CE
  MEPROP UID '52D7B67501CE'
  MEPROP Name 'NameForRegister'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5125,7 +5251,7 @@ ENDME // ME_52D7DCB10126 DoIt
 ME ME_52D7DC84019E
  MEPROP UID '52D7DC84019E'
  MEPROP Name 'AcceptMedianBracket'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5172,7 +5298,7 @@ ENDME // ME_52DFE4910015 DoIt
 ME ME_52DFE48500BB
  MEPROP UID '52DFE48500BB'
  MEPROP Name 'GetAsCaller'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5219,7 +5345,7 @@ ENDME // ME_52E91DB1023E DoIt
 ME ME_52E91D9D0024
  MEPROP UID '52E91D9D0024'
  MEPROP Name 'IsRightParam'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5266,7 +5392,7 @@ ENDME // ME_52E92837003C DoIt
 ME ME_52E9282B0271
  MEPROP UID '52E9282B0271'
  MEPROP Name 'RightParamsCount'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5323,7 +5449,7 @@ ENDME // ME_52D542750240 DoIt
 ME ME_52D5425A037F
  MEPROP UID '52D5425A037F'
  MEPROP Name 'GetInParam'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5378,7 +5504,7 @@ ENDME // ME_52EA6A4602FE DoIt
 ME ME_52EA6A2C0111
  MEPROP UID '52EA6A2C0111'
  MEPROP Name 'SetResultTypeInfo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5425,7 +5551,7 @@ ENDME // ME_53E38924037D DoIt
 ME ME_53E389100169
  MEPROP UID '53E389100169'
  MEPROP Name 'IsLeftWordRefParam'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5455,7 +5581,7 @@ ENDME // ME_53E46C1B00DE DoIt
 ME ME_53E46C0A033C
  MEPROP UID '53E46C0A033C'
  MEPROP Name 'RegisterClass'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5503,7 +5629,7 @@ ENDME // ME_53E4915D01F2 DoIt
 ME ME_53E4914101D2
  MEPROP UID '53E4914101D2'
  MEPROP Name 'LeftWordRefParamsCount'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5558,7 +5684,7 @@ ENDME // ME_53E49B480282 DoIt
 ME ME_53E49B2F01E4
  MEPROP UID '53E49B2F01E4'
  MEPROP Name 'AddLeftWordRefValue'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5615,7 +5741,7 @@ ENDME // ME_53E4A42C0353 DoIt
 ME ME_53E4A3C100AB
  MEPROP UID '53E4A3C100AB'
  MEPROP Name 'GetLeftWordRefValue'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5662,7 +5788,7 @@ ENDME // ME_53E4A98303E7 DoIt
 ME ME_53E4A96A0085
  MEPROP UID '53E4A96A0085'
  MEPROP Name 'LeftWordRefValuesCount'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5717,7 +5843,7 @@ ENDME // ME_551271CC0148 DoIt
 ME ME_551271AF0112
  MEPROP UID '551271AF0112'
  MEPROP Name 'RunnerError'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5764,7 +5890,7 @@ ENDME // ME_551544F402BD DoIt
 ME ME_551544E2001A
  MEPROP UID '551544E2001A'
  MEPROP Name 'GetResultTypeInfo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5819,7 +5945,7 @@ ENDME // ME_551A900200A2 DoIt
 ME ME_551A8FD70119
  MEPROP UID '551A8FD70119'
  MEPROP Name 'BadValueType'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -5876,7 +6002,7 @@ ENDME // ME_557698AE0123 DoIt
 ME ME_55769895035B
  MEPROP UID '55769895035B'
  MEPROP Name 'GetRightParam'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5923,7 +6049,7 @@ ENDME // ME_558D1A7B01A1 DoIt
 ME ME_558D1A4C0082
  MEPROP UID '558D1A4C0082'
  MEPROP Name 'GetResultVar'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -5953,7 +6079,7 @@ ENDME // ME_558D4AD0011D DoIt
 ME ME_558D4AC70295
  MEPROP UID '558D4AC70295'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6000,7 +6126,7 @@ ENDME // ME_558D2BF002F3 DoIt
 ME ME_558D2BCA0324
  MEPROP UID '558D2BCA0324'
  MEPROP Name 'GetRef'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6047,7 +6173,7 @@ ENDME // ME_559687FF0201 DoIt
 ME ME_559687E6025A
  MEPROP UID '559687E6025A'
  MEPROP Name 'GetAllParamsCount'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6079,7 +6205,7 @@ ENDME // ME_559A473C024D DoIt
 ME ME_559A470F0288
  MEPROP UID '559A470F0288'
  MEPROP Name 'CanClearInRecursiveCalls'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6111,7 +6237,7 @@ ENDME // ME_559A4C6B0235 DoIt
 ME ME_559A4C5801D8
  MEPROP UID '559A4C5801D8'
  MEPROP Name 'IsInParam'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6156,7 +6282,7 @@ ENDME // ME_55A5245A0173 DoIt
 ME ME_55A5244400BD
  MEPROP UID '55A5244400BD'
  MEPROP Name 'InitValue'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6188,7 +6314,7 @@ ENDME // ME_52D563540103 DoIt
 ME ME_52D56341033B
  MEPROP UID '52D56341033B'
  MEPROP Name 'GetNewWordDefinitor'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -6235,7 +6361,7 @@ ENDME // ME_52D56389007E DoIt
 ME ME_52D5637A031E
  MEPROP UID '52D5637A031E'
  MEPROP Name 'GetKeywordFinder'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6300,7 +6426,7 @@ ENDME // ME_52D56AAA02CB DoIt
 ME ME_52D56A980103
  MEPROP UID '52D56A980103'
  MEPROP Name 'DoCompileInParameterPopCode'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -6347,7 +6473,7 @@ ENDME // ME_55A7D35A021D CheckWord
 ME ME_55A7D34102A0
  MEPROP UID '55A7D34102A0'
  MEPROP Name 'DoCheckWord'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6394,7 +6520,7 @@ ENDME // ME_55ACE546014D DoIt
 ME ME_55ACE5210310
  MEPROP UID '55ACE5210310'
  MEPROP Name 'GetKeywordByName'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6426,7 +6552,7 @@ ENDME // ME_55ACF1070329 DoIt
 ME ME_55ACF0F5025D
  MEPROP UID '55ACF0F5025D'
  MEPROP Name 'GetParentFinder'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6458,7 +6584,7 @@ ENDME // ME_55AFD7EA00B5 DoIt
 ME ME_55AFD7DA0258
  MEPROP UID '55AFD7DA0258'
  MEPROP Name 'WordName'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6490,7 +6616,7 @@ ENDME // ME_55C399DD00DF DoIt
 ME ME_55C399C9009B
  MEPROP UID '55C399C9009B'
  MEPROP Name 'IsForHelp'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6547,7 +6673,7 @@ ENDME // ME_55CB5BBB0284 DoIt
 ME ME_55CB5B8C004E
  MEPROP UID '55CB5B8C004E'
  MEPROP Name 'MakeRefForCompile'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6602,7 +6728,7 @@ ENDME // ME_560966A30170 DoIt
 ME ME_56096688024A
  MEPROP UID '56096688024A'
  MEPROP Name 'SetValue'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6649,7 +6775,7 @@ ENDME // ME_5617DBB00070 DoIt
 ME ME_5617DBA00377
  MEPROP UID '5617DBA00377'
  MEPROP Name 'IsCompleted'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6696,7 +6822,7 @@ ENDME // ME_4DB6D80800A8 DoIt
 ME ME_4DB6D7F70155
  MEPROP UID '4DB6D7F70155'
  MEPROP Name 'IsImmediate'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6761,7 +6887,7 @@ ENDME // ME_4EF4A32000F5 DoIt
 ME ME_4EF4A312023F
  MEPROP UID '4EF4A312023F'
  MEPROP Name 'CompilerAssert'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -6793,7 +6919,7 @@ ENDME // ME_5617F4E10143 DoIt
 ME ME_5617F4D00243
  MEPROP UID '5617F4D00243'
  MEPROP Name 'ParamsTypes'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6840,7 +6966,7 @@ ENDME // ME_5617F50A0121 DoIt
 ME ME_5617F4EE00E7
  MEPROP UID '5617F4EE00E7'
  MEPROP Name 'OpenTypesToTypes'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -6873,7 +6999,7 @@ ENDME // ME_56191646008E DoIt
 ME ME_5619162C0102
  MEPROP UID '5619162C0102'
  MEPROP Name 'ParamsInfos'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6905,7 +7031,7 @@ ENDME // ME_56456DE9010C DoIt
 ME ME_56456DDD037D
  MEPROP UID '56456DDD037D'
  MEPROP Name 'IsGlobalVar'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6950,7 +7076,7 @@ ENDME // ME_5673E72003AD DoIt
 ME ME_5673E71002C8
  MEPROP UID '5673E71002C8'
  MEPROP Name 'SetParent'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -6982,7 +7108,7 @@ ENDME // ME_57500A4202F2 DoIt
 ME ME_57500A22001C
  MEPROP UID '57500A22001C'
  MEPROP Name 'GetRefForCompare'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -7051,7 +7177,7 @@ ME ME_4F4740EA03A6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DAEED140007 // TtfwWord
  ;
- MELINK Target WL 'ME_4F473F9402D8' '4F473F0902B2.ms.model.script' // TtfwCStringFactory
+ MELINK Target WL? 'ME_4F473F9402D8' // TtfwCStringFactory
  ;
 
 ENDME // ME_4F4740EA03A6 
@@ -7067,78 +7193,126 @@ ME ME_55BEFFCC013F
 
 ENDME // ME_55BEFFCC013F 
 
-ME ME_4DB6E3090290_ME_4DAEED140007
+MEREF ME_4DB6E3090290_ME_4DAEED140007_impl
  MELINK Original HWL ME_4DB6E3090290 // AddCodePart
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB6E3090290_ME_4DAEED140007 AddCodePart
+ENDMEREF // ME_4DB6E3090290_ME_4DAEED140007_impl AddCodePart
 
-ME ME_4F416F900048_ME_4DAEED140007
+MEREF ME_4F416F900048_ME_4DAEED140007_impl
  MELINK Original HWL ME_4F416F900048 // CompileInParameterPopCode
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F416F900048_ME_4DAEED140007 CompileInParameterPopCode
+ENDMEREF // ME_4F416F900048_ME_4DAEED140007_impl CompileInParameterPopCode
 
-ME ME_4F46588B021E_ME_4DAEED140007
+MEREF ME_4F46588B021E_ME_4DAEED140007_impl
  MELINK Original HWL ME_4F46588B021E // CheckWord
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F46588B021E_ME_4DAEED140007 CheckWord
+ENDMEREF // ME_4F46588B021E_ME_4DAEED140007_impl CheckWord
 
-ME ME_559D25E90141_ME_4DAEED140007
+MEREF ME_559D25E90141_ME_4DAEED140007_impl
  MELINK Original HWL ME_559D25E90141 // DefineInParameter
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_559D25E90141_ME_4DAEED140007 DefineInParameter
+ENDMEREF // ME_559D25E90141_ME_4DAEED140007_impl DefineInParameter
 
-ME ME_55A7C9680222_ME_4DAEED140007
+MEREF ME_55A7C9680222_ME_4DAEED140007_impl
  MELINK Original HWL ME_55A7C9680222 // NewWordDefinitor
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55A7C9680222_ME_4DAEED140007 NewWordDefinitor
+ENDMEREF // ME_55A7C9680222_ME_4DAEED140007_impl NewWordDefinitor
 
-ME ME_55A7C9EC0295_ME_4DAEED140007
+MEREF ME_55A7C9EC0295_ME_4DAEED140007_impl
  MELINK Original HWL ME_55A7C9EC0295 // KeywordFinder
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55A7C9EC0295_ME_4DAEED140007 KeywordFinder
+ENDMEREF // ME_55A7C9EC0295_ME_4DAEED140007_impl KeywordFinder
 
-ME ME_55ACD5F10301_ME_4DAEED140007
+MEREF ME_55ACD5F10301_ME_4DAEED140007_impl
  MELINK Original HWL ME_55ACD5F10301 // KeywordByName
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55ACD5F10301_ME_4DAEED140007 KeywordByName
+ENDMEREF // ME_55ACD5F10301_ME_4DAEED140007_impl KeywordByName
 
-ME ME_55ACF0CF0320_ME_4DAEED140007
+MEREF ME_55ACF0CF0320_ME_4DAEED140007_impl
  MELINK Original HWL ME_55ACF0CF0320 // ParentFinder
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55ACF0CF0320_ME_4DAEED140007 ParentFinder
+ENDMEREF // ME_55ACF0CF0320_ME_4DAEED140007_impl ParentFinder
 
-ME ME_479731C50290_ME_4DAEED140007
+MEREF ME_479731C50290_ME_4DAEED140007_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4DAEED140007 Cleanup
+ENDMEREF // ME_479731C50290_ME_4DAEED140007_over Cleanup
 
-ME ME_47A6FEE600FC_ME_4DAEED140007
+MEREF ME_47A6FEE600FC_ME_4DAEED140007_over
  MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifndef" 'DesignTimeLibrary'
-ENDME // ME_47A6FEE600FC_ME_4DAEED140007 IsCacheable
+ENDMEREF // ME_47A6FEE600FC_ME_4DAEED140007_over IsCacheable
 
-ME ME_49BFC98902FF_ME_4DAEED140007
+MEREF ME_49BFC98902FF_ME_4DAEED140007_over
  MELINK Original WL 'ME_49BFC98902FF' '51612ED700B4.ms.model.script' // BeforeRelease
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49BFC98902FF_ME_4DAEED140007 BeforeRelease
+ENDMEREF // ME_49BFC98902FF_ME_4DAEED140007_over BeforeRelease
 
-ME ME_556317DE02B5_ME_4DAEED140007
+MEREF ME_556317DE02B5_ME_4DAEED140007_over
  MELINK Original HWL ME_556317DE02B5 // SourcePoint
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_556317DE02B5_ME_4DAEED140007 SourcePoint
+ENDMEREF // ME_556317DE02B5_ME_4DAEED140007_over SourcePoint
+
+MEREF ME_52EA594400DD_ME_4DAEED140007_G
+ MELINK Original HWL ME_52EA594400DD // TtfwWordPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52EA594400DD_ME_4DAEED140007_G TtfwWordPrim
+
+MEREF ME_55899C2F01A5_ME_4DAEED140007_R
+ MELINK Original HWL ME_55899C2F01A5 // MtfwKeywordFinderSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55899C2F01A5_ME_4DAEED140007_R MtfwKeywordFinderSource
+
+MEREF ME_559D25C00172_ME_4DAEED140007_R
+ MELINK Original HWL ME_559D25C00172 // MtfwInParameterDefinitor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_559D25C00172_ME_4DAEED140007_R MtfwInParameterDefinitor
+
+MEREF ME_559F9DDD0109_ME_4DAEED140007_R
+ MELINK Original HWL ME_559F9DDD0109 // MtfwNewWordDefinitor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_559F9DDD0109_ME_4DAEED140007_R MtfwNewWordDefinitor
+
+MEREF ME_559F9F760309_ME_4DAEED140007_R
+ MELINK Original HWL ME_559F9F760309 // MtfwCompiler
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_559F9F760309_ME_4DAEED140007_R MtfwCompiler
+
+MEREF ME_55A3BD6B03AE_ME_4DAEED140007_R
+ MELINK Original HWL ME_55A3BD6B03AE // MtfwCodeCompiler
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55A3BD6B03AE_ME_4DAEED140007_R MtfwCodeCompiler
+
+MEREF ME_55A67DFF0382_ME_4DAEED140007_R
+ MELINK Original HWL ME_55A67DFF0382 // MtfwNewWordDefinitorSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55A67DFF0382_ME_4DAEED140007_R MtfwNewWordDefinitorSource
+
+MEREF ME_55ACD5BD01E3_ME_4DAEED140007_R
+ MELINK Original HWL ME_55ACD5BD01E3 // MtfwKeywordFinder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55ACD5BD01E3_ME_4DAEED140007_R MtfwKeywordFinder
 
 %%InjectedBy ME_52C15D690329 ME_4DAEED140007
 
@@ -7164,17 +7338,17 @@ ME ME_4DAEED140007
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_52EA594400DD // TtfwWordPrim
+   Seq: ( HWL ME_52EA594400DD_ME_4DAEED140007_G // TtfwWordPrim
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_55899C2F01A5 // MtfwKeywordFinderSource
- HWL ME_559D25C00172 // MtfwInParameterDefinitor
- HWL ME_559F9DDD0109 // MtfwNewWordDefinitor
- HWL ME_559F9F760309 // MtfwCompiler
- HWL ME_55A3BD6B03AE // MtfwCodeCompiler
- HWL ME_55A67DFF0382 // MtfwNewWordDefinitorSource
- HWL ME_55ACD5BD01E3 // MtfwKeywordFinder
+   Seq: ( HWL ME_55899C2F01A5_ME_4DAEED140007_R // MtfwKeywordFinderSource
+ HWL ME_559D25C00172_ME_4DAEED140007_R // MtfwInParameterDefinitor
+ HWL ME_559F9DDD0109_ME_4DAEED140007_R // MtfwNewWordDefinitor
+ HWL ME_559F9F760309_ME_4DAEED140007_R // MtfwCompiler
+ HWL ME_55A3BD6B03AE_ME_4DAEED140007_R // MtfwCodeCompiler
+ HWL ME_55A67DFF0382_ME_4DAEED140007_R // MtfwNewWordDefinitorSource
+ HWL ME_55ACD5BD01E3_ME_4DAEED140007_R // MtfwKeywordFinder
  )
  ; // Implements
  MELIST Attributes
@@ -7252,21 +7426,21 @@ ME ME_4DAEED140007
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4DB6E3090290_ME_4DAEED140007 // AddCodePart
- ME_4F416F900048_ME_4DAEED140007 // CompileInParameterPopCode
- ME_4F46588B021E_ME_4DAEED140007 // CheckWord
- ME_559D25E90141_ME_4DAEED140007 // DefineInParameter
- ME_55A7C9680222_ME_4DAEED140007 // NewWordDefinitor
- ME_55A7C9EC0295_ME_4DAEED140007 // KeywordFinder
- ME_55ACD5F10301_ME_4DAEED140007 // KeywordByName
- ME_55ACF0CF0320_ME_4DAEED140007 // ParentFinder
+   Seq: ( ME_4DB6E3090290_ME_4DAEED140007_impl // AddCodePart
+ ME_4F416F900048_ME_4DAEED140007_impl // CompileInParameterPopCode
+ ME_4F46588B021E_ME_4DAEED140007_impl // CheckWord
+ ME_559D25E90141_ME_4DAEED140007_impl // DefineInParameter
+ ME_55A7C9680222_ME_4DAEED140007_impl // NewWordDefinitor
+ ME_55A7C9EC0295_ME_4DAEED140007_impl // KeywordFinder
+ ME_55ACD5F10301_ME_4DAEED140007_impl // KeywordByName
+ ME_55ACF0CF0320_ME_4DAEED140007_impl // ParentFinder
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4DAEED140007 // Cleanup
- ME_47A6FEE600FC_ME_4DAEED140007 // IsCacheable
- ME_49BFC98902FF_ME_4DAEED140007 // BeforeRelease
- ME_556317DE02B5_ME_4DAEED140007 // SourcePoint
+   Seq: ( ME_479731C50290_ME_4DAEED140007_over // Cleanup
+ ME_47A6FEE600FC_ME_4DAEED140007_over // IsCacheable
+ ME_49BFC98902FF_ME_4DAEED140007_over // BeforeRelease
+ ME_556317DE02B5_ME_4DAEED140007_over // SourcePoint
  )
  ; // Overridden
  MELIST Children
@@ -7286,12 +7460,12 @@ ME ME_4DAEED140007
  )
  ; // Dependencies
  MELIST Injected
-   Seq: ( WL 'ME_53E46BEB02CC' '4F3E3F5F0160.ms.model.script' // TtfwClassRef
+   Seq: ( WL 'ME_53E46BEB02CC' '508528D10384.ms.model.script' // TtfwClassRef
  WL 'ME_55102B0101D4' '4F50313101D1.ms.model.script' // ArrayProcessingPack
  WL 'ME_551161F601CA' '4F43A128007E.ms.model.script' // BasicsPack
  WL 'ME_55B5FAF602A4' '4F4FD7EA00EB.ms.model.script' // FileProcessingPack
  WL 'ME_55B632ED00E9' '4F5EFA23015A.ms.model.script' // SysUtilsPack
- WL 'ME_57BB003E00D5' '57BAFF3C02B9.ms.model.script' // TtfwWordDeleteListeners
+ WL 'ME_57BB003E00D5' '57BB002402E9.ms.model.script' // TtfwWordDeleteListeners
  )
  ; // Injected
  MESTRINGLIST DiagramsNames
@@ -7334,7 +7508,7 @@ ME ME_559F70FC0125
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_4DAEF23D00EE // TtfwKeyWord
  ;
- MELINK Target WL 'ME_4F4659980048' '4F463D910318.ms.model.script' // TtfwDictionaryPrim
+ MELINK Target WL? 'ME_4F4659980048' // TtfwDictionaryPrim
  ;
  UP "pm" True
  UP "reads field" True
@@ -7349,7 +7523,7 @@ ME ME_559F714302F6
  MEPROP Name 'aDictionary'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4F4659980048' '4F463D910318.ms.model.script' // TtfwDictionaryPrim
+ MELINK Target WL? 'ME_4F4659980048' // TtfwDictionaryPrim
  ;
 
 ENDME // ME_559F714302F6 aDictionary
@@ -7393,7 +7567,7 @@ ME ME_4DB578450319
  MEPROP UID '4DB578450319'
  MEPROP Name 'Create'
  MEPROP OriginalName 'Create$1'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -7415,7 +7589,7 @@ ME ME_559F71480350
  MEPROP Name 'aDictionary'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4F4659980048' '4F463D910318.ms.model.script' // TtfwDictionaryPrim
+ MELINK Target WL? 'ME_4F4659980048' // TtfwDictionaryPrim
  ;
 
 ENDME // ME_559F71480350 aDictionary
@@ -7449,7 +7623,7 @@ ME ME_4F46550C03E5
  MEPROP UID '4F46550C03E5'
  MEPROP Name 'Create'
  MEPROP OriginalName 'Create$3'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -7471,7 +7645,7 @@ ME ME_559F714E01AA
  MEPROP Name 'aDictionary'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4F4659980048' '4F463D910318.ms.model.script' // TtfwDictionaryPrim
+ MELINK Target WL? 'ME_4F4659980048' // TtfwDictionaryPrim
  ;
 
 ENDME // ME_559F714E01AA aDictionary
@@ -7505,7 +7679,7 @@ ME ME_4F4658D00140
  MEPROP UID '4F4658D00140'
  MEPROP Name 'Create'
  MEPROP OriginalName 'Create$4'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -7527,7 +7701,7 @@ ME ME_55B1FDC30293
  MEPROP Name 'aValue'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4F4659980048' '4F463D910318.ms.model.script' // TtfwDictionaryPrim
+ MELINK Target WL? 'ME_4F4659980048' // TtfwDictionaryPrim
  ;
 
 ENDME // ME_55B1FDC30293 aValue
@@ -7550,7 +7724,7 @@ ENDME // ME_55B1FDB90017 DoIt
 ME ME_55B1FDAD0118
  MEPROP UID '55B1FDAD0118'
  MEPROP Name 'ChangeDictionary'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -7605,7 +7779,7 @@ ENDME // ME_55B794F30232 DoIt
 ME ME_55B794CC0388
  MEPROP UID '55B794CC0388'
  MEPROP Name 'SetWord'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -7649,23 +7823,29 @@ ME ME_4F4651BD00E1
 
 ENDME // ME_4F4651BD00E1 
 
-ME ME_479731C50290_ME_4DAEF23D00EE
+MEREF ME_479731C50290_ME_4DAEF23D00EE_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4DAEF23D00EE Cleanup
+ENDMEREF // ME_479731C50290_ME_4DAEF23D00EE_over Cleanup
 
-ME ME_47A869BB02DE_ME_4DAEF23D00EE
+MEREF ME_47A869BB02DE_ME_4DAEF23D00EE_over
  MELINK Original WL 'ME_47A869BB02DE' '53317D14019D.ms.model.script' // GetAsPCharLen
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A869BB02DE_ME_4DAEF23D00EE GetAsPCharLen
+ENDMEREF // ME_47A869BB02DE_ME_4DAEF23D00EE_over GetAsPCharLen
 
-ME ME_47A869D10074_ME_4DAEF23D00EE
+MEREF ME_47A869D10074_ME_4DAEF23D00EE_over
  MELINK Original WL 'ME_47A869D10074' '53317D14019D.ms.model.script' // DoSetAsPCharLen
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A869D10074_ME_4DAEF23D00EE DoSetAsPCharLen
+ENDMEREF // ME_47A869D10074_ME_4DAEF23D00EE_over DoSetAsPCharLen
+
+MEREF ME_4FFEEC080367_ME_4DAEF23D00EE_G
+ MELINK Original WL? 'ME_4FFEEC080367' // TtfwKeyWordPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FFEEC080367_ME_4DAEF23D00EE_G TtfwKeyWordPrim
 
 %%InheritedBy ME_4FFEEC080367 ME_4DAEF23D00EE
 
@@ -7680,7 +7860,7 @@ ME ME_4DAEF23D00EE
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4FFEEC080367' '4F4734A40270.ms.model.script' // TtfwKeyWordPrim
+   Seq: ( HWL ME_4FFEEC080367_ME_4DAEF23D00EE_G // TtfwKeyWordPrim
  )
  ; // Inherits
  MELIST Attributes
@@ -7697,9 +7877,9 @@ ME ME_4DAEF23D00EE
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4DAEF23D00EE // Cleanup
- ME_47A869BB02DE_ME_4DAEF23D00EE // GetAsPCharLen
- ME_47A869D10074_ME_4DAEF23D00EE // DoSetAsPCharLen
+   Seq: ( ME_479731C50290_ME_4DAEF23D00EE_over // Cleanup
+ ME_47A869BB02DE_ME_4DAEF23D00EE_over // GetAsPCharLen
+ ME_47A869D10074_ME_4DAEF23D00EE_over // DoSetAsPCharLen
  )
  ; // Overridden
  MELIST Dependencies
@@ -7709,7 +7889,7 @@ ME ME_4DAEF23D00EE
  )
  ; // Dependencies
  MELIST Injected
-   Seq: ( WL 'ME_55A69803028F' '4F2275C00012.ms.model.script' // TkwForwardDeclaration
+   Seq: ( WL 'ME_55A69803028F' '4F4BB70D0144.ms.model.script' // TkwForwardDeclaration
  )
  ; // Injected
  MESTRINGLIST DiagramsNames
@@ -7722,6 +7902,12 @@ ME ME_4DAEF23D00EE
  UP extprop:rc:SelfName 'KeyWord'
 
 ENDME // ME_4DAEF23D00EE TtfwKeyWord
+
+MEREF ME_54F99536034A_ME_54F99543033F_G
+ MELINK Original WL 'ME_54F99536034A' '55BB9712001F.ms.model.script' // EtfwCheck
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54F99536034A_ME_54F99543033F_G EtfwCheck
 
 %%InheritedBy ME_54F99536034A ME_54F99543033F
 
@@ -7736,11 +7922,17 @@ ME ME_54F99543033F
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_54F99536034A' '55BB9712001F.ms.model.script' // EtfwCheck
+   Seq: ( HWL ME_54F99536034A_ME_54F99543033F_G // EtfwCheck
  )
  ; // Inherits
 
 ENDME // ME_54F99543033F EtfwCompiler
+
+MEREF ME_54F99536034A_ME_54F99558022D_G
+ MELINK Original WL 'ME_54F99536034A' '55BB9712001F.ms.model.script' // EtfwCheck
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54F99536034A_ME_54F99558022D_G EtfwCheck
 
 %%InheritedBy ME_54F99536034A ME_54F99558022D
 
@@ -7755,7 +7947,7 @@ ME ME_54F99558022D
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_54F99536034A' '55BB9712001F.ms.model.script' // EtfwCheck
+   Seq: ( HWL ME_54F99536034A_ME_54F99558022D_G // EtfwCheck
  )
  ; // Inherits
 
@@ -7779,7 +7971,7 @@ ENDME // ME_52EBC5C903D6 DoIt
 ME ME_52EBC5BB0300
  MEPROP UID '52EBC5BB0300'
  MEPROP Name 'CompileOnly'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -7824,7 +8016,7 @@ ENDME // ME_57A9DF6D006E DoIt
 ME ME_57A9DF60030B
  MEPROP UID '57A9DF60030B'
  MEPROP Name 'ScriptDone'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -7869,7 +8061,7 @@ ENDME // ME_57A9F9B001A3 DoIt
 ME ME_57A9F99A01C4
  MEPROP UID '57A9F99A01C4'
  MEPROP Name 'ScriptWillRun'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8006,119 +8198,137 @@ ME ME_4F0DA2A7024A
 
 ENDME // ME_4F0DA2A7024A ToLog
 
-ME ME_4CAEDCF9006A_ME_4DAF1A1700F7
+MEREF ME_4CAEDCF9006A_ME_4DAF1A1700F7_impl
  MELINK Original WL 'ME_4CAEDCF9006A' '515AC8CC02BD.ms.model.script' // CheckOutputWithInput$1
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4CAEDCF9006A_ME_4DAF1A1700F7 CheckOutputWithInput$1
+ENDMEREF // ME_4CAEDCF9006A_ME_4DAF1A1700F7_impl CheckOutputWithInput$1
 
-ME ME_4DAF1A280116_ME_4DAF1A1700F7
+MEREF ME_4DAF1A280116_ME_4DAF1A1700F7_impl
  MELINK Original HWL ME_4DAF1A280116 // Check
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DAF1A280116_ME_4DAF1A1700F7 Check
+ENDMEREF // ME_4DAF1A280116_ME_4DAF1A1700F7_impl Check
 
-ME ME_4DB173AA005A_ME_4DAF1A1700F7
+MEREF ME_4DB173AA005A_ME_4DAF1A1700F7_impl
  MELINK Original HWL ME_4DB173AA005A // Print
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB173AA005A_ME_4DAF1A1700F7 Print
+ENDMEREF // ME_4DB173AA005A_ME_4DAF1A1700F7_impl Print
 
-ME ME_4DB1785F011A_ME_4DAF1A1700F7
+MEREF ME_4DB1785F011A_ME_4DAF1A1700F7_impl
  MELINK Original HWL ME_4DB1785F011A // Print
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB1785F011A_ME_4DAF1A1700F7 Print
+ENDMEREF // ME_4DB1785F011A_ME_4DAF1A1700F7_impl Print
 
-ME ME_4DD533BF023D_ME_4DAF1A1700F7
+MEREF ME_4DD533BF023D_ME_4DAF1A1700F7_impl
  MELINK Original WL 'ME_4DD533BF023D' '515AC8CC02BD.ms.model.script' // CheckWithEtalon
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DD533BF023D_ME_4DAF1A1700F7 CheckWithEtalon
+ENDMEREF // ME_4DD533BF023D_ME_4DAF1A1700F7_impl CheckWithEtalon
 
-ME ME_4F0D7AC900FA_ME_4DAF1A1700F7
+MEREF ME_4F0D7AC900FA_ME_4DAF1A1700F7_impl
  MELINK Original HWL ME_4F0D7AC900FA // CheckPrintEtalon
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F0D7AC900FA_ME_4DAF1A1700F7 CheckPrintEtalon
+ENDMEREF // ME_4F0D7AC900FA_ME_4DAF1A1700F7_impl CheckPrintEtalon
 
-ME ME_4F0D8B740186_ME_4DAF1A1700F7
+MEREF ME_4F0D8B740186_ME_4DAF1A1700F7_impl
  MELINK Original HWL ME_4F0D8B740186 // ShouldStop
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F0D8B740186_ME_4DAF1A1700F7 ShouldStop
+ENDMEREF // ME_4F0D8B740186_ME_4DAF1A1700F7_impl ShouldStop
 
-ME ME_4F0D8C360085_ME_4DAF1A1700F7
+MEREF ME_4F0D8C360085_ME_4DAF1A1700F7_impl
  MELINK Original HWL ME_4F0D8C360085 // CheckTimeout
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F0D8C360085_ME_4DAF1A1700F7 CheckTimeout
+ENDMEREF // ME_4F0D8C360085_ME_4DAF1A1700F7_impl CheckTimeout
 
-ME ME_4F0D8C5A01A2_ME_4DAF1A1700F7
+MEREF ME_4F0D8C5A01A2_ME_4DAF1A1700F7_impl
  MELINK Original HWL ME_4F0D8C5A01A2 // StartTimer
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F0D8C5A01A2_ME_4DAF1A1700F7 StartTimer
+ENDMEREF // ME_4F0D8C5A01A2_ME_4DAF1A1700F7_impl StartTimer
 
-ME ME_4F0D8CB0015D_ME_4DAF1A1700F7
+MEREF ME_4F0D8CB0015D_ME_4DAF1A1700F7_impl
  MELINK Original HWL ME_4F0D8CB0015D // StopTimer
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F0D8CB0015D_ME_4DAF1A1700F7 StopTimer
+ENDMEREF // ME_4F0D8CB0015D_ME_4DAF1A1700F7_impl StopTimer
 
-ME ME_4F5F3C61023E_ME_4DAF1A1700F7
+MEREF ME_4F5F3C61023E_ME_4DAF1A1700F7_impl
  MELINK Original WL 'ME_4F5F3C61023E' '515AC8CC02BD.ms.model.script' // CheckOutputWithInput
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F5F3C61023E_ME_4DAF1A1700F7 CheckOutputWithInput
+ENDMEREF // ME_4F5F3C61023E_ME_4DAF1A1700F7_impl CheckOutputWithInput
 
-ME ME_4F72CEFE016D_ME_4DAF1A1700F7
+MEREF ME_4F72CEFE016D_ME_4DAF1A1700F7_impl
  MELINK Original HWL ME_4F72CEFE016D // GetIsWritingToK
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F72CEFE016D_ME_4DAF1A1700F7 GetIsWritingToK
+ENDMEREF // ME_4F72CEFE016D_ME_4DAF1A1700F7_impl GetIsWritingToK
 
-ME ME_4F72CF27029A_ME_4DAF1A1700F7
+MEREF ME_4F72CF27029A_ME_4DAF1A1700F7_impl
  MELINK Original HWL ME_4F72CF27029A // GetIsFakeCVS
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F72CF27029A_ME_4DAF1A1700F7 GetIsFakeCVS
+ENDMEREF // ME_4F72CF27029A_ME_4DAF1A1700F7_impl GetIsFakeCVS
 
-ME ME_4F72CF78027D_ME_4DAF1A1700F7
+MEREF ME_4F72CF78027D_ME_4DAF1A1700F7_impl
  MELINK Original HWL ME_4F72CF78027D // GetCVSPath
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F72CF78027D_ME_4DAF1A1700F7 GetCVSPath
+ENDMEREF // ME_4F72CF78027D_ME_4DAF1A1700F7_impl GetCVSPath
 
-ME ME_4F851D7B0399_ME_4DAF1A1700F7
+MEREF ME_4F851D7B0399_ME_4DAF1A1700F7_impl
  MELINK Original HWL ME_4F851D7B0399 // DontRaiseIfEtalonCreated
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F851D7B0399_ME_4DAF1A1700F7 DontRaiseIfEtalonCreated
+ENDMEREF // ME_4F851D7B0399_ME_4DAF1A1700F7_impl DontRaiseIfEtalonCreated
 
-ME ME_511BC7C60063_ME_4DAF1A1700F7
+MEREF ME_511BC7C60063_ME_4DAF1A1700F7_impl
  MELINK Original HWL ME_511BC7C60063 // TimeToLog
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_511BC7C60063_ME_4DAF1A1700F7 TimeToLog
+ENDMEREF // ME_511BC7C60063_ME_4DAF1A1700F7_impl TimeToLog
 
-ME ME_513866B10237_ME_4DAF1A1700F7
+MEREF ME_513866B10237_ME_4DAF1A1700F7_impl
  MELINK Original HWL ME_513866B10237 // GetTestSetFolderName
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_513866B10237_ME_4DAF1A1700F7 GetTestSetFolderName
+ENDMEREF // ME_513866B10237_ME_4DAF1A1700F7_impl GetTestSetFolderName
 
-ME ME_5138790002FF_ME_4DAF1A1700F7
+MEREF ME_5138790002FF_ME_4DAF1A1700F7_impl
  MELINK Original HWL ME_5138790002FF // GetEtalonSuffix
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_5138790002FF_ME_4DAF1A1700F7 GetEtalonSuffix
+ENDMEREF // ME_5138790002FF_ME_4DAF1A1700F7_impl GetEtalonSuffix
 
-ME ME_536A15F901DA_ME_4DAF1A1700F7
+MEREF ME_536A15F901DA_ME_4DAF1A1700F7_impl
  MELINK Original WL 'ME_536A15F901DA' '515AC8CC02BD.ms.model.script' // CheckPictureOnly
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_536A15F901DA_ME_4DAF1A1700F7 CheckPictureOnly
+ENDMEREF // ME_536A15F901DA_ME_4DAF1A1700F7_impl CheckPictureOnly
+
+MEREF ME_4DAF1AAA0133_ME_4DAF1A1700F7_R
+ MELINK Original HWL ME_4DAF1AAA0133 // ScriptCaller
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DAF1AAA0133_ME_4DAF1A1700F7_R ScriptCaller
+
+MEREF ME_4F0D796F0013_ME_4DAF1A1700F7_R
+ MELINK Original HWL ME_4F0D796F0013 // PrintingCaller
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F0D796F0013_ME_4DAF1A1700F7_R PrintingCaller
+
+MEREF ME_4F5F3A4001B5_ME_4DAF1A1700F7_R
+ MELINK Original WL 'ME_4F5F3A4001B5' '515AC8CC02BD.ms.model.script' // EtalonsWorking
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F5F3A4001B5_ME_4DAF1A1700F7_R EtalonsWorking
 
 %%ImplementedBy ME_4DAF1AAA0133 ME_4DAF1A1700F7
 %%ImplementedBy ME_4F0D796F0013 ME_4DAF1A1700F7
@@ -8136,9 +8346,9 @@ ME ME_4DAF1A1700F7
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Implements
-   Seq: ( HWL ME_4DAF1AAA0133 // ScriptCaller
- HWL ME_4F0D796F0013 // PrintingCaller
- WL 'ME_4F5F3A4001B5' '515AC8CC02BD.ms.model.script' // EtalonsWorking
+   Seq: ( HWL ME_4DAF1AAA0133_ME_4DAF1A1700F7_R // ScriptCaller
+ HWL ME_4F0D796F0013_ME_4DAF1A1700F7_R // PrintingCaller
+ HWL ME_4F5F3A4001B5_ME_4DAF1A1700F7_R // EtalonsWorking
  )
  ; // Implements
  MELIST Operations
@@ -8153,25 +8363,25 @@ ME ME_4DAF1A1700F7
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4CAEDCF9006A_ME_4DAF1A1700F7 // CheckOutputWithInput$1
- ME_4DAF1A280116_ME_4DAF1A1700F7 // Check
- ME_4DB173AA005A_ME_4DAF1A1700F7 // Print
- ME_4DB1785F011A_ME_4DAF1A1700F7 // Print
- ME_4DD533BF023D_ME_4DAF1A1700F7 // CheckWithEtalon
- ME_4F0D7AC900FA_ME_4DAF1A1700F7 // CheckPrintEtalon
- ME_4F0D8B740186_ME_4DAF1A1700F7 // ShouldStop
- ME_4F0D8C360085_ME_4DAF1A1700F7 // CheckTimeout
- ME_4F0D8C5A01A2_ME_4DAF1A1700F7 // StartTimer
- ME_4F0D8CB0015D_ME_4DAF1A1700F7 // StopTimer
- ME_4F5F3C61023E_ME_4DAF1A1700F7 // CheckOutputWithInput
- ME_4F72CEFE016D_ME_4DAF1A1700F7 // GetIsWritingToK
- ME_4F72CF27029A_ME_4DAF1A1700F7 // GetIsFakeCVS
- ME_4F72CF78027D_ME_4DAF1A1700F7 // GetCVSPath
- ME_4F851D7B0399_ME_4DAF1A1700F7 // DontRaiseIfEtalonCreated
- ME_511BC7C60063_ME_4DAF1A1700F7 // TimeToLog
- ME_513866B10237_ME_4DAF1A1700F7 // GetTestSetFolderName
- ME_5138790002FF_ME_4DAF1A1700F7 // GetEtalonSuffix
- ME_536A15F901DA_ME_4DAF1A1700F7 // CheckPictureOnly
+   Seq: ( ME_4CAEDCF9006A_ME_4DAF1A1700F7_impl // CheckOutputWithInput$1
+ ME_4DAF1A280116_ME_4DAF1A1700F7_impl // Check
+ ME_4DB173AA005A_ME_4DAF1A1700F7_impl // Print
+ ME_4DB1785F011A_ME_4DAF1A1700F7_impl // Print
+ ME_4DD533BF023D_ME_4DAF1A1700F7_impl // CheckWithEtalon
+ ME_4F0D7AC900FA_ME_4DAF1A1700F7_impl // CheckPrintEtalon
+ ME_4F0D8B740186_ME_4DAF1A1700F7_impl // ShouldStop
+ ME_4F0D8C360085_ME_4DAF1A1700F7_impl // CheckTimeout
+ ME_4F0D8C5A01A2_ME_4DAF1A1700F7_impl // StartTimer
+ ME_4F0D8CB0015D_ME_4DAF1A1700F7_impl // StopTimer
+ ME_4F5F3C61023E_ME_4DAF1A1700F7_impl // CheckOutputWithInput
+ ME_4F72CEFE016D_ME_4DAF1A1700F7_impl // GetIsWritingToK
+ ME_4F72CF27029A_ME_4DAF1A1700F7_impl // GetIsFakeCVS
+ ME_4F72CF78027D_ME_4DAF1A1700F7_impl // GetCVSPath
+ ME_4F851D7B0399_ME_4DAF1A1700F7_impl // DontRaiseIfEtalonCreated
+ ME_511BC7C60063_ME_4DAF1A1700F7_impl // TimeToLog
+ ME_513866B10237_ME_4DAF1A1700F7_impl // GetTestSetFolderName
+ ME_5138790002FF_ME_4DAF1A1700F7_impl // GetEtalonSuffix
+ ME_536A15F901DA_ME_4DAF1A1700F7_impl // CheckPictureOnly
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -8235,7 +8445,7 @@ ENDME // ME_4F474929011A DoIt
 ME ME_4F4749150158
  MEPROP UID '4F4749150158'
  MEPROP Name 'PushString'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8280,7 +8490,7 @@ ENDME // ME_4F4FD9870082 DoIt
 ME ME_4F4FD9790124
  MEPROP UID '4F4FD9790124'
  MEPROP Name 'PushFile'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8312,7 +8522,7 @@ ENDME // ME_4F4FD9A5031A DoIt
 ME ME_4F4FD99A0182
  MEPROP UID '4F4FD99A0182'
  MEPROP Name 'PopFile'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8344,7 +8554,7 @@ ENDME // ME_4F4FDC2E023A DoIt
 ME ME_4F4FDC210286
  MEPROP UID '4F4FDC210286'
  MEPROP Name 'IsTopObj'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8376,7 +8586,7 @@ ENDME // ME_4F4FDD050195 DoIt
 ME ME_4F4FDCFB0195
  MEPROP UID '4F4FDCFB0195'
  MEPROP Name 'IsTopChar'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8421,7 +8631,7 @@ ENDME // ME_4F4FDD2D00E5 DoIt
 ME ME_4F4FDD140127
  MEPROP UID '4F4FDD140127'
  MEPROP Name 'PushChar'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8453,7 +8663,7 @@ ENDME // ME_4F4FDD4301B4 DoIt
 ME ME_4F4FDD38028A
  MEPROP UID '4F4FDD38028A'
  MEPROP Name 'PopChar'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8498,7 +8708,7 @@ ENDME // ME_4F4FE1F701C2 DoIt
 ME ME_4F4FE1DC0081
  MEPROP UID '4F4FE1DC0081'
  MEPROP Name 'PushWStr'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8530,7 +8740,7 @@ ENDME // ME_4F4FEB730060 DoIt
 ME ME_4F4FEB6100A7
  MEPROP UID '4F4FEB6100A7'
  MEPROP Name 'PopPrintable'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8575,7 +8785,7 @@ ENDME // ME_5085270900A4 DoIt
 ME ME_508526FE0229
  MEPROP UID '508526FE0229'
  MEPROP Name 'PushClass'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8607,7 +8817,7 @@ ENDME // ME_5085275100C6 DoIt
 ME ME_5085273502AA
  MEPROP UID '5085273502AA'
  MEPROP Name 'PopClass'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8639,7 +8849,7 @@ ENDME // ME_5085276901C5 DoIt
 ME ME_5085275F0044
  MEPROP UID '5085275F0044'
  MEPROP Name 'IsTopClass'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8700,7 +8910,7 @@ ENDME // ME_54F73921026C DoIt
 ME ME_54F7390300EC
  MEPROP UID '54F7390300EC'
  MEPROP Name 'PopObjAs'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8747,7 +8957,7 @@ ENDME // ME_54F86655005D DoIt
 ME ME_54F8664200B0
  MEPROP UID '54F8664200B0'
  MEPROP Name 'PopClassAs'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8779,7 +8989,7 @@ ENDME // ME_54F9C2B40045 DoIt
 ME ME_54F9C2A502E9
  MEPROP UID '54F9C2A502E9'
  MEPROP Name 'PopWideString'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8824,7 +9034,7 @@ ENDME // ME_54F9C2DA0280 DoIt
 ME ME_54F9C2CF0044
  MEPROP UID '54F9C2CF0044'
  MEPROP Name 'PushWideString'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8856,7 +9066,7 @@ ENDME // ME_54F9C65C0193 DoIt
 ME ME_54F9C6530229
  MEPROP UID '54F9C6530229'
  MEPROP Name 'PopPoint'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8901,7 +9111,7 @@ ENDME // ME_54F9C67800D4 DoIt
 ME ME_54F9C66902E3
  MEPROP UID '54F9C66902E3'
  MEPROP Name 'PushPoint'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8946,7 +9156,7 @@ ENDME // ME_551015480087 DoIt
 ME ME_5510153F001C
  MEPROP UID '5510153F001C'
  MEPROP Name 'PushList'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -8978,7 +9188,7 @@ ENDME // ME_551015700384 DoIt
 ME ME_551015680218
  MEPROP UID '551015680218'
  MEPROP Name 'PopList'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -9023,7 +9233,7 @@ ENDME // ME_55E848F2000E DoIt
 ME ME_55E848EA003D
  MEPROP UID '55E848EA003D'
  MEPROP Name 'DupN'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -9068,7 +9278,7 @@ ENDME // ME_55E8490D03CB DoIt
 ME ME_55E84904001E
  MEPROP UID '55E84904001E'
  MEPROP Name 'DropN'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -9100,7 +9310,7 @@ ENDME // ME_5601535003DB DoIt
 ME ME_5601534A0012
  MEPROP UID '5601534A0012'
  MEPROP Name 'Top'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -9155,7 +9365,7 @@ ENDME // ME_5613FA190193 DoIt
 ME ME_5613FA08013C
  MEPROP UID '5613FA08013C'
  MEPROP Name 'PushIntf'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -9803,6 +10013,12 @@ ME ME_4DB048620395
 
 ENDME // ME_4DB048620395 ValueStack
 
+MEREF ME_5596255801C5_ME_4F2162E603A7_G
+ MELINK Original HWL ME_5596255801C5 // EtfwExitOrBreak
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5596255801C5_ME_4F2162E603A7_G EtfwExitOrBreak
+
 %%InheritedBy ME_5596255801C5 ME_4F2162E603A7
 
 ME ME_4F2162E603A7
@@ -9816,13 +10032,19 @@ ME ME_4F2162E603A7
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5596255801C5 // EtfwExitOrBreak
+   Seq: ( HWL ME_5596255801C5_ME_4F2162E603A7_G // EtfwExitOrBreak
  )
  ; // Inherits
  UP "singleton" True
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_4F2162E603A7 EtfwBreak
+
+MEREF ME_54F99536034A_ME_559D161502BA_G
+ MELINK Original WL 'ME_54F99536034A' '55BB9712001F.ms.model.script' // EtfwCheck
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54F99536034A_ME_559D161502BA_G EtfwCheck
 
 %%InheritedBy ME_54F99536034A ME_559D161502BA
 
@@ -9837,11 +10059,17 @@ ME ME_559D161502BA
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_54F99536034A' '55BB9712001F.ms.model.script' // EtfwCheck
+   Seq: ( HWL ME_54F99536034A_ME_559D161502BA_G // EtfwCheck
  )
  ; // Inherits
 
 ENDME // ME_559D161502BA EtfwFail
+
+MEREF ME_4DE6544101A1_ME_559D164703DD_G
+ MELINK Original HWL ME_4DE6544101A1 // EtfwScriptException
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DE6544101A1_ME_559D164703DD_G EtfwScriptException
 
 %%InheritedBy ME_4DE6544101A1 ME_559D164703DD
 
@@ -9856,7 +10084,7 @@ ME ME_559D164703DD
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4DE6544101A1 // EtfwScriptException
+   Seq: ( HWL ME_4DE6544101A1_ME_559D164703DD_G // EtfwScriptException
  )
  ; // Inherits
 
@@ -9880,7 +10108,7 @@ ENDME // ME_519A29CF02B9 DoIt
 ME ME_519A29C802E1
  MEPROP UID '519A29C802E1'
  MEPROP Name 'Clone'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -9925,7 +10153,7 @@ ENDME // ME_5564871703C5 DoIt
 ME ME_556486F200B4
  MEPROP UID '556486F200B4'
  MEPROP Name 'WordFail'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -9942,7 +10170,7 @@ ENDME // ME_556486F200B4 WordFail
 ME ME_55648729006C
  MEPROP UID '55648729006C'
  MEPROP Name 'WordSuccess'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -9955,7 +10183,7 @@ ENDME // ME_55648729006C WordSuccess
 ME ME_5565BD5B01FC
  MEPROP UID '5565BD5B01FC'
  MEPROP Name 'ExceptionStackToLog'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -9983,7 +10211,7 @@ ENDME // ME_5565BD7B034F DoIt
 ME ME_5565BD6C02FE
  MEPROP UID '5565BD6C02FE'
  MEPROP Name 'ExceptionStack'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -10000,7 +10228,7 @@ ENDME // ME_5565BD6C02FE ExceptionStack
 ME ME_55681AA70056
  MEPROP UID '55681AA70056'
  MEPROP Name 'FailToLog'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -10043,7 +10271,7 @@ ENDME // ME_559E776F030A DoIt
 ME ME_559E7749009C
  MEPROP UID '559E7749009C'
  MEPROP Name 'OpenDictionary'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -10088,7 +10316,7 @@ ENDME // ME_559E7791025B DoIt
 ME ME_559E77840265
  MEPROP UID '559E77840265'
  MEPROP Name 'CloseDictionary'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -10143,7 +10371,7 @@ ENDME // ME_559E77BE03B3 DoIt
 ME ME_559E77B00246
  MEPROP UID '559E77B00246'
  MEPROP Name 'AddInitialization'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -10167,7 +10395,7 @@ ME ME_55AE59FF0338
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_55AE59EC022F // CurrentCompilingDictionary
  ;
- MELINK Target WL 'ME_4F4659980048' '4F463D910318.ms.model.script' // TtfwDictionaryPrim
+ MELINK Target WL? 'ME_4F4659980048' // TtfwDictionaryPrim
  ;
 
 ENDME // ME_55AE59FF0338 DoIt
@@ -10175,7 +10403,7 @@ ENDME // ME_55AE59FF0338 DoIt
 ME ME_55AE59EC022F
  MEPROP UID '55AE59EC022F'
  MEPROP Name 'CurrentCompilingDictionary'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -10220,7 +10448,7 @@ ENDME // ME_55AFBAB4001D DoIt
 ME ME_55AFBAA10337
  MEPROP UID '55AFBAA10337'
  MEPROP Name 'DisableForHelp'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -10234,384 +10462,402 @@ ME ME_55AFBAA10337
 
 ENDME // ME_55AFBAA10337 DisableForHelp
 
-ME ME_4DB008F503BE_ME_4DB008DD01BD
+MEREF ME_4DB008F503BE_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DB008F503BE // PushInt
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB008F503BE_ME_4DB008DD01BD PushInt
+ENDMEREF // ME_4DB008F503BE_ME_4DB008DD01BD_impl PushInt
 
-ME ME_4DB0090A0000_ME_4DB008DD01BD
+MEREF ME_4DB0090A0000_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DB0090A0000 // PopInt
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB0090A0000_ME_4DB008DD01BD PopInt
+ENDMEREF // ME_4DB0090A0000_ME_4DB008DD01BD_impl PopInt
 
-ME ME_4DB013A10166_ME_4DB008DD01BD
+MEREF ME_4DB013A10166_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DB013A10166 // PushBool
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB013A10166_ME_4DB008DD01BD PushBool
+ENDMEREF // ME_4DB013A10166_ME_4DB008DD01BD_impl PushBool
 
-ME ME_4DB013AF01C9_ME_4DB008DD01BD
+MEREF ME_4DB013AF01C9_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DB013AF01C9 // PopBool
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB013AF01C9_ME_4DB008DD01BD PopBool
+ENDMEREF // ME_4DB013AF01C9_ME_4DB008DD01BD_impl PopBool
 
-ME ME_4DB04213007C_ME_4DB008DD01BD
+MEREF ME_4DB04213007C_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DB04213007C // IsTopBool
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB04213007C_ME_4DB008DD01BD IsTopBool
+ENDMEREF // ME_4DB04213007C_ME_4DB008DD01BD_impl IsTopBool
 
-ME ME_4DB047EF0005_ME_4DB008DD01BD
+MEREF ME_4DB047EF0005_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DB047EF0005 // PushString
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB047EF0005_ME_4DB008DD01BD PushString
+ENDMEREF // ME_4DB047EF0005_ME_4DB008DD01BD_impl PushString
 
-ME ME_4DB0480002EF_ME_4DB008DD01BD
+MEREF ME_4DB0480002EF_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DB0480002EF // PushString
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB0480002EF_ME_4DB008DD01BD PushString
+ENDMEREF // ME_4DB0480002EF_ME_4DB008DD01BD_impl PushString
 
-ME ME_4DB0480A0174_ME_4DB008DD01BD
+MEREF ME_4DB0480A0174_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DB0480A0174 // PushString
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB0480A0174_ME_4DB008DD01BD PushString
+ENDMEREF // ME_4DB0480A0174_ME_4DB008DD01BD_impl PushString
 
-ME ME_4DB0488A0157_ME_4DB008DD01BD
+MEREF ME_4DB0488A0157_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DB0488A0157 // IsTopString
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB0488A0157_ME_4DB008DD01BD IsTopString
+ENDMEREF // ME_4DB0488A0157_ME_4DB008DD01BD_impl IsTopString
 
-ME ME_4DB0489C0129_ME_4DB008DD01BD
+MEREF ME_4DB0489C0129_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DB0489C0129 // PopDelphiString
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB0489C0129_ME_4DB008DD01BD PopDelphiString
+ENDMEREF // ME_4DB0489C0129_ME_4DB008DD01BD_impl PopDelphiString
 
-ME ME_4DB1784F0388_ME_4DB008DD01BD
+MEREF ME_4DB1784F0388_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DB1784F0388 // PopString
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB1784F0388_ME_4DB008DD01BD PopString
+ENDMEREF // ME_4DB1784F0388_ME_4DB008DD01BD_impl PopString
 
-ME ME_4DB17E8502F0_ME_4DB008DD01BD
+MEREF ME_4DB17E8502F0_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DB17E8502F0 // IsTopInt
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB17E8502F0_ME_4DB008DD01BD IsTopInt
+ENDMEREF // ME_4DB17E8502F0_ME_4DB008DD01BD_impl IsTopInt
 
-ME ME_4DB6EE5E031F_ME_4DB008DD01BD
+MEREF ME_4DB6EE5E031F_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DB6EE5E031F // Dup
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB6EE5E031F_ME_4DB008DD01BD Dup
+ENDMEREF // ME_4DB6EE5E031F_ME_4DB008DD01BD_impl Dup
 
-ME ME_4DB6F04F02D2_ME_4DB008DD01BD
+MEREF ME_4DB6F04F02D2_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DB6F04F02D2 // Drop
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB6F04F02D2_ME_4DB008DD01BD Drop
+ENDMEREF // ME_4DB6F04F02D2_ME_4DB008DD01BD_impl Drop
 
-ME ME_4DB704AA00BF_ME_4DB008DD01BD
+MEREF ME_4DB704AA00BF_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DB704AA00BF // Swap
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB704AA00BF_ME_4DB008DD01BD Swap
+ENDMEREF // ME_4DB704AA00BF_ME_4DB008DD01BD_impl Swap
 
-ME ME_4DBAF89E0328_ME_4DB008DD01BD
+MEREF ME_4DBAF89E0328_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DBAF89E0328 // Push
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DBAF89E0328_ME_4DB008DD01BD Push
+ENDMEREF // ME_4DBAF89E0328_ME_4DB008DD01BD_impl Push
 
-ME ME_4DBAF8B002CA_ME_4DB008DD01BD
+MEREF ME_4DBAF8B002CA_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DBAF8B002CA // Pop
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DBAF8B002CA_ME_4DB008DD01BD Pop
+ENDMEREF // ME_4DBAF8B002CA_ME_4DB008DD01BD_impl Pop
 
-ME ME_4DBAF8C200E2_ME_4DB008DD01BD
+MEREF ME_4DBAF8C200E2_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DBAF8C200E2 // IsTopType
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DBAF8C200E2_ME_4DB008DD01BD IsTopType
+ENDMEREF // ME_4DBAF8C200E2_ME_4DB008DD01BD_impl IsTopType
 
-ME ME_4DBAF910011B_ME_4DB008DD01BD
+MEREF ME_4DBAF910011B_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DBAF910011B // PushObj
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DBAF910011B_ME_4DB008DD01BD PushObj
+ENDMEREF // ME_4DBAF910011B_ME_4DB008DD01BD_impl PushObj
 
-ME ME_4DBAF9210150_ME_4DB008DD01BD
+MEREF ME_4DBAF9210150_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DBAF9210150 // PopObj
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DBAF9210150_ME_4DB008DD01BD PopObj
+ENDMEREF // ME_4DBAF9210150_ME_4DB008DD01BD_impl PopObj
 
-ME ME_4DCBD16302CD_ME_4DB008DD01BD
+MEREF ME_4DCBD16302CD_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DCBD16302CD // DupIfNotZero
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DCBD16302CD_ME_4DB008DD01BD DupIfNotZero
+ENDMEREF // ME_4DCBD16302CD_ME_4DB008DD01BD_impl DupIfNotZero
 
-ME ME_4DEF28E400E0_ME_4DB008DD01BD
+MEREF ME_4DEF28E400E0_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DEF28E400E0 // Rot
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DEF28E400E0_ME_4DB008DD01BD Rot
+ENDMEREF // ME_4DEF28E400E0_ME_4DB008DD01BD_impl Rot
 
-ME ME_4DEF5D850232_ME_4DB008DD01BD
+MEREF ME_4DEF5D850232_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DEF5D850232 // Pick
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DEF5D850232_ME_4DB008DD01BD Pick
+ENDMEREF // ME_4DEF5D850232_ME_4DB008DD01BD_impl Pick
 
-ME ME_4DEF5FBB0157_ME_4DB008DD01BD
+MEREF ME_4DEF5FBB0157_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DEF5FBB0157 // InvertRot
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DEF5FBB0157_ME_4DB008DD01BD InvertRot
+ENDMEREF // ME_4DEF5FBB0157_ME_4DB008DD01BD_impl InvertRot
 
-ME ME_4DEF5FE202B1_ME_4DB008DD01BD
+MEREF ME_4DEF5FE202B1_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DEF5FE202B1 // Swap2
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DEF5FE202B1_ME_4DB008DD01BD Swap2
+ENDMEREF // ME_4DEF5FE202B1_ME_4DB008DD01BD_impl Swap2
 
-ME ME_4DEF5FF802E6_ME_4DB008DD01BD
+MEREF ME_4DEF5FF802E6_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DEF5FF802E6 // Over2
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DEF5FF802E6_ME_4DB008DD01BD Over2
+ENDMEREF // ME_4DEF5FF802E6_ME_4DB008DD01BD_impl Over2
 
-ME ME_4DEF60050174_ME_4DB008DD01BD
+MEREF ME_4DEF60050174_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DEF60050174 // Dup2
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DEF60050174_ME_4DB008DD01BD Dup2
+ENDMEREF // ME_4DEF60050174_ME_4DB008DD01BD_impl Dup2
 
-ME ME_4DEF6013023F_ME_4DB008DD01BD
+MEREF ME_4DEF6013023F_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DEF6013023F // Drop2
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DEF6013023F_ME_4DB008DD01BD Drop2
+ENDMEREF // ME_4DEF6013023F_ME_4DB008DD01BD_impl Drop2
 
-ME ME_4DEF602000E4_ME_4DB008DD01BD
+MEREF ME_4DEF602000E4_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DEF602000E4 // Nip
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DEF602000E4_ME_4DB008DD01BD Nip
+ENDMEREF // ME_4DEF602000E4_ME_4DB008DD01BD_impl Nip
 
-ME ME_4DEF602B03A2_ME_4DB008DD01BD
+MEREF ME_4DEF602B03A2_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DEF602B03A2 // Tuck
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DEF602B03A2_ME_4DB008DD01BD Tuck
+ENDMEREF // ME_4DEF602B03A2_ME_4DB008DD01BD_impl Tuck
 
-ME ME_4DF06491010E_ME_4DB008DD01BD
+MEREF ME_4DF06491010E_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DF06491010E // Over
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DF06491010E_ME_4DB008DD01BD Over
+ENDMEREF // ME_4DF06491010E_ME_4DB008DD01BD_impl Over
 
-ME ME_4DF0649B0073_ME_4DB008DD01BD
+MEREF ME_4DF0649B0073_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4DF0649B0073 // Roll
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DF0649B0073_ME_4DB008DD01BD Roll
+ENDMEREF // ME_4DF0649B0073_ME_4DB008DD01BD_impl Roll
 
-ME ME_4EB274C402BC_ME_4DB008DD01BD
+MEREF ME_4EB274C402BC_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4EB274C402BC // PopIntf
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4EB274C402BC_ME_4DB008DD01BD PopIntf
+ENDMEREF // ME_4EB274C402BC_ME_4DB008DD01BD_impl PopIntf
 
-ME ME_4EB274E201C2_ME_4DB008DD01BD
+MEREF ME_4EB274E201C2_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4EB274E201C2 // PopIntf
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4EB274E201C2_ME_4DB008DD01BD PopIntf
+ENDMEREF // ME_4EB274E201C2_ME_4DB008DD01BD_impl PopIntf
 
-ME ME_4EB2759D021C_ME_4DB008DD01BD
+MEREF ME_4EB2759D021C_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4EB2759D021C // IsTopIntf
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4EB2759D021C_ME_4DB008DD01BD IsTopIntf
+ENDMEREF // ME_4EB2759D021C_ME_4DB008DD01BD_impl IsTopIntf
 
-ME ME_4F3E34A1009A_ME_4DB008DD01BD
+MEREF ME_4F3E34A1009A_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4F3E34A1009A // ValuesCount
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" False
-ENDME // ME_4F3E34A1009A_ME_4DB008DD01BD ValuesCount
+ENDMEREF // ME_4F3E34A1009A_ME_4DB008DD01BD_impl ValuesCount
 
-ME ME_4F4749150158_ME_4DB008DD01BD
+MEREF ME_4F4749150158_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4F4749150158 // PushString
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F4749150158_ME_4DB008DD01BD PushString
+ENDMEREF // ME_4F4749150158_ME_4DB008DD01BD_impl PushString
 
-ME ME_4F4FD9790124_ME_4DB008DD01BD
+MEREF ME_4F4FD9790124_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4F4FD9790124 // PushFile
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F4FD9790124_ME_4DB008DD01BD PushFile
+ENDMEREF // ME_4F4FD9790124_ME_4DB008DD01BD_impl PushFile
 
-ME ME_4F4FD99A0182_ME_4DB008DD01BD
+MEREF ME_4F4FD99A0182_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4F4FD99A0182 // PopFile
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F4FD99A0182_ME_4DB008DD01BD PopFile
+ENDMEREF // ME_4F4FD99A0182_ME_4DB008DD01BD_impl PopFile
 
-ME ME_4F4FDC210286_ME_4DB008DD01BD
+MEREF ME_4F4FDC210286_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4F4FDC210286 // IsTopObj
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F4FDC210286_ME_4DB008DD01BD IsTopObj
+ENDMEREF // ME_4F4FDC210286_ME_4DB008DD01BD_impl IsTopObj
 
-ME ME_4F4FDCFB0195_ME_4DB008DD01BD
+MEREF ME_4F4FDCFB0195_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4F4FDCFB0195 // IsTopChar
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F4FDCFB0195_ME_4DB008DD01BD IsTopChar
+ENDMEREF // ME_4F4FDCFB0195_ME_4DB008DD01BD_impl IsTopChar
 
-ME ME_4F4FDD140127_ME_4DB008DD01BD
+MEREF ME_4F4FDD140127_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4F4FDD140127 // PushChar
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F4FDD140127_ME_4DB008DD01BD PushChar
+ENDMEREF // ME_4F4FDD140127_ME_4DB008DD01BD_impl PushChar
 
-ME ME_4F4FDD38028A_ME_4DB008DD01BD
+MEREF ME_4F4FDD38028A_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4F4FDD38028A // PopChar
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F4FDD38028A_ME_4DB008DD01BD PopChar
+ENDMEREF // ME_4F4FDD38028A_ME_4DB008DD01BD_impl PopChar
 
-ME ME_4F4FE1DC0081_ME_4DB008DD01BD
+MEREF ME_4F4FE1DC0081_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4F4FE1DC0081 // PushWStr
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F4FE1DC0081_ME_4DB008DD01BD PushWStr
+ENDMEREF // ME_4F4FE1DC0081_ME_4DB008DD01BD_impl PushWStr
 
-ME ME_4F4FEB6100A7_ME_4DB008DD01BD
+MEREF ME_4F4FEB6100A7_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_4F4FEB6100A7 // PopPrintable
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F4FEB6100A7_ME_4DB008DD01BD PopPrintable
+ENDMEREF // ME_4F4FEB6100A7_ME_4DB008DD01BD_impl PopPrintable
 
-ME ME_508526FE0229_ME_4DB008DD01BD
+MEREF ME_508526FE0229_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_508526FE0229 // PushClass
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_508526FE0229_ME_4DB008DD01BD PushClass
+ENDMEREF // ME_508526FE0229_ME_4DB008DD01BD_impl PushClass
 
-ME ME_5085273502AA_ME_4DB008DD01BD
+MEREF ME_5085273502AA_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_5085273502AA // PopClass
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_5085273502AA_ME_4DB008DD01BD PopClass
+ENDMEREF // ME_5085273502AA_ME_4DB008DD01BD_impl PopClass
 
-ME ME_5085275F0044_ME_4DB008DD01BD
+MEREF ME_5085275F0044_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_5085275F0044 // IsTopClass
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_5085275F0044_ME_4DB008DD01BD IsTopClass
+ENDMEREF // ME_5085275F0044_ME_4DB008DD01BD_impl IsTopClass
 
-ME ME_54F7390300EC_ME_4DB008DD01BD
+MEREF ME_54F7390300EC_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_54F7390300EC // PopObjAs
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_54F7390300EC_ME_4DB008DD01BD PopObjAs
+ENDMEREF // ME_54F7390300EC_ME_4DB008DD01BD_impl PopObjAs
 
-ME ME_54F8664200B0_ME_4DB008DD01BD
+MEREF ME_54F8664200B0_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_54F8664200B0 // PopClassAs
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_54F8664200B0_ME_4DB008DD01BD PopClassAs
+ENDMEREF // ME_54F8664200B0_ME_4DB008DD01BD_impl PopClassAs
 
-ME ME_54F9C2A502E9_ME_4DB008DD01BD
+MEREF ME_54F9C2A502E9_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_54F9C2A502E9 // PopWideString
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_54F9C2A502E9_ME_4DB008DD01BD PopWideString
+ENDMEREF // ME_54F9C2A502E9_ME_4DB008DD01BD_impl PopWideString
 
-ME ME_54F9C2CF0044_ME_4DB008DD01BD
+MEREF ME_54F9C2CF0044_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_54F9C2CF0044 // PushWideString
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_54F9C2CF0044_ME_4DB008DD01BD PushWideString
+ENDMEREF // ME_54F9C2CF0044_ME_4DB008DD01BD_impl PushWideString
 
-ME ME_54F9C6530229_ME_4DB008DD01BD
+MEREF ME_54F9C6530229_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_54F9C6530229 // PopPoint
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_54F9C6530229_ME_4DB008DD01BD PopPoint
+ENDMEREF // ME_54F9C6530229_ME_4DB008DD01BD_impl PopPoint
 
-ME ME_54F9C66902E3_ME_4DB008DD01BD
+MEREF ME_54F9C66902E3_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_54F9C66902E3 // PushPoint
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_54F9C66902E3_ME_4DB008DD01BD PushPoint
+ENDMEREF // ME_54F9C66902E3_ME_4DB008DD01BD_impl PushPoint
 
-ME ME_5510153F001C_ME_4DB008DD01BD
+MEREF ME_5510153F001C_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_5510153F001C // PushList
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_5510153F001C_ME_4DB008DD01BD PushList
+ENDMEREF // ME_5510153F001C_ME_4DB008DD01BD_impl PushList
 
-ME ME_551015680218_ME_4DB008DD01BD
+MEREF ME_551015680218_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_551015680218 // PopList
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_551015680218_ME_4DB008DD01BD PopList
+ENDMEREF // ME_551015680218_ME_4DB008DD01BD_impl PopList
 
-ME ME_55A7C9EC0295_ME_4DB008DD01BD
+MEREF ME_55A7C9EC0295_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_55A7C9EC0295 // KeywordFinder
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55A7C9EC0295_ME_4DB008DD01BD KeywordFinder
+ENDMEREF // ME_55A7C9EC0295_ME_4DB008DD01BD_impl KeywordFinder
 
-ME ME_55ACD5F10301_ME_4DB008DD01BD
+MEREF ME_55ACD5F10301_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_55ACD5F10301 // KeywordByName
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55ACD5F10301_ME_4DB008DD01BD KeywordByName
+ENDMEREF // ME_55ACD5F10301_ME_4DB008DD01BD_impl KeywordByName
 
-ME ME_55ACF0CF0320_ME_4DB008DD01BD
+MEREF ME_55ACF0CF0320_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_55ACF0CF0320 // ParentFinder
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55ACF0CF0320_ME_4DB008DD01BD ParentFinder
+ENDMEREF // ME_55ACF0CF0320_ME_4DB008DD01BD_impl ParentFinder
 
-ME ME_55E848EA003D_ME_4DB008DD01BD
+MEREF ME_55E848EA003D_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_55E848EA003D // DupN
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55E848EA003D_ME_4DB008DD01BD DupN
+ENDMEREF // ME_55E848EA003D_ME_4DB008DD01BD_impl DupN
 
-ME ME_55E84904001E_ME_4DB008DD01BD
+MEREF ME_55E84904001E_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_55E84904001E // DropN
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55E84904001E_ME_4DB008DD01BD DropN
+ENDMEREF // ME_55E84904001E_ME_4DB008DD01BD_impl DropN
 
-ME ME_5601534A0012_ME_4DB008DD01BD
+MEREF ME_5601534A0012_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_5601534A0012 // Top
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_5601534A0012_ME_4DB008DD01BD Top
+ENDMEREF // ME_5601534A0012_ME_4DB008DD01BD_impl Top
 
-ME ME_5613FA08013C_ME_4DB008DD01BD
+MEREF ME_5613FA08013C_ME_4DB008DD01BD_impl
  MELINK Original HWL ME_5613FA08013C // PushIntf
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_5613FA08013C_ME_4DB008DD01BD PushIntf
+ENDMEREF // ME_5613FA08013C_ME_4DB008DD01BD_impl PushIntf
+
+MEREF ME_4DB048620395_ME_4DB008DD01BD_R
+ MELINK Original HWL ME_4DB048620395 // ValueStack
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB048620395_ME_4DB008DD01BD_R ValueStack
+
+MEREF ME_55899C2F01A5_ME_4DB008DD01BD_R
+ MELINK Original HWL ME_55899C2F01A5 // MtfwKeywordFinderSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55899C2F01A5_ME_4DB008DD01BD_R MtfwKeywordFinderSource
+
+MEREF ME_55ACD5BD01E3_ME_4DB008DD01BD_R
+ MELINK Original HWL ME_55ACD5BD01E3 // MtfwKeywordFinder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55ACD5BD01E3_ME_4DB008DD01BD_R MtfwKeywordFinder
 
 %%ImplementedBy ME_4DB048620395 ME_4DB008DD01BD
 %%ImplementedBy ME_55899C2F01A5 ME_4DB008DD01BD
@@ -10629,9 +10875,9 @@ ME ME_4DB008DD01BD
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Implements
-   Seq: ( HWL ME_4DB048620395 // ValueStack
- HWL ME_55899C2F01A5 // MtfwKeywordFinderSource
- HWL ME_55ACD5BD01E3 // MtfwKeywordFinder
+   Seq: ( HWL ME_4DB048620395_ME_4DB008DD01BD_R // ValueStack
+ HWL ME_55899C2F01A5_ME_4DB008DD01BD_R // MtfwKeywordFinderSource
+ HWL ME_55ACD5BD01E3_ME_4DB008DD01BD_R // MtfwKeywordFinder
  )
  ; // Implements
  MELIST Operations
@@ -10649,69 +10895,69 @@ ME ME_4DB008DD01BD
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4DB008F503BE_ME_4DB008DD01BD // PushInt
- ME_4DB0090A0000_ME_4DB008DD01BD // PopInt
- ME_4DB013A10166_ME_4DB008DD01BD // PushBool
- ME_4DB013AF01C9_ME_4DB008DD01BD // PopBool
- ME_4DB04213007C_ME_4DB008DD01BD // IsTopBool
- ME_4DB047EF0005_ME_4DB008DD01BD // PushString
- ME_4DB0480002EF_ME_4DB008DD01BD // PushString
- ME_4DB0480A0174_ME_4DB008DD01BD // PushString
- ME_4DB0488A0157_ME_4DB008DD01BD // IsTopString
- ME_4DB0489C0129_ME_4DB008DD01BD // PopDelphiString
- ME_4DB1784F0388_ME_4DB008DD01BD // PopString
- ME_4DB17E8502F0_ME_4DB008DD01BD // IsTopInt
- ME_4DB6EE5E031F_ME_4DB008DD01BD // Dup
- ME_4DB6F04F02D2_ME_4DB008DD01BD // Drop
- ME_4DB704AA00BF_ME_4DB008DD01BD // Swap
- ME_4DBAF89E0328_ME_4DB008DD01BD // Push
- ME_4DBAF8B002CA_ME_4DB008DD01BD // Pop
- ME_4DBAF8C200E2_ME_4DB008DD01BD // IsTopType
- ME_4DBAF910011B_ME_4DB008DD01BD // PushObj
- ME_4DBAF9210150_ME_4DB008DD01BD // PopObj
- ME_4DCBD16302CD_ME_4DB008DD01BD // DupIfNotZero
- ME_4DEF28E400E0_ME_4DB008DD01BD // Rot
- ME_4DEF5D850232_ME_4DB008DD01BD // Pick
- ME_4DEF5FBB0157_ME_4DB008DD01BD // InvertRot
- ME_4DEF5FE202B1_ME_4DB008DD01BD // Swap2
- ME_4DEF5FF802E6_ME_4DB008DD01BD // Over2
- ME_4DEF60050174_ME_4DB008DD01BD // Dup2
- ME_4DEF6013023F_ME_4DB008DD01BD // Drop2
- ME_4DEF602000E4_ME_4DB008DD01BD // Nip
- ME_4DEF602B03A2_ME_4DB008DD01BD // Tuck
- ME_4DF06491010E_ME_4DB008DD01BD // Over
- ME_4DF0649B0073_ME_4DB008DD01BD // Roll
- ME_4EB274C402BC_ME_4DB008DD01BD // PopIntf
- ME_4EB274E201C2_ME_4DB008DD01BD // PopIntf
- ME_4EB2759D021C_ME_4DB008DD01BD // IsTopIntf
- ME_4F3E34A1009A_ME_4DB008DD01BD // ValuesCount
- ME_4F4749150158_ME_4DB008DD01BD // PushString
- ME_4F4FD9790124_ME_4DB008DD01BD // PushFile
- ME_4F4FD99A0182_ME_4DB008DD01BD // PopFile
- ME_4F4FDC210286_ME_4DB008DD01BD // IsTopObj
- ME_4F4FDCFB0195_ME_4DB008DD01BD // IsTopChar
- ME_4F4FDD140127_ME_4DB008DD01BD // PushChar
- ME_4F4FDD38028A_ME_4DB008DD01BD // PopChar
- ME_4F4FE1DC0081_ME_4DB008DD01BD // PushWStr
- ME_4F4FEB6100A7_ME_4DB008DD01BD // PopPrintable
- ME_508526FE0229_ME_4DB008DD01BD // PushClass
- ME_5085273502AA_ME_4DB008DD01BD // PopClass
- ME_5085275F0044_ME_4DB008DD01BD // IsTopClass
- ME_54F7390300EC_ME_4DB008DD01BD // PopObjAs
- ME_54F8664200B0_ME_4DB008DD01BD // PopClassAs
- ME_54F9C2A502E9_ME_4DB008DD01BD // PopWideString
- ME_54F9C2CF0044_ME_4DB008DD01BD // PushWideString
- ME_54F9C6530229_ME_4DB008DD01BD // PopPoint
- ME_54F9C66902E3_ME_4DB008DD01BD // PushPoint
- ME_5510153F001C_ME_4DB008DD01BD // PushList
- ME_551015680218_ME_4DB008DD01BD // PopList
- ME_55A7C9EC0295_ME_4DB008DD01BD // KeywordFinder
- ME_55ACD5F10301_ME_4DB008DD01BD // KeywordByName
- ME_55ACF0CF0320_ME_4DB008DD01BD // ParentFinder
- ME_55E848EA003D_ME_4DB008DD01BD // DupN
- ME_55E84904001E_ME_4DB008DD01BD // DropN
- ME_5601534A0012_ME_4DB008DD01BD // Top
- ME_5613FA08013C_ME_4DB008DD01BD // PushIntf
+   Seq: ( ME_4DB008F503BE_ME_4DB008DD01BD_impl // PushInt
+ ME_4DB0090A0000_ME_4DB008DD01BD_impl // PopInt
+ ME_4DB013A10166_ME_4DB008DD01BD_impl // PushBool
+ ME_4DB013AF01C9_ME_4DB008DD01BD_impl // PopBool
+ ME_4DB04213007C_ME_4DB008DD01BD_impl // IsTopBool
+ ME_4DB047EF0005_ME_4DB008DD01BD_impl // PushString
+ ME_4DB0480002EF_ME_4DB008DD01BD_impl // PushString
+ ME_4DB0480A0174_ME_4DB008DD01BD_impl // PushString
+ ME_4DB0488A0157_ME_4DB008DD01BD_impl // IsTopString
+ ME_4DB0489C0129_ME_4DB008DD01BD_impl // PopDelphiString
+ ME_4DB1784F0388_ME_4DB008DD01BD_impl // PopString
+ ME_4DB17E8502F0_ME_4DB008DD01BD_impl // IsTopInt
+ ME_4DB6EE5E031F_ME_4DB008DD01BD_impl // Dup
+ ME_4DB6F04F02D2_ME_4DB008DD01BD_impl // Drop
+ ME_4DB704AA00BF_ME_4DB008DD01BD_impl // Swap
+ ME_4DBAF89E0328_ME_4DB008DD01BD_impl // Push
+ ME_4DBAF8B002CA_ME_4DB008DD01BD_impl // Pop
+ ME_4DBAF8C200E2_ME_4DB008DD01BD_impl // IsTopType
+ ME_4DBAF910011B_ME_4DB008DD01BD_impl // PushObj
+ ME_4DBAF9210150_ME_4DB008DD01BD_impl // PopObj
+ ME_4DCBD16302CD_ME_4DB008DD01BD_impl // DupIfNotZero
+ ME_4DEF28E400E0_ME_4DB008DD01BD_impl // Rot
+ ME_4DEF5D850232_ME_4DB008DD01BD_impl // Pick
+ ME_4DEF5FBB0157_ME_4DB008DD01BD_impl // InvertRot
+ ME_4DEF5FE202B1_ME_4DB008DD01BD_impl // Swap2
+ ME_4DEF5FF802E6_ME_4DB008DD01BD_impl // Over2
+ ME_4DEF60050174_ME_4DB008DD01BD_impl // Dup2
+ ME_4DEF6013023F_ME_4DB008DD01BD_impl // Drop2
+ ME_4DEF602000E4_ME_4DB008DD01BD_impl // Nip
+ ME_4DEF602B03A2_ME_4DB008DD01BD_impl // Tuck
+ ME_4DF06491010E_ME_4DB008DD01BD_impl // Over
+ ME_4DF0649B0073_ME_4DB008DD01BD_impl // Roll
+ ME_4EB274C402BC_ME_4DB008DD01BD_impl // PopIntf
+ ME_4EB274E201C2_ME_4DB008DD01BD_impl // PopIntf
+ ME_4EB2759D021C_ME_4DB008DD01BD_impl // IsTopIntf
+ ME_4F3E34A1009A_ME_4DB008DD01BD_impl // ValuesCount
+ ME_4F4749150158_ME_4DB008DD01BD_impl // PushString
+ ME_4F4FD9790124_ME_4DB008DD01BD_impl // PushFile
+ ME_4F4FD99A0182_ME_4DB008DD01BD_impl // PopFile
+ ME_4F4FDC210286_ME_4DB008DD01BD_impl // IsTopObj
+ ME_4F4FDCFB0195_ME_4DB008DD01BD_impl // IsTopChar
+ ME_4F4FDD140127_ME_4DB008DD01BD_impl // PushChar
+ ME_4F4FDD38028A_ME_4DB008DD01BD_impl // PopChar
+ ME_4F4FE1DC0081_ME_4DB008DD01BD_impl // PushWStr
+ ME_4F4FEB6100A7_ME_4DB008DD01BD_impl // PopPrintable
+ ME_508526FE0229_ME_4DB008DD01BD_impl // PushClass
+ ME_5085273502AA_ME_4DB008DD01BD_impl // PopClass
+ ME_5085275F0044_ME_4DB008DD01BD_impl // IsTopClass
+ ME_54F7390300EC_ME_4DB008DD01BD_impl // PopObjAs
+ ME_54F8664200B0_ME_4DB008DD01BD_impl // PopClassAs
+ ME_54F9C2A502E9_ME_4DB008DD01BD_impl // PopWideString
+ ME_54F9C2CF0044_ME_4DB008DD01BD_impl // PushWideString
+ ME_54F9C6530229_ME_4DB008DD01BD_impl // PopPoint
+ ME_54F9C66902E3_ME_4DB008DD01BD_impl // PushPoint
+ ME_5510153F001C_ME_4DB008DD01BD_impl // PushList
+ ME_551015680218_ME_4DB008DD01BD_impl // PopList
+ ME_55A7C9EC0295_ME_4DB008DD01BD_impl // KeywordFinder
+ ME_55ACD5F10301_ME_4DB008DD01BD_impl // KeywordByName
+ ME_55ACF0CF0320_ME_4DB008DD01BD_impl // ParentFinder
+ ME_55E848EA003D_ME_4DB008DD01BD_impl // DupN
+ ME_55E84904001E_ME_4DB008DD01BD_impl // DropN
+ ME_5601534A0012_ME_4DB008DD01BD_impl // Top
+ ME_5613FA08013C_ME_4DB008DD01BD_impl // PushIntf
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -10721,6 +10967,12 @@ ME ME_4DB008DD01BD
  UP extprop:rc:SelfName 'ScriptEngine'
 
 ENDME // ME_4DB008DD01BD ItfwScriptEngine
+
+MEREF ME_4DB0091E033E_ME_4DCACEA0005A_G
+ MELINK Original HWL ME_4DB0091E033E // TtfwContext
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB0091E033E_ME_4DCACEA0005A_G TtfwContext
 
 %%InheritedBy ME_4DB0091E033E ME_4DCACEA0005A
 
@@ -10735,7 +10987,7 @@ ME ME_4DCACEA0005A
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4DB0091E033E // TtfwContext
+   Seq: ( HWL ME_4DB0091E033E_ME_4DCACEA0005A_G // TtfwContext
  )
  ; // Inherits
  UP "isPointer" True
@@ -10785,7 +11037,7 @@ ENDME // ME_52EA7C630253 DoIt
 ME ME_52E23B7A00EC
  MEPROP UID '52E23B7A00EC'
  MEPROP Name 'ForEach'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -10840,7 +11092,7 @@ ENDME // ME_52EA7CB4000A DoIt
 ME ME_52E23BB102FA
  MEPROP UID '52E23BB102FA'
  MEPROP Name 'ForEachBack'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -10875,17 +11127,23 @@ ME ME_52E27D6B0315
 
 ENDME // ME_52E27D6B0315 MtfwIterator
 
-ME ME_52E23B7A00EC_ME_52E23B430231
+MEREF ME_52E23B7A00EC_ME_52E23B430231_impl
  MELINK Original HWL ME_52E23B7A00EC // ForEach
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_52E23B7A00EC_ME_52E23B430231 ForEach
+ENDMEREF // ME_52E23B7A00EC_ME_52E23B430231_impl ForEach
 
-ME ME_52E23BB102FA_ME_52E23B430231
+MEREF ME_52E23BB102FA_ME_52E23B430231_impl
  MELINK Original HWL ME_52E23BB102FA // ForEachBack
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_52E23BB102FA_ME_52E23B430231 ForEachBack
+ENDMEREF // ME_52E23BB102FA_ME_52E23B430231_impl ForEachBack
+
+MEREF ME_52E27D6B0315_ME_52E23B430231_R
+ MELINK Original HWL ME_52E27D6B0315 // MtfwIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52E27D6B0315_ME_52E23B430231_R MtfwIterator
 
 %%ImplementedBy ME_52E27D6B0315 ME_52E23B430231
 
@@ -10901,12 +11159,12 @@ ME ME_52E23B430231
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Implements
-   Seq: ( HWL ME_52E27D6B0315 // MtfwIterator
+   Seq: ( HWL ME_52E27D6B0315_ME_52E23B430231_R // MtfwIterator
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_52E23B7A00EC_ME_52E23B430231 // ForEach
- ME_52E23BB102FA_ME_52E23B430231 // ForEachBack
+   Seq: ( ME_52E23B7A00EC_ME_52E23B430231_impl // ForEach
+ ME_52E23BB102FA_ME_52E23B430231_impl // ForEachBack
  )
  ; // Implemented
  UP extprop:rc:isAcceptableForScripts True
@@ -10932,7 +11190,7 @@ ENDME // ME_4F62FF6501CE DoIt
 ME ME_4F62FF5D0327
  MEPROP UID '4F62FF5D0327'
  MEPROP Name 'Clear'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -10964,7 +11222,7 @@ ENDME // ME_57C8214403BE DoIt
 ME ME_57C8213A0118
  MEPROP UID '57C8213A0118'
  MEPROP Name 'SafeView'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -10996,7 +11254,7 @@ ENDME // ME_57B5493C0324 DoIt
 ME ME_57B549300098
  MEPROP UID '57B549300098'
  MEPROP Name 'IsView'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -11088,7 +11346,7 @@ ENDME // ME_55CDF4180101 SetItem
 ME ME_55CDF40C03D4
  MEPROP UID '55CDF40C03D4'
  MEPROP Name 'SetItem'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -11120,7 +11378,7 @@ ENDME // ME_55E8492C033D DoIt
 ME ME_55E849210175
  MEPROP UID '55E849210175'
  MEPROP Name 'ItemsCountInSlice'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -11144,83 +11402,101 @@ ME ME_55BF42DD0060
 
 ENDME // ME_55BF42DD0060 
 
-ME ME_47D8233603DD_ME_4DCC12FC0125
+MEREF ME_47D8233603DD_ME_4DCC12FC0125_impl
  MELINK Original WL 'ME_47D8233603DD' '47D810610398.ms.model.script' // First
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_47D8233603DD_ME_4DCC12FC0125 First
+ENDMEREF // ME_47D8233603DD_ME_4DCC12FC0125_impl First
 
-ME ME_47D823570315_ME_4DCC12FC0125
+MEREF ME_47D823570315_ME_4DCC12FC0125_impl
  MELINK Original WL 'ME_47D823570315' '47D810610398.ms.model.script' // Last
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_47D823570315_ME_4DCC12FC0125 Last
+ENDMEREF // ME_47D823570315_ME_4DCC12FC0125_impl Last
 
-ME ME_47D8248802AD_ME_4DCC12FC0125
+MEREF ME_47D8248802AD_ME_4DCC12FC0125_impl
  MELINK Original WL 'ME_47D8248802AD' '47D810610398.ms.model.script' // Items
  ;
  MEPROP OpKind opkind_Implemented
  UP "is default" True
  UP "pm" True
-ENDME // ME_47D8248802AD_ME_4DCC12FC0125 Items
+ENDMEREF // ME_47D8248802AD_ME_4DCC12FC0125_impl Items
 
-ME ME_47E381E203D2_ME_4DCC12FC0125
+MEREF ME_47E381E203D2_ME_4DCC12FC0125_impl
  MELINK Original WL 'ME_47E381E203D2' '47D810610398.ms.model.script' // Empty
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_47E381E203D2_ME_4DCC12FC0125 Empty
+ENDMEREF // ME_47E381E203D2_ME_4DCC12FC0125_impl Empty
 
-ME ME_482955910076_ME_4DCC12FC0125
+MEREF ME_482955910076_ME_4DCC12FC0125_impl
  MELINK Original WL 'ME_482955910076' '47D810610398.ms.model.script' // IndexOf
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_482955910076_ME_4DCC12FC0125 IndexOf
+ENDMEREF // ME_482955910076_ME_4DCC12FC0125_impl IndexOf
 
-ME ME_482958A203D0_ME_4DCC12FC0125
+MEREF ME_482958A203D0_ME_4DCC12FC0125_impl
  MELINK Original WL 'ME_482958A203D0' '47D810610398.ms.model.script' // Add
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_482958A203D0_ME_4DCC12FC0125 Add
+ENDMEREF // ME_482958A203D0_ME_4DCC12FC0125_impl Add
 
-ME ME_4BB08B8902F2_ME_4DCC12FC0125
+MEREF ME_4BB08B8902F2_ME_4DCC12FC0125_impl
  MELINK Original WL 'ME_4BB08B8902F2' '47D810610398.ms.model.script' // Count
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_4BB08B8902F2_ME_4DCC12FC0125 Count
+ENDMEREF // ME_4BB08B8902F2_ME_4DCC12FC0125_impl Count
 
-ME ME_4F62FF5D0327_ME_4DCC12FC0125
+MEREF ME_4F62FF5D0327_ME_4DCC12FC0125_impl
  MELINK Original HWL ME_4F62FF5D0327 // Clear
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F62FF5D0327_ME_4DCC12FC0125 Clear
+ENDMEREF // ME_4F62FF5D0327_ME_4DCC12FC0125_impl Clear
 
-ME ME_52E23B7A00EC_ME_4DCC12FC0125
+MEREF ME_52E23B7A00EC_ME_4DCC12FC0125_impl
  MELINK Original HWL ME_52E23B7A00EC // ForEach
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_52E23B7A00EC_ME_4DCC12FC0125 ForEach
+ENDMEREF // ME_52E23B7A00EC_ME_4DCC12FC0125_impl ForEach
 
-ME ME_52E23BB102FA_ME_4DCC12FC0125
+MEREF ME_52E23BB102FA_ME_4DCC12FC0125_impl
  MELINK Original HWL ME_52E23BB102FA // ForEachBack
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_52E23BB102FA_ME_4DCC12FC0125 ForEachBack
+ENDMEREF // ME_52E23BB102FA_ME_4DCC12FC0125_impl ForEachBack
 
-ME ME_57B549300098_ME_4DCC12FC0125
+MEREF ME_57B549300098_ME_4DCC12FC0125_impl
  MELINK Original HWL ME_57B549300098 // IsView
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_57B549300098_ME_4DCC12FC0125 IsView
+ENDMEREF // ME_57B549300098_ME_4DCC12FC0125_impl IsView
 
-ME ME_57C8213A0118_ME_4DCC12FC0125
+MEREF ME_57C8213A0118_ME_4DCC12FC0125_impl
  MELINK Original HWL ME_57C8213A0118 // SafeView
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_57C8213A0118_ME_4DCC12FC0125 SafeView
+ENDMEREF // ME_57C8213A0118_ME_4DCC12FC0125_impl SafeView
+
+MEREF ME_52E23B430231_ME_4DCC12FC0125_G
+ MELINK Original HWL ME_52E23B430231 // ItfwIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52E23B430231_ME_4DCC12FC0125_G ItfwIterator
+
+MEREF ME_482955720131_ME_4DCC12FC0125_R
+ MELINK Original WL 'ME_482955720131' '47D810610398.ms.model.script' // Ml3ListEx
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_482955720131_ME_4DCC12FC0125_R Ml3ListEx
+
+MEREF ME_52E2755700CD_ME_4DCC12FC0125_R
+ MELINK Original HWL ME_52E2755700CD // MtfwValueList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52E2755700CD_ME_4DCC12FC0125_R MtfwValueList
 
 %%InjectedBy ME_55BF154E022D ME_4DCC12FC0125
 
@@ -11241,12 +11517,12 @@ ME ME_4DCC12FC0125
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_52E23B430231 // ItfwIterator
+   Seq: ( HWL ME_52E23B430231_ME_4DCC12FC0125_G // ItfwIterator
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_482955720131' '47D810610398.ms.model.script' // Ml3ListEx
- HWL ME_52E2755700CD // MtfwValueList
+   Seq: ( HWL ME_482955720131_ME_4DCC12FC0125_R // Ml3ListEx
+ HWL ME_52E2755700CD_ME_4DCC12FC0125_R // MtfwValueList
  )
  ; // Implements
  MELIST Attributes
@@ -11259,18 +11535,18 @@ ME ME_4DCC12FC0125
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_47D8233603DD_ME_4DCC12FC0125 // First
- ME_47D823570315_ME_4DCC12FC0125 // Last
- ME_47D8248802AD_ME_4DCC12FC0125 // Items
- ME_47E381E203D2_ME_4DCC12FC0125 // Empty
- ME_482955910076_ME_4DCC12FC0125 // IndexOf
- ME_482958A203D0_ME_4DCC12FC0125 // Add
- ME_4BB08B8902F2_ME_4DCC12FC0125 // Count
- ME_4F62FF5D0327_ME_4DCC12FC0125 // Clear
- ME_52E23B7A00EC_ME_4DCC12FC0125 // ForEach
- ME_52E23BB102FA_ME_4DCC12FC0125 // ForEachBack
- ME_57B549300098_ME_4DCC12FC0125 // IsView
- ME_57C8213A0118_ME_4DCC12FC0125 // SafeView
+   Seq: ( ME_47D8233603DD_ME_4DCC12FC0125_impl // First
+ ME_47D823570315_ME_4DCC12FC0125_impl // Last
+ ME_47D8248802AD_ME_4DCC12FC0125_impl // Items
+ ME_47E381E203D2_ME_4DCC12FC0125_impl // Empty
+ ME_482955910076_ME_4DCC12FC0125_impl // IndexOf
+ ME_482958A203D0_ME_4DCC12FC0125_impl // Add
+ ME_4BB08B8902F2_ME_4DCC12FC0125_impl // Count
+ ME_4F62FF5D0327_ME_4DCC12FC0125_impl // Clear
+ ME_52E23B7A00EC_ME_4DCC12FC0125_impl // ForEach
+ ME_52E23BB102FA_ME_4DCC12FC0125_impl // ForEachBack
+ ME_57B549300098_ME_4DCC12FC0125_impl // IsView
+ ME_57C8213A0118_ME_4DCC12FC0125_impl // SafeView
  )
  ; // Implemented
  MELIST Dependencies
@@ -11369,7 +11645,7 @@ ENDME // ME_4F494C360022 DoIt
 ME ME_4F494C2C0049
  MEPROP UID '4F494C2C0049'
  MEPROP Name 'Restore'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -11391,7 +11667,7 @@ ME ME_55A52AF2037E
  MEPROP Name 'aDictionary'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4F4659980048' '4F463D910318.ms.model.script' // TtfwDictionaryPrim
+ MELINK Target WL? 'ME_4F4659980048' // TtfwDictionaryPrim
  ;
 
 ENDME // ME_55A52AF2037E aDictionary
@@ -11424,7 +11700,7 @@ ENDME // ME_55A52AD9020E DoIt
 ME ME_55A52ACE0238
  MEPROP UID '55A52ACE0238'
  MEPROP Name 'StoreDictionary'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -11476,65 +11752,77 @@ ME ME_4F49476E0147
 
 ENDME // ME_4F49476E0147 ItemType
 
-ME ME_47D8233603DD_ME_4F4940D4029A
+MEREF ME_47D8233603DD_ME_4F4940D4029A_impl
  MELINK Original WL 'ME_47D8233603DD' '47D810610398.ms.model.script' // First
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_47D8233603DD_ME_4F4940D4029A First
+ENDMEREF // ME_47D8233603DD_ME_4F4940D4029A_impl First
 
-ME ME_47D823570315_ME_4F4940D4029A
+MEREF ME_47D823570315_ME_4F4940D4029A_impl
  MELINK Original WL 'ME_47D823570315' '47D810610398.ms.model.script' // Last
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_47D823570315_ME_4F4940D4029A Last
+ENDMEREF // ME_47D823570315_ME_4F4940D4029A_impl Last
 
-ME ME_47D8248802AD_ME_4F4940D4029A
+MEREF ME_47D8248802AD_ME_4F4940D4029A_impl
  MELINK Original WL 'ME_47D8248802AD' '47D810610398.ms.model.script' // Items
  ;
  MEPROP OpKind opkind_Implemented
  UP "is default" True
  UP "pm" True
-ENDME // ME_47D8248802AD_ME_4F4940D4029A Items
+ENDMEREF // ME_47D8248802AD_ME_4F4940D4029A_impl Items
 
-ME ME_47E381E203D2_ME_4F4940D4029A
+MEREF ME_47E381E203D2_ME_4F4940D4029A_impl
  MELINK Original WL 'ME_47E381E203D2' '47D810610398.ms.model.script' // Empty
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_47E381E203D2_ME_4F4940D4029A Empty
+ENDMEREF // ME_47E381E203D2_ME_4F4940D4029A_impl Empty
 
-ME ME_482955910076_ME_4F4940D4029A
+MEREF ME_482955910076_ME_4F4940D4029A_impl
  MELINK Original WL 'ME_482955910076' '47D810610398.ms.model.script' // IndexOf
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_482955910076_ME_4F4940D4029A IndexOf
+ENDMEREF // ME_482955910076_ME_4F4940D4029A_impl IndexOf
 
-ME ME_482958A203D0_ME_4F4940D4029A
+MEREF ME_482958A203D0_ME_4F4940D4029A_impl
  MELINK Original WL 'ME_482958A203D0' '47D810610398.ms.model.script' // Add
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_482958A203D0_ME_4F4940D4029A Add
+ENDMEREF // ME_482958A203D0_ME_4F4940D4029A_impl Add
 
-ME ME_4BB08B8902F2_ME_4F4940D4029A
+MEREF ME_4BB08B8902F2_ME_4F4940D4029A_impl
  MELINK Original WL 'ME_4BB08B8902F2' '47D810610398.ms.model.script' // Count
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_4BB08B8902F2_ME_4F4940D4029A Count
+ENDMEREF // ME_4BB08B8902F2_ME_4F4940D4029A_impl Count
 
-ME ME_4F494C2C0049_ME_4F4940D4029A
+MEREF ME_4F494C2C0049_ME_4F4940D4029A_impl
  MELINK Original HWL ME_4F494C2C0049 // Restore
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F494C2C0049_ME_4F4940D4029A Restore
+ENDMEREF // ME_4F494C2C0049_ME_4F4940D4029A_impl Restore
 
-ME ME_55A52ACE0238_ME_4F4940D4029A
+MEREF ME_55A52ACE0238_ME_4F4940D4029A_impl
  MELINK Original HWL ME_55A52ACE0238 // StoreDictionary
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55A52ACE0238_ME_4F4940D4029A StoreDictionary
+ENDMEREF // ME_55A52ACE0238_ME_4F4940D4029A_impl StoreDictionary
+
+MEREF ME_482955720131_ME_4F4940D4029A_R
+ MELINK Original WL 'ME_482955720131' '47D810610398.ms.model.script' // Ml3ListEx
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_482955720131_ME_4F4940D4029A_R Ml3ListEx
+
+MEREF ME_55A52A9101C0_ME_4F4940D4029A_R
+ MELINK Original HWL ME_55A52A9101C0 // MtfwStoredValuesStack
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55A52A9101C0_ME_4F4940D4029A_R MtfwStoredValuesStack
 
 %%ImplementedBy ME_482955720131 ME_4F4940D4029A
 %%ImplementedBy ME_55A52A9101C0 ME_4F4940D4029A
@@ -11551,8 +11839,8 @@ ME ME_4F4940D4029A
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Implements
-   Seq: ( WL 'ME_482955720131' '47D810610398.ms.model.script' // Ml3ListEx
- HWL ME_55A52A9101C0 // MtfwStoredValuesStack
+   Seq: ( HWL ME_482955720131_ME_4F4940D4029A_R // Ml3ListEx
+ HWL ME_55A52A9101C0_ME_4F4940D4029A_R // MtfwStoredValuesStack
  )
  ; // Implements
  MELIST Attributes
@@ -11560,15 +11848,15 @@ ME ME_4F4940D4029A
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_47D8233603DD_ME_4F4940D4029A // First
- ME_47D823570315_ME_4F4940D4029A // Last
- ME_47D8248802AD_ME_4F4940D4029A // Items
- ME_47E381E203D2_ME_4F4940D4029A // Empty
- ME_482955910076_ME_4F4940D4029A // IndexOf
- ME_482958A203D0_ME_4F4940D4029A // Add
- ME_4BB08B8902F2_ME_4F4940D4029A // Count
- ME_4F494C2C0049_ME_4F4940D4029A // Restore
- ME_55A52ACE0238_ME_4F4940D4029A // StoreDictionary
+   Seq: ( ME_47D8233603DD_ME_4F4940D4029A_impl // First
+ ME_47D823570315_ME_4F4940D4029A_impl // Last
+ ME_47D8248802AD_ME_4F4940D4029A_impl // Items
+ ME_47E381E203D2_ME_4F4940D4029A_impl // Empty
+ ME_482955910076_ME_4F4940D4029A_impl // IndexOf
+ ME_482958A203D0_ME_4F4940D4029A_impl // Add
+ ME_4BB08B8902F2_ME_4F4940D4029A_impl // Count
+ ME_4F494C2C0049_ME_4F4940D4029A_impl // Restore
+ ME_55A52ACE0238_ME_4F4940D4029A_impl // StoreDictionary
  )
  ; // Implemented
  MELIST Forwarded
@@ -11616,7 +11904,7 @@ ENDME // ME_4F494C1801E8 DoIt
 ME ME_4F494C0D009A
  MEPROP UID '4F494C0D009A'
  MEPROP Name 'Restore'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -11648,7 +11936,7 @@ ENDME // ME_56012AD80143 DoIt
 ME ME_56012ACE02B2
  MEPROP UID '56012ACE02B2'
  MEPROP Name 'Grow'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -11708,7 +11996,7 @@ ENDME // ME_4F4E4E920226 DoIt
 ME ME_4F4E4E7E0350
  MEPROP UID '4F4E4E7E0350'
  MEPROP Name 'ReadLn'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -11753,7 +12041,7 @@ ENDME // ME_4F4E4EB30004 DoIt
 ME ME_4F4E4EA7007D
  MEPROP UID '4F4E4EA7007D'
  MEPROP Name 'WriteLn'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -11798,7 +12086,7 @@ ENDME // ME_4F4FDC6103C4 DoIt
 ME ME_4F4FDC540264
  MEPROP UID '4F4FDC540264'
  MEPROP Name 'WriteChar'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -11830,7 +12118,7 @@ ENDME // ME_4F4FE182032D DoIt
 ME ME_4F4FE16A0269
  MEPROP UID '4F4FE16A0269'
  MEPROP Name 'ReadWStrLn'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -11875,7 +12163,7 @@ ENDME // ME_4F4FE19F0340 DoIt
 ME ME_4F4FE19301A1
  MEPROP UID '4F4FE19301A1'
  MEPROP Name 'WriteWStrLn'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -11920,7 +12208,7 @@ ENDME // ME_4F4FE1BF02F0 DoIt
 ME ME_4F4FE1B40314
  MEPROP UID '4F4FE1B40314'
  MEPROP Name 'WriteWStr'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -11952,7 +12240,7 @@ ENDME // ME_4F508219009E DoIt
 ME ME_4F50821201E7
  MEPROP UID '4F50821201E7'
  MEPROP Name 'EOF'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -11981,22 +12269,28 @@ ME ME_55C0D3770138
  MELINK Stereotype st_injects::Dependency ;
  MELINK Parent HWL ME_4F4E4E7101D6 // ItfwFile
  ;
- MELINK Target WL 'ME_55BF2B000047' '55BF29CB003B.ms.model.script' // TtfwValueTypes
+ MELINK Target WL? 'ME_55BF2B000047' // TtfwValueTypes
  ;
 
 ENDME // ME_55C0D3770138 
 
-ME ME_52E23B7A00EC_ME_4F4E4E7101D6
+MEREF ME_52E23B7A00EC_ME_4F4E4E7101D6_impl
  MELINK Original HWL ME_52E23B7A00EC // ForEach
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_52E23B7A00EC_ME_4F4E4E7101D6 ForEach
+ENDMEREF // ME_52E23B7A00EC_ME_4F4E4E7101D6_impl ForEach
 
-ME ME_52E23BB102FA_ME_4F4E4E7101D6
+MEREF ME_52E23BB102FA_ME_4F4E4E7101D6_impl
  MELINK Original HWL ME_52E23BB102FA // ForEachBack
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_52E23BB102FA_ME_4F4E4E7101D6 ForEachBack
+ENDMEREF // ME_52E23BB102FA_ME_4F4E4E7101D6_impl ForEachBack
+
+MEREF ME_52E23B430231_ME_4F4E4E7101D6_G
+ MELINK Original HWL ME_52E23B430231 // ItfwIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52E23B430231_ME_4F4E4E7101D6_G ItfwIterator
 
 %%InjectedBy ME_55BF154E022D ME_4F4E4E7101D6
 %%InjectedBy ME_55BF2B000047 ME_4F4E4E7101D6
@@ -12015,7 +12309,7 @@ ME ME_4F4E4E7101D6
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_52E23B430231 // ItfwIterator
+   Seq: ( HWL ME_52E23B430231_ME_4F4E4E7101D6_G // ItfwIterator
  )
  ; // Inherits
  MELIST Operations
@@ -12029,8 +12323,8 @@ ME ME_4F4E4E7101D6
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_52E23B7A00EC_ME_4F4E4E7101D6 // ForEach
- ME_52E23BB102FA_ME_4F4E4E7101D6 // ForEachBack
+   Seq: ( ME_52E23B7A00EC_ME_4F4E4E7101D6_impl // ForEach
+ ME_52E23BB102FA_ME_4F4E4E7101D6_impl // ForEachBack
  )
  ; // Implemented
  MELIST Dependencies
@@ -12046,6 +12340,12 @@ ME ME_4F4E4E7101D6
 
 ENDME // ME_4F4E4E7101D6 ItfwFile
 
+MEREF ME_4F493FAE01C7_ME_56012AB10146_G
+ MELINK Original HWL ME_4F493FAE01C7 // TtfwStoredValue
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F493FAE01C7_ME_56012AB10146_G TtfwStoredValue
+
 %%InheritedBy ME_4F493FAE01C7 ME_56012AB10146
 
 ME ME_56012AB10146
@@ -12059,7 +12359,7 @@ ME ME_56012AB10146
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4F493FAE01C7 // TtfwStoredValue
+   Seq: ( HWL ME_4F493FAE01C7_ME_56012AB10146_G // TtfwStoredValue
  )
  ; // Inherits
  UP "isPointer" True
@@ -12114,6 +12414,12 @@ ME ME_510AB69F02D4
 
 ENDME // ME_510AB69F02D4 TtfwWordCallContext
 
+MEREF ME_510AB69F02D4_ME_510AB714000E_G
+ MELINK Original HWL ME_510AB69F02D4 // TtfwWordCallContext
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_510AB69F02D4_ME_510AB714000E_G TtfwWordCallContext
+
 %%InheritedBy ME_510AB69F02D4 ME_510AB714000E
 
 ME ME_510AB714000E
@@ -12127,12 +12433,18 @@ ME ME_510AB714000E
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_510AB69F02D4 // TtfwWordCallContext
+   Seq: ( HWL ME_510AB69F02D4_ME_510AB714000E_G // TtfwWordCallContext
  )
  ; // Inherits
  UP "isPointer" True
 
 ENDME // ME_510AB714000E PtfwWordCallContext
+
+MEREF ME_4DB00A0C0056_ME_55BA291E0098_G
+ MELINK Original WL 'ME_4DB00A0C0056' '55BF153300A4.ms.model.script' // TtfwValueType
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB00A0C0056_ME_55BA291E0098_G TtfwValueType
 
 %%InheritedBy ME_4DB00A0C0056 ME_55BA291E0098
 
@@ -12147,12 +12459,18 @@ ME ME_55BA291E0098
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4DB00A0C0056' '55BF153300A4.ms.model.script' // TtfwValueType
+   Seq: ( HWL ME_4DB00A0C0056_ME_55BA291E0098_G // TtfwValueType
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_55BA291E0098 TtfwValueType
+
+MEREF ME_4DCACBEA006D_ME_55BA3DDF0188_G
+ MELINK Original WL 'ME_4DCACBEA006D' '55BA28CE0290.ms.model.script' // TtfwWordModifier
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCACBEA006D_ME_55BA3DDF0188_G TtfwWordModifier
 
 %%InheritedBy ME_4DCACBEA006D ME_55BA3DDF0188
 
@@ -12167,7 +12485,7 @@ ME ME_55BA3DDF0188
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4DCACBEA006D' '55BA28CE0290.ms.model.script' // TtfwWordModifier
+   Seq: ( HWL ME_4DCACBEA006D_ME_55BA3DDF0188_G // TtfwWordModifier
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -12221,7 +12539,7 @@ ENDME // ME_559E664802E1 DoIt
 ME ME_559E663E0307
  MEPROP UID '559E663E0307'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -12235,138 +12553,144 @@ ME ME_559E663E0307
 
 ENDME // ME_559E663E0307 Create
 
-ME ME_559D50760320_ME_559D51430285
+MEREF ME_559D50760320_ME_559D51430285_impl
  MELINK Original HWL ME_559D50760320 // IncludeModifier
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_559D50760320_ME_559D51430285 IncludeModifier
+ENDMEREF // ME_559D50760320_ME_559D51430285_impl IncludeModifier
 
-ME ME_559D50D40233_ME_559D51430285
+MEREF ME_559D50D40233_ME_559D51430285_impl
  MELINK Original HWL ME_559D50D40233 // Empty
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_559D50D40233_ME_559D51430285 Empty
+ENDMEREF // ME_559D50D40233_ME_559D51430285_impl Empty
 
-ME ME_559D50EA02F1_ME_559D51430285
+MEREF ME_559D50EA02F1_ME_559D51430285_impl
  MELINK Original HWL ME_559D50EA02F1 // Has$1
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_559D50EA02F1_ME_559D51430285 Has$1
+ENDMEREF // ME_559D50EA02F1_ME_559D51430285_impl Has$1
 
-ME ME_559D62F40210_ME_559D51430285
+MEREF ME_559D62F40210_ME_559D51430285_impl
  MELINK Original HWL ME_559D62F40210 // Clone
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_559D62F40210_ME_559D51430285 Clone
+ENDMEREF // ME_559D62F40210_ME_559D51430285_impl Clone
 
-ME ME_55B2543C0304_ME_559D51430285
+MEREF ME_55B2543C0304_ME_559D51430285_impl
  MELINK Original HWL ME_55B2543C0304 // pRec
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55B2543C0304_ME_559D51430285 pRec
+ENDMEREF // ME_55B2543C0304_ME_559D51430285_impl pRec
 
-ME ME_55B264D6035A_ME_559D51430285
+MEREF ME_55B264D6035A_ME_559D51430285_impl
  MELINK Original HWL ME_55B264D6035A // IncludeTypeModifier
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55B264D6035A_ME_559D51430285 IncludeTypeModifier
+ENDMEREF // ME_55B264D6035A_ME_559D51430285_impl IncludeTypeModifier
 
-ME ME_55B2651800DB_ME_559D51430285
+MEREF ME_55B2651800DB_ME_559D51430285_impl
  MELINK Original HWL ME_55B2651800DB // Has$2
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55B2651800DB_ME_559D51430285 Has$2
+ENDMEREF // ME_55B2651800DB_ME_559D51430285_impl Has$2
 
-ME ME_55B763C701FC_ME_559D51430285
+MEREF ME_55B763C701FC_ME_559D51430285_impl
  MELINK Original HWL ME_55B763C701FC // AcceptsValue
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55B763C701FC_ME_559D51430285 AcceptsValue
+ENDMEREF // ME_55B763C701FC_ME_559D51430285_impl AcceptsValue
 
-ME ME_55BA4C6D024B_ME_559D51430285
+MEREF ME_55BA4C6D024B_ME_559D51430285_impl
  MELINK Original HWL ME_55BA4C6D024B // Has$3
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55BA4C6D024B_ME_559D51430285 Has$3
+ENDMEREF // ME_55BA4C6D024B_ME_559D51430285_impl Has$3
 
-ME ME_55BA4CB60097_ME_559D51430285
+MEREF ME_55BA4CB60097_ME_559D51430285_impl
  MELINK Original HWL ME_55BA4CB60097 // IncludeAccesType
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55BA4CB60097_ME_559D51430285 IncludeAccesType
+ENDMEREF // ME_55BA4CB60097_ME_559D51430285_impl IncludeAccesType
 
-ME ME_55BBB0DC0384_ME_559D51430285
+MEREF ME_55BBB0DC0384_ME_559D51430285_impl
  MELINK Original HWL ME_55BBB0DC0384 // EQwm
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55BBB0DC0384_ME_559D51430285 EQwm
+ENDMEREF // ME_55BBB0DC0384_ME_559D51430285_impl EQwm
 
-ME ME_55BBB8FE02C0_ME_559D51430285
+MEREF ME_55BBB8FE02C0_ME_559D51430285_impl
  MELINK Original HWL ME_55BBB8FE02C0 // IncludeType
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55BBB8FE02C0_ME_559D51430285 IncludeType
+ENDMEREF // ME_55BBB8FE02C0_ME_559D51430285_impl IncludeType
 
-ME ME_55BF05E70219_ME_559D51430285
+MEREF ME_55BF05E70219_ME_559D51430285_impl
  MELINK Original HWL ME_55BF05E70219 // TypeName
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55BF05E70219_ME_559D51430285 TypeName
+ENDMEREF // ME_55BF05E70219_ME_559D51430285_impl TypeName
 
-ME ME_55C0D6C20094_ME_559D51430285
+MEREF ME_55C0D6C20094_ME_559D51430285_impl
  MELINK Original HWL ME_55C0D6C20094 // ValueTypes
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55C0D6C20094_ME_559D51430285 ValueTypes
+ENDMEREF // ME_55C0D6C20094_ME_559D51430285_impl ValueTypes
 
-ME ME_55C23CD603CC_ME_559D51430285
+MEREF ME_55C23CD603CC_ME_559D51430285_impl
  MELINK Original HWL ME_55C23CD603CC // IncludeLinkType
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55C23CD603CC_ME_559D51430285 IncludeLinkType
+ENDMEREF // ME_55C23CD603CC_ME_559D51430285_impl IncludeLinkType
 
-ME ME_55C23DC202FE_ME_559D51430285
+MEREF ME_55C23DC202FE_ME_559D51430285_impl
  MELINK Original HWL ME_55C23DC202FE // Has$4
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55C23DC202FE_ME_559D51430285 Has$4
+ENDMEREF // ME_55C23DC202FE_ME_559D51430285_impl Has$4
 
-ME ME_55C34B8600C9_ME_559D51430285
+MEREF ME_55C34B8600C9_ME_559D51430285_impl
  MELINK Original HWL ME_55C34B8600C9 // LinkType
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55C34B8600C9_ME_559D51430285 LinkType
+ENDMEREF // ME_55C34B8600C9_ME_559D51430285_impl LinkType
 
-ME ME_55C34BC601FE_ME_559D51430285
+MEREF ME_55C34BC601FE_ME_559D51430285_impl
  MELINK Original HWL ME_55C34BC601FE // AccessType
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55C34BC601FE_ME_559D51430285 AccessType
+ENDMEREF // ME_55C34BC601FE_ME_559D51430285_impl AccessType
 
-ME ME_55C356030225_ME_559D51430285
+MEREF ME_55C356030225_ME_559D51430285_impl
  MELINK Original HWL ME_55C356030225 // Compare
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55C356030225_ME_559D51430285 Compare
+ENDMEREF // ME_55C356030225_ME_559D51430285_impl Compare
 
-ME ME_55C385AD025D_ME_559D51430285
+MEREF ME_55C385AD025D_ME_559D51430285_impl
  MELINK Original HWL ME_55C385AD025D // Modifiers
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55C385AD025D_ME_559D51430285 Modifiers
+ENDMEREF // ME_55C385AD025D_ME_559D51430285_impl Modifiers
 
-ME ME_55C385DE0038_ME_559D51430285
+MEREF ME_55C385DE0038_ME_559D51430285_impl
  MELINK Original HWL ME_55C385DE0038 // ToString
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55C385DE0038_ME_559D51430285 ToString
+ENDMEREF // ME_55C385DE0038_ME_559D51430285_impl ToString
 
-ME ME_47A6FEE600FC_ME_559D51430285
+MEREF ME_47A6FEE600FC_ME_559D51430285_over
  MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifndef" 'DesignTimeLibrary'
-ENDME // ME_47A6FEE600FC_ME_559D51430285 IsCacheable
+ENDMEREF // ME_47A6FEE600FC_ME_559D51430285_over IsCacheable
+
+MEREF ME_559D504A0081_ME_559D51430285_G
+ MELINK Original HWL ME_559D504A0081 // TtfwWordInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_559D504A0081_ME_559D51430285_G TtfwWordInfo
 
 %%InheritedBy ME_559D504A0081 ME_559D51430285
 
@@ -12381,7 +12705,7 @@ ME ME_559D51430285
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_559D504A0081 // TtfwWordInfo
+   Seq: ( HWL ME_559D504A0081_ME_559D51430285_G // TtfwWordInfo
  )
  ; // Inherits
  MELIST Attributes
@@ -12393,35 +12717,35 @@ ME ME_559D51430285
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_559D50760320_ME_559D51430285 // IncludeModifier
- ME_559D50D40233_ME_559D51430285 // Empty
- ME_559D50EA02F1_ME_559D51430285 // Has$1
- ME_559D62F40210_ME_559D51430285 // Clone
- ME_55B2543C0304_ME_559D51430285 // pRec
- ME_55B264D6035A_ME_559D51430285 // IncludeTypeModifier
- ME_55B2651800DB_ME_559D51430285 // Has$2
- ME_55B763C701FC_ME_559D51430285 // AcceptsValue
- ME_55BA4C6D024B_ME_559D51430285 // Has$3
- ME_55BA4CB60097_ME_559D51430285 // IncludeAccesType
- ME_55BBB0DC0384_ME_559D51430285 // EQwm
- ME_55BBB8FE02C0_ME_559D51430285 // IncludeType
- ME_55BF05E70219_ME_559D51430285 // TypeName
- ME_55C0D6C20094_ME_559D51430285 // ValueTypes
- ME_55C23CD603CC_ME_559D51430285 // IncludeLinkType
- ME_55C23DC202FE_ME_559D51430285 // Has$4
- ME_55C34B8600C9_ME_559D51430285 // LinkType
- ME_55C34BC601FE_ME_559D51430285 // AccessType
- ME_55C356030225_ME_559D51430285 // Compare
- ME_55C385AD025D_ME_559D51430285 // Modifiers
- ME_55C385DE0038_ME_559D51430285 // ToString
+   Seq: ( ME_559D50760320_ME_559D51430285_impl // IncludeModifier
+ ME_559D50D40233_ME_559D51430285_impl // Empty
+ ME_559D50EA02F1_ME_559D51430285_impl // Has$1
+ ME_559D62F40210_ME_559D51430285_impl // Clone
+ ME_55B2543C0304_ME_559D51430285_impl // pRec
+ ME_55B264D6035A_ME_559D51430285_impl // IncludeTypeModifier
+ ME_55B2651800DB_ME_559D51430285_impl // Has$2
+ ME_55B763C701FC_ME_559D51430285_impl // AcceptsValue
+ ME_55BA4C6D024B_ME_559D51430285_impl // Has$3
+ ME_55BA4CB60097_ME_559D51430285_impl // IncludeAccesType
+ ME_55BBB0DC0384_ME_559D51430285_impl // EQwm
+ ME_55BBB8FE02C0_ME_559D51430285_impl // IncludeType
+ ME_55BF05E70219_ME_559D51430285_impl // TypeName
+ ME_55C0D6C20094_ME_559D51430285_impl // ValueTypes
+ ME_55C23CD603CC_ME_559D51430285_impl // IncludeLinkType
+ ME_55C23DC202FE_ME_559D51430285_impl // Has$4
+ ME_55C34B8600C9_ME_559D51430285_impl // LinkType
+ ME_55C34BC601FE_ME_559D51430285_impl // AccessType
+ ME_55C356030225_ME_559D51430285_impl // Compare
+ ME_55C385AD025D_ME_559D51430285_impl // Modifiers
+ ME_55C385DE0038_ME_559D51430285_impl // ToString
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_47A6FEE600FC_ME_559D51430285 // IsCacheable
+   Seq: ( ME_47A6FEE600FC_ME_559D51430285_over // IsCacheable
  )
  ; // Overridden
  MELIST Injected
-   Seq: ( WL 'ME_559F828E0296' '559F81FE0232.ms.model.script' // TtfwWordInfoCache
+   Seq: ( WL 'ME_559F828E0296' '559F828102D8.ms.model.script' // TtfwWordInfoCache
  )
  ; // Injected
  MESTRINGLIST DiagramsNames
@@ -12431,6 +12755,12 @@ ME ME_559D51430285
  UP extprop:rc:SelfName 'WordInfoF'
 
 ENDME // ME_559D51430285 TtfwWordInfoF
+
+MEREF ME_52C15D690329_ME_55BB8E5500E1_G
+ MELINK Original WL 'ME_52C15D690329' '55BA28CE0290.ms.model.script' // TtfwWordInfoRec
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52C15D690329_ME_55BB8E5500E1_G TtfwWordInfoRec
 
 %%InheritedBy ME_52C15D690329 ME_55BB8E5500E1
 
@@ -12445,11 +12775,17 @@ ME ME_55BB8E5500E1
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_52C15D690329' '55BA28CE0290.ms.model.script' // TtfwWordInfoRec
+   Seq: ( HWL ME_52C15D690329_ME_55BB8E5500E1_G // TtfwWordInfoRec
  )
  ; // Inherits
 
 ENDME // ME_55BB8E5500E1 TtfwWordInfoRec
+
+MEREF ME_54F994E10154_ME_55BB977B01B7_G
+ MELINK Original WL 'ME_54F994E10154' '55BB9712001F.ms.model.script' // EtfwException
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54F994E10154_ME_55BB977B01B7_G EtfwException
 
 %%InheritedBy ME_54F994E10154 ME_55BB977B01B7
 
@@ -12464,11 +12800,17 @@ ME ME_55BB977B01B7
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_54F994E10154' '55BB9712001F.ms.model.script' // EtfwException
+   Seq: ( HWL ME_54F994E10154_ME_55BB977B01B7_G // EtfwException
  )
  ; // Inherits
 
 ENDME // ME_55BB977B01B7 EtfwException
+
+MEREF ME_54F99536034A_ME_55BB978C02CF_G
+ MELINK Original WL 'ME_54F99536034A' '55BB9712001F.ms.model.script' // EtfwCheck
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54F99536034A_ME_55BB978C02CF_G EtfwCheck
 
 %%InheritedBy ME_54F99536034A ME_55BB978C02CF
 
@@ -12483,11 +12825,17 @@ ME ME_55BB978C02CF
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_54F99536034A' '55BB9712001F.ms.model.script' // EtfwCheck
+   Seq: ( HWL ME_54F99536034A_ME_55BB978C02CF_G // EtfwCheck
  )
  ; // Inherits
 
 ENDME // ME_55BB978C02CF EtfwCheck
+
+MEREF ME_4DAEED140007_ME_4DC95E96023B_G
+ MELINK Original HWL ME_4DAEED140007 // TtfwWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DAEED140007_ME_4DC95E96023B_G TtfwWord
 
 %%InheritedBy ME_4DAEED140007 ME_4DC95E96023B
 
@@ -12502,13 +12850,19 @@ ME ME_4DC95E96023B
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4DAEED140007 // TtfwWord
+   Seq: ( HWL ME_4DAEED140007_ME_4DC95E96023B_G // TtfwWord
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'NewWordDefinitor'
 
 ENDME // ME_4DC95E96023B TtfwNewWordDefinitor
+
+MEREF ME_55B2644E01DD_ME_55C0A513018B_G
+ MELINK Original WL 'ME_55B2644E01DD' '55BA28CE0290.ms.model.script' // TtfwValueTypes
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55B2644E01DD_ME_55C0A513018B_G TtfwValueTypes
 
 %%InheritedBy ME_55B2644E01DD ME_55C0A513018B
 
@@ -12523,7 +12877,7 @@ ME ME_55C0A513018B
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_55B2644E01DD' '55BA28CE0290.ms.model.script' // TtfwValueTypes
+   Seq: ( HWL ME_55B2644E01DD_ME_55C0A513018B_G // TtfwValueTypes
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -12565,7 +12919,7 @@ ME ME_4F4E5D6C038D
  MEPROP UID '4F4E5D6C038D'
  MEPROP Name 'C'
  MEPROP OriginalName 'C$File'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -12611,7 +12965,7 @@ ME ME_4DCC17860019
  MEPROP UID '4DCC17860019'
  MEPROP Name 'C'
  MEPROP OriginalName 'C$List'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -12657,7 +13011,7 @@ ME ME_4DB00AAB02FA
  MEPROP UID '4DB00AAB02FA'
  MEPROP Name 'C'
  MEPROP OriginalName 'C$Integer'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -12703,7 +13057,7 @@ ME ME_4DB01368005C
  MEPROP UID '4DB01368005C'
  MEPROP Name 'C'
  MEPROP OriginalName 'C$Boolean'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -12749,7 +13103,7 @@ ME ME_4DBAF9410061
  MEPROP UID '4DBAF9410061'
  MEPROP Name 'C'
  MEPROP OriginalName 'C$Object'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -12795,7 +13149,7 @@ ME ME_4DB04AC6039F
  MEPROP UID '4DB04AC6039F'
  MEPROP Name 'C'
  MEPROP OriginalName 'C$String'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -12841,7 +13195,7 @@ ME ME_4EB275570202
  MEPROP UID '4EB275570202'
  MEPROP Name 'C'
  MEPROP OriginalName 'C$Interface'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -12887,7 +13241,7 @@ ME ME_50852D1B015E
  MEPROP UID '50852D1B015E'
  MEPROP Name 'C'
  MEPROP OriginalName 'C$Class'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -12933,7 +13287,7 @@ ME ME_4F4FDCD4016D
  MEPROP UID '4F4FDCD4016D'
  MEPROP Name 'C'
  MEPROP OriginalName 'C$Char'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -12946,6 +13300,12 @@ ME ME_4F4FDCD4016D
  ; // Operations
 
 ENDME // ME_4F4FDCD4016D C$Char
+
+MEREF ME_4DB00A510300_ME_55C0AEF80328_G
+ MELINK Original WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB00A510300_ME_55C0AEF80328_G TtfwStackValue
 
 %%InheritedBy ME_4DB00A510300 ME_55C0AEF80328
 
@@ -12960,7 +13320,7 @@ ME ME_55C0AEF80328
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
+   Seq: ( HWL ME_4DB00A510300_ME_55C0AEF80328_G // TtfwStackValue
  )
  ; // Inherits
  MELIST Operations
@@ -12982,131 +13342,137 @@ ME ME_55C0AEF80328
 
 ENDME // ME_55C0AEF80328 TtfwStackValueEx
 
-ME ME_559D50760320_ME_559D6D060382
+MEREF ME_559D50760320_ME_559D6D060382_impl
  MELINK Original HWL ME_559D50760320 // IncludeModifier
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_559D50760320_ME_559D6D060382 IncludeModifier
+ENDMEREF // ME_559D50760320_ME_559D6D060382_impl IncludeModifier
 
-ME ME_559D50D40233_ME_559D6D060382
+MEREF ME_559D50D40233_ME_559D6D060382_impl
  MELINK Original HWL ME_559D50D40233 // Empty
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_559D50D40233_ME_559D6D060382 Empty
+ENDMEREF // ME_559D50D40233_ME_559D6D060382_impl Empty
 
-ME ME_559D50EA02F1_ME_559D6D060382
+MEREF ME_559D50EA02F1_ME_559D6D060382_impl
  MELINK Original HWL ME_559D50EA02F1 // Has$1
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_559D50EA02F1_ME_559D6D060382 Has$1
+ENDMEREF // ME_559D50EA02F1_ME_559D6D060382_impl Has$1
 
-ME ME_559D62F40210_ME_559D6D060382
+MEREF ME_559D62F40210_ME_559D6D060382_impl
  MELINK Original HWL ME_559D62F40210 // Clone
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_559D62F40210_ME_559D6D060382 Clone
+ENDMEREF // ME_559D62F40210_ME_559D6D060382_impl Clone
 
-ME ME_55B2543C0304_ME_559D6D060382
+MEREF ME_55B2543C0304_ME_559D6D060382_impl
  MELINK Original HWL ME_55B2543C0304 // pRec
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55B2543C0304_ME_559D6D060382 pRec
+ENDMEREF // ME_55B2543C0304_ME_559D6D060382_impl pRec
 
-ME ME_55B264D6035A_ME_559D6D060382
+MEREF ME_55B264D6035A_ME_559D6D060382_impl
  MELINK Original HWL ME_55B264D6035A // IncludeTypeModifier
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55B264D6035A_ME_559D6D060382 IncludeTypeModifier
+ENDMEREF // ME_55B264D6035A_ME_559D6D060382_impl IncludeTypeModifier
 
-ME ME_55B2651800DB_ME_559D6D060382
+MEREF ME_55B2651800DB_ME_559D6D060382_impl
  MELINK Original HWL ME_55B2651800DB // Has$2
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55B2651800DB_ME_559D6D060382 Has$2
+ENDMEREF // ME_55B2651800DB_ME_559D6D060382_impl Has$2
 
-ME ME_55B763C701FC_ME_559D6D060382
+MEREF ME_55B763C701FC_ME_559D6D060382_impl
  MELINK Original HWL ME_55B763C701FC // AcceptsValue
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55B763C701FC_ME_559D6D060382 AcceptsValue
+ENDMEREF // ME_55B763C701FC_ME_559D6D060382_impl AcceptsValue
 
-ME ME_55BA4C6D024B_ME_559D6D060382
+MEREF ME_55BA4C6D024B_ME_559D6D060382_impl
  MELINK Original HWL ME_55BA4C6D024B // Has$3
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55BA4C6D024B_ME_559D6D060382 Has$3
+ENDMEREF // ME_55BA4C6D024B_ME_559D6D060382_impl Has$3
 
-ME ME_55BA4CB60097_ME_559D6D060382
+MEREF ME_55BA4CB60097_ME_559D6D060382_impl
  MELINK Original HWL ME_55BA4CB60097 // IncludeAccesType
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55BA4CB60097_ME_559D6D060382 IncludeAccesType
+ENDMEREF // ME_55BA4CB60097_ME_559D6D060382_impl IncludeAccesType
 
-ME ME_55BBB0DC0384_ME_559D6D060382
+MEREF ME_55BBB0DC0384_ME_559D6D060382_impl
  MELINK Original HWL ME_55BBB0DC0384 // EQwm
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55BBB0DC0384_ME_559D6D060382 EQwm
+ENDMEREF // ME_55BBB0DC0384_ME_559D6D060382_impl EQwm
 
-ME ME_55BBB8FE02C0_ME_559D6D060382
+MEREF ME_55BBB8FE02C0_ME_559D6D060382_impl
  MELINK Original HWL ME_55BBB8FE02C0 // IncludeType
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55BBB8FE02C0_ME_559D6D060382 IncludeType
+ENDMEREF // ME_55BBB8FE02C0_ME_559D6D060382_impl IncludeType
 
-ME ME_55BF05E70219_ME_559D6D060382
+MEREF ME_55BF05E70219_ME_559D6D060382_impl
  MELINK Original HWL ME_55BF05E70219 // TypeName
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55BF05E70219_ME_559D6D060382 TypeName
+ENDMEREF // ME_55BF05E70219_ME_559D6D060382_impl TypeName
 
-ME ME_55C0D6C20094_ME_559D6D060382
+MEREF ME_55C0D6C20094_ME_559D6D060382_impl
  MELINK Original HWL ME_55C0D6C20094 // ValueTypes
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55C0D6C20094_ME_559D6D060382 ValueTypes
+ENDMEREF // ME_55C0D6C20094_ME_559D6D060382_impl ValueTypes
 
-ME ME_55C23CD603CC_ME_559D6D060382
+MEREF ME_55C23CD603CC_ME_559D6D060382_impl
  MELINK Original HWL ME_55C23CD603CC // IncludeLinkType
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55C23CD603CC_ME_559D6D060382 IncludeLinkType
+ENDMEREF // ME_55C23CD603CC_ME_559D6D060382_impl IncludeLinkType
 
-ME ME_55C23DC202FE_ME_559D6D060382
+MEREF ME_55C23DC202FE_ME_559D6D060382_impl
  MELINK Original HWL ME_55C23DC202FE // Has$4
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55C23DC202FE_ME_559D6D060382 Has$4
+ENDMEREF // ME_55C23DC202FE_ME_559D6D060382_impl Has$4
 
-ME ME_55C34B8600C9_ME_559D6D060382
+MEREF ME_55C34B8600C9_ME_559D6D060382_impl
  MELINK Original HWL ME_55C34B8600C9 // LinkType
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55C34B8600C9_ME_559D6D060382 LinkType
+ENDMEREF // ME_55C34B8600C9_ME_559D6D060382_impl LinkType
 
-ME ME_55C34BC601FE_ME_559D6D060382
+MEREF ME_55C34BC601FE_ME_559D6D060382_impl
  MELINK Original HWL ME_55C34BC601FE // AccessType
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55C34BC601FE_ME_559D6D060382 AccessType
+ENDMEREF // ME_55C34BC601FE_ME_559D6D060382_impl AccessType
 
-ME ME_55C356030225_ME_559D6D060382
+MEREF ME_55C356030225_ME_559D6D060382_impl
  MELINK Original HWL ME_55C356030225 // Compare
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55C356030225_ME_559D6D060382 Compare
+ENDMEREF // ME_55C356030225_ME_559D6D060382_impl Compare
 
-ME ME_55C385AD025D_ME_559D6D060382
+MEREF ME_55C385AD025D_ME_559D6D060382_impl
  MELINK Original HWL ME_55C385AD025D // Modifiers
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55C385AD025D_ME_559D6D060382 Modifiers
+ENDMEREF // ME_55C385AD025D_ME_559D6D060382_impl Modifiers
 
-ME ME_55C385DE0038_ME_559D6D060382
+MEREF ME_55C385DE0038_ME_559D6D060382_impl
  MELINK Original HWL ME_55C385DE0038 // ToString
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55C385DE0038_ME_559D6D060382 ToString
+ENDMEREF // ME_55C385DE0038_ME_559D6D060382_impl ToString
+
+MEREF ME_559D504A0081_ME_559D6D060382_G
+ MELINK Original HWL ME_559D504A0081 // TtfwWordInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_559D504A0081_ME_559D6D060382_G TtfwWordInfo
 
 %%InheritedBy ME_559D504A0081 ME_559D6D060382
 
@@ -13121,31 +13487,31 @@ ME ME_559D6D060382
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_559D504A0081 // TtfwWordInfo
+   Seq: ( HWL ME_559D504A0081_ME_559D6D060382_G // TtfwWordInfo
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_559D50760320_ME_559D6D060382 // IncludeModifier
- ME_559D50D40233_ME_559D6D060382 // Empty
- ME_559D50EA02F1_ME_559D6D060382 // Has$1
- ME_559D62F40210_ME_559D6D060382 // Clone
- ME_55B2543C0304_ME_559D6D060382 // pRec
- ME_55B264D6035A_ME_559D6D060382 // IncludeTypeModifier
- ME_55B2651800DB_ME_559D6D060382 // Has$2
- ME_55B763C701FC_ME_559D6D060382 // AcceptsValue
- ME_55BA4C6D024B_ME_559D6D060382 // Has$3
- ME_55BA4CB60097_ME_559D6D060382 // IncludeAccesType
- ME_55BBB0DC0384_ME_559D6D060382 // EQwm
- ME_55BBB8FE02C0_ME_559D6D060382 // IncludeType
- ME_55BF05E70219_ME_559D6D060382 // TypeName
- ME_55C0D6C20094_ME_559D6D060382 // ValueTypes
- ME_55C23CD603CC_ME_559D6D060382 // IncludeLinkType
- ME_55C23DC202FE_ME_559D6D060382 // Has$4
- ME_55C34B8600C9_ME_559D6D060382 // LinkType
- ME_55C34BC601FE_ME_559D6D060382 // AccessType
- ME_55C356030225_ME_559D6D060382 // Compare
- ME_55C385AD025D_ME_559D6D060382 // Modifiers
- ME_55C385DE0038_ME_559D6D060382 // ToString
+   Seq: ( ME_559D50760320_ME_559D6D060382_impl // IncludeModifier
+ ME_559D50D40233_ME_559D6D060382_impl // Empty
+ ME_559D50EA02F1_ME_559D6D060382_impl // Has$1
+ ME_559D62F40210_ME_559D6D060382_impl // Clone
+ ME_55B2543C0304_ME_559D6D060382_impl // pRec
+ ME_55B264D6035A_ME_559D6D060382_impl // IncludeTypeModifier
+ ME_55B2651800DB_ME_559D6D060382_impl // Has$2
+ ME_55B763C701FC_ME_559D6D060382_impl // AcceptsValue
+ ME_55BA4C6D024B_ME_559D6D060382_impl // Has$3
+ ME_55BA4CB60097_ME_559D6D060382_impl // IncludeAccesType
+ ME_55BBB0DC0384_ME_559D6D060382_impl // EQwm
+ ME_55BBB8FE02C0_ME_559D6D060382_impl // IncludeType
+ ME_55BF05E70219_ME_559D6D060382_impl // TypeName
+ ME_55C0D6C20094_ME_559D6D060382_impl // ValueTypes
+ ME_55C23CD603CC_ME_559D6D060382_impl // IncludeLinkType
+ ME_55C23DC202FE_ME_559D6D060382_impl // Has$4
+ ME_55C34B8600C9_ME_559D6D060382_impl // LinkType
+ ME_55C34BC601FE_ME_559D6D060382_impl // AccessType
+ ME_55C356030225_ME_559D6D060382_impl // Compare
+ ME_55C385AD025D_ME_559D6D060382_impl // Modifiers
+ ME_55C385DE0038_ME_559D6D060382_impl // ToString
  )
  ; // Implemented
  UP "singleton" True
@@ -13153,6 +13519,12 @@ ME ME_559D6D060382
  UP extprop:rc:SelfName 'WordInfoE'
 
 ENDME // ME_559D6D060382 TtfwWordInfoE
+
+MEREF ME_55EEB994029D_ME_55EEBA06006C_G
+ MELINK Original WL 'ME_55EEB994029D' '55BF153300A4.ms.model.script' // PtfwStackValue
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55EEB994029D_ME_55EEBA06006C_G PtfwStackValue
 
 %%InheritedBy ME_55EEB994029D ME_55EEBA06006C
 
@@ -13167,12 +13539,18 @@ ME ME_55EEBA06006C
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_55EEB994029D' '55BF153300A4.ms.model.script' // PtfwStackValue
+   Seq: ( HWL ME_55EEB994029D_ME_55EEBA06006C_G // PtfwStackValue
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_55EEBA06006C PtfwStackValue
+
+MEREF ME_4DAEED140007_ME_559D5D4400D3_G
+ MELINK Original HWL ME_4DAEED140007 // TtfwWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DAEED140007_ME_559D5D4400D3_G TtfwWord
 
 %%InheritedBy ME_4DAEED140007 ME_559D5D4400D3
 
@@ -13187,7 +13565,7 @@ ME ME_559D5D4400D3
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4DAEED140007 // TtfwWord
+   Seq: ( HWL ME_4DAEED140007_ME_559D5D4400D3_G // TtfwWord
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -13230,7 +13608,7 @@ ENDME // ME_5602AF9F0248 DoIt
 ME ME_5602AF920360
  MEPROP UID '5602AF920360'
  MEPROP Name 'ViewOf'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -13280,7 +13658,7 @@ ME ME_5602BB050379
  MEPROP UID '5602BB050379'
  MEPROP Name 'ViewOf'
  MEPROP OriginalName 'ViewOf$String'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -13295,6 +13673,12 @@ ME ME_5602BB050379
 
 ENDME // ME_5602BB050379 ViewOf$String
 
+MEREF ME_4F473F9402D8_ME_5602AF7201EC_G
+ MELINK Original WL? 'ME_4F473F9402D8' // TtfwCStringFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F473F9402D8_ME_5602AF7201EC_G TtfwCStringFactory
+
 %%InheritedBy ME_4F473F9402D8 ME_5602AF7201EC
 
 ME ME_5602AF7201EC
@@ -13308,7 +13692,7 @@ ME ME_5602AF7201EC
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F473F9402D8' '4F473F0902B2.ms.model.script' // TtfwCStringFactory
+   Seq: ( HWL ME_4F473F9402D8_ME_5602AF7201EC_G // TtfwCStringFactory
  )
  ; // Inherits
  MELIST Operations
@@ -13324,6 +13708,12 @@ ME ME_5602AF7201EC
 
 ENDME // ME_5602AF7201EC TtfwCStringFactoryEx
 
+MEREF ME_4DAEED140007_ME_4DB6E2EE0259_G
+ MELINK Original HWL ME_4DAEED140007 // TtfwWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DAEED140007_ME_4DB6E2EE0259_G TtfwWord
+
 %%InheritedBy ME_4DAEED140007 ME_4DB6E2EE0259
 
 ME ME_4DB6E2EE0259
@@ -13337,7 +13727,7 @@ ME ME_4DB6E2EE0259
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4DAEED140007 // TtfwWord
+   Seq: ( HWL ME_4DAEED140007_ME_4DB6E2EE0259_G // TtfwWord
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -13378,7 +13768,7 @@ ENDME // ME_57BAFED7002A DoIt
 ME ME_57BAFEC801C8
  MEPROP UID '57BAFEC801C8'
  MEPROP Name 'Notify'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -13420,7 +13810,7 @@ FORWARD ME_57C96D4B03E3
 ME ME_57C96DA0016C
  MEPROP UID '57C96DA0016C'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -13433,7 +13823,7 @@ ENDME // ME_57C96DA0016C Create
 ME ME_57C96DA90314
  MEPROP UID '57C96DA90314'
  MEPROP Name 'Fail'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -13462,7 +13852,7 @@ ENDME // ME_57C96DE10134 DoIt
 ME ME_57C96DBC00FE
  MEPROP UID '57C96DBC00FE'
  MEPROP Name 'GetInstance'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -13495,7 +13885,7 @@ ENDME // ME_57C96DFB035C DoIt
 ME ME_57C96DF30021
  MEPROP UID '57C96DF30021'
  MEPROP Name 'GetMessage'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -13540,7 +13930,7 @@ ENDME // ME_57C971C901A2 DoIt
 ME ME_57C971BD0206
  MEPROP UID '57C971BD0206'
  MEPROP Name 'Check'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -13555,12 +13945,18 @@ ME ME_57C971BD0206
 
 ENDME // ME_57C971BD0206 Check
 
-ME ME_5161317A0219_ME_57C96D4B03E3
+MEREF ME_5161317A0219_ME_57C96D4B03E3_over
  MELINK Original WL 'ME_5161317A0219' '4807744200AA.ms.model.script' // FreeInstance
  ;
  MEPROP OpKind opkind_Overridden
  UP "is static" False
-ENDME // ME_5161317A0219_ME_57C96D4B03E3 FreeInstance
+ENDMEREF // ME_5161317A0219_ME_57C96D4B03E3_over FreeInstance
+
+MEREF ME_559D161502BA_ME_57C96D4B03E3_G
+ MELINK Original HWL ME_559D161502BA // EtfwFail
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_559D161502BA_ME_57C96D4B03E3_G EtfwFail
 
 %%InheritedBy ME_559D161502BA ME_57C96D4B03E3
 
@@ -13575,7 +13971,7 @@ ME ME_57C96D4B03E3
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_559D161502BA // EtfwFail
+   Seq: ( HWL ME_559D161502BA_ME_57C96D4B03E3_G // EtfwFail
  )
  ; // Inherits
  MELIST Operations
@@ -13587,7 +13983,7 @@ ME ME_57C96D4B03E3
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_5161317A0219_ME_57C96D4B03E3 // FreeInstance
+   Seq: ( ME_5161317A0219_ME_57C96D4B03E3_over // FreeInstance
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames
@@ -13596,6 +13992,12 @@ ME ME_57C96D4B03E3
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_57C96D4B03E3 EtfwForSingleton
+
+MEREF ME_559D161502BA_ME_57C8114A01D2_G
+ MELINK Original HWL ME_559D161502BA // EtfwFail
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_559D161502BA_ME_57C8114A01D2_G EtfwFail
 
 %%InheritedBy ME_559D161502BA ME_57C8114A01D2
 
@@ -13610,24 +14012,30 @@ ME ME_57C8114A01D2
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_559D161502BA // EtfwFail
+   Seq: ( HWL ME_559D161502BA_ME_57C8114A01D2_G // EtfwFail
  )
  ; // Inherits
 
 ENDME // ME_57C8114A01D2 EtfwConstantArray
 
-ME ME_57C96DBC00FE_ME_57C81130017D
+MEREF ME_57C96DBC00FE_ME_57C81130017D_impl
  MELINK Original HWL ME_57C96DBC00FE // GetInstance
  ;
  MEPROP OpKind opkind_Implemented
  UP "is static" True
-ENDME // ME_57C96DBC00FE_ME_57C81130017D GetInstance
+ENDMEREF // ME_57C96DBC00FE_ME_57C81130017D_impl GetInstance
 
-ME ME_57C96DF30021_ME_57C81130017D
+MEREF ME_57C96DF30021_ME_57C81130017D_impl
  MELINK Original HWL ME_57C96DF30021 // GetMessage
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_57C96DF30021_ME_57C81130017D GetMessage
+ENDMEREF // ME_57C96DF30021_ME_57C81130017D_impl GetMessage
+
+MEREF ME_57C96D4B03E3_ME_57C81130017D_G
+ MELINK Original HWL ME_57C96D4B03E3 // EtfwForSingleton
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57C96D4B03E3_ME_57C81130017D_G EtfwForSingleton
 
 %%InheritedBy ME_57C96D4B03E3 ME_57C81130017D
 
@@ -13642,18 +14050,24 @@ ME ME_57C81130017D
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57C96D4B03E3 // EtfwForSingleton
+   Seq: ( HWL ME_57C96D4B03E3_ME_57C81130017D_G // EtfwForSingleton
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_57C96DBC00FE_ME_57C81130017D // GetInstance
- ME_57C96DF30021_ME_57C81130017D // GetMessage
+   Seq: ( ME_57C96DBC00FE_ME_57C81130017D_impl // GetInstance
+ ME_57C96DF30021_ME_57C81130017D_impl // GetMessage
  )
  ; // Implemented
  UP "singleton" True
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_57C81130017D EtfwNotImplemented
+
+MEREF ME_4DCC12FC0125_ME_57E3F88C00BB_G
+ MELINK Original HWL ME_4DCC12FC0125 // ItfwValueList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCC12FC0125_ME_57E3F88C00BB_G ItfwValueList
 
 %%InheritedBy ME_4DCC12FC0125 ME_57E3F88C00BB
 
@@ -13668,7 +14082,7 @@ ME ME_57E3F88C00BB
  MELINK Parent HWL ME_4DAF19F600C5 // tfwScriptingInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4DCC12FC0125 // ItfwValueList
+   Seq: ( HWL ME_4DCC12FC0125_ME_57E3F88C00BB_G // ItfwValueList
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True

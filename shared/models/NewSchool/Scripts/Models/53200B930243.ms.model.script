@@ -1,0 +1,70 @@
+// K517772970_TddTaskItem 53200B930243 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53200B930243
+
+ME ME_53204C5801F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53200B930243 // K517772970_TddTaskItem
+ ;
+ MELINK Target WL? 'ME_532046D302C2' // csTaskTypes
+ ;
+
+ENDME // ME_53204C5801F8 
+
+MEREF ME_5320088202FB_ME_53200B930243_impl
+ MELINK Original WL 'ME_5320088202FB' '532008240001.ms.model.script' // TaskClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5320088202FB_ME_53200B930243_impl TaskClass
+
+MEREF ME_532008D203BA_ME_53200B930243_impl
+ MELINK Original WL 'ME_532008D203BA' '532008240001.ms.model.script' // InitTask
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_532008D203BA_ME_53200B930243_impl InitTask
+
+MEREF ME_532008240001_ME_53200B930243_G
+ MELINK Original WL? 'ME_532008240001' // K517772970_TCheckSaveToStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_532008240001_ME_53200B930243_G K517772970_TCheckSaveToStream
+
+%%InheritedBy ME_532008240001 ME_53200B930243
+
+ME ME_53200B930243
+ MEPROP UID '53200B930243'
+ MEPROP Name 'K517772970_TddTaskItem'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_531FF6280311' // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_532008240001_ME_53200B930243_G // K517772970_TCheckSaveToStream
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_5320088202FB_ME_53200B930243_impl // TaskClass
+ ME_532008D203BA_ME_53200B930243_impl // InitTask
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53204C5801F8 // csTaskTypes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TK517772970_TddTaskItem'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K517772970_TddTaskItem'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddTaskItem.pas'
+
+ENDME // ME_53200B930243 K517772970_TddTaskItem

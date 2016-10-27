@@ -1,0 +1,61 @@
+// ExportByMainRelNamedTest 55FFA1DB00DB TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_55EEA16603AE_ME_55FFA1DB00DB_impl
+ MELINK Original WL 'ME_55EEA16603AE' '55ED52510115.ms.model.script' // TuneExportPipe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55EEA16603AE_ME_55FFA1DB00DB_impl TuneExportPipe
+
+MEREF ME_4C937013031D_ME_55FFA1DB00DB_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_55FFA1DB00DB_over GetFolder
+
+MEREF ME_4DAED6F60146_ME_55FFA1DB00DB_over
+ MELINK Original WL 'ME_4DAED6F60146' '4B2A0DCE03A9.ms.model.script' // GetModelElementGUID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DAED6F60146_ME_55FFA1DB00DB_over GetModelElementGUID
+
+MEREF ME_55ED52510115_ME_55FFA1DB00DB_G
+ MELINK Original WL? 'ME_55ED52510115' // ExportPipeTestPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55ED52510115_ME_55FFA1DB00DB_G ExportPipeTestPrim
+
+%%InheritedBy ME_55ED52510115 ME_55FFA1DB00DB
+
+ME ME_55FFA1DB00DB
+ MEPROP UID '55FFA1DB00DB'
+ MEPROP Name 'ExportByMainRelNamedTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ёкспорт документов в один NSRC со справками, разделЄнные по мейнам с помощью шаблона имени. (DivideBy = divNone)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55ED516B0072' // ExportPipeTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_55ED52510115_ME_55FFA1DB00DB_G // ExportPipeTestPrim
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_55EEA16603AE_ME_55FFA1DB00DB_impl // TuneExportPipe
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_55FFA1DB00DB_over // GetFolder
+ ME_4DAED6F60146_ME_55FFA1DB00DB_over // GetModelElementGUID
+ )
+ ; // Overridden
+ UP extprop:pas:TypeName 'TExportByMainRelNamedTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ExportByMainRelNamedTest'
+ UP intf.pas:Path 'archi\source\projects\ImportExportTest\ExportByMainRelNamedTest.pas'
+
+ENDME // ME_55FFA1DB00DB ExportByMainRelNamedTest

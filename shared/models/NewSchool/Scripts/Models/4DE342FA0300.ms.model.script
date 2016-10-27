@@ -1,0 +1,122 @@
+// TArchiAutoTestSuite 4DE342FA0300 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DE342FA0300
+
+ME ME_4DE368140094
+ MEPROP UID '4DE368140094'
+ MEPROP Name 'Register'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE342FA0300 // TArchiAutoTestSuite
+ ;
+
+ENDME // ME_4DE368140094 Register
+
+ME ME_4DE482E8004D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE342FA0300 // TArchiAutoTestSuite
+ ;
+ MELINK Target WL? 'ME_4DE482A503AB' // TArchiAutoTest
+ ;
+
+ENDME // ME_4DE482E8004D 
+
+ME ME_4EA7C744008D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE342FA0300 // TArchiAutoTestSuite
+ ;
+ MELINK Target WL 'ME_4EA66E6C038E' '4B2A0DCE03A9.ms.model.script' // RegisterTest
+ ;
+
+ENDME // ME_4EA7C744008D 
+
+ME ME_513082350309
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE342FA0300 // TArchiAutoTestSuite
+ ;
+ MELINK Target WL? 'ME_51304A1F02AD' // kwKeyWordsPack
+ ;
+
+ENDME // ME_513082350309 
+
+ME ME_5167F00803BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE342FA0300 // TArchiAutoTestSuite
+ ;
+ MELINK Target WL? 'ME_5166AFC5017A' // kwArchiEverestWordsPack
+ ;
+
+ENDME // ME_5167F00803BC 
+
+ME ME_51FB96620044
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE342FA0300 // TArchiAutoTestSuite
+ ;
+ MELINK Target WL? 'ME_4F72CAA90045' // Tl3ComponentInfoHelper
+ ;
+
+ENDME // ME_51FB96620044 
+
+MEREF ME_5040A3CE0118_ME_4DE342FA0300_over
+ MELINK Original WL 'ME_5040A3CE0118' '4B2A0DCE03A9.ms.model.script' // DoReReadAbstractTests
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5040A3CE0118_ME_4DE342FA0300_over DoReReadAbstractTests
+
+MEREF ME_4DC40A7E00C8_ME_4DE342FA0300_G
+ MELINK Original WL 'ME_4DC40A7E00C8' '4DC24CA4037E.ms.model.script' // TCustomAutoTestSuite
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DC40A7E00C8_ME_4DE342FA0300_G TCustomAutoTestSuite
+
+%%InheritedBy ME_4DC40A7E00C8 ME_4DE342FA0300
+
+ME ME_4DE342FA0300
+ MEPROP UID '4DE342FA0300'
+ MEPROP Name 'TArchiAutoTestSuite'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE3425B01DA' // ArchiScriptSupport
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DC40A7E00C8_ME_4DE342FA0300_G // TCustomAutoTestSuite
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DE368140094 // Register
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_5040A3CE0118_ME_4DE342FA0300_over // DoReReadAbstractTests
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DE482E8004D // TArchiAutoTest
+ ME_4EA7C744008D // RegisterTest
+ ME_513082350309 // kwKeyWordsPack
+ ME_5167F00803BC // kwArchiEverestWordsPack
+ ME_51FB96620044 // Tl3ComponentInfoHelper
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ArchiAutoTestSuite'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ArchiAutoTestSuite'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\ArchiAutoTestSuite.pas'
+
+ENDME // ME_4DE342FA0300 TArchiAutoTestSuite

@@ -57,7 +57,7 @@ ME ME_52382F620118
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_52382EB9003F // AppConfigTestMixin
  ;
- MELINK Target WL 'ME_51D54BCD02DA' '51D54BB60329.ms.model.script' // TConfigStorageStub
+ MELINK Target WL? 'ME_51D54BCD02DA' // TConfigStorageStub
  ;
 
 ENDME // ME_52382F620118 
@@ -82,11 +82,17 @@ ME ME_523839FD00D5
 
 ENDME // ME_523839FD00D5 
 
-ME ME_479731C50290_ME_52382EB9003F
+MEREF ME_479731C50290_ME_52382EB9003F_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_52382EB9003F Cleanup
+ENDMEREF // ME_479731C50290_ME_52382EB9003F_over Cleanup
+
+MEREF ME_4A5CB93700CF_ME_52382EB9003F_R
+ MELINK Original WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A5CB93700CF_ME_52382EB9003F_R Ml3Unknown
 
 %%ImplementedBy ME_4A5CB93700CF ME_52382EB9003F
 
@@ -102,7 +108,7 @@ ME ME_52382EB9003F
  MELINK Parent WL? 'ME_51D52B240123' // AppConfig
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+   Seq: ( HWL ME_4A5CB93700CF_ME_52382EB9003F_R // Ml3Unknown
  )
  ; // Implements
  MELIST Attributes
@@ -111,7 +117,7 @@ ME ME_52382EB9003F
  )
  ; // Attributes
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_52382EB9003F // Cleanup
+   Seq: ( ME_479731C50290_ME_52382EB9003F_over // Cleanup
  )
  ; // Overridden
  MELIST Dependencies

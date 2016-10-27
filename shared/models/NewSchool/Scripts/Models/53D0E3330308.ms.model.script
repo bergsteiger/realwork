@@ -1,0 +1,66 @@
+// TalcuAsyncTaskFinishedNotifierList 53D0E3330308 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D0E3330308
+
+ME ME_53D0E35C037E
+ MEPROP UID '53D0E35C037E'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53D0E3330308 // TalcuAsyncTaskFinishedNotifierList
+ ;
+ MELINK Target WL 'ME_53D0E2B3036C' '53CCB94A02A5.ms.model.script' // IalcuAsyncTaskFinishedNotifier
+ ;
+
+ENDME // ME_53D0E35C037E ItemType
+
+MEREF ME_4A54DD4E036F_ME_53D0E3330308_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_53D0E3330308_G Tl3ProtoDataContainer
+
+MEREF ME_47B57D630029_ME_53D0E3330308_R
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_53D0E3330308_R l3InterfacePtrList
+
+%%ImplementedBy ME_47B57D630029 ME_53D0E3330308
+
+%%InheritedBy ME_4A54DD4E036F ME_53D0E3330308
+
+ME ME_53D0E3330308
+ MEPROP UID '53D0E3330308'
+ MEPROP Name 'TalcuAsyncTaskFinishedNotifierList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53C900150015' // ServerAsyncExecution
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_53D0E3330308_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B57D630029_ME_53D0E3330308_R // l3InterfacePtrList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_53D0E35C037E // ItemType
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'alcuAsyncTaskFinishedNotifierList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuAsyncTaskFinishedNotifierList'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAsyncTaskFinishedNotifierList.pas'
+
+ENDME // ME_53D0E3330308 TalcuAsyncTaskFinishedNotifierList

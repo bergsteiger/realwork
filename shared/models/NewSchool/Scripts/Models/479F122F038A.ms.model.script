@@ -1,0 +1,102 @@
+// Tl3FieldSortRecList 479F122F038A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_479F122F038A
+
+ME ME_479F12410013
+ MEPROP UID '479F12410013'
+ MEPROP Name 'f_FieldSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_479F122F038A // Tl3FieldSortRecList
+ ;
+ MELINK Target WL 'ME_479F11F80049' '4678193C009C.ms.model.script' // TSmallIntArray
+ ;
+
+ENDME // ME_479F12410013 f_FieldSize
+
+ME ME_479F124F01E0
+ MEPROP UID '479F124F01E0'
+ MEPROP Name 'f_FieldOffs'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_479F122F038A // Tl3FieldSortRecList
+ ;
+ MELINK Target WL 'ME_4727223D039C' '4678193C009C.ms.model.script' // TLongArray
+ ;
+
+ENDME // ME_479F124F01E0 f_FieldOffs
+
+ME ME_479F125A0393
+ MEPROP UID '479F125A0393'
+ MEPROP Name 'f_SortFields'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_479F122F038A // Tl3FieldSortRecList
+ ;
+ MELINK Target WL 'ME_479F11F80049' '4678193C009C.ms.model.script' // TSmallIntArray
+ ;
+
+ENDME // ME_479F125A0393 f_SortFields
+
+ME ME_47BF10330390
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_479F122F038A // Tl3FieldSortRecList
+ ;
+ MELINK Target WL? 'ME_47BF045E0138' // m2MemLib
+ ;
+
+ENDME // ME_47BF10330390 
+
+MEREF ME_479F10C70202_ME_479F122F038A_G
+ MELINK Original WL? 'ME_479F10C70202' // Tl3RecList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_479F10C70202_ME_479F122F038A_G Tl3RecList
+
+%%InheritedBy ME_479F10C70202 ME_479F122F038A
+
+ME ME_479F122F038A
+ MEPROP UID '479F122F038A'
+ MEPROP Name 'Tl3FieldSortRecList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B880BC203B6' // RecLists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_479F10C70202_ME_479F122F038A_G // Tl3RecList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_479F12410013 // f_FieldSize
+ HWL ME_479F124F01E0 // f_FieldOffs
+ HWL ME_479F125A0393 // f_SortFields
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_47BF10330390 // m2MemLib
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP "started" '25.04.2006 09:30'
+ UP extprop:pas:UnitName 'l3FieldSortRecList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FieldSortRecList'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3FieldSortRecList.pas'
+
+ENDME // ME_479F122F038A Tl3FieldSortRecList

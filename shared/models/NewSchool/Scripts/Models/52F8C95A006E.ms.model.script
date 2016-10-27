@@ -17,7 +17,7 @@ ME ME_55E6A78300FE
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_52F8C97B02D6 // TalcuServerPrim
  ;
- MELINK Target WL 'ME_55E6A67A02ED' '53D656130130.ms.model.script' // TalcuDictChangeMDPSynchronizator
+ MELINK Target WL? 'ME_55E6A67A02ED' // TalcuDictChangeMDPSynchronizator
  ;
 
 ENDME // ME_55E6A78300FE f_DictWatcher
@@ -31,7 +31,7 @@ ME ME_55E6AB5F0318
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_52F8C97B02D6 // TalcuServerPrim
  ;
- MELINK Target WL 'ME_53CE4F2F008D' '53CCCA40004C.ms.model.script' // TalcuBaseEngineHolder
+ MELINK Target WL? 'ME_53CE4F2F008D' // TalcuBaseEngineHolder
  ;
 
 ENDME // ME_55E6AB5F0318 f_BaseEngineHolder
@@ -45,7 +45,7 @@ ME ME_55EED401013F
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_52F8C97B02D6 // TalcuServerPrim
  ;
- MELINK Target WL 'ME_55EED3CD0299' '53D656130130.ms.model.script' // TalcuMdpDocImporter
+ MELINK Target WL? 'ME_55EED3CD0299' // TalcuMdpDocImporter
  ;
 
 ENDME // ME_55EED401013F f_MdpDocImporter
@@ -55,7 +55,7 @@ ME ME_52FA29CA0141
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_52F8C97B02D6 // TalcuServerPrim
  ;
- MELINK Target WL 'ME_52FA29AE02C2' '53D656130130.ms.model.script' // TalcuServerTaskManagerFactory
+ MELINK Target WL? 'ME_52FA29AE02C2' // TalcuServerTaskManagerFactory
  ;
 
 ENDME // ME_52FA29CA0141 
@@ -65,7 +65,7 @@ ME ME_574D797902A9
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_52F8C97B02D6 // TalcuServerPrim
  ;
- MELINK Target WL 'ME_573D9F0A01BB' '52FA3DD30094.ms.model.script' // TalcuMdpSyncStages
+ MELINK Target WL? 'ME_573D9F0A01BB' // TalcuMdpSyncStages
  ;
 
 ENDME // ME_574D797902A9 
@@ -75,10 +75,16 @@ ME ME_574D797E008B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_52F8C97B02D6 // TalcuServerPrim
  ;
- MELINK Target WL 'ME_574C213703E2' '52FA3DD30094.ms.model.script' // TalcuMdpSyncImport
+ MELINK Target WL? 'ME_574C213703E2' // TalcuMdpSyncImport
  ;
 
 ENDME // ME_574D797E008B 
+
+MEREF ME_49E7754802A9_ME_52F8C97B02D6_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_52F8C97B02D6_G Tl3ProtoObject
 
 %%InheritedBy ME_49E7754802A9 ME_52F8C97B02D6
 
@@ -93,7 +99,7 @@ ME ME_52F8C97B02D6
  MELINK Parent HWL ME_52F8C95A006E // alcuAutoPipeServer
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_52F8C97B02D6_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Attributes

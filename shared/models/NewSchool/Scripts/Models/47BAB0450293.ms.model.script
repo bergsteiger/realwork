@@ -1,0 +1,93 @@
+// Tk2ChildrenPathList 47BAB0450293 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47BAB0450293
+
+ME ME_47BAB07F0247
+ MEPROP UID '47BAB07F0247'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47BAB0450293 // Tk2ChildrenPathList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47BAB07F0247 FindDataType
+
+ME ME_531F1F97005A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47BAB0450293 // Tk2ChildrenPathList
+ ;
+ MELINK Target WL? 'ME_531F1D190024' // Tk2ChildrenPath
+ ;
+
+ENDME // ME_531F1F97005A 
+
+MEREF ME_47B9BAFD01F4_ME_47BAB0450293_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_47BAB0450293_over CompareItemWithData
+
+MEREF ME_47BD505E0344_ME_47BAB0450293_G
+ MELINK Original WL? 'ME_47BD505E0344' // Tk2ChildrenPathListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BD505E0344_ME_47BAB0450293_G Tk2ChildrenPathListPrim
+
+MEREF ME_47B47E230134_ME_47BAB0450293_R
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_47BAB0450293_R l3Searcher
+
+%%ImplementedBy ME_47B47E230134 ME_47BAB0450293
+
+%%InheritedBy ME_47BD505E0344 ME_47BAB0450293
+
+ME ME_47BAB0450293
+ MEPROP UID '47BAB0450293'
+ MEPROP Name 'Tk2ChildrenPathList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49A58A1A03C4' // k2PrimObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47BD505E0344_ME_47BAB0450293_G // Tk2ChildrenPathListPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B47E230134_ME_47BAB0450293_R // l3Searcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47BAB07F0247 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_47BAB0450293_over // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_531F1F97005A // Tk2ChildrenPath
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'k2ChildrenPathList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ChildrenPathList'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2ChildrenPathList.pas'
+
+ENDME // ME_47BAB0450293 Tk2ChildrenPathList

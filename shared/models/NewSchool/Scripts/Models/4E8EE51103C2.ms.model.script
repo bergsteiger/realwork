@@ -1,0 +1,55 @@
+// TkwArchiNewEmptyDocument 4E8EE51103C2 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_52BD79600196_ME_4E8EE51103C2_impl
+ MELINK Original WL 'ME_52BD79600196' '52BD79050326.ms.model.script' // DoWithFileName
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52BD79600196_ME_4E8EE51103C2_impl DoWithFileName
+
+MEREF ME_4DB0614603C8_ME_4E8EE51103C2_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB0614603C8_ME_4E8EE51103C2_over GetWordNameForRegister
+
+MEREF ME_52BD79050326_ME_4E8EE51103C2_G
+ MELINK Original WL? 'ME_52BD79050326' // TkwCreateNewFile
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52BD79050326_ME_4E8EE51103C2_G TkwCreateNewFile
+
+%%InheritedBy ME_52BD79050326 ME_4E8EE51103C2
+
+ME ME_4E8EE51103C2
+ MEPROP UID '4E8EE51103C2'
+ MEPROP Name 'TkwArchiNewEmptyDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* Создать_пустой'#13#10'*Описание:* Создание пустого документа. '#13#10'*Пример:*'#13#10'{code}'#13#10' Создать_пустой'#13#10'{code}'#13#10'*Результат:*'#13#10' Создает пустой документ'#13#10'*Примечания:*'#13#10' В скриптах напрямую практически не используется, так как есть более удобные функции в файле:'#13#10'{code}'#13#10'  w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52BD79050326_ME_4E8EE51103C2_G // TkwCreateNewFile
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52BD79600196_ME_4E8EE51103C2_impl // DoWithFileName
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E8EE51103C2_over // GetWordNameForRegister
+ )
+ ; // Overridden
+ UP "NameForScript" 'Создать_пустой'
+ UP extprop:pas:UnitName 'kwArchiNewEmptyDocument'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ArchiNewEmptyDocument'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwArchiNewEmptyDocument.pas'
+
+ENDME // ME_4E8EE51103C2 TkwArchiNewEmptyDocument

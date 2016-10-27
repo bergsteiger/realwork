@@ -1,0 +1,38 @@
+// Tm3ArchiveStorage 541813A902DD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_541813A902DD
+
+ME ME_541813B20145
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_541813A902DD // Tm3ArchiveStorage
+ ;
+ MELINK Target WL? 'ME_53FDEEB502A6' // m3NewStorage
+ ;
+
+ENDME // ME_541813B20145 
+
+ME ME_541813A902DD
+ MEPROP UID '541813A902DD'
+ MEPROP Name 'Tm3ArchiveStorage'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5485BC6B01F7' // Storage
+ ;
+ MELIST Dependencies
+   Seq: ( ME_541813B20145 // m3NewStorage
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'm3ArchiveStorage'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3ArchiveStorage'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\NOT_FINISHED_m3ArchiveStorage.pas'
+
+ENDME // ME_541813A902DD Tm3ArchiveStorage

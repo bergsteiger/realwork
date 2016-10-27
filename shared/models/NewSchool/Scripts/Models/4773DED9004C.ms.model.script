@@ -1,0 +1,119 @@
+// Tl3_String 4773DED9004C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4773DED9004C
+
+ME ME_47A86895031F
+ MEPROP UID '47A86895031F'
+ MEPROP Name 'f_String'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4773DED9004C // Tl3_String
+ ;
+ MELINK Target WL 'ME_46B1B0F8018F' '4677FBA70343.ms.model.script' // Tl3WStrCast
+ ;
+
+ENDME // ME_47A86895031F f_String
+
+FORWARD ME_4FB10B1D016B
+
+FORWARD ME_4FB10B330160
+
+ME ME_4FB10B4F0064
+ MEPROP Name 'aPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FB10B4F0064 aPos
+
+ME ME_4FB10B4F0082
+ MEPROP Name 'aLen'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FB10B4F0082 aLen
+
+ME ME_4FB10B330160
+ MEPROP UID '4FB10B330160'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FB10B1D016B // NotifyDeletion
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FB10B4F0064 // aPos
+ ME_4FB10B4F0082 // aLen
+ )
+ ; // Parameters
+
+ENDME // ME_4FB10B330160 DoIt
+
+ME ME_4FB10B1D016B
+ MEPROP UID '4FB10B1D016B'
+ MEPROP Name 'NotifyDeletion'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4773DED9004C // Tl3_String
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FB10B330160 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FB10B1D016B NotifyDeletion
+
+MEREF ME_4773DEF0021B_ME_4773DED9004C_G
+ MELINK Original WL? 'ME_4773DEF0021B' // Tl3CustomString
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773DEF0021B_ME_4773DED9004C_G Tl3CustomString
+
+%%InheritedBy ME_4773DEF0021B ME_4773DED9004C
+
+ME ME_4773DED9004C
+ MEPROP UID '4773DED9004C'
+ MEPROP Name 'Tl3_String'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Класс реализующий строки с собственным методом хранения данных.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4773DEF0021B_ME_4773DED9004C_G // Tl3CustomString
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47A86895031F // f_String
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FB10B1D016B // NotifyDeletion
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '18.01.2008 15:56'
+ UP extprop:pas:UnitName 'l3_String'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName '_String'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3_String.pas'
+
+ENDME // ME_4773DED9004C Tl3_String

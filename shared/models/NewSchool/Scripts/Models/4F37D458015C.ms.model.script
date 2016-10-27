@@ -1,0 +1,86 @@
+// TkwUsesLike 4F37D458015C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F37D458015C
+
+ME ME_52D7AECC010B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F37D458015C // TkwUsesLike
+ ;
+ MELINK Target WL? 'ME_52D6AC5402E7' // StandardProcedureCloseBracket
+ ;
+
+ENDME // ME_52D7AECC010B 
+
+ME ME_559EB0940071
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F37D458015C // TkwUsesLike
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_559EB0940071 
+
+MEREF ME_4DB6C99F026E_ME_4F37D458015C_impl
+ MELINK Original WL 'ME_4DB6C99F026E' '4DB6C8F30161.ms.model.script' // EndBracket
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DB6C99F026E_ME_4F37D458015C_impl EndBracket
+
+MEREF ME_4DB6F2760023_ME_4F37D458015C_over
+ MELINK Original WL 'ME_4DB6F2760023' '4DB6C8F30161.ms.model.script' // UnknownWord
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB6F2760023_ME_4F37D458015C_over UnknownWord
+
+MEREF ME_4DC3A1A30235_ME_4F37D458015C_G
+ MELINK Original WL? 'ME_4DC3A1A30235' // TtfwIncludeLike
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DC3A1A30235_ME_4F37D458015C_G TtfwIncludeLike
+
+%%InheritedBy ME_4DC3A1A30235 ME_4F37D458015C
+
+ME ME_4F37D458015C
+ MEPROP UID '4F37D458015C'
+ MEPROP Name 'TkwUsesLike'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F4763EC02CB' // IncludesAndUses
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DC3A1A30235_ME_4F37D458015C_G // TtfwIncludeLike
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DB6C99F026E_ME_4F37D458015C_impl // EndBracket
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB6F2760023_ME_4F37D458015C_over // UnknownWord
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52D7AECC010B // StandardProcedureCloseBracket
+ ME_559EB0940071 // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '12.02.2012 19:02'
+ UP extprop:pas:UnitName 'kwUsesLike'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'UsesLike'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwUsesLike.pas'
+
+ENDME // ME_4F37D458015C TkwUsesLike

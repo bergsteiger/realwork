@@ -1,0 +1,103 @@
+// TnsTipsDocumentContainer 4CE53CC80300 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CE53CC80300
+
+ME ME_4CE53E7702F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE53CC80300 // TnsTipsDocumentContainer
+ ;
+ MELINK Target WL 'ME_483E708900B4' '47C695A10172.ms.model.script' // Clipboard Formats
+ ;
+
+ENDME // ME_4CE53E7702F2 
+
+ME ME_4CE53F7A02A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE53CC80300 // TnsTipsDocumentContainer
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4CE53F7A02A1 
+
+ME ME_4E69E09C0253
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE53CC80300 // TnsTipsDocumentContainer
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4E69E09C0253 
+
+MEREF ME_47F27DA80172_ME_4CE53CC80300_over
+ MELINK Original WL 'ME_47F27DA80172' '47F0870E0034.ms.model.script' // GetDocument
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F27DA80172_ME_4CE53CC80300_over GetDocument
+
+MEREF ME_4B1FBF87020C_ME_4CE53CC80300_over
+ MELINK Original WL 'ME_4B1FBF87020C' '4C6A955F00D6.ms.model.script' // AfterCreate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B1FBF87020C_ME_4CE53CC80300_over AfterCreate
+
+MEREF ME_4680E83D00C8_ME_4CE53CC80300_G
+ MELINK Original WL? 'ME_4680E83D00C8' // TeeDocumentContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4680E83D00C8_ME_4CE53CC80300_G TeeDocumentContainer
+
+MEREF ME_4C6A955F00D6_ME_4CE53CC80300_G
+ MELINK Original WL? 'ME_4C6A955F00D6' // nsDocumentContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C6A955F00D6_ME_4CE53CC80300_G nsDocumentContainer
+
+%%InheritedBy ME_4680E83D00C8 ME_4CE53CC80300
+%%InheritedBy ME_4C6A955F00D6 ME_4CE53CC80300
+
+ME ME_4CE53CC80300
+ MEPROP UID '4CE53CC80300'
+ MEPROP Name 'TnsTipsDocumentContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контейнер документа для советов дня' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_491D560F01F4' // DayTips
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4680E83D00C8_ME_4CE53CC80300_G // TeeDocumentContainer
+ HWL ME_4C6A955F00D6_ME_4CE53CC80300_G // nsDocumentContainer
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47F27DA80172_ME_4CE53CC80300_over // GetDocument
+ ME_4B1FBF87020C_ME_4CE53CC80300_over // AfterCreate
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CE53E7702F2 // Clipboard Formats
+ ME_4CE53F7A02A1 // IStream
+ ME_4E69E09C0253 // String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '18.11.2010 17:49'
+ UP extprop:pas:UnitName 'nsTipsDocumentContainer'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TipsDocumentContainer'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\DayTips\nsTipsDocumentContainer.pas'
+
+ENDME // ME_4CE53CC80300 TnsTipsDocumentContainer

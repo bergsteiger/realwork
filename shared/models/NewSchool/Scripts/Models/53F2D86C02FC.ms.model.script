@@ -1,0 +1,301 @@
+// TChromeLikeTabParams 53F2D86C02FC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53F2D86C02FC
+
+ME ME_53F2E4E001B5
+ MEPROP UID '53F2E4E001B5'
+ MEPROP Name 'f_UpdateOptions'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53F2D86C02FC // TChromeLikeTabParams
+ ;
+ MELINK Target WL 'ME_53F2E47C0055' '553213D902E0.ms.model.script' // Tl3TabUpdateOptions
+ ;
+
+ENDME // ME_53F2E4E001B5 f_UpdateOptions
+
+ME ME_53F2E549003D
+ MEPROP UID '53F2E549003D'
+ MEPROP Name 'f_ImageIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53F2D86C02FC // TChromeLikeTabParams
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53F2E549003D f_ImageIndex
+
+ME ME_53F2E56201DD
+ MEPROP UID '53F2E56201DD'
+ MEPROP Name 'f_HintText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53F2D86C02FC // TChromeLikeTabParams
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_53F2E56201DD f_HintText
+
+ME ME_53F2E56C033D
+ MEPROP UID '53F2E56C033D'
+ MEPROP Name 'f_Text'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53F2D86C02FC // TChromeLikeTabParams
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_53F2E56C033D f_Text
+
+FORWARD ME_53F2DA6F0255
+
+FORWARD ME_53F2DA7B0272
+
+ME ME_53F2E5AD03D1
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_53F2E5AD03D1 aText
+
+ME ME_53F2E5AD03E6
+ MEPROP Name 'aHintText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_53F2E5AD03E6 aHintText
+
+ME ME_53F2E5AE0014
+ MEPROP Name 'aImageIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53F2E5AE0014 aImageIndex
+
+ME ME_53F2E5AE0033
+ MEPROP Name 'aUpdateOptions'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_53F2E47C0055' '553213D902E0.ms.model.script' // Tl3TabUpdateOptions
+ ;
+
+ENDME // ME_53F2E5AE0033 aUpdateOptions
+
+ME ME_53F2DA7B0272
+ MEPROP UID '53F2DA7B0272'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53F2DA6F0255 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_53F2E5AD03D1 // aText
+ ME_53F2E5AD03E6 // aHintText
+ ME_53F2E5AE0014 // aImageIndex
+ ME_53F2E5AE0033 // aUpdateOptions
+ )
+ ; // Parameters
+
+ENDME // ME_53F2DA7B0272 DoIt
+
+ME ME_53F2DA6F0255
+ MEPROP UID '53F2DA6F0255'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53F2D86C02FC // TChromeLikeTabParams
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53F2DA7B0272 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53F2DA6F0255 Create
+
+MEREF ME_53F2DA6F0255_ME_53F2DABB00B5_G
+ MELINK Original HWL ME_53F2DA6F0255 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53F2DA6F0255_ME_53F2DABB00B5_G Create
+
+MEREF ME_53F2D7D90245_ME_53F2DABB00B5_R
+ MELINK Original WL 'ME_53F2D7D90245' '553213D902E0.ms.model.script' // Il3TabParams
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53F2D7D90245_ME_53F2DABB00B5_R Il3TabParams
+
+%%ImplementedBy ME_53F2D7D90245 ME_53F2DABB00B5
+
+%%InheritedBy ME_53F2DA6F0255 ME_53F2DABB00B5
+
+ME ME_53F2DABB00B5
+ MEPROP UID '53F2DABB00B5'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53F2D86C02FC // TChromeLikeTabParams
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53F2DA6F0255_ME_53F2DABB00B5_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53F2D7D90245_ME_53F2DABB00B5_R // Il3TabParams
+ )
+ ; // Implements
+
+ENDME // ME_53F2DABB00B5 Make
+
+ME ME_53F2D9D203BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53F2D86C02FC // TChromeLikeTabParams
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_53F2D9D203BC 
+
+ME ME_53F2DA53002E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53F2D86C02FC // TChromeLikeTabParams
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_53F2DA53002E 
+
+MEREF ME_53F2D8130105_ME_53F2D86C02FC_impl
+ MELINK Original WL 'ME_53F2D8130105' '553213D902E0.ms.model.script' // HintText
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_53F2D8130105_ME_53F2D86C02FC_impl HintText
+
+MEREF ME_53F2D8210054_ME_53F2D86C02FC_impl
+ MELINK Original WL 'ME_53F2D8210054' '553213D902E0.ms.model.script' // Text
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_53F2D8210054_ME_53F2D86C02FC_impl Text
+
+MEREF ME_53F2D837021D_ME_53F2D86C02FC_impl
+ MELINK Original WL 'ME_53F2D837021D' '553213D902E0.ms.model.script' // ImageIndex
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_53F2D837021D_ME_53F2D86C02FC_impl ImageIndex
+
+MEREF ME_53F2E49B01F5_ME_53F2D86C02FC_impl
+ MELINK Original WL 'ME_53F2E49B01F5' '553213D902E0.ms.model.script' // UpdateOptions
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_53F2E49B01F5_ME_53F2D86C02FC_impl UpdateOptions
+
+MEREF ME_479731C50290_ME_53F2D86C02FC_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_53F2D86C02FC_over Cleanup
+
+MEREF ME_49E7754802A9_ME_53F2D86C02FC_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_53F2D86C02FC_G Tl3ProtoObject
+
+MEREF ME_53F2D7D90245_ME_53F2D86C02FC_R
+ MELINK Original WL 'ME_53F2D7D90245' '553213D902E0.ms.model.script' // Il3TabParams
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53F2D7D90245_ME_53F2D86C02FC_R Il3TabParams
+
+%%ImplementedBy ME_53F2D7D90245 ME_53F2D86C02FC
+
+%%InheritedBy ME_49E7754802A9 ME_53F2D86C02FC
+
+ME ME_53F2D86C02FC
+ MEPROP UID '53F2D86C02FC'
+ MEPROP Name 'TChromeLikeTabParams'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_533E6F73014E' // ChromeLikeTabSet
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_53F2D86C02FC_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53F2D7D90245_ME_53F2D86C02FC_R // Il3TabParams
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_53F2E4E001B5 // f_UpdateOptions
+ HWL ME_53F2E549003D // f_ImageIndex
+ HWL ME_53F2E56201DD // f_HintText
+ HWL ME_53F2E56C033D // f_Text
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53F2DA6F0255 // Create
+ HWL ME_53F2DABB00B5 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_53F2D8130105_ME_53F2D86C02FC_impl // HintText
+ ME_53F2D8210054_ME_53F2D86C02FC_impl // Text
+ ME_53F2D837021D_ME_53F2D86C02FC_impl // ImageIndex
+ ME_53F2E49B01F5_ME_53F2D86C02FC_impl // UpdateOptions
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_53F2D86C02FC_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53F2D9D203BC // l3String
+ ME_53F2DA53002E // Il3CString
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoVGScene, NoVCM'
+ UP extprop:pas:UnitName 'ChromeLikeTabParams'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ChromeLikeTabParams'
+ UP intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabParams.pas'
+
+ENDME // ME_53F2D86C02FC TChromeLikeTabParams

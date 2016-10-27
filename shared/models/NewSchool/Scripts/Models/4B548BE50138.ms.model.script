@@ -2,17 +2,23 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-ME ME_4A79AB290196_ME_4B548BE50138
+MEREF ME_4A79AB290196_ME_4B548BE50138_impl
  MELINK Original WL 'ME_4A79AB290196' '4A6D56B00065.ms.model.script' // Sync
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A79AB290196_ME_4B548BE50138 Sync
+ENDMEREF // ME_4A79AB290196_ME_4B548BE50138_impl Sync
 
-ME ME_4B54676B0132_ME_4B548BE50138
+MEREF ME_4B54676B0132_ME_4B548BE50138_impl
  MELINK Original WL 'ME_4B54676B0132' '4A6D56B00065.ms.model.script' // CurrentChangedFragmentChanged
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4B54676B0132_ME_4B548BE50138 CurrentChangedFragmentChanged
+ENDMEREF // ME_4B54676B0132_ME_4B548BE50138_impl CurrentChangedFragmentChanged
+
+MEREF ME_4A79AB0A0359_ME_4B548BE50138_R
+ MELINK Original WL 'ME_4A79AB0A0359' '4A6D56B00065.ms.model.script' // VScroll
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A79AB0A0359_ME_4B548BE50138_R VScroll
 
 %%ImplementedBy ME_4A79AB0A0359 ME_4B548BE50138
 
@@ -29,12 +35,12 @@ ME ME_4B548BE50138
  MELINK Parent WL? 'ME_4A717F3D0221' // Editions
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A79AB0A0359' '4A6D56B00065.ms.model.script' // VScroll
+   Seq: ( HWL ME_4A79AB0A0359_ME_4B548BE50138_R // VScroll
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_4A79AB290196_ME_4B548BE50138 // Sync
- ME_4B54676B0132_ME_4B548BE50138 // CurrentChangedFragmentChanged
+   Seq: ( ME_4A79AB290196_ME_4B548BE50138_impl // Sync
+ ME_4B54676B0132_ME_4B548BE50138_impl // CurrentChangedFragmentChanged
  )
  ; // Implemented
  UP extprop:pas:TypeName '_VScroll_'

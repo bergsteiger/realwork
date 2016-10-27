@@ -1,0 +1,121 @@
+// TevInevParaMapper 53D8F025001E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D8F025001E
+
+ME ME_53D8F0440229
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D8F025001E // TevInevParaMapper
+ ;
+ MELINK Target WL? 'ME_485678B701BD' // TevPara
+ ;
+ UP "injects as" 'mapper'
+
+ENDME // ME_53D8F0440229 
+
+ME ME_53D8F06403B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53D8F025001E // TevInevParaMapper
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_53D8F06403B1 
+
+ME ME_53D8F0820059
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D8F025001E // TevInevParaMapper
+ ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_53D8F0820059 
+
+ME ME_53D8F09C0038
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D8F025001E // TevInevParaMapper
+ ;
+ MELINK Target WL 'ME_49D0E657022F' '4678209200A6.ms.model.script' // InevObjectPrim
+ ;
+
+ENDME // ME_53D8F09C0038 
+
+ME ME_53D8FE4E0240
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53D8F025001E // TevInevParaMapper
+ ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_53D8FE4E0240 
+
+ME ME_53D8FE560188
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53D8F025001E // TevInevParaMapper
+ ;
+ MELINK Target WL 'ME_49D0E657022F' '4678209200A6.ms.model.script' // InevObjectPrim
+ ;
+
+ENDME // ME_53D8FE560188 
+
+MEREF ME_53D639B601D7_ME_53D8F025001E_impl
+ MELINK Original WL 'ME_53D639B601D7' '53D6399F03E1.ms.model.script' // Make
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" True
+ENDMEREF // ME_53D639B601D7_ME_53D8F025001E_impl Make
+
+MEREF ME_53D6399F03E1_ME_53D8F025001E_G
+ MELINK Original WL? 'ME_53D6399F03E1' // Tk2InterfaceMapper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53D6399F03E1_ME_53D8F025001E_G Tk2InterfaceMapper
+
+%%InjectedBy ME_485678B701BD ME_53D8F025001E
+
+%%InheritedBy ME_53D6399F03E1 ME_53D8F025001E
+
+ME ME_53D8F025001E
+ MEPROP UID '53D8F025001E'
+ MEPROP Name 'TevInevParaMapper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48CE0A0A03B4' // ParagraphsImplementation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53D6399F03E1_ME_53D8F025001E_G // Tk2InterfaceMapper
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53D639B601D7_ME_53D8F025001E_impl // Make
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53D8F0440229 // TevPara
+ ME_53D8F06403B1 // InevPara
+ ME_53D8F0820059 // InevObject
+ ME_53D8F09C0038 // InevObjectPrim
+ ME_53D8FE4E0240 // InevObject
+ ME_53D8FE560188 // InevObjectPrim
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evInevParaMapper'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'InevParaMapper'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\evInevParaMapper.pas'
+
+ENDME // ME_53D8F025001E TevInevParaMapper

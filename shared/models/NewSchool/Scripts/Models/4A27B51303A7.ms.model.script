@@ -1,0 +1,340 @@
+// TevControlsBlockHotSpotTesterPrim 4A27B51303A7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4A27B5E3017E
+
+FORWARD ME_4A27B51303A7
+
+FORWARD ME_4A27B5E3017E
+
+ME ME_4A27B5EC02E7
+ MEPROP UID '4A27B5EC02E7'
+ MEPROP Name 'ev_cbNoAction'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A27B5E3017E // TContrBlockActFlags
+ ;
+
+ENDME // ME_4A27B5EC02E7 ev_cbNoAction
+
+ME ME_4A27B5F203AD
+ MEPROP UID '4A27B5F203AD'
+ MEPROP Name 'ev_cbMainSurface'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A27B5E3017E // TContrBlockActFlags
+ ;
+
+ENDME // ME_4A27B5F203AD ev_cbMainSurface
+
+ME ME_4A27B5F801F2
+ MEPROP UID '4A27B5F801F2'
+ MEPROP Name 'ev_cbButton'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A27B5E3017E // TContrBlockActFlags
+ ;
+
+ENDME // ME_4A27B5F801F2 ev_cbButton
+
+ME ME_4A27B5E3017E
+ MEPROP UID '4A27B5E3017E'
+ MEPROP Name 'TContrBlockActFlags'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A27B51303A7 // TevControlsBlockHotSpotTesterPrim
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A27B5EC02E7 // ev_cbNoAction
+ HWL ME_4A27B5F203AD // ev_cbMainSurface
+ HWL ME_4A27B5F801F2 // ev_cbButton
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4A27B5E3017E TContrBlockActFlags
+
+ME ME_4A27B7B10328
+ MEPROP UID '4A27B7B10328'
+ MEPROP Name 'CommonControl'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A27B51303A7 // TevControlsBlockHotSpotTesterPrim
+ ;
+ MELINK Target WL 'ME_47C6AFC8021F' '47C5207602D1.ms.model.script' // IevCommonControl
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_4A27B7B10328 CommonControl
+
+FORWARD ME_4A27B59E000D
+
+ME ME_4A27B5A80388
+ MEPROP UID '4A27B5A80388'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A27B59E000D // GetControl
+ ;
+ MELINK Target WL 'ME_47CD6F2902DC' '47CD5C7602CD.ms.model.script' // IevQueryGroup
+ ;
+
+ENDME // ME_4A27B5A80388 DoIt
+
+ME ME_4A27B59E000D
+ MEPROP UID '4A27B59E000D'
+ MEPROP Name 'GetControl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A27B51303A7 // TevControlsBlockHotSpotTesterPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A27B5A80388 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4A27B59E000D GetControl
+
+FORWARD ME_4A27B66101A0
+
+FORWARD ME_4A27B66C0238
+
+ME ME_4A27B67001CB
+ MEPROP Name 'aPt'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D8F4C03CD' '467823B7002C.ms.model.script' // TafwPoint
+ ;
+
+ENDME // ME_4A27B67001CB aPt
+
+ME ME_4A27B66C0238
+ MEPROP UID '4A27B66C0238'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A27B66101A0 // PtToPara
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A27B67001CB // aPt
+ )
+ ; // Parameters
+
+ENDME // ME_4A27B66C0238 DoIt
+
+ME ME_4A27B66101A0
+ MEPROP UID '4A27B66101A0'
+ MEPROP Name 'PtToPara'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A27B51303A7 // TevControlsBlockHotSpotTesterPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A27B66C0238 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4A27B66101A0 PtToPara
+
+FORWARD ME_4A27B6890151
+
+FORWARD ME_4A27B6990004
+
+ME ME_4A27B6A102FC
+ MEPROP Name 'aPt'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_4A27B6A102FC aPt
+
+ME ME_4A27B6990004
+ MEPROP UID '4A27B6990004'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A27B6890151 // MouseInBtn
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A27B6A102FC // aPt
+ )
+ ; // Parameters
+
+ENDME // ME_4A27B6990004 DoIt
+
+ME ME_4A27B6CB02DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A27B6890151 // MouseInBtn
+ ;
+ MELINK Target WL 'ME_485808D2028D' '485808AB001D.ms.model.script' // ControlsBlockConst
+ ;
+
+ENDME // ME_4A27B6CB02DC 
+
+ME ME_4A27B6890151
+ MEPROP UID '4A27B6890151'
+ MEPROP Name 'MouseInBtn'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A27B51303A7 // TevControlsBlockHotSpotTesterPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A27B6990004 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4A27B6CB02DC // ControlsBlockConst
+ )
+ ; // Dependencies
+
+ENDME // ME_4A27B6890151 MouseInBtn
+
+ME ME_4A27B61C03A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A27B51303A7 // TevControlsBlockHotSpotTesterPrim
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_4A27B61C03A7 
+
+ME ME_4A27B638016C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A27B51303A7 // TevControlsBlockHotSpotTesterPrim
+ ;
+ MELINK Target WL 'ME_47CD6F2902DC' '47CD5C7602CD.ms.model.script' // IevQueryGroup
+ ;
+
+ENDME // ME_4A27B638016C 
+
+ME ME_4A27BA6C01A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A27B51303A7 // TevControlsBlockHotSpotTesterPrim
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4A27BA6C01A0 
+
+MEREF ME_48E2638F0358_ME_4A27B51303A7_impl
+ MELINK Original WL 'ME_48E2638F0358' '4A1FCBA0014C.ms.model.script' // TransMouseMove
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48E2638F0358_ME_4A27B51303A7_impl TransMouseMove
+
+MEREF ME_479731C50290_ME_4A27B51303A7_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4A27B51303A7_over Cleanup
+
+MEREF ME_4A27B5510171_ME_4A27B51303A7_G
+ MELINK Original WL? 'ME_4A27B5510171' // TevDocumentPartHotSpotTester
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A27B5510171_ME_4A27B51303A7_G TevDocumentPartHotSpotTester
+
+MEREF ME_48E2637D0296_ME_4A27B51303A7_R
+ MELINK Original WL 'ME_48E2637D0296' '4A1FCBA0014C.ms.model.script' // IevMouseMoveHandler
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48E2637D0296_ME_4A27B51303A7_R IevMouseMoveHandler
+
+%%ImplementedBy ME_48E2637D0296 ME_4A27B51303A7
+
+%%InheritedBy ME_4A27B5510171 ME_4A27B51303A7
+
+ME ME_4A27B51303A7
+ MEPROP UID '4A27B51303A7'
+ MEPROP Name 'TevControlsBlockHotSpotTesterPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A267EE3017B' // HotSpots
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A27B5510171_ME_4A27B51303A7_G // TevDocumentPartHotSpotTester
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_48E2637D0296_ME_4A27B51303A7_R // IevMouseMoveHandler
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A27B7B10328 // CommonControl
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A27B59E000D // GetControl
+ HWL ME_4A27B66101A0 // PtToPara
+ HWL ME_4A27B6890151 // MouseInBtn
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48E2638F0358_ME_4A27B51303A7_impl // TransMouseMove
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4A27B51303A7_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4A27B5E3017E // TContrBlockActFlags
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4A27B61C03A7 // Tl3Point
+ ME_4A27B638016C // IevQueryGroup
+ ME_4A27BA6C01A0 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '04.06.2009 15:51'
+ UP extprop:pas:UnitName 'evControlsBlockHotSpotTesterPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ControlsBlockHotSpotTesterPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evControlsBlockHotSpotTesterPrim.pas'
+
+ENDME // ME_4A27B51303A7 TevControlsBlockHotSpotTesterPrim

@@ -1,0 +1,433 @@
+// TnsParaListNodeModelPart 4CEFA95A0301 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CEFA95A0301
+
+ME ME_4CEFAAF700B3
+ MEPROP UID '4CEFAAF700B3'
+ MEPROP Name 'f_CurIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CEFA95A0301 // TnsParaListNodeModelPart
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4CEFAAF700B3 f_CurIndex
+
+ME ME_4CEFAB100042
+ MEPROP UID '4CEFAB100042'
+ MEPROP Name 'f_CurNode'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CEFA95A0301 // TnsParaListNodeModelPart
+ ;
+ MELINK Target WL 'ME_4C6E935500EF' '4C6E92E9016E.ms.model.script' // If1TagDataProvider
+ ;
+
+ENDME // ME_4CEFAB100042 f_CurNode
+
+FORWARD ME_4CEFAD320395
+
+ME ME_4CEFB4F001A8
+ MEPROP UID '4CEFB4F001A8'
+ MEPROP Name 'Comment'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4CEFB4F001A8 Comment
+
+ME ME_4CEFB88D00FC
+ MEPROP UID '4CEFB88D00FC'
+ MEPROP Name 'CommentTag'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4CEFB88D00FC CommentTag
+
+ME ME_4CEFB8990252
+ MEPROP UID '4CEFB8990252'
+ MEPROP Name 'HolderTag'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL 'ME_5346BD53015A' '53317D14019D.ms.model.script' // Il3TagRef
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4CEFB8990252 HolderTag
+
+ME ME_4CEFB9ED00FD
+ MEPROP UID '4CEFB9ED00FD'
+ MEPROP Name 'Para'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4CEFB9ED00FD Para
+
+ME ME_4CEFBA0002D4
+ MEPROP UID '4CEFBA0002D4'
+ MEPROP Name 'Container'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL 'ME_47C6A603009D' '47C5207602D1.ms.model.script' // InevDocumentContainer
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4CEFBA0002D4 Container
+
+FORWARD ME_4CEFAD4401B7
+
+ME ME_4D0F57A902B8
+ MEPROP Name 'aChildIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D0F57A902B8 aChildIndex
+
+ME ME_4CEFAD7C0110
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4C6E935500EF' '4C6E92E9016E.ms.model.script' // If1TagDataProvider
+ ;
+
+ENDME // ME_4CEFAD7C0110 aNode
+
+ME ME_4CEFAD7C0135
+ MEPROP Name 'aState'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4C6D1B8E023F' '4C6E92E9016E.ms.model.script' // TnsNodeStates
+ ;
+ MEPROP Value '[]'
+ MELINK ValueType WL 'ME_4C6D1B8E023F' '4C6E92E9016E.ms.model.script' // TnsNodeStates
+ ;
+ UP extprop:pas:Value 'F1TagDataProviderInterface.[]'
+
+ENDME // ME_4CEFAD7C0135 aState
+
+ME ME_4CEFAD4401B7
+ MEPROP UID '4CEFAD4401B7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL 'ME_5346BD53015A' '53317D14019D.ms.model.script' // Il3TagRef
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D0F57A902B8 // aChildIndex
+ ME_4CEFAD7C0110 // aNode
+ ME_4CEFAD7C0135 // aState
+ )
+ ; // Parameters
+
+ENDME // ME_4CEFAD4401B7 DoIt
+
+ME ME_4CEFB02400DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL 'ME_485669C9009D' '484A470100DD.ms.model.script' // LeafPara
+ ;
+
+ENDME // ME_4CEFB02400DA 
+
+ME ME_4CEFB03F015A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL? 'ME_480DBA760390' // k2Facade
+ ;
+
+ENDME // ME_4CEFB03F015A 
+
+ME ME_4CEFB0570219
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_4CEFB0570219 
+
+ME ME_4CEFB60501B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL? 'ME_4CED3DF702F9' // TnsNativeCommentPara
+ ;
+
+ENDME // ME_4CEFB60501B9 
+
+ME ME_4CEFB61900B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL 'ME_4857C9C20131' '48492FC0029D.ms.model.script' // CommentPara
+ ;
+
+ENDME // ME_4CEFB61900B0 
+
+ME ME_4CEFB6F100A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL 'ME_4CEBC4B702DD' '48492FC0029D.ms.model.script' // LeafParaDecorationsHolder
+ ;
+
+ENDME // ME_4CEFB6F100A8 
+
+ME ME_4CEFBA1900C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4CEFBA1900C3 
+
+ME ME_4CEFD79201AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL? 'ME_4CEFD73403E4' // TnsLeafParaDecorationsHolder
+ ;
+
+ENDME // ME_4CEFD79201AB 
+
+ME ME_4D0F4CFF018F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL? 'ME_467FCA0F01C6' // TnsTagString
+ ;
+
+ENDME // ME_4D0F4CFF018F 
+
+ME ME_4D0F4D14035F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4D0F4D14035F 
+
+ME ME_4D0F4D2702DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_4D0F4D2702DD 
+
+ME ME_4D0F4D490013
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4D0F4D490013 
+
+ME ME_4D0F51370300
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_4D0F51370300 
+
+ME ME_4D0F59340260
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4D0F59340260 
+
+ME ME_4D0F7907022E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL 'ME_4857A87D0337' '48492FC0029D.ms.model.script' // Block
+ ;
+
+ENDME // ME_4D0F7907022E 
+
+ME ME_4D0F84A9021C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFAD320395 // MakeChildTag
+ ;
+ MELINK Target WL 'ME_4857920901AF' '48492FC0029D.ms.model.script' // DecorTextPara
+ ;
+
+ENDME // ME_4D0F84A9021C 
+
+ME ME_4CEFAD320395
+ MEPROP UID '4CEFAD320395'
+ MEPROP Name 'MakeChildTag'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEFA95A0301 // TnsParaListNodeModelPart
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4CEFB4F001A8 // Comment
+ HWL ME_4CEFB88D00FC // CommentTag
+ HWL ME_4CEFB8990252 // HolderTag
+ HWL ME_4CEFB9ED00FD // Para
+ HWL ME_4CEFBA0002D4 // Container
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CEFAD4401B7 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4CEFB02400DA // LeafPara
+ ME_4CEFB03F015A // k2Facade
+ ME_4CEFB0570219 // Tk2Type
+ ME_4CEFB60501B9 // TnsNativeCommentPara
+ ME_4CEFB61900B0 // CommentPara
+ ME_4CEFB6F100A8 // LeafParaDecorationsHolder
+ ME_4CEFBA1900C3 // Tk2TagID
+ ME_4CEFD79201AB // TnsLeafParaDecorationsHolder
+ ME_4D0F4CFF018F // TnsTagString
+ ME_4D0F4D14035F // FreeAndNil
+ ME_4D0F4D2702DD // TextPara
+ ME_4D0F4D490013 // String
+ ME_4D0F51370300 // Standard
+ ME_4D0F59340260 // Document
+ ME_4D0F7907022E // Block
+ ME_4D0F84A9021C // DecorTextPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4CEFAD320395 MakeChildTag
+
+ME ME_4CEFAD26022D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFA95A0301 // TnsParaListNodeModelPart
+ ;
+ MELINK Target WL? 'ME_467FCD4401BD' // TnsParentedTagNode
+ ;
+
+ENDME // ME_4CEFAD26022D 
+
+MEREF ME_467FCD4401BD_ME_4CEFA95A0301_G
+ MELINK Original WL? 'ME_467FCD4401BD' // TnsParentedTagNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467FCD4401BD_ME_4CEFA95A0301_G TnsParentedTagNode
+
+%%InheritedBy ME_467FCD4401BD ME_4CEFA95A0301
+
+ME ME_4CEFA95A0301
+ MEPROP UID '4CEFA95A0301'
+ MEPROP Name 'TnsParaListNodeModelPart'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC9F80281' // DocumentTagNodes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_467FCD4401BD_ME_4CEFA95A0301_G // TnsParentedTagNode
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4CEFAAF700B3 // f_CurIndex
+ HWL ME_4CEFAB100042 // f_CurNode
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CEFAD320395 // MakeChildTag
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4CEFAD26022D // TnsParentedTagNode
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '26.11.2010 15:35'
+ UP extprop:pas:UnitName 'nsParaListNodeModelPart'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ParaListNodeModelPart'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParaListNodeModelPart.pas'
+
+ENDME // ME_4CEFA95A0301 TnsParaListNodeModelPart

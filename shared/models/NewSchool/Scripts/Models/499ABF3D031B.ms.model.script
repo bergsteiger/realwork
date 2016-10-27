@@ -22,11 +22,17 @@ ME ME_499AC82A0380
 
 ENDME // ME_499AC82A0380 TnscNavigatorPageControl
 
-ME ME_53CF7DD00066_ME_499ABF3D031B
+MEREF ME_53CF7DD00066_ME_499ABF3D031B_impl
  MELINK Original WL 'ME_53CF7DD00066' '467BAB7F021E.ms.model.script' // MainFormChanged
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_53CF7DD00066_ME_499ABF3D031B MainFormChanged
+ENDMEREF // ME_53CF7DD00066_ME_499ABF3D031B_impl MainFormChanged
+
+MEREF ME_53CF7D800293_ME_499ABF3D031B_R
+ MELINK Original WL 'ME_53CF7D800293' '467BAB7F021E.ms.model.script' // IvcmMainFormDependent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53CF7D800293_ME_499ABF3D031B_R IvcmMainFormDependent
 
 %%ImplementedBy ME_53CF7D800293 ME_499ABF3D031B
 
@@ -42,11 +48,11 @@ ME ME_499ABF3D031B
  MELINK Parent WL? 'ME_499ABF2A0338' // Navigator
  ;
  MELIST Implements
-   Seq: ( WL 'ME_53CF7D800293' '467BAB7F021E.ms.model.script' // IvcmMainFormDependent
+   Seq: ( HWL ME_53CF7D800293_ME_499ABF3D031B_R // IvcmMainFormDependent
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_53CF7DD00066_ME_499ABF3D031B // MainFormChanged
+   Seq: ( ME_53CF7DD00066_ME_499ABF3D031B_impl // MainFormChanged
  )
  ; // Implemented
  MELIST Children

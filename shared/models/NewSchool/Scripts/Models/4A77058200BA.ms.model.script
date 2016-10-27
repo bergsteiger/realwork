@@ -35,7 +35,7 @@ ENDME // ME_4C7BAED10308 ShowChanges
 ME ME_4C7BAEB4010E
  MEPROP UID '4C7BAEB4010E'
  MEPROP Name 'CompareEditions'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Сравнение редакций' ;
@@ -88,7 +88,7 @@ FORWARD ME_4DD125D3009F
 ME ME_4DD1260D02D1
  MEPROP UID '4DD1260D02D1'
  MEPROP Name 'ShowChanges'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Показать изменения' ;
@@ -135,7 +135,7 @@ FORWARD ME_4DDCBA9A0016
 ME ME_4DDCBABC03B7
  MEPROP UID '4DDCBABC03B7'
  MEPROP Name 'ViewChangedFragments'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Обзор изменений документа' ;
@@ -244,6 +244,18 @@ ME ME_4AE9D38A02DA
 
 ENDME // ME_4AE9D38A02DA SetPosition
 
+MEREF ME_4E8B2A6701A5_ME_4E8B360E006C_R
+ MELINK Original WL 'ME_4E8B2A6701A5' '484900780017.ms.model.script' // Из просмотра изменений документа должна быть возможность переключится в сравнение редакций
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E8B2A6701A5_ME_4E8B360E006C_R Из просмотра изменений документа должна быть возможность переключится в сравнение редакций
+
+MEREF ME_4E8B3702025D_ME_4E8B360E006C_R
+ MELINK Original WL 'ME_4E8B3702025D' '484900780017.ms.model.script' // Если в ссылке со скриптом приехал Sub, то надо переходить на этот Sub после выполнения скрипта
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E8B3702025D_ME_4E8B360E006C_R Если в ссылке со скриптом приехал Sub, то надо переходить на этот Sub после выполнения скрипта
+
 %%ImplementedBy ME_4E8B2A6701A5 ME_4E8B360E006C
 %%ImplementedBy ME_4E8B3702025D ME_4E8B360E006C
 
@@ -259,8 +271,8 @@ ME ME_4E8B360E006C
  MELINK Parent HWL ME_4A77058200BA // Editions
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E8B2A6701A5' '484900780017.ms.model.script' // Из просмотра изменений документа должна быть возможность переключится в сравнение редакций
- WL 'ME_4E8B3702025D' '484900780017.ms.model.script' // Если в ссылке со скриптом приехал Sub, то надо переходить на этот Sub после выполнения скрипта
+   Seq: ( HWL ME_4E8B2A6701A5_ME_4E8B360E006C_R // Из просмотра изменений документа должна быть возможность переключится в сравнение редакций
+ HWL ME_4E8B3702025D_ME_4E8B360E006C_R // Если в ссылке со скриптом приехал Sub, то надо переходить на этот Sub после выполнения скрипта
  )
  ; // Implements
  MELIST Operations
@@ -335,7 +347,7 @@ ME ME_4B506F4D0196
 
 ENDME // ME_4B506F4D0196 GetParaForPositionning
 
-ME ME_4AE9D38A02DA_ME_4F991E420079
+MEREF ME_4AE9D38A02DA_ME_4F991E420079_impl
  MELINK Original HWL ME_4AE9D38A02DA // SetPosition
  ;
  MEPROP OpKind opkind_Implemented
@@ -347,7 +359,19 @@ ME ME_4AE9D38A02DA_ME_4F991E420079
  UP "LongProcess" False
  UP "Needs Broadcast" False
  UP "no prefix" False
-ENDME // ME_4AE9D38A02DA_ME_4F991E420079 SetPosition
+ENDMEREF // ME_4AE9D38A02DA_ME_4F991E420079_impl SetPosition
+
+MEREF ME_4E8B360E006C_ME_4F991E420079_G
+ MELINK Original HWL ME_4E8B360E006C // Document$SetPosition
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E8B360E006C_ME_4F991E420079_G Document$SetPosition
+
+MEREF ME_4F9926180136_ME_4F991E420079_R
+ MELINK Original WL 'ME_4F9926180136' '484900780017.ms.model.script' // Если из списка редакций открывается ОИД или СР, то по возможности должен сохраняться верхний видимый параграф
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F9926180136_ME_4F991E420079_R Если из списка редакций открывается ОИД или СР, то по возможности должен сохраняться верхний видимый параграф
 
 %%ImplementedBy ME_4F9926180136 ME_4F991E420079
 
@@ -365,11 +389,11 @@ ME ME_4F991E420079
  MELINK Parent HWL ME_4A77058200BA // Editions
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4E8B360E006C // Document$SetPosition
+   Seq: ( HWL ME_4E8B360E006C_ME_4F991E420079_G // Document$SetPosition
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4F9926180136' '484900780017.ms.model.script' // Если из списка редакций открывается ОИД или СР, то по возможности должен сохраняться верхний видимый параграф
+   Seq: ( HWL ME_4F9926180136_ME_4F991E420079_R // Если из списка редакций открывается ОИД или СР, то по возможности должен сохраняться верхний видимый параграф
  )
  ; // Implements
  MELIST Operations
@@ -377,7 +401,7 @@ ME ME_4F991E420079
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4AE9D38A02DA_ME_4F991E420079 // SetPosition
+   Seq: ( ME_4AE9D38A02DA_ME_4F991E420079_impl // SetPosition
  )
  ; // Implemented
 

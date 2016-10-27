@@ -1,0 +1,60 @@
+// TatControlStatusConverter 504F47A401F7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_504F47A401F7
+
+ME ME_504F47D8029D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_504F47A401F7 // TatControlStatusConverter
+ ;
+ MELINK Target WL 'ME_45F118A10361' '45EEAA800226.ms.model.script' // ControlStatus
+ ;
+
+ENDME // ME_504F47D8029D 
+
+MEREF ME_503E3A040395_ME_504F47A401F7_impl
+ MELINK Original WL 'ME_503E3A040395' '503E2BCA01E8.ms.model.script' // InitConvertMap
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_503E3A040395_ME_504F47A401F7_impl InitConvertMap
+
+MEREF ME_504F268A02FD_ME_504F47A401F7_G
+ MELINK Original WL? 'ME_504F268A02FD' // TatStringToBitMaskConverterBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_504F268A02FD_ME_504F47A401F7_G TatStringToBitMaskConverterBase
+
+%%InheritedBy ME_504F268A02FD ME_504F47A401F7
+
+ME ME_504F47A401F7
+ MEPROP UID '504F47A401F7'
+ MEPROP Name 'TatControlStatusConverter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48078CC202EC' // AdapterHelpers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_504F268A02FD_ME_504F47A401F7_G // TatStringToBitMaskConverterBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_503E3A040395_ME_504F47A401F7_impl // InitConvertMap
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_504F47D8029D // ControlStatus
+ )
+ ; // Dependencies
+ UP "singleton" True
+ UP extprop:pas:UnitName 'atControlStatusConverter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atControlStatusConverter'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\AdapterHelpers\atControlStatusConverter.pas'
+
+ENDME // ME_504F47A401F7 TatControlStatusConverter

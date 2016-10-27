@@ -1,0 +1,147 @@
+// TnevDocumentContainerList 4DD25B17012A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DD25B17012A
+
+FORWARD ME_4DD26253028D
+
+ME ME_4DD2625D029C
+ MEPROP UID '4DD2625D029C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DD26253028D // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4DD2625D029C DoIt
+
+ME ME_4DD26253028D
+ MEPROP UID '4DD26253028D'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DD25B17012A // TnevDocumentContainerList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DD2625D029C // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4DD26253028D Exists
+
+ME ME_4DD264060082
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DD25B17012A // TnevDocumentContainerList
+ ;
+ MELINK Target WL? 'ME_480DBA760390' // k2Facade
+ ;
+
+ENDME // ME_4DD264060082 
+
+MEREF ME_476144F90102_ME_4DD25B17012A_impl
+ MELINK Original WL 'ME_476144F90102' '4678137501EA.ms.model.script' // Fire
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_476144F90102_ME_4DD25B17012A_impl Fire
+
+MEREF ME_479731C50290_ME_4DD25B17012A_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4DD25B17012A_over Cleanup
+
+MEREF ME_47A042E100E2_ME_4DD25B17012A_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4DD25B17012A_over InitFields
+
+MEREF ME_47EA4E9002C6_ME_4DD25B17012A_over
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BEF0140.ms.model.script' // FinishDataUpdate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47EA4E9002C6_ME_4DD25B17012A_over FinishDataUpdate
+
+MEREF ME_47E261D8019F_ME_4DD25B17012A_G
+ MELINK Original WL? 'ME_47E261D8019F' // TnevDocumentContainerListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E261D8019F_ME_4DD25B17012A_G TnevDocumentContainerListPrim
+
+MEREF ME_4678180D0371_ME_4DD25B17012A_R
+ MELINK Original WL 'ME_4678180D0371' '4678137501EA.ms.model.script' // Ik2Listener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4678180D0371_ME_4DD25B17012A_R Ik2Listener
+
+MEREF ME_47EA4BEF0140_ME_4DD25B17012A_R
+ MELINK Original WL? 'ME_47EA4BEF0140' // afwApplicationDataUpdate
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47EA4BEF0140_ME_4DD25B17012A_R afwApplicationDataUpdate
+
+%%ImplementedBy ME_4678180D0371 ME_4DD25B17012A
+%%ImplementedBy ME_47EA4BEF0140 ME_4DD25B17012A
+
+%%InheritedBy ME_47E261D8019F ME_4DD25B17012A
+
+ME ME_4DD25B17012A
+ MEPROP UID '4DD25B17012A'
+ MEPROP Name 'TnevDocumentContainerList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47C52679006D' // nevUtils
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47E261D8019F_ME_4DD25B17012A_G // TnevDocumentContainerListPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4678180D0371_ME_4DD25B17012A_R // Ik2Listener
+ HWL ME_47EA4BEF0140_ME_4DD25B17012A_R // afwApplicationDataUpdate
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4DD26253028D // Exists
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_476144F90102_ME_4DD25B17012A_impl // Fire
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4DD25B17012A_over // Cleanup
+ ME_47A042E100E2_ME_4DD25B17012A_over // InitFields
+ ME_47EA4E9002C6_ME_4DD25B17012A_over // FinishDataUpdate
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DD264060082 // k2Facade
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "singleton" True
+ UP "started" '17.2011 15:25'
+ UP extprop:pas:UnitName 'nevDocumentContainerList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentContainerList'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevDocumentContainerList.pas'
+
+ENDME // ME_4DD25B17012A TnevDocumentContainerList

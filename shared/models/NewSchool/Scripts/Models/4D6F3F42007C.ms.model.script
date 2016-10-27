@@ -1,0 +1,361 @@
+// TevDelayedPaintersSpy 4D6F3F42007C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4D6F41500130
+
+FORWARD ME_4D6F3F42007C
+
+FORWARD ME_4D6F41500130
+
+ME ME_4D6F66820158
+ MEPROP UID '4D6F66820158'
+ MEPROP Name 'OpenSelectionLog'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D6F41500130 // IevDelayedPainterLogger
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4D6F66820158 OpenSelectionLog
+
+FORWARD ME_4D6F669C0185
+
+ME ME_4D6F66CE0320
+ MEPROP Name 'aLogName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4D6F66CE0320 aLogName
+
+ME ME_4D6F669C0185
+ MEPROP UID '4D6F669C0185'
+ MEPROP Name 'CloseSelectionLog'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D6F41500130 // IevDelayedPainterLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D6F66CE0320 // aLogName
+ )
+ ; // Parameters
+
+ENDME // ME_4D6F669C0185 CloseSelectionLog
+
+ME ME_4D6F41500130
+ MEPROP UID '4D6F41500130'
+ MEPROP GUID '87EBBF2A-E6CC-41AF-A26B-012D8BB879CB'
+ MEPROP Name 'IevDelayedPainterLogger'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D6F66820158 // OpenSelectionLog
+ HWL ME_4D6F669C0185 // CloseSelectionLog
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DelayedPainterLogger'
+
+ENDME // ME_4D6F41500130 IevDelayedPainterLogger
+
+ME ME_4D6F4B510332
+ MEPROP UID '4D6F4B510332'
+ MEPROP Name 'f_Logger'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
+ ;
+ MELINK Target HWL ME_4D6F41500130 // IevDelayedPainterLogger
+ ;
+
+ENDME // ME_4D6F4B510332 f_Logger
+
+ME ME_4D6F4B7700AB
+ MEPROP UID '4D6F4B7700AB'
+ MEPROP Name 'f_Filer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_4D6F4B7700AB f_Filer
+
+FORWARD ME_4D6F41880325
+
+FORWARD ME_4D6F43740076
+
+ME ME_4D6F43B90124
+ MEPROP Name 'aLogger'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4D6F41500130 // IevDelayedPainterLogger
+ ;
+
+ENDME // ME_4D6F43B90124 aLogger
+
+ME ME_4D6F43740076
+ MEPROP UID '4D6F43740076'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6F41880325 // SetLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D6F43B90124 // aLogger
+ )
+ ; // Parameters
+
+ENDME // ME_4D6F43740076 DoIt
+
+ME ME_4D6F41880325
+ MEPROP UID '4D6F41880325'
+ MEPROP Name 'SetLogger'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D6F43740076 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D6F41880325 SetLogger
+
+FORWARD ME_4D6F43CA0257
+
+FORWARD ME_4D6F43DA0200
+
+ME ME_4D6F43F00304
+ MEPROP Name 'aLogger'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4D6F41500130 // IevDelayedPainterLogger
+ ;
+
+ENDME // ME_4D6F43F00304 aLogger
+
+ME ME_4D6F43DA0200
+ MEPROP UID '4D6F43DA0200'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6F43CA0257 // RemoveLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D6F43F00304 // aLogger
+ )
+ ; // Parameters
+
+ENDME // ME_4D6F43DA0200 DoIt
+
+ME ME_4D6F43CA0257
+ MEPROP UID '4D6F43CA0257'
+ MEPROP Name 'RemoveLogger'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D6F43DA0200 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D6F43CA0257 RemoveLogger
+
+FORWARD ME_4D6F440500EE
+
+ME ME_4D6F4424024D
+ MEPROP UID '4D6F4424024D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6F440500EE // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D6F4424024D DoIt
+
+ME ME_4D6F440500EE
+ MEPROP UID '4D6F440500EE'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D6F4424024D // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4D6F440500EE Exists
+
+FORWARD ME_4D6F4C1700DC
+
+FORWARD ME_4D6F4C3B0360
+
+ME ME_4D6F6CE7022E
+ MEPROP Name 'aSelParts'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL? 'ME_48C911C702A4' // TevSelectedParts
+ ;
+
+ENDME // ME_4D6F6CE7022E aSelParts
+
+ME ME_4D6F6CE7025C
+ MEPROP Name 'aRowHeights'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
+ ;
+
+ENDME // ME_4D6F6CE7025C aRowHeights
+
+ME ME_4D6F4C3B0360
+ MEPROP UID '4D6F4C3B0360'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6F4C1700DC // LogSelections
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D6F6CE7022E // aSelParts
+ ME_4D6F6CE7025C // aRowHeights
+ )
+ ; // Parameters
+
+ENDME // ME_4D6F4C3B0360 DoIt
+
+ME ME_4D6F4C1700DC
+ MEPROP UID '4D6F4C1700DC'
+ MEPROP Name 'LogSelections'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D6F4C3B0360 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D6F4C1700DC LogSelections
+
+ME ME_4D6F5B22038F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4D6F5B22038F 
+
+ME ME_4D6F7AB200D9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_4D6F7AB200D9 
+
+MEREF ME_479731C50290_ME_4D6F3F42007C_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4D6F3F42007C_over Cleanup
+
+MEREF ME_49E7754802A9_ME_4D6F3F42007C_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4D6F3F42007C_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_4D6F3F42007C
+
+ME ME_4D6F3F42007C
+ MEPROP UID '4D6F3F42007C'
+ MEPROP Name 'TevDelayedPaintersSpy'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49DCC860038B' // ParaList Painters
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_4D6F3F42007C_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D6F4B510332 // f_Logger
+ HWL ME_4D6F4B7700AB // f_Filer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D6F41880325 // SetLogger
+ HWL ME_4D6F43CA0257 // RemoveLogger
+ HWL ME_4D6F440500EE // Exists
+ HWL ME_4D6F4C1700DC // LogSelections
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4D6F3F42007C_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4D6F41500130 // IevDelayedPainterLogger
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4D6F5B22038F // FreeAndNil
+ ME_4D6F7AB200D9 // Tl3FileMode
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP "singleton" True
+ UP extprop:pas:UnitName 'evDelayedPaintersSpy'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DelayedPaintersSpy'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evDelayedPaintersSpy.pas'
+
+ENDME // ME_4D6F3F42007C TevDelayedPaintersSpy

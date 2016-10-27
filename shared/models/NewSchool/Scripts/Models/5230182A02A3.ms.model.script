@@ -1,0 +1,108 @@
+// OperationParamWordPrim 5230182A02A3 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5230182A02A3
+
+FORWARD ME_5230185F0140
+
+FORWARD ME_523018830380
+
+ME ME_523018870287
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E7659001C3' '4683F37902CF.ms.model.script' // IvcmTestParams
+ ;
+
+ENDME // ME_523018870287 aParams
+
+ME ME_5230188702A2
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_5230188702A2 aCtx
+
+ME ME_523018830380
+ MEPROP UID '523018830380'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5230185F0140 // DoParams
+ ;
+ MELIST Parameters
+   Seq: ( ME_523018870287 // aParams
+ ME_5230188702A2 // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_523018830380 DoIt
+
+ME ME_5230185F0140
+ MEPROP UID '5230185F0140'
+ MEPROP Name 'DoParams'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5230182A02A3 // OperationParamWordPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_523018830380 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5230185F0140 DoParams
+
+MEREF ME_4DAEEDE10285_ME_5230182A02A3_impl
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DAEEDE10285_ME_5230182A02A3_impl DoDoIt
+
+MEREF ME_53EDC0E701BC_ME_5230182A02A3_G
+ MELINK Original WL? 'ME_53EDC0E701BC' // TtfwRegisterableWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53EDC0E701BC_ME_5230182A02A3_G TtfwRegisterableWord
+
+%%InheritedBy ME_53EDC0E701BC ME_5230182A02A3
+
+ME ME_5230182A02A3
+ MEPROP UID '5230182A02A3'
+ MEPROP Name 'OperationParamWordPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F69B9040391' // VCMWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53EDC0E701BC_ME_5230182A02A3_G // TtfwRegisterableWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5230185F0140 // DoParams
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_5230182A02A3_impl // DoDoIt
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwOperationParamWordPrim'
+ UP extprop:pas:UnitName 'kwOperationParamWordPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OperationParamWordPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwOperationParamWordPrim.pas'
+
+ENDME // ME_5230182A02A3 OperationParamWordPrim

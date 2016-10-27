@@ -1,0 +1,37 @@
+// ActiveChangeableProxy 4614E05A0222 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4614E05A0222
+
+ME ME_4614F51F034B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4614E05A0222 // ActiveChangeableProxy
+ ;
+
+ENDME // ME_4614F51F034B 
+
+ME ME_4614E05A0222
+ MEPROP UID '4614E05A0222'
+ MEPROP Name 'ActiveChangeableProxy'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4614E97E01C5' // TimeStampSync
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4614F51F034B // 
+ )
+ ; // Dependencies
+ UP "need UC" True
+ UP "Refcount" 'standard'
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync\ActiveChangeableProxy.cpp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync\ActiveChangeableProxy.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ActiveChangeableProxy.pas'
+
+ENDME // ME_4614E05A0222 ActiveChangeableProxy

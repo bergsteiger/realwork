@@ -1,0 +1,481 @@
+// TvcmBaseCollectionItem 4FFC3347011F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_55D076150061
+
+FORWARD ME_4FFC3347011F
+
+FORWARD ME_55D076150061
+
+ME ME_55CCB8960010
+ MEPROP UID '55CCB8960010'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55D076150061 // TvcmBaseCollectionItemPrim
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_55CCB8960010 Name
+
+ME ME_55CCB95D0197
+ MEPROP UID '55CCB95D0197'
+ MEPROP Name 'Caption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55D076150061 // TvcmBaseCollectionItemPrim
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "needs field" True
+ UP "needs stored directive" True
+ UP "pm" True
+
+ENDME // ME_55CCB95D0197 Caption
+
+FORWARD ME_55CCB9830041
+
+FORWARD ME_55CCB9900051
+
+ME ME_55CCB99202C7
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55CCB99202C7 aName
+
+ME ME_55CCB9900051
+ MEPROP UID '55CCB9900051'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55CCB9830041 // SetCaptionFromName
+ ;
+ MELIST Parameters
+   Seq: ( ME_55CCB99202C7 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_55CCB9900051 DoIt
+
+ME ME_55CCB9830041
+ MEPROP UID '55CCB9830041'
+ MEPROP Name 'SetCaptionFromName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55D076150061 // TvcmBaseCollectionItemPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55CCB9900051 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55CCB9830041 SetCaptionFromName
+
+ME ME_55CCBA65014E
+ MEPROP UID '55CCBA65014E'
+ MEPROP Name 'NameChanged'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55D076150061 // TvcmBaseCollectionItemPrim
+ ;
+
+ENDME // ME_55CCBA65014E NameChanged
+
+FORWARD ME_55CCB9A30160
+
+FORWARD ME_55CCB9B20350
+
+ME ME_55CCB9B5009E
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55CCB9B5009E aName
+
+ME ME_55CCB9B20350
+ MEPROP UID '55CCB9B20350'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55CCB9A30160 // DoSetCaption
+ ;
+ MELIST Parameters
+   Seq: ( ME_55CCB9B5009E // aName
+ )
+ ; // Parameters
+
+ENDME // ME_55CCB9B20350 DoIt
+
+ME ME_55CCB9A30160
+ MEPROP UID '55CCB9A30160'
+ MEPROP Name 'DoSetCaption'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55D076150061 // TvcmBaseCollectionItemPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55CCB9B20350 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55CCB9A30160 DoSetCaption
+
+FORWARD ME_55CCBA3C0190
+
+FORWARD ME_55CCBA4C0042
+
+ME ME_55CCBA4F0114
+ MEPROP Name 'anOld'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55CCBA4F0114 anOld
+
+ME ME_55CCBA4F0132
+ MEPROP Name 'aNew'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55CCBA4F0132 aNew
+
+ME ME_55CCBA4C0042
+ MEPROP UID '55CCBA4C0042'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55CCBA3C0190 // ChangeName
+ ;
+ MELIST Parameters
+   Seq: ( ME_55CCBA4F0114 // anOld
+ ME_55CCBA4F0132 // aNew
+ )
+ ; // Parameters
+
+ENDME // ME_55CCBA4C0042 DoIt
+
+ME ME_55CCBA3C0190
+ MEPROP UID '55CCBA3C0190'
+ MEPROP Name 'ChangeName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55D076150061 // TvcmBaseCollectionItemPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55CCBA4C0042 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55CCBA3C0190 ChangeName
+
+FORWARD ME_55CCBAAB00F4
+
+FORWARD ME_55CCBABB026C
+
+ME ME_55CCBABD03CB
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55CCBABD03CB aName
+
+ME ME_55CCBABB026C
+ MEPROP UID '55CCBABB026C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55CCBAAB00F4 // MakeID
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_55CCBABD03CB // aName
+ )
+ ; // Parameters
+
+ENDME // ME_55CCBABB026C DoIt
+
+ME ME_55CCBAAB00F4
+ MEPROP UID '55CCBAAB00F4'
+ MEPROP Name 'MakeID'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55D076150061 // TvcmBaseCollectionItemPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55CCBABB026C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55CCBAAB00F4 MakeID
+
+FORWARD ME_55CCBAC800F0
+
+ME ME_55CCBAD301D4
+ MEPROP UID '55CCBAD301D4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55CCBAC800F0 // GetID
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55CCBAD301D4 DoIt
+
+ME ME_55CCBAC800F0
+ MEPROP UID '55CCBAC800F0'
+ MEPROP Name 'GetID'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55D076150061 // TvcmBaseCollectionItemPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55CCBAD301D4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55CCBAC800F0 GetID
+
+MEREF ME_55CCBA3C0190_ME_55CCBA8003C7_G
+ MELINK Original HWL ME_55CCBA3C0190 // ChangeName
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55CCBA3C0190_ME_55CCBA8003C7_G ChangeName
+
+%%InheritedBy ME_55CCBA3C0190 ME_55CCBA8003C7
+
+ME ME_55CCBA8003C7
+ MEPROP UID '55CCBA8003C7'
+ MEPROP Name 'ChangeCaption'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55D076150061 // TvcmBaseCollectionItemPrim
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_55CCBA3C0190_ME_55CCBA8003C7_G // ChangeName
+ )
+ ; // Inherits
+
+ENDME // ME_55CCBA8003C7 ChangeCaption
+
+ME ME_55CCBA910119
+ MEPROP UID '55CCBA910119'
+ MEPROP Name 'CaptionChanged'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55D076150061 // TvcmBaseCollectionItemPrim
+ ;
+
+ENDME // ME_55CCBA910119 CaptionChanged
+
+FORWARD ME_55CCBA0103DE
+
+ME ME_55CCBA0C0131
+ MEPROP UID '55CCBA0C0131'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55CCBA0103DE // GetCaptionStored
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55CCBA0C0131 DoIt
+
+ME ME_55CCBA0103DE
+ MEPROP UID '55CCBA0103DE'
+ MEPROP Name 'GetCaptionStored'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55D076150061 // TvcmBaseCollectionItemPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55CCBA0C0131 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55CCBA0103DE GetCaptionStored
+
+MEREF ME_478CF34E02CE_ME_55D076150061_over
+ MELINK Original WL 'ME_478CF34E02CE' '478CF30500C1.ms.model.script' // Assign
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_478CF34E02CE_ME_55D076150061_over Assign
+
+MEREF ME_479F2B3302C1_ME_55D076150061_over
+ MELINK Original WL 'ME_479F2B3302C1' '47913F4E02E0.ms.model.script' // BeforeAddToCache
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479F2B3302C1_ME_55D076150061_over BeforeAddToCache
+
+MEREF ME_55CCBB5A01E5_ME_55D076150061_over
+ MELINK Original WL 'ME_55CCBB5A01E5' '478CF30500C1.ms.model.script' // GetDisplayName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55CCBB5A01E5_ME_55D076150061_over GetDisplayName
+
+MEREF ME_55CCBC12038F_ME_55D076150061_over
+ MELINK Original WL 'ME_55CCBC12038F' '478CF30500C1.ms.model.script' // GetNamePath
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55CCBC12038F_ME_55D076150061_over GetNamePath
+
+MEREF ME_4FFC335A011F_ME_55D076150061_G
+ MELINK Original WL? 'ME_4FFC335A011F' // TvcmPrimCollectionItem
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FFC335A011F_ME_55D076150061_G TvcmPrimCollectionItem
+
+%%InheritedBy ME_4FFC335A011F ME_55D076150061
+
+ME ME_55D076150061
+ MEPROP UID '55D076150061'
+ MEPROP Name 'TvcmBaseCollectionItemPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FFC3347011F // TvcmBaseCollectionItem
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FFC335A011F_ME_55D076150061_G // TvcmPrimCollectionItem
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55CCB8960010 // Name
+ HWL ME_55CCB95D0197 // Caption
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55CCB9830041 // SetCaptionFromName
+ HWL ME_55CCBA65014E // NameChanged
+ HWL ME_55CCB9A30160 // DoSetCaption
+ HWL ME_55CCBA3C0190 // ChangeName
+ HWL ME_55CCBAAB00F4 // MakeID
+ HWL ME_55CCBAC800F0 // GetID
+ HWL ME_55CCBA8003C7 // ChangeCaption
+ HWL ME_55CCBA910119 // CaptionChanged
+ HWL ME_55CCBA0103DE // GetCaptionStored
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_478CF34E02CE_ME_55D076150061_over // Assign
+ ME_479F2B3302C1_ME_55D076150061_over // BeforeAddToCache
+ ME_55CCBB5A01E5_ME_55D076150061_over // GetDisplayName
+ ME_55CCBC12038F_ME_55D076150061_over // GetNamePath
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CollectionItemPrim'
+
+ENDME // ME_55D076150061 TvcmBaseCollectionItemPrim
+
+ME ME_55D33F500168
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FFC3347011F // TvcmBaseCollectionItem
+ ;
+ MELINK Target WL? 'ME_4FFC4C800030' // TvcmBaseCollection
+ ;
+
+ENDME // ME_55D33F500168 
+
+MEREF ME_55D076150061_ME_4FFC3347011F_G
+ MELINK Original HWL ME_55D076150061 // TvcmBaseCollectionItemPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55D076150061_ME_4FFC3347011F_G TvcmBaseCollectionItemPrim
+
+%%InheritedBy ME_55D076150061 ME_4FFC3347011F
+
+ME ME_4FFC3347011F
+ MEPROP UID '4FFC3347011F'
+ MEPROP Name 'TvcmBaseCollectionItem'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4FFC33380166' // Collections
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_55D076150061_ME_4FFC3347011F_G // TvcmBaseCollectionItemPrim
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_55D076150061 // TvcmBaseCollectionItemPrim
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_55D33F500168 // TvcmBaseCollection
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" True
+ UP extprop:pas:UnitName 'vcmBaseCollectionItem'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CollectionItem'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmBaseCollectionItem.pas'
+
+ENDME // ME_4FFC3347011F TvcmBaseCollectionItem

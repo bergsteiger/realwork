@@ -33,7 +33,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)

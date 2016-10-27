@@ -8,109 +8,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_49EC739C0100
 %%Inner ME_4E9574DB0120
 
-FORWARD ME_49EC7167004C
-
-FORWARD ME_49F0573B0332
-
-ME ME_49F0577C02ED
- MEPROP UID '49F0577C02ED'
- MEPROP Name 'InitFields'
- MEPROP Class class_Operation
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_49F0573B0332 // TnsWebBrowserPrim
- ;
-
-ENDME // ME_49F0577C02ED InitFields
-
-ME ME_49F058E50188
- MEPROP UID '49F058E50188'
- MEPROP Name 'Cleanup'
- MEPROP Class class_Operation
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_49F0573B0332 // TnsWebBrowserPrim
- ;
-
-ENDME // ME_49F058E50188 Cleanup
-
-FORWARD ME_49F05B0D02C7
-
-ME ME_49F05B140375
- MEPROP Name 'aGUID'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_469F3EEF0024' '4807744200AA.ms.model.script' // TGUID
- ;
-
-ENDME // ME_49F05B140375 aGUID
-
-ME ME_49F05B0D02C7
- MEPROP UID '49F05B0D02C7'
- MEPROP Name 'CheckStamp'
- MEPROP Class class_Operation
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_49F0573B0332 // TnsWebBrowserPrim
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- MELIST Parameters
-   Seq: ( ME_49F05B140375 // aGUID
- )
- ; // Parameters
-
-ENDME // ME_49F05B0D02C7 CheckStamp
-
-ME ME_48077504027E_ME_49F0573B0332
- MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_48077504027E_ME_49F0573B0332 Destroy
-
-ME ME_49F057120234_ME_49F0573B0332
- MELINK Original WL 'ME_49F057120234' '4807744200AA.ms.model.script' // AfterConstruction
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_49F057120234_ME_49F0573B0332 AfterConstruction
-
-%%InheritedBy ME_49EC9D0E00F0 ME_49F0573B0332
-
-ME ME_49F0573B0332
- MEPROP UID '49F0573B0332'
- MEPROP Name 'TnsWebBrowserPrim'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_49EC7167004C // InternetAgent
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49EC9D0E00F0' '49EC9CF0030B.ms.model.script' // TWebBrowser
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_49F0577C02ED // InitFields
- HWL ME_49F058E50188 // Cleanup
- HWL ME_49F05B0D02C7 // CheckStamp
- )
- ; // Operations
- MELIST Overridden
-   Seq: ( ME_48077504027E_ME_49F0573B0332 // Destroy
- ME_49F057120234_ME_49F0573B0332 // AfterConstruction
- )
- ; // Overridden
- UP "author" 'Ëþëèí À.Â.'
- UP "no hands" True
- UP "started" '23.04.2009 15:56'
- UP extprop:pas:UnitName 'nsWebBrowserPrim'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'WebBrowserPrim'
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\nsWebBrowserPrim.pas'
-
-ENDME // ME_49F0573B0332 TnsWebBrowserPrim
-
 ME ME_49EC7167004C
  MEPROP UID '49EC7167004C'
  MEPROP Name 'InternetAgent'
@@ -123,7 +20,7 @@ ME ME_49EC7167004C
  MELINK Parent WL? 'ME_4A969297010D' // View
  ;
  MELIST Children
-   Seq: ( HWL ME_49F0573B0332 // TnsWebBrowserPrim
+   Seq: ( WL? 'ME_49F0573B0332' // TnsWebBrowserPrim
  WL? 'ME_49ECB8E002B0' // TnsWebBrowser
  WL? 'ME_49EC746B01E5' // PrimInternetAgent
  WL? 'ME_49EC739C0100' // PrimInternetAgent$FP

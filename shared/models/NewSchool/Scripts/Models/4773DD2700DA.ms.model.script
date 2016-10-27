@@ -1,0 +1,66 @@
+// Tl3DataPtrList 4773DD2700DA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4773DD2700DA
+
+ME ME_47B58BBE0368
+ MEPROP UID '47B58BBE0368'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4773DD2700DA // Tl3DataPtrList
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_47B58BBE0368 ItemType
+
+MEREF ME_47B587AA00C9_ME_4773DD2700DA_G
+ MELINK Original WL? 'ME_47B587AA00C9' // l3DataPtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B587AA00C9_ME_4773DD2700DA_G l3DataPtrList
+
+MEREF ME_47BC3A07027F_ME_4773DD2700DA_G
+ MELINK Original WL? 'ME_47BC3A07027F' // Tl3SimpleDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC3A07027F_ME_4773DD2700DA_G Tl3SimpleDataContainer
+
+%%InheritedBy ME_47B587AA00C9 ME_4773DD2700DA
+%%InheritedBy ME_47BC3A07027F ME_4773DD2700DA
+
+ME ME_4773DD2700DA
+ MEPROP UID '4773DD2700DA'
+ MEPROP Name 'Tl3DataPtrList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список указателей на куски памяти. Ничего не освобождает.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B587AA00C9_ME_4773DD2700DA_G // l3DataPtrList
+ HWL ME_47BC3A07027F_ME_4773DD2700DA_G // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47B58BBE0368 // ItemType
+ )
+ ; // Attributes
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '07.02.2008 10:10'
+ UP extprop:pas:UnitName 'l3DataPtrList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DataPtrList'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3DataPtrList.pas'
+
+ENDME // ME_4773DD2700DA Tl3DataPtrList

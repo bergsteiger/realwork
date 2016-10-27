@@ -1,0 +1,71 @@
+// TAutoPipeServerTestsRunner 52F24FD90066 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52F24FD90066
+
+ME ME_52F2506F035C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F24FD90066 // TAutoPipeServerTestsRunner
+ ;
+ MELINK Target WL? 'ME_52F250640165' // toK
+ ;
+
+ENDME // ME_52F2506F035C 
+
+ME ME_52F257800007
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F24FD90066 // TAutoPipeServerTestsRunner
+ ;
+ MELINK Target WL? 'ME_4DE342FA0300' // TArchiAutoTestSuite
+ ;
+
+ENDME // ME_52F257800007 
+
+MEREF ME_52F264840382_ME_52F24FD90066_impl
+ MELINK Original WL 'ME_52F264840382' '52F255E702F0.ms.model.script' // GetResultsPlaces
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" True
+ENDMEREF // ME_52F264840382_ME_52F24FD90066_impl GetResultsPlaces
+
+MEREF ME_52F255E702F0_ME_52F24FD90066_G
+ MELINK Original WL? 'ME_52F255E702F0' // TGUIAppTester
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52F255E702F0_ME_52F24FD90066_G TGUIAppTester
+
+%%InheritedBy ME_52F255E702F0 ME_52F24FD90066
+
+ME ME_52F24FD90066
+ MEPROP UID '52F24FD90066'
+ MEPROP Name 'TAutoPipeServerTestsRunner'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F24F6103AB' // AutoPipeServer$Test
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52F255E702F0_ME_52F24FD90066_G // TGUIAppTester
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52F264840382_ME_52F24FD90066_impl // GetResultsPlaces
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_52F2506F035C // toK
+ ME_52F257800007 // TArchiAutoTestSuite
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'AutoPipeServerTestsRunner'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AutoPipeServerTestsRunner'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\AutoPipeServerTestsRunner.pas'
+
+ENDME // ME_52F24FD90066 TAutoPipeServerTestsRunner

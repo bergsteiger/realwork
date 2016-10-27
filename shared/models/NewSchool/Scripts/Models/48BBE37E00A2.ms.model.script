@@ -32,11 +32,17 @@ ME ME_48BBE3C40283
 
 ENDME // ME_48BBE3C40283 Paint
 
-ME ME_48BBE38D0061_ME_48BBE37E00A2
+MEREF ME_48BBE38D0061_ME_48BBE37E00A2_impl
  MELINK Original WL 'ME_48BBE38D0061' '48BBE35E039F.ms.model.script' // DoPaint
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_48BBE38D0061_ME_48BBE37E00A2 DoPaint
+ENDMEREF // ME_48BBE38D0061_ME_48BBE37E00A2_impl DoPaint
+
+MEREF ME_48BBE35E039F_ME_48BBE37E00A2_G
+ MELINK Original WL? 'ME_48BBE35E039F' // TafwCustomCommonControlPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48BBE35E039F_ME_48BBE37E00A2_G TafwCustomCommonControlPrim
 
 %%InheritedBy ME_48BBE35E039F ME_48BBE37E00A2
 
@@ -52,7 +58,7 @@ ME ME_48BBE37E00A2
  MELINK Parent WL? 'ME_467BA8C8017E' // afwControl
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_48BBE35E039F' // TafwCustomCommonControlPrim
+   Seq: ( HWL ME_48BBE35E039F_ME_48BBE37E00A2_G // TafwCustomCommonControlPrim
  )
  ; // Inherits
  MELIST Attributes
@@ -64,7 +70,7 @@ ME ME_48BBE37E00A2
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_48BBE38D0061_ME_48BBE37E00A2 // DoPaint
+   Seq: ( ME_48BBE38D0061_ME_48BBE37E00A2_impl // DoPaint
  )
  ; // Implemented
  UP extprop:pas:UnitName 'afwCustomCommonControl'

@@ -1,0 +1,57 @@
+// TnsMedicFirmsTree 49071797031F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49071797031F
+
+ME ME_490717B00328
+ MEPROP UID '490717B00328'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49071797031F // TnsMedicFirmsTree
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_490717B00328 Make
+
+MEREF ME_490711B101F9_ME_49071797031F_G
+ MELINK Original WL? 'ME_490711B101F9' // TnsMedicFirmsTreeBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_490711B101F9_ME_49071797031F_G TnsMedicFirmsTreeBase
+
+%%InheritedBy ME_490711B101F9 ME_49071797031F
+
+ME ME_49071797031F
+ MEPROP UID '49071797031F'
+ MEPROP Name 'TnsMedicFirmsTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4901F07D039B' // Medic$Unit
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_490711B101F9_ME_49071797031F_G // TnsMedicFirmsTreeBase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_490717B00328 // Make
+ )
+ ; // Operations
+ UP "author" 'Λσκόÿνεφ Π.Β.'
+ UP "no hands" True
+ UP "singleton" True
+ UP "started" '2008/03/21 11:36:49'
+ UP extprop:pas:UnitName 'nsMedicFirmsTree'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MedicFirmsTree'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicFirmsTree.pas'
+
+ENDME // ME_49071797031F TnsMedicFirmsTree

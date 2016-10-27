@@ -1,0 +1,74 @@
+// TDeleteColumnToolTest 4CC6E92E0233 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CC6E92E0233
+
+ME ME_4CC6EC0E01AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC6E92E0233 // TDeleteColumnToolTest
+ ;
+ MELINK Target WL? 'ME_48453B7601F9' // evCursorTools
+ ;
+
+ENDME // ME_4CC6EC0E01AD 
+
+ME ME_4CC6ED7002A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC6E92E0233 // TDeleteColumnToolTest
+ ;
+ MELINK Target WL 'ME_47C5BA5F017D' '47C5207602D1.ms.model.script' // InevSelection
+ ;
+
+ENDME // ME_4CC6ED7002A0 
+
+MEREF ME_4BE13147032C_ME_4CC6E92E0233_impl
+ MELINK Original WL 'ME_4BE13147032C' '4BE111D30229.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE13147032C_ME_4CC6E92E0233_impl Process
+
+MEREF ME_4BE111D30229_ME_4CC6E92E0233_G
+ MELINK Original WL? 'ME_4BE111D30229' // TTextViaEditorProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE111D30229_ME_4CC6E92E0233_G TTextViaEditorProcessor
+
+%%InheritedBy ME_4BE111D30229 ME_4CC6E92E0233
+
+ME ME_4CC6E92E0233
+ MEPROP UID '4CC6E92E0233'
+ MEPROP Name 'TDeleteColumnToolTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '“ест удалени€ колонки через редактор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C4FDBF703DB' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE111D30229_ME_4CC6E92E0233_G // TTextViaEditorProcessor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4BE13147032C_ME_4CC6E92E0233_impl // Process
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4CC6EC0E01AD // evCursorTools
+ ME_4CC6ED7002A0 // InevSelection
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'DeleteColumnToolTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DeleteColumnToolTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\DeleteColumnToolTest.pas'
+
+ENDME // ME_4CC6E92E0233 TDeleteColumnToolTest

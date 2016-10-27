@@ -1,0 +1,95 @@
+// TcsTaskChangeHelper 5583BE960064 Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5E793B4475C3
+
+FORWARD ME_5583BE960064
+
+FORWARD ME_5E793B4475C3
+
+FORWARD ME_5583BFE00181
+
+ME ME_F75B4443B80B
+ MEPROP UID 'F75B4443B80B'
+ MEPROP Name 'TaskGotErrorStatus'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5E793B4475C3 // McsTaskChangeHelper
+ ;
+ UPLINK Speller HWL ME_5583BFE00181 // TaskGotErrorStatus
+ ;
+
+ENDME // ME_F75B4443B80B TaskGotErrorStatus
+
+ME ME_5E793B4475C3
+ MEPROP UID '5E793B4475C3'
+ MEPROP Name 'McsTaskChangeHelper'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TcsTaskChangeHelper' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5583BE960064 // TcsTaskChangeHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_F75B4443B80B // TaskGotErrorStatus
+ )
+ ; // Operations
+
+ENDME // ME_5E793B4475C3 McsTaskChangeHelper
+
+ME ME_5583BFE00181
+ MEPROP UID '5583BFE00181'
+ MEPROP Name 'TaskGotErrorStatus'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5583BE960064 // TcsTaskChangeHelper
+ ;
+
+ENDME // ME_5583BFE00181 TaskGotErrorStatus
+
+MEREF ME_49E7754802A9_ME_5583BE960064_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5583BE960064_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_5583BE960064
+
+ME ME_5583BE960064
+ MEPROP UID '5583BE960064'
+ MEPROP Name 'TcsTaskChangeHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_5583BE960064_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5583BFE00181 // TaskGotErrorStatus
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_5E793B4475C3 // McsTaskChangeHelper
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP extprop:pas:UnitName 'csTaskChangeHelper'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'csTaskChangeHelper'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csTaskChangeHelper.pas'
+
+ENDME // ME_5583BE960064 TcsTaskChangeHelper

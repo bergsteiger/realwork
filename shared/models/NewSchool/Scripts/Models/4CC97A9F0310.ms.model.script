@@ -2,6 +2,18 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+MEREF ME_4CC97D020011_ME_4CC97A9F0310_G
+ MELINK Original WL? 'ME_4CC97D020011' // BaseSearch
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CC97D020011_ME_4CC97A9F0310_G BaseSearch
+
+MEREF ME_484407B70220_ME_4CC97A9F0310_R
+ MELINK Original WL 'ME_484407B70220' '484407720166.ms.model.script' // Базовый поиск
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484407B70220_ME_4CC97A9F0310_R Базовый поиск
+
 %%ImplementedBy ME_484407B70220 ME_4CC97A9F0310
 
 %%InheritedBy ME_4CC97D020011 ME_4CC97A9F0310
@@ -20,11 +32,11 @@ ME ME_4CC97A9F0310
  MELINK Parent WL? 'ME_4CC979AB0180' // BaseSearch
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4CC97D020011' // BaseSearch
+   Seq: ( HWL ME_4CC97D020011_ME_4CC97A9F0310_G // BaseSearch
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_484407B70220' '484407720166.ms.model.script' // Базовый поиск
+   Seq: ( HWL ME_484407B70220_ME_4CC97A9F0310_R // Базовый поиск
  )
  ; // Implements
  UP extprop:pas:TypeName 'Tmo_BaseSearch'

@@ -1,0 +1,79 @@
+// ComplexScrollByLines 4C1B135F02B0 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C1B135F02B0
+
+ME ME_4C1B13B6016B
+ MEPROP UID '4C1B13B6016B'
+ MEPROP Name 'GetScrollLineCount2Down'
+ MEPROP Class class_Operation
+ %SUMMARY 'количество строк дл€ прокрутки вниз' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C1B135F02B0 // ComplexScrollByLines
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C1B13B6016B GetScrollLineCount2Down
+
+ME ME_4C1B140B002A
+ MEPROP UID '4C1B140B002A'
+ MEPROP Name 'GetScrollLineCount2Up'
+ MEPROP Class class_Operation
+ %SUMMARY 'количество строк дл€ прокрутки вверх' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C1B135F02B0 // ComplexScrollByLines
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C1B140B002A GetScrollLineCount2Up
+
+MEREF ME_4BE419AF0217_ME_4C1B135F02B0_impl
+ MELINK Original WL 'ME_4BE419AF0217' '4BE418BB001F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE419AF0217_ME_4C1B135F02B0_impl DoVisit
+
+MEREF ME_4BE425C70228_ME_4C1B135F02B0_G
+ MELINK Original WL? 'ME_4BE425C70228' // TTextEditorVisitor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE425C70228_ME_4C1B135F02B0_G TTextEditorVisitor
+
+%%InheritedBy ME_4BE425C70228 ME_4C1B135F02B0
+
+ME ME_4C1B135F02B0
+ MEPROP UID '4C1B135F02B0'
+ MEPROP Name 'ComplexScrollByLines'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '“ест вида - прокрутили на несколько строк вниз, а потом на несколько вверх.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B30C89F035F' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE425C70228_ME_4C1B135F02B0_G // TTextEditorVisitor
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C1B13B6016B // GetScrollLineCount2Down
+ HWL ME_4C1B140B002A // GetScrollLineCount2Up
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BE419AF0217_ME_4C1B135F02B0_impl // DoVisit
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName 'TComplexScrollByLines'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ComplexScrollByLines'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\ComplexScrollByLines.pas'
+
+ENDME // ME_4C1B135F02B0 ComplexScrollByLines

@@ -1,0 +1,92 @@
+// TnsDayTipsDictCache 5571B3100338 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5571B3100338
+
+ME ME_5571B35900A1
+ MEPROP UID '5571B35900A1'
+ MEPROP Name 'f_Root'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5571B3100338 // TnsDayTipsDictCache
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_5571B35900A1 f_Root
+
+ME ME_5571B35302DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5571B3100338 // TnsDayTipsDictCache
+ ;
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
+ ;
+
+ENDME // ME_5571B35302DD 
+
+ME ME_5571B35602A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5571B3100338 // TnsDayTipsDictCache
+ ;
+ MELINK Target WL? 'ME_4A6854C70390' // nsTypes
+ ;
+
+ENDME // ME_5571B35602A9 
+
+MEREF ME_5571C22C03A5_ME_5571B3100338_impl
+ MELINK Original WL 'ME_5571C22C03A5' '4908190C017C.ms.model.script' // DoGetRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5571C22C03A5_ME_5571B3100338_impl DoGetRoot
+
+MEREF ME_4908190C017C_ME_5571B3100338_G
+ MELINK Original WL? 'ME_4908190C017C' // TnsDictCachePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4908190C017C_ME_5571B3100338_G TnsDictCachePrim
+
+%%InheritedBy ME_4908190C017C ME_5571B3100338
+
+ME ME_5571B3100338
+ MEPROP UID '5571B3100338'
+ MEPROP Name 'TnsDayTipsDictCache'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4902090401E7' // Diction$Unit
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4908190C017C_ME_5571B3100338_G // TnsDictCachePrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5571B35900A1 // f_Root
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_5571C22C03A5_ME_5571B3100338_impl // DoGetRoot
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5571B35302DD // DataAdapter
+ ME_5571B35602A9 // nsTypes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:pas:UnitName 'nsDayTipsDictCache'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DayTipsDictCache'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\nsDayTipsDictCache.pas'
+
+ENDME // ME_5571B3100338 TnsDayTipsDictCache

@@ -1,0 +1,89 @@
+// TtfwClassesForRegister 5732F2B10311 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5732F2B10311
+
+FORWARD ME_5732F2E2031F
+
+FORWARD ME_5732F2EF0207
+
+ME ME_5732F2F7029A
+ MEPROP Name 'aClass'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476775CB036A' '4807744200AA.ms.model.script' // TClass
+ ;
+
+ENDME // ME_5732F2F7029A aClass
+
+ME ME_5732F2EF0207
+ MEPROP UID '5732F2EF0207'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5732F2E2031F // RegisterClass
+ ;
+ MELIST Parameters
+   Seq: ( ME_5732F2F7029A // aClass
+ )
+ ; // Parameters
+
+ENDME // ME_5732F2EF0207 DoIt
+
+ME ME_5732F2E2031F
+ MEPROP UID '5732F2E2031F'
+ MEPROP Name 'RegisterClass'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5732F2B10311 // TtfwClassesForRegister
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5732F2EF0207 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_5732F2E2031F RegisterClass
+
+MEREF ME_4773DC1E01B4_ME_5732F2B10311_G
+ MELINK Original WL? 'ME_4773DC1E01B4' // Tl3ClassList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773DC1E01B4_ME_5732F2B10311_G Tl3ClassList
+
+%%InheritedBy ME_4773DC1E01B4 ME_5732F2B10311
+
+ME ME_5732F2B10311
+ MEPROP UID '5732F2B10311'
+ MEPROP Name 'TtfwClassesForRegister'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53C7C3100231' // ConstantsRegistration
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4773DC1E01B4_ME_5732F2B10311_G // Tl3ClassList
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5732F2E2031F // RegisterClass
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:pas:UnitName 'tfwClassesForRegister'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ClassesForRegister'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwClassesForRegister.pas'
+
+ENDME // ME_5732F2B10311 TtfwClassesForRegister

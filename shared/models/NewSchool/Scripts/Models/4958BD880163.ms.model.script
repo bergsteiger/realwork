@@ -62,11 +62,17 @@ ME ME_4958EEB50042
 
 ENDME // ME_4958EEB50042 
 
-ME ME_491443FE01BE_ME_4958BD880163
+MEREF ME_491443FE01BE_ME_4958BD880163_impl
  MELINK Original WL 'ME_491443FE01BE' '47ECAAF901F8.ms.model.script' // Changed
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_491443FE01BE_ME_4958BD880163 Changed
+ENDMEREF // ME_491443FE01BE_ME_4958BD880163_impl Changed
+
+MEREF ME_491443D20347_ME_4958BD880163_R
+ MELINK Original WL 'ME_491443D20347' '47ECAAF901F8.ms.model.script' // InsUserSettingsListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_491443D20347_ME_4958BD880163_R InsUserSettingsListener
 
 %%ImplementedBy ME_491443D20347 ME_4958BD880163
 
@@ -83,7 +89,7 @@ ME ME_4958BD880163
  MELINK Parent WL? 'ME_48F747EC0073' // Common
  ;
  MELIST Implements
-   Seq: ( WL 'ME_491443D20347' '47ECAAF901F8.ms.model.script' // InsUserSettingsListener
+   Seq: ( HWL ME_491443D20347_ME_4958BD880163_R // InsUserSettingsListener
  )
  ; // Implements
  MELIST Operations
@@ -93,7 +99,7 @@ ME ME_4958BD880163
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_491443FE01BE_ME_4958BD880163 // Changed
+   Seq: ( ME_491443FE01BE_ME_4958BD880163_impl // Changed
  )
  ; // Implemented
  MELIST Dependencies

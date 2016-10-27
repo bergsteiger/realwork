@@ -1,0 +1,180 @@
+// TevSelectedParts 48C911C702A4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_48C91428029E
+
+FORWARD ME_48C911C702A4
+
+FORWARD ME_48C91428029E
+
+ME ME_48C914380253
+ MEPROP UID '48C914380253'
+ MEPROP Name 'rRowIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48C91428029E // TevSelectedPart
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48C914380253 rRowIndex
+
+ME ME_48C9144101BB
+ MEPROP UID '48C9144101BB'
+ MEPROP Name 'rWidth'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48C91428029E // TevSelectedPart
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48C9144101BB rWidth
+
+ME ME_4FD8731A039E
+ MEPROP UID '4FD8731A039E'
+ MEPROP Name 'rSelection'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48C91428029E // TevSelectedPart
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FD8731A039E rSelection
+
+ME ME_49DCB3DE0296
+ MEPROP UID '49DCB3DE0296'
+ MEPROP Name 'rWindowOrg'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48C91428029E // TevSelectedPart
+ ;
+ MELINK Target WL 'ME_47C59DE803AD' '4678209200A6.ms.model.script' // TnevPoint
+ ;
+
+ENDME // ME_49DCB3DE0296 rWindowOrg
+
+ME ME_48C91428029E
+ MEPROP UID '48C91428029E'
+ MEPROP Name 'TevSelectedPart'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C911C702A4 // TevSelectedParts
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_48C914380253 // rRowIndex
+ HWL ME_48C9144101BB // rWidth
+ HWL ME_4FD8731A039E // rSelection
+ HWL ME_49DCB3DE0296 // rWindowOrg
+ )
+ ; // Attributes
+
+ENDME // ME_48C91428029E TevSelectedPart
+
+ME ME_48C9181101C3
+ MEPROP UID '48C9181101C3'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48C911C702A4 // TevSelectedParts
+ ;
+ MELINK Target HWL ME_48C91428029E // TevSelectedPart
+ ;
+
+ENDME // ME_48C9181101C3 ItemType
+
+MEREF ME_47B07CF403D0_ME_48C911C702A4_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_48C911C702A4_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_48C911C702A4_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_48C911C702A4_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_48C911C702A4_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_48C911C702A4_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_48C911C702A4_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_48C911C702A4_G Tl3ProtoDataContainer
+
+MEREF ME_4B223ADC02BF_ME_48C911C702A4_G
+ MELINK Original WL? 'ME_4B223ADC02BF' // l3RecordListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223ADC02BF_ME_48C911C702A4_G l3RecordListPrim
+
+%%InheritedBy ME_4A54DD4E036F ME_48C911C702A4
+%%InheritedBy ME_4B223ADC02BF ME_48C911C702A4
+
+ME ME_48C911C702A4
+ MEPROP UID '48C911C702A4'
+ MEPROP Name 'TevSelectedParts'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Коллекция выделенных прямоугольников' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49DCC860038B' // ParaList Painters
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_48C911C702A4_G // Tl3ProtoDataContainer
+ HWL ME_4B223ADC02BF_ME_48C911C702A4_G // l3RecordListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48C9181101C3 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_48C911C702A4_impl // IsSameItems
+ ME_47B2C42A0163_ME_48C911C702A4_impl // AssignItem
+ ME_47B99D4503A2_ME_48C911C702A4_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_48C91428029E // TevSelectedPart
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '11.09.2008 14:39'
+ UP extprop:pas:UnitName 'evSelectedParts'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SelectedParts'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evSelectedParts.pas'
+
+ENDME // ME_48C911C702A4 TevSelectedParts

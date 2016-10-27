@@ -14,11 +14,23 @@ ME ME_492FF1F80082
 
 ENDME // ME_492FF1F80082 
 
-ME ME_492FEE0000FD_ME_492FF1C500B5
+MEREF ME_492FEE0000FD_ME_492FF1C500B5_over
  MELINK Original WL 'ME_492FEE0000FD' '492FECE300EA.ms.model.script' // GetQueryClass
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_492FEE0000FD_ME_492FF1C500B5 GetQueryClass
+ENDMEREF // ME_492FEE0000FD_ME_492FF1C500B5_over GetQueryClass
+
+MEREF ME_492FECE300EA_ME_492FF1C500B5_G
+ MELINK Original WL? 'ME_492FECE300EA' // TsdsQuery
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492FECE300EA_ME_492FF1C500B5_G TsdsQuery
+
+MEREF ME_492F01200192_ME_492FF1C500B5_R
+ MELINK Original WL 'ME_492F01200192' '491C3E540050.ms.model.script' // IsdsSendConsultation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492F01200192_ME_492FF1C500B5_R IsdsSendConsultation
 
 %%ImplementedBy ME_492F01200192 ME_492FF1C500B5
 
@@ -37,15 +49,15 @@ ME ME_492FF1C500B5
  MELINK Parent WL? 'ME_491C3E40007B' // Consultation
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_492FECE300EA' // TsdsQuery
+   Seq: ( HWL ME_492FECE300EA_ME_492FF1C500B5_G // TsdsQuery
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_492F01200192' '491C3E540050.ms.model.script' // IsdsSendConsultation
+   Seq: ( HWL ME_492F01200192_ME_492FF1C500B5_R // IsdsSendConsultation
  )
  ; // Implements
  MELIST Overridden
-   Seq: ( ME_492FEE0000FD_ME_492FF1C500B5 // GetQueryClass
+   Seq: ( ME_492FEE0000FD_ME_492FF1C500B5_over // GetQueryClass
  )
  ; // Overridden
  MELIST Dependencies

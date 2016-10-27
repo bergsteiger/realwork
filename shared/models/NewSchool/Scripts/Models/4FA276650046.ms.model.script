@@ -39,7 +39,7 @@ ENDME // ME_4FA2801903A5 DoIt
 ME ME_4FA280090314
  MEPROP UID '4FA280090314'
  MEPROP Name 'DoGetPosition'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -71,7 +71,7 @@ ENDME // ME_4FA2803502BC DoIt
 ME ME_4FA2802E0231
  MEPROP UID '4FA2802E0231'
  MEPROP Name 'DoGetSize'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -103,7 +103,7 @@ ENDME // ME_4FA2805701CF DoIt
 ME ME_4FA2805002E3
  MEPROP UID '4FA2805002E3'
  MEPROP Name 'DoGetLocksSupported'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -135,7 +135,7 @@ ENDME // ME_4FA2806C02F9 DoIt
 ME ME_4FA28066013B
  MEPROP UID '4FA28066013B'
  MEPROP Name 'DoGetAccess'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -167,7 +167,7 @@ ENDME // ME_5412FB98003F DoIt
 ME ME_5412FB880320
  MEPROP UID '5412FB880320'
  MEPROP Name 'DoGetName'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -212,7 +212,7 @@ ENDME // ME_5481BE6000A2 DoIt
 ME ME_5481BE57013F
  MEPROP UID '5481BE57013F'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -244,7 +244,7 @@ ENDME // ME_5481BE990227 DoIt
 ME ME_5481BE870251
  MEPROP UID '5481BE870251'
  MEPROP Name 'ReadOnly'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'только для чтения?' ;
@@ -269,40 +269,46 @@ ME ME_5481C46C0024
 
 ENDME // ME_5481C46C0024 
 
-ME ME_4EFAE62A0025_ME_4FA276650046
+MEREF ME_4EFAE62A0025_ME_4FA276650046_impl
  MELINK Original WL 'ME_4EFAE62A0025' '4EFAE5C10224.ms.model.script' // Access
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_4EFAE62A0025_ME_4FA276650046 Access
+ENDMEREF // ME_4EFAE62A0025_ME_4FA276650046_impl Access
 
-ME ME_4EFAE64E031B_ME_4FA276650046
+MEREF ME_4EFAE64E031B_ME_4FA276650046_impl
  MELINK Original WL 'ME_4EFAE64E031B' '4EFAE5C10224.ms.model.script' // LocksSupported
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_4EFAE64E031B_ME_4FA276650046 LocksSupported
+ENDMEREF // ME_4EFAE64E031B_ME_4FA276650046_impl LocksSupported
 
-ME ME_4EFAE66C02BA_ME_4FA276650046
+MEREF ME_4EFAE66C02BA_ME_4FA276650046_impl
  MELINK Original WL 'ME_4EFAE66C02BA' '4EFAE5C10224.ms.model.script' // Size
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_4EFAE66C02BA_ME_4FA276650046 Size
+ENDMEREF // ME_4EFAE66C02BA_ME_4FA276650046_impl Size
 
-ME ME_4EFAF2DF01C3_ME_4FA276650046
+MEREF ME_4EFAF2DF01C3_ME_4FA276650046_impl
  MELINK Original WL 'ME_4EFAF2DF01C3' '4EFAE5C10224.ms.model.script' // Position
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_4EFAF2DF01C3_ME_4FA276650046 Position
+ENDMEREF // ME_4EFAF2DF01C3_ME_4FA276650046_impl Position
 
-ME ME_5412F6940100_ME_4FA276650046
+MEREF ME_5412F6940100_ME_4FA276650046_impl
  MELINK Original WL 'ME_5412F6940100' '4EFAE5C10224.ms.model.script' // Name
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" False
-ENDME // ME_5412F6940100_ME_4FA276650046 Name
+ENDMEREF // ME_5412F6940100_ME_4FA276650046_impl Name
+
+MEREF ME_4EFAE5FE00C7_ME_4FA276650046_R
+ MELINK Original WL 'ME_4EFAE5FE00C7' '4EFAE5C10224.ms.model.script' // Im2StoreStat
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EFAE5FE00C7_ME_4FA276650046_R Im2StoreStat
 
 %%ImplementedBy ME_4EFAE5FE00C7 ME_4FA276650046
 
@@ -318,7 +324,7 @@ ME ME_4FA276650046
  MELINK Parent WL? 'ME_5485B0D1026C' // Streams
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4EFAE5FE00C7' '4EFAE5C10224.ms.model.script' // Im2StoreStat
+   Seq: ( HWL ME_4EFAE5FE00C7_ME_4FA276650046_R // Im2StoreStat
  )
  ; // Implements
  MELIST Attributes
@@ -336,11 +342,11 @@ ME ME_4FA276650046
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4EFAE62A0025_ME_4FA276650046 // Access
- ME_4EFAE64E031B_ME_4FA276650046 // LocksSupported
- ME_4EFAE66C02BA_ME_4FA276650046 // Size
- ME_4EFAF2DF01C3_ME_4FA276650046 // Position
- ME_5412F6940100_ME_4FA276650046 // Name
+   Seq: ( ME_4EFAE62A0025_ME_4FA276650046_impl // Access
+ ME_4EFAE64E031B_ME_4FA276650046_impl // LocksSupported
+ ME_4EFAE66C02BA_ME_4FA276650046_impl // Size
+ ME_4EFAF2DF01C3_ME_4FA276650046_impl // Position
+ ME_5412F6940100_ME_4FA276650046_impl // Name
  )
  ; // Implemented
  MELIST Dependencies

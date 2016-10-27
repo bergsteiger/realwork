@@ -1,0 +1,540 @@
+// TatFileIterator 50254E240133 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_50254E350320
+%%Inner ME_50254F1703A1
+
+FORWARD ME_50254E240133
+
+FORWARD ME_50254E350320
+
+ME ME_50254E83033D
+ MEPROP UID '50254E83033D'
+ MEPROP Name 'AtEnd'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50254E350320 // TatFileIteratorBase
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+
+ENDME // ME_50254E83033D AtEnd
+
+ME ME_50254EBC0127
+ MEPROP UID '50254EBC0127'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50254E350320 // TatFileIteratorBase
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "pm" True
+
+ENDME // ME_50254EBC0127 Name
+
+ME ME_50254EC702DF
+ MEPROP UID '50254EC702DF'
+ MEPROP Name 'FullPath'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50254E350320 // TatFileIteratorBase
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "pm" True
+
+ENDME // ME_50254EC702DF FullPath
+
+ME ME_50254EA30348
+ MEPROP UID '50254EA30348'
+ MEPROP Name 'MoveNext'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_50254E350320 // TatFileIteratorBase
+ ;
+
+ENDME // ME_50254EA30348 MoveNext
+
+MEREF ME_4807745602C8_ME_50254E350320_G
+ MELINK Original WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807745602C8_ME_50254E350320_G TObject
+
+%%InheritedBy ME_4807745602C8 ME_50254E350320
+
+ME ME_50254E350320
+ MEPROP UID '50254E350320'
+ MEPROP Name 'TatFileIteratorBase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_50254E240133 // TatFileIterator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4807745602C8_ME_50254E350320_G // TObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_50254E83033D // AtEnd
+ HWL ME_50254EBC0127 // Name
+ HWL ME_50254EC702DF // FullPath
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_50254EA30348 // MoveNext
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atFileIteratorBase'
+
+ENDME // ME_50254E350320 TatFileIteratorBase
+
+FORWARD ME_50254F1703A1
+
+ME ME_50254F360175
+ MEPROP UID '50254F360175'
+ MEPROP Name 'IsFolder'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50254F1703A1 // TatSimpleFileIterator
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+
+ENDME // ME_50254F360175 IsFolder
+
+ME ME_5025505400FB
+ MEPROP UID '5025505400FB'
+ MEPROP Name 'f_FindRes'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50254F1703A1 // TatSimpleFileIterator
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5025505400FB f_FindRes
+
+ME ME_5025505F00BB
+ MEPROP UID '5025505F00BB'
+ MEPROP Name 'f_SearchRec'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50254F1703A1 // TatSimpleFileIterator
+ ;
+ MELINK Target WL 'ME_502550E80220' '47877EB202FB.ms.model.script' // TSearchRec
+ ;
+
+ENDME // ME_5025505F00BB f_SearchRec
+
+ME ME_502550790070
+ MEPROP UID '502550790070'
+ MEPROP Name 'f_Folder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50254F1703A1 // TatSimpleFileIterator
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_502550790070 f_Folder
+
+FORWARD ME_50254F49027D
+
+ME ME_50254F9F0032
+ MEPROP Name 'aFolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_50254F9F0032 aFolder
+
+ME ME_50254FA30119
+ MEPROP Name 'aFileMask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_50254FA30119 aFileMask
+
+ME ME_50254F7A0325
+ MEPROP Name 'anAttrs'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_50254F7A0325 anAttrs
+
+ME ME_50254F49027D
+ MEPROP UID '50254F49027D'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50254F1703A1 // TatSimpleFileIterator
+ ;
+ MELIST Parameters
+   Seq: ( ME_50254F9F0032 // aFolder
+ ME_50254FA30119 // aFileMask
+ ME_50254F7A0325 // anAttrs
+ )
+ ; // Parameters
+
+ENDME // ME_50254F49027D Create
+
+ME ME_5025503C0123
+ MEPROP UID '5025503C0123'
+ MEPROP Name 'SkipDots'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50254F1703A1 // TatSimpleFileIterator
+ ;
+
+ENDME // ME_5025503C0123 SkipDots
+
+MEREF ME_50254E83033D_ME_50254F1703A1_impl
+ MELINK Original HWL ME_50254E83033D // AtEnd
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_50254E83033D_ME_50254F1703A1_impl AtEnd
+
+MEREF ME_50254EA30348_ME_50254F1703A1_impl
+ MELINK Original HWL ME_50254EA30348 // MoveNext
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_50254EA30348_ME_50254F1703A1_impl MoveNext
+
+MEREF ME_50254EBC0127_ME_50254F1703A1_impl
+ MELINK Original HWL ME_50254EBC0127 // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_50254EBC0127_ME_50254F1703A1_impl Name
+
+MEREF ME_50254EC702DF_ME_50254F1703A1_impl
+ MELINK Original HWL ME_50254EC702DF // FullPath
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_50254EC702DF_ME_50254F1703A1_impl FullPath
+
+MEREF ME_48077504027E_ME_50254F1703A1_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_50254F1703A1_over Destroy
+
+MEREF ME_50254E350320_ME_50254F1703A1_G
+ MELINK Original HWL ME_50254E350320 // TatFileIteratorBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50254E350320_ME_50254F1703A1_G TatFileIteratorBase
+
+%%InheritedBy ME_50254E350320 ME_50254F1703A1
+
+ME ME_50254F1703A1
+ MEPROP UID '50254F1703A1'
+ MEPROP Name 'TatSimpleFileIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50254E240133 // TatFileIterator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50254E350320_ME_50254F1703A1_G // TatFileIteratorBase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_50254F360175 // IsFolder
+ HWL ME_5025505400FB // f_FindRes
+ HWL ME_5025505F00BB // f_SearchRec
+ HWL ME_502550790070 // f_Folder
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_50254F49027D // Create
+ HWL ME_5025503C0123 // SkipDots
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_50254E83033D_ME_50254F1703A1_impl // AtEnd
+ ME_50254EA30348_ME_50254F1703A1_impl // MoveNext
+ ME_50254EBC0127_ME_50254F1703A1_impl // Name
+ ME_50254EC702DF_ME_50254F1703A1_impl // FullPath
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_50254F1703A1_over // Destroy
+ )
+ ; // Overridden
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atSimpleFileIterator'
+
+ENDME // ME_50254F1703A1 TatSimpleFileIterator
+
+ME ME_50255F080363
+ MEPROP UID '50255F080363'
+ MEPROP Name 'f_Attrs'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50254E240133 // TatFileIterator
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_50255F080363 f_Attrs
+
+ME ME_50255B8E00D6
+ MEPROP UID '50255B8E00D6'
+ MEPROP Name 'f_InFolderIterators'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50254E240133 // TatFileIterator
+ ;
+ MELINK Target WL 'ME_502551840024' '4807687301D4.ms.model.script' // TStack
+ ;
+
+ENDME // ME_50255B8E00D6 f_InFolderIterators
+
+ME ME_50255BC2037F
+ MEPROP UID '50255BC2037F'
+ MEPROP Name 'f_Mask'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50254E240133 // TatFileIterator
+ ;
+ MELINK Target WL 'ME_50254A0700F8' '502549AF030B.ms.model.script' // TMask
+ ;
+
+ENDME // ME_50255BC2037F f_Mask
+
+ME ME_50255BD201D0
+ MEPROP UID '50255BD201D0'
+ MEPROP Name 'Current'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50254E240133 // TatFileIterator
+ ;
+ MELINK Target HWL ME_50254F1703A1 // TatSimpleFileIterator
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_50255BD201D0 Current
+
+FORWARD ME_50255C38035F
+
+ME ME_50255C670311
+ MEPROP Name 'aFolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_50255C670311 aFolder
+
+ME ME_50255C670329
+ MEPROP Name 'aFileMask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_50255C670329 aFileMask
+
+ME ME_50255C670342
+ MEPROP Name 'isRecursive'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_50255C670342 isRecursive
+
+ME ME_50255C67035B
+ MEPROP Name 'anAttributes'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_50255C67035B anAttributes
+
+ME ME_50255C38035F
+ MEPROP UID '50255C38035F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50254E240133 // TatFileIterator
+ ;
+ MELIST Parameters
+   Seq: ( ME_50255C670311 // aFolder
+ ME_50255C670329 // aFileMask
+ ME_50255C670342 // isRecursive
+ ME_50255C67035B // anAttributes
+ )
+ ; // Parameters
+
+ENDME // ME_50255C38035F Create
+
+ME ME_502B8CA80171
+ MEPROP UID '502B8CA80171'
+ MEPROP Name 'IsOnGoodFile'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50254E240133 // TatFileIterator
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_502B8CA80171 IsOnGoodFile
+
+MEREF ME_50254E83033D_ME_50254E240133_impl
+ MELINK Original HWL ME_50254E83033D // AtEnd
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_50254E83033D_ME_50254E240133_impl AtEnd
+
+MEREF ME_50254EA30348_ME_50254E240133_impl
+ MELINK Original HWL ME_50254EA30348 // MoveNext
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_50254EA30348_ME_50254E240133_impl MoveNext
+
+MEREF ME_50254EBC0127_ME_50254E240133_impl
+ MELINK Original HWL ME_50254EBC0127 // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_50254EBC0127_ME_50254E240133_impl Name
+
+MEREF ME_50254EC702DF_ME_50254E240133_impl
+ MELINK Original HWL ME_50254EC702DF // FullPath
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_50254EC702DF_ME_50254E240133_impl FullPath
+
+MEREF ME_48077504027E_ME_50254E240133_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_50254E240133_over Destroy
+
+MEREF ME_50254E350320_ME_50254E240133_G
+ MELINK Original HWL ME_50254E350320 // TatFileIteratorBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50254E350320_ME_50254E240133_G TatFileIteratorBase
+
+%%InheritedBy ME_50254E350320 ME_50254E240133
+
+ME ME_50254E240133
+ MEPROP UID '50254E240133'
+ MEPROP Name 'TatFileIterator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50254E350320_ME_50254E240133_G // TatFileIteratorBase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_50255F080363 // f_Attrs
+ HWL ME_50255B8E00D6 // f_InFolderIterators
+ HWL ME_50255BC2037F // f_Mask
+ HWL ME_50255BD201D0 // Current
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_50255C38035F // Create
+ HWL ME_502B8CA80171 // IsOnGoodFile
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_50254E83033D_ME_50254E240133_impl // AtEnd
+ ME_50254EA30348_ME_50254E240133_impl // MoveNext
+ ME_50254EBC0127_ME_50254E240133_impl // Name
+ ME_50254EC702DF_ME_50254E240133_impl // FullPath
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_50254E240133_over // Destroy
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_50254E350320 // TatFileIteratorBase
+ HWL ME_50254F1703A1 // TatSimpleFileIterator
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atFileIterator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atFileIterator'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atFileIterator.pas'
+
+ENDME // ME_50254E240133 TatFileIterator

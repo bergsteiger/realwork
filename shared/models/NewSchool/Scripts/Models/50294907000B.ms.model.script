@@ -1,0 +1,213 @@
+// TatFileInitializer 50294907000B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50294907000B
+
+ME ME_5029493000A4
+ MEPROP UID '5029493000A4'
+ MEPROP Name 'FileName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50294907000B // TatFileInitializer
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_5029493000A4 FileName
+
+ME ME_5029498501C1
+ MEPROP UID '5029498501C1'
+ MEPROP Name 'Handle'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50294907000B // TatFileInitializer
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_5029498501C1 Handle
+
+ME ME_502949CD02C4
+ MEPROP UID '502949CD02C4'
+ MEPROP Name 'f_GuardFile'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50294907000B // TatFileInitializer
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+
+ENDME // ME_502949CD02C4 f_GuardFile
+
+ME ME_50294A0A0244
+ MEPROP UID '50294A0A0244'
+ MEPROP Name 'Stream'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50294907000B // TatFileInitializer
+ ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_50294A0A0244 Stream
+
+ME ME_50294A39012E
+ MEPROP UID '50294A39012E'
+ MEPROP Name 'DupHandle'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50294907000B // TatFileInitializer
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+
+ENDME // ME_50294A39012E DupHandle
+
+ME ME_50294A550017
+ MEPROP UID '50294A550017'
+ MEPROP Name 'TryInit'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50294907000B // TatFileInitializer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_50294A550017 TryInit
+
+ME ME_50294A61033F
+ MEPROP UID '50294A61033F'
+ MEPROP Name 'FinishInit'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50294907000B // TatFileInitializer
+ ;
+
+ENDME // ME_50294A61033F FinishInit
+
+FORWARD ME_50294A7E0284
+
+ME ME_50294A89036C
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MEPROP Value ''''''
+ MELINK ValueType WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP extprop:pas:Value ''''''
+
+ENDME // ME_50294A89036C aFileName
+
+ME ME_50294A7E0284
+ MEPROP UID '50294A7E0284'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50294907000B // TatFileInitializer
+ ;
+ MELIST Parameters
+   Seq: ( ME_50294A89036C // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_50294A7E0284 Create
+
+ME ME_50295867017B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50294907000B // TatFileInitializer
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_50295867017B 
+
+MEREF ME_48077504027E_ME_50294907000B_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_50294907000B_over Destroy
+
+MEREF ME_4807745602C8_ME_50294907000B_G
+ MELINK Original WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807745602C8_ME_50294907000B_G TObject
+
+%%InheritedBy ME_4807745602C8 ME_50294907000B
+
+ME ME_50294907000B
+ MEPROP UID '50294907000B'
+ MEPROP Name 'TatFileInitializer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4807745602C8_ME_50294907000B_G // TObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5029493000A4 // FileName
+ HWL ME_5029498501C1 // Handle
+ HWL ME_502949CD02C4 // f_GuardFile
+ HWL ME_50294A0A0244 // Stream
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_50294A39012E // DupHandle
+ HWL ME_50294A550017 // TryInit
+ HWL ME_50294A61033F // FinishInit
+ HWL ME_50294A7E0284 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_50294907000B_over // Destroy
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_50295867017B // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atFileInitializer'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atFileInitializer'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atFileInitializer.pas'
+
+ENDME // ME_50294907000B TatFileInitializer

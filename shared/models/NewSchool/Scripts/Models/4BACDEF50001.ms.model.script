@@ -1,0 +1,285 @@
+// RTFWriterTest 4BACDEF50001 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BACDEF50001
+
+FORWARD ME_4BACDF18014F
+
+ME ME_4BACE041012A
+ MEPROP UID '4BACE041012A'
+ MEPROP Name 'Writer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BACDF18014F // SomeFormatToRTF
+ ;
+ MELINK Target WL 'ME_4B72BB480373' '48F4BA89000D.ms.model.script' // TevRTFObjectGenerator
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4BACE041012A Writer
+
+ME ME_4BACE7BB02CC
+ MEPROP UID '4BACE7BB02CC'
+ MEPROP Name 'Filer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BACDF18014F // SomeFormatToRTF
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4BACE7BB02CC Filer
+
+FORWARD ME_4BACDF31038F
+
+ME ME_4BACDF3801BA
+ MEPROP Name 'aReader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_482D6EB4003A' // Tk2CustomFileReader
+ ;
+
+ENDME // ME_4BACDF3801BA aReader
+
+ME ME_4BACEE630109
+ MEPROP Name 'NeedCheck'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_4BACEE630109 NeedCheck
+
+ME ME_4BACDF31038F
+ MEPROP UID '4BACDF31038F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BACDF18014F // SomeFormatToRTF
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BACDF3801BA // aReader
+ ME_4BACEE630109 // NeedCheck
+ )
+ ; // Parameters
+
+ENDME // ME_4BACDF31038F DoIt
+
+ME ME_4BACDF720302
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BACDF18014F // SomeFormatToRTF
+ ;
+ MELINK Target WL 'ME_4B72BB480373' '48F4BA89000D.ms.model.script' // TevRTFObjectGenerator
+ ;
+
+ENDME // ME_4BACDF720302 
+
+ME ME_4BACDF18014F
+ MEPROP UID '4BACDF18014F'
+ MEPROP Name 'SomeFormatToRTF'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BACDEF50001 // RTFWriterTest
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BACE041012A // Writer
+ HWL ME_4BACE7BB02CC // Filer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4BACDF31038F // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4BACDF720302 // TevRTFObjectGenerator
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4BACDF18014F SomeFormatToRTF
+
+FORWARD ME_4BACE0B20173
+
+ME ME_4BACE0F202B2
+ MEPROP UID '4BACE0F202B2'
+ MEPROP Name 'Reader'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BACE0B20173 // EVDtoRTF
+ ;
+ MELINK Target WL? 'ME_483E80FA0312' // TevdNativeReader
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4BACE0F202B2 Reader
+
+FORWARD ME_4BACE0C602E2
+
+ME ME_4BACE0CD0080
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4BACE0CD0080 aFileName
+
+ME ME_4BACEE6A00EB
+ MEPROP Name 'NeedCheck'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_4BACEE6A00EB NeedCheck
+
+ME ME_4BACE0C602E2
+ MEPROP UID '4BACE0C602E2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BACE0B20173 // EVDtoRTF
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BACE0CD0080 // aFileName
+ ME_4BACEE6A00EB // NeedCheck
+ )
+ ; // Parameters
+
+ENDME // ME_4BACE0C602E2 DoIt
+
+ME ME_4BACE117008D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BACE0B20173 // EVDtoRTF
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4BACE117008D 
+
+ME ME_4BACE0B20173
+ MEPROP UID '4BACE0B20173'
+ MEPROP Name 'EVDtoRTF'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BACDEF50001 // RTFWriterTest
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BACE0F202B2 // Reader
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4BACE0C602E2 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4BACE117008D // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4BACE0B20173 EVDtoRTF
+
+FORWARD ME_4CD126A5012A
+
+ME ME_4CD126AD02F4
+ MEPROP UID '4CD126AD02F4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CD126A5012A // UseExternalLinks
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CD126AD02F4 DoIt
+
+ME ME_4CD126A5012A
+ MEPROP UID '4CD126A5012A'
+ MEPROP Name 'UseExternalLinks'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BACDEF50001 // RTFWriterTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CD126AD02F4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CD126A5012A UseExternalLinks
+
+MEREF ME_4BACDDB500CE_ME_4BACDEF50001_G
+ MELINK Original WL? 'ME_4BACDDB500CE' // WriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BACDDB500CE_ME_4BACDEF50001_G WriterTest
+
+%%InheritedBy ME_4BACDDB500CE ME_4BACDEF50001
+
+ME ME_4BACDEF50001
+ MEPROP UID '4BACDEF50001'
+ MEPROP Name 'RTFWriterTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4BACDED003CE' // RTF
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BACDDB500CE_ME_4BACDEF50001_G // WriterTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4BACDF18014F // SomeFormatToRTF
+ HWL ME_4BACE0B20173 // EVDtoRTF
+ HWL ME_4CD126A5012A // UseExternalLinks
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TRTFWriterTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RTFWriterTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\RTFWriterTest.pas'
+
+ENDME // ME_4BACDEF50001 RTFWriterTest

@@ -1,0 +1,70 @@
+// K517772970_TcsUserDefinedExport 53B26EC60189 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53B26EC60189
+
+ME ME_53B26EF3001A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B26EC60189 // K517772970_TcsUserDefinedExport
+ ;
+ MELINK Target WL? 'ME_53B26E050371' // TcsUserDefinedExport
+ ;
+
+ENDME // ME_53B26EF3001A 
+
+MEREF ME_5320088202FB_ME_53B26EC60189_over
+ MELINK Original WL 'ME_5320088202FB' '532008240001.ms.model.script' // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5320088202FB_ME_53B26EC60189_over TaskClass
+
+MEREF ME_532008D203BA_ME_53B26EC60189_over
+ MELINK Original WL 'ME_532008D203BA' '532008240001.ms.model.script' // InitTask
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_532008D203BA_ME_53B26EC60189_over InitTask
+
+MEREF ME_53200B5D0155_ME_53B26EC60189_G
+ MELINK Original WL? 'ME_53200B5D0155' // K517772970_TddProcessTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53200B5D0155_ME_53B26EC60189_G K517772970_TddProcessTask
+
+%%InheritedBy ME_53200B5D0155 ME_53B26EC60189
+
+ME ME_53B26EC60189
+ MEPROP UID '53B26EC60189'
+ MEPROP Name 'K517772970_TcsUserDefinedExport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_531FF6280311' // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B5D0155_ME_53B26EC60189_G // K517772970_TddProcessTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53B26EC60189_over // TaskClass
+ ME_532008D203BA_ME_53B26EC60189_over // InitTask
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53B26EF3001A // TcsUserDefinedExport
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TK517772970_TcsUserDefinedExport'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K517772970_TcsUserDefinedExport'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsUserDefinedExport.pas'
+
+ENDME // ME_53B26EC60189 K517772970_TcsUserDefinedExport

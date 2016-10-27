@@ -1,0 +1,174 @@
+// TnsPromptContextFilterParams 4906D40F0363 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4906D40F0363
+
+ME ME_49089F94017B
+ MEPROP UID '49089F94017B'
+ MEPROP Name 'f_Subscribers'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4906D40F0363 // TnsPromptContextFilterParams
+ ;
+ MELINK Target WL? 'ME_49089895038A' // TIl3ContextFilterParamsNotifierPtrList
+ ;
+
+ENDME // ME_49089F94017B f_Subscribers
+
+ME ME_49089FE50092
+ MEPROP UID '49089FE50092'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'Создаёт дерево' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4906D40F0363 // TnsPromptContextFilterParams
+ ;
+ MELINK Target WL 'ME_47724E7F0261' '4682595B0268.ms.model.script' // Il3ContextFilterParams
+ ;
+
+ENDME // ME_49089FE50092 Make
+
+ME ME_49089FF80356
+ MEPROP UID '49089FF80356'
+ MEPROP Name 'NotifySubscribers'
+ MEPROP Class class_Operation
+ %SUMMARY 'Уведомляет подписчиков, о чём?' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4906D40F0363 // TnsPromptContextFilterParams
+ ;
+
+ENDME // ME_49089FF80356 NotifySubscribers
+
+ME ME_4908A015007F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4906D40F0363 // TnsPromptContextFilterParams
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4908A015007F 
+
+MEREF ME_47724E930100_ME_4906D40F0363_impl
+ MELINK Original WL 'ME_47724E930100' '4682595B0268.ms.model.script' // WordPosition
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47724E930100_ME_4906D40F0363_impl WordPosition
+
+MEREF ME_47724E9D014D_ME_4906D40F0363_impl
+ MELINK Original WL 'ME_47724E9D014D' '4682595B0268.ms.model.script' // WordOrder
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47724E9D014D_ME_4906D40F0363_impl WordOrder
+
+MEREF ME_47724EA70354_ME_4906D40F0363_impl
+ MELINK Original WL 'ME_47724EA70354' '4682595B0268.ms.model.script' // TreeLevelDist
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47724EA70354_ME_4906D40F0363_impl TreeLevelDist
+
+MEREF ME_47724F120028_ME_4906D40F0363_impl
+ MELINK Original WL 'ME_47724F120028' '4682595B0268.ms.model.script' // Subscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47724F120028_ME_4906D40F0363_impl Subscribe
+
+MEREF ME_47724F1E0180_ME_4906D40F0363_impl
+ MELINK Original WL 'ME_47724F1E0180' '4682595B0268.ms.model.script' // UnSubscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47724F1E0180_ME_4906D40F0363_impl UnSubscribe
+
+MEREF ME_479731C50290_ME_4906D40F0363_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4906D40F0363_over Cleanup
+
+MEREF ME_46780E690001_ME_4906D40F0363_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_4906D40F0363_G Tl3CacheableBase
+
+MEREF ME_46835CB60115_ME_4906D40F0363_R
+ MELINK Original WL 'ME_46835CB60115' '4682595B0268.ms.model.script' // Il3ContextFilterParamsNotifySource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46835CB60115_ME_4906D40F0363_R Il3ContextFilterParamsNotifySource
+
+MEREF ME_47724E7F0261_ME_4906D40F0363_R
+ MELINK Original WL 'ME_47724E7F0261' '4682595B0268.ms.model.script' // Il3ContextFilterParams
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47724E7F0261_ME_4906D40F0363_R Il3ContextFilterParams
+
+%%ImplementedBy ME_46835CB60115 ME_4906D40F0363
+%%ImplementedBy ME_47724E7F0261 ME_4906D40F0363
+
+%%InheritedBy ME_46780E690001 ME_4906D40F0363
+
+ME ME_4906D40F0363
+ MEPROP UID '4906D40F0363'
+ MEPROP Name 'TnsPromptContextFilterParams'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Коллеги, это что?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4ACF3E400050' // BaseSearch
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46780E690001_ME_4906D40F0363_G // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_46835CB60115_ME_4906D40F0363_R // Il3ContextFilterParamsNotifySource
+ HWL ME_47724E7F0261_ME_4906D40F0363_R // Il3ContextFilterParams
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49089F94017B // f_Subscribers
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49089FE50092 // Make
+ HWL ME_49089FF80356 // NotifySubscribers
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47724E930100_ME_4906D40F0363_impl // WordPosition
+ ME_47724E9D014D_ME_4906D40F0363_impl // WordOrder
+ ME_47724EA70354_ME_4906D40F0363_impl // TreeLevelDist
+ ME_47724F120028_ME_4906D40F0363_impl // Subscribe
+ ME_47724F1E0180_ME_4906D40F0363_impl // UnSubscribe
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4906D40F0363_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4908A015007F // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" True
+ UP "started" '2008/06/25 08:04:46'
+ UP extprop:pas:UnitName 'nsPromptContextFilterParams'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PromptContextFilterParams'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsPromptContextFilterParams.pas'
+
+ENDME // ME_4906D40F0363 TnsPromptContextFilterParams

@@ -17,10 +17,16 @@ ME ME_537F794303D7
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_537F79270038 // TDbInfo
  ;
- MELINK Target WL 'ME_537F78F50118' '537F78280242.ms.model.script' // TdtFamilyInfoList
+ MELINK Target WL? 'ME_537F78F50118' // TdtFamilyInfoList
  ;
 
 ENDME // ME_537F794303D7 f_FamiliesData
+
+MEREF ME_49E7754802A9_ME_537F79270038_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_537F79270038_G Tl3ProtoObject
 
 %%InheritedBy ME_49E7754802A9 ME_537F79270038
 
@@ -35,7 +41,7 @@ ME ME_537F79270038
  MELINK Parent HWL ME_537F79160044 // DT_DbInfo
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_537F79270038_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Attributes

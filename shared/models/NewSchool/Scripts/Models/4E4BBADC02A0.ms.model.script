@@ -1,0 +1,42 @@
+// TkwMakeChangeDoc 4E4BBADC02A0 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E4BBADC02A0
+
+ME ME_4E4BBB6500A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4BBADC02A0 // TkwMakeChangeDoc
+ ;
+ MELINK Target WL 'ME_4E4B6340031F' '4E4B5F29031C.ms.model.script' // arMakeChangeDoc
+ ;
+
+ENDME // ME_4E4BBB6500A7 
+
+ME ME_4E4BBADC02A0
+ MEPROP UID '4E4BBADC02A0'
+ MEPROP Name 'TkwMakeChangeDoc'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'macros:MakeChangeDoc' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E4BBB6500A7 // arMakeChangeDoc
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'macros:MakeChangeDoc'
+ UP extprop:pas:UnitName 'kwMakeChangeDoc'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MakeChangeDoc'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwMakeChangeDoc.pas'
+
+ENDME // ME_4E4BBADC02A0 TkwMakeChangeDoc

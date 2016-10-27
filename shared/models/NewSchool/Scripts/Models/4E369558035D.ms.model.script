@@ -62,12 +62,18 @@ ME ME_4E36B62F02DA
 
 ENDME // ME_4E36B62F02DA DoIt
 
+MEREF ME_4E36BD3B02C9_ME_4E36B621000E_R
+ MELINK Original WL 'ME_4E36BD3B02C9' '484CE48E02E6.ms.model.script' // Анализ списка из вкладки
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E36BD3B02C9_ME_4E36B621000E_R Анализ списка из вкладки
+
 %%ImplementedBy ME_4E36BD3B02C9 ME_4E36B621000E
 
 ME ME_4E36B621000E
  MEPROP UID '4E36B621000E'
  MEPROP Name 'UpdateTabAction'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -75,7 +81,7 @@ ME ME_4E36B621000E
  MELINK Parent HWL ME_4E369558035D // PrimListAnalize
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E36BD3B02C9' '484CE48E02E6.ms.model.script' // Анализ списка из вкладки
+   Seq: ( HWL ME_4E36BD3B02C9_ME_4E36B621000E_R // Анализ списка из вкладки
  )
  ; // Implements
  MELIST Operations
@@ -113,12 +119,18 @@ ME ME_4E36B64802AE
 
 ENDME // ME_4E36B64802AE DoIt
 
+MEREF ME_4E36BD3B02C9_ME_4E36B63D016B_R
+ MELINK Original WL 'ME_4E36BD3B02C9' '484CE48E02E6.ms.model.script' // Анализ списка из вкладки
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E36BD3B02C9_ME_4E36B63D016B_R Анализ списка из вкладки
+
 %%ImplementedBy ME_4E36BD3B02C9 ME_4E36B63D016B
 
 ME ME_4E36B63D016B
  MEPROP UID '4E36B63D016B'
  MEPROP Name 'ExecuteTabAction'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -126,7 +138,7 @@ ME ME_4E36B63D016B
  MELINK Parent HWL ME_4E369558035D // PrimListAnalize
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E36BD3B02C9' '484CE48E02E6.ms.model.script' // Анализ списка из вкладки
+   Seq: ( HWL ME_4E36BD3B02C9_ME_4E36B63D016B_R // Анализ списка из вкладки
  )
  ; // Implements
  MELIST Operations
@@ -146,17 +158,29 @@ ME ME_4E36B5D6004D
 
 ENDME // ME_4E36B5D6004D 
 
-ME ME_49803F5503AA_ME_4E369558035D
- MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+MEREF ME_49803F5503AA_ME_4E369558035D_over
+ MELINK Original WL 'ME_49803F5503AA' '49525B34022A.ms.model.script' // DoInit
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49803F5503AA_ME_4E369558035D DoInit
+ENDMEREF // ME_49803F5503AA_ME_4E369558035D_over DoInit
 
-ME ME_4A8AE0FA03B2_ME_4E369558035D
- MELINK Original WL 'ME_4A8AE0FA03B2' '4AADF9450143.ms.model.script' // BecomeActive
+MEREF ME_4A8AE0FA03B2_ME_4E369558035D_over
+ MELINK Original WL 'ME_4A8AE0FA03B2' '49525B34022A.ms.model.script' // BecomeActive
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8AE0FA03B2_ME_4E369558035D BecomeActive
+ENDMEREF // ME_4A8AE0FA03B2_ME_4E369558035D_over BecomeActive
+
+MEREF ME_49525B34022A_ME_4E369558035D_G
+ MELINK Original WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525B34022A_ME_4E369558035D_G TvcmEntityForm
+
+MEREF ME_4FFBDE68006D_ME_4E369558035D_R
+ MELINK Original WL? 'ME_4FFBDE68006D' // ListAnalizeUserTypes
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FFBDE68006D_ME_4E369558035D_R ListAnalizeUserTypes
 
 %%ImplementedBy ME_4FFBDE68006D ME_4E369558035D
 
@@ -175,11 +199,11 @@ ME ME_4E369558035D
  MELINK Parent WL? 'ME_497DDB0A0168' // List
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+   Seq: ( HWL ME_49525B34022A_ME_4E369558035D_G // TvcmEntityForm
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_4FFBDE68006D' // ListAnalizeUserTypes
+   Seq: ( HWL ME_4FFBDE68006D_ME_4E369558035D_R // ListAnalizeUserTypes
  )
  ; // Implements
  MELIST Attributes
@@ -193,8 +217,8 @@ ME ME_4E369558035D
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_49803F5503AA_ME_4E369558035D // DoInit
- ME_4A8AE0FA03B2_ME_4E369558035D // BecomeActive
+   Seq: ( ME_49803F5503AA_ME_4E369558035D_over // DoInit
+ ME_4A8AE0FA03B2_ME_4E369558035D_over // BecomeActive
  )
  ; // Overridden
  MELIST Dependencies

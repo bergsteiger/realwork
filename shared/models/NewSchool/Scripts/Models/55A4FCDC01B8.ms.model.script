@@ -1,0 +1,122 @@
+// TtfwDictionaryExPrim 55A4FCDC01B8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55A4FCDC01B8
+
+FORWARD ME_55A4FD6401D3
+
+FORWARD ME_55A4FD7303D1
+
+ME ME_55A4FD8103D6
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55A4FCDC01B8 // TtfwDictionaryExPrim
+ ;
+
+ENDME // ME_55A4FD8103D6 anOther
+
+ME ME_55A4FD7303D1
+ MEPROP UID '55A4FD7303D1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A4FD6401D3 // UsesDictionary
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55A4FD8103D6 // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_55A4FD7303D1 DoIt
+
+ME ME_55A4FD6401D3
+ MEPROP UID '55A4FD6401D3'
+ MEPROP Name 'UsesDictionary'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55A4FCDC01B8 // TtfwDictionaryExPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55A4FD7303D1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55A4FD6401D3 UsesDictionary
+
+FORWARD ME_55A3E53A00A8
+
+ME ME_55A3E54B003B
+ MEPROP UID '55A3E54B003B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A3E53A00A8 // IsValidCode
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55A3E54B003B DoIt
+
+ME ME_55A3E53A00A8
+ MEPROP UID '55A3E53A00A8'
+ MEPROP Name 'IsValidCode'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55A4FCDC01B8 // TtfwDictionaryExPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55A3E54B003B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55A3E53A00A8 IsValidCode
+
+MEREF ME_4DAEECD90016_ME_55A4FCDC01B8_G
+ MELINK Original WL? 'ME_4DAEECD90016' // TtfwDictionary
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DAEECD90016_ME_55A4FCDC01B8_G TtfwDictionary
+
+%%InheritedBy ME_4DAEECD90016 ME_55A4FCDC01B8
+
+ME ME_55A4FCDC01B8
+ MEPROP UID '55A4FCDC01B8'
+ MEPROP Name 'TtfwDictionaryExPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F2275C00012' // ScriptingKeywordsCore
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DAEECD90016_ME_55A4FCDC01B8_G // TtfwDictionary
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55A4FD6401D3 // UsesDictionary
+ HWL ME_55A3E53A00A8 // IsValidCode
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'tfwDictionaryExPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DictionaryExPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryExPrim.pas'
+
+ENDME // ME_55A4FCDC01B8 TtfwDictionaryExPrim

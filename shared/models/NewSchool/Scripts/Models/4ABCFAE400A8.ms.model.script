@@ -2,6 +2,18 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+MEREF ME_4ABCFB7F017B_ME_4ABCFAE400A8_G
+ MELINK Original WL? 'ME_4ABCFB7F017B' // Consultation$FP
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4ABCFB7F017B_ME_4ABCFAE400A8_G Consultation$FP
+
+MEREF ME_484E638701D9_ME_4ABCFAE400A8_R
+ MELINK Original WL 'ME_484E638701D9' '484E610E0335.ms.model.script' // Консультации
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484E638701D9_ME_4ABCFAE400A8_R Консультации
+
 %%ImplementedBy ME_484E638701D9 ME_4ABCFAE400A8
 
 %%InheritedBy ME_4ABCFB7F017B ME_4ABCFAE400A8
@@ -20,11 +32,11 @@ ME ME_4ABCFAE400A8
  MELINK Parent WL? 'ME_4ABCFA76015C' // Consultation
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4ABCFB7F017B' // Consultation$FP
+   Seq: ( HWL ME_4ABCFB7F017B_ME_4ABCFAE400A8_G // Consultation$FP
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_484E638701D9' '484E610E0335.ms.model.script' // Консультации
+   Seq: ( HWL ME_484E638701D9_ME_4ABCFAE400A8_R // Консультации
  )
  ; // Implements
  UP "author" 'Люлин А.В.'

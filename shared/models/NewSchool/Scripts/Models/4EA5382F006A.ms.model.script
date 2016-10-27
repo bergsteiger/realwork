@@ -1,0 +1,61 @@
+// K294595323 4EA5382F006A TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EA5382F006A
+
+ME ME_4EA5644C0099
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EA5382F006A // K294595323
+ ;
+ MELINK Target WL? 'ME_4EA538D60064' // TK294595323Suite
+ ;
+
+ENDME // ME_4EA5644C0099 
+
+MEREF ME_4EA553E901DB_ME_4EA5382F006A_over
+ MELINK Original WL 'ME_4EA553E901DB' '4B2A0DCE03A9.ms.model.script' // Suite
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDMEREF // ME_4EA553E901DB_ME_4EA5382F006A_over Suite
+
+MEREF ME_4EA5222A020E_ME_4EA5382F006A_G
+ MELINK Original WL? 'ME_4EA5222A020E' // AACFiltersTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EA5222A020E_ME_4EA5382F006A_G AACFiltersTest
+
+%%InheritedBy ME_4EA5222A020E ME_4EA5382F006A
+
+ME ME_4EA5382F006A
+ MEPROP UID '4EA5382F006A'
+ MEPROP Name 'K294595323'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:294595323}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D53DF0D03B0' // Filters
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4EA5222A020E_ME_4EA5382F006A_G // AACFiltersTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4EA553E901DB_ME_4EA5382F006A_over // Suite
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4EA5644C0099 // TK294595323Suite
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName 'TK294595323'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K294595323'
+ UP intf.pas:Path 'common\components\rtl\Garant\Archi_Tests\K294595323.pas'
+
+ENDME // ME_4EA5382F006A K294595323

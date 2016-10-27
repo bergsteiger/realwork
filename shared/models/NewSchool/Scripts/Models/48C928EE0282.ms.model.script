@@ -14,7 +14,7 @@ ME ME_48C9291B03C6
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
  ;
- MELINK Target WL 'ME_48C911C702A4' '49DCC860038B.ms.model.script' // TevSelectedParts
+ MELINK Target WL? 'ME_48C911C702A4' // TevSelectedParts
  ;
 
 ENDME // ME_48C9291B03C6 f_SelectedList
@@ -29,7 +29,7 @@ ME ME_48C929410274
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
  ;
- MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
+ MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
  ;
 
 ENDME // ME_48C929410274 f_RowHeights
@@ -42,7 +42,7 @@ ME ME_48C9294D0370
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
  ;
- MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
+ MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
  ;
 
 ENDME // ME_48C9294D0370 GetRowHeights
@@ -109,23 +109,29 @@ ME ME_4D6F3F9E0228
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
  ;
- MELINK Target WL 'ME_4D6F3F42007C' '49DCC860038B.ms.model.script' // TevDelayedPaintersSpy
+ MELINK Target WL? 'ME_4D6F3F42007C' // TevDelayedPaintersSpy
  ;
  UP "ifdef" 'nsTest'
 
 ENDME // ME_4D6F3F9E0228 
 
-ME ME_47C7DE3200E4_ME_48C928EE0282
+MEREF ME_47C7DE3200E4_ME_48C928EE0282_impl
  MELINK Original WL 'ME_47C7DE3200E4' '49D2080D020C.ms.model.script' // RemeberSelPart
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47C7DE3200E4_ME_48C928EE0282 RemeberSelPart
+ENDMEREF // ME_47C7DE3200E4_ME_48C928EE0282_impl RemeberSelPart
 
-ME ME_47C7DE42020F_ME_48C928EE0282
+MEREF ME_47C7DE42020F_ME_48C928EE0282_impl
  MELINK Original WL 'ME_47C7DE42020F' '49D2080D020C.ms.model.script' // SetHeight
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47C7DE42020F_ME_48C928EE0282 SetHeight
+ENDMEREF // ME_47C7DE42020F_ME_48C928EE0282_impl SetHeight
+
+MEREF ME_47C7DE24022A_ME_48C928EE0282_R
+ MELINK Original WL 'ME_47C7DE24022A' '49D2080D020C.ms.model.script' // InevPaintersHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C7DE24022A_ME_48C928EE0282_R InevPaintersHolder
 
 %%ImplementedBy ME_47C7DE24022A ME_48C928EE0282
 
@@ -141,7 +147,7 @@ ME ME_48C928EE0282
  MELINK Parent WL? 'ME_49DCC860038B' // ParaList Painters
  ;
  MELIST Implements
-   Seq: ( WL 'ME_47C7DE24022A' '49D2080D020C.ms.model.script' // InevPaintersHolder
+   Seq: ( HWL ME_47C7DE24022A_ME_48C928EE0282_R // InevPaintersHolder
  )
  ; // Implements
  MELIST Attributes
@@ -157,8 +163,8 @@ ME ME_48C928EE0282
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_47C7DE3200E4_ME_48C928EE0282 // RemeberSelPart
- ME_47C7DE42020F_ME_48C928EE0282 // SetHeight
+   Seq: ( ME_47C7DE3200E4_ME_48C928EE0282_impl // RemeberSelPart
+ ME_47C7DE42020F_ME_48C928EE0282_impl // SetHeight
  )
  ; // Implemented
  MELIST Dependencies

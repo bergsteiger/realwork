@@ -1,0 +1,327 @@
+// Tm3EndingReplaceList 4F4CB5D10031 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_508E493C03D7
+
+FORWARD ME_4F4CB5D10031
+
+FORWARD ME_508E493C03D7
+
+ME ME_508E4E3F0134
+ MEPROP UID '508E4E3F0134'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_508E493C03D7 // TByteArrayOfChar
+ ;
+ MELINK Target WL 'ME_482C48430205' '4807744200AA.ms.model.script' // Char
+ ;
+
+ENDME // ME_508E4E3F0134 
+
+MEREF ME_476130E5023C_ME_508E493C03D7_G
+ MELINK Original WL 'ME_476130E5023C' '4807744200AA.ms.model.script' // Byte
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_476130E5023C_ME_508E493C03D7_G Byte
+
+%%InheritedBy ME_476130E5023C ME_508E493C03D7
+
+ME ME_508E493C03D7
+ MEPROP UID '508E493C03D7'
+ MEPROP Name 'TByteArrayOfChar'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB5D10031 // Tm3EndingReplaceList
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_476130E5023C_ME_508E493C03D7_G // Byte
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_508E4E3F0134 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_508E493C03D7 TByteArrayOfChar
+
+FORWARD ME_5089077D0042
+
+ME ME_50890792030B
+ MEPROP UID '50890792030B'
+ MEPROP Name 'cNoTrunc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5089077D0042 // Const
+ ;
+ MEPROP Value 'High(Byte)'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'High(Byte)'
+
+ENDME // ME_50890792030B cNoTrunc
+
+ME ME_5089077D0042
+ MEPROP UID '5089077D0042'
+ MEPROP Name 'Const'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB5D10031 // Tm3EndingReplaceList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_50890792030B // cNoTrunc
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_5089077D0042 Const
+
+ME ME_508E49BC03AF
+ MEPROP UID '508E49BC03AF'
+ MEPROP Name 'cBuff'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F4CB5D10031 // Tm3EndingReplaceList
+ ;
+ MELINK Target HWL ME_508E493C03D7 // TByteArrayOfChar
+ ;
+
+ENDME // ME_508E49BC03AF cBuff
+
+ME ME_4F4CB60E009F
+ MEPROP UID '4F4CB60E009F'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F4CB5D10031 // Tm3EndingReplaceList
+ ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_4F4CB60E009F FindDataType
+
+FORWARD ME_5089072C0220
+
+FORWARD ME_5089073703A9
+
+ME ME_5089073B01EC
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_5089073B01EC aStream
+
+ME ME_5089073703A9
+ MEPROP UID '5089073703A9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5089072C0220 // Load
+ ;
+ MELIST Parameters
+   Seq: ( ME_5089073B01EC // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_5089073703A9 DoIt
+
+ME ME_5089072C0220
+ MEPROP UID '5089072C0220'
+ MEPROP Name 'Load'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB5D10031 // Tm3EndingReplaceList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5089073703A9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5089072C0220 Load
+
+FORWARD ME_5089074500A3
+
+FORWARD ME_508907570039
+
+ME ME_5089076402B2
+ MEPROP Name 'aCheckStr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_5089076402B2 aCheckStr
+
+ME ME_508907570039
+ MEPROP UID '508907570039'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5089074500A3 // MakeNorm
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5089076402B2 // aCheckStr
+ )
+ ; // Parameters
+
+ENDME // ME_508907570039 DoIt
+
+ME ME_5089074500A3
+ MEPROP UID '5089074500A3'
+ MEPROP Name 'MakeNorm'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB5D10031 // Tm3EndingReplaceList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508907570039 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5089074500A3 MakeNorm
+
+ME ME_4F4CB6820359
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB5D10031 // Tm3EndingReplaceList
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4F4CB6820359 
+
+ME ME_508E50800258
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB5D10031 // Tm3EndingReplaceList
+ ;
+ MELINK Target WL 'ME_49082AE80393' '476BE98C01B8.ms.model.script' // Code Pages
+ ;
+
+ENDME // ME_508E50800258 
+
+ME ME_508E50A200D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB5D10031 // Tm3EndingReplaceList
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_508E50A200D7 
+
+ME ME_508E50BF03D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB5D10031 // Tm3EndingReplaceList
+ ;
+ MELINK Target WL? 'ME_4C1B475101C5' // l3Parser
+ ;
+
+ENDME // ME_508E50BF03D2 
+
+MEREF ME_47B9BAFD01F4_ME_4F4CB5D10031_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_4F4CB5D10031_over CompareItemWithData
+
+MEREF ME_47B47E230134_ME_4F4CB5D10031_G
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_4F4CB5D10031_G l3Searcher
+
+MEREF ME_4F4CB5140310_ME_4F4CB5D10031_G
+ MELINK Original WL? 'ME_4F4CB5140310' // Tm3EndingReplaceListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB5140310_ME_4F4CB5D10031_G Tm3EndingReplaceListPrim
+
+%%InheritedBy ME_47B47E230134 ME_4F4CB5D10031
+%%InheritedBy ME_4F4CB5140310 ME_4F4CB5D10031
+
+ME ME_4F4CB5D10031
+ MEPROP UID '4F4CB5D10031'
+ MEPROP Name 'Tm3EndingReplaceList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F4CB4AC006B' // m3Morpho
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B47E230134_ME_4F4CB5D10031_G // l3Searcher
+ HWL ME_4F4CB5140310_ME_4F4CB5D10031_G // Tm3EndingReplaceListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_508E49BC03AF // cBuff
+ HWL ME_4F4CB60E009F // FindDataType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5089072C0220 // Load
+ HWL ME_5089074500A3 // MakeNorm
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_4F4CB5D10031_over // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_508E493C03D7 // TByteArrayOfChar
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_5089077D0042 // Const
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4F4CB6820359 // l3String
+ ME_508E50800258 // Code Pages
+ ME_508E50A200D7 // SysUtils
+ ME_508E50BF03D2 // l3Parser
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'm3EndingReplaceList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3EndingReplaceList'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3EndingReplaceList.pas'
+
+ENDME // ME_4F4CB5D10031 Tm3EndingReplaceList

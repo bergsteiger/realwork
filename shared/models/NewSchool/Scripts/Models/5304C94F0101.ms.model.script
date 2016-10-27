@@ -1,0 +1,180 @@
+// Tk2DictionaryPrim 5304C94F0101 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5304CA660218
+%%Inner ME_5304CA780342
+%%Inner ME_5304CA86025B
+%%Inner ME_5304CA940052
+
+FORWARD ME_5304C94F0101
+
+ME ME_5304CA660218
+ MEPROP UID '5304CA660218'
+ MEPROP Name 'l3Items_NeedsAssignItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5304C94F0101 // Tk2DictionaryPrim
+ ;
+ UP extprop:rc:SelfName 'Items_NeedsAssignItem'
+
+ENDME // ME_5304CA660218 l3Items_NeedsAssignItem
+
+ME ME_5304CA780342
+ MEPROP UID '5304CA780342'
+ MEPROP Name 'l3Items_CaseUnsensitive'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5304C94F0101 // Tk2DictionaryPrim
+ ;
+ UP extprop:rc:SelfName 'Items_CaseUnsensitive'
+
+ENDME // ME_5304CA780342 l3Items_CaseUnsensitive
+
+ME ME_5304CA86025B
+ MEPROP UID '5304CA86025B'
+ MEPROP Name 'l3Items_NeedsBeforeFreeItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5304C94F0101 // Tk2DictionaryPrim
+ ;
+ UP extprop:rc:SelfName 'Items_NeedsBeforeFreeItem'
+
+ENDME // ME_5304CA86025B l3Items_NeedsBeforeFreeItem
+
+ME ME_5304CA940052
+ MEPROP UID '5304CA940052'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Undef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5304C94F0101 // Tk2DictionaryPrim
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_5304CA940052 l3Items_NoSort
+
+ME ME_5304D13E0329
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5304C94F0101 // Tk2DictionaryPrim
+ ;
+ MELINK Target WL 'ME_469F6D170322' '49A6646B0044.ms.model.script' // Tk2AssignMode
+ ;
+
+ENDME // ME_5304D13E0329 
+
+ME ME_5304D14103E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5304C94F0101 // Tk2DictionaryPrim
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_5304D14103E1 
+
+ME ME_5304D1440379
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5304C94F0101 // Tk2DictionaryPrim
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_5304D1440379 
+
+ME ME_5310852002FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5304C94F0101 // Tk2DictionaryPrim
+ ;
+ MELINK Target WL? 'ME_531075C102DD' // Tk2NonOptimizeContext
+ ;
+
+ENDME // ME_5310852002FD 
+
+MEREF ME_47B2C42A0163_ME_5304C94F0101_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_5304C94F0101_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_5304C94F0101_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_5304C94F0101_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_5304C94F0101_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_5304C94F0101_G Tl3ProtoDataContainer
+
+MEREF ME_534515CD039A_ME_5304C94F0101_G
+ MELINK Original WL? 'ME_534515CD039A' // l3VariantListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_534515CD039A_ME_5304C94F0101_G l3VariantListPrim
+
+%%InheritedBy ME_4A54DD4E036F ME_5304C94F0101
+%%InheritedBy ME_534515CD039A ME_5304C94F0101
+
+ME ME_5304C94F0101
+ MEPROP UID '5304C94F0101'
+ MEPROP Name 'Tk2DictionaryPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_5304C94F0101_G // Tl3ProtoDataContainer
+ HWL ME_534515CD039A_ME_5304C94F0101_G // l3VariantListPrim
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_5304C94F0101_impl // AssignItem
+ ME_47B99D4503A2_ME_5304C94F0101_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_5304CA660218 // l3Items_NeedsAssignItem
+ HWL ME_5304CA780342 // l3Items_CaseUnsensitive
+ HWL ME_5304CA86025B // l3Items_NeedsBeforeFreeItem
+ HWL ME_5304CA940052 // l3Items_NoSort
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5304D13E0329 // Tk2AssignMode
+ ME_5304D14103E1 // Tk2TagID
+ ME_5304D1440379 // l3String
+ ME_5310852002FD // Tk2NonOptimizeContext
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'k2DictionaryPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DictionaryPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2DictionaryPrim.pas'
+
+ENDME // ME_5304C94F0101 Tk2DictionaryPrim

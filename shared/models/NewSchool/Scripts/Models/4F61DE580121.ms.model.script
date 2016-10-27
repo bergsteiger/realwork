@@ -1,0 +1,35 @@
+// TnpControlsList 4F61DE580121 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4F61DE50034C_ME_4F61DE580121_G
+ MELINK Original WL? 'ME_4F61DE50034C' // TnpControlsListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F61DE50034C_ME_4F61DE580121_G TnpControlsListPrim
+
+%%InheritedBy ME_4F61DE50034C ME_4F61DE580121
+
+ME ME_4F61DE580121
+ MEPROP UID '4F61DE580121'
+ MEPROP Name 'TnpControlsList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'список навигаторов на форме, от которых были отстыкованы компоненты.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47CD07B900E0' // vtNavigator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F61DE50034C_ME_4F61DE580121_G // TnpControlsListPrim
+ )
+ ; // Inherits
+ UP "singleton" True
+ UP extprop:pas:UnitName 'npControlsList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'npControlsList'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\npControlsList.pas'
+
+ENDME // ME_4F61DE580121 TnpControlsList

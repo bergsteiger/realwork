@@ -1,0 +1,106 @@
+// TevDocumentNode 4DFEF94101DF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DFEF94101DF
+
+ME ME_4DFF27A80229
+ MEPROP UID '4DFF27A80229'
+ MEPROP Name 'f_Name'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DFEF94101DF // TevDocumentNode
+ ;
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
+ ;
+
+ENDME // ME_4DFF27A80229 f_Name
+
+ME ME_4DFF386F020A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFEF94101DF // TevDocumentNode
+ ;
+ MELINK Target WL 'ME_4ADEE4F301E2' '47878E0E0191.ms.model.script' // l3PCharLen
+ ;
+
+ENDME // ME_4DFF386F020A 
+
+ME ME_4DFF38CD0196
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFEF94101DF // TevDocumentNode
+ ;
+ MELINK Target WL 'ME_47CD3486030A' '4B8BA52200D8.ms.model.script' // TnevMiscMessages
+ ;
+
+ENDME // ME_4DFF38CD0196 
+
+MEREF ME_479731C50290_ME_4DFEF94101DF_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4DFEF94101DF_over Cleanup
+
+MEREF ME_47A869BB02DE_ME_4DFEF94101DF_over
+ MELINK Original WL 'ME_47A869BB02DE' '53317D14019D.ms.model.script' // GetAsPCharLen
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A869BB02DE_ME_4DFEF94101DF_over GetAsPCharLen
+
+MEREF ME_4DFF1D3501C1_ME_4DFEF94101DF_over
+ MELINK Original WL 'ME_4DFF1D3501C1' '4DFEF1A701F9.ms.model.script' // Make
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DFF1D3501C1_ME_4DFEF94101DF_over Make
+
+MEREF ME_4DFEF1A701F9_ME_4DFEF94101DF_G
+ MELINK Original WL? 'ME_4DFEF1A701F9' // TevContentsTagNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DFEF1A701F9_ME_4DFEF94101DF_G TevContentsTagNode
+
+%%InheritedBy ME_4DFEF1A701F9 ME_4DFEF94101DF
+
+ME ME_4DFEF94101DF
+ MEPROP UID '4DFEF94101DF'
+ MEPROP Name 'TevDocumentNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DFEEE4A017D' // ContentsTree
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DFEF1A701F9_ME_4DFEF94101DF_G // TevContentsTagNode
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DFF27A80229 // f_Name
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4DFEF94101DF_over // Cleanup
+ ME_47A869BB02DE_ME_4DFEF94101DF_over // GetAsPCharLen
+ ME_4DFF1D3501C1_ME_4DFEF94101DF_over // Make
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DFF386F020A // l3PCharLen
+ ME_4DFF38CD0196 // TnevMiscMessages
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP extprop:pas:UnitName 'evDocumentNode'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentNode'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentNode.pas'
+
+ENDME // ME_4DFEF94101DF TevDocumentNode

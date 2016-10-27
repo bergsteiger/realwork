@@ -1,0 +1,34 @@
+// TcsTaskedAction 5395CD170333 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_5395C3760014_ME_5395CD170333_G
+ MELINK Original WL? 'ME_5395C3760014' // TcsAction
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5395C3760014_ME_5395CD170333_G TcsAction
+
+%%InheritedBy ME_5395C3760014 ME_5395CD170333
+
+ME ME_5395CD170333
+ MEPROP UID '5395CD170333'
+ MEPROP Name 'TcsTaskedAction'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Действие на сервере с возможностью помещения в очередь' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_5395C3390096' // Actions
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5395C3760014_ME_5395CD170333_G // TcsAction
+ )
+ ; // Inherits
+ UP extprop:pas:UnitName 'csTaskedAction'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'csTaskedAction'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csTaskedAction.pas'
+
+ENDME // ME_5395CD170333 TcsTaskedAction

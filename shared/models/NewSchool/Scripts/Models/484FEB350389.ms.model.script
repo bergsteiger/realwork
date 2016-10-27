@@ -1,0 +1,66 @@
+// TatDeleteListOperation 484FEB350389 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_484FEB350389
+
+ME ME_484FEB89005D
+ MEPROP UID '484FEB89005D'
+ MEPROP Name 'FoldersNodeMatcher'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484FEB350389 // TatDeleteListOperation
+ ;
+ MELINK Target WL 'ME_484FE8AF001E' '480864400141.ms.model.script' // TatListMatcher
+ ;
+
+ENDME // ME_484FEB89005D FoldersNodeMatcher
+
+MEREF ME_484FA0FD0223_ME_484FEB350389_G
+ MELINK Original WL? 'ME_484FA0FD0223' // atProcessNamedFoldersObjectOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484FA0FD0223_ME_484FEB350389_G atProcessNamedFoldersObjectOperation
+
+MEREF ME_4FCF9DCF00E8_ME_484FEB350389_R
+ MELINK Original WL? 'ME_4FCF9DCF00E8' // atDeleteFoldersObjectAddon
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FCF9DCF00E8_ME_484FEB350389_R atDeleteFoldersObjectAddon
+
+%%ImplementedBy ME_4FCF9DCF00E8 ME_484FEB350389
+
+%%InheritedBy ME_484FA0FD0223 ME_484FEB350389
+
+ME ME_484FEB350389
+ MEPROP UID '484FEB350389'
+ MEPROP Name 'TatDeleteListOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484FA0FD0223_ME_484FEB350389_G // atProcessNamedFoldersObjectOperation
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4FCF9DCF00E8_ME_484FEB350389_R // atDeleteFoldersObjectAddon
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_484FEB89005D // FoldersNodeMatcher
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'atDeleteListOperation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atDeleteListOperation'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atDeleteListOperation.pas'
+
+ENDME // ME_484FEB350389 TatDeleteListOperation

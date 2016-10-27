@@ -9,10 +9,16 @@ ME ME_54FECF61028A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A8EC7F80245 // Common$FP
  ;
- MELINK Target WL 'ME_54FECC970155' '47EA50050263.ms.model.script' // TnsDataExchangeRealization
+ MELINK Target WL? 'ME_54FECC970155' // TnsDataExchangeRealization
  ;
 
 ENDME // ME_54FECF61028A 
+
+MEREF ME_4A92C1380380_ME_4A8EC7F80245_G
+ MELINK Original WL? 'ME_4A92C1380380' // PrimF1Common
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A92C1380380_ME_4A8EC7F80245_G PrimF1Common
 
 %%InheritedBy ME_4A92C1380380 ME_4A8EC7F80245
 
@@ -30,7 +36,7 @@ ME ME_4A8EC7F80245
  MELINK Parent WL? 'ME_4A92C561015D' // Common
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4A92C1380380' // PrimF1Common
+   Seq: ( HWL ME_4A92C1380380_ME_4A8EC7F80245_G // PrimF1Common
  )
  ; // Inherits
  MELIST Dependencies

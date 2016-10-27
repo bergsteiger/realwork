@@ -5,56 +5,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_5146A2E8011E
 %%Inner ME_51AEE146019B
 
-FORWARD ME_5146A2BE012B
-
-%%InheritedBy ME_4DE4827600CA ME_5146A2E8011E
-
-ME ME_5146A2E8011E
- MEPROP UID '5146A2E8011E'
- MEPROP Name 'K437519030'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- %SUMMARY '{Requestlink:437519030}' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5146A2BE012B // TableResize
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4DE4827600CA' '4DE3425B01DA.ms.model.script' // TArchiInsiderTest
- )
- ; // Inherits
- UP extprop:pas:TypeName 'TK437519030'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'K437519030'
- UP intf.pas:Path 'archi\source\projects\Archi\Tests\K437519030.pas'
-
-ENDME // ME_5146A2E8011E K437519030
-
-%%InheritedBy ME_4DE4827600CA ME_51AEE146019B
-
-ME ME_51AEE146019B
- MEPROP UID '51AEE146019B'
- MEPROP Name 'K358976813'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- %SUMMARY '{Requestlink:358976813}' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5146A2BE012B // TableResize
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4DE4827600CA' '4DE3425B01DA.ms.model.script' // TArchiInsiderTest
- )
- ; // Inherits
- UP extprop:pas:TypeName 'TK358976813'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'K358976813'
- UP intf.pas:Path 'archi\source\projects\Archi\Tests\K358976813.pas'
-
-ENDME // ME_51AEE146019B K358976813
-
 ME ME_5146A2BE012B
  MEPROP UID '5146A2BE012B'
  MEPROP Name 'TableResize'
@@ -66,8 +16,8 @@ ME ME_5146A2BE012B
  MELINK Parent WL? 'ME_4DE765AE02EB' // ArchiInsiderTests
  ;
  MELIST Children
-   Seq: ( HWL ME_5146A2E8011E // K437519030
- HWL ME_51AEE146019B // K358976813
+   Seq: ( WL? 'ME_5146A2E8011E' // K437519030
+ WL? 'ME_51AEE146019B' // K358976813
  )
  ; // Children
  MELIST Depends

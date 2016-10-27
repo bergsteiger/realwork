@@ -1,0 +1,67 @@
+// TnsSubPrim 46835879030A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_46835879030A
+
+ME ME_4C9B0AD90093
+ MEPROP UID '4C9B0AD90093'
+ MEPROP Name 'Tag'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46835879030A // TnsSubPrim
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_4C9B0AD90093 Tag
+
+ME ME_4C9B0AEF009B
+ MEPROP UID '4C9B0AEF009B'
+ MEPROP Name 'SubPara'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46835879030A // TnsSubPrim
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_4C9B0AEF009B SubPara
+
+MEREF ME_46834DC80065_ME_46835879030A_G
+ MELINK Original WL? 'ME_46834DC80065' // TeeSubExport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46834DC80065_ME_46835879030A_G TeeSubExport
+
+%%InheritedBy ME_46834DC80065 ME_46835879030A
+
+ME ME_46835879030A
+ MEPROP UID '46835879030A'
+ MEPROP Name 'TnsSubPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C6A7BA001A5' // F1DocumentContainers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46834DC80065_ME_46835879030A_G // TeeSubExport
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C9B0AD90093 // Tag
+ HWL ME_4C9B0AEF009B // SubPara
+ )
+ ; // Operations
+ UP "finished" False
+ UP extprop:pas:UnitName 'nsSubPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SubPrim'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\NOT_FINISHED_nsSubPrim.pas'
+
+ENDME // ME_46835879030A TnsSubPrim

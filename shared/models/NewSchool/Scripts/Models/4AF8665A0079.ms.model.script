@@ -82,12 +82,18 @@ ME ME_526A7EEA01AC
 
 ENDME // ME_526A7EEA01AC EditorPanel
 
+MEREF ME_5049C6650272_ME_526A83CD00ED_G
+ MELINK Original WL 'ME_5049C6650272' '4829D92A037B.ms.model.script' // TevGetHotspotInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5049C6650272_ME_526A83CD00ED_G TevGetHotspotInfo
+
 %%InheritedBy ME_5049C6650272 ME_526A83CD00ED
 
 ME ME_526A83CD00ED
  MEPROP UID '526A83CD00ED'
  MEPROP Name 'EditorGetHotSpotInfo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -95,7 +101,7 @@ ME ME_526A83CD00ED
  MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_5049C6650272' '4829D92A037B.ms.model.script' // TevGetHotspotInfo
+   Seq: ( HWL ME_5049C6650272_ME_526A83CD00ED_G // TevGetHotspotInfo
  )
  ; // Inherits
 
@@ -206,7 +212,7 @@ ME ME_526A9923002E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
  ;
- MELINK Target WL 'ME_483E80FA0312' '483E80C9025F.ms.model.script' // TevdNativeReader
+ MELINK Target WL? 'ME_483E80FA0312' // TevdNativeReader
  ;
 
 ENDME // ME_526A9923002E 
@@ -291,7 +297,7 @@ ME ME_526A9A0401FC
 
 ENDME // ME_526A9A0401FC 
 
-ME ME_4AF8660E0079_ME_4AF8665A0079
+MEREF ME_4AF8660E0079_ME_4AF8665A0079_impl
  MELINK Original WL 'ME_4AF8660E0079' '4AE824CB035A.ms.model.script' // ReloadStyleTable
  ;
  MEPROP OpKind opkind_Implemented
@@ -303,19 +309,31 @@ ME ME_4AF8660E0079_ME_4AF8665A0079
  UP "LongProcess" False
  UP "Needs Broadcast" False
  UP "no prefix" False
-ENDME // ME_4AF8660E0079_ME_4AF8665A0079 ReloadStyleTable
+ENDMEREF // ME_4AF8660E0079_ME_4AF8665A0079_impl ReloadStyleTable
 
-ME ME_47A042E100E2_ME_4AF8665A0079
+MEREF ME_47A042E100E2_ME_4AF8665A0079_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_4AF8665A0079 InitFields
+ENDMEREF // ME_47A042E100E2_ME_4AF8665A0079_over InitFields
 
-ME ME_4A8E8F2E0195_ME_4AF8665A0079
+MEREF ME_4A8E8F2E0195_ME_4AF8665A0079_over
  MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8E8F2E0195_ME_4AF8665A0079 InitControls
+ENDMEREF // ME_4A8E8F2E0195_ME_4AF8665A0079_over InitControls
+
+MEREF ME_49525B34022A_ME_4AF8665A0079_G
+ MELINK Original WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525B34022A_ME_4AF8665A0079_G TvcmEntityForm
+
+MEREF ME_4AF866010019_ME_4AF8665A0079_R
+ MELINK Original WL 'ME_4AF866010019' '4AE824CB035A.ms.model.script' // StyleEditor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AF866010019_ME_4AF8665A0079_R StyleEditor
 
 %%ImplementedBy ME_4AF866010019 ME_4AF8665A0079
 
@@ -333,11 +351,11 @@ ME ME_4AF8665A0079
  MELINK Parent WL? 'ME_4AA79F630309' // Settings
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+   Seq: ( HWL ME_49525B34022A_ME_4AF8665A0079_G // TvcmEntityForm
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4AF866010019' '4AE824CB035A.ms.model.script' // StyleEditor
+   Seq: ( HWL ME_4AF866010019_ME_4AF8665A0079_R // StyleEditor
  )
  ; // Implements
  MELIST Attributes
@@ -350,12 +368,12 @@ ME ME_4AF8665A0079
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4AF8660E0079_ME_4AF8665A0079 // ReloadStyleTable
+   Seq: ( ME_4AF8660E0079_ME_4AF8665A0079_impl // ReloadStyleTable
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_47A042E100E2_ME_4AF8665A0079 // InitFields
- ME_4A8E8F2E0195_ME_4AF8665A0079 // InitControls
+   Seq: ( ME_47A042E100E2_ME_4AF8665A0079_over // InitFields
+ ME_4A8E8F2E0195_ME_4AF8665A0079_over // InitControls
  )
  ; // Overridden
  MELIST Children

@@ -9,16 +9,22 @@ ME ME_52DE586D02EC
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_52DE57DF007B // TnscTreeViewWithAdapterDragDrop
  ;
- MELINK Target WL 'ME_48F73BBD02B3' '52DE57B200A5.ms.model.script' // TnsEntitiesTreeDataObject
+ MELINK Target WL? 'ME_48F73BBD02B3' // TnsEntitiesTreeDataObject
  ;
 
 ENDME // ME_52DE586D02EC 
 
-ME ME_52DD106403D3_ME_52DE57DF007B
+MEREF ME_52DD106403D3_ME_52DE57DF007B_over
  MELINK Original WL 'ME_52DD106403D3' '4B97E8130272.ms.model.script' // DataObjectClass
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_52DD106403D3_ME_52DE57DF007B DataObjectClass
+ENDMEREF // ME_52DD106403D3_ME_52DE57DF007B_over DataObjectClass
+
+MEREF ME_499C26240034_ME_52DE57DF007B_G
+ MELINK Original WL? 'ME_499C26240034' // TnscTreeView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_499C26240034_ME_52DE57DF007B_G TnscTreeView
 
 %%InheritedBy ME_499C26240034 ME_52DE57DF007B
 
@@ -34,11 +40,11 @@ ME ME_52DE57DF007B
  MELINK Parent WL? 'ME_52DE57B200A5' // Tree$WithDnD
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_499C26240034' // TnscTreeView
+   Seq: ( HWL ME_499C26240034_ME_52DE57DF007B_G // TnscTreeView
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_52DD106403D3_ME_52DE57DF007B // DataObjectClass
+   Seq: ( ME_52DD106403D3_ME_52DE57DF007B_over // DataObjectClass
  )
  ; // Overridden
  MELIST Dependencies

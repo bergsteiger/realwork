@@ -1,0 +1,151 @@
+// TdeNode 492472AC0033 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492472AC0033
+
+ME ME_4AA523B103C4
+ MEPROP UID '4AA523B103C4'
+ MEPROP Name 'f_Node'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_492472AC0033 // TdeNode
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4AA523B103C4 f_Node
+
+FORWARD ME_4AA523C701F4
+
+ME ME_4AA523CD03CD
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4AA523CD03CD aNode
+
+ME ME_4AA523C701F4
+ MEPROP UID '4AA523C701F4'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_492472AC0033 // TdeNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AA523CD03CD // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4AA523C701F4 Create
+
+FORWARD ME_4AA523D90186
+
+ME ME_4AA523E102CA
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4AA523E102CA aNode
+
+ME ME_4AA523D90186
+ MEPROP UID '4AA523D90186'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_492472AC0033 // TdeNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AA523E102CA // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4AA523D90186 Make
+
+MEREF ME_4AA523050019_ME_492472AC0033_impl
+ MELINK Original WL 'ME_4AA523050019' '491D961C0122.ms.model.script' // Node
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4AA523050019_ME_492472AC0033_impl Node
+
+MEREF ME_479731C50290_ME_492472AC0033_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_492472AC0033_over Cleanup
+
+MEREF ME_49E7754802A9_ME_492472AC0033_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_492472AC0033_G Tl3ProtoObject
+
+MEREF ME_49245E750210_ME_492472AC0033_R
+ MELINK Original WL 'ME_49245E750210' '491D961C0122.ms.model.script' // IdeNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49245E750210_ME_492472AC0033_R IdeNode
+
+%%ImplementedBy ME_49245E750210 ME_492472AC0033
+
+%%InheritedBy ME_49E7754802A9 ME_492472AC0033
+
+ME ME_492472AC0033
+ MEPROP UID '492472AC0033'
+ MEPROP Name 'TdeNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_491D9414002B' // Admin
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_492472AC0033_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_49245E750210_ME_492472AC0033_R // IdeNode
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AA523B103C4 // f_Node
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AA523C701F4 // Create
+ HWL ME_4AA523D90186 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4AA523050019_ME_492472AC0033_impl // Node
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_492472AC0033_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '07.09.2009 19:23'
+ UP extprop:pas:UnitName 'deNode'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'deNode'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\deNode.pas'
+
+ENDME // ME_492472AC0033 TdeNode

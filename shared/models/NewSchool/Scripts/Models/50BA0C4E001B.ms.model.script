@@ -1,0 +1,117 @@
+// TkwEditorFromStackNextParaWord 50BA0C4E001B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50BA0C4E001B
+
+FORWARD ME_50BA0CC800CA
+
+FORWARD ME_50BA0CD303BA
+
+ME ME_50BA0CD7007A
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_50BA0CD7007A aCtx
+
+ME ME_50BA0CD70096
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4829D92A037B' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_50BA0CD70096 anEditor
+
+ME ME_50BA0CD700B2
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_50BA0CD700B2 aPara
+
+ME ME_50BA0CD303BA
+ MEPROP UID '50BA0CD303BA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50BA0CC800CA // DoNextPara
+ ;
+ MELIST Parameters
+   Seq: ( ME_50BA0CD7007A // aCtx
+ ME_50BA0CD70096 // anEditor
+ ME_50BA0CD700B2 // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_50BA0CD303BA DoIt
+
+ME ME_50BA0CC800CA
+ MEPROP UID '50BA0CC800CA'
+ MEPROP Name 'DoNextPara'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_50BA0C4E001B // TkwEditorFromStackNextParaWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50BA0CD303BA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50BA0CC800CA DoNextPara
+
+MEREF ME_50BA0BBD01BF_ME_50BA0C4E001B_impl
+ MELINK Original WL 'ME_50BA0BBD01BF' '50BA0B820089.ms.model.script' // DoPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_50BA0BBD01BF_ME_50BA0C4E001B_impl DoPara
+
+MEREF ME_50BA0B820089_ME_50BA0C4E001B_G
+ MELINK Original WL? 'ME_50BA0B820089' // TkwEditorFromStackTextParaWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50BA0B820089_ME_50BA0C4E001B_G TkwEditorFromStackTextParaWord
+
+%%InheritedBy ME_50BA0B820089 ME_50BA0C4E001B
+
+ME ME_50BA0C4E001B
+ MEPROP UID '50BA0C4E001B'
+ MEPROP Name 'TkwEditorFromStackNextParaWord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50BA0B820089_ME_50BA0C4E001B_G // TkwEditorFromStackTextParaWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_50BA0CC800CA // DoNextPara
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_50BA0BBD01BF_ME_50BA0C4E001B_impl // DoPara
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'kwEditorFromStackNextParaWord'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EditorFromStackNextParaWord'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwEditorFromStackNextParaWord.pas'
+
+ENDME // ME_50BA0C4E001B TkwEditorFromStackNextParaWord

@@ -1,0 +1,303 @@
+// TnevVirtualDrawView 481213C903A2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_481213C903A2
+
+ME ME_4812145503B6
+ MEPROP UID '4812145503B6'
+ MEPROP Name 'f_IsWebStyle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_481213C903A2 // TnevVirtualDrawView
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4812145503B6 f_IsWebStyle
+
+ME ME_4812146F01FE
+ MEPROP UID '4812146F01FE'
+ MEPROP Name 'f_ShowDocumentParts'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_481213C903A2 // TnevVirtualDrawView
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4812146F01FE f_ShowDocumentParts
+
+ME ME_481214770293
+ MEPROP UID '481214770293'
+ MEPROP Name 'f_ShowSpecial'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_481213C903A2 // TnevVirtualDrawView
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_481214770293 f_ShowSpecial
+
+ME ME_4812147D03D7
+ MEPROP UID '4812147D03D7'
+ MEPROP Name 'f_HiddenStyles'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_481213C903A2 // TnevVirtualDrawView
+ ;
+ MELINK Target WL 'ME_476BE38D01B0' '476BE0350329.ms.model.script' // StandardStyles
+ ;
+
+ENDME // ME_4812147D03D7 f_HiddenStyles
+
+ME ME_481DA18A00D3
+ MEPROP UID '481DA18A00D3'
+ MEPROP Name 'f_ParentFI'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_481213C903A2 // TnevVirtualDrawView
+ ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_481DA18A00D3 f_ParentFI
+
+ME ME_4BED6F3E0253
+ MEPROP UID '4BED6F3E0253'
+ MEPROP Name 'f_AllowRubberTables'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_481213C903A2 // TnevVirtualDrawView
+ ;
+ MELINK Target WL 'ME_4DFF70B60031' '4678209200A6.ms.model.script' // TnevRubberTablesMode
+ ;
+
+ENDME // ME_4BED6F3E0253 f_AllowRubberTables
+
+FORWARD ME_4CB5BE9803DF
+
+FORWARD ME_4CB5BEA0037D
+
+ME ME_4CB5BEA20159
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_4CB5BEA20159 aText
+
+ME ME_4CB5BEA20178
+ MEPROP Name 'aParentFI'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_4CB5BEA20178 aParentFI
+
+ME ME_4CB5BEA201BA
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF9230071' '4678209200A6.ms.model.script' // InevCanvas
+ ;
+
+ENDME // ME_4CB5BEA201BA aCanvas
+
+ME ME_4CB5BEA2020B
+ MEPROP Name 'aViewMetrics'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_467821CA019F' '4678209200A6.ms.model.script' // InevViewMetrics
+ ;
+
+ENDME // ME_4CB5BEA2020B aViewMetrics
+
+ME ME_4CB5BEA0037D
+ MEPROP UID '4CB5BEA0037D'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB5BE9803DF // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB5BEA20159 // aText
+ ME_4CB5BEA20178 // aParentFI
+ ME_4CB5BEA201BA // aCanvas
+ ME_4CB5BEA2020B // aViewMetrics
+ )
+ ; // Parameters
+
+ENDME // ME_4CB5BEA0037D Create
+
+ME ME_4CB5BE9803DF
+ MEPROP UID '4CB5BE9803DF'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_481213C903A2 // TnevVirtualDrawView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB5BEA0037D // Create
+ )
+ ; // Operations
+
+ENDME // ME_4CB5BE9803DF Create
+
+MEREF ME_4CB5BE9803DF_ME_4CB5BEB4010A_G
+ MELINK Original HWL ME_4CB5BE9803DF // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CB5BE9803DF_ME_4CB5BEB4010A_G Create
+
+MEREF ME_47C5B97302B2_ME_4CB5BEB4010A_R
+ MELINK Original WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C5B97302B2_ME_4CB5BEB4010A_R InevView
+
+%%ImplementedBy ME_47C5B97302B2 ME_4CB5BEB4010A
+
+%%InheritedBy ME_4CB5BE9803DF ME_4CB5BEB4010A
+
+ME ME_4CB5BEB4010A
+ MEPROP UID '4CB5BEB4010A'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_481213C903A2 // TnevVirtualDrawView
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CB5BE9803DF_ME_4CB5BEB4010A_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47C5B97302B2_ME_4CB5BEB4010A_R // InevView
+ )
+ ; // Implements
+
+ENDME // ME_4CB5BEB4010A Make
+
+MEREF ME_479731C50290_ME_481213C903A2_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_481213C903A2_over Cleanup
+
+MEREF ME_48120CED0107_ME_481213C903A2_over
+ MELINK Original WL 'ME_48120CED0107' '48120C1C0060.ms.model.script' // GetIsWebStyle
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48120CED0107_ME_481213C903A2_over GetIsWebStyle
+
+MEREF ME_48120D0300D4_ME_481213C903A2_over
+ MELINK Original WL 'ME_48120D0300D4' '48120C1C0060.ms.model.script' // GetShowDocumentParts
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48120D0300D4_ME_481213C903A2_over GetShowDocumentParts
+
+MEREF ME_48120D270114_ME_481213C903A2_over
+ MELINK Original WL 'ME_48120D270114' '48120C1C0060.ms.model.script' // GetShowSpecial
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48120D270114_ME_481213C903A2_over GetShowSpecial
+
+MEREF ME_48120D32035F_ME_481213C903A2_over
+ MELINK Original WL 'ME_48120D32035F' '48120C1C0060.ms.model.script' // GetHiddenStyles
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48120D32035F_ME_481213C903A2_over GetHiddenStyles
+
+MEREF ME_481DA04D0324_ME_481213C903A2_over
+ MELINK Original WL 'ME_481DA04D0324' '4811D544006F.ms.model.script' // GetRootFormatInfo
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_481DA04D0324_ME_481213C903A2_over GetRootFormatInfo
+
+MEREF ME_4BED6EF003DD_ME_481213C903A2_over
+ MELINK Original WL 'ME_4BED6EF003DD' '48120C1C0060.ms.model.script' // GetAllowRubberTables
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BED6EF003DD_ME_481213C903A2_over GetAllowRubberTables
+
+MEREF ME_48120C1C0060_ME_481213C903A2_G
+ MELINK Original WL? 'ME_48120C1C0060' // TnevBaseDetachedView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48120C1C0060_ME_481213C903A2_G TnevBaseDetachedView
+
+%%InheritedBy ME_48120C1C0060 ME_481213C903A2
+
+ME ME_481213C903A2
+ MEPROP UID '481213C903A2'
+ MEPROP Name 'TnevVirtualDrawView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4811D4EC0237' // Views
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48120C1C0060_ME_481213C903A2_G // TnevBaseDetachedView
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4812145503B6 // f_IsWebStyle
+ HWL ME_4812146F01FE // f_ShowDocumentParts
+ HWL ME_481214770293 // f_ShowSpecial
+ HWL ME_4812147D03D7 // f_HiddenStyles
+ HWL ME_481DA18A00D3 // f_ParentFI
+ HWL ME_4BED6F3E0253 // f_AllowRubberTables
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CB5BE9803DF // Create
+ HWL ME_4CB5BEB4010A // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_481213C903A2_over // Cleanup
+ ME_48120CED0107_ME_481213C903A2_over // GetIsWebStyle
+ ME_48120D0300D4_ME_481213C903A2_over // GetShowDocumentParts
+ ME_48120D270114_ME_481213C903A2_over // GetShowSpecial
+ ME_48120D32035F_ME_481213C903A2_over // GetHiddenStyles
+ ME_481DA04D0324_ME_481213C903A2_over // GetRootFormatInfo
+ ME_4BED6EF003DD_ME_481213C903A2_over // GetAllowRubberTables
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Λσκόÿνεφ Π.Β.'
+ UP "no hands" True
+ UP "started" '22.10.2007 14:23'
+ UP extprop:pas:UnitName 'nevVirtualDrawView'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'VirtualDrawView'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevVirtualDrawView.pas'
+
+ENDME // ME_481213C903A2 TnevVirtualDrawView

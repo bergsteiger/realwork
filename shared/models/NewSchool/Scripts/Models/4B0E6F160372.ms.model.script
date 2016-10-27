@@ -1,0 +1,144 @@
+// TnsTextTabActivateEvent 4B0E6F160372 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B0E6FDF02BD
+
+FORWARD ME_4B0E6F160372
+
+FORWARD ME_4B0E6FDF02BD
+
+ME ME_4B0E701B0106
+ MEPROP UID '4B0E701B0106'
+ MEPROP Name 'ttakRelated'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B0E6FDF02BD // TnsTextTabActivateKind
+ ;
+
+ENDME // ME_4B0E701B0106 ttakRelated
+
+ME ME_4B0E702C009C
+ MEPROP UID '4B0E702C009C'
+ MEPROP Name 'ttakAnnotation'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B0E6FDF02BD // TnsTextTabActivateKind
+ ;
+
+ENDME // ME_4B0E702C009C ttakAnnotation
+
+ME ME_4B0E6FDF02BD
+ MEPROP UID '4B0E6FDF02BD'
+ MEPROP Name 'TnsTextTabActivateKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B0E6F160372 // TnsTextTabActivateEvent
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B0E701B0106 // ttakRelated
+ HWL ME_4B0E702C009C // ttakAnnotation
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4B0E6FDF02BD TnsTextTabActivateKind
+
+FORWARD ME_4B0E700600BA
+
+ME ME_4B5D7EE603E2
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4B5D7EE603E2 aDoc
+
+ME ME_4B0E701600C0
+ MEPROP Name 'aKind'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4B0E6FDF02BD // TnsTextTabActivateKind
+ ;
+
+ENDME // ME_4B0E701600C0 aKind
+
+ME ME_4B0E700600BA
+ MEPROP UID '4B0E700600BA'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B0E6F160372 // TnsTextTabActivateEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B5D7EE603E2 // aDoc
+ ME_4B0E701600C0 // aKind
+ )
+ ; // Parameters
+
+ENDME // ME_4B0E700600BA Log
+
+ME ME_4B0E6FCF01AE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B0E6F160372 // TnsTextTabActivateEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B0E6FCF01AE 
+
+MEREF ME_4B0A6109010C_ME_4B0E6F160372_G
+ MELINK Original WL? 'ME_4B0A6109010C' // TnsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0A6109010C_ME_4B0E6F160372_G TnsLogEvent
+
+%%InheritedBy ME_4B0A6109010C ME_4B0E6F160372
+
+ME ME_4B0E6F160372
+ MEPROP UID '4B0E6F160372'
+ MEPROP Name 'TnsTextTabActivateEvent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4951181B02B6' // Document
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B0A6109010C_ME_4B0E6F160372_G // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B0E700600BA // Log
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4B0E6FDF02BD // TnsTextTabActivateKind
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4B0E6FCF01AE // LogEvent
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nsTextTabActivateEvent'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextTabActivateEvent'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\nsTextTabActivateEvent.pas'
+
+ENDME // ME_4B0E6F160372 TnsTextTabActivateEvent

@@ -1,0 +1,54 @@
+// TnevDocumentProvider4PDF 541149B203E1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4CB589C80045_ME_541149B203E1_over
+ MELINK Original WL 'ME_4CB589C80045' '4CB57E560195.ms.model.script' // CanProvideOriginalDocument
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" False
+ UP "pm" True
+ENDMEREF // ME_4CB589C80045_ME_541149B203E1_over CanProvideOriginalDocument
+
+MEREF ME_4D18832500B4_ME_541149B203E1_over
+ MELINK Original WL 'ME_4D18832500B4' '4CB57E560195.ms.model.script' // PageSetup
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" False
+ UP "pm" True
+ENDMEREF // ME_4D18832500B4_ME_541149B203E1_over PageSetup
+
+MEREF ME_4CB586140150_ME_541149B203E1_G
+ MELINK Original WL? 'ME_4CB586140150' // TnevDocumentProviderEx
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CB586140150_ME_541149B203E1_G TnevDocumentProviderEx
+
+%%InheritedBy ME_4CB586140150 ME_541149B203E1
+
+ME ME_541149B203E1
+ MEPROP UID '541149B203E1'
+ MEPROP Name 'TnevDocumentProvider4PDF'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47EA968D0155' // Printing
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CB586140150_ME_541149B203E1_G // TnevDocumentProviderEx
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4CB589C80045_ME_541149B203E1_over // CanProvideOriginalDocument
+ ME_4D18832500B4_ME_541149B203E1_over // PageSetup
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'nevDocumentProvider4PDF'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentProvider4PDF'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevDocumentProvider4PDF.pas'
+
+ENDME // ME_541149B203E1 TnevDocumentProvider4PDF

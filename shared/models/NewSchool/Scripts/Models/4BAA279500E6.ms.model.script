@@ -1,0 +1,79 @@
+// TnevRangePrim 4BAA279500E6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BAA279500E6
+
+ME ME_4BAA46E40114
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BAA279500E6 // TnevRangePrim
+ ;
+ MELINK Target WL 'ME_4A2D2D4300BE' '4A2D30DB039E.ms.model.script' // TevRange
+ ;
+
+ENDME // ME_4BAA46E40114 
+
+ME ME_4BAA471D036A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BAA279500E6 // TnevRangePrim
+ ;
+ MELINK Target WL? 'ME_47D00CC20108' // nevFacade
+ ;
+
+ENDME // ME_4BAA471D036A 
+
+MEREF ME_4A3A5B9F0064_ME_4BAA279500E6_G
+ MELINK Original WL? 'ME_4A3A5B9F0064' // TevLocation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A3A5B9F0064_ME_4BAA279500E6_G TevLocation
+
+MEREF ME_4BAA26B90171_ME_4BAA279500E6_R
+ MELINK Original WL 'ME_4BAA26B90171' '47C5207602D1.ms.model.script' // InevRangePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BAA26B90171_ME_4BAA279500E6_R InevRangePrim
+
+%%ImplementedBy ME_4BAA26B90171 ME_4BAA279500E6
+
+%%InheritedBy ME_4A3A5B9F0064 ME_4BAA279500E6
+
+ME ME_4BAA279500E6
+ MEPROP UID '4BAA279500E6'
+ MEPROP Name 'TnevRangePrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выделенная часть объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E3DF460095' // Cursors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A3A5B9F0064_ME_4BAA279500E6_G // TevLocation
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4BAA26B90171_ME_4BAA279500E6_R // InevRangePrim
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_4BAA46E40114 // TevRange
+ ME_4BAA471D036A // nevFacade
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '24.03.2010 17:54'
+ UP extprop:pas:UnitName 'nevRangePrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RangePrim'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevRangePrim.pas'
+
+ENDME // ME_4BAA279500E6 TnevRangePrim

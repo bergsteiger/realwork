@@ -1,0 +1,42 @@
+// TkwEditorSetTOC 4ECB504D000B ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ECB504D000B
+
+ME ME_4ECB5FCB0285
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ECB504D000B // TkwEditorSetTOC
+ ;
+ MELINK Target WL 'ME_4ECB5F560065' '4DE60853015A.ms.model.script' // arSetContentsSub
+ ;
+
+ENDME // ME_4ECB5FCB0285 
+
+ME ME_4ECB504D000B
+ MEPROP UID '4ECB504D000B'
+ MEPROP Name 'TkwEditorSetTOC'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'редактор:установить_оглавление' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4ECB5FCB0285 // arSetContentsSub
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'редактор:установить_оглавление'
+ UP extprop:pas:UnitName 'kwEditorSetTOC'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EditorSetTOC'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwEditorSetTOC.pas'
+
+ENDME // ME_4ECB504D000B TkwEditorSetTOC

@@ -1,0 +1,146 @@
+// TnsEditionsContainerData 4AE03B550243 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AE03B550243
+
+FORWARD ME_4AE03BD6033A
+
+FORWARD ME_4AE03BFA0217
+
+ME ME_4AE03BFF0382
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4AE03BFF0382 aDoc
+
+ME ME_4B586040016D
+ MEPROP Name 'aDocumentForReturn'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B60748400F9' '5795D66F0385.ms.model.script' // TnsDocumentForReturnInfo
+ ;
+
+ENDME // ME_4B586040016D aDocumentForReturn
+
+ME ME_4AE03BFA0217
+ MEPROP UID '4AE03BFA0217'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE03BD6033A // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AE03BFF0382 // aDoc
+ ME_4B586040016D // aDocumentForReturn
+ )
+ ; // Parameters
+
+ENDME // ME_4AE03BFA0217 DoIt
+
+ME ME_4AE03BD6033A
+ MEPROP UID '4AE03BD6033A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE03B550243 // TnsEditionsContainerData
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AE03BFA0217 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4AE03BD6033A Create
+
+MEREF ME_4AE03BD6033A_ME_4B5855F501BE_G
+ MELINK Original HWL ME_4AE03BD6033A // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE03BD6033A_ME_4B5855F501BE_G Create
+
+%%InheritedBy ME_4AE03BD6033A ME_4B5855F501BE
+
+ME ME_4B5855F501BE
+ MEPROP UID '4B5855F501BE'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE03B550243 // TnsEditionsContainerData
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AE03BD6033A_ME_4B5855F501BE_G // Create
+ )
+ ; // Inherits
+
+ENDME // ME_4B5855F501BE Make
+
+MEREF ME_49E7754802A9_ME_4AE03B550243_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4AE03B550243_G Tl3ProtoObject
+
+MEREF ME_4AE03A510168_ME_4AE03B550243_R
+ MELINK Original WL 'ME_4AE03A510168' '4A6D56B00065.ms.model.script' // InsEditionsContainerData
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE03A510168_ME_4AE03B550243_R InsEditionsContainerData
+
+MEREF ME_4AE03C7F0002_ME_4AE03B550243_R
+ MELINK Original WL? 'ME_4AE03C7F0002' // MnsDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE03C7F0002_ME_4AE03B550243_R MnsDocument
+
+%%ImplementedBy ME_4AE03A510168 ME_4AE03B550243
+%%ImplementedBy ME_4AE03C7F0002 ME_4AE03B550243
+
+%%InheritedBy ME_49E7754802A9 ME_4AE03B550243
+
+ME ME_4AE03B550243
+ MEPROP UID '4AE03B550243'
+ MEPROP Name 'TnsEditionsContainerData'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A785027038D' // CommonObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_4AE03B550243_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4AE03A510168_ME_4AE03B550243_R // InsEditionsContainerData
+ HWL ME_4AE03C7F0002_ME_4AE03B550243_R // MnsDocument
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4AE03BD6033A // Create
+ HWL ME_4B5855F501BE // Make
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '22.10.2009 15:00'
+ UP extprop:pas:UnitName 'nsEditionsContainerData'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EditionsContainerData'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Editions\nsEditionsContainerData.pas'
+
+ENDME // ME_4AE03B550243 TnsEditionsContainerData

@@ -80,7 +80,7 @@ ME ME_52A826610281
  MEPROP UID '52A826610281'
  MEPROP Name 'Log'
  MEPROP OriginalName 'Log$1'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -127,7 +127,7 @@ ME ME_52A826A80339
  MEPROP UID '52A826A80339'
  MEPROP Name 'Log'
  MEPROP OriginalName 'Log$2(aDocInfo: IdeDocInfo)'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -172,6 +172,12 @@ ME ME_556EF074011A
 
 ENDME // ME_556EF074011A 
 
+MEREF ME_4B0A6109010C_ME_4B0A69600050_G
+ MELINK Original WL? 'ME_4B0A6109010C' // TnsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0A6109010C_ME_4B0A69600050_G TnsLogEvent
+
 %%InheritedBy ME_4B0A6109010C ME_4B0A69600050
 
 ME ME_4B0A69600050
@@ -185,7 +191,7 @@ ME ME_4B0A69600050
  MELINK Parent HWL ME_52A821F90360 // nsListEvents
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.ms.model.script' // TnsLogEvent
+   Seq: ( HWL ME_4B0A6109010C_ME_4B0A69600050_G // TnsLogEvent
  )
  ; // Inherits
  MELIST Operations
@@ -212,7 +218,7 @@ ME ME_52A8228C0304
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_52A821F90360 // nsListEvents
  ;
- MELINK Target WL 'ME_4B0A6109010C' '4B0A60DF01F2.ms.model.script' // TnsLogEvent
+ MELINK Target WL? 'ME_4B0A6109010C' // TnsLogEvent
  ;
 
 ENDME // ME_52A8228C0304 

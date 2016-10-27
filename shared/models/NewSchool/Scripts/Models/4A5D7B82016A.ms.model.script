@@ -1,0 +1,319 @@
+// TnevTableRowAnchor 4A5D7B82016A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A5D7B82016A
+
+ME ME_4DDBD99C01B4
+ MEPROP UID '4DDBD99C01B4'
+ MEPROP Name 'f_BaseLine'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A5D7B82016A // TnevTableRowAnchor
+ ;
+ MELINK Target WL 'ME_4DDBD1080071' '47C5207602D1.ms.model.script' // InevBaseLine4Anchor
+ ;
+
+ENDME // ME_4DDBD99C01B4 f_BaseLine
+
+FORWARD ME_4A5D7BF302EB
+
+FORWARD ME_4A5D7C200219
+
+ME ME_4AEC33620199
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4AEC33620199 aView
+
+ME ME_4A5D7C200219
+ MEPROP UID '4A5D7C200219'
+ MEPROP Name 'DoGetBaseLine'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A5D7BF302EB // CheckBaseLine
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AEC33620199 // aView
+ )
+ ; // Parameters
+
+ENDME // ME_4A5D7C200219 DoGetBaseLine
+
+ME ME_4A5D7CCD0098
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A5D7BF302EB // CheckBaseLine
+ ;
+ MELINK Target WL? 'ME_47D00CC20108' // nevFacade
+ ;
+
+ENDME // ME_4A5D7CCD0098 
+
+ME ME_4A5D7DEF01D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A5D7BF302EB // CheckBaseLine
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4A5D7DEF01D2 
+
+ME ME_4A5D7DFA030B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A5D7BF302EB // CheckBaseLine
+ ;
+ MELINK Target WL 'ME_468E49730365' '469D0AC7005E.ms.model.script' // MergeStatus
+ ;
+
+ENDME // ME_4A5D7DFA030B 
+
+ME ME_4A5D7E0F023A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A5D7BF302EB // CheckBaseLine
+ ;
+ MELINK Target WL? 'ME_47F6036500E3' // TnevAfterEndPoint
+ ;
+
+ENDME // ME_4A5D7E0F023A 
+
+ME ME_4A5D7BF302EB
+ MEPROP UID '4A5D7BF302EB'
+ MEPROP Name 'CheckBaseLine'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проверяет, чтобы базовая линия была инициализирована' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A5D7B82016A // TnevTableRowAnchor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A5D7C200219 // DoGetBaseLine
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4A5D7CCD0098 // nevFacade
+ ME_4A5D7DEF01D2 // Tk2TagID
+ ME_4A5D7DFA030B // MergeStatus
+ ME_4A5D7E0F023A // TnevAfterEndPoint
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4A5D7BF302EB CheckBaseLine
+
+ME ME_53D6762F0013
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4A5D7B82016A // TnevTableRowAnchor
+ ;
+ MELINK Target WL? 'ME_4857D32B011E' // TevTableRow
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D6762F0013 
+
+ME ME_53D676470383
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_4A5D7B82016A // TnevTableRowAnchor
+ ;
+ MELINK Target WL 'ME_47C5B5BE009D' '47C5207602D1.ms.model.script' // InevAnchor
+ ;
+
+ENDME // ME_53D676470383 
+
+MEREF ME_479731C50290_ME_4A5D7B82016A_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4A5D7B82016A_over Cleanup
+
+MEREF ME_4A3B707700C9_ME_4A5D7B82016A_over
+ MELINK Original WL 'ME_4A3B707700C9' '49DE393900D3.ms.model.script' // GetAtStart
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A3B707700C9_ME_4A5D7B82016A_over GetAtStart
+
+MEREF ME_4A3B708900C4_ME_4A5D7B82016A_over
+ MELINK Original WL 'ME_4A3B708900C4' '49DE393900D3.ms.model.script' // GetAtEnd
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A3B708900C4_ME_4A5D7B82016A_over GetAtEnd
+
+MEREF ME_4A3B7F2E01CE_ME_4A5D7B82016A_over
+ MELINK Original WL 'ME_4A3B7F2E01CE' '49DE393900D3.ms.model.script' // GetVertPosition
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A3B7F2E01CE_ME_4A5D7B82016A_over GetVertPosition
+
+MEREF ME_4A3B826402B8_ME_4A5D7B82016A_over
+ MELINK Original WL 'ME_4A3B826402B8' '49DE393900D3.ms.model.script' // GetInner
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A3B826402B8_ME_4A5D7B82016A_over GetInner
+
+MEREF ME_4A3B82710255_ME_4A5D7B82016A_over
+ MELINK Original WL 'ME_4A3B82710255' '49DE393900D3.ms.model.script' // SetInner
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A3B82710255_ME_4A5D7B82016A_over SetInner
+
+MEREF ME_4A3B848302A5_ME_4A5D7B82016A_over
+ MELINK Original WL 'ME_4A3B848302A5' '49DE393900D3.ms.model.script' // GetInnerFor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A3B848302A5_ME_4A5D7B82016A_over GetInnerFor
+
+MEREF ME_4A58BA550111_ME_4A5D7B82016A_over
+ MELINK Original WL 'ME_4A58BA550111' '49DE393900D3.ms.model.script' // HasInner
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" False
+ UP "pm" True
+ENDMEREF // ME_4A58BA550111_ME_4A5D7B82016A_over HasInner
+
+MEREF ME_4AA777B603B6_ME_4A5D7B82016A_over
+ MELINK Original WL 'ME_4AA777B603B6' '49DE393900D3.ms.model.script' // DoHasBaseLine
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4AA777B603B6_ME_4A5D7B82016A_over DoHasBaseLine
+
+MEREF ME_4AA7797701F5_ME_4A5D7B82016A_over
+ MELINK Original WL 'ME_4AA7797701F5' '49DE393900D3.ms.model.script' // DoGetInnerForChildThatNotAfterEnd
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4AA7797701F5_ME_4A5D7B82016A_over DoGetInnerForChildThatNotAfterEnd
+
+MEREF ME_4AA785540310_ME_4A5D7B82016A_over
+ MELINK Original WL 'ME_4AA785540310' '49DF54E500B3.ms.model.script' // DoDiff
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4AA785540310_ME_4A5D7B82016A_over DoDiff
+
+MEREF ME_4AEC34960358_ME_4A5D7B82016A_over
+ MELINK Original WL 'ME_4AEC34960358' '49DE393900D3.ms.model.script' // GetInnerTop
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4AEC34960358_ME_4A5D7B82016A_over GetInnerTop
+
+MEREF ME_4B1CFD7B0332_ME_4A5D7B82016A_over
+ MELINK Original WL 'ME_4B1CFD7B0332' '4B1CFB8E0090.ms.model.script' // DoBottom
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B1CFD7B0332_ME_4A5D7B82016A_over DoBottom
+
+MEREF ME_4B1D0220010E_ME_4A5D7B82016A_over
+ MELINK Original WL 'ME_4B1D0220010E' '49DE393900D3.ms.model.script' // DoAssignPoint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B1D0220010E_ME_4A5D7B82016A_over DoAssignPoint
+
+MEREF ME_4B1D18650208_ME_4A5D7B82016A_over
+ MELINK Original WL 'ME_4B1D18650208' '4B1CFCBA0170.ms.model.script' // DoIncLine
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B1D18650208_ME_4A5D7B82016A_over DoIncLine
+
+MEREF ME_4B90DBFE00EF_ME_4A5D7B82016A_over
+ MELINK Original WL 'ME_4B90DBFE00EF' '49DE393900D3.ms.model.script' // DoAddInner
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B90DBFE00EF_ME_4A5D7B82016A_over DoAddInner
+
+MEREF ME_4B9625260325_ME_4A5D7B82016A_over
+ MELINK Original WL 'ME_4B9625260325' '49DE393900D3.ms.model.script' // DoCompareWithOtherInner
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B9625260325_ME_4A5D7B82016A_over DoCompareWithOtherInner
+
+MEREF ME_4C7361850250_ME_4A5D7B82016A_over
+ MELINK Original WL 'ME_4C7361850250' '49DE393900D3.ms.model.script' // DoInitByCursor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C7361850250_ME_4A5D7B82016A_over DoInitByCursor
+
+MEREF ME_4A3F457A0129_ME_4A5D7B82016A_G
+ MELINK Original WL? 'ME_4A3F457A0129' // TnevParaListAnchor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A3F457A0129_ME_4A5D7B82016A_G TnevParaListAnchor
+
+%%InjectedBy ME_4857D32B011E ME_4A5D7B82016A
+
+%%InheritedBy ME_4A3F457A0129 ME_4A5D7B82016A
+
+ME ME_4A5D7B82016A
+ MEPROP UID '4A5D7B82016A'
+ MEPROP Name 'TnevTableRowAnchor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Якорь для строки таблицы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3B771101D5' // Anchors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A3F457A0129_ME_4A5D7B82016A_G // TnevParaListAnchor
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DDBD99C01B4 // f_BaseLine
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A5D7BF302EB // CheckBaseLine
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4A5D7B82016A_over // Cleanup
+ ME_4A3B707700C9_ME_4A5D7B82016A_over // GetAtStart
+ ME_4A3B708900C4_ME_4A5D7B82016A_over // GetAtEnd
+ ME_4A3B7F2E01CE_ME_4A5D7B82016A_over // GetVertPosition
+ ME_4A3B826402B8_ME_4A5D7B82016A_over // GetInner
+ ME_4A3B82710255_ME_4A5D7B82016A_over // SetInner
+ ME_4A3B848302A5_ME_4A5D7B82016A_over // GetInnerFor
+ ME_4A58BA550111_ME_4A5D7B82016A_over // HasInner
+ ME_4AA777B603B6_ME_4A5D7B82016A_over // DoHasBaseLine
+ ME_4AA7797701F5_ME_4A5D7B82016A_over // DoGetInnerForChildThatNotAfterEnd
+ ME_4AA785540310_ME_4A5D7B82016A_over // DoDiff
+ ME_4AEC34960358_ME_4A5D7B82016A_over // GetInnerTop
+ ME_4B1CFD7B0332_ME_4A5D7B82016A_over // DoBottom
+ ME_4B1D0220010E_ME_4A5D7B82016A_over // DoAssignPoint
+ ME_4B1D18650208_ME_4A5D7B82016A_over // DoIncLine
+ ME_4B90DBFE00EF_ME_4A5D7B82016A_over // DoAddInner
+ ME_4B9625260325_ME_4A5D7B82016A_over // DoCompareWithOtherInner
+ ME_4C7361850250_ME_4A5D7B82016A_over // DoInitByCursor
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53D6762F0013 // TevTableRow
+ ME_53D676470383 // InevAnchor
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '31.03.2005 13:09'
+ UP extprop:pas:UnitName 'nevTableRowAnchor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TableRowAnchor'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevTableRowAnchor.pas'
+
+ENDME // ME_4A5D7B82016A TnevTableRowAnchor

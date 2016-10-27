@@ -36,11 +36,17 @@ ME ME_46274948003B
 
 ENDME // ME_46274948003B make
 
-ME ME_45EEE00D032A_ME_462748CD01A4
+MEREF ME_45EEE00D032A_ME_462748CD01A4_impl
  MELINK Original WL 'ME_45EEE00D032A' '45EEA87702A5.ms.model.script' // cancel_process
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_45EEE00D032A_ME_462748CD01A4 cancel_process
+ENDMEREF // ME_45EEE00D032A_ME_462748CD01A4_impl cancel_process
+
+MEREF ME_45EEE00D0329_ME_462748CD01A4_G
+ MELINK Original WL 'ME_45EEE00D0329' '45EEA87702A5.ms.model.script' // CancelLongProcess
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45EEE00D0329_ME_462748CD01A4_G CancelLongProcess
 
 %%InheritedBy ME_45EEE00D0329 ME_462748CD01A4
 
@@ -56,7 +62,7 @@ ME ME_462748CD01A4
  MELINK Parent HWL ME_4A38B397024A // SearchProgressIndicator
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_45EEE00D0329' '45EEA87702A5.ms.model.script' // CancelLongProcess
+   Seq: ( HWL ME_45EEE00D0329_ME_462748CD01A4_G // CancelLongProcess
  )
  ; // Inherits
  MELIST Operations
@@ -64,7 +70,7 @@ ME ME_462748CD01A4
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_45EEE00D032A_ME_462748CD01A4 // cancel_process
+   Seq: ( ME_45EEE00D032A_ME_462748CD01A4_impl // cancel_process
  )
  ; // Implemented
  UP "single impl" False
@@ -102,18 +108,24 @@ ME ME_462741D0012E
 
 ENDME // ME_462741D0012E finish_process
 
-ME ME_45EEE00A025D_ME_46273EF90166
+MEREF ME_45EEE00A025D_ME_46273EF90166_impl
  MELINK Original WL 'ME_45EEE00A025D' '45EEA87702A5.ms.model.script' // set_current
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_45EEE00A025D_ME_46273EF90166 set_current
+ENDMEREF // ME_45EEE00A025D_ME_46273EF90166_impl set_current
 
-ME ME_45EEE02703C5_ME_46273EF90166
+MEREF ME_45EEE02703C5_ME_46273EF90166_impl
  MELINK Original WL 'ME_45EEE02703C5' '45EEA87702A5.ms.model.script' // max_count
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" False
-ENDME // ME_45EEE02703C5_ME_46273EF90166 max_count
+ENDMEREF // ME_45EEE02703C5_ME_46273EF90166_impl max_count
+
+MEREF ME_45EEE00A024E_ME_46273EF90166_G
+ MELINK Original WL 'ME_45EEE00A024E' '45EEA87702A5.ms.model.script' // ProgressIndicator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45EEE00A024E_ME_46273EF90166_G ProgressIndicator
 
 %%InheritedBy ME_45EEE00A024E ME_46273EF90166
 
@@ -129,7 +141,7 @@ ME ME_46273EF90166
  MELINK Parent HWL ME_4A38B397024A // SearchProgressIndicator
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_45EEE00A024E' '45EEA87702A5.ms.model.script' // ProgressIndicator
+   Seq: ( HWL ME_45EEE00A024E_ME_46273EF90166_G // ProgressIndicator
  )
  ; // Inherits
  MELIST Operations
@@ -137,8 +149,8 @@ ME ME_46273EF90166
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_45EEE00A025D_ME_46273EF90166 // set_current
- ME_45EEE02703C5_ME_46273EF90166 // max_count
+   Seq: ( ME_45EEE00A025D_ME_46273EF90166_impl // set_current
+ ME_45EEE02703C5_ME_46273EF90166_impl // max_count
  )
  ; // Implemented
  UP "call way" 'back'

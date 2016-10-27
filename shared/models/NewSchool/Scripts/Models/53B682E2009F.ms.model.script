@@ -1,0 +1,45 @@
+// TcsAutoSpellTaskPrim 53B682E2009F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_52F8C2BF0110_ME_53B682E2009F_G
+ MELINK Original WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52F8C2BF0110_ME_53B682E2009F_G TddProcessTask
+
+MEREF ME_53B68033030F_ME_53B682E2009F_R
+ MELINK Original WL 'ME_53B68033030F' '484A470100DD.ms.model.script' // AutoSpellTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B68033030F_ME_53B682E2009F_R AutoSpellTask
+
+%%ImplementedBy ME_53B68033030F ME_53B682E2009F
+
+%%InheritedBy ME_52F8C2BF0110 ME_53B682E2009F
+
+ME ME_53B682E2009F
+ MEPROP UID '53B682E2009F'
+ MEPROP Name 'TcsAutoSpellTaskPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52F8C2BF0110_ME_53B682E2009F_G // TddProcessTask
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53B68033030F_ME_53B682E2009F_R // AutoSpellTask
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'csAutoSpellTaskPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'csAutoSpellTaskPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csAutoSpellTaskPrim.pas'
+
+ENDME // ME_53B682E2009F TcsAutoSpellTaskPrim

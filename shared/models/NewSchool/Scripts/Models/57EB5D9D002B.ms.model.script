@@ -1,0 +1,154 @@
+// TmsmOperationAction 57EB5D9D002B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57EB5D9D002B
+
+ME ME_57EB5F0B0298
+ MEPROP UID '57EB5F0B0298'
+ MEPROP Name 'f_Operation'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_57EB5D9D002B // TmsmOperationAction
+ ;
+ MELINK Target WL? 'ME_57CEB1C1010D' // TmsmOperation
+ ;
+
+ENDME // ME_57EB5F0B0298 f_Operation
+
+FORWARD ME_57EB5ED2020D
+
+FORWARD ME_57EB5ED9020F
+
+ME ME_57EB5EE30048
+ MEPROP Name 'anOperation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_57CEB1C1010D' // TmsmOperation
+ ;
+
+ENDME // ME_57EB5EE30048 anOperation
+
+ME ME_57EB5ED9020F
+ MEPROP UID '57EB5ED9020F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EB5ED2020D // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EB5EE30048 // anOperation
+ )
+ ; // Parameters
+
+ENDME // ME_57EB5ED9020F DoIt
+
+ME ME_57EB5ED2020D
+ MEPROP UID '57EB5ED2020D'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EB5D9D002B // TmsmOperationAction
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EB5ED9020F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EB5ED2020D Create
+
+ME ME_57EB9E9F00AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EB5D9D002B // TmsmOperationAction
+ ;
+ MELINK Target WL? 'ME_57EB9E8000FF' // TmsmOperationsActionList
+ ;
+
+ENDME // ME_57EB9E9F00AC 
+
+ME ME_57EBAB550095
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EB5D9D002B // TmsmOperationAction
+ ;
+ MELINK Target WL? 'ME_57D909F3037B' // TmsmImages
+ ;
+
+ENDME // ME_57EBAB550095 
+
+MEREF ME_48077504027E_ME_57EB5D9D002B_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_57EB5D9D002B_over Destroy
+
+MEREF ME_57EB5BE402D1_ME_57EB5D9D002B_over
+ MELINK Original WL 'ME_57EB5BE402D1' '478CF30500C1.ms.model.script' // Update
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57EB5BE402D1_ME_57EB5D9D002B_over Update
+
+MEREF ME_57EB5E6D011D_ME_57EB5D9D002B_over
+ MELINK Original WL 'ME_57EB5E6D011D' '478CF30500C1.ms.model.script' // Execute
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57EB5E6D011D_ME_57EB5D9D002B_over Execute
+
+MEREF ME_4AC0EFDD029A_ME_57EB5D9D002B_G
+ MELINK Original WL 'ME_4AC0EFDD029A' '47E76250004C.ms.model.script' // TAction
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AC0EFDD029A_ME_57EB5D9D002B_G TAction
+
+%%InheritedBy ME_4AC0EFDD029A ME_57EB5D9D002B
+
+ME ME_57EB5D9D002B
+ MEPROP UID '57EB5D9D002B'
+ MEPROP Name 'TmsmOperationAction'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CEB008027D' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AC0EFDD029A_ME_57EB5D9D002B_G // TAction
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57EB5F0B0298 // f_Operation
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57EB5ED2020D // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_57EB5D9D002B_over // Destroy
+ ME_57EB5BE402D1_ME_57EB5D9D002B_over // Update
+ ME_57EB5E6D011D_ME_57EB5D9D002B_over // Execute
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57EB9E9F00AC // TmsmOperationsActionList
+ ME_57EBAB550095 // TmsmImages
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmOperationAction'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmOperationAction'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmOperationAction.pas'
+
+ENDME // ME_57EB5D9D002B TmsmOperationAction

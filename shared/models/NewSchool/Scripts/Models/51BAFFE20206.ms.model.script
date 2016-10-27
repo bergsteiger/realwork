@@ -4,41 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_51BB0020030A
 
-FORWARD ME_51BAFFE20206
-
-ME ME_4EA50C04021B_ME_51BB0020030A
- MELINK Original WL 'ME_4EA50C04021B' '4DC24CA4037E.ms.model.script' // GetExt
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4EA50C04021B_ME_51BB0020030A GetExt
-
-%%InheritedBy ME_4EA515800122 ME_51BB0020030A
-
-ME ME_51BB0020030A
- MEPROP UID '51BB0020030A'
- MEPROP Name 'TK460275638Suite'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_51BAFFE20206 // RegExpUtils
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4EA515800122' '4EA5156C00C8.ms.model.script' // TCustomFolderTestSuite
- )
- ; // Inherits
- MELIST Overridden
-   Seq: ( ME_4EA50C04021B_ME_51BB0020030A // GetExt
- )
- ; // Overridden
- UP extprop:pas:UnitName 'K460275638Suite'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'K460275638Suite'
- UP intf.pas:Path 'common\components\rtl\Garant\Daily\K460275638Suite.pas'
-
-ENDME // ME_51BB0020030A TK460275638Suite
-
 ME ME_51BAFFE20206
  MEPROP UID '51BAFFE20206'
  MEPROP Name 'RegExpUtils'
@@ -50,7 +15,7 @@ ME ME_51BAFFE20206
  MELINK Parent WL? 'ME_4B2A15810261' // DailyTest
  ;
  MELIST Children
-   Seq: ( HWL ME_51BB0020030A // TK460275638Suite
+   Seq: ( WL? 'ME_51BB0020030A' // TK460275638Suite
  )
  ; // Children
  MELIST Depends

@@ -35,7 +35,7 @@ ENDME // ME_53D89FC4013D DoIt
 ME ME_53D89F9A03D1
  MEPROP UID '53D89F9A03D1'
  MEPROP Name 'UpdateTabCaption'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -67,7 +67,7 @@ ENDME // ME_53D8B3280281 DoIt
 ME ME_53D8B307018F
  MEPROP UID '53D8B307018F'
  MEPROP Name 'DoGetFormSetCaption'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -99,7 +99,7 @@ ENDME // ME_54058CCB00A8 DoIt
 ME ME_54058CBC0182
  MEPROP UID '54058CBC0182'
  MEPROP Name 'DoGetFormSetTabCaption'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -133,19 +133,31 @@ ME ME_53D8ABAD030F
 
 ENDME // ME_53D8ABAD030F 
 
-ME ME_53D8A0900146_ME_53D89F52011D
+MEREF ME_53D8A0900146_ME_53D89F52011D_impl
  MELINK Original WL 'ME_53D8A0900146' '4683F37902CF.ms.model.script' // FormSetCaption
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_53D8A0900146_ME_53D89F52011D FormSetCaption
+ENDMEREF // ME_53D8A0900146_ME_53D89F52011D_impl FormSetCaption
 
-ME ME_540585F303B3_ME_53D89F52011D
+MEREF ME_540585F303B3_ME_53D89F52011D_impl
  MELINK Original WL 'ME_540585F303B3' '4683F37902CF.ms.model.script' // FormSetTabCaption
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_540585F303B3_ME_53D89F52011D FormSetTabCaption
+ENDMEREF // ME_540585F303B3_ME_53D89F52011D_impl FormSetTabCaption
+
+MEREF ME_4A82BCFA02EF_ME_53D89F52011D_R
+ MELINK Original WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A82BCFA02EF_ME_53D89F52011D_R MvcmEntityForm
+
+MEREF ME_53D8A0690275_ME_53D89F52011D_R
+ MELINK Original WL 'ME_53D8A0690275' '4683F37902CF.ms.model.script' // IvcmFormSetCaptionProvider
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53D8A0690275_ME_53D89F52011D_R IvcmFormSetCaptionProvider
 
 %%ImplementedBy ME_4A82BCFA02EF ME_53D89F52011D
 %%ImplementedBy ME_53D8A0690275 ME_53D89F52011D
@@ -162,8 +174,8 @@ ME ME_53D89F52011D
  MELINK Parent WL? 'ME_533D53FF00C2' // Visual$ChromeLike
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
- WL 'ME_53D8A0690275' '4683F37902CF.ms.model.script' // IvcmFormSetCaptionProvider
+   Seq: ( HWL ME_4A82BCFA02EF_ME_53D89F52011D_R // MvcmEntityForm
+ HWL ME_53D8A0690275_ME_53D89F52011D_R // IvcmFormSetCaptionProvider
  )
  ; // Implements
  MELIST Operations
@@ -173,8 +185,8 @@ ME ME_53D89F52011D
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_53D8A0900146_ME_53D89F52011D // FormSetCaption
- ME_540585F303B3_ME_53D89F52011D // FormSetTabCaption
+   Seq: ( ME_53D8A0900146_ME_53D89F52011D_impl // FormSetCaption
+ ME_540585F303B3_ME_53D89F52011D_impl // FormSetTabCaption
  )
  ; // Implemented
  MELIST Dependencies

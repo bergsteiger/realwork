@@ -1,0 +1,79 @@
+// Tk2DictionaryIDIndexPrim 5304CA0F01F5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5304CA0F01F5
+
+ME ME_5304D43C0105
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5304CA0F01F5 // Tk2DictionaryIDIndexPrim
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_5304D43C0105 
+
+MEREF ME_47B2C42A0163_ME_5304CA0F01F5_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_5304CA0F01F5_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_5304CA0F01F5_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_5304CA0F01F5_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_5304CA0F01F5_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_5304CA0F01F5_G Tl3ProtoDataContainer
+
+MEREF ME_534515CD039A_ME_5304CA0F01F5_G
+ MELINK Original WL? 'ME_534515CD039A' // l3VariantListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_534515CD039A_ME_5304CA0F01F5_G l3VariantListPrim
+
+%%InheritedBy ME_4A54DD4E036F ME_5304CA0F01F5
+%%InheritedBy ME_534515CD039A ME_5304CA0F01F5
+
+ME ME_5304CA0F01F5
+ MEPROP UID '5304CA0F01F5'
+ MEPROP Name 'Tk2DictionaryIDIndexPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_5304CA0F01F5_G // Tl3ProtoDataContainer
+ HWL ME_534515CD039A_ME_5304CA0F01F5_G // l3VariantListPrim
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_5304CA0F01F5_impl // AssignItem
+ ME_47B99D4503A2_ME_5304CA0F01F5_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5304D43C0105 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'k2DictionaryIDIndexPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DictionaryIDIndexPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2DictionaryIDIndexPrim.pas'
+
+ENDME // ME_5304CA0F01F5 Tk2DictionaryIDIndexPrim

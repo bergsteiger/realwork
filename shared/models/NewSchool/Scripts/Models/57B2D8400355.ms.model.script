@@ -1,0 +1,95 @@
+// TmsmWordByNameListPrim 57B2D8400355 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57B2D8400355
+
+ME ME_57B2DB4E012E
+ MEPROP UID '57B2DB4E012E'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B2D8400355 // TmsmWordByNameListPrim
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57B2DB4E012E ItemType
+
+MEREF ME_47B2C42A0163_ME_57B2D8400355_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_57B2D8400355_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_57B2D8400355_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_57B2D8400355_impl CompareExistingItems
+
+MEREF ME_47A042E100E2_ME_57B2D8400355_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_57B2D8400355_over InitFields
+
+MEREF ME_4A54DD4E036F_ME_57B2D8400355_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_57B2D8400355_G Tl3ProtoDataContainer
+
+MEREF ME_47B99E920196_ME_57B2D8400355_R
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_57B2D8400355_R l3UncomparabeObjectRefList
+
+%%ImplementedBy ME_47B99E920196 ME_57B2D8400355
+
+%%InheritedBy ME_4A54DD4E036F ME_57B2D8400355
+
+ME ME_57B2D8400355
+ MEPROP UID '57B2D8400355'
+ MEPROP Name 'TmsmWordByNameListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B2D67D038F' // WordsCache
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_57B2D8400355_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B99E920196_ME_57B2D8400355_R // l3UncomparabeObjectRefList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57B2DB4E012E // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_57B2D8400355_impl // AssignItem
+ ME_47B99D4503A2_ME_57B2D8400355_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_57B2D8400355_over // InitFields
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'msmWordByNameListPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmWordByNameListPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmWordByNameListPrim.pas'
+
+ENDME // ME_57B2D8400355 TmsmWordByNameListPrim

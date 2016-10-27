@@ -1,0 +1,563 @@
+// Tl3CoordinateMap 48CA5CB001A3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48CA5CB001A3
+
+ME ME_48CA5D030176
+ MEPROP UID '48CA5D030176'
+ MEPROP Name 'f_IsVertical'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Ориентация линии' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48CA5D030176 f_IsVertical
+
+ME ME_4AB1D0780118
+ MEPROP UID '4AB1D0780118'
+ MEPROP Name 'f_PrevIndex'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Индекс предыдущей линии' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4AB1D0780118 f_PrevIndex
+
+ME ME_4C18985E0068
+ MEPROP UID '4C18985E0068'
+ MEPROP Name 'f_VBuffer'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Буфер для выравнивания последней горизонтальной линии.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C18985E0068 f_VBuffer
+
+ME ME_48CA5CF40042
+ MEPROP UID '48CA5CF40042'
+ MEPROP Name 'f_Values'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Массив списка линий по данной координате' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELINK Target WL? 'ME_48CA61B900B2' // Tl3FrameLineList
+ ;
+
+ENDME // ME_48CA5CF40042 f_Values
+
+FORWARD ME_48CA5D1F037A
+
+ME ME_48CA5D230150
+ MEPROP Name 'anOrientation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48CA5D230150 anOrientation
+
+ME ME_48CA5D1F037A
+ MEPROP UID '48CA5D1F037A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELIST Parameters
+   Seq: ( ME_48CA5D230150 // anOrientation
+ )
+ ; // Parameters
+
+ENDME // ME_48CA5D1F037A Create
+
+FORWARD ME_48CA5D5101AE
+
+ME ME_4A928411015A
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4727449A00A2' '467C0CAA02AB.ms.model.script' // Il3Canvas
+ ;
+
+ENDME // ME_4A928411015A aCanvas
+
+ME ME_4A9284110191
+ MEPROP Name 'aColorArray'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_475E5EC90186' '4677FBA70343.ms.model.script' // Tl3LinesColorArray
+ ;
+
+ENDME // ME_4A9284110191 aColorArray
+
+ME ME_4A92841101C9
+ MEPROP Name 'aWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A92841101C9 aWidth
+
+ME ME_48CA5D5101AE
+ MEPROP UID '48CA5D5101AE'
+ MEPROP Name 'DrawLines'
+ MEPROP Class class_Operation
+ %SUMMARY 'Отрисовать все элементы для объекта с anObjectID' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A928411015A // aCanvas
+ ME_4A9284110191 // aColorArray
+ ME_4A92841101C9 // aWidth
+ )
+ ; // Parameters
+
+ENDME // ME_48CA5D5101AE DrawLines
+
+FORWARD ME_48CA5D78038C
+
+ME ME_4AB1D11801EE
+ MEPROP Name 'aMapValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4AB1D11801EE aMapValue
+
+ME ME_4AB1D1180229
+ MEPROP Name 'aLine'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48CA54A000F7' '48CA546C01B0.ms.model.script' // Tl3FrameLine
+ ;
+
+ENDME // ME_4AB1D1180229 aLine
+
+ME ME_4AB1D1180264
+ MEPROP Name 'aToBuffer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AB1D1180264 aToBuffer
+
+ME ME_48CA5D78038C
+ MEPROP UID '48CA5D78038C'
+ MEPROP Name 'AddLine'
+ MEPROP Class class_Operation
+ %SUMMARY 'Добавляет значение в мапу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELINK Target WL 'ME_48CA54A000F7' '48CA546C01B0.ms.model.script' // Tl3FrameLine
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AB1D11801EE // aMapValue
+ ME_4AB1D1180229 // aLine
+ ME_4AB1D1180264 // aToBuffer
+ )
+ ; // Parameters
+
+ENDME // ME_48CA5D78038C AddLine
+
+FORWARD ME_48CA5D9D008E
+
+ME ME_48CA5DB40172
+ MEPROP Name 'aStart'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48CA5DB40172 aStart
+
+ME ME_48CA5DB401A1
+ MEPROP Name 'aFinish'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48CA5DB401A1 aFinish
+
+ME ME_48CA5DB401D0
+ MEPROP Name 'aDestList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+
+ENDME // ME_48CA5DB401D0 aDestList
+
+ME ME_48CA5D9D008E
+ MEPROP UID '48CA5D9D008E'
+ MEPROP Name 'AlignBoundary'
+ MEPROP Class class_Operation
+ %SUMMARY 'Применить выравнивающие ограничения - выравниванием все линии от aStart'#13#10'         до aFinish по значению aFinish.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELIST Parameters
+   Seq: ( ME_48CA5DB40172 // aStart
+ ME_48CA5DB401A1 // aFinish
+ ME_48CA5DB401D0 // aDestList
+ )
+ ; // Parameters
+
+ENDME // ME_48CA5D9D008E AlignBoundary
+
+FORWARD ME_491448230196
+
+ME ME_491448300307
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_491448300307 aValue
+
+ME ME_491448300346
+ MEPROP Name 'aDestList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+
+ENDME // ME_491448300346 aDestList
+
+ME ME_491448230196
+ MEPROP UID '491448230196'
+ MEPROP Name 'AlignAllLines'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выравнять все линии по значению aValue (используется для выравнивания отсвшихся горизонтальных линий)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELIST Parameters
+   Seq: ( ME_491448300307 // aValue
+ ME_491448300346 // aDestList
+ )
+ ; // Parameters
+
+ENDME // ME_491448230196 AlignAllLines
+
+FORWARD ME_49BE609800C6
+
+ME ME_49BE60B003D0
+ MEPROP Name 'aMinBound'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_49BE60B003D0 aMinBound
+
+ME ME_49BE60B10021
+ MEPROP Name 'aMaxBound'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_49BE60B10021 aMaxBound
+
+ME ME_49BE609800C6
+ MEPROP UID '49BE609800C6'
+ MEPROP Name 'CheckLine'
+ MEPROP Class class_Operation
+ %SUMMARY 'Вызывает CheckCoordinate для всех отрезков.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELIST Parameters
+   Seq: ( ME_49BE60B003D0 // aMinBound
+ ME_49BE60B10021 // aMaxBound
+ )
+ ; // Parameters
+
+ENDME // ME_49BE609800C6 CheckLine
+
+FORWARD ME_4AB1D0CF01E7
+
+ME ME_4C189AF0012E
+ MEPROP Name 'aClearAll'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C189AF0012E aClearAll
+
+ME ME_4AB1D0CF01E7
+ MEPROP UID '4AB1D0CF01E7'
+ MEPROP Name 'ClearPrev'
+ MEPROP Class class_Operation
+ %SUMMARY 'Сбрасывает индекс предыдущего' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C189AF0012E // aClearAll
+ )
+ ; // Parameters
+
+ENDME // ME_4AB1D0CF01E7 ClearPrev
+
+ME ME_4AB8773101B3
+ MEPROP UID '4AB8773101B3'
+ MEPROP Name 'GetAlignData'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить данные о выравнивании' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELINK Target WL 'ME_4CA9A213003D' '4677FBA70343.ms.model.script' // Il3IntegerList
+ ;
+
+ENDME // ME_4AB8773101B3 GetAlignData
+
+FORWARD ME_4AB8775E017C
+
+ME ME_4CA9A563032F
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CA9A213003D' '4677FBA70343.ms.model.script' // Il3IntegerList
+ ;
+
+ENDME // ME_4CA9A563032F aData
+
+ME ME_4AB8775E017C
+ MEPROP UID '4AB8775E017C'
+ MEPROP Name 'SetAlignData'
+ MEPROP Class class_Operation
+ %SUMMARY 'Сохранить данные о выравнивании' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CA9A563032F // aData
+ )
+ ; // Parameters
+
+ENDME // ME_4AB8775E017C SetAlignData
+
+ME ME_4C18991501FE
+ MEPROP UID '4C18991501FE'
+ MEPROP Name 'SavePrev'
+ MEPROP Class class_Operation
+ %SUMMARY 'Запомнить PrevIndex для последующего применения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+
+ENDME // ME_4C18991501FE SavePrev
+
+ME ME_4C651ED702E4
+ MEPROP UID '4C651ED702E4'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Operation
+ %SUMMARY 'Очищает данные о линиях.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+
+ENDME // ME_4C651ED702E4 Clear
+
+ME ME_4D00BD46021B
+ MEPROP UID '4D00BD46021B'
+ MEPROP Name 'GetValues'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELINK Target WL? 'ME_48CA61B900B2' // Tl3FrameLineList
+ ;
+
+ENDME // ME_4D00BD46021B GetValues
+
+ME ME_48CA5D400320
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELINK Target WL 'ME_48CA54A000F7' '48CA546C01B0.ms.model.script' // Tl3FrameLine
+ ;
+
+ENDME // ME_48CA5D400320 
+
+ME ME_48CA5EFD0013
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_48CA5EFD0013 
+
+ME ME_48CA5FD80383
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELINK Target WL 'ME_48AC2BDA0309' '4678193C009C.ms.model.script' // PObject
+ ;
+
+ENDME // ME_48CA5FD80383 
+
+ME ME_4AB9D53C0149
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELINK Target WL 'ME_47AC7CF90230' '47A1D4C201E8.ms.model.script' // L3 Core Consts
+ ;
+
+ENDME // ME_4AB9D53C0149 
+
+ME ME_4CA9A84501D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELINK Target WL? 'ME_4CA9A422001B' // Tl3InterfacedIntegerList
+ ;
+
+ENDME // ME_4CA9A84501D7 
+
+ME ME_4CA9A8B40170
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4CA9A8B40170 
+
+ME ME_4F2A4445025A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CA5CB001A3 // Tl3CoordinateMap
+ ;
+ MELINK Target WL 'ME_4F2A40EA0064' '4A3918BB0114.ms.model.script' // evCellWidthEpsilon
+ ;
+
+ENDME // ME_4F2A4445025A 
+
+MEREF ME_479731C50290_ME_48CA5CB001A3_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_48CA5CB001A3_over Cleanup
+
+MEREF ME_4AE5CA2D0034_ME_48CA5CB001A3_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_48CA5CB001A3_G Tl3CProtoObject
+
+%%InheritedBy ME_4AE5CA2D0034 ME_48CA5CB001A3
+
+ME ME_48CA5CB001A3
+ MEPROP UID '48CA5CB001A3'
+ MEPROP Name 'Tl3CoordinateMap'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект группирующий горизонтальные или вертикальные выравнивающие линии.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_473C3BEE0334' // l3Canvas
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AE5CA2D0034_ME_48CA5CB001A3_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48CA5D030176 // f_IsVertical
+ HWL ME_4AB1D0780118 // f_PrevIndex
+ HWL ME_4C18985E0068 // f_VBuffer
+ HWL ME_48CA5CF40042 // f_Values
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48CA5D1F037A // Create
+ HWL ME_48CA5D5101AE // DrawLines
+ HWL ME_48CA5D78038C // AddLine
+ HWL ME_48CA5D9D008E // AlignBoundary
+ HWL ME_491448230196 // AlignAllLines
+ HWL ME_49BE609800C6 // CheckLine
+ HWL ME_4AB1D0CF01E7 // ClearPrev
+ HWL ME_4AB8773101B3 // GetAlignData
+ HWL ME_4AB8775E017C // SetAlignData
+ HWL ME_4C18991501FE // SavePrev
+ HWL ME_4C651ED702E4 // Clear
+ HWL ME_4D00BD46021B // GetValues
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48CA5CB001A3_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48CA5D400320 // Tl3FrameLine
+ ME_48CA5EFD0013 // l3Base
+ ME_48CA5FD80383 // PObject
+ ME_4AB9D53C0149 // L3 Core Consts
+ ME_4CA9A84501D7 // Tl3InterfacedIntegerList
+ ME_4CA9A8B40170 // FreeAndNil
+ ME_4F2A4445025A // evCellWidthEpsilon
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP "no hands" True
+ UP "started" '02.10.06 16:27'
+ UP extprop:pas:UnitName 'l3CoordinateMap'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CoordinateMap'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3CoordinateMap.pas'
+
+ENDME // ME_48CA5CB001A3 Tl3CoordinateMap

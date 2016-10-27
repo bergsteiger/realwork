@@ -1,0 +1,74 @@
+// TmsmFindWordBinding 57EA877F01EB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57EA877F01EB
+
+ME ME_57EA87CB018B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57EA877F01EB // TmsmFindWordBinding
+ ;
+ MELINK Target WL 'ME_57CD31A200FA' '57AAE8D403E5.ms.model.script' // CaptionChangedEvent
+ ;
+
+ENDME // ME_57EA87CB018B 
+
+ME ME_57EA88010226
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EA877F01EB // TmsmFindWordBinding
+ ;
+ MELINK Target WL? 'ME_57E457780235' // TmsmWordsManaging
+ ;
+
+ENDME // ME_57EA88010226 
+
+ME ME_57EA88390096
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EA877F01EB // TmsmFindWordBinding
+ ;
+ MELINK Target WL? 'ME_57A9F5170275' // TmsmModelElement
+ ;
+
+ENDME // ME_57EA88390096 
+
+MEREF ME_57EA870501EC_ME_57EA877F01EB_G
+ MELINK Original WL? 'ME_57EA870501EC' // TmsmCaptionToListLikeBinding
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57EA870501EC_ME_57EA877F01EB_G TmsmCaptionToListLikeBinding
+
+%%InheritedBy ME_57EA870501EC ME_57EA877F01EB
+
+ME ME_57EA877F01EB
+ MEPROP UID '57EA877F01EB'
+ MEPROP Name 'TmsmFindWordBinding'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CD2BB003D3' // ConcreteBindings
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57EA870501EC_ME_57EA877F01EB_G // TmsmCaptionToListLikeBinding
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_57EA87CB018B // CaptionChangedEvent
+ ME_57EA88010226 // TmsmWordsManaging
+ ME_57EA88390096 // TmsmModelElement
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmFindWordBinding'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmFindWordBinding'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmFindWordBinding.pas'
+
+ENDME // ME_57EA877F01EB TmsmFindWordBinding

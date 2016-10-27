@@ -1,0 +1,44 @@
+// vcm_op_Hint 5230189600D2 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_5230185F0140_ME_5230189600D2_impl
+ MELINK Original WL 'ME_5230185F0140' '5230182A02A3.ms.model.script' // DoParams
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5230185F0140_ME_5230189600D2_impl DoParams
+
+MEREF ME_5230182A02A3_ME_5230189600D2_G
+ MELINK Original WL? 'ME_5230182A02A3' // OperationParamWordPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5230182A02A3_ME_5230189600D2_G OperationParamWordPrim
+
+%%InheritedBy ME_5230182A02A3 ME_5230189600D2
+
+ME ME_5230189600D2
+ MEPROP UID '5230189600D2'
+ MEPROP Name 'vcm_op_Hint'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F69B9040391' // VCMWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5230182A02A3_ME_5230189600D2_G // OperationParamWordPrim
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_5230185F0140_ME_5230189600D2_impl // DoParams
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName 'TkwVcmOpHint'
+ UP extprop:pas:UnitName 'kwVcmOpHint'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'VcmOpHint'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpHint.pas'
+
+ENDME // ME_5230189600D2 vcm_op_Hint

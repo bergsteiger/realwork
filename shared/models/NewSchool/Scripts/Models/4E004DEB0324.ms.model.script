@@ -5,56 +5,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_4E004E2F0251
 %%Inner ME_4E004EA70057
 
-FORWARD ME_4E004DEB0324
-
-%%InheritedBy ME_47F352A30004 ME_4E004E2F0251
-
-ME ME_4E004E2F0251
- MEPROP UID '4E004E2F0251'
- MEPROP Name 'TarHAFPainer'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4E004DEB0324 // Printing
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_47F352A30004' '4C22137E025C.ms.model.script' // TevHAFPainterEx
- )
- ; // Inherits
- UP "finished" False
- UP extprop:pas:UnitName 'arHAFPainer'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'arHAFPainer'
- UP intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_arHAFPainer.pas'
-
-ENDME // ME_4E004E2F0251 TarHAFPainer
-
-%%InheritedBy ME_4C2215040200 ME_4E004EA70057
-
-ME ME_4E004EA70057
- MEPROP UID '4E004EA70057'
- MEPROP Name 'TarMacroReplacer'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4E004DEB0324 // Printing
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4C2215040200' '47EA968D0155.ms.model.script' // TevCustomHAFMacroReplacer
- )
- ; // Inherits
- UP "finished" False
- UP extprop:pas:UnitName 'arMacroReplacer'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'arMacroReplacer'
- UP intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_arMacroReplacer.pas'
-
-ENDME // ME_4E004EA70057 TarMacroReplacer
-
 ME ME_4E004DEB0324
  MEPROP UID '4E004DEB0324'
  MEPROP Name 'Printing'
@@ -67,8 +17,8 @@ ME ME_4E004DEB0324
  MELINK Parent WL? 'ME_4E004D0B033A' // Editor
  ;
  MELIST Children
-   Seq: ( HWL ME_4E004E2F0251 // TarHAFPainer
- HWL ME_4E004EA70057 // TarMacroReplacer
+   Seq: ( WL? 'ME_4E004E2F0251' // TarHAFPainer
+ WL? 'ME_4E004EA70057' // TarMacroReplacer
  )
  ; // Children
  MELIST Depends

@@ -1,0 +1,213 @@
+// TtfwResourceStreamFactory 55795DB3008C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55795DB3008C
+
+ME ME_55796A940119
+ MEPROP UID '55796A940119'
+ MEPROP Name 'f_ResName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55795DB3008C // TtfwResourceStreamFactory
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55796A940119 f_ResName
+
+FORWARD ME_55795E000174
+
+FORWARD ME_55795E0D00A3
+
+ME ME_55795E1D01A5
+ MEPROP Name 'aResName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55795E1D01A5 aResName
+
+ME ME_55795E0D00A3
+ MEPROP UID '55795E0D00A3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55795E000174 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_55795E1D01A5 // aResName
+ )
+ ; // Parameters
+
+ENDME // ME_55795E0D00A3 DoIt
+
+ME ME_55795E000174
+ MEPROP UID '55795E000174'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55795DB3008C // TtfwResourceStreamFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55795E0D00A3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55795E000174 Create
+
+ME ME_55795DE603DE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55795DB3008C // TtfwResourceStreamFactory
+ ;
+ MELINK Target WL 'ME_55795D8E03BA' '47A080670100.ms.model.script' // Tl3ResourceStream
+ ;
+
+ENDME // ME_55795DE603DE 
+
+ME ME_55795E2F03B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55795DB3008C // TtfwResourceStreamFactory
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_55795E2F03B9 
+
+ME ME_55795E44005A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55795DB3008C // TtfwResourceStreamFactory
+ ;
+ MELINK Target WL? 'ME_483C378301CB' // StrUtils
+ ;
+
+ENDME // ME_55795E44005A 
+
+ME ME_557964C103A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55795DB3008C // TtfwResourceStreamFactory
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_557964C103A4 
+
+ME ME_55A6508000A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55795DB3008C // TtfwResourceStreamFactory
+ ;
+ MELINK Target WL? 'ME_4B57004201BD' // l3FileUtils
+ ;
+
+ENDME // ME_55A6508000A8 
+
+ME ME_55B1F239026A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55795DB3008C // TtfwResourceStreamFactory
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_55B1F239026A 
+
+ME ME_55B1F24D032D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55795DB3008C // TtfwResourceStreamFactory
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_55B1F24D032D 
+
+ME ME_55B1F26902B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55795DB3008C // TtfwResourceStreamFactory
+ ;
+ MELINK Target WL? 'ME_4F473F9402D8' // TtfwCStringFactory
+ ;
+
+ENDME // ME_55B1F26902B1 
+
+MEREF ME_52F4E6E90067_ME_55795DB3008C_impl
+ MELINK Original WL 'ME_52F4E6E90067' '52F4E6AA02BB.ms.model.script' // Stream
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52F4E6E90067_ME_55795DB3008C_impl Stream
+
+MEREF ME_55A649CC0040_ME_55795DB3008C_impl
+ MELINK Original WL 'ME_55A649CC0040' '52F4E6AA02BB.ms.model.script' // FileDateTime
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55A649CC0040_ME_55795DB3008C_impl FileDateTime
+
+MEREF ME_52F4E6AA02BB_ME_55795DB3008C_G
+ MELINK Original WL? 'ME_52F4E6AA02BB' // TtfwStreamFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52F4E6AA02BB_ME_55795DB3008C_G TtfwStreamFactory
+
+%%InheritedBy ME_52F4E6AA02BB ME_55795DB3008C
+
+ME ME_55795DB3008C
+ MEPROP UID '55795DB3008C'
+ MEPROP Name 'TtfwResourceStreamFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F4734A40270' // Parser
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52F4E6AA02BB_ME_55795DB3008C_G // TtfwStreamFactory
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55796A940119 // f_ResName
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55795E000174 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_52F4E6E90067_ME_55795DB3008C_impl // Stream
+ ME_55A649CC0040_ME_55795DB3008C_impl // FileDateTime
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_55795DE603DE // Tl3ResourceStream
+ ME_55795E2F03B9 // Windows
+ ME_55795E44005A // StrUtils
+ ME_557964C103A4 // SysUtils
+ ME_55A6508000A8 // l3FileUtils
+ ME_55B1F239026A // l3String
+ ME_55B1F24D032D // Il3CString
+ ME_55B1F26902B1 // TtfwCStringFactory
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'tfwResourceStreamFactory'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ResourceStreamFactory'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwResourceStreamFactory.pas'
+
+ENDME // ME_55795DB3008C TtfwResourceStreamFactory

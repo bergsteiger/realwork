@@ -2,11 +2,17 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-ME ME_47B5C4080270_ME_47B5C2EA02CB
+MEREF ME_47B5C4080270_ME_47B5C2EA02CB_impl
  MELINK Original WL 'ME_47B5C4080270' '47B45152003F.ms.model.script' // DoExchange
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47B5C4080270_ME_47B5C2EA02CB DoExchange
+ENDMEREF // ME_47B5C4080270_ME_47B5C2EA02CB_impl DoExchange
+
+MEREF ME_47B084190028_ME_47B5C2EA02CB_G
+ MELINK Original WL? 'ME_47B084190028' // l3TypedList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B084190028_ME_47B5C2EA02CB_G l3TypedList
 
 %%InheritedBy ME_47B084190028 ME_47B5C2EA02CB
 
@@ -23,11 +29,11 @@ ME ME_47B5C2EA02CB
  MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47B084190028' // l3TypedList
+   Seq: ( HWL ME_47B084190028_ME_47B5C2EA02CB_G // l3TypedList
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_47B5C4080270_ME_47B5C2EA02CB // DoExchange
+   Seq: ( ME_47B5C4080270_ME_47B5C2EA02CB_impl // DoExchange
  )
  ; // Implemented
  UP extprop:pas:TypeName '_l3FourByteItemList_'

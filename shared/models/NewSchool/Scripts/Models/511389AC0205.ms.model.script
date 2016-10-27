@@ -18,10 +18,22 @@ ME ME_51138B2E003F
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_51138A1B0106 // TvcmSlayedEntityFormsList
  ;
- MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
 ENDME // ME_51138B2E003F ItemType
+
+MEREF ME_47B57B7800A7_ME_51138A1B0106_G
+ MELINK Original WL? 'ME_47B57B7800A7' // l3ObjectPtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57B7800A7_ME_51138A1B0106_G l3ObjectPtrList
+
+MEREF ME_47BC3A07027F_ME_51138A1B0106_G
+ MELINK Original WL? 'ME_47BC3A07027F' // Tl3SimpleDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC3A07027F_ME_51138A1B0106_G Tl3SimpleDataContainer
 
 %%InheritedBy ME_47B57B7800A7 ME_51138A1B0106
 %%InheritedBy ME_47BC3A07027F ME_51138A1B0106
@@ -37,8 +49,8 @@ ME ME_51138A1B0106
  MELINK Parent HWL ME_511389AC0205 // vcmFormsUtils
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47B57B7800A7' // l3ObjectPtrList
- WL 'ME_47BC3A07027F' '47913B47006E.ms.model.script' // Tl3SimpleDataContainer
+   Seq: ( HWL ME_47B57B7800A7_ME_51138A1B0106_G // l3ObjectPtrList
+ HWL ME_47BC3A07027F_ME_51138A1B0106_G // Tl3SimpleDataContainer
  )
  ; // Inherits
  MELIST Attributes

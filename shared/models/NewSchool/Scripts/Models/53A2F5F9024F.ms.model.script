@@ -28,7 +28,7 @@ ENDME // ME_53A2FAE901E5
 ME ME_53A2FAD90339
  MEPROP UID '53A2FAD90339'
  MEPROP Name 'ForEachF'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetiterator ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -76,7 +76,7 @@ ME ME_53A2F9C90070
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_53A2EA3D0044 // TddClientMessageSortableList
  ;
- MELINK Target WL 'ME_52FA508003E5' '52F8C298005C.ms.model.script' // TddClientMessageSortableListPrim
+ MELINK Target WL? 'ME_52FA508003E5' // TddClientMessageSortableListPrim
  ;
  UP "pm" True
  UP "reads field" True
@@ -130,7 +130,7 @@ ENDME // ME_53A2FA110107 DoIt
 ME ME_53A2FA070288
  MEPROP UID '53A2FA070288'
  MEPROP Name 'Add'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -160,7 +160,7 @@ ENDME // ME_53A2FA28019A DoIt
 ME ME_53A2FA2003C6
  MEPROP UID '53A2FA2003C6'
  MEPROP Name 'Clear'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -205,7 +205,7 @@ ENDME // ME_56E7B952028A DoIt
 ME ME_56E7B945026A
  MEPROP UID '56E7B945026A'
  MEPROP Name 'PackMessagesExceptTheseTypes'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -229,25 +229,43 @@ ME ME_53A2FA580277
 
 ENDME // ME_53A2FA580277 
 
-ME ME_53A2FAD90339_ME_53A2EA3D0044
+MEREF ME_53A2FAD90339_ME_53A2EA3D0044_impl
  MELINK Original HWL ME_53A2FAD90339 // ForEachF
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs index" False
  UP "needs result" False
-ENDME // ME_53A2FAD90339_ME_53A2EA3D0044 ForEachF
+ENDMEREF // ME_53A2FAD90339_ME_53A2EA3D0044_impl ForEachF
 
-ME ME_479731C50290_ME_53A2EA3D0044
+MEREF ME_479731C50290_ME_53A2EA3D0044_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_53A2EA3D0044 Cleanup
+ENDMEREF // ME_479731C50290_ME_53A2EA3D0044_over Cleanup
 
-ME ME_47A042E100E2_ME_53A2EA3D0044
+MEREF ME_47A042E100E2_ME_53A2EA3D0044_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_53A2EA3D0044 InitFields
+ENDMEREF // ME_47A042E100E2_ME_53A2EA3D0044_over InitFields
+
+MEREF ME_49E7754802A9_ME_53A2EA3D0044_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_53A2EA3D0044_G Tl3ProtoObject
+
+MEREF ME_53A03846011C_ME_53A2EA3D0044_R
+ MELINK Original WL? 'ME_53A03846011C' // l3CriticalSectionHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53A03846011C_ME_53A2EA3D0044_R l3CriticalSectionHolder
+
+MEREF ME_53A2FAB0014A_ME_53A2EA3D0044_R
+ MELINK Original HWL ME_53A2FAB0014A // ddClientMessageIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53A2FAB0014A_ME_53A2EA3D0044_R ddClientMessageIterator
 
 %%ImplementedBy ME_53A03846011C ME_53A2EA3D0044
 %%ImplementedBy ME_53A2FAB0014A ME_53A2EA3D0044
@@ -265,12 +283,12 @@ ME ME_53A2EA3D0044
  MELINK Parent HWL ME_53A2F5F9024F // ddClientMessageSortableList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_53A2EA3D0044_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_53A03846011C' // l3CriticalSectionHolder
- HWL ME_53A2FAB0014A // ddClientMessageIterator
+   Seq: ( HWL ME_53A03846011C_ME_53A2EA3D0044_R // l3CriticalSectionHolder
+ HWL ME_53A2FAB0014A_ME_53A2EA3D0044_R // ddClientMessageIterator
  )
  ; // Implements
  MELIST Attributes
@@ -285,12 +303,12 @@ ME ME_53A2EA3D0044
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_53A2FAD90339_ME_53A2EA3D0044 // ForEachF
+   Seq: ( ME_53A2FAD90339_ME_53A2EA3D0044_impl // ForEachF
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_53A2EA3D0044 // Cleanup
- ME_47A042E100E2_ME_53A2EA3D0044 // InitFields
+   Seq: ( ME_479731C50290_ME_53A2EA3D0044_over // Cleanup
+ ME_47A042E100E2_ME_53A2EA3D0044_over // InitFields
  )
  ; // Overridden
  MELIST Dependencies

@@ -1,0 +1,57 @@
+// TcsMessageRecepient 52FB9F4F029B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52FB9F4F029B
+
+ME ME_53A2EA1701BB
+ MEPROP UID '53A2EA1701BB'
+ MEPROP Name 'Messages'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52FB9F4F029B // TcsMessageRecepient
+ ;
+ MELINK Target WL 'ME_53A2EA3D0044' '53A2F5F9024F.ms.model.script' // TddClientMessageSortableList
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_53A2EA1701BB Messages
+
+MEREF ME_49E7754802A9_ME_52FB9F4F029B_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_52FB9F4F029B_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_52FB9F4F029B
+
+ME ME_52FB9F4F029B
+ MEPROP UID '52FB9F4F029B'
+ MEPROP Name 'TcsMessageRecepient'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_52FB9F4F029B_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53A2EA1701BB // Messages
+ )
+ ; // Attributes
+ UP "finished" False
+ UP extprop:pas:UnitName 'csMessageRecepient'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'csMessageRecepient'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_csMessageRecepient.pas'
+
+ENDME // ME_52FB9F4F029B TcsMessageRecepient

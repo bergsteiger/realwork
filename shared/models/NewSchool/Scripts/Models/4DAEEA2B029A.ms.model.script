@@ -35,7 +35,7 @@ ENDME // ME_4DAEEE9E03B4 DoIt
 ME ME_4DAEEE87019A
  MEPROP UID '4DAEEE87019A'
  MEPROP Name 'Script'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -80,7 +80,7 @@ ENDME // ME_4DB02B3E0267 DoIt
 ME ME_4DB02B310185
  MEPROP UID '4DB02B310185'
  MEPROP Name 'ScriptFromFile'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -127,7 +127,7 @@ ENDME // ME_4DB0313E01B7 DoIt
 ME ME_4DB03121022B
  MEPROP UID '4DB03121022B'
  MEPROP Name 'ResolveScriptFilePath'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -146,10 +146,16 @@ ME ME_4F734D920373
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DAEEA2B029A // Scripter
  ;
- MELINK Target WL 'ME_4DAEEA9E0049' '4DAEEA14018A.ms.model.script' // TtfwScriptEngine
+ MELINK Target WL? 'ME_4DAEEA9E0049' // TtfwScriptEngine
  ;
 
 ENDME // ME_4F734D920373 
+
+MEREF ME_4DAF1AAA0133_ME_4DAEEA2B029A_R
+ MELINK Original WL 'ME_4DAF1AAA0133' '4DAF19F600C5.ms.model.script' // ScriptCaller
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DAF1AAA0133_ME_4DAEEA2B029A_R ScriptCaller
 
 %%ImplementedBy ME_4DAF1AAA0133 ME_4DAEEA2B029A
 
@@ -166,7 +172,7 @@ ME ME_4DAEEA2B029A
  MELINK Parent WL? 'ME_4DAEEA14018A' // Scripting Axiomatics
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4DAF1AAA0133' '4DAF19F600C5.ms.model.script' // ScriptCaller
+   Seq: ( HWL ME_4DAF1AAA0133_ME_4DAEEA2B029A_R // ScriptCaller
  )
  ; // Implements
  MELIST Operations

@@ -1,0 +1,92 @@
+// Tl3ProtoObjectComparable 4D5BF8930032 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D5BF8930032
+
+FORWARD ME_4D5BF8FB02E3
+
+FORWARD ME_4D5BF91C02CF
+
+ME ME_4D5BF9240280
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4D5BF8930032 // Tl3ProtoObjectComparable
+ ;
+
+ENDME // ME_4D5BF9240280 anOther
+
+ME ME_4D5BF91C02CF
+ MEPROP UID '4D5BF91C02CF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5BF8FB02E3 // CompareWith
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D5BF9240280 // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_4D5BF91C02CF DoIt
+
+ME ME_4D5BF8FB02E3
+ MEPROP UID '4D5BF8FB02E3'
+ MEPROP Name 'CompareWith'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D5BF8930032 // Tl3ProtoObjectComparable
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D5BF91C02CF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D5BF8FB02E3 CompareWith
+
+MEREF ME_49E7754802A9_ME_4D5BF8930032_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4D5BF8930032_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_4D5BF8930032
+
+ME ME_4D5BF8930032
+ MEPROP UID '4D5BF8930032'
+ MEPROP Name 'Tl3ProtoObjectComparable'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D5BF840019A' // OVP
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_4D5BF8930032_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D5BF8FB02E3 // CompareWith
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '16.02.2011 19:17'
+ UP extprop:pas:UnitName 'l3ProtoObjectComparable'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ProtoObjectComparable'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ProtoObjectComparable.pas'
+
+ENDME // ME_4D5BF8930032 Tl3ProtoObjectComparable

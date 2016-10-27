@@ -1,0 +1,100 @@
+// TnsExportToWordEvent 4B0B99CA0261 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B0B99CA0261
+
+FORWARD ME_4B0B99D901AD
+
+ME ME_4B0B99FD01E1
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4B0B99FD01E1 aDoc
+
+ME ME_4B0B99FD0200
+ MEPROP Name 'ForSelection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B0B99FD0200 ForSelection
+
+ME ME_4B0B99FD021F
+ MEPROP Name 'IntoActive'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B0B99FD021F IntoActive
+
+ME ME_4B0B99D901AD
+ MEPROP UID '4B0B99D901AD'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B0B99CA0261 // TnsExportToWordEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B0B99FD01E1 // aDoc
+ ME_4B0B99FD0200 // ForSelection
+ ME_4B0B99FD021F // IntoActive
+ )
+ ; // Parameters
+
+ENDME // ME_4B0B99D901AD Log
+
+ME ME_4B0B9D4000FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B0B99CA0261 // TnsExportToWordEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B0B9D4000FD 
+
+MEREF ME_4B0A6109010C_ME_4B0B99CA0261_G
+ MELINK Original WL? 'ME_4B0A6109010C' // TnsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0A6109010C_ME_4B0B99CA0261_G TnsLogEvent
+
+%%InheritedBy ME_4B0A6109010C ME_4B0B99CA0261
+
+ME ME_4B0B99CA0261
+ MEPROP UID '4B0B99CA0261'
+ MEPROP Name 'TnsExportToWordEvent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A7C0BB70162' // Base Forms
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B0A6109010C_ME_4B0B99CA0261_G // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B0B99D901AD // Log
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B0B9D4000FD // LogEvent
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'nsExportToWordEvent'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ExportToWordEvent'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsExportToWordEvent.pas'
+
+ENDME // ME_4B0B99CA0261 TnsExportToWordEvent

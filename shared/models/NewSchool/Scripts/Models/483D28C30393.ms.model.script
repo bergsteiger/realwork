@@ -1,0 +1,142 @@
+// TatBaseSearchOperation 483D28C30393 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_483D28C30393
+
+ME ME_5037DB7501D7
+ MEPROP UID '5037DB7501D7'
+ MEPROP Name 'f_SearchNumber'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483D28C30393 // TatBaseSearchOperation
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5037DB7501D7 f_SearchNumber
+
+ME ME_5037D80300B2
+ MEPROP UID '5037D80300B2'
+ MEPROP Name 'f_BaseSearchHelper'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483D28C30393 // TatBaseSearchOperation
+ ;
+ MELINK Target WL? 'ME_483C01430224' // TatBaseSearchHelper
+ ;
+
+ENDME // ME_5037D80300B2 f_BaseSearchHelper
+
+ME ME_483D3A31000E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483D28C30393 // TatBaseSearchOperation
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_483D3A31000E 
+
+ME ME_483D3A4500F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483D28C30393 // TatBaseSearchOperation
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_483D3A4500F9 
+
+MEREF ME_503648620273_ME_483D28C30393_impl
+ MELINK Original WL 'ME_503648620273' '5036475001FC.ms.model.script' // OnString
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_503648620273_ME_483D28C30393_impl OnString
+
+MEREF ME_48089F3701B4_ME_483D28C30393_over
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F3701B4_ME_483D28C30393_over InitParamList
+
+MEREF ME_48089F460352_ME_483D28C30393_over
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F460352_ME_483D28C30393_over ExecuteSelf
+
+MEREF ME_48089F660238_ME_483D28C30393_over
+ MELINK Original WL 'ME_48089F660238' '48089D120398.ms.model.script' // ExecuteChilds
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F660238_ME_483D28C30393_over ExecuteChilds
+
+MEREF ME_48076E9D013E_ME_483D28C30393_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_483D28C30393_G TatOperationBase
+
+MEREF ME_5036475001FC_ME_483D28C30393_R
+ MELINK Original WL? 'ME_5036475001FC' // atHasStringParamAddOn
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5036475001FC_ME_483D28C30393_R atHasStringParamAddOn
+
+%%ImplementedBy ME_5036475001FC ME_483D28C30393
+
+%%InheritedBy ME_48076E9D013E ME_483D28C30393
+
+ME ME_483D28C30393
+ MEPROP UID '483D28C30393'
+ MEPROP Name 'TatBaseSearchOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48076E9D013E_ME_483D28C30393_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5036475001FC_ME_483D28C30393_R // atHasStringParamAddOn
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5037DB7501D7 // f_SearchNumber
+ HWL ME_5037D80300B2 // f_BaseSearchHelper
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_503648620273_ME_483D28C30393_impl // OnString
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F3701B4_ME_483D28C30393_over // InitParamList
+ ME_48089F460352_ME_483D28C30393_over // ExecuteSelf
+ ME_48089F660238_ME_483D28C30393_over // ExecuteChilds
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_483D3A31000E // SysUtils
+ ME_483D3A4500F9 // atLogger
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atBaseSearchOperation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atBaseSearchOperation'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atBaseSearchOperation.pas'
+
+ENDME // ME_483D28C30393 TatBaseSearchOperation

@@ -1,0 +1,329 @@
+// TevTextParaStringImpl 52F20AED01DF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52F21C2001C1
+
+FORWARD ME_52F20AED01DF
+
+FORWARD ME_52F21C2001C1
+
+ME ME_52F21C3F02BC
+ MEPROP UID '52F21C3F02BC'
+ MEPROP Name 'ev_wdStart'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F21C2001C1 // TevWordDirection
+ ;
+
+ENDME // ME_52F21C3F02BC ev_wdStart
+
+ME ME_52F21C4C0381
+ MEPROP UID '52F21C4C0381'
+ MEPROP Name 'ev_wdFinish'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F21C2001C1 // TevWordDirection
+ ;
+
+ENDME // ME_52F21C4C0381 ev_wdFinish
+
+ME ME_52F21C5E026B
+ MEPROP UID '52F21C5E026B'
+ MEPROP Name 'ev_wdRight'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F21C2001C1 // TevWordDirection
+ ;
+
+ENDME // ME_52F21C5E026B ev_wdRight
+
+ME ME_52F21C6701A1
+ MEPROP UID '52F21C6701A1'
+ MEPROP Name 'ev_wdLeft'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F21C2001C1 // TevWordDirection
+ ;
+
+ENDME // ME_52F21C6701A1 ev_wdLeft
+
+ME ME_52F21C2001C1
+ MEPROP UID '52F21C2001C1'
+ MEPROP Name 'TevWordDirection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F20AED01DF // TevTextParaStringImpl
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52F21C3F02BC // ev_wdStart
+ HWL ME_52F21C4C0381 // ev_wdFinish
+ HWL ME_52F21C5E026B // ev_wdRight
+ HWL ME_52F21C6701A1 // ev_wdLeft
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_52F21C2001C1 TevWordDirection
+
+FORWARD ME_52F20B6C012E
+
+FORWARD ME_52F20B870315
+
+ME ME_5346A9E20209
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_5346A9E20209 aPara
+
+ME ME_52F20B870315
+ MEPROP UID '52F20B870315'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F20B6C012E // Make
+ ;
+ MELINK Target WL 'ME_476FC5B8034C' '4677FBA70343.ms.model.script' // Il3WordsSeq
+ ;
+ MELIST Parameters
+   Seq: ( ME_5346A9E20209 // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_52F20B870315 DoIt
+
+ME ME_52F20B6C012E
+ MEPROP UID '52F20B6C012E'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F20AED01DF // TevTextParaStringImpl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F20B870315 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_52F20B6C012E Make
+
+FORWARD ME_52F21CB700B6
+
+FORWARD ME_52F21CD30392
+
+ME ME_52F21CE903DC
+ MEPROP Name 'aPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52F21CE903DC aPos
+
+ME ME_52F21CEA0013
+ MEPROP Name 'aMoveType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_52F21C2001C1 // TevWordDirection
+ ;
+
+ENDME // ME_52F21CEA0013 aMoveType
+
+ME ME_52F21CD30392
+ MEPROP UID '52F21CD30392'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F21CB700B6 // DoMove
+ ;
+ MELINK Target WL 'ME_476FC5900368' '46A5E026007E.ms.model.script' // Tl3Position
+ ;
+ MELIST Parameters
+   Seq: ( ME_52F21CE903DC // aPos
+ ME_52F21CEA0013 // aMoveType
+ )
+ ; // Parameters
+
+ENDME // ME_52F21CD30392 DoIt
+
+ME ME_52F21CB700B6
+ MEPROP UID '52F21CB700B6'
+ MEPROP Name 'DoMove'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F20AED01DF // TevTextParaStringImpl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F21CD30392 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52F21CB700B6 DoMove
+
+ME ME_52F217C202A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F20AED01DF // TevTextParaStringImpl
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_52F217C202A3 
+
+ME ME_52F217ED0155
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F20AED01DF // TevTextParaStringImpl
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_52F217ED0155 
+
+ME ME_52F2184C03BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F20AED01DF // TevTextParaStringImpl
+ ;
+ MELINK Target WL 'ME_52F2183400F8' '47878E0E0191.ms.model.script' // l3IsWordDelim
+ ;
+
+ENDME // ME_52F2184C03BA 
+
+ME ME_53D78E14003A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_52F20AED01DF // TevTextParaStringImpl
+ ;
+ MELINK Target WL? 'ME_48577C150116' // TevTextPara
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D78E14003A 
+
+ME ME_53D78E1C0262
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_52F20AED01DF // TevTextParaStringImpl
+ ;
+ MELINK Target WL 'ME_476FC5B8034C' '4677FBA70343.ms.model.script' // Il3WordsSeq
+ ;
+
+ENDME // ME_53D78E1C0262 
+
+MEREF ME_476FC5CB038B_ME_52F20AED01DF_impl
+ MELINK Original WL 'ME_476FC5CB038B' '4677FBA70343.ms.model.script' // WordStart
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_476FC5CB038B_ME_52F20AED01DF_impl WordStart
+
+MEREF ME_476FC5D2025C_ME_52F20AED01DF_impl
+ MELINK Original WL 'ME_476FC5D2025C' '4677FBA70343.ms.model.script' // WordLeft
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_476FC5D2025C_ME_52F20AED01DF_impl WordLeft
+
+MEREF ME_476FC5DB0289_ME_52F20AED01DF_impl
+ MELINK Original WL 'ME_476FC5DB0289' '4677FBA70343.ms.model.script' // WordFinish
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_476FC5DB0289_ME_52F20AED01DF_impl WordFinish
+
+MEREF ME_476FC5E102C5_ME_52F20AED01DF_impl
+ MELINK Original WL 'ME_476FC5E102C5' '4677FBA70343.ms.model.script' // WordRight
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_476FC5E102C5_ME_52F20AED01DF_impl WordRight
+
+MEREF ME_467C18A303CB_ME_52F20AED01DF_G
+ MELINK Original WL? 'ME_467C18A303CB' // Tk2TagTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467C18A303CB_ME_52F20AED01DF_G Tk2TagTool
+
+MEREF ME_476FC5B8034C_ME_52F20AED01DF_R
+ MELINK Original WL 'ME_476FC5B8034C' '4677FBA70343.ms.model.script' // Il3WordsSeq
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_476FC5B8034C_ME_52F20AED01DF_R Il3WordsSeq
+
+%%InjectedBy ME_48577C150116 ME_52F20AED01DF
+
+%%ImplementedBy ME_476FC5B8034C ME_52F20AED01DF
+
+%%InheritedBy ME_467C18A303CB ME_52F20AED01DF
+
+ME ME_52F20AED01DF
+ MEPROP UID '52F20AED01DF'
+ MEPROP Name 'TevTextParaStringImpl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48CE0A0A03B4' // ParagraphsImplementation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_467C18A303CB_ME_52F20AED01DF_G // Tk2TagTool
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_476FC5B8034C_ME_52F20AED01DF_R // Il3WordsSeq
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_52F20B6C012E // Make
+ HWL ME_52F21CB700B6 // DoMove
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_476FC5CB038B_ME_52F20AED01DF_impl // WordStart
+ ME_476FC5D2025C_ME_52F20AED01DF_impl // WordLeft
+ ME_476FC5DB0289_ME_52F20AED01DF_impl // WordFinish
+ ME_476FC5E102C5_ME_52F20AED01DF_impl // WordRight
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_52F21C2001C1 // TevWordDirection
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_52F217C202A3 // l3Free
+ ME_52F217ED0155 // Tk2TagID
+ ME_52F2184C03BA // l3IsWordDelim
+ ME_53D78E14003A // TevTextPara
+ ME_53D78E1C0262 // Il3WordsSeq
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evTextParaStringImpl'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextParaStringImpl'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\evTextParaStringImpl.pas'
+
+ENDME // ME_52F20AED01DF TevTextParaStringImpl

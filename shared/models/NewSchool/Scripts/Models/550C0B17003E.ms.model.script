@@ -1,0 +1,79 @@
+// TChromeLikeBaseVisualObjectList 550C0B17003E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_550C0B17003E
+
+ME ME_550FAFA1015E
+ MEPROP UID '550FAFA1015E'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_550C0B17003E // TChromeLikeBaseVisualObjectList
+ ;
+ MELINK Target WL? 'ME_5506A3B0036E' // TChromeLikeBaseVisualObjectPrim
+ ;
+
+ENDME // ME_550FAFA1015E ItemType
+
+ME ME_550C0B2F017F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_550C0B17003E // TChromeLikeBaseVisualObjectList
+ ;
+ MELINK Target WL? 'ME_5506A3B0036E' // TChromeLikeBaseVisualObjectPrim
+ ;
+
+ENDME // ME_550C0B2F017F 
+
+MEREF ME_47B57B7800A7_ME_550C0B17003E_G
+ MELINK Original WL? 'ME_47B57B7800A7' // l3ObjectPtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57B7800A7_ME_550C0B17003E_G l3ObjectPtrList
+
+MEREF ME_4A54DD4E036F_ME_550C0B17003E_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_550C0B17003E_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57B7800A7 ME_550C0B17003E
+%%InheritedBy ME_4A54DD4E036F ME_550C0B17003E
+
+ME ME_550C0B17003E
+ MEPROP UID '550C0B17003E'
+ MEPROP Name 'TChromeLikeBaseVisualObjectList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_533E6F73014E' // ChromeLikeTabSet
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57B7800A7_ME_550C0B17003E_G // l3ObjectPtrList
+ HWL ME_4A54DD4E036F_ME_550C0B17003E_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_550FAFA1015E // ItemType
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_550C0B2F017F // TChromeLikeBaseVisualObjectPrim
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ChromeLikeBaseVisualObjectList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ChromeLikeBaseVisualObjectList'
+ UP intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseVisualObjectList.pas'
+
+ENDME // ME_550C0B17003E TChromeLikeBaseVisualObjectList

@@ -1,0 +1,68 @@
+// Tm3HashHandleListPrim 5459FA0D03B3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5459FA0D03B3
+
+ME ME_545B65E002DA
+ MEPROP UID '545B65E002DA'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5459FA0D03B3 // Tm3HashHandleListPrim
+ ;
+ MELINK Target WL? 'ME_5459F38200AF' // Tm3HashHandle
+ ;
+
+ENDME // ME_545B65E002DA ItemType
+
+ME ME_5459FA3002CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5459FA0D03B3 // Tm3HashHandleListPrim
+ ;
+ MELINK Target WL? 'ME_5459F38200AF' // Tm3HashHandle
+ ;
+
+ENDME // ME_5459FA3002CE 
+
+MEREF ME_542179C40347_ME_5459FA0D03B3_G
+ MELINK Original WL? 'ME_542179C40347' // m3AutoAllocList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_542179C40347_ME_5459FA0D03B3_G m3AutoAllocList
+
+%%InheritedBy ME_542179C40347 ME_5459FA0D03B3
+
+ME ME_5459FA0D03B3
+ MEPROP UID '5459FA0D03B3'
+ MEPROP Name 'Tm3HashHandleListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_542179C40347_ME_5459FA0D03B3_G // m3AutoAllocList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_545B65E002DA // ItemType
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_5459FA3002CE // Tm3HashHandle
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'm3HashHandleListPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3HashHandleListPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3HashHandleListPrim.pas'
+
+ENDME // ME_5459FA0D03B3 Tm3HashHandleListPrim

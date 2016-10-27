@@ -1,0 +1,167 @@
+// TtfwHash16Table 56F3E80A018E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56F3E80A018E
+
+FORWARD ME_56F3E8BE02A5
+
+ME ME_56F3E8D60391
+ MEPROP UID '56F3E8D60391'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56F3E8BE02A5 // Create
+ ;
+
+ENDME // ME_56F3E8D60391 DoIt
+
+ME ME_56F3E8BE02A5
+ MEPROP UID '56F3E8BE02A5'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56F3E80A018E // TtfwHash16Table
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56F3E8D60391 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56F3E8BE02A5 Create
+
+MEREF ME_56F3E8BE02A5_ME_56F3E8C900CA_G
+ MELINK Original HWL ME_56F3E8BE02A5 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_56F3E8BE02A5_ME_56F3E8C900CA_G Create
+
+MEREF ME_4DCC12FC0125_ME_56F3E8C900CA_R
+ MELINK Original WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCC12FC0125_ME_56F3E8C900CA_R ItfwValueList
+
+%%ImplementedBy ME_4DCC12FC0125 ME_56F3E8C900CA
+
+%%InheritedBy ME_56F3E8BE02A5 ME_56F3E8C900CA
+
+ME ME_56F3E8C900CA
+ MEPROP UID '56F3E8C900CA'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56F3E80A018E // TtfwHash16Table
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_56F3E8BE02A5_ME_56F3E8C900CA_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4DCC12FC0125_ME_56F3E8C900CA_R // ItfwValueList
+ )
+ ; // Implements
+
+ENDME // ME_56F3E8C900CA Make
+
+ME ME_56F3E86C00C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56F3E80A018E // TtfwHash16Table
+ ;
+ MELINK Target WL? 'ME_53FF366C021B' // m2HasLib
+ ;
+
+ENDME // ME_56F3E86C00C5 
+
+MEREF ME_52E23B7A00EC_ME_56F3E80A018E_impl
+ MELINK Original WL 'ME_52E23B7A00EC' '4DAF19F600C5.ms.model.script' // ForEach
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52E23B7A00EC_ME_56F3E80A018E_impl ForEach
+
+MEREF ME_52E23BB102FA_ME_56F3E80A018E_impl
+ MELINK Original WL 'ME_52E23BB102FA' '4DAF19F600C5.ms.model.script' // ForEachBack
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52E23BB102FA_ME_56F3E80A018E_impl ForEachBack
+
+MEREF ME_55CDF40C03D4_ME_56F3E80A018E_impl
+ MELINK Original WL 'ME_55CDF40C03D4' '4DAF19F600C5.ms.model.script' // SetItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55CDF40C03D4_ME_56F3E80A018E_impl SetItem
+
+MEREF ME_55E849210175_ME_56F3E80A018E_impl
+ MELINK Original WL 'ME_55E849210175' '4DAF19F600C5.ms.model.script' // ItemsCountInSlice
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55E849210175_ME_56F3E80A018E_impl ItemsCountInSlice
+
+MEREF ME_52E29ED5016B_ME_56F3E80A018E_G
+ MELINK Original WL? 'ME_52E29ED5016B' // TtfwIteratableParent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52E29ED5016B_ME_56F3E80A018E_G TtfwIteratableParent
+
+MEREF ME_4DCC12FC0125_ME_56F3E80A018E_R
+ MELINK Original WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCC12FC0125_ME_56F3E80A018E_R ItfwValueList
+
+%%ImplementedBy ME_4DCC12FC0125 ME_56F3E80A018E
+
+%%InheritedBy ME_52E29ED5016B ME_56F3E80A018E
+
+ME ME_56F3E80A018E
+ MEPROP UID '56F3E80A018E'
+ MEPROP Name 'TtfwHash16Table'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4ED7958E0045' // StringProcessing
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52E29ED5016B_ME_56F3E80A018E_G // TtfwIteratableParent
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4DCC12FC0125_ME_56F3E80A018E_R // ItfwValueList
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_56F3E8BE02A5 // Create
+ HWL ME_56F3E8C900CA // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_52E23B7A00EC_ME_56F3E80A018E_impl // ForEach
+ ME_52E23BB102FA_ME_56F3E80A018E_impl // ForEachBack
+ ME_55CDF40C03D4_ME_56F3E80A018E_impl // SetItem
+ ME_55E849210175_ME_56F3E80A018E_impl // ItemsCountInSlice
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_56F3E86C00C5 // m2HasLib
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'tfwHash16Table'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Hash16Table'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwHash16Table.pas'
+
+ENDME // ME_56F3E80A018E TtfwHash16Table

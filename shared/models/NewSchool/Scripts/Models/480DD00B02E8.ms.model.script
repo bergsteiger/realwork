@@ -1,0 +1,484 @@
+// TafwSingleCaret 480DD00B02E8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_480DD00B02E8
+
+ME ME_480DD07302DF
+ MEPROP UID '480DD07302DF'
+ MEPROP Name 'CellHeight'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'высота каретки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_480DD07302DF CellHeight
+
+ME ME_480DD08601B6
+ MEPROP UID '480DD08601B6'
+ MEPROP Name 'CellWidth'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'ширина каретки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_480DD08601B6 CellWidth
+
+ME ME_480DD09A026F
+ MEPROP UID '480DD09A026F'
+ MEPROP Name 'Linked'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'каретка привязана к окну? (Т.е. окно-владелец - в данный момент отображает каретку)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_480DD09A026F Linked
+
+ME ME_480DD0CA0330
+ MEPROP UID '480DD0CA0330'
+ MEPROP Name 'Position'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'позиция каретки (в координатах окна-владельца).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+ MELINK Target WL 'ME_47289677028A' '472745450206.ms.model.script' // Tl3SPoint
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_480DD0CA0330 Position
+
+ME ME_480DD1060119
+ MEPROP UID '480DD1060119'
+ MEPROP Name 'Visible'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'показывать каретку?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_480DD1060119 Visible
+
+ME ME_480DD11D0138
+ MEPROP UID '480DD11D0138'
+ MEPROP Name 'Hidden'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'флаг временной невидимости курсора (при выходе за границы окна).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_480DD11D0138 Hidden
+
+ME ME_480DD6A403A9
+ MEPROP UID '480DD6A403A9'
+ MEPROP Name 'f_CaretShowTimes'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_480DD6A403A9 f_CaretShowTimes
+
+ME ME_480DD6DC0201
+ MEPROP UID '480DD6DC0201'
+ MEPROP Name 'f_OrigBlinkTime'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Blink time before linking' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+ MELINK Target WL 'ME_49B14F7E013A' '48A41FF10094.ms.model.script' // UINT
+ ;
+
+ENDME // ME_480DD6DC0201 f_OrigBlinkTime
+
+ME ME_480DD88A02E9
+ MEPROP UID '480DD88A02E9'
+ MEPROP Name 'XOffset'
+ MEPROP Class class_Attribute
+ %SUMMARY 'X Offset of caret in cell' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_480DD88A02E9 XOffset
+
+ME ME_480DD896018D
+ MEPROP UID '480DD896018D'
+ MEPROP Name 'YOffset'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Y Offset of caret in cell' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_480DD896018D YOffset
+
+ME ME_480DD049030A
+ MEPROP UID '480DD049030A'
+ MEPROP Name 'CaretType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'текущий тип каретки.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+ MELINK Target WL? 'ME_480DC4B90226' // TafwCustomCaretType
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_480DD049030A CaretType
+
+ME ME_52FCEE200321
+ MEPROP UID '52FCEE200321'
+ MEPROP Name 'Owner'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_writeonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+ MELINK Target WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_52FCEE200321 Owner
+
+FORWARD ME_52FCEEE902D1
+
+FORWARD ME_52FCEEF0030A
+
+ME ME_52FCEEFB0200
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+
+ENDME // ME_52FCEEFB0200 anOwner
+
+ME ME_52FCEEF0030A
+ MEPROP UID '52FCEEF0030A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52FCEEE902D1 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_52FCEEFB0200 // anOwner
+ )
+ ; // Parameters
+
+ENDME // ME_52FCEEF0030A DoIt
+
+ME ME_52FCEEE902D1
+ MEPROP UID '52FCEEE902D1'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52FCEEF0030A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52FCEEE902D1 Create
+
+ME ME_480DD1C90077
+ MEPROP UID '480DD1C90077'
+ MEPROP Name 'DoShowCaret'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+
+ENDME // ME_480DD1C90077 DoShowCaret
+
+ME ME_480DD1D40019
+ MEPROP UID '480DD1D40019'
+ MEPROP Name 'DoHideCaret'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+
+ENDME // ME_480DD1D40019 DoHideCaret
+
+FORWARD ME_480DD1FC039F
+
+ME ME_480DD200019B
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_480DD200019B Sender
+
+ME ME_480DD1FC039F
+ MEPROP UID '480DD1FC039F'
+ MEPROP Name 'CaretTypeHasChanged'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+ MELIST Parameters
+   Seq: ( ME_480DD200019B // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_480DD1FC039F CaretTypeHasChanged
+
+ME ME_480DD2090194
+ MEPROP UID '480DD2090194'
+ MEPROP Name 'CheckHidden'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_480DD2090194 CheckHidden
+
+ME ME_480DD21B00FA
+ MEPROP UID '480DD21B00FA'
+ MEPROP Name 'CanHide'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_480DD21B00FA CanHide
+
+ME ME_480DD2280308
+ MEPROP UID '480DD2280308'
+ MEPROP Name 'Scrolled'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+
+ENDME // ME_480DD2280308 Scrolled
+
+ME ME_480DD75E00E3
+ MEPROP UID '480DD75E00E3'
+ MEPROP Name 'MakeShape'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+
+ENDME // ME_480DD75E00E3 MakeShape
+
+ME ME_480DD7770166
+ MEPROP UID '480DD7770166'
+ MEPROP Name 'Reinit'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+
+ENDME // ME_480DD7770166 Reinit
+
+ME ME_480DD7840317
+ MEPROP UID '480DD7840317'
+ MEPROP Name 'ResetPos'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+
+ENDME // ME_480DD7840317 ResetPos
+
+ME ME_480DD522014F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_480DD522014F 
+
+ME ME_480DD7B70313
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480DD00B02E8 // TafwSingleCaret
+ ;
+ MELINK Target WL 'ME_46A5DA1F0255' '48A41FF10094.ms.model.script' // hWnd
+ ;
+
+ENDME // ME_480DD7B70313 
+
+MEREF ME_479731C50290_ME_480DD00B02E8_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_480DD00B02E8_over Cleanup
+
+MEREF ME_480DD1890221_ME_480DD00B02E8_over
+ MELINK Original WL 'ME_480DD1890221' '478CF30500C1.ms.model.script' // GetOwner
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_480DD1890221_ME_480DD00B02E8_over GetOwner
+
+MEREF ME_49E7725102DA_ME_480DD00B02E8_G
+ MELINK Original WL? 'ME_49E7725102DA' // Tl3ProtoPersistent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7725102DA_ME_480DD00B02E8_G Tl3ProtoPersistent
+
+%%InheritedBy ME_49E7725102DA ME_480DD00B02E8
+
+ME ME_480DD00B02E8
+ MEPROP UID '480DD00B02E8'
+ MEPROP Name 'TafwSingleCaret'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Одиночная каретка ввода.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47877A6F000A' // Visual
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7725102DA_ME_480DD00B02E8_G // Tl3ProtoPersistent
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_480DD07302DF // CellHeight
+ HWL ME_480DD08601B6 // CellWidth
+ HWL ME_480DD09A026F // Linked
+ HWL ME_480DD0CA0330 // Position
+ HWL ME_480DD1060119 // Visible
+ HWL ME_480DD11D0138 // Hidden
+ HWL ME_480DD6A403A9 // f_CaretShowTimes
+ HWL ME_480DD6DC0201 // f_OrigBlinkTime
+ HWL ME_480DD88A02E9 // XOffset
+ HWL ME_480DD896018D // YOffset
+ HWL ME_480DD049030A // CaretType
+ HWL ME_52FCEE200321 // Owner
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52FCEEE902D1 // Create
+ HWL ME_480DD1C90077 // DoShowCaret
+ HWL ME_480DD1D40019 // DoHideCaret
+ HWL ME_480DD1FC039F // CaretTypeHasChanged
+ HWL ME_480DD2090194 // CheckHidden
+ HWL ME_480DD21B00FA // CanHide
+ HWL ME_480DD2280308 // Scrolled
+ HWL ME_480DD75E00E3 // MakeShape
+ HWL ME_480DD7770166 // Reinit
+ HWL ME_480DD7840317 // ResetPos
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_480DD00B02E8_over // Cleanup
+ ME_480DD1890221_ME_480DD00B02E8_over // GetOwner
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_480DD522014F // l3Base
+ ME_480DD7B70313 // hWnd
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '09.12.1998 16:25'
+ UP extprop:pas:UnitName 'afwSingleCaret'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwSingleCaret'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwSingleCaret.pas'
+
+ENDME // ME_480DD00B02E8 TafwSingleCaret

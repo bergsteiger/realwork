@@ -1,0 +1,73 @@
+// TevCustomEditTextSource 482D988102EC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_482D988102EC
+
+ME ME_482D8A43037B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_482D988102EC // TevCustomEditTextSource
+ ;
+ MELINK Target WL? 'ME_482D8A0D02E3' // TevEditDocumentContainer
+ ;
+
+ENDME // ME_482D8A43037B 
+
+ME ME_483FAFBA002D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_482D988102EC // TevCustomEditTextSource
+ ;
+ MELINK Target WL? 'ME_4829D81D02E5' // TevCustomMemo
+ ;
+
+ENDME // ME_483FAFBA002D 
+
+MEREF ME_482D9A030221_ME_482D988102EC_over
+ MELINK Original WL 'ME_482D9A030221' '482BFB7C00B6.ms.model.script' // DoMakeDocumentContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_482D9A030221_ME_482D988102EC_over DoMakeDocumentContainer
+
+MEREF ME_482D98A20190_ME_482D988102EC_G
+ MELINK Original WL? 'ME_482D98A20190' // TevCustomMemoTextSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_482D98A20190_ME_482D988102EC_G TevCustomMemoTextSource
+
+%%InheritedBy ME_482D98A20190 ME_482D988102EC
+
+ME ME_482D988102EC
+ MEPROP UID '482D988102EC'
+ MEPROP Name 'TevCustomEditTextSource'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4829D7D50156' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_482D98A20190_ME_482D988102EC_G // TevCustomMemoTextSource
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_482D9A030221_ME_482D988102EC_over // DoMakeDocumentContainer
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_482D8A43037B // TevEditDocumentContainer
+ ME_483FAFBA002D // TevCustomMemo
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '13.05.2008 20:35'
+ UP extprop:pas:UnitName 'evCustomEditTextSource'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EditTextSource'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCustomEditTextSource.pas'
+
+ENDME // ME_482D988102EC TevCustomEditTextSource

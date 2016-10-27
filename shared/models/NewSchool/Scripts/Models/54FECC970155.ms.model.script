@@ -1,0 +1,123 @@
+// TnsDataExchangeRealization 54FECC970155 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54FECC970155
+
+ME ME_54FECE510392
+ MEPROP UID '54FECE510392'
+ MEPROP Name 'new_ini_op'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54FECC970155 // TnsDataExchangeRealization
+ ;
+
+ENDME // ME_54FECE510392 new_ini_op
+
+ME ME_54FECCCA0081
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54FECC970155 // TnsDataExchangeRealization
+ ;
+ MELINK Target WL? 'ME_4926AE3900B9' // TdeListSet
+ ;
+
+ENDME // ME_54FECCCA0081 
+
+ME ME_54FECDDF0245
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54FECC970155 // TnsDataExchangeRealization
+ ;
+ MELINK Target WL? 'ME_491D718A00A9' // TdeSearchInfo
+ ;
+
+ENDME // ME_54FECDDF0245 
+
+ME ME_54FECEFC00CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54FECC970155 // TnsDataExchangeRealization
+ ;
+ MELINK Target WL 'ME_47F261320044' '47F260EC02C7.ms.model.script' // TdmStdRes
+ ;
+
+ENDME // ME_54FECEFC00CA 
+
+MEREF ME_54FECB920224_ME_54FECC970155_impl
+ MELINK Original WL 'ME_54FECB920224' '54FEC834013B.ms.model.script' // MakeAndOpenList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54FECB920224_ME_54FECC970155_impl MakeAndOpenList
+
+MEREF ME_479731C50290_ME_54FECC970155_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_54FECC970155_over Cleanup
+
+MEREF ME_4A54DD4E036F_ME_54FECC970155_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_54FECC970155_G Tl3ProtoDataContainer
+
+MEREF ME_54FEC88600B9_ME_54FECC970155_R
+ MELINK Original WL 'ME_54FEC88600B9' '54FEC834013B.ms.model.script' // InsDataExchangeSubscriber
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54FEC88600B9_ME_54FECC970155_R InsDataExchangeSubscriber
+
+%%ImplementedBy ME_54FEC88600B9 ME_54FECC970155
+
+%%InheritedBy ME_4A54DD4E036F ME_54FECC970155
+
+ME ME_54FECC970155
+ MEPROP UID '54FECC970155'
+ MEPROP Name 'TnsDataExchangeRealization'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47EA50050263' // BaseDocument
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_54FECC970155_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_54FEC88600B9_ME_54FECC970155_R // InsDataExchangeSubscriber
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_54FECE510392 // new_ini_op
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_54FECB920224_ME_54FECC970155_impl // MakeAndOpenList
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_54FECC970155_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54FECCCA0081 // TdeListSet
+ ME_54FECDDF0245 // TdeSearchInfo
+ ME_54FECEFC00CA // TdmStdRes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:pas:UnitName 'nsDataExchangeRealization'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DataExchangeRealization'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\nsDataExchangeRealization.pas'
+
+ENDME // ME_54FECC970155 TnsDataExchangeRealization

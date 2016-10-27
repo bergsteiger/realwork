@@ -24,11 +24,17 @@ ME ME_4F33F57C00BE
 
 ENDME // ME_4F33F57C00BE 
 
-ME ME_4F33E3A20056_ME_4F33E7CF0393
+MEREF ME_4F33E3A20056_ME_4F33E7CF0393_over
  MELINK Original WL 'ME_4F33E3A20056' '4F33E5FD009E.ms.model.script' // GetAllowsThisDecor
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4F33E3A20056_ME_4F33E7CF0393 GetAllowsThisDecor
+ENDMEREF // ME_4F33E3A20056_ME_4F33E7CF0393_over GetAllowsThisDecor
+
+MEREF ME_4F33E6C302BD_ME_4F33E7CF0393_R
+ MELINK Original WL 'ME_4F33E6C302BD' '4F4B48E5029E.ms.model.script' // MnevDocumentContainerDecorationRules
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F33E6C302BD_ME_4F33E7CF0393_R MnevDocumentContainerDecorationRules
 
 %%ImplementedBy ME_4F33E6C302BD ME_4F33E7CF0393
 
@@ -45,11 +51,11 @@ ME ME_4F33E7CF0393
  MELINK Parent WL? 'ME_4F4B48E5029E' // Aspects
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4F33E6C302BD' '4F4B48E5029E.ms.model.script' // MnevDocumentContainerDecorationRules
+   Seq: ( HWL ME_4F33E6C302BD_ME_4F33E7CF0393_R // MnevDocumentContainerDecorationRules
  )
  ; // Implements
  MELIST Overridden
-   Seq: ( ME_4F33E3A20056_ME_4F33E7CF0393 // GetAllowsThisDecor
+   Seq: ( ME_4F33E3A20056_ME_4F33E7CF0393_over // GetAllowsThisDecor
  )
  ; // Overridden
  MELIST Dependencies

@@ -1,0 +1,382 @@
+// WevBitmapPara 485792C1014E Wrapper Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F4B991C00A3
+%%Inner ME_4F4B9C7B036A
+
+FORWARD ME_485792C1014E
+
+FORWARD ME_4F4B991C00A3
+
+FORWARD ME_4F4B9CB401AF
+
+FORWARD ME_4F4B9CC700E5
+
+ME ME_4F4B9D07000F
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4F4B9D07000F aTag
+
+ME ME_4F4B9D070057
+ MEPROP Name 'aProp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A522D130096' '47AC6F0B025E.ms.model.script' // Tk2Prop
+ ;
+
+ENDME // ME_4F4B9D070057 aProp
+
+ME ME_4F4B9D07009E
+ MEPROP Name 'Data'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4F4B9D07009E Data
+
+ME ME_4F4B9CC700E5
+ MEPROP UID '4F4B9CC700E5'
+ MEPROP Name 'function DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4B9CB401AF // GetPicture
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F4B9D07000F // aTag
+ ME_4F4B9D070057 // aProp
+ ME_4F4B9D07009E // Data
+ )
+ ; // Parameters
+
+ENDME // ME_4F4B9CC700E5 function DoIt
+
+ME ME_4F4B9CB401AF
+ MEPROP UID '4F4B9CB401AF'
+ MEPROP Name 'GetPicture'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4B991C00A3 // TevBitmapParaPictureGetter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F4B9CC700E5 // function DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4F4B9CB401AF GetPicture
+
+ME ME_4F4B991C00A3
+ MEPROP UID '4F4B991C00A3'
+ MEPROP Name 'TevBitmapParaPictureGetter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_485792C1014E // WevBitmapPara
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F4B9CB401AF // GetPicture
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BitmapParaPictureGetter'
+
+ENDME // ME_4F4B991C00A3 TevBitmapParaPictureGetter
+
+MEREF ME_4F4B991C00A3_ME_4F4B9C7B036A_G
+ MELINK Original HWL ME_4F4B991C00A3 // TevBitmapParaPictureGetter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4B991C00A3_ME_4F4B9C7B036A_G TevBitmapParaPictureGetter
+
+%%InheritedBy ME_4F4B991C00A3 ME_4F4B9C7B036A
+
+ME ME_4F4B9C7B036A
+ MEPROP UID '4F4B9C7B036A'
+ MEPROP Name 'RevBitmapParaPictureGetter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_485792C1014E // WevBitmapPara
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4B991C00A3_ME_4F4B9C7B036A_G // TevBitmapParaPictureGetter
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4F4B9C7B036A RevBitmapParaPictureGetter
+
+ME ME_4F4B9C920165
+ MEPROP UID '4F4B9C920165'
+ MEPROP Name 'g_BitmapParaPictureGetter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_485792C1014E // WevBitmapPara
+ ;
+ MELINK Target HWL ME_4F4B9C7B036A // RevBitmapParaPictureGetter
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4F4B9C920165 g_BitmapParaPictureGetter
+
+FORWARD ME_48DD1AB50143
+
+ME ME_48DD1EA802E7
+ MEPROP Name 'AE'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_48DD1EA802E7 AE
+
+ME ME_48DD1EA8031A
+ MEPROP Name 'aProp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47AC6F6A00FA' '47AC6F0B025E.ms.model.script' // Tk2CustomProperty
+ ;
+
+ENDME // ME_48DD1EA8031A aProp
+
+ME ME_48DD201C011F
+ MEPROP Name 'theData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_48DD201C011F theData
+
+ME ME_48DD1AB50143
+ MEPROP UID '48DD1AB50143'
+ MEPROP Name 'DoGetAtomData'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_485792C1014E // WevBitmapPara
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48DD1EA802E7 // AE
+ ME_48DD1EA8031A // aProp
+ ME_48DD201C011F // theData
+ )
+ ; // Parameters
+
+ENDME // ME_48DD1AB50143 DoGetAtomData
+
+ME ME_48E652C4031C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_485792C1014E // WevBitmapPara
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_48E652C4031C 
+
+ME ME_48E652D60306
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_485792C1014E // WevBitmapPara
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_48E652D60306 
+
+ME ME_48E652EA01F7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_485792C1014E // WevBitmapPara
+ ;
+ MELINK Target WL? 'ME_4858153B023B' // TevBitmapParaBitmapContainer
+ ;
+
+ENDME // ME_48E652EA01F7 
+
+ME ME_48E6531A0295
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_485792C1014E // WevBitmapPara
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_48E6531A0295 
+
+ME ME_48E653830284
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_485792C1014E // WevBitmapPara
+ ;
+ MELINK Target WL 'ME_469F85A900E3' '478CF30500C1.ms.model.script' // TStream$Stub
+ ;
+
+ENDME // ME_48E653830284 
+
+ME ME_48E653A50048
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_485792C1014E // WevBitmapPara
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_48E653A50048 
+
+ME ME_48E653EA010E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_485792C1014E // WevBitmapPara
+ ;
+ MELINK Target WL 'ME_476F70910097' '467C0CAA02AB.ms.model.script' // Il3Bitmap
+ ;
+
+ENDME // ME_48E653EA010E 
+
+ME ME_48E65598026A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_485792C1014E // WevBitmapPara
+ ;
+ MELINK Target WL? 'ME_47A080670100' // l3Stream
+ ;
+
+ENDME // ME_48E65598026A 
+
+ME ME_5799C1E103B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_485792C1014E // WevBitmapPara
+ ;
+ MELINK Target WL 'ME_53B546BC00BF' '53B5469D0049.ms.model.script' // Tk2RawData
+ ;
+
+ENDME // ME_5799C1E103B4 
+
+ME ME_5799C9AC01C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_485792C1014E // WevBitmapPara
+ ;
+ MELINK Target WL 'ME_48492A0C00ED' '52669BFC024E.ms.model.script' // Long
+ ;
+
+ENDME // ME_5799C9AC01C5 
+
+MEREF ME_4857A995029E_ME_485792C1014E_over
+ MELINK Original WL 'ME_4857A995029E' '47AC6F0B025E.ms.model.script' // GetAtomData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4857A995029E_ME_485792C1014E_over GetAtomData
+
+MEREF ME_48DD0CE60313_ME_485792C1014E_over
+ MELINK Original WL 'ME_48DD0CE60313' '47AC6F0B025E.ms.model.script' // PreGetAtomData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48DD0CE60313_ME_485792C1014E_over PreGetAtomData
+
+MEREF ME_484FD34600BA_ME_485792C1014E_G
+ MELINK Original WL? 'ME_484FD34600BA' // WevPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484FD34600BA_ME_485792C1014E_G WevPara
+
+MEREF ME_4858116B0355_ME_485792C1014E_R
+ MELINK Original WL 'ME_4858116B0355' '48492FC0029D.ms.model.script' // BitmapPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4858116B0355_ME_485792C1014E_R BitmapPara
+
+%%ImplementedBy ME_4858116B0355 ME_485792C1014E
+
+%%InheritedBy ME_484FD34600BA ME_485792C1014E
+
+ME ME_485792C1014E
+ MEPROP UID '485792C1014E'
+ MEPROP Name 'WevBitmapPara'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Wrapper ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Wrapper для параграфов с картинками.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48492FC0029D' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484FD34600BA_ME_485792C1014E_G // WevPara
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4858116B0355_ME_485792C1014E_R // BitmapPara
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4F4B9C920165 // g_BitmapParaPictureGetter
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48DD1AB50143 // DoGetAtomData
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4857A995029E_ME_485792C1014E_over // GetAtomData
+ ME_48DD0CE60313_ME_485792C1014E_over // PreGetAtomData
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4F4B991C00A3 // TevBitmapParaPictureGetter
+ HWL ME_4F4B9C7B036A // RevBitmapParaPictureGetter
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_48E652C4031C // Tk2TagID
+ ME_48E652D60306 // SysUtils
+ ME_48E652EA01F7 // TevBitmapParaBitmapContainer
+ ME_48E6531A0295 // IStream
+ ME_48E653830284 // TStream$Stub
+ ME_48E653A50048 // l3Base
+ ME_48E653EA010E // Il3Bitmap
+ ME_48E65598026A // l3Stream
+ ME_5799C1E103B4 // Tk2RawData
+ ME_5799C9AC01C5 // Long
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '25.02.2000 10:40'
+ UP extprop:pas:UnitName 'evBitmapPara_Wrap'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evBitmapPara_Wrap.pas'
+
+ENDME // ME_485792C1014E WevBitmapPara

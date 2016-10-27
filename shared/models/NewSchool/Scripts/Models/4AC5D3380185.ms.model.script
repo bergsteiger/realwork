@@ -2,11 +2,17 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-ME ME_48735C4A03C3_ME_4AC5D3380185
+MEREF ME_48735C4A03C3_ME_4AC5D3380185_over
  MELINK Original WL 'ME_48735C4A03C3' '4829D85C03C1.ms.model.script' // DefineProvideOperations
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48735C4A03C3_ME_4AC5D3380185 DefineProvideOperations
+ENDMEREF // ME_48735C4A03C3_ME_4AC5D3380185_over DefineProvideOperations
+
+MEREF ME_4AC5D3DB0371_ME_4AC5D3380185_G
+ MELINK Original WL? 'ME_4AC5D3DB0371' // TeeMemo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AC5D3DB0371_ME_4AC5D3380185_G TeeMemo
 
 %%InheritedBy ME_4AC5D3DB0371 ME_4AC5D3380185
 
@@ -22,11 +28,11 @@ ME ME_4AC5D3380185
  MELINK Parent WL? 'ME_4952683C007B' // Editor
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4AC5D3DB0371' // TeeMemo
+   Seq: ( HWL ME_4AC5D3DB0371_ME_4AC5D3380185_G // TeeMemo
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_48735C4A03C3_ME_4AC5D3380185 // DefineProvideOperations
+   Seq: ( ME_48735C4A03C3_ME_4AC5D3380185_over // DefineProvideOperations
  )
  ; // Overridden
  UP extprop:pas:UnitName 'eeMemoWithEditOperations'

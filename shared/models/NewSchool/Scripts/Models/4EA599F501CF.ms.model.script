@@ -6,7 +6,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4EA599F501CF
 
-ME ME_49521D8E0295_ME_4F5E19AD0174
+MEREF ME_49521D8E0295_ME_4F5E19AD0174_impl
  MELINK Original WL 'ME_49521D8E0295' '494F898C013E.ms.model.script' // Print
  ;
  MEPROP OpKind opkind_Implemented
@@ -19,9 +19,9 @@ ME ME_49521D8E0295_ME_4F5E19AD0174
  UP "no prefix" False
  UP "ShowInContextMenu" 'undefined'
  UP "ShowInToolbar" 'undefined'
-ENDME // ME_49521D8E0295_ME_4F5E19AD0174 Print
+ENDMEREF // ME_49521D8E0295_ME_4F5E19AD0174_impl Print
 
-ME ME_495220DE0298_ME_4F5E19AD0174
+MEREF ME_495220DE0298_ME_4F5E19AD0174_impl
  MELINK Original WL 'ME_495220DE0298' '494F898C013E.ms.model.script' // PrintDialog
  ;
  MEPROP OpKind opkind_Implemented
@@ -34,9 +34,9 @@ ME ME_495220DE0298_ME_4F5E19AD0174
  UP "no prefix" False
  UP "ShowInContextMenu" 'undefined'
  UP "ShowInToolbar" 'undefined'
-ENDME // ME_495220DE0298_ME_4F5E19AD0174 PrintDialog
+ENDMEREF // ME_495220DE0298_ME_4F5E19AD0174_impl PrintDialog
 
-ME ME_495220F2033A_ME_4F5E19AD0174
+MEREF ME_495220F2033A_ME_4F5E19AD0174_impl
  MELINK Original WL 'ME_495220F2033A' '494F898C013E.ms.model.script' // PrintPreview
  ;
  MEPROP OpKind opkind_Implemented
@@ -49,7 +49,19 @@ ME ME_495220F2033A_ME_4F5E19AD0174
  UP "no prefix" False
  UP "ShowInContextMenu" 'undefined'
  UP "ShowInToolbar" 'undefined'
-ENDME // ME_495220F2033A_ME_4F5E19AD0174 PrintPreview
+ENDMEREF // ME_495220F2033A_ME_4F5E19AD0174_impl PrintPreview
+
+MEREF ME_4F5E13160332_ME_4F5E19AD0174_G
+ MELINK Original WL 'ME_4F5E13160332' '4F5E12C20114.ms.model.script' // Fake
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F5E13160332_ME_4F5E19AD0174_G Fake
+
+MEREF ME_49521D8203A0_ME_4F5E19AD0174_R
+ MELINK Original WL 'ME_49521D8203A0' '494F898C013E.ms.model.script' // File
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49521D8203A0_ME_4F5E19AD0174_R File
 
 %%ImplementedBy ME_49521D8203A0 ME_4F5E19AD0174
 
@@ -66,23 +78,23 @@ ME ME_4F5E19AD0174
  MELINK Parent HWL ME_4EA599F501CF // PrimWarningBaloonOptions
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F5E13160332' '4F5E12C20114.ms.model.script' // Fake
+   Seq: ( HWL ME_4F5E13160332_ME_4F5E19AD0174_G // Fake
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_49521D8203A0' '494F898C013E.ms.model.script' // File
+   Seq: ( HWL ME_49521D8203A0_ME_4F5E19AD0174_R // File
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_49521D8E0295_ME_4F5E19AD0174 // Print
- ME_495220DE0298_ME_4F5E19AD0174 // PrintDialog
- ME_495220F2033A_ME_4F5E19AD0174 // PrintPreview
+   Seq: ( ME_49521D8E0295_ME_4F5E19AD0174_impl // Print
+ ME_495220DE0298_ME_4F5E19AD0174_impl // PrintDialog
+ ME_495220F2033A_ME_4F5E19AD0174_impl // PrintPreview
  )
  ; // Implemented
 
 ENDME // ME_4F5E19AD0174 IncludePrint
 
-ME ME_4C7F753E02BC_ME_4EA599F501CF
+MEREF ME_4C7F753E02BC_ME_4EA599F501CF_over
  MELINK Original WL 'ME_4C7F753E02BC' '498874B90391.ms.model.script' // TimeMachineOffAndReset
  ;
  MEPROP OpKind opkind_Overridden
@@ -95,13 +107,25 @@ ME ME_4C7F753E02BC_ME_4EA599F501CF
  UP "no prefix" False
  UP "ShowInContextMenu" False
  UP "ShowInToolbar" False
-ENDME // ME_4C7F753E02BC_ME_4EA599F501CF TimeMachineOffAndReset
+ENDMEREF // ME_4C7F753E02BC_ME_4EA599F501CF_over TimeMachineOffAndReset
 
-ME ME_4F748C5A00CB_ME_4EA599F501CF
+MEREF ME_4F748C5A00CB_ME_4EA599F501CF_over
  MELINK Original WL 'ME_4F748C5A00CB' '4F22CB1E0009.ms.model.script' // IsBaloon
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4F748C5A00CB_ME_4EA599F501CF IsBaloon
+ENDMEREF // ME_4F748C5A00CB_ME_4EA599F501CF_over IsBaloon
+
+MEREF ME_4C7F738D033E_ME_4EA599F501CF_G
+ MELINK Original WL? 'ME_4C7F738D033E' // PrimWarningOptions
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C7F738D033E_ME_4EA599F501CF_G PrimWarningOptions
+
+MEREF ME_4F5E12C20114_ME_4EA599F501CF_R
+ MELINK Original WL? 'ME_4F5E12C20114' // BaloonWarningUserTypes
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F5E12C20114_ME_4EA599F501CF_R BaloonWarningUserTypes
 
 %%ImplementedBy ME_4F5E12C20114 ME_4EA599F501CF
 
@@ -119,16 +143,16 @@ ME ME_4EA599F501CF
  MELINK Parent WL? 'ME_4D396FDD0344' // Warning
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4C7F738D033E' // PrimWarningOptions
+   Seq: ( HWL ME_4C7F738D033E_ME_4EA599F501CF_G // PrimWarningOptions
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_4F5E12C20114' // BaloonWarningUserTypes
+   Seq: ( HWL ME_4F5E12C20114_ME_4EA599F501CF_R // BaloonWarningUserTypes
  )
  ; // Implements
  MELIST Overridden
-   Seq: ( ME_4C7F753E02BC_ME_4EA599F501CF // TimeMachineOffAndReset
- ME_4F748C5A00CB_ME_4EA599F501CF // IsBaloon
+   Seq: ( ME_4C7F753E02BC_ME_4EA599F501CF_over // TimeMachineOffAndReset
+ ME_4F748C5A00CB_ME_4EA599F501CF_over // IsBaloon
  )
  ; // Overridden
  MELIST Children

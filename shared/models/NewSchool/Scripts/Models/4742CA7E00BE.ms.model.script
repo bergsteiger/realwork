@@ -1,0 +1,142 @@
+// Tm3SimpleDB 4742CA7E00BE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4742CA7E00BE
+
+FORWARD ME_5540F2810201
+
+FORWARD ME_5540F28B0031
+
+ME ME_5540F29B003D
+ MEPROP Name 'aBaseName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5540F29B003D aBaseName
+
+ME ME_5540F28B0031
+ MEPROP UID '5540F28B0031'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5540F2810201 // Make
+ ;
+ MELINK Target WL 'ME_472084690055' '4720831F012D.ms.model.script' // Im3DB
+ ;
+ MELIST Parameters
+   Seq: ( ME_5540F29B003D // aBaseName
+ )
+ ; // Parameters
+
+ENDME // ME_5540F28B0031 DoIt
+
+ME ME_5540F2810201
+ MEPROP UID '5540F2810201'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4742CA7E00BE // Tm3SimpleDB
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5540F28B0031 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_5540F2810201 Make
+
+ME ME_5551D8850304
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4742CA7E00BE // Tm3SimpleDB
+ ;
+ MELINK Target WL? 'ME_5551C8670144' // Tm3StorageService
+ ;
+
+ENDME // ME_5551D8850304 
+
+MEREF ME_49BFD4CE0235_ME_4742CA7E00BE_over
+ MELINK Original WL 'ME_49BFD4CE0235' '49BFBC690162.ms.model.script' // MainStorage
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49BFD4CE0235_ME_4742CA7E00BE_over MainStorage
+
+MEREF ME_49BFD4F3013E_ME_4742CA7E00BE_over
+ MELINK Original WL 'ME_49BFD4F3013E' '49BFBC690162.ms.model.script' // GetVersionsStorage
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49BFD4F3013E_ME_4742CA7E00BE_over GetVersionsStorage
+
+MEREF ME_49BFD52D0076_ME_4742CA7E00BE_over
+ MELINK Original WL 'ME_49BFD52D0076' '49BFBC690162.ms.model.script' // GetBackupStorage
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49BFD52D0076_ME_4742CA7E00BE_over GetBackupStorage
+
+MEREF ME_5540ECC800D2_ME_4742CA7E00BE_over
+ MELINK Original WL 'ME_5540ECC800D2' '49BFBC690162.ms.model.script' // NeedsFork
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5540ECC800D2_ME_4742CA7E00BE_over NeedsFork
+
+MEREF ME_5551EC2101DB_ME_4742CA7E00BE_over
+ MELINK Original WL 'ME_5551EC2101DB' '49BFBC690162.ms.model.script' // NeedProxy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5551EC2101DB_ME_4742CA7E00BE_over NeedProxy
+
+MEREF ME_4742CA9702AE_ME_4742CA7E00BE_G
+ MELINK Original WL 'ME_4742CA9702AE' '4742D9F50189.ms.model.script' // Tm3DB
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4742CA9702AE_ME_4742CA7E00BE_G Tm3DB
+
+%%InheritedBy ME_4742CA9702AE ME_4742CA7E00BE
+
+ME ME_4742CA7E00BE
+ MEPROP UID '4742CA7E00BE'
+ MEPROP Name 'Tm3SimpleDB'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4742C9DB033A' // m3DB
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4742CA9702AE_ME_4742CA7E00BE_G // Tm3DB
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5540F2810201 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_49BFD4CE0235_ME_4742CA7E00BE_over // MainStorage
+ ME_49BFD4F3013E_ME_4742CA7E00BE_over // GetVersionsStorage
+ ME_49BFD52D0076_ME_4742CA7E00BE_over // GetBackupStorage
+ ME_5540ECC800D2_ME_4742CA7E00BE_over // NeedsFork
+ ME_5551EC2101DB_ME_4742CA7E00BE_over // NeedProxy
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5551D8850304 // Tm3StorageService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'm3SimpleDB'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3SimpleDB'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3SimpleDB.pas'
+
+ENDME // ME_4742CA7E00BE Tm3SimpleDB

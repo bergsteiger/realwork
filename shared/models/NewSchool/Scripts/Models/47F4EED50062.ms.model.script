@@ -93,7 +93,7 @@ ENDME // ME_4F7B072F00C3 DoIt
 ME ME_4F7B072201AA
  MEPROP UID '4F7B072201AA'
  MEPROP Name 'DoSaveInSettings'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -125,7 +125,7 @@ ENDME // ME_4FC39AC40027 DoIt
 ME ME_4FC38C4C0119
  MEPROP UID '4FC38C4C0119'
  MEPROP Name 'NeedSaveInSettings'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -157,7 +157,7 @@ ENDME // ME_87575D08EFA6 DoIt
 ME ME_501FEC7203A5
  MEPROP UID '501FEC7203A5'
  MEPROP Name 'ClearModal'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -189,7 +189,7 @@ ENDME // ME_537B41130001 DoIt
 ME ME_537B402502DD
  MEPROP UID '537B402502DD'
  MEPROP Name 'SafeClose'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -231,6 +231,12 @@ ME ME_4980407F0076
 
 ENDME // ME_4980407F0076 CallCloseQuery
 
+MEREF ME_4E01D585033A_ME_49525AB4009E_G
+ MELINK Original WL? 'ME_4E01D585033A' // TvcmUserInteractiveForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E01D585033A_ME_49525AB4009E_G TvcmUserInteractiveForm
+
 %%InheritedBy ME_4E01D585033A ME_49525AB4009E
 
 ME ME_49525AB4009E
@@ -244,7 +250,7 @@ ME ME_49525AB4009E
  MELINK Parent HWL ME_47F4EED50062 // vcmForm
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4E01D585033A' '4AADF9450143.ms.model.script' // TvcmUserInteractiveForm
+   Seq: ( HWL ME_4E01D585033A_ME_49525AB4009E_G // TvcmUserInteractiveForm
  )
  ; // Inherits
  MELIST Operations
@@ -268,18 +274,30 @@ ME ME_49525AB4009E
 
 ENDME // ME_49525AB4009E TvcmInterfacedForm
 
-ME ME_473DAC05025F_ME_49525AC30370
+MEREF ME_473DAC05025F_ME_49525AC30370_impl
  MELINK Original WL 'ME_473DAC05025F' '467823B7002C.ms.model.script' // CCaption
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_473DAC05025F_ME_49525AC30370 CCaption
+ENDMEREF // ME_473DAC05025F_ME_49525AC30370_impl CCaption
 
-ME ME_537B402502DD_ME_49525AC30370
+MEREF ME_537B402502DD_ME_49525AC30370_impl
  MELINK Original HWL ME_537B402502DD // SafeClose
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_537B402502DD_ME_49525AC30370 SafeClose
+ENDMEREF // ME_537B402502DD_ME_49525AC30370_impl SafeClose
+
+MEREF ME_49525AB4009E_ME_49525AC30370_G
+ MELINK Original HWL ME_49525AB4009E // TvcmInterfacedForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525AB4009E_ME_49525AC30370_G TvcmInterfacedForm
+
+MEREF ME_473DABFA029F_ME_49525AC30370_R
+ MELINK Original WL 'ME_473DABFA029F' '467823B7002C.ms.model.script' // IafwTextControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_473DABFA029F_ME_49525AC30370_R IafwTextControl
 
 %%ImplementedBy ME_473DABFA029F ME_49525AC30370
 
@@ -296,16 +314,16 @@ ME ME_49525AC30370
  MELINK Parent HWL ME_47F4EED50062 // vcmForm
  ;
  MELIST Inherits
-   Seq: ( HWL ME_49525AB4009E // TvcmInterfacedForm
+   Seq: ( HWL ME_49525AB4009E_ME_49525AC30370_G // TvcmInterfacedForm
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_473DABFA029F' '467823B7002C.ms.model.script' // IafwTextControl
+   Seq: ( HWL ME_473DABFA029F_ME_49525AC30370_R // IafwTextControl
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_473DAC05025F_ME_49525AC30370 // CCaption
- ME_537B402502DD_ME_49525AC30370 // SafeClose
+   Seq: ( ME_473DAC05025F_ME_49525AC30370_impl // CCaption
+ ME_537B402502DD_ME_49525AC30370_impl // SafeClose
  )
  ; // Implemented
  UP "finished" False
@@ -316,11 +334,17 @@ ENDME // ME_49525AC30370 TvcmTextForm
 
 FORWARD ME_49525AED007D
 
-ME ME_55127C030325_ME_4F22CFBC016D
- MELINK Original WL 'ME_55127C030325' '4AADF9450143.ms.model.script' // GetIsAcceptable
+MEREF ME_55127C030325_ME_4F22CFBC016D_over
+ MELINK Original WL 'ME_55127C030325' '4F82714B0271.ms.model.script' // GetIsAcceptable
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_55127C030325_ME_4F22CFBC016D GetIsAcceptable
+ENDMEREF // ME_55127C030325_ME_4F22CFBC016D_over GetIsAcceptable
+
+MEREF ME_4F82714B0271_ME_4F22CFBC016D_G
+ MELINK Original WL? 'ME_4F82714B0271' // TvcmLayoutImplementation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F82714B0271_ME_4F22CFBC016D_G TvcmLayoutImplementation
 
 %%InheritedBy ME_4F82714B0271 ME_4F22CFBC016D
 
@@ -335,11 +359,11 @@ ME ME_4F22CFBC016D
  MELINK Parent HWL ME_49525AED007D // TvcmForm
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F82714B0271' '4AADF9450143.ms.model.script' // TvcmLayoutImplementation
+   Seq: ( HWL ME_4F82714B0271_ME_4F22CFBC016D_G // TvcmLayoutImplementation
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_55127C030325_ME_4F22CFBC016D // GetIsAcceptable
+   Seq: ( ME_55127C030325_ME_4F22CFBC016D_over // GetIsAcceptable
  )
  ; // Overridden
  UP extprop:rc:isAcceptableForScripts True
@@ -363,7 +387,7 @@ ENDME // ME_4E7C2AB20024 DoIt
 ME ME_4E7C2AA3037E
  MEPROP UID '4E7C2AA3037E'
  MEPROP Name 'DoLoadFromSettings'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -395,7 +419,7 @@ ENDME // ME_5463045B0174 DoIt
 ME ME_546304500231
  MEPROP UID '546304500231'
  MEPROP Name 'NeedNotifyContainerOnCaptionChanged'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -442,7 +466,7 @@ ENDME // ME_55127A720298 DoIt
 ME ME_55127A5401DE
  MEPROP UID '55127A5401DE'
  MEPROP Name 'IsAcceptable'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Можно ли открывать форму в текущих условиях (например, на текущей базе)' ;
@@ -477,6 +501,12 @@ ME ME_4D99E244027C
 
 ENDME // ME_4D99E244027C 
 
+MEREF ME_49525AC30370_ME_49525AED007D_G
+ MELINK Original HWL ME_49525AC30370 // TvcmTextForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525AC30370_ME_49525AED007D_G TvcmTextForm
+
 %%InheritedBy ME_49525AC30370 ME_49525AED007D
 
 ME ME_49525AED007D
@@ -490,7 +520,7 @@ ME ME_49525AED007D
  MELINK Parent HWL ME_47F4EED50062 // vcmForm
  ;
  MELIST Inherits
-   Seq: ( HWL ME_49525AC30370 // TvcmTextForm
+   Seq: ( HWL ME_49525AC30370_ME_49525AED007D_G // TvcmTextForm
  )
  ; // Inherits
  MELIST Operations

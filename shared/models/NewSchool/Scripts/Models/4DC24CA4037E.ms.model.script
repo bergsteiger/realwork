@@ -26,7 +26,7 @@ ENDME // ME_4EA50BF00299 DoIt
 ME ME_4EA50B95037D
  MEPROP UID '4EA50B95037D'
  MEPROP Name 'GetDataFolder'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Возвращает папку с данными для создания тестов.' ;
@@ -59,7 +59,7 @@ ENDME // ME_4EA50C2100BF DoIt
 ME ME_4EA50C04021B
  MEPROP UID '4EA50C04021B'
  MEPROP Name 'GetExt'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -104,7 +104,7 @@ ENDME // ME_506D81590085 DoIt
 ME ME_506D80B002A6
  MEPROP UID '506D80B002A6'
  MEPROP Name 'CheckExists'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -151,7 +151,7 @@ ENDME // ME_506D81890103 DoIt
 ME ME_506D8174020F
  MEPROP UID '506D8174020F'
  MEPROP Name 'Try2FindTest'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -205,17 +205,23 @@ ME ME_4DC42054007C
 
 ENDME // ME_4DC42054007C 
 
-ME ME_4DC38C96018E_ME_4DC40A7E00C8
+MEREF ME_4DC38C96018E_ME_4DC40A7E00C8_over
  MELINK Original WL 'ME_4DC38C96018E' '4B2A0DCE03A9.ms.model.script' // AddTests
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4DC38C96018E_ME_4DC40A7E00C8 AddTests
+ENDMEREF // ME_4DC38C96018E_ME_4DC40A7E00C8_over AddTests
 
-ME ME_4DCCD004030E_ME_4DC40A7E00C8
+MEREF ME_4DCCD004030E_ME_4DC40A7E00C8_over
  MELINK Original WL 'ME_4DCCD004030E' '4B2A0DCE03A9.ms.model.script' // DoHasScriptChildren
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4DCCD004030E_ME_4DC40A7E00C8 DoHasScriptChildren
+ENDMEREF // ME_4DCCD004030E_ME_4DC40A7E00C8_over DoHasScriptChildren
+
+MEREF ME_4DC24566022C_ME_4DC40A7E00C8_G
+ MELINK Original WL 'ME_4DC24566022C' '4B2A0DCE03A9.ms.model.script' // TTestSuite
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DC24566022C_ME_4DC40A7E00C8_G TTestSuite
 
 %%InheritedBy ME_4DC24566022C ME_4DC40A7E00C8
 
@@ -230,7 +236,7 @@ ME ME_4DC40A7E00C8
  MELINK Parent HWL ME_4DC24CA4037E // CustomAutoTestsSuite
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4DC24566022C' '4B2A0DCE03A9.ms.model.script' // TTestSuite
+   Seq: ( HWL ME_4DC24566022C_ME_4DC40A7E00C8_G // TTestSuite
  )
  ; // Inherits
  MELIST Operations
@@ -241,8 +247,8 @@ ME ME_4DC40A7E00C8
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_4DC38C96018E_ME_4DC40A7E00C8 // AddTests
- ME_4DCCD004030E_ME_4DC40A7E00C8 // DoHasScriptChildren
+   Seq: ( ME_4DC38C96018E_ME_4DC40A7E00C8_over // AddTests
+ ME_4DCCD004030E_ME_4DC40A7E00C8_over // DoHasScriptChildren
  )
  ; // Overridden
  MELIST Dependencies

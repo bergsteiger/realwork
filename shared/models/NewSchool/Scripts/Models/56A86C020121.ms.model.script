@@ -1,0 +1,304 @@
+// TcaDataProviderFactory 56A86C020121 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56A86C020121
+
+ME ME_56AB24D501EA
+ MEPROP UID '56AB24D501EA'
+ MEPROP Name 'f_HTFactory'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ MELINK Target WL? 'ME_54FEAD4402AB' // ThtDataProviderFactory
+ ;
+
+ENDME // ME_56AB24D501EA f_HTFactory
+
+ME ME_56AB24E00072
+ MEPROP UID '56AB24E00072'
+ MEPROP Name 'f_PGFactory'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ MELINK Target WL? 'ME_55D6E2FB025D' // TpgDataProviderFactory
+ ;
+
+ENDME // ME_56AB24E00072 f_PGFactory
+
+FORWARD ME_56AB24FB0037
+
+FORWARD ME_56AB2505018E
+
+ME ME_56AB39D20183
+ MEPROP Name 'aHTFactory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_54FEAD4402AB' // ThtDataProviderFactory
+ ;
+
+ENDME // ME_56AB39D20183 aHTFactory
+
+ME ME_56AB39D20192
+ MEPROP Name 'aPGFactory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_55D6E2FB025D' // TpgDataProviderFactory
+ ;
+
+ENDME // ME_56AB39D20192 aPGFactory
+
+ME ME_56AB2505018E
+ MEPROP UID '56AB2505018E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56AB24FB0037 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_56AB39D20183 // aHTFactory
+ ME_56AB39D20192 // aPGFactory
+ )
+ ; // Parameters
+
+ENDME // ME_56AB2505018E DoIt
+
+ME ME_56AB24FB0037
+ MEPROP UID '56AB24FB0037'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56AB2505018E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56AB24FB0037 Create
+
+ME ME_56A86C13005B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ MELINK Target WL? 'ME_56A86B450218' // TcaDataProviderParams
+ ;
+
+ENDME // ME_56A86C13005B 
+
+ME ME_56A86C1B0177
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ MELINK Target WL? 'ME_56A86BCE01EE' // TcaDataProvider
+ ;
+
+ENDME // ME_56A86C1B0177 
+
+ME ME_56AB3E470177
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_56AB3E470177 
+
+ME ME_56B9AA170075
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ MELINK Target WL? 'ME_54F9AF6B00DD' // ThtDataProviderParams
+ ;
+
+ENDME // ME_56B9AA170075 
+
+ME ME_56B9AA1B01F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ MELINK Target WL? 'ME_55D6CFA5009E' // TpgDataProviderParams
+ ;
+
+ENDME // ME_56B9AA1B01F4 
+
+ME ME_56BAD9A3030F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ MELINK Target WL 'ME_4E302F4201D5' '52161F2B00C4.ms.model.script' // TddBaseConfigItem
+ ;
+
+ENDME // ME_56BAD9A3030F 
+
+ME ME_56BAE6970292
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_56BAE6970292 
+
+ME ME_56BAEB4701A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ MELINK Target WL 'ME_562F3A6203BD' '55DAD4150001.ms.model.script' // Defaults
+ ;
+
+ENDME // ME_56BAEB4701A8 
+
+MEREF ME_54F8635B023E_ME_56A86C020121_impl
+ MELINK Original WL 'ME_54F8635B023E' '54F85EE102D1.ms.model.script' // Key
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54F8635B023E_ME_56A86C020121_impl Key
+
+MEREF ME_54FEB57302B0_ME_56A86C020121_impl
+ MELINK Original WL 'ME_54FEB57302B0' '54F85EE102D1.ms.model.script' // MakeFromConfig
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54FEB57302B0_ME_56A86C020121_impl MakeFromConfig
+
+MEREF ME_550AAD0101F9_ME_56A86C020121_impl
+ MELINK Original WL 'ME_550AAD0101F9' '54F85EE102D1.ms.model.script' // SaveToConfig
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_550AAD0101F9_ME_56A86C020121_impl SaveToConfig
+
+MEREF ME_550FD49301BF_ME_56A86C020121_impl
+ MELINK Original WL 'ME_550FD49301BF' '54F85EE102D1.ms.model.script' // ParamType
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_550FD49301BF_ME_56A86C020121_impl ParamType
+
+MEREF ME_5512BAB20128_ME_56A86C020121_impl
+ MELINK Original WL 'ME_5512BAB20128' '54F85EE102D1.ms.model.script' // FillOutConfig
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5512BAB20128_ME_56A86C020121_impl FillOutConfig
+
+MEREF ME_5512BB030346_ME_56A86C020121_impl
+ MELINK Original WL 'ME_5512BB030346' '54F85EE102D1.ms.model.script' // FillInConfig
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5512BB030346_ME_56A86C020121_impl FillInConfig
+
+MEREF ME_5512BB1F023F_ME_56A86C020121_impl
+ MELINK Original WL 'ME_5512BB1F023F' '54F85EE102D1.ms.model.script' // BuildConfig
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5512BB1F023F_ME_56A86C020121_impl BuildConfig
+
+MEREF ME_551904FC039A_ME_56A86C020121_impl
+ MELINK Original WL 'ME_551904FC039A' '54F85EE102D1.ms.model.script' // LoadDBVersion
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_551904FC039A_ME_56A86C020121_impl LoadDBVersion
+
+MEREF ME_551D06D402AF_ME_56A86C020121_impl
+ MELINK Original WL 'ME_551D06D402AF' '54F85EE102D1.ms.model.script' // DoMakeProvider
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_551D06D402AF_ME_56A86C020121_impl DoMakeProvider
+
+MEREF ME_55D706D201C3_ME_56A86C020121_impl
+ MELINK Original WL 'ME_55D706D201C3' '54F85EE102D1.ms.model.script' // LoginCheckSucceed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55D706D201C3_ME_56A86C020121_impl LoginCheckSucceed
+
+MEREF ME_479731C50290_ME_56A86C020121_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_56A86C020121_over Cleanup
+
+MEREF ME_54F85EE102D1_ME_56A86C020121_G
+ MELINK Original WL? 'ME_54F85EE102D1' // TdaDataProviderFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54F85EE102D1_ME_56A86C020121_G TdaDataProviderFactory
+
+%%InheritedBy ME_54F85EE102D1 ME_56A86C020121
+
+ME ME_56A86C020121
+ MEPROP UID '56A86C020121'
+ MEPROP Name 'TcaDataProviderFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_56A86AF40350' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54F85EE102D1_ME_56A86C020121_G // TdaDataProviderFactory
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_56AB24D501EA // f_HTFactory
+ HWL ME_56AB24E00072 // f_PGFactory
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_56AB24FB0037 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_54F8635B023E_ME_56A86C020121_impl // Key
+ ME_54FEB57302B0_ME_56A86C020121_impl // MakeFromConfig
+ ME_550AAD0101F9_ME_56A86C020121_impl // SaveToConfig
+ ME_550FD49301BF_ME_56A86C020121_impl // ParamType
+ ME_5512BAB20128_ME_56A86C020121_impl // FillOutConfig
+ ME_5512BB030346_ME_56A86C020121_impl // FillInConfig
+ ME_5512BB1F023F_ME_56A86C020121_impl // BuildConfig
+ ME_551904FC039A_ME_56A86C020121_impl // LoadDBVersion
+ ME_551D06D402AF_ME_56A86C020121_impl // DoMakeProvider
+ ME_55D706D201C3_ME_56A86C020121_impl // LoginCheckSucceed
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_56A86C020121_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_56A86C13005B // TcaDataProviderParams
+ ME_56A86C1B0177 // TcaDataProvider
+ ME_56AB3E470177 // FreeAndNil
+ ME_56B9AA170075 // ThtDataProviderParams
+ ME_56B9AA1B01F4 // TpgDataProviderParams
+ ME_56BAD9A3030F // TddBaseConfigItem
+ ME_56BAE6970292 // l3CStr
+ ME_56BAEB4701A8 // Defaults
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'caDataProviderFactory'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'caDataProviderFactory'
+ UP intf.pas:Path 'common\components\rtl\Garant\ComboAccess\caDataProviderFactory.pas'
+
+ENDME // ME_56A86C020121 TcaDataProviderFactory

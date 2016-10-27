@@ -1,0 +1,121 @@
+// TnscTasksPanelRootNode 508EBDB503D2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_508EBDB503D2
+
+FORWARD ME_508F978501B3
+
+ME ME_508F979F0383
+ MEPROP UID '508F979F0383'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F978501B3 // Make
+ ;
+ MELINK Target WL 'ME_468274930190' '4682595B0268.ms.model.script' // Il3SimpleRootNode
+ ;
+
+ENDME // ME_508F979F0383 DoIt
+
+ME ME_508F978501B3
+ MEPROP UID '508F978501B3'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508EBDB503D2 // TnscTasksPanelRootNode
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F979F0383 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_508F978501B3 Make
+
+ME ME_508FE6A100B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_508EBDB503D2 // TnscTasksPanelRootNode
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_508FE6A100B4 
+
+ME ME_508FE6A401BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_508EBDB503D2 // TnscTasksPanelRootNode
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_508FE6A401BB 
+
+ME ME_508FE72A0129
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_508EBDB503D2 // TnscTasksPanelRootNode
+ ;
+ MELINK Target WL 'ME_499C1A4E03C8' '499C1A100121.ms.model.script' // InscOperationNode
+ ;
+
+ENDME // ME_508FE72A0129 
+
+MEREF ME_54C8E03003CD_ME_508EBDB503D2_over
+ MELINK Original WL 'ME_54C8E03003CD' '54C61BFC0342.ms.model.script' // DoCompareChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_54C8E03003CD_ME_508EBDB503D2_over DoCompareChild
+
+MEREF ME_4ADDE1F000E2_ME_508EBDB503D2_G
+ MELINK Original WL 'ME_4ADDE1F000E2' '54C61BFC0342.ms.model.script' // Tl3RootNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4ADDE1F000E2_ME_508EBDB503D2_G Tl3RootNode
+
+%%InheritedBy ME_4ADDE1F000E2 ME_508EBDB503D2
+
+ME ME_508EBDB503D2
+ MEPROP UID '508EBDB503D2'
+ MEPROP Name 'TnscTasksPanelRootNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D3424960025' // TasksPanel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4ADDE1F000E2_ME_508EBDB503D2_G // Tl3RootNode
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_508F978501B3 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_54C8E03003CD_ME_508EBDB503D2_over // DoCompareChild
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_508FE6A100B4 // Supports
+ ME_508FE6A401BB // l3Free
+ ME_508FE72A0129 // InscOperationNode
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nscTasksPanelRootNode'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TasksPanelRootNode'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTasksPanelRootNode.pas'
+
+ENDME // ME_508EBDB503D2 TnscTasksPanelRootNode

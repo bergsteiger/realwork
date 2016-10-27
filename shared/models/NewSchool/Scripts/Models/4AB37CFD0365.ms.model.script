@@ -1,0 +1,99 @@
+// Tm4WordIDStrListPrim 4AB37CFD0365 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB37CFD0365
+
+ME ME_4AB37D1D01CE
+ MEPROP UID '4AB37D1D01CE'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AB37CFD0365 // Tm4WordIDStrListPrim
+ ;
+ MELINK Target WL? 'ME_4AB37C3E00BA' // Tm4WordIDStr
+ ;
+
+ENDME // ME_4AB37D1D01CE ItemType
+
+MEREF ME_47B2C42A0163_ME_4AB37CFD0365_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4AB37CFD0365_impl AssignItem
+
+MEREF ME_47B935AF0066_ME_4AB37CFD0365_impl
+ MELINK Original WL 'ME_47B935AF0066' '47B45152003F.ms.model.script' // FillItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B935AF0066_ME_4AB37CFD0365_impl FillItem
+
+MEREF ME_47B94A5C006E_ME_4AB37CFD0365_impl
+ MELINK Original WL 'ME_47B94A5C006E' '47B45152003F.ms.model.script' // FreeItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B94A5C006E_ME_4AB37CFD0365_impl FreeItem
+
+MEREF ME_47B99D4503A2_ME_4AB37CFD0365_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4AB37CFD0365_impl CompareExistingItems
+
+MEREF ME_47B5A0AE03CC_ME_4AB37CFD0365_G
+ MELINK Original WL? 'ME_47B5A0AE03CC' // l3ObjectRefListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B5A0AE03CC_ME_4AB37CFD0365_G l3ObjectRefListPrim
+
+MEREF ME_4A54DD4E036F_ME_4AB37CFD0365_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4AB37CFD0365_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B5A0AE03CC ME_4AB37CFD0365
+%%InheritedBy ME_4A54DD4E036F ME_4AB37CFD0365
+
+ME ME_4AB37CFD0365
+ MEPROP UID '4AB37CFD0365'
+ MEPROP Name 'Tm4WordIDStrListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список списков идентификаторов слов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AB37BE502EA' // Dict
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B5A0AE03CC_ME_4AB37CFD0365_G // l3ObjectRefListPrim
+ HWL ME_4A54DD4E036F_ME_4AB37CFD0365_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4AB37D1D01CE // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_4AB37CFD0365_impl // AssignItem
+ ME_47B935AF0066_ME_4AB37CFD0365_impl // FillItem
+ ME_47B94A5C006E_ME_4AB37CFD0365_impl // FreeItem
+ ME_47B99D4503A2_ME_4AB37CFD0365_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '18.09.2009 16:36'
+ UP extprop:pas:UnitName 'm4WordIDStrListPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm4WordIDStrListPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\m4\m4WordIDStrListPrim.pas'
+
+ENDME // ME_4AB37CFD0365 Tm4WordIDStrListPrim

@@ -1,0 +1,217 @@
+// TddVirtualTable 4F683CE400D6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F683CE400D6
+
+ME ME_4FACE1D103AB
+ MEPROP UID '4FACE1D103AB'
+ MEPROP Name 'CellAdjust'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F683CE400D6 // TddVirtualTable
+ ;
+ MELINK Target WL 'ME_4E0D97220074' '4E0D98F50163.ms.model.script' // TddAutoFitBehavior
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_4FACE1D103AB CellAdjust
+
+ME ME_4FACE2230312
+ MEPROP UID '4FACE2230312'
+ MEPROP Name 'MaxWidth'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F683CE400D6 // TddVirtualTable
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_4FACE2230312 MaxWidth
+
+ME ME_4FACE27702C7
+ MEPROP UID '4FACE27702C7'
+ MEPROP Name 'TotalCellCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F683CE400D6 // TddVirtualTable
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4FACE27702C7 TotalCellCount
+
+FORWARD ME_4FACE2C8026A
+
+FORWARD ME_4FACE2DE03B4
+
+ME ME_4FACE2ED01E1
+ MEPROP Name 'NewCellCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FACE2ED01E1 NewCellCount
+
+ME ME_4FACE2DE03B4
+ MEPROP UID '4FACE2DE03B4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FACE2C8026A // Restructure
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FACE2ED01E1 // NewCellCount
+ )
+ ; // Parameters
+
+ENDME // ME_4FACE2DE03B4 DoIt
+
+ME ME_4FACE2C8026A
+ MEPROP UID '4FACE2C8026A'
+ MEPROP Name 'Restructure'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F683CE400D6 // TddVirtualTable
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FACE2DE03B4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FACE2C8026A Restructure
+
+ME ME_4FACF673020E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F683CE400D6 // TddVirtualTable
+ ;
+ MELINK Target WL 'ME_4F2A3430033F' '4A3918BB0114.ms.model.script' // evInch2Char
+ ;
+
+ENDME // ME_4FACF673020E 
+
+ME ME_4FACF6A402A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F683CE400D6 // TddVirtualTable
+ ;
+ MELINK Target WL? 'ME_47A066980016' // l3MinMax
+ ;
+
+ENDME // ME_4FACF6A402A1 
+
+ME ME_4FACF6C00162
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F683CE400D6 // TddVirtualTable
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_4FACF6C00162 
+
+ME ME_5111FA1A0051
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F683CE400D6 // TddVirtualTable
+ ;
+ MELINK Target WL? 'ME_4FACE1370377' // TddTableRow
+ ;
+
+ENDME // ME_5111FA1A0051 
+
+ME ME_5111FB46029A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F683CE400D6 // TddVirtualTable
+ ;
+ MELINK Target WL 'ME_4FACE14F0231' '51E8DBEC0212.ms.model.script' // TddTextParagraph
+ ;
+
+ENDME // ME_5111FB46029A 
+
+MEREF ME_51E91BA80051_ME_4F683CE400D6_over
+ MELINK Original WL 'ME_51E91BA80051' '4FACE0E4032F.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51E91BA80051_ME_4F683CE400D6_over Create
+
+MEREF ME_519B719F0019_ME_4F683CE400D6_G
+ MELINK Original WL? 'ME_519B719F0019' // TddTable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_519B719F0019_ME_4F683CE400D6_G TddTable
+
+%%InheritedBy ME_519B719F0019 ME_4F683CE400D6
+
+ME ME_4F683CE400D6
+ MEPROP UID '4F683CE400D6'
+ MEPROP Name 'TddVirtualTable'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DCA381E01E3' // Convertors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_519B719F0019_ME_4F683CE400D6_G // TddTable
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4FACE1D103AB // CellAdjust
+ HWL ME_4FACE2230312 // MaxWidth
+ HWL ME_4FACE27702C7 // TotalCellCount
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FACE2C8026A // Restructure
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_51E91BA80051_ME_4F683CE400D6_over // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4FACF673020E // evInch2Char
+ ME_4FACF6A402A1 // l3MinMax
+ ME_4FACF6C00162 // l3Free
+ ME_5111FA1A0051 // TddTableRow
+ ME_5111FB46029A // TddTextParagraph
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" True
+ UP extprop:pas:UnitName 'ddVirtualTable'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddVirtualTable'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddVirtualTable.pas'
+
+ENDME // ME_4F683CE400D6 TddVirtualTable

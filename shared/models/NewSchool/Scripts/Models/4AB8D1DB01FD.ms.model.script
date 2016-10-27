@@ -20,6 +20,18 @@ ME ME_E6AAA420F87A
 
 ENDME // ME_E6AAA420F87A Ini_FormFactory_ConsultationMark
 
+MEREF ME_4C84E097023A_ME_4AB8D1DB01FD_G
+ MELINK Original WL? 'ME_4C84E097023A' // PrimConsultationMarkOptions
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C84E097023A_ME_4AB8D1DB01FD_G PrimConsultationMarkOptions
+
+MEREF ME_4FFADD3502A1_ME_4AB8D1DB01FD_R
+ MELINK Original WL 'ME_4FFADD3502A1' '4BD856E802F9.ms.model.script' // ConsultationMark
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FFADD3502A1_ME_4AB8D1DB01FD_R ConsultationMark
+
 %%ImplementedBy ME_4FFADD3502A1 ME_4AB8D1DB01FD
 
 %%InheritedBy ME_4C84E097023A ME_4AB8D1DB01FD
@@ -37,11 +49,11 @@ ME ME_4AB8D1DB01FD
  MELINK Parent WL? 'ME_4ABCFB7F017B' // Consultation$FP
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4C84E097023A' // PrimConsultationMarkOptions
+   Seq: ( HWL ME_4C84E097023A_ME_4AB8D1DB01FD_G // PrimConsultationMarkOptions
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4FFADD3502A1' '4BD856E802F9.ms.model.script' // ConsultationMark
+   Seq: ( HWL ME_4FFADD3502A1_ME_4AB8D1DB01FD_R // ConsultationMark
  )
  ; // Implements
  MELIST Operations

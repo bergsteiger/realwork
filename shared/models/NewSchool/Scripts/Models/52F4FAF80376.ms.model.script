@@ -1,0 +1,158 @@
+// TtfwStringStreamFactory 52F4FAF80376 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52F4FAF80376
+
+ME ME_52F4FB470057
+ MEPROP UID '52F4FB470057'
+ MEPROP Name 'f_String'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F4FAF80376 // TtfwStringStreamFactory
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52F4FB470057 f_String
+
+FORWARD ME_52F4FB4E00F6
+
+FORWARD ME_52F4FB530309
+
+ME ME_52F4FB5D02B0
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52F4FB5D02B0 aString
+
+ME ME_52F4FB530309
+ MEPROP UID '52F4FB530309'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F4FB4E00F6 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_52F4FB5D02B0 // aString
+ )
+ ; // Parameters
+
+ENDME // ME_52F4FB530309 DoIt
+
+ME ME_52F4FB4E00F6
+ MEPROP UID '52F4FB4E00F6'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F4FAF80376 // TtfwStringStreamFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F4FB530309 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52F4FB4E00F6 Create
+
+ME ME_52F4FB7A007F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F4FAF80376 // TtfwStringStreamFactory
+ ;
+ MELINK Target WL 'ME_4DAEF5AA0084' '47AB1FDE03E4.ms.model.script' // Tl3StringStream
+ ;
+
+ENDME // ME_52F4FB7A007F 
+
+ME ME_52F4FB8E0037
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F4FAF80376 // TtfwStringStreamFactory
+ ;
+ MELINK Target WL 'ME_4ADEE4F301E2' '47878E0E0191.ms.model.script' // l3PCharLen
+ ;
+
+ENDME // ME_52F4FB8E0037 
+
+ME ME_55A650C90237
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F4FAF80376 // TtfwStringStreamFactory
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_55A650C90237 
+
+MEREF ME_52F4E6E90067_ME_52F4FAF80376_impl
+ MELINK Original WL 'ME_52F4E6E90067' '52F4E6AA02BB.ms.model.script' // Stream
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52F4E6E90067_ME_52F4FAF80376_impl Stream
+
+MEREF ME_55A649CC0040_ME_52F4FAF80376_impl
+ MELINK Original WL 'ME_55A649CC0040' '52F4E6AA02BB.ms.model.script' // FileDateTime
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55A649CC0040_ME_52F4FAF80376_impl FileDateTime
+
+MEREF ME_52F4E6AA02BB_ME_52F4FAF80376_G
+ MELINK Original WL? 'ME_52F4E6AA02BB' // TtfwStreamFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52F4E6AA02BB_ME_52F4FAF80376_G TtfwStreamFactory
+
+%%InheritedBy ME_52F4E6AA02BB ME_52F4FAF80376
+
+ME ME_52F4FAF80376
+ MEPROP UID '52F4FAF80376'
+ MEPROP Name 'TtfwStringStreamFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F4734A40270' // Parser
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52F4E6AA02BB_ME_52F4FAF80376_G // TtfwStreamFactory
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52F4FB470057 // f_String
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52F4FB4E00F6 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_52F4E6E90067_ME_52F4FAF80376_impl // Stream
+ ME_55A649CC0040_ME_52F4FAF80376_impl // FileDateTime
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_52F4FB7A007F // Tl3StringStream
+ ME_52F4FB8E0037 // l3PCharLen
+ ME_55A650C90237 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'tfwStringStreamFactory'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringStreamFactory'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwStringStreamFactory.pas'
+
+ENDME // ME_52F4FAF80376 TtfwStringStreamFactory

@@ -1,0 +1,37 @@
+// StoreSettingsToServer 4889E960019F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4889E960019F
+
+ME ME_488DCB920012
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_friend::Dependency ;
+ MELINK Parent HWL ME_4889E960019F // StoreSettingsToServer
+ ;
+
+ENDME // ME_488DCB920012 
+
+ME ME_4889E960019F
+ MEPROP UID '4889E960019F'
+ MEPROP Name 'StoreSettingsToServer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'класс периодически сбрасывающий изменённые настройки на сервер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_45EEAA6E01A9' // Settings_i
+ ;
+ MELIST Dependencies
+   Seq: ( ME_488DCB920012 // 
+ )
+ ; // Dependencies
+ UP "need objcounter" False
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Settings_i\StoreSettingsToServer.cpp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Settings_i\StoreSettingsToServer.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\StoreSettingsToServer.pas'
+
+ENDME // ME_4889E960019F StoreSettingsToServer

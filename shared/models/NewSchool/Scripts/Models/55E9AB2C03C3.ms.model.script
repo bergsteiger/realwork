@@ -49,7 +49,7 @@ ENDME // ME_55E9ABCB01E0 DoIt
 ME ME_55E9ABC00239
  MEPROP UID '55E9ABC00239'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -63,6 +63,18 @@ ME ME_55E9ABC00239
 
 ENDME // ME_55E9ABC00239 Create
 
+MEREF ME_55E9ABC00239_ME_55E9ABE001AD_G
+ MELINK Original HWL ME_55E9ABC00239 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55E9ABC00239_ME_55E9ABE001AD_G Create
+
+MEREF ME_4DCC12FC0125_ME_55E9ABE001AD_R
+ MELINK Original WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCC12FC0125_ME_55E9ABE001AD_R ItfwValueList
+
 %%ImplementedBy ME_4DCC12FC0125 ME_55E9ABE001AD
 
 %%InheritedBy ME_55E9ABC00239 ME_55E9ABE001AD
@@ -70,7 +82,7 @@ ENDME // ME_55E9ABC00239 Create
 ME ME_55E9ABE001AD
  MEPROP UID '55E9ABE001AD'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -78,11 +90,11 @@ ME ME_55E9ABE001AD
  MELINK Parent HWL ME_55E9AB2C03C3 // tfwDictionaryListIterator
  ;
  MELIST Inherits
-   Seq: ( HWL ME_55E9ABC00239 // Create
+   Seq: ( HWL ME_55E9ABC00239_ME_55E9ABE001AD_G // Create
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+   Seq: ( HWL ME_4DCC12FC0125_ME_55E9ABE001AD_R // ItfwValueList
  )
  ; // Implements
 
@@ -98,17 +110,29 @@ ME ME_55E9ABAA03D9
 
 ENDME // ME_55E9ABAA03D9 
 
-ME ME_55AE64E00011_ME_55E9AB2C03C3
+MEREF ME_55AE64E00011_ME_55E9AB2C03C3_impl
  MELINK Original WL 'ME_55AE64E00011' '55E9A6C303B7.ms.model.script' // ListToIterate
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_55AE64E00011_ME_55E9AB2C03C3 ListToIterate
+ENDMEREF // ME_55AE64E00011_ME_55E9AB2C03C3_impl ListToIterate
 
-ME ME_479731C50290_ME_55E9AB2C03C3
+MEREF ME_479731C50290_ME_55E9AB2C03C3_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_55E9AB2C03C3 Cleanup
+ENDMEREF // ME_479731C50290_ME_55E9AB2C03C3_over Cleanup
+
+MEREF ME_52E29ED5016B_ME_55E9AB2C03C3_G
+ MELINK Original WL? 'ME_52E29ED5016B' // TtfwIteratableParent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52E29ED5016B_ME_55E9AB2C03C3_G TtfwIteratableParent
+
+MEREF ME_55E9A6C303B7_ME_55E9AB2C03C3_R
+ MELINK Original WL? 'ME_55E9A6C303B7' // tfwDictionaryListIteratorPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55E9A6C303B7_ME_55E9AB2C03C3_R tfwDictionaryListIteratorPrim
 
 %%ImplementedBy ME_55E9A6C303B7 ME_55E9AB2C03C3
 
@@ -126,11 +150,11 @@ ME ME_55E9AB2C03C3
  MELINK Parent WL? 'ME_4F2275C00012' // ScriptingKeywordsCore
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_52E29ED5016B' '54F0A4A302FF.ms.model.script' // TtfwIteratableParent
+   Seq: ( HWL ME_52E29ED5016B_ME_55E9AB2C03C3_G // TtfwIteratableParent
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_55E9A6C303B7' // tfwDictionaryListIteratorPrim
+   Seq: ( HWL ME_55E9A6C303B7_ME_55E9AB2C03C3_R // tfwDictionaryListIteratorPrim
  )
  ; // Implements
  MELIST Attributes
@@ -143,11 +167,11 @@ ME ME_55E9AB2C03C3
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_55AE64E00011_ME_55E9AB2C03C3 // ListToIterate
+   Seq: ( ME_55AE64E00011_ME_55E9AB2C03C3_impl // ListToIterate
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_55E9AB2C03C3 // Cleanup
+   Seq: ( ME_479731C50290_ME_55E9AB2C03C3_over // Cleanup
  )
  ; // Overridden
  MELIST Dependencies

@@ -1,0 +1,94 @@
+// TmyReferenceCountGuardTest 516D58890258 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_516D58890258
+
+ME ME_516D58B001F4
+ MEPROP UID '516D58B001F4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_516D58890258 // TmyReferenceCountGuardTest
+ ;
+
+ENDME // ME_516D58B001F4 DoIt
+
+ME ME_516D61EF0340
+ MEPROP UID '516D61EF0340'
+ MEPROP Name 'CheckWithClause'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_516D58890258 // TmyReferenceCountGuardTest
+ ;
+
+ENDME // ME_516D61EF0340 CheckWithClause
+
+ME ME_516D58910253
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516D58890258 // TmyReferenceCountGuardTest
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_516D58910253 
+
+ME ME_516D589401FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516D58890258 // TmyReferenceCountGuardTest
+ ;
+ MELINK Target WL? 'ME_516D572B0131' // TmyReferenceCountGuard
+ ;
+
+ENDME // ME_516D589401FE 
+
+MEREF ME_4B2A0DDE028B_ME_516D58890258_G
+ MELINK Original WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A0DDE028B_ME_516D58890258_G TTestCase
+
+%%InheritedBy ME_4B2A0DDE028B ME_516D58890258
+
+ME ME_516D58890258
+ MEPROP UID '516D58890258'
+ MEPROP Name 'TmyReferenceCountGuardTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5161390500C1' // Core
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B2A0DDE028B_ME_516D58890258_G // TTestCase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_516D58B001F4 // DoIt
+ HWL ME_516D61EF0340 // CheckWithClause
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_516D58910253 // FreeAndNil
+ ME_516D589401FE // TmyReferenceCountGuard
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'myReferenceCountGuardTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'myReferenceCountGuardTest'
+ UP intf.pas:Path 'common\components\SandBox\myReferenceCountGuardTest.pas'
+
+ENDME // ME_516D58890258 TmyReferenceCountGuardTest

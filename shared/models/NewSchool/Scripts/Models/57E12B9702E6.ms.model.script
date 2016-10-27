@@ -1,0 +1,62 @@
+// TdaUserIDList 57E12B9702E6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57E12B9702E6
+
+ME ME_57E12BB2001D
+ MEPROP UID '57E12BB2001D'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E12B9702E6 // TdaUserIDList
+ ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+
+ENDME // ME_57E12BB2001D ItemType
+
+MEREF ME_47A1B04702C2_ME_57E12B9702E6_G
+ MELINK Original WL? 'ME_47A1B04702C2' // l3AtomicList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47A1B04702C2_ME_57E12B9702E6_G l3AtomicList
+
+MEREF ME_4A54DD4E036F_ME_57E12B9702E6_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_57E12B9702E6_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47A1B04702C2 ME_57E12B9702E6
+%%InheritedBy ME_4A54DD4E036F ME_57E12B9702E6
+
+ME ME_57E12B9702E6
+ MEPROP UID '57E12B9702E6'
+ MEPROP Name 'TdaUserIDList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57234C1A014C' // Users
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47A1B04702C2_ME_57E12B9702E6_G // l3AtomicList
+ HWL ME_4A54DD4E036F_ME_57E12B9702E6_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57E12BB2001D // ItemType
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'daUserIDList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'daUserIDList'
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daUserIDList.pas'
+
+ENDME // ME_57E12B9702E6 TdaUserIDList

@@ -30,7 +30,7 @@ ENDME // ME_730FBE7252D6 DoIt
 ME ME_57CECDB70264
  MEPROP UID '57CECDB70264'
  MEPROP Name 'Click'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -62,7 +62,7 @@ ENDME // ME_2A7B366AD2F9 DoIt
 ME ME_57EB857E015E
  MEPROP UID '57EB857E015E'
  MEPROP Name 'InitiateAction'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -75,6 +75,12 @@ ME ME_57EB857E015E
  ; // Operations
 
 ENDME // ME_57EB857E015E InitiateAction
+
+MEREF ME_479878FA0103_ME_47E7ABCB0296_G
+ MELINK Original WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_479878FA0103_ME_47E7ABCB0296_G TComponent
 
 %%InheritedBy ME_479878FA0103 ME_47E7ABCB0296
 
@@ -90,7 +96,7 @@ ME ME_47E7ABCB0296
  MELINK Parent HWL ME_47E7ABAE0110 // Menus
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+   Seq: ( HWL ME_479878FA0103_ME_47E7ABCB0296_G // TComponent
  )
  ; // Inherits
  MELIST Operations
@@ -141,7 +147,7 @@ ENDME // ME_52A09066009F DoIt
 ME ME_52A0905E002D
  MEPROP UID '52A0905E002D'
  MEPROP Name 'IsShortCut'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -154,6 +160,12 @@ ME ME_52A0905E002D
  ; // Operations
 
 ENDME // ME_52A0905E002D IsShortCut
+
+MEREF ME_479878FA0103_ME_49A3EC9F01DC_G
+ MELINK Original WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_479878FA0103_ME_49A3EC9F01DC_G TComponent
 
 %%InheritedBy ME_479878FA0103 ME_49A3EC9F01DC
 
@@ -169,7 +181,7 @@ ME ME_49A3EC9F01DC
  MELINK Parent HWL ME_47E7ABAE0110 // Menus
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+   Seq: ( HWL ME_479878FA0103_ME_49A3EC9F01DC_G // TComponent
  )
  ; // Inherits
  MELIST Operations
@@ -227,7 +239,7 @@ ENDME // ME_52A090BB00AB DoIt
 ME ME_52A090A90317
  MEPROP UID '52A090A90317'
  MEPROP Name 'Popup'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -240,6 +252,12 @@ ME ME_52A090A90317
  ; // Operations
 
 ENDME // ME_52A090A90317 Popup
+
+MEREF ME_49A3EC9F01DC_ME_49A5750A01E8_G
+ MELINK Original HWL ME_49A3EC9F01DC // TMenu
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49A3EC9F01DC_ME_49A5750A01E8_G TMenu
 
 %%InheritedBy ME_49A3EC9F01DC ME_49A5750A01E8
 
@@ -255,7 +273,7 @@ ME ME_49A5750A01E8
  MELINK Parent HWL ME_47E7ABAE0110 // Menus
  ;
  MELIST Inherits
-   Seq: ( HWL ME_49A3EC9F01DC // TMenu
+   Seq: ( HWL ME_49A3EC9F01DC_ME_49A5750A01E8_G // TMenu
  )
  ; // Inherits
  MELIST Operations
@@ -284,6 +302,12 @@ ME ME_5019588700F7
 
 ENDME // ME_5019588700F7 TMenuKeyCap
 
+MEREF ME_49A3EC9F01DC_ME_537D83690313_G
+ MELINK Original HWL ME_49A3EC9F01DC // TMenu
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49A3EC9F01DC_ME_537D83690313_G TMenu
+
 %%InheritedBy ME_49A3EC9F01DC ME_537D83690313
 
 ME ME_537D83690313
@@ -297,7 +321,7 @@ ME ME_537D83690313
  MELINK Parent HWL ME_47E7ABAE0110 // Menus
  ;
  MELIST Inherits
-   Seq: ( HWL ME_49A3EC9F01DC // TMenu
+   Seq: ( HWL ME_49A3EC9F01DC_ME_537D83690313_G // TMenu
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True

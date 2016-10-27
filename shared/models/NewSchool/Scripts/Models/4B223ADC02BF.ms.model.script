@@ -2,11 +2,17 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-ME ME_47B94A5C006E_ME_4B223ADC02BF
+MEREF ME_47B94A5C006E_ME_4B223ADC02BF_impl
  MELINK Original WL 'ME_47B94A5C006E' '47B45152003F.ms.model.script' // FreeItem
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47B94A5C006E_ME_4B223ADC02BF FreeItem
+ENDMEREF // ME_47B94A5C006E_ME_4B223ADC02BF_impl FreeItem
+
+MEREF ME_4E5506F6007E_ME_4B223ADC02BF_G
+ MELINK Original WL? 'ME_4E5506F6007E' // l3RecordListPrimPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E5506F6007E_ME_4B223ADC02BF_G l3RecordListPrimPrim
 
 %%InheritedBy ME_4E5506F6007E ME_4B223ADC02BF
 
@@ -23,11 +29,11 @@ ME ME_4B223ADC02BF
  MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4E5506F6007E' // l3RecordListPrimPrim
+   Seq: ( HWL ME_4E5506F6007E_ME_4B223ADC02BF_G // l3RecordListPrimPrim
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_47B94A5C006E_ME_4B223ADC02BF // FreeItem
+   Seq: ( ME_47B94A5C006E_ME_4B223ADC02BF_impl // FreeItem
  )
  ; // Implemented
  UP "author" 'Ëþëèí À.Â.'

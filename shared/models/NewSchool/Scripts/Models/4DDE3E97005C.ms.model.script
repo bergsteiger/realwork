@@ -1,0 +1,72 @@
+// TevdMarkEliminator 4DDE3E97005C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DDE3E97005C
+
+ME ME_4DDE3ED40196
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDE3E97005C // TevdMarkEliminator
+ ;
+ MELINK Target WL 'ME_484FABB7008B' '484A470100DD.ms.model.script' // Mark
+ ;
+
+ENDME // ME_4DDE3ED40196 
+
+MEREF ME_49E488070386_ME_4DDE3E97005C_over
+ MELINK Original WL 'ME_49E488070386' '49E487650342.ms.model.script' // ParaTypeForFiltering
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E488070386_ME_4DDE3E97005C_over ParaTypeForFiltering
+
+MEREF ME_49E48829016F_ME_4DDE3E97005C_over
+ MELINK Original WL 'ME_49E48829016F' '49E487650342.ms.model.script' // NeedWritePara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E48829016F_ME_4DDE3E97005C_over NeedWritePara
+
+MEREF ME_49E487650342_ME_4DDE3E97005C_G
+ MELINK Original WL? 'ME_49E487650342' // TevdLeafParaFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487650342_ME_4DDE3E97005C_G TevdLeafParaFilter
+
+%%InheritedBy ME_49E487650342 ME_4DDE3E97005C
+
+ME ME_4DDE3E97005C
+ MEPROP UID '4DDE3E97005C'
+ MEPROP Name 'TevdMarkEliminator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECB8BD00A8' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E487650342_ME_4DDE3E97005C_G // TevdLeafParaFilter
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49E488070386_ME_4DDE3E97005C_over // ParaTypeForFiltering
+ ME_49E48829016F_ME_4DDE3E97005C_over // NeedWritePara
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DDE3ED40196 // Mark
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '26.05.2011 15:51'
+ UP extprop:pas:UnitName 'evdMarkEliminator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dMarkEliminator'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdMarkEliminator.pas'
+
+ENDME // ME_4DDE3E97005C TevdMarkEliminator

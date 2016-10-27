@@ -1,0 +1,158 @@
+// TatAdapterTestCommandLine 4AC347FD023D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC347FD023D
+
+FORWARD ME_4AC34A32013D
+
+ME ME_4AC34A3C014C
+ MEPROP UID '4AC34A3C014C'
+ MEPROP Name 'CLP_LOGIN'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC34A32013D // CLP
+ ;
+ MEPROP Value '''login'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''login'''
+
+ENDME // ME_4AC34A3C014C CLP_LOGIN
+
+ME ME_4AC34A47014C
+ MEPROP UID '4AC34A47014C'
+ MEPROP Name 'CLP_PASSWORD'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC34A32013D // CLP
+ ;
+ MEPROP Value '''password'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''password'''
+
+ENDME // ME_4AC34A47014C CLP_PASSWORD
+
+ME ME_4AC34A570044
+ MEPROP UID '4AC34A570044'
+ MEPROP Name 'CLP_LOGFILENAME'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC34A32013D // CLP
+ ;
+ MEPROP Value '''log_file'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''log_file'''
+
+ENDME // ME_4AC34A570044 CLP_LOGFILENAME
+
+ME ME_4AC34A630040
+ MEPROP UID '4AC34A630040'
+ MEPROP Name 'CLP_SCENARIOFILENAME'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC34A32013D // CLP
+ ;
+ MEPROP Value '''scenario_file'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''scenario_file'''
+
+ENDME // ME_4AC34A630040 CLP_SCENARIOFILENAME
+
+ME ME_4AC34A32013D
+ MEPROP UID '4AC34A32013D'
+ MEPROP Name 'CLP'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC347FD023D // TatAdapterTestCommandLine
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AC34A3C014C // CLP_LOGIN
+ HWL ME_4AC34A47014C // CLP_PASSWORD
+ HWL ME_4AC34A570044 // CLP_LOGFILENAME
+ HWL ME_4AC34A630040 // CLP_SCENARIOFILENAME
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_4AC34A32013D CLP
+
+ME ME_4AC3513A02A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC347FD023D // TatAdapterTestCommandLine
+ ;
+ MELINK Target WL 'ME_480893AD00F5' '4808938A0159.ms.model.script' // TCLPType
+ ;
+
+ENDME // ME_4AC3513A02A0 
+
+MEREF ME_4808976C00AF_ME_4AC347FD023D_impl
+ MELINK Original WL 'ME_4808976C00AF' '4808971F0196.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4808976C00AF_ME_4AC347FD023D_impl InitParamList
+
+MEREF ME_4808971F0196_ME_4AC347FD023D_G
+ MELINK Original WL? 'ME_4808971F0196' // TatCommandLine
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4808971F0196_ME_4AC347FD023D_G TatCommandLine
+
+%%InheritedBy ME_4808971F0196 ME_4AC347FD023D
+
+ME ME_4AC347FD023D
+ MEPROP UID '4AC347FD023D'
+ MEPROP Name 'TatAdapterTestCommandLine'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Для  разбора командной строки тестов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AC347B00177' // Runner
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4808971F0196_ME_4AC347FD023D_G // TatCommandLine
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4808976C00AF_ME_4AC347FD023D_impl // InitParamList
+ )
+ ; // Implemented
+ MELIST Constants
+   Seq: ( HWL ME_4AC34A32013D // CLP
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4AC3513A02A0 // TCLPType
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atAdapterTestCommandLine'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atAdapterTestCommandLine'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Runner\atAdapterTestCommandLine.pas'
+
+ENDME // ME_4AC347FD023D TatAdapterTestCommandLine

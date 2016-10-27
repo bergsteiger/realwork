@@ -1,0 +1,42 @@
+// AutoComplete_Clear 53CD0A6A03DF ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53CD0A6A03DF
+
+ME ME_53CD0BF101DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CD0A6A03DF // AutoComplete_Clear
+ ;
+ MELINK Target WL 'ME_53CD0B8200B8' '53CD0B68029E.ms.model.script' // TevAutoComplete
+ ;
+
+ENDME // ME_53CD0BF101DD 
+
+ME ME_53CD0A6A03DF
+ MEPROP UID '53CD0A6A03DF'
+ MEPROP Name 'AutoComplete_Clear'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Очищает данные автозамены.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_5166AF3800B5' // EverestArchiWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_53CD0BF101DD // TevAutoComplete
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwAutoCompleteClear'
+ UP extprop:pas:UnitName 'kwAutoCompleteClear'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AutoCompleteClear'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwAutoCompleteClear.pas'
+
+ENDME // ME_53CD0A6A03DF AutoComplete_Clear

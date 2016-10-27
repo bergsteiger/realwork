@@ -5,9 +5,9 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_52A085CE03AC
 %%Inner ME_52A08684012E
 
-FORWARD ME_52A085CE03AC
-
 FORWARD ME_52A085A703D4
+
+FORWARD ME_52A085CE03AC
 
 FORWARD ME_52A08AF5004B
 
@@ -27,7 +27,7 @@ ENDME // ME_52A08AFE012F DoIt
 ME ME_52A08AF5004B
  MEPROP UID '52A08AF5004B'
  MEPROP Name 'HackCheck'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -40,6 +40,12 @@ ME ME_52A08AF5004B
  ; // Operations
 
 ENDME // ME_52A08AF5004B HackCheck
+
+MEREF ME_4F69EF8C027C_ME_52A085CE03AC_G
+ MELINK Original WL 'ME_4F69EF8C027C' '4C43E892032F.ms.model.script' // TCustomToolbarButton97
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F69EF8C027C_ME_52A085CE03AC_G TCustomToolbarButton97
 
 %%InheritedBy ME_4F69EF8C027C ME_52A085CE03AC
 
@@ -54,7 +60,7 @@ ME ME_52A085CE03AC
  MELINK Parent HWL ME_52A085A703D4 // TevButton
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F69EF8C027C' '4C43E892032F.ms.model.script' // TCustomToolbarButton97
+   Seq: ( HWL ME_4F69EF8C027C_ME_52A085CE03AC_G // TCustomToolbarButton97
  )
  ; // Inherits
  MELIST Operations
@@ -69,6 +75,12 @@ ME ME_52A085CE03AC
 
 ENDME // ME_52A085CE03AC TevCustomButton
 
+MEREF ME_52A087450138_ME_52A08684012E_G
+ MELINK Original WL 'ME_52A087450138' '4C43E892032F.ms.model.script' // TToolbarButton97ActionLink
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52A087450138_ME_52A08684012E_G TToolbarButton97ActionLink
+
 %%InheritedBy ME_52A087450138 ME_52A08684012E
 
 ME ME_52A08684012E
@@ -82,13 +94,19 @@ ME ME_52A08684012E
  MELINK Parent HWL ME_52A085A703D4 // TevButton
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_52A087450138' '4C43E892032F.ms.model.script' // TToolbarButton97ActionLink
+   Seq: ( HWL ME_52A087450138_ME_52A08684012E_G // TToolbarButton97ActionLink
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ButtonActionLink'
 
 ENDME // ME_52A08684012E TevCustomButtonActionLink
+
+MEREF ME_52A085CE03AC_ME_52A085A703D4_G
+ MELINK Original HWL ME_52A085CE03AC // TevCustomButton
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52A085CE03AC_ME_52A085A703D4_G TevCustomButton
 
 %%InheritedBy ME_52A085CE03AC ME_52A085A703D4
 
@@ -104,7 +122,7 @@ ME ME_52A085A703D4
  MELINK Parent WL? 'ME_52A0859B00E2' // Buttons
  ;
  MELIST Inherits
-   Seq: ( HWL ME_52A085CE03AC // TevCustomButton
+   Seq: ( HWL ME_52A085CE03AC_ME_52A085A703D4_G // TevCustomButton
  )
  ; // Inherits
  MELIST Children

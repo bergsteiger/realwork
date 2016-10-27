@@ -1,0 +1,558 @@
+// TkwPrintDataSaver 4F72AE860228 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F72AE860228
+
+ME ME_4F72AF79006E
+ MEPROP UID '4F72AF79006E'
+ MEPROP Name 'f_Context'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F72AE860228 // TkwPrintDataSaver
+ ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4F72AF79006E f_Context
+
+ME ME_4F72B4710030
+ MEPROP UID '4F72B4710030'
+ MEPROP Name 'f_Now'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F72AE860228 // TkwPrintDataSaver
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4F72B4710030 f_Now
+
+ME ME_4F72B487036E
+ MEPROP UID '4F72B487036E'
+ MEPROP Name 'f_CurrentOutput'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F72AE860228 // TkwPrintDataSaver
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4F72B487036E f_CurrentOutput
+
+ME ME_4F72B4AA00FE
+ MEPROP UID '4F72B4AA00FE'
+ MEPROP Name 'f_LogNumber'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F72AE860228 // TkwPrintDataSaver
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F72B4AA00FE f_LogNumber
+
+ME ME_4F72B4C101CA
+ MEPROP UID '4F72B4C101CA'
+ MEPROP Name 'f_Done'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F72AE860228 // TkwPrintDataSaver
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F72B4C101CA f_Done
+
+ME ME_4F72DBBE0285
+ MEPROP UID '4F72DBBE0285'
+ MEPROP Name 'f_WasInit'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F72AE860228 // TkwPrintDataSaver
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F72DBBE0285 f_WasInit
+
+FORWARD ME_4F0D866C01AA
+
+FORWARD ME_4F0D867A0340
+
+ME ME_4F0D869F022A
+ MEPROP Name 'aNumber'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F0D869F022A aNumber
+
+ME ME_4F0D869F0258
+ MEPROP Name 'aWidthNumber'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F0D869F0258 aWidthNumber
+
+ME ME_4F0D869F0287
+ MEPROP Name 'aCounter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F0D869F0287 aCounter
+
+ME ME_4F0D869F029B
+ MEPROP Name 'anEtalon'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F0D869F029B anEtalon
+
+ME ME_4F0D867A0340
+ MEPROP UID '4F0D867A0340'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F0D866C01AA // PageFileName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F0D869F022A // aNumber
+ ME_4F0D869F0258 // aWidthNumber
+ ME_4F0D869F0287 // aCounter
+ ME_4F0D869F029B // anEtalon
+ )
+ ; // Parameters
+
+ENDME // ME_4F0D867A0340 DoIt
+
+ME ME_4F0D866C01AA
+ MEPROP UID '4F0D866C01AA'
+ MEPROP Name 'PageFileName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F72AE860228 // TkwPrintDataSaver
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F0D867A0340 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F0D866C01AA PageFileName
+
+FORWARD ME_4F0E826901E6
+
+ME ME_4F0E827A03AA
+ MEPROP UID '4F0E827A03AA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F0E826901E6 // ClearFields
+ ;
+
+ENDME // ME_4F0E827A03AA DoIt
+
+ME ME_4F0E826901E6
+ MEPROP UID '4F0E826901E6'
+ MEPROP Name 'ClearFields'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F72AE860228 // TkwPrintDataSaver
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F0E827A03AA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F0E826901E6 ClearFields
+
+FORWARD ME_4F72D8AE013F
+
+FORWARD ME_4F72D9060372
+
+ME ME_4F72D91F0006
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4F72D91F0006 aCtx
+
+ME ME_4F72D9060372
+ MEPROP UID '4F72D9060372'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F72D8AE013F // StartWaitingToPrint
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F72D91F0006 // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_4F72D9060372 DoIt
+
+ME ME_4F72D8AE013F
+ MEPROP UID '4F72D8AE013F'
+ MEPROP Name 'StartWaitingToPrint'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F72AE860228 // TkwPrintDataSaver
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F72D9060372 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F72D8AE013F StartWaitingToPrint
+
+FORWARD ME_4F72D927016C
+
+ME ME_4F72D939004A
+ MEPROP UID '4F72D939004A'
+ MEPROP Name 'Doit'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F72D927016C // EndWatingToPrint
+ ;
+
+ENDME // ME_4F72D939004A Doit
+
+ME ME_4F72D927016C
+ MEPROP UID '4F72D927016C'
+ MEPROP Name 'EndWatingToPrint'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F72AE860228 // TkwPrintDataSaver
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F72D939004A // Doit
+ )
+ ; // Operations
+
+ENDME // ME_4F72D927016C EndWatingToPrint
+
+ME ME_4F743764030D
+ MEPROP UID '4F743764030D'
+ MEPROP Name 'InitPritSaver'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F72AE860228 // TkwPrintDataSaver
+ ;
+
+ENDME // ME_4F743764030D InitPritSaver
+
+ME ME_4F72C2EE0254
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F72AE860228 // TkwPrintDataSaver
+ ;
+ MELINK Target WL 'ME_4DE89E560091' '47877EB202FB.ms.model.script' // Format
+ ;
+
+ENDME // ME_4F72C2EE0254 
+
+ME ME_4F72C37D0120
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F72AE860228 // TkwPrintDataSaver
+ ;
+ MELINK Target WL 'ME_4CA5E9B10052' '47878E0E0191.ms.model.script' // l3LeftPadChar
+ ;
+
+ENDME // ME_4F72C37D0120 
+
+ME ME_4F72C498000B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F72AE860228 // TkwPrintDataSaver
+ ;
+ MELINK Target WL 'ME_4ACDBE8801BE' '4ACDBE7800FD.ms.model.script' // TImageEnIO
+ ;
+
+ENDME // ME_4F72C498000B 
+
+ME ME_4F72C4B8034C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F72AE860228 // TkwPrintDataSaver
+ ;
+ MELINK Target WL 'ME_47D15723038A' '47D15712022D.ms.model.script' // TBitmap
+ ;
+
+ENDME // ME_4F72C4B8034C 
+
+ME ME_4F72C88200AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F72AE860228 // TkwPrintDataSaver
+ ;
+ MELINK Target WL 'ME_4CB722C101EB' '478CF30500C1.ms.model.script' // Rect
+ ;
+
+ENDME // ME_4F72C88200AC 
+
+ME ME_4F72CAAF019E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F72AE860228 // TkwPrintDataSaver
+ ;
+ MELINK Target WL 'ME_4BB3766601CC' '4B57004201BD.ms.model.script' // CopyFile
+ ;
+
+ENDME // ME_4F72CAAF019E 
+
+ME ME_4F72DED80371
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F72AE860228 // TkwPrintDataSaver
+ ;
+ MELINK Target WL 'ME_4BEA8FE9008B' '48A41FF10094.ms.model.script' // GetTickCount
+ ;
+
+ENDME // ME_4F72DED80371 
+
+MEREF ME_473D86B20150_ME_4F72AE860228_impl
+ MELINK Original WL 'ME_473D86B20150' '467823B7002C.ms.model.script' // SetCurrentPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D86B20150_ME_4F72AE860228_impl SetCurrentPage
+
+MEREF ME_473D86BD03D7_ME_4F72AE860228_impl
+ MELINK Original WL 'ME_473D86BD03D7' '467823B7002C.ms.model.script' // Invalidate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D86BD03D7_ME_4F72AE860228_impl Invalidate
+
+MEREF ME_473D86C60253_ME_4F72AE860228_impl
+ MELINK Original WL 'ME_473D86C60253' '467823B7002C.ms.model.script' // Done
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D86C60253_ME_4F72AE860228_impl Done
+
+MEREF ME_473D86D60152_ME_4F72AE860228_impl
+ MELINK Original WL 'ME_473D86D60152' '467823B7002C.ms.model.script' // PreviewCanvas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_473D86D60152_ME_4F72AE860228_impl PreviewCanvas
+
+MEREF ME_473D86E601F5_ME_4F72AE860228_impl
+ MELINK Original WL 'ME_473D86E601F5' '467823B7002C.ms.model.script' // Painted
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_473D86E601F5_ME_4F72AE860228_impl Painted
+
+MEREF ME_4CA5D0430096_ME_4F72AE860228_impl
+ MELINK Original WL 'ME_4CA5D0430096' '4CA5CC2C03CF.ms.model.script' // OpenLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CA5D0430096_ME_4F72AE860228_impl OpenLog
+
+MEREF ME_4CA5D0540033_ME_4F72AE860228_impl
+ MELINK Original WL 'ME_4CA5D0540033' '4CA5CC2C03CF.ms.model.script' // CloseLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CA5D0540033_ME_4F72AE860228_impl CloseLog
+
+MEREF ME_4CACAF4F008D_ME_4F72AE860228_impl
+ MELINK Original WL 'ME_4CACAF4F008D' '4CA5CC2C03CF.ms.model.script' // LogScreen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CACAF4F008D_ME_4F72AE860228_impl LogScreen
+
+MEREF ME_4CB6E39A019E_ME_4F72AE860228_impl
+ MELINK Original WL 'ME_4CB6E39A019E' '4CB6DFDE0374.ms.model.script' // LogPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CB6E39A019E_ME_4F72AE860228_impl LogPage
+
+MEREF ME_4DDE0F5C0097_ME_4F72AE860228_impl
+ MELINK Original WL 'ME_4DDE0F5C0097' '467823B7002C.ms.model.script' // ShouldStop
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'nsTest'
+ENDMEREF // ME_4DDE0F5C0097_ME_4F72AE860228_impl ShouldStop
+
+MEREF ME_4F72F9CD022D_ME_4F72AE860228_impl
+ MELINK Original WL 'ME_4F72F9CD022D' '4F72F4E202FB.ms.model.script' // GetPanel
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F72F9CD022D_ME_4F72AE860228_impl GetPanel
+
+MEREF ME_4F746CEA001D_ME_4F72AE860228_impl
+ MELINK Original WL 'ME_4F746CEA001D' '4F72F4E202FB.ms.model.script' // CheckResult
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F746CEA001D_ME_4F72AE860228_impl CheckResult
+
+MEREF ME_4F7967A8006B_ME_4F72AE860228_impl
+ MELINK Original WL 'ME_4F7967A8006B' '4F72F4E202FB.ms.model.script' // IsWaitingPrint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F7967A8006B_ME_4F72AE860228_impl IsWaitingPrint
+
+MEREF ME_51ADB60602BB_ME_4F72AE860228_impl
+ MELINK Original WL 'ME_51ADB60602BB' '4CB6DFDE0374.ms.model.script' // IncCounterPageNumer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51ADB60602BB_ME_4F72AE860228_impl IncCounterPageNumer
+
+MEREF ME_479731C50290_ME_4F72AE860228_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4F72AE860228_over Cleanup
+
+MEREF ME_4F72F0A30036_ME_4F72AE860228_G
+ MELINK Original WL 'ME_4F72F0A30036' '4F72F4E202FB.ms.model.script' // TevCustomPrintDataSaver
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F72F0A30036_ME_4F72AE860228_G TevCustomPrintDataSaver
+
+MEREF ME_473D869A0282_ME_4F72AE860228_R
+ MELINK Original WL 'ME_473D869A0282' '467823B7002C.ms.model.script' // IafwPreviewPanel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_473D869A0282_ME_4F72AE860228_R IafwPreviewPanel
+
+MEREF ME_4CA5CD47037B_ME_4F72AE860228_R
+ MELINK Original WL 'ME_4CA5CD47037B' '4CA5CC2C03CF.ms.model.script' // InevShapesLogger
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CA5CD47037B_ME_4F72AE860228_R InevShapesLogger
+
+MEREF ME_4CB6E3800078_ME_4F72AE860228_R
+ MELINK Original WL 'ME_4CB6E3800078' '4CB6DFDE0374.ms.model.script' // IafwPagesLogger
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CB6E3800078_ME_4F72AE860228_R IafwPagesLogger
+
+%%ImplementedBy ME_473D869A0282 ME_4F72AE860228
+%%ImplementedBy ME_4CA5CD47037B ME_4F72AE860228
+%%ImplementedBy ME_4CB6E3800078 ME_4F72AE860228
+
+%%InheritedBy ME_4F72F0A30036 ME_4F72AE860228
+
+ME ME_4F72AE860228
+ MEPROP UID '4F72AE860228'
+ MEPROP Name 'TkwPrintDataSaver'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Парень умеющий сохранять результаты печати в файл.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E1C0134031B' // MixIns
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F72F0A30036_ME_4F72AE860228_G // TevCustomPrintDataSaver
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_473D869A0282_ME_4F72AE860228_R // IafwPreviewPanel
+ HWL ME_4CA5CD47037B_ME_4F72AE860228_R // InevShapesLogger
+ HWL ME_4CB6E3800078_ME_4F72AE860228_R // IafwPagesLogger
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4F72AF79006E // f_Context
+ HWL ME_4F72B4710030 // f_Now
+ HWL ME_4F72B487036E // f_CurrentOutput
+ HWL ME_4F72B4AA00FE // f_LogNumber
+ HWL ME_4F72B4C101CA // f_Done
+ HWL ME_4F72DBBE0285 // f_WasInit
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F0D866C01AA // PageFileName
+ HWL ME_4F0E826901E6 // ClearFields
+ HWL ME_4F72D8AE013F // StartWaitingToPrint
+ HWL ME_4F72D927016C // EndWatingToPrint
+ HWL ME_4F743764030D // InitPritSaver
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_473D86B20150_ME_4F72AE860228_impl // SetCurrentPage
+ ME_473D86BD03D7_ME_4F72AE860228_impl // Invalidate
+ ME_473D86C60253_ME_4F72AE860228_impl // Done
+ ME_473D86D60152_ME_4F72AE860228_impl // PreviewCanvas
+ ME_473D86E601F5_ME_4F72AE860228_impl // Painted
+ ME_4CA5D0430096_ME_4F72AE860228_impl // OpenLog
+ ME_4CA5D0540033_ME_4F72AE860228_impl // CloseLog
+ ME_4CACAF4F008D_ME_4F72AE860228_impl // LogScreen
+ ME_4CB6E39A019E_ME_4F72AE860228_impl // LogPage
+ ME_4DDE0F5C0097_ME_4F72AE860228_impl // ShouldStop
+ ME_4F72F9CD022D_ME_4F72AE860228_impl // GetPanel
+ ME_4F746CEA001D_ME_4F72AE860228_impl // CheckResult
+ ME_4F7967A8006B_ME_4F72AE860228_impl // IsWaitingPrint
+ ME_51ADB60602BB_ME_4F72AE860228_impl // IncCounterPageNumer
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4F72AE860228_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F72C2EE0254 // Format
+ ME_4F72C37D0120 // l3LeftPadChar
+ ME_4F72C498000B // TImageEnIO
+ ME_4F72C4B8034C // TBitmap
+ ME_4F72C88200AC // Rect
+ ME_4F72CAAF019E // CopyFile
+ ME_4F72DED80371 // GetTickCount
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifdef" 'InsiderTest'
+ UP "singleton" True
+ UP extprop:pas:UnitName 'kwPrintDataSaver'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrintDataSaver'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPrintDataSaver.pas'
+
+ENDME // ME_4F72AE860228 TkwPrintDataSaver

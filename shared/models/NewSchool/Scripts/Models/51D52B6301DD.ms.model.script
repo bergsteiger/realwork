@@ -1,0 +1,132 @@
+// TAppConfigBaseTest 51D52B6301DD TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51D52B6301DD
+
+ME ME_51D5599D037C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D52B6301DD // TAppConfigBaseTest
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_51D5599D037C 
+
+ME ME_51DA666A01E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D52B6301DD // TAppConfigBaseTest
+ ;
+ MELINK Target WL 'ME_4D6E60D6024F' '48A41FF10094.ms.model.script' // SendMessage
+ ;
+
+ENDME // ME_51DA666A01E6 
+
+ME ME_51DA66940039
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D52B6301DD // TAppConfigBaseTest
+ ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_51DA66940039 
+
+ME ME_51DA66D20081
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D52B6301DD // TAppConfigBaseTest
+ ;
+ MELINK Target WL? 'ME_5179419B01DA' // TvtCheckBox
+ ;
+
+ENDME // ME_51DA66D20081 
+
+MEREF ME_4C08CF700318_ME_51D52B6301DD_over
+ MELINK Original WL 'ME_4C08CF700318' '4BCE9EF8033F.ms.model.script' // FormExtent
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C08CF700318_ME_51D52B6301DD_over FormExtent
+
+MEREF ME_4C08D61F0231_ME_51D52B6301DD_over
+ MELINK Original WL 'ME_4C08D61F0231' '4BCE9EF8033F.ms.model.script' // FormMade
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C08D61F0231_ME_51D52B6301DD_over FormMade
+
+MEREF ME_4C937013031D_ME_51D52B6301DD_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_51D52B6301DD_over GetFolder
+
+MEREF ME_4DAED6F60146_ME_51D52B6301DD_over
+ MELINK Original WL 'ME_4DAED6F60146' '4B2A0DCE03A9.ms.model.script' // GetModelElementGUID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DAED6F60146_ME_51D52B6301DD_over GetModelElementGUID
+
+MEREF ME_51D5464D033C_ME_51D52B6301DD_over
+ MELINK Original WL 'ME_51D5464D033C' '51D5285300B7.ms.model.script' // CheckControl
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51D5464D033C_ME_51D52B6301DD_over CheckControl
+
+MEREF ME_51D5285300B7_ME_51D52B6301DD_G
+ MELINK Original WL? 'ME_51D5285300B7' // TEmptyFormTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51D5285300B7_ME_51D52B6301DD_G TEmptyFormTest
+
+MEREF ME_52382EB9003F_ME_51D52B6301DD_G
+ MELINK Original WL? 'ME_52382EB9003F' // AppConfigTestMixin
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52382EB9003F_ME_51D52B6301DD_G AppConfigTestMixin
+
+%%InheritedBy ME_51D5285300B7 ME_51D52B6301DD
+%%InheritedBy ME_52382EB9003F ME_51D52B6301DD
+
+ME ME_51D52B6301DD
+ MEPROP UID '51D52B6301DD'
+ MEPROP Name 'TAppConfigBaseTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тесты на работу конфигурации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_51D52B240123' // AppConfig
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_51D5285300B7_ME_51D52B6301DD_G // TEmptyFormTest
+ HWL ME_52382EB9003F_ME_51D52B6301DD_G // AppConfigTestMixin
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C08CF700318_ME_51D52B6301DD_over // FormExtent
+ ME_4C08D61F0231_ME_51D52B6301DD_over // FormMade
+ ME_4C937013031D_ME_51D52B6301DD_over // GetFolder
+ ME_4DAED6F60146_ME_51D52B6301DD_over // GetModelElementGUID
+ ME_51D5464D033C_ME_51D52B6301DD_over // CheckControl
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_51D5599D037C // FreeAndNil
+ ME_51DA666A01E6 // SendMessage
+ ME_51DA66940039 // TMessage
+ ME_51DA66D20081 // TvtCheckBox
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'AppConfigBaseTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AppConfigBaseTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\AppConfigBaseTest.pas'
+
+ENDME // ME_51D52B6301DD TAppConfigBaseTest

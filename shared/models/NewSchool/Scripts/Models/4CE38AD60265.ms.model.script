@@ -1,0 +1,104 @@
+// TTableToolsTestPrim 4CE38AD60265 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CE38AD60265
+
+FORWARD ME_4C345B580083
+
+ME ME_4C9B291603BB
+ MEPROP Name 'aRange'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48E38399034C' '48E3836D00C8.ms.model.script' // IedRange
+ ;
+
+ENDME // ME_4C9B291603BB aRange
+
+ME ME_4C345B580083
+ MEPROP UID '4C345B580083'
+ MEPROP Name 'ApplyTools'
+ MEPROP Class class_Operation
+ %SUMMARY 'Вызвать инструмент для таблицы' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CE38AD60265 // TTableToolsTestPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C9B291603BB // aRange
+ )
+ ; // Parameters
+
+ENDME // ME_4C345B580083 ApplyTools
+
+FORWARD ME_4C9999C50326
+
+ME ME_4C999A50011F
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4C999A50011F aForm
+
+ME ME_4C9999C50326
+ MEPROP UID '4C9999C50326'
+ MEPROP Name 'CheckOperation'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверка после применения инструмента.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CE38AD60265 // TTableToolsTestPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C999A50011F // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4C9999C50326 CheckOperation
+
+MEREF ME_4BE13147032C_ME_4CE38AD60265_impl
+ MELINK Original WL 'ME_4BE13147032C' '4BE111D30229.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE13147032C_ME_4CE38AD60265_impl Process
+
+MEREF ME_4BE111D30229_ME_4CE38AD60265_G
+ MELINK Original WL? 'ME_4BE111D30229' // TTextViaEditorProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE111D30229_ME_4CE38AD60265_G TTextViaEditorProcessor
+
+%%InheritedBy ME_4BE111D30229 ME_4CE38AD60265
+
+ME ME_4CE38AD60265
+ MEPROP UID '4CE38AD60265'
+ MEPROP Name 'TTableToolsTestPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B30C89F035F' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE111D30229_ME_4CE38AD60265_G // TTextViaEditorProcessor
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C345B580083 // ApplyTools
+ HWL ME_4C9999C50326 // CheckOperation
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BE13147032C_ME_4CE38AD60265_impl // Process
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'TableToolsTestPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TableToolsTestPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\TableToolsTestPrim.pas'
+
+ENDME // ME_4CE38AD60265 TTableToolsTestPrim

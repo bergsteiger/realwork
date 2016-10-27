@@ -1,0 +1,130 @@
+// TmsmDrawingViewController 57D00B730178 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57D00B730178
+
+ME ME_57D00BA4017F
+ MEPROP UID '57D00BA4017F'
+ MEPROP Name 'OwnViewClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D00B730178 // TmsmDrawingViewController
+ ;
+ MELINK Target WL? 'ME_57D00ACC01B0' // TmsmDrawingView
+ ;
+
+ENDME // ME_57D00BA4017F OwnViewClass
+
+ME ME_57D00BB50061
+ MEPROP UID '57D00BB50061'
+ MEPROP Name 'ConcreteModel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D00B730178 // TmsmDrawingViewController
+ ;
+ MELINK Target WL 'ME_57D27E070278' '57ADC53E00B6.ms.model.script' // ImsmDrawingModel
+ ;
+
+ENDME // ME_57D00BB50061 ConcreteModel
+
+ME ME_57D0129300C3
+ MEPROP UID '57D0129300C3'
+ MEPROP Name 'InitContext'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D00B730178 // TmsmDrawingViewController
+ ;
+ MELINK Target WL 'ME_57B45BCC011C' '57B45BA30322.ms.model.script' // TmsmDefaultInitContext
+ ;
+
+ENDME // ME_57D0129300C3 InitContext
+
+ME ME_57D00BEF037D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57D00B730178 // TmsmDrawingViewController
+ ;
+ MELINK Target WL 'ME_57ADBA39026E' '57C99A680247.ms.model.script' // ListChangedEvent
+ ;
+
+ENDME // ME_57D00BEF037D 
+
+MEREF ME_57ADFB33027D_ME_57D00B730178_impl
+ MELINK Original WL 'ME_57ADFB33027D' '57AB5C9A00F3.ms.model.script' // InitOwnView
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57ADFB33027D_ME_57D00B730178_impl InitOwnView
+
+MEREF ME_57B490B60385_ME_57D00B730178_over
+ MELINK Original WL 'ME_57B490B60385' '57ADB523009E.ms.model.script' // InitViewContext
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57B490B60385_ME_57D00B730178_over InitViewContext
+
+MEREF ME_57B6A49900F4_ME_57D00B730178_over
+ MELINK Original WL 'ME_57B6A49900F4' '57B1F28B030D.ms.model.script' // LinkDataToView
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57B6A49900F4_ME_57D00B730178_over LinkDataToView
+
+MEREF ME_57B179D70299_ME_57D00B730178_G
+ MELINK Original WL? 'ME_57B179D70299' // msmConcreteModelOwnViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B179D70299_ME_57D00B730178_G msmConcreteModelOwnViewController
+
+%%InheritedBy ME_57B179D70299 ME_57D00B730178
+
+ME ME_57D00B730178
+ MEPROP UID '57D00B730178'
+ MEPROP Name 'TmsmDrawingViewController'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57AE0E4B00C5' // ConcreteViewControllers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57B179D70299_ME_57D00B730178_G // msmConcreteModelOwnViewController
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57D00BA4017F // OwnViewClass
+ HWL ME_57D00BB50061 // ConcreteModel
+ HWL ME_57D0129300C3 // InitContext
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_57ADFB33027D_ME_57D00B730178_impl // InitOwnView
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_57B490B60385_ME_57D00B730178_over // InitViewContext
+ ME_57B6A49900F4_ME_57D00B730178_over // LinkDataToView
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57D00BEF037D // ListChangedEvent
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmDrawingViewController'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmDrawingViewController'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmDrawingViewController.pas'
+
+ENDME // ME_57D00B730178 TmsmDrawingViewController

@@ -1,0 +1,46 @@
+// TtfwCS 57C3F3540027 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_49E7754802A9_ME_57C3F3540027_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57C3F3540027_G Tl3ProtoObject
+
+MEREF ME_57C5572B036F_ME_57C3F3540027_R
+ MELINK Original WL? 'ME_57C5572B036F' // seCriticalSectionHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57C5572B036F_ME_57C3F3540027_R seCriticalSectionHolder
+
+%%ImplementedBy ME_57C5572B036F ME_57C3F3540027
+
+%%InheritedBy ME_49E7754802A9 ME_57C3F3540027
+
+ME ME_57C3F3540027
+ MEPROP UID '57C3F3540027'
+ MEPROP Name 'TtfwCS'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57C3F2CB000D' // MultiThread
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_57C3F3540027_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57C5572B036F_ME_57C3F3540027_R // seCriticalSectionHolder
+ )
+ ; // Implements
+ UP "singleton" True
+ UP extprop:pas:UnitName 'tfwCS'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CS'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCS.pas'
+
+ENDME // ME_57C3F3540027 TtfwCS

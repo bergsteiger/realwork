@@ -1,0 +1,60 @@
+// TSHDTestScriptEngine 4DC3B4A603C9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DC3B4A603C9
+
+ME ME_4DC40C0C0175
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC3B4A603C9 // TSHDTestScriptEngine
+ ;
+ MELINK Target WL? 'ME_4DC24756009A' // TAutoTestsSuite
+ ;
+
+ENDME // ME_4DC40C0C0175 
+
+ME ME_509A5D2B0295
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC3B4A603C9 // TSHDTestScriptEngine
+ ;
+ MELINK Target WL? 'ME_509A5D0D0141' // SupportKeyWords
+ ;
+
+ENDME // ME_509A5D2B0295 
+
+MEREF ME_4DEF306102FF_ME_4DC3B4A603C9_G
+ MELINK Original WL? 'ME_4DEF306102FF' // TtfwScriptEngineEX
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DEF306102FF_ME_4DC3B4A603C9_G TtfwScriptEngineEX
+
+%%InheritedBy ME_4DEF306102FF ME_4DC3B4A603C9
+
+ME ME_4DC3B4A603C9
+ MEPROP UID '4DC3B4A603C9'
+ MEPROP Name 'TSHDTestScriptEngine'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DC3B47F00B7' // ScriptSupport
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DEF306102FF_ME_4DC3B4A603C9_G // TtfwScriptEngineEX
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4DC40C0C0175 // TAutoTestsSuite
+ ME_509A5D2B0295 // SupportKeyWords
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'SHDTestScriptEngine'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SHDTestScriptEngine'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\SHDTestScriptEngine.pas'
+
+ENDME // ME_4DC3B4A603C9 TSHDTestScriptEngine

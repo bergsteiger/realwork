@@ -129,7 +129,7 @@ ME ME_523155370292
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_52149B620261 // TddAppConfigVersionManager
  ;
- MELINK Target WL 'ME_479F10C70202' '4B880BC203B6.ms.model.script' // Tl3RecList
+ MELINK Target WL? 'ME_479F10C70202' // Tl3RecList
  ;
 
 ENDME // ME_523155370292 f_Handlers
@@ -177,7 +177,7 @@ ENDME // ME_5231556C0283 DoIt
 ME ME_52315563028B
  MEPROP UID '52315563028B'
  MEPROP Name 'FindHandler'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -242,7 +242,7 @@ ENDME // ME_5231558E0107 DoIt
 ME ME_5231558003C0
  MEPROP UID '5231558003C0'
  MEPROP Name 'AddHandler'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -307,7 +307,7 @@ ENDME // ME_523155B2004B DoIt
 ME ME_523155A20230
  MEPROP UID '523155A20230'
  MEPROP Name 'Upgrade'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -331,17 +331,23 @@ ME ME_5231568D02CC
 
 ENDME // ME_5231568D02CC 
 
-ME ME_47914F960008_ME_52149B620261
- MELINK Original WL 'ME_47914F960008' '47913B47006E.ms.model.script' // Create
+MEREF ME_47914F960008_ME_52149B620261_over
+ MELINK Original WL 'ME_47914F960008' '47879856035F.ms.model.script' // Create
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47914F960008_ME_52149B620261 Create
+ENDMEREF // ME_47914F960008_ME_52149B620261_over Create
 
-ME ME_479731C50290_ME_52149B620261
+MEREF ME_479731C50290_ME_52149B620261_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_52149B620261 Cleanup
+ENDMEREF // ME_479731C50290_ME_52149B620261_over Cleanup
+
+MEREF ME_46780CCE037B_ME_52149B620261_G
+ MELINK Original WL 'ME_46780CCE037B' '4773D64E036C.ms.model.script' // Tl3Base
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780CCE037B_ME_52149B620261_G Tl3Base
 
 %%InheritedBy ME_46780CCE037B ME_52149B620261
 
@@ -356,7 +362,7 @@ ME ME_52149B620261
  MELINK Parent HWL ME_52149B3F0208 // ddAppConfigVersions
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_46780CCE037B' '4773D64E036C.ms.model.script' // Tl3Base
+   Seq: ( HWL ME_46780CCE037B_ME_52149B620261_G // Tl3Base
  )
  ; // Inherits
  MELIST Attributes
@@ -370,8 +376,8 @@ ME ME_52149B620261
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_47914F960008_ME_52149B620261 // Create
- ME_479731C50290_ME_52149B620261 // Cleanup
+   Seq: ( ME_47914F960008_ME_52149B620261_over // Create
+ ME_479731C50290_ME_52149B620261_over // Cleanup
  )
  ; // Overridden
  MELIST Dependencies
@@ -386,6 +392,12 @@ ME ME_52149B620261
 
 ENDME // ME_52149B620261 TddAppConfigVersionManager
 
+MEREF ME_5231541B00AA_ME_5231549C0302_G
+ MELINK Original HWL ME_5231541B00AA // Tdd_acVersionHandler
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5231541B00AA_ME_5231549C0302_G Tdd_acVersionHandler
+
 %%InheritedBy ME_5231541B00AA ME_5231549C0302
 
 ME ME_5231549C0302
@@ -399,7 +411,7 @@ ME ME_5231549C0302
  MELINK Parent HWL ME_52149B3F0208 // ddAppConfigVersions
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5231541B00AA // Tdd_acVersionHandler
+   Seq: ( HWL ME_5231541B00AA_ME_5231549C0302_G // Tdd_acVersionHandler
  )
  ; // Inherits
  UP "isPointer" True

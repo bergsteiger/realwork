@@ -1,0 +1,414 @@
+// TevMergedCellFilter 49C21D090093 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5051B18003C2
+
+FORWARD ME_49C21D090093
+
+FORWARD ME_5051B18003C2
+
+ME ME_5051B1BA0394
+ MEPROP UID '5051B1BA0394'
+ MEPROP Name 'ev_natNo'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5051B18003C2 // TevNeedAddTextPara
+ ;
+
+ENDME // ME_5051B1BA0394 ev_natNo
+
+ME ME_5051B1C601BC
+ MEPROP UID '5051B1C601BC'
+ MEPROP Name 'ev_natYes'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5051B18003C2 // TevNeedAddTextPara
+ ;
+
+ENDME // ME_5051B1C601BC ev_natYes
+
+ME ME_5051B1D501F2
+ MEPROP UID '5051B1D501F2'
+ MEPROP Name 'ev_natWaitMergeStatus'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5051B18003C2 // TevNeedAddTextPara
+ ;
+
+ENDME // ME_5051B1D501F2 ev_natWaitMergeStatus
+
+ME ME_5051B18003C2
+ MEPROP UID '5051B18003C2'
+ MEPROP Name 'TevNeedAddTextPara'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49C21D090093 // TevMergedCellFilter
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5051B1BA0394 // ev_natNo
+ HWL ME_5051B1C601BC // ev_natYes
+ HWL ME_5051B1D501F2 // ev_natWaitMergeStatus
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_5051B18003C2 TevNeedAddTextPara
+
+ME ME_4E45171E013A
+ MEPROP UID '4E45171E013A'
+ MEPROP Name 'f_CellsOffsets'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Смещения для поиска ячеек.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49C21D090093 // TevMergedCellFilter
+ ;
+ MELINK Target WL? 'ME_49CB6E880188' // TevCellsOffsets
+ ;
+
+ENDME // ME_4E45171E013A f_CellsOffsets
+
+ME ME_4F1FBBB2028F
+ MEPROP UID '4F1FBBB2028F'
+ MEPROP Name 'f_MergeStatus'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49C21D090093 // TevMergedCellFilter
+ ;
+ MELINK Target WL 'ME_468E49730365' '469D0AC7005E.ms.model.script' // MergeStatus
+ ;
+
+ENDME // ME_4F1FBBB2028F f_MergeStatus
+
+ME ME_4F1FBBD700B3
+ MEPROP UID '4F1FBBD700B3'
+ MEPROP Name 'f_HasChild'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Есть ли у ячейки хоть один дочерний.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49C21D090093 // TevMergedCellFilter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F1FBBD700B3 f_HasChild
+
+ME ME_4FA3B060003C
+ MEPROP UID '4FA3B060003C'
+ MEPROP Name 'f_CorrectedWidth'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Ширина была изменена.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49C21D090093 // TevMergedCellFilter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FA3B060003C f_CorrectedWidth
+
+ME ME_4FA3B0A901AD
+ MEPROP UID '4FA3B0A901AD'
+ MEPROP Name 'f_NewWidth'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Новая ширина ячейки.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49C21D090093 // TevMergedCellFilter
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FA3B0A901AD f_NewWidth
+
+ME ME_5051B1F10204
+ MEPROP UID '5051B1F10204'
+ MEPROP Name 'f_NeedAddTextPara'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Нужно ли проверять дочерние.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49C21D090093 // TevMergedCellFilter
+ ;
+ MELINK Target HWL ME_5051B18003C2 // TevNeedAddTextPara
+ ;
+
+ENDME // ME_5051B1F10204 f_NeedAddTextPara
+
+FORWARD ME_4E4517310268
+
+ME ME_4E45173F02F6
+ MEPROP UID '4E45173F02F6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4517310268 // CellsOffsets
+ ;
+ MELINK Target WL? 'ME_49CB6E880188' // TevCellsOffsets
+ ;
+
+ENDME // ME_4E45173F02F6 DoIt
+
+ME ME_4E4517310268
+ MEPROP UID '4E4517310268'
+ MEPROP Name 'CellsOffsets'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49C21D090093 // TevMergedCellFilter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E45173F02F6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E4517310268 CellsOffsets
+
+FORWARD ME_4FA3B42B01C6
+
+ME ME_4FA3B43B00B5
+ MEPROP UID '4FA3B43B00B5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA3B42B01C6 // IsTableCell
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FA3B43B00B5 DoIt
+
+ME ME_4FA3B42B01C6
+ MEPROP UID '4FA3B42B01C6'
+ MEPROP Name 'IsTableCell'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49C21D090093 // TevMergedCellFilter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FA3B43B00B5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FA3B42B01C6 IsTableCell
+
+FORWARD ME_517E60E501A8
+
+ME ME_517E6117030D
+ MEPROP UID '517E6117030D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_517E60E501A8 // CheckCellWidth
+ ;
+
+ENDME // ME_517E6117030D DoIt
+
+ME ME_517E60E501A8
+ MEPROP UID '517E60E501A8'
+ MEPROP Name 'CheckCellWidth'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проверяет ширину ячейки и, если надо корректирует её.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49C21D090093 // TevMergedCellFilter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_517E6117030D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_517E60E501A8 CheckCellWidth
+
+ME ME_4E451C35014F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49C21D090093 // TevMergedCellFilter
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_4E451C35014F 
+
+ME ME_4E451CAA0173
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49C21D090093 // TevMergedCellFilter
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_4E451CAA0173 
+
+ME ME_4E451CC002E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49C21D090093 // TevMergedCellFilter
+ ;
+ MELINK Target WL 'ME_4857D2F8006D' '48492FC0029D.ms.model.script' // TableRow
+ ;
+
+ENDME // ME_4E451CC002E6 
+
+ME ME_4E451CDA0303
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49C21D090093 // TevMergedCellFilter
+ ;
+ MELINK Target WL 'ME_4857CD8D0093' '48492FC0029D.ms.model.script' // TableCell
+ ;
+
+ENDME // ME_4E451CDA0303 
+
+ME ME_4E451D9C007C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49C21D090093 // TevMergedCellFilter
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4E451D9C007C 
+
+ME ME_4FA3B1910353
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49C21D090093 // TevMergedCellFilter
+ ;
+ MELINK Target WL 'ME_4857D15D029B' '48492FC0029D.ms.model.script' // SBSCell
+ ;
+
+ENDME // ME_4FA3B1910353 
+
+ME ME_4FA3B2B70179
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49C21D090093 // TevMergedCellFilter
+ ;
+ MELINK Target WL 'ME_4F2A40EA0064' '4A3918BB0114.ms.model.script' // evCellWidthEpsilon
+ ;
+
+ENDME // ME_4FA3B2B70179 
+
+MEREF ME_479731C50290_ME_49C21D090093_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_49C21D090093_over Cleanup
+
+MEREF ME_4A2D1217037A_ME_49C21D090093_over
+ MELINK Original WL 'ME_4A2D1217037A' '49E487A70144.ms.model.script' // DoStartChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A2D1217037A_ME_49C21D090093_over DoStartChild
+
+MEREF ME_4A2D1634025B_ME_49C21D090093_over
+ MELINK Original WL 'ME_4A2D1634025B' '49E487A70144.ms.model.script' // DoAddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A2D1634025B_ME_49C21D090093_over DoAddAtomEx
+
+MEREF ME_4E45166B0156_ME_49C21D090093_over
+ MELINK Original WL 'ME_4E45166B0156' '49E487A70144.ms.model.script' // DoCloseStructure
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E45166B0156_ME_49C21D090093_over DoCloseStructure
+
+MEREF ME_49E487A70144_ME_49C21D090093_G
+ MELINK Original WL? 'ME_49E487A70144' // Tk2TagFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487A70144_ME_49C21D090093_G Tk2TagFilter
+
+%%InheritedBy ME_49E487A70144 ME_49C21D090093
+
+ME ME_49C21D090093
+ MEPROP UID '49C21D090093'
+ MEPROP Name 'TevMergedCellFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'фильтр для преобразования "подвисших" ячеек объединения в нормальный вид.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E487A70144_ME_49C21D090093_G // Tk2TagFilter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4E45171E013A // f_CellsOffsets
+ HWL ME_4F1FBBB2028F // f_MergeStatus
+ HWL ME_4F1FBBD700B3 // f_HasChild
+ HWL ME_4FA3B060003C // f_CorrectedWidth
+ HWL ME_4FA3B0A901AD // f_NewWidth
+ HWL ME_5051B1F10204 // f_NeedAddTextPara
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E4517310268 // CellsOffsets
+ HWL ME_4FA3B42B01C6 // IsTableCell
+ HWL ME_517E60E501A8 // CheckCellWidth
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_49C21D090093_over // Cleanup
+ ME_4A2D1217037A_ME_49C21D090093_over // DoStartChild
+ ME_4A2D1634025B_ME_49C21D090093_over // DoAddAtomEx
+ ME_4E45166B0156_ME_49C21D090093_over // DoCloseStructure
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_5051B18003C2 // TevNeedAddTextPara
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4E451C35014F // l3Free
+ ME_4E451CAA0173 // Table
+ ME_4E451CC002E6 // TableRow
+ ME_4E451CDA0303 // TableCell
+ ME_4E451D9C007C // Tk2TagID
+ ME_4FA3B1910353 // SBSCell
+ ME_4FA3B2B70179 // evCellWidthEpsilon
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP extprop:pas:UnitName 'evMergedCellFilter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MergedCellFilter'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evMergedCellFilter.pas'
+
+ENDME // ME_49C21D090093 TevMergedCellFilter

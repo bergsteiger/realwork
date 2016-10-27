@@ -1,0 +1,92 @@
+// TvgCustomObjectList 4D5EA95401A8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D5EA95401A8
+
+ME ME_4D5EA97903D6
+ MEPROP UID '4D5EA97903D6'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D5EA95401A8 // TvgCustomObjectList
+ ;
+ MELINK Target WL? 'ME_4D542078016E' // TvgCustomObject
+ ;
+
+ENDME // ME_4D5EA97903D6 ItemType
+
+MEREF ME_47B07CF403D0_ME_4D5EA95401A8_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_4D5EA95401A8_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_4D5EA95401A8_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4D5EA95401A8_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_4D5EA95401A8_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4D5EA95401A8_impl CompareExistingItems
+
+MEREF ME_47B5782902DA_ME_4D5EA95401A8_G
+ MELINK Original WL? 'ME_47B5782902DA' // l3PtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B5782902DA_ME_4D5EA95401A8_G l3PtrList
+
+MEREF ME_4A54DD4E036F_ME_4D5EA95401A8_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4D5EA95401A8_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B5782902DA ME_4D5EA95401A8
+%%InheritedBy ME_4A54DD4E036F ME_4D5EA95401A8
+
+ME ME_4D5EA95401A8
+ MEPROP UID '4D5EA95401A8'
+ MEPROP Name 'TvgCustomObjectList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4CFCE51A00B0' // Impl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B5782902DA_ME_4D5EA95401A8_G // l3PtrList
+ HWL ME_4A54DD4E036F_ME_4D5EA95401A8_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D5EA97903D6 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_4D5EA95401A8_impl // IsSameItems
+ ME_47B2C42A0163_ME_4D5EA95401A8_impl // AssignItem
+ ME_47B99D4503A2_ME_4D5EA95401A8_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '18.02.2011 20:16'
+ UP extprop:pas:UnitName 'vgCustomObjectList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ObjectList'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgCustomObjectList.pas'
+
+ENDME // ME_4D5EA95401A8 TvgCustomObjectList

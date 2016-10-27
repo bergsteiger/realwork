@@ -1,0 +1,135 @@
+// TddTemporaryStorage 57A08AEB0203 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57A08AEB0203
+
+ME ME_57A08B36006D
+ MEPROP UID '57A08B36006D'
+ MEPROP Name 'f_RealIni'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57A08AEB0203 // TddTemporaryStorage
+ ;
+ MELINK Target WL 'ME_57A07C230005' '57726BD301F3.ms.model.script' // TMemIniFile
+ ;
+
+ENDME // ME_57A08B36006D f_RealIni
+
+ME ME_57A08B4B02AC
+ MEPROP UID '57A08B4B02AC'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A08AEB0203 // TddTemporaryStorage
+ ;
+
+ENDME // ME_57A08B4B02AC Create
+
+MEREF ME_57A08B4B02AC_ME_57A08B5D03E7_G
+ MELINK Original HWL ME_57A08B4B02AC // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57A08B4B02AC_ME_57A08B5D03E7_G Create
+
+MEREF ME_51D519310249_ME_57A08B5D03E7_R
+ MELINK Original WL 'ME_51D519310249' '5214AEF201AE.ms.model.script' // IddConfigStorage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51D519310249_ME_57A08B5D03E7_R IddConfigStorage
+
+%%ImplementedBy ME_51D519310249 ME_57A08B5D03E7
+
+%%InheritedBy ME_57A08B4B02AC ME_57A08B5D03E7
+
+ME ME_57A08B5D03E7
+ MEPROP UID '57A08B5D03E7'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A08AEB0203 // TddTemporaryStorage
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57A08B4B02AC_ME_57A08B5D03E7_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_51D519310249_ME_57A08B5D03E7_R // IddConfigStorage
+ )
+ ; // Implements
+
+ENDME // ME_57A08B5D03E7 Make
+
+ME ME_57A08BBF0244
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57A08AEB0203 // TddTemporaryStorage
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_57A08BBF0244 
+
+MEREF ME_479731C50290_ME_57A08AEB0203_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57A08AEB0203_over Cleanup
+
+MEREF ME_57A07B6903C1_ME_57A08AEB0203_G
+ MELINK Original WL? 'ME_57A07B6903C1' // TddCustomIniStorage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57A07B6903C1_ME_57A08AEB0203_G TddCustomIniStorage
+
+%%InheritedBy ME_57A07B6903C1 ME_57A08AEB0203
+
+ME ME_57A08AEB0203
+ MEPROP UID '57A08AEB0203'
+ MEPROP Name 'TddTemporaryStorage'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_51D518E70109' // ddConfigStorages
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57A07B6903C1_ME_57A08AEB0203_G // TddCustomIniStorage
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57A08B36006D // f_RealIni
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57A08B4B02AC // Create
+ HWL ME_57A08B5D03E7 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57A08AEB0203_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57A08BBF0244 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ddTemporaryStorage'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddTemporaryStorage'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddTemporaryStorage.pas'
+
+ENDME // ME_57A08AEB0203 TddTemporaryStorage

@@ -1,0 +1,313 @@
+// TalcuSendTaskExecutor 54856BFA003E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54856BFA003E
+
+ME ME_548591DE01A7
+ MEPROP UID '548591DE01A7'
+ MEPROP Name 'f_RootTaskFolder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54856BFA003E // TalcuSendTaskExecutor
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_548591DE01A7 f_RootTaskFolder
+
+ME ME_57CD620101A1
+ MEPROP UID '57CD620101A1'
+ MEPROP Name 'f_RequestImmidiateProcessProc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54856BFA003E // TalcuSendTaskExecutor
+ ;
+ MELINK Target WL 'ME_57C8105D02F5' '57C810400018.ms.model.script' // TalcuSpeedupRequestProc
+ ;
+
+ENDME // ME_57CD620101A1 f_RequestImmidiateProcessProc
+
+FORWARD ME_5485919200F1
+
+FORWARD ME_548591A302AA
+
+ME ME_548591B7023F
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52FA5F460142' '53A172750065.ms.model.script' // TddServerTaskList
+ ;
+
+ENDME // ME_548591B7023F aList
+
+ME ME_548591B7024F
+ MEPROP Name 'aRootTaskFolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_548591B7024F aRootTaskFolder
+
+ME ME_57CD621D03D6
+ MEPROP Name 'RequestImmidiateProcessProc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57C8105D02F5' '57C810400018.ms.model.script' // TalcuSpeedupRequestProc
+ ;
+
+ENDME // ME_57CD621D03D6 RequestImmidiateProcessProc
+
+ME ME_548591A302AA
+ MEPROP UID '548591A302AA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5485919200F1 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_548591B7023F // aList
+ ME_548591B7024F // aRootTaskFolder
+ ME_57CD621D03D6 // RequestImmidiateProcessProc
+ )
+ ; // Parameters
+
+ENDME // ME_548591A302AA DoIt
+
+ME ME_5485919200F1
+ MEPROP UID '5485919200F1'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54856BFA003E // TalcuSendTaskExecutor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_548591A302AA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5485919200F1 Create
+
+MEREF ME_5485919200F1_ME_54856F58005B_G
+ MELINK Original HWL ME_5485919200F1 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5485919200F1_ME_54856F58005B_G Create
+
+MEREF ME_5460731E025E_ME_54856F58005B_R
+ MELINK Original WL 'ME_5460731E025E' '5460A4DB018A.ms.model.script' // IncsExecutor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5460731E025E_ME_54856F58005B_R IncsExecutor
+
+%%ImplementedBy ME_5460731E025E ME_54856F58005B
+
+%%InheritedBy ME_5485919200F1 ME_54856F58005B
+
+ME ME_54856F58005B
+ MEPROP UID '54856F58005B'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54856BFA003E // TalcuSendTaskExecutor
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5485919200F1_ME_54856F58005B_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5460731E025E_ME_54856F58005B_R // IncsExecutor
+ )
+ ; // Implements
+
+ENDME // ME_54856F58005B Make
+
+ME ME_54858E9A0186
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54856BFA003E // TalcuSendTaskExecutor
+ ;
+ MELINK Target WL 'ME_52FA49DF00EF' '52FA49C7022C.ms.model.script' // TddTaskItem
+ ;
+
+ENDME // ME_54858E9A0186 
+
+ME ME_5485992901EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54856BFA003E // TalcuSendTaskExecutor
+ ;
+ MELINK Target WL? 'ME_54855C2F0088' // TncsSendTask
+ ;
+
+ENDME // ME_5485992901EE 
+
+ME ME_5485992D02E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54856BFA003E // TalcuSendTaskExecutor
+ ;
+ MELINK Target WL? 'ME_54855C4200D7' // TncsSendTaskReply
+ ;
+
+ENDME // ME_5485992D02E2 
+
+ME ME_54859E120290
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54856BFA003E // TalcuSendTaskExecutor
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
+ ;
+
+ENDME // ME_54859E120290 
+
+ME ME_5485A11F023F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54856BFA003E // TalcuSendTaskExecutor
+ ;
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
+ ;
+
+ENDME // ME_5485A11F023F 
+
+ME ME_5485ABB10019
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54856BFA003E // TalcuSendTaskExecutor
+ ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_5485ABB10019 
+
+ME ME_54B6381D03D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54856BFA003E // TalcuSendTaskExecutor
+ ;
+ MELINK Target WL? 'ME_54B638150163' // TalcuTaskFileTransferServices
+ ;
+
+ENDME // ME_54B6381D03D6 
+
+ME ME_57029C1203B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54856BFA003E // TalcuSendTaskExecutor
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_57029C1203B4 
+
+ME ME_57BD8EF2038B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54856BFA003E // TalcuSendTaskExecutor
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_57BD8EF2038B 
+
+ME ME_57BD92E20267
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54856BFA003E // TalcuSendTaskExecutor
+ ;
+ MELINK Target WL? 'ME_47A080670100' // l3Stream
+ ;
+
+ENDME // ME_57BD92E20267 
+
+MEREF ME_54607DDC0159_ME_54856BFA003E_impl
+ MELINK Original WL 'ME_54607DDC0159' '5460A4DB018A.ms.model.script' // Execute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54607DDC0159_ME_54856BFA003E_impl Execute
+
+MEREF ME_54856E500154_ME_54856BFA003E_G
+ MELINK Original WL? 'ME_54856E500154' // TalcuExecutorWithIncomingTaskList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54856E500154_ME_54856BFA003E_G TalcuExecutorWithIncomingTaskList
+
+MEREF ME_5460731E025E_ME_54856BFA003E_R
+ MELINK Original WL 'ME_5460731E025E' '5460A4DB018A.ms.model.script' // IncsExecutor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5460731E025E_ME_54856BFA003E_R IncsExecutor
+
+%%ImplementedBy ME_5460731E025E ME_54856BFA003E
+
+%%InheritedBy ME_54856E500154 ME_54856BFA003E
+
+ME ME_54856BFA003E
+ MEPROP UID '54856BFA003E'
+ MEPROP Name 'TalcuSendTaskExecutor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54856B680023' // TaskSend
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54856E500154_ME_54856BFA003E_G // TalcuExecutorWithIncomingTaskList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5460731E025E_ME_54856BFA003E_R // IncsExecutor
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_548591DE01A7 // f_RootTaskFolder
+ HWL ME_57CD620101A1 // f_RequestImmidiateProcessProc
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5485919200F1 // Create
+ HWL ME_54856F58005B // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_54607DDC0159_ME_54856BFA003E_impl // Execute
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_54858E9A0186 // TddTaskItem
+ ME_5485992901EE // TncsSendTask
+ ME_5485992D02E2 // TncsSendTaskReply
+ ME_54859E120290 // l3System
+ ME_5485A11F023F // TddProcessTask
+ ME_5485ABB10019 // TStream
+ ME_54B6381D03D6 // TalcuTaskFileTransferServices
+ ME_57029C1203B4 // FreeAndNil
+ ME_57BD8EF2038B // IStream
+ ME_57BD92E20267 // l3Stream
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'alcuSendTaskExecutor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuSendTaskExecutor'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuSendTaskExecutor.pas'
+
+ENDME // ME_54856BFA003E TalcuSendTaskExecutor

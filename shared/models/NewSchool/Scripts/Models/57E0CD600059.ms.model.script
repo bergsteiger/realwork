@@ -1,0 +1,42 @@
+// push_TextSearchDlg 57E0CD600059 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57E0CD600059
+
+ME ME_57E0CE0103BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E0CD600059 // push_TextSearchDlg
+ ;
+ MELINK Target WL 'ME_4F8D61A100A6' '4F8D618800E7.ms.model.script' // TTextSearchDlg
+ ;
+
+ENDME // ME_57E0CE0103BD 
+
+ME ME_57E0CD600059
+ MEPROP UID '57E0CD600059'
+ MEPROP Name 'push_TextSearchDlg'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Кладет в стек указатель на окно поиска. Сделано специально, т.к. окно глобальное и найти его не всегда можно.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F5DA07B02CD' // EditorKeyWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_57E0CE0103BD // TTextSearchDlg
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwPushTextSearchDlg'
+ UP extprop:pas:UnitName 'kwPushTextSearchDlg'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PushTextSearchDlg'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwPushTextSearchDlg.pas'
+
+ENDME // ME_57E0CD600059 push_TextSearchDlg

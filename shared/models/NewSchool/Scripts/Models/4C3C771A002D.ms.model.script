@@ -1,0 +1,79 @@
+// TCheckTopAnchorTest 4C3C771A002D TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C3C771A002D
+
+ME ME_4C3C79020323
+ MEPROP UID '4C3C79020323'
+ MEPROP Name 'f_PrevTopAnchor'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Предыдущее значение TopAnchor''а.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C3C771A002D // TCheckTopAnchorTest
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4C3C79020323 f_PrevTopAnchor
+
+MEREF ME_4B2F40FD0088_ME_4C3C771A002D_over
+ MELINK Original WL 'ME_4B2F40FD0088' '4B2A0DCE03A9.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B2F40FD0088_ME_4C3C771A002D_over Cleanup
+
+MEREF ME_4BE419AF0217_ME_4C3C771A002D_over
+ MELINK Original WL 'ME_4BE419AF0217' '4BE418BB001F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BE419AF0217_ME_4C3C771A002D_over DoVisit
+
+MEREF ME_4C3C80AF002D_ME_4C3C771A002D_over
+ MELINK Original WL 'ME_4C3C80AF002D' '4BFE38A8006A.ms.model.script' // CheckAfterScroll
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C3C80AF002D_ME_4C3C771A002D_over CheckAfterScroll
+
+MEREF ME_4BFE38A8006A_ME_4C3C771A002D_G
+ MELINK Original WL? 'ME_4BFE38A8006A' // TScrollAndSelectPtTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BFE38A8006A_ME_4C3C771A002D_G TScrollAndSelectPtTest
+
+%%InheritedBy ME_4BFE38A8006A ME_4C3C771A002D
+
+ME ME_4C3C771A002D
+ MEPROP UID '4C3C771A002D'
+ MEPROP Name 'TCheckTopAnchorTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест для выбора точки после прокрутки и проверки изменился ли TopAnchor' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C4FDBF703DB' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BFE38A8006A_ME_4C3C771A002D_G // TScrollAndSelectPtTest
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4C3C79020323 // f_PrevTopAnchor
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4B2F40FD0088_ME_4C3C771A002D_over // Cleanup
+ ME_4BE419AF0217_ME_4C3C771A002D_over // DoVisit
+ ME_4C3C80AF002D_ME_4C3C771A002D_over // CheckAfterScroll
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'CheckTopAnchorTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CheckTopAnchorTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\CheckTopAnchorTest.pas'
+
+ENDME // ME_4C3C771A002D TCheckTopAnchorTest

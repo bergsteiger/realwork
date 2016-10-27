@@ -1,0 +1,102 @@
+// Tl3DataContainerWithoutIUnknownPrim 5319E8FF0107 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B8558100193
+%%Inner ME_4B8558040371
+
+FORWARD ME_5319E8FF0107
+
+ME ME_4B8558100193
+ MEPROP UID '4B8558100193'
+ MEPROP Name 'l3Unknown_NoIUnknown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5319E8FF0107 // Tl3DataContainerWithoutIUnknownPrim
+ ;
+ UP extprop:rc:SelfName 'Unknown_NoIUnknown'
+
+ENDME // ME_4B8558100193 l3Unknown_NoIUnknown
+
+ME ME_4B8558040371
+ MEPROP UID '4B8558040371'
+ MEPROP Name 'l3Unknown_NoMultiThread'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Undef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5319E8FF0107 // Tl3DataContainerWithoutIUnknownPrim
+ ;
+ UP extprop:rc:SelfName 'Unknown_NoMultiThread'
+
+ENDME // ME_4B8558040371 l3Unknown_NoMultiThread
+
+MEREF ME_47913F970159_ME_5319E8FF0107_G
+ MELINK Original WL? 'ME_47913F970159' // l3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47913F970159_ME_5319E8FF0107_G l3Unknown
+
+MEREF ME_47A0D67B03E2_ME_5319E8FF0107_G
+ MELINK Original WL? 'ME_47A0D67B03E2' // Tl3CastablePersistent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47A0D67B03E2_ME_5319E8FF0107_G Tl3CastablePersistent
+
+MEREF ME_4A54DFCC0370_ME_5319E8FF0107_R
+ MELINK Original WL? 'ME_4A54DFCC0370' // l3DataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DFCC0370_ME_5319E8FF0107_R l3DataContainer
+
+MEREF ME_4A60B2220398_ME_5319E8FF0107_R
+ MELINK Original WL? 'ME_4A60B2220398' // l3COMQueryInterface
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A60B2220398_ME_5319E8FF0107_R l3COMQueryInterface
+
+%%ImplementedBy ME_4A54DFCC0370 ME_5319E8FF0107
+%%ImplementedBy ME_4A60B2220398 ME_5319E8FF0107
+
+%%InheritedBy ME_47913F970159 ME_5319E8FF0107
+%%InheritedBy ME_47A0D67B03E2 ME_5319E8FF0107
+
+ME ME_5319E8FF0107
+ MEPROP UID '5319E8FF0107'
+ MEPROP Name 'Tl3DataContainerWithoutIUnknownPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47913F970159_ME_5319E8FF0107_G // l3Unknown
+ HWL ME_47A0D67B03E2_ME_5319E8FF0107_G // Tl3CastablePersistent
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4A54DFCC0370_ME_5319E8FF0107_R // l3DataContainer
+ HWL ME_4A60B2220398_ME_5319E8FF0107_R // l3COMQueryInterface
+ )
+ ; // Implements
+ MELIST Children
+   Seq: ( HWL ME_4B8558100193 // l3Unknown_NoIUnknown
+ HWL ME_4B8558040371 // l3Unknown_NoMultiThread
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'l3DataContainerWithoutIUnknownPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DataContainerWithoutIUnknownPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3DataContainerWithoutIUnknownPrim.pas'
+
+ENDME // ME_5319E8FF0107 Tl3DataContainerWithoutIUnknownPrim

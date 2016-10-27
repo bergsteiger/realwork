@@ -1,0 +1,107 @@
+// TeeDocumentTool 54817DBA01BE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54817DBA01BE
+
+ME ME_5487171F0251
+ MEPROP UID '5487171F0251'
+ MEPROP Name 'Document'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54817DBA01BE // TeeDocumentTool
+ ;
+ MELINK Target WL 'ME_49523C96004A' '49523C640160.ms.model.script' // IeeDocumentEx
+ ;
+ UP "pm" True
+
+ENDME // ME_5487171F0251 Document
+
+FORWARD ME_548717AB01C5
+
+FORWARD ME_548717C70007
+
+ME ME_548717CD0029
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49523C96004A' '49523C640160.ms.model.script' // IeeDocumentEx
+ ;
+
+ENDME // ME_548717CD0029 aDocument
+
+ME ME_548717C70007
+ MEPROP UID '548717C70007'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_548717AB01C5 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_548717CD0029 // aDocument
+ )
+ ; // Parameters
+
+ENDME // ME_548717C70007 DoIt
+
+ME ME_548717AB01C5
+ MEPROP UID '548717AB01C5'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54817DBA01BE // TeeDocumentTool
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_548717C70007 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_548717AB01C5 Create
+
+MEREF ME_48E233B00094_ME_54817DBA01BE_G
+ MELINK Original WL? 'ME_48E233B00094' // Tl3Tool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48E233B00094_ME_54817DBA01BE_G Tl3Tool
+
+%%InheritedBy ME_48E233B00094 ME_54817DBA01BE
+
+ME ME_54817DBA01BE
+ MEPROP UID '54817DBA01BE'
+ MEPROP Name 'TeeDocumentTool'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4912E16B01B4' // Engine Core
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48E233B00094_ME_54817DBA01BE_G // Tl3Tool
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5487171F0251 // Document
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_548717AB01C5 // Create
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'eeDocumentTool'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'eeDocumentTool'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeDocumentTool.pas'
+
+ENDME // ME_54817DBA01BE TeeDocumentTool

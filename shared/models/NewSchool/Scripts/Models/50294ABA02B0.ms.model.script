@@ -1,0 +1,429 @@
+// TatStringsFromFile 50294ABA02B0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_50294B06019B
+%%Inner ME_502954E000C5
+
+FORWARD ME_50294ABA02B0
+
+FORWARD ME_50294B06019B
+
+ME ME_502953350213
+ MEPROP UID '502953350213'
+ MEPROP Name 'StringsCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50294B06019B // SFFHeader
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_502953350213 StringsCount
+
+ME ME_5029534701C8
+ MEPROP UID '5029534701C8'
+ MEPROP Name 'IndexOffset'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50294B06019B // SFFHeader
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5029534701C8 IndexOffset
+
+ME ME_5029535A01AF
+ MEPROP UID '5029535A01AF'
+ MEPROP Name 'DataOffset'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50294B06019B // SFFHeader
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5029535A01AF DataOffset
+
+ME ME_502953650250
+ MEPROP UID '502953650250'
+ MEPROP Name 'DataLength'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50294B06019B // SFFHeader
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_502953650250 DataLength
+
+ME ME_50294B06019B
+ MEPROP UID '50294B06019B'
+ MEPROP Name 'SFFHeader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50294ABA02B0 // TatStringsFromFile
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_502953350213 // StringsCount
+ HWL ME_5029534701C8 // IndexOffset
+ HWL ME_5029535A01AF // DataOffset
+ HWL ME_502953650250 // DataLength
+ )
+ ; // Attributes
+
+ENDME // ME_50294B06019B SFFHeader
+
+MEREF ME_50294B06019B_ME_502954E000C5_G
+ MELINK Original HWL ME_50294B06019B // SFFHeader
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50294B06019B_ME_502954E000C5_G SFFHeader
+
+%%InheritedBy ME_50294B06019B ME_502954E000C5
+
+ME ME_502954E000C5
+ MEPROP UID '502954E000C5'
+ MEPROP Name 'PSFFHeader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50294ABA02B0 // TatStringsFromFile
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50294B06019B_ME_502954E000C5_G // SFFHeader
+ )
+ ; // Inherits
+ UP "isPointer" True
+
+ENDME // ME_502954E000C5 PSFFHeader
+
+ME ME_502955BD02C6
+ MEPROP UID '502955BD02C6'
+ MEPROP Name 'f_PIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50294ABA02B0 // TatStringsFromFile
+ ;
+ MELINK Target WL 'ME_47C6A4030052' '48A41FF10094.ms.model.script' // PInteger
+ ;
+
+ENDME // ME_502955BD02C6 f_PIndex
+
+ME ME_50295611026E
+ MEPROP UID '50295611026E'
+ MEPROP Name 'f_DataFileName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50294ABA02B0 // TatStringsFromFile
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_50295611026E f_DataFileName
+
+ME ME_502956AB00B3
+ MEPROP UID '502956AB00B3'
+ MEPROP Name 'Count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50294ABA02B0 // TatStringsFromFile
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_502956AB00B3 Count
+
+ME ME_50295A100120
+ MEPROP UID '50295A100120'
+ MEPROP Name 'f_PData'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50294ABA02B0 // TatStringsFromFile
+ ;
+ MELINK Target WL 'ME_4771179900D8' '4807744200AA.ms.model.script' // PChar
+ ;
+
+ENDME // ME_50295A100120 f_PData
+
+ME ME_5029554B00B7
+ MEPROP UID '5029554B00B7'
+ MEPROP Name 'f_PFileHeader'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50294ABA02B0 // TatStringsFromFile
+ ;
+ MELINK Target HWL ME_502954E000C5 // PSFFHeader
+ ;
+
+ENDME // ME_5029554B00B7 f_PFileHeader
+
+ME ME_5029562B00F5
+ MEPROP UID '5029562B00F5'
+ MEPROP Name 'f_StringFile'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50294ABA02B0 // TatStringsFromFile
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+
+ENDME // ME_5029562B00F5 f_StringFile
+
+ME ME_50295633034D
+ MEPROP UID '50295633034D'
+ MEPROP Name 'f_DataFile'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50294ABA02B0 // TatStringsFromFile
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+
+ENDME // ME_50295633034D f_DataFile
+
+ME ME_5029564F018A
+ MEPROP UID '5029564F018A'
+ MEPROP Name 'f_DataFileMapping'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50294ABA02B0 // TatStringsFromFile
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+
+ENDME // ME_5029564F018A f_DataFileMapping
+
+FORWARD ME_5029567D01C0
+
+ME ME_502956820025
+ MEPROP UID '502956820025'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5029567D01C0 // Strings
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_502956820025 anIndex
+
+ME ME_5029567D01C0
+ MEPROP UID '5029567D01C0'
+ MEPROP Name 'Strings'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50294ABA02B0 // TatStringsFromFile
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_502956820025 // anIndex
+ )
+ ; // Attributes
+ UP "pm" True
+
+ENDME // ME_5029567D01C0 Strings
+
+ME ME_502956CE01E4
+ MEPROP UID '502956CE01E4'
+ MEPROP Name 'SetPointers'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50294ABA02B0 // TatStringsFromFile
+ ;
+
+ENDME // ME_502956CE01E4 SetPointers
+
+ME ME_502956D8009C
+ MEPROP UID '502956D8009C'
+ MEPROP Name 'CloseDataFile'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50294ABA02B0 // TatStringsFromFile
+ ;
+
+ENDME // ME_502956D8009C CloseDataFile
+
+ME ME_502956E703BF
+ MEPROP UID '502956E703BF'
+ MEPROP Name 'InitDataFile'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50294ABA02B0 // TatStringsFromFile
+ ;
+
+ENDME // ME_502956E703BF InitDataFile
+
+FORWARD ME_502957040259
+
+ME ME_502957110273
+ MEPROP Name 'aStringFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_502957110273 aStringFileName
+
+ME ME_502957040259
+ MEPROP UID '502957040259'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50294ABA02B0 // TatStringsFromFile
+ ;
+ MELIST Parameters
+   Seq: ( ME_502957110273 // aStringFileName
+ )
+ ; // Parameters
+
+ENDME // ME_502957040259 Create
+
+ME ME_5029583B0282
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50294ABA02B0 // TatStringsFromFile
+ ;
+ MELINK Target WL? 'ME_50294907000B' // TatFileInitializer
+ ;
+
+ENDME // ME_5029583B0282 
+
+ME ME_50295CAC0347
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50294ABA02B0 // TatStringsFromFile
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_50295CAC0347 
+
+ME ME_50295D2B034D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50294ABA02B0 // TatStringsFromFile
+ ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_50295D2B034D 
+
+MEREF ME_48077504027E_ME_50294ABA02B0_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_50294ABA02B0_over Destroy
+
+MEREF ME_4807745602C8_ME_50294ABA02B0_G
+ MELINK Original WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807745602C8_ME_50294ABA02B0_G TObject
+
+%%InheritedBy ME_4807745602C8 ME_50294ABA02B0
+
+ME ME_50294ABA02B0
+ MEPROP UID '50294ABA02B0'
+ MEPROP Name 'TatStringsFromFile'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4807745602C8_ME_50294ABA02B0_G // TObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_502955BD02C6 // f_PIndex
+ HWL ME_50295611026E // f_DataFileName
+ HWL ME_502956AB00B3 // Count
+ HWL ME_50295A100120 // f_PData
+ HWL ME_5029554B00B7 // f_PFileHeader
+ HWL ME_5029562B00F5 // f_StringFile
+ HWL ME_50295633034D // f_DataFile
+ HWL ME_5029564F018A // f_DataFileMapping
+ HWL ME_5029567D01C0 // Strings
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_502956CE01E4 // SetPointers
+ HWL ME_502956D8009C // CloseDataFile
+ HWL ME_502956E703BF // InitDataFile
+ HWL ME_502957040259 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_50294ABA02B0_over // Destroy
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_50294B06019B // SFFHeader
+ HWL ME_502954E000C5 // PSFFHeader
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5029583B0282 // TatFileInitializer
+ ME_50295CAC0347 // SysUtils
+ ME_50295D2B034D // TStream
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atStringsFromFile'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atStringsFromFile'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atStringsFromFile.pas'
+
+ENDME // ME_50294ABA02B0 TatStringsFromFile

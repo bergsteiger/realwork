@@ -1,0 +1,77 @@
+// TCustomFolderTestSuite 4EA515800122 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EA515800122
+
+ME ME_4EA67C6503B7
+ MEPROP UID '4EA67C6503B7'
+ MEPROP Name 'f_DataFolder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EA515800122 // TCustomFolderTestSuite
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4EA67C6503B7 f_DataFolder
+
+MEREF ME_4DC38C96018E_ME_4EA515800122_over
+ MELINK Original WL 'ME_4DC38C96018E' '4B2A0DCE03A9.ms.model.script' // AddTests
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DC38C96018E_ME_4EA515800122_over AddTests
+
+MEREF ME_4EA50B95037D_ME_4EA515800122_over
+ MELINK Original WL 'ME_4EA50B95037D' '4DC24CA4037E.ms.model.script' // GetDataFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4EA50B95037D_ME_4EA515800122_over GetDataFolder
+
+MEREF ME_4EA50C04021B_ME_4EA515800122_over
+ MELINK Original WL 'ME_4EA50C04021B' '4DC24CA4037E.ms.model.script' // GetExt
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4EA50C04021B_ME_4EA515800122_over GetExt
+
+MEREF ME_4DC40A7E00C8_ME_4EA515800122_G
+ MELINK Original WL 'ME_4DC40A7E00C8' '4DC24CA4037E.ms.model.script' // TCustomAutoTestSuite
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DC40A7E00C8_ME_4EA515800122_G TCustomAutoTestSuite
+
+%%InheritedBy ME_4DC40A7E00C8 ME_4EA515800122
+
+ME ME_4EA515800122
+ MEPROP UID '4EA515800122'
+ MEPROP Name 'TCustomFolderTestSuite'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4EA5156C00C8' // FolderTestSupport
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DC40A7E00C8_ME_4EA515800122_G // TCustomAutoTestSuite
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4EA67C6503B7 // f_DataFolder
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4DC38C96018E_ME_4EA515800122_over // AddTests
+ ME_4EA50B95037D_ME_4EA515800122_over // GetDataFolder
+ ME_4EA50C04021B_ME_4EA515800122_over // GetExt
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'CustomFolderTestSuite'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FolderTestSuite'
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\CustomFolderTestSuite.pas'
+
+ENDME // ME_4EA515800122 TCustomFolderTestSuite

@@ -1,0 +1,118 @@
+// Tl3StringToStringMapTest 569F67CE017B TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_569F67CE017B
+
+FORWARD ME_569F68230027
+
+ME ME_569F683C01AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_569F68230027 // DoIt
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_569F683C01AF 
+
+ME ME_569F688D008A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_569F68230027 // DoIt
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_569F688D008A 
+
+ME ME_569F68C002E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_569F68230027 // DoIt
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_569F68C002E5 
+
+ME ME_569F741C0044
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_569F68230027 // DoIt
+ ;
+ MELINK Target WL 'ME_4C8A3B45005E' '47878E0E0191.ms.model.script' // l3Same
+ ;
+
+ENDME // ME_569F741C0044 
+
+ME ME_569F68230027
+ MEPROP UID '569F68230027'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_569F67CE017B // Tl3StringToStringMapTest
+ ;
+ MELIST Dependencies
+   Seq: ( ME_569F683C01AF // FreeAndNil
+ ME_569F688D008A // l3CStr
+ ME_569F68C002E5 // Il3CString
+ ME_569F741C0044 // l3Same
+ )
+ ; // Dependencies
+
+ENDME // ME_569F68230027 DoIt
+
+ME ME_569F67F60263
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_569F67CE017B // Tl3StringToStringMapTest
+ ;
+ MELINK Target WL? 'ME_56963C1702B0' // Tl3StringToStringMap
+ ;
+
+ENDME // ME_569F67F60263 
+
+MEREF ME_4B2A11BC0255_ME_569F67CE017B_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_569F67CE017B_G TBaseTest
+
+%%InheritedBy ME_4B2A11BC0255 ME_569F67CE017B
+
+ME ME_569F67CE017B
+ MEPROP UID '569F67CE017B'
+ MEPROP Name 'Tl3StringToStringMapTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_549199FF02ED' // 7.11
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B2A11BC0255_ME_569F67CE017B_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_569F68230027 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_569F67F60263 // Tl3StringToStringMap
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'l3StringToStringMapTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringToStringMapTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\l3StringToStringMapTest.pas'
+
+ENDME // ME_569F67CE017B Tl3StringToStringMapTest

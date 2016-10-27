@@ -7,6 +7,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4FFB039302AA
 
+MEREF ME_4E7A0C450082_ME_4BD71CAC000C_R
+ MELINK Original WL 'ME_4E7A0C450082' '484900780017.ms.model.script' // Должна быть кнопка закрытия окна
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E7A0C450082_ME_4BD71CAC000C_R Должна быть кнопка закрытия окна
+
 %%ImplementedBy ME_4E7A0C450082 ME_4BD71CAC000C
 
 ME ME_4BD71CAC000C
@@ -21,7 +27,7 @@ ME ME_4BD71CAC000C
  MELINK Parent HWL ME_4FFB039302AA // ContentsUserTypes
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E7A0C450082' '484900780017.ms.model.script' // Должна быть кнопка закрытия окна
+   Seq: ( HWL ME_4E7A0C450082_ME_4BD71CAC000C_R // Должна быть кнопка закрытия окна
  )
  ; // Implements
  UP "CanClose" True
@@ -32,6 +38,18 @@ ME ME_4BD71CAC000C
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ContentsUserTypes_utContents_UserType.pas'
 
 ENDME // ME_4BD71CAC000C utContents
+
+MEREF ME_4BD71CAC000C_ME_4BD71CDB00F5_G
+ MELINK Original HWL ME_4BD71CAC000C // utContents
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BD71CAC000C_ME_4BD71CDB00F5_G utContents
+
+MEREF ME_4E7A0C450082_ME_4BD71CDB00F5_R
+ MELINK Original WL 'ME_4E7A0C450082' '484900780017.ms.model.script' // Должна быть кнопка закрытия окна
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E7A0C450082_ME_4BD71CDB00F5_R Должна быть кнопка закрытия окна
 
 %%ImplementedBy ME_4E7A0C450082 ME_4BD71CDB00F5
 
@@ -49,11 +67,11 @@ ME ME_4BD71CDB00F5
  MELINK Parent HWL ME_4FFB039302AA // ContentsUserTypes
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4BD71CAC000C // utContents
+   Seq: ( HWL ME_4BD71CAC000C_ME_4BD71CDB00F5_G // utContents
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E7A0C450082' '484900780017.ms.model.script' // Должна быть кнопка закрытия окна
+   Seq: ( HWL ME_4E7A0C450082_ME_4BD71CDB00F5_R // Должна быть кнопка закрытия окна
  )
  ; // Implements
  UP "CanClose" True

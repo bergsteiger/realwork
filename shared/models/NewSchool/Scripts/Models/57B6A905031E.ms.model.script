@@ -2,11 +2,17 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-ME ME_57ADE59000CB_ME_57B6A905031E
+MEREF ME_57ADE59000CB_ME_57B6A905031E_impl
  MELINK Original WL 'ME_57ADE59000CB' '57B5730D0123.ms.model.script' // Fire
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_57ADE59000CB_ME_57B6A905031E Fire
+ENDMEREF // ME_57ADE59000CB_ME_57B6A905031E_impl Fire
+
+MEREF ME_57B4279900AD_ME_57B6A905031E_R
+ MELINK Original WL 'ME_57B4279900AD' '57B5730D0123.ms.model.script' // MmsmEventFire
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B4279900AD_ME_57B6A905031E_R MmsmEventFire
 
 %%ImplementedBy ME_57B4279900AD ME_57B6A905031E
 
@@ -22,11 +28,11 @@ ME ME_57B6A905031E
  MELINK Parent WL? 'ME_57CE85BE0100' // Events
  ;
  MELIST Implements
-   Seq: ( WL 'ME_57B4279900AD' '57B5730D0123.ms.model.script' // MmsmEventFire
+   Seq: ( HWL ME_57B4279900AD_ME_57B6A905031E_R // MmsmEventFire
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_57ADE59000CB_ME_57B6A905031E // Fire
+   Seq: ( ME_57ADE59000CB_ME_57B6A905031E_impl // Fire
  )
  ; // Implemented
  UP extprop:pas:TypeName '_msmEventFire_'

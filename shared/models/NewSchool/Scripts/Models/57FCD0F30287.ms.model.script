@@ -1,0 +1,54 @@
+// TmsmMemoViewController 57FCD0F30287 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57FCD0F30287
+
+ME ME_57FCD1080286
+ MEPROP UID '57FCD1080286'
+ MEPROP Name 'OwnViewClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57FCD0F30287 // TmsmMemoViewController
+ ;
+ MELINK Target WL? 'ME_57FCCF280377' // TmsmMemo
+ ;
+
+ENDME // ME_57FCD1080286 OwnViewClass
+
+MEREF ME_57FBA9B70217_ME_57FCD0F30287_G
+ MELINK Original WL? 'ME_57FBA9B70217' // msmEditViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57FBA9B70217_ME_57FCD0F30287_G msmEditViewController
+
+%%InheritedBy ME_57FBA9B70217 ME_57FCD0F30287
+
+ME ME_57FCD0F30287
+ MEPROP UID '57FCD0F30287'
+ MEPROP Name 'TmsmMemoViewController'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57AE0E4B00C5' // ConcreteViewControllers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57FBA9B70217_ME_57FCD0F30287_G // msmEditViewController
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57FCD1080286 // OwnViewClass
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'msmMemoViewController'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmMemoViewController'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmMemoViewController.pas'
+
+ENDME // ME_57FCD0F30287 TmsmMemoViewController

@@ -54,7 +54,7 @@ ENDME // ME_4EB25F1802C8 DoIt
 ME ME_4EB25F0701B5
  MEPROP UID '4EB25F0701B5'
  MEPROP Name 'DoDiffForm'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -78,11 +78,17 @@ ME ME_54DB54D2003D
 
 ENDME // ME_54DB54D2003D 
 
-ME ME_4EB25DE00396_ME_4EB25E1501E1
- MELINK Original WL 'ME_4EB25DE00396' '54DB92D203C9.ms.model.script' // DoForm
+MEREF ME_4EB25DE00396_ME_4EB25E1501E1_impl
+ MELINK Original WL 'ME_4EB25DE00396' '4EB25D530395.ms.model.script' // DoForm
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4EB25DE00396_ME_4EB25E1501E1 DoForm
+ENDMEREF // ME_4EB25DE00396_ME_4EB25E1501E1_impl DoForm
+
+MEREF ME_4EB25D530395_ME_4EB25E1501E1_G
+ MELINK Original WL? 'ME_4EB25D530395' // TkwFormFromControlWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EB25D530395_ME_4EB25E1501E1_G TkwFormFromControlWord
 
 %%InheritedBy ME_4EB25D530395 ME_4EB25E1501E1
 
@@ -97,7 +103,7 @@ ME ME_4EB25E1501E1
  MELINK Parent HWL ME_571A22D2007A // DiffFormWordsPack
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4EB25D530395' '54DB92D203C9.ms.model.script' // TkwFormFromControlWord
+   Seq: ( HWL ME_4EB25D530395_ME_4EB25E1501E1_G // TkwFormFromControlWord
  )
  ; // Inherits
  MELIST Operations
@@ -105,7 +111,7 @@ ME ME_4EB25E1501E1
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4EB25DE00396_ME_4EB25E1501E1 // DoForm
+   Seq: ( ME_4EB25DE00396_ME_4EB25E1501E1_impl // DoForm
  )
  ; // Implemented
  MELIST Dependencies
@@ -125,6 +131,12 @@ ENDME // ME_4EB25E1501E1 TkwDiffFormWord
 
 FORWARD ME_4EB2632A02DD
 
+MEREF ME_4A6EBE900233_ME_4EB25EDE020F_G
+ MELINK Original WL? 'ME_4A6EBE900233' // Diff
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A6EBE900233_ME_4EB25EDE020F_G Diff
+
 %%InheritedBy ME_4A6EBE900233 ME_4EB25EDE020F
 
 ME ME_4EB25EDE020F
@@ -138,7 +150,7 @@ ME ME_4EB25EDE020F
  MELINK Parent HWL ME_4EB2632A02DD // TkwDiffIteratorWord
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4A6EBE900233' // Diff
+   Seq: ( HWL ME_4A6EBE900233_ME_4EB25EDE020F_G // Diff
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -187,7 +199,7 @@ ENDME // ME_4EB263570104 DoIt
 ME ME_4EB2634D0118
  MEPROP UID '4EB2634D0118'
  MEPROP Name 'DoIterator'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -201,11 +213,17 @@ ME ME_4EB2634D0118
 
 ENDME // ME_4EB2634D0118 DoIterator
 
-ME ME_4EB25F0701B5_ME_4EB2632A02DD
+MEREF ME_4EB25F0701B5_ME_4EB2632A02DD_impl
  MELINK Original HWL ME_4EB25F0701B5 // DoDiffForm
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4EB25F0701B5_ME_4EB2632A02DD DoDiffForm
+ENDMEREF // ME_4EB25F0701B5_ME_4EB2632A02DD_impl DoDiffForm
+
+MEREF ME_4EB25E1501E1_ME_4EB2632A02DD_G
+ MELINK Original HWL ME_4EB25E1501E1 // TkwDiffFormWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EB25E1501E1_ME_4EB2632A02DD_G TkwDiffFormWord
 
 %%InheritedBy ME_4EB25E1501E1 ME_4EB2632A02DD
 
@@ -220,7 +238,7 @@ ME ME_4EB2632A02DD
  MELINK Parent HWL ME_571A22D2007A // DiffFormWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4EB25E1501E1 // TkwDiffFormWord
+   Seq: ( HWL ME_4EB25E1501E1_ME_4EB2632A02DD_G // TkwDiffFormWord
  )
  ; // Inherits
  MELIST Operations
@@ -228,7 +246,7 @@ ME ME_4EB2632A02DD
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4EB25F0701B5_ME_4EB2632A02DD // DoDiffForm
+   Seq: ( ME_4EB25F0701B5_ME_4EB2632A02DD_impl // DoDiffForm
  )
  ; // Implemented
  MELIST Children
@@ -246,17 +264,23 @@ ME ME_4EB2632A02DD
 
 ENDME // ME_4EB2632A02DD TkwDiffIteratorWord
 
-ME ME_4EB2634D0118_ME_4EB25F2501B3
+MEREF ME_4EB2634D0118_ME_4EB25F2501B3_impl
  MELINK Original HWL ME_4EB2634D0118 // DoIterator
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4EB2634D0118_ME_4EB25F2501B3 DoIterator
+ENDMEREF // ME_4EB2634D0118_ME_4EB25F2501B3_impl DoIterator
 
-ME ME_4DB0614603C8_ME_4EB25F2501B3
- MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+MEREF ME_4DB0614603C8_ME_4EB25F2501B3_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4DB0614603C8_ME_4EB25F2501B3 GetWordNameForRegister
+ENDMEREF // ME_4DB0614603C8_ME_4EB25F2501B3_over GetWordNameForRegister
+
+MEREF ME_4EB2632A02DD_ME_4EB25F2501B3_G
+ MELINK Original HWL ME_4EB2632A02DD // TkwDiffIteratorWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EB2632A02DD_ME_4EB25F2501B3_G TkwDiffIteratorWord
 
 %%InheritedBy ME_4EB2632A02DD ME_4EB25F2501B3
 
@@ -271,15 +295,15 @@ ME ME_4EB25F2501B3
  MELINK Parent HWL ME_571A22D2007A // DiffFormWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4EB2632A02DD // TkwDiffIteratorWord
+   Seq: ( HWL ME_4EB2632A02DD_ME_4EB25F2501B3_G // TkwDiffIteratorWord
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_4EB2634D0118_ME_4EB25F2501B3 // DoIterator
+   Seq: ( ME_4EB2634D0118_ME_4EB25F2501B3_impl // DoIterator
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_4DB0614603C8_ME_4EB25F2501B3 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_4EB25F2501B3_over // GetWordNameForRegister
  )
  ; // Overridden
  UP "author" 'Ëþëèí À.Â.'
@@ -291,17 +315,23 @@ ME ME_4EB25F2501B3
 
 ENDME // ME_4EB25F2501B3 TkwDiffIteratorHasNext
 
-ME ME_4EB2634D0118_ME_4EB263BB0204
+MEREF ME_4EB2634D0118_ME_4EB263BB0204_impl
  MELINK Original HWL ME_4EB2634D0118 // DoIterator
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4EB2634D0118_ME_4EB263BB0204 DoIterator
+ENDMEREF // ME_4EB2634D0118_ME_4EB263BB0204_impl DoIterator
 
-ME ME_4DB0614603C8_ME_4EB263BB0204
- MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+MEREF ME_4DB0614603C8_ME_4EB263BB0204_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4DB0614603C8_ME_4EB263BB0204 GetWordNameForRegister
+ENDMEREF // ME_4DB0614603C8_ME_4EB263BB0204_over GetWordNameForRegister
+
+MEREF ME_4EB2632A02DD_ME_4EB263BB0204_G
+ MELINK Original HWL ME_4EB2632A02DD // TkwDiffIteratorWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EB2632A02DD_ME_4EB263BB0204_G TkwDiffIteratorWord
 
 %%InheritedBy ME_4EB2632A02DD ME_4EB263BB0204
 
@@ -316,15 +346,15 @@ ME ME_4EB263BB0204
  MELINK Parent HWL ME_571A22D2007A // DiffFormWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4EB2632A02DD // TkwDiffIteratorWord
+   Seq: ( HWL ME_4EB2632A02DD_ME_4EB263BB0204_G // TkwDiffIteratorWord
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_4EB2634D0118_ME_4EB263BB0204 // DoIterator
+   Seq: ( ME_4EB2634D0118_ME_4EB263BB0204_impl // DoIterator
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_4DB0614603C8_ME_4EB263BB0204 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_4EB263BB0204_over // GetWordNameForRegister
  )
  ; // Overridden
  UP "author" 'Ëþëèí À.Â.'
@@ -336,17 +366,23 @@ ME ME_4EB263BB0204
 
 ENDME // ME_4EB263BB0204 TkwDiffIteratorPrev
 
-ME ME_4EB2634D0118_ME_4EB263890066
+MEREF ME_4EB2634D0118_ME_4EB263890066_impl
  MELINK Original HWL ME_4EB2634D0118 // DoIterator
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4EB2634D0118_ME_4EB263890066 DoIterator
+ENDMEREF // ME_4EB2634D0118_ME_4EB263890066_impl DoIterator
 
-ME ME_4DB0614603C8_ME_4EB263890066
- MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+MEREF ME_4DB0614603C8_ME_4EB263890066_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4DB0614603C8_ME_4EB263890066 GetWordNameForRegister
+ENDMEREF // ME_4DB0614603C8_ME_4EB263890066_over GetWordNameForRegister
+
+MEREF ME_4EB2632A02DD_ME_4EB263890066_G
+ MELINK Original HWL ME_4EB2632A02DD // TkwDiffIteratorWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EB2632A02DD_ME_4EB263890066_G TkwDiffIteratorWord
 
 %%InheritedBy ME_4EB2632A02DD ME_4EB263890066
 
@@ -361,15 +397,15 @@ ME ME_4EB263890066
  MELINK Parent HWL ME_571A22D2007A // DiffFormWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4EB2632A02DD // TkwDiffIteratorWord
+   Seq: ( HWL ME_4EB2632A02DD_ME_4EB263890066_G // TkwDiffIteratorWord
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_4EB2634D0118_ME_4EB263890066 // DoIterator
+   Seq: ( ME_4EB2634D0118_ME_4EB263890066_impl // DoIterator
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_4DB0614603C8_ME_4EB263890066 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_4EB263890066_over // GetWordNameForRegister
  )
  ; // Overridden
  UP "author" 'Ëþëèí À.Â.'
@@ -381,17 +417,23 @@ ME ME_4EB263890066
 
 ENDME // ME_4EB263890066 TkwDiffIteratorHasPrev
 
-ME ME_4EB2634D0118_ME_4EB25F5F0340
+MEREF ME_4EB2634D0118_ME_4EB25F5F0340_impl
  MELINK Original HWL ME_4EB2634D0118 // DoIterator
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4EB2634D0118_ME_4EB25F5F0340 DoIterator
+ENDMEREF // ME_4EB2634D0118_ME_4EB25F5F0340_impl DoIterator
 
-ME ME_4DB0614603C8_ME_4EB25F5F0340
- MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+MEREF ME_4DB0614603C8_ME_4EB25F5F0340_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4DB0614603C8_ME_4EB25F5F0340 GetWordNameForRegister
+ENDMEREF // ME_4DB0614603C8_ME_4EB25F5F0340_over GetWordNameForRegister
+
+MEREF ME_4EB2632A02DD_ME_4EB25F5F0340_G
+ MELINK Original HWL ME_4EB2632A02DD // TkwDiffIteratorWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EB2632A02DD_ME_4EB25F5F0340_G TkwDiffIteratorWord
 
 %%InheritedBy ME_4EB2632A02DD ME_4EB25F5F0340
 
@@ -406,15 +448,15 @@ ME ME_4EB25F5F0340
  MELINK Parent HWL ME_571A22D2007A // DiffFormWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4EB2632A02DD // TkwDiffIteratorWord
+   Seq: ( HWL ME_4EB2632A02DD_ME_4EB25F5F0340_G // TkwDiffIteratorWord
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_4EB2634D0118_ME_4EB25F5F0340 // DoIterator
+   Seq: ( ME_4EB2634D0118_ME_4EB25F5F0340_impl // DoIterator
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_4DB0614603C8_ME_4EB25F5F0340 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_4EB25F5F0340_over // GetWordNameForRegister
  )
  ; // Overridden
  UP "author" 'Ëþëèí À.Â.'

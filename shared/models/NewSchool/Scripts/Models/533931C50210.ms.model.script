@@ -1,0 +1,383 @@
+// TvgReminderWithAction 533931C50210 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5339352C031C
+
+FORWARD ME_533931C50210
+
+FORWARD ME_5339352C031C
+
+ME ME_5339360D0210
+ MEPROP UID '5339360D0210'
+ MEPROP Name 'f_Client'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5339352C031C // TvgReminderActionLink
+ ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_5339360D0210 f_Client
+
+MEREF ME_508F991B003B_ME_5339352C031C_over
+ MELINK Original WL 'ME_508F991B003B' '47E76250004C.ms.model.script' // SetCaption
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_508F991B003B_ME_5339352C031C_over SetCaption
+
+MEREF ME_508F99710030_ME_5339352C031C_over
+ MELINK Original WL 'ME_508F99710030' '47E76250004C.ms.model.script' // SetHint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_508F99710030_ME_5339352C031C_over SetHint
+
+MEREF ME_508F99970386_ME_5339352C031C_over
+ MELINK Original WL 'ME_508F99970386' '47E76250004C.ms.model.script' // SetVisible
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_508F99970386_ME_5339352C031C_over SetVisible
+
+MEREF ME_5339368F0001_ME_5339352C031C_over
+ MELINK Original WL 'ME_5339368F0001' '478CF30500C1.ms.model.script' // AssignClient
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5339368F0001_ME_5339352C031C_over AssignClient
+
+MEREF ME_508F9823023D_ME_5339352C031C_G
+ MELINK Original WL 'ME_508F9823023D' '47E76250004C.ms.model.script' // TActionLink
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_508F9823023D_ME_5339352C031C_G TActionLink
+
+%%InheritedBy ME_508F9823023D ME_5339352C031C
+
+ME ME_5339352C031C
+ MEPROP UID '5339352C031C'
+ MEPROP Name 'TvgReminderActionLink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_533931C50210 // TvgReminderWithAction
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_508F9823023D_ME_5339352C031C_G // TActionLink
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5339360D0210 // f_Client
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_508F991B003B_ME_5339352C031C_over // SetCaption
+ ME_508F99710030_ME_5339352C031C_over // SetHint
+ ME_508F99970386_ME_5339352C031C_over // SetVisible
+ ME_5339368F0001_ME_5339352C031C_over // AssignClient
+ )
+ ; // Overridden
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ReminderActionLink'
+
+ENDME // ME_5339352C031C TvgReminderActionLink
+
+ME ME_533934F10352
+ MEPROP UID '533934F10352'
+ MEPROP Name 'EntityName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_533931C50210 // TvgReminderWithAction
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "inherits getter from some ancestor" True
+ UP "inherits setter from some ancestor" True
+ UP "needs field" True
+ UP "pm" False
+
+ENDME // ME_533934F10352 EntityName
+
+ME ME_533934FC0177
+ MEPROP UID '533934FC0177'
+ MEPROP Name 'OperationName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_533931C50210 // TvgReminderWithAction
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "inherits getter from some ancestor" True
+ UP "inherits setter from some ancestor" True
+ UP "needs field" True
+ UP "pm" False
+
+ENDME // ME_533934FC0177 OperationName
+
+ME ME_533946240379
+ MEPROP UID '533946240379'
+ MEPROP Name 'ActionLink'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_533931C50210 // TvgReminderWithAction
+ ;
+ MELINK Target HWL ME_5339352C031C // TvgReminderActionLink
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_533946240379 ActionLink
+
+MEREF ME_47881B22005A_ME_53394910012D_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_53394910012D_G TNotifyEvent
+
+%%InheritedBy ME_47881B22005A ME_53394910012D
+
+ME ME_53394910012D
+ MEPROP UID '53394910012D'
+ MEPROP Name 'DoActionChange'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533931C50210 // TvgReminderWithAction
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47881B22005A_ME_53394910012D_G // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_53394910012D DoActionChange
+
+ME ME_5339555E0016
+ MEPROP UID '5339555E0016'
+ MEPROP Name 'InitAction'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533931C50210 // TvgReminderWithAction
+ ;
+
+ENDME // ME_5339555E0016 InitAction
+
+ME ME_53395055010F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533931C50210 // TvgReminderWithAction
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_53395055010F 
+
+ME ME_5339507601F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533931C50210 // TvgReminderWithAction
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_5339507601F0 
+
+ME ME_533950790195
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533931C50210 // TvgReminderWithAction
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_533950790195 
+
+ME ME_53395B0C0008
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533931C50210 // TvgReminderWithAction
+ ;
+ MELINK Target WL? 'ME_4AA9377803B5' // vcmUtils
+ ;
+
+ENDME // ME_53395B0C0008 
+
+MEREF ME_533933040073_ME_533931C50210_impl
+ MELINK Original WL 'ME_533933040073' '467BAB7F021E.ms.model.script' // GetParentForm
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_533933040073_ME_533931C50210_impl GetParentForm
+
+MEREF ME_5339336E01A0_ME_533931C50210_impl
+ MELINK Original WL 'ME_5339336E01A0' '467BAB7F021E.ms.model.script' // EntityName
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_5339336E01A0_ME_533931C50210_impl EntityName
+
+MEREF ME_5339338502DC_ME_533931C50210_impl
+ MELINK Original WL 'ME_5339338502DC' '467BAB7F021E.ms.model.script' // OperationName
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_5339338502DC_ME_533931C50210_impl OperationName
+
+MEREF ME_533933BB014A_ME_533931C50210_impl
+ MELINK Original WL 'ME_533933BB014A' '467BAB7F021E.ms.model.script' // Action
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_533933BB014A_ME_533931C50210_impl Action
+
+MEREF ME_5339340603B1_ME_533931C50210_impl
+ MELINK Original WL 'ME_5339340603B1' '467BAB7F021E.ms.model.script' // Hint
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_5339340603B1_ME_533931C50210_impl Hint
+
+MEREF ME_5339340D0047_ME_533931C50210_impl
+ MELINK Original WL 'ME_5339340D0047' '467BAB7F021E.ms.model.script' // Caption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_5339340D0047_ME_533931C50210_impl Caption
+
+MEREF ME_5339342C0318_ME_533931C50210_impl
+ MELINK Original WL 'ME_5339342C0318' '467BAB7F021E.ms.model.script' // Visible
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_5339342C0318_ME_533931C50210_impl Visible
+
+MEREF ME_533954D202F8_ME_533931C50210_impl
+ MELINK Original WL 'ME_533954D202F8' '467BAB7F021E.ms.model.script' // GetComponent
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_533954D202F8_ME_533931C50210_impl GetComponent
+
+MEREF ME_479731C50290_ME_533931C50210_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_533931C50210_over Cleanup
+
+MEREF ME_47D1602000C6_ME_533931C50210_over
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47D1602000C6_ME_533931C50210_over Create
+
+MEREF ME_533949D40354_ME_533931C50210_over
+ MELINK Original WL 'ME_533949D40354' '532322D901A3.ms.model.script' // DoClick
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_533949D40354_ME_533931C50210_over DoClick
+
+MEREF ME_533AA4E9016A_ME_533931C50210_over
+ MELINK Original WL 'ME_533AA4E9016A' '532322D901A3.ms.model.script' // UpdateAction
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_533AA4E9016A_ME_533931C50210_over UpdateAction
+
+MEREF ME_532973740186_ME_533931C50210_G
+ MELINK Original WL 'ME_532973740186' '532322D901A3.ms.model.script' // TvgReminder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_532973740186_ME_533931C50210_G TvgReminder
+
+MEREF ME_5339327D023E_ME_533931C50210_R
+ MELINK Original WL 'ME_5339327D023E' '467BAB7F021E.ms.model.script' // IvcmComponentWithAction
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5339327D023E_ME_533931C50210_R IvcmComponentWithAction
+
+%%ImplementedBy ME_5339327D023E ME_533931C50210
+
+%%InheritedBy ME_532973740186 ME_533931C50210
+
+ME ME_533931C50210
+ MEPROP UID '533931C50210'
+ MEPROP Name 'TvgReminderWithAction'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53288DFA03A7' // NewReminders
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_532973740186_ME_533931C50210_G // TvgReminder
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5339327D023E_ME_533931C50210_R // IvcmComponentWithAction
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_533934F10352 // EntityName
+ HWL ME_533934FC0177 // OperationName
+ HWL ME_533946240379 // ActionLink
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53394910012D // DoActionChange
+ HWL ME_5339555E0016 // InitAction
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_533933040073_ME_533931C50210_impl // GetParentForm
+ ME_5339336E01A0_ME_533931C50210_impl // EntityName
+ ME_5339338502DC_ME_533931C50210_impl // OperationName
+ ME_533933BB014A_ME_533931C50210_impl // Action
+ ME_5339340603B1_ME_533931C50210_impl // Hint
+ ME_5339340D0047_ME_533931C50210_impl // Caption
+ ME_5339342C0318_ME_533931C50210_impl // Visible
+ ME_533954D202F8_ME_533931C50210_impl // GetComponent
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_533931C50210_over // Cleanup
+ ME_47D1602000C6_ME_533931C50210_over // Create
+ ME_533949D40354_ME_533931C50210_over // DoClick
+ ME_533AA4E9016A_ME_533931C50210_over // UpdateAction
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_5339352C031C // TvgReminderActionLink
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_53395055010F // SysUtils
+ ME_5339507601F0 // l3String
+ ME_533950790195 // l3Base
+ ME_53395B0C0008 // vcmUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
+ UP "need UC" True
+ UP extprop:pas:UnitName 'vgReminderWithAction'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ReminderWithAction'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vgReminderWithAction.pas'
+
+ENDME // ME_533931C50210 TvgReminderWithAction

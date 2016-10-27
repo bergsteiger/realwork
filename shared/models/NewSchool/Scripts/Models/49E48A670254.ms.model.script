@@ -1,0 +1,199 @@
+// TevCommentParaDecorator 49E48A670254 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53B24DF70296
+
+FORWARD ME_49E48A670254
+
+FORWARD ME_53B24DF70296
+
+ME ME_53B24E370320
+ MEPROP UID '53B24E370320'
+ MEPROP Name 'ev_cstNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53B24DF70296 // TevCheckStyle
+ ;
+
+ENDME // ME_53B24E370320 ev_cstNone
+
+ME ME_53B24E4301F2
+ MEPROP UID '53B24E4301F2'
+ MEPROP Name 'ev_cstTxtComment'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53B24DF70296 // TevCheckStyle
+ ;
+
+ENDME // ME_53B24E4301F2 ev_cstTxtComment
+
+ME ME_53B24E5100A0
+ MEPROP UID '53B24E5100A0'
+ MEPROP Name 'ev_cstVerComment'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53B24DF70296 // TevCheckStyle
+ ;
+
+ENDME // ME_53B24E5100A0 ev_cstVerComment
+
+ME ME_53B24DF70296
+ MEPROP UID '53B24DF70296'
+ MEPROP Name 'TevCheckStyle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E48A670254 // TevCommentParaDecorator
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53B24E370320 // ev_cstNone
+ HWL ME_53B24E4301F2 // ev_cstTxtComment
+ HWL ME_53B24E5100A0 // ev_cstVerComment
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_53B24DF70296 TevCheckStyle
+
+ME ME_53B24E64030E
+ MEPROP UID '53B24E64030E'
+ MEPROP Name 'f_CheckComment'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49E48A670254 // TevCommentParaDecorator
+ ;
+ MELINK Target HWL ME_53B24DF70296 // TevCheckStyle
+ ;
+
+ENDME // ME_53B24E64030E f_CheckComment
+
+ME ME_49E48E100129
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49E48A670254 // TevCommentParaDecorator
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_49E48E100129 
+
+ME ME_49E48F3E0142
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49E48A670254 // TevCommentParaDecorator
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_49E48F3E0142 
+
+ME ME_49E48FA403A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49E48A670254 // TevCommentParaDecorator
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_49E48FA403A6 
+
+ME ME_49E492E902D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49E48A670254 // TevCommentParaDecorator
+ ;
+ MELINK Target WL 'ME_47CBD5980343' '47D15712022D.ms.model.script' // Colors
+ ;
+
+ENDME // ME_49E492E902D0 
+
+ME ME_4B3478790146
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49E48A670254 // TevCommentParaDecorator
+ ;
+ MELINK Target WL 'ME_47CD3486030A' '4B8BA52200D8.ms.model.script' // TnevMiscMessages
+ ;
+
+ENDME // ME_4B3478790146 
+
+MEREF ME_4836D49800CA_ME_49E48A670254_over
+ MELINK Original WL 'ME_4836D49800CA' '47ECAA270135.ms.model.script' // OpenStream
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D49800CA_ME_49E48A670254_over OpenStream
+
+MEREF ME_49E4883E0176_ME_49E48A670254_over
+ MELINK Original WL 'ME_49E4883E0176' '49E487650342.ms.model.script' // DoWritePara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E4883E0176_ME_49E48A670254_over DoWritePara
+
+MEREF ME_49E487650342_ME_49E48A670254_G
+ MELINK Original WL? 'ME_49E487650342' // TevdLeafParaFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487650342_ME_49E48A670254_G TevdLeafParaFilter
+
+%%InheritedBy ME_49E487650342 ME_49E48A670254
+
+ME ME_49E48A670254
+ MEPROP UID '49E48A670254'
+ MEPROP Name 'TevCommentParaDecorator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтр, довешивающий комментариям юристов специфическое оформление. [$140285546]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E487650342_ME_49E48A670254_G // TevdLeafParaFilter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53B24E64030E // f_CheckComment
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4836D49800CA_ME_49E48A670254_over // OpenStream
+ ME_49E4883E0176_ME_49E48A670254_over // DoWritePara
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_53B24DF70296 // TevCheckStyle
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_49E48E100129 // Standard
+ ME_49E48F3E0142 // Tk2TagID
+ ME_49E48FA403A6 // TextPara
+ ME_49E492E902D0 // Colors
+ ME_4B3478790146 // TnevMiscMessages
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '14.04.2009 17:07'
+ UP extprop:pas:UnitName 'evCommentParaDecorator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CommentParaDecorator'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCommentParaDecorator.pas'
+
+ENDME // ME_49E48A670254 TevCommentParaDecorator

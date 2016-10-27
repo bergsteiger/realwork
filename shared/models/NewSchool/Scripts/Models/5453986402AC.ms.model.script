@@ -23,24 +23,42 @@ ME ME_5450A0370225
 
 ENDME // ME_5450A0370225 
 
-ME ME_53AC03EE01FD_ME_544E079E0253
+MEREF ME_53AC03EE01FD_ME_544E079E0253_impl
  MELINK Original WL 'ME_53AC03EE01FD' '53B24E23037A.ms.model.script' // GetTaggedDataType
  ;
  MEPROP OpKind opkind_Implemented
  UP "is static" True
-ENDME // ME_53AC03EE01FD_ME_544E079E0253 GetTaggedDataType
+ENDMEREF // ME_53AC03EE01FD_ME_544E079E0253_impl GetTaggedDataType
 
-ME ME_47A042E100E2_ME_544E079E0253
+MEREF ME_47A042E100E2_ME_544E079E0253_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_544E079E0253 InitFields
+ENDMEREF // ME_47A042E100E2_ME_544E079E0253_over InitFields
 
-ME ME_549413590379_ME_544E079E0253
+MEREF ME_549413590379_ME_544E079E0253_over
  MELINK Original WL 'ME_549413590379' '53AC01CD0335.ms.model.script' // NeedSendRawDataAsBinary
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_549413590379_ME_544E079E0253 NeedSendRawDataAsBinary
+ENDMEREF // ME_549413590379_ME_544E079E0253_over NeedSendRawDataAsBinary
+
+MEREF ME_534572370056_ME_544E079E0253_G
+ MELINK Original WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_534572370056_ME_544E079E0253_G Tl3Tag
+
+MEREF ME_53AC01CD0335_ME_544E079E0253_R
+ MELINK Original WL? 'ME_53AC01CD0335' // evdTagHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53AC01CD0335_ME_544E079E0253_R evdTagHolder
+
+MEREF ME_544E01AA03BA_ME_544E079E0253_R
+ MELINK Original WL 'ME_544E01AA03BA' '484A470100DD.ms.model.script' // csMessage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_544E01AA03BA_ME_544E079E0253_R csMessage
 
 %%ImplementedBy ME_53AC01CD0335 ME_544E079E0253
 %%ImplementedBy ME_544E01AA03BA ME_544E079E0253
@@ -58,21 +76,21 @@ ME ME_544E079E0253
  MELINK Parent HWL ME_5453986402AC // ncsMessage
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+   Seq: ( HWL ME_534572370056_ME_544E079E0253_G // Tl3Tag
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_53AC01CD0335' // evdTagHolder
- WL 'ME_544E01AA03BA' '484A470100DD.ms.model.script' // csMessage
+   Seq: ( HWL ME_53AC01CD0335_ME_544E079E0253_R // evdTagHolder
+ HWL ME_544E01AA03BA_ME_544E079E0253_R // csMessage
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_53AC03EE01FD_ME_544E079E0253 // GetTaggedDataType
+   Seq: ( ME_53AC03EE01FD_ME_544E079E0253_impl // GetTaggedDataType
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_47A042E100E2_ME_544E079E0253 // InitFields
- ME_549413590379_ME_544E079E0253 // NeedSendRawDataAsBinary
+   Seq: ( ME_47A042E100E2_ME_544E079E0253_over // InitFields
+ ME_549413590379_ME_544E079E0253_over // NeedSendRawDataAsBinary
  )
  ; // Overridden
  MELIST Dependencies
@@ -87,6 +105,12 @@ ME ME_544E079E0253
 
 ENDME // ME_544E079E0253 TncsMessage
 
+MEREF ME_544E079E0253_ME_5453989A0161_G
+ MELINK Original HWL ME_544E079E0253 // TncsMessage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_544E079E0253_ME_5453989A0161_G TncsMessage
+
 %%InheritedBy ME_544E079E0253 ME_5453989A0161
 
 ME ME_5453989A0161
@@ -100,7 +124,7 @@ ME ME_5453989A0161
  MELINK Parent HWL ME_5453986402AC // ncsMessage
  ;
  MELIST Inherits
-   Seq: ( HWL ME_544E079E0253 // TncsMessage
+   Seq: ( HWL ME_544E079E0253_ME_5453989A0161_G // TncsMessage
  )
  ; // Inherits
  UP "isClassRef" True
@@ -108,6 +132,12 @@ ME ME_5453989A0161
  UP extprop:rc:SelfName 'ncsMessageClass'
 
 ENDME // ME_5453989A0161 TncsMessageClass
+
+MEREF ME_544E079E0253_ME_54649C7C00E7_G
+ MELINK Original HWL ME_544E079E0253 // TncsMessage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_544E079E0253_ME_54649C7C00E7_G TncsMessage
 
 %%InheritedBy ME_544E079E0253 ME_54649C7C00E7
 
@@ -122,7 +152,7 @@ ME ME_54649C7C00E7
  MELINK Parent HWL ME_5453986402AC // ncsMessage
  ;
  MELIST Inherits
-   Seq: ( HWL ME_544E079E0253 // TncsMessage
+   Seq: ( HWL ME_544E079E0253_ME_54649C7C00E7_G // TncsMessage
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -159,6 +189,12 @@ ME ME_547831D300BE
 
 ENDME // ME_547831D300BE Create
 
+MEREF ME_544E079E0253_ME_547831BD02E5_G
+ MELINK Original HWL ME_544E079E0253 // TncsMessage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_544E079E0253_ME_547831BD02E5_G TncsMessage
+
 %%InheritedBy ME_544E079E0253 ME_547831BD02E5
 
 ME ME_547831BD02E5
@@ -172,7 +208,7 @@ ME ME_547831BD02E5
  MELINK Parent HWL ME_5453986402AC // ncsMessage
  ;
  MELIST Inherits
-   Seq: ( HWL ME_544E079E0253 // TncsMessage
+   Seq: ( HWL ME_544E079E0253_ME_547831BD02E5_G // TncsMessage
  )
  ; // Inherits
  MELIST Operations
@@ -183,6 +219,18 @@ ME ME_547831BD02E5
  UP extprop:rc:SelfName 'ncsReply'
 
 ENDME // ME_547831BD02E5 TncsReply
+
+MEREF ME_544E079E0253_ME_547C1F31030C_G
+ MELINK Original HWL ME_544E079E0253 // TncsMessage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_544E079E0253_ME_547C1F31030C_G TncsMessage
+
+MEREF ME_547C1CD001E3_ME_547C1F31030C_R
+ MELINK Original WL 'ME_547C1CD001E3' '484A470100DD.ms.model.script' // csDisconnect
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_547C1CD001E3_ME_547C1F31030C_R csDisconnect
 
 %%ImplementedBy ME_547C1CD001E3 ME_547C1F31030C
 
@@ -199,17 +247,29 @@ ME ME_547C1F31030C
  MELINK Parent HWL ME_5453986402AC // ncsMessage
  ;
  MELIST Inherits
-   Seq: ( HWL ME_544E079E0253 // TncsMessage
+   Seq: ( HWL ME_544E079E0253_ME_547C1F31030C_G // TncsMessage
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_547C1CD001E3' '484A470100DD.ms.model.script' // csDisconnect
+   Seq: ( HWL ME_547C1CD001E3_ME_547C1F31030C_R // csDisconnect
  )
  ; // Implements
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ncsDisconnect'
 
 ENDME // ME_547C1F31030C TncsDisconnect
+
+MEREF ME_547831BD02E5_ME_547C1F3F025A_G
+ MELINK Original HWL ME_547831BD02E5 // TncsReply
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_547831BD02E5_ME_547C1F3F025A_G TncsReply
+
+MEREF ME_547C1CE20205_ME_547C1F3F025A_R
+ MELINK Original WL 'ME_547C1CE20205' '484A470100DD.ms.model.script' // csDisconnectReply
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_547C1CE20205_ME_547C1F3F025A_R csDisconnectReply
 
 %%ImplementedBy ME_547C1CE20205 ME_547C1F3F025A
 
@@ -226,11 +286,11 @@ ME ME_547C1F3F025A
  MELINK Parent HWL ME_5453986402AC // ncsMessage
  ;
  MELIST Inherits
-   Seq: ( HWL ME_547831BD02E5 // TncsReply
+   Seq: ( HWL ME_547831BD02E5_ME_547C1F3F025A_G // TncsReply
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_547C1CE20205' '484A470100DD.ms.model.script' // csDisconnectReply
+   Seq: ( HWL ME_547C1CE20205_ME_547C1F3F025A_R // csDisconnectReply
  )
  ; // Implements
  UP extprop:rc:isAcceptableForScripts True

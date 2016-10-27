@@ -1,0 +1,125 @@
+// Tl3ScriptService 5509AA5400EA Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_EC920DB7EE66
+
+FORWARD ME_5509AA5400EA
+
+FORWARD ME_EC920DB7EE66
+
+FORWARD ME_5509AA71018F
+
+ME ME_97F121633B1B
+ MEPROP UID '97F121633B1B'
+ MEPROP Name 'EnterScript'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_EC920DB7EE66 // Ml3ScriptService
+ ;
+ UPLINK Speller HWL ME_5509AA71018F // EnterScript
+ ;
+
+ENDME // ME_97F121633B1B EnterScript
+
+FORWARD ME_5509AA7D0270
+
+ME ME_BA3808340B4E
+ MEPROP UID 'BA3808340B4E'
+ MEPROP Name 'LeaveScript'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_EC920DB7EE66 // Ml3ScriptService
+ ;
+ UPLINK Speller HWL ME_5509AA7D0270 // LeaveScript
+ ;
+
+ENDME // ME_BA3808340B4E LeaveScript
+
+ME ME_EC920DB7EE66
+ MEPROP UID 'EC920DB7EE66'
+ MEPROP Name 'Ml3ScriptService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3ScriptService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5509AA5400EA // Tl3ScriptService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_97F121633B1B // EnterScript
+ HWL ME_BA3808340B4E // LeaveScript
+ )
+ ; // Operations
+
+ENDME // ME_EC920DB7EE66 Ml3ScriptService
+
+ME ME_5509AA71018F
+ MEPROP UID '5509AA71018F'
+ MEPROP Name 'EnterScript'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5509AA5400EA // Tl3ScriptService
+ ;
+
+ENDME // ME_5509AA71018F EnterScript
+
+ME ME_5509AA7D0270
+ MEPROP UID '5509AA7D0270'
+ MEPROP Name 'LeaveScript'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5509AA5400EA // Tl3ScriptService
+ ;
+
+ENDME // ME_5509AA7D0270 LeaveScript
+
+MEREF ME_49E7754802A9_ME_5509AA5400EA_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5509AA5400EA_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_5509AA5400EA
+
+ME ME_5509AA5400EA
+ MEPROP UID '5509AA5400EA'
+ MEPROP Name 'Tl3ScriptService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F7338A800A7' // ScriptEngineCore
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_5509AA5400EA_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5509AA71018F // EnterScript
+ HWL ME_5509AA7D0270 // LeaveScript
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_EC920DB7EE66 // Ml3ScriptService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP extprop:pas:UnitName 'l3ScriptService'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ScriptService'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\l3ScriptService.pas'
+
+ENDME // ME_5509AA5400EA Tl3ScriptService

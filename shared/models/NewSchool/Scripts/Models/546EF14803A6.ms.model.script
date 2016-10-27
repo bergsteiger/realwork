@@ -1,0 +1,45 @@
+// TncsTaskedFileDesc 546EF14803A6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_546C52C001ED_ME_546EF14803A6_G
+ MELINK Original WL? 'ME_546C52C001ED' // TncsFileDesc
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_546C52C001ED_ME_546EF14803A6_G TncsFileDesc
+
+MEREF ME_546EED6C0081_ME_546EF14803A6_R
+ MELINK Original WL 'ME_546EED6C0081' '484A470100DD.ms.model.script' // TaskedFileDesc
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_546EED6C0081_ME_546EF14803A6_R TaskedFileDesc
+
+%%ImplementedBy ME_546EED6C0081 ME_546EF14803A6
+
+%%InheritedBy ME_546C52C001ED ME_546EF14803A6
+
+ME ME_546EF14803A6
+ MEPROP UID '546EF14803A6'
+ MEPROP Name 'TncsTaskedFileDesc'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_546457E203C0' // ResultDelivery
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_546C52C001ED_ME_546EF14803A6_G // TncsFileDesc
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_546EED6C0081_ME_546EF14803A6_R // TaskedFileDesc
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'ncsTaskedFileDesc'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ncsTaskedFileDesc'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsTaskedFileDesc.pas'
+
+ENDME // ME_546EF14803A6 TncsTaskedFileDesc

@@ -102,7 +102,7 @@ ME ME_4D50F4800123
  MEPROP Name 'Reader'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_482D6ED9000A' '482D6E960087.ms.model.script' // Tk2CustomReader
+ MELINK Target WL? 'ME_482D6ED9000A' // Tk2CustomReader
  ;
 
 ENDME // ME_4D50F4800123 Reader
@@ -176,7 +176,7 @@ ENDME // ME_4D6BAFFA0359 DoIt
 ME ME_4D6BAFE8013D
  MEPROP UID '4D6BAFE8013D'
  MEPROP Name 'UseWikiMarkup'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -261,7 +261,7 @@ ME ME_483E705B0327
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47F351160396 // TnevPersistentDocumentContainer
  ;
- MELINK Target WL 'ME_482D6E3B02A3' '482D6E13011F.ms.model.script' // TevCustomTxtReader
+ MELINK Target WL? 'ME_482D6E3B02A3' // TevCustomTxtReader
  ;
 
 ENDME // ME_483E705B0327 
@@ -281,7 +281,7 @@ ME ME_483E81AC039C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47F351160396 // TnevPersistentDocumentContainer
  ;
- MELINK Target WL 'ME_483E80FA0312' '483E80C9025F.ms.model.script' // TevdNativeReader
+ MELINK Target WL? 'ME_483E80FA0312' // TevdNativeReader
  ;
 
 ENDME // ME_483E81AC039C 
@@ -291,7 +291,7 @@ ME ME_483E86BA0245
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47F351160396 // TnevPersistentDocumentContainer
  ;
- MELINK Target WL 'ME_4836BFC9011E' '47ECA80B000D.ms.model.script' // Tk2CustomFileGenerator
+ MELINK Target WL? 'ME_4836BFC9011E' // Tk2CustomFileGenerator
  ;
 
 ENDME // ME_483E86BA0245 
@@ -301,7 +301,7 @@ ME ME_483E86DC0225
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47F351160396 // TnevPersistentDocumentContainer
  ;
- MELINK Target WL 'ME_4836C3F003B1' '47ECACA70141.ms.model.script' // TevTextFormatter
+ MELINK Target WL? 'ME_4836C3F003B1' // TevTextFormatter
  ;
 
 ENDME // ME_483E86DC0225 
@@ -311,7 +311,7 @@ ME ME_483E87110134
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47F351160396 // TnevPersistentDocumentContainer
  ;
- MELINK Target WL 'ME_4836BF8E0222' '47ECB8BD00A8.ms.model.script' // TevdPlainTextWriter
+ MELINK Target WL? 'ME_4836BF8E0222' // TevdPlainTextWriter
  ;
 
 ENDME // ME_483E87110134 
@@ -361,7 +361,7 @@ ME ME_483E8C5F03B8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47F351160396 // TnevPersistentDocumentContainer
  ;
- MELINK Target WL 'ME_483D7C55027A' '47ECB8BD00A8.ms.model.script' // TevdNativeWriter
+ MELINK Target WL? 'ME_483D7C55027A' // TevdNativeWriter
  ;
 
 ENDME // ME_483E8C5F03B8 
@@ -381,7 +381,7 @@ ME ME_49C222D10305
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47F351160396 // TnevPersistentDocumentContainer
  ;
- MELINK Target WL 'ME_49C21D090093' '47ECACA70141.ms.model.script' // TevMergedCellFilter
+ MELINK Target WL? 'ME_49C21D090093' // TevMergedCellFilter
  ;
 
 ENDME // ME_49C222D10305 
@@ -401,7 +401,7 @@ ME ME_4D6BB215012C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47F351160396 // TnevPersistentDocumentContainer
  ;
- MELINK Target WL 'ME_4D6BB1E0012D' '482D6E13011F.ms.model.script' // TevCustomWikiReader
+ MELINK Target WL? 'ME_4D6BB1E0012D' // TevCustomWikiReader
  ;
 
 ENDME // ME_4D6BB215012C 
@@ -421,7 +421,7 @@ ME ME_4E85A97D02F5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47F351160396 // TnevPersistentDocumentContainer
  ;
- MELINK Target WL 'ME_4E85A869034E' '47ECACA70141.ms.model.script' // TevStyleHeaderAdder
+ MELINK Target WL? 'ME_4E85A869034E' // TevStyleHeaderAdder
  ;
 
 ENDME // ME_4E85A97D02F5 
@@ -431,23 +431,29 @@ ME ME_4EF075D70174
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47F351160396 // TnevPersistentDocumentContainer
  ;
- MELINK Target WL 'ME_4EF075A80365' '47ECB8BD00A8.ms.model.script' // TevdNativeUnpackedWriter
+ MELINK Target WL? 'ME_4EF075A80365' // TevdNativeUnpackedWriter
  ;
 
 ENDME // ME_4EF075D70174 
 
-ME ME_47F0BE5A00C9_ME_47F351160396
- MELINK Original WL 'ME_47F0BE5A00C9' '47F086170200.ms.model.script' // GetWriter
+MEREF ME_47F0BE5A00C9_ME_47F351160396_over
+ MELINK Original WL 'ME_47F0BE5A00C9' '47F0870E0034.ms.model.script' // GetWriter
  ;
  MEPROP OpKind opkind_Overridden
  UP "force overload" True
-ENDME // ME_47F0BE5A00C9_ME_47F351160396 GetWriter
+ENDMEREF // ME_47F0BE5A00C9_ME_47F351160396_over GetWriter
 
-ME ME_47F25391018B_ME_47F351160396
- MELINK Original WL 'ME_47F25391018B' '47F086170200.ms.model.script' // DoGetReader
+MEREF ME_47F25391018B_ME_47F351160396_over
+ MELINK Original WL 'ME_47F25391018B' '47F0870E0034.ms.model.script' // DoGetReader
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47F25391018B_ME_47F351160396 DoGetReader
+ENDMEREF // ME_47F25391018B_ME_47F351160396_over DoGetReader
+
+MEREF ME_47F3513A017F_ME_47F351160396_G
+ MELINK Original WL? 'ME_47F3513A017F' // TevDocumentContainerWithProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F3513A017F_ME_47F351160396_G TevDocumentContainerWithProcessor
 
 %%InheritedBy ME_47F3513A017F ME_47F351160396
 
@@ -463,7 +469,7 @@ ME ME_47F351160396
  MELINK Parent HWL ME_483E6CFE02DC // nevPersistentDocumentContainer
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47F3513A017F' '47F086170200.ms.model.script' // TevDocumentContainerWithProcessor
+   Seq: ( HWL ME_47F3513A017F_ME_47F351160396_G // TevDocumentContainerWithProcessor
  )
  ; // Inherits
  MELIST Operations
@@ -472,8 +478,8 @@ ME ME_47F351160396
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_47F0BE5A00C9_ME_47F351160396 // GetWriter
- ME_47F25391018B_ME_47F351160396 // DoGetReader
+   Seq: ( ME_47F0BE5A00C9_ME_47F351160396_over // GetWriter
+ ME_47F25391018B_ME_47F351160396_over // DoGetReader
  )
  ; // Overridden
  MELIST Children

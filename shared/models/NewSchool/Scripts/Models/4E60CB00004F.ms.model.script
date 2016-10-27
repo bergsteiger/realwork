@@ -1,0 +1,53 @@
+// TkwGetActiveEditorPageName 4E60CB00004F ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E60CB00004F
+
+ME ME_4E60CB98027D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E60CB00004F // TkwGetActiveEditorPageName
+ ;
+ MELINK Target WL 'ME_4DFB4B01001D' '4DFB4AD800BA.ms.model.script' // TDocEditorWindow
+ ;
+
+ENDME // ME_4E60CB98027D 
+
+ME ME_4E60CB9C026C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E60CB00004F // TkwGetActiveEditorPageName
+ ;
+ MELINK Target WL 'ME_4DFB4D5E0084' '4DFB4D3C01B5.ms.model.script' // TMainForm
+ ;
+
+ENDME // ME_4E60CB9C026C 
+
+ME ME_4E60CB00004F
+ MEPROP UID '4E60CB00004F'
+ MEPROP Name 'TkwGetActiveEditorPageName'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* main_form:GetActivePageName'#13#10'*Описание:* Помещает в стек номер активной вкладки в окне редактирования документа.'#13#10'*Примечания:*'#13#10' Константы с номерами вкладок находятся в файле:'#13#10'{code}'#13#10'  w:\archi\source\projects\Archi\TestSet\Dictionary\ArchiControls.script"'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E60CB98027D // TDocEditorWindow
+ ME_4E60CB9C026C // TMainForm
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'main_form:GetActivePageName'
+ UP extprop:pas:UnitName 'kwGetActiveEditorPageName'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'GetActiveEditorPageName'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwGetActiveEditorPageName.pas'
+
+ENDME // ME_4E60CB00004F TkwGetActiveEditorPageName

@@ -1,0 +1,59 @@
+// TkwCompiledScriptCompileStringAndProcess 56420D5500CC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56420D5500CC
+
+ME ME_56420D760057
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56420D5500CC // TkwCompiledScriptCompileStringAndProcess
+ ;
+ MELINK Target WL? 'ME_52F4FAF80376' // TtfwStringStreamFactory
+ ;
+
+ENDME // ME_56420D760057 
+
+MEREF ME_56420D080052_ME_56420D5500CC_over
+ MELINK Original WL 'ME_56420D080052' '53DA24F802A7.ms.model.script' // MakeStream
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56420D080052_ME_56420D5500CC_over MakeStream
+
+MEREF ME_53DA24F802A7_ME_56420D5500CC_G
+ MELINK Original WL? 'ME_53DA24F802A7' // TkwCompiledScriptCompileAndProcess
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53DA24F802A7_ME_56420D5500CC_G TkwCompiledScriptCompileAndProcess
+
+%%InheritedBy ME_53DA24F802A7 ME_56420D5500CC
+
+ME ME_56420D5500CC
+ MEPROP UID '56420D5500CC'
+ MEPROP Name 'TkwCompiledScriptCompileStringAndProcess'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53DA23750089' // ScriptsCompilingAndProcessing
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53DA24F802A7_ME_56420D5500CC_G // TkwCompiledScriptCompileAndProcess
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_56420D080052_ME_56420D5500CC_over // MakeStream
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_56420D760057 // TtfwStringStreamFactory
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'kwCompiledScriptCompileStringAndProcess'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CompiledScriptCompileStringAndProcess'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledScriptCompileStringAndProcess.pas'
+
+ENDME // ME_56420D5500CC TkwCompiledScriptCompileStringAndProcess

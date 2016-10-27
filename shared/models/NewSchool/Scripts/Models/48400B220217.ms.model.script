@@ -1,0 +1,151 @@
+// TatBaseEvdHelper 48400B220217 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48400B220217
+
+ME ME_4B6AE78F01CF
+ MEPROP UID '4B6AE78F01CF'
+ MEPROP Name 'Generate'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48400B220217 // TatBaseEvdHelper
+ ;
+
+ENDME // ME_4B6AE78F01CF Generate
+
+FORWARD ME_4B6AE81E0267
+
+ME ME_4B7A99EC0306
+ MEPROP Name 'anEVDNativeWriter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_483D7C55027A' // TevdNativeWriter
+ ;
+
+ENDME // ME_4B7A99EC0306 anEVDNativeWriter
+
+ME ME_4B6AE81E0267
+ MEPROP UID '4B6AE81E0267'
+ MEPROP Name 'DoGenerate'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48400B220217 // TatBaseEvdHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B7A99EC0306 // anEVDNativeWriter
+ )
+ ; // Parameters
+
+ENDME // ME_4B6AE81E0267 DoGenerate
+
+ME ME_48400C6300A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48400B220217 // TatBaseEvdHelper
+ ;
+ MELINK Target WL 'ME_483FF50C00F4' '478CF30500C1.ms.model.script' // TMemoryStream
+ ;
+
+ENDME // ME_48400C6300A0 
+
+ME ME_48441A6F0156
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48400B220217 // TatBaseEvdHelper
+ ;
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
+ ;
+
+ENDME // ME_48441A6F0156 
+
+ME ME_48441A7C03B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48400B220217 // TatBaseEvdHelper
+ ;
+ MELINK Target WL? 'ME_483D7C55027A' // TevdNativeWriter
+ ;
+
+ENDME // ME_48441A7C03B8 
+
+ME ME_4B6AF2D1033E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48400B220217 // TatBaseEvdHelper
+ ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4B6AF2D1033E 
+
+ME ME_4B6AF2D402FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48400B220217 // TatBaseEvdHelper
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4B6AF2D402FA 
+
+ME ME_4B7A9A7603C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48400B220217 // TatBaseEvdHelper
+ ;
+ MELINK Target WL? 'ME_47AB1FDE03E4' // l3Memory
+ ;
+
+ENDME // ME_4B7A9A7603C9 
+
+MEREF ME_48F473650362_ME_48400B220217_G
+ MELINK Original WL 'ME_48F473650362' '47AB1FDE03E4.ms.model.script' // Tl3MemoryStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48F473650362_ME_48400B220217_G Tl3MemoryStream
+
+%%InheritedBy ME_48F473650362 ME_48400B220217
+
+ME ME_48400B220217
+ MEPROP UID '48400B220217'
+ MEPROP Name 'TatBaseEvdHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B6AE61900F5' // EvdHelpers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F473650362_ME_48400B220217_G // Tl3MemoryStream
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B6AE78F01CF // Generate
+ HWL ME_4B6AE81E0267 // DoGenerate
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_48400C6300A0 // TMemoryStream
+ ME_48441A6F0156 // Tk2TagGenerator
+ ME_48441A7C03B8 // TevdNativeWriter
+ ME_4B6AF2D1033E // IStream
+ ME_4B6AF2D402FA // SysUtils
+ ME_4B7A9A7603C9 // l3Memory
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atBaseEvdHelper'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atBaseEvdHelper'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\EvdHelpers\atBaseEvdHelper.pas'
+
+ENDME // ME_48400B220217 TatBaseEvdHelper

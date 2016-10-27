@@ -1,0 +1,132 @@
+// TevTableFilter 4E48B5AE01E3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E48B5AE01E3
+
+ME ME_4E48B76002D1
+ MEPROP UID '4E48B76002D1'
+ MEPROP Name 'f_MergeStatus'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E48B5AE01E3 // TevTableFilter
+ ;
+ MELINK Target WL 'ME_468E49730365' '469D0AC7005E.ms.model.script' // MergeStatus
+ ;
+
+ENDME // ME_4E48B76002D1 f_MergeStatus
+
+ME ME_4E48B7B60211
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E48B5AE01E3 // TevTableFilter
+ ;
+ MELINK Target WL 'ME_4857CD8D0093' '48492FC0029D.ms.model.script' // TableCell
+ ;
+
+ENDME // ME_4E48B7B60211 
+
+ME ME_4E48B7BA02BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E48B5AE01E3 // TevTableFilter
+ ;
+ MELINK Target WL 'ME_4857D2F8006D' '48492FC0029D.ms.model.script' // TableRow
+ ;
+
+ENDME // ME_4E48B7BA02BC 
+
+ME ME_4E48B94200D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E48B5AE01E3 // TevTableFilter
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4E48B94200D1 
+
+MEREF ME_4A2D1217037A_ME_4E48B5AE01E3_over
+ MELINK Original WL 'ME_4A2D1217037A' '49E487A70144.ms.model.script' // DoStartChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A2D1217037A_ME_4E48B5AE01E3_over DoStartChild
+
+MEREF ME_4A2D1634025B_ME_4E48B5AE01E3_over
+ MELINK Original WL 'ME_4A2D1634025B' '49E487A70144.ms.model.script' // DoAddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A2D1634025B_ME_4E48B5AE01E3_over DoAddAtomEx
+
+MEREF ME_4C56D54B002A_ME_4E48B5AE01E3_over
+ MELINK Original WL 'ME_4C56D54B002A' '49E496880120.ms.model.script' // NeedStartBuffering
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C56D54B002A_ME_4E48B5AE01E3_over NeedStartBuffering
+
+MEREF ME_4CF7BC520161_ME_4E48B5AE01E3_over
+ MELINK Original WL 'ME_4CF7BC520161' '49E496880120.ms.model.script' // NeedFlushBuffer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CF7BC520161_ME_4E48B5AE01E3_over NeedFlushBuffer
+
+MEREF ME_4E45166B0156_ME_4E48B5AE01E3_over
+ MELINK Original WL 'ME_4E45166B0156' '49E487A70144.ms.model.script' // DoCloseStructure
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E45166B0156_ME_4E48B5AE01E3_over DoCloseStructure
+
+MEREF ME_4E48B57F0074_ME_4E48B5AE01E3_G
+ MELINK Original WL 'ME_4E48B57F0074' '49E496880120.ms.model.script' // TevdCustomChildBufferedFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E48B57F0074_ME_4E48B5AE01E3_G TevdCustomChildBufferedFilter
+
+%%InheritedBy ME_4E48B57F0074 ME_4E48B5AE01E3
+
+ME ME_4E48B5AE01E3
+ MEPROP UID '4E48B5AE01E3'
+ MEPROP Name 'TevTableFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Удаляет из ячеек-продолжений дочерние параграфы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E48B57F0074_ME_4E48B5AE01E3_G // TevdCustomChildBufferedFilter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4E48B76002D1 // f_MergeStatus
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4A2D1217037A_ME_4E48B5AE01E3_over // DoStartChild
+ ME_4A2D1634025B_ME_4E48B5AE01E3_over // DoAddAtomEx
+ ME_4C56D54B002A_ME_4E48B5AE01E3_over // NeedStartBuffering
+ ME_4CF7BC520161_ME_4E48B5AE01E3_over // NeedFlushBuffer
+ ME_4E45166B0156_ME_4E48B5AE01E3_over // DoCloseStructure
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E48B7B60211 // TableCell
+ ME_4E48B7BA02BC // TableRow
+ ME_4E48B94200D1 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP extprop:pas:UnitName 'evTableFilter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TableFilter'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evTableFilter.pas'
+
+ENDME // ME_4E48B5AE01E3 TevTableFilter

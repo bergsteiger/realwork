@@ -1,0 +1,166 @@
+// TShowBaseSearchTest 4D6CBA680035 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D6CBA680035
+
+ME ME_4D6E65A702B1
+ MEPROP UID '4D6E65A702B1'
+ MEPROP Name 'f_InText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D6CBA680035 // TShowBaseSearchTest
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D6E65A702B1 f_InText
+
+FORWARD ME_4D6CBCE7034B
+
+FORWARD ME_4D6CBD090078
+
+ME ME_4D6CBD4D00F9
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4D6CBD4D00F9 aForm
+
+ME ME_4D6CBD090078
+ MEPROP UID '4D6CBD090078'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6CBCE7034B // ShowBaseSearch
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D6CBD4D00F9 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4D6CBD090078 DoIt
+
+ME ME_4D6CBCE7034B
+ MEPROP UID '4D6CBCE7034B'
+ MEPROP Name 'ShowBaseSearch'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6CBA680035 // TShowBaseSearchTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D6CBD090078 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D6CBCE7034B ShowBaseSearch
+
+ME ME_4D6CC31E037A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D6CBA680035 // TShowBaseSearchTest
+ ;
+ MELINK Target WL? 'ME_4D6CB4B7035F' // F1LikeFormWithBS
+ ;
+
+ENDME // ME_4D6CC31E037A 
+
+MEREF ME_4BE419AF0217_ME_4D6CBA680035_impl
+ MELINK Original WL 'ME_4BE419AF0217' '4BE418BB001F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE419AF0217_ME_4D6CBA680035_impl DoVisit
+
+MEREF ME_4C937013031D_ME_4D6CBA680035_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4D6CBA680035_over GetFolder
+
+MEREF ME_4D6CB8460086_ME_4D6CBA680035_over
+ MELINK Original WL 'ME_4D6CB8460086' '4BE047320379.ms.model.script' // WithBaseSearch
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D6CB8460086_ME_4D6CBA680035_over WithBaseSearch
+
+MEREF ME_4D6E5F340304_ME_4D6CBA680035_over
+ MELINK Original WL 'ME_4D6E5F340304' '4D6E5ECF0236.ms.model.script' // GetDeltaXY
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D6E5F340304_ME_4D6CBA680035_over GetDeltaXY
+
+MEREF ME_4BE425C70228_ME_4D6CBA680035_G
+ MELINK Original WL? 'ME_4BE425C70228' // TTextEditorVisitor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE425C70228_ME_4D6CBA680035_G TTextEditorVisitor
+
+MEREF ME_4D6E5ECF0236_ME_4D6CBA680035_R
+ MELINK Original WL? 'ME_4D6E5ECF0236' // MouseClickSupport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D6E5ECF0236_ME_4D6CBA680035_R MouseClickSupport
+
+%%ImplementedBy ME_4D6E5ECF0236 ME_4D6CBA680035
+
+%%InheritedBy ME_4BE425C70228 ME_4D6CBA680035
+
+ME ME_4D6CBA680035
+ MEPROP UID '4D6CBA680035'
+ MEPROP Name 'TShowBaseSearchTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест показа базового поиска' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4D02566F01E6' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE425C70228_ME_4D6CBA680035_G // TTextEditorVisitor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4D6E5ECF0236_ME_4D6CBA680035_R // MouseClickSupport
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4D6E65A702B1 // f_InText
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D6CBCE7034B // ShowBaseSearch
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BE419AF0217_ME_4D6CBA680035_impl // DoVisit
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4D6CBA680035_over // GetFolder
+ ME_4D6CB8460086_ME_4D6CBA680035_over // WithBaseSearch
+ ME_4D6E5F340304_ME_4D6CBA680035_over // GetDeltaXY
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D6CC31E037A // F1LikeFormWithBS
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ShowBaseSearchTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ShowBaseSearchTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\ShowBaseSearchTest.pas'
+
+ENDME // ME_4D6CBA680035 TShowBaseSearchTest

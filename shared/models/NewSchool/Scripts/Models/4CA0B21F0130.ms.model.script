@@ -4,65 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_4CA0B4860072
 
-FORWARD ME_4CA0B21F0130
-
-ME ME_4B7AB0B6016E_ME_4CA0B4860072
- MELINK Original WL 'ME_4B7AB0B6016E' '4B2A6D4303A9.ms.model.script' // CommandLineKey
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4B7AB0B6016E_ME_4CA0B4860072 CommandLineKey
-
-ME ME_4B7C0B43005B_ME_4CA0B4860072
- MELINK Original WL 'ME_4B7C0B43005B' '4B2A6D4303A9.ms.model.script' // TimesPage
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4B7C0B43005B_ME_4CA0B4860072 TimesPage
-
-ME ME_4B7C0B670215_ME_4CA0B4860072
- MELINK Original WL 'ME_4B7C0B670215' '4B2A6D4303A9.ms.model.script' // ResultsPage
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4B7C0B670215_ME_4CA0B4860072 ResultsPage
-
-ME ME_4C35A6DA02E9_ME_4CA0B4860072
- MELINK Original WL 'ME_4C35A6DA02E9' '4B2A6D4303A9.ms.model.script' // IsLAW
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4C35A6DA02E9_ME_4CA0B4860072 IsLAW
-
-%%InheritedBy ME_4B7AAC7A031D ME_4CA0B4860072
-
-ME ME_4CA0B4860072
- MEPROP UID '4CA0B4860072'
- MEPROP Name 'ItsLAW'
- MEPROP Class class_Class
- MELINK Stereotype st_TestResults ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4CA0B21F0130 // TFW
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A6D4303A9.ms.model.script' // TTestResultsPlace
- )
- ; // Inherits
- MELIST Implemented
-   Seq: ( ME_4B7AB0B6016E_ME_4CA0B4860072 // CommandLineKey
- ME_4B7C0B43005B_ME_4CA0B4860072 // TimesPage
- ME_4B7C0B670215_ME_4CA0B4860072 // ResultsPage
- )
- ; // Implemented
- MELIST Overridden
-   Seq: ( ME_4C35A6DA02E9_ME_4CA0B4860072 // IsLAW
- )
- ; // Overridden
- UP extprop:pas:TypeName 'TItsLAW'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'ItsLAW'
- UP intf.pas:Path 'common\components\TFWTest\ItsLAW.pas'
-
-ENDME // ME_4CA0B4860072 ItsLAW
-
 ME ME_4CA0B21F0130
  MEPROP UID '4CA0B21F0130'
  MEPROP Name 'TFW'
@@ -75,7 +16,7 @@ ME ME_4CA0B21F0130
  MELINK Parent WL? 'ME_49B923B60333' // Shared Delphi Tests
  ;
  MELIST Children
-   Seq: ( HWL ME_4CA0B4860072 // ItsLAW
+   Seq: ( WL? 'ME_4CA0B4860072' // ItsLAW
  )
  ; // Children
  MELIST Depends

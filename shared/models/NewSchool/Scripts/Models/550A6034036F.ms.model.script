@@ -124,7 +124,7 @@ ENDME // ME_551BA5850151 f_NeedAnimateEvent
 ME ME_550A630D0016
  MEPROP UID '550A630D0016'
  MEPROP Name 'StartTimer'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -137,7 +137,7 @@ ENDME // ME_550A630D0016 StartTimer
 ME ME_550A631A0106
  MEPROP UID '550A631A0106'
  MEPROP Name 'StopTimer'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -178,7 +178,7 @@ ENDME // ME_551B9C4901BE DoIt
 ME ME_551B9C3F038F
  MEPROP UID '551B9C3F038F'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -192,11 +192,17 @@ ME ME_551B9C3F038F
 
 ENDME // ME_551B9C3F038F Create
 
-ME ME_479731C50290_ME_550A606F030D
+MEREF ME_479731C50290_ME_550A606F030D_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_550A606F030D Cleanup
+ENDMEREF // ME_479731C50290_ME_550A606F030D_over Cleanup
+
+MEREF ME_49E7754802A9_ME_550A606F030D_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_550A606F030D_G Tl3ProtoObject
 
 %%InheritedBy ME_49E7754802A9 ME_550A606F030D
 
@@ -211,7 +217,7 @@ ME ME_550A606F030D
  MELINK Parent HWL ME_550A6034036F // ChromeLikeTabSetAnimationManager
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_550A606F030D_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Attributes
@@ -231,7 +237,7 @@ ME ME_550A606F030D
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_550A606F030D // Cleanup
+   Seq: ( ME_479731C50290_ME_550A606F030D_over // Cleanup
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames
@@ -275,7 +281,7 @@ ENDME // ME_551BA5B40291 f_NeedAnimateEvent
 ME ME_550A6158014E
  MEPROP UID '550A6158014E'
  MEPROP Name 'DoExecute'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -326,7 +332,7 @@ ENDME // ME_550A617700CC DoIt
 ME ME_550A616A02E0
  MEPROP UID '550A616A02E0'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -340,11 +346,17 @@ ME ME_550A616A02E0
 
 ENDME // ME_550A616A02E0 Create
 
-ME ME_4FFFDF740099_ME_550A606001EE
+MEREF ME_4FFFDF740099_ME_550A606001EE_impl
  MELINK Original WL 'ME_4FFFDF740099' '478CF30500C1.ms.model.script' // Execute
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4FFFDF740099_ME_550A606001EE Execute
+ENDMEREF // ME_4FFFDF740099_ME_550A606001EE_impl Execute
+
+MEREF ME_4FFFDF4601F9_ME_550A606001EE_G
+ MELINK Original WL 'ME_4FFFDF4601F9' '478CF30500C1.ms.model.script' // TThread
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FFFDF4601F9_ME_550A606001EE_G TThread
 
 %%InheritedBy ME_4FFFDF4601F9 ME_550A606001EE
 
@@ -359,7 +371,7 @@ ME ME_550A606001EE
  MELINK Parent HWL ME_550A6034036F // ChromeLikeTabSetAnimationManager
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4FFFDF4601F9' '478CF30500C1.ms.model.script' // TThread
+   Seq: ( HWL ME_4FFFDF4601F9_ME_550A606001EE_G // TThread
  )
  ; // Inherits
  MELIST Attributes
@@ -373,7 +385,7 @@ ME ME_550A606001EE
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4FFFDF740099_ME_550A606001EE // Execute
+   Seq: ( ME_4FFFDF740099_ME_550A606001EE_impl // Execute
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -395,7 +407,7 @@ ME ME_550A64130181
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_550A638900A0 // TChromeLikeTabSetAnimationManager
  ;
- MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
+ MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
  ;
 
 ENDME // ME_550A64130181 f_Animables
@@ -428,12 +440,18 @@ ME ME_551B9C1D0058
 
 ENDME // ME_551B9C1D0058 f_NeedAnimateEvent
 
+MEREF ME_47881B22005A_ME_550A64410080_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_550A64410080_G TNotifyEvent
+
 %%InheritedBy ME_47881B22005A ME_550A64410080
 
 ME ME_550A64410080
  MEPROP UID '550A64410080'
  MEPROP Name 'DoOnAnimationTimer'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -441,7 +459,7 @@ ME ME_550A64410080
  MELINK Parent HWL ME_550A638900A0 // TChromeLikeTabSetAnimationManager
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( HWL ME_47881B22005A_ME_550A64410080_G // TNotifyEvent
  )
  ; // Inherits
 
@@ -478,7 +496,7 @@ ENDME // ME_550A659F0002 DoIt
 ME ME_550A645801E2
  MEPROP UID '550A645801E2'
  MEPROP Name 'AddAnimable'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -523,7 +541,7 @@ ENDME // ME_550A65AC011B DoIt
 ME ME_550A64790157
  MEPROP UID '550A64790157'
  MEPROP Name 'RemoveAnimable'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -540,7 +558,7 @@ ENDME // ME_550A64790157 RemoveAnimable
 ME ME_55111F0A00F9
  MEPROP UID '55111F0A00F9'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -553,7 +571,7 @@ ENDME // ME_55111F0A00F9 Create
 ME ME_551BA1000265
  MEPROP UID '551BA1000265'
  MEPROP Name 'CheckNeedAnimate'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -566,7 +584,7 @@ ENDME // ME_551BA1000265 CheckNeedAnimate
 ME ME_55ACE28F00B0
  MEPROP UID '55ACE28F00B0'
  MEPROP Name 'FinishAllImmediately'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -586,11 +604,17 @@ ME ME_550A63A301E9
 
 ENDME // ME_550A63A301E9 
 
-ME ME_479731C50290_ME_550A638900A0
+MEREF ME_479731C50290_ME_550A638900A0_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_550A638900A0 Cleanup
+ENDMEREF // ME_479731C50290_ME_550A638900A0_over Cleanup
+
+MEREF ME_49E7754802A9_ME_550A638900A0_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_550A638900A0_G Tl3ProtoObject
 
 %%InheritedBy ME_49E7754802A9 ME_550A638900A0
 
@@ -605,7 +629,7 @@ ME ME_550A638900A0
  MELINK Parent HWL ME_550A6034036F // ChromeLikeTabSetAnimationManager
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_550A638900A0_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Attributes
@@ -624,7 +648,7 @@ ME ME_550A638900A0
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_550A638900A0 // Cleanup
+   Seq: ( ME_479731C50290_ME_550A638900A0_over // Cleanup
  )
  ; // Overridden
  MELIST Dependencies
@@ -685,7 +709,7 @@ ME ME_550A66CD02B2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_550A6034036F // ChromeLikeTabSetAnimationManager
  ;
- MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
+ MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
  ;
 
 ENDME // ME_550A66CD02B2 

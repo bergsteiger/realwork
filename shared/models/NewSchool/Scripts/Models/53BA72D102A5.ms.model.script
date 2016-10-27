@@ -1,0 +1,55 @@
+// TcsAutoAnnoExportPrim 53BA72D102A5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_53FB28170339_ME_53BA72D102A5_over
+ MELINK Original WL 'ME_53FB28170339' '52FA49C7022C.ms.model.script' // GetDescription
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53FB28170339_ME_53BA72D102A5_over GetDescription
+
+MEREF ME_5303551501D6_ME_53BA72D102A5_G
+ MELINK Original WL 'ME_5303551501D6' '530355040385.ms.model.script' // TcsExport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5303551501D6_ME_53BA72D102A5_G TcsExport
+
+MEREF ME_53BA72FA0145_ME_53BA72D102A5_R
+ MELINK Original WL 'ME_53BA72FA0145' '484A470100DD.ms.model.script' // AutoAnnoExportTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53BA72FA0145_ME_53BA72D102A5_R AutoAnnoExportTask
+
+%%ImplementedBy ME_53BA72FA0145 ME_53BA72D102A5
+
+%%InheritedBy ME_5303551501D6 ME_53BA72D102A5
+
+ME ME_53BA72D102A5
+ MEPROP UID '53BA72D102A5'
+ MEPROP Name 'TcsAutoAnnoExportPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5303551501D6_ME_53BA72D102A5_G // TcsExport
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53BA72FA0145_ME_53BA72D102A5_R // AutoAnnoExportTask
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_53FB28170339_ME_53BA72D102A5_over // GetDescription
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'csAutoAnnoExportPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'csAutoAnnoExportPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csAutoAnnoExportPrim.pas'
+
+ENDME // ME_53BA72D102A5 TcsAutoAnnoExportPrim

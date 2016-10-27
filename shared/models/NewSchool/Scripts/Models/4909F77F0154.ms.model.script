@@ -1,0 +1,120 @@
+// TnsEditionTree 4909F77F0154 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4909F77F0154
+
+ME ME_4909F7F00238
+ MEPROP UID '4909F7F00238'
+ MEPROP Name 'f_Document'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4909F77F0154 // TnsEditionTree
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4909F7F00238 f_Document
+
+ME ME_4909F7AE03BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4909F77F0154 // TnsEditionTree
+ ;
+ MELINK Target WL? 'ME_4909F71E02EA' // nsEditionNodes
+ ;
+
+ENDME // ME_4909F7AE03BD 
+
+ME ME_4909FA390209
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4909F77F0154 // TnsEditionTree
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4909FA390209 
+
+ME ME_4909FA46034B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4909F77F0154 // TnsEditionTree
+ ;
+ MELINK Target WL 'ME_48FF63BC0129' '4A6854C70390.ms.model.script' // TnsResetTreeStatus
+ ;
+
+ENDME // ME_4909FA46034B 
+
+MEREF ME_479731C50290_ME_4909F77F0154_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4909F77F0154_over Cleanup
+
+MEREF ME_4908AAED02BD_ME_4909F77F0154_over
+ MELINK Original WL 'ME_4908AAED02BD' '4908A9240071.ms.model.script' // BeforeReset
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4908AAED02BD_ME_4909F77F0154_over BeforeReset
+
+MEREF ME_4908AB070319_ME_4909F77F0154_over
+ MELINK Original WL 'ME_4908AB070319' '4908A9240071.ms.model.script' // RegetRootNode
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4908AB070319_ME_4909F77F0154_over RegetRootNode
+
+MEREF ME_4908A9240071_ME_4909F77F0154_G
+ MELINK Original WL? 'ME_4908A9240071' // TnsDataResetTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4908A9240071_ME_4909F77F0154_G TnsDataResetTree
+
+%%InheritedBy ME_4908A9240071 ME_4909F77F0154
+
+ME ME_4909F77F0154
+ MEPROP UID '4909F77F0154'
+ MEPROP Name 'TnsEditionTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дерево редакций документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4908545802CA' // DocumentContainers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4908A9240071_ME_4909F77F0154_G // TnsDataResetTree
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4909F7F00238 // f_Document
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4909F77F0154_over // Cleanup
+ ME_4908AAED02BD_ME_4909F77F0154_over // BeforeReset
+ ME_4908AB070319_ME_4909F77F0154_over // RegetRootNode
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4909F7AE03BD // nsEditionNodes
+ ME_4909FA390209 // SysUtils
+ ME_4909FA46034B // TnsResetTreeStatus
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Тучнин Д.А.'
+ UP "no hands" True
+ UP "started" '2003/09/05 16:07:14'
+ UP extprop:pas:UnitName 'nsEditionTree'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EditionTree'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsEditionTree.pas'
+
+ENDME // ME_4909F77F0154 TnsEditionTree

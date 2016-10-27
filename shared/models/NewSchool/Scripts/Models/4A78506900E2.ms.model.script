@@ -1,0 +1,346 @@
+// TnsCompareEditionsInfo 4A78506900E2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A78506900E2
+
+ME ME_4B6BD928020F
+ MEPROP UID '4B6BD928020F'
+ MEPROP Name 'f_EditionForCompare'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A78506900E2 // TnsCompareEditionsInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B6BD928020F f_EditionForCompare
+
+ME ME_5214A2B10047
+ MEPROP UID '5214A2B10047'
+ MEPROP Name 'f_Position'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A78506900E2 // TnsCompareEditionsInfo
+ ;
+ MELINK Target WL 'ME_491B329F0330' '4BA763B0004B.ms.model.script' // TbsDocPos
+ ;
+
+ENDME // ME_5214A2B10047 f_Position
+
+FORWARD ME_4B6BD88A03B2
+
+FORWARD ME_4B6BD89101A7
+
+ME ME_4B6BD8A2022B
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4B6BD8A2022B aDoc
+
+ME ME_4B6BD8A20270
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A7FC9C9008F' '4912DD020283.ms.model.script' // IeeLeafPara
+ ;
+
+ENDME // ME_4B6BD8A20270 aPara
+
+ME ME_4B6BD8A202D8
+ MEPROP Name 'aEditionForCompare'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B6BD8A202D8 aEditionForCompare
+
+ME ME_4B6BD8A20348
+ MEPROP Name 'aDocumentForReturn'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B60748400F9' '5795D66F0385.ms.model.script' // TnsDocumentForReturnInfo
+ ;
+
+ENDME // ME_4B6BD8A20348 aDocumentForReturn
+
+ME ME_4B6BD89101A7
+ MEPROP UID '4B6BD89101A7'
+ MEPROP Name '<<>> DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B6BD88A03B2 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B6BD8A2022B // aDoc
+ ME_4B6BD8A20270 // aPara
+ ME_4B6BD8A202D8 // aEditionForCompare
+ ME_4B6BD8A20348 // aDocumentForReturn
+ )
+ ; // Parameters
+
+ENDME // ME_4B6BD89101A7 <<>> DoIt
+
+MEREF ME_4B585365015A_ME_4B6BD88A03B2_G
+ MELINK Original WL 'ME_4B585365015A' '4A8039EF0325.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B585365015A_ME_4B6BD88A03B2_G Create
+
+%%InheritedBy ME_4B585365015A ME_4B6BD88A03B2
+
+ME ME_4B6BD88A03B2
+ MEPROP UID '4B6BD88A03B2'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A78506900E2 // TnsCompareEditionsInfo
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B585365015A_ME_4B6BD88A03B2_G // Create
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B6BD89101A7 // <<>> DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B6BD88A03B2 Create
+
+MEREF ME_4B6BD88A03B2_ME_4B58531A01AF_G
+ MELINK Original HWL ME_4B6BD88A03B2 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B6BD88A03B2_ME_4B58531A01AF_G Create
+
+%%InheritedBy ME_4B6BD88A03B2 ME_4B58531A01AF
+
+ME ME_4B58531A01AF
+ MEPROP UID '4B58531A01AF'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A78506900E2 // TnsCompareEditionsInfo
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B6BD88A03B2_ME_4B58531A01AF_G // Create
+ )
+ ; // Inherits
+
+ENDME // ME_4B58531A01AF Make
+
+FORWARD ME_5214BEB10136
+
+FORWARD ME_5214BEC60003
+
+ME ME_5214BEE101FF
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_5214BEE101FF aDoc
+
+ME ME_5214BEE10216
+ MEPROP Name 'aPosition'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_491B329F0330' '4BA763B0004B.ms.model.script' // TbsDocPos
+ ;
+
+ENDME // ME_5214BEE10216 aPosition
+
+ME ME_5214BEE1022D
+ MEPROP Name 'aEditionForCompare'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5214BEE1022D aEditionForCompare
+
+ME ME_5214BEE10244
+ MEPROP Name 'aDocumentForReturn'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B60748400F9' '5795D66F0385.ms.model.script' // TnsDocumentForReturnInfo
+ ;
+
+ENDME // ME_5214BEE10244 aDocumentForReturn
+
+ME ME_5214BEC60003
+ MEPROP UID '5214BEC60003'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5214BEB10136 // Create$1
+ ;
+ MELIST Parameters
+   Seq: ( ME_5214BEE101FF // aDoc
+ ME_5214BEE10216 // aPosition
+ ME_5214BEE1022D // aEditionForCompare
+ ME_5214BEE10244 // aDocumentForReturn
+ )
+ ; // Parameters
+
+ENDME // ME_5214BEC60003 DoIt
+
+MEREF ME_4B6BD88A03B2_ME_5214BEB10136_G
+ MELINK Original HWL ME_4B6BD88A03B2 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B6BD88A03B2_ME_5214BEB10136_G Create
+
+%%InheritedBy ME_4B6BD88A03B2 ME_5214BEB10136
+
+ME ME_5214BEB10136
+ MEPROP UID '5214BEB10136'
+ MEPROP Name 'Create'
+ MEPROP OriginalName 'Create$1'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A78506900E2 // TnsCompareEditionsInfo
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B6BD88A03B2_ME_5214BEB10136_G // Create
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5214BEC60003 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5214BEB10136 Create$1
+
+MEREF ME_5214BEB10136_ME_5214BEE803DD_G
+ MELINK Original HWL ME_5214BEB10136 // Create$1
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5214BEB10136_ME_5214BEE803DD_G Create$1
+
+%%InheritedBy ME_5214BEB10136 ME_5214BEE803DD
+
+ME ME_5214BEE803DD
+ MEPROP UID '5214BEE803DD'
+ MEPROP Name 'Make'
+ MEPROP OriginalName 'Make$1'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A78506900E2 // TnsCompareEditionsInfo
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5214BEB10136_ME_5214BEE803DD_G // Create$1
+ )
+ ; // Inherits
+
+ENDME // ME_5214BEE803DD Make$1
+
+MEREF ME_4A784CF30229_ME_4A78506900E2_impl
+ MELINK Original WL 'ME_4A784CF30229' '4A6D56B00065.ms.model.script' // State
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4A784CF30229_ME_4A78506900E2_impl State
+
+MEREF ME_4B6BD5E001F4_ME_4A78506900E2_impl
+ MELINK Original WL 'ME_4B6BD5E001F4' '4A6D56B00065.ms.model.script' // EditionForCompare
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4B6BD5E001F4_ME_4A78506900E2_impl EditionForCompare
+
+MEREF ME_5214A243027F_ME_4A78506900E2_impl
+ MELINK Original WL 'ME_5214A243027F' '4A6D56B00065.ms.model.script' // Position
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_5214A243027F_ME_4A78506900E2_impl Position
+
+MEREF ME_4A8039EF0325_ME_4A78506900E2_G
+ MELINK Original WL? 'ME_4A8039EF0325' // TnsCompareEditionsInfoPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A8039EF0325_ME_4A78506900E2_G TnsCompareEditionsInfoPrim
+
+MEREF ME_4A784CC802B0_ME_4A78506900E2_R
+ MELINK Original WL 'ME_4A784CC802B0' '4A6D56B00065.ms.model.script' // InsCompareEditionsInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A784CC802B0_ME_4A78506900E2_R InsCompareEditionsInfo
+
+%%ImplementedBy ME_4A784CC802B0 ME_4A78506900E2
+
+%%InheritedBy ME_4A8039EF0325 ME_4A78506900E2
+
+ME ME_4A78506900E2
+ MEPROP UID '4A78506900E2'
+ MEPROP Name 'TnsCompareEditionsInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A785027038D' // CommonObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A8039EF0325_ME_4A78506900E2_G // TnsCompareEditionsInfoPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4A784CC802B0_ME_4A78506900E2_R // InsCompareEditionsInfo
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B6BD928020F // f_EditionForCompare
+ HWL ME_5214A2B10047 // f_Position
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B6BD88A03B2 // Create
+ HWL ME_4B58531A01AF // Make
+ HWL ME_5214BEB10136 // Create$1
+ HWL ME_5214BEE803DD // Make$1
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A784CF30229_ME_4A78506900E2_impl // State
+ ME_4B6BD5E001F4_ME_4A78506900E2_impl // EditionForCompare
+ ME_5214A243027F_ME_4A78506900E2_impl // Position
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '04.08.2009 19:15'
+ UP extprop:pas:UnitName 'nsCompareEditionsInfo'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CompareEditionsInfo'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Editions\nsCompareEditionsInfo.pas'
+
+ENDME // ME_4A78506900E2 TnsCompareEditionsInfo

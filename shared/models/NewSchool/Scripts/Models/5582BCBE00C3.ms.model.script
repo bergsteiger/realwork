@@ -50,7 +50,7 @@ ENDME // ME_5582BF2801C1 DoIt
 ME ME_5582BF2101BD
  MEPROP UID '5582BF2101BD'
  MEPROP Name 'GetNext'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -95,7 +95,7 @@ ENDME // ME_5582C3590262 DoIt
 ME ME_5582C3550082
  MEPROP UID '5582C3550082'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -109,11 +109,17 @@ ME ME_5582C3550082
 
 ENDME // ME_5582C3550082 Create
 
-ME ME_479731C50290_ME_5582BCBE00C3
+MEREF ME_479731C50290_ME_5582BCBE00C3_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_5582BCBE00C3 Cleanup
+ENDMEREF // ME_479731C50290_ME_5582BCBE00C3_over Cleanup
+
+MEREF ME_519A130C00B6_ME_5582BCBE00C3_G
+ MELINK Original WL 'ME_519A130C00B6' '47F25BC801DB.ms.model.script' // TvcmCacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_519A130C00B6_ME_5582BCBE00C3_G TvcmCacheableBase
 
 %%InheritedBy ME_519A130C00B6 ME_5582BCBE00C3
 
@@ -129,7 +135,7 @@ ME ME_5582BCBE00C3
  MELINK Parent WL? 'ME_47D0E1500033' // Implementation
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_519A130C00B6' '47F25BC801DB.ms.model.script' // TvcmCacheableBase
+   Seq: ( HWL ME_519A130C00B6_ME_5582BCBE00C3_G // TvcmCacheableBase
  )
  ; // Inherits
  MELIST Attributes
@@ -143,7 +149,7 @@ ME ME_5582BCBE00C3
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_5582BCBE00C3 // Cleanup
+   Seq: ( ME_479731C50290_ME_5582BCBE00C3_over // Cleanup
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames

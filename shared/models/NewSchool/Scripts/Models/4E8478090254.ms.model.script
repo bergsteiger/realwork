@@ -1,0 +1,77 @@
+// TevdAllDocumentSubsEliminator 4E8478090254 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E8478090254
+
+ME ME_4E8478A400D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E8478090254 // TevdAllDocumentSubsEliminator
+ ;
+ MELINK Target WL 'ME_484FBE6D037E' '484A470100DD.ms.model.script' // DocSubLayer
+ ;
+
+ENDME // ME_4E8478A400D4 
+
+ME ME_4E8C4C3202CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E8478090254 // TevdAllDocumentSubsEliminator
+ ;
+ MELINK Target WL 'ME_484FAA8501A2' '484A470100DD.ms.model.script' // DocumentSub
+ ;
+
+ENDME // ME_4E8C4C3202CB 
+
+MEREF ME_4E15CBD5018B_ME_4E8478090254_over
+ MELINK Original WL 'ME_4E15CBD5018B' '49E487A70144.ms.model.script' // NeedTranslateChildToNextPrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E15CBD5018B_ME_4E8478090254_over NeedTranslateChildToNextPrim
+
+MEREF ME_49E487A70144_ME_4E8478090254_G
+ MELINK Original WL? 'ME_49E487A70144' // Tk2TagFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487A70144_ME_4E8478090254_G Tk2TagFilter
+
+%%InheritedBy ME_49E487A70144 ME_4E8478090254
+
+ME ME_4E8478090254
+ MEPROP UID '4E8478090254'
+ MEPROP Name 'TevdAllDocumentSubsEliminator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтр, выкидывающий ВСЕ сабы документа из обратного индекса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECB8BD00A8' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E487A70144_ME_4E8478090254_G // Tk2TagFilter
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4E15CBD5018B_ME_4E8478090254_over // NeedTranslateChildToNextPrim
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E8478A400D4 // DocSubLayer
+ ME_4E8C4C3202CB // DocumentSub
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '29.09.2011 17:52'
+ UP extprop:pas:UnitName 'evdAllDocumentSubsEliminator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dAllDocumentSubsEliminator'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdAllDocumentSubsEliminator.pas'
+
+ENDME // ME_4E8478090254 TevdAllDocumentSubsEliminator

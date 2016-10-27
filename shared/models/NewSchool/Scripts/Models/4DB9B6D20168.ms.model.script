@@ -1,0 +1,223 @@
+// TtfwNewWord 4DB9B6D20168 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DB9B6D20168
+
+FORWARD ME_4F219629036A
+
+FORWARD ME_4F21966F0162
+
+ME ME_4F21969B01AB
+ MEPROP Name 'aWordToFinish'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEF23D00EE' '4DAF19F600C5.ms.model.script' // TtfwKeyWord
+ ;
+
+ENDME // ME_4F21969B01AB aWordToFinish
+
+ME ME_4F21969B0202
+ MEPROP Name 'aCompiled'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_52D3C5F90029' // TkwCompiledWordPrim
+ ;
+
+ENDME // ME_4F21969B0202 aCompiled
+
+ME ME_4F21969B0257
+ MEPROP Name 'aContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4F21969B0257 aContext
+
+ME ME_4F21966F0162
+ MEPROP UID '4F21966F0162'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F219629036A // FinishDefinitionOfNewWord
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F21969B01AB // aWordToFinish
+ ME_4F21969B0202 // aCompiled
+ ME_4F21969B0257 // aContext
+ )
+ ; // Parameters
+
+ENDME // ME_4F21966F0162 DoIt
+
+ME ME_4F219629036A
+ MEPROP UID '4F219629036A'
+ MEPROP Name 'FinishDefinitionOfNewWord'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Завершает определение вновь созданного слова' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DB9B6D20168 // TtfwNewWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F21966F0162 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F219629036A FinishDefinitionOfNewWord
+
+FORWARD ME_4F37B3F10318
+
+FORWARD ME_4F37B40A0021
+
+ME ME_4F37B4110018
+ MEPROP Name 'aContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4F37B4110018 aContext
+
+ME ME_4F37B40A0021
+ MEPROP UID '4F37B40A0021'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F37B3F10318 // GetNewWordName
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F37B4110018 // aContext
+ )
+ ; // Parameters
+
+ENDME // ME_4F37B40A0021 DoIt
+
+ME ME_4F37B3F10318
+ MEPROP UID '4F37B3F10318'
+ MEPROP Name 'GetNewWordName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DB9B6D20168 // TtfwNewWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F37B40A0021 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F37B3F10318 GetNewWordName
+
+ME ME_4DB9B72601E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB9B6D20168 // TtfwNewWord
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4DB9B72601E2 
+
+ME ME_4F4663B401CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB9B6D20168 // TtfwNewWord
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4F4663B401CA 
+
+ME ME_54D38668011F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB9B6D20168 // TtfwNewWord
+ ;
+ MELINK Target WL 'ME_52EF740F00AE' '4C1B475101C5.ms.model.script' // Tl3TokenType
+ ;
+
+ENDME // ME_54D38668011F 
+
+ME ME_55A6A10502B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB9B6D20168 // TtfwNewWord
+ ;
+ MELINK Target WL? 'ME_4F4BB70D0144' // TkwForwardDeclaration
+ ;
+
+ENDME // ME_55A6A10502B1 
+
+MEREF ME_4DB6CDDA038B_ME_4DB9B6D20168_over
+ MELINK Original WL 'ME_4DB6CDDA038B' '4DB6C8F30161.ms.model.script' // BeforeCompile
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB6CDDA038B_ME_4DB9B6D20168_over BeforeCompile
+
+MEREF ME_4DB6CE2302C9_ME_4DB9B6D20168_over
+ MELINK Original WL 'ME_4DB6CE2302C9' '4DB6C8F30161.ms.model.script' // AfterCompile
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB6CE2302C9_ME_4DB9B6D20168_over AfterCompile
+
+MEREF ME_4DB6C8F30161_ME_4DB9B6D20168_G
+ MELINK Original WL? 'ME_4DB6C8F30161' // TtfwCompilingWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB6C8F30161_ME_4DB9B6D20168_G TtfwCompilingWord
+
+%%InheritedBy ME_4DB6C8F30161 ME_4DB9B6D20168
+
+ME ME_4DB9B6D20168
+ MEPROP UID '4DB9B6D20168'
+ MEPROP Name 'TtfwNewWord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_54F079B5035C' // CompiledWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DB6C8F30161_ME_4DB9B6D20168_G // TtfwCompilingWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F219629036A // FinishDefinitionOfNewWord
+ HWL ME_4F37B3F10318 // GetNewWordName
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4DB6CDDA038B_ME_4DB9B6D20168_over // BeforeCompile
+ ME_4DB6CE2302C9_ME_4DB9B6D20168_over // AfterCompile
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DB9B72601E2 // FreeAndNil
+ ME_4F4663B401CA // l3String
+ ME_54D38668011F // Tl3TokenType
+ ME_55A6A10502B1 // TkwForwardDeclaration
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '28.09.2011 22:50'
+ UP extprop:pas:UnitName 'tfwNewWord'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NewWord'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwNewWord.pas'
+
+ENDME // ME_4DB9B6D20168 TtfwNewWord

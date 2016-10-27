@@ -1,0 +1,85 @@
+// TRectWrap 547869730335 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_547869730335
+
+ME ME_5478698F000A
+ MEPROP UID '5478698F000A'
+ MEPROP Name 'f_Rect'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_547869730335 // TRectWrap
+ ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_5478698F000A f_Rect
+
+FORWARD ME_547869A4035F
+
+ME ME_547869B0000E
+ MEPROP Name 'aRect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_547869B0000E aRect
+
+ME ME_547869A4035F
+ MEPROP UID '547869A4035F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_547869730335 // TRectWrap
+ ;
+ MELIST Parameters
+   Seq: ( ME_547869B0000E // aRect
+ )
+ ; // Parameters
+
+ENDME // ME_547869A4035F Create
+
+MEREF ME_478CF32A03B6_ME_547869730335_G
+ MELINK Original WL 'ME_478CF32A03B6' '478CF30500C1.ms.model.script' // TPersistent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_478CF32A03B6_ME_547869730335_G TPersistent
+
+%%InheritedBy ME_478CF32A03B6 ME_547869730335
+
+ME ME_547869730335
+ MEPROP UID '547869730335'
+ MEPROP Name 'TRectWrap'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5477970600C6' // Wrap
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_478CF32A03B6_ME_547869730335_G // TPersistent
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5478698F000A // f_Rect
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_547869A4035F // Create
+ )
+ ; // Operations
+ UP "need UC" True
+ UP extprop:pas:UnitName 'RectWrap'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RectWrap'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\RectWrap.pas'
+
+ENDME // ME_547869730335 TRectWrap

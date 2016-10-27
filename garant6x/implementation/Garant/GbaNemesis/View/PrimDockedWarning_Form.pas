@@ -143,6 +143,9 @@ begin
   ShowInContextMenu(en_File, op_Print, False);
   ShowInToolbar(en_File, op_Print, False);
  end;//with Entities.Entities
+ AddUserTypeExclude(WarningName, en_File, op_Print, False);
+ AddUserTypeExclude(WarningName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(WarningName, en_File, op_PrintPreview, False);
 end;//TPrimDockedWarningForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 

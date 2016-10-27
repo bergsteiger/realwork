@@ -1,0 +1,44 @@
+// TafwSettingsImplSing 4F6C7DC2022A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_47A042E100E2_ME_4F6C7DC2022A_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4F6C7DC2022A_over InitFields
+
+MEREF ME_4F6C9DBE03CF_ME_4F6C7DC2022A_G
+ MELINK Original WL? 'ME_4F6C9DBE03CF' // TafwSettingsImplPersistent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F6C9DBE03CF_ME_4F6C7DC2022A_G TafwSettingsImplPersistent
+
+%%InheritedBy ME_4F6C9DBE03CF ME_4F6C7DC2022A
+
+ME ME_4F6C7DC2022A
+ MEPROP UID '4F6C7DC2022A'
+ MEPROP Name 'TafwSettingsImplSing'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6C5511015F' // afwSettings
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F6C9DBE03CF_ME_4F6C7DC2022A_G // TafwSettingsImplPersistent
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4F6C7DC2022A_over // InitFields
+ )
+ ; // Overridden
+ UP "singleton" True
+ UP extprop:pas:UnitName 'afwSettingsImplSing'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwSettingsImplSing'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\afwSettingsImplSing.pas'
+
+ENDME // ME_4F6C7DC2022A TafwSettingsImplSing

@@ -1,0 +1,62 @@
+// TnsFiltersListenersList 4F98251800B4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F98251800B4
+
+ME ME_4F9825660350
+ MEPROP UID '4F9825660350'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F98251800B4 // TnsFiltersListenersList
+ ;
+ MELINK Target WL 'ME_4F98240403BA' '4CAC58E50231.ms.model.script' // InsFiltersListener
+ ;
+
+ENDME // ME_4F9825660350 ItemType
+
+MEREF ME_47B57D630029_ME_4F98251800B4_G
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_4F98251800B4_G l3InterfacePtrList
+
+MEREF ME_47BC3A07027F_ME_4F98251800B4_G
+ MELINK Original WL? 'ME_47BC3A07027F' // Tl3SimpleDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC3A07027F_ME_4F98251800B4_G Tl3SimpleDataContainer
+
+%%InheritedBy ME_47B57D630029 ME_4F98251800B4
+%%InheritedBy ME_47BC3A07027F ME_4F98251800B4
+
+ME ME_4F98251800B4
+ MEPROP UID '4F98251800B4'
+ MEPROP Name 'TnsFiltersListenersList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F9823DB021B' // FiltersNotification
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57D630029_ME_4F98251800B4_G // l3InterfacePtrList
+ HWL ME_47BC3A07027F_ME_4F98251800B4_G // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F9825660350 // ItemType
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'nsFiltersListenersList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FiltersListenersList'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersListenersList.pas'
+
+ENDME // ME_4F98251800B4 TnsFiltersListenersList

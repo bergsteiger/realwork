@@ -1,0 +1,53 @@
+// Tl3StringList 4773DCE302FF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4773DCE302FF
+
+ME ME_47B2DCAA034F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4773DCE302FF // Tl3StringList
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_47B2DCAA034F 
+
+MEREF ME_47B9CBCE029D_ME_4773DCE302FF_G
+ MELINK Original WL? 'ME_47B9CBCE029D' // Tl3StringList2
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B9CBCE029D_ME_4773DCE302FF_G Tl3StringList2
+
+%%InheritedBy ME_47B9CBCE029D ME_4773DCE302FF
+
+ME ME_4773DCE302FF
+ MEPROP UID '4773DCE302FF'
+ MEPROP Name 'Tl3StringList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список строк.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B9CBCE029D_ME_4773DCE302FF_G // Tl3StringList2
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_47B2DCAA034F // l3String
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '06.02.2008 12:58'
+ UP extprop:pas:UnitName 'l3StringList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringList'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3StringList.pas'
+
+ENDME // ME_4773DCE302FF Tl3StringList

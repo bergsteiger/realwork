@@ -5,26 +5,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_5199EF87030A
 %%Inner ME_519C8DFA0223
 
-FORWARD ME_5199EF4C0227
-
-ME ME_519C8DFA0223
- MEPROP UID '519C8DFA0223'
- MEPROP Name 'TddFileIterator'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5199EF4C0227 // PipeIn
- ;
- UP "finished" False
- UP extprop:pas:UnitName 'ddFileIterator'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'ddFileIterator'
- UP intf.pas:Path 'common\components\rtl\Garant\dd\PipeIn\NOT_FINISHED_ddFileIterator.pas'
-
-ENDME // ME_519C8DFA0223 TddFileIterator
-
 ME ME_5199EF4C0227
  MEPROP UID '5199EF4C0227'
  MEPROP Name 'PipeIn'
@@ -37,7 +17,7 @@ ME ME_5199EF4C0227
  ;
  MELIST Children
    Seq: ( WL? 'ME_5199EF87030A' // ddImportPipe
- HWL ME_519C8DFA0223 // TddFileIterator
+ WL? 'ME_519C8DFA0223' // TddFileIterator
  )
  ; // Children
  MESTRINGLIST DiagramsNames

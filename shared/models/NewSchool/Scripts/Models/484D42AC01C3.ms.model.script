@@ -1,0 +1,78 @@
+// Tk2DictItem 484D42AC01C3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_484D42AC01C3
+
+ME ME_536107A9016E
+ MEPROP UID '536107A9016E'
+ MEPROP Name 'HashType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484D42AC01C3 // Tk2DictItem
+ ;
+ MELINK Target WL 'ME_4A605C540221' '47AC5ABE00B6.ms.model.script' // Tl3OneBytePtrHash
+ ;
+
+ENDME // ME_536107A9016E HashType
+
+MEREF ME_47AC562D0134_ME_484D42AC01C3_G
+ MELINK Original WL? 'ME_47AC562D0134' // k2HashTag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47AC562D0134_ME_484D42AC01C3_G k2HashTag
+
+MEREF ME_53208F54004F_ME_484D42AC01C3_G
+ MELINK Original WL? 'ME_53208F54004F' // Tk2DictRecTag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53208F54004F_ME_484D42AC01C3_G Tk2DictRecTag
+
+MEREF ME_47AC58810008_ME_484D42AC01C3_R
+ MELINK Original WL? 'ME_47AC58810008' // k2ParentedTagObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47AC58810008_ME_484D42AC01C3_R k2ParentedTagObject
+
+%%ImplementedBy ME_47AC58810008 ME_484D42AC01C3
+
+%%InheritedBy ME_47AC562D0134 ME_484D42AC01C3
+%%InheritedBy ME_53208F54004F ME_484D42AC01C3
+
+ME ME_484D42AC01C3
+ MEPROP UID '484D42AC01C3'
+ MEPROP Name 'Tk2DictItem'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Словарная запись, со ссылкой на родительский тег' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47AC562D0134_ME_484D42AC01C3_G // k2HashTag
+ HWL ME_53208F54004F_ME_484D42AC01C3_G // Tk2DictRecTag
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47AC58810008_ME_484D42AC01C3_R // k2ParentedTagObject
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_536107A9016E // HashType
+ )
+ ; // Attributes
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '02.12.2005 16:59'
+ UP extprop:pas:UnitName 'k2DictItem'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DictItem'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2DictItem.pas'
+
+ENDME // ME_484D42AC01C3 Tk2DictItem

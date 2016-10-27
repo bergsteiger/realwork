@@ -1,0 +1,56 @@
+// TcsImportTaskPrim 53ABFE3202CF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_53AC03EE01FD_ME_53ABFE3202CF_over
+ MELINK Original WL 'ME_53AC03EE01FD' '53B24E23037A.ms.model.script' // GetTaggedDataType
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDMEREF // ME_53AC03EE01FD_ME_53ABFE3202CF_over GetTaggedDataType
+
+MEREF ME_52F8C2BF0110_ME_53ABFE3202CF_G
+ MELINK Original WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52F8C2BF0110_ME_53ABFE3202CF_G TddProcessTask
+
+MEREF ME_53AC19E00242_ME_53ABFE3202CF_R
+ MELINK Original WL 'ME_53AC19E00242' '484A470100DD.ms.model.script' // ImportTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53AC19E00242_ME_53ABFE3202CF_R ImportTask
+
+%%ImplementedBy ME_53AC19E00242 ME_53ABFE3202CF
+
+%%InheritedBy ME_52F8C2BF0110 ME_53ABFE3202CF
+
+ME ME_53ABFE3202CF
+ MEPROP UID '53ABFE3202CF'
+ MEPROP Name 'TcsImportTaskPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52F8C2BF0110_ME_53ABFE3202CF_G // TddProcessTask
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53AC19E00242_ME_53ABFE3202CF_R // ImportTask
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_53AC03EE01FD_ME_53ABFE3202CF_over // GetTaggedDataType
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'csImportTaskPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'csImportTaskPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csImportTaskPrim.pas'
+
+ENDME // ME_53ABFE3202CF TcsImportTaskPrim

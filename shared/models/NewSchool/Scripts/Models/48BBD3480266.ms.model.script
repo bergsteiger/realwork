@@ -15,11 +15,17 @@ ME ME_48BBD37B034F
 
 ENDME // ME_48BBD37B034F DoPaint
 
-ME ME_48C6C044025E_ME_48BBD3480266
+MEREF ME_48C6C044025E_ME_48BBD3480266_over
  MELINK Original WL 'ME_48C6C044025E' '48BD1975029B.ms.model.script' // Paint
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48C6C044025E_ME_48BBD3480266 Paint
+ENDMEREF // ME_48C6C044025E_ME_48BBD3480266_over Paint
+
+MEREF ME_48BBF1470238_ME_48BBD3480266_G
+ MELINK Original WL? 'ME_48BBF1470238' // TafwTextControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48BBF1470238_ME_48BBD3480266_G TafwTextControl
 
 %%InheritedBy ME_48BBF1470238 ME_48BBD3480266
 
@@ -35,7 +41,7 @@ ME ME_48BBD3480266
  MELINK Parent WL? 'ME_467BA8C8017E' // afwControl
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_48BBF1470238' // TafwTextControl
+   Seq: ( HWL ME_48BBF1470238_ME_48BBD3480266_G // TafwTextControl
  )
  ; // Inherits
  MELIST Operations
@@ -43,7 +49,7 @@ ME ME_48BBD3480266
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_48C6C044025E_ME_48BBD3480266 // Paint
+   Seq: ( ME_48C6C044025E_ME_48BBD3480266_over // Paint
  )
  ; // Overridden
  UP extprop:pas:UnitName 'afwCustomCommonTextControlPrim'

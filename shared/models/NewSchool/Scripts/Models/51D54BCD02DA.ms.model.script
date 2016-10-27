@@ -1,0 +1,169 @@
+// TConfigStorageStub 51D54BCD02DA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51D54BCD02DA
+
+FORWARD ME_51D55B7D0119
+
+ME ME_51D55BD50310
+ MEPROP UID '51D55BD50310'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D55B7D0119 // Make
+ ;
+ MELINK Target WL 'ME_51D519310249' '5214AEF201AE.ms.model.script' // IddConfigStorage
+ ;
+
+ENDME // ME_51D55BD50310 DoIt
+
+ME ME_51D55B7D0119
+ MEPROP UID '51D55B7D0119'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D54BCD02DA // TConfigStorageStub
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51D55BD50310 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_51D55B7D0119 Make
+
+ME ME_51D55808008F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D54BCD02DA // TConfigStorageStub
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_51D55808008F 
+
+MEREF ME_51D51983016F_ME_51D54BCD02DA_impl
+ MELINK Original WL 'ME_51D51983016F' '5214AEF201AE.ms.model.script' // ReadBool
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51D51983016F_ME_51D54BCD02DA_impl ReadBool
+
+MEREF ME_51D519A40189_ME_51D54BCD02DA_impl
+ MELINK Original WL 'ME_51D519A40189' '5214AEF201AE.ms.model.script' // ReadDateTime
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51D519A40189_ME_51D54BCD02DA_impl ReadDateTime
+
+MEREF ME_51D519B403D0_ME_51D54BCD02DA_impl
+ MELINK Original WL 'ME_51D519B403D0' '5214AEF201AE.ms.model.script' // ReadInteger
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51D519B403D0_ME_51D54BCD02DA_impl ReadInteger
+
+MEREF ME_51D519D00291_ME_51D54BCD02DA_impl
+ MELINK Original WL 'ME_51D519D00291' '5214AEF201AE.ms.model.script' // ReadString
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51D519D00291_ME_51D54BCD02DA_impl ReadString
+
+MEREF ME_51D519FC00D5_ME_51D54BCD02DA_impl
+ MELINK Original WL 'ME_51D519FC00D5' '5214AEF201AE.ms.model.script' // WriteBool
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51D519FC00D5_ME_51D54BCD02DA_impl WriteBool
+
+MEREF ME_51D51A0D0133_ME_51D54BCD02DA_impl
+ MELINK Original WL 'ME_51D51A0D0133' '5214AEF201AE.ms.model.script' // WriteDateTime
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51D51A0D0133_ME_51D54BCD02DA_impl WriteDateTime
+
+MEREF ME_51D51A1E025E_ME_51D54BCD02DA_impl
+ MELINK Original WL 'ME_51D51A1E025E' '5214AEF201AE.ms.model.script' // WriteInteger
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51D51A1E025E_ME_51D54BCD02DA_impl WriteInteger
+
+MEREF ME_51D51A3201BA_ME_51D54BCD02DA_impl
+ MELINK Original WL 'ME_51D51A3201BA' '5214AEF201AE.ms.model.script' // WriteString
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51D51A3201BA_ME_51D54BCD02DA_impl WriteString
+
+MEREF ME_51D51A48025D_ME_51D54BCD02DA_impl
+ MELINK Original WL 'ME_51D51A48025D' '5214AEF201AE.ms.model.script' // Section
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_51D51A48025D_ME_51D54BCD02DA_impl Section
+
+MEREF ME_49E7754802A9_ME_51D54BCD02DA_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_51D54BCD02DA_G Tl3ProtoObject
+
+MEREF ME_51D519310249_ME_51D54BCD02DA_R
+ MELINK Original WL 'ME_51D519310249' '5214AEF201AE.ms.model.script' // IddConfigStorage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51D519310249_ME_51D54BCD02DA_R IddConfigStorage
+
+%%ImplementedBy ME_51D519310249 ME_51D54BCD02DA
+
+%%InheritedBy ME_49E7754802A9 ME_51D54BCD02DA
+
+ME ME_51D54BCD02DA
+ MEPROP UID '51D54BCD02DA'
+ MEPROP Name 'TConfigStorageStub'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Заглушка для эмуляции чтения настроек.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_51D54BB60329' // AppConfigUtils
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_51D54BCD02DA_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_51D519310249_ME_51D54BCD02DA_R // IddConfigStorage
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_51D55B7D0119 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_51D51983016F_ME_51D54BCD02DA_impl // ReadBool
+ ME_51D519A40189_ME_51D54BCD02DA_impl // ReadDateTime
+ ME_51D519B403D0_ME_51D54BCD02DA_impl // ReadInteger
+ ME_51D519D00291_ME_51D54BCD02DA_impl // ReadString
+ ME_51D519FC00D5_ME_51D54BCD02DA_impl // WriteBool
+ ME_51D51A0D0133_ME_51D54BCD02DA_impl // WriteDateTime
+ ME_51D51A1E025E_ME_51D54BCD02DA_impl // WriteInteger
+ ME_51D51A3201BA_ME_51D54BCD02DA_impl // WriteString
+ ME_51D51A48025D_ME_51D54BCD02DA_impl // Section
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_51D55808008F // l3CStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ConfigStorageStub'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ConfigStorageStub'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\ConfigStorageStub.pas'
+
+ENDME // ME_51D54BCD02DA TConfigStorageStub

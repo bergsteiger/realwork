@@ -1,0 +1,41 @@
+// mouse_SetCursorPosition 4EF0939D025E ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EF0939D025E
+
+ME ME_4F22AC5E01A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EF0939D025E // mouse_SetCursorPosition
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_4F22AC5E01A7 
+
+ME ME_4EF0939D025E
+ MEPROP UID '4EF0939D025E'
+ MEPROP Name 'mouse_SetCursorPosition'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F8EC875027E' // MouseInput
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F22AC5E01A7 // Windows
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwMouseSetCursorPosition'
+ UP extprop:pas:UnitName 'kwMouseSetCursorPosition'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MouseSetCursorPosition'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseSetCursorPosition.pas'
+
+ENDME // ME_4EF0939D025E mouse_SetCursorPosition

@@ -1,0 +1,52 @@
+// TmsmListOwnerToCurrentElementBinding 57C9A3B200E2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57C9A3B200E2
+
+ME ME_57C9A3F10030
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57C9A3B200E2 // TmsmListOwnerToCurrentElementBinding
+ ;
+ MELINK Target WL 'ME_57ADBA39026E' '57C99A680247.ms.model.script' // ListChangedEvent
+ ;
+
+ENDME // ME_57C9A3F10030 
+
+MEREF ME_57D25B3702FE_ME_57C9A3B200E2_G
+ MELINK Original WL? 'ME_57D25B3702FE' // TmsmListToListBinding
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57D25B3702FE_ME_57C9A3B200E2_G TmsmListToListBinding
+
+%%InheritedBy ME_57D25B3702FE ME_57C9A3B200E2
+
+ME ME_57C9A3B200E2
+ MEPROP UID '57C9A3B200E2'
+ MEPROP Name 'TmsmListOwnerToCurrentElementBinding'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CD2BB003D3' // ConcreteBindings
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57D25B3702FE_ME_57C9A3B200E2_G // TmsmListToListBinding
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_57C9A3F10030 // ListChangedEvent
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmListOwnerToCurrentElementBinding'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmListOwnerToCurrentElementBinding'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmListOwnerToCurrentElementBinding.pas'
+
+ENDME // ME_57C9A3B200E2 TmsmListOwnerToCurrentElementBinding

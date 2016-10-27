@@ -1,0 +1,177 @@
+// Tm3WideStringManager 5459E3FB0365 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5459E3FB0365
+
+ME ME_545A342F0029
+ MEPROP UID '545A342F0029'
+ MEPROP Name 'f_CanFreeBlocks'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5459E3FB0365 // Tm3WideStringManager
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_545A342F0029 f_CanFreeBlocks
+
+FORWARD ME_5459E9360228
+
+ME ME_5459E943016A
+ MEPROP UID '5459E943016A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5459E9360228 // Create
+ ;
+
+ENDME // ME_5459E943016A DoIt
+
+ME ME_5459E9360228
+ MEPROP UID '5459E9360228'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5459E3FB0365 // Tm3WideStringManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5459E943016A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5459E9360228 Create
+
+ME ME_545A3464034C
+ MEPROP UID '545A3464034C'
+ MEPROP Name 'LockFree'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5459E3FB0365 // Tm3WideStringManager
+ ;
+
+ENDME // ME_545A3464034C LockFree
+
+ME ME_545A3476006F
+ MEPROP UID '545A3476006F'
+ MEPROP Name 'UnlockFree'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5459E3FB0365 // Tm3WideStringManager
+ ;
+
+ENDME // ME_545A3476006F UnlockFree
+
+FORWARD ME_545A46C20284
+
+ME ME_545A472C02A1
+ MEPROP UID '545A472C02A1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545A46C20284 // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_545A472C02A1 DoIt
+
+ME ME_545A46C20284
+ MEPROP UID '545A46C20284'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5459E3FB0365 // Tm3WideStringManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_545A472C02A1 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_545A46C20284 Exists
+
+ME ME_5459E5280338
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5459E3FB0365 // Tm3WideStringManager
+ ;
+ MELINK Target WL? 'ME_5453ADED01B4' // l3SimpleMM
+ ;
+
+ENDME // ME_5459E5280338 
+
+MEREF ME_545A2F6800D6_ME_5459E3FB0365_over
+ MELINK Original WL 'ME_545A2F6800D6' '5453AE0C0100.ms.model.script' // CanFreeBlocks
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_545A2F6800D6_ME_5459E3FB0365_over CanFreeBlocks
+
+MEREF ME_5459EE930103_ME_5459E3FB0365_G
+ MELINK Original WL? 'ME_5459EE930103' // Tl3WideStringManager
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5459EE930103_ME_5459E3FB0365_G Tl3WideStringManager
+
+%%InheritedBy ME_5459EE930103 ME_5459E3FB0365
+
+ME ME_5459E3FB0365
+ MEPROP UID '5459E3FB0365'
+ MEPROP Name 'Tm3WideStringManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5459EE930103_ME_5459E3FB0365_G // Tl3WideStringManager
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_545A342F0029 // f_CanFreeBlocks
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5459E9360228 // Create
+ HWL ME_545A3464034C // LockFree
+ HWL ME_545A3476006F // UnlockFree
+ HWL ME_545A46C20284 // Exists
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_545A2F6800D6_ME_5459E3FB0365_over // CanFreeBlocks
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5459E5280338 // l3SimpleMM
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:pas:UnitName 'm3WideStringManager'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3WideStringManager'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3WideStringManager.pas'
+
+ENDME // ME_5459E3FB0365 Tm3WideStringManager

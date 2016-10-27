@@ -1,0 +1,221 @@
+// Tm3StoreHeaderData 54071860020E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_54070C54022C
+
+FORWARD ME_54071860020E
+
+ME ME_54070C54022C
+ MEPROP UID '54070C54022C'
+ MEPROP Name 'Tm3StoreHeaderDataRec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ёлемент оглавлени€ IStorage' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54071860020E // Tm3StoreHeaderData
+ ;
+ UP "need UC" True
+ UP "packed" True
+
+ENDME // ME_54070C54022C Tm3StoreHeaderDataRec
+
+ME ME_5407188B0002
+ MEPROP UID '5407188B0002'
+ MEPROP Name 'Data'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_54071860020E // Tm3StoreHeaderData
+ ;
+ MELINK Target HWL ME_54070C54022C // Tm3StoreHeaderDataRec
+ ;
+
+ENDME // ME_5407188B0002 Data
+
+ME ME_540D7BF002FE
+ MEPROP UID '540D7BF002FE'
+ MEPROP Name 'DataCompare'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_54071860020E // Tm3StoreHeaderData
+ ;
+ MELINK Target HWL ME_54070C54022C // Tm3StoreHeaderDataRec
+ ;
+
+ENDME // ME_540D7BF002FE DataCompare
+
+ME ME_540718F302BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54071860020E // Tm3StoreHeaderData
+ ;
+ MELINK Target WL? 'ME_47BF045E0138' // m2MemLib
+ ;
+
+ENDME // ME_540718F302BC 
+
+ME ME_540719360082
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54071860020E // Tm3StoreHeaderData
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_540719360082 
+
+ME ME_54071DE500FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54071860020E // Tm3StoreHeaderData
+ ;
+ MELINK Target WL 'ME_53FDFAAE0115' '46A0E6C5023A.ms.model.script' // TCLSID
+ ;
+
+ENDME // ME_54071DE500FA 
+
+ME ME_540722FD0258
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54071860020E // Tm3StoreHeaderData
+ ;
+ MELINK Target WL? 'ME_49B952CD03A6' // m2COMLib
+ ;
+
+ENDME // ME_540722FD0258 
+
+ME ME_540725E1002B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54071860020E // Tm3StoreHeaderData
+ ;
+ MELINK Target WL? 'ME_540725D100E7' // m3Exceptions
+ ;
+
+ENDME // ME_540725E1002B 
+
+MEREF ME_5407189E0002_ME_54071860020E_impl
+ MELINK Original WL 'ME_5407189E0002' '54084CDE023E.ms.model.script' // DataSize
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" True
+ENDMEREF // ME_5407189E0002_ME_54071860020E_impl DataSize
+
+MEREF ME_540718BC025B_ME_54071860020E_impl
+ MELINK Original WL 'ME_540718BC025B' '54084CDE023E.ms.model.script' // Modified
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_540718BC025B_ME_54071860020E_impl Modified
+
+MEREF ME_540834BD03CA_ME_54071860020E_impl
+ MELINK Original WL 'ME_540834BD03CA' '54084CDE023E.ms.model.script' // rRealSizePrim
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_540834BD03CA_ME_54071860020E_impl rRealSizePrim
+
+MEREF ME_540834F20369_ME_54071860020E_impl
+ MELINK Original WL 'ME_540834F20369' '54084CDE023E.ms.model.script' // FirstClusterPrim
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_540834F20369_ME_54071860020E_impl FirstClusterPrim
+
+MEREF ME_5408350602F2_ME_54071860020E_impl
+ MELINK Original WL 'ME_5408350602F2' '54084CDE023E.ms.model.script' // rTOCItemListPositionPrim
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_5408350602F2_ME_54071860020E_impl rTOCItemListPositionPrim
+
+MEREF ME_54083558039D_ME_54071860020E_impl
+ MELINK Original WL 'ME_54083558039D' '54084CDE023E.ms.model.script' // DoDoLoad
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54083558039D_ME_54071860020E_impl DoDoLoad
+
+MEREF ME_5408358802BD_ME_54071860020E_impl
+ MELINK Original WL 'ME_5408358802BD' '54084CDE023E.ms.model.script' // DoDoSave
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5408358802BD_ME_54071860020E_impl DoDoSave
+
+MEREF ME_540DDBC0020B_ME_54071860020E_impl
+ MELINK Original WL 'ME_540DDBC0020B' '54084CDE023E.ms.model.script' // DoSaveNextPosition
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_540DDBC0020B_ME_54071860020E_impl DoSaveNextPosition
+
+MEREF ME_54104EA90033_ME_54071860020E_impl
+ MELINK Original WL 'ME_54104EA90033' '54084CDE023E.ms.model.script' // InitData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54104EA90033_ME_54071860020E_impl InitData
+
+MEREF ME_54084CDE023E_ME_54071860020E_G
+ MELINK Original WL? 'ME_54084CDE023E' // Tm3StoreHeaderDataPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54084CDE023E_ME_54071860020E_G Tm3StoreHeaderDataPrim
+
+%%InheritedBy ME_54084CDE023E ME_54071860020E
+
+ME ME_54071860020E
+ MEPROP UID '54071860020E'
+ MEPROP Name 'Tm3StoreHeaderData'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54084CDE023E_ME_54071860020E_G // Tm3StoreHeaderDataPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5407188B0002 // Data
+ HWL ME_540D7BF002FE // DataCompare
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_5407189E0002_ME_54071860020E_impl // DataSize
+ ME_540718BC025B_ME_54071860020E_impl // Modified
+ ME_540834BD03CA_ME_54071860020E_impl // rRealSizePrim
+ ME_540834F20369_ME_54071860020E_impl // FirstClusterPrim
+ ME_5408350602F2_ME_54071860020E_impl // rTOCItemListPositionPrim
+ ME_54083558039D_ME_54071860020E_impl // DoDoLoad
+ ME_5408358802BD_ME_54071860020E_impl // DoDoSave
+ ME_540DDBC0020B_ME_54071860020E_impl // DoSaveNextPosition
+ ME_54104EA90033_ME_54071860020E_impl // InitData
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_54070C54022C // Tm3StoreHeaderDataRec
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_540718F302BC // m2MemLib
+ ME_540719360082 // l3Base
+ ME_54071DE500FA // TCLSID
+ ME_540722FD0258 // m2COMLib
+ ME_540725E1002B // m3Exceptions
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'm3StoreHeaderData'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3StoreHeaderData'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3StoreHeaderData.pas'
+
+ENDME // ME_54071860020E Tm3StoreHeaderData

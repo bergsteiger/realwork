@@ -1,0 +1,341 @@
+// TnscTasksPanel 4D342DED0196 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4D3432F30178
+
+FORWARD ME_4D342DED0196
+
+FORWARD ME_4D3432F30178
+
+ME ME_4D3433050296
+ MEPROP UID '4D3433050296'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4D3432F30178 // TnscTasksPanelGroupDescArray$open
+ ;
+ MELINK Target WL 'ME_4D34320903B4' '4D343AFE00DD.ms.model.script' // TnscTasksPanelGroupDesc
+ ;
+
+ENDME // ME_4D3433050296 
+
+ME ME_4D3432F30178
+ MEPROP UID '4D3432F30178'
+ MEPROP Name 'TnscTasksPanelGroupDescArray'
+ MEPROP OriginalName 'TnscTasksPanelGroupDescArray$open'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D342DED0196 // TnscTasksPanel
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4D3433050296 // 
+ )
+ ; // Attributes
+ UP "array type" 'open'
+
+ENDME // ME_4D3432F30178 TnscTasksPanelGroupDescArray$open
+
+ME ME_4D343B330373
+ MEPROP UID '4D343B330373'
+ MEPROP Name 'f_Groups'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D342DED0196 // TnscTasksPanel
+ ;
+ MELINK Target WL? 'ME_4D343AFE00DD' // TnscTasksPanelGroupDescList
+ ;
+
+ENDME // ME_4D343B330373 f_Groups
+
+ME ME_4D34649201B2
+ MEPROP UID '4D34649201B2'
+ MEPROP Name 'f_BaseSettingId'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4D342DED0196 // TnscTasksPanel
+ ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+
+ENDME // ME_4D34649201B2 f_BaseSettingId
+
+FORWARD ME_4D34335B0113
+
+FORWARD ME_4D3433650295
+
+ME ME_4D3464CE031B
+ MEPROP Name 'aBaseSettingId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+
+ENDME // ME_4D3464CE031B aBaseSettingId
+
+ME ME_4D3433FB0310
+ MEPROP Name 'aGroups'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4D3432F30178 // TnscTasksPanelGroupDescArray$open
+ ;
+
+ENDME // ME_4D3433FB0310 aGroups
+
+ME ME_4D3433650295
+ MEPROP UID '4D3433650295'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D34335B0113 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D3464CE031B // aBaseSettingId
+ ME_4D3433FB0310 // aGroups
+ )
+ ; // Parameters
+
+ENDME // ME_4D3433650295 DoIt
+
+ME ME_4D34335B0113
+ MEPROP UID '4D34335B0113'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D342DED0196 // TnscTasksPanel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D3433650295 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D34335B0113 Create
+
+MEREF ME_4D34335B0113_ME_4D34340A00D1_G
+ MELINK Original HWL ME_4D34335B0113 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D34335B0113_ME_4D34340A00D1_G Create
+
+MEREF ME_4992FF9A0273_ME_4D34340A00D1_R
+ MELINK Original WL 'ME_4992FF9A0273' '49940C8E00DA.ms.model.script' // IvcmCustOps
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4992FF9A0273_ME_4D34340A00D1_R IvcmCustOps
+
+%%ImplementedBy ME_4992FF9A0273 ME_4D34340A00D1
+
+%%InheritedBy ME_4D34335B0113 ME_4D34340A00D1
+
+ME ME_4D34340A00D1
+ MEPROP UID '4D34340A00D1'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D342DED0196 // TnscTasksPanel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D34335B0113_ME_4D34340A00D1_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4992FF9A0273_ME_4D34340A00D1_R // IvcmCustOps
+ )
+ ; // Implements
+
+ENDME // ME_4D34340A00D1 Make
+
+ME ME_4D3430C50178
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D342DED0196 // TnscTasksPanel
+ ;
+ MELINK Target WL? 'ME_4D3430A7028D' // TnscTasksPanelGroupsIterator
+ ;
+
+ENDME // ME_4D3430C50178 
+
+ME ME_4D343B7101A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D342DED0196 // TnscTasksPanel
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4D343B7101A3 
+
+ME ME_4D34446C00E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D342DED0196 // TnscTasksPanel
+ ;
+ MELINK Target WL 'ME_4AC1F98A0155' '4773D64E036C.ms.model.script' // l3FillChar
+ ;
+
+ENDME // ME_4D34446C00E1 
+
+MEREF ME_4992FFB7015F_ME_4D342DED0196_impl
+ MELINK Original WL 'ME_4992FFB7015F' '49940C8E00DA.ms.model.script' // AddRepGroup
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4992FFB7015F_ME_4D342DED0196_impl AddRepGroup
+
+MEREF ME_4992FFC802A3_ME_4D342DED0196_impl
+ MELINK Original WL 'ME_4992FFC802A3' '49940C8E00DA.ms.model.script' // DeleteRepGroup
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4992FFC802A3_ME_4D342DED0196_impl DeleteRepGroup
+
+MEREF ME_4992FFD700FC_ME_4D342DED0196_impl
+ MELINK Original WL 'ME_4992FFD700FC' '49940C8E00DA.ms.model.script' // AddGroup
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4992FFD700FC_ME_4D342DED0196_impl AddGroup
+
+MEREF ME_4992FFEF01FB_ME_4D342DED0196_impl
+ MELINK Original WL 'ME_4992FFEF01FB' '49940C8E00DA.ms.model.script' // Refresh
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4992FFEF01FB_ME_4D342DED0196_impl Refresh
+
+MEREF ME_4993000E000A_ME_4D342DED0196_impl
+ MELINK Original WL 'ME_4993000E000A' '49940C8E00DA.ms.model.script' // RepGroupsOperations
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4993000E000A_ME_4D342DED0196_impl RepGroupsOperations
+
+MEREF ME_4993002B01F4_ME_4D342DED0196_impl
+ MELINK Original WL 'ME_4993002B01F4' '49940C8E00DA.ms.model.script' // RepGroups
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4993002B01F4_ME_4D342DED0196_impl RepGroups
+
+MEREF ME_4993004300B5_ME_4D342DED0196_impl
+ MELINK Original WL 'ME_4993004300B5' '49940C8E00DA.ms.model.script' // Groups
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4993004300B5_ME_4D342DED0196_impl Groups
+
+MEREF ME_49930056007C_ME_4D342DED0196_impl
+ MELINK Original WL 'ME_49930056007C' '49940C8E00DA.ms.model.script' // BaseSettingId
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_49930056007C_ME_4D342DED0196_impl BaseSettingId
+
+MEREF ME_4F619F340358_ME_4D342DED0196_impl
+ MELINK Original WL 'ME_4F619F340358' '49940C8E00DA.ms.model.script' // EnableSaveToSettings
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4F619F340358_ME_4D342DED0196_impl EnableSaveToSettings
+
+MEREF ME_479731C50290_ME_4D342DED0196_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4D342DED0196_over Cleanup
+
+MEREF ME_4D3436B2011A_ME_4D342DED0196_G
+ MELINK Original WL 'ME_4D3436B2011A' '4D343693030A.ms.model.script' // TvcmCustOpsNotifier
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D3436B2011A_ME_4D342DED0196_G TvcmCustOpsNotifier
+
+MEREF ME_4992FF9A0273_ME_4D342DED0196_R
+ MELINK Original WL 'ME_4992FF9A0273' '49940C8E00DA.ms.model.script' // IvcmCustOps
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4992FF9A0273_ME_4D342DED0196_R IvcmCustOps
+
+%%ImplementedBy ME_4992FF9A0273 ME_4D342DED0196
+
+%%InheritedBy ME_4D3436B2011A ME_4D342DED0196
+
+ME ME_4D342DED0196
+ MEPROP UID '4D342DED0196'
+ MEPROP Name 'TnscTasksPanel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Наполнение Панели Задач' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D3424960025' // TasksPanel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D3436B2011A_ME_4D342DED0196_G // TvcmCustOpsNotifier
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4992FF9A0273_ME_4D342DED0196_R // IvcmCustOps
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4D343B330373 // f_Groups
+ HWL ME_4D34649201B2 // f_BaseSettingId
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D34335B0113 // Create
+ HWL ME_4D34340A00D1 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4992FFB7015F_ME_4D342DED0196_impl // AddRepGroup
+ ME_4992FFC802A3_ME_4D342DED0196_impl // DeleteRepGroup
+ ME_4992FFD700FC_ME_4D342DED0196_impl // AddGroup
+ ME_4992FFEF01FB_ME_4D342DED0196_impl // Refresh
+ ME_4993000E000A_ME_4D342DED0196_impl // RepGroupsOperations
+ ME_4993002B01F4_ME_4D342DED0196_impl // RepGroups
+ ME_4993004300B5_ME_4D342DED0196_impl // Groups
+ ME_49930056007C_ME_4D342DED0196_impl // BaseSettingId
+ ME_4F619F340358_ME_4D342DED0196_impl // EnableSaveToSettings
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4D342DED0196_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4D3432F30178 // TnscTasksPanelGroupDescArray$open
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4D3430C50178 // TnscTasksPanelGroupsIterator
+ ME_4D343B7101A3 // FreeAndNil
+ ME_4D34446C00E1 // l3FillChar
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '11.01.2011 14:54'
+ UP extprop:pas:UnitName 'nscTasksPanel'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TasksPanel'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTasksPanel.pas'
+
+ENDME // ME_4D342DED0196 TnscTasksPanel

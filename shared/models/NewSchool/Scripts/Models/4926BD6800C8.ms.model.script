@@ -19,11 +19,17 @@ ME ME_4978A5D602AC
 
 ENDME // ME_4978A5D602AC Consultation
 
-ME ME_47F61AD5022A_ME_4926BD6800C8
+MEREF ME_47F61AD5022A_ME_4926BD6800C8_over
  MELINK Original WL 'ME_47F61AD5022A' '47E9EDA800FE.ms.model.script' // DoDeleteNodes
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47F61AD5022A_ME_4926BD6800C8 DoDeleteNodes
+ENDMEREF // ME_47F61AD5022A_ME_4926BD6800C8_over DoDeleteNodes
+
+MEREF ME_492D73D80122_ME_4926BD6800C8_G
+ MELINK Original WL? 'ME_492D73D80122' // TdsDocumentList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492D73D80122_ME_4926BD6800C8_G TdsDocumentList
 
 %%InheritedBy ME_492D73D80122 ME_4926BD6800C8
 
@@ -40,7 +46,7 @@ ME ME_4926BD6800C8
  MELINK Parent WL? 'ME_491C3E40007B' // Consultation
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_492D73D80122' // TdsDocumentList
+   Seq: ( HWL ME_492D73D80122_ME_4926BD6800C8_G // TdsDocumentList
  )
  ; // Inherits
  MELIST Attributes
@@ -48,7 +54,7 @@ ME ME_4926BD6800C8
  )
  ; // Attributes
  MELIST Overridden
-   Seq: ( ME_47F61AD5022A_ME_4926BD6800C8 // DoDeleteNodes
+   Seq: ( ME_47F61AD5022A_ME_4926BD6800C8_over // DoDeleteNodes
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames

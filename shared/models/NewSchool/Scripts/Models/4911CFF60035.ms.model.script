@@ -1,0 +1,72 @@
+// TnsAdapterDeferredTree 4911CFF60035 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4911CFF60035
+
+ME ME_4911D0FC02AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4911CFF60035 // TnsAdapterDeferredTree
+ ;
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
+ ;
+
+ENDME // ME_4911D0FC02AC 
+
+MEREF ME_47A042E100E2_ME_4911CFF60035_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4911CFF60035_over InitFields
+
+MEREF ME_4911C5EC0155_ME_4911CFF60035_over
+ MELINK Original WL 'ME_4911C5EC0155' '4911B56101AD.ms.model.script' // DoSetBuildedRoot
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4911C5EC0155_ME_4911CFF60035_over DoSetBuildedRoot
+
+MEREF ME_4911B56101AD_ME_4911CFF60035_G
+ MELINK Original WL? 'ME_4911B56101AD' // TnsDeferredTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4911B56101AD_ME_4911CFF60035_G TnsDeferredTree
+
+%%InheritedBy ME_4911B56101AD ME_4911CFF60035
+
+ME ME_4911CFF60035
+ MEPROP UID '4911CFF60035'
+ MEPROP Name 'TnsAdapterDeferredTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4921954E019B' // Folders
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4911B56101AD_ME_4911CFF60035_G // TnsDeferredTree
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4911CFF60035_over // InitFields
+ ME_4911C5EC0155_ME_4911CFF60035_over // DoSetBuildedRoot
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4911D0FC02AC // DataAdapter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Λσκόÿνεφ Π.Β.'
+ UP "no hands" True
+ UP "started" '2008/01/14 09:58:48'
+ UP extprop:pas:UnitName 'nsAdapterDeferredTree'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AdapterDeferredTree'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Folders\nsAdapterDeferredTree.pas'
+
+ENDME // ME_4911CFF60035 TnsAdapterDeferredTree

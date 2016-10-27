@@ -1,0 +1,62 @@
+// TarSpravkaDocumentContainer 4F9501970235 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F9501970235
+
+ME ME_4F95052403E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F9501970235 // TarSpravkaDocumentContainer
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_4F95052403E6 
+
+MEREF ME_47F35245009A_ME_4F9501970235_over
+ MELINK Original WL 'ME_47F35245009A' '47F3513A017F.ms.model.script' // MakeProcessor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F35245009A_ME_4F9501970235_over MakeProcessor
+
+MEREF ME_4E007C3803DC_ME_4F9501970235_G
+ MELINK Original WL? 'ME_4E007C3803DC' // TarDocumentContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E007C3803DC_ME_4F9501970235_G TarDocumentContainer
+
+%%InheritedBy ME_4E007C3803DC ME_4F9501970235
+
+ME ME_4F9501970235
+ MEPROP UID '4F9501970235'
+ MEPROP Name 'TarSpravkaDocumentContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E004D460329' // DocumentContainer
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E007C3803DC_ME_4F9501970235_G // TarDocumentContainer
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47F35245009A_ME_4F9501970235_over // MakeProcessor
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F95052403E6 // Standard
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'arSpravkaDocumentContainer'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arSpravkaDocumentContainer'
+ UP intf.pas:Path 'archi\source\projects\Archi\Editor\arSpravkaDocumentContainer.pas'
+
+ENDME // ME_4F9501970235 TarSpravkaDocumentContainer

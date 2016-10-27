@@ -1,0 +1,90 @@
+// TF1AutoTestSuite 4DC3FE5D03B4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DC3FE5D03B4
+
+ME ME_4DC40E2F00E3
+ MEPROP UID '4DC40E2F00E3'
+ MEPROP Name 'Register'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DC3FE5D03B4 // TF1AutoTestSuite
+ ;
+
+ENDME // ME_4DC40E2F00E3 Register
+
+ME ME_4DC3FF18023D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC3FE5D03B4 // TF1AutoTestSuite
+ ;
+ MELINK Target WL? 'ME_4DC3F6DD00F1' // TF1AutoScripter
+ ;
+
+ENDME // ME_4DC3FF18023D 
+
+ME ME_4EA807C40295
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC3FE5D03B4 // TF1AutoTestSuite
+ ;
+ MELINK Target WL? 'ME_4B2A0DCE03A9' // TestFrameWork
+ ;
+
+ENDME // ME_4EA807C40295 
+
+MEREF ME_5040A3CE0118_ME_4DC3FE5D03B4_over
+ MELINK Original WL 'ME_5040A3CE0118' '4B2A0DCE03A9.ms.model.script' // DoReReadAbstractTests
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5040A3CE0118_ME_4DC3FE5D03B4_over DoReReadAbstractTests
+
+MEREF ME_51307830007E_ME_4DC3FE5D03B4_G
+ MELINK Original WL? 'ME_51307830007E' // TAutoTestSuiteWithDUnitSupport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51307830007E_ME_4DC3FE5D03B4_G TAutoTestSuiteWithDUnitSupport
+
+%%InheritedBy ME_51307830007E ME_4DC3FE5D03B4
+
+ME ME_4DC3FE5D03B4
+ MEPROP UID '4DC3FE5D03B4'
+ MEPROP Name 'TF1AutoTestSuite'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E25969000FF' // AutoTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_51307830007E_ME_4DC3FE5D03B4_G // TAutoTestSuiteWithDUnitSupport
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DC40E2F00E3 // Register
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_5040A3CE0118_ME_4DC3FE5D03B4_over // DoReReadAbstractTests
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DC3FF18023D // TF1AutoScripter
+ ME_4EA807C40295 // TestFrameWork
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifdef" 'nsTest'
+ UP extprop:pas:UnitName 'F1AutoTestSuite'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'F1AutoTestSuite'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1AutoTestSuite.pas'
+
+ENDME // ME_4DC3FE5D03B4 TF1AutoTestSuite

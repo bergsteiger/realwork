@@ -1,0 +1,137 @@
+// TRegisteredRepliesTest 53BAA54900F6 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53BAA54900F6
+
+FORWARD ME_53BAA563023C
+
+ME ME_53BAA56A030E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BAA563023C // DoIt
+ ;
+ MELINK Target WL? 'ME_5395B29D0177' // TCsReplyProcedures
+ ;
+
+ENDME // ME_53BAA56A030E 
+
+ME ME_53BAA59100FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BAA563023C // DoIt
+ ;
+ MELINK Target WL? 'ME_537F6306025B' // TCsProcWithId
+ ;
+
+ENDME // ME_53BAA59100FC 
+
+ME ME_53BAA607031B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BAA563023C // DoIt
+ ;
+ MELINK Target WL 'ME_537F63760334' '537F63590169.ms.model.script' // TCsQueryId
+ ;
+
+ENDME // ME_53BAA607031B 
+
+ME ME_53BAA6340183
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BAA563023C // DoIt
+ ;
+ MELINK Target WL? 'ME_478CF30500C1' // Classes
+ ;
+
+ENDME // ME_53BAA6340183 
+
+ME ME_53BAA8C70239
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BAA563023C // DoIt
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_53BAA8C70239 
+
+ME ME_53BAA8CA00A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BAA563023C // DoIt
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53BAA8CA00A6 
+
+ME ME_53BAA919037E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BAA563023C // DoIt
+ ;
+ MELINK Target WL 'ME_4767748503B5' '4767743E00E5.ms.model.script' // TTypeInfo
+ ;
+
+ENDME // ME_53BAA919037E 
+
+ME ME_53BAA563023C
+ MEPROP UID '53BAA563023C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53BAA54900F6 // TRegisteredRepliesTest
+ ;
+ MELIST Dependencies
+   Seq: ( ME_53BAA56A030E // TCsReplyProcedures
+ ME_53BAA59100FC // TCsProcWithId
+ ME_53BAA607031B // TCsQueryId
+ ME_53BAA6340183 // Classes
+ ME_53BAA8C70239 // Tl3CustomFiler
+ ME_53BAA8CA00A6 // FreeAndNil
+ ME_53BAA919037E // TTypeInfo
+ )
+ ; // Dependencies
+
+ENDME // ME_53BAA563023C DoIt
+
+MEREF ME_4B2A11BC0255_ME_53BAA54900F6_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_53BAA54900F6_G TBaseTest
+
+%%InheritedBy ME_4B2A11BC0255 ME_53BAA54900F6
+
+ME ME_53BAA54900F6
+ MEPROP UID '53BAA54900F6'
+ MEPROP Name 'TRegisteredRepliesTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53BA8F9B01F5' // TasksRegistering
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B2A11BC0255_ME_53BAA54900F6_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_53BAA563023C // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'RegisteredRepliesTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RegisteredRepliesTest'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\RegisteredRepliesTest.pas'
+
+ENDME // ME_53BAA54900F6 TRegisteredRepliesTest

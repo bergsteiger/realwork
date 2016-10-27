@@ -1,0 +1,56 @@
+// TEVDtoBothNSRCWriterTest 4B8542C302E3 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B8542C302E3
+
+ME ME_4B8543040166
+ MEPROP UID '4B8543040166'
+ MEPROP Name 'ToOldNSRC'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B8542C302E3 // TEVDtoBothNSRCWriterTest
+ ;
+
+ENDME // ME_4B8543040166 ToOldNSRC
+
+MEREF ME_4B853E7501DF_ME_4B8542C302E3_G
+ MELINK Original WL? 'ME_4B853E7501DF' // TEVDtoNSRCPlusWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B853E7501DF_ME_4B8542C302E3_G TEVDtoNSRCPlusWriterTest
+
+%%InheritedBy ME_4B853E7501DF ME_4B8542C302E3
+
+ME ME_4B8542C302E3
+ MEPROP UID '4B8542C302E3'
+ MEPROP Name 'TEVDtoBothNSRCWriterTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест записи в NSRC+ и NSRC' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B4F68D4033F' // NSRCTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B853E7501DF_ME_4B8542C302E3_G // TEVDtoNSRCPlusWriterTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B8543040166 // ToOldNSRC
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'EVDtoBothNSRCWriterTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EVDtoBothNSRCWriterTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\EVDtoBothNSRCWriterTest.pas'
+
+ENDME // ME_4B8542C302E3 TEVDtoBothNSRCWriterTest

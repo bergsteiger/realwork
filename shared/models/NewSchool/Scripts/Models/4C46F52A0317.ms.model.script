@@ -1,0 +1,85 @@
+// TDrawLineTest 4C46F52A0317 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C46F52A0317
+
+ME ME_4C46FBE40354
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C46F52A0317 // TDrawLineTest
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4C46FBE40354 
+
+ME ME_4C47097B01C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C46F52A0317 // TDrawLineTest
+ ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+
+ENDME // ME_4C47097B01C0 
+
+ME ME_4C470AD003CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C46F52A0317 // TDrawLineTest
+ ;
+ MELINK Target WL 'ME_47ECAB310336' '47ECAB0B0265.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4C470AD003CD 
+
+MEREF ME_4BE13147032C_ME_4C46F52A0317_impl
+ MELINK Original WL 'ME_4BE13147032C' '4BE111D30229.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE13147032C_ME_4C46F52A0317_impl Process
+
+MEREF ME_4BE111D30229_ME_4C46F52A0317_G
+ MELINK Original WL? 'ME_4BE111D30229' // TTextViaEditorProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE111D30229_ME_4C46F52A0317_G TTextViaEditorProcessor
+
+%%InheritedBy ME_4BE111D30229 ME_4C46F52A0317
+
+ME ME_4C46F52A0317
+ MEPROP UID '4C46F52A0317'
+ MEPROP Name 'TDrawLineTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест рисования линии в документе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B30C89F035F' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE111D30229_ME_4C46F52A0317_G // TTextViaEditorProcessor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4BE13147032C_ME_4C46F52A0317_impl // Process
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4C46FBE40354 // Operations
+ ME_4C47097B01C0 // InevOp
+ ME_4C470AD003CD // Msg Codes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'DrawLineTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DrawLineTest'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\DrawLineTest.pas'
+
+ENDME // ME_4C46F52A0317 TDrawLineTest

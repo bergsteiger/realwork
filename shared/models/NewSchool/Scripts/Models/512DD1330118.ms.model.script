@@ -1,0 +1,42 @@
+// CloseActiveWindow 512DD1330118 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_512DD1330118
+
+ME ME_512DD1D00230
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512DD1330118 // CloseActiveWindow
+ ;
+ MELINK Target WL 'ME_512DD17201EC' '512DBB5502E6.ms.model.script' // CloseDocument
+ ;
+
+ENDME // ME_512DD1D00230 
+
+ME ME_512DD1330118
+ MEPROP UID '512DD1330118'
+ MEPROP Name 'CloseActiveWindow'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:*  CloseActiveWindow'#13#10'*Описание:* Закрывает текущее открытое окно редактора.'#13#10' *Пример:*'#13#10' {code}'#13#10'CloseActiveWindow'#13#10' {code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_512D9BBE0307' // EverestLiteKeyWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_512DD1D00230 // CloseDocument
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwCloseActiveWindow'
+ UP extprop:pas:UnitName 'kwCloseActiveWindow'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CloseActiveWindow'
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwCloseActiveWindow.pas'
+
+ENDME // ME_512DD1330118 CloseActiveWindow

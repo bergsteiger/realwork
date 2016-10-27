@@ -1,0 +1,79 @@
+// TmsmOpenInNewWindow 57CED1F0037B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57CED1F0037B
+
+ME ME_57CED559009D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57CED1F0037B // TmsmOpenInNewWindow
+ ;
+ MELINK Target WL? 'ME_57CED46B03BD' // TmsmOpenService
+ ;
+
+ENDME // ME_57CED559009D 
+
+MEREF ME_57CEB1F602D1_ME_57CED1F0037B_impl
+ MELINK Original WL 'ME_57CEB1F602D1' '57CEB1C1010D.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57CEB1F602D1_ME_57CED1F0037B_impl DoDoIt
+
+MEREF ME_57EB6D020381_ME_57CED1F0037B_impl
+ MELINK Original WL 'ME_57EB6D020381' '57CEB1C1010D.ms.model.script' // GetEnabled
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57EB6D020381_ME_57CED1F0037B_impl GetEnabled
+
+MEREF ME_57EBADA9033E_ME_57CED1F0037B_over
+ MELINK Original WL 'ME_57EBADA9033E' '57CEB1C1010D.ms.model.script' // InitOperationParams
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57EBADA9033E_ME_57CED1F0037B_over InitOperationParams
+
+MEREF ME_57CED27203D3_ME_57CED1F0037B_G
+ MELINK Original WL? 'ME_57CED27203D3' // TmsmListLikeOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57CED27203D3_ME_57CED1F0037B_G TmsmListLikeOperation
+
+%%InheritedBy ME_57CED27203D3 ME_57CED1F0037B
+
+ME ME_57CED1F0037B
+ MEPROP UID '57CED1F0037B'
+ MEPROP Name 'TmsmOpenInNewWindow'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CEBB9200EA' // ConcreteOperations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57CED27203D3_ME_57CED1F0037B_G // TmsmListLikeOperation
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_57CEB1F602D1_ME_57CED1F0037B_impl // DoDoIt
+ ME_57EB6D020381_ME_57CED1F0037B_impl // GetEnabled
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_57EBADA9033E_ME_57CED1F0037B_over // InitOperationParams
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57CED559009D // TmsmOpenService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmOpenInNewWindow'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmOpenInNewWindow'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmOpenInNewWindow.pas'
+
+ENDME // ME_57CED1F0037B TmsmOpenInNewWindow

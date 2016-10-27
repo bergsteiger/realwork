@@ -1,0 +1,56 @@
+// EVDtoRTFWriterTest 4BACF173038C TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BACF173038C
+
+ME ME_4BACF19600F5
+ MEPROP UID '4BACF19600F5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BACF173038C // EVDtoRTFWriterTest
+ ;
+
+ENDME // ME_4BACF19600F5 DoIt
+
+MEREF ME_4BACDEF50001_ME_4BACF173038C_G
+ MELINK Original WL? 'ME_4BACDEF50001' // RTFWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BACDEF50001_ME_4BACF173038C_G RTFWriterTest
+
+%%InheritedBy ME_4BACDEF50001 ME_4BACF173038C
+
+ME ME_4BACF173038C
+ MEPROP UID '4BACF173038C'
+ MEPROP Name 'EVDtoRTFWriterTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест преобразования EVD в RTF' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4BACDED003CE' // RTF
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BACDEF50001_ME_4BACF173038C_G // RTFWriterTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4BACF19600F5 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TEVDtoRTFWriterTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EVDtoRTFWriterTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\EVDtoRTFWriterTest.pas'
+
+ENDME // ME_4BACF173038C EVDtoRTFWriterTest

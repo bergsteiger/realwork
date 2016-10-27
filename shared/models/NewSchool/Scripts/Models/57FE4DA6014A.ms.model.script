@@ -1,0 +1,175 @@
+// TmsmElementListsService 57FE4DA6014A Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_BF20041B6F0C
+
+FORWARD ME_57FE4DA6014A
+
+FORWARD ME_BF20041B6F0C
+
+FORWARD ME_57FE4DCD02F8
+
+ME ME_80F135399528
+ MEPROP UID '80F135399528'
+ MEPROP Name 'RegetLists'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_BF20041B6F0C // MmsmElementListsService
+ ;
+ UPLINK Speller HWL ME_57FE4DCD02F8 // RegetLists
+ ;
+
+ENDME // ME_80F135399528 RegetLists
+
+FORWARD ME_57FF6A5703D7
+
+FORWARD ME_F7EFF4FD47C2
+
+ME ME_8C42D8788796
+ MEPROP Name 'aWord'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_8C42D8788796 aWord
+
+ME ME_8C42D8788797
+ MEPROP Name 'aListName'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_8C42D8788797 aListName
+
+ME ME_F7EFF4FD47C2
+ MEPROP UID 'F7EFF4FD47C2'
+ MEPROP Name 'RegetViewedListsFor'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_BF20041B6F0C // MmsmElementListsService
+ ;
+ MELIST Parameters
+   Seq: ( ME_8C42D8788796 // aWord
+ ME_8C42D8788797 // aListName
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_57FF6A5703D7 // RegetViewedListsFor
+ ;
+
+ENDME // ME_F7EFF4FD47C2 RegetViewedListsFor
+
+ME ME_BF20041B6F0C
+ MEPROP UID 'BF20041B6F0C'
+ MEPROP Name 'MmsmElementListsService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TmsmElementListsService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57FE4DA6014A // TmsmElementListsService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_80F135399528 // RegetLists
+ HWL ME_F7EFF4FD47C2 // RegetViewedListsFor
+ )
+ ; // Operations
+
+ENDME // ME_BF20041B6F0C MmsmElementListsService
+
+ME ME_57FE4DCD02F8
+ MEPROP UID '57FE4DCD02F8'
+ MEPROP Name 'RegetLists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57FE4DA6014A // TmsmElementListsService
+ ;
+
+ENDME // ME_57FE4DCD02F8 RegetLists
+
+ME ME_57FF6A760225
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57FF6A760225 aWord
+
+ME ME_57FF7458000A
+ MEPROP Name 'aListName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57FF7458000A aListName
+
+ME ME_57FF6A5703D7
+ MEPROP UID '57FF6A5703D7'
+ MEPROP Name 'RegetViewedListsFor'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57FE4DA6014A // TmsmElementListsService
+ ;
+ MELIST Parameters
+   Seq: ( ME_57FF6A760225 // aWord
+ ME_57FF7458000A // aListName
+ )
+ ; // Parameters
+
+ENDME // ME_57FF6A5703D7 RegetViewedListsFor
+
+MEREF ME_49E7754802A9_ME_57FE4DA6014A_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57FE4DA6014A_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_57FE4DA6014A
+
+ME ME_57FE4DA6014A
+ MEPROP UID '57FE4DA6014A'
+ MEPROP Name 'TmsmElementListsService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_57AB4243034B' // ScriptCalling
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_57FE4DA6014A_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57FE4DCD02F8 // RegetLists
+ HWL ME_57FF6A5703D7 // RegetViewedListsFor
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_BF20041B6F0C // MmsmElementListsService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP extprop:pas:UnitName 'msmElementListsService'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmElementListsService'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmElementListsService.pas'
+
+ENDME // ME_57FE4DA6014A TmsmElementListsService

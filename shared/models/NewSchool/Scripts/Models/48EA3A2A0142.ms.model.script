@@ -1,0 +1,65 @@
+// TevEvdDataObject 48EA3A2A0142 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48EA3A2A0142
+
+ME ME_48EA3A72006A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48EA3A2A0142 // TevEvdDataObject
+ ;
+ MELINK Target WL? 'ME_483E80FA0312' // TevdNativeReader
+ ;
+
+ENDME // ME_48EA3A72006A 
+
+MEREF ME_48EB6A0700D9_ME_48EA3A2A0142_impl
+ MELINK Original WL 'ME_48EB6A0700D9' '48EB6945012D.ms.model.script' // ReaderClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48EB6A0700D9_ME_48EA3A2A0142_impl ReaderClass
+
+MEREF ME_48EB6945012D_ME_48EA3A2A0142_G
+ MELINK Original WL? 'ME_48EB6945012D' // TevReaderDataObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48EB6945012D_ME_48EA3A2A0142_G TevReaderDataObject
+
+%%InheritedBy ME_48EB6945012D ME_48EA3A2A0142
+
+ME ME_48EA3A2A0142
+ MEPROP UID '48EA3A2A0142'
+ MEPROP Name 'TevEvdDataObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4802FF41005C' // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48EB6945012D_ME_48EA3A2A0142_G // TevReaderDataObject
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48EB6A0700D9_ME_48EA3A2A0142_impl // ReaderClass
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_48EA3A72006A // TevdNativeReader
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '28.09.1999 10:18'
+ UP extprop:pas:UnitName 'evEvdDataObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EvdDataObject'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evEvdDataObject.pas'
+
+ENDME // ME_48EA3A2A0142 TevEvdDataObject

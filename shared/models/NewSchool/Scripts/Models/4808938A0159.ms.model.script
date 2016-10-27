@@ -1,0 +1,212 @@
+// TatCommandLineParameter 4808938A0159 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_480893AD00F5
+
+FORWARD ME_4808938A0159
+
+FORWARD ME_480893AD00F5
+
+ME ME_480893B701F5
+ MEPROP UID '480893B701F5'
+ MEPROP Name 'clptKey'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480893AD00F5 // TCLPType
+ ;
+
+ENDME // ME_480893B701F5 clptKey
+
+ME ME_480893BD0074
+ MEPROP UID '480893BD0074'
+ MEPROP Name 'clptString'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480893AD00F5 // TCLPType
+ ;
+
+ENDME // ME_480893BD0074 clptString
+
+ME ME_480893C1021F
+ MEPROP UID '480893C1021F'
+ MEPROP Name 'clptNumber'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480893AD00F5 // TCLPType
+ ;
+
+ENDME // ME_480893C1021F clptNumber
+
+ME ME_480893AD00F5
+ MEPROP UID '480893AD00F5'
+ MEPROP Name 'TCLPType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'тип параметра командной строки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4808938A0159 // TatCommandLineParameter
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_480893B701F5 // clptKey
+ HWL ME_480893BD0074 // clptString
+ HWL ME_480893C1021F // clptNumber
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_480893AD00F5 TCLPType
+
+ME ME_480893DE01C7
+ MEPROP UID '480893DE01C7'
+ MEPROP Name 'ParamType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808938A0159 // TatCommandLineParameter
+ ;
+ MELINK Target HWL ME_480893AD00F5 // TCLPType
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_480893DE01C7 ParamType
+
+ME ME_480893F80392
+ MEPROP UID '480893F80392'
+ MEPROP Name 'IsRequired'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808938A0159 // TatCommandLineParameter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_480893F80392 IsRequired
+
+FORWARD ME_4808941B0073
+
+ME ME_480894510171
+ MEPROP Name 'parType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_480893AD00F5 // TCLPType
+ ;
+
+ENDME // ME_480894510171 parType
+
+ME ME_48089451019A
+ MEPROP Name 'name'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_48089451019A name
+
+ME ME_4808945101C7
+ MEPROP Name 'description'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MEPROP Value ''''''
+ MELINK ValueType WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP extprop:pas:Value ''''''
+
+ENDME // ME_4808945101C7 description
+
+ME ME_4808945101FA
+ MEPROP Name 'defaultValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MEPROP Value 'INVALID_DEFAULT_VALUE'
+ MELINK ValueType WL 'ME_48088E7000C0' '48086D7103BE.ms.model.script' // Values
+ ;
+ UP extprop:pas:Value 'INVALID_DEFAULT_VALUE'
+
+ENDME // ME_4808945101FA defaultValue
+
+ME ME_4808941B0073
+ MEPROP UID '4808941B0073'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808938A0159 // TatCommandLineParameter
+ ;
+ MELIST Parameters
+   Seq: ( ME_480894510171 // parType
+ ME_48089451019A // name
+ ME_4808945101C7 // description
+ ME_4808945101FA // defaultValue
+ )
+ ; // Parameters
+
+ENDME // ME_4808941B0073 Create
+
+MEREF ME_480890870368_ME_4808938A0159_G
+ MELINK Original WL? 'ME_480890870368' // TatNamedParameter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_480890870368_ME_4808938A0159_G TatNamedParameter
+
+%%InheritedBy ME_480890870368 ME_4808938A0159
+
+ME ME_4808938A0159
+ MEPROP UID '4808938A0159'
+ MEPROP Name 'TatCommandLineParameter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_480890870368_ME_4808938A0159_G // TatNamedParameter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_480893DE01C7 // ParamType
+ HWL ME_480893F80392 // IsRequired
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4808941B0073 // Create
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_480893AD00F5 // TCLPType
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atCommandLineParameter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atCommandLineParameter'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atCommandLineParameter.pas'
+
+ENDME // ME_4808938A0159 TatCommandLineParameter

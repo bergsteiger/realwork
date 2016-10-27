@@ -1,0 +1,530 @@
+// Tl3FrameObject 48CA64150378 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48CA64150378
+
+ME ME_48CA64DA02EE
+ MEPROP UID '48CA64DA02EE'
+ MEPROP Name 'FrameObjID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Идентификатор отрисовываемого объета. Может быть указателем, номером '#13#10'         в списке параграфов - чем угодно, только бы был уникальным. В любом '#13#10'         случае информация хранится только до слеующей прорисовки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_48CA64DA02EE FrameObjID
+
+ME ME_49144626027D
+ MEPROP UID '49144626027D'
+ MEPROP Name 'f_LastBottom'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Нижняя граница для выравнивания рамок.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_49144626027D f_LastBottom
+
+ME ME_4A8103B4000D
+ MEPROP UID '4A8103B4000D'
+ MEPROP Name 'FinishedFO'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Закончена ли отрисовка объекта.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_4A8103B4000D FinishedFO
+
+ME ME_4A92848703B5
+ MEPROP UID '4A92848703B5'
+ MEPROP Name 'LineWidth'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_4A92848703B5 LineWidth
+
+ME ME_4D01F470000D
+ MEPROP UID '4D01F470000D'
+ MEPROP Name 'NeedLog'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "ifdef" 'nsTest'
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_4D01F470000D NeedLog
+
+ME ME_48CA6484000D
+ MEPROP UID '48CA6484000D'
+ MEPROP Name 'f_CurrColorArray'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Массив цветов для отрисовки линий' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELINK Target WL 'ME_475E5EC90186' '4677FBA70343.ms.model.script' // Tl3LinesColorArray
+ ;
+
+ENDME // ME_48CA6484000D f_CurrColorArray
+
+ME ME_48CA64930157
+ MEPROP UID '48CA64930157'
+ MEPROP Name 'f_HorisontalLines'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Массив горизонтальных линий для отрисовки' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELINK Target WL? 'ME_48CA5CB001A3' // Tl3CoordinateMap
+ ;
+
+ENDME // ME_48CA64930157 f_HorisontalLines
+
+ME ME_48CA64A80010
+ MEPROP UID '48CA64A80010'
+ MEPROP Name 'f_VerticalLines'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Массив вертикальных линий для отрисовки' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELINK Target WL? 'ME_48CA5CB001A3' // Tl3CoordinateMap
+ ;
+
+ENDME // ME_48CA64A80010 f_VerticalLines
+
+ME ME_48CA64B70191
+ MEPROP UID '48CA64B70191'
+ MEPROP Name 'f_HorisontalBtmBuffer'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Массив горизонтальных линий для выравнивания' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELINK Target WL? 'ME_48CA5CB001A3' // Tl3CoordinateMap
+ ;
+
+ENDME // ME_48CA64B70191 f_HorisontalBtmBuffer
+
+FORWARD ME_48CA655400D8
+
+ME ME_48CA655B00D1
+ MEPROP Name 'aFrameID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48CA655B00D1 aFrameID
+
+ME ME_48CA655B00FD
+ MEPROP Name 'aColorArray'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_475E5EC90186' '4677FBA70343.ms.model.script' // Tl3LinesColorArray
+ ;
+
+ENDME // ME_48CA655B00FD aColorArray
+
+ME ME_48CA655400D8
+ MEPROP UID '48CA655400D8'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_48CA655B00D1 // aFrameID
+ ME_48CA655B00FD // aColorArray
+ )
+ ; // Parameters
+
+ENDME // ME_48CA655400D8 Create
+
+FORWARD ME_48CA656F02B4
+
+ME ME_4A8E9ABB0324
+ MEPROP Name 'aFrame'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603530283' '4677FBA70343.ms.model.script' // Tl3Frame
+ ;
+
+ENDME // ME_4A8E9ABB0324 aFrame
+
+ME ME_4A8E9ABB035F
+ MEPROP Name 'aFrameRect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4728974E009E' '472745450206.ms.model.script' // Tl3Rect
+ ;
+
+ENDME // ME_4A8E9ABB035F aFrameRect
+
+ME ME_4A8E9ABB039A
+ MEPROP Name 'anAnalizeType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49182CE401C8' '467C0CAA02AB.ms.model.script' // Tl3FrameAnalizeType
+ ;
+
+ENDME // ME_4A8E9ABB039A anAnalizeType
+
+ME ME_48CA656F02B4
+ MEPROP UID '48CA656F02B4'
+ MEPROP Name 'AddFrame'
+ MEPROP Class class_Operation
+ %SUMMARY 'Учесть рамку (продлить одну или несколько линий или создать новую)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A8E9ABB0324 // aFrame
+ ME_4A8E9ABB035F // aFrameRect
+ ME_4A8E9ABB039A // anAnalizeType
+ )
+ ; // Parameters
+
+ENDME // ME_48CA656F02B4 AddFrame
+
+FORWARD ME_48CA65890091
+
+ME ME_4C189B7F0172
+ MEPROP Name 'aFrame'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603530283' '4677FBA70343.ms.model.script' // Tl3Frame
+ ;
+
+ENDME // ME_4C189B7F0172 aFrame
+
+ME ME_4C189B7F01B3
+ MEPROP Name 'anIsSingle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C189B7F01B3 anIsSingle
+
+ME ME_48CA65890091
+ MEPROP UID '48CA65890091'
+ MEPROP Name 'AlignBoundary'
+ MEPROP Class class_Operation
+ %SUMMARY 'Применить выравнивающие ограничения - выравниванием все линии от aStart '#13#10'         до aFinish по значению Finish' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C189B7F0172 // aFrame
+ ME_4C189B7F01B3 // anIsSingle
+ )
+ ; // Parameters
+
+ENDME // ME_48CA65890091 AlignBoundary
+
+FORWARD ME_48CA65AD0380
+
+ME ME_4A49D87B0397
+ MEPROP Name 'aAlignValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A49D87B0397 aAlignValue
+
+ME ME_48CA65AD0380
+ MEPROP UID '48CA65AD0380'
+ MEPROP Name 'FinishFrameObject'
+ MEPROP Class class_Operation
+ %SUMMARY 'Скобки для отрисовки "сложных" объектов с рамками - таблиц' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A49D87B0397 // aAlignValue
+ )
+ ; // Parameters
+
+ENDME // ME_48CA65AD0380 FinishFrameObject
+
+FORWARD ME_48CA65D00372
+
+ME ME_48CA65E40216
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4727449A00A2' '467C0CAA02AB.ms.model.script' // Il3Canvas
+ ;
+
+ENDME // ME_48CA65E40216 aCanvas
+
+ME ME_48CA65D00372
+ MEPROP UID '48CA65D00372'
+ MEPROP Name 'DrawLines'
+ MEPROP Class class_Operation
+ %SUMMARY 'Нарисовать выровненные рамки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_48CA65E40216 // aCanvas
+ )
+ ; // Parameters
+
+ENDME // ME_48CA65D00372 DrawLines
+
+ME ME_4AB8764202D2
+ MEPROP UID '4AB8764202D2'
+ MEPROP Name 'GetAlignData'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить данный о выравнивании' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELINK Target WL 'ME_4CA9A213003D' '4677FBA70343.ms.model.script' // Il3IntegerList
+ ;
+
+ENDME // ME_4AB8764202D2 GetAlignData
+
+FORWARD ME_4AB8766F019E
+
+ME ME_4CA9A50601DF
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CA9A213003D' '4677FBA70343.ms.model.script' // Il3IntegerList
+ ;
+
+ENDME // ME_4CA9A50601DF aData
+
+ME ME_4AB8766F019E
+ MEPROP UID '4AB8766F019E'
+ MEPROP Name 'SetAlignData'
+ MEPROP Class class_Operation
+ %SUMMARY 'Сохранить информацию о выравнивании' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CA9A50601DF // aData
+ )
+ ; // Parameters
+
+ENDME // ME_4AB8766F019E SetAlignData
+
+ME ME_4C651E890332
+ MEPROP UID '4C651E890332'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Operation
+ %SUMMARY 'Очистить линии для текущего объекта.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+
+ENDME // ME_4C651E890332 Clear
+
+FORWARD ME_4D00D5D700A4
+
+ME ME_4D00D64C01B2
+ MEPROP Name 'aVertical'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D00D64C01B2 aVertical
+
+ME ME_4D00D5D700A4
+ MEPROP UID '4D00D5D700A4'
+ MEPROP Name 'GetLines'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELINK Target WL? 'ME_48CA5CB001A3' // Tl3CoordinateMap
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D00D64C01B2 // aVertical
+ )
+ ; // Parameters
+
+ENDME // ME_4D00D5D700A4 GetLines
+
+ME ME_4DA4374C01A2
+ MEPROP UID '4DA4374C01A2'
+ MEPROP Name 'GetColorArray'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELINK Target WL 'ME_475E5EC90186' '4677FBA70343.ms.model.script' // Tl3LinesColorArray
+ ;
+
+ENDME // ME_4DA4374C01A2 GetColorArray
+
+ME ME_48CA66D0035F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_48CA66D0035F 
+
+ME ME_48CA674B036B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELINK Target WL 'ME_48CA54A000F7' '48CA546C01B0.ms.model.script' // Tl3FrameLine
+ ;
+
+ENDME // ME_48CA674B036B 
+
+ME ME_4A49D9FD0319
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CA64150378 // Tl3FrameObject
+ ;
+ MELINK Target WL? 'ME_47A066980016' // l3MinMax
+ ;
+
+ENDME // ME_4A49D9FD0319 
+
+MEREF ME_479731C50290_ME_48CA64150378_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_48CA64150378_over Cleanup
+
+MEREF ME_4AE5CA2D0034_ME_48CA64150378_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_48CA64150378_G Tl3CProtoObject
+
+%%InheritedBy ME_4AE5CA2D0034 ME_48CA64150378
+
+ME ME_48CA64150378
+ MEPROP UID '48CA64150378'
+ MEPROP Name 'Tl3FrameObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект с рамкой' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_473C3BEE0334' // l3Canvas
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AE5CA2D0034_ME_48CA64150378_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48CA64DA02EE // FrameObjID
+ HWL ME_49144626027D // f_LastBottom
+ HWL ME_4A8103B4000D // FinishedFO
+ HWL ME_4A92848703B5 // LineWidth
+ HWL ME_4D01F470000D // NeedLog
+ HWL ME_48CA6484000D // f_CurrColorArray
+ HWL ME_48CA64930157 // f_HorisontalLines
+ HWL ME_48CA64A80010 // f_VerticalLines
+ HWL ME_48CA64B70191 // f_HorisontalBtmBuffer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48CA655400D8 // Create
+ HWL ME_48CA656F02B4 // AddFrame
+ HWL ME_48CA65890091 // AlignBoundary
+ HWL ME_48CA65AD0380 // FinishFrameObject
+ HWL ME_48CA65D00372 // DrawLines
+ HWL ME_4AB8764202D2 // GetAlignData
+ HWL ME_4AB8766F019E // SetAlignData
+ HWL ME_4C651E890332 // Clear
+ HWL ME_4D00D5D700A4 // GetLines
+ HWL ME_4DA4374C01A2 // GetColorArray
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48CA64150378_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48CA66D0035F // l3Base
+ ME_48CA674B036B // Tl3FrameLine
+ ME_4A49D9FD0319 // l3MinMax
+ )
+ ; // Dependencies
+ UP "author" 'Инишев Д.А.'
+ UP "no hands" True
+ UP "started" '02.10.06 16:27'
+ UP extprop:pas:UnitName 'l3FrameObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FrameObject'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3FrameObject.pas'
+
+ENDME // ME_48CA64150378 Tl3FrameObject

@@ -1,0 +1,139 @@
+// TalcuMultiModifyDocsExecutor 57E4EEC200D1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57E4EEC200D1
+
+ME ME_57E4F353013E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E4EEC200D1 // TalcuMultiModifyDocsExecutor
+ ;
+ MELINK Target WL 'ME_548007530030' '5480073300B1.ms.model.script' // Tl3StopWatch
+ ;
+
+ENDME // ME_57E4F353013E 
+
+ME ME_57E4F3570167
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E4EEC200D1 // TalcuMultiModifyDocsExecutor
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
+ ;
+
+ENDME // ME_57E4F3570167 
+
+ME ME_57E4F35B01ED
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E4EEC200D1 // TalcuMultiModifyDocsExecutor
+ ;
+ MELINK Target WL 'ME_57C823630210' '4678193C009C.ms.model.script' // Logging Levels
+ ;
+
+ENDME // ME_57E4F35B01ED 
+
+ME ME_57E4F35F02A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E4EEC200D1 // TalcuMultiModifyDocsExecutor
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_57E4F35F02A1 
+
+ME ME_57E4F36302AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E4EEC200D1 // TalcuMultiModifyDocsExecutor
+ ;
+ MELINK Target WL 'ME_55229480008E' '5432518A0316.ms.model.script' // UserConsts
+ ;
+
+ENDME // ME_57E4F36302AB 
+
+ME ME_57E4F36D024D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E4EEC200D1 // TalcuMultiModifyDocsExecutor
+ ;
+ MELINK Target WL? 'ME_57E4EE570331' // TalcuMultiModifyDocsRequest
+ ;
+
+ENDME // ME_57E4F36D024D 
+
+ME ME_57E4F3870261
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E4EEC200D1 // TalcuMultiModifyDocsExecutor
+ ;
+ MELINK Target WL? 'ME_57DA77B80161' // TcsMultiModifyDocs
+ ;
+
+ENDME // ME_57E4F3870261 
+
+ME ME_57E4F38B0181
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E4EEC200D1 // TalcuMultiModifyDocsExecutor
+ ;
+ MELINK Target WL? 'ME_57DA7796002F' // TcsMultiModifyDocsReply
+ ;
+
+ENDME // ME_57E4F38B0181 
+
+MEREF ME_57D2A771002F_ME_57E4EEC200D1_impl
+ MELINK Original WL 'ME_57D2A771002F' '57D2A6A70025.ms.model.script' // DoExecute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57D2A771002F_ME_57E4EEC200D1_impl DoExecute
+
+MEREF ME_57D2A6A70025_ME_57E4EEC200D1_G
+ MELINK Original WL? 'ME_57D2A6A70025' // TalcuDocTransferRequestExecutor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57D2A6A70025_ME_57E4EEC200D1_G TalcuDocTransferRequestExecutor
+
+%%InheritedBy ME_57D2A6A70025 ME_57E4EEC200D1
+
+ME ME_57E4EEC200D1
+ MEPROP UID '57E4EEC200D1'
+ MEPROP Name 'TalcuMultiModifyDocsExecutor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57C00B6201B3' // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57D2A6A70025_ME_57E4EEC200D1_G // TalcuDocTransferRequestExecutor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_57D2A771002F_ME_57E4EEC200D1_impl // DoExecute
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_57E4F353013E // Tl3StopWatch
+ ME_57E4F3570167 // l3System
+ ME_57E4F35B01ED // Logging Levels
+ ME_57E4F35F02A1 // FreeAndNil
+ ME_57E4F36302AB // UserConsts
+ ME_57E4F36D024D // TalcuMultiModifyDocsRequest
+ ME_57E4F3870261 // TcsMultiModifyDocs
+ ME_57E4F38B0181 // TcsMultiModifyDocsReply
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'alcuMultiModifyDocsExecutor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuMultiModifyDocsExecutor'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuMultiModifyDocsExecutor.pas'
+
+ENDME // ME_57E4EEC200D1 TalcuMultiModifyDocsExecutor

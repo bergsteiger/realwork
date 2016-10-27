@@ -13,10 +13,16 @@ ME ME_5587ABDD01BD
  MELINK Stereotype st_implements::Dependency ;
  MELINK Parent HWL ME_5587AB210223 // TvcmPopupControlWindowService
  ;
- MELINK Target WL 'ME_55879E12008D' '55879DBD0111.ms.model.script' // Tl3PopupControlService
+ MELINK Target WL? 'ME_55879E12008D' // Tl3PopupControlService
  ;
 
 ENDME // ME_5587ABDD01BD 
+
+MEREF ME_49E7754802A9_ME_5587AB210223_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5587AB210223_G Tl3ProtoObject
 
 %%InheritedBy ME_49E7754802A9 ME_5587AB210223
 
@@ -31,7 +37,7 @@ ME ME_5587AB210223
  MELINK Parent HWL ME_5587AAF10290 // vcmPopupControlWindowService
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_5587AB210223_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Dependencies
@@ -78,7 +84,7 @@ ME ME_5587B1300205
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5587AAF10290 // vcmPopupControlWindowService
  ;
- MELINK Target WL 'ME_55879E12008D' '55879DBD0111.ms.model.script' // Tl3PopupControlService
+ MELINK Target WL? 'ME_55879E12008D' // Tl3PopupControlService
  ;
 
 ENDME // ME_5587B1300205 

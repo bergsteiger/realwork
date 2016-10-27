@@ -1,0 +1,69 @@
+// TdtCustomDictItem 47BC507501AB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47BC507501AB
+
+ME ME_47BC528601A2
+ MEPROP UID '47BC528601A2'
+ MEPROP Name 'Handle'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47BC507501AB // TdtCustomDictItem
+ ;
+ MELINK Target WL 'ME_47BC52180382' '47BC51FE018B.ms.model.script' // TDictID
+ ;
+ UP "needs field" False
+ UP "pm" False
+
+ENDME // ME_47BC528601A2 Handle
+
+MEREF ME_47BC3BFD017F_ME_47BC507501AB_over
+ MELINK Original WL 'ME_47BC3BFD017F' '53317D14019D.ms.model.script' // StringID
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" False
+ UP "pm" True
+ENDMEREF // ME_47BC3BFD017F_ME_47BC507501AB_over StringID
+
+MEREF ME_47BC50F5038E_ME_47BC507501AB_G
+ MELINK Original WL? 'ME_47BC50F5038E' // Tl3NCString
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC50F5038E_ME_47BC507501AB_G Tl3NCString
+
+%%InheritedBy ME_47BC50F5038E ME_47BC507501AB
+
+ME ME_47BC507501AB
+ MEPROP UID '47BC507501AB'
+ MEPROP Name 'TdtCustomDictItem'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый элемент словаря.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47BC50280350' // Dictionary
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47BC50F5038E_ME_47BC507501AB_G // Tl3NCString
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47BC528601A2 // Handle
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47BC3BFD017F_ME_47BC507501AB_over // StringID
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'dtCustomDictItem'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dtCustomDictItem'
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\dtCustomDictItem.pas'
+
+ENDME // ME_47BC507501AB TdtCustomDictItem

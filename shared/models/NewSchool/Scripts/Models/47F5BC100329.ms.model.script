@@ -9,16 +9,28 @@ ME ME_4923EEAD0350
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47F5BC100329 // TdsFilters
  ;
- MELINK Target WL 'ME_4923ECA602AE' '4955235700D2.ms.model.script' // TdeFilter
+ MELINK Target WL? 'ME_4923ECA602AE' // TdeFilter
  ;
 
 ENDME // ME_4923EEAD0350 
 
-ME ME_4922D96003C8_ME_47F5BC100329
+MEREF ME_4922D96003C8_ME_47F5BC100329_impl
  MELINK Original WL 'ME_4922D96003C8' '4922BFA000DD.ms.model.script' // OpenFilter
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4922D96003C8_ME_47F5BC100329 OpenFilter
+ENDMEREF // ME_4922D96003C8_ME_47F5BC100329_impl OpenFilter
+
+MEREF ME_47ECE94D03D4_ME_47F5BC100329_G
+ MELINK Original WL? 'ME_47ECE94D03D4' // vcmFormDataSourcePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47ECE94D03D4_ME_47F5BC100329_G vcmFormDataSourcePrim
+
+MEREF ME_4922D94500FB_ME_47F5BC100329_R
+ MELINK Original WL 'ME_4922D94500FB' '4922BFA000DD.ms.model.script' // IdsFilters
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4922D94500FB_ME_47F5BC100329_R IdsFilters
 
 %%ImplementedBy ME_4922D94500FB ME_47F5BC100329
 
@@ -37,15 +49,15 @@ ME ME_47F5BC100329
  MELINK Parent WL? 'ME_4955235700D2' // SimpleList
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47ECE94D03D4' // vcmFormDataSourcePrim
+   Seq: ( HWL ME_47ECE94D03D4_ME_47F5BC100329_G // vcmFormDataSourcePrim
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4922D94500FB' '4922BFA000DD.ms.model.script' // IdsFilters
+   Seq: ( HWL ME_4922D94500FB_ME_47F5BC100329_R // IdsFilters
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_4922D96003C8_ME_47F5BC100329 // OpenFilter
+   Seq: ( ME_4922D96003C8_ME_47F5BC100329_impl // OpenFilter
  )
  ; // Implemented
  MELIST Dependencies

@@ -1,0 +1,321 @@
+// TnsBaseMainMenuTree 4909EF3B02B1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4909EF3B02B1
+
+ME ME_4909EF6E0361
+ MEPROP UID '4909EF6E0361'
+ MEPROP Name 'MakeRoot'
+ MEPROP Class class_Operation
+ %SUMMARY 'Создаёт корень дерева' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ ;
+ MELINK Target WL 'ME_4771111001F9' '476BF10A0280.ms.model.script' // Il3RootNode
+ ;
+
+ENDME // ME_4909EF6E0361 MakeRoot
+
+FORWARD ME_490B08670285
+
+ME ME_490B086702AA
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_490B011B02DB' '4A6854C70390.ms.model.script' // TnsNavigatorItemParams
+ ;
+
+ENDME // ME_490B086702AA aParams
+
+ME ME_490B086702CA
+ MEPROP Name 'aParent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_490B086702CA aParent
+
+ME ME_490B08670285
+ MEPROP UID '490B08670285'
+ MEPROP Name 'nsFindNavigatorItem'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ %SUMMARY 'найти элемент в дереве навигатора. Если родитель не указан, то используется корень дерева.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_490B086702AA // aParams
+ ME_490B086702CA // aParent
+ )
+ ; // Parameters
+
+ENDME // ME_490B08670285 nsFindNavigatorItem
+
+FORWARD ME_490B12C6035E
+
+ME ME_490B12E4016E
+ MEPROP Name 'aRoot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4771111001F9' '476BF10A0280.ms.model.script' // Il3RootNode
+ ;
+
+ENDME // ME_490B12E4016E aRoot
+
+ME ME_490B12E401AA
+ MEPROP Name 'aMenuItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_490B12E401AA aMenuItem
+
+ME ME_490B12E401E1
+ MEPROP Name 'aNavigatorItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_490B011B02DB' '4A6854C70390.ms.model.script' // TnsNavigatorItemParams
+ ;
+
+ENDME // ME_490B12E401E1 aNavigatorItem
+
+ME ME_490B12E4021A
+ MEPROP Name 'aParent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_490B12E4021A aParent
+
+ME ME_490B12C6035E
+ MEPROP UID '490B12C6035E'
+ MEPROP Name 'nsAddMainMenuItem'
+ MEPROP OriginalName 'nsAddMainMenuItem$1'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_490B12E4016E // aRoot
+ ME_490B12E401AA // aMenuItem
+ ME_490B12E401E1 // aNavigatorItem
+ ME_490B12E4021A // aParent
+ )
+ ; // Parameters
+
+ENDME // ME_490B12C6035E nsAddMainMenuItem$1
+
+FORWARD ME_53A988E703D5
+
+ME ME_53A9894E01FC
+ MEPROP Name 'aRoot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4771111001F9' '476BF10A0280.ms.model.script' // Il3RootNode
+ ;
+
+ENDME // ME_53A9894E01FC aRoot
+
+ME ME_53A9894E0226
+ MEPROP Name 'aMenuItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53A9894E0226 aMenuItem
+
+ME ME_53A9894E024F
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_53A9894E024F aCaption
+
+ME ME_53A988E703D5
+ MEPROP UID '53A988E703D5'
+ MEPROP Name 'nsAddMainMenuItem'
+ MEPROP OriginalName 'nsAddMainMenuItem$2'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_53A9894E01FC // aRoot
+ ME_53A9894E0226 // aMenuItem
+ ME_53A9894E024F // aCaption
+ )
+ ; // Parameters
+
+ENDME // ME_53A988E703D5 nsAddMainMenuItem$2
+
+ME ME_4909F0F20388
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ ;
+ MELINK Target WL? 'ME_47F60E8E019C' // nsNodes
+ ;
+
+ENDME // ME_4909F0F20388 
+
+ME ME_4909F1020221
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4909F1020221 
+
+ME ME_4909F31E0020
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ ;
+ MELINK Target WL 'ME_48FF63BC0129' '4A6854C70390.ms.model.script' // TnsResetTreeStatus
+ ;
+
+ENDME // ME_4909F31E0020 
+
+ME ME_490B02B40021
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ ;
+ MELINK Target WL? 'ME_490724F202F5' // TnsRubricatorCache
+ ;
+
+ENDME // ME_490B02B40021 
+
+ME ME_490B066C00C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ ;
+ MELINK Target WL 'ME_456EC91500FA' '456EA56002BF.ms.model.script' // NavigatorMenuItemType
+ ;
+
+ENDME // ME_490B066C00C5 
+
+ME ME_4ADF0E2D0124
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ ;
+ MELINK Target WL? 'ME_490AF9B0039B' // TnsNewCachableNode
+ ;
+
+ENDME // ME_4ADF0E2D0124 
+
+ME ME_4ADF104C037C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4909EF3B02B1 // TnsBaseMainMenuTree
+ ;
+ MELINK Target WL? 'ME_490B0F4F021C' // TnsMainMenuNode
+ ;
+
+ENDME // ME_4ADF104C037C 
+
+MEREF ME_47A042E100E2_ME_4909EF3B02B1_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4909EF3B02B1_over InitFields
+
+MEREF ME_4908AAF6015C_ME_4909EF3B02B1_over
+ MELINK Original WL 'ME_4908AAF6015C' '4908A9240071.ms.model.script' // AfterReget
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4908AAF6015C_ME_4909EF3B02B1_over AfterReget
+
+MEREF ME_4908AB070319_ME_4909EF3B02B1_over
+ MELINK Original WL 'ME_4908AB070319' '4908A9240071.ms.model.script' // RegetRootNode
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4908AB070319_ME_4909EF3B02B1_over RegetRootNode
+
+MEREF ME_4908A9240071_ME_4909EF3B02B1_G
+ MELINK Original WL? 'ME_4908A9240071' // TnsDataResetTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4908A9240071_ME_4909EF3B02B1_G TnsDataResetTree
+
+%%InheritedBy ME_4908A9240071 ME_4909EF3B02B1
+
+ME ME_4909EF3B02B1
+ MEPROP UID '4909EF3B02B1'
+ MEPROP Name 'TnsBaseMainMenuTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовое дерево меню' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4909EECE01D5' // MainMenu
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4908A9240071_ME_4909EF3B02B1_G // TnsDataResetTree
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4909EF6E0361 // MakeRoot
+ HWL ME_490B08670285 // nsFindNavigatorItem
+ HWL ME_490B12C6035E // nsAddMainMenuItem$1
+ HWL ME_53A988E703D5 // nsAddMainMenuItem$2
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4909EF3B02B1_over // InitFields
+ ME_4908AAF6015C_ME_4909EF3B02B1_over // AfterReget
+ ME_4908AB070319_ME_4909EF3B02B1_over // RegetRootNode
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4909F0F20388 // nsNodes
+ ME_4909F1020221 // SysUtils
+ ME_4909F31E0020 // TnsResetTreeStatus
+ ME_490B02B40021 // TnsRubricatorCache
+ ME_490B066C00C5 // NavigatorMenuItemType
+ ME_4ADF0E2D0124 // TnsNewCachableNode
+ ME_4ADF104C037C // TnsMainMenuNode
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP "started" '2004/12/06 10:34:07 '
+ UP extprop:pas:UnitName 'nsBaseMainMenuTree'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BaseMainMenuTree'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsBaseMainMenuTree.pas'
+
+ENDME // ME_4909EF3B02B1 TnsBaseMainMenuTree

@@ -20,6 +20,24 @@ ME ME_D18A1AF77354
 
 ENDME // ME_D18A1AF77354 Ini_FormFactory_WarningBaloon
 
+MEREF ME_4EA599F501CF_ME_4EA58A3903B4_G
+ MELINK Original WL? 'ME_4EA599F501CF' // PrimWarningBaloonOptions
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EA599F501CF_ME_4EA58A3903B4_G PrimWarningBaloonOptions
+
+MEREF ME_4E76FC4000A4_ME_4EA58A3903B4_R
+ MELINK Original WL 'ME_4E76FC4000A4' '484FA67302D7.ms.model.script' // Если с медали пытаемся вызвать вкладку соответствующего предупреждения, а оно уже открыто, то оно должно закрываться, а операция должна называться "Скрыть текст предупреждения"
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E76FC4000A4_ME_4EA58A3903B4_R Если с медали пытаемся вызвать вкладку соответствующего предупреждения, а оно уже открыто, то оно должно закрываться, а операция должна называться "Скрыть текст предупреждения"
+
+MEREF ME_4EA58AEA012E_ME_4EA58A3903B4_R
+ MELINK Original WL 'ME_4EA58AEA012E' '4BD856E802F9.ms.model.script' // WarningBaloon
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EA58AEA012E_ME_4EA58A3903B4_R WarningBaloon
+
 %%ImplementedBy ME_4E76FC4000A4 ME_4EA58A3903B4
 %%ImplementedBy ME_4EA58AEA012E ME_4EA58A3903B4
 
@@ -38,12 +56,12 @@ ME ME_4EA58A3903B4
  MELINK Parent WL? 'ME_498B135601B6' // Document
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4EA599F501CF' // PrimWarningBaloonOptions
+   Seq: ( HWL ME_4EA599F501CF_ME_4EA58A3903B4_G // PrimWarningBaloonOptions
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E76FC4000A4' '484FA67302D7.ms.model.script' // Если с медали пытаемся вызвать вкладку соответствующего предупреждения, а оно уже открыто, то оно должно закрываться, а операция должна называться "Скрыть текст предупреждения"
- WL 'ME_4EA58AEA012E' '4BD856E802F9.ms.model.script' // WarningBaloon
+   Seq: ( HWL ME_4E76FC4000A4_ME_4EA58A3903B4_R // Если с медали пытаемся вызвать вкладку соответствующего предупреждения, а оно уже открыто, то оно должно закрываться, а операция должна называться "Скрыть текст предупреждения"
+ HWL ME_4EA58AEA012E_ME_4EA58A3903B4_R // WarningBaloon
  )
  ; // Implements
  MELIST Operations

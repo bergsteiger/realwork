@@ -1,0 +1,229 @@
+// TkwCompiledIfElse 5284E9510053 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5284E9510053
+
+ME ME_53DB836902FC
+ MEPROP UID '53DB836902FC'
+ MEPROP Name 'Condition'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5284E9510053 // TkwCompiledIfElse
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_53DB836902FC Condition
+
+FORWARD ME_5284EED900B6
+
+FORWARD ME_5284EEEA0300
+
+ME ME_5284EF0D0154
+ MEPROP Name 'aCondition'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_5284EF0D0154 aCondition
+
+ME ME_5284EF0D0178
+ MEPROP Name 'anIf'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_5284EF0D0178 anIf
+
+ME ME_5284EF0D0195
+ MEPROP Name 'anElse'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_5284EF0D0195 anElse
+
+ME ME_55645CB400A3
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_55645CB400A3 aCtx
+
+ME ME_5284EEEA0300
+ MEPROP UID '5284EEEA0300'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5284EED900B6 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5284EF0D0154 // aCondition
+ ME_5284EF0D0178 // anIf
+ ME_5284EF0D0195 // anElse
+ ME_55645CB400A3 // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_5284EEEA0300 DoIt
+
+ME ME_5284EED900B6
+ MEPROP UID '5284EED900B6'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5284E9510053 // TkwCompiledIfElse
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5284EEEA0300 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5284EED900B6 Create
+
+FORWARD ME_5284FE8F025F
+
+FORWARD ME_5284FE9B01CD
+
+ME ME_5284FEA6033F
+ MEPROP Name 'anElse'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_5284FEA6033F anElse
+
+ME ME_5284FE9B01CD
+ MEPROP UID '5284FE9B01CD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5284FE8F025F // SetElse
+ ;
+ MELIST Parameters
+   Seq: ( ME_5284FEA6033F // anElse
+ )
+ ; // Parameters
+
+ENDME // ME_5284FE9B01CD DoIt
+
+ME ME_5284FE8F025F
+ MEPROP UID '5284FE8F025F'
+ MEPROP Name 'SetElse'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5284E9510053 // TkwCompiledIfElse
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5284FE9B01CD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5284FE8F025F SetElse
+
+ME ME_5284EF5701BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5284E9510053 // TkwCompiledIfElse
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5284EF5701BA 
+
+ME ME_55E842A30109
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_5284E9510053 // TkwCompiledIfElse
+ ;
+ MELINK Target WL? 'ME_550C25D70182' // WordsRTTIPack
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_55E842A30109 
+
+MEREF ME_479731C50290_ME_5284E9510053_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5284E9510053_over Cleanup
+
+MEREF ME_4DAEEDE10285_ME_5284E9510053_over
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DAEEDE10285_ME_5284E9510053_over DoDoIt
+
+MEREF ME_4DB6EE250251_ME_5284E9510053_G
+ MELINK Original WL? 'ME_4DB6EE250251' // TkwCompiledIF
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB6EE250251_ME_5284E9510053_G TkwCompiledIF
+
+%%InjectedBy ME_550C25D70182 ME_5284E9510053
+
+%%InheritedBy ME_4DB6EE250251 ME_5284E9510053
+
+ME ME_5284E9510053
+ MEPROP UID '5284E9510053'
+ MEPROP Name 'TkwCompiledIfElse'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5284E8850019' // CodeBranchingWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DB6EE250251_ME_5284E9510053_G // TkwCompiledIF
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53DB836902FC // Condition
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5284EED900B6 // Create
+ HWL ME_5284FE8F025F // SetElse
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5284E9510053_over // Cleanup
+ ME_4DAEEDE10285_ME_5284E9510053_over // DoDoIt
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5284EF5701BA // FreeAndNil
+ ME_55E842A30109 // WordsRTTIPack
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'kwCompiledIfElse'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CompiledIfElse'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledIfElse.pas'
+
+ENDME // ME_5284E9510053 TkwCompiledIfElse

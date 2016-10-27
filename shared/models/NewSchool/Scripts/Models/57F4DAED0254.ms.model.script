@@ -1,0 +1,76 @@
+// TcsDeliveryProfileTask 57F4DAED0254 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_57F603C6018A_ME_57F4DAED0254_over
+ MELINK Original WL 'ME_57F603C6018A' '52F8C2AE0042.ms.model.script' // RequireDelivery
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57F603C6018A_ME_57F4DAED0254_over RequireDelivery
+
+MEREF ME_57F603E20074_ME_57F4DAED0254_over
+ MELINK Original WL 'ME_57F603E20074' '52F8C2AE0042.ms.model.script' // DeliverySourceFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57F603E20074_ME_57F4DAED0254_over DeliverySourceFolder
+
+MEREF ME_57F6040302FE_ME_57F4DAED0254_over
+ MELINK Original WL 'ME_57F6040302FE' '52F8C2AE0042.ms.model.script' // DeliveryTargetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57F6040302FE_ME_57F4DAED0254_over DeliveryTargetFolder
+
+MEREF ME_57F639C2025B_ME_57F4DAED0254_over
+ MELINK Original WL 'ME_57F639C2025B' '52F8C2AE0042.ms.model.script' // GetDescription
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57F639C2025B_ME_57F4DAED0254_over GetDescription
+
+MEREF ME_52F8C2BF0110_ME_57F4DAED0254_G
+ MELINK Original WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52F8C2BF0110_ME_57F4DAED0254_G TddProcessTask
+
+MEREF ME_57F4D8850205_ME_57F4DAED0254_R
+ MELINK Original WL 'ME_57F4D8850205' '484A470100DD.ms.model.script' // DeliveryProfile
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57F4D8850205_ME_57F4DAED0254_R DeliveryProfile
+
+%%ImplementedBy ME_57F4D8850205 ME_57F4DAED0254
+
+%%InheritedBy ME_52F8C2BF0110 ME_57F4DAED0254
+
+ME ME_57F4DAED0254
+ MEPROP UID '57F4DAED0254'
+ MEPROP Name 'TcsDeliveryProfileTask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52F8C2BF0110_ME_57F4DAED0254_G // TddProcessTask
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57F4D8850205_ME_57F4DAED0254_R // DeliveryProfile
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_57F603C6018A_ME_57F4DAED0254_over // RequireDelivery
+ ME_57F603E20074_ME_57F4DAED0254_over // DeliverySourceFolder
+ ME_57F6040302FE_ME_57F4DAED0254_over // DeliveryTargetFolder
+ ME_57F639C2025B_ME_57F4DAED0254_over // GetDescription
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'csDeliveryProfileTask'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'csDeliveryProfileTask'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csDeliveryProfileTask.pas'
+
+ENDME // ME_57F4DAED0254 TcsDeliveryProfileTask

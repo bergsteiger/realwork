@@ -1,0 +1,69 @@
+// ReleasetoK 431348CB3E15 TestResults Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4B7AB0B6016E_ME_431348CB3E15_impl
+ MELINK Original WL 'ME_4B7AB0B6016E' '4B2A6D4303A9.ms.model.script' // CommandLineKey
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B7AB0B6016E_ME_431348CB3E15_impl CommandLineKey
+
+MEREF ME_4B7C0B43005B_ME_431348CB3E15_impl
+ MELINK Original WL 'ME_4B7C0B43005B' '4B2A6D4303A9.ms.model.script' // TimesPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B7C0B43005B_ME_431348CB3E15_impl TimesPage
+
+MEREF ME_4B7C0B670215_ME_431348CB3E15_impl
+ MELINK Original WL 'ME_4B7C0B670215' '4B2A6D4303A9.ms.model.script' // ResultsPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B7C0B670215_ME_431348CB3E15_impl ResultsPage
+
+MEREF ME_4BEA9969001B_ME_431348CB3E15_over
+ MELINK Original WL 'ME_4BEA9969001B' '4B2A6D4303A9.ms.model.script' // IsGK
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BEA9969001B_ME_431348CB3E15_over IsGK
+
+MEREF ME_4B7AAC7A031D_ME_431348CB3E15_G
+ MELINK Original WL 'ME_4B7AAC7A031D' '4B2A6D4303A9.ms.model.script' // TTestResultsPlace
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B7AAC7A031D_ME_431348CB3E15_G TTestResultsPlace
+
+%%InheritedBy ME_4B7AAC7A031D ME_431348CB3E15
+
+ME ME_431348CB3E15
+ MEPROP UID '431348CB3E15'
+ MEPROP Name 'ReleasetoK'
+ UP IsSummoned true
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestResults ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Стандартный вывод для ГК (релизный вариант)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_06EF1E6353C7' // ReleaseDaily$Test
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B7AAC7A031D_ME_431348CB3E15_G // TTestResultsPlace
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4B7AB0B6016E_ME_431348CB3E15_impl // CommandLineKey
+ ME_4B7C0B43005B_ME_431348CB3E15_impl // TimesPage
+ ME_4B7C0B670215_ME_431348CB3E15_impl // ResultsPage
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4BEA9969001B_ME_431348CB3E15_over // IsGK
+ )
+ ; // Overridden
+ UP extprop:pas:TypeName 'TReleasetoK'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ReleasetoK'
+ UP intf.pas:Path 'common\components\DailyTest\ReleasetoK.pas'
+
+ENDME // ME_431348CB3E15 ReleasetoK

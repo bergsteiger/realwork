@@ -1,0 +1,106 @@
+// WColor 4849457201A4 Wrapper Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4849457201A4
+
+ME ME_49C8E7CB0225
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4849457201A4 // WColor
+ ;
+ MELINK Target WL? 'ME_47D15712022D' // Graphics
+ ;
+
+ENDME // ME_49C8E7CB0225 
+
+ME ME_49C8E8FD0393
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4849457201A4 // WColor
+ ;
+ MELINK Target WL? 'ME_47AC6F0B025E' // k2Base
+ ;
+
+ENDME // ME_49C8E8FD0393 
+
+ME ME_4D6BC8EA0038
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4849457201A4 // WColor
+ ;
+ MELINK Target WL 'ME_4D6BC8D102C0' '47877EB202FB.ms.model.script' // StrToInt
+ ;
+
+ENDME // ME_4D6BC8EA0038 
+
+MEREF ME_484CCE970073_ME_4849457201A4_over
+ MELINK Original WL 'ME_484CCE970073' '47AC6F0B025E.ms.model.script' // AsString
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_484CCE970073_ME_4849457201A4_over AsString
+
+MEREF ME_484CCEBC00DC_ME_4849457201A4_over
+ MELINK Original WL 'ME_484CCEBC00DC' '47AC6F0B025E.ms.model.script' // StrToTag
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_484CCEBC00DC_ME_4849457201A4_over StrToTag
+
+MEREF ME_4849423C0299_ME_4849457201A4_G
+ MELINK Original WL? 'ME_4849423C0299' // WLong
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4849423C0299_ME_4849457201A4_G WLong
+
+MEREF ME_48492A930358_ME_4849457201A4_R
+ MELINK Original WL 'ME_48492A930358' '4849284D0067.ms.model.script' // Color
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48492A930358_ME_4849457201A4_R Color
+
+%%ImplementedBy ME_48492A930358 ME_4849457201A4
+
+%%InheritedBy ME_4849423C0299 ME_4849457201A4
+
+ME ME_4849457201A4
+ MEPROP UID '4849457201A4'
+ MEPROP Name 'WColor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Wrapper ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'WColor' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4849284D0067' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4849423C0299_ME_4849457201A4_G // WLong
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_48492A930358_ME_4849457201A4_R // Color
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_484CCE970073_ME_4849457201A4_over // AsString
+ ME_484CCEBC00DC_ME_4849457201A4_over // StrToTag
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49C8E7CB0225 // Graphics
+ ME_49C8E8FD0393 // k2Base
+ ME_4D6BC8EA0038 // StrToInt
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '07.09.1998 12:46'
+ UP extprop:pas:UnitName 'Color_Wrap'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\Color_Wrap.pas'
+
+ENDME // ME_4849457201A4 WColor

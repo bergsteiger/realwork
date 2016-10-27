@@ -1,0 +1,242 @@
+// TCommentAndScrollTest 4C9CA365006C TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C9CA365006C
+
+FORWARD ME_4CA2F33F01E5
+
+ME ME_4CA2F39503CF
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4CA2F39503CF aForm
+
+ME ME_4CA2F33F01E5
+ MEPROP UID '4CA2F33F01E5'
+ MEPROP Name 'MoveCursor4Insert'
+ MEPROP Class class_Operation
+ %SUMMARY 'Переместить курсор перед вставкой комментария.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C9CA365006C // TCommentAndScrollTest
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CA2F39503CF // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4CA2F33F01E5 MoveCursor4Insert
+
+FORWARD ME_4CA982110056
+
+ME ME_4E5BD58A011B
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4E5BD58A011B aPoint
+
+ME ME_4CA982110056
+ MEPROP UID '4CA982110056'
+ MEPROP Name 'GetUserComment'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить пользовательский комментарий' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C9CA365006C // TCommentAndScrollTest
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E5BD58A011B // aPoint
+ )
+ ; // Parameters
+
+ENDME // ME_4CA982110056 GetUserComment
+
+FORWARD ME_4CA982800281
+
+ME ME_4CA982CC0299
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4CA982CC0299 aForm
+
+ME ME_4CA982800281
+ MEPROP UID '4CA982800281'
+ MEPROP Name 'DoScroll'
+ MEPROP Class class_Operation
+ %SUMMARY 'Прокрутка текста в редакторе (если нужна).' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C9CA365006C // TCommentAndScrollTest
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CA982CC0299 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4CA982800281 DoScroll
+
+ME ME_4C9CA3B90276
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CA365006C // TCommentAndScrollTest
+ ;
+ MELINK Target WL? 'ME_48453B7601F9' // evCursorTools
+ ;
+
+ENDME // ME_4C9CA3B90276 
+
+ME ME_4C9CA3BD0221
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CA365006C // TCommentAndScrollTest
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4C9CA3BD0221 
+
+ME ME_4C9CA3DE0246
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CA365006C // TCommentAndScrollTest
+ ;
+ MELINK Target WL 'ME_47C695D90332' '47C695A10172.ms.model.script' // TevSelectTarget
+ ;
+
+ENDME // ME_4C9CA3DE0246 
+
+ME ME_4C9CA4040019
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CA365006C // TCommentAndScrollTest
+ ;
+ MELINK Target WL 'ME_47AAB5EC03C2' '4773D64E036C.ms.model.script' // Tl3System
+ ;
+
+ENDME // ME_4C9CA4040019 
+
+ME ME_4C9CA4D30312
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CA365006C // TCommentAndScrollTest
+ ;
+ MELINK Target WL 'ME_4857C9C20131' '48492FC0029D.ms.model.script' // CommentPara
+ ;
+
+ENDME // ME_4C9CA4D30312 
+
+ME ME_4C9CA4FE01BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CA365006C // TCommentAndScrollTest
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4C9CA4FE01BB 
+
+ME ME_4C9CA5330315
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CA365006C // TCommentAndScrollTest
+ ;
+ MELINK Target WL? 'ME_4952693000EA' // TeeEditorExport
+ ;
+
+ENDME // ME_4C9CA5330315 
+
+MEREF ME_4BE419AF0217_ME_4C9CA365006C_impl
+ MELINK Original WL 'ME_4BE419AF0217' '4BE418BB001F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE419AF0217_ME_4C9CA365006C_impl DoVisit
+
+MEREF ME_4C1F0A260192_ME_4C9CA365006C_over
+ MELINK Original WL 'ME_4C1F0A260192' '4BE047320379.ms.model.script' // CheckTopAnchor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C1F0A260192_ME_4C9CA365006C_over CheckTopAnchor
+
+MEREF ME_4C937013031D_ME_4C9CA365006C_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4C9CA365006C_over GetFolder
+
+MEREF ME_4C9B31F6015E_ME_4C9CA365006C_over
+ MELINK Original WL 'ME_4C9B31F6015E' '4BE047320379.ms.model.script' // F1Like
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C9B31F6015E_ME_4C9CA365006C_over F1Like
+
+MEREF ME_4BE425C70228_ME_4C9CA365006C_G
+ MELINK Original WL? 'ME_4BE425C70228' // TTextEditorVisitor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE425C70228_ME_4C9CA365006C_G TTextEditorVisitor
+
+%%InheritedBy ME_4BE425C70228 ME_4C9CA365006C
+
+ME ME_4C9CA365006C
+ MEPROP UID '4C9CA365006C'
+ MEPROP Name 'TCommentAndScrollTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест для добавления и удаления комментария и последующего скроллирования.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B30C89F035F' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE425C70228_ME_4C9CA365006C_G // TTextEditorVisitor
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4CA2F33F01E5 // MoveCursor4Insert
+ HWL ME_4CA982110056 // GetUserComment
+ HWL ME_4CA982800281 // DoScroll
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BE419AF0217_ME_4C9CA365006C_impl // DoVisit
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C1F0A260192_ME_4C9CA365006C_over // CheckTopAnchor
+ ME_4C937013031D_ME_4C9CA365006C_over // GetFolder
+ ME_4C9B31F6015E_ME_4C9CA365006C_over // F1Like
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4C9CA3B90276 // evCursorTools
+ ME_4C9CA3BD0221 // Operations
+ ME_4C9CA3DE0246 // TevSelectTarget
+ ME_4C9CA4040019 // Tl3System
+ ME_4C9CA4D30312 // CommentPara
+ ME_4C9CA4FE01BB // InevBasePoint
+ ME_4C9CA5330315 // TeeEditorExport
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'CommentAndScrollTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CommentAndScrollTest'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\CommentAndScrollTest.pas'
+
+ENDME // ME_4C9CA365006C TCommentAndScrollTest

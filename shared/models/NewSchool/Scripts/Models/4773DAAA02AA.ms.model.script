@@ -1,0 +1,76 @@
+// Tl3ObjectRefList1 4773DAAA02AA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4773DAAA02AA
+
+ME ME_47A75355020F
+ MEPROP UID '47A75355020F'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4773DAAA02AA // Tl3ObjectRefList1
+ ;
+ MELINK Target WL? 'ME_47879856035F' // Tl3_Base
+ ;
+
+ENDME // ME_47A75355020F ItemType
+
+MEREF ME_47A6FEE600FC_ME_4773DAAA02AA_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_4773DAAA02AA_over IsCacheable
+
+MEREF ME_47B57B9E0050_ME_4773DAAA02AA_G
+ MELINK Original WL? 'ME_47B57B9E0050' // l3ObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57B9E0050_ME_4773DAAA02AA_G l3ObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_4773DAAA02AA_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4773DAAA02AA_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57B9E0050 ME_4773DAAA02AA
+%%InheritedBy ME_4A54DD4E036F ME_4773DAAA02AA
+
+ME ME_4773DAAA02AA
+ MEPROP UID '4773DAAA02AA'
+ MEPROP Name 'Tl3ObjectRefList1'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список ссылок на объекты.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57B9E0050_ME_4773DAAA02AA_G // l3ObjectRefList
+ HWL ME_4A54DD4E036F_ME_4773DAAA02AA_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47A75355020F // ItemType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_4773DAAA02AA_over // IsCacheable
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP extprop:pas:UnitName 'l3ObjectRefList1'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ObjectRefList1'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ObjectRefList1.pas'
+
+ENDME // ME_4773DAAA02AA Tl3ObjectRefList1

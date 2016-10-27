@@ -12,9 +12,6 @@ interface
 uses
  l3IntfUses
  , AACContainerPrim_AACContainer_UserType
- {$If NOT Defined(NoVCM)}
- , vcmUserControls
- {$IfEnd} // NOT Defined(NoVCM)
  , l3StringIDEx
 ;
 

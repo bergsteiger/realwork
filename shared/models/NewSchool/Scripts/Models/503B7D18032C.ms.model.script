@@ -1,0 +1,139 @@
+// TatFiltrateTreeOperation 503B7D18032C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_503B7D18032C
+
+ME ME_503B8FF701F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_503B7D18032C // TatFiltrateTreeOperation
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_503B8FF701F1 
+
+ME ME_503B900903E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_503B7D18032C // TatFiltrateTreeOperation
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_503B900903E7 
+
+ME ME_503B989A0092
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_503B7D18032C // TatFiltrateTreeOperation
+ ;
+ MELINK Target WL? 'ME_48078D230277' // TatNodeHelper
+ ;
+
+ENDME // ME_503B989A0092 
+
+ME ME_503BA1F70120
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_503B7D18032C // TatFiltrateTreeOperation
+ ;
+ MELINK Target WL? 'ME_48B5671301C7' // TatStringHelper
+ ;
+
+ENDME // ME_503BA1F70120 
+
+ME ME_503FB86D0299
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_503B7D18032C // TatFiltrateTreeOperation
+ ;
+ MELINK Target WL? 'ME_503F81C30303' // TatSettingsHelper
+ ;
+
+ENDME // ME_503FB86D0299 
+
+ME ME_503FB871038C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_503B7D18032C // TatFiltrateTreeOperation
+ ;
+ MELINK Target WL? 'ME_503F84050182' // TatFilterHelper
+ ;
+
+ENDME // ME_503FB871038C 
+
+MEREF ME_503648620273_ME_503B7D18032C_impl
+ MELINK Original WL 'ME_503648620273' '5036475001FC.ms.model.script' // OnString
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_503648620273_ME_503B7D18032C_impl OnString
+
+MEREF ME_48089F3701B4_ME_503B7D18032C_over
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F3701B4_ME_503B7D18032C_over InitParamList
+
+MEREF ME_48076E9D013E_ME_503B7D18032C_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_503B7D18032C_G TatOperationBase
+
+MEREF ME_5036475001FC_ME_503B7D18032C_R
+ MELINK Original WL? 'ME_5036475001FC' // atHasStringParamAddOn
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5036475001FC_ME_503B7D18032C_R atHasStringParamAddOn
+
+%%ImplementedBy ME_5036475001FC ME_503B7D18032C
+
+%%InheritedBy ME_48076E9D013E ME_503B7D18032C
+
+ME ME_503B7D18032C
+ MEPROP UID '503B7D18032C'
+ MEPROP Name 'TatFiltrateTreeOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48076E9D013E_ME_503B7D18032C_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5036475001FC_ME_503B7D18032C_R // atHasStringParamAddOn
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_503648620273_ME_503B7D18032C_impl // OnString
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F3701B4_ME_503B7D18032C_over // InitParamList
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_503B8FF701F1 // atLogger
+ ME_503B900903E7 // NodeBase
+ ME_503B989A0092 // TatNodeHelper
+ ME_503BA1F70120 // TatStringHelper
+ ME_503FB86D0299 // TatSettingsHelper
+ ME_503FB871038C // TatFilterHelper
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atFiltrateTreeOperation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atFiltrateTreeOperation'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atFiltrateTreeOperation.pas'
+
+ENDME // ME_503B7D18032C TatFiltrateTreeOperation

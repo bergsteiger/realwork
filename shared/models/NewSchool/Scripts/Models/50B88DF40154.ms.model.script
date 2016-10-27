@@ -1,0 +1,220 @@
+// TkwEditorFromStackCursorWord 50B88DF40154 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50B88DF40154
+
+FORWARD ME_50B8BCDF0093
+
+FORWARD ME_50B8BCE801AA
+
+ME ME_50B8BCE9039C
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_50B8BCE9039C aCtx
+
+ME ME_50B8BCE903B8
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4829D92A037B' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_50B8BCE903B8 anEditor
+
+ME ME_50B8BCE903D5
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_50B8BCE903D5 aPoint
+
+ME ME_50B8BCE801AA
+ MEPROP UID '50B8BCE801AA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50B8BCDF0093 // DoCursor
+ ;
+ MELIST Parameters
+   Seq: ( ME_50B8BCE9039C // aCtx
+ ME_50B8BCE903B8 // anEditor
+ ME_50B8BCE903D5 // aPoint
+ )
+ ; // Parameters
+
+ENDME // ME_50B8BCE801AA DoIt
+
+ME ME_50B8BCDF0093
+ MEPROP UID '50B8BCDF0093'
+ MEPROP Name 'DoCursor'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50B8BCE801AA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50B8BCDF0093 DoCursor
+
+ME ME_50B88E6C02D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_50B88E6C02D7 
+
+ME ME_50B88E6F0287
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ ;
+ MELINK Target WL 'ME_4857C9C20131' '48492FC0029D.ms.model.script' // CommentPara
+ ;
+
+ENDME // ME_50B88E6F0287 
+
+ME ME_50B88E7102F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_50B88E7102F9 
+
+ME ME_50B88E7302D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ ;
+ MELINK Target WL? 'ME_4829D92A037B' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_50B88E7302D6 
+
+ME ME_50B88E75035F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ ;
+ MELINK Target WL 'ME_4DDE2C4C01CD' '48A41FF10094.ms.model.script' // GetFocus
+ ;
+
+ENDME // ME_50B88E75035F 
+
+ME ME_50B88E7702DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ ;
+ MELINK Target WL 'ME_4AAF9CFA0263' '47E11FC3021E.ms.model.script' // FindControl
+ ;
+
+ENDME // ME_50B88E7702DA 
+
+ME ME_50B88E79028B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ ;
+ MELINK Target WL? 'ME_47F1F3BC0330' // evParaTools
+ ;
+
+ENDME // ME_50B88E79028B 
+
+ME ME_50B8C17F0324
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_50B8C17F0324 
+
+MEREF ME_4F4CB81200CA_ME_50B88DF40154_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_50B88DF40154_impl DoWithEditor
+
+MEREF ME_4F4CB625027A_ME_50B88DF40154_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_50B88DF40154_G TkwEditorFromStackWord
+
+MEREF ME_54EF5B8401B0_ME_50B88DF40154_R
+ MELINK Original WL? 'ME_54EF5B8401B0' // kwEditorFromStackCursorWordUses
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54EF5B8401B0_ME_50B88DF40154_R kwEditorFromStackCursorWordUses
+
+%%ImplementedBy ME_54EF5B8401B0 ME_50B88DF40154
+
+%%InheritedBy ME_4F4CB625027A ME_50B88DF40154
+
+ME ME_50B88DF40154
+ MEPROP UID '50B88DF40154'
+ MEPROP Name 'TkwEditorFromStackCursorWord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A_ME_50B88DF40154_G // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_54EF5B8401B0_ME_50B88DF40154_R // kwEditorFromStackCursorWordUses
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_50B8BCDF0093 // DoCursor
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_50B88DF40154_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_50B88E6C02D7 // TextPara
+ ME_50B88E6F0287 // CommentPara
+ ME_50B88E7102F9 // InevObject
+ ME_50B88E7302D6 // TevCustomEditorWindow
+ ME_50B88E75035F // GetFocus
+ ME_50B88E7702DA // FindControl
+ ME_50B88E79028B // evParaTools
+ ME_50B8C17F0324 // Operations
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'kwEditorFromStackCursorWord'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EditorFromStackCursorWord'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwEditorFromStackCursorWord.pas'
+
+ENDME // ME_50B88DF40154 TkwEditorFromStackCursorWord

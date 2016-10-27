@@ -5,8 +5,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_76478A82A459
 %%Inner ME_C45CC130B0F1
 
-FORWARD ME_C45CC130B0F1
-
 FORWARD ME_4A93EC78039E
 
 ME ME_76478A82A459
@@ -52,6 +50,18 @@ ME ME_C45CC130B0F1
 
 ENDME // ME_C45CC130B0F1 RememberPassword$Def
 
+MEREF ME_4A93EC4B03CC_ME_4A93EC78039E_G
+ MELINK Original WL? 'ME_4A93EC4B03CC' // PrimRememberPassword
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A93EC4B03CC_ME_4A93EC78039E_G PrimRememberPassword
+
+MEREF ME_C45CC130B0F1_ME_4A93EC78039E_R
+ MELINK Original HWL ME_C45CC130B0F1 // RememberPassword$Def
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_C45CC130B0F1_ME_4A93EC78039E_R RememberPassword$Def
+
 %%ImplementedBy ME_C45CC130B0F1 ME_4A93EC78039E
 
 %%InheritedBy ME_4A93EC4B03CC ME_4A93EC78039E
@@ -69,11 +79,11 @@ ME ME_4A93EC78039E
  MELINK Parent WL? 'ME_4A92C1380380' // PrimF1Common
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4A93EC4B03CC' // PrimRememberPassword
+   Seq: ( HWL ME_4A93EC4B03CC_ME_4A93EC78039E_G // PrimRememberPassword
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_C45CC130B0F1 // RememberPassword$Def
+   Seq: ( HWL ME_C45CC130B0F1_ME_4A93EC78039E_R // RememberPassword$Def
  )
  ; // Implements
  MELIST Children

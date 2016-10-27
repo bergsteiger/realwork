@@ -53,7 +53,7 @@ ENDME // ME_4F0C2275025F DoIt
 ME ME_4F0C225A02DD
  MEPROP UID '4F0C225A02DD'
  MEPROP Name 'SetMessage'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY '0 - This, 1 - Prev, 2 - Next' ;
@@ -78,6 +78,12 @@ ME ME_5549C2DD0193
 
 ENDME // ME_5549C2DD0193 
 
+MEREF ME_4F0C239A01E1_ME_4F0C222F0080_G
+ MELINK Original WL 'ME_4F0C239A01E1' '4F0C23870303.ms.model.script' // TvtForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F0C239A01E1_ME_4F0C222F0080_G TvtForm
+
 %%InheritedBy ME_4F0C239A01E1 ME_4F0C222F0080
 
 ME ME_4F0C222F0080
@@ -92,7 +98,7 @@ ME ME_4F0C222F0080
  MELINK Parent HWL ME_4F0C221F03C1 // VMailWin
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F0C239A01E1' '4F0C23870303.ms.model.script' // TvtForm
+   Seq: ( HWL ME_4F0C239A01E1_ME_4F0C222F0080_G // TvtForm
  )
  ; // Inherits
  MELIST Operations

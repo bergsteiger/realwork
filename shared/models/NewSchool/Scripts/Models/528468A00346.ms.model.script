@@ -104,11 +104,17 @@ ME ME_528472D30372
 
 ENDME // ME_528472D30372 
 
-ME ME_515317860183_ME_528468A00346
+MEREF ME_515317860183_ME_528468A00346_over
  MELINK Original WL 'ME_515317860183' '47E11FC3021E.ms.model.script' // MouseWheelHandler
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_515317860183_ME_528468A00346 MouseWheelHandler
+ENDMEREF // ME_515317860183_ME_528468A00346_over MouseWheelHandler
+
+MEREF ME_528469FC0256_ME_528468A00346_R
+ MELINK Original WL 'ME_528469FC0256' '4799D29F033F.ms.model.script' // MScrollingWinControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_528469FC0256_ME_528468A00346_R MScrollingWinControl
 
 %%ImplementedBy ME_528469FC0256 ME_528468A00346
 
@@ -125,11 +131,11 @@ ME ME_528468A00346
  MELINK Parent WL? 'ME_4AADF9450143' // Visual
  ;
  MELIST Implements
-   Seq: ( WL 'ME_528469FC0256' '4799D29F033F.ms.model.script' // MScrollingWinControl
+   Seq: ( HWL ME_528469FC0256_ME_528468A00346_R // MScrollingWinControl
  )
  ; // Implements
  MELIST Overridden
-   Seq: ( ME_515317860183_ME_528468A00346 // MouseWheelHandler
+   Seq: ( ME_515317860183_ME_528468A00346_over // MouseWheelHandler
  )
  ; // Overridden
  MELIST Dependencies

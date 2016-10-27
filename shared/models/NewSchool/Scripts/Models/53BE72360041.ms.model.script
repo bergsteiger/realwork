@@ -5,56 +5,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_53BE724501DB
 %%Inner ME_53C3EF0A0181
 
-FORWARD ME_53BE72360041
-
-%%InheritedBy ME_4EEF59B40075 ME_53BE724501DB
-
-ME ME_53BE724501DB
- MEPROP UID '53BE724501DB'
- MEPROP Name 'K543448591'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- %SUMMARY '{RequestLink:543448591}' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_53BE72360041 // RenderFormula
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4EEF59B40075' '4EEF599003AC.ms.model.script' // TFormulaRender
- )
- ; // Inherits
- UP extprop:pas:TypeName 'TK543448591'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'K543448591'
- UP intf.pas:Path 'common\components\rtl\Garant\Daily\K543448591.pas'
-
-ENDME // ME_53BE724501DB K543448591
-
-%%InheritedBy ME_4EEF59B40075 ME_53C3EF0A0181
-
-ME ME_53C3EF0A0181
- MEPROP UID '53C3EF0A0181'
- MEPROP Name 'K554585756'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- %SUMMARY '{RequestLink:554585756}' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_53BE72360041 // RenderFormula
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4EEF59B40075' '4EEF599003AC.ms.model.script' // TFormulaRender
- )
- ; // Inherits
- UP extprop:pas:TypeName 'TK554585756'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'K554585756'
- UP intf.pas:Path 'common\components\rtl\Garant\Daily\K554585756.pas'
-
-ENDME // ME_53C3EF0A0181 K554585756
-
 ME ME_53BE72360041
  MEPROP UID '53BE72360041'
  MEPROP Name 'RenderFormula'
@@ -66,8 +16,8 @@ ME ME_53BE72360041
  MELINK Parent WL? 'ME_4B2A15810261' // DailyTest
  ;
  MELIST Children
-   Seq: ( HWL ME_53BE724501DB // K543448591
- HWL ME_53C3EF0A0181 // K554585756
+   Seq: ( WL? 'ME_53BE724501DB' // K543448591
+ WL? 'ME_53C3EF0A0181' // K554585756
  )
  ; // Children
  MELIST Depends

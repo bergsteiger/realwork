@@ -1,0 +1,262 @@
+// Tl3SizedPoolManager 545A25F5016C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_545A25F5016C
+
+ME ME_54B90FEC02C9
+ MEPROP UID '54B90FEC02C9'
+ MEPROP Name 'f_ItemSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545A25F5016C // Tl3SizedPoolManager
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_54B90FEC02C9 f_ItemSize
+
+FORWARD ME_54B90FFB019F
+
+FORWARD ME_54B9100700B7
+
+ME ME_54B9101300CD
+ MEPROP Name 'aBlockSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_54B9101300CD aBlockSize
+
+ME ME_54B9101300F5
+ MEPROP Name 'anItemSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_54B9101300F5 anItemSize
+
+ME ME_54B9100700B7
+ MEPROP UID '54B9100700B7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B90FFB019F // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B9101300CD // aBlockSize
+ ME_54B9101300F5 // anItemSize
+ )
+ ; // Parameters
+
+ENDME // ME_54B9100700B7 DoIt
+
+ME ME_54B90FFB019F
+ MEPROP UID '54B90FFB019F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545A25F5016C // Tl3SizedPoolManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B9100700B7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B90FFB019F Create
+
+FORWARD ME_54B9101F0107
+
+FORWARD ME_54B91031005F
+
+ME ME_54B9104801DB
+ MEPROP Name 'theItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+
+ENDME // ME_54B9104801DB theItem
+
+ME ME_54B910480217
+ MEPROP Name 'aLength'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_54B910480217 aLength
+
+ME ME_54B91031005F
+ MEPROP UID '54B91031005F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B9101F0107 // AllocItem
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B9104801DB // theItem
+ ME_54B910480217 // aLength
+ )
+ ; // Parameters
+
+ENDME // ME_54B91031005F DoIt
+
+ME ME_54B9101F0107
+ MEPROP UID '54B9101F0107'
+ MEPROP Name 'AllocItem'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545A25F5016C // Tl3SizedPoolManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B91031005F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B9101F0107 AllocItem
+
+FORWARD ME_54B9105402AC
+
+FORWARD ME_54B9106602E7
+
+ME ME_54B9106D0092
+ MEPROP Name 'theItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+
+ENDME // ME_54B9106D0092 theItem
+
+ME ME_54B9106602E7
+ MEPROP UID '54B9106602E7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B9105402AC // FreeItem
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B9106D0092 // theItem
+ )
+ ; // Parameters
+
+ENDME // ME_54B9106602E7 DoIt
+
+ME ME_54B9105402AC
+ MEPROP UID '54B9105402AC'
+ MEPROP Name 'FreeItem'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545A25F5016C // Tl3SizedPoolManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B9106602E7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B9105402AC FreeItem
+
+FORWARD ME_54B9107602B0
+
+FORWARD ME_54B91097007D
+
+ME ME_54B9109C00D5
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_54B9109C00D5 anItem
+
+ME ME_54B91097007D
+ MEPROP UID '54B91097007D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B9107602B0 // ItemLength
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B9109C00D5 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_54B91097007D DoIt
+
+ME ME_54B9107602B0
+ MEPROP UID '54B9107602B0'
+ MEPROP Name 'ItemLength'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545A25F5016C // Tl3SizedPoolManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B91097007D // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_54B9107602B0 ItemLength
+
+MEREF ME_5453AE0C0100_ME_545A25F5016C_G
+ MELINK Original WL? 'ME_5453AE0C0100' // Tl3SimpleMemoryManager
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5453AE0C0100_ME_545A25F5016C_G Tl3SimpleMemoryManager
+
+%%InheritedBy ME_5453AE0C0100 ME_545A25F5016C
+
+ME ME_545A25F5016C
+ MEPROP UID '545A25F5016C'
+ MEPROP Name 'Tl3SizedPoolManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_545CDF1002C9' // MemoryManagers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5453AE0C0100_ME_545A25F5016C_G // Tl3SimpleMemoryManager
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54B90FEC02C9 // f_ItemSize
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54B90FFB019F // Create
+ HWL ME_54B9101F0107 // AllocItem
+ HWL ME_54B9105402AC // FreeItem
+ HWL ME_54B9107602B0 // ItemLength
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'l3SizedPoolManager'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SizedPoolManager'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3SizedPoolManager.pas'
+
+ENDME // ME_545A25F5016C Tl3SizedPoolManager

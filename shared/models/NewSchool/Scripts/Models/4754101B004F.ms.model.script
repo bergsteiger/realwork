@@ -8,33 +8,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_5159566B0063
 %%Inner ME_515956AC0167
 
-FORWARD ME_4754101B004F
-
-%%InheritedBy ME_47541E17024E ME_475415C50224
-
-ME ME_475415C50224
- MEPROP UID '475415C50224'
- MEPROP Name 'TOvcController'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контроллер команд.' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4754101B004F // OvcBase
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_47541E17024E' '47913B47006E.ms.model.script' // Tl3InterfacedComponent
- )
- ; // Inherits
- UP "finished" False
- UP extprop:pas:UnitName 'OvcController'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'OvcController'
- UP intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcController.pas'
-
-ENDME // ME_475415C50224 TOvcController
-
 ME ME_4754101B004F
  MEPROP UID '4754101B004F'
  MEPROP Name 'OvcBase'
@@ -47,7 +20,7 @@ ME ME_4754101B004F
  MELINK Parent WL? 'ME_47540FF802AC' // Orpheus
  ;
  MELIST Children
-   Seq: ( HWL ME_475415C50224 // TOvcController
+   Seq: ( WL? 'ME_475415C50224' // TOvcController
  WL? 'ME_475410380119' // TOvcBase
  WL? 'ME_5150530901CE' // OvcColor
  WL? 'ME_5159566B0063' // OvcData

@@ -1,0 +1,68 @@
+// TevQueryCardCursor 4BFFD963014E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BFFD963014E
+
+ME ME_53D0D8FE00E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4BFFD963014E // TevQueryCardCursor
+ ;
+ MELINK Target WL? 'ME_4857E8F003A2' // TevQueryCard
+ ;
+ UP "injects as" 'cursor'
+
+ENDME // ME_53D0D8FE00E7 
+
+MEREF ME_4BFFD9C80181_ME_4BFFD963014E_over
+ MELINK Original WL 'ME_4BFFD9C80181' '4A4C8EC4019F.ms.model.script' // CanInsertParaOnMove
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BFFD9C80181_ME_4BFFD963014E_over CanInsertParaOnMove
+
+MEREF ME_4A4C8EC4019F_ME_4BFFD963014E_G
+ MELINK Original WL? 'ME_4A4C8EC4019F' // TevDocumentCursor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A4C8EC4019F_ME_4BFFD963014E_G TevDocumentCursor
+
+%%InjectedBy ME_4857E8F003A2 ME_4BFFD963014E
+
+%%InheritedBy ME_4A4C8EC4019F ME_4BFFD963014E
+
+ME ME_4BFFD963014E
+ MEPROP UID '4BFFD963014E'
+ MEPROP Name 'TevQueryCardCursor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3A233900C9' // ParaList Cursors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A4C8EC4019F_ME_4BFFD963014E_G // TevDocumentCursor
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4BFFD9C80181_ME_4BFFD963014E_over // CanInsertParaOnMove
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53D0D8FE00E7 // TevQueryCard
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '2008/04/14 13:46:35'
+ UP extprop:pas:UnitName 'evQueryCardCursor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'QueryCardCursor'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evQueryCardCursor.pas'
+
+ENDME // ME_4BFFD963014E TevQueryCardCursor

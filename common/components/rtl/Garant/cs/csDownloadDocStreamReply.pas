@@ -12,7 +12,6 @@ interface
 uses
  l3IntfUses
  , ncsMessage
- , k2SizedMemoryPool
  , k2Base
 ;
 

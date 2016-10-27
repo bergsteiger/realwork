@@ -1,0 +1,83 @@
+// TnsDPIEvent 4B0BB0A502EC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B0BB0A502EC
+
+FORWARD ME_4B0BB0B9003D
+
+ME ME_4B0BB0C9010D
+ MEPROP Name 'aDPI'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4B0BB0C9010D aDPI
+
+ME ME_4B0BB0B9003D
+ MEPROP UID '4B0BB0B9003D'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B0BB0A502EC // TnsDPIEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B0BB0C9010D // aDPI
+ )
+ ; // Parameters
+
+ENDME // ME_4B0BB0B9003D Log
+
+ME ME_4B0BB0D300FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B0BB0A502EC // TnsDPIEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B0BB0D300FD 
+
+MEREF ME_4B0A6109010C_ME_4B0BB0A502EC_G
+ MELINK Original WL? 'ME_4B0A6109010C' // TnsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0A6109010C_ME_4B0BB0A502EC_G TnsLogEvent
+
+%%InheritedBy ME_4B0A6109010C ME_4B0BB0A502EC
+
+ME ME_4B0BB0A502EC
+ MEPROP UID '4B0BB0A502EC'
+ MEPROP Name 'TnsDPIEvent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55B793700105' // Events
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B0A6109010C_ME_4B0BB0A502EC_G // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B0BB0B9003D // Log
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B0BB0D300FD // LogEvent
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nsDPIEvent'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DPIEvent'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsDPIEvent.pas'
+
+ENDME // ME_4B0BB0A502EC TnsDPIEvent

@@ -13,10 +13,16 @@ ME ME_556EE66A0176
  MELINK Stereotype st_implements::Dependency ;
  MELINK Parent HWL ME_556EE661021E // Tl3ScreenServiceDef
  ;
- MELINK Target WL 'ME_556EE57803CD' '556EE5640169.ms.model.script' // Tl3ScreenService
+ MELINK Target WL? 'ME_556EE57803CD' // Tl3ScreenService
  ;
 
 ENDME // ME_556EE66A0176 
+
+MEREF ME_49E7754802A9_ME_556EE661021E_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_556EE661021E_G Tl3ProtoObject
 
 %%InheritedBy ME_49E7754802A9 ME_556EE661021E
 
@@ -31,7 +37,7 @@ ME ME_556EE661021E
  MELINK Parent HWL ME_4799F84900DD // l3ScreenIC
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_556EE661021E_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Dependencies
@@ -90,7 +96,7 @@ ME ME_4799F896039C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4799F84900DD // l3ScreenIC
  ;
- MELINK Target WL 'ME_478E3C97021E' '473C3BEE0334.ms.model.script' // Tl3Canvas
+ MELINK Target WL? 'ME_478E3C97021E' // Tl3Canvas
  ;
 
 ENDME // ME_4799F896039C 

@@ -1,0 +1,372 @@
+// TnsOpenDocOnNumberData 4AE760FD0182 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AE760FD0182
+
+ME ME_4AE7615801F0
+ MEPROP UID '4AE7615801F0'
+ MEPROP Name 'f_DocID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AE760FD0182 // TnsOpenDocOnNumberData
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4AE7615801F0 f_DocID
+
+ME ME_4AE761630091
+ MEPROP UID '4AE761630091'
+ MEPROP Name 'f_PosID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AE760FD0182 // TnsOpenDocOnNumberData
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4AE761630091 f_PosID
+
+ME ME_4AE76176032F
+ MEPROP UID '4AE76176032F'
+ MEPROP Name 'f_Internal'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AE760FD0182 // TnsOpenDocOnNumberData
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AE76176032F f_Internal
+
+ME ME_4AE761810263
+ MEPROP UID '4AE761810263'
+ MEPROP Name 'f_History'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4AE760FD0182 // TnsOpenDocOnNumberData
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4AE761810263 f_History
+
+ME ME_4AE81AF30392
+ MEPROP UID '4AE81AF30392'
+ MEPROP Name 'f_Done'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AE760FD0182 // TnsOpenDocOnNumberData
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AE81AF30392 f_Done
+
+ME ME_4CC90DAA03E3
+ MEPROP UID '4CC90DAA03E3'
+ MEPROP Name 'f_PosType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AE760FD0182 // TnsOpenDocOnNumberData
+ ;
+ MELINK Target WL 'ME_491B32C1015D' '4BA763B0004B.ms.model.script' // TDocumentPositionType
+ ;
+
+ENDME // ME_4CC90DAA03E3 f_PosType
+
+FORWARD ME_4AE761950144
+
+FORWARD ME_4AE761AD0102
+
+ME ME_4AE81F360130
+ MEPROP Name 'aDocID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4AE81F360130 aDocID
+
+ME ME_4CC90E0800D6
+ MEPROP Name 'aPosID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4CC90E0800D6 aPosID
+
+ME ME_4CC90E080107
+ MEPROP Name 'aPosType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_491B32C1015D' '4BA763B0004B.ms.model.script' // TDocumentPositionType
+ ;
+
+ENDME // ME_4CC90E080107 aPosType
+
+ME ME_4AE761D3020C
+ MEPROP Name 'aInternal'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AE761D3020C aInternal
+
+ME ME_4AE81F3601F5
+ MEPROP Name 'aHistory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4AE81F3601F5 aHistory
+
+ME ME_4AE761AD0102
+ MEPROP UID '4AE761AD0102'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE761950144 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AE81F360130 // aDocID
+ ME_4CC90E0800D6 // aPosID
+ ME_4CC90E080107 // aPosType
+ ME_4AE761D3020C // aInternal
+ ME_4AE81F3601F5 // aHistory
+ )
+ ; // Parameters
+
+ENDME // ME_4AE761AD0102 DoIt
+
+ME ME_4AE761950144
+ MEPROP UID '4AE761950144'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE760FD0182 // TnsOpenDocOnNumberData
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AE761AD0102 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4AE761950144 Create
+
+FORWARD ME_4AE761DC0161
+
+FORWARD ME_4AE761E200FF
+
+ME ME_4AE81F4A026B
+ MEPROP Name 'aDocID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4AE81F4A026B aDocID
+
+ME ME_4CC90E2B0065
+ MEPROP Name 'aPosID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4CC90E2B0065 aPosID
+
+ME ME_4CC90E2B00A2
+ MEPROP Name 'aPosType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_491B32C1015D' '4BA763B0004B.ms.model.script' // TDocumentPositionType
+ ;
+
+ENDME // ME_4CC90E2B00A2 aPosType
+
+ME ME_4AE761E403BD
+ MEPROP Name 'aInternal'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AE761E403BD aInternal
+
+ME ME_4AE81F4A02E9
+ MEPROP Name 'aHistory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4AE81F4A02E9 aHistory
+
+ME ME_4AE761E200FF
+ MEPROP UID '4AE761E200FF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE761DC0161 // Make
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AE81F4A026B // aDocID
+ ME_4CC90E2B0065 // aPosID
+ ME_4CC90E2B00A2 // aPosType
+ ME_4AE761E403BD // aInternal
+ ME_4AE81F4A02E9 // aHistory
+ )
+ ; // Parameters
+
+ENDME // ME_4AE761E200FF DoIt
+
+ME ME_4AE761DC0161
+ MEPROP UID '4AE761DC0161'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE760FD0182 // TnsOpenDocOnNumberData
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AE761E200FF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4AE761DC0161 Make
+
+MEREF ME_4AE760B500BD_ME_4AE760FD0182_impl
+ MELINK Original WL 'ME_4AE760B500BD' '4ACF514E0337.ms.model.script' // DocID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4AE760B500BD_ME_4AE760FD0182_impl DocID
+
+MEREF ME_4AE760C90313_ME_4AE760FD0182_impl
+ MELINK Original WL 'ME_4AE760C90313' '4ACF514E0337.ms.model.script' // PosID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4AE760C90313_ME_4AE760FD0182_impl PosID
+
+MEREF ME_4AE760D30088_ME_4AE760FD0182_impl
+ MELINK Original WL 'ME_4AE760D30088' '4ACF514E0337.ms.model.script' // Internal
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4AE760D30088_ME_4AE760FD0182_impl Internal
+
+MEREF ME_4AE760DB01E2_ME_4AE760FD0182_impl
+ MELINK Original WL 'ME_4AE760DB01E2' '4ACF514E0337.ms.model.script' // History
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4AE760DB01E2_ME_4AE760FD0182_impl History
+
+MEREF ME_4AE81AD9019D_ME_4AE760FD0182_impl
+ MELINK Original WL 'ME_4AE81AD9019D' '4ACF514E0337.ms.model.script' // Done
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4AE81AD9019D_ME_4AE760FD0182_impl Done
+
+MEREF ME_4CC90CCA0027_ME_4AE760FD0182_impl
+ MELINK Original WL 'ME_4CC90CCA0027' '4ACF514E0337.ms.model.script' // PosType
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4CC90CCA0027_ME_4AE760FD0182_impl PosType
+
+MEREF ME_4AE5CA2D0034_ME_4AE760FD0182_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_4AE760FD0182_G Tl3CProtoObject
+
+MEREF ME_4AE760410074_ME_4AE760FD0182_R
+ MELINK Original WL 'ME_4AE760410074' '4ACF514E0337.ms.model.script' // InsOpenDocOnNumberData
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE760410074_ME_4AE760FD0182_R InsOpenDocOnNumberData
+
+%%ImplementedBy ME_4AE760410074 ME_4AE760FD0182
+
+%%InheritedBy ME_4AE5CA2D0034 ME_4AE760FD0182
+
+ME ME_4AE760FD0182
+ MEPROP UID '4AE760FD0182'
+ MEPROP Name 'TnsOpenDocOnNumberData'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A815BFF0168' // Navigation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AE5CA2D0034_ME_4AE760FD0182_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4AE760410074_ME_4AE760FD0182_R // InsOpenDocOnNumberData
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AE7615801F0 // f_DocID
+ HWL ME_4AE761630091 // f_PosID
+ HWL ME_4AE76176032F // f_Internal
+ HWL ME_4AE761810263 // f_History
+ HWL ME_4AE81AF30392 // f_Done
+ HWL ME_4CC90DAA03E3 // f_PosType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AE761950144 // Create
+ HWL ME_4AE761DC0161 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4AE760B500BD_ME_4AE760FD0182_impl // DocID
+ ME_4AE760C90313_ME_4AE760FD0182_impl // PosID
+ ME_4AE760D30088_ME_4AE760FD0182_impl // Internal
+ ME_4AE760DB01E2_ME_4AE760FD0182_impl // History
+ ME_4AE81AD9019D_ME_4AE760FD0182_impl // Done
+ ME_4CC90CCA0027_ME_4AE760FD0182_impl // PosType
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '28.10.2009 0*07'
+ UP extprop:pas:UnitName 'nsOpenDocOnNumberData'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OpenDocOnNumberData'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsOpenDocOnNumberData.pas'
+
+ENDME // ME_4AE760FD0182 TnsOpenDocOnNumberData

@@ -1,0 +1,344 @@
+// TnsCommentStorer 4CED328E0140 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CED328E0140
+
+FORWARD ME_4CED3A7F0099
+
+FORWARD ME_4CED3A9603B6
+
+ME ME_4CED3A9B02F8
+ MEPROP Name 'anObj'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_4CED3A9B02F8 anObj
+
+ME ME_4CED3A9603B6
+ MEPROP UID '4CED3A9603B6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CED3A7F0099 // NotifyOtherTexts
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CED3A9B02F8 // anObj
+ )
+ ; // Parameters
+
+ENDME // ME_4CED3A9603B6 DoIt
+
+ME ME_4CED3AC6032C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED3A7F0099 // NotifyOtherTexts
+ ;
+ MELINK Target WL? 'ME_47F100430323' // TevDocumentsCache
+ ;
+
+ENDME // ME_4CED3AC6032C 
+
+ME ME_4CED3AE90321
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED3A7F0099 // NotifyOtherTexts
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4CED3AE90321 
+
+ME ME_4CED3B3A00A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED3A7F0099 // NotifyOtherTexts
+ ;
+ MELINK Target WL 'ME_4CED3B270143' '4773D64E036C.ms.model.script' // l3L2IA
+ ;
+
+ENDME // ME_4CED3B3A00A3 
+
+ME ME_4CED3B5D012D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED3A7F0099 // NotifyOtherTexts
+ ;
+ MELINK Target WL 'ME_47C6A603009D' '47C5207602D1.ms.model.script' // InevDocumentContainer
+ ;
+
+ENDME // ME_4CED3B5D012D 
+
+ME ME_4CED3B8C0197
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED3A7F0099 // NotifyOtherTexts
+ ;
+ MELINK Target WL 'ME_476127E40065' '4678193C009C.ms.model.script' // PIUnknown
+ ;
+
+ENDME // ME_4CED3B8C0197 
+
+ME ME_4CED3BC002F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED3A7F0099 // NotifyOtherTexts
+ ;
+ MELINK Target WL 'ME_47C699120129' '47C5207602D1.ms.model.script' // InevObjectList
+ ;
+
+ENDME // ME_4CED3BC002F0 
+
+ME ME_4CED4205024E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED3A7F0099 // NotifyOtherTexts
+ ;
+ MELINK Target WL 'ME_4ADEE4C90303' '47CFE7F00221.ms.model.script' // l3IEQ
+ ;
+
+ENDME // ME_4CED4205024E 
+
+ME ME_4CEFE55F0077
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED3A7F0099 // NotifyOtherTexts
+ ;
+ MELINK Target WL? 'ME_4CED3DF702F9' // TnsNativeCommentPara
+ ;
+
+ENDME // ME_4CEFE55F0077 
+
+ME ME_4CED3A7F0099
+ MEPROP UID '4CED3A7F0099'
+ MEPROP Name 'NotifyOtherTexts'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CED328E0140 // TnsCommentStorer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CED3A9603B6 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4CED3AC6032C // TevDocumentsCache
+ ME_4CED3AE90321 // Tk2TagID
+ ME_4CED3B3A00A3 // l3L2IA
+ ME_4CED3B5D012D // InevDocumentContainer
+ ME_4CED3B8C0197 // PIUnknown
+ ME_4CED3BC002F0 // InevObjectList
+ ME_4CED4205024E // l3IEQ
+ ME_4CEFE55F0077 // TnsNativeCommentPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" True
+
+ENDME // ME_4CED3A7F0099 NotifyOtherTexts
+
+ME ME_4CED32FD0118
+ MEPROP UID '4CED32FD0118'
+ MEPROP Name 'ini'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CED328E0140 // TnsCommentStorer
+ ;
+
+ENDME // ME_4CED32FD0118 ini
+
+ME ME_4CED3F400362
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED328E0140 // TnsCommentStorer
+ ;
+ MELINK Target WL? 'ME_467FCCB101CF' // TnsTagNodePrim
+ ;
+
+ENDME // ME_4CED3F400362 
+
+ME ME_4CED41D702A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED328E0140 // TnsCommentStorer
+ ;
+ MELINK Target WL? 'ME_4CED41A900AA' // TnsCommentMemoryStream
+ ;
+
+ENDME // ME_4CED41D702A5 
+
+ME ME_4CEE484303CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED328E0140 // TnsCommentStorer
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4CEE484303CD 
+
+ME ME_4CEE486A010C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED328E0140 // TnsCommentStorer
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4CEE486A010C 
+
+ME ME_4CEE486D03AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED328E0140 // TnsCommentStorer
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4CEE486D03AB 
+
+ME ME_4CEE48730022
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED328E0140 // TnsCommentStorer
+ ;
+ MELINK Target WL 'ME_476BED00024F' '48F4E61C0060.ms.model.script' // StoreFlag
+ ;
+
+ENDME // ME_4CEE48730022 
+
+ME ME_4CEE48780072
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED328E0140 // TnsCommentStorer
+ ;
+ MELINK Target WL 'ME_48F47C8001FF' '478CF30500C1.ms.model.script' // TSeekOrigin
+ ;
+
+ENDME // ME_4CEE48780072 
+
+ME ME_4CEE487B039A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED328E0140 // TnsCommentStorer
+ ;
+ MELINK Target WL 'ME_483E708900B4' '47C695A10172.ms.model.script' // Clipboard Formats
+ ;
+
+ENDME // ME_4CEE487B039A 
+
+ME ME_4CEE48800291
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED328E0140 // TnsCommentStorer
+ ;
+ MELINK Target WL 'ME_48F473650362' '47AB1FDE03E4.ms.model.script' // Tl3MemoryStream
+ ;
+
+ENDME // ME_4CEE48800291 
+
+ME ME_4CEE4886002A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED328E0140 // TnsCommentStorer
+ ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_4CEE4886002A 
+
+ME ME_4CEE489302B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED328E0140 // TnsCommentStorer
+ ;
+ MELINK Target WL 'ME_4CEE380000F1' '4C6E92E9016E.ms.model.script' // If1CommentSink
+ ;
+
+ENDME // ME_4CEE489302B0 
+
+ME ME_4EAAE5E10212
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED328E0140 // TnsCommentStorer
+ ;
+ MELINK Target WL 'ME_4EAAE5B2005F' '4EAAE5A1005E.ms.model.script' // Comment
+ ;
+
+ENDME // ME_4EAAE5E10212 
+
+MEREF ME_4CED30D901C7_ME_4CED328E0140_over
+ MELINK Original WL 'ME_4CED30D901C7' '4CED2FED0255.ms.model.script' // ForceStore
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDMEREF // ME_4CED30D901C7_ME_4CED328E0140_over ForceStore
+
+MEREF ME_4CED304B0270_ME_4CED328E0140_G
+ MELINK Original WL 'ME_4CED304B0270' '4CED2FED0255.ms.model.script' // TevCommentStorer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CED304B0270_ME_4CED328E0140_G TevCommentStorer
+
+%%InheritedBy ME_4CED304B0270 ME_4CED328E0140
+
+ME ME_4CED328E0140
+ MEPROP UID '4CED328E0140'
+ MEPROP Name 'TnsCommentStorer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC9F80281' // DocumentTagNodes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CED304B0270_ME_4CED328E0140_G // TevCommentStorer
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4CED3A7F0099 // NotifyOtherTexts
+ HWL ME_4CED32FD0118 // ini
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4CED30D901C7_ME_4CED328E0140_over // ForceStore
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CED3F400362 // TnsTagNodePrim
+ ME_4CED41D702A5 // TnsCommentMemoryStream
+ ME_4CEE484303CD // Supports
+ ME_4CEE486A010C // FreeAndNil
+ ME_4CEE486D03AB // Tk2TagID
+ ME_4CEE48730022 // StoreFlag
+ ME_4CEE48780072 // TSeekOrigin
+ ME_4CEE487B039A // Clipboard Formats
+ ME_4CEE48800291 // Tl3MemoryStream
+ ME_4CEE4886002A // InevObject
+ ME_4CEE489302B0 // If1CommentSink
+ ME_4EAAE5E10212 // Comment
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '24.11.2010 18:34'
+ UP extprop:pas:UnitName 'nsCommentStorer'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CommentStorer'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsCommentStorer.pas'
+
+ENDME // ME_4CED328E0140 TnsCommentStorer

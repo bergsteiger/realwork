@@ -1,0 +1,84 @@
+// TnsInpharmContextHistoryPrim 4AD846290145 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AD846290145
+
+ME ME_4AD846560013
+ MEPROP UID '4AD846560013'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD846290145 // TnsInpharmContextHistoryPrim
+ ;
+
+ENDME // ME_4AD846560013 Create
+
+ME ME_4AD848D1006E
+ MEPROP UID '4AD848D1006E'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD846290145 // TnsInpharmContextHistoryPrim
+ ;
+
+ENDME // ME_4AD848D1006E Make
+
+MEREF ME_47BC391D0259_ME_4AD846290145_G
+ MELINK Original WL? 'ME_47BC391D0259' // Tl3SimpleObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC391D0259_ME_4AD846290145_G Tl3SimpleObject
+
+MEREF ME_4AD843F802B4_ME_4AD846290145_G
+ MELINK Original WL? 'ME_4AD843F802B4' // nsContextHistoryPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AD843F802B4_ME_4AD846290145_G nsContextHistoryPrim
+
+MEREF ME_496B53D10104_ME_4AD846290145_R
+ MELINK Original WL 'ME_496B53D10104' '54F9F6FB0143.ms.model.script' // InsContextSearchHistory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_496B53D10104_ME_4AD846290145_R InsContextSearchHistory
+
+%%ImplementedBy ME_496B53D10104 ME_4AD846290145
+
+%%InheritedBy ME_47BC391D0259 ME_4AD846290145
+%%InheritedBy ME_4AD843F802B4 ME_4AD846290145
+
+ME ME_4AD846290145
+ MEPROP UID '4AD846290145'
+ MEPROP Name 'TnsInpharmContextHistoryPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F9EC5B0269' // ContextHistory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47BC391D0259_ME_4AD846290145_G // Tl3SimpleObject
+ HWL ME_4AD843F802B4_ME_4AD846290145_G // nsContextHistoryPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_496B53D10104_ME_4AD846290145_R // InsContextSearchHistory
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4AD846560013 // Create
+ HWL ME_4AD848D1006E // Make
+ )
+ ; // Operations
+ UP extprop:pas:UnitName 'nsInpharmContextHistoryPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'InpharmContextHistoryPrim'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsInpharmContextHistoryPrim.pas'
+
+ENDME // ME_4AD846290145 TnsInpharmContextHistoryPrim

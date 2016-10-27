@@ -1,0 +1,120 @@
+// TmsmModelElementFactoryPrim 57C021910000 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57C021910000
+
+ME ME_57AB3A3C01DF
+ MEPROP UID '57AB3A3C01DF'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57C021910000 // TmsmModelElementFactoryPrim
+ ;
+ MELINK Target WL? 'ME_57A9F5170275' // TmsmModelElement
+ ;
+
+ENDME // ME_57AB3A3C01DF ItemType
+
+ME ME_57CE91B70269
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C021910000 // TmsmModelElementFactoryPrim
+ ;
+ MELINK Target WL? 'ME_57CE8E0B0357' // l3PointerUtils
+ ;
+
+ENDME // ME_57CE91B70269 
+
+MEREF ME_47B2C42A0163_ME_57C021910000_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_57C021910000_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_57C021910000_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_57C021910000_impl CompareExistingItems
+
+MEREF ME_47A042E100E2_ME_57C021910000_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_57C021910000_over InitFields
+
+MEREF ME_47B99E920196_ME_57C021910000_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_57C021910000_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_57C021910000_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_57C021910000_G Tl3ProtoDataContainer
+
+MEREF ME_57C5572B036F_ME_57C021910000_R
+ MELINK Original WL? 'ME_57C5572B036F' // seCriticalSectionHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57C5572B036F_ME_57C021910000_R seCriticalSectionHolder
+
+%%ImplementedBy ME_57C5572B036F ME_57C021910000
+
+%%InheritedBy ME_47B99E920196 ME_57C021910000
+%%InheritedBy ME_4A54DD4E036F ME_57C021910000
+
+ME ME_57C021910000
+ MEPROP UID '57C021910000'
+ MEPROP Name 'TmsmModelElementFactoryPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57A9D5CD0111' // ModelLoading
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B99E920196_ME_57C021910000_G // l3UncomparabeObjectRefList
+ HWL ME_4A54DD4E036F_ME_57C021910000_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57C5572B036F_ME_57C021910000_R // seCriticalSectionHolder
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57AB3A3C01DF // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_57C021910000_impl // AssignItem
+ ME_47B99D4503A2_ME_57C021910000_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_57C021910000_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57CE91B70269 // l3PointerUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmModelElementFactoryPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmModelElementFactoryPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmModelElementFactoryPrim.pas'
+
+ENDME // ME_57C021910000 TmsmModelElementFactoryPrim

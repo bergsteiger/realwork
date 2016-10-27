@@ -1,0 +1,234 @@
+// TdeSimpleTree 4D2DC8590283 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D2DC8590283
+
+ME ME_4D2DC93902B0
+ MEPROP UID '4D2DC93902B0'
+ MEPROP Name 'f_Tree'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4D2DC8590283 // TdeSimpleTree
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_4D2DC93902B0 f_Tree
+
+ME ME_4D3048AE0141
+ MEPROP UID '4D3048AE0141'
+ MEPROP Name 'f_Adornments'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4D2DC8590283 // TdeSimpleTree
+ ;
+ MELINK Target WL 'ME_4D2F119D004F' '4C6E92E9016E.ms.model.script' // InsDocumentAdornments
+ ;
+
+ENDME // ME_4D3048AE0141 f_Adornments
+
+FORWARD ME_4D2F170B02AD
+
+FORWARD ME_4D2F172B0282
+
+ME ME_4D2F17440134
+ MEPROP Name 'aTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_4D2F17440134 aTree
+
+ME ME_4D2F17440179
+ MEPROP Name 'anAdorments'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D2F119D004F' '4C6E92E9016E.ms.model.script' // InsDocumentAdornments
+ ;
+
+ENDME // ME_4D2F17440179 anAdorments
+
+ME ME_4D2F172B0282
+ MEPROP UID '4D2F172B0282'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D2F170B02AD // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D2F17440134 // aTree
+ ME_4D2F17440179 // anAdorments
+ )
+ ; // Parameters
+
+ENDME // ME_4D2F172B0282 DoIt
+
+ME ME_4D2F170B02AD
+ MEPROP UID '4D2F170B02AD'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D2DC8590283 // TdeSimpleTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D2F172B0282 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D2F170B02AD Create
+
+MEREF ME_4D2F170B02AD_ME_4D2F1783029D_G
+ MELINK Original HWL ME_4D2F170B02AD // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D2F170B02AD_ME_4D2F1783029D_G Create
+
+MEREF ME_49145BA70313_ME_4D2F1783029D_R
+ MELINK Original WL 'ME_49145BA70313' '491B305A0096.ms.model.script' // IdeSimpleTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49145BA70313_ME_4D2F1783029D_R IdeSimpleTree
+
+%%ImplementedBy ME_49145BA70313 ME_4D2F1783029D
+
+%%InheritedBy ME_4D2F170B02AD ME_4D2F1783029D
+
+ME ME_4D2F1783029D
+ MEPROP UID '4D2F1783029D'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D2DC8590283 // TdeSimpleTree
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D2F170B02AD_ME_4D2F1783029D_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_49145BA70313_ME_4D2F1783029D_R // IdeSimpleTree
+ )
+ ; // Implements
+
+ENDME // ME_4D2F1783029D Make
+
+MEREF ME_4D2DC8190360_ME_4D2DC8590283_impl
+ MELINK Original WL 'ME_4D2DC8190360' '491B305A0096.ms.model.script' // Contents
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4D2DC8190360_ME_4D2DC8590283_impl Contents
+
+MEREF ME_4D2DDF6D0139_ME_4D2DC8590283_impl
+ MELINK Original WL 'ME_4D2DDF6D0139' '491B305A0096.ms.model.script' // Bookmarks
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4D2DDF6D0139_ME_4D2DC8590283_impl Bookmarks
+
+MEREF ME_4D2DDF7A0260_ME_4D2DC8590283_impl
+ MELINK Original WL 'ME_4D2DDF7A0260' '491B305A0096.ms.model.script' // Comments
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4D2DDF7A0260_ME_4D2DC8590283_impl Comments
+
+MEREF ME_4D2DDF8301DF_ME_4D2DC8590283_impl
+ MELINK Original WL 'ME_4D2DDF8301DF' '491B305A0096.ms.model.script' // ExternalObjects
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4D2DDF8301DF_ME_4D2DC8590283_impl ExternalObjects
+
+MEREF ME_4D2DDF9B034E_ME_4D2DC8590283_impl
+ MELINK Original WL 'ME_4D2DDF9B034E' '491B305A0096.ms.model.script' // Empty
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4D2DDF9B034E_ME_4D2DC8590283_impl Empty
+
+MEREF ME_4D3048370128_ME_4D2DC8590283_impl
+ MELINK Original WL 'ME_4D3048370128' '491B305A0096.ms.model.script' // Adornments
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4D3048370128_ME_4D2DC8590283_impl Adornments
+
+MEREF ME_49E7754802A9_ME_4D2DC8590283_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4D2DC8590283_G Tl3ProtoObject
+
+MEREF ME_49145BA70313_ME_4D2DC8590283_R
+ MELINK Original WL 'ME_49145BA70313' '491B305A0096.ms.model.script' // IdeSimpleTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49145BA70313_ME_4D2DC8590283_R IdeSimpleTree
+
+%%ImplementedBy ME_49145BA70313 ME_4D2DC8590283
+
+%%InheritedBy ME_49E7754802A9 ME_4D2DC8590283
+
+ME ME_4D2DC8590283
+ MEPROP UID '4D2DC8590283'
+ MEPROP Name 'TdeSimpleTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47EA50050263' // BaseDocument
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_4D2DC8590283_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_49145BA70313_ME_4D2DC8590283_R // IdeSimpleTree
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4D2DC93902B0 // f_Tree
+ HWL ME_4D3048AE0141 // f_Adornments
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D2F170B02AD // Create
+ HWL ME_4D2F1783029D // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4D2DC8190360_ME_4D2DC8590283_impl // Contents
+ ME_4D2DDF6D0139_ME_4D2DC8590283_impl // Bookmarks
+ ME_4D2DDF7A0260_ME_4D2DC8590283_impl // Comments
+ ME_4D2DDF8301DF_ME_4D2DC8590283_impl // ExternalObjects
+ ME_4D2DDF9B034E_ME_4D2DC8590283_impl // Empty
+ ME_4D3048370128_ME_4D2DC8590283_impl // Adornments
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '12.01.2011 18:27'
+ UP extprop:pas:UnitName 'deSimpleTree'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'deSimpleTree'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\deSimpleTree.pas'
+
+ENDME // ME_4D2DC8590283 TdeSimpleTree

@@ -1,0 +1,63 @@
+// TedCellTypesList 511205FA00E2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_511205FA00E2
+
+ME ME_5112063F01B9
+ MEPROP UID '5112063F01B9'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_511205FA00E2 // TedCellTypesList
+ ;
+ MELINK Target WL 'ME_511203F50077' '572305620264.ms.model.script' // TedCellType
+ ;
+
+ENDME // ME_5112063F01B9 ItemType
+
+MEREF ME_47BC3A07027F_ME_511205FA00E2_G
+ MELINK Original WL? 'ME_47BC3A07027F' // Tl3SimpleDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC3A07027F_ME_511205FA00E2_G Tl3SimpleDataContainer
+
+MEREF ME_49142D7000F3_ME_511205FA00E2_G
+ MELINK Original WL? 'ME_49142D7000F3' // l3EnumList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49142D7000F3_ME_511205FA00E2_G l3EnumList
+
+%%InheritedBy ME_47BC3A07027F ME_511205FA00E2
+%%InheritedBy ME_49142D7000F3 ME_511205FA00E2
+
+ME ME_511205FA00E2
+ MEPROP UID '511205FA00E2'
+ MEPROP Name 'TedCellTypesList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '—писок дл€ хранени€ типов содержимого €чеек.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E451815031E' // CellUtils
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47BC3A07027F_ME_511205FA00E2_G // Tl3SimpleDataContainer
+ HWL ME_49142D7000F3_ME_511205FA00E2_G // l3EnumList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5112063F01B9 // ItemType
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'edCellTypesList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CellTypesList'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\edCellTypesList.pas'
+
+ENDME // ME_511205FA00E2 TedCellTypesList

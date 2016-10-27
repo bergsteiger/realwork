@@ -1,0 +1,66 @@
+// TvcmFormDispatcherListenerList 55FA71C6007E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55FA71C6007E
+
+ME ME_55FA71D500E8
+ MEPROP UID '55FA71D500E8'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55FA71C6007E // TvcmFormDispatcherListenerList
+ ;
+ MELINK Target WL 'ME_49525BDD02FE' '499469840038.ms.model.script' // IvcmFormDispatcherListener
+ ;
+
+ENDME // ME_55FA71D500E8 ItemType
+
+MEREF ME_4A54DD4E036F_ME_55FA71C6007E_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_55FA71C6007E_G Tl3ProtoDataContainer
+
+MEREF ME_47B57D630029_ME_55FA71C6007E_R
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_55FA71C6007E_R l3InterfacePtrList
+
+%%ImplementedBy ME_47B57D630029 ME_55FA71C6007E
+
+%%InheritedBy ME_4A54DD4E036F ME_55FA71C6007E
+
+ME ME_55FA71C6007E
+ MEPROP UID '55FA71C6007E'
+ MEPROP Name 'TvcmFormDispatcherListenerList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47DF70170311' // vcmCore
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_55FA71C6007E_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B57D630029_ME_55FA71C6007E_R // l3InterfacePtrList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55FA71D500E8 // ItemType
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'vcmFormDispatcherListenerList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FormDispatcherListenerList'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmFormDispatcherListenerList.pas'
+
+ENDME // ME_55FA71C6007E TvcmFormDispatcherListenerList

@@ -13,7 +13,7 @@ ME ME_555DCF650257
  MELINK Stereotype st_implements::Dependency ;
  MELINK Parent HWL ME_555DCF5A0060 // TevdEVDWriterService
  ;
- MELINK Target WL 'ME_555DCEA8017E' '482D6E960087.ms.model.script' // Tk2EVDWriterService
+ MELINK Target WL? 'ME_555DCEA8017E' // Tk2EVDWriterService
  ;
 
 ENDME // ME_555DCF650257 
@@ -23,7 +23,7 @@ ME ME_555DCF790378
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_555DCF5A0060 // TevdEVDWriterService
  ;
- MELINK Target WL 'ME_483D7C2A032C' '47ECB8BD00A8.ms.model.script' // TevdCustomNativeWriter
+ MELINK Target WL? 'ME_483D7C2A032C' // TevdCustomNativeWriter
  ;
 
 ENDME // ME_555DCF790378 
@@ -38,6 +38,12 @@ ME ME_55714D660056
 
 ENDME // ME_55714D660056 
 
+MEREF ME_49E7754802A9_ME_555DCF5A0060_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_555DCF5A0060_G Tl3ProtoObject
+
 %%InheritedBy ME_49E7754802A9 ME_555DCF5A0060
 
 ME ME_555DCF5A0060
@@ -51,7 +57,7 @@ ME ME_555DCF5A0060
  MELINK Parent HWL ME_555DCF340385 // evdCustomNativeWriterServices
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_555DCF5A0060_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Dependencies

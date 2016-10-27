@@ -1,0 +1,207 @@
+// TtfwEnumConstantRegistrator 55C0D99E0109 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55C0D99E0109
+
+ME ME_55C0DA5A015D
+ MEPROP UID '55C0DA5A015D'
+ MEPROP Name 'f_TypeInfo'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55C0D99E0109 // TtfwEnumConstantRegistrator
+ ;
+ MELINK Target WL 'ME_4767749802D1' '4767743E00E5.ms.model.script' // PTypeInfo
+ ;
+
+ENDME // ME_55C0DA5A015D f_TypeInfo
+
+FORWARD ME_55C0DA200397
+
+FORWARD ME_55C0DA29001E
+
+ME ME_55C0DA2A030D
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55C0DA2A030D aValue
+
+ME ME_55C0DA48036E
+ MEPROP Name 'aTypeInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4767749802D1' '4767743E00E5.ms.model.script' // PTypeInfo
+ ;
+
+ENDME // ME_55C0DA48036E aTypeInfo
+
+ME ME_55C0DA29001E
+ MEPROP UID '55C0DA29001E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C0DA200397 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_55C0DA2A030D // aValue
+ ME_55C0DA48036E // aTypeInfo
+ )
+ ; // Parameters
+
+ENDME // ME_55C0DA29001E DoIt
+
+ME ME_55C0DA200397
+ MEPROP UID '55C0DA200397'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C0D99E0109 // TtfwEnumConstantRegistrator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55C0DA29001E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55C0DA200397 Create
+
+FORWARD ME_55C0DA7C026A
+
+FORWARD ME_55C0DA8F03C4
+
+ME ME_55C0DA910239
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55C0DA910239 aName
+
+ME ME_55C0DA910261
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55C0DA910261 aValue
+
+ME ME_55C0DAA40125
+ MEPROP Name 'aTypeInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4767749802D1' '4767743E00E5.ms.model.script' // PTypeInfo
+ ;
+
+ENDME // ME_55C0DAA40125 aTypeInfo
+
+ME ME_55C0DA8F03C4
+ MEPROP UID '55C0DA8F03C4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C0DA7C026A // Register
+ ;
+ MELIST Parameters
+   Seq: ( ME_55C0DA910239 // aName
+ ME_55C0DA910261 // aValue
+ ME_55C0DAA40125 // aTypeInfo
+ )
+ ; // Parameters
+
+ENDME // ME_55C0DA8F03C4 DoIt
+
+ME ME_55C0DA88018C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C0DA7C026A // Register
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_55C0DA88018C 
+
+ME ME_55C0DA7C026A
+ MEPROP UID '55C0DA7C026A'
+ MEPROP Name 'Register'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C0D99E0109 // TtfwEnumConstantRegistrator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55C0DA8F03C4 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55C0DA88018C // FreeAndNil
+ )
+ ; // Dependencies
+ UP "is static" True
+
+ENDME // ME_55C0DA7C026A Register
+
+MEREF ME_52CFC11603C8_ME_55C0D99E0109_over
+ MELINK Original WL 'ME_52CFC11603C8' '4DAF19F600C5.ms.model.script' // ResultTypeInfo
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "pm" True
+ENDMEREF // ME_52CFC11603C8_ME_55C0D99E0109_over ResultTypeInfo
+
+MEREF ME_53C7C4BF03D9_ME_55C0D99E0109_G
+ MELINK Original WL? 'ME_53C7C4BF03D9' // TtfwIntegerConstantRegistrator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53C7C4BF03D9_ME_55C0D99E0109_G TtfwIntegerConstantRegistrator
+
+%%InheritedBy ME_53C7C4BF03D9 ME_55C0D99E0109
+
+ME ME_55C0D99E0109
+ MEPROP UID '55C0D99E0109'
+ MEPROP Name 'TtfwEnumConstantRegistrator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53C7C3100231' // ConstantsRegistration
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53C7C4BF03D9_ME_55C0D99E0109_G // TtfwIntegerConstantRegistrator
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55C0DA5A015D // f_TypeInfo
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55C0DA200397 // Create
+ HWL ME_55C0DA7C026A // Register
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_52CFC11603C8_ME_55C0D99E0109_over // ResultTypeInfo
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'tfwEnumConstantRegistrator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EnumConstantRegistrator'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwEnumConstantRegistrator.pas'
+
+ENDME // ME_55C0D99E0109 TtfwEnumConstantRegistrator

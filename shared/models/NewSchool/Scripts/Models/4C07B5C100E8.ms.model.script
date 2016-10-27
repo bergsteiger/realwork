@@ -1,0 +1,176 @@
+// EVDWriterTest 4C07B5C100E8 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C07B5C100E8
+
+FORWARD ME_4C07B67A02C1
+
+ME ME_4C07BA0400AC
+ MEPROP UID '4C07BA0400AC'
+ MEPROP Name 'Reader'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C07B67A02C1 // EVDtoEVD
+ ;
+ MELINK Target WL? 'ME_483E80FA0312' // TevdNativeReader
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4C07BA0400AC Reader
+
+FORWARD ME_4C07B6A40099
+
+ME ME_4C07B6AC0181
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4C07B6AC0181 aFileName
+
+ME ME_4C07B6A40099
+ MEPROP UID '4C07B6A40099'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C07B67A02C1 // EVDtoEVD
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C07B6AC0181 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_4C07B6A40099 DoIt
+
+ME ME_4C07BF4C0276
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C07B67A02C1 // EVDtoEVD
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4C07BF4C0276 
+
+ME ME_4C1B2AEA0195
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C07B67A02C1 // EVDtoEVD
+ ;
+ MELINK Target WL 'ME_4C1B2AB301B1' '4C1B2A94015D.ms.model.script' // TevCustomEvdReader
+ ;
+
+ENDME // ME_4C1B2AEA0195 
+
+ME ME_4C1B47A9014B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C07B67A02C1 // EVDtoEVD
+ ;
+ MELINK Target WL 'ME_4C1B47600258' '4C1B475101C5.ms.model.script' // Tl3CustomParser
+ ;
+
+ENDME // ME_4C1B47A9014B 
+
+ME ME_4C07B67A02C1
+ MEPROP UID '4C07B67A02C1'
+ MEPROP Name 'EVDtoEVD'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C07B5C100E8 // EVDWriterTest
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4C07BA0400AC // Reader
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4C07B6A40099 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C07BF4C0276 // FreeAndNil
+ ME_4C1B2AEA0195 // TevCustomEvdReader
+ ME_4C1B47A9014B // Tl3CustomParser
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4C07B67A02C1 EVDtoEVD
+
+ME ME_4C1B2B0203A2
+ MEPROP UID '4C1B2B0203A2'
+ MEPROP Name 'UseFullEVDReader'
+ MEPROP Class class_Operation
+ %SUMMARY 'Использовать ли ПОЛНЫЙ evdReader (с чтением текста тоже)' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C07B5C100E8 // EVDWriterTest
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C1B2B0203A2 UseFullEVDReader
+
+ME ME_4C1B47BA03AC
+ MEPROP UID '4C1B47BA03AC'
+ MEPROP Name 'DisableParserLog'
+ MEPROP Class class_Operation
+ %SUMMARY 'Запретить парсеру выводить в лог' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C07B5C100E8 // EVDWriterTest
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C1B47BA03AC DisableParserLog
+
+MEREF ME_4BACDDB500CE_ME_4C07B5C100E8_G
+ MELINK Original WL? 'ME_4BACDDB500CE' // WriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BACDDB500CE_ME_4C07B5C100E8_G WriterTest
+
+%%InheritedBy ME_4BACDDB500CE ME_4C07B5C100E8
+
+ME ME_4C07B5C100E8
+ MEPROP UID '4C07B5C100E8'
+ MEPROP Name 'EVDWriterTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C07B59F0382' // EVD
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BACDDB500CE_ME_4C07B5C100E8_G // WriterTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C07B67A02C1 // EVDtoEVD
+ HWL ME_4C1B2B0203A2 // UseFullEVDReader
+ HWL ME_4C1B47BA03AC // DisableParserLog
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TEVDWriterTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EVDWriterTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\EVDWriterTest.pas'
+
+ENDME // ME_4C07B5C100E8 EVDWriterTest

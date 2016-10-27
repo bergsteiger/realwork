@@ -1,0 +1,74 @@
+// K517772970_TaskRequest 53202A820364 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53202A820364
+
+ME ME_53202AD300E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53202A820364 // K517772970_TaskRequest
+ ;
+ MELINK Target WL? 'ME_5317087100E3' // csTaskRequest
+ ;
+
+ENDME // ME_53202AD300E4 
+
+ME ME_53B6940E033D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53202A820364 // K517772970_TaskRequest
+ ;
+ MELINK Target WL? 'ME_531708E3023A' // TaskRequest
+ ;
+
+ENDME // ME_53B6940E033D 
+
+MEREF ME_5320088202FB_ME_53202A820364_over
+ MELINK Original WL 'ME_5320088202FB' '532008240001.ms.model.script' // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5320088202FB_ME_53202A820364_over TaskClass
+
+MEREF ME_53200AD70286_ME_53202A820364_G
+ MELINK Original WL? 'ME_53200AD70286' // K517772970_TddRequestTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53200AD70286_ME_53202A820364_G K517772970_TddRequestTask
+
+%%InheritedBy ME_53200AD70286 ME_53202A820364
+
+ME ME_53202A820364
+ MEPROP UID '53202A820364'
+ MEPROP Name 'K517772970_TaskRequest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_531FF6280311' // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200AD70286_ME_53202A820364_G // K517772970_TddRequestTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53202A820364_over // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53202AD300E4 // csTaskRequest
+ ME_53B6940E033D // TaskRequest
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TK517772970_TaskRequest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K517772970_TaskRequest'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TaskRequest.pas'
+
+ENDME // ME_53202A820364 K517772970_TaskRequest

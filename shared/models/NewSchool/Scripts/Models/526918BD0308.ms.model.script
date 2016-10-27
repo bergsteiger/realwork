@@ -1,0 +1,75 @@
+// Tk2AtomicTagRefList 526918BD0308 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_526918BD0308
+
+ME ME_5269196A02A9
+ MEPROP UID '5269196A02A9'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_526918BD0308 // Tk2AtomicTagRefList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5269196A02A9 FindDataType
+
+MEREF ME_47B9BAFD01F4_ME_526918BD0308_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_526918BD0308_over CompareItemWithData
+
+MEREF ME_47B47E230134_ME_526918BD0308_G
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_526918BD0308_G l3Searcher
+
+MEREF ME_526918890147_ME_526918BD0308_G
+ MELINK Original WL? 'ME_526918890147' // Tk2AtomicTagRefListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_526918890147_ME_526918BD0308_G Tk2AtomicTagRefListPrim
+
+%%InheritedBy ME_47B47E230134 ME_526918BD0308
+%%InheritedBy ME_526918890147 ME_526918BD0308
+
+ME ME_526918BD0308
+ MEPROP UID '526918BD0308'
+ MEPROP Name 'Tk2AtomicTagRefList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B47E230134_ME_526918BD0308_G // l3Searcher
+ HWL ME_526918890147_ME_526918BD0308_G // Tk2AtomicTagRefListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5269196A02A9 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_526918BD0308_over // CompareItemWithData
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'k2AtomicTagRefList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AtomicTagRefList'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2AtomicTagRefList.pas'
+
+ENDME // ME_526918BD0308 Tk2AtomicTagRefList

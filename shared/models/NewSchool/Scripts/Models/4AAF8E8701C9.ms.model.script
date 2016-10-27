@@ -69,7 +69,7 @@ ME ME_4AF8271C0033
 
 ENDME // ME_4AF8271C0033 UpdatePrintersList
 
-ME ME_4AF82660008B_ME_4AAF8E8701C9
+MEREF ME_4AF82660008B_ME_4AAF8E8701C9_impl
  MELINK Original WL 'ME_4AF82660008B' '4AE89F8A004B.ms.model.script' // UpdatePrinter
  ;
  MEPROP OpKind opkind_Implemented
@@ -81,13 +81,25 @@ ME ME_4AF82660008B_ME_4AAF8E8701C9
  UP "LongProcess" False
  UP "Needs Broadcast" True
  UP "no prefix" False
-ENDME // ME_4AF82660008B_ME_4AAF8E8701C9 UpdatePrinter
+ENDMEREF // ME_4AF82660008B_ME_4AAF8E8701C9_impl UpdatePrinter
 
-ME ME_479731C50290_ME_4AAF8E8701C9
+MEREF ME_479731C50290_ME_4AAF8E8701C9_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4AAF8E8701C9 Cleanup
+ENDMEREF // ME_479731C50290_ME_4AAF8E8701C9_over Cleanup
+
+MEREF ME_49525B34022A_ME_4AAF8E8701C9_G
+ MELINK Original WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525B34022A_ME_4AAF8E8701C9_G TvcmEntityForm
+
+MEREF ME_4AF8265602EC_ME_4AAF8E8701C9_R
+ MELINK Original WL 'ME_4AF8265602EC' '4AE89F8A004B.ms.model.script' // PrintParams
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AF8265602EC_ME_4AAF8E8701C9_R PrintParams
 
 %%ImplementedBy ME_4AF8265602EC ME_4AAF8E8701C9
 
@@ -105,11 +117,11 @@ ME ME_4AAF8E8701C9
  MELINK Parent WL? 'ME_4958E382019E' // Search$Presentation for F1 and Monitorings
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+   Seq: ( HWL ME_49525B34022A_ME_4AAF8E8701C9_G // TvcmEntityForm
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4AF8265602EC' '4AE89F8A004B.ms.model.script' // PrintParams
+   Seq: ( HWL ME_4AF8265602EC_ME_4AAF8E8701C9_R // PrintParams
  )
  ; // Implements
  MELIST Attributes
@@ -123,11 +135,11 @@ ME ME_4AAF8E8701C9
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4AF82660008B_ME_4AAF8E8701C9 // UpdatePrinter
+   Seq: ( ME_4AF82660008B_ME_4AAF8E8701C9_impl // UpdatePrinter
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4AAF8E8701C9 // Cleanup
+   Seq: ( ME_479731C50290_ME_4AAF8E8701C9_over // Cleanup
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames

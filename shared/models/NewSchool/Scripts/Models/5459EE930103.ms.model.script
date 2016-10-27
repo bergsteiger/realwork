@@ -1,0 +1,298 @@
+// Tl3WideStringManager 5459EE930103 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5459EE930103
+
+FORWARD ME_54B9097403A0
+
+FORWARD ME_54B9098000E3
+
+ME ME_54B909840374
+ MEPROP Name 'aBlockSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54B909840374 aBlockSize
+
+ME ME_54B9098000E3
+ MEPROP UID '54B9098000E3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B9097403A0 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B909840374 // aBlockSize
+ )
+ ; // Parameters
+
+ENDME // ME_54B9098000E3 DoIt
+
+ME ME_54B9097403A0
+ MEPROP UID '54B9097403A0'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5459EE930103 // Tl3WideStringManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B9098000E3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B9097403A0 Create
+
+FORWARD ME_54B9099101F5
+
+FORWARD ME_54B909A0012D
+
+ME ME_54B909A80349
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
+ ;
+
+ENDME // ME_54B909A80349 aString
+
+ME ME_54B909A0012D
+ MEPROP UID '54B909A0012D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B9099101F5 // AllocString
+ ;
+ MELINK Target WL 'ME_4FA284CE011F' '4807744200AA.ms.model.script' // PWideChar
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B909A80349 // aString
+ )
+ ; // Parameters
+
+ENDME // ME_54B909A0012D DoIt
+
+ME ME_54B9099101F5
+ MEPROP UID '54B9099101F5'
+ MEPROP Name 'AllocString'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'распредел€ет строку' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5459EE930103 // Tl3WideStringManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B909A0012D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B9099101F5 AllocString
+
+FORWARD ME_54B909CF01F6
+
+FORWARD ME_54B909E40064
+
+ME ME_54B909E800FE
+ MEPROP Name 'theString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4FA284CE011F' '4807744200AA.ms.model.script' // PWideChar
+ ;
+
+ENDME // ME_54B909E800FE theString
+
+ME ME_54B909E40064
+ MEPROP UID '54B909E40064'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B909CF01F6 // FreeString
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B909E800FE // theString
+ )
+ ; // Parameters
+
+ENDME // ME_54B909E40064 DoIt
+
+ME ME_54B909CF01F6
+ MEPROP UID '54B909CF01F6'
+ MEPROP Name 'FreeString'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'освобождает строку' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5459EE930103 // Tl3WideStringManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B909E40064 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B909CF01F6 FreeString
+
+FORWARD ME_54B909F900AB
+
+FORWARD ME_54B90A140315
+
+ME ME_54B90A190179
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4FA284CE011F' '4807744200AA.ms.model.script' // PWideChar
+ ;
+
+ENDME // ME_54B90A190179 aString
+
+ME ME_54B90A140315
+ MEPROP UID '54B90A140315'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B909F900AB // StringAsPCharLen
+ ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B90A190179 // aString
+ )
+ ; // Parameters
+
+ENDME // ME_54B90A140315 DoIt
+
+ME ME_54B909F900AB
+ MEPROP UID '54B909F900AB'
+ MEPROP Name 'StringAsPCharLen'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'приводит строку к Tl3PChatLen' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5459EE930103 // Tl3WideStringManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B90A140315 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_54B909F900AB StringAsPCharLen
+
+FORWARD ME_54B90A41007F
+
+FORWARD ME_54B90A600110
+
+ME ME_54B90A650303
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4FA284CE011F' '4807744200AA.ms.model.script' // PWideChar
+ ;
+
+ENDME // ME_54B90A650303 aString
+
+ME ME_54B90A600110
+ MEPROP UID '54B90A600110'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B90A41007F // StringAsWideString
+ ;
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B90A650303 // aString
+ )
+ ; // Parameters
+
+ENDME // ME_54B90A600110 DoIt
+
+ME ME_54B90A41007F
+ MEPROP UID '54B90A41007F'
+ MEPROP Name 'StringAsWideString'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'приводит строку к WideString' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5459EE930103 // Tl3WideStringManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B90A600110 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_54B90A41007F StringAsWideString
+
+ME ME_54B90B3F03DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5459EE930103 // Tl3WideStringManager
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_54B90B3F03DA 
+
+MEREF ME_545A25F5016C_ME_5459EE930103_G
+ MELINK Original WL? 'ME_545A25F5016C' // Tl3SizedPoolManager
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_545A25F5016C_ME_5459EE930103_G Tl3SizedPoolManager
+
+%%InheritedBy ME_545A25F5016C ME_5459EE930103
+
+ME ME_5459EE930103
+ MEPROP UID '5459EE930103'
+ MEPROP Name 'Tl3WideStringManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ћенеджер Unicode-строк' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_545CDF1002C9' // MemoryManagers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_545A25F5016C_ME_5459EE930103_G // Tl3SizedPoolManager
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_54B9097403A0 // Create
+ HWL ME_54B9099101F5 // AllocString
+ HWL ME_54B909CF01F6 // FreeString
+ HWL ME_54B909F900AB // StringAsPCharLen
+ HWL ME_54B90A41007F // StringAsWideString
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_54B90B3F03DA // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'l3WideStringManager'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'WideStringManager'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3WideStringManager.pas'
+
+ENDME // ME_5459EE930103 Tl3WideStringManager

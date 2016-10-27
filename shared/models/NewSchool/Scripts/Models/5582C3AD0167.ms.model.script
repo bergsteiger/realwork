@@ -1,0 +1,125 @@
+// TvcmUserTypesIterator 5582C3AD0167 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5582C3AD0167
+
+ME ME_559D23D402A9
+ MEPROP UID '559D23D402A9'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5582C3AD0167 // TvcmUserTypesIterator
+ ;
+ MELINK Target WL? 'ME_559CEE5A000E' // TvcmUserTypeDefList
+ ;
+
+ENDME // ME_559D23D402A9 ListType
+
+ME ME_559D23F100E0
+ MEPROP UID '559D23F100E0'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5582C3AD0167 // TvcmUserTypesIterator
+ ;
+ MELINK Target WL 'ME_49930DA10146' '4683F37902CF.ms.model.script' // IvcmUserTypeDef
+ ;
+
+ENDME // ME_559D23F100E0 ItemType
+
+FORWARD ME_5582C3F6016A
+
+ME ME_5582C407033B
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_559CEE5A000E' // TvcmUserTypeDefList
+ ;
+
+ENDME // ME_5582C407033B aList
+
+ME ME_5582C3F6016A
+ MEPROP UID '5582C3F6016A'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5582C3AD0167 // TvcmUserTypesIterator
+ ;
+ MELINK Target WL 'ME_499560BA0000' '4683F37902CF.ms.model.script' // IvcmUserTypesIterator
+ ;
+ MELIST Parameters
+   Seq: ( ME_5582C407033B // aList
+ )
+ ; // Parameters
+
+ENDME // ME_5582C3F6016A Make
+
+MEREF ME_499560C601FD_ME_5582C3AD0167_impl
+ MELINK Original WL 'ME_499560C601FD' '4683F37902CF.ms.model.script' // Next
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_499560C601FD_ME_5582C3AD0167_impl Next
+
+MEREF ME_5582BCBE00C3_ME_5582C3AD0167_G
+ MELINK Original WL? 'ME_5582BCBE00C3' // vcmIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5582BCBE00C3_ME_5582C3AD0167_G vcmIterator
+
+MEREF ME_499560BA0000_ME_5582C3AD0167_R
+ MELINK Original WL 'ME_499560BA0000' '4683F37902CF.ms.model.script' // IvcmUserTypesIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_499560BA0000_ME_5582C3AD0167_R IvcmUserTypesIterator
+
+%%ImplementedBy ME_499560BA0000 ME_5582C3AD0167
+
+%%InheritedBy ME_5582BCBE00C3 ME_5582C3AD0167
+
+ME ME_5582C3AD0167
+ MEPROP UID '5582C3AD0167'
+ MEPROP Name 'TvcmUserTypesIterator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47D0E1500033' // Implementation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5582BCBE00C3_ME_5582C3AD0167_G // vcmIterator
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_499560BA0000_ME_5582C3AD0167_R // IvcmUserTypesIterator
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_559D23D402A9 // ListType
+ HWL ME_559D23F100E0 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5582C3F6016A // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_499560C601FD_ME_5582C3AD0167_impl // Next
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'vcmUserTypesIterator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'UserTypesIterator'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmUserTypesIterator.pas'
+
+ENDME // ME_5582C3AD0167 TvcmUserTypesIterator

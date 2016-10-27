@@ -1,0 +1,64 @@
+// TarSpravkaTextOfDocument 4F9502130133 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F9502130133
+
+ME ME_4F9502670074
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F9502130133 // TarSpravkaTextOfDocument
+ ;
+ MELINK Target WL? 'ME_4F9501970235' // TarSpravkaDocumentContainer
+ ;
+
+ENDME // ME_4F9502670074 
+
+MEREF ME_482D9A030221_ME_4F9502130133_over
+ MELINK Original WL 'ME_482D9A030221' '482BFB7C00B6.ms.model.script' // DoMakeDocumentContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_482D9A030221_ME_4F9502130133_over DoMakeDocumentContainer
+
+MEREF ME_4E0072E100DB_ME_4F9502130133_G
+ MELINK Original WL? 'ME_4E0072E100DB' // TarTextOfDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E0072E100DB_ME_4F9502130133_G TarTextOfDocument
+
+%%InheritedBy ME_4E0072E100DB ME_4F9502130133
+
+ME ME_4F9502130133
+ MEPROP UID '4F9502130133'
+ MEPROP Name 'TarSpravkaTextOfDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ÒextSource äëÿ ñïðàâêè.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E0072500208' // DocIntf
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E0072E100DB_ME_4F9502130133_G // TarTextOfDocument
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_482D9A030221_ME_4F9502130133_over // DoMakeDocumentContainer
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F9502670074 // TarSpravkaDocumentContainer
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:pas:UnitName 'arSpravkaTextOfDocument'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arSpravkaTextOfDocument'
+ UP intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_arSpravkaTextOfDocument.pas'
+
+ENDME // ME_4F9502130133 TarSpravkaTextOfDocument

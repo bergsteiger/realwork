@@ -1,0 +1,170 @@
+// TnsContextFilterEventListener 4B1660B9000D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B1660B9000D
+
+ME ME_4B1662ED031B
+ MEPROP UID '4B1662ED031B'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B1660B9000D // TnsContextFilterEventListener
+ ;
+ MELINK Target WL? 'ME_4B1662CC011E' // TnsContextFilterEventDataList
+ ;
+
+ENDME // ME_4B1662ED031B f_List
+
+ME ME_4B1661450093
+ MEPROP UID '4B1661450093'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1660B9000D // TnsContextFilterEventListener
+ ;
+
+ENDME // ME_4B1661450093 Create
+
+ME ME_4B166460002D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1660B9000D // TnsContextFilterEventListener
+ ;
+ MELINK Target WL? 'ME_49F0314802E7' // TnscContextFilter
+ ;
+
+ENDME // ME_4B166460002D 
+
+ME ME_4B16761E0252
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1660B9000D // TnsContextFilterEventListener
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B16761E0252 
+
+ME ME_4B16766100BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1660B9000D // TnsContextFilterEventListener
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4B16766100BE 
+
+ME ME_4B16767B020B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1660B9000D // TnsContextFilterEventListener
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4B16767B020B 
+
+ME ME_4B1679740371
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1660B9000D // TnsContextFilterEventListener
+ ;
+ MELINK Target WL 'ME_4AAF9718001D' '4A6854C70390.ms.model.script' // nsAStr
+ ;
+
+ENDME // ME_4B1679740371 
+
+MEREF ME_490839BA0073_ME_4B1660B9000D_impl
+ MELINK Original WL 'ME_490839BA0073' '490838E10313.ms.model.script' // ContextCanBeChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_490839BA0073_ME_4B1660B9000D_impl ContextCanBeChanged
+
+MEREF ME_4B165B44032D_ME_4B1660B9000D_impl
+ MELINK Original WL 'ME_4B165B44032D' '490838E10313.ms.model.script' // FilterRemoving
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B165B44032D_ME_4B1660B9000D_impl FilterRemoving
+
+MEREF ME_479731C50290_ME_4B1660B9000D_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4B1660B9000D_over Cleanup
+
+MEREF ME_4B0A6109010C_ME_4B1660B9000D_G
+ MELINK Original WL? 'ME_4B0A6109010C' // TnsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0A6109010C_ME_4B1660B9000D_G TnsLogEvent
+
+MEREF ME_490839920096_ME_4B1660B9000D_R
+ MELINK Original WL 'ME_490839920096' '490838E10313.ms.model.script' // InscContextFilterListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_490839920096_ME_4B1660B9000D_R InscContextFilterListener
+
+%%ImplementedBy ME_490839920096 ME_4B1660B9000D
+
+%%InheritedBy ME_4B0A6109010C ME_4B1660B9000D
+
+ME ME_4B1660B9000D
+ MEPROP UID '4B1660B9000D'
+ MEPROP Name 'TnsContextFilterEventListener'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4B0A60DF01F2' // Logging
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B0A6109010C_ME_4B1660B9000D_G // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_490839920096_ME_4B1660B9000D_R // InscContextFilterListener
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B1662ED031B // f_List
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B1661450093 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_490839BA0073_ME_4B1660B9000D_impl // ContextCanBeChanged
+ ME_4B165B44032D_ME_4B1660B9000D_impl // FilterRemoving
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4B1660B9000D_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4B166460002D // TnscContextFilter
+ ME_4B16761E0252 // LogEvent
+ ME_4B16766100BE // l3String
+ ME_4B16767B020B // FreeAndNil
+ ME_4B1679740371 // nsAStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:pas:UnitName 'nsContextFilterEventListener'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ContextFilterEventListener'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Logging\nsContextFilterEventListener.pas'
+
+ENDME // ME_4B1660B9000D TnsContextFilterEventListener

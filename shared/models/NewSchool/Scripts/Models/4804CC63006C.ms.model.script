@@ -1,0 +1,104 @@
+// TevFormulaPainter 4804CC63006C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4804CC63006C
+
+ME ME_4804CCB802E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4804CC63006C // TevFormulaPainter
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4804CCB802E5 
+
+ME ME_4DD67BEC00A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4804CC63006C // TevFormulaPainter
+ ;
+ MELINK Target WL? 'ME_4857934201E3' // TevFormula
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_4DD67BEC00A2 
+
+ME ME_53D0F6EE0230
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_4804CC63006C // TevFormulaPainter
+ ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_53D0F6EE0230 
+
+MEREF ME_4804B86403BE_ME_4804CC63006C_over
+ MELINK Original WL 'ME_4804B86403BE' '4804A2C101A5.ms.model.script' // DoFillSelection
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4804B86403BE_ME_4804CC63006C_over DoFillSelection
+
+MEREF ME_4804C81000B9_ME_4804CC63006C_over
+ MELINK Original WL 'ME_4804C81000B9' '4804C7B60375.ms.model.script' // DrawLeaf
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4804C81000B9_ME_4804CC63006C_over DrawLeaf
+
+MEREF ME_4E53B9A500B4_ME_4804CC63006C_over
+ MELINK Original WL 'ME_4E53B9A500B4' '4804C7B60375.ms.model.script' // GetBitmapForPara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E53B9A500B4_ME_4804CC63006C_over GetBitmapForPara
+
+MEREF ME_49DA30D901B6_ME_4804CC63006C_G
+ MELINK Original WL? 'ME_49DA30D901B6' // TevTextParaPainterEx
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49DA30D901B6_ME_4804CC63006C_G TevTextParaPainterEx
+
+%%InjectedBy ME_4857934201E3 ME_4804CC63006C
+
+%%InheritedBy ME_49DA30D901B6 ME_4804CC63006C
+
+ME ME_4804CC63006C
+ MEPROP UID '4804CC63006C'
+ MEPROP Name 'TevFormulaPainter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4804A24003C1' // LeafPara Painters
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49DA30D901B6_ME_4804CC63006C_G // TevTextParaPainterEx
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4804B86403BE_ME_4804CC63006C_over // DoFillSelection
+ ME_4804C81000B9_ME_4804CC63006C_over // DrawLeaf
+ ME_4E53B9A500B4_ME_4804CC63006C_over // GetBitmapForPara
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4804CCB802E5 // Tk2TagID
+ ME_4DD67BEC00A2 // TevFormula
+ ME_53D0F6EE0230 // IevPainter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '15.12.2002 15:28'
+ UP extprop:pas:UnitName 'evFormulaPainter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FormulaPainter'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evFormulaPainter.pas'
+
+ENDME // ME_4804CC63006C TevFormulaPainter

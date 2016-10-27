@@ -431,7 +431,7 @@ FORWARD ME_4B5572710384
 ME ME_4C810A2702D9
  MEPROP UID '4C810A2702D9'
  MEPROP Name 'SearchInList'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Искать по реквизитам в текущем списке' ;
@@ -599,7 +599,7 @@ ENDME // ME_4C7BD36900F5 MachineOff
 ME ME_4C7BD34501EB
  MEPROP UID '4C7BD34501EB'
  MEPROP Name 'TimeMachineOnOffNew'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Включить Машину времени' ;
@@ -735,7 +735,7 @@ ENDME // ME_4C7D3A94007B Deactivate
 ME ME_4C7D3A81021B
  MEPROP UID '4C7D3A81021B'
  MEPROP Name 'Activate'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Применить фильтр' ;
@@ -881,12 +881,18 @@ ENDME // ME_4C3AA74B010D Document$FromList
 
 FORWARD ME_49880F4A0376
 
+MEREF ME_4FBB600E00C8_ME_4FE1EF1201D6_R
+ MELINK Original WL 'ME_4FBB600E00C8' '484900780017.ms.model.script' // Оценка документа
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FBB600E00C8_ME_4FE1EF1201D6_R Оценка документа
+
 %%ImplementedBy ME_4FBB600E00C8 ME_4FE1EF1201D6
 
 ME ME_4FE1EF1201D6
  MEPROP UID '4FE1EF1201D6'
  MEPROP Name 'DocumentIsUseful'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Нравится' ;
@@ -895,7 +901,7 @@ ME ME_4FE1EF1201D6
  MELINK Parent HWL ME_49880F4A0376 // Document$ForStatusBar
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4FBB600E00C8' '484900780017.ms.model.script' // Оценка документа
+   Seq: ( HWL ME_4FBB600E00C8_ME_4FE1EF1201D6_R // Оценка документа
  )
  ; // Implements
  UP "AutoFocus" False
@@ -910,12 +916,18 @@ ME ME_4FE1EF1201D6
 
 ENDME // ME_4FE1EF1201D6 DocumentIsUseful
 
+MEREF ME_4FBB600E00C8_ME_4FE1EF1B039A_R
+ MELINK Original WL 'ME_4FBB600E00C8' '484900780017.ms.model.script' // Оценка документа
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FBB600E00C8_ME_4FE1EF1B039A_R Оценка документа
+
 %%ImplementedBy ME_4FBB600E00C8 ME_4FE1EF1B039A
 
 ME ME_4FE1EF1B039A
  MEPROP UID '4FE1EF1B039A'
  MEPROP Name 'DocumentIsUseless'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Не нравится' ;
@@ -924,7 +936,7 @@ ME ME_4FE1EF1B039A
  MELINK Parent HWL ME_49880F4A0376 // Document$ForStatusBar
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4FBB600E00C8' '484900780017.ms.model.script' // Оценка документа
+   Seq: ( HWL ME_4FBB600E00C8_ME_4FE1EF1B039A_R // Оценка документа
  )
  ; // Implements
  UP "AutoFocus" False
@@ -1052,7 +1064,7 @@ ENDME // ME_4C7BABEB0197 RemoveFromControl
 ME ME_4C7BABCE03C0
  MEPROP UID '4C7BABCE03C0'
  MEPROP Name 'AddToControl'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Поставить на контроль' ;
@@ -1101,7 +1113,7 @@ ENDME // ME_4C7BAC3400F0 Corr
 ME ME_4C7BAC1902F5
  MEPROP UID '4C7BAC1902F5'
  MEPROP Name 'UserCR1'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Пользовательские ссылки на документ (ссылки из документа) 1' ;
@@ -1150,7 +1162,7 @@ ENDME // ME_4C7BAC630109 Corr
 ME ME_4C7BAC5101CA
  MEPROP UID '4C7BAC5101CA'
  MEPROP Name 'UserCR2'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Пользовательские ссылки на документ (ссылки из документа) 2' ;
@@ -1281,7 +1293,7 @@ ME ME_4C3C77CC012A
 
 ENDME // ME_4C3C77CC012A GetGraphicImage
 
-ME ME_49880FD20039_ME_498860B50287
+MEREF ME_49880FD20039_ME_498860B50287_impl
  MELINK Original HWL ME_49880FD20039 // NextDocumentInList
  ;
  MEPROP OpKind opkind_Implemented
@@ -1294,9 +1306,9 @@ ME ME_49880FD20039_ME_498860B50287
  UP "no prefix" False
  UP "ShowInContextMenu" False
  UP "ShowInToolbar" False
-ENDME // ME_49880FD20039_ME_498860B50287 NextDocumentInList
+ENDMEREF // ME_49880FD20039_ME_498860B50287_impl NextDocumentInList
 
-ME ME_49880FE90145_ME_498860B50287
+MEREF ME_49880FE90145_ME_498860B50287_impl
  MELINK Original HWL ME_49880FE90145 // ReturnToList
  ;
  MEPROP OpKind opkind_Implemented
@@ -1309,9 +1321,9 @@ ME ME_49880FE90145_ME_498860B50287
  UP "no prefix" False
  UP "ShowInContextMenu" False
  UP "ShowInToolbar" False
-ENDME // ME_49880FE90145_ME_498860B50287 ReturnToList
+ENDMEREF // ME_49880FE90145_ME_498860B50287_impl ReturnToList
 
-ME ME_4FE1BA1303D3_ME_498860B50287
+MEREF ME_4FE1BA1303D3_ME_498860B50287_impl
  MELINK Original HWL ME_4FE1BA1303D3 // PrevDocumentInList
  ;
  MEPROP OpKind opkind_Implemented
@@ -1324,9 +1336,9 @@ ME ME_4FE1BA1303D3_ME_498860B50287
  UP "no prefix" False
  UP "ShowInContextMenu" False
  UP "ShowInToolbar" False
-ENDME // ME_4FE1BA1303D3_ME_498860B50287 PrevDocumentInList
+ENDMEREF // ME_4FE1BA1303D3_ME_498860B50287_impl PrevDocumentInList
 
-ME ME_4FE1EF1201D6_ME_498860B50287
+MEREF ME_4FE1EF1201D6_ME_498860B50287_impl
  MELINK Original HWL ME_4FE1EF1201D6 // DocumentIsUseful
  ;
  MEPROP OpKind opkind_Implemented
@@ -1339,9 +1351,9 @@ ME ME_4FE1EF1201D6_ME_498860B50287
  UP "no prefix" False
  UP "ShowInContextMenu" False
  UP "ShowInToolbar" False
-ENDME // ME_4FE1EF1201D6_ME_498860B50287 DocumentIsUseful
+ENDMEREF // ME_4FE1EF1201D6_ME_498860B50287_impl DocumentIsUseful
 
-ME ME_4FE1EF1B039A_ME_498860B50287
+MEREF ME_4FE1EF1B039A_ME_498860B50287_impl
  MELINK Original HWL ME_4FE1EF1B039A // DocumentIsUseless
  ;
  MEPROP OpKind opkind_Implemented
@@ -1354,7 +1366,13 @@ ME ME_4FE1EF1B039A_ME_498860B50287
  UP "no prefix" False
  UP "ShowInContextMenu" False
  UP "ShowInToolbar" False
-ENDME // ME_4FE1EF1B039A_ME_498860B50287 DocumentIsUseless
+ENDMEREF // ME_4FE1EF1B039A_ME_498860B50287_impl DocumentIsUseless
+
+MEREF ME_49880F4A0376_ME_498860B50287_G
+ MELINK Original HWL ME_49880F4A0376 // Document$ForStatusBar
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49880F4A0376_ME_498860B50287_G Document$ForStatusBar
 
 %%InheritedBy ME_49880F4A0376 ME_498860B50287
 
@@ -1371,7 +1389,7 @@ ME ME_498860B50287
  MELINK Parent HWL ME_4A9807DB01A5 // Strange
  ;
  MELIST Inherits
-   Seq: ( HWL ME_49880F4A0376 // Document$ForStatusBar
+   Seq: ( HWL ME_49880F4A0376_ME_498860B50287_G // Document$ForStatusBar
  )
  ; // Inherits
  MELIST Operations
@@ -1386,11 +1404,11 @@ ME ME_498860B50287
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_49880FD20039_ME_498860B50287 // NextDocumentInList
- ME_49880FE90145_ME_498860B50287 // ReturnToList
- ME_4FE1BA1303D3_ME_498860B50287 // PrevDocumentInList
- ME_4FE1EF1201D6_ME_498860B50287 // DocumentIsUseful
- ME_4FE1EF1B039A_ME_498860B50287 // DocumentIsUseless
+   Seq: ( ME_49880FD20039_ME_498860B50287_impl // NextDocumentInList
+ ME_49880FE90145_ME_498860B50287_impl // ReturnToList
+ ME_4FE1BA1303D3_ME_498860B50287_impl // PrevDocumentInList
+ ME_4FE1EF1201D6_ME_498860B50287_impl // DocumentIsUseful
+ ME_4FE1EF1B039A_ME_498860B50287_impl // DocumentIsUseless
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -1680,7 +1698,7 @@ FORWARD ME_4C3C757901C3
 ME ME_4C7F8B870162
  MEPROP UID '4C7F8B870162'
  MEPROP Name 'Open'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1702,7 +1720,7 @@ ENDME // ME_4C7F8B870162 Open
 ME ME_4C7F8BBB01B2
  MEPROP UID '4C7F8BBB01B2'
  MEPROP Name 'OpenNewWindow'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1725,7 +1743,7 @@ ENDME // ME_4C7F8BBB01B2 OpenNewWindow
 ME ME_4C7F8BD80114
  MEPROP UID '4C7F8BD80114'
  MEPROP Name 'NextHyperLink'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1747,7 +1765,7 @@ ENDME // ME_4C7F8BD80114 NextHyperLink
 ME ME_4C7F8BEA01B2
  MEPROP UID '4C7F8BEA01B2'
  MEPROP Name 'PrevHyperLink'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1769,7 +1787,7 @@ ENDME // ME_4C7F8BEA01B2 PrevHyperLink
 ME ME_53DF186601F1
  MEPROP UID '53DF186601F1'
  MEPROP Name 'OpenInNewTab'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1792,7 +1810,7 @@ ENDME // ME_53DF186601F1 OpenInNewTab
 ME ME_53F5887E03A1
  MEPROP UID '53F5887E03A1'
  MEPROP Name 'OpenScriptHyperLink'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1815,7 +1833,7 @@ ENDME // ME_53F5887E03A1 OpenScriptHyperLink
 ME ME_5460A4DD0349
  MEPROP UID '5460A4DD0349'
  MEPROP Name 'NavigateInternetHyperlink'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Перейти по гиперссылке' ;
@@ -1855,6 +1873,12 @@ ME ME_4C3C758C0183
 
 ENDME // ME_4C3C758C0183 Delete
 
+MEREF ME_4F10411202FB_ME_4C3C757901C3_R
+ MELINK Original WL 'ME_4F10411202FB' '484900780017.ms.model.script' // Должна быть навигация по ссылкам с клавиатуры
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F10411202FB_ME_4C3C757901C3_R Должна быть навигация по ссылкам с клавиатуры
+
 %%ImplementedBy ME_4F10411202FB ME_4C3C757901C3
 
 ME ME_4C3C757901C3
@@ -1869,7 +1893,7 @@ ME ME_4C3C757901C3
  MELINK Parent HWL ME_4A9807DB01A5 // Strange
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4F10411202FB' '484900780017.ms.model.script' // Должна быть навигация по ссылкам с клавиатуры
+   Seq: ( HWL ME_4F10411202FB_ME_4C3C757901C3_R // Должна быть навигация по ссылкам с клавиатуры
  )
  ; // Implements
  MELIST Operations
@@ -2463,7 +2487,7 @@ ME ME_4AFD4A45003B
 
 ENDME // ME_4AFD4A45003B GotoPara
 
-ME ME_4AE9D38A02DA_ME_4AE9D36D02A6
+MEREF ME_4AE9D38A02DA_ME_4AE9D36D02A6_impl
  MELINK Original WL 'ME_4AE9D38A02DA' '4A77058200BA.ms.model.script' // SetPosition
  ;
  MEPROP OpKind opkind_Implemented
@@ -2475,9 +2499,9 @@ ME ME_4AE9D38A02DA_ME_4AE9D36D02A6
  UP "LongProcess" False
  UP "Needs Broadcast" False
  UP "no prefix" False
-ENDME // ME_4AE9D38A02DA_ME_4AE9D36D02A6 SetPosition
+ENDMEREF // ME_4AE9D38A02DA_ME_4AE9D36D02A6_impl SetPosition
 
-ME ME_4B506F4D0196_ME_4AE9D36D02A6
+MEREF ME_4B506F4D0196_ME_4AE9D36D02A6_impl
  MELINK Original WL 'ME_4B506F4D0196' '4A77058200BA.ms.model.script' // GetParaForPositionning
  ;
  MEPROP OpKind opkind_Implemented
@@ -2489,7 +2513,13 @@ ME ME_4B506F4D0196_ME_4AE9D36D02A6
  UP "LongProcess" False
  UP "Needs Broadcast" False
  UP "no prefix" False
-ENDME // ME_4B506F4D0196_ME_4AE9D36D02A6 GetParaForPositionning
+ENDMEREF // ME_4B506F4D0196_ME_4AE9D36D02A6_impl GetParaForPositionning
+
+MEREF ME_4F991E420079_ME_4AE9D36D02A6_G
+ MELINK Original WL 'ME_4F991E420079' '4A77058200BA.ms.model.script' // Document$GetParaForPositioning
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F991E420079_ME_4AE9D36D02A6_G Document$GetParaForPositioning
 
 %%InheritedBy ME_4F991E420079 ME_4AE9D36D02A6
 
@@ -2505,7 +2535,7 @@ ME ME_4AE9D36D02A6
  MELINK Parent HWL ME_4A9807DB01A5 // Strange
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F991E420079' '4A77058200BA.ms.model.script' // Document$GetParaForPositioning
+   Seq: ( HWL ME_4F991E420079_ME_4AE9D36D02A6_G // Document$GetParaForPositioning
  )
  ; // Inherits
  MELIST Operations
@@ -2526,8 +2556,8 @@ ME ME_4AE9D36D02A6
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4AE9D38A02DA_ME_4AE9D36D02A6 // SetPosition
- ME_4B506F4D0196_ME_4AE9D36D02A6 // GetParaForPositionning
+   Seq: ( ME_4AE9D38A02DA_ME_4AE9D36D02A6_impl // SetPosition
+ ME_4B506F4D0196_ME_4AE9D36D02A6_impl // GetParaForPositionning
  )
  ; // Implemented
 

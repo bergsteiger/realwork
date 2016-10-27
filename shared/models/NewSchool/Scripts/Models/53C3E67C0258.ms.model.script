@@ -1,0 +1,156 @@
+// WevdTask 53C3E67C0258 Wrapper Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53C3E67C0258
+
+FORWARD ME_53C3E6AF0130
+
+ME ME_53C3E6BF0367
+ MEPROP UID '53C3E6BF0367'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C3E6AF0130 // GetDescription
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_53C3E6BF0367 DoIt
+
+ME ME_53C3E6DD03B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C3E6AF0130 // GetDescription
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_53C3E6DD03B8 
+
+ME ME_53C3E6AF0130
+ MEPROP UID '53C3E6AF0130'
+ MEPROP Name 'GetDescription'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53C3E67C0258 // WevdTask
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53C3E6BF0367 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_53C3E6DD03B8 // Tk2TagID
+ )
+ ; // Dependencies
+
+ENDME // ME_53C3E6AF0130 GetDescription
+
+ME ME_53C3ECFD03AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C3E67C0258 // WevdTask
+ ;
+ MELINK Target WL 'ME_537DFEF702E1' '484A470100DD.ms.model.script' // Task
+ ;
+
+ENDME // ME_53C3ECFD03AC 
+
+ME ME_53C9308E01D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C3E67C0258 // WevdTask
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_53C9308E01D7 
+
+ME ME_53C93B9A027B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C3E67C0258 // WevdTask
+ ;
+ MELINK Target WL? 'ME_53073D3D00BE' // Tk2String
+ ;
+
+ENDME // ME_53C93B9A027B 
+
+ME ME_53C93FFA029B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C3E67C0258 // WevdTask
+ ;
+ MELINK Target WL? 'ME_4808A20402DC' // Math
+ ;
+
+ENDME // ME_53C93FFA029B 
+
+MEREF ME_4857A995029E_ME_53C3E67C0258_over
+ MELINK Original WL 'ME_4857A995029E' '47AC6F0B025E.ms.model.script' // GetAtomData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4857A995029E_ME_53C3E67C0258_over GetAtomData
+
+MEREF ME_484941DA0047_ME_53C3E67C0258_G
+ MELINK Original WL? 'ME_484941DA0047' // Wk2Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484941DA0047_ME_53C3E67C0258_G Wk2Tag
+
+MEREF ME_537DFEF702E1_ME_53C3E67C0258_R
+ MELINK Original WL 'ME_537DFEF702E1' '484A470100DD.ms.model.script' // Task
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_537DFEF702E1_ME_53C3E67C0258_R Task
+
+%%ImplementedBy ME_537DFEF702E1 ME_53C3E67C0258
+
+%%InheritedBy ME_484941DA0047 ME_53C3E67C0258
+
+ME ME_53C3E67C0258
+ MEPROP UID '53C3E67C0258'
+ MEPROP Name 'WevdTask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Wrapper ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_484A470100DD' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484941DA0047_ME_53C3E67C0258_G // Wk2Tag
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_537DFEF702E1_ME_53C3E67C0258_R // Task
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_53C3E6AF0130 // GetDescription
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4857A995029E_ME_53C3E67C0258_over // GetAtomData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53C3ECFD03AC // Task
+ ME_53C9308E01D7 // SysUtils
+ ME_53C93B9A027B // Tk2String
+ ME_53C93FFA029B // Math
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evdTask_Wrap'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdTask_Wrap.pas'
+
+ENDME // ME_53C3E67C0258 WevdTask

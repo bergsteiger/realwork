@@ -1,0 +1,96 @@
+// TevdPDFHyperLinkEliminator 541A7EEC0051 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_541A7EEC0051
+
+ME ME_541A839E023E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_541A7EEC0051 // TevdPDFHyperLinkEliminator
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_541A839E023E 
+
+ME ME_541A93A60087
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_541A7EEC0051 // TevdPDFHyperLinkEliminator
+ ;
+ MELINK Target WL? 'ME_530F1BCA00B2' // Tk2VariantImpl
+ ;
+
+ENDME // ME_541A93A60087 
+
+ME ME_541A93B6018B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_541A7EEC0051 // TevdPDFHyperLinkEliminator
+ ;
+ MELINK Target WL 'ME_530DF7340360' '469F886F010C.ms.model.script' // Tk2Variant
+ ;
+
+ENDME // ME_541A93B6018B 
+
+ME ME_541A93CC027B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_541A7EEC0051 // TevdPDFHyperLinkEliminator
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_541A93CC027B 
+
+MEREF ME_4836D52400D9_ME_541A7EEC0051_over
+ MELINK Original WL 'ME_4836D52400D9' '47ECAA270135.ms.model.script' // AddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D52400D9_ME_541A7EEC0051_over AddAtomEx
+
+MEREF ME_4E9FD8340247_ME_541A7EEC0051_G
+ MELINK Original WL? 'ME_4E9FD8340247' // TevdHyperlinkEliminator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E9FD8340247_ME_541A7EEC0051_G TevdHyperlinkEliminator
+
+%%InheritedBy ME_4E9FD8340247 ME_541A7EEC0051
+
+ME ME_541A7EEC0051
+ MEPROP UID '541A7EEC0051'
+ MEPROP Name 'TevdPDFHyperLinkEliminator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '‘ильтр, удал€ющий ссылки дл€ PDF.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECB8BD00A8' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E9FD8340247_ME_541A7EEC0051_G // TevdHyperlinkEliminator
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4836D52400D9_ME_541A7EEC0051_over // AddAtomEx
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_541A839E023E // Tk2TagID
+ ME_541A93A60087 // Tk2VariantImpl
+ ME_541A93B6018B // Tk2Variant
+ ME_541A93CC027B // Standard
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evdPDFHyperLinkEliminator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dPDFHyperLinkEliminator'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdPDFHyperLinkEliminator.pas'
+
+ENDME // ME_541A7EEC0051 TevdPDFHyperLinkEliminator

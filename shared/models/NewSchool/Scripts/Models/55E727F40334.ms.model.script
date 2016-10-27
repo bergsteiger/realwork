@@ -124,7 +124,7 @@ ME ME_55E7283B0087
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55E727F40334 // tfwDictionaryWordsPack
  ;
- MELINK Target WL 'ME_52E29F1A037E' '4F50310E03D7.ms.model.script' // TtfwMembersIterator
+ MELINK Target WL? 'ME_52E29F1A037E' // TtfwMembersIterator
  ;
 
 ENDME // ME_55E7283B0087 
@@ -144,10 +144,16 @@ ME ME_55ED4C0E0175
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55E727F40334 // tfwDictionaryWordsPack
  ;
- MELINK Target WL 'ME_55ED4BC100BB' '4F50310E03D7.ms.model.script' // TtfwKeywordsIterator
+ MELINK Target WL? 'ME_55ED4BC100BB' // TtfwKeywordsIterator
  ;
 
 ENDME // ME_55ED4C0E0175 
+
+MEREF ME_4DAEECD90016_ME_55E727F40334_G
+ MELINK Original WL? 'ME_4DAEECD90016' // TtfwDictionary
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DAEECD90016_ME_55E727F40334_G TtfwDictionary
 
 %%InheritedBy ME_4DAEECD90016 ME_55E727F40334
 
@@ -163,7 +169,7 @@ ME ME_55E727F40334
  MELINK Parent WL? 'ME_4F43A0A401E6' // Basics
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4DAEECD90016' '4F2275C00012.ms.model.script' // TtfwDictionary
+   Seq: ( HWL ME_4DAEECD90016_ME_55E727F40334_G // TtfwDictionary
  )
  ; // Inherits
  MELIST Operations

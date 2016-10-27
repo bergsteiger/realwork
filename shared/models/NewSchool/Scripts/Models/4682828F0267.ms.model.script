@@ -1,0 +1,55 @@
+// TnsContentsTagNode 4682828F0267 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4682828F0267
+
+ME ME_468282CF0273
+ MEPROP UID '468282CF0273'
+ MEPROP Name 'f_Tag'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Тег, который представляет нода.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4682828F0267 // TnsContentsTagNode
+ ;
+ MELINK Target WL 'ME_533C138F0003' '4678137501EA.ms.model.script' // Ik2Tag
+ ;
+
+ENDME // ME_468282CF0273 f_Tag
+
+MEREF ME_46827E69026A_ME_4682828F0267_G
+ MELINK Original WL? 'ME_46827E69026A' // TnsContentsNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46827E69026A_ME_4682828F0267_G TnsContentsNode
+
+%%InheritedBy ME_46827E69026A ME_4682828F0267
+
+ME ME_4682828F0267
+ MEPROP UID '4682828F0267'
+ MEPROP Name 'TnsContentsTagNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC9F80281' // DocumentTagNodes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46827E69026A_ME_4682828F0267_G // TnsContentsNode
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_468282CF0273 // f_Tag
+ )
+ ; // Attributes
+ UP "finished" False
+ UP extprop:pas:UnitName 'nsContentsTagNode'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ContentsTagNode'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_FINISHED_nsContentsTagNode.pas'
+
+ENDME // ME_4682828F0267 TnsContentsTagNode

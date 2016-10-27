@@ -1,0 +1,1184 @@
+// TatFoldersHelper 480864400141 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4843BE8B00D6
+%%Inner ME_4843BEFE0153
+%%Inner ME_4843C7450355
+%%Inner ME_483FF19F0326
+%%Inner ME_484D48390350
+%%Inner ME_484D485A0275
+%%Inner ME_484D2643016E
+%%Inner ME_4843C0AE03D4
+%%Inner ME_484FE8AF001E
+%%Inner ME_4FCF8EBF0006
+%%Inner ME_4FD2376601E4
+
+FORWARD ME_480864400141
+
+FORWARD ME_4843BE8B00D6
+
+FORWARD ME_4843BEA80357
+
+ME ME_4843C6E6022C
+ MEPROP Name 'aFoldersNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED5F0008E' '4570501E037A.ms.model.script' // FoldersNode
+ ;
+
+ENDME // ME_4843C6E6022C aFoldersNode
+
+ME ME_4843BEA80357
+ MEPROP UID '4843BEA80357'
+ MEPROP Name 'IsMatch'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4843BE8B00D6 // IatFoldersNodeMatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4843C6E6022C // aFoldersNode
+ )
+ ; // Parameters
+
+ENDME // ME_4843BEA80357 IsMatch
+
+ME ME_4843BE8B00D6
+ MEPROP UID '4843BE8B00D6'
+ MEPROP GUID '0EDEF0CD-6104-4C41-ACD7-A8248088AD75'
+ MEPROP Name 'IatFoldersNodeMatcher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4843BEA80357 // IsMatch
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atFoldersNodeMatcher'
+
+ENDME // ME_4843BE8B00D6 IatFoldersNodeMatcher
+
+FORWARD ME_4843BEFE0153
+
+ME ME_484D51CF004B
+ MEPROP UID '484D51CF004B'
+ MEPROP Name 'FoldersNode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4843BEFE0153 // TatFolderNodeMatcherBase
+ ;
+ MELINK Target WL 'ME_45EED5F0008E' '4570501E037A.ms.model.script' // FoldersNode
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_484D51CF004B FoldersNode
+
+ME ME_4843BF1B0059
+ MEPROP UID '4843BF1B0059'
+ MEPROP Name 'CheckIsMatch'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4843BEFE0153 // TatFolderNodeMatcherBase
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4843BF1B0059 CheckIsMatch
+
+ME ME_487B361F01DE
+ MEPROP UID '487B361F01DE'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4843BEFE0153 // TatFolderNodeMatcherBase
+ ;
+
+ENDME // ME_487B361F01DE Make
+
+MEREF ME_4843BEA80357_ME_4843BEFE0153_impl
+ MELINK Original HWL ME_4843BEA80357 // IsMatch
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4843BEA80357_ME_4843BEFE0153_impl IsMatch
+
+MEREF ME_47879856035F_ME_4843BEFE0153_G
+ MELINK Original WL? 'ME_47879856035F' // Tl3_Base
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47879856035F_ME_4843BEFE0153_G Tl3_Base
+
+MEREF ME_4843BE8B00D6_ME_4843BEFE0153_R
+ MELINK Original HWL ME_4843BE8B00D6 // IatFoldersNodeMatcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4843BE8B00D6_ME_4843BEFE0153_R IatFoldersNodeMatcher
+
+%%ImplementedBy ME_4843BE8B00D6 ME_4843BEFE0153
+
+%%InheritedBy ME_47879856035F ME_4843BEFE0153
+
+ME ME_4843BEFE0153
+ MEPROP UID '4843BEFE0153'
+ MEPROP Name 'TatFolderNodeMatcherBase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47879856035F_ME_4843BEFE0153_G // Tl3_Base
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4843BE8B00D6_ME_4843BEFE0153_R // IatFoldersNodeMatcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_484D51CF004B // FoldersNode
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4843BF1B0059 // CheckIsMatch
+ HWL ME_487B361F01DE // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4843BEA80357_ME_4843BEFE0153_impl // IsMatch
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atFolderNodeMatcherBase'
+
+ENDME // ME_4843BEFE0153 TatFolderNodeMatcherBase
+
+MEREF ME_4843BF1B0059_ME_4843C7450355_impl
+ MELINK Original HWL ME_4843BF1B0059 // CheckIsMatch
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4843BF1B0059_ME_4843C7450355_impl CheckIsMatch
+
+MEREF ME_4843BEFE0153_ME_4843C7450355_G
+ MELINK Original HWL ME_4843BEFE0153 // TatFolderNodeMatcherBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4843BEFE0153_ME_4843C7450355_G TatFolderNodeMatcherBase
+
+%%InheritedBy ME_4843BEFE0153 ME_4843C7450355
+
+ME ME_4843C7450355
+ MEPROP UID '4843C7450355'
+ MEPROP Name 'TatAnyMatcher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4843BEFE0153_ME_4843C7450355_G // TatFolderNodeMatcherBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4843BF1B0059_ME_4843C7450355_impl // CheckIsMatch
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atAnyMatcher'
+
+ENDME // ME_4843C7450355 TatAnyMatcher
+
+FORWARD ME_483FF19F0326
+
+ME ME_483FF1AB03E2
+ MEPROP UID '483FF1AB03E2'
+ MEPROP Name 'MM_ALL'
+ MEPROP Class class_Attribute
+ %SUMMARY 'подходят все' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483FF19F0326 // TatMatchMethod
+ ;
+
+ENDME // ME_483FF1AB03E2 MM_ALL
+
+ME ME_483FF1F30326
+ MEPROP UID '483FF1F30326'
+ MEPROP Name 'MM_COMPARE'
+ MEPROP Class class_Attribute
+ %SUMMARY 'подходят те имена которых совпадают с заданным' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483FF19F0326 // TatMatchMethod
+ ;
+
+ENDME // ME_483FF1F30326 MM_COMPARE
+
+ME ME_483FF21400C5
+ MEPROP UID '483FF21400C5'
+ MEPROP Name 'MM_REGEXP'
+ MEPROP Class class_Attribute
+ %SUMMARY 'подходят те, имена которых удовлетворяют регулярному выражению' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483FF19F0326 // TatMatchMethod
+ ;
+
+ENDME // ME_483FF21400C5 MM_REGEXP
+
+ME ME_483FF19F0326
+ MEPROP UID '483FF19F0326'
+ MEPROP Name 'TatMatchMethod'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Как выполняем проверку "а эту ли закладку нам нужно удалять"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_483FF1AB03E2 // MM_ALL
+ HWL ME_483FF1F30326 // MM_COMPARE
+ HWL ME_483FF21400C5 // MM_REGEXP
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_483FF19F0326 TatMatchMethod
+
+FORWARD ME_484D48390350
+
+ME ME_484D48AE03DD
+ MEPROP UID '484D48AE03DD'
+ MEPROP Name 'MatchMethod'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484D48390350 // IatNameMatcher
+ ;
+ MELINK Target HWL ME_483FF19F0326 // TatMatchMethod
+ ;
+ UP "pm" False
+
+ENDME // ME_484D48AE03DD MatchMethod
+
+ME ME_484D490C02C3
+ MEPROP UID '484D490C02C3'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484D48390350 // IatNameMatcher
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "pm" False
+
+ENDME // ME_484D490C02C3 Name
+
+ME ME_484D48390350
+ MEPROP UID '484D48390350'
+ MEPROP GUID '37DA6992-43E1-493E-BE86-B98BD0FC9B2B'
+ MEPROP Name 'IatNameMatcher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_484D48AE03DD // MatchMethod
+ HWL ME_484D490C02C3 // Name
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atNameMatcher'
+
+ENDME // ME_484D48390350 IatNameMatcher
+
+FORWARD ME_484D485A0275
+
+ME ME_484D51FE0183
+ MEPROP UID '484D51FE0183'
+ MEPROP Name 'ObjectCaption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484D485A0275 // TatNameMatcher
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_484D51FE0183 ObjectCaption
+
+ME ME_484D48BB03CD
+ MEPROP UID '484D48BB03CD'
+ MEPROP Name 'f_MatchMethod'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484D485A0275 // TatNameMatcher
+ ;
+ MELINK Target HWL ME_483FF19F0326 // TatMatchMethod
+ ;
+
+ENDME // ME_484D48BB03CD f_MatchMethod
+
+ME ME_484D49040350
+ MEPROP UID '484D49040350'
+ MEPROP Name 'f_Name'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484D485A0275 // TatNameMatcher
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_484D49040350 f_Name
+
+ME ME_484D4FAA0135
+ MEPROP UID '484D4FAA0135'
+ MEPROP Name 'f_RegExp'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484D485A0275 // TatNameMatcher
+ ;
+ MELINK Target WL 'ME_483D7DF50251' '483D7D8C001A.ms.model.script' // Tl3RegularSearch
+ ;
+
+ENDME // ME_484D4FAA0135 f_RegExp
+
+ME ME_484D4FC2027D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484D485A0275 // TatNameMatcher
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_484D4FC2027D 
+
+ME ME_484D4FCD0377
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484D485A0275 // TatNameMatcher
+ ;
+ MELINK Target WL 'ME_483D7E190330' '483D7D8C001A.ms.model.script' // Tl3MatchPosition
+ ;
+
+ENDME // ME_484D4FCD0377 
+
+MEREF ME_484D48AE03DD_ME_484D485A0275_impl
+ MELINK Original HWL ME_484D48AE03DD // MatchMethod
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_484D48AE03DD_ME_484D485A0275_impl MatchMethod
+
+MEREF ME_484D490C02C3_ME_484D485A0275_impl
+ MELINK Original HWL ME_484D490C02C3 // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_484D490C02C3_ME_484D485A0275_impl Name
+
+MEREF ME_479731C50290_ME_484D485A0275_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_484D485A0275_over Cleanup
+
+MEREF ME_47A042E100E2_ME_484D485A0275_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_484D485A0275_over InitFields
+
+MEREF ME_4843BF1B0059_ME_484D485A0275_over
+ MELINK Original HWL ME_4843BF1B0059 // CheckIsMatch
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4843BF1B0059_ME_484D485A0275_over CheckIsMatch
+
+MEREF ME_4843C7450355_ME_484D485A0275_G
+ MELINK Original HWL ME_4843C7450355 // TatAnyMatcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4843C7450355_ME_484D485A0275_G TatAnyMatcher
+
+MEREF ME_484D48390350_ME_484D485A0275_R
+ MELINK Original HWL ME_484D48390350 // IatNameMatcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484D48390350_ME_484D485A0275_R IatNameMatcher
+
+%%ImplementedBy ME_484D48390350 ME_484D485A0275
+
+%%InheritedBy ME_4843C7450355 ME_484D485A0275
+
+ME ME_484D485A0275
+ MEPROP UID '484D485A0275'
+ MEPROP Name 'TatNameMatcher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4843C7450355_ME_484D485A0275_G // TatAnyMatcher
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_484D48390350_ME_484D485A0275_R // IatNameMatcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_484D51FE0183 // ObjectCaption
+ HWL ME_484D48BB03CD // f_MatchMethod
+ HWL ME_484D49040350 // f_Name
+ HWL ME_484D4FAA0135 // f_RegExp
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_484D48AE03DD_ME_484D485A0275_impl // MatchMethod
+ ME_484D490C02C3_ME_484D485A0275_impl // Name
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_484D485A0275_over // Cleanup
+ ME_47A042E100E2_ME_484D485A0275_over // InitFields
+ ME_4843BF1B0059_ME_484D485A0275_over // CheckIsMatch
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_484D4FC2027D // String
+ ME_484D4FCD0377 // Tl3MatchPosition
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atNameMatcher'
+
+ENDME // ME_484D485A0275 TatNameMatcher
+
+FORWARD ME_484D2643016E
+
+ME ME_484D525A03B6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484D2643016E // TatFolderMatcher
+ ;
+ MELINK Target WL 'ME_45EEE28D00BD' '4570501E037A.ms.model.script' // Folder
+ ;
+
+ENDME // ME_484D525A03B6 
+
+MEREF ME_484D51FE0183_ME_484D2643016E_impl
+ MELINK Original HWL ME_484D51FE0183 // ObjectCaption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" False
+ UP "pm" True
+ENDMEREF // ME_484D51FE0183_ME_484D2643016E_impl ObjectCaption
+
+MEREF ME_4843BF1B0059_ME_484D2643016E_over
+ MELINK Original HWL ME_4843BF1B0059 // CheckIsMatch
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4843BF1B0059_ME_484D2643016E_over CheckIsMatch
+
+MEREF ME_484D485A0275_ME_484D2643016E_G
+ MELINK Original HWL ME_484D485A0275 // TatNameMatcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484D485A0275_ME_484D2643016E_G TatNameMatcher
+
+%%InheritedBy ME_484D485A0275 ME_484D2643016E
+
+ME ME_484D2643016E
+ MEPROP UID '484D2643016E'
+ MEPROP Name 'TatFolderMatcher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484D485A0275_ME_484D2643016E_G // TatNameMatcher
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_484D51FE0183_ME_484D2643016E_impl // ObjectCaption
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4843BF1B0059_ME_484D2643016E_over // CheckIsMatch
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_484D525A03B6 // Folder
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atFolderMatcher'
+
+ENDME // ME_484D2643016E TatFolderMatcher
+
+FORWARD ME_4843C0AE03D4
+
+ME ME_484D52250339
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4843C0AE03D4 // TatBookmarkMatcher
+ ;
+ MELINK Target WL 'ME_45EEB65202A0' '4570511E038A.ms.model.script' // Bookmark
+ ;
+
+ENDME // ME_484D52250339 
+
+MEREF ME_484D51FE0183_ME_4843C0AE03D4_impl
+ MELINK Original HWL ME_484D51FE0183 // ObjectCaption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" False
+ UP "pm" True
+ENDMEREF // ME_484D51FE0183_ME_4843C0AE03D4_impl ObjectCaption
+
+MEREF ME_4843BF1B0059_ME_4843C0AE03D4_over
+ MELINK Original HWL ME_4843BF1B0059 // CheckIsMatch
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4843BF1B0059_ME_4843C0AE03D4_over CheckIsMatch
+
+MEREF ME_484D485A0275_ME_4843C0AE03D4_G
+ MELINK Original HWL ME_484D485A0275 // TatNameMatcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484D485A0275_ME_4843C0AE03D4_G TatNameMatcher
+
+%%InheritedBy ME_484D485A0275 ME_4843C0AE03D4
+
+ME ME_4843C0AE03D4
+ MEPROP UID '4843C0AE03D4'
+ MEPROP Name 'TatBookmarkMatcher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484D485A0275_ME_4843C0AE03D4_G // TatNameMatcher
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_484D51FE0183_ME_4843C0AE03D4_impl // ObjectCaption
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4843BF1B0059_ME_4843C0AE03D4_over // CheckIsMatch
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_484D52250339 // Bookmark
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atBookmarkMatcher'
+
+ENDME // ME_4843C0AE03D4 TatBookmarkMatcher
+
+FORWARD ME_484FE8AF001E
+
+ME ME_484FE8D0029F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484FE8AF001E // TatListMatcher
+ ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_484FE8D0029F 
+
+MEREF ME_484D51FE0183_ME_484FE8AF001E_impl
+ MELINK Original HWL ME_484D51FE0183 // ObjectCaption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" False
+ UP "pm" True
+ENDMEREF // ME_484D51FE0183_ME_484FE8AF001E_impl ObjectCaption
+
+MEREF ME_4843BF1B0059_ME_484FE8AF001E_over
+ MELINK Original HWL ME_4843BF1B0059 // CheckIsMatch
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4843BF1B0059_ME_484FE8AF001E_over CheckIsMatch
+
+MEREF ME_484D485A0275_ME_484FE8AF001E_G
+ MELINK Original HWL ME_484D485A0275 // TatNameMatcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484D485A0275_ME_484FE8AF001E_G TatNameMatcher
+
+%%InheritedBy ME_484D485A0275 ME_484FE8AF001E
+
+ME ME_484FE8AF001E
+ MEPROP UID '484FE8AF001E'
+ MEPROP Name 'TatListMatcher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484D485A0275_ME_484FE8AF001E_G // TatNameMatcher
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_484D51FE0183_ME_484FE8AF001E_impl // ObjectCaption
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4843BF1B0059_ME_484FE8AF001E_over // CheckIsMatch
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_484FE8D0029F // DynList
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atListMatcher'
+
+ENDME // ME_484FE8AF001E TatListMatcher
+
+FORWARD ME_4FCF8EBF0006
+
+FORWARD ME_4FCF8EE001D4
+
+ME ME_4FCF8F00020E
+ MEPROP Name 'aFoldersNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED5F0008E' '4570501E037A.ms.model.script' // FoldersNode
+ ;
+
+ENDME // ME_4FCF8F00020E aFoldersNode
+
+ME ME_4FCF8EE001D4
+ MEPROP UID '4FCF8EE001D4'
+ MEPROP Name 'OnFoldersNode'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FCF8EBF0006 // IatFoldersNodeCallback
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FCF8F00020E // aFoldersNode
+ )
+ ; // Parameters
+
+ENDME // ME_4FCF8EE001D4 OnFoldersNode
+
+ME ME_4FCF8EBF0006
+ MEPROP UID '4FCF8EBF0006'
+ MEPROP GUID '7405392E-7DB4-4E52-BE6D-7697BFC0AEA3'
+ MEPROP Name 'IatFoldersNodeCallback'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FCF8EE001D4 // OnFoldersNode
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atFoldersNodeCallback'
+
+ENDME // ME_4FCF8EBF0006 IatFoldersNodeCallback
+
+FORWARD ME_4FD2376601E4
+
+ME ME_4FD2379B0095
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FD2376601E4 // TatQueryMatcher
+ ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_4FD2379B0095 
+
+MEREF ME_484D51FE0183_ME_4FD2376601E4_impl
+ MELINK Original HWL ME_484D51FE0183 // ObjectCaption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" False
+ UP "pm" True
+ENDMEREF // ME_484D51FE0183_ME_4FD2376601E4_impl ObjectCaption
+
+MEREF ME_4843BF1B0059_ME_4FD2376601E4_over
+ MELINK Original HWL ME_4843BF1B0059 // CheckIsMatch
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4843BF1B0059_ME_4FD2376601E4_over CheckIsMatch
+
+MEREF ME_484D485A0275_ME_4FD2376601E4_G
+ MELINK Original HWL ME_484D485A0275 // TatNameMatcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484D485A0275_ME_4FD2376601E4_G TatNameMatcher
+
+%%InheritedBy ME_484D485A0275 ME_4FD2376601E4
+
+ME ME_4FD2376601E4
+ MEPROP UID '4FD2376601E4'
+ MEPROP Name 'TatQueryMatcher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484D485A0275_ME_4FD2376601E4_G // TatNameMatcher
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_484D51FE0183_ME_4FD2376601E4_impl // ObjectCaption
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4843BF1B0059_ME_4FD2376601E4_over // CheckIsMatch
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4FD2379B0095 // Query
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atQueryMatcher'
+
+ENDME // ME_4FD2376601E4 TatQueryMatcher
+
+FORWARD ME_4808645502A6
+
+ME ME_484413310160
+ MEPROP Name 'folders'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED7A20292' '4570501E037A.ms.model.script' // Folders
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_45EED7A20292' '4570501E037A.ms.model.script' // Folders
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_484413310160 folders
+
+ME ME_4808645502A6
+ MEPROP UID '4808645502A6'
+ MEPROP Name 'GetMyDocuments'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELINK Target WL 'ME_45EED5F0008E' '4570501E037A.ms.model.script' // FoldersNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_484413310160 // folders
+ )
+ ; // Parameters
+
+ENDME // ME_4808645502A6 GetMyDocuments
+
+FORWARD ME_4843C7000113
+
+ME ME_4FCF96AC0126
+ MEPROP Name 'aRootNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED5F0008E' '4570501E037A.ms.model.script' // FoldersNode
+ ;
+
+ENDME // ME_4FCF96AC0126 aRootNode
+
+ME ME_4FCF96AC0166
+ MEPROP Name 'aFoldersNodeCallback'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4FCF8EBF0006 // IatFoldersNodeCallback
+ ;
+
+ENDME // ME_4FCF96AC0166 aFoldersNodeCallback
+
+ME ME_4FCF96AC01A5
+ MEPROP Name 'aMatcher'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4843BE8B00D6 // IatFoldersNodeMatcher
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_4843BE8B00D6 // IatFoldersNodeMatcher
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4FCF96AC01A5 aMatcher
+
+ME ME_4FCF96AC01EB
+ MEPROP Name 'isRecursive'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_4FCF96AC01EB isRecursive
+
+ME ME_4843C7000113
+ MEPROP UID '4843C7000113'
+ MEPROP Name 'IterateAllChildFoldersNode'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ %SUMMARY 'Проходит по элементам в папках. Соответствует ли элемент - определяется путем вызова метода IsMatch на IatFoldersNodeMatcher.'#13#10'Возвращает количество просмотренных элементов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FCF96AC0126 // aRootNode
+ ME_4FCF96AC0166 // aFoldersNodeCallback
+ ME_4FCF96AC01A5 // aMatcher
+ ME_4FCF96AC01EB // isRecursive
+ )
+ ; // Parameters
+ UP extprop:pas:Value 0
+
+ENDME // ME_4843C7000113 IterateAllChildFoldersNode
+
+FORWARD ME_4843E40A01DE
+
+ME ME_4843E49202F8
+ MEPROP Name 'anEntity'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_456EB3E10177' '456EA56002BF.ms.model.script' // EntityBase
+ ;
+
+ENDME // ME_4843E49202F8 anEntity
+
+ME ME_4843E4920355
+ MEPROP Name 'theAddedNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_456FE63B01D4' '456F02A50196.ms.model.script' // Node
+ ;
+
+ENDME // ME_4843E4920355 theAddedNode
+
+ME ME_4843E40A01DE
+ MEPROP UID '4843E40A01DE'
+ MEPROP Name 'AddToMyDocuments'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_4843E49202F8 // anEntity
+ ME_4843E4920355 // theAddedNode
+ )
+ ; // Parameters
+
+ENDME // ME_4843E40A01DE AddToMyDocuments
+
+FORWARD ME_48468B1302AF
+
+ME ME_48468B60039A
+ MEPROP Name 'aRootNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED5F0008E' '4570501E037A.ms.model.script' // FoldersNode
+ ;
+
+ENDME // ME_48468B60039A aRootNode
+
+ME ME_48468B61004E
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_48468B61004E aName
+
+ME ME_48468B6100DB
+ MEPROP Name 'aComment'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_48468B6100DB aComment
+
+ME ME_48468DB50223
+ MEPROP Name 'theAddedNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_456FE63B01D4' '456F02A50196.ms.model.script' // Node
+ ;
+
+ENDME // ME_48468DB50223 theAddedNode
+
+ME ME_48468B1302AF
+ MEPROP UID '48468B1302AF'
+ MEPROP Name 'CreateFolder'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ %SUMMARY 'Добавляет к указанной ноде дочернюю папку.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_48468B60039A // aRootNode
+ ME_48468B61004E // aName
+ ME_48468B6100DB // aComment
+ ME_48468DB50223 // theAddedNode
+ )
+ ; // Parameters
+
+ENDME // ME_48468B1302AF CreateFolder
+
+FORWARD ME_48562215003C
+
+ME ME_4856225C0126
+ MEPROP Name 'aFolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED5F0008E' '4570501E037A.ms.model.script' // FoldersNode
+ ;
+
+ENDME // ME_4856225C0126 aFolder
+
+ME ME_4856225C01B3
+ MEPROP Name 'anEntity'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_456EB3E10177' '456EA56002BF.ms.model.script' // EntityBase
+ ;
+
+ENDME // ME_4856225C01B3 anEntity
+
+ME ME_4856232B01E2
+ MEPROP Name 'theAddedNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_456FE63B01D4' '456F02A50196.ms.model.script' // Node
+ ;
+
+ENDME // ME_4856232B01E2 theAddedNode
+
+ME ME_48562215003C
+ MEPROP UID '48562215003C'
+ MEPROP Name 'AddToFolder'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_4856225C0126 // aFolder
+ ME_4856225C01B3 // anEntity
+ ME_4856232B01E2 // theAddedNode
+ )
+ ; // Parameters
+
+ENDME // ME_48562215003C AddToFolder
+
+ME ME_4843D0020219
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELINK Target WL 'ME_456FE63B01D4' '456F02A50196.ms.model.script' // Node
+ ;
+
+ENDME // ME_4843D0020219 
+
+ME ME_4843D0410110
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELINK Target WL 'ME_45EEDC6F01D7' '4570501E037A.ms.model.script' // FoldersItemType
+ ;
+
+ENDME // ME_4843D0410110 
+
+ME ME_4843D0450100
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELINK Target WL 'ME_45EED5F0008E' '4570501E037A.ms.model.script' // FoldersNode
+ ;
+
+ENDME // ME_4843D0450100 
+
+ME ME_4843E4AC01AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELINK Target WL 'ME_456EB3E10177' '456EA56002BF.ms.model.script' // EntityBase
+ ;
+
+ENDME // ME_4843E4AC01AF 
+
+ME ME_4843E6C60271
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELINK Target WL 'ME_483C0B6B0167' '483C0AEA0186.ms.model.script' // TatGblAdapterWorker
+ ;
+
+ENDME // ME_4843E6C60271 
+
+ME ME_48469E4D0272
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_48469E4D0272 
+
+ME ME_484D4DD001C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_484D4DD001C2 
+
+ME ME_4AC226060384
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480864400141 // TatFoldersHelper
+ ;
+ MELINK Target WL? 'ME_48B5671301C7' // TatStringHelper
+ ;
+
+ENDME // ME_4AC226060384 
+
+ME ME_480864400141
+ MEPROP UID '480864400141'
+ MEPROP Name 'TatFoldersHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48078CC202EC' // AdapterHelpers
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4808645502A6 // GetMyDocuments
+ HWL ME_4843C7000113 // IterateAllChildFoldersNode
+ HWL ME_4843E40A01DE // AddToMyDocuments
+ HWL ME_48468B1302AF // CreateFolder
+ HWL ME_48562215003C // AddToFolder
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4843BE8B00D6 // IatFoldersNodeMatcher
+ HWL ME_4843BEFE0153 // TatFolderNodeMatcherBase
+ HWL ME_4843C7450355 // TatAnyMatcher
+ HWL ME_483FF19F0326 // TatMatchMethod
+ HWL ME_484D48390350 // IatNameMatcher
+ HWL ME_484D485A0275 // TatNameMatcher
+ HWL ME_484D2643016E // TatFolderMatcher
+ HWL ME_4843C0AE03D4 // TatBookmarkMatcher
+ HWL ME_484FE8AF001E // TatListMatcher
+ HWL ME_4FCF8EBF0006 // IatFoldersNodeCallback
+ HWL ME_4FD2376601E4 // TatQueryMatcher
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4843D0020219 // Node
+ ME_4843D0410110 // FoldersItemType
+ ME_4843D0450100 // FoldersNode
+ ME_4843E4AC01AF // EntityBase
+ ME_4843E6C60271 // TatGblAdapterWorker
+ ME_48469E4D0272 // SysUtils
+ ME_484D4DD001C2 // String
+ ME_4AC226060384 // TatStringHelper
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atFoldersHelper'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atFoldersHelper'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\AdapterHelpers\atFoldersHelper.pas'
+
+ENDME // ME_480864400141 TatFoldersHelper

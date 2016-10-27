@@ -1,0 +1,356 @@
+// TcaFromClause 574D5A9900B6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_574D5A9900B6
+
+ME ME_574D7D640056
+ MEPROP UID '574D7D640056'
+ MEPROP Name 'f_HTClause'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_574D5A9900B6 // TcaFromClause
+ ;
+ MELINK Target WL 'ME_57442A09018B' '5432518A0316.ms.model.script' // IdaFromClause
+ ;
+
+ENDME // ME_574D7D640056 f_HTClause
+
+ME ME_574D7D6D0306
+ MEPROP UID '574D7D6D0306'
+ MEPROP Name 'f_PGClause'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_574D5A9900B6 // TcaFromClause
+ ;
+ MELINK Target WL 'ME_57442A09018B' '5432518A0316.ms.model.script' // IdaFromClause
+ ;
+
+ENDME // ME_574D7D6D0306 f_PGClause
+
+ME ME_574E80F00353
+ MEPROP UID '574E80F00353'
+ MEPROP Name 'f_Factory'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_574D5A9900B6 // TcaFromClause
+ ;
+ MELINK Target WL 'ME_554C78BD038C' '5432518A0316.ms.model.script' // IdaTableQueryFactory
+ ;
+
+ENDME // ME_574E80F00353 f_Factory
+
+FORWARD ME_574D5AFE0110
+
+FORWARD ME_574D5B070047
+
+ME ME_574E81180140
+ MEPROP Name 'aFactory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_554C78BD038C' '5432518A0316.ms.model.script' // IdaTableQueryFactory
+ ;
+
+ENDME // ME_574E81180140 aFactory
+
+ME ME_574D5B2000DF
+ MEPROP Name 'aHTClause'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57442A09018B' '5432518A0316.ms.model.script' // IdaFromClause
+ ;
+
+ENDME // ME_574D5B2000DF aHTClause
+
+ME ME_574D5B2000EE
+ MEPROP Name 'aPGClause'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57442A09018B' '5432518A0316.ms.model.script' // IdaFromClause
+ ;
+
+ENDME // ME_574D5B2000EE aPGClause
+
+ME ME_574D5B070047
+ MEPROP UID '574D5B070047'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574D5AFE0110 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_574E81180140 // aFactory
+ ME_574D5B2000DF // aHTClause
+ ME_574D5B2000EE // aPGClause
+ )
+ ; // Parameters
+
+ENDME // ME_574D5B070047 DoIt
+
+ME ME_574D5AFE0110
+ MEPROP UID '574D5AFE0110'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574D5A9900B6 // TcaFromClause
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_574D5B070047 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_574D5AFE0110 Create
+
+MEREF ME_574D5AFE0110_ME_574D5B24001D_G
+ MELINK Original HWL ME_574D5AFE0110 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_574D5AFE0110_ME_574D5B24001D_G Create
+
+MEREF ME_57456F5A03D0_ME_574D5B24001D_R
+ MELINK Original WL 'ME_57456F5A03D0' '5432518A0316.ms.model.script' // IdaJoin
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57456F5A03D0_ME_574D5B24001D_R IdaJoin
+
+%%ImplementedBy ME_57456F5A03D0 ME_574D5B24001D
+
+%%InheritedBy ME_574D5AFE0110 ME_574D5B24001D
+
+ME ME_574D5B24001D
+ MEPROP UID '574D5B24001D'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574D5A9900B6 // TcaFromClause
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_574D5AFE0110_ME_574D5B24001D_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57456F5A03D0_ME_574D5B24001D_R // IdaJoin
+ )
+ ; // Implements
+
+ENDME // ME_574D5B24001D Make
+
+ME ME_575164020112
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_574D5A9900B6 // TcaFromClause
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_575164020112 
+
+MEREF ME_5608E5F20118_ME_574D5A9900B6_impl
+ MELINK Original WL 'ME_5608E5F20118' '5432518A0316.ms.model.script' // BuildSQLValue
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5608E5F20118_ME_574D5A9900B6_impl BuildSQLValue
+
+MEREF ME_57442BFD03BE_ME_574D5A9900B6_impl
+ MELINK Original WL 'ME_57442BFD03BE' '5432518A0316.ms.model.script' // HasTable
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57442BFD03BE_ME_574D5A9900B6_impl HasTable
+
+MEREF ME_5744366C003B_ME_574D5A9900B6_impl
+ MELINK Original WL 'ME_5744366C003B' '5432518A0316.ms.model.script' // FindTable
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5744366C003B_ME_574D5A9900B6_impl FindTable
+
+MEREF ME_574443A401BE_ME_574D5A9900B6_impl
+ MELINK Original WL 'ME_574443A401BE' '5432518A0316.ms.model.script' // IterateTablesF
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs index" False
+ UP "needs result" False
+ENDMEREF // ME_574443A401BE_ME_574D5A9900B6_impl IterateTablesF
+
+MEREF ME_57456F6B01D2_ME_574D5A9900B6_impl
+ MELINK Original WL 'ME_57456F6B01D2' '5432518A0316.ms.model.script' // Left
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_57456F6B01D2_ME_574D5A9900B6_impl Left
+
+MEREF ME_57456F800124_ME_574D5A9900B6_impl
+ MELINK Original WL 'ME_57456F800124' '5432518A0316.ms.model.script' // Right
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_57456F800124_ME_574D5A9900B6_impl Right
+
+MEREF ME_5745700A0180_ME_574D5A9900B6_impl
+ MELINK Original WL 'ME_5745700A0180' '5432518A0316.ms.model.script' // Kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_5745700A0180_ME_574D5A9900B6_impl Kind
+
+MEREF ME_5745702503A6_ME_574D5A9900B6_impl
+ MELINK Original WL 'ME_5745702503A6' '5432518A0316.ms.model.script' // Condition
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_5745702503A6_ME_574D5A9900B6_impl Condition
+
+MEREF ME_574570520193_ME_574D5A9900B6_impl
+ MELINK Original WL 'ME_574570520193' '5432518A0316.ms.model.script' // SetCondition
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_574570520193_ME_574D5A9900B6_impl SetCondition
+
+MEREF ME_574570790329_ME_574D5A9900B6_impl
+ MELINK Original WL 'ME_574570790329' '5432518A0316.ms.model.script' // Join
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_574570790329_ME_574D5A9900B6_impl Join
+
+MEREF ME_57480BE20140_ME_574D5A9900B6_impl
+ MELINK Original WL 'ME_57480BE20140' '5432518A0316.ms.model.script' // IsRelationsConditionsValid
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57480BE20140_ME_574D5A9900B6_impl IsRelationsConditionsValid
+
+MEREF ME_574824090133_ME_574D5A9900B6_impl
+ MELINK Original WL 'ME_574824090133' '5432518A0316.ms.model.script' // IterateRelationConditionsF
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs index" False
+ UP "needs result" False
+ENDMEREF // ME_574824090133_ME_574D5A9900B6_impl IterateRelationConditionsF
+
+MEREF ME_574D5A4C0298_ME_574D5A9900B6_impl
+ MELINK Original WL 'ME_574D5A4C0298' '5432518A0316.ms.model.script' // HTClause
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_574D5A4C0298_ME_574D5A9900B6_impl HTClause
+
+MEREF ME_574D5A61018D_ME_574D5A9900B6_impl
+ MELINK Original WL 'ME_574D5A61018D' '5432518A0316.ms.model.script' // PGClause
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_574D5A61018D_ME_574D5A9900B6_impl PGClause
+
+MEREF ME_479731C50290_ME_574D5A9900B6_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_574D5A9900B6_over Cleanup
+
+MEREF ME_49E7754802A9_ME_574D5A9900B6_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_574D5A9900B6_G Tl3ProtoObject
+
+MEREF ME_57442A09018B_ME_574D5A9900B6_R
+ MELINK Original WL 'ME_57442A09018B' '5432518A0316.ms.model.script' // IdaFromClause
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57442A09018B_ME_574D5A9900B6_R IdaFromClause
+
+MEREF ME_57456F5A03D0_ME_574D5A9900B6_R
+ MELINK Original WL 'ME_57456F5A03D0' '5432518A0316.ms.model.script' // IdaJoin
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57456F5A03D0_ME_574D5A9900B6_R IdaJoin
+
+MEREF ME_574D5A2F0018_ME_574D5A9900B6_R
+ MELINK Original WL 'ME_574D5A2F0018' '5432518A0316.ms.model.script' // IdaComboAccessFromClauseHelper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_574D5A2F0018_ME_574D5A9900B6_R IdaComboAccessFromClauseHelper
+
+%%ImplementedBy ME_57442A09018B ME_574D5A9900B6
+%%ImplementedBy ME_57456F5A03D0 ME_574D5A9900B6
+%%ImplementedBy ME_574D5A2F0018 ME_574D5A9900B6
+
+%%InheritedBy ME_49E7754802A9 ME_574D5A9900B6
+
+ME ME_574D5A9900B6
+ MEPROP UID '574D5A9900B6'
+ MEPROP Name 'TcaFromClause'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_56A86AF40350' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_574D5A9900B6_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57442A09018B_ME_574D5A9900B6_R // IdaFromClause
+ HWL ME_57456F5A03D0_ME_574D5A9900B6_R // IdaJoin
+ HWL ME_574D5A2F0018_ME_574D5A9900B6_R // IdaComboAccessFromClauseHelper
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_574D7D640056 // f_HTClause
+ HWL ME_574D7D6D0306 // f_PGClause
+ HWL ME_574E80F00353 // f_Factory
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_574D5AFE0110 // Create
+ HWL ME_574D5B24001D // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5608E5F20118_ME_574D5A9900B6_impl // BuildSQLValue
+ ME_57442BFD03BE_ME_574D5A9900B6_impl // HasTable
+ ME_5744366C003B_ME_574D5A9900B6_impl // FindTable
+ ME_574443A401BE_ME_574D5A9900B6_impl // IterateTablesF
+ ME_57456F6B01D2_ME_574D5A9900B6_impl // Left
+ ME_57456F800124_ME_574D5A9900B6_impl // Right
+ ME_5745700A0180_ME_574D5A9900B6_impl // Kind
+ ME_5745702503A6_ME_574D5A9900B6_impl // Condition
+ ME_574570520193_ME_574D5A9900B6_impl // SetCondition
+ ME_574570790329_ME_574D5A9900B6_impl // Join
+ ME_57480BE20140_ME_574D5A9900B6_impl // IsRelationsConditionsValid
+ ME_574824090133_ME_574D5A9900B6_impl // IterateRelationConditionsF
+ ME_574D5A4C0298_ME_574D5A9900B6_impl // HTClause
+ ME_574D5A61018D_ME_574D5A9900B6_impl // PGClause
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_574D5A9900B6_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_575164020112 // Supports
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'caFromClause'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'caFromClause'
+ UP intf.pas:Path 'common\components\rtl\Garant\ComboAccess\caFromClause.pas'
+
+ENDME // ME_574D5A9900B6 TcaFromClause

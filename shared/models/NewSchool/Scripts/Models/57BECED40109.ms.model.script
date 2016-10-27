@@ -1,0 +1,45 @@
+// TcsDownloadDocStream 57BECED40109 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_57F25AF103B0_ME_57BECED40109_G
+ MELINK Original WL? 'ME_57F25AF103B0' // TcsPersonificatedMessage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57F25AF103B0_ME_57BECED40109_G TcsPersonificatedMessage
+
+MEREF ME_57BEA2A8025C_ME_57BECED40109_R
+ MELINK Original WL 'ME_57BEA2A8025C' '484A470100DD.ms.model.script' // csDownloadDocStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57BEA2A8025C_ME_57BECED40109_R csDownloadDocStream
+
+%%ImplementedBy ME_57BEA2A8025C ME_57BECED40109
+
+%%InheritedBy ME_57F25AF103B0 ME_57BECED40109
+
+ME ME_57BECED40109
+ MEPROP UID '57BECED40109'
+ MEPROP Name 'TcsDownloadDocStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57C686B70253' // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57F25AF103B0_ME_57BECED40109_G // TcsPersonificatedMessage
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57BEA2A8025C_ME_57BECED40109_R // csDownloadDocStream
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'csDownloadDocStream'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'csDownloadDocStream'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csDownloadDocStream.pas'
+
+ENDME // ME_57BECED40109 TcsDownloadDocStream

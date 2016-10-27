@@ -1,0 +1,111 @@
+// Tl3_Base 47879856035F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47879856035F
+
+FORWARD ME_478CEE670214
+
+ME ME_478CEE7E02BC
+ MEPROP Name 'anObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47879856035F // Tl3_Base
+ ;
+
+ENDME // ME_478CEE7E02BC anObject
+
+ME ME_478CEE670214
+ MEPROP UID '478CEE670214'
+ MEPROP Name 'OCompare'
+ MEPROP Class class_Operation
+ %SUMMARY 'функция сравнения объекта с другим объектом.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47879856035F // Tl3_Base
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_478CEE7E02BC // anObject
+ )
+ ; // Parameters
+
+ENDME // ME_478CEE670214 OCompare
+
+ME ME_47914F960008
+ MEPROP UID '47914F960008'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_vctor::Operation ;
+ %SUMMARY 'конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47879856035F // Tl3_Base
+ ;
+
+ENDME // ME_47914F960008 Create
+
+ME ME_47A9B4B60052
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47879856035F // Tl3_Base
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_47A9B4B60052 
+
+MEREF ME_47BC391D0259_ME_47879856035F_G
+ MELINK Original WL? 'ME_47BC391D0259' // Tl3SimpleObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC391D0259_ME_47879856035F_G Tl3SimpleObject
+
+MEREF ME_4A5CBFAB03AF_ME_47879856035F_G
+ MELINK Original WL? 'ME_4A5CBFAB03AF' // l3Changing
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A5CBFAB03AF_ME_47879856035F_G l3Changing
+
+%%InheritedBy ME_47BC391D0259 ME_47879856035F
+%%InheritedBy ME_4A5CBFAB03AF ME_47879856035F
+
+ME ME_47879856035F
+ MEPROP UID '47879856035F'
+ MEPROP Name 'Tl3_Base'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '! Базовый класс объектов библиотеки L3. Рекомендуется для наследования от него остальных разрабатываемых объектов. Поддерживает контроль за распределением памяти и освобождением объектов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47BC391D0259_ME_47879856035F_G // Tl3SimpleObject
+ HWL ME_4A5CBFAB03AF_ME_47879856035F_G // l3Changing
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_478CEE670214 // OCompare
+ HWL ME_47914F960008 // Create
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_47A9B4B60052 // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '05.02.2008 16:57'
+ UP extprop:pas:UnitName 'l3_Base'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName '_Base'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3_Base.pas'
+
+ENDME // ME_47879856035F Tl3_Base

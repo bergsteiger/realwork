@@ -6,145 +6,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_52FCAC0E0384
 %%Inner ME_52FCB4700035
 
-FORWARD ME_52FCABBD02EE
-
-%%InheritedBy ME_49E7754802A9 ME_52FCABD0022E
-
-ME ME_52FCABD0022E
- MEPROP UID '52FCABD0022E'
- MEPROP Name 'TSavedQuery'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_52FCABBD02EE // Query
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- )
- ; // Inherits
- UP "finished" False
- UP extprop:pas:UnitName 'SavedQuery'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'SavedQuery'
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_SavedQuery.pas'
-
-ENDME // ME_52FCABD0022E TSavedQuery
-
-FORWARD ME_52FCAC0E0384
-
-ME ME_52FCB2F403E2
- MEPROP UID '52FCB2F403E2'
- MEPROP Name 'l3Items_IsProto'
- MEPROP Class class_Class
- MELINK Stereotype st_Define ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_52FCAC0E0384 // TQueryListPrim
- ;
- UP extprop:rc:SelfName 'Items_IsProto'
-
-ENDME // ME_52FCB2F403E2 l3Items_IsProto
-
-ME ME_52FCB31C01E0
- MEPROP UID '52FCB31C01E0'
- MEPROP Name 'l3Items_HasChanging'
- MEPROP Class class_Class
- MELINK Stereotype st_Define ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_52FCAC0E0384 // TQueryListPrim
- ;
- UP extprop:rc:SelfName 'Items_HasChanging'
-
-ENDME // ME_52FCB31C01E0 l3Items_HasChanging
-
-ME ME_52FCAC2B02FA
- MEPROP UID '52FCAC2B02FA'
- MEPROP Name 'ItemType'
- MEPROP Class class_Attribute
- MELINK Stereotype st_impurity_value::Attribute ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_abstract
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_52FCAC0E0384 // TQueryListPrim
- ;
- MELINK Target HWL ME_52FCABD0022E // TSavedQuery
- ;
-
-ENDME // ME_52FCAC2B02FA ItemType
-
-ME ME_47B2C42A0163_ME_52FCAC0E0384
- MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
- ;
- MEPROP OpKind opkind_Implemented
- UP "ifdef" 'l3Items_NeedsAssignItem'
- UP "ifndef" 'l3Items_NoSort'
-ENDME // ME_47B2C42A0163_ME_52FCAC0E0384 AssignItem
-
-ME ME_47B99D4503A2_ME_52FCAC0E0384
- MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_47B99D4503A2_ME_52FCAC0E0384 CompareExistingItems
-
-%%ImplementedBy ME_47B99E920196 ME_52FCAC0E0384
-%%ImplementedBy ME_48FCA1F20259 ME_52FCAC0E0384
-%%ImplementedBy ME_492ABDE901A7 ME_52FCAC0E0384
-%%ImplementedBy ME_4B86890E0307 ME_52FCAC0E0384
-
-%%InheritedBy ME_4A54DD4E036F ME_52FCAC0E0384
-%%InheritedBy ME_4A5CBFAB03AF ME_52FCAC0E0384
-
-ME ME_52FCAC0E0384
- MEPROP UID '52FCAC0E0384'
- MEPROP Name 'TQueryListPrim'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_52FCABBD02EE // Query
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL? 'ME_4A5CBFAB03AF' // l3Changing
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
- WL? 'ME_48FCA1F20259' // l3ChangingChangedNotifier
- WL? 'ME_492ABDE901A7' // l3LockedChange
- WL? 'ME_4B86890E0307' // l3OpenArray
- )
- ; // Implements
- MELIST Attributes
-   Seq: ( HWL ME_52FCAC2B02FA // ItemType
- )
- ; // Attributes
- MELIST Implemented
-   Seq: ( ME_47B2C42A0163_ME_52FCAC0E0384 // AssignItem
- ME_47B99D4503A2_ME_52FCAC0E0384 // CompareExistingItems
- )
- ; // Implemented
- MELIST Children
-   Seq: ( HWL ME_52FCB2F403E2 // l3Items_IsProto
- HWL ME_52FCB31C01E0 // l3Items_HasChanging
- )
- ; // Children
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP extprop:pas:UnitName 'QueryListPrim'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'QueryListPrim'
- UP intf.pas:Path 'common\components\rtl\Garant\DT\QueryListPrim.pas'
-
-ENDME // ME_52FCAC0E0384 TQueryListPrim
-
 ME ME_52FCABBD02EE
  MEPROP UID '52FCABBD02EE'
  MEPROP Name 'Query'
@@ -156,8 +17,8 @@ ME ME_52FCABBD02EE
  MELINK Parent WL? 'ME_47BC4FCB0115' // DT
  ;
  MELIST Children
-   Seq: ( HWL ME_52FCABD0022E // TSavedQuery
- HWL ME_52FCAC0E0384 // TQueryListPrim
+   Seq: ( WL? 'ME_52FCABD0022E' // TSavedQuery
+ WL? 'ME_52FCAC0E0384' // TQueryListPrim
  WL? 'ME_52FCB4700035' // DT_AskList
  )
  ; // Children

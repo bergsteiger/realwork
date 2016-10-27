@@ -1,0 +1,62 @@
+// TTestNameString 4FF431A00215 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FF431A00215
+
+ME ME_4FF4339B0102
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FF431A00215 // TTestNameString
+ ;
+ MELINK Target WL 'ME_4FF4335402DE' '47878E0E0191.ms.model.script' // l3LTrim
+ ;
+
+ENDME // ME_4FF4339B0102 
+
+MEREF ME_47A869D10074_ME_4FF431A00215_over
+ MELINK Original WL 'ME_47A869D10074' '53317D14019D.ms.model.script' // DoSetAsPCharLen
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A869D10074_ME_4FF431A00215_over DoSetAsPCharLen
+
+MEREF ME_4773DED9004C_ME_4FF431A00215_G
+ MELINK Original WL? 'ME_4773DED9004C' // Tl3_String
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773DED9004C_ME_4FF431A00215_G Tl3_String
+
+%%InheritedBy ME_4773DED9004C ME_4FF431A00215
+
+ME ME_4FF431A00215
+ MEPROP UID '4FF431A00215'
+ MEPROP Name 'TTestNameString'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B2A112B011A' // Source
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4773DED9004C_ME_4FF431A00215_G // Tl3_String
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47A869D10074_ME_4FF431A00215_over // DoSetAsPCharLen
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4FF4339B0102 // l3LTrim
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'TestNameString'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TestNameString'
+ UP intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\TestNameString.pas'
+
+ENDME // ME_4FF431A00215 TTestNameString

@@ -1,0 +1,140 @@
+// TnsCutToLeafFilter 4901FD0A034A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4901FD0A034A
+
+ME ME_4901FDA10273
+ MEPROP UID '4901FDA10273'
+ MEPROP Name 'f_LeafCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4901FD0A034A // TnsCutToLeafFilter
+ ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_4901FDA10273 f_LeafCount
+
+FORWARD ME_4901FD3E03AD
+
+ME ME_4901FD430385
+ MEPROP Name 'aCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_4901FD430385 aCount
+
+ME ME_4901FD3E03AD
+ MEPROP UID '4901FD3E03AD'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4901FD0A034A // TnsCutToLeafFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4901FD430385 // aCount
+ )
+ ; // Parameters
+
+ENDME // ME_4901FD3E03AD Create
+
+FORWARD ME_4901FD4B00E8
+
+ME ME_4901FD540170
+ MEPROP Name 'aCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_4901FD540170 aCount
+
+ME ME_4901FD4B00E8
+ MEPROP UID '4901FD4B00E8'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'Создаёт фильтр' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4901FD0A034A // TnsCutToLeafFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4901FD540170 // aCount
+ )
+ ; // Parameters
+
+ENDME // ME_4901FD4B00E8 Make
+
+MEREF ME_4901F74E0224_ME_4901FD0A034A_impl
+ MELINK Original WL 'ME_4901F74E0224' '4A9F98B901A5.ms.model.script' // LeafCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4901F74E0224_ME_4901FD0A034A_impl LeafCount
+
+MEREF ME_46780E690001_ME_4901FD0A034A_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_4901FD0A034A_G Tl3CacheableBase
+
+MEREF ME_4901F73E01D0_ME_4901FD0A034A_R
+ MELINK Original WL 'ME_4901F73E01D0' '4A9F98B901A5.ms.model.script' // InsCutToLeafFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4901F73E01D0_ME_4901FD0A034A_R InsCutToLeafFilter
+
+%%ImplementedBy ME_4901F73E01D0 ME_4901FD0A034A
+
+%%InheritedBy ME_46780E690001 ME_4901FD0A034A
+
+ME ME_4901FD0A034A
+ MEPROP UID '4901FD0A034A'
+ MEPROP Name 'TnsCutToLeafFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Коллеги, это что?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4ACF3E400050' // BaseSearch
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46780E690001_ME_4901FD0A034A_G // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4901F73E01D0_ME_4901FD0A034A_R // InsCutToLeafFilter
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4901FDA10273 // f_LeafCount
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4901FD3E03AD // Create
+ HWL ME_4901FD4B00E8 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4901F74E0224_ME_4901FD0A034A_impl // LeafCount
+ )
+ ; // Implemented
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" True
+ UP "started" '2008/06/25 08:04:46'
+ UP extprop:pas:UnitName 'nsCutToLeafFilter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CutToLeafFilter'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsCutToLeafFilter.pas'
+
+ENDME // ME_4901FD0A034A TnsCutToLeafFilter

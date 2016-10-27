@@ -1,0 +1,439 @@
+// TpgFreeIDHelperHolder 5770F2450027 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5770F2450027
+
+FORWARD ME_5770F26F036D
+
+ME ME_5770F28501E4
+ MEPROP UID '5770F28501E4'
+ MEPROP Name 'aFamilyID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5770F26F036D // FreeIDHelper
+ ;
+ MELINK Target WL 'ME_551E7DD302E0' '5432448401BC.ms.model.script' // TdaFamilyID
+ ;
+
+ENDME // ME_5770F28501E4 aFamilyID
+
+ME ME_5770F26F036D
+ MEPROP UID '5770F26F036D'
+ MEPROP Name 'FreeIDHelper'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5770F2450027 // TpgFreeIDHelperHolder
+ ;
+ MELINK Target WL? 'ME_56556EF3017C' // TpgFreeIDHelper
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5770F28501E4 // aFamilyID
+ )
+ ; // Attributes
+ UP "pm" True
+
+ENDME // ME_5770F26F036D FreeIDHelper
+
+ME ME_5770F2F001BA
+ MEPROP UID '5770F2F001BA'
+ MEPROP Name 'f_MainHelper'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5770F2450027 // TpgFreeIDHelperHolder
+ ;
+ MELINK Target WL? 'ME_56556EF3017C' // TpgFreeIDHelper
+ ;
+
+ENDME // ME_5770F2F001BA f_MainHelper
+
+ME ME_5770F2FB01F6
+ MEPROP UID '5770F2FB01F6'
+ MEPROP Name 'f_CurrentHelper'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5770F2450027 // TpgFreeIDHelperHolder
+ ;
+ MELINK Target WL? 'ME_56556EF3017C' // TpgFreeIDHelper
+ ;
+
+ENDME // ME_5770F2FB01F6 f_CurrentHelper
+
+ME ME_5770FDDB02DC
+ MEPROP UID '5770FDDB02DC'
+ MEPROP Name 'f_Connection'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5770F2450027 // TpgFreeIDHelperHolder
+ ;
+ MELINK Target WL? 'ME_55F6875803A8' // TpgConnection
+ ;
+
+ENDME // ME_5770FDDB02DC f_Connection
+
+ME ME_5770FDF70223
+ MEPROP UID '5770FDF70223'
+ MEPROP Name 'f_QueryFactory'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5770F2450027 // TpgFreeIDHelperHolder
+ ;
+ MELINK Target WL 'ME_554C78BD038C' '5432518A0316.ms.model.script' // IdaTableQueryFactory
+ ;
+
+ENDME // ME_5770FDF70223 f_QueryFactory
+
+ME ME_5770FE21028B
+ MEPROP UID '5770FE21028B'
+ MEPROP Name 'f_FunctionFactory'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5770F2450027 // TpgFreeIDHelperHolder
+ ;
+ MELINK Target WL? 'ME_56613507012C' // TpgFunctionFactory
+ ;
+
+ENDME // ME_5770FE21028B f_FunctionFactory
+
+FORWARD ME_5770FDA901D4
+
+FORWARD ME_5770FDB80258
+
+ME ME_5771099F027D
+ MEPROP Name 'aConnection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_55F6875803A8' // TpgConnection
+ ;
+
+ENDME // ME_5771099F027D aConnection
+
+ME ME_5771099F028D
+ MEPROP Name 'aQueryFactory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_554C78BD038C' '5432518A0316.ms.model.script' // IdaTableQueryFactory
+ ;
+
+ENDME // ME_5771099F028D aQueryFactory
+
+ME ME_5771099F02AC
+ MEPROP Name 'aFunctionFactory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_56613507012C' // TpgFunctionFactory
+ ;
+
+ENDME // ME_5771099F02AC aFunctionFactory
+
+ME ME_5770FDB80258
+ MEPROP UID '5770FDB80258'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5770FDA901D4 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5771099F027D // aConnection
+ ME_5771099F028D // aQueryFactory
+ ME_5771099F02AC // aFunctionFactory
+ )
+ ; // Parameters
+
+ENDME // ME_5770FDB80258 DoIt
+
+ME ME_5770FDA901D4
+ MEPROP UID '5770FDA901D4'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5770F2450027 // TpgFreeIDHelperHolder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5770FDB80258 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5770FDA901D4 Create
+
+FORWARD ME_577123B6029A
+
+FORWARD ME_577123CC0313
+
+ME ME_577123E100EF
+ MEPROP Name 'aTable'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_55377C9C0289' '5432448401BC.ms.model.script' // TdaTables
+ ;
+
+ENDME // ME_577123E100EF aTable
+
+ME ME_577123E100FF
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
+ ;
+
+ENDME // ME_577123E100FF anID
+
+ME ME_577123CC0313
+ MEPROP UID '577123CC0313'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_577123B6029A // ExcludeFree
+ ;
+ MELIST Parameters
+   Seq: ( ME_577123E100EF // aTable
+ ME_577123E100FF // anID
+ )
+ ; // Parameters
+
+ENDME // ME_577123CC0313 DoIt
+
+ME ME_577123B6029A
+ MEPROP UID '577123B6029A'
+ MEPROP Name 'ExcludeFree'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5770F2450027 // TpgFreeIDHelperHolder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_577123CC0313 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_577123B6029A ExcludeFree
+
+FORWARD ME_5771241A0324
+
+FORWARD ME_5771243102C1
+
+ME ME_57712442014F
+ MEPROP Name 'aTable'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_55377C9C0289' '5432448401BC.ms.model.script' // TdaTables
+ ;
+
+ENDME // ME_57712442014F aTable
+
+ME ME_5771243102C1
+ MEPROP UID '5771243102C1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5771241A0324 // GetFree
+ ;
+ MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
+ ;
+ MELIST Parameters
+   Seq: ( ME_57712442014F // aTable
+ )
+ ; // Parameters
+
+ENDME // ME_5771243102C1 DoIt
+
+ME ME_5771241A0324
+ MEPROP UID '5771241A0324'
+ MEPROP Name 'GetFree'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5770F2450027 // TpgFreeIDHelperHolder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5771243102C1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5771241A0324 GetFree
+
+FORWARD ME_577CC0BF0321
+
+FORWARD ME_577CC0D40090
+
+ME ME_577CC0DE035D
+ MEPROP Name 'aTable'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_55377C9C0289' '5432448401BC.ms.model.script' // TdaTables
+ ;
+
+ENDME // ME_577CC0DE035D aTable
+
+ME ME_577CC0DE038C
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
+ ;
+
+ENDME // ME_577CC0DE038C anID
+
+ME ME_577CC0D40090
+ MEPROP UID '577CC0D40090'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_577CC0BF0321 // PutFree
+ ;
+ MELIST Parameters
+   Seq: ( ME_577CC0DE035D // aTable
+ ME_577CC0DE038C // anID
+ )
+ ; // Parameters
+
+ENDME // ME_577CC0D40090 DoIt
+
+ME ME_577CC0BF0321
+ MEPROP UID '577CC0BF0321'
+ MEPROP Name 'PutFree'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5770F2450027 // TpgFreeIDHelperHolder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_577CC0D40090 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_577CC0BF0321 PutFree
+
+ME ME_577106E702E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5770F2450027 // TpgFreeIDHelperHolder
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_577106E702E6 
+
+ME ME_57710742035E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5770F2450027 // TpgFreeIDHelperHolder
+ ;
+ MELINK Target WL 'ME_565593D90132' '5654635F0268.ms.model.script' // cFamilies
+ ;
+
+ENDME // ME_57710742035E 
+
+ME ME_5771289301A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5770F2450027 // TpgFreeIDHelperHolder
+ ;
+ MELINK Target WL 'ME_5771282A0017' '5654635F0268.ms.model.script' // cDictConsts
+ ;
+
+ENDME // ME_5771289301A1 
+
+ME ME_577237B302EB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5770F2450027 // TpgFreeIDHelperHolder
+ ;
+ MELINK Target WL? 'ME_552D07EB03CB' // TdaScheme
+ ;
+
+ENDME // ME_577237B302EB 
+
+MEREF ME_479731C50290_ME_5770F2450027_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5770F2450027_over Cleanup
+
+MEREF ME_49E7754802A9_ME_5770F2450027_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5770F2450027_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_5770F2450027
+
+ME ME_5770F2450027
+ MEPROP UID '5770F2450027'
+ MEPROP Name 'TpgFreeIDHelperHolder'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55D6CF3B014B' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_5770F2450027_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5770F26F036D // FreeIDHelper
+ HWL ME_5770F2F001BA // f_MainHelper
+ HWL ME_5770F2FB01F6 // f_CurrentHelper
+ HWL ME_5770FDDB02DC // f_Connection
+ HWL ME_5770FDF70223 // f_QueryFactory
+ HWL ME_5770FE21028B // f_FunctionFactory
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5770FDA901D4 // Create
+ HWL ME_577123B6029A // ExcludeFree
+ HWL ME_5771241A0324 // GetFree
+ HWL ME_577CC0BF0321 // PutFree
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5770F2450027_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_577106E702E6 // FreeAndNil
+ ME_57710742035E // cFamilies
+ ME_5771289301A1 // cDictConsts
+ ME_577237B302EB // TdaScheme
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'pgFreeIDHelperHolder'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'pgFreeIDHelperHolder'
+ UP intf.pas:Path 'common\components\rtl\Garant\PG\pgFreeIDHelperHolder.pas'
+
+ENDME // ME_5770F2450027 TpgFreeIDHelperHolder

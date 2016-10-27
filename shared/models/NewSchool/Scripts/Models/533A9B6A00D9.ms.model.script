@@ -37,7 +37,7 @@ ENDME // ME_54B4B93900BB DoIt
 ME ME_54B4B92D0212
  MEPROP UID '54B4B92D0212'
  MEPROP Name 'RecreateButtons'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -69,7 +69,7 @@ ENDME // ME_54B4B95303B6 DoIt
 ME ME_54B4B94903C5
  MEPROP UID '54B4B94903C5'
  MEPROP Name 'GetClientControl'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -114,7 +114,7 @@ ENDME // ME_54B4B9FA00E6 DoIt
 ME ME_54B4B9E2025C
  MEPROP UID '54B4B9E2025C'
  MEPROP Name 'DoOnNeedRecreateButtons'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -181,7 +181,7 @@ ME ME_534292950066
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
  ;
- MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
 ENDME // ME_534292950066 
@@ -201,7 +201,7 @@ ME ME_54211F2C03AB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
  ;
- MELINK Target WL 'ME_54211E9E038E' '54211E53007C.ms.model.script' // TChromeLikeFormFramePainter
+ MELINK Target WL? 'ME_54211E9E038E' // TChromeLikeFormFramePainter
  ;
 
 ENDME // ME_54211F2C03AB 
@@ -256,29 +256,41 @@ ME ME_54B4C062013D
 
 ENDME // ME_54B4C062013D 
 
-ME ME_479731C50290_ME_533A9B6A00D9
+MEREF ME_479731C50290_ME_533A9B6A00D9_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_533A9B6A00D9 Cleanup
+ENDMEREF // ME_479731C50290_ME_533A9B6A00D9_over Cleanup
 
-ME ME_47A042E100E2_ME_533A9B6A00D9
+MEREF ME_47A042E100E2_ME_533A9B6A00D9_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_533A9B6A00D9 InitFields
+ENDMEREF // ME_47A042E100E2_ME_533A9B6A00D9_over InitFields
 
-ME ME_4A8E8F2E0195_ME_533A9B6A00D9
+MEREF ME_4A8E8F2E0195_ME_533A9B6A00D9_over
  MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8E8F2E0195_ME_533A9B6A00D9 InitControls
+ENDMEREF // ME_4A8E8F2E0195_ME_533A9B6A00D9_over InitControls
 
-ME ME_500004A60200_ME_533A9B6A00D9
+MEREF ME_500004A60200_ME_533A9B6A00D9_over
  MELINK Original WL 'ME_500004A60200' '500004240202.ms.model.script' // MakeControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_500004A60200_ME_533A9B6A00D9 MakeControls
+ENDMEREF // ME_500004A60200_ME_533A9B6A00D9_over MakeControls
+
+MEREF ME_53C65E480231_ME_533A9B6A00D9_G
+ MELINK Original WL? 'ME_53C65E480231' // TvcmChromeLikeTabbedContainerFormPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53C65E480231_ME_533A9B6A00D9_G TvcmChromeLikeTabbedContainerFormPrim
+
+MEREF ME_550A7D5C01BC_ME_533A9B6A00D9_G
+ MELINK Original WL? 'ME_550A7D5C01BC' // ChromeLikeTabbedContainerForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_550A7D5C01BC_ME_533A9B6A00D9_G ChromeLikeTabbedContainerForm
 
 %%InheritedBy ME_53C65E480231 ME_533A9B6A00D9
 %%InheritedBy ME_550A7D5C01BC ME_533A9B6A00D9
@@ -295,8 +307,8 @@ ME ME_533A9B6A00D9
  MELINK Parent WL? 'ME_533D53FF00C2' // Visual$ChromeLike
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_53C65E480231' '533D53FF00C2.ms.model.script' // TvcmChromeLikeTabbedContainerFormPrim
- WL? 'ME_550A7D5C01BC' // ChromeLikeTabbedContainerForm
+   Seq: ( HWL ME_53C65E480231_ME_533A9B6A00D9_G // TvcmChromeLikeTabbedContainerFormPrim
+ HWL ME_550A7D5C01BC_ME_533A9B6A00D9_G // ChromeLikeTabbedContainerForm
  )
  ; // Inherits
  MELIST Attributes
@@ -311,10 +323,10 @@ ME ME_533A9B6A00D9
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_533A9B6A00D9 // Cleanup
- ME_47A042E100E2_ME_533A9B6A00D9 // InitFields
- ME_4A8E8F2E0195_ME_533A9B6A00D9 // InitControls
- ME_500004A60200_ME_533A9B6A00D9 // MakeControls
+   Seq: ( ME_479731C50290_ME_533A9B6A00D9_over // Cleanup
+ ME_47A042E100E2_ME_533A9B6A00D9_over // InitFields
+ ME_4A8E8F2E0195_ME_533A9B6A00D9_over // InitControls
+ ME_500004A60200_ME_533A9B6A00D9_over // MakeControls
  )
  ; // Overridden
  MELIST Dependencies

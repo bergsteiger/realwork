@@ -1,0 +1,59 @@
+// TnsDocumentWithSnippetList 5645E9550108 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5645E9550108
+
+ME ME_5645E9B90215
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5645E9550108 // TnsDocumentWithSnippetList
+ ;
+ MELINK Target WL? 'ME_5645E9920077' // TnsDocumentWithSnippetNode
+ ;
+
+ENDME // ME_5645E9B90215 
+
+MEREF ME_48FEE3640227_ME_5645E9550108_over
+ MELINK Original WL 'ME_48FEE3640227' '46835B4001A4.ms.model.script' // RootNodeClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FEE3640227_ME_5645E9550108_over RootNodeClass
+
+MEREF ME_47F4D386036C_ME_5645E9550108_G
+ MELINK Original WL? 'ME_47F4D386036C' // TbsListTreeStruct
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F4D386036C_ME_5645E9550108_G TbsListTreeStruct
+
+%%InheritedBy ME_47F4D386036C ME_5645E9550108
+
+ME ME_5645E9550108
+ MEPROP UID '5645E9550108'
+ MEPROP Name 'TnsDocumentWithSnippetList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47F22C7501F6' // Document
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47F4D386036C_ME_5645E9550108_G // TbsListTreeStruct
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48FEE3640227_ME_5645E9550108_over // RootNodeClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5645E9B90215 // TnsDocumentWithSnippetNode
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'nsDocumentWithSnippetList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentWithSnippetList'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\nsDocumentWithSnippetList.pas'
+
+ENDME // ME_5645E9550108 TnsDocumentWithSnippetList

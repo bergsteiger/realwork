@@ -12,7 +12,6 @@ interface
 uses
  l3IntfUses
  , l3StringIDEx
- , l3MessageID
 ;
 
 const
@@ -40,6 +39,7 @@ implementation
 {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 uses
  l3ImplUses
+ , l3MessageID
  {$If NOT Defined(NoVCL)}
  , Dialogs
  {$IfEnd} // NOT Defined(NoVCL)

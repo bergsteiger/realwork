@@ -34,12 +34,24 @@ ME ME_4922D2F50378
 
 ENDME // ME_4922D2F50378 InitDataType
 
-ME ME_4922D0440266_ME_4922D2780153
+MEREF ME_4922D0440266_ME_4922D2780153_impl
  MELINK Original WL 'ME_4922D0440266' '491DAF4202EE.ms.model.script' // Search
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_4922D0440266_ME_4922D2780153 Search
+ENDMEREF // ME_4922D0440266_ME_4922D2780153_impl Search
+
+MEREF ME_492ACB4100B2_ME_4922D2780153_G
+ MELINK Original WL? 'ME_492ACB4100B2' // vcmFormDataSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492ACB4100B2_ME_4922D2780153_G vcmFormDataSource
+
+MEREF ME_4922CF920141_ME_4922D2780153_R
+ MELINK Original WL 'ME_4922CF920141' '491DAF4202EE.ms.model.script' // IdsAttributeSelect
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4922CF920141_ME_4922D2780153_R IdsAttributeSelect
 
 %%ImplementedBy ME_4922CF920141 ME_4922D2780153
 
@@ -58,11 +70,11 @@ ME ME_4922D2780153
  MELINK Parent WL? 'ME_491DCA2C00A9' // Search
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_492ACB4100B2' // vcmFormDataSource
+   Seq: ( HWL ME_492ACB4100B2_ME_4922D2780153_G // vcmFormDataSource
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4922CF920141' '491DAF4202EE.ms.model.script' // IdsAttributeSelect
+   Seq: ( HWL ME_4922CF920141_ME_4922D2780153_R // IdsAttributeSelect
  )
  ; // Implements
  MELIST Attributes
@@ -71,7 +83,7 @@ ME ME_4922D2780153
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_4922D0440266_ME_4922D2780153 // Search
+   Seq: ( ME_4922D0440266_ME_4922D2780153_impl // Search
  )
  ; // Implemented
  UP "author" 'Морозов М.А.'

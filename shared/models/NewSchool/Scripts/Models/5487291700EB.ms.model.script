@@ -1,0 +1,181 @@
+// TeeTagEditorTool 5487291700EB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5487291700EB
+
+ME ME_54872D000059
+ MEPROP UID '54872D000059'
+ MEPROP Name 'f_Document'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5487291700EB // TeeTagEditorTool
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_54872D000059 f_Document
+
+ME ME_54872D7C031E
+ MEPROP UID '54872D7C031E'
+ MEPROP Name 'Document'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5487291700EB // TeeTagEditorTool
+ ;
+ MELINK Target WL 'ME_49523C96004A' '49523C640160.ms.model.script' // IeeDocumentEx
+ ;
+ UP "pm" True
+
+ENDME // ME_54872D7C031E Document
+
+FORWARD ME_54872DB8021E
+
+FORWARD ME_54872DC901C4
+
+ME ME_54872DD1002F
+ MEPROP Name 'aTagWrap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_54872DD1002F aTagWrap
+
+ME ME_54872DD10049
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49523C96004A' '49523C640160.ms.model.script' // IeeDocumentEx
+ ;
+
+ENDME // ME_54872DD10049 aDocument
+
+ME ME_54872DD10064
+ MEPROP Name 'aProcessor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5AF730166' '47C5207602D1.ms.model.script' // InevProcessor
+ ;
+
+ENDME // ME_54872DD10064 aProcessor
+
+ME ME_54872DC901C4
+ MEPROP UID '54872DC901C4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54872DB8021E // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_54872DD1002F // aTagWrap
+ ME_54872DD10049 // aDocument
+ ME_54872DD10064 // aProcessor
+ )
+ ; // Parameters
+
+ENDME // ME_54872DC901C4 DoIt
+
+ME ME_54872DB8021E
+ MEPROP UID '54872DB8021E'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5487291700EB // TeeTagEditorTool
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54872DC901C4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54872DB8021E Create
+
+MEREF ME_46A5D4220369_ME_5487291700EB_impl
+ MELINK Original WL 'ME_46A5D4220369' '4677FBA70343.ms.model.script' // OwnerDead
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_46A5D4220369_ME_5487291700EB_impl OwnerDead
+
+MEREF ME_479731C50290_ME_5487291700EB_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5487291700EB_over Cleanup
+
+MEREF ME_54BD0F310322_ME_5487291700EB_over
+ MELINK Original WL 'ME_54BD0F310322' '4BBF3D8B00CD.ms.model.script' // GetProcessor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_54BD0F310322_ME_5487291700EB_over GetProcessor
+
+MEREF ME_4BBF3D8B00CD_ME_5487291700EB_G
+ MELINK Original WL? 'ME_4BBF3D8B00CD' // Tk2ProcessorTagTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BBF3D8B00CD_ME_5487291700EB_G Tk2ProcessorTagTool
+
+MEREF ME_5319FB8800AC_ME_5487291700EB_R
+ MELINK Original WL 'ME_5319FB8800AC' '49523C640160.ms.model.script' // IeeTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5319FB8800AC_ME_5487291700EB_R IeeTool
+
+%%ImplementedBy ME_5319FB8800AC ME_5487291700EB
+
+%%InheritedBy ME_4BBF3D8B00CD ME_5487291700EB
+
+ME ME_5487291700EB
+ MEPROP UID '5487291700EB'
+ MEPROP Name 'TeeTagEditorTool'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4912E16B01B4' // Engine Core
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBF3D8B00CD_ME_5487291700EB_G // Tk2ProcessorTagTool
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5319FB8800AC_ME_5487291700EB_R // IeeTool
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_54872D000059 // f_Document
+ HWL ME_54872D7C031E // Document
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54872DB8021E // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46A5D4220369_ME_5487291700EB_impl // OwnerDead
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5487291700EB_over // Cleanup
+ ME_54BD0F310322_ME_5487291700EB_over // GetProcessor
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'eeTagEditorTool'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'eeTagEditorTool'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeTagEditorTool.pas'
+
+ENDME // ME_5487291700EB TeeTagEditorTool

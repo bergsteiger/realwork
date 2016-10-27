@@ -1,0 +1,198 @@
+// TnsLogEvent 4B0A6109010C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_55BA5B18031D
+%%Inner ME_55BA5B4D0262
+
+FORWARD ME_4B0A6109010C
+
+MEREF ME_55B75F160131_ME_55BA5B18031D_G
+ MELINK Original WL 'ME_55B75F160131' '55B75E6E034C.ms.model.script' // InsLogEventData
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55B75F160131_ME_55BA5B18031D_G InsLogEventData
+
+%%InheritedBy ME_55B75F160131 ME_55BA5B18031D
+
+ME ME_55BA5B18031D
+ MEPROP UID '55BA5B18031D'
+ MEPROP Name 'InsLogEventData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B0A6109010C // TnsLogEvent
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_55B75F160131_ME_55BA5B18031D_G // InsLogEventData
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LogEventData'
+
+ENDME // ME_55BA5B18031D InsLogEventData
+
+MEREF ME_45ED58FF0201_ME_55BA5B4D0262_G
+ MELINK Original WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45ED58FF0201_ME_55BA5B4D0262_G LogEvent
+
+%%InheritedBy ME_45ED58FF0201 ME_55BA5B4D0262
+
+ME ME_55BA5B4D0262
+ MEPROP UID '55BA5B4D0262'
+ MEPROP Name 'TLogEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B0A6109010C // TnsLogEvent
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_45ED58FF0201_ME_55BA5B4D0262_G // LogEvent
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_55BA5B4D0262 TLogEvent
+
+ME ME_566EB0B202CB
+ MEPROP UID '566EB0B202CB'
+ MEPROP Name 'f_Logger'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B0A6109010C // TnsLogEvent
+ ;
+ MELINK Target WL 'ME_55B75FED02BC' '55B75E6E034C.ms.model.script' // InsLogManager
+ ;
+
+ENDME // ME_566EB0B202CB f_Logger
+
+FORWARD ME_566AE04B01D3
+
+ME ME_566AE06201EE
+ MEPROP UID '566AE06201EE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_566AE04B01D3 // GetLogger
+ ;
+ MELINK Target WL 'ME_55B75FED02BC' '55B75E6E034C.ms.model.script' // InsLogManager
+ ;
+
+ENDME // ME_566AE06201EE DoIt
+
+ME ME_566AE04B01D3
+ MEPROP UID '566AE04B01D3'
+ MEPROP Name 'GetLogger'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B0A6109010C // TnsLogEvent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_566AE06201EE // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_566AE04B01D3 GetLogger
+
+ME ME_4B0A61540153
+ MEPROP UID '4B0A61540153'
+ MEPROP Name 'MakeParamsList'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B0A6109010C // TnsLogEvent
+ ;
+ MELINK Target WL 'ME_55B75F160131' '55B75E6E034C.ms.model.script' // InsLogEventData
+ ;
+
+ENDME // ME_4B0A61540153 MakeParamsList
+
+MEREF ME_479731C50290_ME_4B0A6109010C_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4B0A6109010C_over Cleanup
+
+MEREF ME_47A042E100E2_ME_4B0A6109010C_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4B0A6109010C_over InitFields
+
+MEREF ME_47BC391D0259_ME_4B0A6109010C_G
+ MELINK Original WL? 'ME_47BC391D0259' // Tl3SimpleObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC391D0259_ME_4B0A6109010C_G Tl3SimpleObject
+
+MEREF ME_55B8907D0158_ME_4B0A6109010C_R
+ MELINK Original WL? 'ME_55B8907D0158' // nsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55B8907D0158_ME_4B0A6109010C_R nsLogEvent
+
+%%ImplementedBy ME_55B8907D0158 ME_4B0A6109010C
+
+%%InheritedBy ME_47BC391D0259 ME_4B0A6109010C
+
+ME ME_4B0A6109010C
+ MEPROP UID '4B0A6109010C'
+ MEPROP Name 'TnsLogEvent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B0A60DF01F2' // Logging
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47BC391D0259_ME_4B0A6109010C_G // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_55B8907D0158_ME_4B0A6109010C_R // nsLogEvent
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_566EB0B202CB // f_Logger
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_566AE04B01D3 // GetLogger
+ HWL ME_4B0A61540153 // MakeParamsList
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4B0A6109010C_over // Cleanup
+ ME_47A042E100E2_ME_4B0A6109010C_over // InitFields
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_55BA5B18031D // InsLogEventData
+ HWL ME_55BA5B4D0262 // TLogEvent
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nsLogEvent'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LogEvent'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Logging\nsLogEvent.pas'
+
+ENDME // ME_4B0A6109010C TnsLogEvent

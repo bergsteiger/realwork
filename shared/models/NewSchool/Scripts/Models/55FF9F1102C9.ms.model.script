@@ -1,0 +1,64 @@
+// ExportToSingleNSRTest 55FF9F1102C9 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_55EEA16603AE_ME_55FF9F1102C9_impl
+ MELINK Original WL 'ME_55EEA16603AE' '55ED52510115.ms.model.script' // TuneExportPipe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55EEA16603AE_ME_55FF9F1102C9_impl TuneExportPipe
+
+MEREF ME_4C937013031D_ME_55FF9F1102C9_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_55FF9F1102C9_over GetFolder
+
+MEREF ME_4DAED6F60146_ME_55FF9F1102C9_over
+ MELINK Original WL 'ME_4DAED6F60146' '4B2A0DCE03A9.ms.model.script' // GetModelElementGUID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DAED6F60146_ME_55FF9F1102C9_over GetModelElementGUID
+
+MEREF ME_55ED52510115_ME_55FF9F1102C9_G
+ MELINK Original WL? 'ME_55ED52510115' // ExportPipeTestPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55ED52510115_ME_55FF9F1102C9_G ExportPipeTestPrim
+
+%%InheritedBy ME_55ED52510115 ME_55FF9F1102C9
+
+ME ME_55FF9F1102C9
+ MEPROP UID '55FF9F1102C9'
+ MEPROP Name 'ExportToSingleNSRTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ёкспорт в один NSRC' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55ED516B0072' // ExportPipeTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_55ED52510115_ME_55FF9F1102C9_G // ExportPipeTestPrim
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_55EEA16603AE_ME_55FF9F1102C9_impl // TuneExportPipe
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_55FF9F1102C9_over // GetFolder
+ ME_4DAED6F60146_ME_55FF9F1102C9_over // GetModelElementGUID
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TExportToSingleNSRTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ExportToSingleNSRTest'
+ UP intf.pas:Path 'archi\source\projects\ImportExportTest\ExportToSingleNSRTest.pas'
+
+ENDME // ME_55FF9F1102C9 ExportToSingleNSRTest

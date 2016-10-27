@@ -1,0 +1,107 @@
+// TvgRemindersLineList 533EAC970267 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_533EAC970267
+
+ME ME_533EAD0C00B5
+ MEPROP UID '533EAD0C00B5'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_533EAC970267 // TvgRemindersLineList
+ ;
+ MELINK Target WL? 'ME_532322D901A3' // TvgRemindersLine
+ ;
+
+ENDME // ME_533EAD0C00B5 ItemType
+
+FORWARD ME_533EAC1502AD
+
+ME ME_533EB1FD03D2
+ MEPROP UID '533EB1FD03D2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533EAC1502AD // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_533EB1FD03D2 DoIt
+
+ME ME_533EAC1502AD
+ MEPROP UID '533EAC1502AD'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533EAC970267 // TvgRemindersLineList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_533EB1FD03D2 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_533EAC1502AD Exists
+
+MEREF ME_4A54DD4E036F_ME_533EAC970267_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_533EAC970267_G Tl3ProtoDataContainer
+
+MEREF ME_47B57B7800A7_ME_533EAC970267_R
+ MELINK Original WL? 'ME_47B57B7800A7' // l3ObjectPtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57B7800A7_ME_533EAC970267_R l3ObjectPtrList
+
+%%ImplementedBy ME_47B57B7800A7 ME_533EAC970267
+
+%%InheritedBy ME_4A54DD4E036F ME_533EAC970267
+
+ME ME_533EAC970267
+ MEPROP UID '533EAC970267'
+ MEPROP Name 'TvgRemindersLineList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53288DFA03A7' // NewReminders
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_533EAC970267_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B57B7800A7_ME_533EAC970267_R // l3ObjectPtrList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_533EAD0C00B5 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_533EAC1502AD // Exists
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:pas:UnitName 'vgRemindersLineList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RemindersLineList'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vgRemindersLineList.pas'
+
+ENDME // ME_533EAC970267 TvgRemindersLineList

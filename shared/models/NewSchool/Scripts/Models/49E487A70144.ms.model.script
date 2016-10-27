@@ -1,0 +1,234 @@
+// Tk2TagFilter 49E487A70144 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4E15CBC600AA
+
+FORWARD ME_49E487A70144
+
+ME ME_4E15CBC600AA
+ MEPROP UID '4E15CBC600AA'
+ MEPROP Name 'Tk2TagFilterOpenMode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E487A70144 // Tk2TagFilter
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4E15CBC600AA Tk2TagFilterOpenMode
+
+FORWARD ME_4E15CBD5018B
+
+FORWARD ME_4E15CBF802C7
+
+ME ME_4E15CC0300FE
+ MEPROP Name 'anOpenMode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4E15CBC600AA // Tk2TagFilterOpenMode
+ ;
+
+ENDME // ME_4E15CC0300FE anOpenMode
+
+ME ME_4E15CBF802C7
+ MEPROP UID '4E15CBF802C7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E15CBD5018B // NeedTranslateChildToNextPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E15CC0300FE // anOpenMode
+ )
+ ; // Parameters
+
+ENDME // ME_4E15CBF802C7 DoIt
+
+ME ME_4E15CBD5018B
+ MEPROP UID '4E15CBD5018B'
+ MEPROP Name 'NeedTranslateChildToNextPrim'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E487A70144 // Tk2TagFilter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E15CBF802C7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E15CBD5018B NeedTranslateChildToNextPrim
+
+FORWARD ME_4E45166B0156
+
+FORWARD ME_4E451678032C
+
+ME ME_4E451682003F
+ MEPROP Name 'NeedUndo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E451682003F NeedUndo
+
+ME ME_4E451678032C
+ MEPROP UID '4E451678032C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E45166B0156 // DoCloseStructure
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E451682003F // NeedUndo
+ )
+ ; // Parameters
+
+ENDME // ME_4E451678032C DoIt
+
+ME ME_4E45166B0156
+ MEPROP UID '4E45166B0156'
+ MEPROP Name 'DoCloseStructure'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E487A70144 // Tk2TagFilter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E451678032C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E45166B0156 DoCloseStructure
+
+FORWARD ME_4A2D1217037A
+
+ME ME_4A2D121F0179
+ MEPROP Name 'TypeID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_4A2D121F0179 TypeID
+
+ME ME_4A2D1217037A
+ MEPROP UID '4A2D1217037A'
+ MEPROP Name 'DoStartChild'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E487A70144 // Tk2TagFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A2D121F0179 // TypeID
+ )
+ ; // Parameters
+
+ENDME // ME_4A2D1217037A DoStartChild
+
+FORWARD ME_4A2D1634025B
+
+ME ME_4A2D163D03AE
+ MEPROP Name 'AtomIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A2D163D03AE AtomIndex
+
+ME ME_4A2D163E001F
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_530F1ADF03E1' '53317D14019D.ms.model.script' // Ik2Variant
+ ;
+
+ENDME // ME_4A2D163E001F Value
+
+ME ME_4A2D1634025B
+ MEPROP UID '4A2D1634025B'
+ MEPROP Name 'DoAddAtomEx'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E487A70144 // Tk2TagFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A2D163D03AE // AtomIndex
+ ME_4A2D163E001F // Value
+ )
+ ; // Parameters
+
+ENDME // ME_4A2D1634025B DoAddAtomEx
+
+ME ME_4CA3006302BC
+ MEPROP UID '4CA3006302BC'
+ MEPROP Name 'NeedTranslateChildToNext'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E487A70144 // Tk2TagFilter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CA3006302BC NeedTranslateChildToNext
+
+MEREF ME_49E487BD025D_ME_49E487A70144_G
+ MELINK Original WL? 'ME_49E487BD025D' // Tk2TagTerminator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487BD025D_ME_49E487A70144_G Tk2TagTerminator
+
+%%InheritedBy ME_49E487BD025D ME_49E487A70144
+
+ME ME_49E487A70144
+ MEPROP UID '49E487A70144'
+ MEPROP Name 'Tk2TagFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECA80B000D' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E487BD025D_ME_49E487A70144_G // Tk2TagTerminator
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4E15CBD5018B // NeedTranslateChildToNextPrim
+ HWL ME_4E45166B0156 // DoCloseStructure
+ HWL ME_4A2D1217037A // DoStartChild
+ HWL ME_4A2D1634025B // DoAddAtomEx
+ HWL ME_4CA3006302BC // NeedTranslateChildToNext
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4E15CBC600AA // Tk2TagFilterOpenMode
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:pas:UnitName 'k2TagFilter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TagFilter'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2TagFilter.pas'
+
+ENDME // ME_49E487A70144 Tk2TagFilter

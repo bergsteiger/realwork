@@ -1,0 +1,50 @@
+// TalcuAnnotationTask 531705AC001C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_531705AC001C
+
+ME ME_53F6EE1A0025
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_531705AC001C // TalcuAnnotationTask
+ ;
+ MELINK Target WL? 'ME_53F6EDF00042' // TalcuAnnotationTaskResult
+ ;
+
+ENDME // ME_53F6EE1A0025 
+
+MEREF ME_53B6A4F300DE_ME_531705AC001C_G
+ MELINK Original WL? 'ME_53B6A4F300DE' // TcsAnnotationTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B6A4F300DE_ME_531705AC001C_G TcsAnnotationTask
+
+%%InheritedBy ME_53B6A4F300DE ME_531705AC001C
+
+ME ME_531705AC001C
+ MEPROP UID '531705AC001C'
+ MEPROP Name 'TalcuAnnotationTask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52FA3DD30094' // Lists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53B6A4F300DE_ME_531705AC001C_G // TcsAnnotationTask
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_53F6EE1A0025 // TalcuAnnotationTaskResult
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'alcuAnnotationTask'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuAnnotationTask'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAnnotationTask.pas'
+
+ENDME // ME_531705AC001C TalcuAnnotationTask

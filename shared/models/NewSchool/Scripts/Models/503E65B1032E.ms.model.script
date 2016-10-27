@@ -1,0 +1,81 @@
+// TatWordPositionConverter 503E65B1032E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_503E65B1032E
+
+ME ME_503E661503B1
+ MEPROP UID '503E661503B1'
+ MEPROP Name 'FirstType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_503E65B1032E // TatWordPositionConverter
+ ;
+ MELINK Target WL 'ME_46A61BCB033D' '4677FBA70343.ms.model.script' // Tl3WordPosition
+ ;
+
+ENDME // ME_503E661503B1 FirstType
+
+ME ME_503E662B0330
+ MEPROP UID '503E662B0330'
+ MEPROP Name 'SecondType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_503E65B1032E // TatWordPositionConverter
+ ;
+ MELINK Target WL 'ME_45EEBBE501D4' '457450470167.ms.model.script' // ContextPlace
+ ;
+
+ENDME // ME_503E662B0330 SecondType
+
+MEREF ME_503E3A040395_ME_503E65B1032E_impl
+ MELINK Original WL 'ME_503E3A040395' '503E2BCA01E8.ms.model.script' // InitConvertMap
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_503E3A040395_ME_503E65B1032E_impl InitConvertMap
+
+MEREF ME_503E66FA02FE_ME_503E65B1032E_G
+ MELINK Original WL? 'ME_503E66FA02FE' // atEnumToEnumConverter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_503E66FA02FE_ME_503E65B1032E_G atEnumToEnumConverter
+
+%%InheritedBy ME_503E66FA02FE ME_503E65B1032E
+
+ME ME_503E65B1032E
+ MEPROP UID '503E65B1032E'
+ MEPROP Name 'TatWordPositionConverter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_503E611303A1' // InteropWithL3
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_503E66FA02FE_ME_503E65B1032E_G // atEnumToEnumConverter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_503E661503B1 // FirstType
+ HWL ME_503E662B0330 // SecondType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_503E3A040395_ME_503E65B1032E_impl // InitConvertMap
+ )
+ ; // Implemented
+ UP "singleton" True
+ UP extprop:pas:UnitName 'atWordPositionConverter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atWordPositionConverter'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\InteropWithL3\atWordPositionConverter.pas'
+
+ENDME // ME_503E65B1032E TatWordPositionConverter

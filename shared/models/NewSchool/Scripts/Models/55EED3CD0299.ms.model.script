@@ -1,0 +1,158 @@
+// TalcuMdpDocImporter 55EED3CD0299 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55EED3CD0299
+
+FORWARD ME_55EEDEC7035D
+
+ME ME_55EEDEEB01DE
+ MEPROP UID '55EEDEEB01DE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55EEDEC7035D // HasToImport
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55EEDEEB01DE DoIt
+
+ME ME_55EEDEC7035D
+ MEPROP UID '55EEDEC7035D'
+ MEPROP Name 'HasToImport'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55EED3CD0299 // TalcuMdpDocImporter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55EEDEEB01DE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55EEDEC7035D HasToImport
+
+FORWARD ME_57061FA6032E
+
+ME ME_57061FB20369
+ MEPROP UID '57061FB20369'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57061FA6032E // MakeTask
+ ;
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
+ ;
+
+ENDME // ME_57061FB20369 DoIt
+
+ME ME_55F01415032E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57061FA6032E // MakeTask
+ ;
+ MELINK Target WL 'ME_55229480008E' '5432518A0316.ms.model.script' // UserConsts
+ ;
+
+ENDME // ME_55F01415032E 
+
+ME ME_55EEDF08000A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57061FA6032E // MakeTask
+ ;
+ MELINK Target WL? 'ME_55EEC72501BF' // TalcuMdpImportDocs
+ ;
+
+ENDME // ME_55EEDF08000A 
+
+ME ME_57061FA6032E
+ MEPROP UID '57061FA6032E'
+ MEPROP Name 'MakeTask'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55EED3CD0299 // TalcuMdpDocImporter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57061FB20369 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55F01415032E // UserConsts
+ ME_55EEDF08000A // TalcuMdpImportDocs
+ )
+ ; // Dependencies
+
+ENDME // ME_57061FA6032E MakeTask
+
+ME ME_5617AD58028C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55EED3CD0299 // TalcuMdpDocImporter
+ ;
+ MELINK Target WL? 'ME_4B990EF000AA' // ddAppConfig
+ ;
+
+ENDME // ME_5617AD58028C 
+
+ME ME_561B63FE0192
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55EED3CD0299 // TalcuMdpDocImporter
+ ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+
+ENDME // ME_561B63FE0192 
+
+MEREF ME_49E7754802A9_ME_55EED3CD0299_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_55EED3CD0299_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_55EED3CD0299
+
+ME ME_55EED3CD0299
+ MEPROP UID '55EED3CD0299'
+ MEPROP Name 'TalcuMdpDocImporter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53D656130130' // Server
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_55EED3CD0299_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55EEDEC7035D // HasToImport
+ HWL ME_57061FA6032E // MakeTask
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5617AD58028C // ddAppConfig
+ ME_561B63FE0192 // TdaUserID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
+ UP "ifdef" 'MDPSyncIntegrated'
+ UP extprop:pas:UnitName 'alcuMdpDocImporter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuMdpDocImporter'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuMdpDocImporter.pas'
+
+ENDME // ME_55EED3CD0299 TalcuMdpDocImporter

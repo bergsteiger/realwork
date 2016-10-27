@@ -45,35 +45,47 @@ ME ME_545A1F590336
 
 ENDME // ME_545A1F590336 
 
-ME ME_47B2C42A0163_ME_542179C40347
+MEREF ME_47B2C42A0163_ME_542179C40347_impl
  MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
  UP "ifndef" 'l3Items_NoSort'
-ENDME // ME_47B2C42A0163_ME_542179C40347 AssignItem
+ENDMEREF // ME_47B2C42A0163_ME_542179C40347_impl AssignItem
 
-ME ME_47B99D4503A2_ME_542179C40347
+MEREF ME_47B99D4503A2_ME_542179C40347_impl
  MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47B99D4503A2_ME_542179C40347 CompareExistingItems
+ENDMEREF // ME_47B99D4503A2_ME_542179C40347_impl CompareExistingItems
 
-ME ME_47A6FEE600FC_ME_542179C40347
+MEREF ME_47A6FEE600FC_ME_542179C40347_over
  MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifndef" 'DesignTimeLibrary'
-ENDME // ME_47A6FEE600FC_ME_542179C40347 IsCacheable
+ENDMEREF // ME_47A6FEE600FC_ME_542179C40347_over IsCacheable
 
-ME ME_47BEE088001A_ME_542179C40347
+MEREF ME_47BEE088001A_ME_542179C40347_over
  MELINK Original WL 'ME_47BEE088001A' '47B45152003F.ms.model.script' // Count
  ;
  MEPROP OpKind opkind_Overridden
  UP "needs field" False
  UP "pm" True
  UP "reads field" True
-ENDME // ME_47BEE088001A_ME_542179C40347 Count
+ENDMEREF // ME_47BEE088001A_ME_542179C40347_over Count
+
+MEREF ME_4A54DD4E036F_ME_542179C40347_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_542179C40347_G Tl3ProtoDataContainer
+
+MEREF ME_47B99E920196_ME_542179C40347_R
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_542179C40347_R l3UncomparabeObjectRefList
 
 %%ImplementedBy ME_47B99E920196 ME_542179C40347
 
@@ -91,21 +103,21 @@ ME ME_542179C40347
  MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+   Seq: ( HWL ME_4A54DD4E036F_ME_542179C40347_G // Tl3ProtoDataContainer
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+   Seq: ( HWL ME_47B99E920196_ME_542179C40347_R // l3UncomparabeObjectRefList
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_47B2C42A0163_ME_542179C40347 // AssignItem
- ME_47B99D4503A2_ME_542179C40347 // CompareExistingItems
+   Seq: ( ME_47B2C42A0163_ME_542179C40347_impl // AssignItem
+ ME_47B99D4503A2_ME_542179C40347_impl // CompareExistingItems
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_47A6FEE600FC_ME_542179C40347 // IsCacheable
- ME_47BEE088001A_ME_542179C40347 // Count
+   Seq: ( ME_47A6FEE600FC_ME_542179C40347_over // IsCacheable
+ ME_47BEE088001A_ME_542179C40347_over // Count
  )
  ; // Overridden
  MELIST Children

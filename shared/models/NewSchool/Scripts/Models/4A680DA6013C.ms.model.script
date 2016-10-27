@@ -1,0 +1,158 @@
+// TnsChatTreeStruct 4A680DA6013C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A680DA6013C
+
+ME ME_4A6EAB870154
+ MEPROP UID '4A6EAB870154'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A680DA6013C // TnsChatTreeStruct
+ ;
+ MELINK Target WL 'ME_4A66BABA015C' '4A66B9840002.ms.model.script' // TbsUserID
+ ;
+
+ENDME // ME_4A6EAB870154 FindDataType
+
+FORWARD ME_4A680DCB0084
+
+ME ME_4A680EAC019C
+ MEPROP Name 'ForAdd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A680EAC019C ForAdd
+
+ME ME_4A680DCB0084
+ MEPROP UID '4A680DCB0084'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A680DA6013C // TnsChatTreeStruct
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A680EAC019C // ForAdd
+ )
+ ; // Parameters
+
+ENDME // ME_4A680DCB0084 Make
+
+ME ME_4A68157A0373
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A680DA6013C // TnsChatTreeStruct
+ ;
+ MELINK Target WL 'ME_4901E66D024F' '47ECAAF901F8.ms.model.script' // InsUserFlagsFilters
+ ;
+
+ENDME // ME_4A68157A0373 
+
+ME ME_4A6815E601BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A680DA6013C // TnsChatTreeStruct
+ ;
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
+ ;
+
+ENDME // ME_4A6815E601BD 
+
+ME ME_4A681608005F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A680DA6013C // TnsChatTreeStruct
+ ;
+ MELINK Target WL 'ME_45EED47801AA' '45EEAA96039C.ms.model.script' // UserFilterFlags
+ ;
+
+ENDME // ME_4A681608005F 
+
+ME ME_4A6818000083
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A680DA6013C // TnsChatTreeStruct
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4A6818000083 
+
+ME ME_4A6818BB03CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A680DA6013C // TnsChatTreeStruct
+ ;
+ MELINK Target WL? 'ME_4901E8E20154' // TnsUserFlagsFilter
+ ;
+
+ENDME // ME_4A6818BB03CA 
+
+MEREF ME_48FF64F60078_ME_4A680DA6013C_over
+ MELINK Original WL 'ME_48FF64F60078' '468361010204.ms.model.script' // ReAqurieUnfilteredRoot
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FF64F60078_ME_4A680DA6013C_over ReAqurieUnfilteredRoot
+
+MEREF ME_4906E96C0364_ME_4A680DA6013C_G
+ MELINK Original WL? 'ME_4906E96C0364' // TnsUserTreeStruct
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4906E96C0364_ME_4A680DA6013C_G TnsUserTreeStruct
+
+%%InheritedBy ME_4906E96C0364 ME_4A680DA6013C
+
+ME ME_4A680DA6013C
+ MEPROP UID '4A680DA6013C'
+ MEPROP Name 'TnsChatTreeStruct'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A66EB280367' // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4906E96C0364_ME_4A680DA6013C_G // TnsUserTreeStruct
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A6EAB870154 // FindDataType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A680DCB0084 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48FF64F60078_ME_4A680DA6013C_over // ReAqurieUnfilteredRoot
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4A68157A0373 // InsUserFlagsFilters
+ ME_4A6815E601BD // DataAdapter
+ ME_4A681608005F // UserFilterFlags
+ ME_4A6818000083 // SysUtils
+ ME_4A6818BB03CA // TnsUserFlagsFilter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nsChatTreeStruct'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ChatTreeStruct'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\nsChatTreeStruct.pas'
+
+ENDME // ME_4A680DA6013C TnsChatTreeStruct

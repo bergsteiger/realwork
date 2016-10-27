@@ -1,0 +1,228 @@
+// TnsListPrintEvent 4B0FA8D701F6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B0FA8D701F6
+
+ME ME_4B0FA94B019A
+ MEPROP UID '4B0FA94B019A'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B0FA8D701F6 // TnsListPrintEvent
+ ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_4B0FA94B019A f_List
+
+ME ME_4B0FA96203D6
+ MEPROP UID '4B0FA96203D6'
+ MEPROP Name 'f_Count'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B0FA8D701F6 // TnsListPrintEvent
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4B0FA96203D6 f_Count
+
+ME ME_4B0FA97103DD
+ MEPROP UID '4B0FA97103DD'
+ MEPROP Name 'f_Selection'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B0FA8D701F6 // TnsListPrintEvent
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B0FA97103DD f_Selection
+
+FORWARD ME_4B0FA9940328
+
+ME ME_4B0FA9AF00DB
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_4B0FA9AF00DB aList
+
+ME ME_4B0FA9AF010A
+ MEPROP Name 'aCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4B0FA9AF010A aCount
+
+ME ME_4B0FA9AF0138
+ MEPROP Name 'aSelection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B0FA9AF0138 aSelection
+
+ME ME_4B0FA9940328
+ MEPROP UID '4B0FA9940328'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B0FA8D701F6 // TnsListPrintEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B0FA9AF00DB // aList
+ ME_4B0FA9AF010A // aCount
+ ME_4B0FA9AF0138 // aSelection
+ )
+ ; // Parameters
+
+ENDME // ME_4B0FA9940328 Create
+
+FORWARD ME_4B0FA9B50054
+
+ME ME_4B0FB21800BE
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_4B0FB21800BE aList
+
+ME ME_4B0FB21800ED
+ MEPROP Name 'aCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4B0FB21800ED aCount
+
+ME ME_4B0FB218011C
+ MEPROP Name 'aSelection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B0FB218011C aSelection
+
+ME ME_4B0FA9B50054
+ MEPROP UID '4B0FA9B50054'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B0FA8D701F6 // TnsListPrintEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B0FB21800BE // aList
+ ME_4B0FB21800ED // aCount
+ ME_4B0FB218011C // aSelection
+ )
+ ; // Parameters
+
+ENDME // ME_4B0FA9B50054 Make
+
+ME ME_4B0FA91C031D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B0FA8D701F6 // TnsListPrintEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B0FA91C031D 
+
+MEREF ME_4B0FA5CB0254_ME_4B0FA8D701F6_impl
+ MELINK Original WL 'ME_4B0FA5CB0254' '49913F2C020C.ms.model.script' // FireLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B0FA5CB0254_ME_4B0FA8D701F6_impl FireLog
+
+MEREF ME_479731C50290_ME_4B0FA8D701F6_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4B0FA8D701F6_over Cleanup
+
+MEREF ME_4B0A6109010C_ME_4B0FA8D701F6_G
+ MELINK Original WL? 'ME_4B0A6109010C' // TnsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0A6109010C_ME_4B0FA8D701F6_G TnsLogEvent
+
+MEREF ME_4B0FA5B8011B_ME_4B0FA8D701F6_R
+ MELINK Original WL 'ME_4B0FA5B8011B' '49913F2C020C.ms.model.script' // InsDefferedEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0FA5B8011B_ME_4B0FA8D701F6_R InsDefferedEvent
+
+%%ImplementedBy ME_4B0FA5B8011B ME_4B0FA8D701F6
+
+%%InheritedBy ME_4B0A6109010C ME_4B0FA8D701F6
+
+ME ME_4B0FA8D701F6
+ MEPROP UID '4B0FA8D701F6'
+ MEPROP Name 'TnsListPrintEvent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47F22C7501F6' // Document
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B0A6109010C_ME_4B0FA8D701F6_G // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4B0FA5B8011B_ME_4B0FA8D701F6_R // InsDefferedEvent
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B0FA94B019A // f_List
+ HWL ME_4B0FA96203D6 // f_Count
+ HWL ME_4B0FA97103DD // f_Selection
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B0FA9940328 // Create
+ HWL ME_4B0FA9B50054 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4B0FA5CB0254_ME_4B0FA8D701F6_impl // FireLog
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4B0FA8D701F6_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4B0FA91C031D // LogEvent
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'nsListPrintEvent'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ListPrintEvent'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\nsListPrintEvent.pas'
+
+ENDME // ME_4B0FA8D701F6 TnsListPrintEvent

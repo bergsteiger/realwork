@@ -1,0 +1,533 @@
+// TevDropControl 48D367B20014 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48D367B20014
+
+ME ME_48D378F50068
+ MEPROP UID '48D378F50068'
+ MEPROP Name 'DropContainer'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает интерфейс контейнера с обработкой событий дерева' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48D367B20014 // TevDropControl
+ ;
+ MELINK Target WL 'ME_47CEA1BD002F' '47CE9D27036D.ms.model.script' // IevDropContainer
+ ;
+
+ENDME // ME_48D378F50068 DropContainer
+
+ME ME_48D3795502E6
+ MEPROP UID '48D3795502E6'
+ MEPROP Name 'GetControl'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48D367B20014 // TevDropControl
+ ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+
+ENDME // ME_48D3795502E6 GetControl
+
+FORWARD ME_48D37B8500D3
+
+ME ME_48E0D2B9035C
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_48E0D2B9035C aView
+
+ME ME_48E0D2B903AB
+ MEPROP Name 'aPt0'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_48E0D2B903AB aPt0
+
+ME ME_48E0D2BA0012
+ MEPROP Name 'aExtend'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_48E0D2BA0012 aExtend
+
+ME ME_48E0D2BA005F
+ MEPROP Name 'aDropPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A1052001B2' '4677FBA70343.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_48E0D2BA005F aDropPoint
+
+ME ME_48E0D2BA00AD
+ MEPROP Name 'aInvert'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48E0D2BA00AD aInvert
+
+ME ME_48E0D2BA00FD
+ MEPROP Name 'aWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48E0D2BA00FD aWidth
+
+ME ME_48D37B8500D3
+ MEPROP UID '48D37B8500D3'
+ MEPROP Name 'CalcControlPosition'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48D367B20014 // TevDropControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E0D2B9035C // aView
+ ME_48E0D2B903AB // aPt0
+ ME_48E0D2BA0012 // aExtend
+ ME_48E0D2BA005F // aDropPoint
+ ME_48E0D2BA00AD // aInvert
+ ME_48E0D2BA00FD // aWidth
+ )
+ ; // Parameters
+
+ENDME // ME_48D37B8500D3 CalcControlPosition
+
+FORWARD ME_48D37D3303B1
+
+ME ME_48D37D3A0144
+ MEPROP Name 'aPt'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_48D37D3A0144 aPt
+
+ME ME_48D37D3303B1
+ MEPROP UID '48D37D3303B1'
+ MEPROP Name 'DocumentToScreen'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48D367B20014 // TevDropControl
+ ;
+ MELINK Target WL 'ME_46A1052001B2' '4677FBA70343.ms.model.script' // TPoint
+ ;
+ MELIST Parameters
+   Seq: ( ME_48D37D3A0144 // aPt
+ )
+ ; // Parameters
+
+ENDME // ME_48D37D3303B1 DocumentToScreen
+
+ME ME_48D37D4E0201
+ MEPROP UID '48D37D4E0201'
+ MEPROP Name 'DropControlHeigth'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48D367B20014 // TevDropControl
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48D37D4E0201 DropControlHeigth
+
+FORWARD ME_48D37D66029A
+
+ME ME_48D37D7D0396
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A1052001B2' '4677FBA70343.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_48D37D7D0396 aPoint
+
+ME ME_48D37D7E0001
+ MEPROP Name 'AInvert'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48D37D7E0001 AInvert
+
+ME ME_48D37D7E0058
+ MEPROP Name 'AWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48D37D7E0058 AWidth
+
+ME ME_48D37D7E00B0
+ MEPROP Name 'ByUser'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48D37D7E00B0 ByUser
+
+ME ME_48D37D66029A
+ MEPROP UID '48D37D66029A'
+ MEPROP Name 'DoDrop'
+ MEPROP Class class_Operation
+ %SUMMARY 'Вываливает выпадающий виджет по указанным координатам' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48D367B20014 // TevDropControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_48D37D7D0396 // aPoint
+ ME_48D37D7E0001 // AInvert
+ ME_48D37D7E0058 // AWidth
+ ME_48D37D7E00B0 // ByUser
+ )
+ ; // Parameters
+
+ENDME // ME_48D37D66029A DoDrop
+
+FORWARD ME_48D37D94002E
+
+ME ME_48D37DA10227
+ MEPROP Name 'aPt'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C59DE803AD' '4678209200A6.ms.model.script' // TnevPoint
+ ;
+
+ENDME // ME_48D37DA10227 aPt
+
+ME ME_48D37DA10282
+ MEPROP Name 'aMap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B63D033A' '47C5207602D1.ms.model.script' // InevMap
+ ;
+
+ENDME // ME_48D37DA10282 aMap
+
+ME ME_48D37D94002E
+ MEPROP UID '48D37D94002E'
+ MEPROP Name 'PtInButton'
+ MEPROP Class class_Operation
+ %SUMMARY 'Щелчок по кнопке редактора' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48D367B20014 // TevDropControl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48D37DA10227 // aPt
+ ME_48D37DA10282 // aMap
+ )
+ ; // Parameters
+
+ENDME // ME_48D37D94002E PtInButton
+
+ME ME_48D3824000D5
+ MEPROP UID '48D3824000D5'
+ MEPROP Name 'DoEscPressed'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48D367B20014 // TevDropControl
+ ;
+
+ENDME // ME_48D3824000D5 DoEscPressed
+
+FORWARD ME_48D38273036D
+
+ME ME_48D3827B030B
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF1FA032A' '4678209200A6.ms.model.script' // InevSimpleNode
+ ;
+
+ENDME // ME_48D3827B030B aNode
+
+ME ME_48D38273036D
+ MEPROP UID '48D38273036D'
+ MEPROP Name 'DoDropDownCurrentChanged'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48D367B20014 // TevDropControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_48D3827B030B // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_48D38273036D DoDropDownCurrentChanged
+
+ME ME_48D382AA012A
+ MEPROP UID '48D382AA012A'
+ MEPROP Name 'DoAfterHideControl'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48D367B20014 // TevDropControl
+ ;
+
+ENDME // ME_48D382AA012A DoAfterHideControl
+
+ME ME_48D3779F0028
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48D367B20014 // TevDropControl
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_48D3779F0028 
+
+ME ME_48D37AC60286
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48D367B20014 // TevDropControl
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_48D37AC60286 
+
+ME ME_48D37B1702CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48D367B20014 // TevDropControl
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_48D37B1702CE 
+
+ME ME_48D37B63021D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48D367B20014 // TevDropControl
+ ;
+ MELINK Target WL 'ME_48D2191902CB' '48D21909003A.ms.model.script' // ActionCodes
+ ;
+
+ENDME // ME_48D37B63021D 
+
+ME ME_48D37C9B03B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48D367B20014 // TevDropControl
+ ;
+ MELINK Target WL? 'ME_47E13C6B0341' // Forms
+ ;
+
+ENDME // ME_48D37C9B03B2 
+
+ME ME_48D37D1F00D9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48D367B20014 // TevDropControl
+ ;
+ MELINK Target WL? 'ME_47D00CC20108' // nevFacade
+ ;
+
+ENDME // ME_48D37D1F00D9 
+
+ME ME_4BCC1B0800BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48D367B20014 // TevDropControl
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4BCC1B0800BC 
+
+MEREF ME_47CE9ECA031E_ME_48D367B20014_impl
+ MELINK Original WL 'ME_47CE9ECA031E' '47CE9D27036D.ms.model.script' // AfterHideControl
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CE9ECA031E_ME_48D367B20014_impl AfterHideControl
+
+MEREF ME_47CE9ED103AA_ME_48D367B20014_impl
+ MELINK Original WL 'ME_47CE9ED103AA' '47CE9D27036D.ms.model.script' // EscPressed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CE9ED103AA_ME_48D367B20014_impl EscPressed
+
+MEREF ME_47CE9EE302A2_ME_48D367B20014_impl
+ MELINK Original WL 'ME_47CE9EE302A2' '47CE9D27036D.ms.model.script' // HideControl
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CE9EE302A2_ME_48D367B20014_impl HideControl
+
+MEREF ME_47CE9EF3009B_ME_48D367B20014_impl
+ MELINK Original WL 'ME_47CE9EF3009B' '47CE9D27036D.ms.model.script' // MouseWheel
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CE9EF3009B_ME_48D367B20014_impl MouseWheel
+
+MEREF ME_47CE9F040044_ME_48D367B20014_impl
+ MELINK Original WL 'ME_47CE9F040044' '47CE9D27036D.ms.model.script' // KeyDown
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CE9F040044_ME_48D367B20014_impl KeyDown
+
+MEREF ME_47CE9F4300B1_ME_48D367B20014_impl
+ MELINK Original WL 'ME_47CE9F4300B1' '47CE9D27036D.ms.model.script' // CloseTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CE9F4300B1_ME_48D367B20014_impl CloseTree
+
+MEREF ME_47CE9F560359_ME_48D367B20014_impl
+ MELINK Original WL 'ME_47CE9F560359' '47CE9D27036D.ms.model.script' // Down
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_47CE9F560359_ME_48D367B20014_impl Down
+
+MEREF ME_47CE9F82032D_ME_48D367B20014_impl
+ MELINK Original WL 'ME_47CE9F82032D' '47CE9D27036D.ms.model.script' // DropDown
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CE9F82032D_ME_48D367B20014_impl DropDown
+
+MEREF ME_47CE9FA402DC_ME_48D367B20014_impl
+ MELINK Original WL 'ME_47CE9FA402DC' '47CE9D27036D.ms.model.script' // Para
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_47CE9FA402DC_ME_48D367B20014_impl Para
+
+MEREF ME_48845FB30308_ME_48D367B20014_impl
+ MELINK Original WL 'ME_48845FB30308' '47CE9D27036D.ms.model.script' // DropDownCurrentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48845FB30308_ME_48D367B20014_impl DropDownCurrentChanged
+
+MEREF ME_48D145B8036A_ME_48D367B20014_over
+ MELINK Original WL 'ME_48D145B8036A' '48D13B8D03A3.ms.model.script' // DoKeyCommand
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D145B8036A_ME_48D367B20014_over DoKeyCommand
+
+MEREF ME_48D1461101C6_ME_48D367B20014_over
+ MELINK Original WL 'ME_48D1461101C6' '48D13B8D03A3.ms.model.script' // DoLMouseBtnUp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D1461101C6_ME_48D367B20014_over DoLMouseBtnUp
+
+MEREF ME_48D1464501E8_ME_48D367B20014_over
+ MELINK Original WL 'ME_48D1464501E8' '48D13B8D03A3.ms.model.script' // DoLMouseBtnDown
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D1464501E8_ME_48D367B20014_over DoLMouseBtnDown
+
+MEREF ME_48D2409102B7_ME_48D367B20014_G
+ MELINK Original WL? 'ME_48D2409102B7' // TevEditControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48D2409102B7_ME_48D367B20014_G TevEditControl
+
+MEREF ME_47CE9EBB0142_ME_48D367B20014_R
+ MELINK Original WL 'ME_47CE9EBB0142' '47CE9D27036D.ms.model.script' // IevDropControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47CE9EBB0142_ME_48D367B20014_R IevDropControl
+
+%%ImplementedBy ME_47CE9EBB0142 ME_48D367B20014
+
+%%InheritedBy ME_48D2409102B7 ME_48D367B20014
+
+ME ME_48D367B20014
+ MEPROP UID '48D367B20014'
+ MEPROP Name 'TevDropControl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47CEBC900123' // qf
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48D2409102B7_ME_48D367B20014_G // TevEditControl
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47CE9EBB0142_ME_48D367B20014_R // IevDropControl
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_48D378F50068 // DropContainer
+ HWL ME_48D3795502E6 // GetControl
+ HWL ME_48D37B8500D3 // CalcControlPosition
+ HWL ME_48D37D3303B1 // DocumentToScreen
+ HWL ME_48D37D4E0201 // DropControlHeigth
+ HWL ME_48D37D66029A // DoDrop
+ HWL ME_48D37D94002E // PtInButton
+ HWL ME_48D3824000D5 // DoEscPressed
+ HWL ME_48D38273036D // DoDropDownCurrentChanged
+ HWL ME_48D382AA012A // DoAfterHideControl
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47CE9ECA031E_ME_48D367B20014_impl // AfterHideControl
+ ME_47CE9ED103AA_ME_48D367B20014_impl // EscPressed
+ ME_47CE9EE302A2_ME_48D367B20014_impl // HideControl
+ ME_47CE9EF3009B_ME_48D367B20014_impl // MouseWheel
+ ME_47CE9F040044_ME_48D367B20014_impl // KeyDown
+ ME_47CE9F4300B1_ME_48D367B20014_impl // CloseTree
+ ME_47CE9F560359_ME_48D367B20014_impl // Down
+ ME_47CE9F82032D_ME_48D367B20014_impl // DropDown
+ ME_47CE9FA402DC_ME_48D367B20014_impl // Para
+ ME_48845FB30308_ME_48D367B20014_impl // DropDownCurrentChanged
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48D145B8036A_ME_48D367B20014_over // DoKeyCommand
+ ME_48D1461101C6_ME_48D367B20014_over // DoLMouseBtnUp
+ ME_48D1464501E8_ME_48D367B20014_over // DoLMouseBtnDown
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48D3779F0028 // Tl3Point
+ ME_48D37AC60286 // Windows
+ ME_48D37B1702CE // Tk2TagID
+ ME_48D37B63021D // ActionCodes
+ ME_48D37C9B03B2 // Forms
+ ME_48D37D1F00D9 // nevFacade
+ ME_4BCC1B0800BC // Supports
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP "no hands" True
+ UP "started" '25.01.2005 10:18'
+ UP extprop:pas:UnitName 'evDropControl'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DropControl'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\qf\evDropControl.pas'
+
+ENDME // ME_48D367B20014 TevDropControl

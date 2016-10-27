@@ -1,0 +1,118 @@
+// TnsCompareEditionsInfoPrim 4A8039EF0325 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8039EF0325
+
+FORWARD ME_4B585365015A
+
+FORWARD ME_4B58536D0371
+
+ME ME_4B585371014D
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4B585371014D aDoc
+
+ME ME_4B585371016C
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A7FC9C9008F' '4912DD020283.ms.model.script' // IeeLeafPara
+ ;
+
+ENDME // ME_4B585371016C aPara
+
+ME ME_4B585371018D
+ MEPROP Name 'aDocumentForReturn'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B60748400F9' '5795D66F0385.ms.model.script' // TnsDocumentForReturnInfo
+ ;
+
+ENDME // ME_4B585371018D aDocumentForReturn
+
+ME ME_4B58536D0371
+ MEPROP UID '4B58536D0371'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B585365015A // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B585371014D // aDoc
+ ME_4B585371016C // aPara
+ ME_4B585371018D // aDocumentForReturn
+ )
+ ; // Parameters
+
+ENDME // ME_4B58536D0371 DoIt
+
+ME ME_4B585365015A
+ MEPROP UID '4B585365015A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8039EF0325 // TnsCompareEditionsInfoPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B58536D0371 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B585365015A Create
+
+MEREF ME_4A7FF2C901C8_ME_4A8039EF0325_G
+ MELINK Original WL? 'ME_4A7FF2C901C8' // TnsRedactionCurrentPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A7FF2C901C8_ME_4A8039EF0325_G TnsRedactionCurrentPara
+
+MEREF ME_4AE03C7F0002_ME_4A8039EF0325_G
+ MELINK Original WL? 'ME_4AE03C7F0002' // MnsDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE03C7F0002_ME_4A8039EF0325_G MnsDocument
+
+%%InheritedBy ME_4A7FF2C901C8 ME_4A8039EF0325
+%%InheritedBy ME_4AE03C7F0002 ME_4A8039EF0325
+
+ME ME_4A8039EF0325
+ MEPROP UID '4A8039EF0325'
+ MEPROP Name 'TnsCompareEditionsInfoPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A785027038D' // CommonObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A7FF2C901C8_ME_4A8039EF0325_G // TnsRedactionCurrentPara
+ HWL ME_4AE03C7F0002_ME_4A8039EF0325_G // MnsDocument
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B585365015A // Create
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '10.08.2009 19:27'
+ UP extprop:pas:UnitName 'nsCompareEditionsInfoPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CompareEditionsInfoPrim'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Editions\nsCompareEditionsInfoPrim.pas'
+
+ENDME // ME_4A8039EF0325 TnsCompareEditionsInfoPrim

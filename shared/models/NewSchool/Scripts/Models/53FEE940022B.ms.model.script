@@ -1,0 +1,106 @@
+// TevPDFWriter 53FEE940022B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53FEE940022B
+
+ME ME_53FEE9700328
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FEE940022B // TevPDFWriter
+ ;
+ MELINK Target WL? 'ME_49CBD11A02CF' // TevDocumentPreview
+ ;
+
+ENDME // ME_53FEE9700328 
+
+ME ME_53FEEEED0101
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FEE940022B // TevPDFWriter
+ ;
+ MELINK Target WL 'ME_49E615DB01E9' '4678209200A6.ms.model.script' // PreviewKeys
+ ;
+
+ENDME // ME_53FEEEED0101 
+
+ME ME_53FF121200D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FEE940022B // TevPDFWriter
+ ;
+ MELINK Target WL 'ME_53FF07670079' '53FF071F01E3.ms.model.script' // TddPDFExporter
+ ;
+
+ENDME // ME_53FF121200D1 
+
+ME ME_541149F0029E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FEE940022B // TevPDFWriter
+ ;
+ MELINK Target WL? 'ME_541149B203E1' // TnevDocumentProvider4PDF
+ ;
+
+ENDME // ME_541149F0029E 
+
+ME ME_541153A7026F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FEE940022B // TevPDFWriter
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_541153A7026F 
+
+MEREF ME_53FEE4FE01CB_ME_53FEE940022B_impl
+ MELINK Original WL 'ME_53FEE4FE01CB' '53FED6EF027B.ms.model.script' // ExportPDF
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_53FEE4FE01CB_ME_53FEE940022B_impl ExportPDF
+
+MEREF ME_53FED6EF027B_ME_53FEE940022B_G
+ MELINK Original WL? 'ME_53FED6EF027B' // TevCustomPDFWriter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53FED6EF027B_ME_53FEE940022B_G TevCustomPDFWriter
+
+%%InheritedBy ME_53FED6EF027B ME_53FEE940022B
+
+ME ME_53FEE940022B
+ MEPROP UID '53FEE940022B'
+ MEPROP Name 'TevPDFWriter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47EA968D0155' // Printing
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53FED6EF027B_ME_53FEE940022B_G // TevCustomPDFWriter
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53FEE4FE01CB_ME_53FEE940022B_impl // ExportPDF
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53FEE9700328 // TevDocumentPreview
+ ME_53FEEEED0101 // PreviewKeys
+ ME_53FF121200D1 // TddPDFExporter
+ ME_541149F0029E // TnevDocumentProvider4PDF
+ ME_541153A7026F // InevPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evPDFWriter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PDFWriter'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evPDFWriter.pas'
+
+ENDME // ME_53FEE940022B TevPDFWriter

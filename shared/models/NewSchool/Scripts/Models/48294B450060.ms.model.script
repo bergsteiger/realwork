@@ -1,0 +1,72 @@
+// Tm3StorageElementIDList 48294B450060 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48294B450060
+
+ME ME_48294BD9005C
+ MEPROP UID '48294BD9005C'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48294B450060 // Tm3StorageElementIDList
+ ;
+ MELINK Target WL 'ME_4828623D0134' '4720862F0238.ms.model.script' // Im3StorageElementIDList
+ ;
+
+ENDME // ME_48294BD9005C ListType
+
+MEREF ME_47A042E100E2_ME_48294B450060_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_48294B450060_over InitFields
+
+MEREF ME_47BB29D40117_ME_48294B450060_G
+ MELINK Original WL? 'ME_47BB29D40117' // Tl3LongintList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BB29D40117_ME_48294B450060_G Tl3LongintList
+
+MEREF ME_47CED1980057_ME_48294B450060_G
+ MELINK Original WL? 'ME_47CED1980057' // l3InterfacedList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47CED1980057_ME_48294B450060_G l3InterfacedList
+
+%%InheritedBy ME_47BB29D40117 ME_48294B450060
+%%InheritedBy ME_47CED1980057 ME_48294B450060
+
+ME ME_48294B450060
+ MEPROP UID '48294B450060'
+ MEPROP Name 'Tm3StorageElementIDList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_548701CB01C1' // m3DBContainers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47BB29D40117_ME_48294B450060_G // Tl3LongintList
+ HWL ME_47CED1980057_ME_48294B450060_G // l3InterfacedList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48294BD9005C // ListType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_48294B450060_over // InitFields
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'm3StorageElementIDList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3StorageElementIDList'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3StorageElementIDList.pas'
+
+ENDME // ME_48294B450060 Tm3StorageElementIDList

@@ -55,7 +55,7 @@ ENDME // ME_4CF7BC6501ED DoIt
 ME ME_4CF7BC520161
  MEPROP UID '4CF7BC520161'
  MEPROP Name 'NeedFlushBuffer'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -120,7 +120,7 @@ ENDME // ME_4CF7BED60088 DoIt
 ME ME_4CF7BEC40130
  MEPROP UID '4CF7BEC40130'
  MEPROP Name 'DoFlushBuffer'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -162,6 +162,12 @@ ME ME_4C56D54B002A
 
 ENDME // ME_4C56D54B002A NeedStartBuffering
 
+MEREF ME_49E487A70144_ME_49E496650211_G
+ MELINK Original WL? 'ME_49E487A70144' // Tk2TagFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487A70144_ME_49E496650211_G Tk2TagFilter
+
 %%InheritedBy ME_49E487A70144 ME_49E496650211
 
 ME ME_49E496650211
@@ -175,7 +181,7 @@ ME ME_49E496650211
  MELINK Parent HWL ME_49E496880120 // evdBufferedFilter
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E487A70144' '47ECA80B000D.ms.model.script' // Tk2TagFilter
+   Seq: ( HWL ME_49E487A70144_ME_49E496650211_G // Tk2TagFilter
  )
  ; // Inherits
  MELIST Operations
@@ -246,7 +252,7 @@ ENDME // ME_4D53D8CF0007 DoIt
 ME ME_4D53D8BF00D5
  MEPROP UID '4D53D8BF00D5'
  MEPROP Name 'DoFlushBuffer'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -259,6 +265,12 @@ ME ME_4D53D8BF00D5
  ; // Operations
 
 ENDME // ME_4D53D8BF00D5 DoFlushBuffer
+
+MEREF ME_49E496650211_ME_49E4965202A1_G
+ MELINK Original HWL ME_49E496650211 // TevdCustomBufferedFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E496650211_ME_49E4965202A1_G TevdCustomBufferedFilter
 
 %%InheritedBy ME_49E496650211 ME_49E4965202A1
 
@@ -273,7 +285,7 @@ ME ME_49E4965202A1
  MELINK Parent HWL ME_49E496880120 // evdBufferedFilter
  ;
  MELIST Inherits
-   Seq: ( HWL ME_49E496650211 // TevdCustomBufferedFilter
+   Seq: ( HWL ME_49E496650211_ME_49E4965202A1_G // TevdCustomBufferedFilter
  )
  ; // Inherits
  MELIST Operations
@@ -289,6 +301,12 @@ ME ME_49E4965202A1
 
 ENDME // ME_49E4965202A1 TevdBufferedFilter
 
+MEREF ME_49E4965202A1_ME_4D53D8A100AE_G
+ MELINK Original HWL ME_49E4965202A1 // TevdBufferedFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E4965202A1_ME_4D53D8A100AE_G TevdBufferedFilter
+
 %%InheritedBy ME_49E4965202A1 ME_4D53D8A100AE
 
 ME ME_4D53D8A100AE
@@ -302,13 +320,19 @@ ME ME_4D53D8A100AE
  MELINK Parent HWL ME_49E496880120 // evdBufferedFilter
  ;
  MELIST Inherits
-   Seq: ( HWL ME_49E4965202A1 // TevdBufferedFilter
+   Seq: ( HWL ME_49E4965202A1_ME_4D53D8A100AE_G // TevdBufferedFilter
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'dChildBufferedFilter'
 
 ENDME // ME_4D53D8A100AE TevdChildBufferedFilter
+
+MEREF ME_49E4965202A1_ME_4E48B57F0074_G
+ MELINK Original HWL ME_49E4965202A1 // TevdBufferedFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E4965202A1_ME_4E48B57F0074_G TevdBufferedFilter
 
 %%InheritedBy ME_49E4965202A1 ME_4E48B57F0074
 
@@ -323,7 +347,7 @@ ME ME_4E48B57F0074
  MELINK Parent HWL ME_49E496880120 // evdBufferedFilter
  ;
  MELIST Inherits
-   Seq: ( HWL ME_49E4965202A1 // TevdBufferedFilter
+   Seq: ( HWL ME_49E4965202A1_ME_4E48B57F0074_G // TevdBufferedFilter
  )
  ; // Inherits
  UP "finished" False
@@ -331,6 +355,12 @@ ME ME_4E48B57F0074
  UP extprop:rc:SelfName 'dCustomChildBufferedFilter'
 
 ENDME // ME_4E48B57F0074 TevdCustomChildBufferedFilter
+
+MEREF ME_49E4965202A1_ME_4F9BF9E40052_G
+ MELINK Original HWL ME_49E4965202A1 // TevdBufferedFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E4965202A1_ME_4F9BF9E40052_G TevdBufferedFilter
 
 %%InheritedBy ME_49E4965202A1 ME_4F9BF9E40052
 
@@ -345,7 +375,7 @@ ME ME_4F9BF9E40052
  MELINK Parent HWL ME_49E496880120 // evdBufferedFilter
  ;
  MELIST Inherits
-   Seq: ( HWL ME_49E4965202A1 // TevdBufferedFilter
+   Seq: ( HWL ME_49E4965202A1_ME_4F9BF9E40052_G // TevdBufferedFilter
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True

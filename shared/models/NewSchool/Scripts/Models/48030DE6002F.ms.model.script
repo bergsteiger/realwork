@@ -1,0 +1,191 @@
+// TevDocumentPartGenerator 48030DE6002F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48030DE6002F
+
+FORWARD ME_4D9359AA01A2
+
+FORWARD ME_4D9359BC02A0
+
+ME ME_4D9359D801AD
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4D9359D801AD aPoint
+
+ME ME_4D9359D801F4
+ MEPROP Name 'aPID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D9359D801F4 aPID
+
+ME ME_4D9359BC02A0
+ MEPROP UID '4D9359BC02A0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D9359AA01A2 // SetInsertionPoint
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D9359D801AD // aPoint
+ ME_4D9359D801F4 // aPID
+ )
+ ; // Parameters
+
+ENDME // ME_4D9359BC02A0 DoIt
+
+ME ME_4D9359AA01A2
+ MEPROP UID '4D9359AA01A2'
+ MEPROP Name 'SetInsertionPoint'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48030DE6002F // TevDocumentPartGenerator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D9359BC02A0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D9359AA01A2 SetInsertionPoint
+
+FORWARD ME_48E4B7DA0313
+
+ME ME_48E4B7E40381
+ MEPROP Name 'aChild'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_48E4B7E40381 aChild
+
+ME ME_48E4B7DA0313
+ MEPROP UID '48E4B7DA0313'
+ MEPROP Name 'InsertPara'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48030DE6002F // TevDocumentPartGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E4B7E40381 // aChild
+ )
+ ; // Parameters
+
+ENDME // ME_48E4B7DA0313 InsertPara
+
+ME ME_48E4B7E90296
+ MEPROP UID '48E4B7E90296'
+ MEPROP Name 'StartInsertion'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48030DE6002F // TevDocumentPartGenerator
+ ;
+
+ENDME // ME_48E4B7E90296 StartInsertion
+
+ME ME_48E4B7F403D6
+ MEPROP UID '48E4B7F403D6'
+ MEPROP Name 'FinishInsertion'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48030DE6002F // TevDocumentPartGenerator
+ ;
+
+ENDME // ME_48E4B7F403D6 FinishInsertion
+
+FORWARD ME_48E4B802032E
+
+ME ME_48E4B829024D
+ MEPROP Name 'aChild'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_48E4B829024D aChild
+
+ME ME_48E4B802032E
+ MEPROP UID '48E4B802032E'
+ MEPROP Name 'InsertTable'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48030DE6002F // TevDocumentPartGenerator
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E4B829024D // aChild
+ )
+ ; // Parameters
+
+ENDME // ME_48E4B802032E InsertTable
+
+MEREF ME_4A8BBFBE02D4_ME_48030DE6002F_impl
+ MELINK Original WL 'ME_4A8BBFBE02D4' '4A8BBCB90035.ms.model.script' // AtEndChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A8BBFBE02D4_ME_48030DE6002F_impl AtEndChanged
+
+MEREF ME_4A8BBCB90035_ME_48030DE6002F_G
+ MELINK Original WL? 'ME_4A8BBCB90035' // TevDocumentPartGeneratorPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A8BBCB90035_ME_48030DE6002F_G TevDocumentPartGeneratorPrim
+
+%%InheritedBy ME_4A8BBCB90035 ME_48030DE6002F
+
+ME ME_48030DE6002F
+ MEPROP UID '48030DE6002F'
+ MEPROP Name 'TevDocumentPartGenerator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация генератора для вставки текста в то место куда указывает курсор.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A8BBCB90035_ME_48030DE6002F_G // TevDocumentPartGeneratorPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D9359AA01A2 // SetInsertionPoint
+ HWL ME_48E4B7DA0313 // InsertPara
+ HWL ME_48E4B7E90296 // StartInsertion
+ HWL ME_48E4B7F403D6 // FinishInsertion
+ HWL ME_48E4B802032E // InsertTable
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A8BBFBE02D4_ME_48030DE6002F_impl // AtEndChanged
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '09.02.1999 17:29'
+ UP extprop:pas:UnitName 'evDocumentPartGenerator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentPartGenerator'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evDocumentPartGenerator.pas'
+
+ENDME // ME_48030DE6002F TevDocumentPartGenerator

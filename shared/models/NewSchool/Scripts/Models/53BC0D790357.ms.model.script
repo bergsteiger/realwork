@@ -1,0 +1,368 @@
+// TevdBadEVDToEmptyDocumentTranslator 53BC0D790357 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53BC0D790357
+
+ME ME_53BC0E680308
+ MEPROP UID '53BC0E680308'
+ MEPROP Name 'f_WasDocumentOpened'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53BC0D790357 // TevdBadEVDToEmptyDocumentTranslator
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_53BC0E680308 f_WasDocumentOpened
+
+ME ME_53BD37D801B1
+ MEPROP UID '53BD37D801B1'
+ MEPROP Name 'f_DocType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53BC0D790357 // TevdBadEVDToEmptyDocumentTranslator
+ ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_53BD37D801B1 f_DocType
+
+ME ME_53BD37ED0308
+ MEPROP UID '53BD37ED0308'
+ MEPROP Name 'f_DocLanguage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53BC0D790357 // TevdBadEVDToEmptyDocumentTranslator
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53BD37ED0308 f_DocLanguage
+
+FORWARD ME_53BD37FF01C1
+
+FORWARD ME_53BD380600A9
+
+ME ME_53BD382003A7
+ MEPROP Name 'aDocType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_53BD382003A7 aDocType
+
+ME ME_53BD382003CE
+ MEPROP Name 'aDocLanguage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53BD382003CE aDocLanguage
+
+ME ME_53BD380600A9
+ MEPROP UID '53BD380600A9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53BD37FF01C1 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_53BD382003A7 // aDocType
+ ME_53BD382003CE // aDocLanguage
+ )
+ ; // Parameters
+
+ENDME // ME_53BD380600A9 DoIt
+
+ME ME_53BD37FF01C1
+ MEPROP UID '53BD37FF01C1'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53BC0D790357 // TevdBadEVDToEmptyDocumentTranslator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53BD380600A9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53BD37FF01C1 Create
+
+FORWARD ME_53BD38250015
+
+FORWARD ME_53BD38320236
+
+ME ME_53BD38590052
+ MEPROP Name 'theGenerator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4678160E01BE' '53317D14019D.ms.model.script' // Ik2TagGenerator
+ ;
+
+ENDME // ME_53BD38590052 theGenerator
+
+ME ME_53BD38590007
+ MEPROP Name 'aDocType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_53BD38590007 aDocType
+
+ME ME_53BD38590035
+ MEPROP Name 'aDocLanguage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53BD38590035 aDocLanguage
+
+ME ME_53BD38320236
+ MEPROP UID '53BD38320236'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53BD38250015 // SetTo
+ ;
+ MELIST Parameters
+   Seq: ( ME_53BD38590052 // theGenerator
+ ME_53BD38590007 // aDocType
+ ME_53BD38590035 // aDocLanguage
+ )
+ ; // Parameters
+
+ENDME // ME_53BD38320236 DoIt
+
+ME ME_53BD38770256
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BD38250015 // SetTo
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53BD38770256 
+
+ME ME_53BD38250015
+ MEPROP UID '53BD38250015'
+ MEPROP Name 'SetTo'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53BC0D790357 // TevdBadEVDToEmptyDocumentTranslator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53BD38320236 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_53BD38770256 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" True
+
+ENDME // ME_53BD38250015 SetTo
+
+FORWARD ME_53BE871800DF
+
+FORWARD ME_53BE87270188
+
+ME ME_53BE87350042
+ MEPROP Name 'theGenerator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
+ ;
+
+ENDME // ME_53BE87350042 theGenerator
+
+ME ME_53BE87350069
+ MEPROP Name 'aDocType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_53BE87350069 aDocType
+
+ME ME_53BE8735008C
+ MEPROP Name 'aDocLanguage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53BE8735008C aDocLanguage
+
+ME ME_53BE87270188
+ MEPROP UID '53BE87270188'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53BE871800DF // SetTo$1
+ ;
+ MELIST Parameters
+   Seq: ( ME_53BE87350042 // theGenerator
+ ME_53BE87350069 // aDocType
+ ME_53BE8735008C // aDocLanguage
+ )
+ ; // Parameters
+
+ENDME // ME_53BE87270188 DoIt
+
+ME ME_53BE871800DF
+ MEPROP UID '53BE871800DF'
+ MEPROP Name 'SetTo'
+ MEPROP OriginalName 'SetTo$1'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53BC0D790357 // TevdBadEVDToEmptyDocumentTranslator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53BE87270188 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_53BE871800DF SetTo$1
+
+ME ME_53BC0DB102D9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BC0D790357 // TevdBadEVDToEmptyDocumentTranslator
+ ;
+ MELINK Target WL 'ME_484FC278000E' '484A470100DD.ms.model.script' // Para
+ ;
+
+ENDME // ME_53BC0DB102D9 
+
+ME ME_53BC0DE800B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BC0D790357 // TevdBadEVDToEmptyDocumentTranslator
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_53BC0DE800B9 
+
+ME ME_53BC153F00F3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BC0D790357 // TevdBadEVDToEmptyDocumentTranslator
+ ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_53BC153F00F3 
+
+ME ME_53BD43E7029E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BC0D790357 // TevdBadEVDToEmptyDocumentTranslator
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_53BD43E7029E 
+
+MEREF ME_4836D4650177_ME_53BC0D790357_over
+ MELINK Original WL 'ME_4836D4650177' '47ECAA270135.ms.model.script' // StartChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D4650177_ME_53BC0D790357_over StartChild
+
+MEREF ME_4836D49800CA_ME_53BC0D790357_over
+ MELINK Original WL 'ME_4836D49800CA' '47ECAA270135.ms.model.script' // OpenStream
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D49800CA_ME_53BC0D790357_over OpenStream
+
+MEREF ME_4836D4B003DC_ME_53BC0D790357_over
+ MELINK Original WL 'ME_4836D4B003DC' '47ECAA270135.ms.model.script' // CloseStream
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D4B003DC_ME_53BC0D790357_over CloseStream
+
+MEREF ME_53BBFCB00241_ME_53BC0D790357_G
+ MELINK Original WL? 'ME_53BBFCB00241' // Tk2TagTranslator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53BBFCB00241_ME_53BC0D790357_G Tk2TagTranslator
+
+%%InheritedBy ME_53BBFCB00241 ME_53BC0D790357
+
+ME ME_53BC0D790357
+ MEPROP UID '53BC0D790357'
+ MEPROP Name 'TevdBadEVDToEmptyDocumentTranslator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53BBFCB00241_ME_53BC0D790357_G // Tk2TagTranslator
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53BC0E680308 // f_WasDocumentOpened
+ HWL ME_53BD37D801B1 // f_DocType
+ HWL ME_53BD37ED0308 // f_DocLanguage
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53BD37FF01C1 // Create
+ HWL ME_53BD38250015 // SetTo
+ HWL ME_53BE871800DF // SetTo$1
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4836D4650177_ME_53BC0D790357_over // StartChild
+ ME_4836D49800CA_ME_53BC0D790357_over // OpenStream
+ ME_4836D4B003DC_ME_53BC0D790357_over // CloseStream
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53BC0DB102D9 // Para
+ ME_53BC0DE800B9 // Document
+ ME_53BC153F00F3 // Tk2Type
+ ME_53BD43E7029E // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evdBadEVDToEmptyDocumentTranslator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dBadEVDToEmptyDocumentTranslator'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evdBadEVDToEmptyDocumentTranslator.pas'
+
+ENDME // ME_53BC0D790357 TevdBadEVDToEmptyDocumentTranslator

@@ -1,0 +1,233 @@
+// TatDocumentUnderControlOperation 504F1A8B004B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_504F4705036A
+%%Inner ME_504F47500265
+
+FORWARD ME_504F1A8B004B
+
+FORWARD ME_504F4705036A
+
+ME ME_504F470E01BE
+ MEPROP UID '504F470E01BE'
+ MEPROP Name 'SET_CONTROL'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_504F4705036A // OpType
+ ;
+
+ENDME // ME_504F470E01BE SET_CONTROL
+
+ME ME_504F471701E0
+ MEPROP UID '504F471701E0'
+ MEPROP Name 'UNSET_CONTROL'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_504F4705036A // OpType
+ ;
+
+ENDME // ME_504F471701E0 UNSET_CONTROL
+
+ME ME_504F4720024A
+ MEPROP UID '504F4720024A'
+ MEPROP Name 'INVERT_CONTROL'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_504F4705036A // OpType
+ ;
+
+ENDME // ME_504F4720024A INVERT_CONTROL
+
+ME ME_504F472C01CE
+ MEPROP UID '504F472C01CE'
+ MEPROP Name 'RESET_CONTROL_STATUS'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_504F4705036A // OpType
+ ;
+
+ENDME // ME_504F472C01CE RESET_CONTROL_STATUS
+
+ME ME_504F4705036A
+ MEPROP UID '504F4705036A'
+ MEPROP Name 'OpType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_504F1A8B004B // TatDocumentUnderControlOperation
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_504F470E01BE // SET_CONTROL
+ HWL ME_504F471701E0 // UNSET_CONTROL
+ HWL ME_504F4720024A // INVERT_CONTROL
+ HWL ME_504F472C01CE // RESET_CONTROL_STATUS
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_504F4705036A OpType
+
+FORWARD ME_504F47500265
+
+ME ME_504F476802DC
+ MEPROP UID '504F476802DC'
+ MEPROP Name 'EnumType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_504F47500265 // TatOpTypeConverter
+ ;
+ MELINK Target HWL ME_504F4705036A // OpType
+ ;
+
+ENDME // ME_504F476802DC EnumType
+
+MEREF ME_50005E6B0318_ME_504F47500265_G
+ MELINK Original WL? 'ME_50005E6B0318' // atEnumConverter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50005E6B0318_ME_504F47500265_G atEnumConverter
+
+%%InheritedBy ME_50005E6B0318 ME_504F47500265
+
+ME ME_504F47500265
+ MEPROP UID '504F47500265'
+ MEPROP Name 'TatOpTypeConverter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_504F1A8B004B // TatDocumentUnderControlOperation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50005E6B0318_ME_504F47500265_G // atEnumConverter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_504F476802DC // EnumType
+ )
+ ; // Attributes
+ UP "singleton" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atOpTypeConverter'
+
+ENDME // ME_504F47500265 TatOpTypeConverter
+
+ME ME_504F1B290360
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_504F1A8B004B // TatDocumentUnderControlOperation
+ ;
+ MELINK Target WL 'ME_45EEC17501B5' '45EEAA800226.ms.model.script' // Controllable
+ ;
+
+ENDME // ME_504F1B290360 
+
+ME ME_504F1B3E0134
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_504F1A8B004B // TatDocumentUnderControlOperation
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_504F1B3E0134 
+
+ME ME_504F8363020E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_504F1A8B004B // TatDocumentUnderControlOperation
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_504F8363020E 
+
+ME ME_505084AF0041
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_504F1A8B004B // TatDocumentUnderControlOperation
+ ;
+ MELINK Target WL? 'ME_504F47A401F7' // TatControlStatusConverter
+ ;
+
+ENDME // ME_505084AF0041 
+
+MEREF ME_48089F460352_ME_504F1A8B004B_impl
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48089F460352_ME_504F1A8B004B_impl ExecuteSelf
+
+MEREF ME_48089F3701B4_ME_504F1A8B004B_over
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F3701B4_ME_504F1A8B004B_over InitParamList
+
+MEREF ME_48076E9D013E_ME_504F1A8B004B_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_504F1A8B004B_G TatOperationBase
+
+%%InheritedBy ME_48076E9D013E ME_504F1A8B004B
+
+ME ME_504F1A8B004B
+ MEPROP UID '504F1A8B004B'
+ MEPROP Name 'TatDocumentUnderControlOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48076E9D013E_ME_504F1A8B004B_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_504F1A8B004B_impl // ExecuteSelf
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F3701B4_ME_504F1A8B004B_over // InitParamList
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_504F4705036A // OpType
+ HWL ME_504F47500265 // TatOpTypeConverter
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_504F1B290360 // Controllable
+ ME_504F1B3E0134 // atLogger
+ ME_504F8363020E // Document
+ ME_505084AF0041 // TatControlStatusConverter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atDocumentUnderControlOperation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atDocumentUnderControlOperation'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atDocumentUnderControlOperation.pas'
+
+ENDME // ME_504F1A8B004B TatDocumentUnderControlOperation

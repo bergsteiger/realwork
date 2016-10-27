@@ -1,0 +1,381 @@
+// Tl3ExecuteInMainThread 549BC58B0346 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_549BDA9C0160
+
+FORWARD ME_549BC58B0346
+
+FORWARD ME_549BDA9C0160
+
+ME ME_549BDADA034E
+ MEPROP UID '549BDADA034E'
+ MEPROP Name 'f_Task'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_549BDA9C0160 // Tl3SynTask
+ ;
+ MELINK Target WL? 'ME_549BC5C50174' // Tl3AsyncTask
+ ;
+
+ENDME // ME_549BDADA034E f_Task
+
+ME ME_549BDB090120
+ MEPROP UID '549BDB090120'
+ MEPROP Name 'f_Event'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_549BDA9C0160 // Tl3SynTask
+ ;
+ MELINK Target WL 'ME_491D9DB8010F' '48078324039E.ms.model.script' // TEvent
+ ;
+
+ENDME // ME_549BDB090120 f_Event
+
+FORWARD ME_549BDAC601E8
+
+ME ME_549BDAD502E9
+ MEPROP Name 'aTask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_549BC5C50174' // Tl3AsyncTask
+ ;
+
+ENDME // ME_549BDAD502E9 aTask
+
+ME ME_549BDAC601E8
+ MEPROP UID '549BDAC601E8'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_549BDA9C0160 // Tl3SynTask
+ ;
+ MELIST Parameters
+   Seq: ( ME_549BDAD502E9 // aTask
+ )
+ ; // Parameters
+
+ENDME // ME_549BDAC601E8 Create
+
+ME ME_549BDB15036E
+ MEPROP UID '549BDB15036E'
+ MEPROP Name 'WaitForExec'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_549BDA9C0160 // Tl3SynTask
+ ;
+
+ENDME // ME_549BDB15036E WaitForExec
+
+MEREF ME_549BC64F01DE_ME_549BDA9C0160_impl
+ MELINK Original WL 'ME_549BC64F01DE' '549BC5C50174.ms.model.script' // Exec
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_549BC64F01DE_ME_549BDA9C0160_impl Exec
+
+MEREF ME_479731C50290_ME_549BDA9C0160_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_549BDA9C0160_over Cleanup
+
+MEREF ME_549BC5C50174_ME_549BDA9C0160_G
+ MELINK Original WL? 'ME_549BC5C50174' // Tl3AsyncTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_549BC5C50174_ME_549BDA9C0160_G Tl3AsyncTask
+
+%%InheritedBy ME_549BC5C50174 ME_549BDA9C0160
+
+ME ME_549BDA9C0160
+ MEPROP UID '549BDA9C0160'
+ MEPROP Name 'Tl3SynTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_549BC5C50174_ME_549BDA9C0160_G // Tl3AsyncTask
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_549BDADA034E // f_Task
+ HWL ME_549BDB090120 // f_Event
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_549BDAC601E8 // Create
+ HWL ME_549BDB15036E // WaitForExec
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_549BC64F01DE_ME_549BDA9C0160_impl // Exec
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_549BDA9C0160_over // Cleanup
+ )
+ ; // Overridden
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SynTask'
+
+ENDME // ME_549BDA9C0160 Tl3SynTask
+
+ME ME_549BC6EC02B8
+ MEPROP UID '549BC6EC02B8'
+ MEPROP Name 'f_Data'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELINK Target WL? 'ME_549BC6740033' // Tl3AsynkTaskList
+ ;
+
+ENDME // ME_549BC6EC02B8 f_Data
+
+ME ME_549BCC490012
+ MEPROP UID '549BCC490012'
+ MEPROP Name 'f_Wnd'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELINK Target WL 'ME_4E95755B0162' '48A41FF10094.ms.model.script' // HWND
+ ;
+
+ENDME // ME_549BCC490012 f_Wnd
+
+ME ME_549BD47903C0
+ MEPROP UID '549BD47903C0'
+ MEPROP Name 'f_MsgID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+
+ENDME // ME_549BD47903C0 f_MsgID
+
+MEREF ME_47E124920022_ME_549BD08302D8_G
+ MELINK Original WL 'ME_47E124920022' '478CF30500C1.ms.model.script' // TWndMethod
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E124920022_ME_549BD08302D8_G TWndMethod
+
+%%InheritedBy ME_47E124920022 ME_549BD08302D8
+
+ME ME_549BD08302D8
+ MEPROP UID '549BD08302D8'
+ MEPROP Name 'WndProc'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47E124920022_ME_549BD08302D8_G // TWndMethod
+ )
+ ; // Inherits
+
+ENDME // ME_549BD08302D8 WndProc
+
+ME ME_549BE5C2006F
+ MEPROP UID '549BE5C2006F'
+ MEPROP Name 'Init'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+
+ENDME // ME_549BE5C2006F Init
+
+FORWARD ME_549BC5F800ED
+
+ME ME_549BC61300F5
+ MEPROP Name 'aTask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_549BC5C50174' // Tl3AsyncTask
+ ;
+
+ENDME // ME_549BC61300F5 aTask
+
+ME ME_549BC5F800ED
+ MEPROP UID '549BC5F800ED'
+ MEPROP Name 'AsyncExec'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELIST Parameters
+   Seq: ( ME_549BC61300F5 // aTask
+ )
+ ; // Parameters
+
+ENDME // ME_549BC5F800ED AsyncExec
+
+FORWARD ME_549BC61B009B
+
+ME ME_549BC623037C
+ MEPROP Name 'aTask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_549BC5C50174' // Tl3AsyncTask
+ ;
+
+ENDME // ME_549BC623037C aTask
+
+ME ME_549BC61B009B
+ MEPROP UID '549BC61B009B'
+ MEPROP Name 'SyncExec'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELIST Parameters
+   Seq: ( ME_549BC623037C // aTask
+ )
+ ; // Parameters
+
+ENDME // ME_549BC61B009B SyncExec
+
+ME ME_549BCC6302C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_549BCC6302C6 
+
+ME ME_549BCFEF00EC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELINK Target WL 'ME_549BCFD20030' '478CF30500C1.ms.model.script' // AllocateHWnd
+ ;
+
+ENDME // ME_549BCFEF00EC 
+
+ME ME_549BD8B502D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELINK Target WL 'ME_54509FEC02EB' '480F78BC0146.ms.model.script' // l3CreateStringGUID
+ ;
+
+ENDME // ME_549BD8B502D0 
+
+MEREF ME_479731C50290_ME_549BC58B0346_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_549BC58B0346_over Cleanup
+
+MEREF ME_47A042E100E2_ME_549BC58B0346_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_549BC58B0346_over InitFields
+
+MEREF ME_49E7754802A9_ME_549BC58B0346_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_549BC58B0346_G Tl3ProtoObject
+
+MEREF ME_53A03846011C_ME_549BC58B0346_R
+ MELINK Original WL? 'ME_53A03846011C' // l3CriticalSectionHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53A03846011C_ME_549BC58B0346_R l3CriticalSectionHolder
+
+%%ImplementedBy ME_53A03846011C ME_549BC58B0346
+
+%%InheritedBy ME_49E7754802A9 ME_549BC58B0346
+
+ME ME_549BC58B0346
+ MEPROP UID '549BC58B0346'
+ MEPROP Name 'Tl3ExecuteInMainThread'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Перед использованием нужно вызывать init в главном потоке.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53A038340371' // MultiThread
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_549BC58B0346_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53A03846011C_ME_549BC58B0346_R // l3CriticalSectionHolder
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_549BC6EC02B8 // f_Data
+ HWL ME_549BCC490012 // f_Wnd
+ HWL ME_549BD47903C0 // f_MsgID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_549BD08302D8 // WndProc
+ HWL ME_549BE5C2006F // Init
+ HWL ME_549BC5F800ED // AsyncExec
+ HWL ME_549BC61B009B // SyncExec
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_549BC58B0346_over // Cleanup
+ ME_47A042E100E2_ME_549BC58B0346_over // InitFields
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_549BDA9C0160 // Tl3SynTask
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_549BCC6302C6 // FreeAndNil
+ ME_549BCFEF00EC // AllocateHWnd
+ ME_549BD8B502D0 // l3CreateStringGUID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:pas:UnitName 'l3ExecuteInMainThread'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ExecuteInMainThread'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ExecuteInMainThread.pas'
+
+ENDME // ME_549BC58B0346 Tl3ExecuteInMainThread

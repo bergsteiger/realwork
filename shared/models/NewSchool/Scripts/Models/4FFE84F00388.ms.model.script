@@ -1,0 +1,121 @@
+// TvcmFormSetFactoryPrim 4FFE84F00388 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FFE84F00388
+
+ME ME_4FFECB5E03C6
+ MEPROP UID '4FFECB5E03C6'
+ MEPROP Name 'Caption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FFE84F00388 // TvcmFormSetFactoryPrim
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_4FFECB5E03C6 Caption
+
+FORWARD ME_4FFE854A009B
+
+ME ME_4FFE85570158
+ MEPROP UID '4FFE85570158'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFE854A009B // GetInstance
+ ;
+ MELINK Target HWL ME_4FFE84F00388 // TvcmFormSetFactoryPrim
+ ;
+
+ENDME // ME_4FFE85570158 DoIt
+
+ME ME_4FFE8A7C02B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FFE854A009B // GetInstance
+ ;
+ MELINK Target WL 'ME_4DE89E560091' '47877EB202FB.ms.model.script' // Format
+ ;
+
+ENDME // ME_4FFE8A7C02B3 
+
+ME ME_4FFE854A009B
+ MEPROP UID '4FFE854A009B'
+ MEPROP Name 'GetInstance'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FFE84F00388 // TvcmFormSetFactoryPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FFE85570158 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4FFE8A7C02B3 // Format
+ )
+ ; // Dependencies
+ UP "is static" True
+
+ENDME // ME_4FFE854A009B GetInstance
+
+MEREF ME_479731C50290_ME_4FFE84F00388_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4FFE84F00388_over Cleanup
+
+MEREF ME_49E7754802A9_ME_4FFE84F00388_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4FFE84F00388_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_4FFE84F00388
+
+ME ME_4FFE84F00388
+ MEPROP UID '4FFE84F00388'
+ MEPROP Name 'TvcmFormSetFactoryPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47B9727603BE' // FormSets
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_4FFE84F00388_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4FFECB5E03C6 // Caption
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FFE854A009B // GetInstance
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4FFE84F00388_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'vcmFormSetFactoryPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FormSetFactoryPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFactoryPrim.pas'
+
+ENDME // ME_4FFE84F00388 TvcmFormSetFactoryPrim

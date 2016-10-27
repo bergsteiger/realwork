@@ -1,0 +1,113 @@
+// TevdLeafParaFilter 49E487650342 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49E487650342
+
+ME ME_49E488070386
+ MEPROP UID '49E488070386'
+ MEPROP Name 'ParaTypeForFiltering'
+ MEPROP Class class_Operation
+ %SUMMARY 'Функция, определяющая тип абзацев, для которых будет выполняться фильтрация' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E487650342 // TevdLeafParaFilter
+ ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_49E488070386 ParaTypeForFiltering
+
+FORWARD ME_49E48829016F
+
+ME ME_49E488350327
+ MEPROP Name 'aLeaf'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_49E488350327 aLeaf
+
+ME ME_49E48829016F
+ MEPROP UID '49E48829016F'
+ MEPROP Name 'NeedWritePara'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет нужно ли фильтровать переданный абзац' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E487650342 // TevdLeafParaFilter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49E488350327 // aLeaf
+ )
+ ; // Parameters
+
+ENDME // ME_49E48829016F NeedWritePara
+
+FORWARD ME_49E4883E0176
+
+ME ME_49E4884C0241
+ MEPROP Name 'aLeaf'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_49E4884C0241 aLeaf
+
+ME ME_49E4883E0176
+ MEPROP UID '49E4883E0176'
+ MEPROP Name 'DoWritePara'
+ MEPROP Class class_Operation
+ %SUMMARY 'Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E487650342 // TevdLeafParaFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_49E4884C0241 // aLeaf
+ )
+ ; // Parameters
+
+ENDME // ME_49E4883E0176 DoWritePara
+
+MEREF ME_49E487A70144_ME_49E487650342_G
+ MELINK Original WL? 'ME_49E487A70144' // Tk2TagFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487A70144_ME_49E487650342_G Tk2TagFilter
+
+%%InheritedBy ME_49E487A70144 ME_49E487650342
+
+ME ME_49E487650342
+ MEPROP UID '49E487650342'
+ MEPROP Name 'TevdLeafParaFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Класс, фильтрующий "листьевые" абзацы. Параметры фильтрации'#13#10' задаются методом TevdLeafParaFilter.ParaTypeForFiltering'#13#10'(если нужно фильтровать один тип) и TevdLeafParaFilter.NeedWritePara'#13#10'(если нужно фильтровать несколько типов или условие'#13#10'фильтрации меняется с течением времени). Запись'#13#10'отфильтрованного абзаца выполняется в методе TevdLeafParaFilter.DoWritePara,'#13#10'перекрывая который, можно вносить изменения в содержание'#13#10'абзаца' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECB8BD00A8' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E487A70144_ME_49E487650342_G // Tk2TagFilter
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_49E488070386 // ParaTypeForFiltering
+ HWL ME_49E48829016F // NeedWritePara
+ HWL ME_49E4883E0176 // DoWritePara
+ )
+ ; // Operations
+ UP "finished" False
+ UP extprop:pas:UnitName 'evdLeafParaFilter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dLeafParaFilter'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\NOT_FINISHED_evdLeafParaFilter.pas'
+
+ENDME // ME_49E487650342 TevdLeafParaFilter

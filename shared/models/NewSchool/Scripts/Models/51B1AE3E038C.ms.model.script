@@ -4,42 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_51B1AE6001BB
 
-FORWARD ME_51B1AE3E038C
-
-ME ME_51B1C57B014C_ME_51B1AE6001BB
- MELINK Original WL 'ME_51B1C57B014C' '51B1ADB40318.ms.model.script' // DoDoit
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_51B1C57B014C_ME_51B1AE6001BB DoDoit
-
-%%InheritedBy ME_51B1ADF20017 ME_51B1AE6001BB
-
-ME ME_51B1AE6001BB
- MEPROP UID '51B1AE6001BB'
- MEPROP Name 'K460262716'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- %SUMMARY '{RequestLink:460262716}' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_51B1AE3E038C // SandBoxTests
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_51B1ADF20017' '51B1ADB40318.ms.model.script' // TCheckingFilesInFolderTest
- )
- ; // Inherits
- MELIST Implemented
-   Seq: ( ME_51B1C57B014C_ME_51B1AE6001BB // DoDoit
- )
- ; // Implemented
- UP extprop:pas:TypeName 'TK460262716'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'K460262716'
- UP intf.pas:Path 'common\components\rtl\Garant\Daily\K460262716.pas'
-
-ENDME // ME_51B1AE6001BB K460262716
-
 ME ME_51B1AE3E038C
  MEPROP UID '51B1AE3E038C'
  MEPROP Name 'SandBoxTests'
@@ -52,7 +16,7 @@ ME ME_51B1AE3E038C
  MELINK Parent WL? 'ME_4B2A15810261' // DailyTest
  ;
  MELIST Children
-   Seq: ( HWL ME_51B1AE6001BB // K460262716
+   Seq: ( WL? 'ME_51B1AE6001BB' // K460262716
  )
  ; // Children
  MELIST Depends

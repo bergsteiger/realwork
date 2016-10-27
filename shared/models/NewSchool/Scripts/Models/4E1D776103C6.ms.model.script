@@ -1,0 +1,183 @@
+// TevParaCollapser 4E1D776103C6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E1D776103C6
+
+FORWARD ME_4E1D87640086
+
+FORWARD ME_4E1D877300CA
+
+ME ME_4E1D877A035E
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C1AC02CA' '47C5207602D1.ms.model.script' // InevControlView
+ ;
+
+ENDME // ME_4E1D877A035E aView
+
+ME ME_4E1D877300CA
+ MEPROP UID '4E1D877300CA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E1D87640086 // DoCollapse
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E1D877A035E // aView
+ )
+ ; // Parameters
+
+ENDME // ME_4E1D877300CA DoIt
+
+ME ME_4E1D879F019E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E1D87640086 // DoCollapse
+ ;
+ MELINK Target WL? 'ME_47F1F3BC0330' // evParaTools
+ ;
+
+ENDME // ME_4E1D879F019E 
+
+ME ME_4E1D87B60075
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E1D87640086 // DoCollapse
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4E1D87B60075 
+
+ME ME_4E1D87640086
+ MEPROP UID '4E1D87640086'
+ MEPROP Name 'DoCollapse'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E1D776103C6 // TevParaCollapser
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E1D877300CA // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E1D879F019E // evParaTools
+ ME_4E1D87B60075 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4E1D87640086 DoCollapse
+
+ME ME_4E1DB0FA019A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E1D776103C6 // TevParaCollapser
+ ;
+ MELINK Target WL 'ME_4821E72001F9' '4678209200A6.ms.model.script' // TnevShapePart
+ ;
+
+ENDME // ME_4E1DB0FA019A 
+
+ME ME_55F6C81A0342
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E1D776103C6 // TevParaCollapser
+ ;
+ MELINK Target WL? 'ME_55F6C74B033E' // TevCollapserHyperlink
+ ;
+
+ENDME // ME_55F6C81A0342 
+
+MEREF ME_4E1D7BDF01C4_ME_4E1D776103C6_over
+ MELINK Original WL 'ME_4E1D7BDF01C4' '4E1D76D101D0.ms.model.script' // DoLButtonUp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E1D7BDF01C4_ME_4E1D776103C6_over DoLButtonUp
+
+MEREF ME_4E1D7C16028B_ME_4E1D776103C6_over
+ MELINK Original WL 'ME_4E1D7C16028B' '4E1D76D101D0.ms.model.script' // DoLButtonDoubleClick
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E1D7C16028B_ME_4E1D776103C6_over DoLButtonDoubleClick
+
+MEREF ME_4E1DC2FF02BB_ME_4E1D776103C6_over
+ MELINK Original WL 'ME_4E1DC2FF02BB' '4E1D76D101D0.ms.model.script' // DoLButtonDown
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E1DC2FF02BB_ME_4E1D776103C6_over DoLButtonDown
+
+MEREF ME_548B10B4010F_ME_4E1D776103C6_over
+ MELINK Original WL 'ME_548B10B4010F' '4E1D76D101D0.ms.model.script' // DoMButtonUp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_548B10B4010F_ME_4E1D776103C6_over DoMButtonUp
+
+MEREF ME_55F6D02B0013_ME_4E1D776103C6_over
+ MELINK Original WL 'ME_55F6D02B0013' '4E1D961D02D6.ms.model.script' // GetDecorHyperlinkClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55F6D02B0013_ME_4E1D776103C6_over GetDecorHyperlinkClass
+
+MEREF ME_4E1D961D02D6_ME_4E1D776103C6_G
+ MELINK Original WL? 'ME_4E1D961D02D6' // TevDecorHotSpot
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E1D961D02D6_ME_4E1D776103C6_G TevDecorHotSpot
+
+%%InheritedBy ME_4E1D961D02D6 ME_4E1D776103C6
+
+ME ME_4E1D776103C6
+ MEPROP UID '4E1D776103C6'
+ MEPROP Name 'TevParaCollapser'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A267EE3017B' // HotSpots
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E1D961D02D6_ME_4E1D776103C6_G // TevDecorHotSpot
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4E1D87640086 // DoCollapse
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4E1D7BDF01C4_ME_4E1D776103C6_over // DoLButtonUp
+ ME_4E1D7C16028B_ME_4E1D776103C6_over // DoLButtonDoubleClick
+ ME_4E1DC2FF02BB_ME_4E1D776103C6_over // DoLButtonDown
+ ME_548B10B4010F_ME_4E1D776103C6_over // DoMButtonUp
+ ME_55F6D02B0013_ME_4E1D776103C6_over // GetDecorHyperlinkClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E1DB0FA019A // TnevShapePart
+ ME_55F6C81A0342 // TevCollapserHyperlink
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '13.07.2011 14:46'
+ UP extprop:pas:UnitName 'evParaCollapser'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ParaCollapser'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evParaCollapser.pas'
+
+ENDME // ME_4E1D776103C6 TevParaCollapser

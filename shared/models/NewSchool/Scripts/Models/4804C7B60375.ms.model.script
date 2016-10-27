@@ -22,7 +22,7 @@ ENDME // ME_4E53B9BD02D3 DoIt
 ME ME_4E53B9A500B4
  MEPROP UID '4E53B9A500B4'
  MEPROP Name 'GetBitmapForPara'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -98,7 +98,7 @@ ME ME_4804C95C039A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4804C7B60375 // evLeafParaPainterPrim
  ;
- MELINK Target WL 'ME_47F6036500E3' '47E3DF460095.ms.model.script' // TnevAfterEndPoint
+ MELINK Target WL? 'ME_47F6036500E3' // TnevAfterEndPoint
  ;
 
 ENDME // ME_4804C95C039A 
@@ -113,17 +113,23 @@ ME ME_4804C9D4012F
 
 ENDME // ME_4804C9D4012F 
 
-ME ME_4804BC2401C2_ME_4804C7B60375
+MEREF ME_4804BC2401C2_ME_4804C7B60375_over
  MELINK Original WL 'ME_4804BC2401C2' '4804A2C101A5.ms.model.script' // DoDraw
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4804BC2401C2_ME_4804C7B60375 DoDraw
+ENDMEREF // ME_4804BC2401C2_ME_4804C7B60375_over DoDraw
 
-ME ME_4804BC800172_ME_4804C7B60375
+MEREF ME_4804BC800172_ME_4804C7B60375_over
  MELINK Original WL 'ME_4804BC800172' '4804A2C101A5.ms.model.script' // InitBottom
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4804BC800172_ME_4804C7B60375 InitBottom
+ENDMEREF // ME_4804BC800172_ME_4804C7B60375_over InitBottom
+
+MEREF ME_4804A2C101A5_ME_4804C7B60375_G
+ MELINK Original WL? 'ME_4804A2C101A5' // evParaPainter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4804A2C101A5_ME_4804C7B60375_G evParaPainter
 
 %%InheritedBy ME_4804A2C101A5 ME_4804C7B60375
 
@@ -140,7 +146,7 @@ ME ME_4804C7B60375
  MELINK Parent WL? 'ME_49DCBC09029B' // Drawing Framework
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4804A2C101A5' // evParaPainter
+   Seq: ( HWL ME_4804A2C101A5_ME_4804C7B60375_G // evParaPainter
  )
  ; // Inherits
  MELIST Operations
@@ -150,8 +156,8 @@ ME ME_4804C7B60375
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_4804BC2401C2_ME_4804C7B60375 // DoDraw
- ME_4804BC800172_ME_4804C7B60375 // InitBottom
+   Seq: ( ME_4804BC2401C2_ME_4804C7B60375_over // DoDraw
+ ME_4804BC800172_ME_4804C7B60375_over // InitBottom
  )
  ; // Overridden
  MELIST Dependencies

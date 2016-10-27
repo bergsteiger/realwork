@@ -1,0 +1,78 @@
+// object_Create 4E29311F0055 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E29311F0055
+
+ME ME_509CD614001E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E29311F0055 // object_Create
+ ;
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+
+ENDME // ME_509CD614001E 
+
+ME ME_509CDA2F03E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E29311F0055 // object_Create
+ ;
+ MELINK Target WL 'ME_484529DC0276' '47E13C6B0341.ms.model.script' // TCustomForm
+ ;
+
+ENDME // ME_509CDA2F03E0 
+
+ME ME_509CE0EC01D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E29311F0055 // object_Create
+ ;
+ MELINK Target WL 'ME_4AD89C420296' '47F25BC801DB.ms.model.script' // vcmMakeParams
+ ;
+
+ENDME // ME_509CE0EC01D8 
+
+MEREF ME_4DB94A660083_ME_4E29311F0055_R
+ MELINK Original WL? 'ME_4DB94A660083' // VCMWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB94A660083_ME_4E29311F0055_R VCMWord
+
+%%ImplementedBy ME_4DB94A660083 ME_4E29311F0055
+
+ME ME_4E29311F0055
+ MEPROP UID '4E29311F0055'
+ MEPROP Name 'object_Create'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поддержка автоматического создания формы-обвязки для тестов.'#13#10'*Формат:* aClass .Create'#13#10'aClass - класс формы.'#13#10''#13#10'ПОКА создаёт только VCM-формы но предполагается научить создавать и ДРУГИЕ объекты.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F69B9040391' // VCMWords
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_4DB94A660083_ME_4E29311F0055_R // VCMWord
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_509CD614001E // TvcmEntityForm
+ ME_509CDA2F03E0 // TCustomForm
+ ME_509CE0EC01D8 // vcmMakeParams
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoVCM'
+ UP "NameForScript" '.Create'
+ UP extprop:pas:TypeName 'TkwObjectCreate'
+ UP extprop:pas:UnitName 'kwObjectCreate'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ObjectCreate'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwObjectCreate.pas'
+
+ENDME // ME_4E29311F0055 object_Create

@@ -1,0 +1,516 @@
+// TnscStatusBarOperationDef 49871E4F01AF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49871E4F01AF
+
+ME ME_4FEC4A090334
+ MEPROP UID '4FEC4A090334'
+ MEPROP Name 'f_Operation'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49871E4F01AF // TnscStatusBarOperationDef
+ ;
+ MELINK Target WL 'ME_4683D016009C' '467BAB7F021E.ms.model.script' // TvcmOpSelector
+ ;
+
+ENDME // ME_4FEC4A090334 f_Operation
+
+FORWARD ME_4FEC4A26030E
+
+FORWARD ME_4FEC4A3F0164
+
+ME ME_4FEC64C10123
+ MEPROP Name 'anOperation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683D016009C' '467BAB7F021E.ms.model.script' // TvcmOpSelector
+ ;
+
+ENDME // ME_4FEC64C10123 anOperation
+
+ME ME_4FEC4A460157
+ MEPROP Name 'aShowCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FEC4A460157 aShowCaption
+
+ME ME_4FF59DCB00B8
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4FF59DCB00B8 aCaption
+
+ME ME_4FEC4A5F0105
+ MEPROP Name 'aUseToolTip'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FEC4A5F0105 aUseToolTip
+
+ME ME_4FEC4A5F0161
+ MEPROP Name 'aRequireAutoPopup'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FEC4A5F0161 aRequireAutoPopup
+
+ME ME_4FEC4A46025E
+ MEPROP Name 'anAutoPopupTimeout'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4FEC4A46025E anAutoPopupTimeout
+
+ME ME_4FEC5C7002A9
+ MEPROP Name 'aToolTipKind'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498035FA00E9' '490838E10313.ms.model.script' // TnscToolTipKind
+ ;
+
+ENDME // ME_4FEC5C7002A9 aToolTipKind
+
+ME ME_4FEC4A3F0164
+ MEPROP UID '4FEC4A3F0164'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FEC4A26030E // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FEC64C10123 // anOperation
+ ME_4FEC4A460157 // aShowCaption
+ ME_4FF59DCB00B8 // aCaption
+ ME_4FEC4A5F0105 // aUseToolTip
+ ME_4FEC4A5F0161 // aRequireAutoPopup
+ ME_4FEC4A46025E // anAutoPopupTimeout
+ ME_4FEC5C7002A9 // aToolTipKind
+ )
+ ; // Parameters
+
+ENDME // ME_4FEC4A3F0164 DoIt
+
+ME ME_4FEC4A26030E
+ MEPROP UID '4FEC4A26030E'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49871E4F01AF // TnscStatusBarOperationDef
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FEC4A3F0164 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FEC4A26030E Create
+
+MEREF ME_4FEC4A26030E_ME_4FEC4A6C02E8_G
+ MELINK Original HWL ME_4FEC4A26030E // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FEC4A26030E_ME_4FEC4A6C02E8_G Create
+
+%%InheritedBy ME_4FEC4A26030E ME_4FEC4A6C02E8
+
+ME ME_4FEC4A6C02E8
+ MEPROP UID '4FEC4A6C02E8'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49871E4F01AF // TnscStatusBarOperationDef
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FEC4A26030E_ME_4FEC4A6C02E8_G // Create
+ )
+ ; // Inherits
+
+ENDME // ME_4FEC4A6C02E8 Make
+
+FORWARD ME_4FEC5B7B00CE
+
+FORWARD ME_4FEC5BBA0070
+
+ME ME_4FEC5F360324
+ MEPROP Name 'anOperation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CF3401F5' '467BAB7F021E.ms.model.script' // TvcmOPID
+ ;
+
+ENDME // ME_4FEC5F360324 anOperation
+
+ME ME_4FEC60EA0174
+ MEPROP Name 'aShowCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FEC60EA0174 aShowCaption
+
+ME ME_4FEC60EA019B
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683F4B103DC' '4683F37902CF.ms.model.script' // TvcmStringID
+ ;
+
+ENDME // ME_4FEC60EA019B aCaption
+
+ME ME_4FEC6E2D008D
+ MEPROP Name 'aUseToolTip'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FEC6E2D008D aUseToolTip
+
+ME ME_4FEC60EA01EA
+ MEPROP Name 'aRequireAutoPopup'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FEC60EA01EA aRequireAutoPopup
+
+ME ME_4FEC60EA0212
+ MEPROP Name 'anAutoPopupTimeout'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4FEC60EA0212 anAutoPopupTimeout
+
+ME ME_4FEC6E2D00F3
+ MEPROP Name 'aToolTipKind'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498035FA00E9' '490838E10313.ms.model.script' // TnscToolTipKind
+ ;
+
+ENDME // ME_4FEC6E2D00F3 aToolTipKind
+
+ME ME_4FEC5BBA0070
+ MEPROP UID '4FEC5BBA0070'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FEC5B7B00CE // MakeS
+ ;
+ MELINK Target WL 'ME_4FE9F428027C' '490838E10313.ms.model.script' // InscStatusBarOperationDef
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FEC5F360324 // anOperation
+ ME_4FEC60EA0174 // aShowCaption
+ ME_4FEC60EA019B // aCaption
+ ME_4FEC6E2D008D // aUseToolTip
+ ME_4FEC60EA01EA // aRequireAutoPopup
+ ME_4FEC60EA0212 // anAutoPopupTimeout
+ ME_4FEC6E2D00F3 // aToolTipKind
+ )
+ ; // Parameters
+
+ENDME // ME_4FEC5BBA0070 DoIt
+
+ME ME_4FEC5B7B00CE
+ MEPROP UID '4FEC5B7B00CE'
+ MEPROP Name 'MakeS'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49871E4F01AF // TnscStatusBarOperationDef
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FEC5BBA0070 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4FEC5B7B00CE MakeS
+
+FORWARD ME_4FF59E080381
+
+FORWARD ME_4FF59E2D0301
+
+ME ME_4FF59E2F01CE
+ MEPROP Name 'anOperation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CF3401F5' '467BAB7F021E.ms.model.script' // TvcmOPID
+ ;
+
+ENDME // ME_4FF59E2F01CE anOperation
+
+ME ME_4FF59E2F0241
+ MEPROP Name 'aUseToolTip'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FF59E2F0241 aUseToolTip
+
+ME ME_4FF59E2F0268
+ MEPROP Name 'aRequireAutoPopup'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FF59E2F0268 aRequireAutoPopup
+
+ME ME_4FF59E2F0292
+ MEPROP Name 'anAutoPopupTimeout'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4FF59E2F0292 anAutoPopupTimeout
+
+ME ME_4FF59E2F02BB
+ MEPROP Name 'aToolTipKind'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498035FA00E9' '490838E10313.ms.model.script' // TnscToolTipKind
+ ;
+
+ENDME // ME_4FF59E2F02BB aToolTipKind
+
+ME ME_4FF59E2D0301
+ MEPROP UID '4FF59E2D0301'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59E080381 // MakeSDefaultCaption
+ ;
+ MELINK Target WL 'ME_4FE9F428027C' '490838E10313.ms.model.script' // InscStatusBarOperationDef
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FF59E2F01CE // anOperation
+ ME_4FF59E2F0241 // aUseToolTip
+ ME_4FF59E2F0268 // aRequireAutoPopup
+ ME_4FF59E2F0292 // anAutoPopupTimeout
+ ME_4FF59E2F02BB // aToolTipKind
+ )
+ ; // Parameters
+
+ENDME // ME_4FF59E2D0301 DoIt
+
+ME ME_4FF59E080381
+ MEPROP UID '4FF59E080381'
+ MEPROP Name 'MakeSDefaultCaption'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49871E4F01AF // TnscStatusBarOperationDef
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FF59E2D0301 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4FF59E080381 MakeSDefaultCaption
+
+FORWARD ME_4FFAFB0B03CC
+
+FORWARD ME_4FFAFB1F038C
+
+ME ME_4FFAFB22021E
+ MEPROP Name 'anOperation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CF3401F5' '467BAB7F021E.ms.model.script' // TvcmOPID
+ ;
+
+ENDME // ME_4FFAFB22021E anOperation
+
+ME ME_4FFAFB220243
+ MEPROP Name 'aUseToolTip'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FFAFB220243 aUseToolTip
+
+ME ME_4FFAFB220268
+ MEPROP Name 'aRequireAutoPopup'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FFAFB220268 aRequireAutoPopup
+
+ME ME_4FFAFB22028E
+ MEPROP Name 'anAutoPopupTimeout'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4FFAFB22028E anAutoPopupTimeout
+
+ME ME_4FFAFB2202B5
+ MEPROP Name 'aToolTipKind'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498035FA00E9' '490838E10313.ms.model.script' // TnscToolTipKind
+ ;
+
+ENDME // ME_4FFAFB2202B5 aToolTipKind
+
+ME ME_4FFAFB1F038C
+ MEPROP UID '4FFAFB1F038C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFAFB0B03CC // MakeSNoCaption
+ ;
+ MELINK Target WL 'ME_4FE9F428027C' '490838E10313.ms.model.script' // InscStatusBarOperationDef
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FFAFB22021E // anOperation
+ ME_4FFAFB220243 // aUseToolTip
+ ME_4FFAFB220268 // aRequireAutoPopup
+ ME_4FFAFB22028E // anAutoPopupTimeout
+ ME_4FFAFB2202B5 // aToolTipKind
+ )
+ ; // Parameters
+
+ENDME // ME_4FFAFB1F038C DoIt
+
+ME ME_4FFAFB0B03CC
+ MEPROP UID '4FFAFB0B03CC'
+ MEPROP Name 'MakeSNoCaption'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49871E4F01AF // TnscStatusBarOperationDef
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FFAFB1F038C // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4FFAFB0B03CC MakeSNoCaption
+
+ME ME_4FEC6C0702BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49871E4F01AF // TnscStatusBarOperationDef
+ ;
+ MELINK Target WL 'ME_4AC0B9CF018A' '47F25BC801DB.ms.model.script' // vcmCStr
+ ;
+
+ENDME // ME_4FEC6C0702BD 
+
+MEREF ME_4FE9F49C0299_ME_49871E4F01AF_impl
+ MELINK Original WL 'ME_4FE9F49C0299' '490838E10313.ms.model.script' // Operation
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4FE9F49C0299_ME_49871E4F01AF_impl Operation
+
+MEREF ME_4FEC3C34003F_ME_49871E4F01AF_G
+ MELINK Original WL? 'ME_4FEC3C34003F' // TnscStatusBarItemDef
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FEC3C34003F_ME_49871E4F01AF_G TnscStatusBarItemDef
+
+MEREF ME_4FE9F428027C_ME_49871E4F01AF_R
+ MELINK Original WL 'ME_4FE9F428027C' '490838E10313.ms.model.script' // InscStatusBarOperationDef
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FE9F428027C_ME_49871E4F01AF_R InscStatusBarOperationDef
+
+%%ImplementedBy ME_4FE9F428027C ME_49871E4F01AF
+
+%%InheritedBy ME_4FEC3C34003F ME_49871E4F01AF
+
+ME ME_49871E4F01AF
+ MEPROP UID '49871E4F01AF'
+ MEPROP Name 'TnscStatusBarOperationDef'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49871D5103B9' // StatusBar
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FEC3C34003F_ME_49871E4F01AF_G // TnscStatusBarItemDef
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4FE9F428027C_ME_49871E4F01AF_R // InscStatusBarOperationDef
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4FEC4A090334 // f_Operation
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FEC4A26030E // Create
+ HWL ME_4FEC4A6C02E8 // Make
+ HWL ME_4FEC5B7B00CE // MakeS
+ HWL ME_4FF59E080381 // MakeSDefaultCaption
+ HWL ME_4FFAFB0B03CC // MakeSNoCaption
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4FE9F49C0299_ME_49871E4F01AF_impl // Operation
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4FEC6C0702BD // vcmCStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" True
+ UP extprop:pas:UnitName 'nscStatusBarOperationDef'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StatusBarOperationDef'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscStatusBarOperationDef.pas'
+
+ENDME // ME_49871E4F01AF TnscStatusBarOperationDef

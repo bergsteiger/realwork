@@ -1,0 +1,124 @@
+// TctFakeBoxStrings 487268A90374 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_487268A90374
+
+ME ME_48722004002C
+ MEPROP UID '48722004002C'
+ MEPROP Name 'SubOwner'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_487268A90374 // TctFakeBoxStrings
+ ;
+ MELINK Target WL? 'ME_483158FD0155' // TFakeBox
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_48722004002C SubOwner
+
+FORWARD ME_487268F8027E
+
+ME ME_487268F802B0
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_483158FD0155' // TFakeBox
+ ;
+
+ENDME // ME_487268F802B0 anOwner
+
+ME ME_487268F8027E
+ MEPROP UID '487268F8027E'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_487268A90374 // TctFakeBoxStrings
+ ;
+ MELIST Parameters
+   Seq: ( ME_487268F802B0 // anOwner
+ )
+ ; // Parameters
+
+ENDME // ME_487268F8027E Create
+
+ME ME_487331D8010E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_487268A90374 // TctFakeBoxStrings
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_487331D8010E 
+
+MEREF ME_478CF34E02CE_ME_487268A90374_over
+ MELINK Original WL 'ME_478CF34E02CE' '478CF30500C1.ms.model.script' // Assign
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_478CF34E02CE_ME_487268A90374_over Assign
+
+MEREF ME_47B1C16D0188_ME_487268A90374_over
+ MELINK Original WL 'ME_47B1C16D0188' '47A74A5F0123.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B1C16D0188_ME_487268A90374_over Clear
+
+MEREF ME_48721FA80370_ME_487268A90374_G
+ MELINK Original WL? 'ME_48721FA80370' // TComboBoxStrings
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48721FA80370_ME_487268A90374_G TComboBoxStrings
+
+%%InheritedBy ME_48721FA80370 ME_487268A90374
+
+ME ME_487268A90374
+ MEPROP UID '487268A90374'
+ MEPROP Name 'TctFakeBoxStrings'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48297E42011A' // ComboTree
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48721FA80370_ME_487268A90374_G // TComboBoxStrings
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48722004002C // SubOwner
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_487268F8027E // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_478CF34E02CE_ME_487268A90374_over // Assign
+ ME_47B1C16D0188_ME_487268A90374_over // Clear
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_487331D8010E // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "started" '07.07.2008 23:02'
+ UP extprop:pas:UnitName 'ctFakeBoxStrings'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ctFakeBoxStrings'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\ComboTree\ctFakeBoxStrings.pas'
+
+ENDME // ME_487268A90374 TctFakeBoxStrings

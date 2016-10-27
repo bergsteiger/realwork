@@ -1,0 +1,54 @@
+// TArchiInsiderTest 4DE4827600CA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4DC3D2E00153_ME_4DE4827600CA_impl
+ MELINK Original WL 'ME_4DC3D2E00153' '4DC3D2590217.ms.model.script' // Run
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DC3D2E00153_ME_4DE4827600CA_impl Run
+
+MEREF ME_4DC3DE630030_ME_4DE4827600CA_impl
+ MELINK Original WL 'ME_4DC3DE630030' '4DC3D2590217.ms.model.script' // Prepare
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DC3DE630030_ME_4DE4827600CA_impl Prepare
+
+MEREF ME_4DC3D2590217_ME_4DE4827600CA_G
+ MELINK Original WL? 'ME_4DC3D2590217' // TCustomInsiderScripter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DC3D2590217_ME_4DE4827600CA_G TCustomInsiderScripter
+
+%%InheritedBy ME_4DC3D2590217 ME_4DE4827600CA
+
+ME ME_4DE4827600CA
+ MEPROP UID '4DE4827600CA'
+ MEPROP Name 'TArchiInsiderTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Скрипты "знакомые" со внутренними особенностями Арчи.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE3425B01DA' // ArchiScriptSupport
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DC3D2590217_ME_4DE4827600CA_G // TCustomInsiderScripter
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DC3D2E00153_ME_4DE4827600CA_impl // Run
+ ME_4DC3DE630030_ME_4DE4827600CA_impl // Prepare
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ArchiInsiderTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ArchiInsiderTest'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\ArchiInsiderTest.pas'
+
+ENDME // ME_4DE4827600CA TArchiInsiderTest

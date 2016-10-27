@@ -20,6 +20,18 @@ ME ME_12A5052FDD0E
 
 ENDME // ME_12A5052FDD0E Ini_FormFactory_PostingsList
 
+MEREF ME_4DF789BF02EF_ME_4AAFA16202D3_G
+ MELINK Original WL? 'ME_4DF789BF02EF' // PrimPostingsListOptions
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DF789BF02EF_ME_4AAFA16202D3_G PrimPostingsListOptions
+
+MEREF ME_4BD98AA402AC_ME_4AAFA16202D3_R
+ MELINK Original WL 'ME_4BD98AA402AC' '4BD98A8C0110.ms.model.script' // PostingsList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BD98AA402AC_ME_4AAFA16202D3_R PostingsList
+
 %%ImplementedBy ME_4BD98AA402AC ME_4AAFA16202D3
 
 %%InheritedBy ME_4DF789BF02EF ME_4AAFA16202D3
@@ -37,11 +49,11 @@ ME ME_4AAFA16202D3
  MELINK Parent WL? 'ME_4AA919B200AB' // CommonPost
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4DF789BF02EF' // PrimPostingsListOptions
+   Seq: ( HWL ME_4DF789BF02EF_ME_4AAFA16202D3_G // PrimPostingsListOptions
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4BD98AA402AC' '4BD98A8C0110.ms.model.script' // PostingsList
+   Seq: ( HWL ME_4BD98AA402AC_ME_4AAFA16202D3_R // PostingsList
  )
  ; // Implements
  MELIST Operations

@@ -1,0 +1,466 @@
+// TatFileBasedSemaphore 4A4DFF7800C9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A4DFF7800C9
+
+FORWARD ME_4A4E010C03DE
+
+ME ME_4A4E01190214
+ MEPROP UID '4A4E01190214'
+ MEPROP Name 'FBS_WAIT_FOREVER'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A4E010C03DE // WaitConsts
+ ;
+ MEPROP Value '-1'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '-1'
+
+ENDME // ME_4A4E01190214 FBS_WAIT_FOREVER
+
+ME ME_4A4E010C03DE
+ MEPROP UID '4A4E010C03DE'
+ MEPROP Name 'WaitConsts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A4E01190214 // FBS_WAIT_FOREVER
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_4A4E010C03DE WaitConsts
+
+ME ME_4A4DFFFB00A3
+ MEPROP UID '4A4DFFFB00A3'
+ MEPROP Name 'f_FileName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4A4DFFFB00A3 f_FileName
+
+ME ME_4A4E045200C3
+ MEPROP UID '4A4E045200C3'
+ MEPROP Name 'f_MaxEnteredCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A4E045200C3 f_MaxEnteredCount
+
+ME ME_4A4E04640307
+ MEPROP UID '4A4E04640307'
+ MEPROP Name 'f_LocksCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A4E04640307 f_LocksCount
+
+ME ME_4A4E05150343
+ MEPROP UID '4A4E05150343'
+ MEPROP Name 'f_WriteHandle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+
+ENDME // ME_4A4E05150343 f_WriteHandle
+
+ME ME_4A4E070C0368
+ MEPROP UID '4A4E070C0368'
+ MEPROP Name 'f_ReadHandle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+
+ENDME // ME_4A4E070C0368 f_ReadHandle
+
+ME ME_4A51EEC30326
+ MEPROP UID '4A51EEC30326'
+ MEPROP Name 'f_IsEntered'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A51EEC30326 f_IsEntered
+
+FORWARD ME_4A4DFFB801BA
+
+ME ME_4A4DFFD600A0
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4A4DFFD600A0 aFileName
+
+ME ME_4A4E044A016C
+ MEPROP Name 'aMaxEnteredCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 1
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 1
+
+ENDME // ME_4A4E044A016C aMaxEnteredCount
+
+ME ME_4A4DFFB801BA
+ MEPROP UID '4A4DFFB801BA'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4DFFD600A0 // aFileName
+ ME_4A4E044A016C // aMaxEnteredCount
+ )
+ ; // Parameters
+
+ENDME // ME_4A4DFFB801BA Create
+
+FORWARD ME_4A4E001901F9
+
+ME ME_4A4E088701A6
+ MEPROP Name 'aTimeOut'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+ MEPROP Value 'FBS_WAIT_FOREVER'
+ MELINK ValueType WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+ UP extprop:pas:Value 'FBS_WAIT_FOREVER'
+
+ENDME // ME_4A4E088701A6 aTimeOut
+
+ME ME_4A4E001901F9
+ MEPROP UID '4A4E001901F9'
+ MEPROP Name 'Enter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4E088701A6 // aTimeOut
+ )
+ ; // Parameters
+
+ENDME // ME_4A4E001901F9 Enter
+
+ME ME_4A4E009800B1
+ MEPROP UID '4A4E009800B1'
+ MEPROP Name 'Leave'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+
+ENDME // ME_4A4E009800B1 Leave
+
+FORWARD ME_4A4E03BE0171
+
+ME ME_4A4E213D015B
+ MEPROP Name 'aTimeOut'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+ MEPROP Value 'FBS_WAIT_FOREVER'
+ MELINK ValueType WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+ UP extprop:pas:Value 'FBS_WAIT_FOREVER'
+
+ENDME // ME_4A4E213D015B aTimeOut
+
+ME ME_4A4E03BE0171
+ MEPROP UID '4A4E03BE0171'
+ MEPROP Name 'LockForWrite'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4E213D015B // aTimeOut
+ )
+ ; // Parameters
+
+ENDME // ME_4A4E03BE0171 LockForWrite
+
+ME ME_4A4E03C90305
+ MEPROP UID '4A4E03C90305'
+ MEPROP Name 'UnlockForWrite'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+
+ENDME // ME_4A4E03C90305 UnlockForWrite
+
+ME ME_4A4E03D502B3
+ MEPROP UID '4A4E03D502B3'
+ MEPROP Name 'GetCurrEnteredCount'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A4E03D502B3 GetCurrEnteredCount
+
+FORWARD ME_4A4E040D0305
+
+ME ME_4A4E04380003
+ MEPROP Name 'aCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A4E04380003 aCount
+
+ME ME_4A4E040D0305
+ MEPROP UID '4A4E040D0305'
+ MEPROP Name 'SetCurrEnteredCount'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4E04380003 // aCount
+ )
+ ; // Parameters
+
+ENDME // ME_4A4E040D0305 SetCurrEnteredCount
+
+FORWARD ME_4A4E3AE300B6
+
+ME ME_4A4E3B1C006B
+ MEPROP Name 'aAccessMode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_49B1535A0116' '48A41FF10094.ms.model.script' // DWORD
+ ;
+
+ENDME // ME_4A4E3B1C006B aAccessMode
+
+ME ME_4A4E3B1C009A
+ MEPROP Name 'aShareMode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_49B1535A0116' '48A41FF10094.ms.model.script' // DWORD
+ ;
+
+ENDME // ME_4A4E3B1C009A aShareMode
+
+ME ME_4A4E3AE300B6
+ MEPROP UID '4A4E3AE300B6'
+ MEPROP Name 'OpenFile'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4E3B1C006B // aAccessMode
+ ME_4A4E3B1C009A // aShareMode
+ )
+ ; // Parameters
+
+ENDME // ME_4A4E3AE300B6 OpenFile
+
+ME ME_4A51E57100CE
+ MEPROP UID '4A51E57100CE'
+ MEPROP Name 'OpenForRead'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A51E57100CE OpenForRead
+
+ME ME_4A4E0A1A027B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+ MELINK Target WL? 'ME_478CF30500C1' // Classes
+ ;
+
+ENDME // ME_4A4E0A1A027B 
+
+ME ME_4A4E119602FF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_4A4E119602FF 
+
+ME ME_4A4E1F7702DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+ MELINK Target WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ ;
+
+ENDME // ME_4A4E1F7702DA 
+
+ME ME_4A4E3F1D02CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4DFF7800C9 // TatFileBasedSemaphore
+ ;
+ MELINK Target WL? 'ME_48D391C60190' // DateUtils
+ ;
+
+ENDME // ME_4A4E3F1D02CB 
+
+MEREF ME_48077504027E_ME_4A4DFF7800C9_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_4A4DFF7800C9_over Destroy
+
+MEREF ME_4807745602C8_ME_4A4DFF7800C9_G
+ MELINK Original WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807745602C8_ME_4A4DFF7800C9_G TObject
+
+%%InheritedBy ME_4807745602C8 ME_4A4DFF7800C9
+
+ME ME_4A4DFF7800C9
+ MEPROP UID '4A4DFF7800C9'
+ MEPROP Name 'TatFileBasedSemaphore'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обеспечивает функциональность в стиле семафора. Работает на файлах.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4807745602C8_ME_4A4DFF7800C9_G // TObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A4DFFFB00A3 // f_FileName
+ HWL ME_4A4E045200C3 // f_MaxEnteredCount
+ HWL ME_4A4E04640307 // f_LocksCount
+ HWL ME_4A4E05150343 // f_WriteHandle
+ HWL ME_4A4E070C0368 // f_ReadHandle
+ HWL ME_4A51EEC30326 // f_IsEntered
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A4DFFB801BA // Create
+ HWL ME_4A4E001901F9 // Enter
+ HWL ME_4A4E009800B1 // Leave
+ HWL ME_4A4E03BE0171 // LockForWrite
+ HWL ME_4A4E03C90305 // UnlockForWrite
+ HWL ME_4A4E03D502B3 // GetCurrEnteredCount
+ HWL ME_4A4E040D0305 // SetCurrEnteredCount
+ HWL ME_4A4E3AE300B6 // OpenFile
+ HWL ME_4A51E57100CE // OpenForRead
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_4A4DFF7800C9_over // Destroy
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_4A4E010C03DE // WaitConsts
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4A4E0A1A027B // Classes
+ ME_4A4E119602FF // Windows
+ ME_4A4E1F7702DA // Exception
+ ME_4A4E3F1D02CB // DateUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atFileBasedSemaphore'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atFileBasedSemaphore'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atFileBasedSemaphore.pas'
+
+ENDME // ME_4A4DFF7800C9 TatFileBasedSemaphore

@@ -1,0 +1,77 @@
+// TevTableCellCursorPair 52E24FBF0273 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52E24FBF0273
+
+ME ME_52E2506F0163
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52E24FBF0273 // TevTableCellCursorPair
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_52E2506F0163 
+
+ME ME_53D2677702A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_52E24FBF0273 // TevTableCellCursorPair
+ ;
+ MELINK Target WL? 'ME_4857CDBF0197' // TevTableCell
+ ;
+ UP "injects as" 'range'
+
+ENDME // ME_53D2677702A8 
+
+MEREF ME_4A38F7A40373_ME_52E24FBF0273_over
+ MELINK Original WL 'ME_4A38F7A40373' '47F4D44C01BF.ms.model.script' // DoSetAtom
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A38F7A40373_ME_52E24FBF0273_over DoSetAtom
+
+MEREF ME_4A2D2D6E027B_ME_52E24FBF0273_G
+ MELINK Original WL? 'ME_4A2D2D6E027B' // TevParaListCursorPair
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A2D2D6E027B_ME_52E24FBF0273_G TevParaListCursorPair
+
+%%InjectedBy ME_4857CDBF0197 ME_52E24FBF0273
+
+%%InheritedBy ME_4A2D2D6E027B ME_52E24FBF0273
+
+ME ME_52E24FBF0273
+ MEPROP UID '52E24FBF0273'
+ MEPROP Name 'TevTableCellCursorPair'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выделение для ячейки таблицы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3A233900C9' // ParaList Cursors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A2D2D6E027B_ME_52E24FBF0273_G // TevParaListCursorPair
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4A38F7A40373_ME_52E24FBF0273_over // DoSetAtom
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52E2506F0163 // Tk2TagID
+ ME_53D2677702A8 // TevTableCell
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evTableCellCursorPair'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TableCellCursorPair'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evTableCellCursorPair.pas'
+
+ENDME // ME_52E24FBF0273 TevTableCellCursorPair

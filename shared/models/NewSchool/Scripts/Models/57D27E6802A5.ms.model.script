@@ -1,0 +1,161 @@
+// TmsmDrawingModel 57D27E6802A5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57D27E6802A5
+
+FORWARD ME_57E297C403B4
+
+FORWARD ME_57E297E90378
+
+ME ME_57E297F6022C
+ MEPROP Name 'anElement'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57A9F4D30086' '57A9F4A003C8.ms.model.script' // ImsmModelElement
+ ;
+
+ENDME // ME_57E297F6022C anElement
+
+ME ME_57E297E90378
+ MEPROP UID '57E297E90378'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E297C403B4 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E297F6022C // anElement
+ )
+ ; // Parameters
+
+ENDME // ME_57E297E90378 DoIt
+
+ME ME_57E2980A02CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E297C403B4 // Create
+ ;
+ MELINK Target WL 'ME_57E2977401C7' '57B317B00274.ms.model.script' // CreateSubElementList
+ ;
+
+ENDME // ME_57E2980A02CA 
+
+ME ME_57E297C403B4
+ MEPROP UID '57E297C403B4'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D27E6802A5 // TmsmDrawingModel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57E297E90378 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57E2980A02CA // CreateSubElementList
+ )
+ ; // Dependencies
+
+ENDME // ME_57E297C403B4 Create
+
+MEREF ME_57E297C403B4_ME_57D29645013D_G
+ MELINK Original HWL ME_57E297C403B4 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57E297C403B4_ME_57D29645013D_G Create
+
+MEREF ME_57D27E070278_ME_57D29645013D_R
+ MELINK Original WL 'ME_57D27E070278' '57ADC53E00B6.ms.model.script' // ImsmDrawingModel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57D27E070278_ME_57D29645013D_R ImsmDrawingModel
+
+%%ImplementedBy ME_57D27E070278 ME_57D29645013D
+
+%%InheritedBy ME_57E297C403B4 ME_57D29645013D
+
+ME ME_57D29645013D
+ MEPROP UID '57D29645013D'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D27E6802A5 // TmsmDrawingModel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57E297C403B4_ME_57D29645013D_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57D27E070278_ME_57D29645013D_R // ImsmDrawingModel
+ )
+ ; // Implements
+
+ENDME // ME_57D29645013D Make
+
+MEREF ME_57F79A4F032E_ME_57D27E6802A5_over
+ MELINK Original WL 'ME_57F79A4F032E' '57B189990202.ms.model.script' // CheckUnexisting
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57F79A4F032E_ME_57D27E6802A5_over CheckUnexisting
+
+MEREF ME_57B317B00274_ME_57D27E6802A5_G
+ MELINK Original WL? 'ME_57B317B00274' // TmsmListModel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B317B00274_ME_57D27E6802A5_G TmsmListModel
+
+MEREF ME_57D27E070278_ME_57D27E6802A5_R
+ MELINK Original WL 'ME_57D27E070278' '57ADC53E00B6.ms.model.script' // ImsmDrawingModel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57D27E070278_ME_57D27E6802A5_R ImsmDrawingModel
+
+%%ImplementedBy ME_57D27E070278 ME_57D27E6802A5
+
+%%InheritedBy ME_57B317B00274 ME_57D27E6802A5
+
+ME ME_57D27E6802A5
+ MEPROP UID '57D27E6802A5'
+ MEPROP Name 'TmsmDrawingModel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57AE0D6601AE' // ConcreteModels
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57B317B00274_ME_57D27E6802A5_G // TmsmListModel
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57D27E070278_ME_57D27E6802A5_R // ImsmDrawingModel
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_57E297C403B4 // Create
+ HWL ME_57D29645013D // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_57F79A4F032E_ME_57D27E6802A5_over // CheckUnexisting
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmDrawingModel'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmDrawingModel'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmDrawingModel.pas'
+
+ENDME // ME_57D27E6802A5 TmsmDrawingModel

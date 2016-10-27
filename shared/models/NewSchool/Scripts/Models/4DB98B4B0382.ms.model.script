@@ -1,0 +1,237 @@
+// TkwControlWord 4DB98B4B0382 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DB98B4B0382
+
+FORWARD ME_4DB98B990054
+
+FORWARD ME_4DB98BA40271
+
+ME ME_4DB98BAE03CB
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+
+ENDME // ME_4DB98BAE03CB aControl
+
+ME ME_4DB98FBD0045
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4DB98FBD0045 aCtx
+
+ME ME_4DB98BA40271
+ MEPROP UID '4DB98BA40271'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DB98B990054 // DoControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DB98BAE03CB // aControl
+ ME_4DB98FBD0045 // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_4DB98BA40271 DoIt
+
+ME ME_4DB98B990054
+ MEPROP UID '4DB98B990054'
+ MEPROP Name 'DoControl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DB98B4B0382 // TkwControlWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DB98BA40271 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DB98B990054 DoControl
+
+FORWARD ME_5357B6FB0024
+
+FORWARD ME_5357B70F010B
+
+ME ME_5357B7230025
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_5357B7230025 aControl
+
+ME ME_5357B7230040
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_5357B7230040 aCtx
+
+ME ME_5357B70F010B
+ MEPROP UID '5357B70F010B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5357B6FB0024 // DoComponent
+ ;
+ MELIST Parameters
+   Seq: ( ME_5357B7230025 // aControl
+ ME_5357B7230040 // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_5357B70F010B DoIt
+
+ME ME_5357B6FB0024
+ MEPROP UID '5357B6FB0024'
+ MEPROP Name 'DoComponent'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DB98B4B0382 // TkwControlWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5357B70F010B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5357B6FB0024 DoComponent
+
+ME ME_4DE8978703B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB98B4B0382 // TkwControlWord
+ ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_4DE8978703B3 
+
+ME ME_4EF464BF0208
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB98B4B0382 // TkwControlWord
+ ;
+ MELINK Target WL 'ME_4DE89E560091' '47877EB202FB.ms.model.script' // Format
+ ;
+
+ENDME // ME_4EF464BF0208 
+
+ME ME_55014F6002C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB98B4B0382 // TkwControlWord
+ ;
+ MELINK Target WL? 'ME_55014D810077' // Tl3CloseFormHelper
+ ;
+
+ENDME // ME_55014F6002C9 
+
+ME ME_5506D4130133
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB98B4B0382 // TkwControlWord
+ ;
+ MELINK Target WL? 'ME_5506D3B202FA' // Tl3MessagesService
+ ;
+
+ENDME // ME_5506D4130133 
+
+ME ME_5506D642024E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB98B4B0382 // TkwControlWord
+ ;
+ MELINK Target WL? 'ME_5506D56601D6' // Tl3FormsService
+ ;
+
+ENDME // ME_5506D642024E 
+
+MEREF ME_4DAEEDE10285_ME_4DB98B4B0382_impl
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DAEEDE10285_ME_4DB98B4B0382_impl DoDoIt
+
+MEREF ME_53EDC0E701BC_ME_4DB98B4B0382_G
+ MELINK Original WL? 'ME_53EDC0E701BC' // TtfwRegisterableWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53EDC0E701BC_ME_4DB98B4B0382_G TtfwRegisterableWord
+
+MEREF ME_4DB95922039B_ME_4DB98B4B0382_R
+ MELINK Original WL? 'ME_4DB95922039B' // SystemWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB95922039B_ME_4DB98B4B0382_R SystemWord
+
+%%ImplementedBy ME_4DB95922039B ME_4DB98B4B0382
+
+%%InheritedBy ME_53EDC0E701BC ME_4DB98B4B0382
+
+ME ME_4DB98B4B0382
+ MEPROP UID '4DB98B4B0382'
+ MEPROP Name 'TkwControlWord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_54DB92D203C9' // VCL bindings
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53EDC0E701BC_ME_4DB98B4B0382_G // TtfwRegisterableWord
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4DB95922039B_ME_4DB98B4B0382_R // SystemWord
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4DB98B990054 // DoControl
+ HWL ME_5357B6FB0024 // DoComponent
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DB98B4B0382_impl // DoDoIt
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4DE8978703B3 // TComponent
+ ME_4EF464BF0208 // Format
+ ME_55014F6002C9 // Tl3CloseFormHelper
+ ME_5506D4130133 // Tl3MessagesService
+ ME_5506D642024E // Tl3FormsService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "ifndef" 'NoVCL'
+ UP "no hands" True
+ UP "started" '28.04.2011 19:44'
+ UP extprop:pas:UnitName 'kwControlWord'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ControlWord'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwControlWord.pas'
+
+ENDME // ME_4DB98B4B0382 TkwControlWord

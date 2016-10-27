@@ -1,0 +1,94 @@
+// TmsmOperationsList 57CEB10702AD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57CEB10702AD
+
+ME ME_57CEB121015A
+ MEPROP UID '57CEB121015A'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57CEB10702AD // TmsmOperationsList
+ ;
+ MELINK Target WL 'ME_57B568620397' '57CEABF60269.ms.model.script' // ImsmOperation
+ ;
+
+ENDME // ME_57CEB121015A ItemType
+
+MEREF ME_57CEADDB0029_ME_57CEB10702AD_impl
+ MELINK Original WL 'ME_57CEADDB0029' '57CEABF60269.ms.model.script' // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_57CEADDB0029_ME_57CEB10702AD_impl Count
+
+MEREF ME_57CEADF5039E_ME_57CEB10702AD_impl
+ MELINK Original WL 'ME_57CEADF5039E' '57CEABF60269.ms.model.script' // Items
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is default" True
+ UP "pm" False
+ENDMEREF // ME_57CEADF5039E_ME_57CEB10702AD_impl Items
+
+MEREF ME_47B57D830369_ME_57CEB10702AD_G
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_57CEB10702AD_G l3InterfaceRefList
+
+MEREF ME_4A54DD4E036F_ME_57CEB10702AD_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_57CEB10702AD_G Tl3ProtoDataContainer
+
+MEREF ME_57CEADB60211_ME_57CEB10702AD_R
+ MELINK Original WL 'ME_57CEADB60211' '57CEABF60269.ms.model.script' // ImsmOperationsList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57CEADB60211_ME_57CEB10702AD_R ImsmOperationsList
+
+%%ImplementedBy ME_57CEADB60211 ME_57CEB10702AD
+
+%%InheritedBy ME_47B57D830369 ME_57CEB10702AD
+%%InheritedBy ME_4A54DD4E036F ME_57CEB10702AD
+
+ME ME_57CEB10702AD
+ MEPROP UID '57CEB10702AD'
+ MEPROP Name 'TmsmOperationsList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CEB008027D' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57D830369_ME_57CEB10702AD_G // l3InterfaceRefList
+ HWL ME_4A54DD4E036F_ME_57CEB10702AD_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57CEADB60211_ME_57CEB10702AD_R // ImsmOperationsList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57CEB121015A // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_57CEADDB0029_ME_57CEB10702AD_impl // Count
+ ME_57CEADF5039E_ME_57CEB10702AD_impl // Items
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'msmOperationsList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmOperationsList'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmOperationsList.pas'
+
+ENDME // ME_57CEB10702AD TmsmOperationsList

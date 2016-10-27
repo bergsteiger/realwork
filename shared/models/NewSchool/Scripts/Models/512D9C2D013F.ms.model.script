@@ -1,0 +1,42 @@
+// Create 512D9C2D013F ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_512D9C2D013F
+
+ME ME_512DBBDC00E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512D9C2D013F // Create
+ ;
+ MELINK Target WL 'ME_512DBB8A00BE' '512DBB5502E6.ms.model.script' // CreateNewDocument
+ ;
+
+ENDME // ME_512DBBDC00E4 
+
+ME ME_512D9C2D013F
+ MEPROP UID '512D9C2D013F'
+ MEPROP Name 'Create'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:*  Create'#13#10'*Описание:* Создает новый документ в редакторе.'#13#10' *Пример:*'#13#10' {code}'#13#10'Create'#13#10' {code}'#13#10' *Результат:* Будет создан новый документ.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_512D9BBE0307' // EverestLiteKeyWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_512DBBDC00E4 // CreateNewDocument
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwCreate'
+ UP extprop:pas:UnitName 'kwCreate'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Create'
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwCreate.pas'
+
+ENDME // ME_512D9C2D013F Create

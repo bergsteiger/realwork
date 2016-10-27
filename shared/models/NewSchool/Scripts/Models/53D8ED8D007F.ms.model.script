@@ -1,0 +1,88 @@
+// TevInevBaseLine4PrintMapper 53D8ED8D007F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D8ED8D007F
+
+ME ME_53D8EE2503A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D8ED8D007F // TevInevBaseLine4PrintMapper
+ ;
+ MELINK Target WL? 'ME_485678B701BD' // TevPara
+ ;
+ UP "injects as" 'mapper'
+
+ENDME // ME_53D8EE2503A5 
+
+ME ME_53D8EE33026D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53D8ED8D007F // TevInevBaseLine4PrintMapper
+ ;
+ MELINK Target WL 'ME_47C5B56900DA' '47C5207602D1.ms.model.script' // InevPoint
+ ;
+
+ENDME // ME_53D8EE33026D 
+
+ME ME_53D8EE5102D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D8ED8D007F // TevInevBaseLine4PrintMapper
+ ;
+ MELINK Target WL 'ME_4DDBD13102CB' '47C5207602D1.ms.model.script' // InevBaseLine4Print
+ ;
+
+ENDME // ME_53D8EE5102D5 
+
+MEREF ME_53D639B601D7_ME_53D8ED8D007F_impl
+ MELINK Original WL 'ME_53D639B601D7' '53D6399F03E1.ms.model.script' // Make
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" True
+ENDMEREF // ME_53D639B601D7_ME_53D8ED8D007F_impl Make
+
+MEREF ME_53D6399F03E1_ME_53D8ED8D007F_G
+ MELINK Original WL? 'ME_53D6399F03E1' // Tk2InterfaceMapper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53D6399F03E1_ME_53D8ED8D007F_G Tk2InterfaceMapper
+
+%%InjectedBy ME_485678B701BD ME_53D8ED8D007F
+
+%%InheritedBy ME_53D6399F03E1 ME_53D8ED8D007F
+
+ME ME_53D8ED8D007F
+ MEPROP UID '53D8ED8D007F'
+ MEPROP Name 'TevInevBaseLine4PrintMapper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E3DF460095' // Cursors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53D6399F03E1_ME_53D8ED8D007F_G // Tk2InterfaceMapper
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53D639B601D7_ME_53D8ED8D007F_impl // Make
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53D8EE2503A5 // TevPara
+ ME_53D8EE33026D // InevPoint
+ ME_53D8EE5102D5 // InevBaseLine4Print
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evInevBaseLine4PrintMapper'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'InevBaseLine4PrintMapper'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evInevBaseLine4PrintMapper.pas'
+
+ENDME // ME_53D8ED8D007F TevInevBaseLine4PrintMapper

@@ -1,0 +1,74 @@
+// TevSolidPara 48567B940173 InterfaceFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48567B940173
+
+ME ME_5826D7AAEB61
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48567B940173 // TevSolidPara
+ ;
+ MELINK Target WL 'ME_47C5B5BE009D' '47C5207602D1.ms.model.script' // InevAnchor
+ ;
+
+ENDME // ME_5826D7AAEB61 
+
+MEREF ME_4D63D26D033F_ME_48567B940173_over
+ MELINK Original WL 'ME_4D63D26D033F' '4D63C2420229.ms.model.script' // QueryTool
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D63D26D033F_ME_48567B940173_over QueryTool
+
+MEREF ME_53CCBDA5026D_ME_48567B940173_over
+ MELINK Original WL 'ME_53CCBDA5026D' '4D63C2420229.ms.model.script' // COMQueryTool
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53CCBDA5026D_ME_48567B940173_over COMQueryTool
+
+MEREF ME_48567B6E010E_ME_48567B940173_G
+ MELINK Original WL? 'ME_48567B6E010E' // TevLeafPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48567B6E010E_ME_48567B940173_G TevLeafPara
+
+%%InheritedBy ME_48567B6E010E ME_48567B940173
+
+ME ME_48567B940173
+ MEPROP UID '48567B940173'
+ MEPROP Name 'TevSolidPara'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_InterfaceFactory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53D258F1004F' // InterfaceFactories
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48567B6E010E_ME_48567B940173_G // TevLeafPara
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4D63D26D033F_ME_48567B940173_over // QueryTool
+ ME_53CCBDA5026D_ME_48567B940173_over // COMQueryTool
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5826D7AAEB61 // InevAnchor
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_53D2420F01D3' '49DF6D3F02F9.ms.model.script' // TevSolidParaCursor
+ WL 'ME_53D2422D029B' '4A3BAB21005A.ms.model.script' // TnevSolidParaAnchor
+ WL 'ME_53D26C9001F6' '53D26C750089.ms.model.script' // TevSolidParaCursorPair
+ )
+ ; // Injected
+ UP extprop:pas:TypeName 'TevSolidParaInterfaceFactory'
+ UP extprop:pas:UnitName 'evSolidPara_InterfaceFactory'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SolidParaInterfaceFactory'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evSolidPara_InterfaceFactory.pas'
+
+ENDME // ME_48567B940173 TevSolidPara

@@ -1,0 +1,41 @@
+// IsPreviewInProgress 5321724703A5 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5321724703A5
+
+ME ME_532172770248
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5321724703A5 // IsPreviewInProgress
+ ;
+ MELINK Target WL 'ME_532171DE00C1' '512DBB5502E6.ms.model.script' // IsPreviewInProcess
+ ;
+
+ENDME // ME_532172770248 
+
+ME ME_5321724703A5
+ MEPROP UID '5321724703A5'
+ MEPROP Name 'IsPreviewInProgress'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_512D9BBE0307' // EverestLiteKeyWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_532172770248 // IsPreviewInProcess
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwIsPreviewInProgress'
+ UP extprop:pas:UnitName 'kwIsPreviewInProgress'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IsPreviewInProgress'
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwIsPreviewInProgress.pas'
+
+ENDME // ME_5321724703A5 IsPreviewInProgress

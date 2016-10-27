@@ -19,7 +19,7 @@ ME ME_51DBBCC90082
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_51D287250128 // TddRTFState
  ;
- MELINK Target WL 'ME_4F6843EE00B1' '4F6843C101D1.ms.model.script' // TddBorder
+ MELINK Target WL? 'ME_4F6843EE00B1' // TddBorder
  ;
  UP "needs field" True
  UP "pm" True
@@ -37,7 +37,7 @@ ME ME_51DBBD660058
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_51D287250128 // TddRTFState
  ;
- MELINK Target WL 'ME_5111FEC00247' '4F6843C101D1.ms.model.script' // TddCellProperty
+ MELINK Target WL? 'ME_5111FEC00247' // TddCellProperty
  ;
  UP "needs field" True
  UP "pm" True
@@ -56,7 +56,7 @@ ME ME_51DBBDAB0317
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_51D287250128 // TddRTFState
  ;
- MELINK Target WL 'ME_51DBBD99020C' '4F6843C101D1.ms.model.script' // TddCharacterProperty
+ MELINK Target WL? 'ME_51DBBD99020C' // TddCharacterProperty
  ;
  UP "needs field" True
  UP "pm" True
@@ -74,7 +74,7 @@ ME ME_51DBBDEB02B1
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_51D287250128 // TddRTFState
  ;
- MELINK Target WL 'ME_51DBBDD6011E' '4F6843C101D1.ms.model.script' // TddParagraphProperty
+ MELINK Target WL? 'ME_51DBBDD6011E' // TddParagraphProperty
  ;
  UP "needs field" True
  UP "pm" True
@@ -111,7 +111,7 @@ ME ME_51DBBEBC0085
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_51D287250128 // TddRTFState
  ;
- MELINK Target WL 'ME_51DBBE7802D5' '4F6843C101D1.ms.model.script' // TddSectionProperty
+ MELINK Target WL? 'ME_51DBBE7802D5' // TddSectionProperty
  ;
  UP "needs field" True
  UP "pm" True
@@ -129,7 +129,7 @@ ME ME_51DBBF08003A
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_51D287250128 // TddRTFState
  ;
- MELINK Target WL 'ME_518A10050368' '4F6843C101D1.ms.model.script' // TddRowProperty
+ MELINK Target WL? 'ME_518A10050368' // TddRowProperty
  ;
  UP "needs field" True
  UP "pm" True
@@ -193,7 +193,7 @@ ENDME // ME_51DBBF820265 DoIt
 ME ME_51DBBF76006A
  MEPROP UID '51DBBF76006A'
  MEPROP Name 'Clone'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -238,7 +238,7 @@ ENDME // ME_51DBBFA30092 DoIt
 ME ME_51DBBF960279
  MEPROP UID '51DBBF960279'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -283,7 +283,7 @@ ENDME // ME_52BAC3DB0193 DoIt
 ME ME_52BAC3CD01BB
  MEPROP UID '52BAC3CD01BB'
  MEPROP Name 'Assign'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -312,7 +312,7 @@ ME ME_525E50C400D8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_51D287250128 // TddRTFState
  ;
- MELINK Target WL 'ME_4F6843EE00B1' '4F6843C101D1.ms.model.script' // TddBorder
+ MELINK Target WL? 'ME_4F6843EE00B1' // TddBorder
  ;
 
 ENDME // ME_525E50C400D8 
@@ -332,16 +332,22 @@ ME ME_52D39B4A0354
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_51D287250128 // TddRTFState
  ;
- MELINK Target WL 'ME_51DBBE7802D5' '4F6843C101D1.ms.model.script' // TddSectionProperty
+ MELINK Target WL? 'ME_51DBBE7802D5' // TddSectionProperty
  ;
 
 ENDME // ME_52D39B4A0354 
 
-ME ME_479731C50290_ME_51D287250128
+MEREF ME_479731C50290_ME_51D287250128_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_51D287250128 Cleanup
+ENDMEREF // ME_479731C50290_ME_51D287250128_over Cleanup
+
+MEREF ME_49E7754802A9_ME_51D287250128_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_51D287250128_G Tl3ProtoObject
 
 %%InheritedBy ME_49E7754802A9 ME_51D287250128
 
@@ -356,7 +362,7 @@ ME ME_51D287250128
  MELINK Parent HWL ME_51D2871702FA // ddRTFState
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_51D287250128_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Attributes
@@ -378,7 +384,7 @@ ME ME_51D287250128
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_51D287250128 // Cleanup
+   Seq: ( ME_479731C50290_ME_51D287250128_over // Cleanup
  )
  ; // Overridden
  MELIST Dependencies
@@ -416,7 +422,7 @@ ENDME // ME_51DBC0720076 DoIt
 ME ME_51DBC0660357
  MEPROP UID '51DBC0660357'
  MEPROP Name 'Peek'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -448,7 +454,7 @@ ENDME // ME_51DBC0990315 DoIt
 ME ME_51DBC08B031C
  MEPROP UID '51DBC08B031C'
  MEPROP Name 'Pop'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -493,7 +499,7 @@ ENDME // ME_51DBC0B403D2 DoIt
 ME ME_51DBC0AA0101
  MEPROP UID '51DBC0AA0101'
  MEPROP Name 'Push'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -525,7 +531,7 @@ ENDME // ME_51DD39A10329 DoIt
 ME ME_51DD394E0093
  MEPROP UID '51DD394E0093'
  MEPROP Name 'PeekPrev'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -538,6 +544,12 @@ ME ME_51DD394E0093
  ; // Operations
 
 ENDME // ME_51DD394E0093 PeekPrev
+
+MEREF ME_4CE521C80107_ME_51DBBFFD0351_G
+ MELINK Original WL? 'ME_4CE521C80107' // Tl3ProtoObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CE521C80107_ME_51DBBFFD0351_G Tl3ProtoObjectRefList
 
 %%InheritedBy ME_4CE521C80107 ME_51DBBFFD0351
 
@@ -552,7 +564,7 @@ ME ME_51DBBFFD0351
  MELINK Parent HWL ME_51D2871702FA // ddRTFState
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CE521C80107' '4A6D65B9022A.ms.model.script' // Tl3ProtoObjectRefList
+   Seq: ( HWL ME_4CE521C80107_ME_51DBBFFD0351_G // Tl3ProtoObjectRefList
  )
  ; // Inherits
  MELIST Operations

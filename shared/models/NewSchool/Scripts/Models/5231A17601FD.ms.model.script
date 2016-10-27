@@ -1,0 +1,88 @@
+// TnsConfigurationProperties 5231A17601FD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5231A17601FD
+
+FORWARD ME_5231A23D03D2
+
+ME ME_5231A2F602F1
+ MEPROP UID '5231A2F602F1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5231A23D03D2 // HasInstance
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5231A2F602F1 DoIt
+
+ME ME_5231A23D03D2
+ MEPROP UID '5231A23D03D2'
+ MEPROP Name 'HasInstance'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5231A17601FD // TnsConfigurationProperties
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5231A2F602F1 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_5231A23D03D2 HasInstance
+
+MEREF ME_4AB8CB630173_ME_5231A17601FD_G
+ MELINK Original WL? 'ME_4AB8CB630173' // TvcmStringList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AB8CB630173_ME_5231A17601FD_G TvcmStringList
+
+MEREF ME_4683CF0601DB_ME_5231A17601FD_R
+ MELINK Original WL 'ME_4683CF0601DB' '467BAB7F021E.ms.model.script' // IvcmStrings
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4683CF0601DB_ME_5231A17601FD_R IvcmStrings
+
+%%ImplementedBy ME_4683CF0601DB ME_5231A17601FD
+
+%%InheritedBy ME_4AB8CB630173 ME_5231A17601FD
+
+ME ME_5231A17601FD
+ MEPROP UID '5231A17601FD'
+ MEPROP Name 'TnsConfigurationProperties'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4ABA137C00E5' // Config
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AB8CB630173_ME_5231A17601FD_G // TvcmStringList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4683CF0601DB_ME_5231A17601FD_R // IvcmStrings
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_5231A23D03D2 // HasInstance
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:pas:UnitName 'nsConfigurationProperties'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ConfigurationProperties'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Config\nsConfigurationProperties.pas'
+
+ENDME // ME_5231A17601FD TnsConfigurationProperties

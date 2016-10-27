@@ -1,0 +1,108 @@
+// pop_editor_EditFormula 4F5DA0D50129 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F5DA0D50129
+
+ME ME_4F5DB05C0136
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F5DA0D50129 // pop_editor_EditFormula
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4F5DB05C0136 
+
+ME ME_4F5DC30E0256
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F5DA0D50129 // pop_editor_EditFormula
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_4F5DC30E0256 
+
+ME ME_4F5DC5630297
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F5DA0D50129 // pop_editor_EditFormula
+ ;
+ MELINK Target WL 'ME_4F5DC5530226' '4728A7020026.ms.model.script' // TSmallPoint
+ ;
+
+ENDME // ME_4F5DC5630297 
+
+ME ME_4F5DC87200E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F5DA0D50129 // pop_editor_EditFormula
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4F5DC87200E6 
+
+ME ME_5526495D03A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F5DA0D50129 // pop_editor_EditFormula
+ ;
+ MELINK Target WL 'ME_502CE5D0026E' '48A41FF10094.ms.model.script' // CopyRect
+ ;
+
+ENDME // ME_5526495D03A6 
+
+MEREF ME_4F4CB81200CA_ME_4F5DA0D50129_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_4F5DA0D50129_impl DoWithEditor
+
+MEREF ME_4F4CB625027A_ME_4F5DA0D50129_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_4F5DA0D50129_G TkwEditorFromStackWord
+
+%%InheritedBy ME_4F4CB625027A ME_4F5DA0D50129
+
+ME ME_4F5DA0D50129
+ MEPROP UID '4F5DA0D50129'
+ MEPROP Name 'pop_editor_EditFormula'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* указатель_на_редактор  pop:editor:EditFormula'#13#10'*Описание:* Открывает окно редактирование формулы и нажимает на "Ок". '#13#10'*Пример:*'#13#10'{code}'#13#10'focused:control:push pop:editor:EditFormula'#13#10'{code}'#13#10'*Результат:*'#13#10' Появится диалог редактирования формулы и будет закрыт по нажатии кнопки "Ок"'#13#10'*Примечания:* Не изменяет содерижое формулы. Служит для проверки изменения в формуле, если там в ней присуствовал мусор и работы форматирования после такого изменения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F5DA07B02CD' // EditorKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A_ME_4F5DA0D50129_G // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4F5DA0D50129_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4F5DB05C0136 // InevBasePoint
+ ME_4F5DC30E0256 // Tl3Point
+ ME_4F5DC5630297 // TSmallPoint
+ ME_4F5DC87200E6 // Msg Codes
+ ME_5526495D03A6 // CopyRect
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwPopEditorEditFormula'
+ UP extprop:pas:UnitName 'kwPopEditorEditFormula'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PopEditorEditFormula'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorEditFormula.pas'
+
+ENDME // ME_4F5DA0D50129 pop_editor_EditFormula

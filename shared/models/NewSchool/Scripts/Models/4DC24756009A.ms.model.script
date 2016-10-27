@@ -1,0 +1,90 @@
+// TAutoTestsSuite 4DC24756009A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DC24756009A
+
+ME ME_4DC40BF302B4
+ MEPROP UID '4DC40BF302B4'
+ MEPROP Name 'Register'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DC24756009A // TAutoTestsSuite
+ ;
+
+ENDME // ME_4DC40BF302B4 Register
+
+ME ME_4E297BDC02DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC24756009A // TAutoTestsSuite
+ ;
+ MELINK Target WL? 'ME_4E297BC401BE' // TDailyAutoTest
+ ;
+
+ENDME // ME_4E297BDC02DD 
+
+ME ME_4EA66EA40392
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC24756009A // TAutoTestsSuite
+ ;
+ MELINK Target WL 'ME_4EA66E6C038E' '4B2A0DCE03A9.ms.model.script' // RegisterTest
+ ;
+
+ENDME // ME_4EA66EA40392 
+
+MEREF ME_4F9A4FD70148_ME_4DC24756009A_over
+ MELINK Original WL 'ME_4F9A4FD70148' '4B2A0DCE03A9.ms.model.script' // DoGetSubFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4F9A4FD70148_ME_4DC24756009A_over DoGetSubFolder
+
+MEREF ME_51307830007E_ME_4DC24756009A_G
+ MELINK Original WL? 'ME_51307830007E' // TAutoTestSuiteWithDUnitSupport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51307830007E_ME_4DC24756009A_G TAutoTestSuiteWithDUnitSupport
+
+%%InheritedBy ME_51307830007E ME_4DC24756009A
+
+ME ME_4DC24756009A
+ MEPROP UID '4DC24756009A'
+ MEPROP Name 'TAutoTestsSuite'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поддержка тестов-скриптов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5130776E01BE' // DUnitKeyWordsSupport
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_51307830007E_ME_4DC24756009A_G // TAutoTestSuiteWithDUnitSupport
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DC40BF302B4 // Register
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4F9A4FD70148_ME_4DC24756009A_over // DoGetSubFolder
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E297BDC02DD // TDailyAutoTest
+ ME_4EA66EA40392 // RegisterTest
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'AutoTestsSuite'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AutoTestsSuite'
+ UP intf.pas:Path 'common\components\rtl\Garant\DUnit_Script_Support\AutoTestsSuite.pas'
+
+ENDME // ME_4DC24756009A TAutoTestsSuite

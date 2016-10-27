@@ -1,0 +1,166 @@
+// TkwForwardDeclarationHolder 4F4BC6DB02F4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F4BC6DB02F4
+
+ME ME_4F4BC6F60191
+ MEPROP UID '4F4BC6F60191'
+ MEPROP Name 'Holded'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F4BC6DB02F4 // TkwForwardDeclarationHolder
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4F4BC6F60191 Holded
+
+FORWARD ME_52D405B300E2
+
+FORWARD ME_52D405BB02B8
+
+ME ME_52D405C80098
+ MEPROP Name 'aHolded'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_52D405C80098 aHolded
+
+ME ME_52D405BB02B8
+ MEPROP UID '52D405BB02B8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D405B300E2 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_52D405C80098 // aHolded
+ )
+ ; // Parameters
+
+ENDME // ME_52D405BB02B8 DoIt
+
+ME ME_52D405B300E2
+ MEPROP UID '52D405B300E2'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4BC6DB02F4 // TkwForwardDeclarationHolder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D405BB02B8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D405B300E2 Create
+
+ME ME_55CB5C2901CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4F4BC6DB02F4 // TkwForwardDeclarationHolder
+ ;
+ MELINK Target WL? 'ME_4F4BB70D0144' // TkwForwardDeclaration
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_55CB5C2901CA 
+
+MEREF ME_4DAEEDE10285_ME_4F4BC6DB02F4_impl
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DAEEDE10285_ME_4F4BC6DB02F4_impl DoDoIt
+
+MEREF ME_479731C50290_ME_4F4BC6DB02F4_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4F4BC6DB02F4_over Cleanup
+
+MEREF ME_558D2BCA0324_ME_4F4BC6DB02F4_over
+ MELINK Original WL 'ME_558D2BCA0324' '4DAF19F600C5.ms.model.script' // GetRef
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_558D2BCA0324_ME_4F4BC6DB02F4_over GetRef
+
+MEREF ME_55AFD7DA0258_ME_4F4BC6DB02F4_over
+ MELINK Original WL 'ME_55AFD7DA0258' '4DAF19F600C5.ms.model.script' // WordName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55AFD7DA0258_ME_4F4BC6DB02F4_over WordName
+
+MEREF ME_57500A22001C_ME_4F4BC6DB02F4_over
+ MELINK Original WL 'ME_57500A22001C' '4DAF19F600C5.ms.model.script' // GetRefForCompare
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57500A22001C_ME_4F4BC6DB02F4_over GetRefForCompare
+
+MEREF ME_4DAEED140007_ME_4F4BC6DB02F4_G
+ MELINK Original WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DAEED140007_ME_4F4BC6DB02F4_G TtfwWord
+
+%%InjectedBy ME_4F4BB70D0144 ME_4F4BC6DB02F4
+
+%%InheritedBy ME_4DAEED140007 ME_4F4BC6DB02F4
+
+ME ME_4F4BC6DB02F4
+ MEPROP UID '4F4BC6DB02F4'
+ MEPROP Name 'TkwForwardDeclarationHolder'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F079B5035C' // CompiledWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DAEED140007_ME_4F4BC6DB02F4_G // TtfwWord
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F4BC6F60191 // Holded
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52D405B300E2 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4F4BC6DB02F4_impl // DoDoIt
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4F4BC6DB02F4_over // Cleanup
+ ME_558D2BCA0324_ME_4F4BC6DB02F4_over // GetRef
+ ME_55AFD7DA0258_ME_4F4BC6DB02F4_over // WordName
+ ME_57500A22001C_ME_4F4BC6DB02F4_over // GetRefForCompare
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_55CB5C2901CA // TkwForwardDeclaration
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'kwForwardDeclarationHolder'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ForwardDeclarationHolder'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwForwardDeclarationHolder.pas'
+
+ENDME // ME_4F4BC6DB02F4 TkwForwardDeclarationHolder

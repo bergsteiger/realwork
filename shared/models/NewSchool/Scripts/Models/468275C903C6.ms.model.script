@@ -1,0 +1,61 @@
+// TnsINodeOneLevelRootWrap 468275C903C6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_468275C903C6
+
+ME ME_4909A0EC0116
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_468275C903C6 // TnsINodeOneLevelRootWrap
+ ;
+ MELINK Target WL? 'ME_468275E600B1' // TnsINodeOneLevelWrap
+ ;
+
+ENDME // ME_4909A0EC0116 
+
+MEREF ME_490989330020_ME_468275C903C6_over
+ MELINK Original WL 'ME_490989330020' '4682732A02F9.ms.model.script' // GetChildNodeClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_490989330020_ME_468275C903C6_over GetChildNodeClass
+
+MEREF ME_468275200341_ME_468275C903C6_G
+ MELINK Original WL? 'ME_468275200341' // TnsINodeRootWrap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_468275200341_ME_468275C903C6_G TnsINodeRootWrap
+
+%%InheritedBy ME_468275200341 ME_468275C903C6
+
+ME ME_468275C903C6
+ MEPROP UID '468275C903C6'
+ MEPROP Name 'TnsINodeOneLevelRootWrap'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Корень одноуровневого дерева' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48FD8B2702F6' // Tree
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_468275200341_ME_468275C903C6_G // TnsINodeRootWrap
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_490989330020_ME_468275C903C6_over // GetChildNodeClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4909A0EC0116 // TnsINodeOneLevelWrap
+ )
+ ; // Dependencies
+ UP "no hands" True
+ UP extprop:pas:UnitName 'nsINodeOneLevelRootWrap'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'INodeOneLevelRootWrap'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsINodeOneLevelRootWrap.pas'
+
+ENDME // ME_468275C903C6 TnsINodeOneLevelRootWrap

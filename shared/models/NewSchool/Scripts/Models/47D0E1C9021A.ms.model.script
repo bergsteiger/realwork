@@ -1,0 +1,241 @@
+// TvcmFormHandler 47D0E1C9021A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47D0E1C9021A
+
+ME ME_47D0E3D4018A
+ MEPROP UID '47D0E3D4018A'
+ MEPROP Name 'f_Hint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D0E1C9021A // TvcmFormHandler
+ ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+
+ENDME // ME_47D0E3D4018A f_Hint
+
+ME ME_47D0E484008F
+ MEPROP UID '47D0E484008F'
+ MEPROP Name 'f_Form'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D0E1C9021A // TvcmFormHandler
+ ;
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+
+ENDME // ME_47D0E484008F f_Form
+
+ME ME_47D0E50702A9
+ MEPROP UID '47D0E50702A9'
+ MEPROP Name 'f_Handler'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D0E1C9021A // TvcmFormHandler
+ ;
+ MELINK Target WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+
+ENDME // ME_47D0E50702A9 f_Handler
+
+FORWARD ME_47D0E6DC0152
+
+ME ME_47D0E70703AA
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+
+ENDME // ME_47D0E70703AA aForm
+
+ME ME_47D0E70703C9
+ MEPROP Name 'aHandler'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+
+ENDME // ME_47D0E70703C9 aHandler
+
+ME ME_47D0E7080001
+ MEPROP Name 'aHint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+
+ENDME // ME_47D0E7080001 aHint
+
+ME ME_47D0E6DC0152
+ MEPROP UID '47D0E6DC0152'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47D0E1C9021A // TvcmFormHandler
+ ;
+ MELIST Parameters
+   Seq: ( ME_47D0E70703AA // aForm
+ ME_47D0E70703C9 // aHandler
+ ME_47D0E7080001 // aHint
+ )
+ ; // Parameters
+
+ENDME // ME_47D0E6DC0152 Create
+
+FORWARD ME_47D0E7390231
+
+ME ME_47D0E750031D
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+
+ENDME // ME_47D0E750031D aForm
+
+ME ME_47D0E750033C
+ MEPROP Name 'aHandler'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+
+ENDME // ME_47D0E750033C aHandler
+
+ME ME_47D0E750035B
+ MEPROP Name 'aHint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+
+ENDME // ME_47D0E750035B aHint
+
+ME ME_47D0E7390231
+ MEPROP UID '47D0E7390231'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D0E1C9021A // TvcmFormHandler
+ ;
+ MELINK Target WL 'ME_47D0DE52037F' '467BAB7F021E.ms.model.script' // IvcmFormHandler
+ ;
+ MELIST Parameters
+   Seq: ( ME_47D0E750031D // aForm
+ ME_47D0E750033C // aHandler
+ ME_47D0E750035B // aHint
+ )
+ ; // Parameters
+
+ENDME // ME_47D0E7390231 Make
+
+MEREF ME_47D0DE680250_ME_47D0E1C9021A_impl
+ MELINK Original WL 'ME_47D0DE680250' '467BAB7F021E.ms.model.script' // Handler
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_47D0DE680250_ME_47D0E1C9021A_impl Handler
+
+MEREF ME_47D0DE7E02BB_ME_47D0E1C9021A_impl
+ MELINK Original WL 'ME_47D0DE7E02BB' '467BAB7F021E.ms.model.script' // Hint
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_47D0DE7E02BB_ME_47D0E1C9021A_impl Hint
+
+MEREF ME_47D0DE9902DE_ME_47D0E1C9021A_impl
+ MELINK Original WL 'ME_47D0DE9902DE' '467BAB7F021E.ms.model.script' // Form
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_47D0DE9902DE_ME_47D0E1C9021A_impl Form
+
+MEREF ME_4F619C980151_ME_47D0E1C9021A_impl
+ MELINK Original WL 'ME_4F619C980151' '467BAB7F021E.ms.model.script' // CanHaveCloseButtonInNavigator
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F619C980151_ME_47D0E1C9021A_impl CanHaveCloseButtonInNavigator
+
+MEREF ME_4F6A0EA503A9_ME_47D0E1C9021A_impl
+ MELINK Original WL 'ME_4F6A0EA503A9' '467BAB7F021E.ms.model.script' // CanHaveOwnCloseButtonInNavigator
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F6A0EA503A9_ME_47D0E1C9021A_impl CanHaveOwnCloseButtonInNavigator
+
+MEREF ME_49E7754802A9_ME_47D0E1C9021A_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_47D0E1C9021A_G Tl3ProtoObject
+
+MEREF ME_47D0DE52037F_ME_47D0E1C9021A_R
+ MELINK Original WL 'ME_47D0DE52037F' '467BAB7F021E.ms.model.script' // IvcmFormHandler
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47D0DE52037F_ME_47D0E1C9021A_R IvcmFormHandler
+
+%%ImplementedBy ME_47D0DE52037F ME_47D0E1C9021A
+
+%%InheritedBy ME_49E7754802A9 ME_47D0E1C9021A
+
+ME ME_47D0E1C9021A
+ MEPROP UID '47D0E1C9021A'
+ MEPROP Name 'TvcmFormHandler'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AADF9450143' // Visual
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_47D0E1C9021A_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47D0DE52037F_ME_47D0E1C9021A_R // IvcmFormHandler
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47D0E3D4018A // f_Hint
+ HWL ME_47D0E484008F // f_Form
+ HWL ME_47D0E50702A9 // f_Handler
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47D0E6DC0152 // Create
+ HWL ME_47D0E7390231 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47D0DE680250_ME_47D0E1C9021A_impl // Handler
+ ME_47D0DE7E02BB_ME_47D0E1C9021A_impl // Hint
+ ME_47D0DE9902DE_ME_47D0E1C9021A_impl // Form
+ ME_4F619C980151_ME_47D0E1C9021A_impl // CanHaveCloseButtonInNavigator
+ ME_4F6A0EA503A9_ME_47D0E1C9021A_impl // CanHaveOwnCloseButtonInNavigator
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" True
+ UP extprop:pas:UnitName 'vcmFormHandler'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FormHandler'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmFormHandler.pas'
+
+ENDME // ME_47D0E1C9021A TvcmFormHandler

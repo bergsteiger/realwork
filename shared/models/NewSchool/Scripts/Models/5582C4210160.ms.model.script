@@ -1,0 +1,93 @@
+// TvcmOperationsDefIterator 5582C4210160 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5582C4210160
+
+ME ME_559D25B802DA
+ MEPROP UID '559D25B802DA'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5582C4210160 // TvcmOperationsDefIterator
+ ;
+ MELINK Target WL 'ME_4995624100A6' '499EAAE502A8.ms.model.script' // IvcmOperationDef
+ ;
+
+ENDME // ME_559D25B802DA ItemType
+
+ME ME_559D260D02A1
+ MEPROP UID '559D260D02A1'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5582C4210160 // TvcmOperationsDefIterator
+ ;
+ MELINK Target WL? 'ME_559D25D60004' // TvcmOperationDefList
+ ;
+
+ENDME // ME_559D260D02A1 ListType
+
+MEREF ME_4995645B02C7_ME_5582C4210160_impl
+ MELINK Original WL 'ME_4995645B02C7' '499EAAE502A8.ms.model.script' // Next
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4995645B02C7_ME_5582C4210160_impl Next
+
+MEREF ME_5582BCBE00C3_ME_5582C4210160_G
+ MELINK Original WL? 'ME_5582BCBE00C3' // vcmIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5582BCBE00C3_ME_5582C4210160_G vcmIterator
+
+MEREF ME_4995644E03A9_ME_5582C4210160_R
+ MELINK Original WL 'ME_4995644E03A9' '499EAAE502A8.ms.model.script' // IvcmOperationsDefIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4995644E03A9_ME_5582C4210160_R IvcmOperationsDefIterator
+
+%%ImplementedBy ME_4995644E03A9 ME_5582C4210160
+
+%%InheritedBy ME_5582BCBE00C3 ME_5582C4210160
+
+ME ME_5582C4210160
+ MEPROP UID '5582C4210160'
+ MEPROP Name 'TvcmOperationsDefIterator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47D0E1500033' // Implementation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5582BCBE00C3_ME_5582C4210160_G // vcmIterator
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4995644E03A9_ME_5582C4210160_R // IvcmOperationsDefIterator
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_559D25B802DA // ItemType
+ HWL ME_559D260D02A1 // ListType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4995645B02C7_ME_5582C4210160_impl // Next
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'vcmOperationsDefIterator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OperationsDefIterator'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmOperationsDefIterator.pas'
+
+ENDME // ME_5582C4210160 TvcmOperationsDefIterator

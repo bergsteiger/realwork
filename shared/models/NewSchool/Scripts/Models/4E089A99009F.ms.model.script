@@ -1,0 +1,165 @@
+// TvcmMessageQueuePrim 4E089A99009F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4E01EE1A01B4
+%%Inner ME_4E089DA100B5
+
+FORWARD ME_4E089A99009F
+
+FORWARD ME_4E01EE1A01B4
+
+ME ME_4E01EE430152
+ MEPROP UID '4E01EE430152'
+ MEPROP Name 'rMsgId'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E01EE1A01B4 // TvcmMessageQueueItem
+ ;
+ MELINK Target WL 'ME_4683F49101F5' '49942E3202B3.ms.model.script' // TvcmMessageID
+ ;
+
+ENDME // ME_4E01EE430152 rMsgId
+
+ME ME_4E01EE680228
+ MEPROP UID '4E01EE680228'
+ MEPROP Name 'rMessage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E01EE1A01B4 // TvcmMessageQueueItem
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4E01EE680228 rMessage
+
+ME ME_4E01EE1A01B4
+ MEPROP UID '4E01EE1A01B4'
+ MEPROP Name 'TvcmMessageQueueItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E089A99009F // TvcmMessageQueuePrim
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E01EE430152 // rMsgId
+ HWL ME_4E01EE680228 // rMessage
+ )
+ ; // Attributes
+
+ENDME // ME_4E01EE1A01B4 TvcmMessageQueueItem
+
+ME ME_4E089DA100B5
+ MEPROP UID '4E089DA100B5'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E089A99009F // TvcmMessageQueuePrim
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_4E089DA100B5 l3Items_NoSort
+
+ME ME_4E089CAF0015
+ MEPROP UID '4E089CAF0015'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E089A99009F // TvcmMessageQueuePrim
+ ;
+ MELINK Target HWL ME_4E01EE1A01B4 // TvcmMessageQueueItem
+ ;
+
+ENDME // ME_4E089CAF0015 ItemType
+
+MEREF ME_47B07CF403D0_ME_4E089A99009F_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_4E089A99009F_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_4E089A99009F_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4E089A99009F_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_4E089A99009F_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4E089A99009F_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_4E089A99009F_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4E089A99009F_G Tl3ProtoDataContainer
+
+MEREF ME_4B223ADC02BF_ME_4E089A99009F_G
+ MELINK Original WL? 'ME_4B223ADC02BF' // l3RecordListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223ADC02BF_ME_4E089A99009F_G l3RecordListPrim
+
+%%InheritedBy ME_4A54DD4E036F ME_4E089A99009F
+%%InheritedBy ME_4B223ADC02BF ME_4E089A99009F
+
+ME ME_4E089A99009F
+ MEPROP UID '4E089A99009F'
+ MEPROP Name 'TvcmMessageQueuePrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AADF9450143' // Visual
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_4E089A99009F_G // Tl3ProtoDataContainer
+ HWL ME_4B223ADC02BF_ME_4E089A99009F_G // l3RecordListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4E089CAF0015 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_4E089A99009F_impl // IsSameItems
+ ME_47B2C42A0163_ME_4E089A99009F_impl // AssignItem
+ ME_47B99D4503A2_ME_4E089A99009F_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4E01EE1A01B4 // TvcmMessageQueueItem
+ HWL ME_4E089DA100B5 // l3Items_NoSort
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '27.06.2011 18:58'
+ UP extprop:pas:UnitName 'vcmMessageQueuePrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MessageQueuePrim'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmMessageQueuePrim.pas'
+
+ENDME // ME_4E089A99009F TvcmMessageQueuePrim

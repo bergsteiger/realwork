@@ -1,0 +1,74 @@
+// K517772970_TcsAACImportDefault 53196E0103C1 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53196E0103C1
+
+ME ME_53196E550349
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53196E0103C1 // K517772970_TcsAACImportDefault
+ ;
+ MELINK Target WL? 'ME_530356A1014F' // csImport
+ ;
+
+ENDME // ME_53196E550349 
+
+ME ME_53BA86D5023C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53196E0103C1 // K517772970_TcsAACImportDefault
+ ;
+ MELINK Target WL? 'ME_5317040F0257' // TcsAACImport
+ ;
+
+ENDME // ME_53BA86D5023C 
+
+MEREF ME_53170E4100CF_ME_53196E0103C1_impl
+ MELINK Original WL 'ME_53170E4100CF' '53170DE90011.ms.model.script' // GetTaskClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_53170E4100CF_ME_53196E0103C1_impl GetTaskClass
+
+MEREF ME_53170DE90011_ME_53196E0103C1_G
+ MELINK Original WL? 'ME_53170DE90011' // K517772970_TCheckSaveToStreamDefault
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53170DE90011_ME_53196E0103C1_G K517772970_TCheckSaveToStreamDefault
+
+%%InheritedBy ME_53170DE90011 ME_53196E0103C1
+
+ME ME_53196E0103C1
+ MEPROP UID '53196E0103C1'
+ MEPROP Name 'K517772970_TcsAACImportDefault'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53185EDF0306' // TasksSaveLoadWithDefault
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53170DE90011_ME_53196E0103C1_G // K517772970_TCheckSaveToStreamDefault
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53170E4100CF_ME_53196E0103C1_impl // GetTaskClass
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53196E550349 // csImport
+ ME_53BA86D5023C // TcsAACImport
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TK517772970_TcsAACImportDefault'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K517772970_TcsAACImportDefault'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TcsAACImportDefault.pas'
+
+ENDME // ME_53196E0103C1 K517772970_TcsAACImportDefault

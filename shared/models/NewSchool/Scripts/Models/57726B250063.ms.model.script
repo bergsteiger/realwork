@@ -1,0 +1,378 @@
+// TtfwParserService 57726B250063 Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_E30699195990
+
+FORWARD ME_57726B250063
+
+FORWARD ME_E30699195990
+
+FORWARD ME_57726B410203
+
+FORWARD ME_6CBC23B5834F
+
+ME ME_4B46CD2233F1
+ MEPROP Name 'aFileName'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B46CD2233F1 aFileName
+
+ME ME_4B46CD2233F2
+ MEPROP Name 'anExt'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B46CD2233F2 anExt
+
+ME ME_6CBC23B5834F
+ MEPROP UID '6CBC23B5834F'
+ MEPROP Name 'MakeCompiledCodeName'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_E30699195990 // MtfwParserService
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B46CD2233F1 // aFileName
+ ME_4B46CD2233F2 // anExt
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_57726B410203 // MakeCompiledCodeName
+ ;
+
+ENDME // ME_6CBC23B5834F MakeCompiledCodeName
+
+FORWARD ME_57A9967B0182
+
+FORWARD ME_F6694EB8D038
+
+ME ME_D417AB5C7D8D
+ MEPROP Name 'aFile'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_D417AB5C7D8D aFile
+
+ME ME_F6694EB8D038
+ MEPROP UID 'F6694EB8D038'
+ MEPROP Name 'ResolveIncludedFilePath'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_E30699195990 // MtfwParserService
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_D417AB5C7D8D // aFile
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_57A9967B0182 // ResolveIncludedFilePath
+ ;
+
+ENDME // ME_F6694EB8D038 ResolveIncludedFilePath
+
+FORWARD ME_57CD20F100D7
+
+FORWARD ME_F5AAF249F97E
+
+ME ME_A87B92DCE7B7
+ MEPROP Name 'aPath'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_A87B92DCE7B7 aPath
+
+ME ME_F5AAF249F97E
+ MEPROP UID 'F5AAF249F97E'
+ MEPROP Name 'AddIncludePath'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_E30699195990 // MtfwParserService
+ ;
+ MELIST Parameters
+   Seq: ( ME_A87B92DCE7B7 // aPath
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_57CD20F100D7 // AddIncludePath
+ ;
+
+ENDME // ME_F5AAF249F97E AddIncludePath
+
+ME ME_E30699195990
+ MEPROP UID 'E30699195990'
+ MEPROP Name 'MtfwParserService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TtfwParserService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57726B250063 // TtfwParserService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_6CBC23B5834F // MakeCompiledCodeName
+ HWL ME_F6694EB8D038 // ResolveIncludedFilePath
+ HWL ME_F5AAF249F97E // AddIncludePath
+ )
+ ; // Operations
+
+ENDME // ME_E30699195990 MtfwParserService
+
+ME ME_57726CFF02B7
+ MEPROP UID '57726CFF02B7'
+ MEPROP Name 'f_CoFileDir'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57726B250063 // TtfwParserService
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57726CFF02B7 f_CoFileDir
+
+ME ME_57A99A11029C
+ MEPROP UID '57A99A11029C'
+ MEPROP Name 'f_IncludePaths'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57726B250063 // TtfwParserService
+ ;
+ MELINK Target WL? 'ME_4773DCE302FF' // Tl3StringList
+ ;
+
+ENDME // ME_57A99A11029C f_IncludePaths
+
+ME ME_57CD20D1028F
+ MEPROP UID '57CD20D1028F'
+ MEPROP Name 'LoadIncludePaths'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57726B250063 // TtfwParserService
+ ;
+
+ENDME // ME_57CD20D1028F LoadIncludePaths
+
+ME ME_57726B890194
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57726B890194 aFileName
+
+ME ME_57726C1A0249
+ MEPROP Name 'anExt'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57726C1A0249 anExt
+
+ME ME_57726B410203
+ MEPROP UID '57726B410203'
+ MEPROP Name 'MakeCompiledCodeName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57726B250063 // TtfwParserService
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_57726B890194 // aFileName
+ ME_57726C1A0249 // anExt
+ )
+ ; // Parameters
+
+ENDME // ME_57726B410203 MakeCompiledCodeName
+
+ME ME_57A9968003C7
+ MEPROP Name 'aFile'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57A9968003C7 aFile
+
+ME ME_57A9967B0182
+ MEPROP UID '57A9967B0182'
+ MEPROP Name 'ResolveIncludedFilePath'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57726B250063 // TtfwParserService
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_57A9968003C7 // aFile
+ )
+ ; // Parameters
+
+ENDME // ME_57A9967B0182 ResolveIncludedFilePath
+
+ME ME_57CD21020070
+ MEPROP Name 'aPath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57CD21020070 aPath
+
+ME ME_57CD20F100D7
+ MEPROP UID '57CD20F100D7'
+ MEPROP Name 'AddIncludePath'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57726B250063 // TtfwParserService
+ ;
+ MELIST Parameters
+   Seq: ( ME_57CD21020070 // aPath
+ )
+ ; // Parameters
+
+ENDME // ME_57CD20F100D7 AddIncludePath
+
+ME ME_57726BB002FB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57726B250063 // TtfwParserService
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_57726BB002FB 
+
+ME ME_57726BEA0274
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57726B250063 // TtfwParserService
+ ;
+ MELINK Target WL? 'ME_57726BD301F3' // IniFiles
+ ;
+
+ENDME // ME_57726BEA0274 
+
+ME ME_577275BC028A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57726B250063 // TtfwParserService
+ ;
+ MELINK Target WL? 'ME_4B57004201BD' // l3FileUtils
+ ;
+
+ENDME // ME_577275BC028A 
+
+ME ME_57727B01024A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57726B250063 // TtfwParserService
+ ;
+ MELINK Target WL? 'ME_483C378301CB' // StrUtils
+ ;
+
+ENDME // ME_57727B01024A 
+
+MEREF ME_479731C50290_ME_57726B250063_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57726B250063_over Cleanup
+
+MEREF ME_49E7754802A9_ME_57726B250063_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57726B250063_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_57726B250063
+
+ME ME_57726B250063
+ MEPROP UID '57726B250063'
+ MEPROP Name 'TtfwParserService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F4734A40270' // Parser
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_57726B250063_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57726CFF02B7 // f_CoFileDir
+ HWL ME_57A99A11029C // f_IncludePaths
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57CD20D1028F // LoadIncludePaths
+ HWL ME_57726B410203 // MakeCompiledCodeName
+ HWL ME_57A9967B0182 // ResolveIncludedFilePath
+ HWL ME_57CD20F100D7 // AddIncludePath
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57726B250063_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_E30699195990 // MtfwParserService
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_57726BB002FB // SysUtils
+ ME_57726BEA0274 // IniFiles
+ ME_577275BC028A // l3FileUtils
+ ME_57727B01024A // StrUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "auto translate to alien" 'undefined'
+ UP extprop:pas:UnitName 'tfwParserService'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ParserService'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwParserService.pas'
+
+ENDME // ME_57726B250063 TtfwParserService

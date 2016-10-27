@@ -1,0 +1,422 @@
+// TvcmAggregate 528609ED0325 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_528609ED0325
+
+ME ME_52860C0403B8
+ MEPROP UID '52860C0403B8'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528609ED0325 // TvcmAggregate
+ ;
+ MELINK Target WL? 'ME_4F1ECEEE028F' // TvcmIEntityList
+ ;
+
+ENDME // ME_52860C0403B8 f_List
+
+ME ME_52860DB40021
+ MEPROP UID '52860DB40021'
+ MEPROP Name 'f_GUID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528609ED0325 // TvcmAggregate
+ ;
+ MELINK Target WL 'ME_469F3EEF0024' '4807744200AA.ms.model.script' // TGUID
+ ;
+
+ENDME // ME_52860DB40021 f_GUID
+
+ME ME_578C88BC00DA
+ MEPROP UID '578C88BC00DA'
+ MEPROP Name 'f_CanBeCloned'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528609ED0325 // TvcmAggregate
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_578C88BC00DA f_CanBeCloned
+
+FORWARD ME_52860CA00075
+
+FORWARD ME_52860D2F002C
+
+ME ME_578C948E020D
+ MEPROP Name 'aGUID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49956803035F' '4807744200AA.ms.model.script' // PGUID
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_49956803035F' '4807744200AA.ms.model.script' // PGUID
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_578C948E020D aGUID
+
+ME ME_578C948E021D
+ MEPROP Name 'aCanBeCloned'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_578C948E021D aCanBeCloned
+
+ME ME_52860D2F002C
+ MEPROP UID '52860D2F002C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52860CA00075 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_578C948E020D // aGUID
+ ME_578C948E021D // aCanBeCloned
+ )
+ ; // Parameters
+
+ENDME // ME_52860D2F002C DoIt
+
+ME ME_52860E170070
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52860CA00075 // Create
+ ;
+ MELINK Target WL 'ME_49956803035F' '4807744200AA.ms.model.script' // PGUID
+ ;
+
+ENDME // ME_52860E170070 
+
+ME ME_52860CA00075
+ MEPROP UID '52860CA00075'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_528609ED0325 // TvcmAggregate
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52860D2F002C // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_52860E170070 // PGUID
+ )
+ ; // Dependencies
+
+ENDME // ME_52860CA00075 Create
+
+FORWARD ME_52860CAD0035
+
+FORWARD ME_52860CBF02D7
+
+ME ME_578C949600F7
+ MEPROP Name 'aGUID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49956803035F' '4807744200AA.ms.model.script' // PGUID
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_49956803035F' '4807744200AA.ms.model.script' // PGUID
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_578C949600F7 aGUID
+
+ME ME_578C94960116
+ MEPROP Name 'aCanBeCloned'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_578C94960116 aCanBeCloned
+
+ME ME_52860CBF02D7
+ MEPROP UID '52860CBF02D7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52860CAD0035 // Make
+ ;
+ MELINK Target WL 'ME_49930CC501C9' '4683F37902CF.ms.model.script' // IvcmAggregate
+ ;
+ MELIST Parameters
+   Seq: ( ME_578C949600F7 // aGUID
+ ME_578C94960116 // aCanBeCloned
+ )
+ ; // Parameters
+ UP "finished" False
+
+ENDME // ME_52860CBF02D7 DoIt
+
+ME ME_52860D4C00B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_call::Dependency ;
+ MELINK Parent HWL ME_52860CAD0035 // Make
+ ;
+ MELINK Target HWL ME_52860CA00075 // Create
+ ;
+ UP "iterator needs params" True
+ UP "needs after iterator UC" False
+
+ENDME // ME_52860D4C00B0 
+
+ME ME_52860E130307
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52860CAD0035 // Make
+ ;
+ MELINK Target WL 'ME_49956803035F' '4807744200AA.ms.model.script' // PGUID
+ ;
+
+ENDME // ME_52860E130307 
+
+ME ME_52860CAD0035
+ MEPROP UID '52860CAD0035'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_528609ED0325 // TvcmAggregate
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52860CBF02D7 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_52860D4C00B0 // Create
+ ME_52860E130307 // PGUID
+ )
+ ; // Dependencies
+ UP "is static" True
+
+ENDME // ME_52860CAD0035 Make
+
+FORWARD ME_578DDE26002B
+
+ME ME_578DDE30022D
+ MEPROP UID '578DDE30022D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578DDE26002B // DoGetCanBeCloned
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_578DDE30022D DoIt
+
+ME ME_578DDE26002B
+ MEPROP UID '578DDE26002B'
+ MEPROP Name 'DoGetCanBeCloned'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_528609ED0325 // TvcmAggregate
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_578DDE30022D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_578DDE26002B DoGetCanBeCloned
+
+ME ME_5289E27801D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_528609ED0325 // TvcmAggregate
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_5289E27801D4 
+
+ME ME_5289EBC0028C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_528609ED0325 // TvcmAggregate
+ ;
+ MELINK Target WL 'ME_4683F5860071' '499EAAE502A8.ms.model.script' // TvcmOperationMode
+ ;
+
+ENDME // ME_5289EBC0028C 
+
+MEREF ME_499564DB007D_ME_528609ED0325_impl
+ MELINK Original WL 'ME_499564DB007D' '4683F37902CF.ms.model.script' // AddEntity
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_499564DB007D_ME_528609ED0325_impl AddEntity
+
+MEREF ME_499564F80314_ME_528609ED0325_impl
+ MELINK Original WL 'ME_499564F80314' '4683F37902CF.ms.model.script' // RemoveEntity
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_499564F80314_ME_528609ED0325_impl RemoveEntity
+
+MEREF ME_499565380247_ME_528609ED0325_impl
+ MELINK Original WL 'ME_499565380247' '4683F37902CF.ms.model.script' // Operation
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_499565380247_ME_528609ED0325_impl Operation
+
+MEREF ME_4995656A030F_ME_528609ED0325_impl
+ MELINK Original WL 'ME_4995656A030F' '4683F37902CF.ms.model.script' // Operation
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4995656A030F_ME_528609ED0325_impl Operation
+
+MEREF ME_499565DF0254_ME_528609ED0325_impl
+ MELINK Original WL 'ME_499565DF0254' '4683F37902CF.ms.model.script' // HasForm
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_499565DF0254_ME_528609ED0325_impl HasForm
+
+MEREF ME_499566250105_ME_528609ED0325_impl
+ MELINK Original WL 'ME_499566250105' '4683F37902CF.ms.model.script' // GUID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_499566250105_ME_528609ED0325_impl GUID
+
+MEREF ME_528A07FB0004_ME_528609ED0325_impl
+ MELINK Original WL 'ME_528A07FB0004' '4683F37902CF.ms.model.script' // Entity
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_528A07FB0004_ME_528609ED0325_impl Entity
+
+MEREF ME_528A088B00F5_ME_528609ED0325_impl
+ MELINK Original WL 'ME_528A088B00F5' '4683F37902CF.ms.model.script' // EntitiesCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_528A088B00F5_ME_528609ED0325_impl EntitiesCount
+
+MEREF ME_578C8F480100_ME_528609ED0325_impl
+ MELINK Original WL 'ME_578C8F480100' '4683F37902CF.ms.model.script' // CanBeCloned
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_578C8F480100_ME_528609ED0325_impl CanBeCloned
+
+MEREF ME_479731C50290_ME_528609ED0325_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_528609ED0325_over Cleanup
+
+MEREF ME_519A130C00B6_ME_528609ED0325_G
+ MELINK Original WL 'ME_519A130C00B6' '47F25BC801DB.ms.model.script' // TvcmCacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_519A130C00B6_ME_528609ED0325_G TvcmCacheableBase
+
+MEREF ME_49930CC501C9_ME_528609ED0325_R
+ MELINK Original WL 'ME_49930CC501C9' '4683F37902CF.ms.model.script' // IvcmAggregate
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49930CC501C9_ME_528609ED0325_R IvcmAggregate
+
+MEREF ME_528A07640051_ME_528609ED0325_R
+ MELINK Original WL 'ME_528A07640051' '4683F37902CF.ms.model.script' // vcmEntitiesContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_528A07640051_ME_528609ED0325_R vcmEntitiesContainer
+
+%%ImplementedBy ME_49930CC501C9 ME_528609ED0325
+%%ImplementedBy ME_528A07640051 ME_528609ED0325
+
+%%InheritedBy ME_519A130C00B6 ME_528609ED0325
+
+ME ME_528609ED0325
+ MEPROP UID '528609ED0325'
+ MEPROP Name 'TvcmAggregate'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47D0E1500033' // Implementation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_519A130C00B6_ME_528609ED0325_G // TvcmCacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_49930CC501C9_ME_528609ED0325_R // IvcmAggregate
+ HWL ME_528A07640051_ME_528609ED0325_R // vcmEntitiesContainer
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_52860C0403B8 // f_List
+ HWL ME_52860DB40021 // f_GUID
+ HWL ME_578C88BC00DA // f_CanBeCloned
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52860CA00075 // Create
+ HWL ME_52860CAD0035 // Make
+ HWL ME_578DDE26002B // DoGetCanBeCloned
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_499564DB007D_ME_528609ED0325_impl // AddEntity
+ ME_499564F80314_ME_528609ED0325_impl // RemoveEntity
+ ME_499565380247_ME_528609ED0325_impl // Operation
+ ME_4995656A030F_ME_528609ED0325_impl // Operation
+ ME_499565DF0254_ME_528609ED0325_impl // HasForm
+ ME_499566250105_ME_528609ED0325_impl // GUID
+ ME_528A07FB0004_ME_528609ED0325_impl // Entity
+ ME_528A088B00F5_ME_528609ED0325_impl // EntitiesCount
+ ME_578C8F480100_ME_528609ED0325_impl // CanBeCloned
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_528609ED0325_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5289E27801D4 // SysUtils
+ ME_5289EBC0028C // TvcmOperationMode
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "started" '02.04.2003 15:13'
+ UP extprop:pas:UnitName 'vcmAggregate'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Aggregate'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmAggregate.pas'
+
+ENDME // ME_528609ED0325 TvcmAggregate

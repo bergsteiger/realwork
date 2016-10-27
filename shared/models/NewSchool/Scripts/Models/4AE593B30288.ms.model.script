@@ -1,0 +1,165 @@
+// TdeSelectedAttributes 4AE593B30288 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AE593B30288
+
+ME ME_4AE594810351
+ MEPROP UID '4AE594810351'
+ MEPROP Name 'f_RefreshValues'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AE593B30288 // TdeSelectedAttributes
+ ;
+ MELINK Target WL 'ME_4AE589BA0016' '491DAF4202EE.ms.model.script' // InsSelectedAttributesIterators
+ ;
+
+ENDME // ME_4AE594810351 f_RefreshValues
+
+FORWARD ME_4AE594B200A2
+
+ME ME_4AE594D2034C
+ MEPROP Name 'aRefreshValues'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4AE589BA0016' '491DAF4202EE.ms.model.script' // InsSelectedAttributesIterators
+ ;
+
+ENDME // ME_4AE594D2034C aRefreshValues
+
+ME ME_4AE594D2037B
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4AE594D2037B aTag
+
+ME ME_4AE594B200A2
+ MEPROP UID '4AE594B200A2'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE593B30288 // TdeSelectedAttributes
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AE594D2034C // aRefreshValues
+ ME_4AE594D2037B // aTag
+ )
+ ; // Parameters
+
+ENDME // ME_4AE594B200A2 Create
+
+FORWARD ME_4AE594D90276
+
+ME ME_4AE594DF006A
+ MEPROP Name 'aRefreshValues'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4AE589BA0016' '491DAF4202EE.ms.model.script' // InsSelectedAttributesIterators
+ ;
+
+ENDME // ME_4AE594DF006A aRefreshValues
+
+ME ME_4AE594DF00A8
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4AE594DF00A8 aTag
+
+ME ME_4AE594D90276
+ MEPROP UID '4AE594D90276'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE593B30288 // TdeSelectedAttributes
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AE594DF006A // aRefreshValues
+ ME_4AE594DF00A8 // aTag
+ )
+ ; // Parameters
+
+ENDME // ME_4AE594D90276 Make
+
+MEREF ME_4AE58AE200AC_ME_4AE593B30288_impl
+ MELINK Original WL 'ME_4AE58AE200AC' '491DAF4202EE.ms.model.script' // RefreshValues
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4AE58AE200AC_ME_4AE593B30288_impl RefreshValues
+
+MEREF ME_479731C50290_ME_4AE593B30288_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4AE593B30288_over Cleanup
+
+MEREF ME_4AE593970016_ME_4AE593B30288_G
+ MELINK Original WL? 'ME_4AE593970016' // TdeSearch
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE593970016_ME_4AE593B30288_G TdeSearch
+
+MEREF ME_49241F6B00D7_ME_4AE593B30288_R
+ MELINK Original WL 'ME_49241F6B00D7' '491DAF4202EE.ms.model.script' // IdeSelectedAttributes
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49241F6B00D7_ME_4AE593B30288_R IdeSelectedAttributes
+
+%%ImplementedBy ME_49241F6B00D7 ME_4AE593B30288
+
+%%InheritedBy ME_4AE593970016 ME_4AE593B30288
+
+ME ME_4AE593B30288
+ MEPROP UID '4AE593B30288'
+ MEPROP Name 'TdeSelectedAttributes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_491DCA2C00A9' // Search
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AE593970016_ME_4AE593B30288_G // TdeSearch
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_49241F6B00D7_ME_4AE593B30288_R // IdeSelectedAttributes
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AE594810351 // f_RefreshValues
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AE594B200A2 // Create
+ HWL ME_4AE594D90276 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4AE58AE200AC_ME_4AE593B30288_impl // RefreshValues
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4AE593B30288_over // Cleanup
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'deSelectedAttributes'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'deSelectedAttributes'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\deSelectedAttributes.pas'
+
+ENDME // ME_4AE593B30288 TdeSelectedAttributes

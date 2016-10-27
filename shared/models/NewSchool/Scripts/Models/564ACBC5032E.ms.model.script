@@ -127,7 +127,7 @@ ENDME // ME_564ACDA00293 DoIt
 ME ME_564ACD9A000D
  MEPROP UID '564ACD9A000D'
  MEPROP Name 'C'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -186,26 +186,38 @@ ME ME_564AE025006B
 
 ENDME // ME_564AE025006B ItemType
 
-ME ME_47B07CF403D0_ME_564AD17C02DC
+MEREF ME_47B07CF403D0_ME_564AD17C02DC_impl
  MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifndef" 'l3Items_IsAtomic'
-ENDME // ME_47B07CF403D0_ME_564AD17C02DC IsSameItems
+ENDMEREF // ME_47B07CF403D0_ME_564AD17C02DC_impl IsSameItems
 
-ME ME_47B2C42A0163_ME_564AD17C02DC
+MEREF ME_47B2C42A0163_ME_564AD17C02DC_impl
  MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
  UP "ifndef" 'l3Items_NoSort'
-ENDME // ME_47B2C42A0163_ME_564AD17C02DC AssignItem
+ENDMEREF // ME_47B2C42A0163_ME_564AD17C02DC_impl AssignItem
 
-ME ME_47B99D4503A2_ME_564AD17C02DC
+MEREF ME_47B99D4503A2_ME_564AD17C02DC_impl
  MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47B99D4503A2_ME_564AD17C02DC CompareExistingItems
+ENDMEREF // ME_47B99D4503A2_ME_564AD17C02DC_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_564AD17C02DC_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_564AD17C02DC_G Tl3ProtoDataContainer
+
+MEREF ME_4B223ADC02BF_ME_564AD17C02DC_R
+ MELINK Original WL? 'ME_4B223ADC02BF' // l3RecordListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223ADC02BF_ME_564AD17C02DC_R l3RecordListPrim
 
 %%ImplementedBy ME_4B223ADC02BF ME_564AD17C02DC
 
@@ -222,11 +234,11 @@ ME ME_564AD17C02DC
  MELINK Parent HWL ME_564ACBC5032E // pgJournalCache
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+   Seq: ( HWL ME_4A54DD4E036F_ME_564AD17C02DC_G // Tl3ProtoDataContainer
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_4B223ADC02BF' // l3RecordListPrim
+   Seq: ( HWL ME_4B223ADC02BF_ME_564AD17C02DC_R // l3RecordListPrim
  )
  ; // Implements
  MELIST Attributes
@@ -234,15 +246,21 @@ ME ME_564AD17C02DC
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_47B07CF403D0_ME_564AD17C02DC // IsSameItems
- ME_47B2C42A0163_ME_564AD17C02DC // AssignItem
- ME_47B99D4503A2_ME_564AD17C02DC // CompareExistingItems
+   Seq: ( ME_47B07CF403D0_ME_564AD17C02DC_impl // IsSameItems
+ ME_47B2C42A0163_ME_564AD17C02DC_impl // AssignItem
+ ME_47B99D4503A2_ME_564AD17C02DC_impl // CompareExistingItems
  )
  ; // Implemented
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'pgJournalCacheList'
 
 ENDME // ME_564AD17C02DC TpgJournalCacheList
+
+MEREF ME_564ACBEE0302_ME_564AECF70353_G
+ MELINK Original HWL ME_564ACBEE0302 // TpgJournalCacheRec
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_564ACBEE0302_ME_564AECF70353_G TpgJournalCacheRec
 
 %%InheritedBy ME_564ACBEE0302 ME_564AECF70353
 
@@ -257,7 +275,7 @@ ME ME_564AECF70353
  MELINK Parent HWL ME_564ACBC5032E // pgJournalCache
  ;
  MELIST Inherits
-   Seq: ( HWL ME_564ACBEE0302 // TpgJournalCacheRec
+   Seq: ( HWL ME_564ACBEE0302_ME_564AECF70353_G // TpgJournalCacheRec
  )
  ; // Inherits
  UP "isPointer" True

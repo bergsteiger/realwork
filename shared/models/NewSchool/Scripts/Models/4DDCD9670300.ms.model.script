@@ -1,0 +1,275 @@
+// TnsChangesBetweenEditionsInfo 4DDCD9670300 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DDCD9670300
+
+ME ME_4DDCD9CD0158
+ MEPROP UID '4DDCD9CD0158'
+ MEPROP Name 'f_DiffProvider'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
+ ;
+ MELINK Target WL 'ME_4D78D8200190' '4570511E038A.ms.model.script' // DiffDocDataProvider
+ ;
+
+ENDME // ME_4DDCD9CD0158 f_DiffProvider
+
+ME ME_4DDCD9DB012C
+ MEPROP UID '4DDCD9DB012C'
+ MEPROP Name 'f_Right'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4DDCD9DB012C f_Right
+
+ME ME_4EA6C419027C
+ MEPROP UID '4EA6C419027C'
+ MEPROP Name 'f_Left'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4EA6C419027C f_Left
+
+FORWARD ME_4DDCDA030188
+
+FORWARD ME_4DDCDA0C0323
+
+ME ME_4EA6C4560036
+ MEPROP Name 'aLeft'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4EA6C4560036 aLeft
+
+ME ME_4EA6C45600D5
+ MEPROP Name 'aRight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4EA6C45600D5 aRight
+
+ME ME_4DDCDA230215
+ MEPROP Name 'aDiffProvider'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D78D8200190' '4570511E038A.ms.model.script' // DiffDocDataProvider
+ ;
+
+ENDME // ME_4DDCDA230215 aDiffProvider
+
+ME ME_4DDCDA0C0323
+ MEPROP UID '4DDCDA0C0323'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDCDA030188 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4EA6C4560036 // aLeft
+ ME_4EA6C45600D5 // aRight
+ ME_4DDCDA230215 // aDiffProvider
+ )
+ ; // Parameters
+
+ENDME // ME_4DDCDA0C0323 DoIt
+
+ME ME_4DDCDA030188
+ MEPROP UID '4DDCDA030188'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DDCDA0C0323 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DDCDA030188 Create
+
+MEREF ME_4DDCDA030188_ME_4DDCD9F40274_G
+ MELINK Original HWL ME_4DDCDA030188 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DDCDA030188_ME_4DDCD9F40274_G Create
+
+MEREF ME_4DDCD8CD008D_ME_4DDCD9F40274_R
+ MELINK Original WL 'ME_4DDCD8CD008D' '4DDCD71E027C.ms.model.script' // InsChangesBetweenEditionsInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DDCD8CD008D_ME_4DDCD9F40274_R InsChangesBetweenEditionsInfo
+
+%%ImplementedBy ME_4DDCD8CD008D ME_4DDCD9F40274
+
+%%InheritedBy ME_4DDCDA030188 ME_4DDCD9F40274
+
+ME ME_4DDCD9F40274
+ MEPROP UID '4DDCD9F40274'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DDCDA030188_ME_4DDCD9F40274_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4DDCD8CD008D_ME_4DDCD9F40274_R // InsChangesBetweenEditionsInfo
+ )
+ ; // Implements
+
+ENDME // ME_4DDCD9F40274 Make
+
+ME ME_4EA6C25E03AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDCD9670300 // TnsChangesBetweenEditionsInfo
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48FF556602BA.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_4EA6C25E03AD 
+
+MEREF ME_4DDCD8ED00A5_ME_4DDCD9670300_impl
+ MELINK Original WL 'ME_4DDCD8ED00A5' '4DDCD71E027C.ms.model.script' // DiffProvider
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4DDCD8ED00A5_ME_4DDCD9670300_impl DiffProvider
+
+MEREF ME_4DDCE9110130_ME_4DDCD9670300_impl
+ MELINK Original WL 'ME_4DDCE9110130' '4DDCD71E027C.ms.model.script' // RightEdition
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4DDCE9110130_ME_4DDCD9670300_impl RightEdition
+
+MEREF ME_4F2BF187026F_ME_4DDCD9670300_impl
+ MELINK Original WL 'ME_4F2BF187026F' '4DDCD71E027C.ms.model.script' // LeftEdition
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4F2BF187026F_ME_4DDCD9670300_impl LeftEdition
+
+MEREF ME_47EA4E9002C6_ME_4DDCD9670300_over
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BEF0140.ms.model.script' // FinishDataUpdate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47EA4E9002C6_ME_4DDCD9670300_over FinishDataUpdate
+
+MEREF ME_49E7754802A9_ME_4DDCD9670300_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4DDCD9670300_G Tl3ProtoObject
+
+MEREF ME_47EA4BEF0140_ME_4DDCD9670300_R
+ MELINK Original WL? 'ME_47EA4BEF0140' // afwApplicationDataUpdate
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47EA4BEF0140_ME_4DDCD9670300_R afwApplicationDataUpdate
+
+MEREF ME_4DDCD8CD008D_ME_4DDCD9670300_R
+ MELINK Original WL 'ME_4DDCD8CD008D' '4DDCD71E027C.ms.model.script' // InsChangesBetweenEditionsInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DDCD8CD008D_ME_4DDCD9670300_R InsChangesBetweenEditionsInfo
+
+MEREF ME_4EA6BFCA0041_ME_4DDCD9670300_R
+ MELINK Original WL 'ME_4EA6BFCA0041' '484900780017.ms.model.script' // После переключения баз ОИД должен перестраиваться
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EA6BFCA0041_ME_4DDCD9670300_R После переключения баз ОИД должен перестраиваться
+
+%%ImplementedBy ME_47EA4BEF0140 ME_4DDCD9670300
+%%ImplementedBy ME_4DDCD8CD008D ME_4DDCD9670300
+%%ImplementedBy ME_4EA6BFCA0041 ME_4DDCD9670300
+
+%%InheritedBy ME_49E7754802A9 ME_4DDCD9670300
+
+ME ME_4DDCD9670300
+ MEPROP UID '4DDCD9670300'
+ MEPROP Name 'TnsChangesBetweenEditionsInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DDCD7B600D5' // ChangesBetweenEditionsImplementation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_4DDCD9670300_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47EA4BEF0140_ME_4DDCD9670300_R // afwApplicationDataUpdate
+ HWL ME_4DDCD8CD008D_ME_4DDCD9670300_R // InsChangesBetweenEditionsInfo
+ HWL ME_4EA6BFCA0041_ME_4DDCD9670300_R // После переключения баз ОИД должен перестраиваться
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4DDCD9CD0158 // f_DiffProvider
+ HWL ME_4DDCD9DB012C // f_Right
+ HWL ME_4EA6C419027C // f_Left
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DDCDA030188 // Create
+ HWL ME_4DDCD9F40274 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DDCD8ED00A5_ME_4DDCD9670300_impl // DiffProvider
+ ME_4DDCE9110130_ME_4DDCD9670300_impl // RightEdition
+ ME_4F2BF187026F_ME_4DDCD9670300_impl // LeftEdition
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47EA4E9002C6_ME_4DDCD9670300_over // FinishDataUpdate
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4EA6C25E03AD // DefDataAdapter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '25.05.2011 14:27'
+ UP extprop:pas:UnitName 'nsChangesBetweenEditionsInfo'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ChangesBetweenEditionsInfo'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\nsChangesBetweenEditionsInfo.pas'
+
+ENDME // ME_4DDCD9670300 TnsChangesBetweenEditionsInfo

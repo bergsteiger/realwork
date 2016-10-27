@@ -77,12 +77,24 @@ ME ME_4774C4F503D3
 
 ENDME // ME_4774C4F503D3 
 
-ME ME_477394DD0114_ME_4774C47A00F5
+MEREF ME_477394DD0114_ME_4774C47A00F5_impl
  MELINK Original WL 'ME_477394DD0114' '477399050133.ms.model.script' // vm
  ;
  MEPROP OpKind opkind_Implemented
  UP "encoding" 'utf8'
-ENDME // ME_477394DD0114_ME_4774C47A00F5 vm
+ENDMEREF // ME_477394DD0114_ME_4774C47A00F5_impl vm
+
+MEREF ME_471738DF00DA_ME_4774C47A00F5_G
+ MELINK Original WL 'ME_471738DF00DA' '46E80398003B.ms.model.script' // WikiPackageImpl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_471738DF00DA_ME_4774C47A00F5_G WikiPackageImpl
+
+MEREF ME_477394C6021D_ME_4774C47A00F5_R
+ MELINK Original WL 'ME_477394C6021D' '477399050133.ms.model.script' // Генерация Velocity
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_477394C6021D_ME_4774C47A00F5_R Генерация Velocity
 
 %%ImplementedBy ME_477394C6021D ME_4774C47A00F5
 
@@ -100,15 +112,15 @@ ME ME_4774C47A00F5
  MELINK Parent HWL ME_4773C34C0375 // HighLayers
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_471738DF00DA' '46E80398003B.ms.model.script' // WikiPackageImpl
+   Seq: ( HWL ME_471738DF00DA_ME_4774C47A00F5_G // WikiPackageImpl
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_477394C6021D' '477399050133.ms.model.script' // Генерация Velocity
+   Seq: ( HWL ME_477394C6021D_ME_4774C47A00F5_R // Генерация Velocity
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_477394DD0114_ME_4774C47A00F5 // vm
+   Seq: ( ME_477394DD0114_ME_4774C47A00F5_impl // vm
  )
  ; // Implemented
  MELIST Dependencies

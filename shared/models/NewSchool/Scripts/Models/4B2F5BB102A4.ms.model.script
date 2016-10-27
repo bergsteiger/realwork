@@ -1,0 +1,909 @@
+// TTimeInfoList 4B2F5BB102A4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B6BF212005D
+%%Inner ME_5305DF9803C7
+%%Inner ME_4B2F565002FD
+
+FORWARD ME_4B2F5BB102A4
+
+FORWARD ME_4B6BF212005D
+
+ME ME_4B588B1203AA
+ MEPROP UID '4B588B1203AA'
+ MEPROP Name 'rSubName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4B6BF212005D // TTimeInfoName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B588B1203AA rSubName
+
+ME ME_4B6BF2490033
+ MEPROP UID '4B6BF2490033'
+ MEPROP Name 'rName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4B6BF212005D // TTimeInfoName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B6BF2490033 rName
+
+FORWARD ME_4B6C348B023F
+
+FORWARD ME_4B6C3498021F
+
+ME ME_4B6C34A30367
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4B6BF212005D // TTimeInfoName
+ ;
+
+ENDME // ME_4B6C34A30367 aName
+
+ME ME_4B6C3498021F
+ MEPROP UID '4B6C3498021F'
+ MEPROP Name 'Compare'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B6C348B023F // Compare
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B6C34A30367 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_4B6C3498021F Compare
+
+ME ME_4B6C348B023F
+ MEPROP UID '4B6C348B023F'
+ MEPROP Name 'Compare'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B6BF212005D // TTimeInfoName
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B6C3498021F // Compare
+ )
+ ; // Operations
+
+ENDME // ME_4B6C348B023F Compare
+
+ME ME_4B6C3040021E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B6BF212005D // TTimeInfoName
+ ;
+ MELINK Target WL 'ME_4B2F575E03BA' '47877EB202FB.ms.model.script' // CompareStr
+ ;
+
+ENDME // ME_4B6C3040021E 
+
+ME ME_4B6BF212005D
+ MEPROP UID '4B6BF212005D'
+ MEPROP Name 'TTimeInfoName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B2F5BB102A4 // TTimeInfoList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B588B1203AA // rSubName
+ HWL ME_4B6BF2490033 // rName
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B6C348B023F // Compare
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B6C3040021E // CompareStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'TimeInfoName'
+
+ENDME // ME_4B6BF212005D TTimeInfoName
+
+ME ME_5305DF9803C7
+ MEPROP UID '5305DF9803C7'
+ MEPROP Name 'l3Items_NeedsAssignItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2F5BB102A4 // TTimeInfoList
+ ;
+ UP extprop:rc:SelfName 'Items_NeedsAssignItem'
+
+ENDME // ME_5305DF9803C7 l3Items_NeedsAssignItem
+
+FORWARD ME_4B2F565002FD
+
+MEREF ME_4B2F565002FD_ME_4B2FC1540213_G
+ MELINK Original HWL ME_4B2F565002FD // TTimeInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2F565002FD_ME_4B2FC1540213_G TTimeInfo
+
+%%InheritedBy ME_4B2F565002FD ME_4B2FC1540213
+
+ME ME_4B2FC1540213
+ MEPROP UID '4B2FC1540213'
+ MEPROP Name 'PTimeInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B2F565002FD // TTimeInfo
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B2F565002FD_ME_4B2FC1540213_G // TTimeInfo
+ )
+ ; // Inherits
+ UP "isPointer" True
+
+ENDME // ME_4B2FC1540213 PTimeInfo
+
+ME ME_4B2F56C902AA
+ MEPROP UID '4B2F56C902AA'
+ MEPROP Name 'rDate'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4B2F565002FD // TTimeInfo
+ ;
+ MELINK Target WL 'ME_47272C8B0128' '4807744200AA.ms.model.script' // TDateTime
+ ;
+
+ENDME // ME_4B2F56C902AA rDate
+
+ME ME_4B2F56E903A4
+ MEPROP UID '4B2F56E903A4'
+ MEPROP Name 'rTime'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4B2F565002FD // TTimeInfo
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4B2F56E903A4 rTime
+
+ME ME_4B6BF2310334
+ MEPROP UID '4B6BF2310334'
+ MEPROP Name 'rID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4B2F565002FD // TTimeInfo
+ ;
+ MELINK Target HWL ME_4B6BF212005D // TTimeInfoName
+ ;
+
+ENDME // ME_4B6BF2310334 rID
+
+FORWARD ME_4B6C40530304
+
+FORWARD ME_4B6C405B0053
+
+ME ME_4B6C405D03AD
+ MEPROP Name 'aDate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47272C8B0128' '4807744200AA.ms.model.script' // TDateTime
+ ;
+
+ENDME // ME_4B6C405D03AD aDate
+
+ME ME_4B6C405D03D1
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B6C405D03D1 aName
+
+ME ME_4B6C405E0010
+ MEPROP Name 'aTime'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4B6C405E0010 aTime
+
+ME ME_4B6C405E003D
+ MEPROP Name 'aSubName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B6C405E003D aSubName
+
+ME ME_4B6C405B0053
+ MEPROP UID '4B6C405B0053'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B6C40530304 // C
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B6C405D03AD // aDate
+ ME_4B6C405D03D1 // aName
+ ME_4B6C405E0010 // aTime
+ ME_4B6C405E003D // aSubName
+ )
+ ; // Parameters
+
+ENDME // ME_4B6C405B0053 C
+
+ME ME_4B6C40530304
+ MEPROP UID '4B6C40530304'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2F565002FD // TTimeInfo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B6C405B0053 // C
+ )
+ ; // Operations
+
+ENDME // ME_4B6C40530304 C
+
+FORWARD ME_4B2F57280040
+
+ME ME_4B2F5736015D
+ MEPROP Name 'aInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4B2F565002FD // TTimeInfo
+ ;
+
+ENDME // ME_4B2F5736015D aInfo
+
+ME ME_4B2F57280040
+ MEPROP UID '4B2F57280040'
+ MEPROP Name 'Compare'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2F565002FD // TTimeInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B2F5736015D // aInfo
+ )
+ ; // Parameters
+
+ENDME // ME_4B2F57280040 Compare
+
+FORWARD ME_4B2F582A0382
+
+ME ME_4B2F5831021B
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B2F5831021B aName
+
+ME ME_4B2F5831024C
+ MEPROP Name 'aTime'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4B2F5831024C aTime
+
+ME ME_4B2F582A0382
+ MEPROP UID '4B2F582A0382'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2F565002FD // TTimeInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B2F5831021B // aName
+ ME_4B2F5831024C // aTime
+ )
+ ; // Parameters
+
+ENDME // ME_4B2F582A0382 C
+
+FORWARD ME_4B2FAB480293
+
+ME ME_4B2FAB5B0172
+ MEPROP Name 'aInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4B2F565002FD // TTimeInfo
+ ;
+
+ENDME // ME_4B2FAB5B0172 aInfo
+
+ME ME_4B2FAB480293
+ MEPROP UID '4B2FAB480293'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2F565002FD // TTimeInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B2FAB5B0172 // aInfo
+ )
+ ; // Parameters
+
+ENDME // ME_4B2FAB480293 EQ
+
+FORWARD ME_4B588AFA0000
+
+ME ME_4B588AFD00D7
+ MEPROP Name 'aDate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47272C8B0128' '4807744200AA.ms.model.script' // TDateTime
+ ;
+
+ENDME // ME_4B588AFD00D7 aDate
+
+ME ME_4B588AFD0112
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B588AFD0112 aName
+
+ME ME_4B588AFD014F
+ MEPROP Name 'aTime'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4B588AFD014F aTime
+
+ME ME_4B588AFA0000
+ MEPROP UID '4B588AFA0000'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2F565002FD // TTimeInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B588AFD00D7 // aDate
+ ME_4B588AFD0112 // aName
+ ME_4B588AFD014F // aTime
+ )
+ ; // Parameters
+
+ENDME // ME_4B588AFA0000 C
+
+FORWARD ME_4B58926401DE
+
+ME ME_4B58926B0289
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B58926B0289 aName
+
+ME ME_4B58926B02CE
+ MEPROP Name 'aTime'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4B58926B02CE aTime
+
+ME ME_4B58926B0314
+ MEPROP Name 'aSubName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B58926B0314 aSubName
+
+ME ME_4B58926401DE
+ MEPROP UID '4B58926401DE'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2F565002FD // TTimeInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B58926B0289 // aName
+ ME_4B58926B02CE // aTime
+ ME_4B58926B0314 // aSubName
+ )
+ ; // Parameters
+
+ENDME // ME_4B58926401DE C
+
+ME ME_4B2F57770198
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2F565002FD // TTimeInfo
+ ;
+ MELINK Target WL 'ME_4B2F575E03BA' '47877EB202FB.ms.model.script' // CompareStr
+ ;
+
+ENDME // ME_4B2F57770198 
+
+ME ME_4B2F565002FD
+ MEPROP UID '4B2F565002FD'
+ MEPROP Name 'TTimeInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация о замере времени' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B2F5BB102A4 // TTimeInfoList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B2F56C902AA // rDate
+ HWL ME_4B2F56E903A4 // rTime
+ HWL ME_4B6BF2310334 // rID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B6C40530304 // C
+ HWL ME_4B2F57280040 // Compare
+ HWL ME_4B2F582A0382 // C
+ HWL ME_4B2FAB480293 // EQ
+ HWL ME_4B588AFA0000 // C
+ HWL ME_4B58926401DE // C
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4B2FC1540213 // PTimeInfo
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4B2F57770198 // CompareStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'TimeInfo'
+
+ENDME // ME_4B2F565002FD TTimeInfo
+
+ME ME_4B2F5BD50068
+ MEPROP UID '4B2F5BD50068'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F5BB102A4 // TTimeInfoList
+ ;
+ MELINK Target HWL ME_4B2F565002FD // TTimeInfo
+ ;
+
+ENDME // ME_4B2F5BD50068 ItemType
+
+FORWARD ME_4B7AA321023D
+
+ME ME_4B7AA35F0394
+ MEPROP UID '4B7AA35F0394'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B7AA321023D // DeleteOld
+ ;
+ MELINK Target HWL ME_4B6BF212005D // TTimeInfoName
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B7AA35F0394 Name
+
+ME ME_4B7AA364036E
+ MEPROP UID '4B7AA364036E'
+ MEPROP Name 'i'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B7AA321023D // DeleteOld
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B7AA364036E i
+
+ME ME_4B7AA36C02EB
+ MEPROP UID '4B7AA36C02EB'
+ MEPROP Name 'j'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B7AA321023D // DeleteOld
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B7AA36C02EB j
+
+ME ME_4B7AA3730047
+ MEPROP UID '4B7AA3730047'
+ MEPROP Name 'SeriesCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B7AA321023D // DeleteOld
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B7AA3730047 SeriesCount
+
+ME ME_4B7AA37E0030
+ MEPROP UID '4B7AA37E0030'
+ MEPROP Name 'C'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B7AA321023D // DeleteOld
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B7AA37E0030 C
+
+ME ME_4B7AA39B0011
+ MEPROP UID '4B7AA39B0011'
+ MEPROP Name 'MaxDate'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B7AA321023D // DeleteOld
+ ;
+ MELINK Target WL 'ME_47272C8B0128' '4807744200AA.ms.model.script' // TDateTime
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B7AA39B0011 MaxDate
+
+FORWARD ME_4B7AA33B0391
+
+ME ME_4B7AA34E0148
+ MEPROP Name 'aDateDelta'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B7AA34E0148 aDateDelta
+
+ME ME_4B7AA33B0391
+ MEPROP UID '4B7AA33B0391'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B7AA321023D // DeleteOld
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B7AA34E0148 // aDateDelta
+ )
+ ; // Parameters
+
+ENDME // ME_4B7AA33B0391 DoIt
+
+ME ME_4B7AA321023D
+ MEPROP UID '4B7AA321023D'
+ MEPROP Name 'DeleteOld'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Удаляет старые замеры' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2F5BB102A4 // TTimeInfoList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B7AA35F0394 // Name
+ HWL ME_4B7AA364036E // i
+ HWL ME_4B7AA36C02EB // j
+ HWL ME_4B7AA3730047 // SeriesCount
+ HWL ME_4B7AA37E0030 // C
+ HWL ME_4B7AA39B0011 // MaxDate
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B7AA33B0391 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4B7AA321023D DeleteOld
+
+FORWARD ME_4B7A98A10031
+
+ME ME_4B7A98F702E5
+ MEPROP UID '4B7A98F702E5'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ %SUMMARY 'Имя текущего замера' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B7A98A10031 // Compact
+ ;
+ MELINK Target HWL ME_4B6BF212005D // TTimeInfoName
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B7A98F702E5 Name
+
+ME ME_4B7A992B029F
+ MEPROP UID '4B7A992B029F'
+ MEPROP Name 'i'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B7A98A10031 // Compact
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B7A992B029F i
+
+ME ME_4B7A993203DD
+ MEPROP UID '4B7A993203DD'
+ MEPROP Name 'j'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B7A98A10031 // Compact
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B7A993203DD j
+
+ME ME_4B7A993D00A0
+ MEPROP UID '4B7A993D00A0'
+ MEPROP Name 'C'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B7A98A10031 // Compact
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B7A993D00A0 C
+
+ME ME_4B7A9AE20058
+ MEPROP UID '4B7A9AE20058'
+ MEPROP Name 'SeriesCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B7A98A10031 // Compact
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B7A9AE20058 SeriesCount
+
+FORWARD ME_4B7A98C401F1
+
+ME ME_4B7A98CF0198
+ MEPROP Name 'aCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B7A98CF0198 aCount
+
+ME ME_4B7A98C401F1
+ MEPROP UID '4B7A98C401F1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B7A98A10031 // Compact
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B7A98CF0198 // aCount
+ )
+ ; // Parameters
+
+ENDME // ME_4B7A98C401F1 DoIt
+
+ME ME_4B7A98A10031
+ MEPROP UID '4B7A98A10031'
+ MEPROP Name 'Compact'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Минимизирует число замеров в графике до указанного числа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2F5BB102A4 // TTimeInfoList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B7A98F702E5 // Name
+ HWL ME_4B7A992B029F // i
+ HWL ME_4B7A993203DD // j
+ HWL ME_4B7A993D00A0 // C
+ HWL ME_4B7A9AE20058 // SeriesCount
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B7A98C401F1 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4B7A98A10031 Compact
+
+MEREF ME_47B2C42A0163_ME_4B2F5BB102A4_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4B2F5BB102A4_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_4B2F5BB102A4_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4B2F5BB102A4_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_4B2F5BB102A4_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4B2F5BB102A4_G Tl3ProtoDataContainer
+
+MEREF ME_4B223DB5024B_ME_4B2F5BB102A4_G
+ MELINK Original WL? 'ME_4B223DB5024B' // l3RecordWithEQList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223DB5024B_ME_4B2F5BB102A4_G l3RecordWithEQList
+
+%%InheritedBy ME_4A54DD4E036F ME_4B2F5BB102A4
+%%InheritedBy ME_4B223DB5024B ME_4B2F5BB102A4
+
+ME ME_4B2F5BB102A4
+ MEPROP UID '4B2F5BB102A4'
+ MEPROP Name 'TTimeInfoList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список замеров времени' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B2A112B011A' // Source
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_4B2F5BB102A4_G // Tl3ProtoDataContainer
+ HWL ME_4B223DB5024B_ME_4B2F5BB102A4_G // l3RecordWithEQList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B2F5BD50068 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B7AA321023D // DeleteOld
+ HWL ME_4B7A98A10031 // Compact
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_4B2F5BB102A4_impl // AssignItem
+ ME_47B99D4503A2_ME_4B2F5BB102A4_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4B6BF212005D // TTimeInfoName
+ HWL ME_5305DF9803C7 // l3Items_NeedsAssignItem
+ HWL ME_4B2F565002FD // TTimeInfo
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '21.12.2009 14:28'
+ UP extprop:pas:UnitName 'TimeInfoList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TimeInfoList'
+ UP intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\TimeInfoList.pas'
+
+ENDME // ME_4B2F5BB102A4 TTimeInfoList

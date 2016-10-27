@@ -1,0 +1,544 @@
+// TafwCustomCaretType 480DC4B90226 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_480DC52E02C6
+%%Inner ME_480DC5B20390
+
+FORWARD ME_480DC4B90226
+
+FORWARD ME_480DC52E02C6
+
+ME ME_480DC53B037E
+ MEPROP UID '480DC53B037E'
+ MEPROP Name 'csBlock'
+ MEPROP Class class_Attribute
+ %SUMMARY 'block over whole cell' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC52E02C6 // TafwCaretShape
+ ;
+
+ENDME // ME_480DC53B037E csBlock
+
+ME ME_480DC54601A5
+ MEPROP UID '480DC54601A5'
+ MEPROP Name 'csHalfBlock'
+ MEPROP Class class_Attribute
+ %SUMMARY 'block over bottom part of cell' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC52E02C6 // TafwCaretShape
+ ;
+
+ENDME // ME_480DC54601A5 csHalfBlock
+
+ME ME_480DC5540398
+ MEPROP UID '480DC5540398'
+ MEPROP Name 'csVertLine'
+ MEPROP Class class_Attribute
+ %SUMMARY 'vertical line to left of cell' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC52E02C6 // TafwCaretShape
+ ;
+
+ENDME // ME_480DC5540398 csVertLine
+
+ME ME_480DC56202D8
+ MEPROP UID '480DC56202D8'
+ MEPROP Name 'csHorzLine'
+ MEPROP Class class_Attribute
+ %SUMMARY 'horizontal line on bottom of cell' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC52E02C6 // TafwCaretShape
+ ;
+
+ENDME // ME_480DC56202D8 csHorzLine
+
+ME ME_480DC56D016A
+ MEPROP UID '480DC56D016A'
+ MEPROP Name 'csCustom'
+ MEPROP Class class_Attribute
+ %SUMMARY 'custom width/height' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC52E02C6 // TafwCaretShape
+ ;
+
+ENDME // ME_480DC56D016A csCustom
+
+ME ME_480DC57602EB
+ MEPROP UID '480DC57602EB'
+ MEPROP Name 'csBitmap'
+ MEPROP Class class_Attribute
+ %SUMMARY 'bitmap caret, custom width/height' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC52E02C6 // TafwCaretShape
+ ;
+
+ENDME // ME_480DC57602EB csBitmap
+
+ME ME_480DC52E02C6
+ MEPROP UID '480DC52E02C6'
+ MEPROP Name 'TafwCaretShape'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '‘орма каретки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480DC4B90226 // TafwCustomCaretType
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_480DC53B037E // csBlock
+ HWL ME_480DC54601A5 // csHalfBlock
+ HWL ME_480DC5540398 // csVertLine
+ HWL ME_480DC56202D8 // csHorzLine
+ HWL ME_480DC56D016A // csCustom
+ HWL ME_480DC57602EB // csBitmap
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_480DC52E02C6 TafwCaretShape
+
+FORWARD ME_480DC5B20390
+
+ME ME_480DC5C000D9
+ MEPROP UID '480DC5C000D9'
+ MEPROP Name 'caLeft'
+ MEPROP Class class_Attribute
+ %SUMMARY 'left side, centered vertically' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC5B20390 // TafwCaretAlign
+ ;
+
+ENDME // ME_480DC5C000D9 caLeft
+
+ME ME_480DC5C901B0
+ MEPROP UID '480DC5C901B0'
+ MEPROP Name 'caTop'
+ MEPROP Class class_Attribute
+ %SUMMARY 'top side, centered horizontally' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC5B20390 // TafwCaretAlign
+ ;
+
+ENDME // ME_480DC5C901B0 caTop
+
+ME ME_480DC5D702D3
+ MEPROP UID '480DC5D702D3'
+ MEPROP Name 'caRight'
+ MEPROP Class class_Attribute
+ %SUMMARY 'right side, centered vertically' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC5B20390 // TafwCaretAlign
+ ;
+
+ENDME // ME_480DC5D702D3 caRight
+
+ME ME_480DC5E0034E
+ MEPROP UID '480DC5E0034E'
+ MEPROP Name 'caBottom'
+ MEPROP Class class_Attribute
+ %SUMMARY 'bottom side, centered horizontally' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC5B20390 // TafwCaretAlign
+ ;
+
+ENDME // ME_480DC5E0034E caBottom
+
+ME ME_480DC5E901E5
+ MEPROP UID '480DC5E901E5'
+ MEPROP Name 'caCenter'
+ MEPROP Class class_Attribute
+ %SUMMARY 'centered vertically and horizontally' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC5B20390 // TafwCaretAlign
+ ;
+
+ENDME // ME_480DC5E901E5 caCenter
+
+ME ME_480DC5B20390
+ MEPROP UID '480DC5B20390'
+ MEPROP Name 'TafwCaretAlign'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '¬ыравнивание каретки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480DC4B90226 // TafwCustomCaretType
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_480DC5C000D9 // caLeft
+ HWL ME_480DC5C901B0 // caTop
+ HWL ME_480DC5D702D3 // caRight
+ HWL ME_480DC5E0034E // caBottom
+ HWL ME_480DC5E901E5 // caCenter
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_480DC5B20390 TafwCaretAlign
+
+ME ME_480DC903031B
+ MEPROP UID '480DC903031B'
+ MEPROP Name 'OnChange'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'нотификаци€ об изменении параметров каретки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC4B90226 // TafwCustomCaretType
+ ;
+ MELINK Target WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_480DC903031B OnChange
+
+ME ME_480DC92503DD
+ MEPROP UID '480DC92503DD'
+ MEPROP Name 'Shape'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'форма курсора.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC4B90226 // TafwCustomCaretType
+ ;
+ MELINK Target HWL ME_480DC52E02C6 // TafwCaretShape
+ ;
+ MEPROP Value 'DefShape'
+ MELINK ValueType HWL ME_480DC52E02C6 // TafwCaretShape
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP extprop:pas:Value 'DefShape'
+
+ENDME // ME_480DC92503DD Shape
+
+ME ME_480DC95E036D
+ MEPROP UID '480DC95E036D'
+ MEPROP Name 'Bitmap'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'картинка курсора.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC4B90226 // TafwCustomCaretType
+ ;
+ MELINK Target WL 'ME_47D15723038A' '47D15712022D.ms.model.script' // TBitmap
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_480DC95E036D Bitmap
+
+ME ME_480DC9770164
+ MEPROP UID '480DC9770164'
+ MEPROP Name 'BitmapHotSpotX'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'смещение каретки относительно картинки по оси X.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC4B90226 // TafwCustomCaretType
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP extprop:pas:Value 0
+
+ENDME // ME_480DC9770164 BitmapHotSpotX
+
+ME ME_480DC99901B3
+ MEPROP UID '480DC99901B3'
+ MEPROP Name 'BitmapHotSpotY'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'смещение каретки относительно картинки по оси Y.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC4B90226 // TafwCustomCaretType
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP extprop:pas:Value 0
+
+ENDME // ME_480DC99901B3 BitmapHotSpotY
+
+ME ME_480DC9AF007C
+ MEPROP UID '480DC9AF007C'
+ MEPROP Name 'Align'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'выравнивание курсора.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC4B90226 // TafwCustomCaretType
+ ;
+ MELINK Target HWL ME_480DC5B20390 // TafwCaretAlign
+ ;
+ MEPROP Value 'DefAlign'
+ MELINK ValueType HWL ME_480DC5B20390 // TafwCaretAlign
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP extprop:pas:Value 'DefAlign'
+
+ENDME // ME_480DC9AF007C Align
+
+ME ME_480DC9C50199
+ MEPROP UID '480DC9C50199'
+ MEPROP Name 'BlinkTime'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'период мигани€ курсора (в милисекундах).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC4B90226 // TafwCustomCaretType
+ ;
+ MELINK Target WL 'ME_476F71A701AB' '4807744200AA.ms.model.script' // Word
+ ;
+ MEPROP Value 'DefBlinkTime'
+ MELINK ValueType WL 'ME_476F71A701AB' '4807744200AA.ms.model.script' // Word
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP extprop:pas:Value 'DefBlinkTime'
+
+ENDME // ME_480DC9C50199 BlinkTime
+
+ME ME_480DC9FC0128
+ MEPROP UID '480DC9FC0128'
+ MEPROP Name 'CaretHeight'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'высота курсора.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC4B90226 // TafwCustomCaretType
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 'DefCaretHt'
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP extprop:pas:Value 'DefCaretHt'
+
+ENDME // ME_480DC9FC0128 CaretHeight
+
+ME ME_480DCA13027E
+ MEPROP UID '480DCA13027E'
+ MEPROP Name 'CaretWidth'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'ширина курсора.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC4B90226 // TafwCustomCaretType
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 'DefCaretWd'
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP extprop:pas:Value 'DefCaretWd'
+
+ENDME // ME_480DCA13027E CaretWidth
+
+ME ME_480DCA2701E2
+ MEPROP UID '480DCA2701E2'
+ MEPROP Name 'IsGray'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'курсор серый?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DC4B90226 // TafwCustomCaretType
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value 'DefIsGray'
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP extprop:pas:Value 'DefIsGray'
+
+ENDME // ME_480DCA2701E2 IsGray
+
+ME ME_480DCA5C03B7
+ MEPROP UID '480DCA5C03B7'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_vctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480DC4B90226 // TafwCustomCaretType
+ ;
+
+ENDME // ME_480DCA5C03B7 Create
+
+ME ME_480DCA6F0113
+ MEPROP UID '480DCA6F0113'
+ MEPROP Name 'NotifyChange'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480DC4B90226 // TafwCustomCaretType
+ ;
+
+ENDME // ME_480DCA6F0113 NotifyChange
+
+ME ME_480DC94C02AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480DC4B90226 // TafwCustomCaretType
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_480DC94C02AC 
+
+ME ME_480DCDB10260
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480DC4B90226 // TafwCustomCaretType
+ ;
+ MELINK Target WL? 'ME_47D15062022A' // Tl3Bitmap
+ ;
+
+ENDME // ME_480DCDB10260 
+
+MEREF ME_479731C50290_ME_480DC4B90226_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_480DC4B90226_over Cleanup
+
+MEREF ME_47879856035F_ME_480DC4B90226_G
+ MELINK Original WL? 'ME_47879856035F' // Tl3_Base
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47879856035F_ME_480DC4B90226_G Tl3_Base
+
+%%InheritedBy ME_47879856035F ME_480DC4B90226
+
+ME ME_480DC4B90226
+ MEPROP UID '480DC4B90226'
+ MEPROP Name 'TafwCustomCaretType'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '“ип формы каретки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47877A6F000A' // Visual
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47879856035F_ME_480DC4B90226_G // Tl3_Base
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_480DC903031B // OnChange
+ HWL ME_480DC92503DD // Shape
+ HWL ME_480DC95E036D // Bitmap
+ HWL ME_480DC9770164 // BitmapHotSpotX
+ HWL ME_480DC99901B3 // BitmapHotSpotY
+ HWL ME_480DC9AF007C // Align
+ HWL ME_480DC9C50199 // BlinkTime
+ HWL ME_480DC9FC0128 // CaretHeight
+ HWL ME_480DCA13027E // CaretWidth
+ HWL ME_480DCA2701E2 // IsGray
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_480DCA5C03B7 // Create
+ HWL ME_480DCA6F0113 // NotifyChange
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_480DC4B90226_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_480DC52E02C6 // TafwCaretShape
+ HWL ME_480DC5B20390 // TafwCaretAlign
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_480DC94C02AC // SysUtils
+ ME_480DCDB10260 // Tl3Bitmap
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ћюлин ј.¬.'
+ UP "need UC" True
+ UP "no hands" True
+ UP "started" '09.12.1998 16:25'
+ UP extprop:pas:UnitName 'afwCustomCaretType'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwCustomCaretType'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwCustomCaretType.pas'
+
+ENDME // ME_480DC4B90226 TafwCustomCaretType

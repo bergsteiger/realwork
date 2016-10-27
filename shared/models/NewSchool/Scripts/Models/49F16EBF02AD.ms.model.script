@@ -1,0 +1,73 @@
+// TnsUserTreeStructWithDrag 49F16EBF02AD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49F16EBF02AD
+
+ME ME_49F56569010B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F16EBF02AD // TnsUserTreeStructWithDrag
+ ;
+ MELINK Target WL? 'ME_49F552BA0035' // TbsUserDataObject
+ ;
+
+ENDME // ME_49F56569010B 
+
+ME ME_49F596B102B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F16EBF02AD // TnsUserTreeStructWithDrag
+ ;
+ MELINK Target WL? 'ME_49F592D400E6' // TbsUserTreeData
+ ;
+
+ENDME // ME_49F596B102B3 
+
+MEREF ME_48FEE6210205_ME_49F16EBF02AD_over
+ MELINK Original WL 'ME_48FEE6210205' '46835B4001A4.ms.model.script' // DoMakeDataObject
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FEE6210205_ME_49F16EBF02AD_over DoMakeDataObject
+
+MEREF ME_4906E96C0364_ME_49F16EBF02AD_G
+ MELINK Original WL? 'ME_4906E96C0364' // TnsUserTreeStruct
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4906E96C0364_ME_49F16EBF02AD_G TnsUserTreeStruct
+
+%%InheritedBy ME_4906E96C0364 ME_49F16EBF02AD
+
+ME ME_49F16EBF02AD
+ MEPROP UID '49F16EBF02AD'
+ MEPROP Name 'TnsUserTreeStructWithDrag'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4901E79300F5' // Users
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4906E96C0364_ME_49F16EBF02AD_G // TnsUserTreeStruct
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48FEE6210205_ME_49F16EBF02AD_over // DoMakeDataObject
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49F56569010B // TbsUserDataObject
+ ME_49F596B102B3 // TbsUserTreeData
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'nsUserTreeStructWithDrag'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'UserTreeStructWithDrag'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\nsUserTreeStructWithDrag.pas'
+
+ENDME // ME_49F16EBF02AD TnsUserTreeStructWithDrag

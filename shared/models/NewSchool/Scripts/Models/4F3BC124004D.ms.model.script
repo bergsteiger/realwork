@@ -1,0 +1,93 @@
+// TtfwConstLike 4F3BC124004D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F3BC124004D
+
+ME ME_52D69E4203B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F3BC124004D // TtfwConstLike
+ ;
+ MELINK Target WL? 'ME_52D69DF30179' // TkwRuntimeWordWithCodeExecution
+ ;
+
+ENDME // ME_52D69E4203B7 
+
+ME ME_551E881103A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F3BC124004D // TtfwConstLike
+ ;
+ MELINK Target WL? 'ME_551E87F00212' // TkwConstLikeCompiled
+ ;
+
+ENDME // ME_551E881103A0 
+
+MEREF ME_4DB6C99F026E_ME_4F3BC124004D_impl
+ MELINK Original WL 'ME_4DB6C99F026E' '4DB6C8F30161.ms.model.script' // EndBracket
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DB6C99F026E_ME_4F3BC124004D_impl EndBracket
+
+MEREF ME_4DB9B446039A_ME_4F3BC124004D_over
+ MELINK Original WL 'ME_4DB9B446039A' '4DB6C8F30161.ms.model.script' // AfterWordMaxCount
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB9B446039A_ME_4F3BC124004D_over AfterWordMaxCount
+
+MEREF ME_4DBAEE0D028D_ME_4F3BC124004D_over
+ MELINK Original WL 'ME_4DBAEE0D028D' '4DB6C8F30161.ms.model.script' // CompiledWordClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DBAEE0D028D_ME_4F3BC124004D_over CompiledWordClass
+
+MEREF ME_4DB9B6D20168_ME_4F3BC124004D_G
+ MELINK Original WL? 'ME_4DB9B6D20168' // TtfwNewWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB9B6D20168_ME_4F3BC124004D_G TtfwNewWord
+
+%%InheritedBy ME_4DB9B6D20168 ME_4F3BC124004D
+
+ME ME_4F3BC124004D
+ MEPROP UID '4F3BC124004D'
+ MEPROP Name 'TtfwConstLike'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_54F079B5035C' // CompiledWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DB9B6D20168_ME_4F3BC124004D_G // TtfwNewWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DB6C99F026E_ME_4F3BC124004D_impl // EndBracket
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB9B446039A_ME_4F3BC124004D_over // AfterWordMaxCount
+ ME_4DBAEE0D028D_ME_4F3BC124004D_over // CompiledWordClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52D69E4203B7 // TkwRuntimeWordWithCodeExecution
+ ME_551E881103A0 // TkwConstLikeCompiled
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '15.02.2012 18:29'
+ UP extprop:pas:UnitName 'tfwConstLike'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ConstLike'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwConstLike.pas'
+
+ENDME // ME_4F3BC124004D TtfwConstLike

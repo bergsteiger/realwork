@@ -1,0 +1,368 @@
+// TatBits 502563E400D8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_502563E400D8
+
+FORWARD ME_502566B30375
+
+ME ME_502566C603D4
+ MEPROP UID '502566C603D4'
+ MEPROP Name 'BITS_PER_INT'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_502566B30375 // Consts
+ ;
+ MEPROP Value 'SizeOf(Integer)*8'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'SizeOf(Integer)*8'
+
+ENDME // ME_502566C603D4 BITS_PER_INT
+
+ME ME_502566B30375
+ MEPROP UID '502566B30375'
+ MEPROP Name 'Consts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_502563E400D8 // TatBits
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_502566C603D4 // BITS_PER_INT
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_502566B30375 Consts
+
+ME ME_5025646900CB
+ MEPROP UID '5025646900CB'
+ MEPROP Name 'Size'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_502563E400D8 // TatBits
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" False
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_5025646900CB Size
+
+ME ME_502565D502BD
+ MEPROP UID '502565D502BD'
+ MEPROP Name 'f_Bits'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_502563E400D8 // TatBits
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_502565D502BD f_Bits
+
+FORWARD ME_502565320313
+
+ME ME_5025654F0017
+ MEPROP UID '5025654F0017'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_502565320313 // Bits
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5025654F0017 anIndex
+
+ME ME_502565320313
+ MEPROP UID '502565320313'
+ MEPROP Name 'Bits'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_502563E400D8 // TatBits
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5025654F0017 // anIndex
+ )
+ ; // Attributes
+ UP "is default" True
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_502565320313 Bits
+
+FORWARD ME_5025659F0300
+
+ME ME_502565B502CD
+ MEPROP Name 'aStartIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_502565B502CD aStartIndex
+
+ME ME_502565B502F9
+ MEPROP Name 'aForward'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_502565B502F9 aForward
+
+ME ME_502565B50326
+ MEPROP Name 'aSetBit'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_502565B50326 aSetBit
+
+ME ME_5025659F0300
+ MEPROP UID '5025659F0300'
+ MEPROP Name 'GetBitFrom'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_502563E400D8 // TatBits
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_502565B502CD // aStartIndex
+ ME_502565B502F9 // aForward
+ ME_502565B50326 // aSetBit
+ )
+ ; // Parameters
+
+ENDME // ME_5025659F0300 GetBitFrom
+
+FORWARD ME_502565EE034B
+
+ME ME_5025660400C2
+ MEPROP Name 'aBitsCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5025660400C2 aBitsCount
+
+ME ME_502565EE034B
+ MEPROP UID '502565EE034B'
+ MEPROP Name 'GetBufSize'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_502563E400D8 // TatBits
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_5025660400C2 // aBitsCount
+ )
+ ; // Parameters
+
+ENDME // ME_502565EE034B GetBufSize
+
+ME ME_5025661502E8
+ MEPROP UID '5025661502E8'
+ MEPROP Name 'GetLastSetBit'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_502563E400D8 // TatBits
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5025661502E8 GetLastSetBit
+
+ME ME_5025662B0086
+ MEPROP UID '5025662B0086'
+ MEPROP Name 'GetRandomOpenBit'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_502563E400D8 // TatBits
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5025662B0086 GetRandomOpenBit
+
+ME ME_5025664301E6
+ MEPROP UID '5025664301E6'
+ MEPROP Name 'Reset'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_502563E400D8 // TatBits
+ ;
+
+ENDME // ME_5025664301E6 Reset
+
+FORWARD ME_5025664D00CC
+
+ME ME_50256658026A
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_50256658026A aFileName
+
+ME ME_5025664D00CC
+ MEPROP UID '5025664D00CC'
+ MEPROP Name 'SaveToFile'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_502563E400D8 // TatBits
+ ;
+ MELIST Parameters
+   Seq: ( ME_50256658026A // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_5025664D00CC SaveToFile
+
+FORWARD ME_50256663004A
+
+ME ME_5025666F0160
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5025666F0160 aFileName
+
+ME ME_50256663004A
+ MEPROP UID '50256663004A'
+ MEPROP Name 'LoadFromFile'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_502563E400D8 // TatBits
+ ;
+ MELIST Parameters
+   Seq: ( ME_5025666F0160 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_50256663004A LoadFromFile
+
+ME ME_5025643F0034
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502563E400D8 // TatBits
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_5025643F0034 
+
+ME ME_5025644A037C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502563E400D8 // TatBits
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_5025644A037C 
+
+MEREF ME_48077504027E_ME_502563E400D8_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_502563E400D8_over Destroy
+
+MEREF ME_4807745602C8_ME_502563E400D8_G
+ MELINK Original WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807745602C8_ME_502563E400D8_G TObject
+
+%%InheritedBy ME_4807745602C8 ME_502563E400D8
+
+ME ME_502563E400D8
+ MEPROP UID '502563E400D8'
+ MEPROP Name 'TatBits'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4807745602C8_ME_502563E400D8_G // TObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5025646900CB // Size
+ HWL ME_502565D502BD // f_Bits
+ HWL ME_502565320313 // Bits
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5025659F0300 // GetBitFrom
+ HWL ME_502565EE034B // GetBufSize
+ HWL ME_5025661502E8 // GetLastSetBit
+ HWL ME_5025662B0086 // GetRandomOpenBit
+ HWL ME_5025664301E6 // Reset
+ HWL ME_5025664D00CC // SaveToFile
+ HWL ME_50256663004A // LoadFromFile
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_502563E400D8_over // Destroy
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_502566B30375 // Consts
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_5025643F0034 // Windows
+ ME_5025644A037C // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atBits'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atBits'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atBits.pas'
+
+ENDME // ME_502563E400D8 TatBits

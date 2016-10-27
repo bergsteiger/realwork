@@ -1,0 +1,59 @@
+// TnsSingleAttributeData 48F72B630069 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48F72B630069
+
+ME ME_48F72B6E02AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F72B630069 // TnsSingleAttributeData
+ ;
+ MELINK Target WL? 'ME_4682706F038A' // TnsSingleAttributeDataObject
+ ;
+
+ENDME // ME_48F72B6E02AF 
+
+MEREF ME_48F8D47302FD_ME_48F72B630069_over
+ MELINK Original WL 'ME_48F8D47302FD' '48F895480266.ms.model.script' // ExtDataClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48F8D47302FD_ME_48F72B630069_over ExtDataClass
+
+MEREF ME_48F7014003A5_ME_48F72B630069_G
+ MELINK Original WL? 'ME_48F7014003A5' // TevNodeData
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48F7014003A5_ME_48F72B630069_G TevNodeData
+
+%%InheritedBy ME_48F7014003A5 ME_48F72B630069
+
+ME ME_48F72B630069
+ MEPROP UID '48F72B630069'
+ MEPROP Name 'TnsSingleAttributeData'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48F5EE2702FF' // DocumentDataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F7014003A5_ME_48F72B630069_G // TevNodeData
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48F8D47302FD_ME_48F72B630069_over // ExtDataClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48F72B6E02AF // TnsSingleAttributeDataObject
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'nsSingleAttributeData'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SingleAttributeData'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsSingleAttributeData.pas'
+
+ENDME // ME_48F72B630069 TnsSingleAttributeData

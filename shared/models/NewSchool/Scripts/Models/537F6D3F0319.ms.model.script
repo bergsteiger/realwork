@@ -17,10 +17,16 @@ ME ME_537F6F740241
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_537F6D5E0136 // TNumSet
  ;
- MELINK Target WL 'ME_537F6EED0090' '537F6D320018.ms.model.script' // TdtNumRangeList
+ MELINK Target WL? 'ME_537F6EED0090' // TdtNumRangeList
  ;
 
 ENDME // ME_537F6F740241 f_Ranges
+
+MEREF ME_49E7754802A9_ME_537F6D5E0136_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_537F6D5E0136_G Tl3ProtoObject
 
 %%InheritedBy ME_49E7754802A9 ME_537F6D5E0136
 
@@ -35,7 +41,7 @@ ME ME_537F6D5E0136
  MELINK Parent HWL ME_537F6D3F0319 // Dt_containers
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_537F6D5E0136_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Attributes

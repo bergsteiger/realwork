@@ -1,0 +1,56 @@
+// TadminUserNodeList 559E9F2B02D6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4BB08B8902F2_ME_559E9F2B02D6_impl
+ MELINK Original WL 'ME_4BB08B8902F2' '47D810610398.ms.model.script' // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4BB08B8902F2_ME_559E9F2B02D6_impl Count
+
+MEREF ME_47E7B92D013D_ME_559E9F2B02D6_G
+ MELINK Original WL? 'ME_47E7B92D013D' // Tl3SimpleNodeList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E7B92D013D_ME_559E9F2B02D6_G Tl3SimpleNodeList
+
+MEREF ME_559E9E3D0263_ME_559E9F2B02D6_R
+ MELINK Original WL 'ME_559E9E3D0263' '491D961C0122.ms.model.script' // IadminUserNodeList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_559E9E3D0263_ME_559E9F2B02D6_R IadminUserNodeList
+
+%%ImplementedBy ME_559E9E3D0263 ME_559E9F2B02D6
+
+%%InheritedBy ME_47E7B92D013D ME_559E9F2B02D6
+
+ME ME_559E9F2B02D6
+ MEPROP UID '559E9F2B02D6'
+ MEPROP Name 'TadminUserNodeList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_491D9414002B' // Admin
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47E7B92D013D_ME_559E9F2B02D6_G // Tl3SimpleNodeList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_559E9E3D0263_ME_559E9F2B02D6_R // IadminUserNodeList
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4BB08B8902F2_ME_559E9F2B02D6_impl // Count
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'adminUserNodeList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'adminUserNodeList'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\adminUserNodeList.pas'
+
+ENDME // ME_559E9F2B02D6 TadminUserNodeList

@@ -21,10 +21,16 @@ ME ME_54F8582001BD
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AAA42BF0267 // ShellAndMonitorings
  ;
- MELINK Target WL 'ME_54F83BC9036B' '54F83B9F01BB.ms.model.script' // TtasSaveLoadRealization
+ MELINK Target WL? 'ME_54F83BC9036B' // TtasSaveLoadRealization
  ;
 
 ENDME // ME_54F8582001BD 
+
+MEREF ME_4A92BBDF0126_ME_4AAA42BF0267_G
+ MELINK Original WL? 'ME_4A92BBDF0126' // PrimF1
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A92BBDF0126_ME_4AAA42BF0267_G PrimF1
 
 %%InheritedBy ME_4A92BBDF0126 ME_4AAA42BF0267
 
@@ -40,7 +46,7 @@ ME ME_4AAA42BF0267
  MELINK Parent WL? 'ME_4A78013D01CD' // View$For F1 and Monitorings
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4A92BBDF0126' // PrimF1
+   Seq: ( HWL ME_4A92BBDF0126_ME_4AAA42BF0267_G // PrimF1
  )
  ; // Inherits
  MELIST Children

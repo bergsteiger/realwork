@@ -1,0 +1,132 @@
+// View 45F6583E001F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_45F6583E001F
+
+ME ME_45F65B2F01B5
+ MEPROP UID '45F65B2F01B5'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F6583E001F // View
+ ;
+
+ENDME // ME_45F65B2F01B5 make
+
+FORWARD ME_45F658550109
+
+ME ME_45F658550109
+ MEPROP Name 'NodeDelegateType_'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target ME_45F658550109 // NodeDelegateType_
+ ;
+
+ENDME // ME_45F658550109 NodeDelegateType_
+
+ME ME_461D0D8F01E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_45F6583E001F // View
+ ;
+
+ENDME // ME_461D0D8F01E4 
+
+ME ME_461D0E4E0242
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_45F6583E001F // View
+ ;
+
+ENDME // ME_461D0E4E0242 
+
+MEREF ME_460125E60203_ME_45F6583E001F_impl
+ MELINK Original WL 'ME_460125E60203' '45F554750213.ms.model.script' // apply_created_node
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_460125E60203_ME_45F6583E001F_impl apply_created_node
+
+MEREF ME_46012631034B_ME_45F6583E001F_impl
+ MELINK Original WL 'ME_46012631034B' '45F554750213.ms.model.script' // find_created_uid
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_46012631034B_ME_45F6583E001F_impl find_created_uid
+
+MEREF ME_46012657032C_ME_45F6583E001F_impl
+ MELINK Original WL 'ME_46012657032C' '45F554750213.ms.model.script' // associate_node_with_uid
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_46012657032C_ME_45F6583E001F_impl associate_node_with_uid
+
+MEREF ME_4601267E0177_ME_45F6583E001F_impl
+ MELINK Original WL 'ME_4601267E0177' '45F554750213.ms.model.script' // disassociate_node_with_uid
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4601267E0177_ME_45F6583E001F_impl disassociate_node_with_uid
+
+MEREF ME_460127AC0157_ME_45F6583E001F_impl
+ MELINK Original WL 'ME_460127AC0157' '45F554750213.ms.model.script' // alloc_new_node
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_460127AC0157_ME_45F6583E001F_impl alloc_new_node
+
+MEREF ME_460127E400EA_ME_45F6583E001F_impl
+ MELINK Original WL 'ME_460127E400EA' '45F554750213.ms.model.script' // alloc_new_view
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_460127E400EA_ME_45F6583E001F_impl alloc_new_view
+
+MEREF ME_45F57B6C0128_ME_45F6583E001F_G
+ MELINK Original WL? 'ME_45F57B6C0128' // ViewBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45F57B6C0128_ME_45F6583E001F_G ViewBase
+
+%%InheritedBy ME_45F57B6C0128 ME_45F6583E001F
+
+ME ME_45F6583E001F
+ MEPROP UID '45F6583E001F'
+ MEPROP Name 'View'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_ParameterizedClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_45EEA4490239' // DynamicTree_i
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_45F57B6C0128_ME_45F6583E001F_G // ViewBase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_45F65B2F01B5 // make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_460125E60203_ME_45F6583E001F_impl // apply_created_node
+ ME_46012631034B_ME_45F6583E001F_impl // find_created_uid
+ ME_46012657032C_ME_45F6583E001F_impl // associate_node_with_uid
+ ME_4601267E0177_ME_45F6583E001F_impl // disassociate_node_with_uid
+ ME_460127AC0157_ME_45F6583E001F_impl // alloc_new_node
+ ME_460127E400EA_ME_45F6583E001F_impl // alloc_new_view
+ )
+ ; // Implemented
+ MELIST Parameters
+   Seq: ( ME_45F658550109 // NodeDelegateType_
+ )
+ ; // Parameters
+ MELIST Dependencies
+   Seq: ( ME_461D0D8F01E4 // 
+ ME_461D0E4E0242 // 
+ )
+ ; // Dependencies
+ UP "need UC" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DynamicTree_i\View.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\View.pas'
+
+ENDME // ME_45F6583E001F View

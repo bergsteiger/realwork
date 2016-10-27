@@ -1,0 +1,131 @@
+// TmsmModelLoader 57A9D6D90249 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57A9D6D90249
+
+FORWARD ME_57A9D6F8022B
+
+FORWARD ME_57A9D70B0279
+
+ME ME_57A9D713018D
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57A9D713018D aFileName
+
+ME ME_57A9D70B0279
+ MEPROP UID '57A9D70B0279'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A9D6F8022B // LoadFromFile
+ ;
+ MELINK Target WL 'ME_57A9F4D30086' '57A9F4A003C8.ms.model.script' // ImsmModelElement
+ ;
+ MELIST Parameters
+   Seq: ( ME_57A9D713018D // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_57A9D70B0279 DoIt
+
+ME ME_57A9D7770278
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57A9D6F8022B // LoadFromFile
+ ;
+ MELINK Target WL? 'ME_4DAEEA9E0049' // TtfwScriptEngine
+ ;
+
+ENDME // ME_57A9D7770278 
+
+ME ME_57CFC6F2003B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57A9D6F8022B // LoadFromFile
+ ;
+ MELINK Target WL? 'ME_57AA00BD022E' // TmsmModelElementMethodCaller
+ ;
+
+ENDME // ME_57CFC6F2003B 
+
+ME ME_57A9D6F8022B
+ MEPROP UID '57A9D6F8022B'
+ MEPROP Name 'LoadFromFile'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A9D6D90249 // TmsmModelLoader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57A9D70B0279 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57A9D7770278 // TtfwScriptEngine
+ ME_57CFC6F2003B // TmsmModelElementMethodCaller
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" True
+
+ENDME // ME_57A9D6F8022B LoadFromFile
+
+ME ME_57E3101D00E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57A9D6D90249 // TmsmModelLoader
+ ;
+ MELINK Target WL? 'ME_57A9F5170275' // TmsmModelElement
+ ;
+
+ENDME // ME_57E3101D00E6 
+
+ME ME_57EAB498025D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57A9D6D90249 // TmsmModelLoader
+ ;
+ MELINK Target WL? 'ME_57E538DB0262' // TmsmModelService
+ ;
+
+ENDME // ME_57EAB498025D 
+
+ME ME_57A9D6D90249
+ MEPROP UID '57A9D6D90249'
+ MEPROP Name 'TmsmModelLoader'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57A9D5CD0111' // ModelLoading
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57A9D6F8022B // LoadFromFile
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57E3101D00E6 // TmsmModelElement
+ ME_57EAB498025D // TmsmModelService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmModelLoader'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmModelLoader'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmModelLoader.pas'
+
+ENDME // ME_57A9D6D90249 TmsmModelLoader

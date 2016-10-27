@@ -9,13 +9,13 @@ MEDIAGRAMS ME_52FCABBD02EE_diagrams
   MELINK Original WL? 'ME_52FCABBD02EE' ; // Query
 
   MEVIEW ME_52FCABD0022E_view
-   MELINK Original WL 'ME_52FCABD0022E' '52FCABBD02EE.ms.model.script' ; // TSavedQuery
+   MELINK Original WL? 'ME_52FCABD0022E' ; // TSavedQuery
    MEPROP X 40
    MEPROP Y 40
   ENDMEVIEW // ME_52FCABD0022E_view
 
   MEVIEW ME_52FCAC0E0384_view
-   MELINK Original WL 'ME_52FCAC0E0384' '52FCABBD02EE.ms.model.script' ; // TQueryListPrim
+   MELINK Original WL? 'ME_52FCAC0E0384' ; // TQueryListPrim
    MEPROP X 200
    MEPROP Y 40
   ENDMEVIEW // ME_52FCAC0E0384_view
@@ -27,23 +27,16 @@ MEDIAGRAMS ME_52FCABBD02EE_diagrams
   ENDMEVIEW // ME_52FCB4700035_view
 
   MEVIEWLINK ME_52FCAC2B02FA_viewlink
-   MELINK Original WL 'ME_52FCAC2B02FA' '52FCABBD02EE.ms.model.script' ;
+   MELINK Original WL 'ME_52FCAC2B02FA' '52FCAC0E0384.ms.model.script' ;
    MELINK From ME_52FCAC0E0384_view ;
    MELINK To ME_52FCABD0022E_view ;
   ENDMEVIEWLINK // ME_52FCAC2B02FA_viewlink
-
-  MEVIEWLINK ME_52FCB4770122_viewlink
-   MELINK Original WL 'ME_52FCB4770122' '52FCB4700035.ms.model.script' ;
-   MELINK From ME_52FCB4700035_view ;
-   MELINK To ME_52FCAC0E0384_view ;
-  ENDMEVIEWLINK // ME_52FCB4770122_viewlink
 
   MELIST Views
    Seq: ( ME_52FCABD0022E_view // TSavedQuery
    ME_52FCAC0E0384_view // TQueryListPrim
    ME_52FCB4700035_view // DT_AskList
    ME_52FCAC2B02FA_viewlink // TQueryListPrim -> TSavedQuery
-   ME_52FCB4770122_viewlink // DT_AskList -> TQueryListPrim
    )
   ; // Views
  ENDMEDIAGRAM // ME_52FCABBD02EE_main

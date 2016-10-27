@@ -1,0 +1,80 @@
+// TtfwMainDictionary 55A0005D02CC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55A0005D02CC
+
+ME ME_55A4E85101BA
+ MEPROP UID '55A4E85101BA'
+ MEPROP Name 'CompiledCode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55A0005D02CC // TtfwMainDictionary
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_55A4E85101BA CompiledCode
+
+MEREF ME_479731C50290_ME_55A0005D02CC_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_55A0005D02CC_over Cleanup
+
+MEREF ME_55A3A1E7038F_ME_55A0005D02CC_over
+ MELINK Original WL 'ME_55A3A1E7038F' '559E8B2E0385.ms.model.script' // FindInUsedDictionary
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55A3A1E7038F_ME_55A0005D02CC_over FindInUsedDictionary
+
+MEREF ME_55A531FA016A_ME_55A0005D02CC_over
+ MELINK Original WL 'ME_55A531FA016A' '4DAEECD90016.ms.model.script' // IsMain
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55A531FA016A_ME_55A0005D02CC_over IsMain
+
+MEREF ME_559E8B2E0385_ME_55A0005D02CC_G
+ MELINK Original WL? 'ME_559E8B2E0385' // TtfwDictionaryEx
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_559E8B2E0385_ME_55A0005D02CC_G TtfwDictionaryEx
+
+%%InheritedBy ME_559E8B2E0385 ME_55A0005D02CC
+
+ME ME_55A0005D02CC
+ MEPROP UID '55A0005D02CC'
+ MEPROP Name 'TtfwMainDictionary'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F2275C00012' // ScriptingKeywordsCore
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_559E8B2E0385_ME_55A0005D02CC_G // TtfwDictionaryEx
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55A4E85101BA // CompiledCode
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_55A0005D02CC_over // Cleanup
+ ME_55A3A1E7038F_ME_55A0005D02CC_over // FindInUsedDictionary
+ ME_55A531FA016A_ME_55A0005D02CC_over // IsMain
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'tfwMainDictionary'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MainDictionary'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwMainDictionary.pas'
+
+ENDME // ME_55A0005D02CC TtfwMainDictionary

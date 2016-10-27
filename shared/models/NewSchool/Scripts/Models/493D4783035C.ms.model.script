@@ -2,11 +2,17 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-ME ME_49589999029F_ME_493D4783035C
+MEREF ME_49589999029F_ME_493D4783035C_over
  MELINK Original WL 'ME_49589999029F' '47EA20430108.ms.model.script' // DoGet_PreviewCaleeArea
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49589999029F_ME_493D4783035C DoGet_PreviewCaleeArea
+ENDMEREF // ME_49589999029F_ME_493D4783035C_over DoGet_PreviewCaleeArea
+
+MEREF ME_4958980300D5_ME_493D4783035C_G
+ MELINK Original WL? 'ME_4958980300D5' // TdsChildDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4958980300D5_ME_493D4783035C_G TdsChildDocument
 
 %%InheritedBy ME_4958980300D5 ME_493D4783035C
 
@@ -23,11 +29,11 @@ ME ME_493D4783035C
  MELINK Parent WL? 'ME_493D465902FA' // DocumentAndList
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4958980300D5' // TdsChildDocument
+   Seq: ( HWL ME_4958980300D5_ME_493D4783035C_G // TdsChildDocument
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_49589999029F_ME_493D4783035C // DoGet_PreviewCaleeArea
+   Seq: ( ME_49589999029F_ME_493D4783035C_over // DoGet_PreviewCaleeArea
  )
  ; // Overridden
  UP "author" 'Морозов М.А.'

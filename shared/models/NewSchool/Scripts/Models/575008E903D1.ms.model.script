@@ -1,0 +1,129 @@
+// ThtPriorityCalculator 575008E903D1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_575008E903D1
+
+ME ME_5750180302CA
+ MEPROP UID '5750180302CA'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_575008E903D1 // ThtPriorityCalculator
+ ;
+
+ENDME // ME_5750180302CA Create
+
+MEREF ME_5750180302CA_ME_5750181A03BE_G
+ MELINK Original HWL ME_5750180302CA // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5750180302CA_ME_5750181A03BE_G Create
+
+MEREF ME_574FFFCF0148_ME_5750181A03BE_R
+ MELINK Original WL 'ME_574FFFCF0148' '5432518A0316.ms.model.script' // IdaPriorityCalculator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_574FFFCF0148_ME_5750181A03BE_R IdaPriorityCalculator
+
+%%ImplementedBy ME_574FFFCF0148 ME_5750181A03BE
+
+%%InheritedBy ME_5750180302CA ME_5750181A03BE
+
+ME ME_5750181A03BE
+ MEPROP UID '5750181A03BE'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_575008E903D1 // ThtPriorityCalculator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5750180302CA_ME_5750181A03BE_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_574FFFCF0148_ME_5750181A03BE_R // IdaPriorityCalculator
+ )
+ ; // Implements
+
+ENDME // ME_5750181A03BE Make
+
+ME ME_57501855004F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_575008E903D1 // ThtPriorityCalculator
+ ;
+ MELINK Target WL? 'ME_53CD0E83039E' // dt_User
+ ;
+
+ENDME // ME_57501855004F 
+
+MEREF ME_575000000164_ME_575008E903D1_impl
+ MELINK Original WL 'ME_575000000164' '5432518A0316.ms.model.script' // Calc
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_575000000164_ME_575008E903D1_impl Calc
+
+MEREF ME_49E7754802A9_ME_575008E903D1_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_575008E903D1_G Tl3ProtoObject
+
+MEREF ME_574FFFCF0148_ME_575008E903D1_R
+ MELINK Original WL 'ME_574FFFCF0148' '5432518A0316.ms.model.script' // IdaPriorityCalculator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_574FFFCF0148_ME_575008E903D1_R IdaPriorityCalculator
+
+%%ImplementedBy ME_574FFFCF0148 ME_575008E903D1
+
+%%InheritedBy ME_49E7754802A9 ME_575008E903D1
+
+ME ME_575008E903D1
+ MEPROP UID '575008E903D1'
+ MEPROP Name 'ThtPriorityCalculator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F9AF550087' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_575008E903D1_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_574FFFCF0148_ME_575008E903D1_R // IdaPriorityCalculator
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_5750180302CA // Create
+ HWL ME_5750181A03BE // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_575000000164_ME_575008E903D1_impl // Calc
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_57501855004F // dt_User
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'htPriorityCalculator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'htPriorityCalculator'
+ UP intf.pas:Path 'common\components\rtl\Garant\HT\htPriorityCalculator.pas'
+
+ENDME // ME_575008E903D1 ThtPriorityCalculator

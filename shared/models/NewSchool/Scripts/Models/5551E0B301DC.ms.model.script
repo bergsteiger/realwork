@@ -1,0 +1,93 @@
+// TdaSelectFieldListPrim 5551E0B301DC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5551E0B301DC
+
+ME ME_5551E0CB035B
+ MEPROP UID '5551E0CB035B'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5551E0B301DC // TdaSelectFieldListPrim
+ ;
+ MELINK Target WL 'ME_5551DC0F012D' '5432518A0316.ms.model.script' // IdaSelectField
+ ;
+
+ENDME // ME_5551E0CB035B ItemType
+
+MEREF ME_47B07CF403D0_ME_5551E0B301DC_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_5551E0B301DC_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_5551E0B301DC_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_5551E0B301DC_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_5551E0B301DC_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_5551E0B301DC_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_5551E0B301DC_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_5551E0B301DC_G Tl3ProtoDataContainer
+
+MEREF ME_47B9AF6E0228_ME_5551E0B301DC_R
+ MELINK Original WL? 'ME_47B9AF6E0228' // l3InterfaceRefListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B9AF6E0228_ME_5551E0B301DC_R l3InterfaceRefListPrim
+
+%%ImplementedBy ME_47B9AF6E0228 ME_5551E0B301DC
+
+%%InheritedBy ME_4A54DD4E036F ME_5551E0B301DC
+
+ME ME_5551E0B301DC
+ MEPROP UID '5551E0B301DC'
+ MEPROP Name 'TdaSelectFieldListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F85B2500FB' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_5551E0B301DC_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B9AF6E0228_ME_5551E0B301DC_R // l3InterfaceRefListPrim
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5551E0CB035B // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_5551E0B301DC_impl // IsSameItems
+ ME_47B2C42A0163_ME_5551E0B301DC_impl // AssignItem
+ ME_47B99D4503A2_ME_5551E0B301DC_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'daSelectFieldListPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'daSelectFieldListPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daSelectFieldListPrim.pas'
+
+ENDME // ME_5551E0B301DC TdaSelectFieldListPrim

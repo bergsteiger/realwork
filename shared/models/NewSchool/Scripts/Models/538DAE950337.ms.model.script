@@ -6,44 +6,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_544A218703D0
 %%Inner ME_5405C40303D9
 
-FORWARD ME_538DAE950337
-
-ME ME_538DAED40203
- MEPROP UID '538DAED40203'
- MEPROP Name 'TIdIOHandler'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_538DAE950337 // Core
- ;
- UP "finished" False
- UP extprop:pas:UnitName 'IdIOHandler'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'IdIOHandler'
- UP intf.pas:Path 'common\components\rtl\external\Indy\Source\Core\NOT_FINISHED_IdIOHandler.pas'
-
-ENDME // ME_538DAED40203 TIdIOHandler
-
-ME ME_544A218703D0
- MEPROP UID '544A218703D0'
- MEPROP Name 'TidTCPClient'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_538DAE950337 // Core
- ;
- UP "finished" False
- UP extprop:pas:UnitName 'idTCPClient'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'idTCPClient'
- UP intf.pas:Path 'common\components\rtl\external\Indy\Source\Core\NOT_FINISHED_idTCPClient.pas'
-
-ENDME // ME_544A218703D0 TidTCPClient
-
 ME ME_538DAE950337
  MEPROP UID '538DAE950337'
  MEPROP Name 'Core'
@@ -55,8 +17,8 @@ ME ME_538DAE950337
  MELINK Parent WL? 'ME_537F460C034E' // Indy
  ;
  MELIST Children
-   Seq: ( HWL ME_538DAED40203 // TIdIOHandler
- HWL ME_544A218703D0 // TidTCPClient
+   Seq: ( WL? 'ME_538DAED40203' // TIdIOHandler
+ WL? 'ME_544A218703D0' // TidTCPClient
  WL? 'ME_5405C40303D9' // IdAssignedNumbers
  )
  ; // Children

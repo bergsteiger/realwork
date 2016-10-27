@@ -1,0 +1,59 @@
+// TBadEVDTest 53BC0D3900DF TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53BC0D3900DF
+
+ME ME_53BC0E010210
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BC0D3900DF // TBadEVDTest
+ ;
+ MELINK Target WL? 'ME_53BC0D790357' // TevdBadEVDToEmptyDocumentTranslator
+ ;
+
+ENDME // ME_53BC0E010210 
+
+MEREF ME_4C07BCBE01F2_ME_53BC0D3900DF_over
+ MELINK Original WL 'ME_4C07BCBE01F2' '4BACDDB500CE.ms.model.script' // SetFilters
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C07BCBE01F2_ME_53BC0D3900DF_over SetFilters
+
+MEREF ME_4C07B5E300F2_ME_53BC0D3900DF_G
+ MELINK Original WL? 'ME_4C07B5E300F2' // EVDtoEVDWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C07B5E300F2_ME_53BC0D3900DF_G EVDtoEVDWriterTest
+
+%%InheritedBy ME_4C07B5E300F2 ME_53BC0D3900DF
+
+ME ME_53BC0D3900DF
+ MEPROP UID '53BC0D3900DF'
+ MEPROP Name 'TBadEVDTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_53BC0D22010F' // BadEVD
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C07B5E300F2_ME_53BC0D3900DF_G // EVDtoEVDWriterTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C07BCBE01F2_ME_53BC0D3900DF_over // SetFilters
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53BC0E010210 // TevdBadEVDToEmptyDocumentTranslator
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'BadEVDTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BadEVDTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\BadEVDTest.pas'
+
+ENDME // ME_53BC0D3900DF TBadEVDTest

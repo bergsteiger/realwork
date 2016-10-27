@@ -9,16 +9,34 @@ ME ME_4F54700F00D2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F546FD3028F // ucpHAFMacroReplacerFactory
  ;
- MELINK Target WL 'ME_4958968201A7' '47EA50050263.ms.model.script' // TnsDocInfoHAFMacroReplacer
+ MELINK Target WL? 'ME_4958968201A7' // TnsDocInfoHAFMacroReplacer
  ;
 
 ENDME // ME_4F54700F00D2 
 
-ME ME_4AE56DE80093_ME_4F546FD3028F
+MEREF ME_4AE56DE80093_ME_4F546FD3028F_impl
  MELINK Original WL 'ME_4AE56DE80093' '491B305A0096.ms.model.script' // MakeHAFMacroReplacer
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4AE56DE80093_ME_4F546FD3028F MakeHAFMacroReplacer
+ENDMEREF // ME_4AE56DE80093_ME_4F546FD3028F_impl MakeHAFMacroReplacer
+
+MEREF ME_4F54899502EA_ME_4F546FD3028F_G
+ MELINK Original WL? 'ME_4F54899502EA' // deDocInfoProvider
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F54899502EA_ME_4F546FD3028F_G deDocInfoProvider
+
+MEREF ME_4AE56DB003D5_ME_4F546FD3028F_R
+ MELINK Original WL 'ME_4AE56DB003D5' '491B305A0096.ms.model.script' // IucpHAFMacroReplacerFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE56DB003D5_ME_4F546FD3028F_R IucpHAFMacroReplacerFactory
+
+MEREF ME_4F5470CE00CD_ME_4F546FD3028F_R
+ MELINK Original WL 'ME_4F5470CE00CD' '48200CF8039E.ms.model.script' // ¬ колонтитулах должны уметь отображатьс€ им€ документа и дата редакции
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F5470CE00CD_ME_4F546FD3028F_R ¬ колонтитулах должны уметь отображатьс€ им€ документа и дата редакции
 
 %%ImplementedBy ME_4AE56DB003D5 ME_4F546FD3028F
 %%ImplementedBy ME_4F5470CE00CD ME_4F546FD3028F
@@ -37,16 +55,16 @@ ME ME_4F546FD3028F
  MELINK Parent WL? 'ME_4F546F810266' // HAF
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4F54899502EA' // deDocInfoProvider
+   Seq: ( HWL ME_4F54899502EA_ME_4F546FD3028F_G // deDocInfoProvider
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4AE56DB003D5' '491B305A0096.ms.model.script' // IucpHAFMacroReplacerFactory
- WL 'ME_4F5470CE00CD' '48200CF8039E.ms.model.script' // ¬ колонтитулах должны уметь отображатьс€ им€ документа и дата редакции
+   Seq: ( HWL ME_4AE56DB003D5_ME_4F546FD3028F_R // IucpHAFMacroReplacerFactory
+ HWL ME_4F5470CE00CD_ME_4F546FD3028F_R // ¬ колонтитулах должны уметь отображатьс€ им€ документа и дата редакции
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_4AE56DE80093_ME_4F546FD3028F // MakeHAFMacroReplacer
+   Seq: ( ME_4AE56DE80093_ME_4F546FD3028F_impl // MakeHAFMacroReplacer
  )
  ; // Implemented
  MELIST Dependencies

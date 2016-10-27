@@ -61,11 +61,17 @@ ME ME_4958F4BE0356
 
 ENDME // ME_4958F4BE0356 
 
-ME ME_4914443E0326_ME_4958F42B0205
+MEREF ME_4914443E0326_ME_4958F42B0205_impl
  MELINK Original WL 'ME_4914443E0326' '47ECAAF901F8.ms.model.script' // StartEdit
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4914443E0326_ME_4958F42B0205 StartEdit
+ENDMEREF // ME_4914443E0326_ME_4958F42B0205_impl StartEdit
+
+MEREF ME_49144428028D_ME_4958F42B0205_R
+ MELINK Original WL 'ME_49144428028D' '47ECAAF901F8.ms.model.script' // InsUserSettingsEditListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49144428028D_ME_4958F42B0205_R InsUserSettingsEditListener
 
 %%ImplementedBy ME_49144428028D ME_4958F42B0205
 
@@ -82,7 +88,7 @@ ME ME_4958F42B0205
  MELINK Parent WL? 'ME_48F747EC0073' // Common
  ;
  MELIST Implements
-   Seq: ( WL 'ME_49144428028D' '47ECAAF901F8.ms.model.script' // InsUserSettingsEditListener
+   Seq: ( HWL ME_49144428028D_ME_4958F42B0205_R // InsUserSettingsEditListener
  )
  ; // Implements
  MELIST Operations
@@ -92,7 +98,7 @@ ME ME_4958F42B0205
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4914443E0326_ME_4958F42B0205 // StartEdit
+   Seq: ( ME_4914443E0326_ME_4958F42B0205_impl // StartEdit
  )
  ; // Implemented
  MELIST Dependencies

@@ -1,0 +1,60 @@
+// TnsBaseSearchPromptTree 4906D9DE02FA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4906D9DE02FA
+
+ME ME_4906DA290069
+ MEPROP UID '4906DA290069'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'Создаёт дерево подсказок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4906D9DE02FA // TnsBaseSearchPromptTree
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_4906DA290069 Make
+
+MEREF ME_4906D1790319_ME_4906D9DE02FA_G
+ MELINK Original WL? 'ME_4906D1790319' // TnsBaseSearchPromptTreeBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4906D1790319_ME_4906D9DE02FA_G TnsBaseSearchPromptTreeBase
+
+%%InheritedBy ME_4906D1790319 ME_4906D9DE02FA
+
+ME ME_4906D9DE02FA
+ MEPROP UID '4906D9DE02FA'
+ MEPROP Name 'TnsBaseSearchPromptTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дерево подсказок. Синглетон' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4ACF3E400050' // BaseSearch
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4906D1790319_ME_4906D9DE02FA_G // TnsBaseSearchPromptTreeBase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4906DA290069 // Make
+ )
+ ; // Operations
+ UP "author" 'Лукьянец Р.В.'
+ UP "ifndef" 'Admin,Monitorings'
+ UP "no hands" True
+ UP "singleton" True
+ UP "started" '2008/06/25 08:04:46'
+ UP extprop:pas:UnitName 'nsBaseSearchPromptTree'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BaseSearchPromptTree'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsBaseSearchPromptTree.pas'
+
+ENDME // ME_4906D9DE02FA TnsBaseSearchPromptTree

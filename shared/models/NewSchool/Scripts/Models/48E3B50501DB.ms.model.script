@@ -1,0 +1,503 @@
+// TevMultiSelection 48E3B50501DB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48E3B50501DB
+
+ME ME_48E3B5860366
+ MEPROP UID '48E3B5860366'
+ MEPROP Name 'f_Selected'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELINK Target WL? 'ME_47E26A16008E' // TnevRangeList
+ ;
+
+ENDME // ME_48E3B5860366 f_Selected
+
+ME ME_48E3B58D0119
+ MEPROP UID '48E3B58D0119'
+ MEPROP Name 'f_SelectedCopy'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELINK Target WL? 'ME_47E26A16008E' // TnevRangeList
+ ;
+
+ENDME // ME_48E3B58D0119 f_SelectedCopy
+
+ME ME_48E3B59C0174
+ MEPROP UID '48E3B59C0174'
+ MEPROP Name 'f_NeedUnselect'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48E3B59C0174 f_NeedUnselect
+
+ME ME_48E3B7C70192
+ MEPROP UID '48E3B7C70192'
+ MEPROP Name 'AllowMultiSelect'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_48E3B7C70192 AllowMultiSelect
+
+ME ME_4C7E1177038E
+ MEPROP UID '4C7E1177038E'
+ MEPROP Name 'f_WasProcess'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C7E1177038E f_WasProcess
+
+ME ME_4D398B4D0111
+ MEPROP UID '4D398B4D0111'
+ MEPROP Name 'f_HeadPoint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4D398B4D0111 f_HeadPoint
+
+FORWARD ME_48E3B5A602F3
+
+ME ME_48E3B5AB00BB
+ MEPROP Name 'aSelection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_47E26A16008E' // TnevRangeList
+ ;
+
+ENDME // ME_48E3B5AB00BB aSelection
+
+ME ME_48E3B5A602F3
+ MEPROP UID '48E3B5A602F3'
+ MEPROP Name 'MakeSelectionCopy'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELINK Target WL? 'ME_47E26A16008E' // TnevRangeList
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E3B5AB00BB // aSelection
+ )
+ ; // Parameters
+
+ENDME // ME_48E3B5A602F3 MakeSelectionCopy
+
+ME ME_48E3B5B3009C
+ MEPROP UID '48E3B5B3009C'
+ MEPROP Name 'CheckSelectedList'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+
+ENDME // ME_48E3B5B3009C CheckSelectedList
+
+FORWARD ME_48E3B5CE0397
+
+ME ME_48E3B5D1036B
+ MEPROP Name 'aNeedUnselect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48E3B5D1036B aNeedUnselect
+
+ME ME_48E3B5CE0397
+ MEPROP UID '48E3B5CE0397'
+ MEPROP Name 'SelectionStart'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E3B5D1036B // aNeedUnselect
+ )
+ ; // Parameters
+
+ENDME // ME_48E3B5CE0397 SelectionStart
+
+FORWARD ME_48E3B5DA031E
+
+ME ME_48E3B5EC01B1
+ MEPROP Name 'aStart'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B56900DA' '47C5207602D1.ms.model.script' // InevPoint
+ ;
+
+ENDME // ME_48E3B5EC01B1 aStart
+
+ME ME_48E3B5EC01E7
+ MEPROP Name 'aFinish'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B56900DA' '47C5207602D1.ms.model.script' // InevPoint
+ ;
+
+ENDME // ME_48E3B5EC01E7 aFinish
+
+ME ME_48E3B5DA031E
+ MEPROP UID '48E3B5DA031E'
+ MEPROP Name 'SelectionProcess'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E3B5EC01B1 // aStart
+ ME_48E3B5EC01E7 // aFinish
+ )
+ ; // Parameters
+
+ENDME // ME_48E3B5DA031E SelectionProcess
+
+FORWARD ME_48E3B5F4039A
+
+ME ME_48E3B60D0183
+ MEPROP Name 'aStart'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B56900DA' '47C5207602D1.ms.model.script' // InevPoint
+ ;
+
+ENDME // ME_48E3B60D0183 aStart
+
+ME ME_48E3B60D01BC
+ MEPROP Name 'aFinish'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B56900DA' '47C5207602D1.ms.model.script' // InevPoint
+ ;
+
+ENDME // ME_48E3B60D01BC aFinish
+
+ME ME_48E3B60D01F4
+ MEPROP Name 'aNeedUnselect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48E3B60D01F4 aNeedUnselect
+
+ME ME_48E3B5F4039A
+ MEPROP UID '48E3B5F4039A'
+ MEPROP Name 'SelectionFinish'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E3B60D0183 // aStart
+ ME_48E3B60D01BC // aFinish
+ ME_48E3B60D01F4 // aNeedUnselect
+ )
+ ; // Parameters
+
+ENDME // ME_48E3B5F4039A SelectionFinish
+
+FORWARD ME_4A2617E5004E
+
+ME ME_4A26182500B3
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4A26182500B3 aView
+
+ME ME_4A2618250101
+ MEPROP Name 'aSource'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
+ ;
+
+ENDME // ME_4A2618250101 aSource
+
+ME ME_4A2617E5004E
+ MEPROP UID '4A2617E5004E'
+ MEPROP Name 'DoAssignSelByRecursion'
+ MEPROP Class class_Operation
+ %SUMMARY 'Рекурсивно разобрать выделение на мультиблоки' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A26182500B3 // aView
+ ME_4A2618250101 // aSource
+ )
+ ; // Parameters
+
+ENDME // ME_4A2617E5004E DoAssignSelByRecursion
+
+ME ME_48E3B6BA0332
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_48E3B6BA0332 
+
+ME ME_48E3B858039B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELINK Target WL? 'ME_48E3B83B0187' // TevMultiSelectionBlock
+ ;
+
+ENDME // ME_48E3B858039B 
+
+ME ME_48E3BA120030
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELINK Target WL 'ME_476127E40065' '4678193C009C.ms.model.script' // PIUnknown
+ ;
+
+ENDME // ME_48E3BA120030 
+
+ME ME_48E3BAA00142
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELINK Target WL? 'ME_47A066980016' // l3MinMax
+ ;
+
+ENDME // ME_48E3BAA00142 
+
+ME ME_48E3BB3E0301
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELINK Target WL 'ME_47ECAB310336' '47ECAB0B0265.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_48E3BB3E0301 
+
+ME ME_4A24C4C503B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELINK Target WL? 'ME_4A23BAEF006A' // nevRangeListTools
+ ;
+
+ENDME // ME_4A24C4C503B7 
+
+ME ME_4A2502B40307
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELINK Target WL? 'ME_47D00CC20108' // nevFacade
+ ;
+
+ENDME // ME_4A2502B40307 
+
+ME ME_4C7E108B01C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E3B50501DB // TevMultiSelection
+ ;
+ MELINK Target WL? 'ME_4C3849220132' // evTableCellUtils
+ ;
+
+ENDME // ME_4C7E108B01C0 
+
+MEREF ME_479731C50290_ME_48E3B50501DB_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_48E3B50501DB_over Cleanup
+
+MEREF ME_48E252D40298_ME_48E3B50501DB_over
+ MELINK Original WL 'ME_48E252D40298' '487B5D2D004E.ms.model.script' // DoGetBlock
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E252D40298_ME_48E3B50501DB_over DoGetBlock
+
+MEREF ME_48E271320180_ME_48E3B50501DB_over
+ MELINK Original WL 'ME_48E271320180' '487B5D2D004E.ms.model.script' // GetIsMulti
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E271320180_ME_48E3B50501DB_over GetIsMulti
+
+MEREF ME_48E2719C019C_ME_48E3B50501DB_over
+ MELINK Original WL 'ME_48E2719C019C' '487B5D2D004E.ms.model.script' // DoAddBlock
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E2719C019C_ME_48E3B50501DB_over DoAddBlock
+
+MEREF ME_48E271FC0130_ME_48E3B50501DB_over
+ MELINK Original WL 'ME_48E271FC0130' '487B5D2D004E.ms.model.script' // GetContains
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E271FC0130_ME_48E3B50501DB_over GetContains
+
+MEREF ME_48E274CF007B_ME_48E3B50501DB_over
+ MELINK Original WL 'ME_48E274CF007B' '487B5D2D004E.ms.model.script' // DoAssignSel
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E274CF007B_ME_48E3B50501DB_over DoAssignSel
+
+MEREF ME_48E276B10286_ME_48E3B50501DB_over
+ MELINK Original WL 'ME_48E276B10286' '487B5D2D004E.ms.model.script' // DoSetDocument
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E276B10286_ME_48E3B50501DB_over DoSetDocument
+
+MEREF ME_48E2771B024F_ME_48E3B50501DB_over
+ MELINK Original WL 'ME_48E2771B024F' '487B5D2D004E.ms.model.script' // DoUnselect
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E2771B024F_ME_48E3B50501DB_over DoUnselect
+
+MEREF ME_48E3723E0107_ME_48E3B50501DB_over
+ MELINK Original WL 'ME_48E3723E0107' '487B5D7202DC.ms.model.script' // Collapsed
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" False
+ UP "pm" True
+ENDMEREF // ME_48E3723E0107_ME_48E3B50501DB_over Collapsed
+
+MEREF ME_48E3A6260063_ME_48E3B50501DB_over
+ MELINK Original WL 'ME_48E3A6260063' '487B5DD202DF.ms.model.script' // Select
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E3A6260063_ME_48E3B50501DB_over Select
+
+MEREF ME_4D9476CA029F_ME_48E3B50501DB_over
+ MELINK Original WL 'ME_4D9476CA029F' '487B5D2D004E.ms.model.script' // ForceStore
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D9476CA029F_ME_48E3B50501DB_over ForceStore
+
+MEREF ME_487B5DD202DF_ME_48E3B50501DB_G
+ MELINK Original WL? 'ME_487B5DD202DF' // TnevSelection
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_487B5DD202DF_ME_48E3B50501DB_G TnevSelection
+
+%%InheritedBy ME_487B5DD202DF ME_48E3B50501DB
+
+ME ME_48E3B50501DB
+ MEPROP UID '48E3B50501DB'
+ MEPROP Name 'TevMultiSelection'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4829D7D50156' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_487B5DD202DF_ME_48E3B50501DB_G // TnevSelection
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48E3B5860366 // f_Selected
+ HWL ME_48E3B58D0119 // f_SelectedCopy
+ HWL ME_48E3B59C0174 // f_NeedUnselect
+ HWL ME_48E3B7C70192 // AllowMultiSelect
+ HWL ME_4C7E1177038E // f_WasProcess
+ HWL ME_4D398B4D0111 // f_HeadPoint
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48E3B5A602F3 // MakeSelectionCopy
+ HWL ME_48E3B5B3009C // CheckSelectedList
+ HWL ME_48E3B5CE0397 // SelectionStart
+ HWL ME_48E3B5DA031E // SelectionProcess
+ HWL ME_48E3B5F4039A // SelectionFinish
+ HWL ME_4A2617E5004E // DoAssignSelByRecursion
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48E3B50501DB_over // Cleanup
+ ME_48E252D40298_ME_48E3B50501DB_over // DoGetBlock
+ ME_48E271320180_ME_48E3B50501DB_over // GetIsMulti
+ ME_48E2719C019C_ME_48E3B50501DB_over // DoAddBlock
+ ME_48E271FC0130_ME_48E3B50501DB_over // GetContains
+ ME_48E274CF007B_ME_48E3B50501DB_over // DoAssignSel
+ ME_48E276B10286_ME_48E3B50501DB_over // DoSetDocument
+ ME_48E2771B024F_ME_48E3B50501DB_over // DoUnselect
+ ME_48E3723E0107_ME_48E3B50501DB_over // Collapsed
+ ME_48E3A6260063_ME_48E3B50501DB_over // Select
+ ME_4D9476CA029F_ME_48E3B50501DB_over // ForceStore
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48E3B6BA0332 // l3Base
+ ME_48E3B858039B // TevMultiSelectionBlock
+ ME_48E3BA120030 // PIUnknown
+ ME_48E3BAA00142 // l3MinMax
+ ME_48E3BB3E0301 // Msg Codes
+ ME_4A24C4C503B7 // nevRangeListTools
+ ME_4A2502B40307 // nevFacade
+ ME_4C7E108B01C0 // evTableCellUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '10.01.2004 17:50'
+ UP extprop:pas:UnitName 'evMultiSelection'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MultiSelection'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evMultiSelection.pas'
+
+ENDME // ME_48E3B50501DB TevMultiSelection

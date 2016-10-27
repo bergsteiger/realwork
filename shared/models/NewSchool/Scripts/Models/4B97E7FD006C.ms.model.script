@@ -11,50 +11,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_515DA5860015
 %%Inner ME_515DC39E020D
 
-FORWARD ME_4B97E7FD006C
-
-FORWARD ME_515DC39E020D
-
-ME ME_515DC3C003CA
- MEPROP UID '515DC3C003CA'
- MEPROP Name 'TvtCustomTreeSource'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_515DC39E020D // TvtTreeSource
- ;
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'TreeSource'
-
-ENDME // ME_515DC3C003CA TvtCustomTreeSource
-
-ME ME_515DC39E020D
- MEPROP UID '515DC39E020D'
- MEPROP Name 'TvtTreeSource'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4B97E7FD006C // Outliner
- ;
- MELIST Children
-   Seq: ( HWL ME_515DC3C003CA // TvtCustomTreeSource
- )
- ; // Children
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP "finished" False
- UP extprop:pas:UnitName 'vtTreeSource'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'TreeSource'
- UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtTreeSource.pas'
-
-ENDME // ME_515DC39E020D TvtTreeSource
-
 ME ME_4B97E7FD006C
  MEPROP UID '4B97E7FD006C'
  MEPROP Name 'Outliner'
@@ -73,7 +29,7 @@ ME ME_4B97E7FD006C
  WL? 'ME_4B97E8130272' // TvtOutlinerWithDragDrop
  WL? 'ME_4D46A125003A' // TvtOutlinerControl
  WL? 'ME_515DA5860015' // TvtOutliner
- HWL ME_515DC39E020D // TvtTreeSource
+ WL? 'ME_515DC39E020D' // TvtTreeSource
  )
  ; // Children
  MELIST Depends

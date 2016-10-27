@@ -1,0 +1,107 @@
+// WevFont 484CEEC803AD Wrapper Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_484CEEC803AD
+
+ME ME_484CF18400BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484CEEC803AD // WevFont
+ ;
+ MELINK Target WL 'ME_47E120930217' '47D15712022D.ms.model.script' // TFont
+ ;
+
+ENDME // ME_484CF18400BF 
+
+ME ME_484CF1AB03A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484CEEC803AD // WevFont
+ ;
+ MELINK Target WL 'ME_533C138F0003' '4678137501EA.ms.model.script' // Ik2Tag
+ ;
+
+ENDME // ME_484CF1AB03A0 
+
+ME ME_484D00C802F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484CEEC803AD // WevFont
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_484D00C802F2 
+
+ME ME_5348148F0002
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484CEEC803AD // WevFont
+ ;
+ MELINK Target WL 'ME_484CE9CE0107' '52669BFC024E.ms.model.script' // FontName
+ ;
+
+ENDME // ME_5348148F0002 
+
+MEREF ME_484CEAD301AE_ME_484CEEC803AD_over
+ MELINK Original WL 'ME_484CEAD301AE' '47AC6F0B025E.ms.model.script' // ObjToTag
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_484CEAD301AE_ME_484CEEC803AD_over ObjToTag
+
+MEREF ME_484941DA0047_ME_484CEEC803AD_G
+ MELINK Original WL? 'ME_484941DA0047' // Wk2Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484941DA0047_ME_484CEEC803AD_G Wk2Tag
+
+MEREF ME_484CEE9A0170_ME_484CEEC803AD_R
+ MELINK Original WL 'ME_484CEE9A0170' '484A470100DD.ms.model.script' // Font
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484CEE9A0170_ME_484CEEC803AD_R Font
+
+%%ImplementedBy ME_484CEE9A0170 ME_484CEEC803AD
+
+%%InheritedBy ME_484941DA0047 ME_484CEEC803AD
+
+ME ME_484CEEC803AD
+ MEPROP UID '484CEEC803AD'
+ MEPROP Name 'WevFont'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Wrapper ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Îá¸ðòêà øðèôòà.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_484A470100DD' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484941DA0047_ME_484CEEC803AD_G // Wk2Tag
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_484CEE9A0170_ME_484CEEC803AD_R // Font
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_484CEAD301AE_ME_484CEEC803AD_over // ObjToTag
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_484CF18400BF // TFont
+ ME_484CF1AB03A0 // Ik2Tag
+ ME_484D00C802F2 // Tk2TagID
+ ME_5348148F0002 // FontName
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'evFont_Wrap'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evFont_Wrap.pas'
+
+ENDME // ME_484CEEC803AD WevFont

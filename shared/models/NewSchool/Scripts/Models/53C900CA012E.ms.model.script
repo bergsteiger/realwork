@@ -159,7 +159,7 @@ ENDME // ME_53CCFD3F01C3 DoIt
 ME ME_53CCF6F70264
  MEPROP UID '53CCF6F70264'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -253,11 +253,17 @@ ME ME_53CD018F0044
 
 ENDME // ME_53CD018F0044 
 
-ME ME_4911B69E037D_ME_53C9011903D6
+MEREF ME_4911B69E037D_ME_53C9011903D6_impl
  MELINK Original WL 'ME_4911B69E037D' '4773D64E036C.ms.model.script' // DoExecute
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4911B69E037D_ME_53C9011903D6 DoExecute
+ENDMEREF // ME_4911B69E037D_ME_53C9011903D6_impl DoExecute
+
+MEREF ME_4911B24C01F6_ME_53C9011903D6_G
+ MELINK Original WL 'ME_4911B24C01F6' '4773D64E036C.ms.model.script' // Tl3ThreadContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4911B24C01F6_ME_53C9011903D6_G Tl3ThreadContainer
 
 %%InheritedBy ME_4911B24C01F6 ME_53C9011903D6
 
@@ -272,7 +278,7 @@ ME ME_53C9011903D6
  MELINK Parent HWL ME_53C900CA012E // alcuAsyncSubmitter
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4911B24C01F6' '4773D64E036C.ms.model.script' // Tl3ThreadContainer
+   Seq: ( HWL ME_4911B24C01F6_ME_53C9011903D6_G // Tl3ThreadContainer
  )
  ; // Inherits
  MELIST Attributes
@@ -291,7 +297,7 @@ ME ME_53C9011903D6
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4911B69E037D_ME_53C9011903D6 // DoExecute
+   Seq: ( ME_4911B69E037D_ME_53C9011903D6_impl // DoExecute
  )
  ; // Implemented
  MELIST Dependencies
@@ -404,7 +410,7 @@ ME ME_53D0E85802A9
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
  ;
- MELINK Target WL 'ME_53D0E3330308' '53C900150015.ms.model.script' // TalcuAsyncTaskFinishedNotifierList
+ MELINK Target WL? 'ME_53D0E3330308' // TalcuAsyncTaskFinishedNotifierList
  ;
 
 ENDME // ME_53D0E85802A9 f_FinishNotifierList
@@ -492,7 +498,7 @@ ENDME // ME_53CCFD5A0397 DoIt
 ME ME_53CCF726039A
  MEPROP UID '53CCF726039A'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -707,17 +713,29 @@ ME ME_55BF2FDB0252
 
 ENDME // ME_55BF2FDB0252 
 
-ME ME_53CF5E600196_ME_53C92B390005
+MEREF ME_53CF5E600196_ME_53C92B390005_impl
  MELINK Original WL 'ME_53CF5E600196' '52F8C2AE0042.ms.model.script' // ProcessAbort
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_53CF5E600196_ME_53C92B390005 ProcessAbort
+ENDMEREF // ME_53CF5E600196_ME_53C92B390005_impl ProcessAbort
 
-ME ME_479731C50290_ME_53C92B390005
+MEREF ME_479731C50290_ME_53C92B390005_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_53C92B390005 Cleanup
+ENDMEREF // ME_479731C50290_ME_53C92B390005_over Cleanup
+
+MEREF ME_49E7754802A9_ME_53C92B390005_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_53C92B390005_G Tl3ProtoObject
+
+MEREF ME_53CF5DC300E7_ME_53C92B390005_R
+ MELINK Original WL 'ME_53CF5DC300E7' '52F8C2AE0042.ms.model.script' // IcsExternalTaskAbortProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53CF5DC300E7_ME_53C92B390005_R IcsExternalTaskAbortProcessor
 
 %%ImplementedBy ME_53CF5DC300E7 ME_53C92B390005
 
@@ -734,11 +752,11 @@ ME ME_53C92B390005
  MELINK Parent HWL ME_53C900CA012E // alcuAsyncSubmitter
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( HWL ME_49E7754802A9_ME_53C92B390005_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_53CF5DC300E7' '52F8C2AE0042.ms.model.script' // IcsExternalTaskAbortProcessor
+   Seq: ( HWL ME_53CF5DC300E7_ME_53C92B390005_R // IcsExternalTaskAbortProcessor
  )
  ; // Implements
  MELIST Attributes
@@ -765,11 +783,11 @@ ME ME_53C92B390005
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_53CF5E600196_ME_53C92B390005 // ProcessAbort
+   Seq: ( ME_53CF5E600196_ME_53C92B390005_impl // ProcessAbort
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_53C92B390005 // Cleanup
+   Seq: ( ME_479731C50290_ME_53C92B390005_over // Cleanup
  )
  ; // Overridden
  MELIST Dependencies
@@ -787,6 +805,12 @@ ME ME_53C92B390005
 
 ENDME // ME_53C92B390005 TalcuSubmitterWorkThread
 
+MEREF ME_53C92B390005_ME_53CE37400077_G
+ MELINK Original HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53C92B390005_ME_53CE37400077_G TalcuSubmitterWorkThread
+
 %%InheritedBy ME_53C92B390005 ME_53CE37400077
 
 ME ME_53CE37400077
@@ -800,7 +824,7 @@ ME ME_53CE37400077
  MELINK Parent HWL ME_53C900CA012E // alcuAsyncSubmitter
  ;
  MELIST Inherits
-   Seq: ( HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+   Seq: ( HWL ME_53C92B390005_ME_53CE37400077_G // TalcuSubmitterWorkThread
  )
  ; // Inherits
  UP "isPointer" True

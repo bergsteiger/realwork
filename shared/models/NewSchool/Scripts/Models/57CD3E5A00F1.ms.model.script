@@ -1,0 +1,67 @@
+// TmsmCaptionModel 57CD3E5A00F1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57CD3E5A00F1
+
+MEREF ME_57B1A4520214_ME_57CD3E7D029B_R
+ MELINK Original WL 'ME_57B1A4520214' '57AAE8D403E5.ms.model.script' // ImsmCaptionModel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B1A4520214_ME_57CD3E7D029B_R ImsmCaptionModel
+
+%%ImplementedBy ME_57B1A4520214 ME_57CD3E7D029B
+
+ME ME_57CD3E7D029B
+ MEPROP UID '57CD3E7D029B'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CD3E5A00F1 // TmsmCaptionModel
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_57B1A4520214_ME_57CD3E7D029B_R // ImsmCaptionModel
+ )
+ ; // Implements
+
+ENDME // ME_57CD3E7D029B Make
+
+MEREF ME_57CD32280214_ME_57CD3E5A00F1_G
+ MELINK Original WL? 'ME_57CD32280214' // msmCaptionModel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57CD32280214_ME_57CD3E5A00F1_G msmCaptionModel
+
+%%InheritedBy ME_57CD32280214 ME_57CD3E5A00F1
+
+ME ME_57CD3E5A00F1
+ MEPROP UID '57CD3E5A00F1'
+ MEPROP Name 'TmsmCaptionModel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57AE0D6601AE' // ConcreteModels
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57CD32280214_ME_57CD3E5A00F1_G // msmCaptionModel
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57CD3E7D029B // Make
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmCaptionModel'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmCaptionModel'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmCaptionModel.pas'
+
+ENDME // ME_57CD3E5A00F1 TmsmCaptionModel

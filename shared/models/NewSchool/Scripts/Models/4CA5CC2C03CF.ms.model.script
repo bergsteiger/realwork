@@ -1,0 +1,513 @@
+// TnevShapesPaintedSpy 4CA5CC2C03CF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4CA5CD47037B
+
+FORWARD ME_4CA5CC2C03CF
+
+FORWARD ME_4CA5CD47037B
+
+FORWARD ME_4CA5D0430096
+
+ME ME_4CB32FAA0128
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4CB32FAA0128 aView
+
+ME ME_4CA5D0430096
+ MEPROP UID '4CA5D0430096'
+ MEPROP Name 'OpenLog'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CA5CD47037B // InevShapesLogger
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB32FAA0128 // aView
+ )
+ ; // Parameters
+
+ENDME // ME_4CA5D0430096 OpenLog
+
+FORWARD ME_4CA5D0540033
+
+ME ME_4CA5D05E0357
+ MEPROP Name 'aLogName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4CA5D05E0357 aLogName
+
+ME ME_4CA5D0540033
+ MEPROP UID '4CA5D0540033'
+ MEPROP Name 'CloseLog'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CA5CD47037B // InevShapesLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CA5D05E0357 // aLogName
+ )
+ ; // Parameters
+
+ENDME // ME_4CA5D0540033 CloseLog
+
+FORWARD ME_4CACAF4F008D
+
+ME ME_4CADE8E70088
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4CADE8E70088 aView
+
+ME ME_4CACAF4F008D
+ MEPROP UID '4CACAF4F008D'
+ MEPROP Name 'LogScreen'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CA5CD47037B // InevShapesLogger
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CADE8E70088 // aView
+ )
+ ; // Parameters
+
+ENDME // ME_4CACAF4F008D LogScreen
+
+ME ME_4CA5CD47037B
+ MEPROP UID '4CA5CD47037B'
+ MEPROP GUID 'D33CDAF3-2F4B-422C-879E-56B02F0686F9'
+ MEPROP Name 'InevShapesLogger'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Лог отрисованных объектов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA5CC2C03CF // TnevShapesPaintedSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CA5D0430096 // OpenLog
+ HWL ME_4CA5D0540033 // CloseLog
+ HWL ME_4CACAF4F008D // LogScreen
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ShapesLogger'
+
+ENDME // ME_4CA5CD47037B InevShapesLogger
+
+ME ME_4CA5CDF5004C
+ MEPROP UID '4CA5CDF5004C'
+ MEPROP Name 'f_Logger'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CA5CC2C03CF // TnevShapesPaintedSpy
+ ;
+ MELINK Target HWL ME_4CA5CD47037B // InevShapesLogger
+ ;
+
+ENDME // ME_4CA5CDF5004C f_Logger
+
+ME ME_4CA5D08701FD
+ MEPROP UID '4CA5D08701FD'
+ MEPROP Name 'f_Filer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CA5CC2C03CF // TnevShapesPaintedSpy
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_4CA5D08701FD f_Filer
+
+FORWARD ME_4CA5CCF900D5
+
+FORWARD ME_4CA5CD350274
+
+ME ME_4CB32FC600A5
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4CB32FC600A5 aView
+
+ME ME_4CA5CD3B02C7
+ MEPROP Name 'aShapes'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B8682B00020' '4811DA3100E6.ms.model.script' // TnevBaseTopShape
+ ;
+
+ENDME // ME_4CA5CD3B02C7 aShapes
+
+ME ME_4CA5CD350274
+ MEPROP UID '4CA5CD350274'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA5CCF900D5 // LogShapes
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB32FC600A5 // aView
+ ME_4CA5CD3B02C7 // aShapes
+ )
+ ; // Parameters
+
+ENDME // ME_4CA5CD350274 DoIt
+
+ME ME_4CA5CCF900D5
+ MEPROP UID '4CA5CCF900D5'
+ MEPROP Name 'LogShapes'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Логирует отрисованные объекты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA5CC2C03CF // TnevShapesPaintedSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CA5CD350274 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CA5CCF900D5 LogShapes
+
+FORWARD ME_4CA5CD6801F6
+
+FORWARD ME_4CA5CD79008C
+
+ME ME_4CA5CD84035B
+ MEPROP Name 'aLogger'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4CA5CD47037B // InevShapesLogger
+ ;
+
+ENDME // ME_4CA5CD84035B aLogger
+
+ME ME_4CA5CD79008C
+ MEPROP UID '4CA5CD79008C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA5CD6801F6 // SetLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CA5CD84035B // aLogger
+ )
+ ; // Parameters
+
+ENDME // ME_4CA5CD79008C DoIt
+
+ME ME_4CA5CD6801F6
+ MEPROP UID '4CA5CD6801F6'
+ MEPROP Name 'SetLogger'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA5CC2C03CF // TnevShapesPaintedSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CA5CD79008C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CA5CD6801F6 SetLogger
+
+FORWARD ME_4CA5CD92028D
+
+FORWARD ME_4CA5CD9E03D9
+
+ME ME_4CA5CDA100AA
+ MEPROP Name 'aLogger'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4CA5CD47037B // InevShapesLogger
+ ;
+
+ENDME // ME_4CA5CDA100AA aLogger
+
+ME ME_4CA5CD9E03D9
+ MEPROP UID '4CA5CD9E03D9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA5CD92028D // RemoveLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CA5CDA100AA // aLogger
+ )
+ ; // Parameters
+
+ENDME // ME_4CA5CD9E03D9 DoIt
+
+ME ME_4CA5CD92028D
+ MEPROP UID '4CA5CD92028D'
+ MEPROP Name 'RemoveLogger'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA5CC2C03CF // TnevShapesPaintedSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CA5CD9E03D9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CA5CD92028D RemoveLogger
+
+FORWARD ME_4CA5D01A0152
+
+ME ME_4CA5D029023F
+ MEPROP UID '4CA5D029023F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA5D01A0152 // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CA5D029023F DoIt
+
+ME ME_4CA5D01A0152
+ MEPROP UID '4CA5D01A0152'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA5CC2C03CF // TnevShapesPaintedSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CA5D029023F // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4CA5D01A0152 Exists
+
+FORWARD ME_4CACAF8A0297
+
+FORWARD ME_4CACAF99003F
+
+ME ME_4CADEB8602A5
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4CADEB8602A5 aView
+
+ME ME_4CACAF99003F
+ MEPROP UID '4CACAF99003F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CACAF8A0297 // LogScreen
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CADEB8602A5 // aView
+ )
+ ; // Parameters
+
+ENDME // ME_4CACAF99003F DoIt
+
+ME ME_4CACAF8A0297
+ MEPROP UID '4CACAF8A0297'
+ MEPROP Name 'LogScreen'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA5CC2C03CF // TnevShapesPaintedSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CACAF99003F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CACAF8A0297 LogScreen
+
+ME ME_4CA5D0BB002B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA5CC2C03CF // TnevShapesPaintedSpy
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4CA5D0BB002B 
+
+ME ME_4CA5D0CE0339
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA5CC2C03CF // TnevShapesPaintedSpy
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_4CA5D0CE0339 
+
+ME ME_4CA5EE3C0138
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA5CC2C03CF // TnevShapesPaintedSpy
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4CA5EE3C0138 
+
+ME ME_4CAB13CC02C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA5CC2C03CF // TnevShapesPaintedSpy
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4CAB13CC02C3 
+
+ME ME_4FF185050316
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA5CC2C03CF // TnevShapesPaintedSpy
+ ;
+ MELINK Target WL 'ME_4FBDEF6A019B' '47F1F3BC0330.ms.model.script' // evHasOwnStyle
+ ;
+
+ENDME // ME_4FF185050316 
+
+ME ME_4FF185DE006E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA5CC2C03CF // TnevShapesPaintedSpy
+ ;
+ MELINK Target WL 'ME_4E5E5B1B00B8' '4678209200A6.ms.model.script' // PnevControlImageInfo
+ ;
+
+ENDME // ME_4FF185DE006E 
+
+ME ME_516D44E701B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA5CC2C03CF // TnevShapesPaintedSpy
+ ;
+ MELINK Target WL? 'ME_47A066980016' // l3MinMax
+ ;
+
+ENDME // ME_516D44E701B7 
+
+MEREF ME_479731C50290_ME_4CA5CC2C03CF_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4CA5CC2C03CF_over Cleanup
+
+MEREF ME_49E7754802A9_ME_4CA5CC2C03CF_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4CA5CC2C03CF_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_4CA5CC2C03CF
+
+ME ME_4CA5CC2C03CF
+ MEPROP UID '4CA5CC2C03CF'
+ MEPROP Name 'TnevShapesPaintedSpy'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Следилка за отрисованными объектами. {RequestLink:235864309}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4811D4EC0237' // Views
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_4CA5CC2C03CF_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4CA5CDF5004C // f_Logger
+ HWL ME_4CA5D08701FD // f_Filer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CA5CCF900D5 // LogShapes
+ HWL ME_4CA5CD6801F6 // SetLogger
+ HWL ME_4CA5CD92028D // RemoveLogger
+ HWL ME_4CA5D01A0152 // Exists
+ HWL ME_4CACAF8A0297 // LogScreen
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4CA5CC2C03CF_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4CA5CD47037B // InevShapesLogger
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4CA5D0BB002B // FreeAndNil
+ ME_4CA5D0CE0339 // Tl3FileMode
+ ME_4CA5EE3C0138 // Tk2TagID
+ ME_4CAB13CC02C3 // l3String
+ ME_4FF185050316 // evHasOwnStyle
+ ME_4FF185DE006E // PnevControlImageInfo
+ ME_516D44E701B7 // l3MinMax
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "singleton" True
+ UP "started" '01.10.2010 15:56'
+ UP extprop:pas:UnitName 'nevShapesPaintedSpy'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ShapesPaintedSpy'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevShapesPaintedSpy.pas'
+
+ENDME // ME_4CA5CC2C03CF TnevShapesPaintedSpy

@@ -98,7 +98,7 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
  if (aChildZone <> nil) then
  begin
   l_ListContext := TmsmListViewtInitContext_C;
-  AddChildViews(['Depends', 'Inherits', 'Implements', {'Inner',} {'Children',} {'Constants',} 'Attributes', 'Operations', 'Implemented', 'Overridden', 'Dependencies'],
+  AddChildViews(['Depends', 'Inherits', 'Implements', {'Inner',} 'Children', 'Constants', 'Attributes', 'Operations', 'Dependencies', 'Implemented', 'Overridden'],
                 aChildZone,
                 l_ListContext
                 );
@@ -163,32 +163,31 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
 
   if true then
   begin
-   l_ListContext := TmsmListViewtInitContext_C;
-   l_ListContext.rImageNameProp := 'msm:View:StereotypeImageFileName';
-   AddChildView('AllowedElements', aFloatingZone, l_ListContext);
-   // - список стереотипов доступных для текущего элемента
-   l_ListContext := TmsmListViewtInitContext_C;
-   AddChildView('CanOverride', aFloatingZone, l_ListContext);
-   // - список методов, которые может перекрывать текущий элемент
-(*   Assert(aUseCase.Drawing.List <> nil);
-   l_AllowedElements := TmsmListModel.MakeListForViewed(TmsmModelElementView_C(aUseCase.Drawing.List.Owner, 'AllowedElements'));
-   //l_AllowedElements := TmsmListModel.MakeList(TmsmModelElementView_C(aUseCase.MainList.List.Owner, 'AllowedElements'));
-   // - иначе туда дают сделать Add element
-   l_ListContext := TmsmListViewtInitContext_C;
-   l_ListContext.rImageNameProp := 'msm:View:StereotypeImageFileName';
-   AddController(
-    AddReadonlyListOperations(
-     DisableActionElementEvent
-     (
-      TmsmListViewController.Make(l_AllowedElements, aFloatingZone, l_ListContext)
-     )
-     , l_AllowedElements
-    )
-   );
-   Bind(TmsmListOpener.Make(l_AllowedElements, aUseCase.MainList));
-   Bind(TmsmListOwnerShowAsListBinding.Make(aUseCase.Drawing, l_AllowedElements));
-   //Bind(TmsmListOwnerShowAsListBinding.Make(aUseCase.MainList, l_AllowedElements));
-   // - иначе туда дают сделать Add element*)
+   if false then
+   begin
+    l_ListContext := TmsmListViewtInitContext_C;
+    l_ListContext.rImageNameProp := 'msm:View:StereotypeImageFileName';
+    AddChildView('AllowedElements', aFloatingZone, l_ListContext);
+    // - список стереотипов доступных для текущего элемента
+   end;//false
+   if true then
+   begin
+    l_ListContext := TmsmListViewtInitContext_C;
+    AddChildView('AccessibleTypes', aFloatingZone, l_ListContext);
+    // - список типов, которые может использовать текущий элемент
+   end;//true
+   if true then
+   begin
+    l_ListContext := TmsmListViewtInitContext_C;
+    AddChildView('CanImplement', aFloatingZone, l_ListContext);
+    // - список методов, которые может реализовывать текущий элемент
+   end;//true
+   if true then
+   begin
+    l_ListContext := TmsmListViewtInitContext_C;
+    AddChildView('CanOverride', aFloatingZone, l_ListContext);
+    // - список методов, которые может перекрывать текущий элемент
+   end;//true 
   end;//true
  end;//aFloatingZone <> nil
 
@@ -301,7 +300,6 @@ var
  l_ListContext : TmsmListViewtInitContext;
  l_DrawingZone : ImsmViewParent;
  l_AllWords : ImsmListModel;
- //l_AllowedElements : ImsmListModel;
  l_NavigatorZone : ImsmViewParent;
 //#UC END# *57D2DFA70064_57D2DF7E00CE_var*
 //#UC START# *57DAB38900EF_57D2DF7E00CE_impl*

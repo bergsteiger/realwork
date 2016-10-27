@@ -1,0 +1,729 @@
+// TNSRCWriterTest 4B4F68EE006B TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B4F68EE006B
+
+FORWARD ME_4B59DC7D0325
+
+ME ME_4B59DCB002D2
+ MEPROP UID '4B59DCB002D2'
+ MEPROP Name 'Filer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B59DC7D0325 // SomeFormatToNSRC
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B59DCB002D2 Filer
+
+ME ME_4B59DD0C0330
+ MEPROP UID '4B59DD0C0330'
+ MEPROP Name 'Painter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B59DC7D0325 // SomeFormatToNSRC
+ ;
+ MELINK Target WL? 'ME_4836BEB200A2' // TevCustomTextFormatter
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B59DD0C0330 Painter
+
+ME ME_4CF7B9B10074
+ MEPROP UID '4CF7B9B10074'
+ MEPROP Name 'G'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B59DC7D0325 // SomeFormatToNSRC
+ ;
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4CF7B9B10074 G
+
+ME ME_4D70E7A7015A
+ MEPROP UID '4D70E7A7015A'
+ MEPROP Name 'TestGen'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B59DC7D0325 // SomeFormatToNSRC
+ ;
+ MELINK Target WL? 'ME_4D70B17C001C' // TtstNSRCGenerator
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4D70E7A7015A TestGen
+
+FORWARD ME_4B59DC8F0116
+
+ME ME_4B59E7950322
+ MEPROP Name 'aReader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_482D6EB4003A' // Tk2CustomFileReader
+ ;
+
+ENDME // ME_4B59E7950322 aReader
+
+ME ME_4B59E360006D
+ MEPROP Name 'aPlus'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B59E360006D aPlus
+
+ME ME_4B59DC8F0116
+ MEPROP UID '4B59DC8F0116'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B59DC7D0325 // SomeFormatToNSRC
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B59E7950322 // aReader
+ ME_4B59E360006D // aPlus
+ )
+ ; // Parameters
+
+ENDME // ME_4B59DC8F0116 DoIt
+
+ME ME_4B59DCA602C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B59DC7D0325 // SomeFormatToNSRC
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4B59DCA602C8 
+
+ME ME_4B59DCAB0290
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B59DC7D0325 // SomeFormatToNSRC
+ ;
+ MELINK Target WL 'ME_49082AE80393' '476BE98C01B8.ms.model.script' // Code Pages
+ ;
+
+ENDME // ME_4B59DCAB0290 
+
+ME ME_4B59E6D50252
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B59DC7D0325 // SomeFormatToNSRC
+ ;
+ MELINK Target WL? 'ME_4836C3F003B1' // TevTextFormatter
+ ;
+
+ENDME // ME_4B59E6D50252 
+
+ME ME_4B59E6E40012
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B59DC7D0325 // SomeFormatToNSRC
+ ;
+ MELINK Target WL? 'ME_4836C450038D' // TevSimpleTextPainter
+ ;
+
+ENDME // ME_4B59E6E40012 
+
+ME ME_4B59E6F7024E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B59DC7D0325 // SomeFormatToNSRC
+ ;
+ MELINK Target WL? 'ME_4836CFF1028E' // TevNSRCPlusWriter
+ ;
+
+ENDME // ME_4B59E6F7024E 
+
+ME ME_4CF7B94903CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B59DC7D0325 // SomeFormatToNSRC
+ ;
+ MELINK Target WL? 'ME_4CF7B733015E' // TevEmptyTableEliminator
+ ;
+
+ENDME // ME_4CF7B94903CD 
+
+ME ME_4B59DC7D0325
+ MEPROP UID '4B59DC7D0325'
+ MEPROP Name 'SomeFormatToNSRC'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B4F68EE006B // TNSRCWriterTest
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B59DCB002D2 // Filer
+ HWL ME_4B59DD0C0330 // Painter
+ HWL ME_4CF7B9B10074 // G
+ HWL ME_4D70E7A7015A // TestGen
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B59DC8F0116 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B59DCA602C8 // FreeAndNil
+ ME_4B59DCAB0290 // Code Pages
+ ME_4B59E6D50252 // TevTextFormatter
+ ME_4B59E6E40012 // TevSimpleTextPainter
+ ME_4B59E6F7024E // TevNSRCPlusWriter
+ ME_4CF7B94903CD // TevEmptyTableEliminator
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4B59DC7D0325 SomeFormatToNSRC
+
+FORWARD ME_4B59E36902DE
+
+ME ME_4B59E494007E
+ MEPROP UID '4B59E494007E'
+ MEPROP Name 'Reader'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B59E36902DE // EVDtoNSRC
+ ;
+ MELINK Target WL? 'ME_483E80FA0312' // TevdNativeReader
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B59E494007E Reader
+
+FORWARD ME_4B59E4A802C1
+
+ME ME_4B59E4AF012F
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B59E4AF012F aFileName
+
+ME ME_4B59E85E0145
+ MEPROP Name 'aPlus'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B59E85E0145 aPlus
+
+ME ME_4B59E4A802C1
+ MEPROP UID '4B59E4A802C1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B59E36902DE // EVDtoNSRC
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B59E4AF012F // aFileName
+ ME_4B59E85E0145 // aPlus
+ )
+ ; // Parameters
+
+ENDME // ME_4B59E4A802C1 DoIt
+
+ME ME_4B59E59900A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B59E36902DE // EVDtoNSRC
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4B59E59900A2 
+
+ME ME_4B59E36902DE
+ MEPROP UID '4B59E36902DE'
+ MEPROP Name 'EVDtoNSRC'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B4F68EE006B // TNSRCWriterTest
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B59E494007E // Reader
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B59E4A802C1 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B59E59900A2 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4B59E36902DE EVDtoNSRC
+
+FORWARD ME_4B59EBDB038B
+
+ME ME_4B59EBF40223
+ MEPROP UID '4B59EBF40223'
+ MEPROP Name 'Reader'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B59EBDB038B // NSRCtoNSRC
+ ;
+ MELINK Target WL? 'ME_4B59EBB503DA' // TevdNSRCReader
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B59EBF40223 Reader
+
+FORWARD ME_4B59EC1000B5
+
+ME ME_4B59EC140026
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B59EC140026 aFileName
+
+ME ME_4B59EC14005C
+ MEPROP Name 'aPlus'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B59EC14005C aPlus
+
+ME ME_4B59EC1000B5
+ MEPROP UID '4B59EC1000B5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B59EBDB038B // NSRCtoNSRC
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B59EC140026 // aFileName
+ ME_4B59EC14005C // aPlus
+ )
+ ; // Parameters
+
+ENDME // ME_4B59EC1000B5 DoIt
+
+ME ME_4B59EC020314
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B59EBDB038B // NSRCtoNSRC
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4B59EC020314 
+
+ME ME_4B59EBDB038B
+ MEPROP UID '4B59EBDB038B'
+ MEPROP Name 'NSRCtoNSRC'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B4F68EE006B // TNSRCWriterTest
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B59EBF40223 // Reader
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B59EC1000B5 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B59EC020314 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4B59EBDB038B NSRCtoNSRC
+
+FORWARD ME_4B7D049100D0
+
+FORWARD ME_4B7D04E3030E
+
+ME ME_4B7D04FA0061
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B7D04FA0061 aFileName
+
+ME ME_4B7D04E3030E
+ MEPROP UID '4B7D04E3030E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B7D049100D0 // CreateNSRCReader
+ ;
+ MELINK Target WL? 'ME_4B59EBB503DA' // TevdNSRCReader
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B7D04FA0061 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_4B7D04E3030E DoIt
+
+ME ME_4B7D049100D0
+ MEPROP UID '4B7D049100D0'
+ MEPROP Name 'CreateNSRCReader'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Создаёт NSRCReader' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B4F68EE006B // TNSRCWriterTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B7D04E3030E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B7D049100D0 CreateNSRCReader
+
+FORWARD ME_4B7D050E002F
+
+ME ME_4B7D054C0108
+ MEPROP UID '4B7D054C0108'
+ MEPROP Name 'Reader'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B7D050E002F // NSRCtoMemory
+ ;
+ MELINK Target WL? 'ME_4B59EBB503DA' // TevdNSRCReader
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B7D054C0108 Reader
+
+ME ME_4B7D055A0150
+ MEPROP UID '4B7D055A0150'
+ MEPROP Name 'Buffer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B7D050E002F // NSRCtoMemory
+ ;
+ MELINK Target WL? 'ME_47ECA82403AC' // Tk2DocumentBuffer
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B7D055A0150 Buffer
+
+FORWARD ME_4B7D052803AB
+
+ME ME_4B7D05340187
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B7D05340187 aFileName
+
+ME ME_4B7D052803AB
+ MEPROP UID '4B7D052803AB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B7D050E002F // NSRCtoMemory
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B7D05340187 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_4B7D052803AB DoIt
+
+ME ME_4B7D056D01BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B7D050E002F // NSRCtoMemory
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4B7D056D01BA 
+
+ME ME_4B7D050E002F
+ MEPROP UID '4B7D050E002F'
+ MEPROP Name 'NSRCtoMemory'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Читает NSRC в память' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B4F68EE006B // TNSRCWriterTest
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B7D054C0108 // Reader
+ HWL ME_4B7D055A0150 // Buffer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B7D052803AB // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B7D056D01BA // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4B7D050E002F NSRCtoMemory
+
+FORWARD ME_4BED3FAC0228
+
+ME ME_4C07BBB50387
+ MEPROP UID '4C07BBB50387'
+ MEPROP Name 'Reader'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BED3FAC0228 // NSRCtoEVD
+ ;
+ MELINK Target WL? 'ME_4B59EBB503DA' // TevdNSRCReader
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4C07BBB50387 Reader
+
+FORWARD ME_4BED3FC9006A
+
+ME ME_4BED3FCB0054
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4BED3FCB0054 aFileName
+
+ME ME_4BED3FC9006A
+ MEPROP UID '4BED3FC9006A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BED3FAC0228 // NSRCtoEVD
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BED3FCB0054 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_4BED3FC9006A DoIt
+
+ME ME_4BED40330314
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BED3FAC0228 // NSRCtoEVD
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4BED40330314 
+
+ME ME_4BED3FAC0228
+ MEPROP UID '4BED3FAC0228'
+ MEPROP Name 'NSRCtoEVD'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B4F68EE006B // TNSRCWriterTest
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4C07BBB50387 // Reader
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4BED3FC9006A // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4BED40330314 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4BED3FAC0228 NSRCtoEVD
+
+FORWARD ME_5491B011031B
+
+ME ME_5491B01D03D7
+ MEPROP UID '5491B01D03D7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5491B011031B // PainterCodePage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5491B01D03D7 DoIt
+
+ME ME_5491B011031B
+ MEPROP UID '5491B011031B'
+ MEPROP Name 'PainterCodePage'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B4F68EE006B // TNSRCWriterTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5491B01D03D7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5491B011031B PainterCodePage
+
+ME ME_4BEBCEA00177
+ MEPROP UID '4BEBCEA00177'
+ MEPROP Name 'NSRCCodePage'
+ MEPROP Class class_Operation
+ %SUMMARY 'Кодировка для выливки в NSRC' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B4F68EE006B // TNSRCWriterTest
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BEBCEA00177 NSRCCodePage
+
+MEREF ME_4D70B2AF0288_ME_4B4F68EE006B_impl
+ MELINK Original WL 'ME_4D70B2AF0288' '4D70B17C001C.ms.model.script' // ExtractFileEvent
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4D70B2AF0288_ME_4B4F68EE006B_impl ExtractFileEvent
+
+MEREF ME_4BACDDB500CE_ME_4B4F68EE006B_G
+ MELINK Original WL? 'ME_4BACDDB500CE' // WriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BACDDB500CE_ME_4B4F68EE006B_G WriterTest
+
+MEREF ME_4D70B0D50358_ME_4B4F68EE006B_R
+ MELINK Original WL 'ME_4D70B0D50358' '4D70B17C001C.ms.model.script' // ItstNSRCListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D70B0D50358_ME_4B4F68EE006B_R ItstNSRCListener
+
+%%ImplementedBy ME_4D70B0D50358 ME_4B4F68EE006B
+
+%%InheritedBy ME_4BACDDB500CE ME_4B4F68EE006B
+
+ME ME_4B4F68EE006B
+ MEPROP UID '4B4F68EE006B'
+ MEPROP Name 'TNSRCWriterTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B4F68D4033F' // NSRCTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BACDDB500CE_ME_4B4F68EE006B_G // WriterTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4D70B0D50358_ME_4B4F68EE006B_R // ItstNSRCListener
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4B59DC7D0325 // SomeFormatToNSRC
+ HWL ME_4B59E36902DE // EVDtoNSRC
+ HWL ME_4B59EBDB038B // NSRCtoNSRC
+ HWL ME_4B7D049100D0 // CreateNSRCReader
+ HWL ME_4B7D050E002F // NSRCtoMemory
+ HWL ME_4BED3FAC0228 // NSRCtoEVD
+ HWL ME_5491B011031B // PainterCodePage
+ HWL ME_4BEBCEA00177 // NSRCCodePage
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4D70B2AF0288_ME_4B4F68EE006B_impl // ExtractFileEvent
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'NSRCWriterTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NSRCWriterTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\NSRCWriterTest.pas'
+
+ENDME // ME_4B4F68EE006B TNSRCWriterTest

@@ -1,0 +1,253 @@
+// TarRemoteMultiClearAttributesHelper 57EBA2190344 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57EBA2190344
+
+ME ME_57EBA2840183
+ MEPROP UID '57EBA2840183'
+ MEPROP Name 'f_Message'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EBA2190344 // TarRemoteMultiClearAttributesHelper
+ ;
+ MELINK Target WL? 'ME_57EBA087012F' // TcsMultiClearAttributes
+ ;
+
+ENDME // ME_57EBA2840183 f_Message
+
+ME ME_57EBA2FE02B3
+ MEPROP UID '57EBA2FE02B3'
+ MEPROP Name 'f_Reply'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EBA2190344 // TarRemoteMultiClearAttributesHelper
+ ;
+ MELINK Target WL? 'ME_57EBA06202BE' // TcsMultiClearAttributesReply
+ ;
+
+ENDME // ME_57EBA2FE02B3 f_Reply
+
+FORWARD ME_57EBA29A024A
+
+FORWARD ME_57EBA338014D
+
+ME ME_57EBA34A02A7
+ MEPROP Name 'aFamilyID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_551E7DD302E0' '5432448401BC.ms.model.script' // TdaFamilyID
+ ;
+
+ENDME // ME_57EBA34A02A7 aFamilyID
+
+ME ME_57EBA34A02B6
+ MEPROP Name 'aDocsToLock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_519B71CF03DC' '559D0BE101B4.ms.model.script' // ISab
+ ;
+
+ENDME // ME_57EBA34A02B6 aDocsToLock
+
+ME ME_57EBA34A02C6
+ MEPROP Name 'RIghtsNeeded'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_57EBA34A02C6 RIghtsNeeded
+
+ME ME_57EBA34A02D5
+ MEPROP Name 'aSelected'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57EA54590345' '5432448401BC.ms.model.script' // TdaDictionaryTypeArray
+ ;
+
+ENDME // ME_57EBA34A02D5 aSelected
+
+ME ME_57EBA338014D
+ MEPROP UID '57EBA338014D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EBA29A024A // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EBA34A02A7 // aFamilyID
+ ME_57EBA34A02B6 // aDocsToLock
+ ME_57EBA34A02C6 // RIghtsNeeded
+ ME_57EBA34A02D5 // aSelected
+ )
+ ; // Parameters
+
+ENDME // ME_57EBA338014D DoIt
+
+ME ME_57EBA29A024A
+ MEPROP UID '57EBA29A024A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EBA2190344 // TarRemoteMultiClearAttributesHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EBA338014D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EBA29A024A Create
+
+ME ME_57EBA2D8038C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EBA2190344 // TarRemoteMultiClearAttributesHelper
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_57EBA2D8038C 
+
+ME ME_57EBA2DD0104
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EBA2190344 // TarRemoteMultiClearAttributesHelper
+ ;
+ MELINK Target WL 'ME_57CFC26A0059' '57CFC223011F.ms.model.script' // ArchiRequestManager
+ ;
+
+ENDME // ME_57EBA2DD0104 
+
+ME ME_57EBA2ED03B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EBA2190344 // TarRemoteMultiClearAttributesHelper
+ ;
+ MELINK Target WL 'ME_547831BD02E5' '5453986402AC.ms.model.script' // TncsReply
+ ;
+
+ENDME // ME_57EBA2ED03B8 
+
+ME ME_57EBA31703B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EBA2190344 // TarRemoteMultiClearAttributesHelper
+ ;
+ MELINK Target WL? 'ME_519B719002F1' // dt_Sab
+ ;
+
+ENDME // ME_57EBA31703B3 
+
+ME ME_57EBACF30074
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EBA2190344 // TarRemoteMultiClearAttributesHelper
+ ;
+ MELINK Target WL 'ME_57EB9A4601EC' '53BD13B4023B.ms.model.script' // AttributesHelper
+ ;
+
+ENDME // ME_57EBACF30074 
+
+ME ME_57F3393002BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EBA2190344 // TarRemoteMultiClearAttributesHelper
+ ;
+ MELINK Target WL 'ME_551A7D9602DC' '551A7D7402B4.ms.model.script' // GlobalDataProvider
+ ;
+
+ENDME // ME_57F3393002BF 
+
+MEREF ME_57EA229201FE_ME_57EBA2190344_impl
+ MELINK Original WL 'ME_57EA229201FE' '57EA22400306.ms.model.script' // ClearAttributes
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57EA229201FE_ME_57EBA2190344_impl ClearAttributes
+
+MEREF ME_57EA22B10150_ME_57EBA2190344_impl
+ MELINK Original WL 'ME_57EA22B10150' '57EA22400306.ms.model.script' // HasRejectedDocs
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57EA22B10150_ME_57EBA2190344_impl HasRejectedDocs
+
+MEREF ME_57EA22C201D1_ME_57EBA2190344_impl
+ MELINK Original WL 'ME_57EA22C201D1' '57EA22400306.ms.model.script' // FillRejectedList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57EA22C201D1_ME_57EBA2190344_impl FillRejectedList
+
+MEREF ME_479731C50290_ME_57EBA2190344_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57EBA2190344_over Cleanup
+
+MEREF ME_57EA22400306_ME_57EBA2190344_G
+ MELINK Original WL? 'ME_57EA22400306' // TarCustomMultiClearAttributesHelper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57EA22400306_ME_57EBA2190344_G TarCustomMultiClearAttributesHelper
+
+%%InheritedBy ME_57EA22400306 ME_57EBA2190344
+
+ME ME_57EBA2190344
+ MEPROP UID '57EBA2190344'
+ MEPROP Name 'TarRemoteMultiClearAttributesHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CFC13E033D' // DocTransfer
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57EA22400306_ME_57EBA2190344_G // TarCustomMultiClearAttributesHelper
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57EBA2840183 // f_Message
+ HWL ME_57EBA2FE02B3 // f_Reply
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57EBA29A024A // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57EA229201FE_ME_57EBA2190344_impl // ClearAttributes
+ ME_57EA22B10150_ME_57EBA2190344_impl // HasRejectedDocs
+ ME_57EA22C201D1_ME_57EBA2190344_impl // FillRejectedList
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57EBA2190344_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57EBA2D8038C // FreeAndNil
+ ME_57EBA2DD0104 // ArchiRequestManager
+ ME_57EBA2ED03B8 // TncsReply
+ ME_57EBA31703B3 // dt_Sab
+ ME_57EBACF30074 // AttributesHelper
+ ME_57F3393002BF // GlobalDataProvider
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'arRemoteMultiClearAttributesHelper'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arRemoteMultiClearAttributesHelper'
+ UP intf.pas:Path 'archi\source\projects\Archi\Processing\arRemoteMultiClearAttributesHelper.pas'
+
+ENDME // ME_57EBA2190344 TarRemoteMultiClearAttributesHelper

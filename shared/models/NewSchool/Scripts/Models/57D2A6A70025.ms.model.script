@@ -1,0 +1,235 @@
+// TalcuDocTransferRequestExecutor 57D2A6A70025 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57D2A6A70025
+
+ME ME_57D2A70201C7
+ MEPROP UID '57D2A70201C7'
+ MEPROP Name 'f_RequestImmidiateProcessProc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D2A6A70025 // TalcuDocTransferRequestExecutor
+ ;
+ MELINK Target WL 'ME_57C8105D02F5' '57C810400018.ms.model.script' // TalcuSpeedupRequestProc
+ ;
+
+ENDME // ME_57D2A70201C7 f_RequestImmidiateProcessProc
+
+FORWARD ME_57C00BDA02BA
+
+FORWARD ME_57C3F80502A6
+
+ME ME_57C80FEE03BC
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52FA5F460142' '53A172750065.ms.model.script' // TddServerTaskList
+ ;
+
+ENDME // ME_57C80FEE03BC aList
+
+ME ME_57C810CB024D
+ MEPROP Name 'aProc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57C8105D02F5' '57C810400018.ms.model.script' // TalcuSpeedupRequestProc
+ ;
+
+ENDME // ME_57C810CB024D aProc
+
+ME ME_57C3F80502A6
+ MEPROP UID '57C3F80502A6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57C00BDA02BA // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57C80FEE03BC // aList
+ ME_57C810CB024D // aProc
+ )
+ ; // Parameters
+
+ENDME // ME_57C3F80502A6 DoIt
+
+ME ME_57C00BDA02BA
+ MEPROP UID '57C00BDA02BA'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D2A6A70025 // TalcuDocTransferRequestExecutor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57C3F80502A6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57C00BDA02BA Create
+
+MEREF ME_57C00BDA02BA_ME_57C00BE50068_G
+ MELINK Original HWL ME_57C00BDA02BA // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57C00BDA02BA_ME_57C00BE50068_G Create
+
+MEREF ME_5460731E025E_ME_57C00BE50068_R
+ MELINK Original WL 'ME_5460731E025E' '5460A4DB018A.ms.model.script' // IncsExecutor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5460731E025E_ME_57C00BE50068_R IncsExecutor
+
+%%ImplementedBy ME_5460731E025E ME_57C00BE50068
+
+%%InheritedBy ME_57C00BDA02BA ME_57C00BE50068
+
+ME ME_57C00BE50068
+ MEPROP UID '57C00BE50068'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D2A6A70025 // TalcuDocTransferRequestExecutor
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57C00BDA02BA_ME_57C00BE50068_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5460731E025E_ME_57C00BE50068_R // IncsExecutor
+ )
+ ; // Implements
+
+ENDME // ME_57C00BE50068 Make
+
+ME ME_57D2A73303CC
+ MEPROP UID '57D2A73303CC'
+ MEPROP Name 'SpeedupRequest'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D2A6A70025 // TalcuDocTransferRequestExecutor
+ ;
+
+ENDME // ME_57D2A73303CC SpeedupRequest
+
+FORWARD ME_57D2A771002F
+
+FORWARD ME_57D2A77F026A
+
+ME ME_57D2A7A701EC
+ MEPROP Name 'aContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5464B37E01ED' '5460A4DB018A.ms.model.script' // TncsExecuteContext
+ ;
+
+ENDME // ME_57D2A7A701EC aContext
+
+ME ME_57D2A77F026A
+ MEPROP UID '57D2A77F026A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D2A771002F // DoExecute
+ ;
+ MELIST Parameters
+   Seq: ( ME_57D2A7A701EC // aContext
+ )
+ ; // Parameters
+
+ENDME // ME_57D2A77F026A DoIt
+
+ME ME_57D2A771002F
+ MEPROP UID '57D2A771002F'
+ MEPROP Name 'DoExecute'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57D2A6A70025 // TalcuDocTransferRequestExecutor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57D2A77F026A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57D2A771002F DoExecute
+
+MEREF ME_54607DDC0159_ME_57D2A6A70025_impl
+ MELINK Original WL 'ME_54607DDC0159' '5460A4DB018A.ms.model.script' // Execute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54607DDC0159_ME_57D2A6A70025_impl Execute
+
+MEREF ME_54856E500154_ME_57D2A6A70025_G
+ MELINK Original WL? 'ME_54856E500154' // TalcuExecutorWithIncomingTaskList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54856E500154_ME_57D2A6A70025_G TalcuExecutorWithIncomingTaskList
+
+MEREF ME_5460731E025E_ME_57D2A6A70025_R
+ MELINK Original WL 'ME_5460731E025E' '5460A4DB018A.ms.model.script' // IncsExecutor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5460731E025E_ME_57D2A6A70025_R IncsExecutor
+
+%%ImplementedBy ME_5460731E025E ME_57D2A6A70025
+
+%%InheritedBy ME_54856E500154 ME_57D2A6A70025
+
+ME ME_57D2A6A70025
+ MEPROP UID '57D2A6A70025'
+ MEPROP Name 'TalcuDocTransferRequestExecutor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57C00B6201B3' // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54856E500154_ME_57D2A6A70025_G // TalcuExecutorWithIncomingTaskList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5460731E025E_ME_57D2A6A70025_R // IncsExecutor
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57D2A70201C7 // f_RequestImmidiateProcessProc
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57C00BDA02BA // Create
+ HWL ME_57C00BE50068 // Make
+ HWL ME_57D2A73303CC // SpeedupRequest
+ HWL ME_57D2A771002F // DoExecute
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_54607DDC0159_ME_57D2A6A70025_impl // Execute
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'alcuDocTransferRequestExecutor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuDocTransferRequestExecutor'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuDocTransferRequestExecutor.pas'
+
+ENDME // ME_57D2A6A70025 TalcuDocTransferRequestExecutor

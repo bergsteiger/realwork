@@ -1,0 +1,58 @@
+// RTFtoEVDWriterTest 4C971C2203DD TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C971C2203DD
+
+ME ME_4C971C540358
+ MEPROP UID '4C971C540358'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C971C2203DD // RTFtoEVDWriterTest
+ ;
+
+ENDME // ME_4C971C540358 DoIt
+
+MEREF ME_4C971BF80183_ME_4C971C2203DD_G
+ MELINK Original WL? 'ME_4C971BF80183' // RTFReaderTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C971BF80183_ME_4C971C2203DD_G RTFReaderTest
+
+%%InheritedBy ME_4C971BF80183 ME_4C971C2203DD
+
+ME ME_4C971C2203DD
+ MEPROP UID '4C971C2203DD'
+ MEPROP Name 'RTFtoEVDWriterTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4BACDED003CE' // RTF
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C971BF80183_ME_4C971C2203DD_G // RTFReaderTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C971C540358 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '20.09.2010 12:32'
+ UP extprop:pas:TypeName 'TRTFtoEVDWriterTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RTFtoEVDWriterTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\RTFtoEVDWriterTest.pas'
+
+ENDME // ME_4C971C2203DD RTFtoEVDWriterTest

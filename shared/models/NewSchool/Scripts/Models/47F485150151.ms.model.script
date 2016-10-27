@@ -10,78 +10,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_5776300D0270
 %%Inner ME_4F0C0B6801C7
 
-FORWARD ME_47F485150151
-
-FORWARD ME_5776300D0270
-
-ME ME_57763299022D
- MEPROP UID '57763299022D'
- MEPROP Name 'f_ClipSpyWnd'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_5776300D0270 // TvtClipSpyService
- ;
- MELINK Target WL 'ME_5776326B0167' '577629E002C1.ms.model.script' // TClipSpyWnd
- ;
-
-ENDME // ME_57763299022D f_ClipSpyWnd
-
-ME ME_5776303C000C
- MEPROP Class class_Dependency
- MELINK Stereotype st_implements::Dependency ;
- MELINK Parent HWL ME_5776300D0270 // TvtClipSpyService
- ;
- MELINK Target WL 'ME_57762BA20039' '57762B5A0168.ms.model.script' // Tl3ClipSpyService
- ;
-
-ENDME // ME_5776303C000C 
-
-ME ME_479731C50290_ME_5776300D0270
- MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_5776300D0270 Cleanup
-
-%%InheritedBy ME_49E7754802A9 ME_5776300D0270
-
-ME ME_5776300D0270
- MEPROP UID '5776300D0270'
- MEPROP Name 'TvtClipSpyService'
- MEPROP Class class_Class
- MELINK Stereotype st_ServiceImplementation ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47F485150151 // vtCommon
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_57763299022D // f_ClipSpyWnd
- )
- ; // Attributes
- MELIST Overridden
-   Seq: ( ME_479731C50290_ME_5776300D0270 // Cleanup
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_5776303C000C // Tl3ClipSpyService
- )
- ; // Dependencies
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP extprop:pas:UnitName 'vtClipSpyService'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'ClipSpyService'
- UP intf.pas:Path 'common\components\gui\Garant\VT\vtClipSpyService.pas'
-
-ENDME // ME_5776300D0270 TvtClipSpyService
-
 ME ME_47F485150151
  MEPROP UID '47F485150151'
  MEPROP Name 'vtCommon'
@@ -99,7 +27,7 @@ ME ME_47F485150151
  WL? 'ME_578F5E1601B5' // vtDragDataTypes
  WL? 'ME_4F0C23870303' // vtForm
  WL? 'ME_577629E002C1' // vtClipSpy
- HWL ME_5776300D0270 // TvtClipSpyService
+ WL? 'ME_5776300D0270' // TvtClipSpyService
  WL? 'ME_4F0C0B6801C7' // DragData
  )
  ; // Children

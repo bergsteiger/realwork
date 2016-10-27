@@ -1,0 +1,56 @@
+// NSRCtoEVDTest 4BED405E0256 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BED405E0256
+
+ME ME_4BED4080012C
+ MEPROP UID '4BED4080012C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BED405E0256 // NSRCtoEVDTest
+ ;
+
+ENDME // ME_4BED4080012C DoIt
+
+MEREF ME_4B4F68EE006B_ME_4BED405E0256_G
+ MELINK Original WL? 'ME_4B4F68EE006B' // TNSRCWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B4F68EE006B_ME_4BED405E0256_G TNSRCWriterTest
+
+%%InheritedBy ME_4B4F68EE006B ME_4BED405E0256
+
+ME ME_4BED405E0256
+ MEPROP UID '4BED405E0256'
+ MEPROP Name 'NSRCtoEVDTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест преобразования NSRC в EVD' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B4F68D4033F' // NSRCTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B4F68EE006B_ME_4BED405E0256_G // TNSRCWriterTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4BED4080012C // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TNSRCtoEVDTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NSRCtoEVDTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\NSRCtoEVDTest.pas'
+
+ENDME // ME_4BED405E0256 NSRCtoEVDTest

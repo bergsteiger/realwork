@@ -4,53 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_51643E02018F
 
-FORWARD ME_51643DEB0153
-
-FORWARD ME_51643E02018F
-
-ME ME_51643E2202AA
- MEPROP UID '51643E2202AA'
- MEPROP Name 'DoIt'
- MEPROP Class class_Class
- MELINK Stereotype st_Test ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_51643E02018F // TReallocMemTest
- ;
-
-ENDME // ME_51643E2202AA DoIt
-
-%%InheritedBy ME_4B2A0DDE028B ME_51643E02018F
-
-ME ME_51643E02018F
- MEPROP UID '51643E02018F'
- MEPROP Name 'TReallocMemTest'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_51643DEB0153 // Emba
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_51643E2202AA // DoIt
- )
- ; // Operations
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP extprop:pas:UnitName 'ReallocMemTest'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'ReallocMemTest'
- UP intf.pas:Path 'common\components\SandBox\ReallocMemTest.pas'
-
-ENDME // ME_51643E02018F TReallocMemTest
-
 ME ME_51643DEB0153
  MEPROP UID '51643DEB0153'
  MEPROP Name 'Emba'
@@ -63,7 +16,7 @@ ME ME_51643DEB0153
  MELINK Parent WL? 'ME_5155865B01B6' // SandBoxTest
  ;
  MELIST Children
-   Seq: ( HWL ME_51643E02018F // TReallocMemTest
+   Seq: ( WL? 'ME_51643E02018F' // TReallocMemTest
  )
  ; // Children
  MELIST Depends

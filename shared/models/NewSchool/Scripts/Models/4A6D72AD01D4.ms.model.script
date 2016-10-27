@@ -1,0 +1,89 @@
+// TnsBaseChatWindowList 4A6D72AD01D4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6D72AD01D4
+
+ME ME_4A6D72C0006E
+ MEPROP UID '4A6D72C0006E'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A6D72AD01D4 // TnsBaseChatWindowList
+ ;
+ MELINK Target WL 'ME_4A6D714D0252' '4A66DD3C01E8.ms.model.script' // IbsChatWindow
+ ;
+
+ENDME // ME_4A6D72C0006E ItemType
+
+MEREF ME_47B07CF403D0_ME_4A6D72AD01D4_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_4A6D72AD01D4_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_4A6D72AD01D4_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4A6D72AD01D4_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_4A6D72AD01D4_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4A6D72AD01D4_impl CompareExistingItems
+
+MEREF ME_47BC3A07027F_ME_4A6D72AD01D4_G
+ MELINK Original WL? 'ME_47BC3A07027F' // Tl3SimpleDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC3A07027F_ME_4A6D72AD01D4_G Tl3SimpleDataContainer
+
+MEREF ME_4A6FFCC00354_ME_4A6D72AD01D4_G
+ MELINK Original WL? 'ME_4A6FFCC00354' // l3InterfacePtrListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A6FFCC00354_ME_4A6D72AD01D4_G l3InterfacePtrListPrim
+
+%%InheritedBy ME_47BC3A07027F ME_4A6D72AD01D4
+%%InheritedBy ME_4A6FFCC00354 ME_4A6D72AD01D4
+
+ME ME_4A6D72AD01D4
+ MEPROP UID '4A6D72AD01D4'
+ MEPROP Name 'TnsBaseChatWindowList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A66EB280367' // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47BC3A07027F_ME_4A6D72AD01D4_G // Tl3SimpleDataContainer
+ HWL ME_4A6FFCC00354_ME_4A6D72AD01D4_G // l3InterfacePtrListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A6D72C0006E // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_4A6D72AD01D4_impl // IsSameItems
+ ME_47B2C42A0163_ME_4A6D72AD01D4_impl // AssignItem
+ ME_47B99D4503A2_ME_4A6D72AD01D4_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'nsBaseChatWindowList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BaseChatWindowList'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\nsBaseChatWindowList.pas'
+
+ENDME // ME_4A6D72AD01D4 TnsBaseChatWindowList

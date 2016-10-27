@@ -11,9 +11,6 @@ interface
 uses
  l3IntfUses
  , PrimChild_cutUsual_UserType
- {$If NOT Defined(NoVCM)}
- , vcmUserControls
- {$IfEnd} // NOT Defined(NoVCM)
  , l3StringIDEx
 ;
 

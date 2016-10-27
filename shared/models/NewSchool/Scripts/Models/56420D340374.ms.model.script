@@ -1,0 +1,60 @@
+// script_CompileStringAndProcess 56420D340374 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56420D340374
+
+ME ME_56420D650171
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56420D340374 // script_CompileStringAndProcess
+ ;
+ MELINK Target WL? 'ME_56420D5500CC' // TkwCompiledScriptCompileStringAndProcess
+ ;
+
+ENDME // ME_56420D650171 
+
+MEREF ME_4DCBD67C0362_ME_56420D340374_impl
+ MELINK Original WL 'ME_4DCBD67C0362' '4DCBD489023A.ms.model.script' // CompiledWorkerClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DCBD67C0362_ME_56420D340374_impl CompiledWorkerClass
+
+MEREF ME_4DCBD489023A_ME_56420D340374_G
+ MELINK Original WL? 'ME_4DCBD489023A' // TtfwWordWorker
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCBD489023A_ME_56420D340374_G TtfwWordWorker
+
+%%InheritedBy ME_4DCBD489023A ME_56420D340374
+
+ME ME_56420D340374
+ MEPROP UID '56420D340374'
+ MEPROP Name 'script_CompileStringAndProcess'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_53DA23750089' // ScriptsCompilingAndProcessing
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DCBD489023A_ME_56420D340374_G // TtfwWordWorker
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DCBD67C0362_ME_56420D340374_impl // CompiledWorkerClass
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_56420D650171 // TkwCompiledScriptCompileStringAndProcess
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName 'TkwScriptCompileStringAndProcess'
+ UP extprop:pas:UnitName 'kwScriptCompileStringAndProcess'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ScriptCompileStringAndProcess'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwScriptCompileStringAndProcess.pas'
+
+ENDME // ME_56420D340374 script_CompileStringAndProcess

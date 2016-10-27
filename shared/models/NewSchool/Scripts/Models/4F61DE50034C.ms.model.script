@@ -1,0 +1,338 @@
+// TnpControlsListPrim 4F61DE50034C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F61DE50034C
+
+ME ME_4F61DE76023A
+ MEPROP UID '4F61DE76023A'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4F61DE50034C // TnpControlsListPrim
+ ;
+ MELINK Target WL? 'ME_4F61DED90246' // TnpControls
+ ;
+
+ENDME // ME_4F61DE76023A ItemType
+
+FORWARD ME_4F61DEF6012B
+
+FORWARD ME_4F61DF10008B
+
+ME ME_4F61DF1400E9
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+
+ENDME // ME_4F61DF1400E9 aControl
+
+ME ME_4F61DF10008B
+ MEPROP UID '4F61DF10008B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F61DEF6012B // Find
+ ;
+ MELINK Target WL? 'ME_4F61DED90246' // TnpControls
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F61DF1400E9 // aControl
+ )
+ ; // Parameters
+
+ENDME // ME_4F61DF10008B DoIt
+
+ME ME_4F61DEF6012B
+ MEPROP UID '4F61DEF6012B'
+ MEPROP Name 'Find'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'найти навигатор с которым связан компонент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F61DE50034C // TnpControlsListPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F61DF10008B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F61DEF6012B Find
+
+FORWARD ME_4F61DF1D01E2
+
+FORWARD ME_4F61DF360038
+
+ME ME_4F61DF3A008F
+ MEPROP Name 'aNavigator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52BAD1C40174' '4C8A252E01C2.ms.model.script' // TvtNavigatorPrim
+ ;
+
+ENDME // ME_4F61DF3A008F aNavigator
+
+ME ME_4F61DF360038
+ MEPROP UID '4F61DF360038'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F61DF1D01E2 // Find$1
+ ;
+ MELINK Target WL? 'ME_4F61DED90246' // TnpControls
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F61DF3A008F // aNavigator
+ )
+ ; // Parameters
+
+ENDME // ME_4F61DF360038 DoIt
+
+ME ME_4F61DF1D01E2
+ MEPROP UID '4F61DF1D01E2'
+ MEPROP Name 'Find'
+ MEPROP OriginalName 'Find$1'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'найти Link' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F61DE50034C // TnpControlsListPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F61DF360038 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F61DF1D01E2 Find$1
+
+FORWARD ME_4F61DF43019D
+
+FORWARD ME_4F61DF6602CF
+
+ME ME_4F61DF710134
+ MEPROP Name 'aNavigator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52BAD1C40174' '4C8A252E01C2.ms.model.script' // TvtNavigatorPrim
+ ;
+
+ENDME // ME_4F61DF710134 aNavigator
+
+ME ME_4F61DF710171
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+
+ENDME // ME_4F61DF710171 aControl
+
+ME ME_4F61DF6602CF
+ MEPROP UID '4F61DF6602CF'
+ MEPROP Name 'AddControl'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F61DF43019D // AddControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F61DF710134 // aNavigator
+ ME_4F61DF710171 // aControl
+ )
+ ; // Parameters
+
+ENDME // ME_4F61DF6602CF AddControl
+
+ME ME_4F61DF43019D
+ MEPROP UID '4F61DF43019D'
+ MEPROP Name 'AddControl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'анализирует кто является его родителем, если навигатор на форме, то ищет его в списке и добавляет к нему компонент.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F61DE50034C // TnpControlsListPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F61DF6602CF // AddControl
+ )
+ ; // Operations
+
+ENDME // ME_4F61DF43019D AddControl
+
+FORWARD ME_4F61DF7A0326
+
+FORWARD ME_4F61DF8C02A9
+
+ME ME_4F61DF8E013A
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+
+ENDME // ME_4F61DF8E013A aControl
+
+ME ME_4F61DF8C02A9
+ MEPROP UID '4F61DF8C02A9'
+ MEPROP Name 'DeleteControl'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F61DF7A0326 // DeleteControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F61DF8E013A // aControl
+ )
+ ; // Parameters
+
+ENDME // ME_4F61DF8C02A9 DeleteControl
+
+ME ME_4F61DF7A0326
+ MEPROP UID '4F61DF7A0326'
+ MEPROP Name 'DeleteControl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'удалить компонент из списка (происходит при пристыковки)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F61DE50034C // TnpControlsListPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F61DF8C02A9 // DeleteControl
+ )
+ ; // Operations
+
+ENDME // ME_4F61DF7A0326 DeleteControl
+
+FORWARD ME_4F61DF950395
+
+FORWARD ME_4F61DFAF0323
+
+ME ME_4F61DFB40350
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+
+ENDME // ME_4F61DFB40350 aControl
+
+ME ME_4F61DFAF0323
+ MEPROP UID '4F61DFAF0323'
+ MEPROP Name 'DockOnForm'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F61DF950395 // DockOnForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F61DFB40350 // aControl
+ )
+ ; // Parameters
+
+ENDME // ME_4F61DFAF0323 DockOnForm
+
+ME ME_4F61DF950395
+ MEPROP UID '4F61DF950395'
+ MEPROP Name 'DockOnForm'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'пристыковать компонент к навигатору на форме, от которого от был отстыкован' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F61DE50034C // TnpControlsListPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F61DFAF0323 // DockOnForm
+ )
+ ; // Operations
+
+ENDME // ME_4F61DF950395 DockOnForm
+
+MEREF ME_47B2C42A0163_ME_4F61DE50034C_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4F61DE50034C_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_4F61DE50034C_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4F61DE50034C_impl CompareExistingItems
+
+MEREF ME_47B99E920196_ME_4F61DE50034C_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_4F61DE50034C_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_4F61DE50034C_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4F61DE50034C_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B99E920196 ME_4F61DE50034C
+%%InheritedBy ME_4A54DD4E036F ME_4F61DE50034C
+
+ME ME_4F61DE50034C
+ MEPROP UID '4F61DE50034C'
+ MEPROP Name 'TnpControlsListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'список навигаторов на форме, от которых были отстыкованы компоненты.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47CD07B900E0' // vtNavigator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B99E920196_ME_4F61DE50034C_G // l3UncomparabeObjectRefList
+ HWL ME_4A54DD4E036F_ME_4F61DE50034C_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F61DE76023A // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F61DEF6012B // Find
+ HWL ME_4F61DF1D01E2 // Find$1
+ HWL ME_4F61DF43019D // AddControl
+ HWL ME_4F61DF7A0326 // DeleteControl
+ HWL ME_4F61DF950395 // DockOnForm
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_4F61DE50034C_impl // AssignItem
+ ME_47B99D4503A2_ME_4F61DE50034C_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'npControlsListPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'npControlsListPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\npControlsListPrim.pas'
+
+ENDME // ME_4F61DE50034C TnpControlsListPrim

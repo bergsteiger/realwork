@@ -1,0 +1,105 @@
+// TatDeleteCommentOperation 4817437E02D8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4817437E02D8
+
+ME ME_4817445A00D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4817437E02D8 // TatDeleteCommentOperation
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_4817445A00D5 
+
+ME ME_4817468C0152
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4817437E02D8 // TatDeleteCommentOperation
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4817468C0152 
+
+ME ME_4CFF6136024D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4817437E02D8 // TatDeleteCommentOperation
+ ;
+ MELINK Target WL 'ME_4CFE70A801B2' '4815C75902A2.ms.model.script' // TatDTPParaIterator
+ ;
+
+ENDME // ME_4CFF6136024D 
+
+ME ME_4CFF635A00DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4817437E02D8 // TatDeleteCommentOperation
+ ;
+ MELINK Target WL 'ME_4C5AA5CA02DF' '4570511E038A.ms.model.script' // DocumentTextProvider
+ ;
+
+ENDME // ME_4CFF635A00DD 
+
+MEREF ME_48089F460352_ME_4817437E02D8_impl
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48089F460352_ME_4817437E02D8_impl ExecuteSelf
+
+MEREF ME_48089F3701B4_ME_4817437E02D8_over
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F3701B4_ME_4817437E02D8_over InitParamList
+
+MEREF ME_48076E9D013E_ME_4817437E02D8_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_4817437E02D8_G TatOperationBase
+
+%%InheritedBy ME_48076E9D013E ME_4817437E02D8
+
+ME ME_4817437E02D8
+ MEPROP UID '4817437E02D8'
+ MEPROP Name 'TatDeleteCommentOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48076E9D013E_ME_4817437E02D8_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_4817437E02D8_impl // ExecuteSelf
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F3701B4_ME_4817437E02D8_over // InitParamList
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4817445A00D5 // atLogger
+ ME_4817468C0152 // SysUtils
+ ME_4CFF6136024D // TatDTPParaIterator
+ ME_4CFF635A00DD // DocumentTextProvider
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'atDeleteCommentOperation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atDeleteCommentOperation'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atDeleteCommentOperation.pas'
+
+ENDME // ME_4817437E02D8 TatDeleteCommentOperation

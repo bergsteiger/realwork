@@ -1,0 +1,59 @@
+// K235868845 4CAC95AC011D TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CAC95AC011D
+
+ME ME_4CAC95F60396
+ MEPROP UID '4CAC95F60396'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CAC95AC011D // K235868845
+ ;
+
+ENDME // ME_4CAC95F60396 DoIt
+
+MEREF ME_4B2A11BC0255_ME_4CAC95AC011D_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_4CAC95AC011D_G TBaseTest
+
+%%InheritedBy ME_4B2A11BC0255 ME_4CAC95AC011D
+
+ME ME_4CAC95AC011D
+ MEPROP UID '4CAC95AC011D'
+ MEPROP Name 'K235868845'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:235868845}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4CA0B2660199' // TFWTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B2A11BC0255_ME_4CAC95AC011D_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4CAC95F60396 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '06.10.2010 19:29'
+ UP extprop:pas:TypeName 'TK235868845'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K235868845'
+ UP intf.pas:Path 'common\components\rtl\Garant\TestForTFW\K235868845.pas'
+
+ENDME // ME_4CAC95AC011D K235868845

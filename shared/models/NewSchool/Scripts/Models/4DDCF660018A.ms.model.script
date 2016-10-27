@@ -1,0 +1,195 @@
+// TsdsChangesBetweenEditionsData 4DDCF660018A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DDCF660018A
+
+ME ME_4DDCF68C03E7
+ MEPROP UID '4DDCF68C03E7'
+ MEPROP Name 'f_Info'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4DDCF660018A // TsdsChangesBetweenEditionsData
+ ;
+ MELINK Target WL 'ME_4DDCD8CD008D' '4DDCD71E027C.ms.model.script' // InsChangesBetweenEditionsInfo
+ ;
+
+ENDME // ME_4DDCF68C03E7 f_Info
+
+ME ME_4DDCFDE103B8
+ MEPROP UID '4DDCFDE103B8'
+ MEPROP Name 'IvcmRealData'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DDCF660018A // TsdsChangesBetweenEditionsData
+ ;
+ MELINK Target WL 'ME_4DDCF62C01DF' '4DDCD71E027C.ms.model.script' // IsdsChangesBetweenEditionsData
+ ;
+
+ENDME // ME_4DDCFDE103B8 IvcmRealData
+
+FORWARD ME_4DDCF6AB0206
+
+FORWARD ME_4DDCF6B20333
+
+ME ME_4DDCF6C802B2
+ MEPROP Name 'anInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DDCD8CD008D' '4DDCD71E027C.ms.model.script' // InsChangesBetweenEditionsInfo
+ ;
+
+ENDME // ME_4DDCF6C802B2 anInfo
+
+ME ME_4DDCF6B20333
+ MEPROP UID '4DDCF6B20333'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDCF6AB0206 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DDCF6C802B2 // anInfo
+ )
+ ; // Parameters
+
+ENDME // ME_4DDCF6B20333 DoIt
+
+ME ME_4DDCF6AB0206
+ MEPROP UID '4DDCF6AB0206'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDCF660018A // TsdsChangesBetweenEditionsData
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DDCF6B20333 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DDCF6AB0206 Create
+
+MEREF ME_4DDCF6AB0206_ME_4DDCF6A20276_G
+ MELINK Original HWL ME_4DDCF6AB0206 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DDCF6AB0206_ME_4DDCF6A20276_G Create
+
+MEREF ME_4DDCF62C01DF_ME_4DDCF6A20276_R
+ MELINK Original WL 'ME_4DDCF62C01DF' '4DDCD71E027C.ms.model.script' // IsdsChangesBetweenEditionsData
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DDCF62C01DF_ME_4DDCF6A20276_R IsdsChangesBetweenEditionsData
+
+%%ImplementedBy ME_4DDCF62C01DF ME_4DDCF6A20276
+
+%%InheritedBy ME_4DDCF6AB0206 ME_4DDCF6A20276
+
+ME ME_4DDCF6A20276
+ MEPROP UID '4DDCF6A20276'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDCF660018A // TsdsChangesBetweenEditionsData
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DDCF6AB0206_ME_4DDCF6A20276_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4DDCF62C01DF_ME_4DDCF6A20276_R // IsdsChangesBetweenEditionsData
+ )
+ ; // Implements
+
+ENDME // ME_4DDCF6A20276 Make
+
+MEREF ME_4DDCF63C0353_ME_4DDCF660018A_impl
+ MELINK Original WL 'ME_4DDCF63C0353' '4DDCD71E027C.ms.model.script' // Info
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4DDCF63C0353_ME_4DDCF660018A_impl Info
+
+MEREF ME_4B16B8CF0307_ME_4DDCF660018A_over
+ MELINK Original WL 'ME_4B16B8CF0307' '4B16B85D03A1.ms.model.script' // AssignData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B16B8CF0307_ME_4DDCF660018A_over AssignData
+
+MEREF ME_4B16B85D03A1_ME_4DDCF660018A_G
+ MELINK Original WL? 'ME_4B16B85D03A1' // vcmData
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B16B85D03A1_ME_4DDCF660018A_G vcmData
+
+MEREF ME_4DDCF62C01DF_ME_4DDCF660018A_R
+ MELINK Original WL 'ME_4DDCF62C01DF' '4DDCD71E027C.ms.model.script' // IsdsChangesBetweenEditionsData
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DDCF62C01DF_ME_4DDCF660018A_R IsdsChangesBetweenEditionsData
+
+%%ImplementedBy ME_4DDCF62C01DF ME_4DDCF660018A
+
+%%InheritedBy ME_4B16B85D03A1 ME_4DDCF660018A
+
+ME ME_4DDCF660018A
+ MEPROP UID '4DDCF660018A'
+ MEPROP Name 'TsdsChangesBetweenEditionsData'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DDCD7B600D5' // ChangesBetweenEditionsImplementation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B16B85D03A1_ME_4DDCF660018A_G // vcmData
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4DDCF62C01DF_ME_4DDCF660018A_R // IsdsChangesBetweenEditionsData
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4DDCF68C03E7 // f_Info
+ HWL ME_4DDCFDE103B8 // IvcmRealData
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DDCF6AB0206 // Create
+ HWL ME_4DDCF6A20276 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DDCF63C0353_ME_4DDCF660018A_impl // Info
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4B16B8CF0307_ME_4DDCF660018A_over // AssignData
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '25.05.2011 16:30'
+ UP extprop:pas:UnitName 'sdsChangesBetweenEditionsData'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'sdsChangesBetweenEditionsData'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\sdsChangesBetweenEditionsData.pas'
+
+ENDME // ME_4DDCF660018A TsdsChangesBetweenEditionsData

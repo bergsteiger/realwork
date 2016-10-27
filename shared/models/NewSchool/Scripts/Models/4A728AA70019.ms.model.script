@@ -1,0 +1,62 @@
+// TnsContactListNotifiers 4A728AA70019 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A728AA70019
+
+ME ME_4A728B16037C
+ MEPROP UID '4A728B16037C'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A728AA70019 // TnsContactListNotifiers
+ ;
+ MELINK Target WL 'ME_4A728A3C01FC' '4A66DD3C01E8.ms.model.script' // IbsContactList
+ ;
+
+ENDME // ME_4A728B16037C ItemType
+
+MEREF ME_47B57D630029_ME_4A728AA70019_G
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_4A728AA70019_G l3InterfacePtrList
+
+MEREF ME_47BC3A07027F_ME_4A728AA70019_G
+ MELINK Original WL? 'ME_47BC3A07027F' // Tl3SimpleDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC3A07027F_ME_4A728AA70019_G Tl3SimpleDataContainer
+
+%%InheritedBy ME_47B57D630029 ME_4A728AA70019
+%%InheritedBy ME_47BC3A07027F ME_4A728AA70019
+
+ME ME_4A728AA70019
+ MEPROP UID '4A728AA70019'
+ MEPROP Name 'TnsContactListNotifiers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A66EB280367' // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57D630029_ME_4A728AA70019_G // l3InterfacePtrList
+ HWL ME_47BC3A07027F_ME_4A728AA70019_G // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A728B16037C // ItemType
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'nsContactListNotifiers'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ContactListNotifiers'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\nsContactListNotifiers.pas'
+
+ENDME // ME_4A728AA70019 TnsContactListNotifiers

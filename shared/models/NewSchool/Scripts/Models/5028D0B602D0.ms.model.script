@@ -1,0 +1,116 @@
+// pop_editor_PrintTableCellsParams 5028D0B602D0 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5028D0B602D0
+
+ME ME_5028E3770350
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028D0B602D0 // pop_editor_PrintTableCellsParams
+ ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_5028E3770350 
+
+ME ME_5028E759015D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028D0B602D0 // pop_editor_PrintTableCellsParams
+ ;
+ MELINK Target WL 'ME_5005218F0347' '50052D550208.ms.model.script' // evGetContinueCell
+ ;
+
+ENDME // ME_5028E759015D 
+
+ME ME_5028EF0203C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028D0B602D0 // pop_editor_PrintTableCellsParams
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_5028EF0203C6 
+
+ME ME_5028F2D90040
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028D0B602D0 // pop_editor_PrintTableCellsParams
+ ;
+ MELINK Target WL 'ME_4DE89E560091' '47877EB202FB.ms.model.script' // Format
+ ;
+
+ENDME // ME_5028F2D90040 
+
+ME ME_5028F75500A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028D0B602D0 // pop_editor_PrintTableCellsParams
+ ;
+ MELINK Target WL? 'ME_47D00CC20108' // nevFacade
+ ;
+
+ENDME // ME_5028F75500A4 
+
+MEREF ME_4F4CB81200CA_ME_5028D0B602D0_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_5028D0B602D0_impl DoWithEditor
+
+MEREF ME_4F4CB625027A_ME_5028D0B602D0_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_5028D0B602D0_G TkwEditorFromStackWord
+
+MEREF ME_4F549BD300D3_ME_5028D0B602D0_G
+ MELINK Original WL? 'ME_4F549BD300D3' // kwEditorGetTableFromCursor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F549BD300D3_ME_5028D0B602D0_G kwEditorGetTableFromCursor
+
+%%InheritedBy ME_4F4CB625027A ME_5028D0B602D0
+%%InheritedBy ME_4F549BD300D3 ME_5028D0B602D0
+
+ME ME_5028D0B602D0
+ MEPROP UID '5028D0B602D0'
+ MEPROP Name 'pop_editor_PrintTableCellsParams'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*‘ормат:* anEditorControl pop:editor:PrintTableCellsParams'#13#10'*ќписание:* ѕечатает структуру информацию €чеек таблицы: тип объединени€, если объединенна€, то номер €чейки в строке сверху, номер €чейки в строке снизу и номер начальной €чейки/номер строки, где эта €чейка. –езультат выводитс€ в обычный файл вывода результатов.'#13#10'*ѕример:*'#13#10'{code} '#13#10'focused:control:push pop:editor:PrintTableCellsParams'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A_ME_5028D0B602D0_G // TkwEditorFromStackWord
+ HWL ME_4F549BD300D3_ME_5028D0B602D0_G // kwEditorGetTableFromCursor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_5028D0B602D0_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5028E3770350 // TnevFormatInfoPrim
+ ME_5028E759015D // evGetContinueCell
+ ME_5028EF0203C6 // l3CStr
+ ME_5028F2D90040 // Format
+ ME_5028F75500A4 // nevFacade
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwPopEditorPrintTableCellsParams'
+ UP extprop:pas:UnitName 'kwPopEditorPrintTableCellsParams'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PopEditorPrintTableCellsParams'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorPrintTableCellsParams.pas'
+
+ENDME // ME_5028D0B602D0 pop_editor_PrintTableCellsParams

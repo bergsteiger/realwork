@@ -45,7 +45,7 @@ ENDME // ME_5075301A038E DoIt
 ME ME_5075300802E0
  MEPROP UID '5075300802E0'
  MEPROP Name 'CheckCellType'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -89,11 +89,17 @@ ME ME_50753DDB01CF
 
 ENDME // ME_50753DDB01CF 
 
-ME ME_50751B680376_ME_50751AB90061
+MEREF ME_50751B680376_ME_50751AB90061_over
  MELINK Original WL 'ME_50751B680376' '47F1F94201F6.ms.model.script' // DoCheckText
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_50751B680376_ME_50751AB90061 DoCheckText
+ENDMEREF // ME_50751B680376_ME_50751AB90061_over DoCheckText
+
+MEREF ME_50751A9F02EB_ME_50751AB90061_G
+ MELINK Original WL 'ME_50751A9F02EB' '47F1F94201F6.ms.model.script' // TevAnyParagraphSearcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50751A9F02EB_ME_50751AB90061_G TevAnyParagraphSearcher
 
 %%InheritedBy ME_50751A9F02EB ME_50751AB90061
 
@@ -108,7 +114,7 @@ ME ME_50751AB90061
  MELINK Parent HWL ME_50751A0A0164 // evTableSearch
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_50751A9F02EB' '47F1F94201F6.ms.model.script' // TevAnyParagraphSearcher
+   Seq: ( HWL ME_50751A9F02EB_ME_50751AB90061_G // TevAnyParagraphSearcher
  )
  ; // Inherits
  MELIST Operations
@@ -116,7 +122,7 @@ ME ME_50751AB90061
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_50751B680376_ME_50751AB90061 // DoCheckText
+   Seq: ( ME_50751B680376_ME_50751AB90061_over // DoCheckText
  )
  ; // Overridden
  MELIST Dependencies
@@ -133,11 +139,17 @@ ME ME_50751AB90061
 
 ENDME // ME_50751AB90061 TevTableTextSearcher
 
-ME ME_50751B680376_ME_50751AEF02A9
+MEREF ME_50751B680376_ME_50751AEF02A9_over
  MELINK Original WL 'ME_50751B680376' '47F1F94201F6.ms.model.script' // DoCheckText
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_50751B680376_ME_50751AEF02A9 DoCheckText
+ENDMEREF // ME_50751B680376_ME_50751AEF02A9_over DoCheckText
+
+MEREF ME_50751AB90061_ME_50751AEF02A9_G
+ MELINK Original HWL ME_50751AB90061 // TevTableTextSearcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50751AB90061_ME_50751AEF02A9_G TevTableTextSearcher
 
 %%InheritedBy ME_50751AB90061 ME_50751AEF02A9
 
@@ -152,11 +164,11 @@ ME ME_50751AEF02A9
  MELINK Parent HWL ME_50751A0A0164 // evTableSearch
  ;
  MELIST Inherits
-   Seq: ( HWL ME_50751AB90061 // TevTableTextSearcher
+   Seq: ( HWL ME_50751AB90061_ME_50751AEF02A9_G // TevTableTextSearcher
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_50751B680376_ME_50751AEF02A9 // DoCheckText
+   Seq: ( ME_50751B680376_ME_50751AEF02A9_over // DoCheckText
  )
  ; // Overridden
  UP extprop:rc:isAcceptableForScripts True
@@ -231,7 +243,7 @@ ENDME // ME_5075311101A5 DoIt
 ME ME_507530F8022A
  MEPROP UID '507530F8022A'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -286,11 +298,17 @@ ME ME_50753E5E0130
 
 ENDME // ME_50753E5E0130 
 
-ME ME_4D553AC103A3_ME_50751B080168
+MEREF ME_4D553AC103A3_ME_50751B080168_impl
  MELINK Original WL 'ME_4D553AC103A3' '47F1F94201F6.ms.model.script' // ReplaceFunc
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4D553AC103A3_ME_50751B080168 ReplaceFunc
+ENDMEREF // ME_4D553AC103A3_ME_50751B080168_impl ReplaceFunc
+
+MEREF ME_4D553A4A005D_ME_50751B080168_G
+ MELINK Original WL 'ME_4D553A4A005D' '47F1F94201F6.ms.model.script' // TevBaseReplacer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D553A4A005D_ME_50751B080168_G TevBaseReplacer
 
 %%InheritedBy ME_4D553A4A005D ME_50751B080168
 
@@ -305,7 +323,7 @@ ME ME_50751B080168
  MELINK Parent HWL ME_50751A0A0164 // evTableSearch
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4D553A4A005D' '47F1F94201F6.ms.model.script' // TevBaseReplacer
+   Seq: ( HWL ME_4D553A4A005D_ME_50751B080168_G // TevBaseReplacer
  )
  ; // Inherits
  MELIST Attributes
@@ -318,7 +336,7 @@ ME ME_50751B080168
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4D553AC103A3_ME_50751B080168 // ReplaceFunc
+   Seq: ( ME_4D553AC103A3_ME_50751B080168_impl // ReplaceFunc
  )
  ; // Implemented
  MELIST Dependencies
@@ -399,7 +417,7 @@ ENDME // ME_507531EE01FD DoIt
 ME ME_507531E0006E
  MEPROP UID '507531E0006E'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -414,11 +432,17 @@ ME ME_507531E0006E
 
 ENDME // ME_507531E0006E Make
 
-ME ME_4D553AC103A3_ME_50751B12004F
+MEREF ME_4D553AC103A3_ME_50751B12004F_impl
  MELINK Original WL 'ME_4D553AC103A3' '47F1F94201F6.ms.model.script' // ReplaceFunc
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4D553AC103A3_ME_50751B12004F ReplaceFunc
+ENDMEREF // ME_4D553AC103A3_ME_50751B12004F_impl ReplaceFunc
+
+MEREF ME_4D553A4A005D_ME_50751B12004F_G
+ MELINK Original WL 'ME_4D553A4A005D' '47F1F94201F6.ms.model.script' // TevBaseReplacer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D553A4A005D_ME_50751B12004F_G TevBaseReplacer
 
 %%InheritedBy ME_4D553A4A005D ME_50751B12004F
 
@@ -433,7 +457,7 @@ ME ME_50751B12004F
  MELINK Parent HWL ME_50751A0A0164 // evTableSearch
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4D553A4A005D' '47F1F94201F6.ms.model.script' // TevBaseReplacer
+   Seq: ( HWL ME_4D553A4A005D_ME_50751B12004F_G // TevBaseReplacer
  )
  ; // Inherits
  MELIST Attributes
@@ -445,7 +469,7 @@ ME ME_50751B12004F
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4D553AC103A3_ME_50751B12004F // ReplaceFunc
+   Seq: ( ME_4D553AC103A3_ME_50751B12004F_impl // ReplaceFunc
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -468,11 +492,17 @@ ME ME_50753E940264
 
 ENDME // ME_50753E940264 
 
-ME ME_5075300802E0_ME_50751F2001E9
+MEREF ME_5075300802E0_ME_50751F2001E9_over
  MELINK Original HWL ME_5075300802E0 // CheckCellType
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_5075300802E0_ME_50751F2001E9 CheckCellType
+ENDMEREF // ME_5075300802E0_ME_50751F2001E9_over CheckCellType
+
+MEREF ME_50751AB90061_ME_50751F2001E9_G
+ MELINK Original HWL ME_50751AB90061 // TevTableTextSearcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50751AB90061_ME_50751F2001E9_G TevTableTextSearcher
 
 %%InheritedBy ME_50751AB90061 ME_50751F2001E9
 
@@ -487,11 +517,11 @@ ME ME_50751F2001E9
  MELINK Parent HWL ME_50751A0A0164 // evTableSearch
  ;
  MELIST Inherits
-   Seq: ( HWL ME_50751AB90061 // TevTableTextSearcher
+   Seq: ( HWL ME_50751AB90061_ME_50751F2001E9_G // TevTableTextSearcher
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_5075300802E0_ME_50751F2001E9 // CheckCellType
+   Seq: ( ME_5075300802E0_ME_50751F2001E9_over // CheckCellType
  )
  ; // Overridden
  MELIST Dependencies

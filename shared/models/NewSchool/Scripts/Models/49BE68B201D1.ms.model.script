@@ -1,0 +1,192 @@
+// Tl3ProxyStream 49BE68B201D1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49BE68B201D1
+
+ME ME_49BE693D039F
+ MEPROP UID '49BE693D039F'
+ MEPROP Name 'f_Inner'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Поток, над которым мы оборачиваемся' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49BE68B201D1 // Tl3ProxyStream
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_49BE693D039F f_Inner
+
+FORWARD ME_49BE699000B0
+
+ME ME_49BE69A10181
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_49BE69A10181 aStream
+
+ME ME_49BE699000B0
+ MEPROP UID '49BE699000B0'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49BE68B201D1 // Tl3ProxyStream
+ ;
+ MELIST Parameters
+   Seq: ( ME_49BE69A10181 // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_49BE699000B0 Create
+
+FORWARD ME_49BE71A302F3
+
+ME ME_49BE71BF0014
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_49BE71BF0014 aStream
+
+ME ME_49BE71A302F3
+ MEPROP UID '49BE71A302F3'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'Создаёт обёртку над потоком' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49BE68B201D1 // Tl3ProxyStream
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+ MELIST Parameters
+   Seq: ( ME_49BE71BF0014 // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_49BE71A302F3 Make
+
+ME ME_49C0DA3F015D
+ MEPROP UID '49C0DA3F015D'
+ MEPROP Name 'CloseInner'
+ MEPROP Class class_Operation
+ %SUMMARY 'Освобождает внутренний поток' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49BE68B201D1 // Tl3ProxyStream
+ ;
+
+ENDME // ME_49C0DA3F015D CloseInner
+
+ME ME_49BE6D990233
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49BE68B201D1 // Tl3ProxyStream
+ ;
+ MELINK Target WL? 'ME_4981AC0701C1' // ComObj
+ ;
+
+ENDME // ME_49BE6D990233 
+
+ME ME_49BE6F140198
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49BE68B201D1 // Tl3ProxyStream
+ ;
+ MELINK Target WL 'ME_48EA3BDD0023' '4678193C009C.ms.model.script' // ActiveXConsts
+ ;
+
+ENDME // ME_49BE6F140198 
+
+MEREF ME_479731C50290_ME_49BE68B201D1_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_49BE68B201D1_over Cleanup
+
+MEREF ME_49BE656C006E_ME_49BE68B201D1_over
+ MELINK Original WL 'ME_49BE656C006E' '478CF30500C1.ms.model.script' // Read
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49BE656C006E_ME_49BE68B201D1_over Read
+
+MEREF ME_49BE658C0261_ME_49BE68B201D1_over
+ MELINK Original WL 'ME_49BE658C0261' '478CF30500C1.ms.model.script' // Write
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49BE658C0261_ME_49BE68B201D1_over Write
+
+MEREF ME_49BE65E80020_ME_49BE68B201D1_over
+ MELINK Original WL 'ME_49BE65E80020' '478CF30500C1.ms.model.script' // Seek
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49BE65E80020_ME_49BE68B201D1_over Seek
+
+MEREF ME_48F4748E0192_ME_49BE68B201D1_G
+ MELINK Original WL 'ME_48F4748E0192' '48F4745E0023.ms.model.script' // Tl3Stream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48F4748E0192_ME_49BE68B201D1_G Tl3Stream
+
+%%InheritedBy ME_48F4748E0192 ME_49BE68B201D1
+
+ME ME_49BE68B201D1
+ MEPROP UID '49BE68B201D1'
+ MEPROP Name 'Tl3ProxyStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поток служащий обёрткой над другим потоком' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49BE68890199' // Streams
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F4748E0192_ME_49BE68B201D1_G // Tl3Stream
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_49BE693D039F // f_Inner
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49BE699000B0 // Create
+ HWL ME_49BE71A302F3 // Make
+ HWL ME_49C0DA3F015D // CloseInner
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_49BE68B201D1_over // Cleanup
+ ME_49BE656C006E_ME_49BE68B201D1_over // Read
+ ME_49BE658C0261_ME_49BE68B201D1_over // Write
+ ME_49BE65E80020_ME_49BE68B201D1_over // Seek
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49BE6D990233 // ComObj
+ ME_49BE6F140198 // ActiveXConsts
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '16.03.2009 17:57'
+ UP extprop:pas:UnitName 'l3ProxyStream'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ProxyStream'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ProxyStream.pas'
+
+ENDME // ME_49BE68B201D1 Tl3ProxyStream

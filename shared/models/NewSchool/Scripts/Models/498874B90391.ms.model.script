@@ -178,7 +178,7 @@ ENDME // ME_4C7B97340059 ModifyLink
 ME ME_4C7B96FA02DA
  MEPROP UID '4C7B96FA02DA'
  MEPROP Name 'InsertHyperlink'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Поставить ссылку...' ;
@@ -423,6 +423,12 @@ ME ME_4E79E6C4018D
 
 ENDME // ME_4E79E6C4018D IsContentsVisible
 
+MEREF ME_4E79E11603D8_ME_4A9D49F70177_R
+ MELINK Original WL 'ME_4E79E11603D8' '484900780017.ms.model.script' // Работа с оглавлением документа
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E79E11603D8_ME_4A9D49F70177_R Работа с оглавлением документа
+
 %%ImplementedBy ME_4E79E11603D8 ME_4A9D49F70177
 
 ME ME_4A9D49F70177
@@ -437,7 +443,7 @@ ME ME_4A9D49F70177
  MELINK Parent HWL ME_498874B90391 // Strange
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E79E11603D8' '484900780017.ms.model.script' // Работа с оглавлением документа
+   Seq: ( HWL ME_4E79E11603D8_ME_4A9D49F70177_R // Работа с оглавлением документа
  )
  ; // Implements
  MELIST Operations
@@ -621,7 +627,7 @@ ENDME // ME_4C7D3643036D InText
 ME ME_4C7D362C01B2
  MEPROP UID '4C7D362C01B2'
  MEPROP Name 'GetTypedCorrespondentList'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Ссылки на фрагмент (вид информации)' ;
@@ -651,7 +657,7 @@ ENDME // ME_4C7D362C01B2 GetTypedCorrespondentList
 ME ME_4C879306001C
  MEPROP UID '4C879306001C'
  MEPROP Name 'PrintPreview'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -673,7 +679,7 @@ ENDME // ME_4C879306001C PrintPreview
 ME ME_4C87931D00FC
  MEPROP UID '4C87931D00FC'
  MEPROP Name 'Select'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -695,7 +701,7 @@ ENDME // ME_4C87931D00FC Select
 ME ME_5587AA310201
  MEPROP UID '5587AA310201'
  MEPROP Name 'GetSimilarDocsToBlock'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -930,7 +936,7 @@ ENDME // ME_4C7D36A601BA Corr
 ME ME_4C7D36900317
  MEPROP UID '4C7D36900317'
  MEPROP Name 'UserCR1'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Пользовательские ссылки на документ (ссылки из документа) 1' ;
@@ -979,7 +985,7 @@ ENDME // ME_4C7D36D80003 Corr
 ME ME_4C7D36C40097
  MEPROP UID '4C7D36C40097'
  MEPROP Name 'UserCR2'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Пользовательские ссылки на документ (ссылки из документа) 2' ;
@@ -1305,7 +1311,7 @@ ENDME // ME_4C7BD62D02A5 Off
 ME ME_4C7BD60003B6
  MEPROP UID '4C7BD60003B6'
  MEPROP Name 'TimeMachineOnOff'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Включить Машину времени с календарной даты\Выключить Машину времени' ;
@@ -1395,12 +1401,18 @@ ME ME_4C7BA9E701CA
 
 ENDME // ME_4C7BA9E701CA Drug
 
+MEREF ME_4E7A0C5700E2_ME_4C7BA9CB0179_R
+ MELINK Original WL 'ME_4E7A0C5700E2' '484900780017.ms.model.script' // Должна быть кнопка на тулбаре, переключающая видимость окна оглавления
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E7A0C5700E2_ME_4C7BA9CB0179_R Должна быть кнопка на тулбаре, переключающая видимость окна оглавления
+
 %%ImplementedBy ME_4E7A0C5700E2 ME_4C7BA9CB0179
 
 ME ME_4C7BA9CB0179
  MEPROP UID '4C7BA9CB0179'
  MEPROP Name 'OpenContentsFrmAct'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Структура документа' ;
@@ -1409,7 +1421,7 @@ ME ME_4C7BA9CB0179
  MELINK Parent HWL ME_4C3B374802FA // Document
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E7A0C5700E2' '484900780017.ms.model.script' // Должна быть кнопка на тулбаре, переключающая видимость окна оглавления
+   Seq: ( HWL ME_4E7A0C5700E2_ME_4C7BA9CB0179_R // Должна быть кнопка на тулбаре, переключающая видимость окна оглавления
  )
  ; // Implements
  MELIST Children
@@ -1724,7 +1736,7 @@ ENDME // ME_4C7D357A0246 Hide
 ME ME_4C7D354603D3
  MEPROP UID '4C7D354603D3'
  MEPROP Name 'ShowInfo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Показать текст предупреждения' ;
@@ -1818,7 +1830,7 @@ ENDME // ME_4C7D34BD0115 Hide
 ME ME_4C7D34A903C5
  MEPROP UID '4C7D34A903C5'
  MEPROP Name 'ShowInfo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Показать текст предупреждения' ;
@@ -1885,7 +1897,7 @@ ENDME // ME_4C7D3511032C MachineOff
 ME ME_4C7D34DE02D2
  MEPROP UID '4C7D34DE02D2'
  MEPROP Name 'TimeMachineOnOffNew'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Включить/Выключить Машину времени' ;
@@ -2001,7 +2013,7 @@ ENDME // ME_4C7D347003BA Hide
 ME ME_4C7D345C006D
  MEPROP UID '4C7D345C006D'
  MEPROP Name 'ShowInfo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Показать текст предупреждения' ;
@@ -2261,7 +2273,7 @@ ENDME // ME_4C7BD56D0348 VersionHidden
 ME ME_4C7BD3C2000C
  MEPROP UID '4C7BD3C2000C'
  MEPROP Name 'HideShow'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Скрыть/Показать' ;
@@ -2523,7 +2535,7 @@ FORWARD ME_4C7F751001B8
 ME ME_4C7F753E02BC
  MEPROP UID '4C7F753E02BC'
  MEPROP Name 'TimeMachineOffAndReset'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2545,7 +2557,7 @@ ENDME // ME_4C7F753E02BC TimeMachineOffAndReset
 ME ME_4C7F7552010A
  MEPROP UID '4C7F7552010A'
  MEPROP Name 'ActualRedaction'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2567,7 +2579,7 @@ ENDME // ME_4C7F7552010A ActualRedaction
 ME ME_4C7F75660342
  MEPROP UID '4C7F75660342'
  MEPROP Name 'TimeMachineOff'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2614,7 +2626,7 @@ FORWARD ME_4C7FAC970069
 ME ME_4C7FACA8026E
  MEPROP UID '4C7FACA8026E'
  MEPROP Name 'RemWarnJuror'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2636,7 +2648,7 @@ ENDME // ME_4C7FACA8026E RemWarnJuror
 ME ME_4C7FACBB005C
  MEPROP UID '4C7FACBB005C'
  MEPROP Name 'RemWarnTimeMachineOn'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2658,7 +2670,7 @@ ENDME // ME_4C7FACBB005C RemWarnTimeMachineOn
 ME ME_4C7FACCE013F
  MEPROP UID '4C7FACCE013F'
  MEPROP Name 'RemWarnRedaction'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2680,7 +2692,7 @@ ENDME // ME_4C7FACCE013F RemWarnRedaction
 ME ME_4C7FACFE01D3
  MEPROP UID '4C7FACFE01D3'
  MEPROP Name 'RemWarnOnControl'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2702,7 +2714,7 @@ ENDME // ME_4C7FACFE01D3 RemWarnOnControl
 ME ME_4C7FAD0F014A
  MEPROP UID '4C7FAD0F014A'
  MEPROP Name 'RemWarnIsAbolished'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2724,7 +2736,7 @@ ENDME // ME_4C7FAD0F014A RemWarnIsAbolished
 ME ME_4C7FAD1D038F
  MEPROP UID '4C7FAD1D038F'
  MEPROP Name 'RemWarnTimeMachineException'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2746,7 +2758,7 @@ ENDME // ME_4C7FAD1D038F RemWarnTimeMachineException
 ME ME_4C7FAD310195
  MEPROP UID '4C7FAD310195'
  MEPROP Name 'RemWarnPreActive'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2768,7 +2780,7 @@ ENDME // ME_4C7FAD310195 RemWarnPreActive
 ME ME_4C7FAD470142
  MEPROP UID '4C7FAD470142'
  MEPROP Name 'RemWarnTimeMachineWarning'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2790,7 +2802,7 @@ ENDME // ME_4C7FAD470142 RemWarnTimeMachineWarning
 ME ME_4C7FAD5900EE
  MEPROP UID '4C7FAD5900EE'
  MEPROP Name 'ViewInactualDocument'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2842,7 +2854,7 @@ FORWARD ME_4C8604F7032C
 ME ME_4C86050B01DB
  MEPROP UID '4C86050B01DB'
  MEPROP Name 'ShowText'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2864,7 +2876,7 @@ ENDME // ME_4C86050B01DB ShowText
 ME ME_4C860527005A
  MEPROP UID '4C860527005A'
  MEPROP Name 'Annotation'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2886,7 +2898,7 @@ ENDME // ME_4C860527005A Annotation
 ME ME_4C8605460347
  MEPROP UID '4C8605460347'
  MEPROP Name 'ShowAttributes'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2908,7 +2920,7 @@ ENDME // ME_4C8605460347 ShowAttributes
 ME ME_4C86056702CB
  MEPROP UID '4C86056702CB'
  MEPROP Name 'ShowRelated'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2930,7 +2942,7 @@ ENDME // ME_4C86056702CB ShowRelated
 ME ME_4C8605850067
  MEPROP UID '4C8605850067'
  MEPROP Name 'ShowUserCRList1'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2952,7 +2964,7 @@ ENDME // ME_4C8605850067 ShowUserCRList1
 ME ME_4C8605A2018B
  MEPROP UID '4C8605A2018B'
  MEPROP Name 'ShowUserCRList2'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2974,7 +2986,7 @@ ENDME // ME_4C8605A2018B ShowUserCRList2
 ME ME_4C8605BF03B0
  MEPROP UID '4C8605BF03B0'
  MEPROP Name 'SimilarDocuments'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3024,7 +3036,7 @@ FORWARD ME_4C862601016C
 ME ME_4C862614021C
  MEPROP UID '4C862614021C'
  MEPROP Name 'OpenNewWindow'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3046,7 +3058,7 @@ ENDME // ME_4C862614021C OpenNewWindow
 ME ME_55544CF2027E
  MEPROP UID '55544CF2027E'
  MEPROP Name 'OpenNewTab'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3091,7 +3103,7 @@ FORWARD ME_4C864A770147
 ME ME_4C864A87020E
  MEPROP UID '4C864A87020E'
  MEPROP Name 'Copy'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3135,7 +3147,7 @@ FORWARD ME_4C876BFF0064
 ME ME_4C876C1F014C
  MEPROP UID '4C876C1F014C'
  MEPROP Name 'Resize'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3157,7 +3169,7 @@ ENDME // ME_4C876C1F014C Resize
 ME ME_4C876E670305
  MEPROP UID '4C876E670305'
  MEPROP Name 'Enlarge'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3179,7 +3191,7 @@ ENDME // ME_4C876E670305 Enlarge
 ME ME_4C876E850207
  MEPROP UID '4C876E850207'
  MEPROP Name 'Shrink'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3201,7 +3213,7 @@ ENDME // ME_4C876E850207 Shrink
 ME ME_4C876EA202FF
  MEPROP UID '4C876EA202FF'
  MEPROP Name 'ActualSize'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3223,7 +3235,7 @@ ENDME // ME_4C876EA202FF ActualSize
 ME ME_4C876EB40188
  MEPROP UID '4C876EB40188'
  MEPROP Name 'FitInWIndow'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3369,7 +3381,7 @@ FORWARD ME_4EC4CD8302F2
 ME ME_4EC4CDDB023C
  MEPROP UID '4EC4CDDB023C'
  MEPROP Name 'DoCompareEditions'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Сравнить редакции' ;
@@ -3393,7 +3405,7 @@ ENDME // ME_4EC4CDDB023C DoCompareEditions
 ME ME_4EC4CE180122
  MEPROP UID '4EC4CE180122'
  MEPROP Name 'BuildChangedFragments'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Построить обзор изменений' ;
@@ -3414,6 +3426,12 @@ ME ME_4EC4CE180122
 
 ENDME // ME_4EC4CE180122 BuildChangedFragments
 
+MEREF ME_4EC25EB5037A_ME_4EC4CD8302F2_R
+ MELINK Original WL 'ME_4EC25EB5037A' '484900780017.ms.model.script' // Работа со списком редакций
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EC25EB5037A_ME_4EC4CD8302F2_R Работа со списком редакций
+
 %%ImplementedBy ME_4EC25EB5037A ME_4EC4CD8302F2
 
 ME ME_4EC4CD8302F2
@@ -3429,7 +3447,7 @@ ME ME_4EC4CD8302F2
  MELINK Parent HWL ME_498874B90391 // Strange
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4EC25EB5037A' '484900780017.ms.model.script' // Работа со списком редакций
+   Seq: ( HWL ME_4EC25EB5037A_ME_4EC4CD8302F2_R // Работа со списком редакций
  )
  ; // Implements
  MELIST Operations
@@ -3489,7 +3507,7 @@ FORWARD ME_4F184B0D010B
 ME ME_4F184B42019E
  MEPROP UID '4F184B42019E'
  MEPROP Name 'GoToIntranet'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3533,7 +3551,7 @@ FORWARD ME_4F672A46002D
 ME ME_4F672A7903C1
  MEPROP UID '4F672A7903C1'
  MEPROP Name 'Open'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Открыть в текущем окне' ;
@@ -3557,7 +3575,7 @@ ENDME // ME_4F672A7903C1 Open
 ME ME_4F672A9C0083
  MEPROP UID '4F672A9C0083'
  MEPROP Name 'OpenNewWindow'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Открыть в новом окне' ;
@@ -3581,7 +3599,7 @@ ENDME // ME_4F672A9C0083 OpenNewWindow
 ME ME_53DF276802DD
  MEPROP UID '53DF276802DD'
  MEPROP Name 'OpenNewTab'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Открыть в новой вкладке' ;
@@ -3631,7 +3649,7 @@ FORWARD ME_4F8845ED0155
 ME ME_4F88460903B1
  MEPROP UID '4F88460903B1'
  MEPROP Name 'ChangesButton'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Изменения в документе' ;
@@ -3678,7 +3696,7 @@ FORWARD ME_4F884EDC03D9
 ME ME_4F884EF30187
  MEPROP UID '4F884EF30187'
  MEPROP Name 'CopySubNumber'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Копировать позицию' ;
@@ -3765,7 +3783,7 @@ FORWARD ME_5287778C02B2
 ME ME_528777B1010F
  MEPROP UID '528777B1010F'
  MEPROP Name 'SelectWord'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3787,7 +3805,7 @@ ENDME // ME_528777B1010F SelectWord
 ME ME_528777C803B4
  MEPROP UID '528777C803B4'
  MEPROP Name 'SelectPara'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess

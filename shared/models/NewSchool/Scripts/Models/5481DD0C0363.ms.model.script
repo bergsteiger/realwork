@@ -1,0 +1,305 @@
+// TeeHotSpot 5481DD0C0363 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5481DD0C0363
+
+ME ME_54872E89037A
+ MEPROP UID '54872E89037A'
+ MEPROP Name 'f_Hyperlink'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5481DD0C0363 // TeeHotSpot
+ ;
+ MELINK Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.ms.model.script' // IevHyperlink
+ ;
+
+ENDME // ME_54872E89037A f_Hyperlink
+
+ME ME_54872EA902AD
+ MEPROP UID '54872EA902AD'
+ MEPROP Name 'f_InSelection'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5481DD0C0363 // TeeHotSpot
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_54872EA902AD f_InSelection
+
+ME ME_54872EBF000F
+ MEPROP UID '54872EBF000F'
+ MEPROP Name 'f_Sub'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5481DD0C0363 // TeeHotSpot
+ ;
+ MELINK Target WL 'ME_4AE9DFBF0327' '4912DD020283.ms.model.script' // IeeSub
+ ;
+
+ENDME // ME_54872EBF000F f_Sub
+
+FORWARD ME_54872F04032C
+
+FORWARD ME_54872F1803C7
+
+ME ME_54872F1F0027
+ MEPROP Name 'aTagWrap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_54872F1F0027 aTagWrap
+
+ME ME_54872F1F0042
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49523C96004A' '49523C640160.ms.model.script' // IeeDocumentEx
+ ;
+
+ENDME // ME_54872F1F0042 aDocument
+
+ME ME_54872F1F005D
+ MEPROP Name 'aHyperlink'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.ms.model.script' // IevHyperlink
+ ;
+
+ENDME // ME_54872F1F005D aHyperlink
+
+ME ME_54872F1F0079
+ MEPROP Name 'aInSelection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_54872F1F0079 aInSelection
+
+ME ME_54872F1F00C8
+ MEPROP Name 'aSub'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4AE9DFBF0327' '4912DD020283.ms.model.script' // IeeSub
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_4AE9DFBF0327' '4912DD020283.ms.model.script' // IeeSub
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_54872F1F00C8 aSub
+
+ME ME_54872F1803C7
+ MEPROP UID '54872F1803C7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54872F04032C // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_54872F1F0027 // aTagWrap
+ ME_54872F1F0042 // aDocument
+ ME_54872F1F005D // aHyperlink
+ ME_54872F1F0079 // aInSelection
+ ME_54872F1F00C8 // aSub
+ )
+ ; // Parameters
+
+ENDME // ME_54872F1803C7 DoIt
+
+ME ME_54872F04032C
+ MEPROP UID '54872F04032C'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5481DD0C0363 // TeeHotSpot
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54872F1803C7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54872F04032C Create
+
+MEREF ME_54872F04032C_ME_54872F23003E_G
+ MELINK Original HWL ME_54872F04032C // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54872F04032C_ME_54872F23003E_G Create
+
+%%InheritedBy ME_54872F04032C ME_54872F23003E
+
+ME ME_54872F23003E
+ MEPROP UID '54872F23003E'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5481DD0C0363 // TeeHotSpot
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54872F04032C_ME_54872F23003E_G // Create
+ )
+ ; // Inherits
+
+ENDME // ME_54872F23003E Make
+
+ME ME_54872F5D037E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5481DD0C0363 // TeeHotSpot
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_54872F5D037E 
+
+ME ME_54872FEC00C4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5481DD0C0363 // TeeHotSpot
+ ;
+ MELINK Target WL 'ME_49523F8B0208' '54BE4D0B0117.ms.model.script' // TeePara
+ ;
+
+ENDME // ME_54872FEC00C4 
+
+ME ME_548730260338
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5481DD0C0363 // TeeHotSpot
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_548730260338 
+
+MEREF ME_54819EA50228_ME_5481DD0C0363_impl
+ MELINK Original WL 'ME_54819EA50228' '4912DD020283.ms.model.script' // Para
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_54819EA50228_ME_5481DD0C0363_impl Para
+
+MEREF ME_54819EA90089_ME_5481DD0C0363_impl
+ MELINK Original WL 'ME_54819EA90089' '4912DD020283.ms.model.script' // Hyperlink
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_54819EA90089_ME_5481DD0C0363_impl Hyperlink
+
+MEREF ME_54819EB40253_ME_5481DD0C0363_impl
+ MELINK Original WL 'ME_54819EB40253' '4912DD020283.ms.model.script' // InSelection
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_54819EB40253_ME_5481DD0C0363_impl InSelection
+
+MEREF ME_54819EBD00AD_ME_5481DD0C0363_impl
+ MELINK Original WL 'ME_54819EBD00AD' '4912DD020283.ms.model.script' // Sub
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_54819EBD00AD_ME_5481DD0C0363_impl Sub
+
+MEREF ME_479731C50290_ME_5481DD0C0363_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5481DD0C0363_over Cleanup
+
+MEREF ME_4A60B23E00C3_ME_5481DD0C0363_over
+ MELINK Original WL 'ME_4A60B23E00C3' '4A60B2220398.ms.model.script' // COMQueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A60B23E00C3_ME_5481DD0C0363_over COMQueryInterface
+
+MEREF ME_5487291700EB_ME_5481DD0C0363_G
+ MELINK Original WL? 'ME_5487291700EB' // TeeTagEditorTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5487291700EB_ME_5481DD0C0363_G TeeTagEditorTool
+
+MEREF ME_4F82F62D03BE_ME_5481DD0C0363_R
+ MELINK Original WL 'ME_4F82F62D03BE' '4912DD020283.ms.model.script' // IeeHotSpot
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F82F62D03BE_ME_5481DD0C0363_R IeeHotSpot
+
+%%ImplementedBy ME_4F82F62D03BE ME_5481DD0C0363
+
+%%InheritedBy ME_5487291700EB ME_5481DD0C0363
+
+ME ME_5481DD0C0363
+ MEPROP UID '5481DD0C0363'
+ MEPROP Name 'TeeHotSpot'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4912E16B01B4' // Engine Core
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5487291700EB_ME_5481DD0C0363_G // TeeTagEditorTool
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4F82F62D03BE_ME_5481DD0C0363_R // IeeHotSpot
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_54872E89037A // f_Hyperlink
+ HWL ME_54872EA902AD // f_InSelection
+ HWL ME_54872EBF000F // f_Sub
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54872F04032C // Create
+ HWL ME_54872F23003E // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_54819EA50228_ME_5481DD0C0363_impl // Para
+ ME_54819EA90089_ME_5481DD0C0363_impl // Hyperlink
+ ME_54819EB40253_ME_5481DD0C0363_impl // InSelection
+ ME_54819EBD00AD_ME_5481DD0C0363_impl // Sub
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5481DD0C0363_over // Cleanup
+ ME_4A60B23E00C3_ME_5481DD0C0363_over // COMQueryInterface
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54872F5D037E // l3String
+ ME_54872FEC00C4 // TeePara
+ ME_548730260338 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'eeHotSpot'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'eeHotSpot'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeHotSpot.pas'
+
+ENDME // ME_5481DD0C0363 TeeHotSpot

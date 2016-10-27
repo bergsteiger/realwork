@@ -1,0 +1,174 @@
+// Tm3ArcHandle 54539D300254 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_54539D94024C
+
+FORWARD ME_54539D300254
+
+FORWARD ME_54539D94024C
+
+ME ME_54539DC9032F
+ MEPROP UID '54539DC9032F'
+ MEPROP Name 'Position'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54539D94024C // Tm3ArcHandleData
+ ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_54539DC9032F Position
+
+ME ME_54539DD101CF
+ MEPROP UID '54539DD101CF'
+ MEPROP Name 'PositionInStream'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54539D94024C // Tm3ArcHandleData
+ ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_54539DD101CF PositionInStream
+
+ME ME_54539DE40378
+ MEPROP UID '54539DE40378'
+ MEPROP Name 'DataSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54539D94024C // Tm3ArcHandleData
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54539DE40378 DataSize
+
+ME ME_54539D94024C
+ MEPROP UID '54539D94024C'
+ MEPROP Name 'Tm3ArcHandleData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54539D300254 // Tm3ArcHandle
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_54539DC9032F // Position
+ HWL ME_54539DD101CF // PositionInStream
+ HWL ME_54539DE40378 // DataSize
+ )
+ ; // Attributes
+
+ENDME // ME_54539D94024C Tm3ArcHandleData
+
+ME ME_54539DA603E0
+ MEPROP UID '54539DA603E0'
+ MEPROP Name 'Data'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54539D300254 // Tm3ArcHandle
+ ;
+ MELINK Target HWL ME_54539D94024C // Tm3ArcHandleData
+ ;
+
+ENDME // ME_54539DA603E0 Data
+
+ME ME_54539D810393
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54539D300254 // Tm3ArcHandle
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_54539D810393 
+
+MEREF ME_542194B001E1_ME_54539D300254_impl
+ MELINK Original WL 'ME_542194B001E1' '5421799C0066.ms.model.script' // Load
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_542194B001E1_ME_54539D300254_impl Load
+
+MEREF ME_542194C102F7_ME_54539D300254_impl
+ MELINK Original WL 'ME_542194C102F7' '5421799C0066.ms.model.script' // Save
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_542194C102F7_ME_54539D300254_impl Save
+
+MEREF ME_479731C50290_ME_54539D300254_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_54539D300254_over Cleanup
+
+MEREF ME_47A6FEE600FC_ME_54539D300254_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_54539D300254_over IsCacheable
+
+MEREF ME_5421799C0066_ME_54539D300254_G
+ MELINK Original WL? 'ME_5421799C0066' // Tm3Persistent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5421799C0066_ME_54539D300254_G Tm3Persistent
+
+%%InheritedBy ME_5421799C0066 ME_54539D300254
+
+ME ME_54539D300254
+ MEPROP UID '54539D300254'
+ MEPROP Name 'Tm3ArcHandle'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54870DB502F5' // ArchiveStreams
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5421799C0066_ME_54539D300254_G // Tm3Persistent
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54539DA603E0 // Data
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_542194B001E1_ME_54539D300254_impl // Load
+ ME_542194C102F7_ME_54539D300254_impl // Save
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_54539D300254_over // Cleanup
+ ME_47A6FEE600FC_ME_54539D300254_over // IsCacheable
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_54539D94024C // Tm3ArcHandleData
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_54539D810393 // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'm3ArcHandle'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3ArcHandle'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3ArcHandle.pas'
+
+ENDME // ME_54539D300254 Tm3ArcHandle

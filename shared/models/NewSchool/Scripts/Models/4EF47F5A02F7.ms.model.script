@@ -20,6 +20,24 @@ ME ME_29242197B51C
 
 ENDME // ME_29242197B51C Ini_FormFactory_UserCR2_WarningBaloon
 
+MEREF ME_4EA599F501CF_ME_4EF47F5A02F7_G
+ MELINK Original WL? 'ME_4EA599F501CF' // PrimWarningBaloonOptions
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EA599F501CF_ME_4EF47F5A02F7_G PrimWarningBaloonOptions
+
+MEREF ME_4EF47F1102A6_ME_4EF47F5A02F7_R
+ MELINK Original WL 'ME_4EF47F1102A6' '4BD856E802F9.ms.model.script' // UserCR2_WarningBaloon
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EF47F1102A6_ME_4EF47F5A02F7_R UserCR2_WarningBaloon
+
+MEREF ME_4EF47FB900CD_ME_4EF47F5A02F7_R
+ MELINK Original WL 'ME_4EF47FB900CD' '484FA67302D7.ms.model.script' // На медали 'Список изменён' в пользовательских вкладках СКР должен показываться баллон
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EF47FB900CD_ME_4EF47F5A02F7_R На медали 'Список изменён' в пользовательских вкладках СКР должен показываться баллон
+
 %%ImplementedBy ME_4EF47F1102A6 ME_4EF47F5A02F7
 %%ImplementedBy ME_4EF47FB900CD ME_4EF47F5A02F7
 
@@ -37,12 +55,12 @@ ME ME_4EF47F5A02F7
  MELINK Parent WL? 'ME_498B135601B6' // Document
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4EA599F501CF' // PrimWarningBaloonOptions
+   Seq: ( HWL ME_4EA599F501CF_ME_4EF47F5A02F7_G // PrimWarningBaloonOptions
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4EF47F1102A6' '4BD856E802F9.ms.model.script' // UserCR2_WarningBaloon
- WL 'ME_4EF47FB900CD' '484FA67302D7.ms.model.script' // На медали 'Список изменён' в пользовательских вкладках СКР должен показываться баллон
+   Seq: ( HWL ME_4EF47F1102A6_ME_4EF47F5A02F7_R // UserCR2_WarningBaloon
+ HWL ME_4EF47FB900CD_ME_4EF47F5A02F7_R // На медали 'Список изменён' в пользовательских вкладках СКР должен показываться баллон
  )
  ; // Implements
  MELIST Operations

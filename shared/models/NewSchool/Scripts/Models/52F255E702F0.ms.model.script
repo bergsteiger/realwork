@@ -1,0 +1,207 @@
+// TGUIAppTester 52F255E702F0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52F264E400E6
+
+FORWARD ME_52F255E702F0
+
+FORWARD ME_52F264E400E6
+
+ME ME_52F264F70116
+ MEPROP UID '52F264F70116'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_52F264E400E6 // TResultsPlaces
+ ;
+ MELINK Target WL 'ME_4B7AAF1203B4' '4B2A6D4303A9.ms.model.script' // RTestResultsPlace
+ ;
+
+ENDME // ME_52F264F70116 
+
+ME ME_52F264E400E6
+ MEPROP UID '52F264E400E6'
+ MEPROP Name 'TResultsPlaces'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F255E702F0 // TGUIAppTester
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52F264F70116 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_52F264E400E6 TResultsPlaces
+
+FORWARD ME_52F264840382
+
+ME ME_52F26508019F
+ MEPROP UID '52F26508019F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F264840382 // GetResultsPlaces
+ ;
+ MELINK Target HWL ME_52F264E400E6 // TResultsPlaces
+ ;
+
+ENDME // ME_52F26508019F DoIt
+
+ME ME_52F264840382
+ MEPROP UID '52F264840382'
+ MEPROP Name 'GetResultsPlaces'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52F255E702F0 // TGUIAppTester
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F26508019F // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_52F264840382 GetResultsPlaces
+
+FORWARD ME_52F2651C00F4
+
+FORWARD ME_52F2654F009A
+
+ME ME_52F2656802BD
+ MEPROP Name 'aPlaces'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B7AAF5C0096' '4B2A6D4303A9.ms.model.script' // array of RTestResultsPlace
+ ;
+
+ENDME // ME_52F2656802BD aPlaces
+
+ME ME_52F2654F009A
+ MEPROP UID '52F2654F009A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F2651C00F4 // MakeResults
+ ;
+ MELINK Target HWL ME_52F264E400E6 // TResultsPlaces
+ ;
+ MELIST Parameters
+   Seq: ( ME_52F2656802BD // aPlaces
+ )
+ ; // Parameters
+
+ENDME // ME_52F2654F009A DoIt
+
+ME ME_52F2651C00F4
+ MEPROP UID '52F2651C00F4'
+ MEPROP Name 'MakeResults'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F255E702F0 // TGUIAppTester
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F2654F009A // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_52F2651C00F4 MakeResults
+
+ME ME_52F2645E038F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F255E702F0 // TGUIAppTester
+ ;
+ MELINK Target WL? 'ME_4B2A6D4303A9' // KTestRunner
+ ;
+
+ENDME // ME_52F2645E038F 
+
+ME ME_52F268E10370
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F255E702F0 // TGUIAppTester
+ ;
+ MELINK Target WL? 'ME_4DEF306102FF' // TtfwScriptEngineEX
+ ;
+
+ENDME // ME_52F268E10370 
+
+MEREF ME_4F79BCC902C5_ME_52F255E702F0_impl
+ MELINK Original WL 'ME_4F79BCC902C5' '52F21A610247.ms.model.script' // CalcBatchMode
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" True
+ENDMEREF // ME_4F79BCC902C5_ME_52F255E702F0_impl CalcBatchMode
+
+MEREF ME_49E7754802A9_ME_52F255E702F0_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_52F255E702F0_G Tl3ProtoObject
+
+MEREF ME_52F21A610247_ME_52F255E702F0_G
+ MELINK Original WL? 'ME_52F21A610247' // GUIAppTester
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52F21A610247_ME_52F255E702F0_G GUIAppTester
+
+%%InheritedBy ME_49E7754802A9 ME_52F255E702F0
+%%InheritedBy ME_52F21A610247 ME_52F255E702F0
+
+ME ME_52F255E702F0
+ MEPROP UID '52F255E702F0'
+ MEPROP Name 'TGUIAppTester'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_51309A4A02FB' // Tests Res Common
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_52F255E702F0_G // Tl3ProtoObject
+ HWL ME_52F21A610247_ME_52F255E702F0_G // GUIAppTester
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_52F264840382 // GetResultsPlaces
+ HWL ME_52F2651C00F4 // MakeResults
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F79BCC902C5_ME_52F255E702F0_impl // CalcBatchMode
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_52F264E400E6 // TResultsPlaces
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_52F2645E038F // KTestRunner
+ ME_52F268E10370 // TtfwScriptEngineEX
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'GUIAppTester'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'GUIAppTester'
+ UP intf.pas:Path 'common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.pas'
+
+ENDME // ME_52F255E702F0 TGUIAppTester

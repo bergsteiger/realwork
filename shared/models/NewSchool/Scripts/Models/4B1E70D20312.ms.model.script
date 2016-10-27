@@ -1,0 +1,302 @@
+// TdeCommonDiction 4B1E70D20312 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B1E70D20312
+
+ME ME_4B1E7E9B035D
+ MEPROP UID '4B1E7E9B035D'
+ MEPROP Name 'f_Context'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4B1E70D20312 // TdeCommonDiction
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4B1E7E9B035D f_Context
+
+FORWARD ME_4B1E7EC0026F
+
+FORWARD ME_4B1E7ECF008D
+
+ME ME_4B1E7ED80017
+ MEPROP Name 'aDocInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+
+ENDME // ME_4B1E7ED80017 aDocInfo
+
+ME ME_4B1E7ECF008D
+ MEPROP UID '4B1E7ECF008D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1E7EC0026F // Convert
+ ;
+ MELINK Target WL 'ME_4947AD8201F6' '492540AF02CD.ms.model.script' // IdeCommonDiction
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B1E7ED80017 // aDocInfo
+ )
+ ; // Parameters
+
+ENDME // ME_4B1E7ECF008D DoIt
+
+ME ME_4B1E95860270
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1E7EC0026F // Convert
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4B1E95860270 
+
+ME ME_4BA752B800E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1E7EC0026F // Convert
+ ;
+ MELINK Target WL 'ME_456EB2F1034B' '456EA56002BF.ms.model.script' // Languages
+ ;
+
+ENDME // ME_4BA752B800E2 
+
+ME ME_4BA752FF0363
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1E7EC0026F // Convert
+ ;
+ MELINK Target WL 'ME_491B32C1015D' '4BA763B0004B.ms.model.script' // TDocumentPositionType
+ ;
+
+ENDME // ME_4BA752FF0363 
+
+ME ME_4B1E7EC0026F
+ MEPROP UID '4B1E7EC0026F'
+ MEPROP Name 'Convert'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1E70D20312 // TdeCommonDiction
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B1E7ECF008D // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B1E95860270 // FreeAndNil
+ ME_4BA752B800E2 // Languages
+ ME_4BA752FF0363 // TDocumentPositionType
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" True
+
+ENDME // ME_4B1E7EC0026F Convert
+
+FORWARD ME_4B1E7EF1015B
+
+FORWARD ME_4B1E7F00000F
+
+ME ME_4B1E7F3C02E6
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4B1E7F3C02E6 aDocument
+
+ME ME_4B1E7F3C0308
+ MEPROP Name 'aContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4B1E7F3C0308 aContext
+
+ME ME_4B1E7F00000F
+ MEPROP UID '4B1E7F00000F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1E7EF1015B // Make
+ ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B1E7F3C02E6 // aDocument
+ ME_4B1E7F3C0308 // aContext
+ )
+ ; // Parameters
+
+ENDME // ME_4B1E7F00000F DoIt
+
+ME ME_4B1E95A801C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1E7EF1015B // Make
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4B1E95A801C8 
+
+ME ME_4B1E95C8006A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1E7EF1015B // Make
+ ;
+ MELINK Target WL 'ME_4B1E84EF03CC' '49258B61023C.ms.model.script' // TbsDocumentContainer
+ ;
+
+ENDME // ME_4B1E95C8006A 
+
+ME ME_4B1E7EF1015B
+ MEPROP UID '4B1E7EF1015B'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1E70D20312 // TdeCommonDiction
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B1E7F00000F // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B1E95A801C8 // FreeAndNil
+ ME_4B1E95C8006A // TbsDocumentContainer
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" True
+
+ENDME // ME_4B1E7EF1015B Make
+
+ME ME_4B1E960E030B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1E70D20312 // TdeCommonDiction
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4B1E960E030B 
+
+MEREF ME_4B1D15350358_ME_4B1E70D20312_impl
+ MELINK Original WL 'ME_4B1D15350358' '492540AF02CD.ms.model.script' // Context
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDMEREF // ME_4B1D15350358_ME_4B1E70D20312_impl Context
+
+MEREF ME_479731C50290_ME_4B1E70D20312_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4B1E70D20312_over Cleanup
+
+MEREF ME_4B1E714A0125_ME_4B1E70D20312_over
+ MELINK Original WL 'ME_4B1E714A0125' '491C0BE302FF.ms.model.script' // DefaultDocType
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B1E714A0125_ME_4B1E70D20312_over DefaultDocType
+
+MEREF ME_4B1E749D033C_ME_4B1E70D20312_over
+ MELINK Original WL 'ME_4B1E749D033C' '491C0BE302FF.ms.model.script' // AssignFromClone
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B1E749D033C_ME_4B1E70D20312_over AssignFromClone
+
+MEREF ME_491C0BE302FF_ME_4B1E70D20312_G
+ MELINK Original WL? 'ME_491C0BE302FF' // TdeDocInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_491C0BE302FF_ME_4B1E70D20312_G TdeDocInfo
+
+MEREF ME_4947AD8201F6_ME_4B1E70D20312_R
+ MELINK Original WL 'ME_4947AD8201F6' '492540AF02CD.ms.model.script' // IdeCommonDiction
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4947AD8201F6_ME_4B1E70D20312_R IdeCommonDiction
+
+%%ImplementedBy ME_4947AD8201F6 ME_4B1E70D20312
+
+%%InheritedBy ME_491C0BE302FF ME_4B1E70D20312
+
+ME ME_4B1E70D20312
+ MEPROP UID '4B1E70D20312'
+ MEPROP Name 'TdeCommonDiction'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_492543E30278' // CommonDiction
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_491C0BE302FF_ME_4B1E70D20312_G // TdeDocInfo
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4947AD8201F6_ME_4B1E70D20312_R // IdeCommonDiction
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B1E7E9B035D // f_Context
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B1E7EC0026F // Convert
+ HWL ME_4B1E7EF1015B // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4B1D15350358_ME_4B1E70D20312_impl // Context
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4B1E70D20312_over // Cleanup
+ ME_4B1E714A0125_ME_4B1E70D20312_over // DefaultDocType
+ ME_4B1E749D033C_ME_4B1E70D20312_over // AssignFromClone
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4B1E960E030B // Supports
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '08.12.2009 18:29'
+ UP extprop:pas:UnitName 'deCommonDiction'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'deCommonDiction'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\CommonDiction\deCommonDiction.pas'
+
+ENDME // ME_4B1E70D20312 TdeCommonDiction

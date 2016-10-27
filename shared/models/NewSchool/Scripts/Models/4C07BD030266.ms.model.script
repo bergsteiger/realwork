@@ -1,0 +1,202 @@
+// TevdEmptyRowFilter 4C07BD030266 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C07BD030266
+
+ME ME_4E48BBC300AD
+ MEPROP UID '4E48BBC300AD'
+ MEPROP Name 'f_Empty'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Признак, что строка пустаая.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C07BD030266 // TevdEmptyRowFilter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E48BBC300AD f_Empty
+
+ME ME_4E48BBDB0005
+ MEPROP UID '4E48BBDB0005'
+ MEPROP Name 'f_MergedFlag'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Флаг для определения ситуации, что ни одного атрибута MergeStatus'#13#10'        не было - это не значит, что строка пустая.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C07BD030266 // TevdEmptyRowFilter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E48BBDB0005 f_MergedFlag
+
+ME ME_4E48BBEF0314
+ MEPROP UID '4E48BBEF0314'
+ MEPROP Name 'f_NeedCache'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Признак нужно ли начинать кеширование следующей строки.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C07BD030266 // TevdEmptyRowFilter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E48BBEF0314 f_NeedCache
+
+ME ME_4E48BC090207
+ MEPROP UID '4E48BC090207'
+ MEPROP Name 'f_OnlyHead'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Только ячейки начала объединения в строке.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C07BD030266 // TevdEmptyRowFilter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E48BC090207 f_OnlyHead
+
+ME ME_4E48BCAE028A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C07BD030266 // TevdEmptyRowFilter
+ ;
+ MELINK Target WL 'ME_468E49730365' '469D0AC7005E.ms.model.script' // MergeStatus
+ ;
+
+ENDME // ME_4E48BCAE028A 
+
+ME ME_4E48BCD00088
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C07BD030266 // TevdEmptyRowFilter
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4E48BCD00088 
+
+ME ME_4E48BD010012
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C07BD030266 // TevdEmptyRowFilter
+ ;
+ MELINK Target WL 'ME_4857D2F8006D' '48492FC0029D.ms.model.script' // TableRow
+ ;
+
+ENDME // ME_4E48BD010012 
+
+ME ME_4E48BD05024E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C07BD030266 // TevdEmptyRowFilter
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_4E48BD05024E 
+
+ME ME_4E48BD0900AE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C07BD030266 // TevdEmptyRowFilter
+ ;
+ MELINK Target WL 'ME_4857CD8D0093' '48492FC0029D.ms.model.script' // TableCell
+ ;
+
+ENDME // ME_4E48BD0900AE 
+
+MEREF ME_4836D4650177_ME_4C07BD030266_over
+ MELINK Original WL 'ME_4836D4650177' '47ECAA270135.ms.model.script' // StartChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D4650177_ME_4C07BD030266_over StartChild
+
+MEREF ME_4836D4C20059_ME_4C07BD030266_over
+ MELINK Original WL 'ME_4836D4C20059' '47ECAA270135.ms.model.script' // CloseStructure
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D4C20059_ME_4C07BD030266_over CloseStructure
+
+MEREF ME_4836D52400D9_ME_4C07BD030266_over
+ MELINK Original WL 'ME_4836D52400D9' '47ECAA270135.ms.model.script' // AddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D52400D9_ME_4C07BD030266_over AddAtomEx
+
+MEREF ME_4C56D54B002A_ME_4C07BD030266_over
+ MELINK Original WL 'ME_4C56D54B002A' '49E496880120.ms.model.script' // NeedStartBuffering
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C56D54B002A_ME_4C07BD030266_over NeedStartBuffering
+
+MEREF ME_4CF7BC520161_ME_4C07BD030266_over
+ MELINK Original WL 'ME_4CF7BC520161' '49E496880120.ms.model.script' // NeedFlushBuffer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CF7BC520161_ME_4C07BD030266_over NeedFlushBuffer
+
+MEREF ME_49E4965202A1_ME_4C07BD030266_G
+ MELINK Original WL 'ME_49E4965202A1' '49E496880120.ms.model.script' // TevdBufferedFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E4965202A1_ME_4C07BD030266_G TevdBufferedFilter
+
+%%InheritedBy ME_49E4965202A1 ME_4C07BD030266
+
+ME ME_4C07BD030266
+ MEPROP UID '4C07BD030266'
+ MEPROP Name 'TevdEmptyRowFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E4965202A1_ME_4C07BD030266_G // TevdBufferedFilter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4E48BBC300AD // f_Empty
+ HWL ME_4E48BBDB0005 // f_MergedFlag
+ HWL ME_4E48BBEF0314 // f_NeedCache
+ HWL ME_4E48BC090207 // f_OnlyHead
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4836D4650177_ME_4C07BD030266_over // StartChild
+ ME_4836D4C20059_ME_4C07BD030266_over // CloseStructure
+ ME_4836D52400D9_ME_4C07BD030266_over // AddAtomEx
+ ME_4C56D54B002A_ME_4C07BD030266_over // NeedStartBuffering
+ ME_4CF7BC520161_ME_4C07BD030266_over // NeedFlushBuffer
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E48BCAE028A // MergeStatus
+ ME_4E48BCD00088 // Tk2TagID
+ ME_4E48BD010012 // TableRow
+ ME_4E48BD05024E // Table
+ ME_4E48BD0900AE // TableCell
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А'
+ UP extprop:pas:UnitName 'evdEmptyRowFilter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dEmptyRowFilter'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evdEmptyRowFilter.pas'
+
+ENDME // ME_4C07BD030266 TevdEmptyRowFilter

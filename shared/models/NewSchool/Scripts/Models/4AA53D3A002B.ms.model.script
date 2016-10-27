@@ -8,19 +8,37 @@ FORWARD ME_4AA53D3A002B
 
 FORWARD ME_4FFAE62E0209
 
-ME ME_492F006F00BE_ME_4FFAE7500345
+MEREF ME_492F006F00BE_ME_4FFAE7500345_impl
  MELINK Original WL 'ME_492F006F00BE' '491C3E540050.ms.model.script' // dsQuery
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_492F006F00BE_ME_4FFAE7500345 dsQuery
+ENDMEREF // ME_492F006F00BE_ME_4FFAE7500345_impl dsQuery
 
-ME ME_492F00890059_ME_4FFAE7500345
+MEREF ME_492F00890059_ME_4FFAE7500345_impl
  MELINK Original WL 'ME_492F00890059' '491C3E540050.ms.model.script' // dsSaveLoad
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_492F00890059_ME_4FFAE7500345 dsSaveLoad
+ENDMEREF // ME_492F00890059_ME_4FFAE7500345_impl dsSaveLoad
+
+MEREF ME_4BD5C37D030C_ME_4FFAE7500345_G
+ MELINK Original WL 'ME_4BD5C37D030C' '497EBA4301CA.ms.model.script' // utqcSendConsultation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BD5C37D030C_ME_4FFAE7500345_G utqcSendConsultation
+
+MEREF ME_4BD97FFF0005_ME_4FFAE7500345_G
+ MELINK Original WL 'ME_4BD97FFF0005' '4BD97FDB031A.ms.model.script' // QueryCard
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BD97FFF0005_ME_4FFAE7500345_G QueryCard
+
+MEREF ME_492F005A02C7_ME_4FFAE7500345_R
+ MELINK Original WL 'ME_492F005A02C7' '491C3E540050.ms.model.script' // IsdsQuery
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492F005A02C7_ME_4FFAE7500345_R IsdsQuery
 
 %%ImplementedBy ME_492F005A02C7 ME_4FFAE7500345
 
@@ -38,17 +56,17 @@ ME ME_4FFAE7500345
  MELINK Parent HWL ME_4FFAE62E0209 // SaveLoad
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4BD5C37D030C' '497EBA4301CA.ms.model.script' // utqcSendConsultation
- WL 'ME_4BD97FFF0005' '4BD97FDB031A.ms.model.script' // QueryCard
+   Seq: ( HWL ME_4BD5C37D030C_ME_4FFAE7500345_G // utqcSendConsultation
+ HWL ME_4BD97FFF0005_ME_4FFAE7500345_G // QueryCard
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_492F005A02C7' '491C3E540050.ms.model.script' // IsdsQuery
+   Seq: ( HWL ME_492F005A02C7_ME_4FFAE7500345_R // IsdsQuery
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_492F006F00BE_ME_4FFAE7500345 // dsQuery
- ME_492F00890059_ME_4FFAE7500345 // dsSaveLoad
+   Seq: ( ME_492F006F00BE_ME_4FFAE7500345_impl // dsQuery
+ ME_492F00890059_ME_4FFAE7500345_impl // dsSaveLoad
  )
  ; // Implemented
  UP "ActivateIfUpdate" 'None'
@@ -59,19 +77,37 @@ ME ME_4FFAE7500345
 
 ENDME // ME_4FFAE7500345 QueryCard
 
-ME ME_492F006F00BE_ME_4FFAE62E0209
+MEREF ME_492F006F00BE_ME_4FFAE62E0209_impl
  MELINK Original WL 'ME_492F006F00BE' '491C3E540050.ms.model.script' // dsQuery
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_492F006F00BE_ME_4FFAE62E0209 dsQuery
+ENDMEREF // ME_492F006F00BE_ME_4FFAE62E0209_impl dsQuery
 
-ME ME_492F00890059_ME_4FFAE62E0209
+MEREF ME_492F00890059_ME_4FFAE62E0209_impl
  MELINK Original WL 'ME_492F00890059' '491C3E540050.ms.model.script' // dsSaveLoad
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" True
-ENDME // ME_492F00890059_ME_4FFAE62E0209 dsSaveLoad
+ENDMEREF // ME_492F00890059_ME_4FFAE62E0209_impl dsSaveLoad
+
+MEREF ME_4BD5BC700046_ME_4FFAE62E0209_G
+ MELINK Original WL 'ME_4BD5BC700046' '4F5DFE09009E.ms.model.script' // slqtConsult
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BD5BC700046_ME_4FFAE62E0209_G slqtConsult
+
+MEREF ME_4D77A59D03E6_ME_4FFAE62E0209_G
+ MELINK Original WL 'ME_4D77A59D03E6' '4BD97FDB031A.ms.model.script' // SaveLoad
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D77A59D03E6_ME_4FFAE62E0209_G SaveLoad
+
+MEREF ME_492F005A02C7_ME_4FFAE62E0209_R
+ MELINK Original WL 'ME_492F005A02C7' '491C3E540050.ms.model.script' // IsdsQuery
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492F005A02C7_ME_4FFAE62E0209_R IsdsQuery
 
 %%ImplementedBy ME_492F005A02C7 ME_4FFAE62E0209
 
@@ -89,17 +125,17 @@ ME ME_4FFAE62E0209
  MELINK Parent HWL ME_4AA53D3A002B // SendConsultation
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4BD5BC700046' '4F5DFE09009E.ms.model.script' // slqtConsult
- WL 'ME_4D77A59D03E6' '4BD97FDB031A.ms.model.script' // SaveLoad
+   Seq: ( HWL ME_4BD5BC700046_ME_4FFAE62E0209_G // slqtConsult
+ HWL ME_4D77A59D03E6_ME_4FFAE62E0209_G // SaveLoad
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_492F005A02C7' '491C3E540050.ms.model.script' // IsdsQuery
+   Seq: ( HWL ME_492F005A02C7_ME_4FFAE62E0209_R // IsdsQuery
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_492F006F00BE_ME_4FFAE62E0209 // dsQuery
- ME_492F00890059_ME_4FFAE62E0209 // dsSaveLoad
+   Seq: ( ME_492F006F00BE_ME_4FFAE62E0209_impl // dsQuery
+ ME_492F00890059_ME_4FFAE62E0209_impl // dsSaveLoad
  )
  ; // Implemented
  MELIST Children
@@ -202,13 +238,19 @@ ME ME_83A95AFD27A0
 
 ENDME // ME_83A95AFD27A0 SendConsultationCaptionLocalConstants
 
+MEREF ME_50096E800075_ME_CAD3716E6F7B_G
+ MELINK Original WL 'ME_50096E800075' '4FFC337003AF.ms.model.script' // TvcmNeedMakeFormEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50096E800075_ME_CAD3716E6F7B_G TvcmNeedMakeFormEvent
+
 %%InheritedBy ME_50096E800075 ME_CAD3716E6F7B
 
 ME ME_CAD3716E6F7B
  MEPROP UID 'CAD3716E6F7B'
  MEPROP Name 'SaveLoad_Parent_slqtConsult_NeedMakeForm'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Обработчик OnNeedMakeForm для SaveLoad' ;
@@ -217,7 +259,7 @@ ME ME_CAD3716E6F7B
  MELINK Parent HWL ME_4AA53D3A002B // SendConsultation
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_50096E800075' '47B9727603BE.ms.model.script' // TvcmNeedMakeFormEvent
+   Seq: ( HWL ME_50096E800075_ME_CAD3716E6F7B_G // TvcmNeedMakeFormEvent
  )
  ; // Inherits
  UPLINK Speller HWL ME_4FFAE62E0209 // SaveLoad
@@ -225,13 +267,19 @@ ME ME_CAD3716E6F7B
 
 ENDME // ME_CAD3716E6F7B SaveLoad_Parent_slqtConsult_NeedMakeForm
 
+MEREF ME_50096E800075_ME_0BD7FE614FE1_G
+ MELINK Original WL 'ME_50096E800075' '4FFC337003AF.ms.model.script' // TvcmNeedMakeFormEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50096E800075_ME_0BD7FE614FE1_G TvcmNeedMakeFormEvent
+
 %%InheritedBy ME_50096E800075 ME_0BD7FE614FE1
 
 ME ME_0BD7FE614FE1
  MEPROP UID '0BD7FE614FE1'
  MEPROP Name 'QueryCard_Parent_utqcSendConsultation_NeedMakeForm'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Обработчик OnNeedMakeForm для QueryCard' ;
@@ -240,7 +288,7 @@ ME ME_0BD7FE614FE1
  MELINK Parent HWL ME_4AA53D3A002B // SendConsultation
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_50096E800075' '47B9727603BE.ms.model.script' // TvcmNeedMakeFormEvent
+   Seq: ( HWL ME_50096E800075_ME_0BD7FE614FE1_G // TvcmNeedMakeFormEvent
  )
  ; // Inherits
  UPLINK Speller HWL ME_4FFAE7500345 // QueryCard
@@ -258,18 +306,24 @@ ME ME_4FFAE6370055
 
 ENDME // ME_4FFAE6370055 
 
-ME ME_47A042E100E2_ME_4AA53D3A002B
+MEREF ME_47A042E100E2_ME_4AA53D3A002B_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_4AA53D3A002B InitFields
+ENDMEREF // ME_47A042E100E2_ME_4AA53D3A002B_over InitFields
 
-ME ME_4FFE854A009B_ME_4AA53D3A002B
- MELINK Original WL 'ME_4FFE854A009B' '47B9727603BE.ms.model.script' // GetInstance
+MEREF ME_4FFE854A009B_ME_4AA53D3A002B_over
+ MELINK Original WL 'ME_4FFE854A009B' '4FFE84F00388.ms.model.script' // GetInstance
  ;
  MEPROP OpKind opkind_Overridden
  UP "is static" True
-ENDME // ME_4FFE854A009B_ME_4AA53D3A002B GetInstance
+ENDMEREF // ME_4FFE854A009B_ME_4AA53D3A002B_over GetInstance
+
+MEREF ME_47B97312006D_ME_4AA53D3A002B_G
+ MELINK Original WL? 'ME_47B97312006D' // TvcmFormSetFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B97312006D_ME_4AA53D3A002B_G TvcmFormSetFactory
 
 %%InheritedBy ME_47B97312006D ME_4AA53D3A002B
 
@@ -285,7 +339,7 @@ ME ME_4AA53D3A002B
  MELINK Parent WL? 'ME_4ABCFB7F017B' // Consultation$FP
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B97312006D' '47B9727603BE.ms.model.script' // TvcmFormSetFactory
+   Seq: ( HWL ME_47B97312006D_ME_4AA53D3A002B_G // TvcmFormSetFactory
  )
  ; // Inherits
  MELIST Operations
@@ -294,8 +348,8 @@ ME ME_4AA53D3A002B
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_47A042E100E2_ME_4AA53D3A002B // InitFields
- ME_4FFE854A009B_ME_4AA53D3A002B // GetInstance
+   Seq: ( ME_47A042E100E2_ME_4AA53D3A002B_over // InitFields
+ ME_4FFE854A009B_ME_4AA53D3A002B_over // GetInstance
  )
  ; // Overridden
  MELIST Children

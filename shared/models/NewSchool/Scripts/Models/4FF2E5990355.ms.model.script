@@ -2,6 +2,18 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+MEREF ME_4FF2E5C70060_ME_4FF2E5990355_G
+ MELINK Original WL? 'ME_4FF2E5C70060' // AACPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FF2E5C70060_ME_4FF2E5990355_G AACPrim
+
+MEREF ME_4FBB5FF302D2_ME_4FF2E5990355_R
+ MELINK Original WL 'ME_4FBB5FF302D2' '484FA67302D7.ms.model.script' // Актуальная аналитика
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FBB5FF302D2_ME_4FF2E5990355_R Актуальная аналитика
+
 %%ImplementedBy ME_4FBB5FF302D2 ME_4FF2E5990355
 
 %%InheritedBy ME_4FF2E5C70060 ME_4FF2E5990355
@@ -19,11 +31,11 @@ ME ME_4FF2E5990355
  MELINK Parent WL? 'ME_4FF2E55B02CF' // AAC
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4FF2E5C70060' // AACPrim
+   Seq: ( HWL ME_4FF2E5C70060_ME_4FF2E5990355_G // AACPrim
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4FBB5FF302D2' '484FA67302D7.ms.model.script' // Актуальная аналитика
+   Seq: ( HWL ME_4FBB5FF302D2_ME_4FF2E5990355_R // Актуальная аналитика
  )
  ; // Implements
  UP extprop:pas:TypeName 'Tmo_AAC'

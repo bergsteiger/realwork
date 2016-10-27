@@ -1,0 +1,74 @@
+// TPreviewTestBefore235875079WithRowCmp 4DF88322024C TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DF88322024C
+
+ME ME_4DF883FF032D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DF88322024C // TPreviewTestBefore235875079WithRowCmp
+ ;
+ MELINK Target WL 'ME_4DF870EA0062' '47877EB202FB.ms.model.script' // ChangeFileExt
+ ;
+
+ENDME // ME_4DF883FF032D 
+
+MEREF ME_4BE419AF0217_ME_4DF88322024C_over
+ MELINK Original WL 'ME_4BE419AF0217' '4BE418BB001F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BE419AF0217_ME_4DF88322024C_over DoVisit
+
+MEREF ME_4BE429BA0233_ME_4DF88322024C_G
+ MELINK Original WL? 'ME_4BE429BA0233' // TPreviewTestBefore235875079
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE429BA0233_ME_4DF88322024C_G TPreviewTestBefore235875079
+
+MEREF ME_4DF1E0DC0289_ME_4DF88322024C_R
+ MELINK Original WL? 'ME_4DF1E0DC0289' // PrintRowCompare
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DF1E0DC0289_ME_4DF88322024C_R PrintRowCompare
+
+%%ImplementedBy ME_4DF1E0DC0289 ME_4DF88322024C
+
+%%InheritedBy ME_4BE429BA0233 ME_4DF88322024C
+
+ME ME_4DF88322024C
+ MEPROP UID '4DF88322024C'
+ MEPROP Name 'TPreviewTestBefore235875079WithRowCmp'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4D02566F01E6' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BE429BA0233_ME_4DF88322024C_G // TPreviewTestBefore235875079
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4DF1E0DC0289_ME_4DF88322024C_R // PrintRowCompare
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4BE419AF0217_ME_4DF88322024C_over // DoVisit
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DF883FF032D // ChangeFileExt
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'PreviewTestBefore235875079WithRowCmp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PreviewTestBefore235875079WithRowCmp'
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\PreviewTestBefore235875079WithRowCmp.pas'
+
+ENDME // ME_4DF88322024C TPreviewTestBefore235875079WithRowCmp

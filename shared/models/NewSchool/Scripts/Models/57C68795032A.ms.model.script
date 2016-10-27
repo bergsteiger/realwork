@@ -1,0 +1,95 @@
+// TmsmModelLoadingThreads 57C68795032A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57C68795032A
+
+ME ME_57C68DF301F4
+ MEPROP UID '57C68DF301F4'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57C68795032A // TmsmModelLoadingThreads
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57C68DF301F4 FindDataType
+
+ME ME_57CE915403AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C68795032A // TmsmModelLoadingThreads
+ ;
+ MELINK Target WL? 'ME_57CE8E0B0357' // l3PointerUtils
+ ;
+
+ENDME // ME_57CE915403AD 
+
+MEREF ME_47B9BAFD01F4_ME_57C68795032A_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_57C68795032A_over CompareItemWithData
+
+MEREF ME_57C6876700B1_ME_57C68795032A_G
+ MELINK Original WL? 'ME_57C6876700B1' // TmsmModelLoadingThreadPrimList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57C6876700B1_ME_57C68795032A_G TmsmModelLoadingThreadPrimList
+
+MEREF ME_47B47E230134_ME_57C68795032A_R
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_57C68795032A_R l3Searcher
+
+%%ImplementedBy ME_47B47E230134 ME_57C68795032A
+
+%%InheritedBy ME_57C6876700B1 ME_57C68795032A
+
+ME ME_57C68795032A
+ MEPROP UID '57C68795032A'
+ MEPROP Name 'TmsmModelLoadingThreads'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57AB4243034B' // ScriptCalling
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57C6876700B1_ME_57C68795032A_G // TmsmModelLoadingThreadPrimList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B47E230134_ME_57C68795032A_R // l3Searcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57C68DF301F4 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_57C68795032A_over // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57CE915403AD // l3PointerUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifdef" 'seThreadSafe'
+ UP "singleton" True
+ UP extprop:pas:UnitName 'msmModelLoadingThreads'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmModelLoadingThreads'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmModelLoadingThreads.pas'
+
+ENDME // ME_57C68795032A TmsmModelLoadingThreads

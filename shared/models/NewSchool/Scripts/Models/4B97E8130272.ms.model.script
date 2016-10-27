@@ -227,12 +227,18 @@ ME ME_58CCEA387BBD
 
 ENDME // ME_58CCEA387BBD DoIt
 
+MEREF ME_51BB152A02AD_ME_51EEB81F017C_G
+ MELINK Original HWL ME_51BB152A02AD // Tl3CanAcceptData
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51BB152A02AD_ME_51EEB81F017C_G Tl3CanAcceptData
+
 %%InheritedBy ME_51BB152A02AD ME_51EEB81F017C
 
 ME ME_51EEB81F017C
  MEPROP UID '51EEB81F017C'
  MEPROP Name 'CanAcceptData'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -240,7 +246,7 @@ ME ME_51EEB81F017C
  MELINK Parent HWL ME_4B97E8130272 // TvtOutlinerWithDragDrop
  ;
  MELIST Inherits
-   Seq: ( HWL ME_51BB152A02AD // Tl3CanAcceptData
+   Seq: ( HWL ME_51BB152A02AD_ME_51EEB81F017C_G // Tl3CanAcceptData
  )
  ; // Inherits
  MELIST Operations
@@ -268,7 +274,7 @@ ENDME // ME_52DD107201CC DoIt
 ME ME_52DD106403D3
  MEPROP UID '52DD106403D3'
  MEPROP Name 'DataObjectClass'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -292,6 +298,12 @@ ME ME_4B97E841019C
 
 ENDME // ME_4B97E841019C 
 
+MEREF ME_4B97EA0802EB_ME_4B97E8130272_G
+ MELINK Original WL? 'ME_4B97EA0802EB' // TvtOutlinerWithQuickSearch
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B97EA0802EB_ME_4B97E8130272_G TvtOutlinerWithQuickSearch
+
 %%InheritedBy ME_4B97EA0802EB ME_4B97E8130272
 
 ME ME_4B97E8130272
@@ -306,7 +318,7 @@ ME ME_4B97E8130272
  MELINK Parent WL? 'ME_4B97E7FD006C' // Outliner
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4B97EA0802EB' // TvtOutlinerWithQuickSearch
+   Seq: ( HWL ME_4B97EA0802EB_ME_4B97E8130272_G // TvtOutlinerWithQuickSearch
  )
  ; // Inherits
  MELIST Operations

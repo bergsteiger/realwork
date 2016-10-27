@@ -1,0 +1,181 @@
+// TevSubPanelSub 4B87DC6C02F7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B87DC6C02F7
+
+ME ME_4B87DCDD00DF
+ MEPROP UID '4B87DCDD00DF'
+ MEPROP Name 'R'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B87DC6C02F7 // TevSubPanelSub
+ ;
+ MELINK Target WL 'ME_4728974E009E' '472745450206.ms.model.script' // Tl3Rect
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_4B87DCDD00DF R
+
+ME ME_4B87DCEA02C7
+ MEPROP UID '4B87DCEA02C7'
+ MEPROP Name 'DrawRect'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B87DC6C02F7 // TevSubPanelSub
+ ;
+ MELINK Target WL 'ME_4728974E009E' '472745450206.ms.model.script' // Tl3Rect
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_4B87DCEA02C7 DrawRect
+
+ME ME_4B87DD4A03D5
+ MEPROP UID '4B87DD4A03D5'
+ MEPROP Name 'RealSub'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B87DC6C02F7 // TevSubPanelSub
+ ;
+ MELINK Target WL 'ME_47C6B03200AF' '47C5207602D1.ms.model.script' // IevSub
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_4B87DD4A03D5 RealSub
+
+ME ME_4B87E3ED0100
+ MEPROP UID '4B87E3ED0100'
+ MEPROP Name 'Handle'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B87DC6C02F7 // TevSubPanelSub
+ ;
+ MELINK Target WL 'ME_476F9C3C02F4' '4678193C009C.ms.model.script' // Tl3Handle
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4B87E3ED0100 Handle
+
+FORWARD ME_4B87DD060037
+
+FORWARD ME_4B87DD110393
+
+ME ME_4B87DD17000D
+ MEPROP Name 'aRealSub'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6B03200AF' '47C5207602D1.ms.model.script' // IevSub
+ ;
+
+ENDME // ME_4B87DD17000D aRealSub
+
+ME ME_4B87DD110393
+ MEPROP UID '4B87DD110393'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B87DD060037 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B87DD17000D // aRealSub
+ )
+ ; // Parameters
+
+ENDME // ME_4B87DD110393 DoIt
+
+ME ME_4B87DD060037
+ MEPROP UID '4B87DD060037'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B87DC6C02F7 // TevSubPanelSub
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B87DD110393 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B87DD060037 Create
+
+MEREF ME_479731C50290_ME_4B87DC6C02F7_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4B87DC6C02F7_over Cleanup
+
+MEREF ME_49E7754802A9_ME_4B87DC6C02F7_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4B87DC6C02F7_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_4B87DC6C02F7
+
+ME ME_4B87DC6C02F7
+ MEPROP UID '4B87DC6C02F7'
+ MEPROP Name 'TevSubPanelSub'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B87B5720153' // SubPanel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_4B87DC6C02F7_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B87DCDD00DF // R
+ HWL ME_4B87DCEA02C7 // DrawRect
+ HWL ME_4B87DD4A03D5 // RealSub
+ HWL ME_4B87E3ED0100 // Handle
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B87DD060037 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4B87DC6C02F7_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '26.02.2010 17:36'
+ UP extprop:pas:UnitName 'evSubPanelSub'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SubPanelSub'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evSubPanelSub.pas'
+
+ENDME // ME_4B87DC6C02F7 TevSubPanelSub

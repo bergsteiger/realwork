@@ -1,0 +1,66 @@
+// TvcmIEntityFormPtrList 4AC4B82802E1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC4B82802E1
+
+ME ME_4AC4B88B01C2
+ MEPROP UID '4AC4B88B01C2'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC4B82802E1 // TvcmIEntityFormPtrList
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4AC4B88B01C2 ItemType
+
+MEREF ME_47B57D630029_ME_4AC4B82802E1_G
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_4AC4B82802E1_G l3InterfacePtrList
+
+MEREF ME_4A54DD4E036F_ME_4AC4B82802E1_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4AC4B82802E1_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57D630029 ME_4AC4B82802E1
+%%InheritedBy ME_4A54DD4E036F ME_4AC4B82802E1
+
+ME ME_4AC4B82802E1
+ MEPROP UID '4AC4B82802E1'
+ MEPROP Name 'TvcmIEntityFormPtrList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список указателей на IvcmEntityForm' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A8D6EF403E4' // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57D630029_ME_4AC4B82802E1_G // l3InterfacePtrList
+ HWL ME_4A54DD4E036F_ME_4AC4B82802E1_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4AC4B88B01C2 // ItemType
+ )
+ ; // Attributes
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '01.10.2009 18:10'
+ UP extprop:pas:UnitName 'vcmIEntityFormPtrList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IEntityFormPtrList'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmIEntityFormPtrList.pas'
+
+ENDME // ME_4AC4B82802E1 TvcmIEntityFormPtrList

@@ -1,0 +1,148 @@
+// TarContentsTreeWaiter 4E00671D02B5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E00671D02B5
+
+FORWARD ME_4E008700020B
+
+ME ME_4E00872A03E7
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C5BD7C0329' '47C5207602D1.ms.model.script' // InevControl
+ ;
+
+ENDME // ME_4E00872A03E7 aControl
+
+ME ME_4E008700020B
+ MEPROP UID '4E008700020B'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E00671D02B5 // TarContentsTreeWaiter
+ ;
+ MELINK Target WL 'ME_47C6B2F701AA' '47C5207602D1.ms.model.script' // InevWaiter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E00872A03E7 // aControl
+ )
+ ; // Parameters
+
+ENDME // ME_4E008700020B Make
+
+ME ME_4E006AC4007F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E00671D02B5 // TarContentsTreeWaiter
+ ;
+ MELINK Target WL? 'ME_4DFB4D3C01B5' // Main
+ ;
+
+ENDME // ME_4E006AC4007F 
+
+ME ME_4E006CCC03C4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E00671D02B5 // TarContentsTreeWaiter
+ ;
+ MELINK Target WL? 'ME_4DFB4AD800BA' // Editwin
+ ;
+
+ENDME // ME_4E006CCC03C4 
+
+ME ME_4E0088C902E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E00671D02B5 // TarContentsTreeWaiter
+ ;
+ MELINK Target WL 'ME_467D37E40254' '4677FBA70343.ms.model.script' // Il3ToolOwner
+ ;
+
+ENDME // ME_4E0088C902E4 
+
+ME ME_4E00891601E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E00671D02B5 // TarContentsTreeWaiter
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_4E00891601E2 
+
+MEREF ME_47C6B3040133_ME_4E00671D02B5_impl
+ MELINK Original WL 'ME_47C6B3040133' '47C5207602D1.ms.model.script' // TrySelect
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C6B3040133_ME_4E00671D02B5_impl TrySelect
+
+MEREF ME_47C6B30F0277_ME_4E00671D02B5_impl
+ MELINK Original WL 'ME_47C6B30F0277' '47C5207602D1.ms.model.script' // TrySelectObj
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C6B30F0277_ME_4E00671D02B5_impl TrySelectObj
+
+MEREF ME_48E233B00094_ME_4E00671D02B5_G
+ MELINK Original WL? 'ME_48E233B00094' // Tl3Tool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48E233B00094_ME_4E00671D02B5_G Tl3Tool
+
+MEREF ME_47C6B2F701AA_ME_4E00671D02B5_R
+ MELINK Original WL 'ME_47C6B2F701AA' '47C5207602D1.ms.model.script' // InevWaiter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C6B2F701AA_ME_4E00671D02B5_R InevWaiter
+
+%%ImplementedBy ME_47C6B2F701AA ME_4E00671D02B5
+
+%%InheritedBy ME_48E233B00094 ME_4E00671D02B5
+
+ME ME_4E00671D02B5
+ MEPROP UID '4E00671D02B5'
+ MEPROP Name 'TarContentsTreeWaiter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ожидальщик окончания загрузки документа для подключения дерева.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DFB49C40350' // MainWindows
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48E233B00094_ME_4E00671D02B5_G // Tl3Tool
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47C6B2F701AA_ME_4E00671D02B5_R // InevWaiter
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4E008700020B // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47C6B3040133_ME_4E00671D02B5_impl // TrySelect
+ ME_47C6B30F0277_ME_4E00671D02B5_impl // TrySelectObj
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4E006AC4007F // Main
+ ME_4E006CCC03C4 // Editwin
+ ME_4E0088C902E4 // Il3ToolOwner
+ ME_4E00891601E2 // l3Free
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'arContentsTreeWaiter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arContentsTreeWaiter'
+ UP intf.pas:Path 'archi\source\projects\Archi\Main\arContentsTreeWaiter.pas'
+
+ENDME // ME_4E00671D02B5 TarContentsTreeWaiter

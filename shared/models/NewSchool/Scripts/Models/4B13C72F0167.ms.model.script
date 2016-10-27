@@ -7,11 +7,17 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4B13C72F0167
 
-ME ME_4B13A26203DB_ME_4B13C75E02D1
- MELINK Original WL 'ME_4B13A26203DB' '4B0A60DF01F2.ms.model.script' // EventID
+MEREF ME_4B13A26203DB_ME_4B13C75E02D1_impl
+ MELINK Original WL 'ME_4B13A26203DB' '4B13A1A2000F.ms.model.script' // EventID
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4B13A26203DB_ME_4B13C75E02D1 EventID
+ENDMEREF // ME_4B13A26203DB_ME_4B13C75E02D1_impl EventID
+
+MEREF ME_4B13A1A2000F_ME_4B13C75E02D1_G
+ MELINK Original WL? 'ME_4B13A1A2000F' // TnsCounterEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B13A1A2000F_ME_4B13C75E02D1_G TnsCounterEvent
 
 %%InheritedBy ME_4B13A1A2000F ME_4B13C75E02D1
 
@@ -26,11 +32,11 @@ ME ME_4B13C75E02D1
  MELINK Parent HWL ME_4B13C72F0167 // PrimTasksPanel
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4B13A1A2000F' '4B0A60DF01F2.ms.model.script' // TnsCounterEvent
+   Seq: ( HWL ME_4B13A1A2000F_ME_4B13C75E02D1_G // TnsCounterEvent
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_4B13A26203DB_ME_4B13C75E02D1 // EventID
+   Seq: ( ME_4B13A26203DB_ME_4B13C75E02D1_impl // EventID
  )
  ; // Implemented
  UP "singleton" True
@@ -59,6 +65,12 @@ ME ME_4BD6D9AE030B
 
 ENDME // ME_4BD6D9AE030B tpMain
 
+MEREF ME_4D3424C203C2_ME_4EE78A580355_G
+ MELINK Original WL? 'ME_4D3424C203C2' // TnscTasksPanelView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D3424C203C2_ME_4EE78A580355_G TnscTasksPanelView
+
 %%InheritedBy ME_4D3424C203C2 ME_4EE78A580355
 
 ME ME_4EE78A580355
@@ -72,7 +84,7 @@ ME ME_4EE78A580355
  MELINK Parent HWL ME_4B13C72F0167 // PrimTasksPanel
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4D3424C203C2' // TnscTasksPanelView
+   Seq: ( HWL ME_4D3424C203C2_ME_4EE78A580355_G // TnscTasksPanelView
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -112,7 +124,7 @@ ENDME // ME_4EE78AF600CC DoIt
 ME ME_4EE78AE903D9
  MEPROP UID '4EE78AE903D9'
  MEPROP Name 'tpvMainOperationExecute'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -264,7 +276,7 @@ ME ME_578E044B029F
 
 ENDME // ME_578E044B029F 
 
-ME ME_4D3D969B02EA_ME_4B13C72F0167
+MEREF ME_4D3D969B02EA_ME_4B13C72F0167_impl
  MELINK Original WL 'ME_4D3D969B02EA' '4AEEE2A40281.ms.model.script' // Fake
  ;
  MEPROP OpKind opkind_Implemented
@@ -277,13 +289,31 @@ ME ME_4D3D969B02EA_ME_4B13C72F0167
  UP "no prefix" False
  UP "ShowInContextMenu" False
  UP "ShowInToolbar" False
-ENDME // ME_4D3D969B02EA_ME_4B13C72F0167 Fake
+ENDMEREF // ME_4D3D969B02EA_ME_4B13C72F0167_impl Fake
 
-ME ME_4A8E8F2E0195_ME_4B13C72F0167
+MEREF ME_4A8E8F2E0195_ME_4B13C72F0167_over
  MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8E8F2E0195_ME_4B13C72F0167 InitControls
+ENDMEREF // ME_4A8E8F2E0195_ME_4B13C72F0167_over InitControls
+
+MEREF ME_4A82BCFA02EF_ME_4B13C72F0167_R
+ MELINK Original WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A82BCFA02EF_ME_4B13C72F0167_R MvcmEntityForm
+
+MEREF ME_4D3D967A02B2_ME_4B13C72F0167_R
+ MELINK Original WL 'ME_4D3D967A02B2' '4AEEE2A40281.ms.model.script' // Fake
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D3D967A02B2_ME_4B13C72F0167_R Fake
+
+MEREF ME_528468A00346_ME_4B13C72F0167_R
+ MELINK Original WL? 'ME_528468A00346' // vcmScrollableFormWithWheelSupport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_528468A00346_ME_4B13C72F0167_R vcmScrollableFormWithWheelSupport
 
 %%ImplementedBy ME_4A82BCFA02EF ME_4B13C72F0167
 %%ImplementedBy ME_4D3D967A02B2 ME_4B13C72F0167
@@ -301,9 +331,9 @@ ME ME_4B13C72F0167
  MELINK Parent WL? 'ME_497ED74F0032' // Common
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
- WL 'ME_4D3D967A02B2' '4AEEE2A40281.ms.model.script' // Fake
- WL? 'ME_528468A00346' // vcmScrollableFormWithWheelSupport
+   Seq: ( HWL ME_4A82BCFA02EF_ME_4B13C72F0167_R // MvcmEntityForm
+ HWL ME_4D3D967A02B2_ME_4B13C72F0167_R // Fake
+ HWL ME_528468A00346_ME_4B13C72F0167_R // vcmScrollableFormWithWheelSupport
  )
  ; // Implements
  MELIST Attributes
@@ -316,11 +346,11 @@ ME ME_4B13C72F0167
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4D3D969B02EA_ME_4B13C72F0167 // Fake
+   Seq: ( ME_4D3D969B02EA_ME_4B13C72F0167_impl // Fake
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_4A8E8F2E0195_ME_4B13C72F0167 // InitControls
+   Seq: ( ME_4A8E8F2E0195_ME_4B13C72F0167_over // InitControls
  )
  ; // Overridden
  MELIST Children

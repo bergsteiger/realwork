@@ -19,11 +19,17 @@ ME ME_494164B30361
 
 ENDME // ME_494164B30361 SetDataType
 
-ME ME_47F3778403D9_ME_49415C640079
+MEREF ME_47F3778403D9_ME_49415C640079_impl
  MELINK Original WL 'ME_47F3778403D9' '47F37723017A.ms.model.script' // MakeData
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47F3778403D9_ME_49415C640079 MakeData
+ENDMEREF // ME_47F3778403D9_ME_49415C640079_impl MakeData
+
+MEREF ME_47F37723017A_ME_49415C640079_G
+ MELINK Original WL? 'ME_47F37723017A' // vcmFormSetDataSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F37723017A_ME_49415C640079_G vcmFormSetDataSource
 
 %%InheritedBy ME_47F37723017A ME_49415C640079
 
@@ -40,7 +46,7 @@ ME ME_49415C640079
  MELINK Parent WL? 'ME_47D0E1500033' // Implementation
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47F37723017A' // vcmFormSetDataSource
+   Seq: ( HWL ME_47F37723017A_ME_49415C640079_G // vcmFormSetDataSource
  )
  ; // Inherits
  MELIST Attributes
@@ -48,7 +54,7 @@ ME ME_49415C640079
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_47F3778403D9_ME_49415C640079 // MakeData
+   Seq: ( ME_47F3778403D9_ME_49415C640079_impl // MakeData
  )
  ; // Implemented
  UP extprop:pas:TypeName '_vcmFormSetDataSourceWithoutData_'

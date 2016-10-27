@@ -1,0 +1,309 @@
+// TarDirectMultiClearAttributesHelper 57EA225C02AA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57EA225C02AA
+
+ME ME_57EA3CDB0000
+ MEPROP UID '57EA3CDB0000'
+ MEPROP Name 'f_RejectedList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EA225C02AA // TarDirectMultiClearAttributesHelper
+ ;
+ MELINK Target WL 'ME_57DFADE9018A' '57DFADD40219.ms.model.script' // Il3IDList
+ ;
+
+ENDME // ME_57EA3CDB0000 f_RejectedList
+
+ME ME_57EA3F8C00E2
+ MEPROP UID '57EA3F8C00E2'
+ MEPROP Name 'f_FamilyID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EA225C02AA // TarDirectMultiClearAttributesHelper
+ ;
+ MELINK Target WL 'ME_551E7DD302E0' '5432448401BC.ms.model.script' // TdaFamilyID
+ ;
+
+ENDME // ME_57EA3F8C00E2 f_FamilyID
+
+ME ME_57EA4C8B000D
+ MEPROP UID '57EA4C8B000D'
+ MEPROP Name 'f_DocsToLock'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EA225C02AA // TarDirectMultiClearAttributesHelper
+ ;
+ MELINK Target WL 'ME_57DFADE9018A' '57DFADD40219.ms.model.script' // Il3IDList
+ ;
+
+ENDME // ME_57EA4C8B000D f_DocsToLock
+
+ME ME_57EA4CBD0307
+ MEPROP UID '57EA4CBD0307'
+ MEPROP Name 'f_RIghtsNeeded'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EA225C02AA // TarDirectMultiClearAttributesHelper
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_57EA4CBD0307 f_RIghtsNeeded
+
+ME ME_57EA58B9029C
+ MEPROP UID '57EA58B9029C'
+ MEPROP Name 'f_Selected'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EA225C02AA // TarDirectMultiClearAttributesHelper
+ ;
+ MELINK Target WL 'ME_57EA54590345' '5432448401BC.ms.model.script' // TdaDictionaryTypeArray
+ ;
+
+ENDME // ME_57EA58B9029C f_Selected
+
+FORWARD ME_57EA3F54035E
+
+FORWARD ME_57EA3F99031E
+
+ME ME_57EA3FAA00E1
+ MEPROP Name 'aFamilyID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_551E7DD302E0' '5432448401BC.ms.model.script' // TdaFamilyID
+ ;
+
+ENDME // ME_57EA3FAA00E1 aFamilyID
+
+ME ME_57EA4CA10269
+ MEPROP Name 'aDocsToLock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57DFADE9018A' '57DFADD40219.ms.model.script' // Il3IDList
+ ;
+
+ENDME // ME_57EA4CA10269 aDocsToLock
+
+ME ME_57EA4CD90183
+ MEPROP Name 'RIghtsNeeded'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_57EA4CD90183 RIghtsNeeded
+
+ME ME_57EA58D900D3
+ MEPROP Name 'aSelected'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57EA54590345' '5432448401BC.ms.model.script' // TdaDictionaryTypeArray
+ ;
+
+ENDME // ME_57EA58D900D3 aSelected
+
+ME ME_57EA3F99031E
+ MEPROP UID '57EA3F99031E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EA3F54035E // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EA3FAA00E1 // aFamilyID
+ ME_57EA4CA10269 // aDocsToLock
+ ME_57EA4CD90183 // RIghtsNeeded
+ ME_57EA58D900D3 // aSelected
+ )
+ ; // Parameters
+
+ENDME // ME_57EA3F99031E DoIt
+
+ME ME_57EA3F54035E
+ MEPROP UID '57EA3F54035E'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EA225C02AA // TarDirectMultiClearAttributesHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EA3F99031E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EA3F54035E Create
+
+ME ME_57EA395302CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EA225C02AA // TarDirectMultiClearAttributesHelper
+ ;
+ MELINK Target WL 'ME_52E8BA5101A7' '519B79940228.ms.model.script' // LinkServer
+ ;
+
+ENDME // ME_57EA395302CD 
+
+ME ME_57EA435F0191
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EA225C02AA // TarDirectMultiClearAttributesHelper
+ ;
+ MELINK Target WL 'ME_57E1137D00AE' '57E1136103D7.ms.model.script' // AddToDenyList
+ ;
+
+ENDME // ME_57EA435F0191 
+
+ME ME_57EA4381011C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EA225C02AA // TarDirectMultiClearAttributesHelper
+ ;
+ MELINK Target WL? 'ME_51B6CE6100D8' // dt_Doc
+ ;
+
+ENDME // ME_57EA4381011C 
+
+ME ME_57EA438501D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EA225C02AA // TarDirectMultiClearAttributesHelper
+ ;
+ MELINK Target WL? 'ME_51B1B8BD018E' // dt_Lock
+ ;
+
+ENDME // ME_57EA438501D1 
+
+ME ME_57EA53B10117
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EA225C02AA // TarDirectMultiClearAttributesHelper
+ ;
+ MELINK Target WL 'ME_519B71CF03DC' '559D0BE101B4.ms.model.script' // ISab
+ ;
+
+ENDME // ME_57EA53B10117 
+
+ME ME_57EA53C50200
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EA225C02AA // TarDirectMultiClearAttributesHelper
+ ;
+ MELINK Target WL 'ME_559D266C032B' '519B719002F1.ms.model.script' // MakeSab
+ ;
+
+ENDME // ME_57EA53C50200 
+
+ME ME_57EA5FCB02E3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EA225C02AA // TarDirectMultiClearAttributesHelper
+ ;
+ MELINK Target WL 'ME_57EA5C3C015C' '47BC51FE018B.ms.model.script' // TLogActionType
+ ;
+
+ENDME // ME_57EA5FCB02E3 
+
+MEREF ME_57EA229201FE_ME_57EA225C02AA_impl
+ MELINK Original WL 'ME_57EA229201FE' '57EA22400306.ms.model.script' // ClearAttributes
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57EA229201FE_ME_57EA225C02AA_impl ClearAttributes
+
+MEREF ME_57EA22B10150_ME_57EA225C02AA_impl
+ MELINK Original WL 'ME_57EA22B10150' '57EA22400306.ms.model.script' // HasRejectedDocs
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57EA22B10150_ME_57EA225C02AA_impl HasRejectedDocs
+
+MEREF ME_57EA22C201D1_ME_57EA225C02AA_impl
+ MELINK Original WL 'ME_57EA22C201D1' '57EA22400306.ms.model.script' // FillRejectedList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57EA22C201D1_ME_57EA225C02AA_impl FillRejectedList
+
+MEREF ME_479731C50290_ME_57EA225C02AA_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57EA225C02AA_over Cleanup
+
+MEREF ME_57EA22400306_ME_57EA225C02AA_G
+ MELINK Original WL? 'ME_57EA22400306' // TarCustomMultiClearAttributesHelper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57EA22400306_ME_57EA225C02AA_G TarCustomMultiClearAttributesHelper
+
+%%InheritedBy ME_57EA22400306 ME_57EA225C02AA
+
+ME ME_57EA225C02AA
+ MEPROP UID '57EA225C02AA'
+ MEPROP Name 'TarDirectMultiClearAttributesHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57E2336703B0' // DocTransfer
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57EA22400306_ME_57EA225C02AA_G // TarCustomMultiClearAttributesHelper
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57EA3CDB0000 // f_RejectedList
+ HWL ME_57EA3F8C00E2 // f_FamilyID
+ HWL ME_57EA4C8B000D // f_DocsToLock
+ HWL ME_57EA4CBD0307 // f_RIghtsNeeded
+ HWL ME_57EA58B9029C // f_Selected
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57EA3F54035E // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57EA229201FE_ME_57EA225C02AA_impl // ClearAttributes
+ ME_57EA22B10150_ME_57EA225C02AA_impl // HasRejectedDocs
+ ME_57EA22C201D1_ME_57EA225C02AA_impl // FillRejectedList
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57EA225C02AA_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57EA395302CD // LinkServer
+ ME_57EA435F0191 // AddToDenyList
+ ME_57EA4381011C // dt_Doc
+ ME_57EA438501D1 // dt_Lock
+ ME_57EA53B10117 // ISab
+ ME_57EA53C50200 // MakeSab
+ ME_57EA5FCB02E3 // TLogActionType
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'arDirectMultiClearAttributesHelper'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arDirectMultiClearAttributesHelper'
+ UP intf.pas:Path 'archi\source\projects\Common\Utils\arDirectMultiClearAttributesHelper.pas'
+
+ENDME // ME_57EA225C02AA TarDirectMultiClearAttributesHelper

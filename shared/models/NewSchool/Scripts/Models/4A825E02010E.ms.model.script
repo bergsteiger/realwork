@@ -1,0 +1,260 @@
+// TbsWorkJournalPrim 4A825E02010E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A825E02010E
+
+ME ME_4A83ACF4003F
+ MEPROP UID '4A83ACF4003F'
+ MEPROP Name 'f_Listeners'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ MELINK Target WL? 'ME_4A83AC9D0128' // TnsWorkJournalListeners
+ ;
+
+ENDME // ME_4A83ACF4003F f_Listeners
+
+ME ME_4A82940E0297
+ MEPROP UID '4A82940E0297'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+
+ENDME // ME_4A82940E0297 Make
+
+ME ME_4A83AD2D030F
+ MEPROP UID '4A83AD2D030F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+
+ENDME // ME_4A83AD2D030F Create
+
+ME ME_4A82611D0318
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ MELINK Target WL? 'ME_4A8260EC0099' // TnsJournalTreeStruct
+ ;
+
+ENDME // ME_4A82611D0318 
+
+ME ME_4A82767A0145
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
+ ;
+
+ENDME // ME_4A82767A0145 
+
+ME ME_4A8287C0019F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4A8287C0019F 
+
+ME ME_4A828C270010
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ MELINK Target WL 'ME_4A7FFAFA023A' '4A7FF5F301B2.ms.model.script' // JournalObjectType
+ ;
+
+ENDME // ME_4A828C270010 
+
+ME ME_4A828C2A0078
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ MELINK Target WL 'ME_4A8001010232' '4A7FF5F301B2.ms.model.script' // BookmarkJournalType
+ ;
+
+ENDME // ME_4A828C2A0078 
+
+ME ME_4A828FCC0091
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4A828FCC0091 
+
+ME ME_4A82C5DC0363
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
+ ;
+
+ENDME // ME_4A82C5DC0363 
+
+MEREF ME_4A825DBE0310_ME_4A825E02010E_impl
+ MELINK Original WL 'ME_4A825DBE0310' '4A825D5D0235.ms.model.script' // MakeTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A825DBE0310_ME_4A825E02010E_impl MakeTree
+
+MEREF ME_4A825E760100_ME_4A825E02010E_impl
+ MELINK Original WL 'ME_4A825E760100' '4A825D5D0235.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A825E760100_ME_4A825E02010E_impl Clear
+
+MEREF ME_4A82602103A2_ME_4A825E02010E_impl
+ MELINK Original WL 'ME_4A82602103A2' '4A825D5D0235.ms.model.script' // AddQuery
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A82602103A2_ME_4A825E02010E_impl AddQuery
+
+MEREF ME_4A826038019A_ME_4A825E02010E_impl
+ MELINK Original WL 'ME_4A826038019A' '4A825D5D0235.ms.model.script' // AddBookMark
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A826038019A_ME_4A825E02010E_impl AddBookMark
+
+MEREF ME_4A8261F2003D_ME_4A825E02010E_impl
+ MELINK Original WL 'ME_4A8261F2003D' '4A825D5D0235.ms.model.script' // MakeQueryHistory
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A8261F2003D_ME_4A825E02010E_impl MakeQueryHistory
+
+MEREF ME_4A82623302E1_ME_4A825E02010E_impl
+ MELINK Original WL 'ME_4A82623302E1' '4A825D5D0235.ms.model.script' // MakeBookMarkHistory
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A82623302E1_ME_4A825E02010E_impl MakeBookMarkHistory
+
+MEREF ME_4A8277980075_ME_4A825E02010E_impl
+ MELINK Original WL 'ME_4A8277980075' '4A825D5D0235.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A8277980075_ME_4A825E02010E_impl Delete
+
+MEREF ME_4A83AD4402AC_ME_4A825E02010E_impl
+ MELINK Original WL 'ME_4A83AD4402AC' '4A825D5D0235.ms.model.script' // RegisterListener
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A83AD4402AC_ME_4A825E02010E_impl RegisterListener
+
+MEREF ME_4A83AD6D02B9_ME_4A825E02010E_impl
+ MELINK Original WL 'ME_4A83AD6D02B9' '4A825D5D0235.ms.model.script' // UnRegisterListener
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A83AD6D02B9_ME_4A825E02010E_impl UnRegisterListener
+
+MEREF ME_4A83ADA701C0_ME_4A825E02010E_impl
+ MELINK Original WL 'ME_4A83ADA701C0' '4A825D5D0235.ms.model.script' // NotifyJournalShrinked
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A83ADA701C0_ME_4A825E02010E_impl NotifyJournalShrinked
+
+MEREF ME_479731C50290_ME_4A825E02010E_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4A825E02010E_over Cleanup
+
+MEREF ME_47BC391D0259_ME_4A825E02010E_G
+ MELINK Original WL? 'ME_47BC391D0259' // Tl3SimpleObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC391D0259_ME_4A825E02010E_G Tl3SimpleObject
+
+MEREF ME_4A825D920164_ME_4A825E02010E_R
+ MELINK Original WL 'ME_4A825D920164' '4A825D5D0235.ms.model.script' // IbsWorkJournal
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A825D920164_ME_4A825E02010E_R IbsWorkJournal
+
+%%ImplementedBy ME_4A825D920164 ME_4A825E02010E
+
+%%InheritedBy ME_47BC391D0259 ME_4A825E02010E
+
+ME ME_4A825E02010E
+ MEPROP UID '4A825E02010E'
+ MEPROP Name 'TbsWorkJournalPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A825D760190' // WorkJournalImpl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47BC391D0259_ME_4A825E02010E_G // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4A825D920164_ME_4A825E02010E_R // IbsWorkJournal
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A83ACF4003F // f_Listeners
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A82940E0297 // Make
+ HWL ME_4A83AD2D030F // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A825DBE0310_ME_4A825E02010E_impl // MakeTree
+ ME_4A825E760100_ME_4A825E02010E_impl // Clear
+ ME_4A82602103A2_ME_4A825E02010E_impl // AddQuery
+ ME_4A826038019A_ME_4A825E02010E_impl // AddBookMark
+ ME_4A8261F2003D_ME_4A825E02010E_impl // MakeQueryHistory
+ ME_4A82623302E1_ME_4A825E02010E_impl // MakeBookMarkHistory
+ ME_4A8277980075_ME_4A825E02010E_impl // Delete
+ ME_4A83AD4402AC_ME_4A825E02010E_impl // RegisterListener
+ ME_4A83AD6D02B9_ME_4A825E02010E_impl // UnRegisterListener
+ ME_4A83ADA701C0_ME_4A825E02010E_impl // NotifyJournalShrinked
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4A825E02010E_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4A82611D0318 // TnsJournalTreeStruct
+ ME_4A82767A0145 // DataAdapter
+ ME_4A8287C0019F // NodeBase
+ ME_4A828C270010 // JournalObjectType
+ ME_4A828C2A0078 // BookmarkJournalType
+ ME_4A828FCC0091 // SysUtils
+ ME_4A82C5DC0363 // StdRes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'bsWorkJournalPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'bsWorkJournalPrim'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\WorkJournal\bsWorkJournalPrim.pas'
+
+ENDME // ME_4A825E02010E TbsWorkJournalPrim

@@ -1,0 +1,65 @@
+// TIafwMenuUnlockedPostBuildPtrList 4B0529C501F5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B0529C501F5
+
+ME ME_4B052A5701A8
+ MEPROP UID '4B052A5701A8'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B0529C501F5 // TIafwMenuUnlockedPostBuildPtrList
+ ;
+ MELINK Target WL 'ME_4B05222202F7' '467823B7002C.ms.model.script' // IafwMenuUnlockedPostBuild
+ ;
+
+ENDME // ME_4B052A5701A8 ItemType
+
+MEREF ME_47B57D630029_ME_4B0529C501F5_G
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_4B0529C501F5_G l3InterfacePtrList
+
+MEREF ME_4A54DD4E036F_ME_4B0529C501F5_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4B0529C501F5_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57D630029 ME_4B0529C501F5
+%%InheritedBy ME_4A54DD4E036F ME_4B0529C501F5
+
+ME ME_4B0529C501F5
+ MEPROP UID '4B0529C501F5'
+ MEPROP Name 'TIafwMenuUnlockedPostBuildPtrList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47764CED0308' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B57D630029_ME_4B0529C501F5_G // l3InterfacePtrList
+ HWL ME_4A54DD4E036F_ME_4B0529C501F5_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B052A5701A8 // ItemType
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'IafwMenuUnlockedPostBuildPtrList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IafwMenuUnlockedPostBuildPtrList'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\IafwMenuUnlockedPostBuildPtrList.pas'
+
+ENDME // ME_4B0529C501F5 TIafwMenuUnlockedPostBuildPtrList

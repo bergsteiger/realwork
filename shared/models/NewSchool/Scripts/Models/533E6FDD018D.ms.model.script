@@ -1,0 +1,132 @@
+// TvgRectList 533E6FDD018D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_533E6FDD018D
+
+ME ME_533E706E000A
+ MEPROP UID '533E706E000A'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_533E6FDD018D // TvgRectList
+ ;
+ MELINK Target WL 'ME_4D5423D601B2' '4CFE3E000371.ms.model.script' // TvgRect
+ ;
+
+ENDME // ME_533E706E000A ItemType
+
+ME ME_533E70D50359
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533E6FDD018D // TvgRectList
+ ;
+ MELINK Target WL? 'ME_4B223ADC02BF' // l3RecordListPrim
+ ;
+
+ENDME // ME_533E70D50359 
+
+ME ME_533E70E00321
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533E6FDD018D // TvgRectList
+ ;
+ MELINK Target WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+
+ENDME // ME_533E70E00321 
+
+ME ME_533E70E500C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533E6FDD018D // TvgRectList
+ ;
+ MELINK Target WL? 'ME_4CFE3E000371' // vg_scene
+ ;
+
+ENDME // ME_533E70E500C8 
+
+MEREF ME_47B07CF403D0_ME_533E6FDD018D_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_533E6FDD018D_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_533E6FDD018D_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_533E6FDD018D_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_533E6FDD018D_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_533E6FDD018D_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_533E6FDD018D_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_533E6FDD018D_G Tl3ProtoDataContainer
+
+MEREF ME_4B223ADC02BF_ME_533E6FDD018D_R
+ MELINK Original WL? 'ME_4B223ADC02BF' // l3RecordListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223ADC02BF_ME_533E6FDD018D_R l3RecordListPrim
+
+%%ImplementedBy ME_4B223ADC02BF ME_533E6FDD018D
+
+%%InheritedBy ME_4A54DD4E036F ME_533E6FDD018D
+
+ME ME_533E6FDD018D
+ MEPROP UID '533E6FDD018D'
+ MEPROP Name 'TvgRectList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4CFCE51A00B0' // Impl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_533E6FDD018D_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4B223ADC02BF_ME_533E6FDD018D_R // l3RecordListPrim
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_533E706E000A // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_533E6FDD018D_impl // IsSameItems
+ ME_47B2C42A0163_ME_533E6FDD018D_impl // AssignItem
+ ME_47B99D4503A2_ME_533E6FDD018D_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_533E70D50359 // l3RecordListPrim
+ ME_533E70E00321 // Tl3ProtoDataContainer
+ ME_533E70E500C8 // vg_scene
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'vgRectList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RectList'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgRectList.pas'
+
+ENDME // ME_533E6FDD018D TvgRectList

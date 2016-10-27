@@ -1,0 +1,230 @@
+// TsmTree 490B0E9A02A2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_490B0E9A02A2
+
+ME ME_4E738B17023D
+ MEPROP UID '4E738B17023D'
+ MEPROP Name 'f_Section'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_490B0E9A02A2 // TsmTree
+ ;
+ MELINK Target WL 'ME_4E36C7590390' '4DD24BD40021.ms.model.script' // Section
+ ;
+
+ENDME // ME_4E738B17023D f_Section
+
+ME ME_4E738EF703A8
+ MEPROP UID '4E738EF703A8'
+ MEPROP Name 'f_SectionType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_490B0E9A02A2 // TsmTree
+ ;
+ MELINK Target WL 'ME_4E3011A101F7' '4DD24BD40021.ms.model.script' // SectionType
+ ;
+
+ENDME // ME_4E738EF703A8 f_SectionType
+
+FORWARD ME_4E73127A01C7
+
+FORWARD ME_4E7312AA02AC
+
+ME ME_4E7312C403D9
+ MEPROP Name 'aRoot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4771111001F9' '476BF10A0280.ms.model.script' // Il3RootNode
+ ;
+
+ENDME // ME_4E7312C403D9 aRoot
+
+ME ME_4E7312C50025
+ MEPROP Name 'aSectionType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E3011A101F7' '4DD24BD40021.ms.model.script' // SectionType
+ ;
+
+ENDME // ME_4E7312C50025 aSectionType
+
+ME ME_4E7312AA02AC
+ MEPROP UID '4E7312AA02AC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E73127A01C7 // AddItems2011
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E7312C403D9 // aRoot
+ ME_4E7312C50025 // aSectionType
+ )
+ ; // Parameters
+
+ENDME // ME_4E7312AA02AC DoIt
+
+ME ME_4E7312EE0290
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E73127A01C7 // AddItems2011
+ ;
+ MELINK Target WL? 'ME_4E730AE6014C' // TnsMainMenu2011Node
+ ;
+
+ENDME // ME_4E7312EE0290 
+
+ME ME_4E731314024F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E73127A01C7 // AddItems2011
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48FF556602BA.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_4E731314024F 
+
+ME ME_4E738AFF0071
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E73127A01C7 // AddItems2011
+ ;
+ MELINK Target WL 'ME_4E36C7590390' '4DD24BD40021.ms.model.script' // Section
+ ;
+
+ENDME // ME_4E738AFF0071 
+
+ME ME_4E73127A01C7
+ MEPROP UID '4E73127A01C7'
+ MEPROP Name 'AddItems2011'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_490B0E9A02A2 // TsmTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E7312AA02AC // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E7312EE0290 // TnsMainMenu2011Node
+ ME_4E731314024F // DefDataAdapter
+ ME_4E738AFF0071 // Section
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" False
+
+ENDME // ME_4E73127A01C7 AddItems2011
+
+ME ME_490B0F4001D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490B0E9A02A2 // TsmTree
+ ;
+ MELINK Target WL? 'ME_490B0F4F021C' // TnsMainMenuNode
+ ;
+
+ENDME // ME_490B0F4001D4 
+
+ME ME_4B38FA9401FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490B0E9A02A2 // TsmTree
+ ;
+ MELINK Target WL 'ME_4AC0B9CF018A' '47F25BC801DB.ms.model.script' // vcmCStr
+ ;
+
+ENDME // ME_4B38FA9401FC 
+
+ME ME_4E730D94016B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490B0E9A02A2 // TsmTree
+ ;
+ MELINK Target WL? 'ME_4E730AE6014C' // TnsMainMenu2011Node
+ ;
+
+ENDME // ME_4E730D94016B 
+
+MEREF ME_4908AAED02BD_ME_490B0E9A02A2_over
+ MELINK Original WL 'ME_4908AAED02BD' '4908A9240071.ms.model.script' // BeforeReset
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4908AAED02BD_ME_490B0E9A02A2_over BeforeReset
+
+MEREF ME_4909EF3B02B1_ME_490B0E9A02A2_G
+ MELINK Original WL? 'ME_4909EF3B02B1' // TnsBaseMainMenuTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4909EF3B02B1_ME_490B0E9A02A2_G TnsBaseMainMenuTree
+
+MEREF ME_4E70D70C0055_ME_490B0E9A02A2_R
+ MELINK Original WL 'ME_4E70D70C0055' '48563BA400A9.ms.model.script' // Основное меню должно уметь зависеть от должности пользователя
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E70D70C0055_ME_490B0E9A02A2_R Основное меню должно уметь зависеть от должности пользователя
+
+%%ImplementedBy ME_4E70D70C0055 ME_490B0E9A02A2
+
+%%InheritedBy ME_4909EF3B02B1 ME_490B0E9A02A2
+
+ME ME_490B0E9A02A2
+ MEPROP UID '490B0E9A02A2'
+ MEPROP Name 'TsmTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A9FB4EE00FE' // MainMenuTrees
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4909EF3B02B1_ME_490B0E9A02A2_G // TnsBaseMainMenuTree
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4E70D70C0055_ME_490B0E9A02A2_R // Основное меню должно уметь зависеть от должности пользователя
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4E738B17023D // f_Section
+ HWL ME_4E738EF703A8 // f_SectionType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E73127A01C7 // AddItems2011
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4908AAED02BD_ME_490B0E9A02A2_over // BeforeReset
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_490B0F4001D4 // TnsMainMenuNode
+ ME_4B38FA9401FC // vcmCStr
+ ME_4E730D94016B // TnsMainMenu2011Node
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP extprop:pas:UnitName 'smTree'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'smTree'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\MainMenu\smTree.pas'
+
+ENDME // ME_490B0E9A02A2 TsmTree

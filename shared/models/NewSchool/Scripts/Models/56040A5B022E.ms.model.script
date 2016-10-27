@@ -1,0 +1,66 @@
+// TvcmEntitiesCollectionItemList 56040A5B022E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56040A5B022E
+
+ME ME_56040A8B036C
+ MEPROP UID '56040A8B036C'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56040A5B022E // TvcmEntitiesCollectionItemList
+ ;
+ MELINK Target WL? 'ME_560419D10368' // TvcmEntitiesCollectionItem
+ ;
+
+ENDME // ME_56040A8B036C ItemType
+
+MEREF ME_4A54DD4E036F_ME_56040A5B022E_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_56040A5B022E_G Tl3ProtoDataContainer
+
+MEREF ME_47B57B7800A7_ME_56040A5B022E_R
+ MELINK Original WL? 'ME_47B57B7800A7' // l3ObjectPtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57B7800A7_ME_56040A5B022E_R l3ObjectPtrList
+
+%%ImplementedBy ME_47B57B7800A7 ME_56040A5B022E
+
+%%InheritedBy ME_4A54DD4E036F ME_56040A5B022E
+
+ME ME_56040A5B022E
+ MEPROP UID '56040A5B022E'
+ MEPROP Name 'TvcmEntitiesCollectionItemList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AB34028023E' // Components
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A54DD4E036F_ME_56040A5B022E_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B57B7800A7_ME_56040A5B022E_R // l3ObjectPtrList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_56040A8B036C // ItemType
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'vcmEntitiesCollectionItemList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EntitiesCollectionItemList'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmEntitiesCollectionItemList.pas'
+
+ENDME // ME_56040A5B022E TvcmEntitiesCollectionItemList

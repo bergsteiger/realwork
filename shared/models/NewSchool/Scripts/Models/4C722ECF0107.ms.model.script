@@ -1,0 +1,197 @@
+// Tf1AtomChecker 4C722ECF0107 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C722ECF0107
+
+ME ME_4C722F080074
+ MEPROP UID '4C722F080074'
+ MEPROP Name 'f_Tag'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C722ECF0107 // Tf1AtomChecker
+ ;
+ MELINK Target WL? 'ME_467FCCB101CF' // TnsTagNodePrim
+ ;
+
+ENDME // ME_4C722F080074 f_Tag
+
+FORWARD ME_4C722F6B0307
+
+FORWARD ME_4C722F730253
+
+ME ME_4C722F7B039B
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_467FCCB101CF' // TnsTagNodePrim
+ ;
+
+ENDME // ME_4C722F7B039B aTag
+
+ME ME_4C722F730253
+ MEPROP UID '4C722F730253'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C722F6B0307 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C722F7B039B // aTag
+ )
+ ; // Parameters
+
+ENDME // ME_4C722F730253 DoIt
+
+ME ME_4C722F6B0307
+ MEPROP UID '4C722F6B0307'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C722ECF0107 // Tf1AtomChecker
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C722F730253 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C722F6B0307 Create
+
+MEREF ME_4C722F6B0307_ME_4C722F820347_G
+ MELINK Original HWL ME_4C722F6B0307 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C722F6B0307_ME_4C722F820347_G Create
+
+MEREF ME_4C722E000103_ME_4C722F820347_R
+ MELINK Original WL 'ME_4C722E000103' '4C6E92E9016E.ms.model.script' // If1AtomChecker
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C722E000103_ME_4C722F820347_R If1AtomChecker
+
+%%ImplementedBy ME_4C722E000103 ME_4C722F820347
+
+%%InheritedBy ME_4C722F6B0307 ME_4C722F820347
+
+ME ME_4C722F820347
+ MEPROP UID '4C722F820347'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C722ECF0107 // Tf1AtomChecker
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C722F6B0307_ME_4C722F820347_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4C722E000103_ME_4C722F820347_R // If1AtomChecker
+ )
+ ; // Implements
+
+ENDME // ME_4C722F820347 Make
+
+ME ME_4C726F370326
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C722ECF0107 // Tf1AtomChecker
+ ;
+ MELINK Target WL? 'ME_467FCD7E033D' // TnsSubNode
+ ;
+
+ENDME // ME_4C726F370326 
+
+MEREF ME_4C722E2901C7_ME_4C722ECF0107_impl
+ MELINK Original WL 'ME_4C722E2901C7' '4C6E92E9016E.ms.model.script' // CheckAtom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C722E2901C7_ME_4C722ECF0107_impl CheckAtom
+
+MEREF ME_4C726EF902D9_ME_4C722ECF0107_impl
+ MELINK Original WL 'ME_4C726EF902D9' '4C6E92E9016E.ms.model.script' // MakeSubTag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C726EF902D9_ME_4C722ECF0107_impl MakeSubTag
+
+MEREF ME_4CEBCD9B00D2_ME_4C722ECF0107_impl
+ MELINK Original WL 'ME_4CEBCD9B00D2' '4C6E92E9016E.ms.model.script' // Tag
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDMEREF // ME_4CEBCD9B00D2_ME_4C722ECF0107_impl Tag
+
+MEREF ME_4AE5CA2D0034_ME_4C722ECF0107_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_4C722ECF0107_G Tl3CProtoObject
+
+MEREF ME_4C722E000103_ME_4C722ECF0107_R
+ MELINK Original WL 'ME_4C722E000103' '4C6E92E9016E.ms.model.script' // If1AtomChecker
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C722E000103_ME_4C722ECF0107_R If1AtomChecker
+
+%%ImplementedBy ME_4C722E000103 ME_4C722ECF0107
+
+%%InheritedBy ME_4AE5CA2D0034 ME_4C722ECF0107
+
+ME ME_4C722ECF0107
+ MEPROP UID '4C722ECF0107'
+ MEPROP Name 'Tf1AtomChecker'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC9F80281' // DocumentTagNodes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AE5CA2D0034_ME_4C722ECF0107_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4C722E000103_ME_4C722ECF0107_R // If1AtomChecker
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4C722F080074 // f_Tag
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4C722F6B0307 // Create
+ HWL ME_4C722F820347 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4C722E2901C7_ME_4C722ECF0107_impl // CheckAtom
+ ME_4C726EF902D9_ME_4C722ECF0107_impl // MakeSubTag
+ ME_4CEBCD9B00D2_ME_4C722ECF0107_impl // Tag
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4C726F370326 // TnsSubNode
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '23.08.2010 12:18'
+ UP extprop:pas:UnitName 'f1AtomChecker'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'f1AtomChecker'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1AtomChecker.pas'
+
+ENDME // ME_4C722ECF0107 Tf1AtomChecker

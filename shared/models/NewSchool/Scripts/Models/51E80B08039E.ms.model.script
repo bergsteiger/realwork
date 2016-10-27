@@ -1,0 +1,82 @@
+// IUnknownRefListTest 51E80B08039E TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51E80B08039E
+
+ME ME_51E80DF20117
+ MEPROP UID '51E80DF20117'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51E80B08039E // IUnknownRefListTest
+ ;
+ MELINK Target WL? 'ME_51E80A960173' // TIUnknownRefList
+ ;
+
+ENDME // ME_51E80DF20117 ListType
+
+ME ME_51E80B2F02CF
+ MEPROP UID '51E80B2F02CF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E80B08039E // IUnknownRefListTest
+ ;
+
+ENDME // ME_51E80B2F02CF DoIt
+
+MEREF ME_4B2A0DDE028B_ME_51E80B08039E_G
+ MELINK Original WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A0DDE028B_ME_51E80B08039E_G TTestCase
+
+MEREF ME_51E80DD30125_ME_51E80B08039E_G
+ MELINK Original WL? 'ME_51E80DD30125' // ListTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51E80DD30125_ME_51E80B08039E_G ListTest
+
+%%InheritedBy ME_4B2A0DDE028B ME_51E80B08039E
+%%InheritedBy ME_51E80DD30125 ME_51E80B08039E
+
+ME ME_51E80B08039E
+ MEPROP UID '51E80B08039E'
+ MEPROP Name 'IUnknownRefListTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_51DEB2C70024' // FinalContainersTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B2A0DDE028B_ME_51E80B08039E_G // TTestCase
+ HWL ME_51E80DD30125_ME_51E80B08039E_G // ListTest
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51E80DF20117 // ListType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51E80B2F02CF // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TIUnknownRefListTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IUnknownRefListTest'
+ UP intf.pas:Path 'common\components\SandBox\IUnknownRefListTest.pas'
+
+ENDME // ME_51E80B08039E IUnknownRefListTest

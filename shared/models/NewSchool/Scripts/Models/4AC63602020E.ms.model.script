@@ -142,7 +142,7 @@ ENDME // ME_4C863FD502C6 DoIt
 ME ME_4C863FCD0121
  MEPROP UID '4C863FCD0121'
  MEPROP Name 'Save'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -187,7 +187,7 @@ ENDME // ME_51B9E1A70054 DoIt
 ME ME_51B9E1A00192
  MEPROP UID '51B9E1A00192'
  MEPROP Name 'LoadHistory'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -232,7 +232,7 @@ ENDME // ME_51B9E2780030 DoIt
 ME ME_51B9E27000CD
  MEPROP UID '51B9E27000CD'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -287,7 +287,7 @@ ENDME // ME_51B9E2B90352 DoIt
 ME ME_51B9E2AC030D
  MEPROP UID '51B9E2AC030D'
  MEPROP Name 'SaveHistory'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -371,17 +371,23 @@ ME ME_51B9FF90017A
 
 ENDME // ME_51B9FF90017A 
 
-ME ME_49803F5503AA_ME_4AC63602020E
- MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+MEREF ME_49803F5503AA_ME_4AC63602020E_over
+ MELINK Original WL 'ME_49803F5503AA' '49525B34022A.ms.model.script' // DoInit
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49803F5503AA_ME_4AC63602020E DoInit
+ENDMEREF // ME_49803F5503AA_ME_4AC63602020E_over DoInit
 
-ME ME_4A8E8F2E0195_ME_4AC63602020E
+MEREF ME_4A8E8F2E0195_ME_4AC63602020E_over
  MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8E8F2E0195_ME_4AC63602020E InitControls
+ENDMEREF // ME_4A8E8F2E0195_ME_4AC63602020E_over InitControls
+
+MEREF ME_49525B34022A_ME_4AC63602020E_G
+ MELINK Original WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525B34022A_ME_4AC63602020E_G TvcmEntityForm
 
 %%InheritedBy ME_49525B34022A ME_4AC63602020E
 
@@ -397,7 +403,7 @@ ME ME_4AC63602020E
  MELINK Parent WL? 'ME_4D39876901E7' // OpenDocumentByNumber
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+   Seq: ( HWL ME_49525B34022A_ME_4AC63602020E_G // TvcmEntityForm
  )
  ; // Inherits
  MELIST Attributes
@@ -415,8 +421,8 @@ ME ME_4AC63602020E
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_49803F5503AA_ME_4AC63602020E // DoInit
- ME_4A8E8F2E0195_ME_4AC63602020E // InitControls
+   Seq: ( ME_49803F5503AA_ME_4AC63602020E_over // DoInit
+ ME_4A8E8F2E0195_ME_4AC63602020E_over // InitControls
  )
  ; // Overridden
  MELIST Constants

@@ -1,0 +1,62 @@
+// ByteListTest 51DEE67C003A TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51DEE67C003A
+
+ME ME_51E040300369
+ MEPROP UID '51E040300369'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51DEE67C003A // ByteListTest
+ ;
+ MELINK Target WL? 'ME_51DEE6440352' // TByteList
+ ;
+
+ENDME // ME_51E040300369 ListType
+
+MEREF ME_4B2A0DDE028B_ME_51DEE67C003A_G
+ MELINK Original WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A0DDE028B_ME_51DEE67C003A_G TTestCase
+
+MEREF ME_51E03FC80111_ME_51DEE67C003A_G
+ MELINK Original WL? 'ME_51E03FC80111' // AtomicListTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51E03FC80111_ME_51DEE67C003A_G AtomicListTest
+
+%%InheritedBy ME_4B2A0DDE028B ME_51DEE67C003A
+%%InheritedBy ME_51E03FC80111 ME_51DEE67C003A
+
+ME ME_51DEE67C003A
+ MEPROP UID '51DEE67C003A'
+ MEPROP Name 'ByteListTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_51DEB2C70024' // FinalContainersTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B2A0DDE028B_ME_51DEE67C003A_G // TTestCase
+ HWL ME_51E03FC80111_ME_51DEE67C003A_G // AtomicListTest
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51E040300369 // ListType
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TByteListTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ByteListTest'
+ UP intf.pas:Path 'common\components\SandBox\ByteListTest.pas'
+
+ENDME // ME_51DEE67C003A ByteListTest

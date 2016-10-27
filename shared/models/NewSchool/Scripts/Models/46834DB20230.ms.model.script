@@ -5,31 +5,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_46834DC80065
 %%Inner ME_5481DE430189
 
-FORWARD ME_46834DB20230
-
-%%InheritedBy ME_4C9B0A3D0184 ME_46834DC80065
-
-ME ME_46834DC80065
- MEPROP UID '46834DC80065'
- MEPROP Name 'TeeSubExport'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_46834DB20230 // eeSubExport
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4C9B0A3D0184' '47F24F150318.ms.model.script' // TevSubImplementation
- )
- ; // Inherits
- UP extprop:pas:UnitName 'eeSubExport'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'eeSubExport'
- UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeSubExport.pas'
-
-ENDME // ME_46834DC80065 TeeSubExport
-
 ME ME_46834DB20230
  MEPROP UID '46834DB20230'
  MEPROP Name 'eeSubExport'
@@ -41,7 +16,7 @@ ME ME_46834DB20230
  MELINK Parent WL? 'ME_4680E7D50168' // Everest Engine
  ;
  MELIST Children
-   Seq: ( HWL ME_46834DC80065 // TeeSubExport
+   Seq: ( WL? 'ME_46834DC80065' // TeeSubExport
  WL? 'ME_5481DE430189' // eeSubDescriptorsExport
  )
  ; // Children

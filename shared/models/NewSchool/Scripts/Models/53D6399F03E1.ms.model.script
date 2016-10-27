@@ -1,0 +1,106 @@
+// Tk2InterfaceMapper 53D6399F03E1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D6399F03E1
+
+FORWARD ME_53D639B601D7
+
+FORWARD ME_53D639C002D7
+
+ME ME_53D639D000F9
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_53D639D000F9 aTag
+
+ME ME_53D639D00124
+ MEPROP Name 'IID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478CF8F202C7' '478CF8070260.ms.model.script' // Tl3GUID
+ ;
+
+ENDME // ME_53D639D00124 IID
+
+ME ME_53D639D0013E
+ MEPROP Name 'Tool'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+
+ENDME // ME_53D639D0013E Tool
+
+ME ME_53D639D00159
+ MEPROP Name 'aProcessor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F6BF0009D' '53317D14019D.ms.model.script' // Ik2Processor
+ ;
+
+ENDME // ME_53D639D00159 aProcessor
+
+ME ME_53D639C002D7
+ MEPROP UID '53D639C002D7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53D639B601D7 // Make
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_53D639D000F9 // aTag
+ ME_53D639D00124 // IID
+ ME_53D639D0013E // Tool
+ ME_53D639D00159 // aProcessor
+ )
+ ; // Parameters
+
+ENDME // ME_53D639C002D7 DoIt
+
+ME ME_53D639B601D7
+ MEPROP UID '53D639B601D7'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53D6399F03E1 // Tk2InterfaceMapper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53D639C002D7 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_53D639B601D7 Make
+
+ME ME_53D6399F03E1
+ MEPROP UID '53D6399F03E1'
+ MEPROP Name 'Tk2InterfaceMapper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_49A58A1A03C4' // k2PrimObjects
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53D639B601D7 // Make
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'k2InterfaceMapper'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'InterfaceMapper'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2InterfaceMapper.pas'
+
+ENDME // ME_53D6399F03E1 Tk2InterfaceMapper

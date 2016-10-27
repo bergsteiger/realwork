@@ -1,0 +1,191 @@
+// WevPara 484FD34600BA Wrapper Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4CEE60C90052
+%%Inner ME_4CEE61030388
+
+FORWARD ME_484FD34600BA
+
+FORWARD ME_4CEE60C90052
+
+FORWARD ME_4CEE6187015A
+
+FORWARD ME_4CEE6199008F
+
+ME ME_4CEE61A401B2
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4CEE61A401B2 aTag
+
+ME ME_4CEE6199008F
+ MEPROP UID '4CEE6199008F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEE6187015A // MarkModified
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CEE61A401B2 // aTag
+ )
+ ; // Parameters
+
+ENDME // ME_4CEE6199008F DoIt
+
+ME ME_4CEE6187015A
+ MEPROP UID '4CEE6187015A'
+ MEPROP Name 'MarkModified'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CEE60C90052 // TevdParaModifier
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CEE6199008F // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4CEE6187015A MarkModified
+
+ME ME_4CEE60C90052
+ MEPROP UID '4CEE60C90052'
+ MEPROP Name 'TevdParaModifier'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484FD34600BA // WevPara
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CEE6187015A // MarkModified
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '25.11.2010 16:13'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dParaModifier'
+
+ENDME // ME_4CEE60C90052 TevdParaModifier
+
+MEREF ME_4CEE60C90052_ME_4CEE61030388_G
+ MELINK Original HWL ME_4CEE60C90052 // TevdParaModifier
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CEE60C90052_ME_4CEE61030388_G TevdParaModifier
+
+%%InheritedBy ME_4CEE60C90052 ME_4CEE61030388
+
+ME ME_4CEE61030388
+ MEPROP UID '4CEE61030388'
+ MEPROP Name 'RevdParaModifier'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484FD34600BA // WevPara
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CEE60C90052_ME_4CEE61030388_G // TevdParaModifier
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4CEE61030388 RevdParaModifier
+
+ME ME_4CEE61690157
+ MEPROP UID '4CEE61690157'
+ MEPROP Name 'g_ParaModifier'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484FD34600BA // WevPara
+ ;
+ MELINK Target HWL ME_4CEE61030388 // RevdParaModifier
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4CEE61690157 g_ParaModifier
+
+MEREF ME_4CEE5D3002FC_ME_484FD34600BA_over
+ MELINK Original WL 'ME_4CEE5D3002FC' '47AC6F0B025E.ms.model.script' // MarkModified
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CEE5D3002FC_ME_484FD34600BA_over MarkModified
+
+MEREF ME_484941DA0047_ME_484FD34600BA_G
+ MELINK Original WL? 'ME_484941DA0047' // Wk2Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484941DA0047_ME_484FD34600BA_G Wk2Tag
+
+MEREF ME_484FC278000E_ME_484FD34600BA_R
+ MELINK Original WL 'ME_484FC278000E' '484A470100DD.ms.model.script' // Para
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484FC278000E_ME_484FD34600BA_R Para
+
+%%ImplementedBy ME_484FC278000E ME_484FD34600BA
+
+%%InheritedBy ME_484941DA0047 ME_484FD34600BA
+
+ME ME_484FD34600BA
+ MEPROP UID '484FD34600BA'
+ MEPROP Name 'WevPara'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Wrapper ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_484A470100DD' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484941DA0047_ME_484FD34600BA_G // Wk2Tag
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_484FC278000E_ME_484FD34600BA_R // Para
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CEE61690157 // g_ParaModifier
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4CEE5D3002FC_ME_484FD34600BA_over // MarkModified
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4CEE60C90052 // TevdParaModifier
+ HWL ME_4CEE61030388 // RevdParaModifier
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "started" '19.12.2002 19:49'
+ UP extprop:pas:UnitName 'evPara_Wrap'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evPara_Wrap.pas'
+
+ENDME // ME_484FD34600BA WevPara

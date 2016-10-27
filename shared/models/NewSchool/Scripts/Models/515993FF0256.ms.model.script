@@ -1,0 +1,72 @@
+// TIntStackTestViaMixIn 515993FF0256 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_515993FF0256
+
+ME ME_5159943A0315
+ MEPROP UID '5159943A0315'
+ MEPROP Name 'StackType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_515993FF0256 // TIntStackTestViaMixIn
+ ;
+ MELINK Target WL? 'ME_51545E1E004A' // TIntStack
+ ;
+
+ENDME // ME_5159943A0315 StackType
+
+MEREF ME_515993A0015B_ME_515993FF0256_impl
+ MELINK Original WL 'ME_515993A0015B' '515992DE031D.ms.model.script' // GetEtalonData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_515993A0015B_ME_515993FF0256_impl GetEtalonData
+
+MEREF ME_4B2A0DDE028B_ME_515993FF0256_G
+ MELINK Original WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A0DDE028B_ME_515993FF0256_G TTestCase
+
+MEREF ME_515992DE031D_ME_515993FF0256_G
+ MELINK Original WL? 'ME_515992DE031D' // StackTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_515992DE031D_ME_515993FF0256_G StackTest
+
+%%InheritedBy ME_4B2A0DDE028B ME_515993FF0256
+%%InheritedBy ME_515992DE031D ME_515993FF0256
+
+ME ME_515993FF0256
+ MEPROP UID '515993FF0256'
+ MEPROP Name 'TIntStackTestViaMixIn'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5155CA0E009F' // ContainersTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B2A0DDE028B_ME_515993FF0256_G // TTestCase
+ HWL ME_515992DE031D_ME_515993FF0256_G // StackTest
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5159943A0315 // StackType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_515993A0015B_ME_515993FF0256_impl // GetEtalonData
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'IntStackTestViaMixIn'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IntStackTestViaMixIn'
+ UP intf.pas:Path 'common\components\SandBox\IntStackTestViaMixIn.pas'
+
+ENDME // ME_515993FF0256 TIntStackTestViaMixIn

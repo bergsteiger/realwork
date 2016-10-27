@@ -1,0 +1,61 @@
+// TevQueryCard 4857E8F003A2 InterfaceFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4D63D26D033F_ME_4857E8F003A2_over
+ MELINK Original WL 'ME_4D63D26D033F' '4D63C2420229.ms.model.script' // QueryTool
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D63D26D033F_ME_4857E8F003A2_over QueryTool
+
+MEREF ME_4857B637007C_ME_4857E8F003A2_G
+ MELINK Original WL? 'ME_4857B637007C' // TevDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857B637007C_ME_4857E8F003A2_G TevDocument
+
+MEREF ME_4857E8A90137_ME_4857E8F003A2_R
+ MELINK Original WL 'ME_4857E8A90137' '48492FC0029D.ms.model.script' // QueryCard
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857E8A90137_ME_4857E8F003A2_R QueryCard
+
+%%ImplementedBy ME_4857E8A90137 ME_4857E8F003A2
+
+%%InheritedBy ME_4857B637007C ME_4857E8F003A2
+
+ME ME_4857E8F003A2
+ MEPROP UID '4857E8F003A2'
+ MEPROP Name 'TevQueryCard'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_InterfaceFactory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '"фабрика интерфейсов" для новой КЗ.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53D258F1004F' // InterfaceFactories
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4857B637007C_ME_4857E8F003A2_G // TevDocument
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4857E8A90137_ME_4857E8F003A2_R // QueryCard
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4D63D26D033F_ME_4857E8F003A2_over // QueryTool
+ )
+ ; // Overridden
+ MELIST Injected
+   Seq: ( WL 'ME_53D0D8FE00E7' '4BFFD963014E.ms.model.script' // TevQueryCardCursor
+ )
+ ; // Injected
+ UP extprop:pas:TypeName 'TevQueryCardInterfaceFactory'
+ UP extprop:pas:UnitName 'evQueryCard_InterfaceFactory'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'QueryCardInterfaceFactory'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evQueryCard_InterfaceFactory.pas'
+
+ENDME // ME_4857E8F003A2 TevQueryCard
