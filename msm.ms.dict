@@ -1,0 +1,2493 @@
+UNIT msm.ms.dict
+
+USES
+ core.ms.dict
+;
+
+USES
+ axiom_push.ms.dict
+;
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ ElemMemberPrim.ms.dict
+;
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+USES
+ msmMetaModel.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
+
+USES
+ arrays.ms.dict
+;
+
+elem_iterator NullList
+ [empty] >>> Result
+; // NullList
+
+WordAlias ._NullList .NullList
+
+elem_iterator SelfList
+ [ Self ] >>> Result
+; // SelfList
+
+WordAlias ._SelfList .SelfList
+
+elem_iterator Inner
+ Cached:
+ (
+  Self .Children
+  .join> ( Self .Constants )
+  .join> ( Self .Attributes )
+  .join> ( Self .Operations )
+  .join> ( Self .Dependencies )
+  .join> ( Self .Parameters )
+ ) 
+ >>> Result
+; // Inner
+
+USES
+ FirstElement.ms.dict
+;
+
+STRING elem_func UpText
+ Self .NameInModel >>> Result
+ if ( Result .IsNil ) then
+ begin
+  Self .WordName >>> Result
+ end // ( Result .IsNil )
+ if ( Self .IsUP ) then
+ begin
+  VAR l_Value
+  [ Self DO ]
+  .map> (
+    IN aValue
+   RULES 
+    ( aValue IsObj )
+     ( aValue .Name )
+    DEFAULT
+     ( aValue ToPrintable )
+   ; // RULES 
+  ) 
+  .FirstElement >>> l_Value
+  [ Result ' = ' l_Value ] strings:Cat >>> Result 
+ end // ( Self .IsUP )
+; // UpText
+
+STRING elem_func LinkName
+ '' >>> Result
+ VAR l_St
+ Self .Stereotype >>> l_St
+ if (
+     ( l_St .NotIsNil )
+     AND ( l_St .NameInModel .NotIsNil )
+    ) then
+ begin
+  [ '<<' l_St .NameInModel '::' string:Split DROP '>>' ] strings:Cat >>> Result
+ end // ( l_St .NotIsNil )
+ if ( Self .NameInModel .NotIsNil ) then
+ begin
+  [ Result Self .NameInModel ] ' ' strings:CatSep >>> Result
+ end // ( Self .NameInModel .NotIsNil )
+; // LinkName
+
+WordAlias .msm:LinkName .LinkName
+
+WordAlias ME_EmptyStereo ME_EmptyStereo
+
+STRING elem_func StereotypeName
+ Cached:
+ (
+  VAR l_St
+  Self .Stereotype >>> l_St
+  RULES
+   ( l_St ME_EmptyStereo ?== )
+    ''
+   (
+      ( l_St .NotIsNil )
+      AND ( l_St .NameInModel .NotIsNil )
+   )
+    begin
+     [ '<<' l_St .NameInModel '>>' ] strings:Cat
+    end // ( l_St .NotIsNil )
+   DEFAULT 
+    begin
+     [ '[[' Self .MDAClassString ']]' ] strings:Cat
+     // '<<default>>'
+    end
+  ; // RULES
+ )
+ >>> Result
+; // StereotypeName
+
+STRING elem_func NameNotEmpty
+ Cached:
+ (
+  Self .NameInModel
+  >>> Result
+ 
+  if ( Result .IsNil ) then
+  begin
+   '(unnamed)' >>> Result
+  end // ( Result .IsNil )
+  Result
+ )
+ >>> Result
+; // NameNotEmpty
+
+STRING elem_func NameWithStereo
+ Cached:
+ (
+  Self .NameNotEmpty >>> Result
+ 
+  VAR l_St
+  Self .StereotypeName >>> l_St
+  if ( l_St .NotIsNil ) then
+  begin
+   [ l_St ' ' Result ] strings:Cat >>> Result
+  end // ( l_St .NotIsNil )
+  
+  Result
+ )
+ >>> Result 
+; // NameWithStereo
+
+USES
+ ExtValue.ms.dict
+;
+
+STRING elem_func ValueString
+ '' >>> Result
+ VAR l_Value
+ Self .ExtValueOrValue >>> l_Value
+
+ if ( l_Value .IsValueValid ) then
+ begin
+  l_Value ToPrintable >>> Result
+ end // ( l_Value .IsValueValid )
+; // ValueString
+
+USES
+ CountIt.ms.dict
+;
+
+ModelElement elem_func FirstOperation
+ Cached:
+ (
+  Self .Operations
+  .filter> ( .IsLocalMethod ! )
+  .FirstElement
+ )
+ >>> Result
+; // FirstOperation
+
+elem_iterator MethodParameters
+ Cached:
+ (
+  RULES
+   ( Self .Parameters .NotIsNil )
+    ( Self .Parameters )
+   ( Self .IsMethod )
+    ( Self .FirstOperation .Parameters )
+   ( Self .IsFunction )
+    ( Self .FirstOperation .Parameters )
+   DEFAULT
+    ( Self .Parameters )
+  ; // RULES
+ )
+ >>> Result
+; // MethodParameters
+
+ModelElement elem_func MethodTarget
+ Cached:
+ (
+  RULES
+   ( Self .Target .NotIsNil )
+    ( Self .Target )
+   ( Self .IsMethod )
+    ( Self .FirstOperation .Target )
+   ( Self .IsFunction )
+    ( Self .FirstOperation .Target )
+   ( Self .IsViewLink )
+    RULES
+     ( Self .Target .IsNil )
+      ( Self .To )
+     DEFAULT
+      ( Self .Target )
+    ; // RULES
+   DEFAULT
+    ( Self .Target )
+  ; // RULES
+ ) 
+ >>> Result
+; // MethodTarget
+
+STRING elem_func ParametersString
+ '' >>> Result
+ VAR l_P
+ VAR l_Open
+ VAR l_Close
+ if ( Self .MDAClass class_Attribute == ) then
+ begin
+  Self .Attributes >>> l_P
+  '[' >>> l_Open
+  ']' >>> l_Close
+ end // ( Self .MDAClass class_Attribute == )
+ else
+ begin
+  Self .MethodParameters >>> l_P
+  '(' >>> l_Open
+  ')' >>> l_Close
+ end // ( Self .MDAClass class_Attribute == )
+ if ( l_P .NotEmpty ) then
+ begin
+  [
+   VAR l_WasParam
+   false >>> l_WasParam
+   l_Open
+   l_P .for> (
+     IN aParam
+    if l_WasParam then
+     ', '
+    VAR l_St
+    aParam .Stereotype >>> l_St
+    if ( l_St .NotIsNil ) then
+    begin
+     if ( l_St .NameInModel 'in' != ) then
+     begin
+      l_St .NameInModel ' '
+     end // ( l_St .NameInModel 'in' != )
+    end // ( l_St .NotIsNil )
+    aParam .NameInModel
+    VAR l_T
+    aParam .Target >>> l_T
+    VAR l_N
+    if ( l_T .IsNil ) then
+    begin
+     'void' >>> l_N
+    end // ( l_T .IsNil )
+    else
+    begin
+     l_T .NameInModel >>> l_N
+    end // ( l_T .IsNil )
+    ': ' l_N
+    VAR l_V
+    aParam .ValueString >>> l_V
+    if ( l_V .NotIsNil ) then
+    begin
+     ' = ' l_V
+    end // ( l_V .NotIsNil )
+    true >>> l_WasParam
+   ) //l_P .for>
+   l_Close
+  ] strings:Cat >>> Result
+ end // l_P .NotEmpty
+; // ParametersString
+
+STRING elem_func Signature
+ Cached:
+ (
+  [ Self .NameNotEmpty Self .ParametersString ] strings:Cat >>> Result
+  
+  if ( Self .IsViewLink ) then
+  begin
+   if ( Self .From .NotIsNil ) then
+   begin
+    [ Result ' ' Self .From .NameInModel ] strings:Cat >>> Result
+   end // ( Self .From .NotIsNil )
+   if ( Self .To .NotIsNil ) then
+   begin
+    [ Result ' ==> ' Self .To .NameInModel ] strings:Cat >>> Result
+   end // ( Self .To .NotIsNil )
+  end // ( Self .IsViewLink )
+  else
+  begin
+   VAR l_T
+   Self .MethodTarget >>> l_T
+   
+   if ( l_T .NotIsNil ) then
+   begin
+    VAR l_Name
+    l_T .NameInModel >>> l_Name
+    if ( l_Name .IsNil ) then
+    begin
+     'void' >>> l_Name
+    end // ( l_Name .IsNil )
+    [ Result ': ' l_Name ] strings:Cat >>> Result
+   end // ( l_T .NotIsNil )
+  end // ( Self .IsViewLink )
+  
+  Result
+ )
+ >>> Result
+; // Signature
+
+WordAlias .msm:Signature .Signature
+
+STRING elem_func NameWithStereoAndTarget
+ Cached:
+ (
+  [ Self .StereotypeName Self .Signature ] ' ' strings:CatSep
+ )
+ >>> Result 
+; // NameWithStereoAndTarget
+
+STRING elem_func msm:SignatureAndValue
+ Cached:
+ (
+  Self .msm:Signature
+  >>> Result
+ 
+  VAR l_Value
+  Self .ValueString >>> l_Value
+  if ( l_Value .NotIsNil ) then
+  begin
+   [ Result ' = ' l_Value  ] strings:Cat >>> Result
+  end // ( l_Value .NotIsNil )
+  Result
+ )
+ >>> Result 
+; // msm:SignatureAndValue
+
+STRING elem_func NameWithStereoAndTargetAndValue
+ Cached:
+ (
+  Self .NameWithStereoAndTarget
+  >>> Result
+ 
+  VAR l_Value
+  Self .ValueString >>> l_Value
+  if ( l_Value .NotIsNil ) then
+  begin
+   [ Result ' = ' l_Value  ] strings:Cat >>> Result
+  end // ( l_Value .NotIsNil )
+  Result
+ )
+ >>> Result 
+; // NameWithStereoAndTargetAndValue
+
+STRING elem_func NameWithStereoAndTargetAndValueAndDoc
+ Self .NameWithStereoAndTargetAndValue >>> Result
+ VAR l_D
+ Self .Documentation >>> l_D
+ if ( l_D .NotIsNil ) then
+ begin
+  [ Result #10 ' - ' l_D ] strings:Cat >>> Result
+ end // ( l_D .NotIsNil )
+; // NameWithStereoAndTargetAndValueAndDoc
+
+STRING elem_func DocumentationNotEmpty
+ Self .Documentation >>> Result
+ if ( Result .IsNil ) then
+ begin
+  'Элемент не документирован' >>> Result
+ end // ( Result .IsNil )
+; // DocumentationNotEmpty
+
+BOOLEAN elem_func IsFinished
+ Self .GetUP "finished" false ?!=
+ >>> Result
+; // IsFinished
+
+WordAlias .DefaultShortText .NameWithStereo
+//WordAlias .DefaultText .Name
+//WordAlias .DefaultSearchText .Name
+WordAlias .DefaultSearchText .NameInModel
+WordAlias .DefaultText .NameWithStereoAndTargetAndValue
+WordAlias .DefaultFullText .DefaultText
+WordAlias .DefaultTextAndDoc .NameWithStereoAndTargetAndValueAndDoc
+
+USES
+ CompileTimeVar.ms.dict
+;
+
+USES
+ Log.ms.dict
+;
+
+BOOLEAN CompileTime-VAR g_NeedTerminate false
+
+PROCEDURE TerminateLoadInner
+ true >>> g_NeedTerminate
+ Log: 'Terminate Request'
+; // TerminateLoadInner
+
+FORWARD .msm:MainDiagram
+
+elem_proc LoadChildInfo
+ if ( g_NeedTerminate ! ) then
+ begin
+  Self .Stereotype DROP
+  Self .NameWithStereo DROP
+  Self .DefaultText DROP
+  Self .Parent DROP
+  Self .IsSummoned DROP
+  Self .msm:MainDiagram DROP
+  
+  Self .Depends DROP
+  Self .Inherits DROP
+  Self .Implements DROP
+  
+  //Self .Implemented DROP
+  //Self .Overridden DROP
+  //Self .Dependencies DROP
+  //Self .UpList DROP
+  //Self .DocumentationNotEmpty DROP
+  Self .Inner DROP
+ end // ( g_NeedTerminate ! )
+; // LoadChildInfo
+
+elem_proc LoadInnerPrim
+ if ( g_NeedTerminate ! ) then
+ begin
+  Self .LoadChildInfo
+  Self .Inner .for> (
+   if g_NeedTerminate then
+   begin
+    DROP
+   end // g_NeedTerminate
+   else
+   begin
+    call.me
+   end // g_NeedTerminate
+  ) // Self .Inner .for>
+ end // ( g_NeedTerminate ! )
+; // LoadInnerPrim
+
+BOOLEAN elem_func LoadLevel
+ true >>> Result
+ if ( g_NeedTerminate ! ) then
+ begin
+  Self .LoadChildInfo
+/*{  Self .Inner .for> (
+   if g_NeedTerminate then
+   begin
+    DROP
+   end // g_NeedTerminate
+   else
+   begin
+    .LoadChildInfo
+   end // g_NeedTerminate
+  ) // Self .Inner .for>}*/
+ end // ( g_NeedTerminate ! )
+; // LoadLevel
+
+USES
+ ModelRoot.ms.dict
+;
+
+USES
+ ProcessModelFiles.ms.dict
+;
+
+USES
+ DictionaryByName.ms.dict
+;
+
+BOOLEAN elem_func LoadInner
+
+ PROCEDURE LoadDictionaries
+ 
+  PROCEDURE LoadWithString
+    IN aString
+   ModelRootIn .ProcessModelFiles: ( 
+     STRING IN aFileName
+    if ( g_NeedTerminate ! ) then 
+    begin
+     if ( aString aFileName FindInFile ) then
+     begin
+      Log: aFileName
+      aFileName .DictionaryByName DROP
+      500 SLEEP
+     end // ( aString aFileName FindInFile )
+    end // ( g_NeedTerminate ! )
+   ) // ModelRootIn .ProcessModelFiles:
+  ; // LoadWithString
+  
+  'Stereotype st_Project' LoadWithString
+  'Stereotype st_Library' LoadWithString
+  'Stereotype st_Unit' LoadWithString
+  'Stereotype st_SimpleClass' LoadWithString
+ ; // LoadDictionaries
+ 
+ Log: 'Loading'
+ true >>> Result
+ Self .LoadInnerPrim
+ //LoadDictionaries
+ //Self .LoadInnerPrim
+ if g_NeedTerminate then
+ begin
+  Log: 'Terminated'
+ end // g_NeedTerminate
+ else
+ begin
+  Log: 'Loaded'
+ end // g_NeedTerminate
+; // LoadInner
+
+USES
+ axiom:TColor
+;
+
+INTEGER elem_func msm:View:ForeColor
+ RULES
+  ( Self .IsProject )
+   TColor::clGreen
+  ( Self .IsUnit )
+   TColor::clGreen
+  ( Self .IsExeTarget )
+   TColor::clGreen
+  ( Self .IsLibrary )
+   TColor::clBlue
+  ( Self .IsInterfaces )
+   TColor::clNavy
+  ( Self .IsStereotype st_Facet )
+   TColor::clNavy
+  ( Self .IsStereotype st_Interface )
+   TColor::clNavy
+  ( Self .IsMixIn )
+   TColor::clFuchsia
+   //TColor::clMoneyGreen
+   //TColor::clLime
+  ( Self .IsSimpleClass )
+   TColor::clGreen
+  ( Self .IsUtilityPack )
+   TColor::clRed
+  ( Self .IsMixInMirror )
+   TColor::clAqua
+  ( Self .IsEnum )
+   TColor::clOlive
+  ( Self .IsTypedef )
+   TColor::clMedGray
+  DEFAULT
+   TColor::clDefault
+ ; // RULES
+ >>> Result
+; // msm:View:ForeColor
+
+USES
+ WordsRTTI.ms.dict
+;
+
+INTEGER elem_func StereotypeBackColor
+ Cached:
+ (
+  VAR l_Color
+  Self .StereotypeInModel .GetUP "visualization bg color" >>> l_Color
+  RULES
+   ( l_Color IsInt )
+    l_Color
+   DEFAULT
+    begin
+     TColor::clDefault >>> l_Color
+     Self .StereotypeAncestors
+     .for> (
+       IN anAncestor
+      VAR l_AncestorColor 
+      anAncestor call.me >>> l_AncestorColor
+      RULES
+       (
+        ( l_AncestorColor IsInt )
+        AND ( l_AncestorColor TColor::clDefault != )
+       ) 
+        ( 
+         l_AncestorColor >>> l_Color 
+         BREAK-ITERATOR
+        )
+      ; // RULES
+     ) // Self .Inherited.Words .for>
+     l_Color
+    end // DEFAULT
+  ; // RULES
+ )
+ >>> Result
+; // StereotypeBackColor
+
+BOOLEAN elem_func ViewInOwnDiagram
+ RULES
+  ( Self .Parent .Viewed Self .Viewed ?== )
+  // - мы на СВОЕЙ же диаграмме
+   true
+  ( Self .Parent .Viewed Self .Viewed .Parent ?!= )
+  // - мы на чужой диаграмме
+   false
+  DEFAULT
+  // - мы на диаграмме родителя
+   true
+ ; // RULES
+ >>> Result
+; // ViewInOwnDiagram
+ 
+INTEGER elem_func msm:View:BackColor
+ RULES
+  ( Self .ViewInOwnDiagram ! )
+   TColor::clWhite
+  DEFAULT
+   begin
+    VAR l_Color
+    Self .Stereotype .StereotypeInModel .StereotypeBackColor >>> l_Color
+    RULES
+     ( l_Color IsInt )
+      RULES
+       ( l_Color TColor::clDefault == )
+        ( Self .msm:View:ForeColor )
+       DEFAULT
+        l_Color
+      ; // RULES
+     DEFAULT 
+      ( Self .msm:View:ForeColor )
+    ; // RULES
+   end // DEFAULT
+ ; // RULES  
+ >>> Result
+; // msm:View:BackColor
+
+INTEGER elem_func StereotypeTextColor
+ Cached:
+ (
+  VAR l_Color
+  Self .StereotypeInModel .GetUP "visualization f-font color" >>> l_Color
+  RULES
+   ( l_Color IsInt )
+    l_Color
+   DEFAULT
+    begin
+     TColor::clDefault >>> l_Color
+     Self .StereotypeAncestors
+     .for> (
+       IN anAncestor
+      VAR l_AncestorColor 
+      anAncestor call.me >>> l_AncestorColor
+      RULES
+       (
+        ( l_AncestorColor IsInt )
+        AND ( l_AncestorColor TColor::clDefault != )
+       ) 
+        ( 
+         l_AncestorColor >>> l_Color 
+         BREAK-ITERATOR
+        )
+      ; // RULES
+     ) // Self .Inherited.Words .for>
+     l_Color
+    end // DEFAULT
+  ; // RULES
+ )
+ >>> Result
+; // StereotypeTextColor
+ 
+INTEGER elem_func msm:View:TextColor
+ RULES
+  ( Self .ViewInOwnDiagram ! )
+   ( Self .Stereotype .StereotypeInModel .StereotypeTextColor )
+   //TColor::clNavy
+  DEFAULT
+   TColor::clBlack
+ ; // RULES
+ >>> Result
+; // msm:View:TextColor
+
+STRING elem_func msm:StereotypeDocumentation
+ Cached:
+ (
+  VAR l_Label
+  Self .Documentation >>> l_Label
+  RULES
+   ( l_Label .IsNil )
+    ()
+   ( 'перекрытие стандартного стереотипа' l_Label StartsText )
+    ( '' >>> l_Label )
+   ( 'нет дополнительной документации' l_Label ?== ) 
+    ( '' >>> l_Label )
+  ; // RULES 
+  RULES
+   ( l_Label .NotIsNil )
+    l_Label
+   DEFAULT
+    begin
+     '' >>> l_Label
+     RULES
+      ( Self IsString )
+       ()
+      DEFAULT
+       begin
+        Self .StereotypeAncestors
+        .for> (
+          IN anAncestor
+         VAR l_AncestorLabel 
+         anAncestor call.me >>> l_AncestorLabel
+         RULES
+          ( l_AncestorLabel .NotIsNil )
+           ( 
+            l_AncestorLabel >>> l_Label
+            BREAK-ITERATOR
+           )
+         ; // RULES
+        ) // .for>
+       end // DEFAULT
+     ; // RULES
+     l_Label
+    end // DEFAULT 
+  ; // RULES  
+ )
+ >>> Result
+; // msm:StereotypeDocumentation
+
+STRING elem_func StereotypeLabelName
+ Cached:
+ (
+  VAR l_Label
+  Self .GetUP "personal label" >>> l_Label
+  RULES
+   ( l_Label .NotIsNil )
+    l_Label
+   DEFAULT
+    begin
+     '' >>> l_Label
+     RULES
+      ( Self IsString )
+       ()
+      DEFAULT
+       begin
+        Self .StereotypeAncestors
+        .for> (
+          IN anAncestor
+         VAR l_AncestorLabel 
+         anAncestor call.me >>> l_AncestorLabel
+         RULES
+          ( l_AncestorLabel .NotIsNil )
+           ( 
+            l_AncestorLabel >>> l_Label
+            BREAK-ITERATOR
+           )
+         ; // RULES
+        ) // .for>
+       end // DEFAULT
+     ; // RULES
+     RULES
+      ( l_Label .IsNil )
+       begin
+        RULES
+         ( Self .IsStereotype: st_MDAParameter ) 
+          ( 'code_param' >>> l_Label )
+         ( Self .IsStereotype: st_MDAAttribute ) 
+          ( 'code_attr' >>> l_Label )
+        ; // RULES 
+       end // ( l_Label .IsNil )
+     ; // RULES
+     l_Label
+    end // DEFAULT 
+  ; // RULES  
+ )
+ >>> Result
+; // StereotypeLabelName
+
+STRING elem_func msm:View:LabelName
+ VAR l_Label
+ Self .Stereotype .StereotypeInModel .StereotypeLabelName >>> l_Label
+ RULES
+  ( l_Label .NotIsNil )
+   l_Label
+  ( Self .IsUseCase )
+   'code_use_case'
+  ( Self .MDAClass class_Operation == ) 
+   'code_method'
+  ( Self .MDAClass class_Attribute == ) 
+   'code_attr'
+  ( Self .MDAClass class_Parameter == ) 
+   'code_param'
+  ( Self .MDAClass class_Dependency == ) 
+   'code_mda_dependency'
+  ( Self .MDAClass class_Inherits == ) 
+   'code_mda_dependency'
+  ( Self .MDAClass class_Implements == ) 
+   'code_mda_dependency'
+  ( Self .MDAClass class_Depends == ) 
+   'code_dep'
+  ( Self .IsStereotype: st_MDAParameter ) 
+   'code_param'
+  DEFAULT 
+   ''
+ ; // RESULT  
+ >>> Result
+; // msm:View:LabelName
+
+STRING elem_func msm:View:VisibilityLabel
+ RULES
+  ( Self .Visibility PublicAccess == )
+   //'public'
+   ''
+  ( Self .Visibility PrivateAccess == )
+   'private'
+  ( Self .Visibility ProtectedAccess == )
+   'protected'
+  ( Self .Visibility ImplementationAccess == )
+   'implemented'
+  ( Self .Visibility PublishedAccess == )
+   'published'
+  DEFAULT
+   'undefined'
+ ; // RULES
+ >>> Result
+; // msm:View:VisibilityLabel
+
+USES
+ joinWithLambded.ms.dict
+;
+
+USES
+ CopyWithoutDuplicatedNames.ms.dict
+;
+
+
+USES
+ CopyWithoutDuplicates.ms.dict
+;
+
+USES
+ CopyWithoutDuplicatedUnstereotyped.ms.dict
+;
+
+USES
+ StereotypeAllowedElements.ms.dict
+;
+
+EXPORTS
+ StereotypeAllowedElements.ms.dict
+
+USES
+ NS.ms.dict
+;
+
+elem_iterator InnerTypes
+ Self .Children
+ //.join> ( Self .Constants )
+ >>> Result
+; // InnerTypes
+
+USES
+ Predicates.ms.dict
+;
+
+BOOLEAN elem_func IsCategory
+ Self .MDAClass class_Category ==
+ >>> Result
+; // IsCategory
+
+elem_iterator DeepInnerTypes
+ [empty]
+ RULES
+  ( Self .IsNil )
+   ()
+  ( Self .MDAClass class_Inherits == ) 
+   ()
+  ( Self .MDAClass class_Implements == ) 
+   ()
+  ( Self .MDAClass class_Depends == ) 
+   ()
+  DEFAULT
+   begin
+    .join> ( Self .InnerTypes )
+    .joinWithLambded> 
+    ( Self .InnerTypes ) 
+    call.me
+    .filter> .Not: .IsCategory
+    .CopyWithoutDuplicatedModelElements
+   end // DEFAULT
+ ; // RULES 
+ >>> Result
+; // DeepInnerTypes
+
+EXPORTS
+ DictionaryByName.ms.dict
+ 
+USES
+ CheckValue.ms.dict
+;
+ 
+: .CheckValueSafe
+ if ( StackLevel > 0 ) then
+  .CheckValue
+; // .CheckValueSafe
+
+USES
+ IsSameModelElement.ms.dict
+;
+
+USES
+ PrimitivesModel.ms.dict
+;
+
+ARRAY FUNCTION msm:Primitives
+ Primitives::Delphi::System .DeepInnerTypes
+ .join> ( Primitives::Primitives .DeepInnerTypes )
+ >>> Result
+; // msm:Primitives
+
+WordAlias Primitives msm:Primitives
+
+elem_iterator AccessibleTypes
+ Cached:
+ (
+  [empty]
+  RULES
+   ( Self .IsNil )
+    ()
+   ( Self .MDAClass class_Inherits == ) 
+    ()
+   ( Self .MDAClass class_Implements == ) 
+    ()
+   ( Self .MDAClass class_Depends == ) 
+    ()
+   DEFAULT
+    begin
+     .join> ( Self .DeepInnerTypes )
+     RULES
+      ( Self .IsCategory )
+       ()
+      DEFAULT 
+      begin 
+       if ( Self Primitives::Delphi::System .IsSameModelElement ! ) then
+       begin
+        .join> ( Primitives::Delphi::System .DeepInnerTypes )
+       end // ( Self Primitives::Delphi::System .IsSameModelElement ! )
+       if ( Self Primitives::Primitives .IsSameModelElement ! ) then
+       begin
+        .join> ( Primitives::Primitives .DeepInnerTypes )
+       end // ( Self Primitives::Primitives .IsSameModelElement ! )
+       .join> ( Self .Parent .DeepInnerTypes )
+       .join> (
+        [empty]
+        .joinWithLambded> 
+        ( Self .Parent .Depends ) 
+        .DeepInnerTypes
+        .filter> ( .Visibility PublicAccess ?== )
+        // - из чужих пакетов можно видеть только публичные элементы
+       ) // .join>
+      end // DEFAULT
+     ; // RULES
+     .CopyWithoutDuplicatedModelElements
+    end // DEFAULT
+  ; // RULES
+ )  
+ >>> Result
+; // AccessibleTypes
+
+WordAlias .AllowedInherits .AccessibleTypes
+WordAlias .AllowedImplements .AccessibleTypes
+
+USES
+ Out.ms.dict
+;
+
+STRING FUNCTION .LabelNameToImageFileName
+  STRING IN Self
+ Self >>> Result 
+ if ( Result .NotIsNil ) then
+ begin
+  VAR l_Path
+  thisDictionary pop:DictionaryEx:FileName sysutils:ExtractFilePath >>> l_Path
+  [ l_Path 'images' ] cPathSep strings:CatSep >>> l_Path
+  l_Path sysutils:DirectoryExists ?ASSURE [ 'Директория не существует: "' l_Path '"']
+  [ [ l_Path Result ] cPathSep strings:CatSep '.gif' ] strings:Cat >>> Result
+  //[ 'W:\MDProcess\MDAGenerator\other\images\' Result '.gif' ] strings:Cat >>> Result
+ end // ( Result .NotIsNil )
+; // .LabelNameToImageFileName
+
+STRING elem_func msm:View:ImageFileName
+ Self .msm:View:LabelName 
+ .LabelNameToImageFileName
+ >>> Result
+; // msm:View:ImageFileName
+
+STRING elem_func msm:View:StereotypeImageFileName
+ Self .StereotypeLabelName
+ .LabelNameToImageFileName
+ >>> Result
+; // msm:View:StereotypeImageFileName
+
+BOOLEAN elem_func IsAttribute
+ Self .MDAClass class_Attribute ==
+ >>> Result
+; // IsAttribute
+
+BOOLEAN elem_func IsAbstract
+ Self .NSAbstraction at_abstract ==
+ >>> Result
+; // IsAbstract
+
+BOOLEAN elem_func IsFinal
+ Self .NSAbstraction at_final ==
+ >>> Result
+; // IsFinal
+
+USES
+ axiom:TPenStyle
+;
+
+INTEGER elem_func msm:View:LinkLineStyle
+ Cached:
+ (
+  RULES
+   ( Self .IsAttribute )
+    TPenStyle::psSolid
+   ( Self .MDAClass class_Inherits ?== )
+    TPenStyle::psSolid
+   ( Self .MDAClass class_Implements ?== )
+    TPenStyle::psDash
+   DEFAULT
+    TPenStyle::psDash
+  ; // RULES  
+ )
+ >>> Result
+; // msm:View:LinkLineStyle
+
+INTEGER elem_func msm:View:LinkLineColor
+ Cached:
+ (
+  RULES
+   ( Self .IsAttribute )
+    TColor::clBlack
+   ( Self .MDAClass class_Inherits ?== )
+    TColor::clBlack
+   ( Self .MDAClass class_Implements ?== )
+    TColor::clBlack
+   DEFAULT
+    TColor::clDefault
+  ; // RULES  
+ )
+ >>> Result
+; // msm:View:LinkLineColor
+
+BOOLEAN elem_func msm:View:LinkArrowIsPolygon
+ Cached:
+ (
+  RULES
+   ( Self .IsAttribute )
+    false
+   ( Self .MDAClass class_Inherits ?== )
+    true
+   ( Self .MDAClass class_Implements ?== )
+    true
+   DEFAULT
+    false
+  ; // RULES  
+ )
+ >>> Result
+; // msm:View:LinkArrowIsPolygon
+
+USES
+ LoadOnDemand.ms.dict
+;
+
+USES
+ CutSuffix.ms.dict
+;
+
+USES
+ CutPrefix.ms.dict
+;
+
+USES
+ Diagrams.ms.dict
+;
+
+WordAlias .msm:View:X .X
+WordAlias .msm:View:Y .Y
+WordAlias .msm:View:Width .Width
+WordAlias .msm:View:Height .Height
+
+WordAlias .msm:View:From .From
+WordAlias .msm:View:To .To
+
+ModelElement elem_func msm:DiagramByName
+  STRING IN aName
+ Self .msm:Diagrams 
+ .filter> ( .Name aName SameText )
+ .FirstElement
+ >>> Result
+; // msm:DiagramByName
+
+ModelElement elem_func msm:DiagramByName:
+  ^L IN aName
+ Self aName |N .msm:DiagramByName
+ >>> Result
+; // msm:DiagramByName:
+
+ModelElement elem_func msm:MainDiagram
+ Self .msm:DiagramByName: main
+ //Self 'main' .msm:DiagramByName
+ >>> Result
+; // msm:MainDiagram
+
+BOOLEAN elem_func msm:HasMainDiagram
+ Self .msm:MainDiagram .NotIsNil
+ >>> Result
+; // msm:HasMainDiagram
+
+ModelElement FUNCTION .WordByDictionaryPath
+  IN aPath
+ aPath DictionaryAndMainWordByName
+ >>> Result // - возвращаем слово 
+ DROP // - выкидываем словарь
+; // .WordByDictionaryPath
+
+USES
+ DictFileName.ms.dict
+;
+
+USES
+ WordIsVar.ms.dict
+;
+
+USES
+ GenerationFramework.ms.dict
+;
+
+elem_proc GenerateElement
+ RULES
+  (
+   ( Self .IsSomeView )
+   AND ( Self .Viewed Self ?!= )   
+  ) 
+    ( Self .Viewed call.me )
+  ( Self .UID .IsNil ) then
+    ( Self .Parent call.me )
+  DEFAULT
+   begin
+    VAR l_DictFileName
+    Self .DictFileName >>> l_DictFileName
+    
+    if ( l_DictFileName .IsNil ) then
+    begin
+     ERROR [ 'Не задано имя словаря для ' Self .Name ]
+    end // ( l_DictFileName .IsNil )
+    
+    if ( l_DictFileName sysutils:ExtractFilePath .IsNil ) then
+    begin
+     [ ModelRoot .CheckDrive l_DictFileName ] cPathSep strings:CatSep >>> l_DictFileName
+    end // ( l_DictFileName sysutils:ExtractFilePath .IsNil )
+    
+    VAR l_ListName 
+    Self .Name >>> l_ListName
+    l_ListName ' ' '_' string:Replace >>> l_ListName
+    [ 'C:\Temp\' l_ListName '.list' ] strings:Cat >>> l_ListName
+    //[ 'C:\Temp\' l_DictFileName sysutils:ExtractFileName '.list' ] strings:Cat >>> l_ListName
+    l_ListName .ProcessTmpOut: (
+     l_DictFileName .Out
+    ) // l_ListName .ProcessTmpOut:
+    l_ListName sysutils:FileExists ?ASSURE [ 'Файл не существует: "' l_ListName '"']
+    VAR l_CmdFileName
+    [ l_DictFileName sysutils:ExtractFilePath 'cal.cmd' ] strings:Cat >>> l_CmdFileName
+    l_CmdFileName sysutils:FileExists ?ASSURE [ 'Файл не существует: "' l_CmdFileName '"']
+    [ l_CmdFileName ' ' '-list:' l_ListName ' ' '-nomodel' ] strings:Cat WinExec
+    //[ l_DictFileName sysutils:ExtractFilePath 'cal.cmd' ' ' l_DictFileName ' ' '-nomodel' ] strings:Cat WinExec
+   end // ( Self .UID .IsNil )
+ ; // RULES
+; // GenerateElement
+
+USES
+ SetElementVar.ms.dict
+;
+
+EXPORTS
+ SetElementVar.ms.dict
+ 
+USES
+ axiom:msm
+;
+
+elem_proc msm:SetElementVar
+  STRING IN aName
+  IN aValue
+ aValue aName Self msm:CallSetter
+; // msm:SetElementVar
+  
+USES
+ ModelGeneration.ms.dict
+;
+
+USES
+ ModelSaving.ms.dict
+;
+
+USES
+ DiagramGeneration.ms.dict
+;
+
+USES
+ DiagramSaving.ms.dict
+;
+
+elem_proc SaveDiagrams
+ Self @ .diagram.save.script .Save
+; // SaveDiagrams
+
+elem_proc SaveModel
+ Self @ .model.save.script .Save
+; // SaveModel
+
+PROCEDURE .SaveElements
+  ARRAY IN anElements
+ ARRAY VAR l_SavedElements 
+ [] >>> l_SavedElements
+ anElements .for> (
+   IN anElementToSave
+  RULES
+   ( anElementToSave .IsView )
+    ( anElementToSave .Parent >>> anElementToSave )
+   ( anElementToSave .IsViewLink )
+    ( anElementToSave .Parent >>> anElementToSave )
+  ; // RULES
+  //if ( anElementToSave .AddToArray?: l_SavedElements ) then
+  begin
+   RULES
+    ( anElementToSave .IsDiagram )
+     begin
+      if ( anElementToSave /*{.Viewed}*/ .AddToArray?: l_SavedElements ) then
+       ( anElementToSave .Viewed .SaveDiagrams )
+     end // ( anElementToSave .IsDiagram )
+    DEFAULT
+     begin
+      if ( anElementToSave .AddToArray?: l_SavedElements ) then
+       ( anElementToSave .SaveModel ) 
+     end // DEFAULT
+   ; // RULES
+  end // ( anElementToSave .AddToArray?: l_SavedElements )
+ ) // anElements .for>
+; // .SaveElements
+
+USES
+ CreateGUID.ms.dict
+;
+
+USES
+ LUID.ms.dict
+;
+
+USES
+ KeyValuesCreateAndDo.ms.dict
+;
+
+USES
+ MEPrefix.ms.dict
+;
+
+elem_proc SetupProducerAndKey
+  TtfwWord IN aProducer
+  TtfwKeyWord IN aKey
+ aProducer Self pop:Word:SetProducer 
+ Self aKey pop:KeyWord:SetWord 
+ aKey Self pop:Word:SetKey 
+; // SetupProducerAndKey
+
+PROCEDURE .ElementCreateAndDo:
+  TtfwWord IN aProducer
+  TtfwKeyWord IN aKey
+  ^ IN aLambda
+ KeyValuesCreateAndDo: (
+   IN aMade
+  aMade aProducer aKey .SetupProducerAndKey 
+  aMade aLambda DO
+ ) // KeyValuesCreateAndDo:
+; // .ElementCreateAndDo:
+
+TtfwDictionaryEx TtfwWord TYPE TDefinitor
+
+TtfwKeyWord FUNCTION .msm:Definitor:CheckWord
+  STRING IN aName
+  TDefinitor IN aDefinitor
+ RULES 
+  ( aDefinitor Is class::TtfwWord )
+   ( aName aDefinitor pop:NewWordDefinitor:CheckWord )
+  ( aDefinitor Is class::TtfwDictionaryEx )
+   ( aName aDefinitor pop:Dictionary:CheckWord )
+  DEFAULT
+   ( ERROR [ 'Несовместимый тип словаря: ' aDefinitor pop:Object:ClassName ] ) 
+ ; // RULES 
+ >>> Result
+; // .msm:Definitor:CheckWord
+
+FUNCTION .msm:ExistingElement
+  STRING IN aName
+  TDefinitor IN aDefinitor
+ nil >>> Result 
+ TtfwKeyWord VAR l_KeyWord
+ aName aDefinitor .msm:Definitor:CheckWord >>> l_KeyWord
+ if ( l_KeyWord pop:KeyWord:Word IsNil ) then
+ begin
+  l_KeyWord pop:KeyWord:Word >>> Result
+ end // ( l_KeyWord pop:KeyWord:Word IsNil )
+ else
+ begin
+  l_KeyWord pop:KeyWord:Word >>> Result
+ end // ( l_KeyWord pop:KeyWord:Word IsNil )
+; // .msm:ExistingElement
+
+PROCEDURE .msm:NewElementAndDo:
+  STRING IN aName
+  TDefinitor IN aDefinitor
+  TtfwWord IN aProducer
+  ^ IN aLambda
+ TtfwKeyWord VAR l_KeyWord
+ aName aDefinitor .msm:Definitor:CheckWord >>> l_KeyWord
+ if ( l_KeyWord pop:KeyWord:Word IsNil ) then
+ begin
+  aProducer l_KeyWord .ElementCreateAndDo: (
+    IN aMade
+   aMade aLambda DO 
+  ) // .ElementCreateAndDo:
+ end // ( l_KeyWord pop:KeyWord:Word IsNil )
+ else
+ begin
+  ERROR [ 'Слово ' aName ' уже есть' ]
+ end // ( l_KeyWord pop:KeyWord:Word IsNil )
+; // .msm:NewElementAndDo:
+
+USES
+ axiom:msmModelElementList
+;
+
+elem_proc msm:AddToNamedCollection
+  STRING IN aName
+  ModelElement IN anItem
+ VAR l_List 
+ aName Self msmModelElementList:Make >>> l_List
+ anItem l_List pop:msmModelElementList:Add
+; // msm:AddToNamedCollection
+
+ModelElement elem_func msm:Diagram:AddView:
+  ModelElement IN aView
+  INTEGER IN anX
+  INTEGER IN anY
+  ^ IN aLambda
+ nil >>> Result 
+ VAR l_UID
+ CreateMUID >>> l_UID
+ 
+ [ MEPrefix l_UID ] strings:Cat Self @ MEVIEW .msm:NewElementAndDo: (
+   IN aMade
+  aMade 'X' anX .msm:SetElementVar
+  aMade 'Y' anY .msm:SetElementVar
+  RULES
+   ( aView .IsReferencedType )
+    ( aMade 'Original' ( aView .Original ) .msm:SetElementVar )
+   DEFAULT
+    ( aMade 'Original' ( aView .Viewed ) .msm:SetElementVar )
+  ; // RULES
+  aMade 'Parent' Self .msm:SetElementVar
+  aMade aLambda DO
+  Self 'Views' aMade .msm:AddToNamedCollection
+  //aMade Self .Views Array:Add
+  aMade >>> Result
+ ) // .msm:NewElementAndDo:
+ 
+ //Self msm:AddChangedElement
+; // msm:Diagram:AddView:
+
+ModelElement elem_func msm:Diagram:AddViewLink:
+  ModelElement IN aFrom
+  ModelElement IN aTo
+  ^ IN aLambda
+ nil >>> Result 
+ VAR l_UID
+ CreateMUID >>> l_UID
+ 
+ [ MEPrefix l_UID ] strings:Cat Self @ MEVIEWLINK .msm:NewElementAndDo: (
+   IN aMade
+  aMade 'From' aFrom .msm:SetElementVar
+  aMade 'To' aTo .msm:SetElementVar
+  aMade aLambda DO
+  Self 'Views' aMade .msm:AddToNamedCollection
+  //aMade Self .Views Array:Add
+  aMade >>> Result
+ ) // .msm:NewElementAndDo:
+  
+ //Self msm:AddChangedElement
+; // msm:Diagram:AddViewLink:
+
+ModelElement elem_func msm:Diagram:PasteElement
+  ModelElement IN aView
+  INTEGER IN anX
+  INTEGER IN anY
+ nil >>> Result 
+ RULES  
+  ( aView .IsViewLink )
+   ( ERROR [ 'Вставка View от связей пока не поддерживается' ] )
+  ( Self .IsDiagram )
+   begin
+    Self aView anX anY .msm:Diagram:AddView: (
+      IN aMade
+    ) // Self aView anX anY .msm:Diagram:AddView:
+    >>> Result
+    Self .Views .for> (
+      IN aFrom
+     aFrom .Inherits 
+     .filter> ( aView .IsSameModelElement )
+     .for> ( 
+       IN aTo
+      Self aFrom Result .msm:Diagram:AddViewLink: (
+        IN aMade
+       aMade -> Class := class_Inherits 
+      ) DROP
+     ) // .for>
+     
+     aView .Inherits 
+     .filter> ( aFrom .IsSameModelElement )
+     .for> ( 
+       IN aTo
+      Self Result aFrom .msm:Diagram:AddViewLink: (
+        IN aMade
+       aMade -> Class := class_Inherits 
+      ) DROP
+     ) // .for>
+     
+     aFrom .Implements
+     .filter> ( aView .IsSameModelElement )
+     .for> ( 
+       IN aTo
+      Self aFrom Result .msm:Diagram:AddViewLink: (
+        IN aMade
+       aMade -> Class := class_Implements
+      ) DROP
+     ) // .for>
+     
+     aView .Implements
+     .filter> ( aFrom .IsSameModelElement )
+     .for> ( 
+       IN aTo
+      Self Result aFrom .msm:Diagram:AddViewLink: (
+        IN aMade
+       aMade -> Class := class_Implements
+      ) DROP
+     ) // .for>
+     
+     aFrom .Depends
+     .filter> ( aView .IsSameModelElement )
+     .for> ( 
+       IN aTo
+      Self aFrom Result .msm:Diagram:AddViewLink: (
+        IN aMade
+       aMade -> Class := class_Depends
+      ) DROP
+     ) // .for>
+     
+     aView .Depends
+     .filter> ( aFrom .IsSameModelElement )
+     .for> ( 
+       IN aTo
+      Self Result aFrom .msm:Diagram:AddViewLink: (
+        IN aMade
+       aMade -> Class := class_Depends
+      ) DROP
+     ) // .for>
+     
+     aFrom .Dependencies
+     .join> ( aFrom .Attributes )
+     .filter> ( .Target aView .IsSameModelElement )
+     .for> ( 
+       IN aDep
+      Self aFrom Result .msm:Diagram:AddViewLink: (
+        IN aMade
+       aMade 'Original' aDep .msm:SetElementVar
+      ) DROP
+     ) // .for>
+     
+     aView .Dependencies
+     .join> ( aView .Attributes )
+     .filter> ( .Target aFrom .IsSameModelElement )
+     .for> ( 
+       IN aDep
+      Self Result aFrom .msm:Diagram:AddViewLink: (
+        IN aMade
+       aMade 'Original' aDep .msm:SetElementVar
+      ) DROP
+     ) // .for>
+     
+    ) // Self .Views .for>
+   end // ( Self .IsDiagram )
+  DEFAULT
+   ( Self pop:Word:Producer pop:Word:Name Msg )
+ ; // RULES  
+; // msm:Diagram:PasteElement
+
+USES
+ DictName.ms.dict
+;
+
+USES
+ DiagramExt.ms.dict
+;
+
+USES
+ DiagramsRoot.ms.dict
+;
+
+USES
+ DiagramsSuffix.ms.dict
+;
+
+elem_proc msm:AddDiagram
+  STRING IN aDiagramName
+ // - тут добавляем диаграмму
+ RULES
+  ( Self .IsSomeView )
+   RULES
+    ( Self .Viewed Self ?!= )
+     begin 
+      Self .Viewed call.me 
+      Self msm:DeleteWordCachedValues
+     end // ( Self .Viewed Self ?!= )
+    DEFAULT
+     ( ERROR [ 'Некуда добавлять диаграмму.' ] )
+   ; // RULES
+  DEFAULT
+   begin
+    //VAR l_DiagramsList
+    //Self .msm:Diagrams >>> l_DiagramsList
+    VAR l_Diagrams
+    nil >>> l_Diagrams
+    VAR l_UID
+    Self .LUID >>> l_UID
+    VAR l_DiagramDict
+    [ DiagramsRoot [ l_UID DiagramExt ] strings:Cat ] cPathSep strings:CatSep DictionaryEx:CheckNamedDictionary >>> l_DiagramDict
+    VAR l_DiagramsName
+    [ Self .WordName DiagramsSuffix ] strings:Cat >>> l_DiagramsName
+    l_DiagramsName l_DiagramDict .msm:ExistingElement >>> l_Diagrams
+    if ( l_Diagrams .IsNil ) then
+    begin
+     l_DiagramsName l_DiagramDict @ MEDIAGRAMS .msm:NewElementAndDo: (
+      IN aDiagrams
+      aDiagrams >>> l_Diagrams
+     ) // .msm:NewElementAndDo:
+    end // l_Diagrams .IsNil
+    
+    VAR l_DiagramName 
+    [ Self .WordName '_' aDiagramName ] strings:Cat >>> l_DiagramName
+    l_DiagramName l_Diagrams @ MEDIAGRAM .msm:NewElementAndDo: (
+      IN aDiagram
+     aDiagram 'Name' aDiagramName .msm:SetElementVar
+     aDiagram 'Original' Self .msm:SetElementVar
+     aDiagram 'Views' [] .msm:SetElementVar
+     //Self 'Diagrams' ( l_DiagramsList .join> [ aDiagram ] ) .msm:SetElementVar
+     Self 'Diagrams' aDiagram .msm:AddToNamedCollection
+     //Self 'msm:Diagrams' Self .Diagrams .msm:SetElementVar
+     Self msm:DeleteWordCachedValues
+     aDiagram msm:AddChangedElement
+     //Self -> Diagrams .CountIt Msg
+     //Self .Diagrams .CountIt Msg
+     //Self .msm:Diagrams .CountIt Msg
+    ) // .msm:NewElementAndDo:
+    
+   end // DEFAULT
+ ; // RULES   
+; // msm:AddDiagram
+
+elem_proc msm:AddDiagrams
+ Self 'main' .msm:AddDiagram
+; // msm:AddDiagrams
+
+elem_proc msm:CheckMainDiagram
+ if ( Self .msm:HasMainDiagram ! ) then
+ begin
+  Self .msm:AddDiagrams
+  Self msm:DeleteWordCachedValues
+  // - ещё у View надо сбрасывать иначе например красная рамка не рисуется
+  Self .Viewed msm:DeleteWordCachedValues
+ end // ( Self .msm:HasMainDiagram ! )
+; // msm:CheckMainDiagram
+
+STRING elem_func msm:Name
+ Self 'msm:Name' .ElemString >>> Result
+; // msm:Name
+
+USES
+ StereotypeUPs.ms.dict
+;
+
+WordAlias .msm:Value .msm:Value
+
+elem_iterator msm:ValueList
+ Self 'msm:ValueList' .ElemList >>> Result
+; // msm:Value
+
+BOOLEAN elem_func msm:IsMemo
+ RULES
+  ( Self .msm:Name 'Doc' ?== )
+   true
+  ( Self .msm:Name 'Documentation' ?== )
+   true
+  ( Self .msm:Name '"Value"' ?== )
+   true
+  DEFAULT
+   false
+ ; // RULES
+ >>> Result
+; // msm:IsMemo
+
+BOOLEAN elem_func msm:IsReadOnly
+ RULES
+  ( Self .msm:Name 'InternalName' ?== )
+   true
+  ( Self .msm:Name 'UID' ?== )
+   true
+  DEFAULT
+   false
+ ; // RULES
+ >>> Result
+; // msm:IsReadOnly
+
+elem_iterator msm:KeyValuesForNewElementPrim
+  STRING IN anElementName
+  ARRAY IN anAllowedElements
+ [
+  KeyValuesCreate: (
+    IN aMade
+   aMade -> msm:Name := 'Name'
+   aMade -> msm:Value := anElementName
+  ) // KeyValuesCreate:
+  KeyValuesCreate: (
+    IN aMade
+   aMade -> msm:Name := 'Stereotype'
+   aMade -> msm:ValueList := anAllowedElements
+  ) // KeyValuesCreate:
+  KeyValuesCreate: (
+    IN aMade
+   aMade -> msm:Name := 'Visibility'
+   aMade -> msm:ValueList := [ ME_PublicAccess ME_ProtectedAccess ME_PrivateAccess ]
+  ) // KeyValuesCreate:
+  KeyValuesCreate: (
+    IN aMade
+   aMade -> msm:Name := 'Abstraction'
+   aMade -> msm:ValueList := [ ME_Regular ME_Abstract ME_Final ]
+  ) // KeyValuesCreate:
+  KeyValuesCreate: (
+    IN aMade
+   aMade -> msm:Name := 'Doc'
+   aMade -> msm:Value := ''
+  ) // KeyValuesCreate:
+ ]
+ >>> Result   
+; // msm:KeyValuesForNewElementPrim
+
+elem_iterator msm:KeyValuesForNewElement
+ Self 
+ 'NewElement'
+ Self .AllowedElements 
+ .msm:KeyValuesForNewElementPrim
+ >>> Result
+; // msm:KeyValuesForNewElement
+
+INTERFACE elem_func CreateTarget:
+  ModelElement IN aTarget
+  ^ IN aLambda
+ KeyValuesCreate: (
+   IN aMade
+  VAR l_Types
+  Self .AccessibleTypes >>> l_Types
+  
+  if ( aTarget .NotIsNil ) then
+  begin
+   [ aTarget ]
+   .join> l_Types
+   .CopyWithoutDuplicatedModelElements
+   >>> l_Types
+  end // ( aTarget .NotIsNil )
+  
+  aMade -> msm:Name := 'Target'
+  aMade -> msm:ValueList := l_Types
+  aMade -> msm:Value := aTarget
+  aMade aLambda DO
+ ) // KeyValuesCreate:
+ >>> Result
+; // CreateTarget:
+  
+elem_iterator msm:KeyValuesForNewAttribute
+  ModelElement IN aTarget
+ Self 
+ 'NewAttribute'
+ Self .AllowedElements
+ .filter> ( .IsStereotype st_MDAAttribute )
+ .msm:KeyValuesForNewElementPrim
+ .join> [
+  KeyValuesCreate: (
+    IN aMade
+   aMade -> msm:Name := 'LinkType'
+   aMade -> msm:ValueList := [ ME_agr ME_lnk ME_ref ]
+  ) // KeyValuesCreate:
+  Self aTarget .CreateTarget: (
+    IN aMade
+  ) // Self aTarget .CreateTarget:
+  KeyValuesCreate: (
+    IN aMade
+   aMade -> msm:Name := 'Value'
+  ) // KeyValuesCreate:
+ ]
+ >>> Result
+; // msm:KeyValuesForNewAttribute
+
+elem_iterator msm:KeyValuesForNewOperation
+  ModelElement IN aTarget
+ Self 
+ 'NewOperation'
+ Self .AllowedElements
+ .filter> ( 
+   IN anElement
+  RULES 
+   ( anElement .IsStereotype st_MDAOperation )
+    true
+   ( anElement .IsStereotypeInModelKindOf: st_method )
+    true
+   ( anElement .IsStereotypeInModelKindOf: st_Iterator )
+    true
+   DEFAULT
+    false 
+  ; // RULES
+ ) // .filter>
+ .msm:KeyValuesForNewElementPrim
+ .join> [
+  Self aTarget .CreateTarget: (
+    IN aMade
+  ) // aTarget .CreateTarget:
+ ]
+ >>> Result
+; // msm:KeyValuesForNewOperation
+
+elem_iterator msm:KeyValuesForNewDependency
+  ModelElement IN aTarget
+ Self 
+ ''
+ Self .AllowedElements
+ .filter> ( .IsStereotype st_MDADependency )
+ .msm:KeyValuesForNewElementPrim
+ .join> [
+  Self aTarget .CreateTarget: (
+    IN aMade
+  ) // aTarget .CreateTarget:
+ ]
+ >>> Result
+; // msm:KeyValuesForNewDependency
+
+elem_iterator msm:KeyValuesForNewParameter
+  ModelElement IN aTarget
+ Self 
+ 'NewParam'
+ Self .AllowedElements
+ .filter> ( .IsStereotype st_MDAParameter )
+ .msm:KeyValuesForNewElementPrim
+ .join> [
+  Self aTarget .CreateTarget: (
+    IN aMade
+  ) // aTarget .CreateTarget:
+  KeyValuesCreate: (
+    IN aMade
+   aMade -> msm:Name := 'Value'
+  ) // KeyValuesCreate:
+ ]
+ >>> Result
+; // msm:KeyValuesForNewParameter
+
+elem_iterator msm:KeyValuesForNewInherits
+ [
+  KeyValuesCreate: (
+    IN aMade
+   aMade -> msm:Name := 'AllowedInherits'
+   aMade -> msm:ValueList := ( Self .AllowedInherits )
+  ) // KeyValuesCreate:
+ ]
+ >>> Result
+; // msm:KeyValuesForNewInherits
+
+elem_iterator msm:KeyValuesForNewOverridden
+ [
+  KeyValuesCreate: (
+    IN aMade
+   aMade -> msm:Name := 'CanOverride'
+   aMade -> msm:ValueList := ( Self .CanOverride )
+  ) // KeyValuesCreate:
+ ]
+ >>> Result
+; // msm:KeyValuesForNewOverridden
+
+elem_iterator msm:KeyValuesForNewImplements
+ [
+  KeyValuesCreate: (
+    IN aMade
+   aMade -> msm:Name := 'AllowedImplements'
+   aMade -> msm:ValueList := ( Self .AllowedImplements )
+  ) // KeyValuesCreate:
+ ]
+ >>> Result
+; // msm:KeyValuesForNewImplements
+
+ModelElement FUNCTION .msm:ElementByValue
+  ARRAY IN anArray
+  IN aValue
+ anArray 
+ .filter> ( .msm:Value aValue ?== )
+ .FirstElement
+ >>> Result
+; // .msm:ElementByValue
+
+ModelElement FUNCTION .msm:ElementByName
+  ARRAY IN anArray
+  IN aName
+ anArray 
+ .filter> ( .NameInModel aName ?== )
+ .FirstElement
+ >>> Result
+; // .msm:ElementByName
+
+USES
+ MDProcess_Templates.tpi.ms.dict
+;
+
+elem_iterator msm:KeyValuesForElement
+ [
+  KeyValuesCreate: (
+    IN aMade
+   aMade -> msm:Name := 'InternalName'
+   aMade -> msm:Value := ( Self .WordName )
+  ) // KeyValuesCreate:
+  
+  KeyValuesCreate: (
+    IN aMade
+   aMade -> msm:Name := 'UID'
+   aMade -> msm:Value := ( Self .UID )
+  ) // KeyValuesCreate:
+  
+  KeyValuesCreate: (
+    IN aMade
+   aMade -> msm:Name := 'Name'
+   aMade -> msm:Value := ( Self .NameInModel )
+  ) // KeyValuesCreate:
+  VAR l_Stereotype
+  Self .Stereotype .StereotypeInModel >>> l_Stereotype
+  
+  VAR l_AllowedElements
+  Self .ParentAllowedElementsLikeMe >>> l_AllowedElements
+  
+  if ( l_Stereotype .IsNil ) then
+  begin
+   l_AllowedElements 
+   .filter> .IsUnstereotypedStereo
+   .FirstElement
+   >>> l_Stereotype
+  end // ( l_Stereotype .IsNil )
+  
+  KeyValuesCreate: (
+    IN aMade
+   aMade -> msm:Name := 'Stereotype'
+   aMade -> msm:ValueList := ( 
+    if ( l_Stereotype .NotIsNil ) then
+    begin
+     [ l_Stereotype ]
+     .join> l_AllowedElements
+     .CopyWithoutDuplicatedModelElements
+    end
+    else
+    begin
+     l_AllowedElements
+    end // ( l_Stereotype .NotIsNil )
+   )
+   aMade -> msm:Value := ( aMade -> msm:ValueList l_Stereotype .NameInModel .msm:ElementByName )
+  ) // KeyValuesCreate:
+  
+  if (
+      ( l_Stereotype .IsStereotype st_MDAParameter ! )
+      AND ( l_Stereotype .IsStereotype st_MDADependency ! )
+     ) then
+  begin
+   KeyValuesCreate: (
+     IN aMade
+    aMade -> msm:Name := 'Visibility'
+    aMade -> msm:ValueList := [ ME_PublicAccess ME_ProtectedAccess ME_PrivateAccess ]
+    aMade -> msm:Value := ( aMade -> msm:ValueList  Self .Visibility .msm:ElementByValue )
+   ) // KeyValuesCreate:
+   KeyValuesCreate: (
+     IN aMade
+    aMade -> msm:Name := 'Abstraction'
+    aMade -> msm:ValueList := [ ME_Regular ME_Abstract ME_Final ]
+    aMade -> msm:Value := ( aMade -> msm:ValueList  Self .NSAbstraction .msm:ElementByValue )
+   ) // KeyValuesCreate:
+  end // ( l_Stereotype .IsStereotype st_MDAParameter ! )
+  
+  if ( l_Stereotype .IsStereotype st_MDAAttribute ) then
+  begin
+   KeyValuesCreate: (
+     IN aMade
+    aMade -> msm:Name := 'LinkType'
+    aMade -> msm:ValueList := [ ME_agr ME_lnk ME_ref ]
+    aMade -> msm:Value := ( aMade -> msm:ValueList  Self .LinkType .msm:ElementByValue )
+   ) // KeyValuesCreate:
+  end // ( l_Stereotype .IsStereotype st_MDAAttribute )
+  
+  if (
+      ( l_Stereotype .IsStereotype st_MDAParameter )
+      OR ( l_Stereotype .IsStereotype st_MDAAttribute )
+     ) then
+  begin
+   KeyValuesCreate: (
+     IN aMade
+    aMade -> msm:Name := 'Value'
+    aMade -> msm:Value := ( Self .ModelValue )
+   ) // KeyValuesCreate:
+  end // ( l_Stereotype .IsStereotype st_MDAParameter )
+     
+  KeyValuesCreate: (
+    IN aMade
+   aMade -> msm:Name := 'GUID'
+   aMade -> msm:Value := ( Self .GUID )
+  ) // KeyValuesCreate:
+  
+  KeyValuesCreate: (
+    IN aMade
+   aMade -> msm:Name := 'Doc'
+   aMade -> msm:Value := ( Self .Documentation )
+  ) // KeyValuesCreate:
+  
+  VAR l_Target
+  Self .Target >>> l_Target
+  
+  if (
+      ( l_Target .NotIsNil )
+      OR ( Self .MDAClass class_Attribute ?== )
+      OR ( Self .MDAClass class_Parameter ?== )
+      OR ( Self .MDAClass class_Dependency ?== )
+      OR ( Self .MDAClass class_Operation ?== )
+     ) then
+  begin
+   if ( l_Target .IsNil ) then
+   begin
+    Primitives::void >>> l_Target
+   end // ( l_Target .IsNil )
+   Self l_Target .CreateTarget: (
+     IN aMade
+   ) // l_Target .CreateTarget:
+  end // ( l_Target .NotIsNil )
+  
+  l_Stereotype .StereotypeUPs .for> (
+    IN aUP
+   KeyValuesCreate: (
+     IN aMade
+    VAR l_Name 
+    [ '"' aUP .Name '"' ] strings:Cat >>> l_Name
+    aMade -> msm:Name := l_Name
+    VAR l_DefaultValue
+    aUP .UPDefaultValue >>> l_DefaultValue
+    
+    VAR l_List
+    aUP .UPValueList >>> l_List
+    
+    if ( l_List .NotIsNil ) then
+    begin
+     aMade -> msm:ValueList := l_List
+    end // ( l_List .NotIsNil )
+    VAR l_Value
+    Self l_Name l_DefaultValue .ElemMember >>> l_Value
+    if ( l_Value .IsNil ) then
+    begin
+     l_DefaultValue >>> l_Value
+    end // ( l_Value .IsNil )
+    aMade -> msm:Value := l_Value
+    if ( l_List .NotIsNil ) then
+    begin
+     aMade -> msm:Value := ( l_List aMade -> msm:Value .msm:ElementByValue )
+    end // ( l_List .NotIsNil )
+   ) // KeyValuesCreate:
+  ) // l_Stereotype .StereotypeUPs .for>
+  
+  Self .UpList 
+  .filter> ( .WordName ':' string:Pos -1 != )
+  .for> (
+    IN aUP
+   KeyValuesCreate: (
+     IN aMade
+    VAR l_Name
+    aUP .WordName >>> l_Name
+    VAR l_Value
+    [ aUP DO ]
+    .FirstElement >>> l_Value
+    aMade -> msm:Name := l_Name 
+    if ( l_Value IsBool ) then
+    begin
+     VAR l_List
+     [ ME_False ME_True ] >>> l_List
+     aMade -> msm:ValueList := l_List
+     aMade -> msm:Value := l_Value
+     aMade -> msm:Value := ( l_List aMade -> msm:Value .msm:ElementByValue )
+    end // ( l_Value IsBool )
+    else
+    begin
+     aMade -> msm:Value := ( l_Value ToPrintable )
+    end // ( l_Value IsBool )
+   ) // KeyValuesCreate: 
+  ) // .for>
+ ]
+ >>> Result   
+; // msm:KeyValuesForElement
+    
+elem_iterator msm:GetProperties
+ Self .Viewed .msm:KeyValuesForElement
+ >>> Result
+; // msm:GetProperties
+
+STRING FUNCTION .NormalizedName
+  STRING IN aString
+ aString '$' string:Split DROP >>> Result
+; // NormalizedName
+
+elem_proc msm:ApplyValues
+  ARRAY IN aKeyValues
+ RULES 
+  DEFAULT
+   begin
+    aKeyValues .for> (
+      IN anItem
+     VAR l_Name
+     anItem .msm:Name >>> l_Name
+     VAR l_Value
+     anItem .msm:Value >>> l_Value
+     VAR l_ValueValue
+     l_Value .msm:Value >>> l_ValueValue
+     if ( l_ValueValue .NotIsNil ) then
+     begin
+      l_ValueValue >>> l_Value
+     end // ( l_ValueValue .NotIsNil )
+     
+     RULES
+      ( l_Name 'Doc' == )
+       ( '%SUM' >>> l_Name ) 
+      ( l_Name 'Documentation' == )
+       ( '%SUM' >>> l_Name ) 
+     ; // RULES 
+     
+     RULES
+      ( l_Name 'InternalName' == )
+      // - не даём править InternalName
+       ()
+      ( l_Name 'UID' == )
+      // - не даём править InternalName
+       ()
+      ( l_Name 'Name' == )
+       begin
+        VAR l_NormalizedName
+        l_Value .NormalizedName >>> l_NormalizedName
+        Self l_Name l_NormalizedName .msm:SetElementVar
+        if ( l_Value l_NormalizedName != ) then
+        begin
+         Self 'OriginalName' l_Value .msm:SetElementVar
+        end // ( l_Value l_NormalizedName != )
+        else
+        begin
+         Self 'OriginalName' '' .msm:SetElementVar
+        end // ( l_Value l_NormalizedName != )     
+       end // ( l_Name 'Name' == )
+      DEFAULT
+       ( Self l_Name l_Value .msm:SetElementVar )
+     ; // RULES
+     Self msm:DeleteWordCachedValues
+     Self msm:AddChangedElement
+     //msm:ClearCachedValues
+    ) // aKeyValues .for> 
+   end // DEFAULT 
+ ; // RULES 
+; // msm:ApplyValues
+
+elem_proc msm:ChangeProperties
+  ARRAY IN aKeyValues
+ Self .Viewed aKeyValues .msm:ApplyValues
+ Self msm:DeleteWordCachedValues
+ //msm:ClearCachedValues
+ // - пока опять закомментировал ибо там есть вопросы с сохранением вновь созданного элемента
+; // msm:ChangeProperties
+
+USES
+ DoCache.ms.dict
+;
+
+elem_proc msm:AddToCollection
+  ModelElement IN aMade
+  FUNCTOR IN aLamda
+ RULES 
+  ( Self .IsSomeView ) 
+   ( ERROR [ 'Для View пока не реализовано ' Self .Name ] )
+  DEFAULT
+   begin
+    STRING VAR l_Name
+    aLamda pop:Word:Name '.' .CutPrefix >>> l_Name
+    Self l_Name aMade .msm:AddToNamedCollection
+/*{    if ( Self aLamda DO .IsNil ) then
+    begin
+     Self ->^ l_Name ^:= []
+     Self msm:DeleteWordCachedValues
+    end // ( Self aLamda DO .IsNil )
+    aMade Self aLamda DO Array:Add
+    Self msm:AddChangedElement
+    l_Name Self msm:RegetViewedLists}*/
+   end // DEFAULT
+ ; // RULES
+; // msm:AddToCollection
+
+elem_proc msm:AddToCollection:
+  ModelElement IN aMade
+  ^ IN aLamda
+ Self aMade aLamda .msm:AddToCollection
+; // msm:AddToCollection:
+
+TtfwDictionaryEx elem_func OurDictionary
+ Self pop:Word:KeyWord pop:KeyWord:Dictionary
+ >>> Result
+; // OurDictionary
+
+ModelElement FUNCTION .msm:CheckNewElementAndDo:
+  STRING IN aName
+  TDefinitor IN aDefinitor
+  TtfwWord IN aProducer
+  ^ IN aLambda
+ nil >>> Result 
+ aName aDefinitor .msm:ExistingElement >>> Result
+ if ( Result .IsNil ) then
+ begin
+  aName
+  aDefinitor
+  aProducer
+  .msm:NewElementAndDo: (
+    IN aMade
+   aMade aLambda DO
+   aMade >>> Result 
+  ) // .msm:NewElementAndDo:
+ end // ( Result .IsNil )
+; // .msm:CheckNewElementAndDo:
+
+ModelElement elem_func msm:AddImplemented
+  ModelElement IN anOp
+ nil >>> Result 
+ [ anOp .WordName '_' Self .WordName '_impl' ] strings:Cat 
+ Self .OurDictionary 
+ @ MEREF 
+ .msm:CheckNewElementAndDo: (
+   IN aMade
+  aMade -> Original := anOp 
+  aMade -> OpKind := opkind_Implemented 
+  Self aMade .msm:AddToCollection: .Implemented
+ ) // .msm:CheckNewElementAndDo:
+ >>> Result
+; // msm:AddImplemented
+
+ModelElement elem_func msm:AddInherits
+  ModelElement IN anOp
+ nil >>> Result 
+ [ anOp .WordName '_' Self .WordName '_G' ] strings:Cat 
+ Self .OurDictionary 
+ @ MEREF 
+ .msm:CheckNewElementAndDo: (
+   IN aMade
+  aMade -> Original := anOp 
+  aMade -> OpKind := opkind_ReferencedType
+  Self aMade .msm:AddToCollection: .Inherits
+ ) // .msm:CheckNewElementAndDo:
+ >>> Result
+; // msm:AddInherits
+
+ModelElement elem_func msm:AddImplements
+  ModelElement IN anOp
+ nil >>> Result 
+ [ anOp .WordName '_' Self .WordName '_R' ] strings:Cat 
+ Self .OurDictionary 
+ @ MEREF 
+ .msm:CheckNewElementAndDo: (
+   IN aMade
+  aMade -> Original := anOp 
+  aMade -> OpKind := opkind_ReferencedType
+  Self aMade .msm:AddToCollection: .Implements
+ ) // .msm:CheckNewElementAndDo:
+ >>> Result
+; // msm:AddImplements
+
+ModelElement elem_func msm:AddOverridden
+  ModelElement IN anOp
+ nil >>> Result 
+ [ anOp .WordName '_' Self .WordName '_over' ] strings:Cat 
+ Self .OurDictionary 
+ @ MEREF 
+ .msm:CheckNewElementAndDo: (
+   IN aMade
+  aMade -> Original := anOp 
+  aMade -> OpKind := opkind_Overridden 
+  Self aMade .msm:AddToCollection: .Overridden
+ ) // .msm:CheckNewElementAndDo:
+ >>> Result
+; // msm:AddOverridden
+
+elem_proc msm:AddNewInherits
+  ARRAY IN aKeyValues
+ VAR l_Value 
+ aKeyValues 
+ .filter> ( .msm:Name 'AllowedInherits' ?== )
+ .FirstElement 
+ .msm:Value >>> l_Value
+ Self l_Value .msm:AddInherits DROP
+; // msm:AddNewInherits
+
+elem_proc msm:AddNewOverridden
+  ARRAY IN aKeyValues
+ VAR l_Value 
+ aKeyValues 
+ .filter> ( .msm:Name 'CanOverride' ?== )
+ .FirstElement 
+ .msm:Value >>> l_Value
+ Self l_Value .msm:AddOverridden DROP
+; // msm:AddNewOverridden
+
+elem_proc msm:AddNewImplements
+  ARRAY IN aKeyValues
+ VAR l_Value 
+ aKeyValues 
+ .filter> ( .msm:Name 'AllowedImplements' ?== )
+ .FirstElement 
+ .msm:Value >>> l_Value
+ Self l_Value .msm:AddImplements DROP
+; // msm:AddNewImplements
+
+ModelElement elem_func msm:AddElement
+  STRING IN aName
+  ModelElement IN aStereotype
+  ARRAY IN aKeyValues
+ nil >>> Result 
+ BOOLEAN VAR l_IsSubRoot
+ RULES
+  ( aStereotype .IsStereotype st_MDACategory )
+   true
+  ( aStereotype .IsStereotypeInModelKindOf: st_UtilityPack )
+   true
+  ( Self .MDAClass class_Class == )
+   false
+  ( Self .MDAClass class_Const == )
+   false
+  ( aStereotype .IsStereotypeInModelKindOf: st_SimpleClass )
+   true
+  ( aStereotype .IsStereotypeInModelKindOf: st_Impurity )
+   true
+  DEFAULT
+   false
+ ; // RULES
+ >>> l_IsSubRoot
+ 
+ VAR l_UID
+ CreateMUID >>> l_UID
+ 
+ [ MEPrefix l_UID ] strings:Cat
+ RULES
+  l_IsSubRoot
+   ( [ l_UID cModelScript ] strings:Cat DictionaryEx:CheckNamedDictionary )
+  DEFAULT
+   ( Self .OurDictionary )
+ ; // RULES 
+ @ ME .msm:NewElementAndDo: (
+    IN aMade
+   RULES
+    ( aStereotype .IsStereotype st_MDACategory )
+     ( aMade -> Class := class_Category )
+    ( aStereotype .IsStereotype st_MDAOperation )
+     ( aMade -> Class := class_Operation )
+    ( aStereotype .IsStereotype st_MDAAttribute )
+     ( aMade -> Class := class_Attribute )
+    ( aStereotype .IsStereotype st_MDADependency )
+     ( aMade -> Class := class_Dependency )
+    ( aStereotype .IsStereotype st_MDAParameter )
+     ( aMade -> Class := class_Parameter )
+    ( aStereotype .IsStereotypeInModelKindOf: st_method ) 
+     ( aMade -> Class := class_Operation )
+    ( aStereotype .IsStereotypeInModelKindOf: st_Iterator ) 
+     ( aMade -> Class := class_Operation )
+    ( aStereotype .IsStereotype st_MDAClass )
+     ( aMade -> Class := class_Class )
+    DEFAULT
+     begin
+      ERROR [ 'Непонятный стереотип ' aStereotype .Stereotype .Name ]
+     end // DEFAULT
+   ; // RULES
+   aMade -> IsSubRoot := l_IsSubRoot
+   aMade -> UID := l_UID
+   VAR l_Name
+   aName .NormalizedName >>> l_Name
+   aMade 'Name' l_Name .msm:SetElementVar
+   if ( aName l_Name != ) then
+   begin
+    aMade 'OriginalName' aName .msm:SetElementVar
+   end // ( aName l_Name != )
+   aMade 'Stereotype' aStereotype .msm:SetElementVar
+   aMade 'Parent' Self .msm:SetElementVar
+   
+   if (
+       ( aStereotype .IsStereotype st_MDAParameter ! )
+       AND ( aStereotype .IsStereotype st_MDADependency ! )
+      ) then
+   begin   
+    aMade 'Visibility' PublicAccess .msm:SetElementVar
+    aMade 'Abstraction' at_regular .msm:SetElementVar
+   end // ( aStereotype .IsStereotype st_MDAParameter ! )
+   
+   // - вообще это надо брать из стереотипа
+   aMade aKeyValues .msm:ApplyValues
+   
+   RULES
+    ( aMade .MDAClass class_Parameter ?== )
+     ( Self aMade .msm:AddToCollection: .Parameters )
+    ( aMade .MDAClass class_Dependency ?== )
+     ( Self aMade .msm:AddToCollection: .Dependencies )
+    ( aMade .MDAClass class_Attribute ?== )
+     ( Self aMade .msm:AddToCollection: .Attributes )
+    ( aMade .MDAClass class_Operation ?== )
+     ( Self aMade .msm:AddToCollection: .Operations )
+    ( aStereotype .IsStereotypeInModelKindOf: st_method )
+     ( Self aMade .msm:AddToCollection: .Operations )
+    ( aStereotype .IsStereotypeInModelKindOf: st_Iterator )
+     ( Self aMade .msm:AddToCollection: .Operations )
+    DEFAULT
+     ( Self aMade .msm:AddToCollection: .Children )
+   ; // RULES  
+   
+   aMade >>> Result
+ ) // .msm:NewElementAndDo:
+ 
+ Self msm:AddChangedElement
+ // - надо сохранять и родителя
+ Result msm:AddChangedElement
+ // - и ребёнка
+; // msm:AddElement
+
+ModelElement elem_func msm:Diagram:AddElement
+  STRING IN aName
+  ModelElement IN aStereotype
+  ARRAY IN aKeyValues
+ nil >>> Result
+ RULES  
+  ( Self .IsDiagram )
+   begin
+    VAR l_Original
+    Self .Viewed >>> l_Original
+   
+    l_Original aName aStereotype aKeyValues .msm:AddElement >>> Result
+
+    Result .msm:AddDiagrams
+    
+    Self Result 10 10 .msm:Diagram:PasteElement >>> Result
+   end // ( Self .IsDiagram )
+  DEFAULT
+   ( Self pop:Word:Producer pop:Word:Name Msg )
+ ; // RULES  
+; // msm:Diagram:AddElement
+
+elem_iterator msm:Diagram:PasteElements
+  ARRAY IN anElements
+ [] >>> Result 
+ RULES  
+  ( Self .IsDiagram )
+   begin
+    anElements
+    .filter> .Not: .IsViewLink
+    .for> (
+      IN aView
+     Self 
+     aView 
+     aView .X 10 +
+     aView .Y 10 +
+     .msm:Diagram:PasteElement .AddToArray: Result
+    ) // .for>
+   end // ( Self .IsDiagram )
+  DEFAULT
+   ( Self pop:Word:Producer pop:Word:Name Msg )
+ ; // RULES  
+; // msm:Diagram:PasteElements
+
+ModelElement FUNCTION .FindWord
+  ARRAY IN aWords
+  STRING IN aName
+ aWords 
+ .filter> ( .NameInModel aName SameText )
+ .filter> ( pop:Word:Producer @ ME ?== )
+ .FirstElement
+ >>> Result
+; // .FindWord
+
+USES
+ Chars.ms.dict
+;
+
+BOOLEAN FUNCTION .TryLoadWord
+  STRING IN aName
+  STRING IN aPath
+
+ : DoFile
+   STRING IN anItem
+  if ( [ 'MEPROP OriginalName ' cQuote aName cQuote ] strings:Cat anItem FindInFile ) then
+  begin
+   true >>> Result
+   anItem .DictionaryByName DROP
+  end // ( aName anItem FindInFile )
+  else
+  if ( [ 'MEPROP Name ' cQuote aName cQuote ] strings:Cat anItem FindInFile ) then
+  begin
+   true >>> Result
+   anItem .DictionaryByName DROP
+  end // ( aName anItem FindInFile )
+ ; // DoFile
+ 
+ false >>> Result
+ aPath .ProcessModelFiles: DoFile
+; // .TryLoadWord
+
+BOOLEAN FUNCTION .TryLoadWordByUID
+  STRING IN anUID
+  STRING IN aPath
+
+ : DoFile
+   STRING IN anItem
+  if ( [ 'MEPROP UID ' cQuote anUID cQuote ] strings:Cat anItem FindInFile ) then
+  begin
+   true >>> Result
+   anItem .DictionaryByName DROP
+  end // ( .. anItem FindInFile )
+ ; // DoFile
+ 
+ false >>> Result
+ aPath .ProcessModelFiles: DoFile
+; // .TryLoadWordByUID
+
+EXPORTS
+ arrays.ms.dict
+ 
+EXPORTS
+ ElementsRTTI.ms.dict
+ 
+EXPORTS
+ CheckValue.ms.dict
+
+EXPORTS
+ msmMetaModel.ms.dict
+ 
+USES
+ ElemMemberPrim.ms.dict
+;
+ 
+EXPORTS
+ ElemMemberPrim.ms.dict
+ 
+EXPORTS
+ Diagrams.ms.dict
+ 
+EXPORTS
+ NS.ms.dict
