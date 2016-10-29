@@ -29,7 +29,7 @@ uses
  , tc6PublicInfo
 ;
 
-function TnscNavigatorPageControl_Get_TabIndex(Self: TnscNavigatorPageControl): Integer;
+function TnscNavigatorPageControl_pm_GetTabIndex(Self: TnscNavigatorPageControl): Integer;
 //#UC START# *499AC00E001F_499ABFF4003Bget_var*
 //#UC END# *499AC00E001F_499ABFF4003Bget_var*
 begin
@@ -39,9 +39,9 @@ begin
  Result := TabIndex;
 //#UC END# *499AC00E001F_499ABFF4003Bget_impl*
  end;//with Self
-end;//TnscNavigatorPageControl_Get_TabIndex
+end;//TnscNavigatorPageControl_pm_GetTabIndex
 
-procedure TnscNavigatorPageControl_Set_TabIndex(Self: TnscNavigatorPageControl;
+procedure TnscNavigatorPageControl_pm_SetTabIndex(Self: TnscNavigatorPageControl;
  aValue: Integer);
 //#UC START# *499AC00E001F_499ABFF4003Bset_var*
 //#UC END# *499AC00E001F_499ABFF4003Bset_var*
@@ -52,9 +52,9 @@ begin
  TabIndex := aValue;
 //#UC END# *499AC00E001F_499ABFF4003Bset_impl*
  end;//with Self
-end;//TnscNavigatorPageControl_Set_TabIndex
+end;//TnscNavigatorPageControl_pm_SetTabIndex
 
-function TnscNavigatorPageControl_Get_TabPosition(Self: TnscNavigatorPageControl): TElTabPosition;
+function TnscNavigatorPageControl_pm_GetTabPosition(Self: TnscNavigatorPageControl): TElTabPosition;
 //#UC START# *499AC95002D7_499ABFF4003Bget_var*
 //#UC END# *499AC95002D7_499ABFF4003Bget_var*
 begin
@@ -64,9 +64,9 @@ begin
  Result := TabPosition;
 //#UC END# *499AC95002D7_499ABFF4003Bget_impl*
  end;//with Self
-end;//TnscNavigatorPageControl_Get_TabPosition
+end;//TnscNavigatorPageControl_pm_GetTabPosition
 
-function TnscNavigatorPageControl_Get_ActivePage(Self: TnscNavigatorPageControl): TElTabSheet;
+function TnscNavigatorPageControl_pm_GetActivePage(Self: TnscNavigatorPageControl): TElTabSheet;
 //#UC START# *499AC95A016A_499ABFF4003Bget_var*
 //#UC END# *499AC95A016A_499ABFF4003Bget_var*
 begin
@@ -76,7 +76,7 @@ begin
  Result := ActivePage;
 //#UC END# *499AC95A016A_499ABFF4003Bget_impl*
  end;//with Self
-end;//TnscNavigatorPageControl_Get_ActivePage
+end;//TnscNavigatorPageControl_pm_GetActivePage
 
 procedure TnscNavigatorPageControl_Get_TabIndex_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

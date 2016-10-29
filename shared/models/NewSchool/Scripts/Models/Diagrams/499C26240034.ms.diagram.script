@@ -1,0 +1,48 @@
+// TnscTreeView 499C26240034 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_499C26240034_diagrams
+
+ MEDIAGRAM ME_499C26240034_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_499C26240034' ; // TnscTreeView
+
+  MEVIEW ME_52DD074203B6_view
+   MELINK Original WL 'ME_52DD074203B6' '499C26240034.ms.model.script' ; // InscTreeState
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_52DD074203B6_view
+
+  MEVIEW ME_52DD07CE001D_view
+   MELINK Original WL 'ME_52DD07CE001D' '499C26240034.ms.model.script' ; // TnscTreeViewState
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_52DD07CE001D_view
+
+  MEVIEW ME_52DD0971008A_view
+   MELINK Original WL 'ME_52DD0971008A' '499C26240034.ms.model.script' ; // TnscTreeViewPrim
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_52DD0971008A_view
+
+  MEVIEWLINK ME_52DD07CE001D_ME_52DD074203B6_Implements
+   MELINK From ME_52DD07CE001D_view ;
+   MELINK To ME_52DD074203B6_view ;
+   MEPROP Class class_Implements
+  ENDMEVIEWLINK // ME_52DD07CE001D_ME_52DD074203B6_Implements
+
+  MELIST Views
+   Seq: ( ME_52DD074203B6_view // InscTreeState
+   ME_52DD07CE001D_view // TnscTreeViewState
+   ME_52DD0971008A_view // TnscTreeViewPrim
+   ME_52DD07CE001D_ME_52DD074203B6_Implements // TnscTreeViewState ==> InscTreeState
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_499C26240034_main
+
+ MELIST Diagrams
+  Seq: ( ME_499C26240034_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_499C26240034_diagrams

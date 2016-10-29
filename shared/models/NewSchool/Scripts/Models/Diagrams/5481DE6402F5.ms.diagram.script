@@ -1,0 +1,55 @@
+// TeeSubDescriptor 5481DE6402F5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_5481DE6402F5_diagrams
+
+ MEDIAGRAM ME_5481DE6402F5_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_5481DE6402F5' '5481DE430189.ms.model.script' ; // TeeSubDescriptor
+
+  MEVIEW ME_54940BE30056_view
+   MELINK Original WL 'ME_54940BE30056' '5481DE430189.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_54940BE30056_view
+
+  MEVIEW ME_54940BF401C3_view
+   MELINK Original WL 'ME_54940BF401C3' '5481DE430189.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_54940BF401C3_view
+
+  MEVIEW ME_54940B82012B_view
+   MELINK Original WL 'ME_54940B82012B' '5481DE430189.ms.model.script' ; // f_LayerID
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_54940B82012B_view
+
+  MEVIEW ME_54942F170022_view
+   MELINK Original WL 'ME_54942F170022' '5481DE430189.ms.model.script' ; // f_Descriptors
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_54942F170022_view
+
+  MEVIEWLINK ME_54940BF401C3_ME_54940BE30056_Inherits
+   MELINK From ME_54940BF401C3_view ;
+   MELINK To ME_54940BE30056_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_54940BF401C3_ME_54940BE30056_Inherits
+
+  MELIST Views
+   Seq: ( ME_54940BE30056_view // Create
+   ME_54940BF401C3_view // Make
+   ME_54940B82012B_view // f_LayerID
+   ME_54942F170022_view // f_Descriptors
+   ME_54940BF401C3_ME_54940BE30056_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5481DE6402F5_main
+
+ MELIST Diagrams
+  Seq: ( ME_5481DE6402F5_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5481DE6402F5_diagrams

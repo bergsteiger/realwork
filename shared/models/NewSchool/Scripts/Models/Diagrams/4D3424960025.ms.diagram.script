@@ -1,0 +1,125 @@
+// TasksPanel 4D3424960025 Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4D3424960025_diagrams
+
+ MEDIAGRAM ME_4D3424960025_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4D3424960025' ; // TasksPanel
+
+  MEVIEW ME_4D3424C203C2_view
+   MELINK Original WL? 'ME_4D3424C203C2' ; // TnscTasksPanelView
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D3424C203C2_view
+
+  MEVIEW ME_4D343AFE00DD_view
+   MELINK Original WL? 'ME_4D343AFE00DD' ; // TnscTasksPanelGroupDescList
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D343AFE00DD_view
+
+  MEVIEW ME_4D3430A7028D_view
+   MELINK Original WL? 'ME_4D3430A7028D' ; // TnscTasksPanelGroupsIterator
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D3430A7028D_view
+
+  MEVIEW ME_4D34310D0115_view
+   MELINK Original WL? 'ME_4D34310D0115' ; // TnscTasksPanelGroup
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D34310D0115_view
+
+  MEVIEW ME_4D342DED0196_view
+   MELINK Original WL? 'ME_4D342DED0196' ; // TnscTasksPanel
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D342DED0196_view
+
+  MEVIEW ME_508EBD970342_view
+   MELINK Original WL? 'ME_508EBD970342' ; // TnscTasksPanelActionLink
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_508EBD970342_view
+
+  MEVIEW ME_508EBDA900AE_view
+   MELINK Original WL? 'ME_508EBDA900AE' ; // TnscTasksPanelOperationNode
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_508EBDA900AE_view
+
+  MEVIEW ME_508EBDB503D2_view
+   MELINK Original WL? 'ME_508EBDB503D2' ; // TnscTasksPanelRootNode
+   MEPROP X 40
+   MEPROP Y 180
+  ENDMEVIEW // ME_508EBDB503D2_view
+
+  MEVIEW ME_50912DF30214_view
+   MELINK Original WL 'ME_50912DF30214' '4D3424960025.ms.model.script' ; // Константы настройки компонента дерева.
+   MEPROP X 200
+   MEPROP Y 180
+  ENDMEVIEW // ME_50912DF30214_view
+
+  MEVIEWLINK ME_508F7CFB01D2_viewlink
+   MELINK Original WL 'ME_508F7CFB01D2' '4D3424C203C2.ms.model.script' ;
+   MELINK From ME_4D3424C203C2_view ;
+   MELINK To ME_508EBDB503D2_view ;
+  ENDMEVIEWLINK // ME_508F7CFB01D2_viewlink
+
+  MEVIEWLINK ME_508F7CFE01A0_viewlink
+   MELINK Original WL 'ME_508F7CFE01A0' '4D3424C203C2.ms.model.script' ;
+   MELINK From ME_4D3424C203C2_view ;
+   MELINK To ME_508EBD970342_view ;
+  ENDMEVIEWLINK // ME_508F7CFE01A0_viewlink
+
+  MEVIEWLINK ME_508F7D010187_viewlink
+   MELINK Original WL 'ME_508F7D010187' '4D3424C203C2.ms.model.script' ;
+   MELINK From ME_4D3424C203C2_view ;
+   MELINK To ME_508EBDA900AE_view ;
+  ENDMEVIEWLINK // ME_508F7D010187_viewlink
+
+  MEVIEWLINK ME_4D343BE002F6_viewlink
+   MELINK Original WL 'ME_4D343BE002F6' '4D3430A7028D.ms.model.script' ;
+   MELINK From ME_4D3430A7028D_view ;
+   MELINK To ME_4D343AFE00DD_view ;
+  ENDMEVIEWLINK // ME_4D343BE002F6_viewlink
+
+  MEVIEWLINK ME_4D343B330373_viewlink
+   MELINK Original WL 'ME_4D343B330373' '4D342DED0196.ms.model.script' ;
+   MELINK From ME_4D342DED0196_view ;
+   MELINK To ME_4D343AFE00DD_view ;
+  ENDMEVIEWLINK // ME_4D343B330373_viewlink
+
+  MEVIEWLINK ME_508F9FDB0080_viewlink
+   MELINK Original WL 'ME_508F9FDB0080' '508EBDA900AE.ms.model.script' ;
+   MELINK From ME_508EBDA900AE_view ;
+   MELINK To ME_508EBD970342_view ;
+  ENDMEVIEWLINK // ME_508F9FDB0080_viewlink
+
+  MELIST Views
+   Seq: ( ME_4D3424C203C2_view // TnscTasksPanelView
+   ME_4D343AFE00DD_view // TnscTasksPanelGroupDescList
+   ME_4D3430A7028D_view // TnscTasksPanelGroupsIterator
+   ME_4D34310D0115_view // TnscTasksPanelGroup
+   ME_4D342DED0196_view // TnscTasksPanel
+   ME_508EBD970342_view // TnscTasksPanelActionLink
+   ME_508EBDA900AE_view // TnscTasksPanelOperationNode
+   ME_508EBDB503D2_view // TnscTasksPanelRootNode
+   ME_50912DF30214_view // Константы настройки компонента дерева.
+   ME_508F7CFB01D2_viewlink // TnscTasksPanelView ==> TnscTasksPanelRootNode
+   ME_508F7CFE01A0_viewlink // TnscTasksPanelView ==> TnscTasksPanelActionLink
+   ME_508F7D010187_viewlink // TnscTasksPanelView ==> TnscTasksPanelOperationNode
+   ME_4D343BE002F6_viewlink // TnscTasksPanelGroupsIterator ==> TnscTasksPanelGroupDescList
+   ME_4D343B330373_viewlink // TnscTasksPanel ==> TnscTasksPanelGroupDescList
+   ME_508F9FDB0080_viewlink // TnscTasksPanelOperationNode ==> TnscTasksPanelActionLink
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4D3424960025_main
+
+ MELIST Diagrams
+  Seq: ( ME_4D3424960025_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4D3424960025_diagrams

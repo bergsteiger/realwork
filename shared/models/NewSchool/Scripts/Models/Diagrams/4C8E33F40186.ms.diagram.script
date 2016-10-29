@@ -1,0 +1,48 @@
+// ToolbarMenu 4C8E33F40186 VCMModule Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4C8E33F40186_diagrams
+
+ MEDIAGRAM ME_4C8E33F40186_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4C8E33F40186' ; // ToolbarMenu
+
+  MEVIEW ME_4C8E42AC03B8_view
+   MELINK Original WL? 'ME_4C8E42AC03B8' ; // PrimCustomizeTools
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C8E42AC03B8_view
+
+  MEVIEW ME_4C8E340C0148_view
+   MELINK Original WL? 'ME_4C8E340C0148' ; // PrimToolbarMenu
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C8E340C0148_view
+
+  MEVIEW ME_4C8E34280227_view
+   MELINK Original WL? 'ME_4C8E34280227' ; // ToolbarMenu
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C8E34280227_view
+
+  MEVIEWLINK ME_4C8E34280227_ME_4C8E340C0148_Inherits
+   MELINK From ME_4C8E34280227_view ;
+   MELINK To ME_4C8E340C0148_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4C8E34280227_ME_4C8E340C0148_Inherits
+
+  MELIST Views
+   Seq: ( ME_4C8E42AC03B8_view // PrimCustomizeTools
+   ME_4C8E340C0148_view // PrimToolbarMenu
+   ME_4C8E34280227_view // ToolbarMenu
+   ME_4C8E34280227_ME_4C8E340C0148_Inherits // ToolbarMenu ==> PrimToolbarMenu
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4C8E33F40186_main
+
+ MELIST Diagrams
+  Seq: ( ME_4C8E33F40186_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4C8E33F40186_diagrams

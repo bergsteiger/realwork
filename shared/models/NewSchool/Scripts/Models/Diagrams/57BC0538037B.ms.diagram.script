@@ -1,0 +1,76 @@
+// Downloader 57BC0538037B Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_57BC0538037B_diagrams
+
+ MEDIAGRAM ME_57BC0538037B_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_57BC0538037B' ; // Downloader
+
+  MEVIEW ME_57BC05FD03A1_view
+   MELINK Original WL? 'ME_57BC05FD03A1' ; // TnsDownloaderGUIService
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_57BC05FD03A1_view
+
+  MEVIEW ME_57BC062801FF_view
+   MELINK Original WL? 'ME_57BC062801FF' ; // nsOpenOrSaveInternetFileDialog
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_57BC062801FF_view
+
+  MEVIEW ME_57BC06F603E1_view
+   MELINK Original WL? 'ME_57BC06F603E1' ; // nsDownloader
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_57BC06F603E1_view
+
+  MEVIEW ME_57BD366C02FD_view
+   MELINK Original WL? 'ME_57BD366C02FD' ; // nsDownloaderInterfaces
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_57BD366C02FD_view
+
+  MEVIEW ME_57BD790600B0_view
+   MELINK Original WL? 'ME_57BD790600B0' ; // nsDownloaderRes
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_57BD790600B0_view
+
+  MEVIEW ME_57BFDE5C014C_view
+   MELINK Original WL? 'ME_57BFDE5C014C' ; // TnsDownloaderThread
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_57BFDE5C014C_view
+
+  MEVIEW ME_57BFDE7402F0_view
+   MELINK Original WL? 'ME_57BFDE7402F0' ; // TnsDownloaderThreadList
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_57BFDE7402F0_view
+
+  MEVIEWLINK ME_57BFDF7102A8_viewlink
+   MELINK Original WL 'ME_57BFDF7102A8' '57BFDE7402F0.ms.model.script' ;
+   MELINK From ME_57BFDE7402F0_view ;
+   MELINK To ME_57BFDE5C014C_view ;
+  ENDMEVIEWLINK // ME_57BFDF7102A8_viewlink
+
+  MELIST Views
+   Seq: ( ME_57BC05FD03A1_view // TnsDownloaderGUIService
+   ME_57BC062801FF_view // nsOpenOrSaveInternetFileDialog
+   ME_57BC06F603E1_view // nsDownloader
+   ME_57BD366C02FD_view // nsDownloaderInterfaces
+   ME_57BD790600B0_view // nsDownloaderRes
+   ME_57BFDE5C014C_view // TnsDownloaderThread
+   ME_57BFDE7402F0_view // TnsDownloaderThreadList
+   ME_57BFDF7102A8_viewlink // TnsDownloaderThreadList ==> TnsDownloaderThread
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_57BC0538037B_main
+
+ MELIST Diagrams
+  Seq: ( ME_57BC0538037B_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_57BC0538037B_diagrams

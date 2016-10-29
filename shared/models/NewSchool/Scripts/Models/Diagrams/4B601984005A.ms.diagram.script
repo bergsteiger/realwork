@@ -1,0 +1,48 @@
+// Labels 4B601984005A Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4B601984005A_diagrams
+
+ MEDIAGRAM ME_4B601984005A_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4B601984005A' ; // Labels
+
+  MEVIEW ME_4B6019A601D8_view
+   MELINK Original WL? 'ME_4B6019A601D8' ; // TnscFocusLabel
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4B6019A601D8_view
+
+  MEVIEW ME_5704F87C02B4_view
+   MELINK Original WL? 'ME_5704F87C02B4' ; // TnscImageLabel
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5704F87C02B4_view
+
+  MEVIEW ME_5704F8CA00C8_view
+   MELINK Original WL? 'ME_5704F8CA00C8' ; // TnscComboLabel
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_5704F8CA00C8_view
+
+  MEVIEWLINK ME_5704F8CA00C8_ME_5704F87C02B4_Inherits
+   MELINK From ME_5704F8CA00C8_view ;
+   MELINK To ME_5704F87C02B4_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5704F8CA00C8_ME_5704F87C02B4_Inherits
+
+  MELIST Views
+   Seq: ( ME_4B6019A601D8_view // TnscFocusLabel
+   ME_5704F87C02B4_view // TnscImageLabel
+   ME_5704F8CA00C8_view // TnscComboLabel
+   ME_5704F8CA00C8_ME_5704F87C02B4_Inherits // TnscComboLabel ==> TnscImageLabel
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4B601984005A_main
+
+ MELIST Diagrams
+  Seq: ( ME_4B601984005A_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4B601984005A_diagrams

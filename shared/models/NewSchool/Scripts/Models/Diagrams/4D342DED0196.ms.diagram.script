@@ -1,0 +1,62 @@
+// TnscTasksPanel 4D342DED0196 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4D342DED0196_diagrams
+
+ MEDIAGRAM ME_4D342DED0196_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4D342DED0196' ; // TnscTasksPanel
+
+  MEVIEW ME_4D3432F30178_view
+   MELINK Original WL 'ME_4D3432F30178' '4D342DED0196.ms.model.script' ; // TnscTasksPanelGroupDescArray$open
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D3432F30178_view
+
+  MEVIEW ME_4D34335B0113_view
+   MELINK Original WL 'ME_4D34335B0113' '4D342DED0196.ms.model.script' ; // Create
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D34335B0113_view
+
+  MEVIEW ME_4D34340A00D1_view
+   MELINK Original WL 'ME_4D34340A00D1' '4D342DED0196.ms.model.script' ; // Make
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D34340A00D1_view
+
+  MEVIEW ME_4D343B330373_view
+   MELINK Original WL 'ME_4D343B330373' '4D342DED0196.ms.model.script' ; // f_Groups
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D343B330373_view
+
+  MEVIEW ME_4D34649201B2_view
+   MELINK Original WL 'ME_4D34649201B2' '4D342DED0196.ms.model.script' ; // f_BaseSettingId
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D34649201B2_view
+
+  MEVIEWLINK ME_4D34340A00D1_ME_4D34335B0113_Inherits
+   MELINK From ME_4D34340A00D1_view ;
+   MELINK To ME_4D34335B0113_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4D34340A00D1_ME_4D34335B0113_Inherits
+
+  MELIST Views
+   Seq: ( ME_4D3432F30178_view // TnscTasksPanelGroupDescArray$open
+   ME_4D34335B0113_view // Create
+   ME_4D34340A00D1_view // Make
+   ME_4D343B330373_view // f_Groups
+   ME_4D34649201B2_view // f_BaseSettingId
+   ME_4D34340A00D1_ME_4D34335B0113_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4D342DED0196_main
+
+ MELIST Diagrams
+  Seq: ( ME_4D342DED0196_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4D342DED0196_diagrams

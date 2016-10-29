@@ -16,9 +16,6 @@ ME ME_4B97DCD00058
  MELINK Parent HWL ME_4B97DC8A0190 // nscMultiStroke
  ;
  MEPROP Value '''Включить перенос по словам'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Включить перенос по словам'''
 
 ENDME // ME_4B97DCD00058 WrapHint
@@ -33,9 +30,6 @@ ME ME_4B97DCDB01D8
  MELINK Parent HWL ME_4B97DC8A0190 // nscMultiStroke
  ;
  MEPROP Value '''Выключить перенос по словам'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Выключить перенос по словам'''
 
 ENDME // ME_4B97DCDB01D8 UnwrapHint
@@ -51,7 +45,7 @@ ENDMEREF // ME_46A603BB0391_ME_4B97DC8A0190_G Boolean
 ME ME_4B97DC8A0190
  MEPROP UID '4B97DC8A0190'
  MEPROP Name 'nscMultiStroke'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -68,9 +62,6 @@ ME ME_4B97DC8A0190
  )
  ; // Attributes
  UP "children prefix" 'nsc_'
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'nsc_'
  UP extprop:rc:SelfName 'MultiStroke'
 
@@ -94,9 +85,6 @@ ME ME_20FA1D733F37
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''nsc_WrapHint''; rValue : ''Включить перенос по словам'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_WrapHint''; rValue : ''Включить перенос по словам'')'
  UPLINK Speller HWL ME_4B97DCD00058 // WrapHint
  ;
@@ -119,9 +107,6 @@ ME ME_EFEABF47D2D0
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''nsc_UnwrapHint''; rValue : ''Выключить перенос по словам'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_UnwrapHint''; rValue : ''Выключить перенос по словам'')'
  UPLINK Speller HWL ME_4B97DCDB01D8 // UnwrapHint
  ;
@@ -132,7 +117,7 @@ ME ME_BB11CACEB07E
  MEPROP UID 'BB11CACEB07E'
  MEPROP Name 'LCImplnscMultiStroke'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Локализуемые строки nscMultiStroke' ;
@@ -147,7 +132,6 @@ ME ME_BB11CACEB07E
  ; // Attributes
  UP "children prefix" 'nsc_'
  UP "elements prefix" 'str'
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'str_nsc_'
  UP extprop:pas:ElementPrefixBase 'str'
  UPLINK Speller HWL ME_4B97DC8A0190 // nscMultiStroke
@@ -215,7 +199,7 @@ ME ME_3AFA6852B290
  MEPROP UID '3AFA6852B290'
  MEPROP Name 'nscMultiStrokeMap'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_ConstantArray ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Карта преобразования локализованных строк nscMultiStroke' ;
@@ -236,8 +220,6 @@ ME ME_3AFA6852B290
  HWL ME_5D8B78969DA3 // UnwrapHint
  )
  ; // Attributes
- UP "Need map interface" False
- UP "Need mapping support" False
  UP extprop:rc:SelfName 'MultiStrokeMap'
 
 ENDME // ME_3AFA6852B290 nscMultiStrokeMap
