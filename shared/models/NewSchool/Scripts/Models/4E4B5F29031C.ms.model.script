@@ -77,7 +77,6 @@ FORWARD ME_4E83094C003E
 ME ME_4E83095200E7
  MEPROP Name 'aZoom'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
@@ -154,7 +153,6 @@ FORWARD ME_4F0C2786014E
 ME ME_4F0C2794038E
  MEPROP Name 'aIndex'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
@@ -229,7 +227,6 @@ FORWARD ME_4F22AE8003D5
 ME ME_4F22AE8900D1
  MEPROP Name 'anID'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
@@ -274,7 +271,6 @@ FORWARD ME_526E5BC80057
 ME ME_526E5BD70189
  MEPROP Name 'aFileName'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
  ;
 
@@ -349,7 +345,6 @@ FORWARD ME_537075B903DB
 ME ME_537075C80100
  MEPROP Name 'aFileName'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
  ;
 
@@ -394,7 +389,6 @@ FORWARD ME_537D966400E0
 ME ME_537D966F037D
  MEPROP Name 'aFileName'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
  ;
 
@@ -522,6 +516,36 @@ ME ME_56A09EF601E1
 
 ENDME // ME_56A09EF601E1 acClearConfig
 
+FORWARD ME_5813388F029E
+
+ME ME_581338A6013D
+ MEPROP UID '581338A6013D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5813388F029E // arClearSpellDictionary
+ ;
+
+ENDME // ME_581338A6013D DoIt
+
+ME ME_5813388F029E
+ MEPROP UID '5813388F029E'
+ MEPROP Name 'arClearSpellDictionary'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_581338A6013D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5813388F029E arClearSpellDictionary
+
 ME ME_4E4B5F29031C
  MEPROP UID '4E4B5F29031C'
  MEPROP Name 'arArchiTestAdapter2'
@@ -549,6 +573,7 @@ ME ME_4E4B5F29031C
  HWL ME_53B648700029 // arClearTemplateStorage
  HWL ME_53EB4DC6007B // acMainFormFormClose
  HWL ME_56A09EF601E1 // acClearConfig
+ HWL ME_5813388F029E // arClearSpellDictionary
  )
  ; // Operations
  MESTRINGLIST DiagramsNames

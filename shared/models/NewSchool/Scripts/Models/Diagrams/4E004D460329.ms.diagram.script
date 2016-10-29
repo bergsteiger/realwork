@@ -1,0 +1,62 @@
+// DocumentContainer 4E004D460329 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4E004D460329_diagrams
+
+ MEDIAGRAM ME_4E004D460329_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4E004D460329' ; // DocumentContainer
+
+  MEVIEW ME_4E007C3803DC_view
+   MELINK Original WL? 'ME_4E007C3803DC' ; // TarDocumentContainer
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E007C3803DC_view
+
+  MEVIEW ME_4E004D900171_view
+   MELINK Original WL? 'ME_4E004D900171' ; // TarDocumentContainerWithContentsTree
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E004D900171_view
+
+  MEVIEW ME_4F9501970235_view
+   MELINK Original WL? 'ME_4F9501970235' ; // TarSpravkaDocumentContainer
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F9501970235_view
+
+  MEVIEW ME_535F5A0E0098_view
+   MELINK Original WL? 'ME_535F5A0E0098' ; // TarSubImplementation
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_535F5A0E0098_view
+
+  MEVIEWLINK ME_4E004D900171_ME_4E007C3803DC_Inherits
+   MELINK From ME_4E004D900171_view ;
+   MELINK To ME_4E007C3803DC_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4E004D900171_ME_4E007C3803DC_Inherits
+
+  MEVIEWLINK ME_4F9501970235_ME_4E007C3803DC_Inherits
+   MELINK From ME_4F9501970235_view ;
+   MELINK To ME_4E007C3803DC_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4F9501970235_ME_4E007C3803DC_Inherits
+
+  MELIST Views
+   Seq: ( ME_4E007C3803DC_view // TarDocumentContainer
+   ME_4E004D900171_view // TarDocumentContainerWithContentsTree
+   ME_4F9501970235_view // TarSpravkaDocumentContainer
+   ME_535F5A0E0098_view // TarSubImplementation
+   ME_4E004D900171_ME_4E007C3803DC_Inherits // TarDocumentContainerWithContentsTree ==> TarDocumentContainer
+   ME_4F9501970235_ME_4E007C3803DC_Inherits // TarSpravkaDocumentContainer ==> TarDocumentContainer
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E004D460329_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E004D460329_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E004D460329_diagrams

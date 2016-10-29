@@ -3,6 +3,7 @@
 INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_549A9A51038D
+%%Inner ME_581334490064
 
 FORWARD ME_549A9AB80233
 
@@ -13,7 +14,6 @@ FORWARD ME_549A9AE800C6
 ME ME_549A9B0E004D
  MEPROP Name 'aTaskID'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -21,7 +21,7 @@ ENDME // ME_549A9B0E004D aTaskID
 
 ME ME_549A9AE800C6
  MEPROP UID '549A9AE800C6'
- MEPROP Name 'CheckTaskExistance'
+ MEPROP Name 'CheckTaskExistence'
  MEPROP Class class_Operation
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
@@ -32,14 +32,13 @@ ME ME_549A9AE800C6
  )
  ; // Parameters
 
-ENDME // ME_549A9AE800C6 CheckTaskExistance
+ENDME // ME_549A9AE800C6 CheckTaskExistence
 
 FORWARD ME_549A9B150284
 
 ME ME_549A9B2A0154
  MEPROP Name 'aMessage'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -93,7 +92,6 @@ FORWARD ME_549A9B630197
 ME ME_549A9B8E029F
  MEPROP Name 'aTaskID'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -102,7 +100,6 @@ ENDME // ME_549A9B8E029F aTaskID
 ME ME_549A9B8E02BA
  MEPROP Name 'aNewFolder'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -136,7 +133,7 @@ ME ME_549A9A51038D
  MELINK Parent HWL ME_549A9AB80233 // arResultDeliveryInterfaces
  ;
  MELIST Operations
-   Seq: ( HWL ME_549A9AE800C6 // CheckTaskExistance
+   Seq: ( HWL ME_549A9AE800C6 // CheckTaskExistence
  HWL ME_549A9B150284 // RequestSendMessage
  HWL ME_549A9B310008 // RequestNewFolder
  HWL ME_549A9B630197 // ChangeResultFolder
@@ -146,6 +143,20 @@ ME ME_549A9A51038D
  UP extprop:rc:SelfName 'arResultDelivererListner'
 
 ENDME // ME_549A9A51038D IarResultDelivererListner
+
+ME ME_581334490064
+ MEPROP UID '581334490064'
+ MEPROP Name 'TarRequestDeliveryProc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_549A9AB80233 // arResultDeliveryInterfaces
+ ;
+ UP "of object" True
+
+ENDME // ME_581334490064 TarRequestDeliveryProc
 
 ME ME_549A9AB80233
  MEPROP UID '549A9AB80233'
@@ -160,6 +171,7 @@ ME ME_549A9AB80233
  ;
  MELIST Children
    Seq: ( HWL ME_549A9A51038D // IarResultDelivererListner
+ HWL ME_581334490064 // TarRequestDeliveryProc
  )
  ; // Children
  MESTRINGLIST DiagramsNames
