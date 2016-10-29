@@ -1,0 +1,33 @@
+//#UC START# *54538E130272_545B7E6B00A1_impl*
+ theIndex := 0;
+ Result := false;
+ if not Empty then
+ begin
+  L := 0;
+  H := Pred(Count);
+  while (L <= H) do
+  begin
+   i := (L + H) shr 1;
+   C := CompareKeyByItem(aKey, ItemSlot(i)^{Items[i]});
+   if (C > 0) then
+    L := Succ(i)
+   else
+   begin
+    H := Pred(i);
+    if (C = 0) then
+    begin
+     Result := true;
+     L := i;
+    end;//C = 0
+   end;//C < 0
+  end;{while (L..}
+  theIndex := L;
+ end;//not Empty
+//#UC END# *54538E130272_545B7E6B00A1_impl*
+//#UC START# *54538E130272_545B7E6B00A1_var*
+var
+  L, H, i, C: Longint;
+//#UC END# *54538E130272_545B7E6B00A1_var*
+//#UC START# *545B7E6B00A1_ext:FileName
+w:\common\components\rtl\Garant\m3\m3ListWithFind.imp.pas
+//#UC END# *545B7E6B00A1_ext:FileName

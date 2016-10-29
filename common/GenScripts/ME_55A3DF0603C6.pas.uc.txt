@@ -1,0 +1,36 @@
+//#UC START# *47B9BAFD01F4_55A3DF0603C6_impl*
+ Result := l3Compare(l3PCharLen(anItem.FileName), aData, l3_siCaseUnsensitive);
+//#UC END# *47B9BAFD01F4_55A3DF0603C6_impl*
+//#UC START# *47B9BAFD01F4_55A3DF0603C6_var*
+//#UC END# *47B9BAFD01F4_55A3DF0603C6_var*
+//#UC START# *559E857A037A_55A3DF0603C6_impl*
+ Lock;
+ try
+  if FindData(l3PCharLen(aFileName), l_Index) then
+   Result := Items[l_Index]
+  else
+   Result := nil;
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *559E857A037A_55A3DF0603C6_impl*
+//#UC START# *559E857A037A_55A3DF0603C6_var*
+var
+ l_Index : Integer;
+//#UC END# *559E857A037A_55A3DF0603C6_var*
+//#UC START# *55A3DF0603C6_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryCache.pas
+//#UC END# *55A3DF0603C6_ext:FileName
+//#UC START# *55A3DF0603C6impl_uses*
+//#UC END# *55A3DF0603C6impl_uses*
+//#UC START# *55A663000019_55A3DF0603C6_impl*
+ Lock;
+ try
+  TtfwMainDictionaryCache.Instance.RemoveUsersOf(anItem);
+  inherited;
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *55A663000019_55A3DF0603C6_impl*
+//#UC START# *55A663000019_55A3DF0603C6_var*
+//#UC END# *55A663000019_55A3DF0603C6_var*

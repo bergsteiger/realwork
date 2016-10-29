@@ -1,0 +1,25 @@
+//#UC START# *49E31657038E_53D0BFE802C7_impl*
+ Case aCode of
+  ev_ocColumnLeft,
+  ev_ocColumnRight :
+   if not Self.HasInner then
+    Result := inherited DoMovePrim(aView, aCode, anOp, aCount)
+   else
+    Result := Self.GetInner.DoMove(aView, aCode, anOp, aCount);
+(*  ev_ocColumnRight :
+  begin
+   Move(ev_ocListEnd, anOp);
+   Move(ev_ocParaRight, anOp);
+   Result := ev_dcDoneOk;
+  end;//ev_ocColumnLeft*)
+  else
+   Result := inherited DoMovePrim(aView, aCode, anOp, aCount);
+ end;//Case aCode
+//#UC END# *49E31657038E_53D0BFE802C7_impl*
+//#UC START# *49E31657038E_53D0BFE802C7_var*
+//#UC END# *49E31657038E_53D0BFE802C7_var*
+//#UC START# *53D0BFE802C7_ext:FileName
+w:\common\components\gui\Garant\Everest\evReqCellCursor.pas
+//#UC END# *53D0BFE802C7_ext:FileName
+//#UC START# *53D0BFE802C7impl_uses*
+//#UC END# *53D0BFE802C7impl_uses*

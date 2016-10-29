@@ -1,0 +1,333 @@
+//#UC START# *479731C50290_5506DC4F0011_impl*
+ f_DataSource := nil;
+ f_FormData := nil;
+ f_Caption := nil;
+ FreeContainer;
+ FreeOwner;
+ FreeAggregate;
+ FreeAndNil(f_PathNode);  
+ inherited;
+//#UC END# *479731C50290_5506DC4F0011_impl*
+//#UC START# *479731C50290_5506DC4F0011_var*
+//#UC END# *479731C50290_5506DC4F0011_var*
+//#UC START# *499559980178_5506DC4F0011get_impl*
+ Result := f_Caption;
+//#UC END# *499559980178_5506DC4F0011get_impl*
+//#UC START# *499559980178_5506DC4F0011get_var*
+//#UC END# *499559980178_5506DC4F0011get_var*
+//#UC START# *4A60B23E00C3_5506DC4F0011_impl*
+ Result := inherited COMQueryInterface(IID, Obj);
+ if Result.Fail then
+ begin
+  if IID.EQ(IvcmFormSet) and vcmInFormSet(f_DataSource, @l_FormSet) then
+  begin
+   IvcmFormSet(Obj) := l_FormSet;
+   Result.SetOK;
+  end//if IID.EQ(IvcmFormSet)
+  else
+   Result.SetNOINTERFACE;
+ end;//if l3IFail(Result) then
+//#UC END# *4A60B23E00C3_5506DC4F0011_impl*
+//#UC START# *4A60B23E00C3_5506DC4F0011_var*
+var
+ l_FormSet: IvcmFormSet;
+//#UC END# *4A60B23E00C3_5506DC4F0011_var*
+//#UC START# *5506D47103A1_5506DC4F0011get_impl*
+ Result := f_FormId;
+//#UC END# *5506D47103A1_5506DC4F0011get_impl*
+//#UC START# *5506D47103A1_5506DC4F0011get_var*
+//#UC END# *5506D47103A1_5506DC4F0011get_var*
+//#UC START# *5506D4830243_5506DC4F0011get_impl*
+ Result := f_UserType;
+//#UC END# *5506D4830243_5506DC4F0011get_impl*
+//#UC START# *5506D4830243_5506DC4F0011get_var*
+//#UC END# *5506D4830243_5506DC4F0011get_var*
+//#UC START# *5506D49100B7_5506DC4F0011get_impl*
+ Result := f_ItemType;
+//#UC END# *5506D49100B7_5506DC4F0011get_impl*
+//#UC START# *5506D49100B7_5506DC4F0011get_var*
+//#UC END# *5506D49100B7_5506DC4F0011get_var*
+//#UC START# *5506DC4F0011_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\implementation\vcmHistory.pas
+//#UC END# *5506DC4F0011_ext:ParentFileName
+//#UC START# *5508100C018B_5506DC4F0011_impl*
+ if not aForm.Container.IsNull then
+ begin
+  if not Assigned(f_ContainerGUID) then
+   New(f_ContainerGUID);
+  f_ContainerGUID^ := aForm.Container.AsForm.GUID;
+ end//not l_Container.IsNull
+ else
+  FreeContainer;
+//#UC END# *5508100C018B_5506DC4F0011_impl*
+//#UC START# *5508100C018B_5506DC4F0011_var*
+//#UC END# *5508100C018B_5506DC4F0011_var*
+//#UC START# *5508102A0098_5506DC4F0011_impl*
+ l_Owner := aForm.VCLWinControl.Owner;
+ if (l_Owner Is TvcmEntityForm) then
+ begin
+  if not Assigned(f_Owner) then
+   New(f_Owner);
+  f_Owner^ := TvcmEntityForm(l_Owner).As_IvcmEntityForm.GUID;
+ end//l_Owner Is TvcmEntityForm
+ else
+  FreeOwner;
+//#UC END# *5508102A0098_5506DC4F0011_impl*
+//#UC START# *5508102A0098_5506DC4F0011_var*
+var
+ l_Owner: TComponent;
+//#UC END# *5508102A0098_5506DC4F0011_var*
+//#UC START# *5508103701AF_5506DC4F0011_impl*
+ if Assigned(aForm.Aggregate) then
+ begin
+  if not Assigned(f_Aggregate) then
+   New(f_Aggregate);
+  f_Aggregate^ := aForm.Aggregate.GUID;
+ end//aForm.Aggregate <> nil
+ else
+  FreeAggregate;
+//#UC END# *5508103701AF_5506DC4F0011_impl*
+//#UC START# *5508103701AF_5506DC4F0011_var*
+//#UC END# *5508103701AF_5506DC4F0011_var*
+//#UC START# *5508104402FE_5506DC4F0011_impl*
+ if Assigned(aForm) then
+ begin
+  f_FormClass := RvcmEntityForm(aForm.VCLWinControl.ClassType);
+  f_Caption := aForm.{VCLForm.}MainCaption;
+  f_FormGUID := aForm.GUID;
+  f_DataSource := aForm.DataSource;
+  UpdateAggregate(aForm);
+  UpdateContainer(aForm);
+  UpdateOwner(aForm);
+ end;//Assigned(aForm)
+//#UC END# *5508104402FE_5506DC4F0011_impl*
+//#UC START# *5508104402FE_5506DC4F0011_var*
+//#UC END# *5508104402FE_5506DC4F0011_var*
+//#UC START# *5508105E024B_5506DC4F0011_impl*
+ if Assigned(f_ContainerGUID) then
+ begin
+  Dispose(f_ContainerGUID);
+  f_ContainerGUID := nil;
+ end;
+//#UC END# *5508105E024B_5506DC4F0011_impl*
+//#UC START# *5508105E024B_5506DC4F0011_var*
+//#UC END# *5508105E024B_5506DC4F0011_var*
+//#UC START# *5508106B01A3_5506DC4F0011_impl*
+ if Assigned(f_Owner) then
+ begin
+  Dispose(f_Owner);
+  f_Owner := nil;
+ end;
+//#UC END# *5508106B01A3_5506DC4F0011_impl*
+//#UC START# *5508106B01A3_5506DC4F0011_var*
+//#UC END# *5508106B01A3_5506DC4F0011_var*
+//#UC START# *550810770379_5506DC4F0011_impl*
+ if Assigned(f_Aggregate) then
+ begin
+  Dispose(f_Aggregate);
+  f_Aggregate := nil;
+ end;//Assigned(f_Aggregate)
+//#UC END# *550810770379_5506DC4F0011_impl*
+//#UC START# *550810770379_5506DC4F0011_var*
+//#UC END# *550810770379_5506DC4F0011_var*
+//#UC START# *5508108B0208_5506DC4F0011_impl*
+ if (f_ContainerGUID = nil) then
+  Result := aMainForm.AsContainer
+ else
+ if TvcmDispatcher.Instance.FormDispatcher.FindForm(f_ContainerGUID^, l_Form) then
+ begin
+  Assert(not l_Form.VCMClosing);
+  // - если форма УЖЕ закрывается, то её наверное повторно использовать НЕЛЬЗЯ
+  Result := l_Form.AsContainer
+ end//g_Dispatcher.FormDispatcher.FindForm(f_ContainerGUID^, l_Form)
+ else
+ begin
+  if (f_PathNode <> nil) then
+   Result := f_PathNode.FindContainer(aMainForm.AsContainer);
+  if (Result <> nil) then
+   Exit;
+  Result := aMainForm.AsContainer;
+  Assert(False, Format('А возможна ли такая ситуация, что у формы "%s" не нашёлся контейнер, который запомнили. И правильная ли она? http://mdp.garant.ru/pages/viewpage.action?pageId=326773370&focusedCommentId=330698389#comment-330698389',
+                       [f_FormClass.ClassName]));
+ end;//g_Dispatcher.FormDispatcher.FindForm(f_ContainerGUID^, l_Form)
+//#UC END# *5508108B0208_5506DC4F0011_impl*
+//#UC START# *5508108B0208_5506DC4F0011_var*
+var
+ l_Form: IvcmEntityForm;
+//#UC END# *5508108B0208_5506DC4F0011_var*
+//#UC START# *550810B10266_5506DC4F0011_impl*
+ Result := nil;
+
+ if (f_FormClass = aMainForm.VCLWinControl.ClassType) then
+  Exit;
+
+ // Если элемента не было до этого, то при переходе назад он должен быть удален
+ f_ItemType := vcm_hitClose;
+
+ (*if (f_FormData = nil) then
+  Result := nil
+ else*)
+ // !!! - закомментрировал, т.к. иначе неправильно сохранялись формы-контейнеры
+ begin
+  l_Container := Container(aMainForm);
+  if (f_Aggregate = nil) then
+   l_Aggregate := nil
+  else
+   l_Aggregate := TvcmAggregate.Make(f_Aggregate);
+  if (anOwner = nil) then
+  begin
+   if (f_Owner = nil) then
+    l_Owner := nil
+   else
+   begin
+    if TvcmDispatcher.Instance.FormDispatcher.FindForm(f_Owner^, l_Owner) then
+     Assert(not l_Owner.VCMClosing);
+     // - если форма УЖЕ закрывается, то её наверное повторно использовать НЕЛЬЗЯ
+   end;//f_Owner = nil
+  end//anOwner = nil
+  else
+   l_Owner := anOwner;
+  if (l_Container <> nil) and not l_Container.IsNull then
+   Result := f_FormClass.MakeSingleChild(l_Container,
+                                         vcmMakeParams(l_Aggregate, l_Container, l_Owner.VCLWinControl),
+                                         f_ZoneType,
+                                         f_UserType,
+                                         @f_FormGUID,
+                                         aDataSource,
+                                         f_SubUserType)
+  else
+   Result := f_FormClass.Make(vcmMakeParams(l_Aggregate, l_Container, l_Owner.VCLWinControl),
+                              f_ZoneType,
+                              f_UserType,
+                              @f_FormGUID,
+                              aDataSource,
+                              f_SubUserType);
+ end;//f_FormData = nil
+//#UC END# *550810B10266_5506DC4F0011_impl*
+//#UC START# *550810B10266_5506DC4F0011_var*
+var
+ l_Container: IvcmContainer;
+ l_Aggregate: IvcmAggregate;
+ l_Owner: IvcmEntityForm;
+//#UC END# *550810B10266_5506DC4F0011_var*
+//#UC START# *550811080395_5506DC4F0011_impl*
+ f_Focused := '';
+ if Assigned(aForm) and Assigned(aForm.VCLWinControl) then
+ begin
+  l_Form := aForm.VCLWinControl;
+  l_Control := FindControl(Windows.GetFocus);
+  if Assigned(l_Control) then
+  begin
+   l_Parent := l_Control.Parent;
+   while Assigned(l_Parent) do
+    if l_Parent = l_Form then
+    begin
+     f_Focused := l_Control.Name;
+     Break;
+    end
+    else if l_Parent is TCustomForm then
+     Break
+    else
+     l_Parent := l_Parent.Parent;
+  end;
+ end;
+//#UC END# *550811080395_5506DC4F0011_impl*
+//#UC START# *550811080395_5506DC4F0011_var*
+var
+ l_Form,
+ l_Parent,
+ l_Control: TWinControl;
+//#UC END# *550811080395_5506DC4F0011_var*
+//#UC START# *55081119039F_5506DC4F0011_impl*
+ if (f_Focused <> '') and Assigned(aForm) and Assigned(aForm.VCLWinControl) then
+ begin
+  l_Control := aForm.VCLWinControl.FindComponent(f_Focused) as TWinControl;
+  if Assigned(l_Control) then
+   TvcmDispatcher.Instance.As_IvcmDispatcher.StoreFocused(l_Control.Handle);
+ end;//f_Focused <> ''..
+//#UC END# *55081119039F_5506DC4F0011_impl*
+//#UC START# *55081119039F_5506DC4F0011_var*
+var
+ l_Control: TWinControl;
+//#UC END# *55081119039F_5506DC4F0011_var*
+//#UC START# *550811520043_5506DC4F0011_impl*
+ inherited Create;
+ f_SavingClone := aForClone;
+ f_ZoneType := aZoneType;
+ f_UserType := aUserType;
+ f_FormId := aFormId;
+ f_ItemType := aItemType;
+ f_SubUserType := aSubUserType;
+ StoreFocused(aForm);
+ if Assigned(aForm) then
+ begin
+  f_PathNode := TvcmHistoryFormNode.Create(aForm, nil);
+  UpdateFormInfo(aForm);
+  l_PrevVCMClosing := aForm.VCMClosing;
+  if not aForm.SaveState(f_FormData, aStateType) then
+  begin
+   l_NowVCMClosing := aForm.VCMClosing;
+   if l_NowVCMClosing then
+   begin
+    Assert(not l_PrevVCMClosing, aForm.VCLWinControl.ClassName);
+    f_FormClass := nil;
+   end;//aForm.VCMClosing
+   f_FormData := nil;
+   if l_NowVCMClosing then
+    raise EvcmFormWasClosedInSave.Create('Форма была закрыта во время сохранения');
+  end;//not aForm.SaveState(f_FormData, aStateType)
+ end;//if Assigned(aForm) then
+//#UC END# *550811520043_5506DC4F0011_impl*
+//#UC START# *550811520043_5506DC4F0011_var*
+var
+ l_PrevVCMClosing: Boolean;
+ l_NowVCMClosing: Boolean;
+//#UC END# *550811520043_5506DC4F0011_var*
+//#UC START# *5508119800FB_5506DC4F0011_impl*
+ l_Form := (aForm.VCLWinControl as TvcmEntityForm);
+ Result := Make(aForm, aStateType, l_Form.FormID, l_Form.UserType, l_Form.ZoneType, vcm_hitNone, l_Form.SubUserType, False);
+//#UC END# *5508119800FB_5506DC4F0011_impl*
+//#UC START# *5508119800FB_5506DC4F0011_var*
+var
+ l_Form: TvcmEntityForm;
+//#UC END# *5508119800FB_5506DC4F0011_var*
+//#UC START# *550938E80131_5506DC4F0011_impl*
+ Result := Activate(aMainForm, nil);
+//#UC END# *550938E80131_5506DC4F0011_impl*
+//#UC START# *550938E80131_5506DC4F0011_var*
+//#UC END# *550938E80131_5506DC4F0011_var*
+//#UC START# *5509390702F7_5506DC4F0011_impl*
+ l_SaveSelf := Self;
+ try
+  Result := DoActivate(aMainForm, anOwner);
+ finally
+  l_SaveSelf := nil;
+ end;//try..finally
+//#UC END# *5509390702F7_5506DC4F0011_impl*
+//#UC START# *5509390702F7_5506DC4F0011_var*
+var
+ l_SaveSelf: IUnknown;
+//#UC END# *5509390702F7_5506DC4F0011_var*
+//#UC START# *5509391E0197_5506DC4F0011_impl*
+ Result := False;
+//#UC END# *5509391E0197_5506DC4F0011_impl*
+//#UC START# *5509391E0197_5506DC4F0011_var*
+//#UC END# *5509391E0197_5506DC4F0011_var*
+//#UC START# *550953A00312_5506DC4F0011_impl*
+ if Assigned(f_DataSource) then
+  Result := f_DataSource.IsDataAvailable
+ else
+  Result := True;
+//#UC END# *550953A00312_5506DC4F0011_impl*
+//#UC START# *550953A00312_5506DC4F0011_var*
+//#UC END# *550953A00312_5506DC4F0011_var*
+//#UC START# *5583B0BD0124_5506DC4F0011_impl*
+ f_ContainerGUID := nil;
+//#UC END# *5583B0BD0124_5506DC4F0011_impl*
+//#UC START# *5583B0BD0124_5506DC4F0011_var*
+//#UC END# *5583B0BD0124_5506DC4F0011_var*
+//#UC START# *559F88140365_5506DC4F0011get_impl*
+ Result := f_SavingClone;
+//#UC END# *559F88140365_5506DC4F0011get_impl*
+//#UC START# *559F88140365_5506DC4F0011get_var*
+//#UC END# *559F88140365_5506DC4F0011get_var*

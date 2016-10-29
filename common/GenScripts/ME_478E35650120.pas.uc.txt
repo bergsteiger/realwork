@@ -1,0 +1,70 @@
+//#UC START# *46A5FDC600BD_47A1CCD50059_impl*
+ if f_Factories.IndexOf(aFactory) = -1 then
+  begin
+   if aPreferred then
+    f_Factories.Insert(0,aFactory)
+   else
+    f_Factories.Add(aFactory);
+  end;
+//#UC END# *46A5FDC600BD_47A1CCD50059_impl*
+//#UC START# *46A5FDC600BD_47A1CCD50059_var*
+//#UC END# *46A5FDC600BD_47A1CCD50059_var*
+//#UC START# *46A5FEBA024E_47A1CCD50059_impl*
+ f_Factories.Remove(aFactory);
+//#UC END# *46A5FEBA024E_47A1CCD50059_impl*
+//#UC START# *46A5FEBA024E_47A1CCD50059_var*
+//#UC END# *46A5FEBA024E_47A1CCD50059_var*
+//#UC START# *46A5FF470229_47A1CCD50059get_impl*
+ Result := Map[aID] as Il3IntegerValueMap;
+//#UC END# *46A5FF470229_47A1CCD50059get_impl*
+//#UC START# *46A5FF470229_47A1CCD50059get_var*
+//#UC END# *46A5FF470229_47A1CCD50059get_var*
+//#UC START# *478E35650120_ext:FileName
+w:\common\components\rtl\Garant\L3\l3IntegerValueMapManager.pas
+//#UC END# *478E35650120_ext:FileName
+//#UC START# *478E35650120impl_uses*
+//#UC END# *478E35650120impl_uses*
+//#UC START# *479731C50290_47A1CCD50059_impl*
+ l3Free(f_Factories);
+ inherited;
+//#UC END# *479731C50290_47A1CCD50059_impl*
+//#UC START# *479731C50290_47A1CCD50059_var*
+//#UC END# *479731C50290_47A1CCD50059_var*
+//#UC START# *47A042E100E2_47A1CCD50059_impl*
+ inherited;
+ Duplicates := l3_dupError;
+ SortIndex := l3_siByID;
+ Sorted := True;
+ f_Factories := Tl3IntegerValueMapFactories.Make;
+//#UC END# *47A042E100E2_47A1CCD50059_impl*
+//#UC START# *47A042E100E2_47A1CCD50059_var*
+//#UC END# *47A042E100E2_47A1CCD50059_var*
+//#UC START# *47A1C42301B5_47A1CCD50059_impl*
+ Result := nil;
+ for l_Idx := 0 to f_Factories.Count-1 do
+ begin
+  Result := f_Factories.Items[l_Idx].MakeMap(aID);
+  if Assigned(Result) then
+   Exit;
+ end;//for l_Idx
+ Result := inherited MakeDefaultMap(aID);
+//#UC END# *47A1C42301B5_47A1CCD50059_impl*
+//#UC START# *47A1C42301B5_47A1CCD50059_var*
+var
+ l_Idx: Integer;
+//#UC END# *47A1C42301B5_47A1CCD50059_var*
+//#UC START# *47A1D86D015C_478E35650120_impl*
+ if g_l3IntegerMapManager = nil then
+ begin
+  g_l3IntegerMapManager := Tl3IntegerValueMapManager.Create;
+  l3System.AddExitProc(DoneManager);
+ end;
+ Result := g_l3IntegerMapManager;
+//#UC END# *47A1D86D015C_478E35650120_impl*
+//#UC START# *47A1D86D015C_478E35650120_var*
+//#UC END# *47A1D86D015C_478E35650120_var*
+//#UC START# *47A1D8BA002F_478E35650120_impl*
+ l3Free(g_l3IntegerMapManager);
+//#UC END# *47A1D8BA002F_478E35650120_impl*
+//#UC START# *47A1D8BA002F_478E35650120_var*
+//#UC END# *47A1D8BA002F_478E35650120_var*

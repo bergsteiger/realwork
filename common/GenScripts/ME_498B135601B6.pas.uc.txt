@@ -1,0 +1,238 @@
+//#UC START# *498B135601B6_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Document_Module.pas
+//#UC END# *498B135601B6_ext:FileName
+//#UC START# *498B135601B6impl_uses*
+ , StdRes
+ , nsTypes
+//#UC END# *498B135601B6impl_uses*
+//#UC START# *4AA11788033F_498B135601B6_impl*
+ {$IfDef vcmUseProfilers}
+ ProfilersManager.Document.Start;
+ try
+ {$EndIf vcmUseProfilers}
+  case aDocInfo.DocType of
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=482247952
+   DT_DOCUMENT, DT_BOOK, DT_REF:
+    Tfs_Document.Make(TsdsDocument.Make(aDocInfo),
+                      CheckContainer(aContainer));
+   DT_EXPLANATORY:
+   begin
+    CheckAlive;
+    TDictionService.Instance.OpenDictionary(aDocInfo, CheckContainer(aContainer));
+   end;//DT_EXPLANATORY
+   DT_TIP:
+   begin
+    CheckAlive;
+    TDayTipsService.Instance.OpenTip(aDocInfo, CheckContainer(aContainer));
+   end;//DT_TIP
+   DT_MEDICAL_EXPLANATORY:
+   begin
+    CheckAlive;
+    TInpharmService.Instance.OpenMedicDiction(aDocInfo, CheckContainer(aContainer));
+   end;//DT_MEDICAL_EXPLANATORY
+   DT_MEDICAL_FIRM:
+   begin
+    CheckAlive;
+    TInpharmService.Instance.OpenMedicFirmDocument(aDocInfo, CheckContainer(aContainer));
+   end;//DT_MEDICAL_FIRM
+   DT_MEDICAL_DOCUMENT:
+   begin
+    TInpharmService.Instance.OpenDrugDocument(aDocInfo, CheckContainer(aContainer));
+   end;//DT_MEDICAL_DOCUMENT
+   DT_FLASH:
+    Tfs_DocumentWithFlash.Make(TsdsDocumentWithFlash.Make(aDocInfo),
+                               CheckContainer(aContainer));
+   DT_ACTUAL_ANALYTICS:
+    TAACService.Instance.MakeAAC(aDocInfo, CheckContainer(aContainer));
+   DT_ACTUAL_ANALYTICS_CONTENTS:
+    TAACService.Instance.MakeAACContents(aDocInfo, CheckContainer(aContainer));
+   else
+    Assert(false);
+  end//case l_DocInfo.Doc.GetDocType of
+ {$IfDef vcmUseProfilers}
+ finally
+  ProfilersManager.Document.FormSetCreated;
+ end;//try..finally
+ {$EndIf vcmUseProfilers}
+//#UC END# *4AA11788033F_498B135601B6_impl*
+//#UC START# *4AA11788033F_498B135601B6_var*
+ procedure CheckAlive;
+ begin
+  if Assigned(aDocInfo.Doc) and not aDocInfo.Doc.IsAlive then
+   raise ETryOpenMissingDocument.Create('');
+ end;//CheckAlive
+//#UC END# *4AA11788033F_498B135601B6_var*
+//#UC START# *4AA1327E0334_498B135601B6_impl*
+ Result := nil;
+ if Supports(anEntity, IBookmark, l_Bookmark) then
+ begin
+  try
+   l_Bookmark.GetDocument(Result);
+  except
+   on ECanNotFindData do ;
+  end;//try..except
+  try
+   if (Result <> nil) then
+    l_Para := l_Bookmark.GetParagraph
+   else
+    l_Para := 0;
+   if (l_Para <> 0) then
+    l_DocInfo := TdeDocInfo.Make(Result, TbsDocPos_PID(l_Para))
+   else
+    l_DocInfo := TdeDocInfo.Make(Result, TbsDocPos_C(dptBookmark, l_Bookmark.GetEid));
+  except
+   on ENotSaved do
+    l_DocInfo := TdeDocInfo.Make(Result, TbsDocPos_PID(l_Bookmark.GetParagraph));
+  end;//try..except
+ end//if Supports(anEntity, IBookmark, l_Bookmark) then
+ else
+ if Supports(anEntity, IJournalBookmark, l_JBookmark) then
+ begin
+  try
+   l_JBookmark.GetDocument(Result);
+  except
+   on ECanNotFindData do ;
+  end;//try..except
+  l_DocInfo := TdeDocInfo.Make(Result, TbsDocPos_PID(l_JBookMark.GetParaID));
+ end//if Supports(anEntity, IBookmark, l_Bookmark) then
+ else
+ if Supports(anEntity, IDocument, Result) then
+  l_DocInfo := TdeDocInfo.Make(Result);
+ if Assigned(Result) then
+  OpenDocument(l_DocInfo, aContainer);
+//#UC END# *4AA1327E0334_498B135601B6_impl*
+//#UC START# *4AA1327E0334_498B135601B6_var*
+var
+ l_Para : TParaId;
+ l_Bookmark : IBookmark;
+ l_DocInfo : IdeDocInfo;
+ l_JBookmark : IJournalBookmark;
+//#UC END# *4AA1327E0334_498B135601B6_var*
+//#UC START# *4AA13F010182_498B135601B6_impl*
+ Result := OpenEntityAsDocument(aBaseEntity, nil);
+ if (Result = nil) then
+  vcmAsk(err_BookmarkHasNoDocument);
+//#UC END# *4AA13F010182_498B135601B6_impl*
+//#UC START# *4AA13F010182_498B135601B6_var*
+//#UC END# *4AA13F010182_498B135601B6_var*
+//#UC START# *4AA4C6090157_498B135601B6_impl*
+ if (aDocInfo.Doc.GetDocType <> DT_FLASH) then
+  OpenDocument(aDocInfo, aContainer);
+//#UC END# *4AA4C6090157_498B135601B6_impl*
+//#UC START# *4AA4C6090157_498B135601B6_var*
+//#UC END# *4AA4C6090157_498B135601B6_var*
+//#UC START# *4AAFCF8001A8_498B135601B6_impl*
+ Result := nil;
+ if aData.IsPicture then
+ begin
+  vcmDispatcher.FormDispatcher.Lock;
+  try
+   Result := OpenPicture(aContainer, aData);
+  finally
+   vcmDispatcher.FormDispatcher.UnLock;
+  end;//try..finally
+ end//aData.IsPicture
+ else
+ begin
+  if vcmAsk(qr_OpenExternalQuery, [aData.ObjectTitle]) then
+   nsExecuteExternalObject(aData as IExternalObject);
+ end;//aData.IsPicture
+//#UC END# *4AAFCF8001A8_498B135601B6_impl*
+//#UC START# *4AAFCF8001A8_498B135601B6_var*
+//#UC END# *4AAFCF8001A8_498B135601B6_var*
+//#UC START# *4AB12B14001A_498B135601B6_impl*
+ l_Params := vcmCheckAggregate(vcmMakeParams(nil,
+                                             CheckContainer(aContainer)));
+ Result := TPictureForm.Make(l_Params);
+ if (aData <> nil) then
+  op_Picture_InitNewContent.Call(Result, aData);
+//#UC END# *4AB12B14001A_498B135601B6_impl*
+//#UC START# *4AB12B14001A_498B135601B6_var*
+var
+ l_Params: IvcmMakeParams;
+//#UC END# *4AB12B14001A_498B135601B6_var*
+//#UC START# *4AB12F3700CB_498B135601B6_impl*
+ Result := Ten_PictureInfo.Make(aData, vcmMakeParams(nil, CheckContainer(aContainer)));
+//#UC END# *4AB12F3700CB_498B135601B6_impl*
+//#UC START# *4AB12F3700CB_498B135601B6_var*
+//#UC END# *4AB12F3700CB_498B135601B6_var*
+//#UC START# *4AB133720122_498B135601B6exec_impl*
+ { Чтение настроек }
+ l_Data := TnsOpenDocOnNumberData.Make(
+  afw.Settings.LoadInteger(pi_Document_LastOpen_DocNumber,
+                           dv_Document_LastOpen_DocNumber),
+  afw.Settings.LoadInteger(pi_Document_LastOpen_Position,
+                           dv_Document_LastOpen_Position),
+  TDocumentPositionType(afw.Settings.LoadInteger(pi_Document_LastOpen_PosType,
+                                                 dv_Document_LastOpen_PosType)),
+  afw.Settings.LoadBoolean(pi_Document_LastOpen_IsInternal,
+                           dv_Document_LastOpen_IsInternal),
+  afw.Settings.LoadString(pi_Document_LastOpen_DocHistory,
+                          dv_Document_LastOpen_DocHistory));
+
+ try
+  { Показываем форму }
+  TDocNumberQueryForm.Make(l_Data);
+
+  if not l_Data.Done then
+   Exit;
+
+  { Сохранение настроек }
+  afw.Settings.SaveBoolean(pi_Document_LastOpen_IsInternal, l_Data.Internal);
+  afw.Settings.SaveInteger(pi_Document_LastOpen_DocNumber, l_Data.DocID);
+  afw.Settings.SaveInteger(pi_Document_LastOpen_Position, l_Data.PosID);
+  afw.Settings.SaveInteger(pi_Document_LastOpen_PosType, Integer(l_Data.PosType));
+  afw.Settings.SaveString(pi_Document_LastOpen_DocHistory, l_Data.History);
+
+  { Поиск документа }
+  if l_Data.Internal then
+   l_Data.DocID := l_Data.DocID + c_InternalDocShift;
+
+  TnsOpenDocumentByNumber.Log(l_Data.DocID);
+  //http://mdp.garant.ru/pages/viewpage.action?pageId=482247952
+  nsOpenDocumentByNumber(l_Data.DocID, l_Data.PosID, l_Data.PosType, True, True);
+ finally
+  l_Data := nil;
+ end;//try..finally
+//#UC END# *4AB133720122_498B135601B6exec_impl*
+//#UC START# *4AB133720122_498B135601B6exec_var*
+var
+ l_Data : InsOpenDocOnNumberData;
+//#UC END# *4AB133720122_498B135601B6exec_var*
+//#UC START# *4AB133720122_498B135601B6test_impl*
+ aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4AB133720122_498B135601B6test_impl*
+//#UC START# *4AB133720122_498B135601B6test_var*
+//#UC END# *4AB133720122_498B135601B6test_var*
+//#UC START# *4B150AAA0334_4B150A890212_impl*
+ l_Data := MakeParamsList;
+ l_Data.AddULong(aDocID);
+ GetLogger.AddEvent(LE_OPEN_DOCUMENT_BY_NUMBER, l_Data);
+//#UC END# *4B150AAA0334_4B150A890212_impl*
+//#UC START# *4B150AAA0334_4B150A890212_var*
+var
+ l_Data: InsLogEventData;
+//#UC END# *4B150AAA0334_4B150A890212_var*
+//#UC START# *4B26253C0205_498B135601B6_impl*
+ Result := Ten_TurnOnTimeMachine.Make(anIntf);
+//#UC END# *4B26253C0205_498B135601B6_impl*
+//#UC START# *4B26253C0205_498B135601B6_var*
+//#UC END# *4B26253C0205_498B135601B6_var*
+//#UC START# *4ED90DDC00A5_498B135601B6_impl*
+ Result := TRedactionsForm.Make(vcmMakeParams(anAggregate, CheckContainer(nil)),
+                                vcm_ztModal,
+                                0,
+                                nil,
+                                anEditionsHolder.EditionsList);
+//#UC END# *4ED90DDC00A5_498B135601B6_impl*
+//#UC START# *4ED90DDC00A5_498B135601B6_var*
+//#UC END# *4ED90DDC00A5_498B135601B6_var*
+//#UC START# *4F7D90530076_498B135601B6_impl*
+  Result := TWarningBaloonForm.Make(vcmMakeParams(nil{f_sdsMainWindow{?}, aCaller, aCaller),
+                                    vcm_ztReminder,
+                                    aUserType,
+                                    nil,
+                                    aWarning);
+//#UC END# *4F7D90530076_498B135601B6_impl*
+//#UC START# *4F7D90530076_498B135601B6_var*
+//#UC END# *4F7D90530076_498B135601B6_var*

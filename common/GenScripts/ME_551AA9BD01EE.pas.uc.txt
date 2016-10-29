@@ -1,0 +1,31 @@
+//#UC START# *3410F441967F_551AA9BD01EE_impl*
+ if Assigned(f_Alien) then
+  f_Alien.IterateF(anAction, aComponent)
+ else
+ begin
+  try
+   anAction(aComponent);
+   if aComponent is TControl then
+   begin
+    l_C := TControl(aComponent);
+    while Assigned(l_C.Parent) do
+    begin
+     l_C := l_C.Parent;
+     anAction(l_C);
+    end;
+   end;
+  finally
+   l3FreeLocalStub(Hack);
+  end;//try..finally
+ end;//f_Alien <> nil
+//#UC END# *3410F441967F_551AA9BD01EE_impl*
+//#UC START# *3410F441967F_551AA9BD01EE_var*
+var
+ Hack : Pointer absolute anAction;
+ l_C: TControl;
+//#UC END# *3410F441967F_551AA9BD01EE_var*
+//#UC START# *551AA9BD01EE_ext:FileName
+w:\common\components\rtl\Garant\L3\l3IterateComponentParents.pas
+//#UC END# *551AA9BD01EE_ext:FileName
+//#UC START# *551AA9BD01EEimpl_uses*
+//#UC END# *551AA9BD01EEimpl_uses*

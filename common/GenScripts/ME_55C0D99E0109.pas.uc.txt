@@ -1,0 +1,28 @@
+//#UC START# *52CFC11603C8_55C0D99E0109get_impl*
+ Result := TtfwWordInfo.Make(f_TypeInfo);
+//#UC END# *52CFC11603C8_55C0D99E0109get_impl*
+//#UC START# *52CFC11603C8_55C0D99E0109get_var*
+//#UC END# *52CFC11603C8_55C0D99E0109get_var*
+//#UC START# *55C0D99E0109_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\tfwEnumConstantRegistrator.pas
+//#UC END# *55C0D99E0109_ext:FileName
+//#UC START# *55C0D99E0109impl_uses*
+//#UC END# *55C0D99E0109impl_uses*
+//#UC START# *55C0DA200397_55C0D99E0109_impl*
+ inherited Create(aValue);
+ f_TypeInfo := aTypeInfo;
+//#UC END# *55C0DA200397_55C0D99E0109_impl*
+//#UC START# *55C0DA200397_55C0D99E0109_var*
+//#UC END# *55C0DA200397_55C0D99E0109_var*
+//#UC START# *55C0DA7C026A_55C0D99E0109_impl*
+ l_Inst := Create(aValue, aTypeInfo);
+ try
+  l_Inst.RegisterInstance(aName);
+ finally
+  FreeAndNil(l_Inst);
+ end;//try..finally
+//#UC END# *55C0DA7C026A_55C0D99E0109_impl*
+//#UC START# *55C0DA7C026A_55C0D99E0109_var*
+var
+ l_Inst : TtfwEnumConstantRegistrator;
+//#UC END# *55C0DA7C026A_55C0D99E0109_var*

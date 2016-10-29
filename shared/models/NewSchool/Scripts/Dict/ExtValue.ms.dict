@@ -1,0 +1,139 @@
+UNIT ExtValue.ms.dict
+
+USES
+ axiom_push.ms.dict
+;
+
+USES
+ Chars.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ ElemMemberPrim.ms.dict
+;
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+USES
+ GenerationFramework.ms.dict
+;
+
+STRING elem_func GenEffectiveUnitName
+ '' >>> Result
+; // GenEffectiveUnitName
+
+STRING elem_func SafeEffectiveUnitName
+ if ( g_CurrentGenerator .IsNil ) then
+ begin
+  '' >>> Result
+ end // ( g_CurrentGenerator .IsNil )
+ else
+ begin
+  Self .? .GenEffectiveUnitName >>> Result
+ end // ( g_CurrentGenerator .IsNil )
+; // SafeEffectiveUnitName
+
+ANY elem_func ExtValue
+ Cached:
+ (
+  Self .GetUP 'extprop:pas:Value' >>> Result
+  if ( Result .IsValueValid ) then
+  begin
+   RULES
+    ( Result IsString )
+     begin
+      RULES
+       ( '.[]' Result EndsStr )
+        begin
+         '[]' >>> Result
+        end // ( '.[]' Result EndsStr )
+       ( '.nil' Result EndsStr )
+        begin
+         'nil' >>> Result
+        end // ( '.[]' Result EndsStr )
+       ( '1.0' Result EndsStr )
+        ()
+       ( '.0' Result EndsStr )
+       // - вообще тут надо проверять, что впереди буква
+        begin
+         '0' >>> Result
+        end // ( '.[]' Result EndsStr )
+       ( 
+        ( ']' Result EndsStr )
+        AND ( '[' Result StartsStr ! )
+       ) 
+        begin
+         VAR l_Head
+         Result cDot string:Split >>> Result >>> l_Head
+         if ( Result .IsNil ) then
+         begin
+          l_Head >>> Result
+         end // ( Result .IsNil )
+        end // ( '.[]' Result EndsStr )
+       ( 'vcmUserControls.vcm_utAny' Result == )
+        ( 'vcm_utAny' >>> Result )
+       ( 'vcm_ztvcm_ztAny' Result == )
+        ( 'vcm_ztAny' >>> Result )
+       ( 'evdInterfaces.evDefaultStoreFlags' Result == )
+        ( 'evDefaultStoreFlags' >>> Result )
+       DEFAULT
+        begin
+         VAR l_Type
+         Self .ValueType >>> l_Type
+         if ( l_Type .IsNotNil ) then
+         begin
+          VAR l_Target
+          Self .Target >>> l_Target
+          if (
+              ( l_Target .IsNil )
+              OR ( l_Target l_Type != ) 
+             ) then
+          begin
+           VAR l_Unit
+           l_Type .SafeEffectiveUnitName >>> l_Unit
+           if ( Self .SafeEffectiveUnitName l_Unit != ) then
+           begin 
+            l_Unit cDot Cat >>> l_Unit
+            if ( l_Unit Result StartsStr ! ) then
+            begin
+             l_Unit Result Cat >>> Result
+            end // ( l_Unit Result StartsStr ! ) 
+           end // ( Self .SafeEffectiveUnitName l_Unit != )
+          end // ( Self .Target l_Type != )
+         end // ( l_Type .IsNotNil )
+        end // DEFAULT
+      ; // RULES
+     end // ( Result IsString )
+   ; // RULES
+  end // ( Result .IsValueValid )
+  Result
+ )
+ >>> Result
+; // ExtValue
+
+ANY elem_func ExtValueOrValue
+ Self .ExtValue >>> Result
+ if ( Result .IsValueValid ! ) then
+ begin
+  Self .ModelValue >>> Result
+  if ( Result .IsValueValid ) then
+  begin
+   VAR l_Suffix
+   Self .GetUP "suffix expr" >>> l_Suffix
+   if ( l_Suffix .IsValueValid ) then
+   begin
+    [ Result ToPrintable cSpace l_Suffix ] strings:Cat >>> Result
+   end // ( l_Suffix .IsValueValid )
+  end // ( Result .IsValueValid )
+ end // ( Result .IsValueValid ! )
+; // ExtValueOrValue

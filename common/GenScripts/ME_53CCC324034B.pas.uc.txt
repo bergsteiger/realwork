@@ -1,0 +1,115 @@
+//#UC START# *479731C50290_53CCC324034B_impl*
+ FreeAndNil(f_BaseEngineHolder);
+ FreeAndNil(f_ExecutingList);
+ inherited Cleanup;
+//#UC END# *479731C50290_53CCC324034B_impl*
+//#UC START# *479731C50290_53CCC324034B_var*
+//#UC END# *479731C50290_53CCC324034B_var*
+//#UC START# *53CCB9F20088_53CCC324034Bget_impl*
+ Result := f_BaseEngineHolder.BaseEngine.ServerHostName;
+//#UC END# *53CCB9F20088_53CCC324034Bget_impl*
+//#UC START# *53CCB9F20088_53CCC324034Bget_var*
+//#UC END# *53CCB9F20088_53CCC324034Bget_var*
+//#UC START# *53CCBA0D01C7_53CCC324034Bget_impl*
+ Result := f_BaseEngineHolder.BaseEngine.ServerPort;
+//#UC END# *53CCBA0D01C7_53CCC324034Bget_impl*
+//#UC START# *53CCBA0D01C7_53CCC324034Bget_var*
+//#UC END# *53CCBA0D01C7_53CCC324034Bget_var*
+//#UC START# *53CCBA3D0104_53CCC324034B_impl*
+ l_User := GlobalDataProvider.UserManager.UserByID(anID);
+ Assert(Assigned(l_User));
+ theName := l_User.LoginName;
+ thePassword := l_User.Password;
+//#UC END# *53CCBA3D0104_53CCC324034B_impl*
+//#UC START# *53CCBA3D0104_53CCC324034B_var*
+var
+ l_User: IdaArchiUser;
+//#UC END# *53CCBA3D0104_53CCC324034B_var*
+//#UC START# *53CCBA9702A7_53CCC324034B_impl*
+ Result := f_BaseEngineHolder.BaseEngine.CSServer.ActiveClients.IsLogged(aUserID);
+//#UC END# *53CCBA9702A7_53CCC324034B_impl*
+//#UC START# *53CCBA9702A7_53CCC324034B_var*
+//#UC END# *53CCBA9702A7_53CCC324034B_var*
+//#UC START# *53CCC324034B_ext:FileName
+w:\archi\source\projects\PipeInAuto\Server\alcuAsyncSubmitterManager.pas
+//#UC END# *53CCC324034B_ext:FileName
+//#UC START# *53CCC324034Bimpl_uses*
+//#UC END# *53CCC324034Bimpl_uses*
+//#UC START# *53CCF63B0139_53CCC324034B_impl*
+ inherited Create;
+ Assert(Assigned(aBaseEngineHolder));
+ aBaseEngineHolder.SetRefTo(f_BaseEngineHolder);
+ f_ExecutingList := TalcuTaskExecutingList.Make;
+//#UC END# *53CCF63B0139_53CCC324034B_impl*
+//#UC START# *53CCF63B0139_53CCC324034B_var*
+//#UC END# *53CCF63B0139_53CCC324034B_var*
+//#UC START# *53CF91EC007A_53CCC324034B_impl*
+ f_BaseEngineHolder.BaseEngine.CSServer.Notifier.SendNotify(anID, ntAbortAsyncRun, 0, '');
+//#UC END# *53CF91EC007A_53CCC324034B_impl*
+//#UC START# *53CF91EC007A_53CCC324034B_var*
+//#UC END# *53CF91EC007A_53CCC324034B_var*
+//#UC START# *53D0AB57028E_53CCC324034B_impl*
+ l_Result := True;
+ l_NeedAdd := True;
+ f_ExecutingList.IterateAllF(l3L2IA(@SearchTask));
+ if l_Result and l_NeedAdd then
+ begin
+  l_Counter := TalcuTaskExecutionCounter.Create(aTask);
+  try
+   l_Counter.Counter := 1;
+   f_ExecutingList.Add(l_Counter);
+  finally
+   FreeANdNil(l_Counter);
+  end;
+ end;
+ Result := l_Result;
+//#UC END# *53D0AB57028E_53CCC324034B_impl*
+//#UC START# *53D0AB57028E_53CCC324034B_var*
+var
+  l_Result: Boolean;
+  l_NeedAdd: Boolean;
+  l_Counter: TalcuTaskExecutionCounter;
+
+
+ function SearchTask(aCounter: PalcuTaskExecutionCounter; Index: Long): Bool;
+ begin
+   Result := True;
+   if aCounter.Task = aTask then
+   begin
+     aCounter.Counter := aCounter.Counter + 1;
+     l_NeedAdd := False;
+     l_Result := True;
+     Result := False;
+     Exit;
+   end;
+   if not UserIsService(aCounter.Task.UserID) and (aCounter.Task.UserID = aTask.UserID) and (aCounter.Task <> aTask) then
+     l_Result := False;
+   if not aTask.CanSimultaneousRunWith(aCounter.Task) then
+     l_Result := False;
+ end;
+
+//#UC END# *53D0AB57028E_53CCC324034B_var*
+//#UC START# *53D0AB7A03A7_53CCC324034B_impl*
+ l_IndexToDelete := -1;
+ f_ExecutingList.IterateAllF(l3L2IA(@DoIt));
+ if l_IndexToDelete <> -1 then
+   f_ExecutingList.Delete(l_IndexToDelete);
+//#UC END# *53D0AB7A03A7_53CCC324034B_impl*
+//#UC START# *53D0AB7A03A7_53CCC324034B_var*
+var
+  l_IndexToDelete: Long;
+
+ function DoIt(aCounter: PalcuTaskExecutionCounter; Index: Long): Bool;
+ begin
+   if aCounter.Task = aTask then
+   begin
+     Result := False;
+     aCounter.Counter := aCounter.Counter - 1;
+     if aCounter.Counter = 0 then
+       l_IndexToDelete := Index;
+   end
+   else
+     Result := True;
+ end;
+
+//#UC END# *53D0AB7A03A7_53CCC324034B_var*

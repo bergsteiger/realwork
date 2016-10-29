@@ -1,0 +1,118 @@
+//#UC START# *478CF34E02CE_5225EB120246_impl*
+ inherited;
+ if Source is TddButtonConfigItem then
+ begin
+  ButtonPlace := TddButtonConfigItem(Source).ButtonPlace;
+  OnClick := TddButtonConfigItem(Source).OnClick;
+ end;
+//#UC END# *478CF34E02CE_5225EB120246_impl*
+//#UC START# *478CF34E02CE_5225EB120246_var*
+//#UC END# *478CF34E02CE_5225EB120246_var*
+//#UC START# *521724C0003E_5225EB120246get_impl*
+ Result := False;
+//#UC END# *521724C0003E_5225EB120246get_impl*
+//#UC START# *521724C0003E_5225EB120246get_var*
+//#UC END# *521724C0003E_5225EB120246get_var*
+//#UC START# *521724C0003E_5225EB120246set_impl*
+ inherited;
+//#UC END# *521724C0003E_5225EB120246set_impl*
+//#UC START# *521724C0003E_5225EB120246set_var*
+//#UC END# *521724C0003E_5225EB120246set_var*
+//#UC START# *521725C301A5_5225EB120246_impl*
+ Result := False;
+//#UC END# *521725C301A5_5225EB120246_impl*
+//#UC START# *521725C301A5_5225EB120246_var*
+//#UC END# *521725C301A5_5225EB120246_var*
+//#UC START# *52172B72014C_5225EB120246_impl*
+//#UC END# *52172B72014C_5225EB120246_impl*
+//#UC START# *52172B72014C_5225EB120246_var*
+//#UC END# *52172B72014C_5225EB120246_var*
+//#UC START# *52172CA801E3_5225EB120246_impl*
+//#UC END# *52172CA801E3_5225EB120246_impl*
+//#UC START# *52172CA801E3_5225EB120246_var*
+//#UC END# *52172CA801E3_5225EB120246_var*
+//#UC START# *521761BB03DE_5225EB120246_impl*
+ Result := TvtButton.Create(aParent);
+ Result.Parent := aParent;
+ Result.Left := aLeft;
+ Result.Top := aTop;
+ Result.Width := GetCanvas(aParent).TextWidth(Caption) + 2 * c_ConfigItemLeft;
+ with Result as TvtButton do
+ begin
+  Caption := Self.Caption;
+  OnClick := f_OnClick;
+ end;
+//#UC END# *521761BB03DE_5225EB120246_impl*
+//#UC START# *521761BB03DE_5225EB120246_var*
+//#UC END# *521761BB03DE_5225EB120246_var*
+//#UC START# *521B053F03C3_5225EB120246_impl*
+ ButtonSize(aParent, l_Size);
+ Result := l_Size.cy;
+//#UC END# *521B053F03C3_5225EB120246_impl*
+//#UC START# *521B053F03C3_5225EB120246_var*
+var
+ l_Size : TSize;
+//#UC END# *521B053F03C3_5225EB120246_var*
+//#UC START# *521B058801FD_5225EB120246_impl*
+//#UC END# *521B058801FD_5225EB120246_impl*
+//#UC START# *521B058801FD_5225EB120246_var*
+//#UC END# *521B058801FD_5225EB120246_var*
+//#UC START# *521B061A0387_5225EB120246_impl*
+ ButtonSize(aParent, l_Size);
+ Result := l_Size.cx;
+//#UC END# *521B061A0387_5225EB120246_impl*
+//#UC START# *521B061A0387_5225EB120246_var*
+var
+ l_Size : TSize;
+//#UC END# *521B061A0387_5225EB120246_var*
+//#UC START# *521B07030052_5225EB120246_impl*
+//#UC END# *521B07030052_5225EB120246_impl*
+//#UC START# *521B07030052_5225EB120246_var*
+//#UC END# *521B07030052_5225EB120246_var*
+//#UC START# *5225EB120246_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas
+//#UC END# *5225EB120246_ext:ParentFileName
+//#UC START# *5225EB4F012A_5225EB120246set_impl*
+ f_OnClick := aValue;
+ if Assigned(Control) then
+ begin
+  Assert(Control Is TvtButton, Control.ClassName);
+  TvtButton(Control).OnClick := aValue;
+ end;
+ Enabled := Assigned(f_OnClick);
+//#UC END# *5225EB4F012A_5225EB120246set_impl*
+//#UC START# *5225EB4F012A_5225EB120246set_var*
+//#UC END# *5225EB4F012A_5225EB120246set_var*
+//#UC START# *5225EC1300A1_5225EB120246_impl*
+ l_Button := TvtButton.Create(aParent);
+ try
+  l_Button.Parent := aParent;
+  l_Button.Width := GetCanvas(aParent).TextWidth(Caption) + 2*c_ConfigItemLeft;
+  with aSize, l_Button do
+  begin
+   cx := Width;
+   cy := Height;
+  end;
+ finally
+  FreeAndNil(l_Button);
+ end;
+//#UC END# *5225EC1300A1_5225EB120246_impl*
+//#UC START# *5225EC1300A1_5225EB120246_var*
+var
+ l_Button: TvtButton;
+//#UC END# *5225EC1300A1_5225EB120246_var*
+//#UC START# *5225EF6D0040_5225EB120246_impl*
+ inherited Create(anAlias, aCaption, aDefaultValue, aMasterItem);
+ f_OnClick := aClick;
+ f_ButtonPlace := dd_bpAsDefine;
+ Labeled := False;
+ Enabled := Assigned(f_OnClick);
+//#UC END# *5225EF6D0040_5225EB120246_impl*
+//#UC START# *5225EF6D0040_5225EB120246_var*
+//#UC END# *5225EF6D0040_5225EB120246_var*
+//#UC START# *552BB745031E_5225EB120246_impl*
+ if aControl is TvtButton then
+  TvtButton(aControl).Enabled := TvtButton(aControl).Enabled and not ReadOnly;
+//#UC END# *552BB745031E_5225EB120246_impl*
+//#UC START# *552BB745031E_5225EB120246_var*
+//#UC END# *552BB745031E_5225EB120246_var*

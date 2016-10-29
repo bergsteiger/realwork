@@ -1,0 +1,59 @@
+//#UC START# *52F24F6103AB_ext:FileName
+w:\archi\source\projects\PipeInAuto\AutoPipeServerTest.dpr
+//#UC END# *52F24F6103AB_ext:FileName
+//#UC START# *52F24F6103ABCVSPath*
+//#UC END# *52F24F6103ABCVSPath*
+//#UC START# *52F24F6103ABmanualcode*
+  Application.Initialize;
+  {$IFDEF Region}
+  Application.Title := 'Сервер автоматизации. "Архивариус" (рег)';
+  {$ELSE}
+  Application.Title := 'Сервер автоматизации. "Архивариус"';
+  {$ENDIF}
+  Application.HelpFile := '';
+  Application.CreateForm(TArchiServerForm, ArchiServerForm);
+  TArchiAutoTestSuite.Register;
+  TAutoPipeServerTestsRunner.ReadyToRun;
+  Application.Run;
+//#UC END# *52F24F6103ABmanualcode*
+//#UC START# *52F24F6103ABmanualres*
+{$R versioninfo.res} // включаем Version Info
+
+{$IFDEF Service}
+Для сборки приложения нужно выключить директиву Service в ProjectDefine.inc
+{$ENDIF}
+
+//#UC END# *52F24F6103ABmanualres*
+//#UC START# *52F24F6103ABmanualuses*
+  ,
+  alcuCloseQueryDlg in 'alcuCloseQueryDlg.pas' {alcuCloseQueryDlgForm},
+{$IFDEF MDPSyncIntegrated}
+  alcuMDP in 'Process\alcuMDP.pas',
+  GarDocsUnit in 'W:\MDProcess\ArchiAdapterLib\GarDocsUnit.pas',
+  ArchiAdapter in 'W:\MDProcess\ArchiAdapter\ArchiAdapter.pas',
+{$ENDIF MDPSyncIntegrated}
+{$IFDEF AAC}
+  alcuAACImportTaskResult in 'Tasks\alcuAACImportTaskResult.pas',
+  alcuAACImport in 'Tasks\alcuAACImport.pas',
+{$ENDIF AAC}
+  alcuAutoAnnoExportTaskPrim in 'Tasks\alcuAutoAnnoExportTaskPrim.pas',
+  alcuAutoAnnoExportTask in 'Tasks\alcuAutoAnnoExportTask.pas',
+  alcuCourtDecisionSubChecker in 'Process\alcuCourtDecisionSubChecker.pas',
+  alcuFTPUtils in 'Server\alcuFTPUtils.pas',
+  alcuUtils in 'Server\alcuUtils.pas',
+  alcuConfig in 'Server\alcuConfig.pas',
+  alcuAutoLinkUpdater in 'Process\alcuAutoLinkUpdater.pas',
+  alcuCourtDecision in 'Process\alcuCourtDecision.pas',
+  alcuSpellChecker in 'Process\alcuSpellChecker.pas',
+  alcuAutoExport in 'Process\alcuAutoExport.pas',
+  alcuZipUtils in 'Process\alcuZipUtils.pas',
+  alcuContainerTask in 'Tasks\alcuContainerTask.pas',
+  alcuSchedulerProxyTask in 'Tasks\alcuSchedulerProxyTask.pas',
+  alcuPrime in 'Process\alcuPrime.pas',
+  alcuRegionImportTaskResult in 'Tasks\alcuRegionImportTaskResult.pas',
+  alcuRegionImportTaskPrim in 'Tasks\alcuRegionImportTaskPrim.pas',
+  alcuRegionImportTask in 'Tasks\alcuRegionImportTask.pas',
+  alcuSpellCorrectTask in 'Tasks\alcuSpellCorrectTask.pas',
+  alcuDeliveryProfileTask in 'Tasks\alcuDeliveryProfileTask.pas',
+  alcuAutolinkerTask in 'Tasks\alcuAutolinkerTask.pas'
+//#UC END# *52F24F6103ABmanualuses*

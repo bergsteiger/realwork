@@ -2028,6 +2028,9 @@ f _NeedFinalize
 	[{"%S#f_tpi_script_NamePrim()"!="%f_N(%S)"}\
 	 MEPROP FullName '%S#f_tpi_script_NamePrim()'
 	]\
+	[{%f_substr_from_begin(%S#f_tpi_script_Name(),3)=st_}\
+	 MELINK GeneralizedStereotype %S#f_tpi_script_Name() ;
+	]\
 	]\
 	]\
 
@@ -2049,7 +2052,11 @@ f _NeedFinalize
 	[\
 	 MEPROP Class class_\
 	[{%S#f_pas_script_IsOperation()=true}{\
+	[{%f_IsConstants(%S)=true}{\
 	%SC\
+	}\
+	Const\
+	]\
 	}\
 	Operation\
 	]\
@@ -2058,6 +2065,7 @@ f _NeedFinalize
 	]\
 
 	[{"%SS"!=""}\
+	[{%SC!=Parameter|%SS!=in}\
 	[{%SC=Category|%SC=Class}{\
 	[{%SC=Operation|%SC=Attribute|%SC=Dependency}{\
 	 MELINK Stereotype st_%f_str_replace(%SS, ,_) ;
@@ -2068,6 +2076,8 @@ f _NeedFinalize
 	 MELINK Stereotype st_%f_str_replace(%SS, ,_) ;
 	]\
 	]\
+	]\
+
 	[{"%SK"!=""}\
 	 MEPROP Kind kind_%SK
 	]\

@@ -1,0 +1,241 @@
+//#UC START# *479731C50290_497EFC6002FC_impl*
+ f_Tag := nil;
+ {$ifndef admin}
+ f_FormState := nil;
+ {$endif}
+ inherited;
+//#UC END# *479731C50290_497EFC6002FC_impl*
+//#UC START# *479731C50290_497EFC6002FC_var*
+//#UC END# *479731C50290_497EFC6002FC_var*
+//#UC START# *47A042E100E2_497EFC6002FC_impl*
+ inherited; 
+
+ OnLoadState := vcmContainerFormLoadState;
+ OnSaveState := vcmContainerFormSaveState;
+//#UC END# *47A042E100E2_497EFC6002FC_impl*
+//#UC START# *47A042E100E2_497EFC6002FC_var*
+//#UC END# *47A042E100E2_497EFC6002FC_var*
+//#UC START# *497469C90140_497EFC6002FC_impl*
+ inherited;
+ if (dsAttributeSelect <> nil) then
+  with dsAttributeSelect.Search do
+  begin
+   f_Tag := Tag;
+   {$If not Defined(Admin)}
+   FormState.Query := Query;
+   {$IfEnd}
+  end;//with dsAttributeSelect.Search do
+//#UC END# *497469C90140_497EFC6002FC_impl*
+//#UC START# *497469C90140_497EFC6002FC_var*
+//#UC END# *497469C90140_497EFC6002FC_var*
+//#UC START# *497EFC6002FC_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimAttributeSelect_Form.pas
+//#UC END# *497EFC6002FC_ext:FileName
+//#UC START# *497EFC6002FCimpl_uses*
+ , l3Base
+//#UC END# *497EFC6002FCimpl_uses*
+//#UC START# *49803F5503AA_497EFC6002FC_impl*
+ inherited;
+ CCaption := nil;
+//#UC END# *49803F5503AA_497EFC6002FC_impl*
+//#UC START# *49803F5503AA_497EFC6002FC_var*
+//#UC END# *49803F5503AA_497EFC6002FC_var*
+//#UC START# *4A8AD47D0357_497EFC6002FCexec_impl*
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=290259092
+ // if not (UserType in [utAttributeSelect]) then // отключаем условие, а то http://mdp.garant.ru/pages/viewpage.action?pageId=327812892
+ Op_AttributeTree_AddNodeIfEmpty.Call(Aggregate);
+
+ ModalResult := mrOk;
+//#UC END# *4A8AD47D0357_497EFC6002FCexec_impl*
+//#UC START# *4A8AD47D0357_497EFC6002FCexec_var*
+//#UC END# *4A8AD47D0357_497EFC6002FCexec_var*
+//#UC START# *4A8AD47D0357_497EFC6002FCgetstate_impl*
+ State := st_user_Result_OkExt_AttributesSelect
+//#UC END# *4A8AD47D0357_497EFC6002FCgetstate_impl*
+//#UC START# *4A8AD47D0357_497EFC6002FCgetstate_var*
+//#UC END# *4A8AD47D0357_497EFC6002FCgetstate_var*
+//#UC START# *4A8AD47D0357_497EFC6002FCtest_impl*
+ // - ничего не делаем
+//#UC END# *4A8AD47D0357_497EFC6002FCtest_impl*
+//#UC START# *4A8AD47D0357_497EFC6002FCtest_var*
+//#UC END# *4A8AD47D0357_497EFC6002FCtest_var*
+//#UC START# *4A8E8F2E0195_497EFC6002FC_impl*
+ Width := 640;
+ Height := 480;
+
+ BackgroundPanel.Align := alClient;
+ with ValuesZone do
+ begin
+  Align := alClient;
+  BevelOuter := bvNone;
+  Constraints.MinHeight := 100;
+ end;
+ with SelectedZone do
+ begin
+  ResizeAreaWidth := 5;
+  SizeableSides := [szTop];
+  SplitterBevel := bvRaised;
+  Align := alBottom;
+  BevelOuter := bvNone;
+  Height := 200;
+ end;
+//#UC END# *4A8E8F2E0195_497EFC6002FC_impl*
+//#UC START# *4A8E8F2E0195_497EFC6002FC_var*
+//#UC END# *4A8E8F2E0195_497EFC6002FC_var*
+//#UC START# *4AC5D61E0284_497EFC6002FCexec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4AC5D61E0284_497EFC6002FCexec_impl*
+//#UC START# *4AC5D61E0284_497EFC6002FCexec_var*
+//#UC END# *4AC5D61E0284_497EFC6002FCexec_var*
+//#UC START# *4AC5D61E0284_497EFC6002FCgetstate_impl*
+ // - ничего не делаем
+//#UC END# *4AC5D61E0284_497EFC6002FCgetstate_impl*
+//#UC START# *4AC5D61E0284_497EFC6002FCgetstate_var*
+//#UC END# *4AC5D61E0284_497EFC6002FCgetstate_var*
+//#UC START# *4AC5D61E0284_497EFC6002FCtest_impl*
+ // - ничего не делаем
+//#UC END# *4AC5D61E0284_497EFC6002FCtest_impl*
+//#UC START# *4AC5D61E0284_497EFC6002FCtest_var*
+//#UC END# *4AC5D61E0284_497EFC6002FCtest_var*
+//#UC START# *4AE884E803AA_497EFC6002FCexec_impl*
+ {$If not Defined(Admin)}
+ l3FillChar(Result, SizeOf(Result));
+ if (GetFormState.Query <> nil) then
+  GetFormState.Query.Clear;
+ Result.rQuery := FillQuery;
+ Result.rAskFilters := true;
+ {$Else}
+ Assert(false);
+ {$IfEnd}
+//#UC END# *4AE884E803AA_497EFC6002FCexec_impl*
+//#UC START# *4AE884E803AA_497EFC6002FCexec_var*
+//#UC END# *4AE884E803AA_497EFC6002FCexec_var*
+//#UC START# *4AE8A577027D_497EFC6002FCexec_impl*
+ {$If not Defined(Admin)}
+ Result := //nsIsQuerySaved(GetFormState.Query);
+           TtasSaveLoadProxy.Instance.IsQuerySaved(GetFormState.Query);
+ {$Else}
+ Result := false;
+ Assert(false);
+ {$IfEnd}
+//#UC END# *4AE8A577027D_497EFC6002FCexec_impl*
+//#UC START# *4AE8A577027D_497EFC6002FCexec_var*
+//#UC END# *4AE8A577027D_497EFC6002FCexec_var*
+//#UC START# *4AEF213001F0_497EFC6002FCexec_impl*
+ {$If not Defined(Admin)}
+ GetFormState.Query := nil;
+
+ // ќчищаем текущие выбранные значени€
+ Op_AttributeTree_DropAllLogicSelection.Call(Aggregate, True, True);
+
+ if (aQuery <> nil) then
+ begin
+  GetFormState.Query := aQuery;
+  // «аполн€ем список выбранных значений из Query
+  op_AttributeTree_LoadQuery.Call(Aggregate, GetFormState.Query);
+ end;//aQuery <> nil
+ {$Else}
+ Assert(false);
+ {$IfEnd}
+//#UC END# *4AEF213001F0_497EFC6002FCexec_impl*
+//#UC START# *4AEF213001F0_497EFC6002FCexec_var*
+//#UC END# *4AEF213001F0_497EFC6002FCexec_var*
+//#UC START# *4AF3EBC001C4_497EFC6002FCexec_impl*
+ {$ifndef admin}
+ GetFormState.Tag := aTag;
+ {$endif}
+ if (UserType = utAttributeSelect) then
+  CCaption := nsGetCaption(TnsAttributeTreeCacheNew.Instance.AttributeRoot[aTag]);
+//#UC END# *4AF3EBC001C4_497EFC6002FCexec_impl*
+//#UC START# *4AF3EBC001C4_497EFC6002FCexec_var*
+//#UC END# *4AF3EBC001C4_497EFC6002FCexec_var*
+//#UC START# *4AF92B09017F_497EFC6002FCexec_impl*
+ Op_AttributeTree_DropAllLogicSelection.Call(Aggregate, True, True, False);
+//#UC END# *4AF92B09017F_497EFC6002FCexec_impl*
+//#UC START# *4AF92B09017F_497EFC6002FCexec_var*
+//#UC END# *4AF92B09017F_497EFC6002FCexec_var*
+//#UC START# *4C2DFEE000BA_497EFC6002FCexec_impl*
+ Op_AttributeTree_DropAllLogicSelection.Call(Aggregate, True, True, False);
+//#UC END# *4C2DFEE000BA_497EFC6002FCexec_impl*
+//#UC START# *4C2DFEE000BA_497EFC6002FCexec_var*
+//#UC END# *4C2DFEE000BA_497EFC6002FCexec_var*
+//#UC START# *4C2DFEE000BA_497EFC6002FCtest_impl*
+ // - ничего не делаем
+//#UC END# *4C2DFEE000BA_497EFC6002FCtest_impl*
+//#UC START# *4C2DFEE000BA_497EFC6002FCtest_var*
+//#UC END# *4C2DFEE000BA_497EFC6002FCtest_var*
+//#UC START# *511FA9C8030E_497EFC6002FC_impl*
+ {$If not Defined(Admin)}
+ if aStateType = vcm_stContent then
+ aState := FormState as IvcmBase;
+ {$Else}
+ Saved := false;
+ {$IfEnd}
+//#UC END# *511FA9C8030E_497EFC6002FC_impl*
+//#UC START# *511FA9C8030E_497EFC6002FC_var*
+//#UC END# *511FA9C8030E_497EFC6002FC_var*
+//#UC START# *511FAA24016D_497EFC6002FC_impl*
+ {$If not Defined(Admin)}
+ if (aStateType = vcm_stContent) then
+ begin
+  Supports(aState, InsQueryFormState, f_FormState);
+  Assert(f_FormState <> nil);
+ end;//if (aStateType = vcm_stContent) then
+ {$Else}
+ Loaded := false;
+ {$IfEnd}
+//#UC END# *511FAA24016D_497EFC6002FC_impl*
+//#UC START# *511FAA24016D_497EFC6002FC_var*
+//#UC END# *511FAA24016D_497EFC6002FC_var*
+//#UC START# *5121EE47013D_497EFC6002FCget_impl*
+ if f_FormState = nil then
+  f_FormState := TnsQueryFormState.Make;
+ Result := f_FormState;
+//#UC END# *5121EE47013D_497EFC6002FCget_impl*
+//#UC START# *5121EE47013D_497EFC6002FCget_var*
+//#UC END# *5121EE47013D_497EFC6002FCget_var*
+//#UC START# *51220BFE013D_497EFC6002FC_impl*
+ {$If not Defined(Admin)}
+ if not l3IsNil(f_Tag) then
+  FormState.Tag := f_Tag;
+ if (FormState.Query <> nil) then
+  Result := FormState.Query
+ else
+  if WithCreate then
+  begin
+   if (f_Tag = nil) AND (dsAttributeSelect = nil) AND (UserType = utSingleSearch) then
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=263293561
+    l_Type := QT_PUBLISHED_SOURCE
+   else
+   begin
+    Assert(f_Tag <> nil, 'http://mdp.garant.ru/pages/viewpage.action?pageId=228688510&focusedCommentId=256934628#comment-256934628');
+    if (l3Same(FormState.Tag, AT_KW)) then
+     l_Type := QT_KEYWORD
+    else
+    if (l3Same(FormState.Tag, AT_PUBLISH_SOURCE)) then
+     l_Type := QT_PUBLISHED_SOURCE
+    else
+     l_Type := QT_ATTRIBUTE;
+   end;//f_Tag = nil..
+   FormState.Query := DefDataAdapter.CreateEmptyQuery(l_Type);
+   Result := FormState.Query;
+  end//WithCreate
+  else
+   Result := nil;
+ // ƒобавл€ем выбранные элементы в Query
+ if (Result <> nil) then
+  Op_AttributeTree_SaveToQuery.Call(Aggregate, Result);
+ {$Else}
+ Result := nil;
+ Assert(false);
+ {$IfEnd}
+//#UC END# *51220BFE013D_497EFC6002FC_impl*
+//#UC START# *51220BFE013D_497EFC6002FC_var*
+var
+ l_Type: TQueryType;
+//#UC END# *51220BFE013D_497EFC6002FC_var*
+//#UC START# *51220C2B0092_497EFC6002FC_impl*
+ Result := FormState;
+//#UC END# *51220C2B0092_497EFC6002FC_impl*
+//#UC START# *51220C2B0092_497EFC6002FC_var*
+//#UC END# *51220C2B0092_497EFC6002FC_var*

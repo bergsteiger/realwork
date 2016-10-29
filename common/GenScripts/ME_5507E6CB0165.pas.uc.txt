@@ -1,0 +1,253 @@
+//#UC START# *5507D9B100F7_5507E6CB0165get_impl*
+ Assert(ServerConfig <> nil);
+ with ServerConfig do
+ begin
+  Section := 'Data';
+  Result := ReadParamStrDef('Provider', '');
+ end;
+//#UC END# *5507D9B100F7_5507E6CB0165get_impl*
+//#UC START# *5507D9B100F7_5507E6CB0165get_var*
+//#UC END# *5507D9B100F7_5507E6CB0165get_var*
+//#UC START# *5507D9B100F7_5507E6CB0165set_impl*
+ Assert(ServerConfig <> nil);
+ ServerConfig.WriteParamStr('Provider', aValue);
+//#UC END# *5507D9B100F7_5507E6CB0165set_impl*
+//#UC START# *5507D9B100F7_5507E6CB0165set_var*
+//#UC END# *5507D9B100F7_5507E6CB0165set_var*
+//#UC START# *5507E6CB0165_ext:FileName
+w:\common\components\rtl\Garant\cs\ncsClientParamsStorage.pas
+//#UC END# *5507E6CB0165_ext:FileName
+//#UC START# *5507E6CB0165impl_uses*
+//#UC END# *5507E6CB0165impl_uses*
+//#UC START# *55095596033F_5507E6CB0165_impl*
+ Assert((StationConfig <> nil) and (ServerConfig <> nil));
+
+ ServerConfig.InitSubsts('FamilyConst');
+//#UC END# *55095596033F_5507E6CB0165_impl*
+//#UC START# *55095596033F_5507E6CB0165_var*
+//#UC END# *55095596033F_5507E6CB0165_var*
+//#UC START# *550963930391_5507E6CB0165get_impl*
+ StationConfig.Section:='User';
+ Result := StationConfig.ReadParamStrDef('UserName','');
+//#UC END# *550963930391_5507E6CB0165get_impl*
+//#UC START# *550963930391_5507E6CB0165get_var*
+//#UC END# *550963930391_5507E6CB0165get_var*
+//#UC START# *550963930391_5507E6CB0165set_impl*
+ StationConfig.Section:='User';
+ StationConfig.WriteParamStr('UserName', aValue);
+//#UC END# *550963930391_5507E6CB0165set_impl*
+//#UC START# *550963930391_5507E6CB0165set_var*
+//#UC END# *550963930391_5507E6CB0165set_var*
+//#UC START# *550963A60121_5507E6CB0165get_impl*
+ StationConfig.Section:='User';
+ Result := l3Decrypt(l3DecodeBase64(StationConfig.ReadParamStrDef('UserPassword','')));
+//#UC END# *550963A60121_5507E6CB0165get_impl*
+//#UC START# *550963A60121_5507E6CB0165get_var*
+//#UC END# *550963A60121_5507E6CB0165get_var*
+//#UC START# *550963A60121_5507E6CB0165set_impl*
+// StationConfig.Section:='User';
+// StationConfig.WriteParamStr('UserPassword',l3EncodeBase64(l3Encrypt(aValue)));
+//#UC END# *550963A60121_5507E6CB0165set_impl*
+//#UC START# *550963A60121_5507E6CB0165set_var*
+//#UC END# *550963A60121_5507E6CB0165set_var*
+//#UC START# *550963BC00B0_5507E6CB0165get_impl*
+ ServerConfig.Section:= FamilySection;
+ Result := ServerConfig.ReadParamStrDef('FamilyPath', ''); // Invalid
+//#UC END# *550963BC00B0_5507E6CB0165get_impl*
+//#UC START# *550963BC00B0_5507E6CB0165get_var*
+//#UC END# *550963BC00B0_5507E6CB0165get_var*
+//#UC START# *550963BC00B0_5507E6CB0165set_impl*
+ if (StationConfig.CfgFileName = ServerConfig.CfgFileName) then
+ begin
+  ServerConfig.Section:= FamilySection;
+  ServerConfig.WriteParamStr('FamilyPath', aValue);
+ end; 
+//#UC END# *550963BC00B0_5507E6CB0165set_impl*
+//#UC START# *550963BC00B0_5507E6CB0165set_var*
+//#UC END# *550963BC00B0_5507E6CB0165set_var*
+//#UC START# *550963CF0092_5507E6CB0165get_impl*
+ Result := '';
+ ServerConfig.Section:= BaseSection;
+ if ServerConfig.ReadParamString('ImageStoragePath', l_Path) then
+ begin
+  if not l3CheckPath(l_Path, True, False) then
+   l_Path:= '';
+  Result := NormalizedPath(l_Path);
+ end;
+//#UC END# *550963CF0092_5507E6CB0165get_impl*
+//#UC START# *550963CF0092_5507E6CB0165get_var*
+var
+ l_Path: AnsiString;
+//#UC END# *550963CF0092_5507E6CB0165get_var*
+//#UC START# *550963CF0092_5507E6CB0165set_impl*
+ if (StationConfig.CfgFileName = ServerConfig.CfgFileName) then
+ begin
+  ServerConfig.Section:= BaseSection;
+  ServerConfig.WriteParamStr('ImageStoragePath', aValue);
+ end;
+//#UC END# *550963CF0092_5507E6CB0165set_impl*
+//#UC START# *550963CF0092_5507E6CB0165set_var*
+//#UC END# *550963CF0092_5507E6CB0165set_var*
+//#UC START# *550963EB02F8_5507E6CB0165get_impl*
+ Result := '';
+ ServerConfig.Section:= BaseSection;
+ if ServerConfig.ReadParamString('HomeDirPath', l_Path) then
+ begin
+  if not l3CheckPath(l_Path, False, True) then // Invalid
+   l_Path := '';
+  Result := NormalizedPath(l_Path);
+ end;
+//#UC END# *550963EB02F8_5507E6CB0165get_impl*
+//#UC START# *550963EB02F8_5507E6CB0165get_var*
+var
+ l_Path: AnsiString;
+//#UC END# *550963EB02F8_5507E6CB0165get_var*
+//#UC START# *550963EB02F8_5507E6CB0165set_impl*
+ if (StationConfig.CfgFileName = ServerConfig.CfgFileName) then
+ begin
+  ServerConfig.Section:= BaseSection;
+  ServerConfig.WriteParamStr('HomeDirPath', aValue);
+ end;
+//#UC END# *550963EB02F8_5507E6CB0165set_impl*
+//#UC START# *550963EB02F8_5507E6CB0165set_var*
+//#UC END# *550963EB02F8_5507E6CB0165set_var*
+//#UC START# *550981E5026A_5507E6CB0165get_impl*
+ Result := StationConfig.ReadParamStrDef('StationName', ''); // Invalid
+//#UC END# *550981E5026A_5507E6CB0165get_impl*
+//#UC START# *550981E5026A_5507E6CB0165get_var*
+//#UC END# *550981E5026A_5507E6CB0165get_var*
+//#UC START# *550981FF0138_5507E6CB0165get_impl*
+ Result := '';
+ ServerConfig.Section:= BaseSection;
+ If ServerConfig.ReadParamString('TablePath', l_Path) then
+  if l3CheckPath(l_Path, False, False) then
+   Result := NormalizedPath(l_Path); // Инвалид
+//#UC END# *550981FF0138_5507E6CB0165get_impl*
+//#UC START# *550981FF0138_5507E6CB0165get_var*
+var
+ l_Path: AnsiString;
+//#UC END# *550981FF0138_5507E6CB0165get_var*
+//#UC START# *550981FF0138_5507E6CB0165set_impl*
+ if (StationConfig.CfgFileName = ServerConfig.CfgFileName) then
+ begin
+  ServerConfig.Section:= BaseSection;
+  ServerConfig.WriteParamStr('TablePath', aValue);
+ end;
+//#UC END# *550981FF0138_5507E6CB0165set_impl*
+//#UC START# *550981FF0138_5507E6CB0165set_var*
+//#UC END# *550981FF0138_5507E6CB0165set_var*
+//#UC START# *550982210098_5507E6CB0165get_impl*
+ Result := '';
+ ServerConfig.Section:= BaseSection;
+ If ServerConfig.ReadParamString('LockPath', l_Path) then
+  if l3CheckPath(l_Path, False, False) then
+   Result := NormalizedPath(l_Path); // Инвалид
+//#UC END# *550982210098_5507E6CB0165get_impl*
+//#UC START# *550982210098_5507E6CB0165get_var*
+var
+ l_Path: AnsiString;
+//#UC END# *550982210098_5507E6CB0165get_var*
+//#UC START# *550982210098_5507E6CB0165set_impl*
+ if (StationConfig.CfgFileName = ServerConfig.CfgFileName) then
+ begin
+  ServerConfig.Section:= BaseSection;
+  ServerConfig.WriteParamStr('LockPath', aValue);
+ end;
+//#UC END# *550982210098_5507E6CB0165set_impl*
+//#UC START# *550982210098_5507E6CB0165set_var*
+//#UC END# *550982210098_5507E6CB0165set_var*
+//#UC START# *550982360334_5507E6CB0165get_impl*
+ Result := '';
+ ServerConfig.Section:= BaseSection;
+ If ServerConfig.ReadParamString('TmpDirPath',l_Path) then
+  if l3CheckPath(l_Path, False, True) then
+   Result := NormalizedPath(l_Path); // Инвалид
+//#UC END# *550982360334_5507E6CB0165get_impl*
+//#UC START# *550982360334_5507E6CB0165get_var*
+var
+ l_Path: AnsiString;
+//#UC END# *550982360334_5507E6CB0165get_var*
+//#UC START# *550982360334_5507E6CB0165set_impl*
+ if (StationConfig.CfgFileName = ServerConfig.CfgFileName) then
+ begin
+  ServerConfig.Section:= BaseSection;
+  ServerConfig.WriteParamStr('TmpDirPath', aValue);
+ end;
+//#UC END# *550982360334_5507E6CB0165set_impl*
+//#UC START# *550982360334_5507E6CB0165set_var*
+//#UC END# *550982360334_5507E6CB0165set_var*
+//#UC START# *5512621F0352_5507E6CB0165_impl*
+ Result := Format('Не задно имя станции! Задайте параметр StationName в секции [%s] файла %s.', [BaseSection, StationConfig.GetCfgFile]);
+//#UC END# *5512621F0352_5507E6CB0165_impl*
+//#UC START# *5512621F0352_5507E6CB0165_var*
+//#UC END# *5512621F0352_5507E6CB0165_var*
+//#UC START# *551262410001_5507E6CB0165_impl*
+ Result := Format('Не задан путь к базам! Задайте параметр TablePath в секции [%s] файла %s.', [BaseSection, StationConfig.GetCfgFile])
+//#UC END# *551262410001_5507E6CB0165_impl*
+//#UC START# *551262410001_5507E6CB0165_var*
+//#UC END# *551262410001_5507E6CB0165_var*
+//#UC START# *551262530061_5507E6CB0165_impl*
+ Result := Format('Не задан путь к разделяемым ресурсам! Задайте параметр LockPath в секции [%s] файла %s.', [BaseSection, ServerConfig.GetCfgFile])
+//#UC END# *551262530061_5507E6CB0165_impl*
+//#UC START# *551262530061_5507E6CB0165_var*
+//#UC END# *551262530061_5507E6CB0165_var*
+//#UC START# *5515121F0358_5507E6CB0165_impl*
+ Result := False;
+//#UC END# *5515121F0358_5507E6CB0165_impl*
+//#UC START# *5515121F0358_5507E6CB0165_var*
+//#UC END# *5515121F0358_5507E6CB0165_var*
+//#UC START# *551512370064_5507E6CB0165_impl*
+ Assert(False);
+//#UC END# *551512370064_5507E6CB0165_impl*
+//#UC START# *551512370064_5507E6CB0165_var*
+//#UC END# *551512370064_5507E6CB0165_var*
+//#UC START# *55DAD43B00AF_5507E6CB0165get_impl*
+ ServerConfig.Section:= DataSection;
+ Result := ServerConfig.ReadParamStrDef('DataServerHostName', '');
+//#UC END# *55DAD43B00AF_5507E6CB0165get_impl*
+//#UC START# *55DAD43B00AF_5507E6CB0165get_var*
+//#UC END# *55DAD43B00AF_5507E6CB0165get_var*
+//#UC START# *55DAD43B00AF_5507E6CB0165set_impl*
+ if (StationConfig.CfgFileName = ServerConfig.CfgFileName) then
+ begin
+  ServerConfig.Section:= DataSection;
+  ServerConfig.WriteParamStr('DataServerHostName', aValue);
+ end;
+//#UC END# *55DAD43B00AF_5507E6CB0165set_impl*
+//#UC START# *55DAD43B00AF_5507E6CB0165set_var*
+//#UC END# *55DAD43B00AF_5507E6CB0165set_var*
+//#UC START# *55DAD44D036F_5507E6CB0165get_impl*
+ ServerConfig.Section:= DataSection;
+ Result := ServerConfig.ReadParamIntDef('DataServerPort', c_DefaultPostgresPort);
+//#UC END# *55DAD44D036F_5507E6CB0165get_impl*
+//#UC START# *55DAD44D036F_5507E6CB0165get_var*
+//#UC END# *55DAD44D036F_5507E6CB0165get_var*
+//#UC START# *55DAD44D036F_5507E6CB0165set_impl*
+ if (StationConfig.CfgFileName = ServerConfig.CfgFileName) then
+ begin
+  ServerConfig.Section:= DataSection;
+  ServerConfig.WriteParamInt('DataServerPort', aValue);
+ end;
+//#UC END# *55DAD44D036F_5507E6CB0165set_impl*
+//#UC START# *55DAD44D036F_5507E6CB0165set_var*
+//#UC END# *55DAD44D036F_5507E6CB0165set_var*
+//#UC START# *5756BD40014A_5507E6CB0165get_impl*
+ Result := '';
+ ServerConfig.Section:= BaseSection;
+ if ServerConfig.ReadParamString('ImageCachePath', l_Path) then
+ begin
+  if not l3CheckPath(l_Path, True, False) then
+   l_Path:= '';
+  Result := NormalizedPath(l_Path);
+ end;
+//#UC END# *5756BD40014A_5507E6CB0165get_impl*
+//#UC START# *5756BD40014A_5507E6CB0165get_var*
+var
+ l_Path: AnsiString;
+//#UC END# *5756BD40014A_5507E6CB0165get_var*
+//#UC START# *5756BD40014A_5507E6CB0165set_impl*
+ ServerConfig.Section:= BaseSection;
+ ServerConfig.WriteParamStr('ImageCachePath', aValue);
+//#UC END# *5756BD40014A_5507E6CB0165set_impl*
+//#UC START# *5756BD40014A_5507E6CB0165set_var*
+//#UC END# *5756BD40014A_5507E6CB0165set_var*

@@ -1,0 +1,130 @@
+//#UC START# *479731C50290_50289DB9036F_impl*
+ LockDock;
+ inherited;
+//#UC END# *479731C50290_50289DB9036F_impl*
+//#UC START# *479731C50290_50289DB9036F_var*
+//#UC END# *479731C50290_50289DB9036F_var*
+//#UC START# *4CC8658C017B_50289DB9036F_impl*
+ LockDock;
+ inherited;
+//#UC END# *4CC8658C017B_50289DB9036F_impl*
+//#UC START# *4CC8658C017B_50289DB9036F_var*
+//#UC END# *4CC8658C017B_50289DB9036F_var*
+//#UC START# *50289DB9036F_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\implementation\Visual\vcmToolbar.pas
+//#UC END# *50289DB9036F_ext:ParentFileName
+//#UC START# *50289DB9036Fci*
+//#UC END# *50289DB9036Fci*
+//#UC START# *50289DB9036Fcit*
+//#UC END# *50289DB9036Fcit*
+//#UC START# *50289DB9036Fimpl*
+//#UC END# *50289DB9036Fimpl*
+//#UC START# *50289DB9036Fpubl*
+   property DragKind;
+   property DragMode;
+//#UC END# *50289DB9036Fpubl*
+//#UC START# *50289E6F021D_50289DB9036F_impl*
+ DeleteLastIfSeparator;
+//#UC END# *50289E6F021D_50289DB9036F_impl*
+//#UC START# *50289E6F021D_50289DB9036F_var*
+//#UC END# *50289E6F021D_50289DB9036F_var*
+//#UC START# *50289E7E0162_50289DB9036F_impl*
+ FreeControls;
+//#UC END# *50289E7E0162_50289DB9036F_impl*
+//#UC START# *50289E7E0162_50289DB9036F_var*
+//#UC END# *50289E7E0162_50289DB9036F_var*
+//#UC START# *50289F8500B8_50289DB9036F_impl*
+ if g_MenuManager.GetOpLock and (DockedTo <> nil) and
+    not (csDestroying in DockedTo.ComponentState) then
+ begin
+  g_MenuManager.BeginOp;
+  try
+   if TvcmToolbarDockListManager.Instance.DockList.IndexOf(DockedTo) < 0 then
+   begin
+    TvcmToolbarDockListManager.Instance.DockList.Add(DockedTo);
+    DockedTo.BeginUpdate;
+   end;
+  finally
+   g_MenuManager.EndOp;
+  end;
+ end;
+//#UC END# *50289F8500B8_50289DB9036F_impl*
+//#UC START# *50289F8500B8_50289DB9036F_var*
+//#UC END# *50289F8500B8_50289DB9036F_var*
+//#UC START# *5028A00600B5_50289DB9036F_impl*
+ if Supports(Action, IvcmAction, l_Action) then
+ try
+  if not l_Action.IsExecuteLocked then
+   inherited;
+ finally
+  l_Action := nil;
+ end//try..finally
+ else
+  inherited;
+//#UC END# *5028A00600B5_50289DB9036F_impl*
+//#UC START# *5028A00600B5_50289DB9036F_var*
+var
+ l_Action: IvcmAction;
+//#UC END# *5028A00600B5_50289DB9036F_var*
+//#UC START# *5028A09900D5_50289DB9036F_impl*
+ if Assigned(FNeedExecution) then
+ begin
+  Supports(FCurrentAction, IvcmAction, l_Action);
+  SaveLock;
+  try
+   FNeedExecution(FExecOwner);
+  finally
+   RestoreLock;
+  end;//try..finally
+ end;//if Assigned(FNeedExecution) then
+//#UC END# *5028A09900D5_50289DB9036F_impl*
+//#UC START# *5028A09900D5_50289DB9036F_var*
+var
+ l_LockCount: Integer;
+ l_Action: IvcmAction;
+
+ procedure SaveLock;
+ begin
+  if l_Action <> nil then
+  begin
+   l_LockCount := 0;
+   while l_Action.IsExecuteLocked do
+   begin
+    l_Action.UnlockExecute;
+    inc(l_LockCount);
+   end;//while l_Action.IsExecuteLocked do
+  end;//if l_Action <> nil then
+ end;//SaveLock
+
+ procedure RestoreLock;
+ begin
+  if l_Action <> nil then
+  begin
+   while l_LockCount > 0 do
+   begin
+    l_Action.LockExecute;
+    dec(l_LockCount);
+   end;//while l_LockCount > 0 do
+  end;//if l_Action <> nil then
+ end;//RestoreLock
+//#UC END# *5028A09900D5_50289DB9036F_var*
+//#UC START# *5028A1220383_50289DB9036F_impl*
+ FEmpty := True;
+ for I := 0 to Pred(ControlCount) do begin
+  if Controls[I].Visible and not (Controls[I] is Ttb97MoreButton) and
+  not (Controls[I] is TvcmSeparatorDef) then begin
+   FEmpty := False;
+   Break;
+  end;
+ end;
+ inherited;
+//#UC END# *5028A1220383_50289DB9036F_impl*
+//#UC START# *5028A1220383_50289DB9036F_var*
+var
+ I: Integer;
+//#UC END# *5028A1220383_50289DB9036F_var*
+//#UC START# *52A991A201C8_50289DB9036Fget_impl*
+ Result := ControlCount;
+//#UC END# *52A991A201C8_50289DB9036Fget_impl*
+//#UC START# *52A991A201C8_50289DB9036Fget_var*
+//#UC END# *52A991A201C8_50289DB9036Fget_var*

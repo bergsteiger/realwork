@@ -1,0 +1,23 @@
+//#UC START# *55311C9F022C_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\tfwInterfaceRegistrator.pas
+//#UC END# *55311C9F022C_ext:FileName
+//#UC START# *55311C9F022Cimpl_uses*
+//#UC END# *55311C9F022Cimpl_uses*
+//#UC START# *55311CD00337_55311C9F022C_impl*
+ Result := false;
+ Assert(aTypeInfo <> nil);
+ Assert(aTypeInfo.Kind = tkInterface);
+ l_TD := GetTypeData(aTypeInfo);
+ Assert(l_TD <> nil);
+ if (ifHasGuid in l_TD.IntfFlags) then
+ begin
+  Result := TtfwStringConstantRegistrator.Register('guid::' + aTypeInfo.Name, TtfwCStringFactory.C(GUIDtoString(l_TD.GUID)));
+  TtfwTypeModifier.RegisterTypeModifier(aTypeInfo);
+ end;//ifHasGuid in l_TD.IntfFlags
+ if (l_TD.IntfParent <> nil) then
+  RegisterInterface(l_TD.IntfParent^);
+//#UC END# *55311CD00337_55311C9F022C_impl*
+//#UC START# *55311CD00337_55311C9F022C_var*
+var
+ l_TD : PTypeData;
+//#UC END# *55311CD00337_55311C9F022C_var*

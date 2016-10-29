@@ -1,0 +1,122 @@
+UNIT NSImplemented.ms.dict
+
+USES
+ core.ms.dict
+;
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+USES
+ NS.ms.dict
+;
+
+USES
+ CountIt.ms.dict
+;
+
+USES
+ GenerationFramework.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
+
+USES
+ msmMetaModel.ms.dict
+;
+
+USES
+ CopyWithoutDuplicates.ms.dict
+;
+
+USES
+ MakeElements.ms.dict
+;
+
+BOOLEAN elem_func CanImplementSomeMethods
+ RULES
+  ( Self .IsInterface )
+   false
+  ( Self .IsTypedef )
+   false
+  DEFAULT
+   true
+ ; // RULES
+ >>> Result
+; // CanImplementSomeMethods
+
+USES
+ IsSameModelElement.ms.dict
+;
+
+WordAlias .IsSameMethod .IsSameModelElement
+
+FORWARD .NSImplemented
+
+BOOLEAN elem_func IsMethodImplementedBySomeAncestor
+  ModelElement IN aMethod
+ aMethod :Cached:
+ ( 
+  false >>> Result
+  Self .Inherits
+  .join> ( Self .Implements )
+  .for> (
+    IN anAncestor
+   if ( 
+       anAncestor .NSImplemented
+       .filter> ( aMethod .IsSameMethod )
+       .NotEmpty
+      ) then
+   begin
+    true >>> Result
+    BREAK-ITERATOR
+   end   
+  ) // .for>
+  if ( Result ! ) then
+  begin
+   Self .Inherits
+   .join> ( Self .Implements )
+   .for> (
+     IN anAncestor
+    if ( anAncestor aMethod call.me ) then
+    begin
+     true >>> Result
+     BREAK-ITERATOR
+    end // ( anAncestor aMethod call.me )
+   ) // .for>
+  end // ( Result ! )
+  Result
+ )
+ >>> Result 
+; // IsMethodImplementedBySomeAncestor
+
+elem_iterator NSImplemented
+ Cached:
+ (
+  Self .Implemented
+  >>> Result
+  
+  if ( Result .IsNil ) then
+  // - правильнее было бы проверять IsEmpty, но так быстрее
+  // Если будет надо - заменим.
+  begin
+   if ( Self .IsNewSchoolElement ) then
+   begin
+    if ( Self .CanImplementSomeMethods ) then
+    begin
+     Self .CanImplement
+     .filter> ( Self SWAP .IsMethodImplementedBySomeAncestor ! )
+     .CopyWithoutDuplicatedModelElements
+     .map> .ImplementMethod
+     >>> Result
+    end // ( Self .CanImplementSomeMethods )
+   end // ( Self .IsNewSchoolElement )
+  end // Result .IsNil
+  
+  Result
+ )
+ >>> Result 
+; // NSImplemented

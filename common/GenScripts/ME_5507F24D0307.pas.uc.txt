@@ -1,0 +1,63 @@
+//#UC START# *479731C50290_5507F24D0307_impl*
+ FreeAndNil(f_Image);
+ inherited;
+//#UC END# *479731C50290_5507F24D0307_impl*
+//#UC START# *479731C50290_5507F24D0307_var*
+//#UC END# *479731C50290_5507F24D0307_var*
+//#UC START# *5506AE35023A_5507F24D0307_impl*
+ l_Image := GetImage;
+ if (l_Image <> nil) then
+  aContext.Graphics.DrawImage(GetImage, RectToGPRectF(PositionRect));
+//#UC END# *5506AE35023A_5507F24D0307_impl*
+//#UC START# *5506AE35023A_5507F24D0307_var*
+var
+ l_Image: TGPImage;
+//#UC END# *5506AE35023A_5507F24D0307_var*
+//#UC START# *5506B04102C9_5507F24D0307_impl*
+ if (f_ImageList <> nil) then
+  Result := MakeTSize(f_ImageList.Width, f_ImageList.Height)
+ else
+  Result := MakeTSize(16, 16);
+//#UC END# *5506B04102C9_5507F24D0307_impl*
+//#UC START# *5506B04102C9_5507F24D0307_var*
+//#UC END# *5506B04102C9_5507F24D0307_var*
+//#UC START# *5506B0630312_5507F24D0307_impl*
+ Result := [];
+//#UC END# *5506B0630312_5507F24D0307_impl*
+//#UC START# *5506B0630312_5507F24D0307_var*
+//#UC END# *5506B0630312_5507F24D0307_var*
+//#UC START# *5507F24D0307_ext:ParentFileName
+w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetControl.pas
+//#UC END# *5507F24D0307_ext:ParentFileName
+//#UC START# *550910B6003C_5507F24D0307set_impl*
+ if (aValue <> f_ImageList) then
+ begin
+  f_ImageList := aValue;
+  FreeAndNil(f_Image);
+  Invalidate;
+ end;
+//#UC END# *550910B6003C_5507F24D0307set_impl*
+//#UC START# *550910B6003C_5507F24D0307set_var*
+//#UC END# *550910B6003C_5507F24D0307set_var*
+//#UC START# *550910DC0394_5507F24D0307set_impl*
+ if (aValue <> f_ImageIndex) then
+ begin
+  f_ImageIndex := aValue;
+  FreeAndNil(f_Image);
+  Invalidate;
+ end;
+//#UC END# *550910DC0394_5507F24D0307set_impl*
+//#UC START# *550910DC0394_5507F24D0307set_var*
+//#UC END# *550910DC0394_5507F24D0307set_var*
+//#UC START# *5509113E00A2_5507F24D0307_impl*
+ if (f_ImageList <> nil) and (f_ImageIndex <> -1) then
+ begin
+  if (f_Image = nil) then
+   f_Image := ImageListToTGPImage(f_ImageList, f_ImageIndex);
+  Result := f_Image;
+ end
+ else
+  Result := nil;
+//#UC END# *5509113E00A2_5507F24D0307_impl*
+//#UC START# *5509113E00A2_5507F24D0307_var*
+//#UC END# *5509113E00A2_5507F24D0307_var*

@@ -1,0 +1,98 @@
+//#UC START# *47A042E100E2_57C41DB202EB_impl*
+ inherited;
+ Sorted := true;
+//#UC END# *47A042E100E2_57C41DB202EB_impl*
+//#UC START# *47A042E100E2_57C41DB202EB_var*
+//#UC END# *47A042E100E2_57C41DB202EB_var*
+//#UC START# *57C41DB202EB_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\tfwThreadVar.pas
+//#UC END# *57C41DB202EB_ext:FileName
+//#UC START# *57C41DB202EBimpl_uses*
+ , Windows
+//#UC END# *57C41DB202EBimpl_uses*
+//#UC START# *57C41E0E0089_57C41DB202EB_impl*
+ {$IfDef seThreadSafe}
+ l_T := GetCurrentThreadID;
+ if not aWord.IsGlobalVar then
+ begin
+  if (MainThreadID <> l_T) then
+  begin
+   l_R := TtfwThreadVarRec_C(aWord, l_T);
+   Self.Lock;
+   try
+    if not Self.FindData(l_R, l_Index) then
+     l_Index := Add(l_R);
+    Result := Self.ItemSlot(l_Index).rValue;
+    Exit;
+   finally
+    Self.Unlock;
+   end;//try..finally
+  end;//MainThreadID <> l_T
+ end;//not aWord.IsGlobalVar..
+ {$EndIf seThreadSafe}
+ Result := aPlace^;
+//#UC END# *57C41E0E0089_57C41DB202EB_impl*
+//#UC START# *57C41E0E0089_57C41DB202EB_var*
+{$IfDef seThreadSafe}
+var
+ l_T : Cardinal;
+ l_R : TtfwThreadVarRec;
+ l_Index : Integer;
+{$EndIf seThreadSafe}
+//#UC END# *57C41E0E0089_57C41DB202EB_var*
+//#UC START# *57C7D06B03A9_57C41DB202EB_impl*
+ {$IfDef seThreadSafe}
+ l_T := GetCurrentThreadID;
+ if not aWord.IsGlobalVar then
+ begin
+  if (MainThreadID <> l_T) then
+  begin
+   l_R := TtfwThreadVarRec_C(aWord, l_T);
+   Self.Lock;
+   try
+    if not Self.FindData(l_R, l_Index) then
+     l_Index := Add(l_R);
+    Self.ItemSlot(l_Index).rValue := aValue;
+    Exit;
+   finally
+    Self.Unlock;
+   end;//try..finally
+  end;//MainThreadID <> l_T
+ end;//not aWord.IsGlobalVar..
+ {$EndIf seThreadSafe}
+ aPlace^ := aValue;
+//#UC END# *57C7D06B03A9_57C41DB202EB_impl*
+//#UC START# *57C7D06B03A9_57C41DB202EB_var*
+var
+ l_T : Cardinal;
+ l_R : TtfwThreadVarRec;
+ l_Index : Integer;
+//#UC END# *57C7D06B03A9_57C41DB202EB_var*
+//#UC START# *57C7D318039E_57C41DB202EB_impl*
+ {$IfDef seThreadSafe}
+ l_T := GetCurrentThreadID;
+ if not aWord.IsGlobalVar then
+ begin
+  if (MainThreadID <> l_T) then
+  begin
+   l_R := TtfwThreadVarRec_C(aWord, l_T);
+   Self.Lock;
+   try
+    if not Self.FindData(l_R, l_Index) then
+     l_Index := Add(l_R);
+    aCtx.rEngine.Push(Self.ItemSlot(l_Index).rValue);
+    Exit;
+   finally
+    Self.Unlock;
+   end;//try..finally
+  end;//MainThreadID <> l_T
+ end;//not aWord.IsGlobalVar..
+ {$EndIf seThreadSafe}
+ aCtx.rEngine.Push(aPlace^);
+//#UC END# *57C7D318039E_57C41DB202EB_impl*
+//#UC START# *57C7D318039E_57C41DB202EB_var*
+var
+ l_T : Cardinal;
+ l_R : TtfwThreadVarRec;
+ l_Index : Integer;
+//#UC END# *57C7D318039E_57C41DB202EB_var*

@@ -1,0 +1,34 @@
+//#UC START# *4D553AC103A3_50751B080168_impl*
+ if evInPara(aBlock.BottomChildBlock(aView).Obj^.AsObject, k2_typTable, [k2_typSBS], l_Table) then
+ begin
+  if not f_FlagInit then
+  begin
+   f_FlagValue := not l_Table.BoolA[k2_tiOldNSRC];
+   f_FlagInit := True;
+  end; // if not f_FlagInit then
+  l_Table.BoolW[k2_tiOldNSRC, Container] := f_FlagValue;
+ end; 
+//#UC END# *4D553AC103A3_50751B080168_impl*
+//#UC START# *4D553AC103A3_50751B080168_var*
+var
+ l_Table: Tl3Variant;
+//#UC END# *4D553AC103A3_50751B080168_var*
+//#UC START# *50751B080168_ext:ParentFileName
+w:\common\components\gui\Garant\EverestCommon\evTableSearch.pas
+//#UC END# *50751B080168_ext:ParentFileName
+//#UC START# *507530F8022A_50751B080168_impl*
+ l_Replacer := Create;
+ try
+  l_Replacer.f_FlagInit := False;
+  l_Replacer.f_FlagValue := False;
+  l_Replacer.Options := anOptions;
+  l_Replacer.Text := '';
+  Result := l_Replacer;
+ finally
+  FreeAndNil(l_Replacer);
+ end;//try..finally
+//#UC END# *507530F8022A_50751B080168_impl*
+//#UC START# *507530F8022A_50751B080168_var*
+var
+ l_Replacer : TevOldNSRCFlagReplacer;
+//#UC END# *507530F8022A_50751B080168_var*

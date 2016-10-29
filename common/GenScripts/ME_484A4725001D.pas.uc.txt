@@ -1,0 +1,192 @@
+//#UC START# *484A4725001D_ext:FileName
+W:\common\GenScripts\ME_484A4725001D.pas
+//#UC END# *484A4725001D_ext:FileName
+//#UC START# *484CEE9A0170atom*
+  Recalc;
+//#UC END# *484CEE9A0170atom*
+//#UC START# *484CEE9A0170atom1*
+//#UC END# *484CEE9A0170atom1*
+//#UC START# *484D27FD005Datom*
+  ParamsForClone := l3LongArray([k2_tiForeColor, k2_tiWidth, k2_tiLineType, k2_tiSpaceBefore, k2_tiSpaceAfter]);
+  Recalc;
+//#UC END# *484D27FD005Datom*
+//#UC START# *484D27FD005Datom1*
+//#UC END# *484D27FD005Datom1*
+//#UC START# *484D2BAB02BBatom*
+  ParamsForClone := l3LongArray([k2_tiHandle, k2_tiFrameUp, k2_tiFrameDown, k2_tiFrameLeft, k2_tiFrameRight]);
+//#UC END# *484D2BAB02BBatom*
+//#UC START# *484D2BAB02BBatom1*
+//#UC END# *484D2BAB02BBatom1*
+//#UC START# *484D2CBA0213atom*
+  TevdStyleContainer.CheckValueTable(t_TextStyle);
+//#UC END# *484D2CBA0213atom*
+//#UC START# *484D2CBA0213atom1*
+//#UC END# *484D2CBA0213atom1*
+//#UC START# *484F9FC101B3stored*
+ {$IfDef Nemesis}
+ Result := aTag.IsKindOf(k2_typMark) OR
+           aTag.IsKindOf(k2_typBookmark);
+ {$Else  Nemesis}
+ Result := false;
+ {$EndIf Nemesis}
+//#UC END# *484F9FC101B3stored*
+//#UC START# *484F9FC101B3var_stored*
+//#UC END# *484F9FC101B3var_stored*
+//#UC START# *484FAF4D03CCatom*
+//#UC END# *484FAF4D03CCatom*
+//#UC START# *484FAF4D03CCatom1*
+  UndefineProperties([k2_tiHandle]);
+//#UC END# *484FAF4D03CCatom1*
+//#UC START# *484FB206020Cchildstored*
+ with aChild.Attr[k2_tiHandle] do
+  Result := IsValid AND (AsLong <> 0); 
+ {$IfDef Nemesis}
+(* if Result then
+ begin
+  with P._rAtom(k2_tiHandle) do
+   if IsValid AND (AsLong = ev_sbtMark) then
+   begin
+    with Value._rAtom(k2_tiFlags) do
+     if not IsValid OR (AsLong <> ev_UserCommentFlags) then
+      Result := false;
+   end;//IsValid..
+ end;//Result*)
+ {$EndIf Nemesis}
+//#UC END# *484FB206020Cchildstored*
+//#UC START# *484FB206020Cvar_childstored*
+//#UC END# *484FB206020Cvar_childstored*
+//#UC START# *484FD1360343atom*
+//#UC END# *484FD1360343atom*
+//#UC START# *484FD1360343atom1*
+  UndefineProperties([k2_tiHandle]);
+//#UC END# *484FD1360343atom1*
+//#UC START# *484FD1360343CompareTagWithInt*
+ Case anIndex of
+  k2_tiHandle :
+  begin
+   Result := Mangle(aTag.IntA[anIndex]) - Mangle(aValue);
+  end;//k2_tiHandle
+  else
+   Result := inherited CompareTagWithInt(aTag, aValue, anIndex);
+ end;//Case anIndex
+//#UC END# *484FD1360343CompareTagWithInt*
+//#UC START# *484FD1360343CompareTagWithInt_var*
+
+ function Mangle(aHandle : Integer): Integer;
+ const
+  cMul = 10;
+ begin
+  if (aHandle = Ord(ev_slDiff)) then
+   Result := (Ord(ev_slHyperlinks) * cMul) - (cMul div 2)
+  else
+   Result := aHandle * cMul;
+ end;
+
+//#UC END# *484FD1360343CompareTagWithInt_var*
+//#UC START# *484FD956009EBeforeChange*
+ Result := false;
+ A := V.rNew;
+ while (A <> nil) AND not A.IsNull do
+ begin
+  if A.IsSame(V.rTag) then
+   Exit
+  else
+  begin
+   l_PredA := A;
+   A := A.Attr[aProp.TagIndex];
+   if A.IsSame(l_PredA) then
+    break;
+  end;//A.EQ(P)
+ end;//while not A.IsNull
+ Result := true;
+//#UC END# *484FD956009EBeforeChange*
+//#UC START# *484FD956009Evar_BeforeChange*
+var
+ A       : Tl3Variant;
+ l_PredA : Tl3Variant;
+//#UC END# *484FD956009Evar_BeforeChange*
+//#UC START# *484FDC4F013Fatom*
+  ParamsForClone := l3LongArray([k2_tiStyle, k2_tiFont, k2_tiVisible]);
+//#UC END# *484FDC4F013Fatom*
+//#UC START# *484FDC4F013Fatom1*
+//#UC END# *484FDC4F013Fatom1*
+//#UC START# *484FDC4F013FCompareTags*
+ if (aSortIndex = l3_siNative) then
+ begin
+  if (A.AsObject = B.AsObject) then
+   Result := 0
+  else
+  begin
+   with A do
+   begin
+    l_SStart := IntA[k2_tiStart];
+    l_SFinish := IntA[k2_tiFinish];
+   end;//with A
+   with B do
+   begin
+    l_FStart := IntA[k2_tiStart];
+    l_FFinish := IntA[k2_tiFinish];
+   end;//with B
+   Result := l_SStart - l_FFinish;
+   if (Result < 0) then
+   begin
+    Result := l_SFinish - l_FStart;
+    if (Result > 0) then
+     Result := 0;
+   end;//Result < 0
+  end;//Self = AsObject
+ end//aSortIndex = l3_siNative
+ else
+  Result := inherited CompareTags(A, B, aSortIndex);
+//#UC END# *484FDC4F013FCompareTags*
+//#UC START# *484FDC4F013FCompareTags_var*
+var
+ l_SStart, l_SFinish : Integer;
+ l_FStart, l_FFinish : Integer;
+//#UC END# *484FDC4F013FCompareTags_var*
+//#UC START# *484FDC4F013FCompareTagWithInt*
+ if (anIndex = l3_siNative) then
+ begin
+  if (aValue < aTag.IntA[k2_tiStart]) then
+   Result := 1
+  else
+  if (aValue <= aTag.IntA[k2_tiFinish]) then
+   Result := 0
+  else
+   Result := -1;
+ end//anIndex = l3_siNative
+ else
+  Result := inherited CompareTagWithInt(aTag, aValue, anIndex);
+//#UC END# *484FDC4F013FCompareTagWithInt*
+//#UC START# *484FDC4F013FCompareTagWithInt_var*
+//#UC END# *484FDC4F013FCompareTagWithInt_var*
+//#UC START# *4856677F0179childstored*
+ if (aChild.ChildrenCount > 0) then
+ begin
+  H := aChild.IntA[k2_tiHandle];
+  Result := (H = Ord(ev_sbtSub))
+            {$IfDef Nemesis}
+            OR (H = Ord(ev_sbtBookmark))
+            OR (H = Ord(ev_sbtMark))
+            {$EndIf Nemesis}
+            ;
+ end//aChild.ChildrenCount > 0
+ else
+  Result := false;
+//#UC END# *4856677F0179childstored*
+//#UC START# *4856677F0179var_childstored*
+var
+ H : Integer;
+//#UC END# *4856677F0179var_childstored*
+//#UC START# *48566A8103C1atom*
+  UndefineProperties([k2_tiFrame, k2_tiSpaceBefore,
+                      k2_tiSpaceAfter, k2_tiVisible, k2_tiRightIndent,
+                      k2_tiBackColor]);
+//#UC END# *48566A8103C1atom*
+//#UC START# *48566A8103C1atom1*
+//#UC END# *48566A8103C1atom1*
+//#UC START# *54BE906C029Catom*
+  ParamsForClone := l3CatLongArray(t_TextSegment.ParamsForClone, [k2_tiChildren]);
+//#UC END# *54BE906C029Catom*
+//#UC START# *54BE906C029Catom1*
+//#UC END# *54BE906C029Catom1*

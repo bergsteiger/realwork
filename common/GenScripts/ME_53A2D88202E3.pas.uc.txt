@@ -1,0 +1,81 @@
+//#UC START# *479731C50290_53A2D3BC030A_impl*
+ FreeAndNil(f_Items);
+ inherited;
+//#UC END# *479731C50290_53A2D3BC030A_impl*
+//#UC START# *479731C50290_53A2D3BC030A_var*
+//#UC END# *479731C50290_53A2D3BC030A_var*
+//#UC START# *47A042E100E2_53A2D3BC030A_impl*
+ inherited;
+ f_Items := TcsMessageRecepientListPrim.Create;
+//#UC END# *47A042E100E2_53A2D3BC030A_impl*
+//#UC START# *47A042E100E2_53A2D3BC030A_var*
+//#UC END# *47A042E100E2_53A2D3BC030A_var*
+//#UC START# *53A2D88202E3_ext:FileName
+w:\common\components\rtl\Garant\cs\csMessageRecepientList.pas
+//#UC END# *53A2D88202E3_ext:FileName
+//#UC START# *53A2D88202E3impl_uses*
+//#UC END# *53A2D88202E3impl_uses*
+//#UC START# *53A2DD470028_53A2D3BC030A_impl*
+ Lock;
+ try
+  Result := Items[Items.Add(anItem)];
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *53A2DD470028_53A2D3BC030A_impl*
+//#UC START# *53A2DD470028_53A2D3BC030A_var*
+//#UC END# *53A2DD470028_53A2D3BC030A_var*
+//#UC START# *53A2DDAB0054_53A2D3BC030A_impl*
+ try
+  Lock;
+  try
+   f_Items.IterateAllF(l3L2IA(@DoIt));
+  finally
+   Unlock;
+  end;//try..finally
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
+//#UC END# *53A2DDAB0054_53A2D3BC030A_impl*
+//#UC START# *53A2DDAB0054_53A2D3BC030A_var*
+
+type
+ PObject = ^TObject;
+
+ function DoIt(aData : PObject; anIndex : Integer) : Boolean;
+ begin
+  Result := anAction(TcsMessageRecepient(aData^));
+ end;
+ 
+var
+ Hack : Pointer absolute anAction;
+//#UC END# *53A2DDAB0054_53A2D3BC030A_var*
+//#UC START# *53A2DDCF036D_53A2D3BC030A_impl*
+ Lock;
+ try
+  Items.Clear;
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *53A2DDCF036D_53A2D3BC030A_impl*
+//#UC START# *53A2DDCF036D_53A2D3BC030A_var*
+//#UC END# *53A2DDCF036D_53A2D3BC030A_var*
+//#UC START# *53A2DE24004A_53A2D3BC030Aget_impl*
+ Result := Items.Count;
+//#UC END# *53A2DE24004A_53A2D3BC030Aget_impl*
+//#UC START# *53A2DE24004A_53A2D3BC030Aget_var*
+//#UC END# *53A2DE24004A_53A2D3BC030Aget_var*
+//#UC START# *56E7B1F7010C_53A2D3BC030A_impl*
+ Lock;
+ try
+  for l_IDX := Items.Count - 1 downto 0 do
+   if Items[l_IDX].Messages.Count = 0 then
+     Items.Delete(l_IDX);
+ finally
+  Unlock;
+ end;
+//#UC END# *56E7B1F7010C_53A2D3BC030A_impl*
+//#UC START# *56E7B1F7010C_53A2D3BC030A_var*
+var
+ l_IDX: Integer;
+//#UC END# *56E7B1F7010C_53A2D3BC030A_var*

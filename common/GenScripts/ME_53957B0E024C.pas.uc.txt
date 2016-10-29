@@ -1,0 +1,34 @@
+//#UC START# *4F4CB81200CA_53957B0E024C_impl*
+ RunnerAssert(aCtx.rEngine.IsTopString, 'Мне нужна строка!', aCtx);
+ l_FileName := aCtx.rEngine.PopDelphiString;
+ l_FileName := aCtx.rCaller.ResolveInputFilePath(l_FileName);
+ l_Filer := Tl3FileStream.Create(l_FileName, l3_fmRead);
+ try
+  l_MemoryStream := Tl3MemoryStream.Create;
+  try
+   l_MemoryStream.CopyFrom(l_Filer, l_Filer.Size);
+   Win32Check(OpenClipboard(anEditor.Handle));
+   try
+    SetClipboardData(cf_EverestTxt, l3System.ReleaseHandle(l_MemoryStream.MemoryPool.ReleaseHandle));
+   finally
+    Win32Check(CloseClipboard);
+   end;//try..finally
+   anEditor.Paste;
+  finally
+   FreeAndNil(l_MemoryStream);
+  end;//try..finally
+ finally
+  FreeAndNil(l_Filer);
+ end;//try..finally
+//#UC END# *4F4CB81200CA_53957B0E024C_impl*
+//#UC START# *4F4CB81200CA_53957B0E024C_var*
+var
+ l_Filer       : Tl3FileStream;
+ l_FileName    : AnsiString;
+ l_MemoryStream: Tl3MemoryStream;
+//#UC END# *4F4CB81200CA_53957B0E024C_var*
+//#UC START# *53957B0E024C_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorPasteEVDTroughClipboard.pas
+//#UC END# *53957B0E024C_ext:FileName
+//#UC START# *53957B0E024Cimpl_uses*
+//#UC END# *53957B0E024Cimpl_uses*

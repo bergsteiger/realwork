@@ -1,0 +1,82 @@
+//#UC START# *47CD795A0169_48D215640290_impl*
+ if not l3Same(Get_Caption, Get_Req.ReqCaption) then
+  SetText(Get_Req.ReqCaption);
+//#UC END# *47CD795A0169_48D215640290_impl*
+//#UC START# *47CD795A0169_48D215640290_var*
+//#UC END# *47CD795A0169_48D215640290_var*
+//#UC START# *47CD79710152_48D215640290get_impl*
+ Result := inherited Get_Caption;
+//#UC END# *47CD79710152_48D215640290get_impl*
+//#UC START# *47CD79710152_48D215640290get_var*
+//#UC END# *47CD79710152_48D215640290get_var*
+//#UC START# *47CD79710152_48D215640290set_impl*
+ SetText(aValue);
+//#UC END# *47CD79710152_48D215640290set_impl*
+//#UC START# *47CD79710152_48D215640290set_var*
+//#UC END# *47CD79710152_48D215640290set_var*
+//#UC START# *47CFE37202A1_48D215640290_impl*
+ inherited;
+ Assert(Value <> nil, 'Присваивается несуществующий параграф!'); 
+ if l3EmptyOrAllCharsInCharSet(l3PCharLen(Get_Caption), cc_WhiteSpace) then
+  InitBoolProperty(k2_tiVisible, False);
+//#UC END# *47CFE37202A1_48D215640290_impl*
+//#UC START# *47CFE37202A1_48D215640290_var*
+//#UC END# *47CFE37202A1_48D215640290_var*
+//#UC START# *48D145B8036A_48D215640290_impl*
+ if (aCmd = ccActionItem) then
+  with aTextPara do
+  begin
+   l_Control := aView.Control;
+   if (l_Control <> nil) and
+     Supports(l_Control, IevMonikerSink, l_MonikerSink) then
+    try
+     Result := l_MonikerSink.JumpTo([], Self);
+    finally
+     l_MonikerSink := nil;
+    end//try..finally
+   else 
+    Result := false; 
+  end//with aTextPara
+ else
+  Result := inherited DoKeyCommand(aView, aCmd, aTextPara);
+//#UC END# *48D145B8036A_48D215640290_impl*
+//#UC START# *48D145B8036A_48D215640290_var*
+var
+ l_MonikerSink : IevMonikerSink;
+ l_Control     : InevControl;
+//#UC END# *48D145B8036A_48D215640290_var*
+//#UC START# *48D1461101C6_48D215640290_impl*
+ Result := False;
+//#UC END# *48D1461101C6_48D215640290_impl*
+//#UC START# *48D1461101C6_48D215640290_var*
+//#UC END# *48D1461101C6_48D215640290_var*
+//#UC START# *48D1464501E8_48D215640290_impl*
+ if Supports(Get_Req.QueryCard, IevDropContainer, l_DropContainer) then
+  l_DropContainer.HideControl(true);
+ Result := Get_Enabled
+//#UC END# *48D1464501E8_48D215640290_impl*
+//#UC START# *48D1464501E8_48D215640290_var*
+var
+ l_DropContainer: IevDropContainer; 
+//#UC END# *48D1464501E8_48D215640290_var*
+//#UC START# *48D215640290_ext:FileName
+w:\common\components\gui\Garant\Everest\qf\evLabel.pas
+//#UC END# *48D215640290_ext:FileName
+//#UC START# *48D215640290impl_uses*
+//#UC END# *48D215640290impl_uses*
+//#UC START# *4A60B23E00C3_48D215640290_impl*
+ if IID.EQ(IevHyperlink) then
+ begin
+  l_Control := Get_Req.QueryCard.Editor;
+  if Assigned(l_Control) then
+   Result := Tl3HResult_C(l_Control.Selection.QueryInterface(IevHyperlink, Obj))
+  else
+   Result := inherited COMQueryInterface(IID, Obj);
+ end
+ else
+  Result := inherited COMQueryInterface(IID, Obj);
+//#UC END# *4A60B23E00C3_48D215640290_impl*
+//#UC START# *4A60B23E00C3_48D215640290_var*
+var
+ l_Control: InevControl;
+//#UC END# *4A60B23E00C3_48D215640290_var*

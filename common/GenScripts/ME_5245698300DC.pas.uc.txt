@@ -1,0 +1,29 @@
+//#UC START# *479731C50290_5245698300DC_impl*
+ l3Free(f_HREFSearcher);
+ inherited;
+//#UC END# *479731C50290_5245698300DC_impl*
+//#UC START# *479731C50290_5245698300DC_var*
+//#UC END# *479731C50290_5245698300DC_var*
+//#UC START# *5245698300DC_ext:FileName
+w:\common\components\rtl\Garant\dd\ddRegSeacherOwner.pas
+//#UC END# *5245698300DC_ext:FileName
+//#UC START# *5245698300DCimpl_uses*
+//#UC END# *5245698300DCimpl_uses*
+//#UC START# *52456E6703B3_5245698300DCget_impl*
+ if f_HREFSearcher = nil then InitRegSearcher;
+ Result := f_HREFSearcher;
+//#UC END# *52456E6703B3_5245698300DCget_impl*
+//#UC START# *52456E6703B3_5245698300DCget_var*
+//#UC END# *52456E6703B3_5245698300DCget_var*
+//#UC START# *52456E7802FA_5245698300DC_impl*
+ l_Search := Tl3RegularSearch.Create;
+ l_Search.IgnoreCase := True;
+ l_Search.SearchPattern := carSearcPattern;
+ f_HREFSearcher := l_Search;
+//#UC END# *52456E7802FA_5245698300DC_impl*
+//#UC START# *52456E7802FA_5245698300DC_var*
+const
+ carSearcPattern: AnsiString = ('^garantf1:\/\/{\d+}\.?{\-?\d*}\/$');
+var
+ l_Search: Tl3RegularSearch;
+//#UC END# *52456E7802FA_5245698300DC_var*

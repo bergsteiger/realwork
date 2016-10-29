@@ -1,7 +1,19 @@
 UNIT CreateGUID.ms.dict
 
+USES
+ IsNil.ms.dict
+;
+
+STRING FUNCTION CreateUIDPrim
+ sysutils:CreateGUID  '{' '' string:Replace '}' '' string:Replace
+ >>> Result
+; // CreateUID
+
+WordAlias CreateGUID CreateUIDPrim
+WordAlias CreateFacetGUID CreateUIDPrim
+
 STRING FUNCTION CreateUID
- sysutils:CreateGUID '-' '' string:Replace '{' '' string:Replace '}' '' string:Replace
+ CreateUIDPrim '-' '' string:Replace
  >>> Result
 ; // CreateUID
 
@@ -17,3 +29,30 @@ STRING FUNCTION CreateMUID
  ConvertUID
  >>> Result
 ; // CreateMUID
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ ElemMemberPrim.ms.dict
+;
+
+STRING FUNCTION .CreateAutoMUID
+  STRING IN aName
+  ModelElement IN aType
+ if (
+     ( aType .IsNil ) 
+     OR ( aType .Name .IsNil )
+     OR ( aName .IsNil ) 
+    ) then
+ begin
+  CreateMUID >>> Result
+ end // ( aType .IsNil )
+ else
+ begin
+  aType .Name aName Cat string:Hash48 >>> Result
+ end // ( aType .IsNil )
+ 'auto_' Result Cat
+ >>> Result
+; // .CreateAutoMUID

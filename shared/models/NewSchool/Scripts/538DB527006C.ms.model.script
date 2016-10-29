@@ -23,7 +23,6 @@ FORWARD ME_538DB5610283
 ME ME_538DB5780375
  MEPROP Name 'aIOHandler'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_538DAED40203' // TIdIOHandler
  ;
 
@@ -110,6 +109,16 @@ ME ME_54F5D20D0388
  ;
 
 ENDME // ME_54F5D20D0388 
+
+ME ME_580F4DB9027B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_538DB527006C // TcsIdIOHandlerAdapter
+ ;
+ MELINK Target WL 'ME_546F0E81033E' '546F0E690374.ms.model.script' // l3CalcCRC32
+ ;
+
+ENDME // ME_580F4DB9027B 
 
 MEREF ME_538DB5C7002E_ME_538DB527006C_impl
  MELINK Original WL 'ME_538DB5C7002E' '538DB4F00335.ms.model.script' // WriteBufferFlush
@@ -267,6 +276,18 @@ MEREF ME_54F5C09C0302_ME_538DB527006C_impl
  MEPROP OpKind opkind_Implemented
 ENDMEREF // ME_54F5C09C0302_ME_538DB527006C_impl ReadLargeStr
 
+MEREF ME_580F367C0052_ME_538DB527006C_impl
+ MELINK Original WL 'ME_580F367C0052' '538DB4F00335.ms.model.script' // ReadStreamWithCRCCheck
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_580F367C0052_ME_538DB527006C_impl ReadStreamWithCRCCheck
+
+MEREF ME_580F36A802FA_ME_538DB527006C_impl
+ MELINK Original WL 'ME_580F36A802FA' '538DB4F00335.ms.model.script' // WriteStreamWithCRCCheck
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_580F36A802FA_ME_538DB527006C_impl WriteStreamWithCRCCheck
+
 MEREF ME_479731C50290_ME_538DB527006C_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
@@ -331,6 +352,8 @@ ME ME_538DB527006C
  ME_5476EDF200B5_ME_538DB527006C_impl // InputBufferClear
  ME_54F5C07302CC_ME_538DB527006C_impl // WriteLargeStr
  ME_54F5C09C0302_ME_538DB527006C_impl // ReadLargeStr
+ ME_580F367C0052_ME_538DB527006C_impl // ReadStreamWithCRCCheck
+ ME_580F36A802FA_ME_538DB527006C_impl // WriteStreamWithCRCCheck
  )
  ; // Implemented
  MELIST Overridden
@@ -343,6 +366,7 @@ ME ME_538DB527006C
  ME_54F5CDE200F4 // TStream
  ME_54F5CE27023C // Tl3ConstMemoryStream
  ME_54F5D20D0388 // FreeAndNil
+ ME_580F4DB9027B // l3CalcCRC32
  )
  ; // Dependencies
  MESTRINGLIST DiagramsNames

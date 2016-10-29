@@ -1,0 +1,23 @@
+//#UC START# *550002F503A0_47E124E90272_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\WinControlsProcessingPack.pas
+//#UC END# *550002F503A0_47E124E90272_Word_ext:ParentFileName
+//#UC START# *550002F503A0_550002F503A0_47E124E90272_Word_impl*
+ with aControl.BoundsRect do
+ begin
+  l_Pos := Point(Left + aPoint.X, Top + aPoint.Y);
+  l_Pos1 := Point(l_Pos.X + aDelta.X, l_Pos.Y + aDelta.Y);
+ end;//with aControl.BoundsRect 
+ l_MousePos := PointToSmallPoint(l_Pos);
+ l_MousePos1 := PointToSmallPoint(l_Pos1);
+
+ SendMessage(aControl.Handle, WM_LBUTTONDOWN, 0, Longint(l_MousePos));
+ SendMessage(aControl.Handle, WM_MOUSEMOVE, 0, Longint(l_MousePos1));
+ SendMessage(aControl.Handle, WM_LBUTTONUP, 0, Longint(l_MousePos1));
+//#UC END# *550002F503A0_550002F503A0_47E124E90272_Word_impl*
+//#UC START# *550002F503A0_550002F503A0_47E124E90272_Word_var*
+var
+ l_Pos       : TPoint;
+ l_Pos1      : TPoint;
+ l_MousePos  : TSmallPoint;
+ l_MousePos1 : TSmallPoint;
+//#UC END# *550002F503A0_550002F503A0_47E124E90272_Word_var*

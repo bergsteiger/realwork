@@ -5921,12 +5921,16 @@ implementation @ "Delphi интерфейсы и реализация"
  [%f] clear_list %( 'INCLUDED_FILES' )% 
 //	%f_clear_list(FORWARDED_ELEMENTS)\
  [%f] clear_list %( 'FORWARDED_ELEMENTS' )% 
+//	%f_clear_list(REFERENCED_ELEMENTS)\
+ [%f] clear_list %( 'REFERENCED_ELEMENTS' )% 
 
 //	%S%f_pas_script_GenerateDescriptionRecur()\
  %S %f pas_script_GenerateDescriptionRecur %( )% 
 
 //	%f_clear_list(FORWARDED_ELEMENTS)\
  [%f] clear_list %( 'FORWARDED_ELEMENTS' )% 
+//	%f_clear_list(REFERENCED_ELEMENTS)\
+ [%f] clear_list %( 'REFERENCED_ELEMENTS' )% 
 //	%f_clear_list(INCLUDED_FILES)
  [%f] clear_list %( 'INCLUDED_FILES' )% 
 //#UC END# *5632454C0277for470F151302FD*
@@ -6001,8 +6005,31 @@ implementation @ "Delphi интерфейсы и реализация"
        end // if
        else
        begin
+//	[{%t_simple_class(%S)=true}{\
+        if ( ( [%t] simple_class %( %S )% ) %==  true ) then
+        begin
+//	[{%PC!=Class}{\
+         if ( ( %P |C ) %!= 'Class' ) then
+         begin
+//	true\
+           true 
+//	]\
+         end // if
+         else
+         begin
 //	false\
-         false 
+           false 
+//	}\
+         end // else
+//	]\
+        end // if
+        else
+        begin
+//	false\
+          false 
+//	}\
+        end // else
+
 // - наверное классы не надо в отдельные файлы выливать
 //	}\
        end // else
@@ -6170,6 +6197,25 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[{"%SN"!=""}\
  if ( ( %S |N ) %!= '' ) then
  begin
+//	[{"%S#f_tpi_script_NamePrim()"!=""}\
+  if ( ( %S %?f tpi_script_NamePrim %( )% ) %!= '' ) then
+  begin
+//	[{"%S#f_tpi_script_NamePrim()"!="%f_N(%S)"}\
+   if ( ( %S %?f tpi_script_NamePrim %( )% ) %!= ( [%f] N %( %S )% ) ) then
+   begin
+//	 MEPROP FullName '%S#f_tpi_script_NamePrim()'
+    ' MEPROP FullName '''
+    %S %?f tpi_script_NamePrim %( )% '''
+//	]\
+   end // if
+//	]\
+  end // if
+//	]\
+ end // if
+
+//	[{"%SN"!=""}\
+ if ( ( %S |N ) %!= '' ) then
+ begin
 //	[{%f_N(%S)!=%SN}\
   if ( ( [%f] N %( %S )% ) %!= ( %S |N ) ) then
   begin
@@ -6197,15 +6243,45 @@ implementation @ "Delphi интерфейсы и реализация"
 //	]\
  end // if
 
-//	[\
- if NOT-EMPTY
+//	[{"%SC"!=""}\
+ if ( ( %S |C ) %!= '' ) then
  begin
-//	 MEPROP Class class_%SC
-  ' MEPROP Class class_'
-  %S |C 
+//	[\
+  if NOT-EMPTY
+  begin
+//	 MEPROP Class class_\
+   ' MEPROP Class class_'
+//	[{%S#f_pas_script_IsOperation()=true}{\
+   if ( ( %S %?f pas_script_IsOperation %( )% ) %==  true ) then
+   begin
+//	Operation\
+    'Operation'
+//	]\
+   end // if
+   else
+   begin
+//	[{%f_IsConstants(%S)=true}{\
+    if ( ( [%f] IsConstants %( %S )% ) %==  true ) then
+    begin
+//	Const\
+     'Const'
+//	]\
+    end // if
+    else
+    begin
+//	%SC\
+     %S |C 
+//	}\
+    end // else
+//	}\
+   end // else
+//	\n\
+   #13#10
+//	]\
+  end // if
+  NOP
 //	]\
  end // if
- NOP
 
 //	[{"%SS"!=""}\
  if ( ( %S |S ) %!= '' ) then
@@ -6367,7 +6443,9 @@ implementation @ "Delphi интерфейсы и реализация"
  begin
 //	 MELIST Inherits
   ' MELIST Inherits'
+
 //	   Seq: (< %G#f_pas_script_Reference()> )
+//	   Seq: (<{}{}{%G} %f_OverrideLink(%G,%S,"G")> )
   '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
   for %S%G
@@ -6376,7 +6454,7 @@ implementation @ "Delphi интерфейсы и реализация"
    if true then
    begin
     ' '
-    %G %?f pas_script_Reference %( )% 
+    [%f] OverrideLink %( %G %, %S %, 'G' )% 
     ++! l_Counter
    end // if
   end // for G
@@ -6391,7 +6469,9 @@ implementation @ "Delphi интерфейсы и реализация"
  begin
 //	 MELIST Implements
   ' MELIST Implements'
+
 //	   Seq: (< %R#f_pas_script_Reference()> )
+//	   Seq: (<{}{}{%R} %f_OverrideLink(%R,%S,"R")> )
   '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
   for %S%R
@@ -6400,7 +6480,7 @@ implementation @ "Delphi интерфейсы и реализация"
    if true then
    begin
     ' '
-    %R %?f pas_script_Reference %( )% 
+    [%f] OverrideLink %( %R %, %S %, 'R' )% 
     ++! l_Counter
    end // if
   end // for R
@@ -6515,7 +6595,7 @@ implementation @ "Delphi интерфейсы и реализация"
   begin
 //	 MELIST Implemented
    ' MELIST Implemented'
-//	   Seq: (<{}{}{%o} %f_OverrideLink(%o,%S)> )
+//	   Seq: (<{}{}{%o} %f_OverrideLink(%o,%S,"impl")> )
    '   Seq: ('
    INTEGER VAR l_Counter l_Counter := 0
    for %S%o
@@ -6524,7 +6604,7 @@ implementation @ "Delphi интерфейсы и реализация"
     if true then
     begin
      ' '
-     [%f] OverrideLink %( %o %, %S )% 
+     [%f] OverrideLink %( %o %, %S %, 'impl' )% 
      ++! l_Counter
     end // if
    end // for o
@@ -6539,7 +6619,7 @@ implementation @ "Delphi интерфейсы и реализация"
   begin
 //	 MELIST Overridden
    ' MELIST Overridden'
-//	   Seq: (<{}{}{%O} %f_OverrideLink(%O,%S)> )
+//	   Seq: (<{}{}{%O} %f_OverrideLink(%O,%S,"over")> )
    '   Seq: ('
    INTEGER VAR l_Counter l_Counter := 0
    for %S%O
@@ -6548,7 +6628,7 @@ implementation @ "Delphi интерфейсы и реализация"
     if true then
     begin
      ' '
-     [%f] OverrideLink %( %O %, %S )% 
+     [%f] OverrideLink %( %O %, %S %, 'over' )% 
      ++! l_Counter
     end // if
    end // for O
@@ -9195,8 +9275,8 @@ implementation @ "Delphi интерфейсы и реализация"
    begin
 //	%S%f_pas_script_GenerateForwardPrim()\
     %S %f pas_script_GenerateForwardPrim %( )% 
-//	%f_OutOverride(%o,%S,"opkind_Implemented")\
-    [%f] OutOverride %( %o %, %S %, 'opkind_Implemented' )% 
+//	%f_OutOverride(%o,%S,"opkind_Implemented","impl")\
+    [%f] OutOverride %( %o %, %S %, 'opkind_Implemented"' %, 'impl' )% 
 //	>\
 
     ++! l_Counter
@@ -9213,8 +9293,8 @@ implementation @ "Delphi интерфейсы и реализация"
    begin
 //	%S%f_pas_script_GenerateForwardPrim()\
     %S %f pas_script_GenerateForwardPrim %( )% 
-//	%f_OutOverride(%O,%S,"opkind_Overridden")\
-    [%f] OutOverride %( %O %, %S %, 'opkind_Overridden' )% 
+//	%f_OutOverride(%O,%S,"opkind_Overridden","over")\
+    [%f] OutOverride %( %O %, %S %, 'opkind_Overridden"' %, 'over' )% 
 //	>\
 
     ++! l_Counter
@@ -9222,6 +9302,40 @@ implementation @ "Delphi интерфейсы и реализация"
   end // for O
 //	]\
  end // if
+
+//	<{}{}{%G}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%G
+ begin
+  OBJECT IN %G
+  if true then
+  begin
+
+//	%S%f_pas_script_GenerateForwardPrim()\
+//	%f_OutOverride(%G,%S,"opkind_ReferencedType","G")\
+   [%f] OutOverride %( %G %, %S %, 'opkind_ReferencedType"' %, 'G' )% 
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for G
+
+//	<{}{}{%R}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+
+//	%S%f_pas_script_GenerateForwardPrim()\
+//	%f_OutOverride(%R,%S,"opkind_ReferencedType","R")\
+   [%f] OutOverride %( %R %, %S %, 'opkind_ReferencedType"' %, 'R' )% 
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for R
 
 //	[{%SS=Atom|%SS=Tag|%SS=VCMFormDefinition}\
  if ( ( %S |S ) %== 'Atom' OR 
@@ -9255,9 +9369,10 @@ end. // "Delphi интерфейсы и реализация"
  if ( ( %S %?f pas_script_Name %( )% ) %!= '' AND 
    ( ( %1 %?f pas_script_Name %( )% ) %!= ''  ) ) then
  begin
-//	%S#f_pas_script_Name()_%1#f_pas_script_Name()\
+//	%S#f_pas_script_Name()_%1#f_pas_script_Name()_%2N\
   %S %?f pas_script_Name %( )% '_'
-  %1 %?f pas_script_Name %( )% 
+  %1 %?f pas_script_Name %( )% '_'
+  %2 |N 
 //	]
  end // if
 
@@ -9265,10 +9380,10 @@ end. // "Delphi интерфейсы и реализация"
 ; // OverrideName
 
 : OverrideLink OBJECT IN %S
-//	[%f_OverrideName(%S,%1) // %SN\n]
+//	[%f_OverrideName(%S,%1,%2) // %SN\n]
  if NOT-EMPTY
  begin
-  [%f] OverrideName %( %S %, %1 )% ' // '
+  [%f] OverrideName %( %S %, %1 %, %2 )% ' // '
   %S |N #13#10 
  end // if
  NOP
@@ -9277,41 +9392,53 @@ end. // "Delphi интерфейсы и реализация"
 ; // OverrideLink
 
 : OutOverride OBJECT IN %S
-//	[{"%f_OverrideName(%S,%1)"!=""}\
- if ( ( [%f] OverrideName %( %S %, %1 )% ) %!= '' ) then
+//	[{"%f_OverrideName(%S,%1,%3)"!=""}\
+ if ( ( [%f] OverrideName %( %S %, %1 %, %3 )% ) %!= '' ) then
  begin
-//	\n\
-  #13#10
-//	ME %f_OverrideName(%S,%1)
-  'ME '
-  [%f] OverrideName %( %S %, %1 )% 
-//	[\
-  if NOT-EMPTY
+//	[{%f_exists_in_list(REFERENCED_ELEMENTS,"%f_OverrideName(%S,%1,%3)")!=true}\
+  if ( ( [%f] exists_in_list %( 'REFERENCED_ELEMENTS' %, [%f] OverrideName %( %S %, %1 %, %3 )% )% ) %!=  true ) then
   begin
+//	%f_add_to_list(REFERENCED_ELEMENTS,"%f_OverrideName(%S,%1,%3)")\
+   [%f] add_to_list %( 'REFERENCED_ELEMENTS' %, [%f] OverrideName %( %S %, %1 %, %3 )% )% 
+//	\n\
+   #13#10
+//	MEREF %f_OverrideName(%S,%1,%3)
+   'MEREF '
+   [%f] OverrideName %( %S %, %1 %, %3 )% 
+//	[\
+   if NOT-EMPTY
+   begin
 //	 MELINK Original %S#f_pas_script_Reference() ;
-   ' MELINK Original '
-   %S %?f pas_script_Reference %( )% ' ;'
+    ' MELINK Original '
+    %S %?f pas_script_Reference %( )% ' ;'
 //	]\
-  end // if
-  NOP
+   end // if
+   NOP
 
 
 //	[{"%2N"!=""}\
-  if ( ( %2 |N ) %!= '' ) then
-  begin
+   if ( ( %2 |N ) %!= '' ) then
+   begin
 //	 MEPROP OpKind %2N
-   ' MEPROP OpKind '
-   %2 |N 
+    ' MEPROP OpKind '
+    %2 |N 
+//	]\
+   end // if
+
+
+//	[{"%2N"!="opkind_ReferencedType"}\
+   if ( ( %2 |N ) %!= 'opkind_ReferencedType' ) then
+   begin
+//	%S#f_pas_script_GenerateUserProperties()\
+    %S %?f pas_script_GenerateUserProperties %( )% 
+//	]\
+   end // if
+//	ENDMEREF // %f_OverrideName(%S,%1,%3) %SN\n\
+   'ENDMEREF // '
+   [%f] OverrideName %( %S %, %1 %, %3 )% ' '
+   %S |N #13#10
 //	]\
   end // if
-
-
-//	%S#f_pas_script_GenerateUserProperties()\
-  %S %?f pas_script_GenerateUserProperties %( )% 
-//	ENDME // %f_OverrideName(%S,%1) %SN\n\
-  'ENDME // '
-  [%f] OverrideName %( %S %, %1 )% ' '
-  %S |N #13#10
 //	]
  end // if
 //#UC END# *563378C200C8for470F151302FD*
@@ -9431,12 +9558,25 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[{"%S#f_pas_script_FileNameForLink()"!="%BO"}{\
  if ( ( %S %?f pas_script_FileNameForLink %( )% ) %!= ( %B |O ) ) then
  begin
+//	[{"%S#f_pas_script_Name().ms.model.script"!="ME_%f_pas_script_FileNameForLinkSafe(%S)"}{\
+  if ( ( %S %?f pas_script_Name %( )% ) '.ms.model.script"' %!= 'ME_( '
+   [%f] pas_script_FileNameForLinkSafe %( %S )% ) ) then
+  begin
 //	WL '%S#f_pas_script_Name()' \
-  'WL '''
-  %S %?f pas_script_Name %( )% ''' '
+   'WL '''
+   %S %?f pas_script_Name %( )% ''' '
 //	'%f_pas_script_FileNameForLinkSafe(%S)'\
-  ''''
-  [%f] pas_script_FileNameForLinkSafe %( %S )% ''''
+   ''''
+   [%f] pas_script_FileNameForLinkSafe %( %S )% ''''
+//	]\
+  end // if
+  else
+  begin
+//	WL? '%S#f_pas_script_Name()'\
+   'WL? '''
+   %S %?f pas_script_Name %( )% ''''
+//	}\
+  end // else
 //	] \
  end // if
  else
@@ -9642,12 +9782,16 @@ implementation @ "Delphi интерфейсы и реализация"
  [%f] clear_list %( 'INCLUDED_FILES' )% 
 //	%f_clear_list(FORWARDED_ELEMENTS)\
  [%f] clear_list %( 'FORWARDED_ELEMENTS' )% 
+//	%f_clear_list(REFERENCED_ELEMENTS)\
+ [%f] clear_list %( 'REFERENCED_ELEMENTS' )% 
 
 //	%S%f_pas_script_GenerateInclude()\
  %S %f pas_script_GenerateInclude %( )% 
 
 //	%f_clear_list(FORWARDED_ELEMENTS)\
  [%f] clear_list %( 'FORWARDED_ELEMENTS' )% 
+//	%f_clear_list(REFERENCED_ELEMENTS)\
+ [%f] clear_list %( 'REFERENCED_ELEMENTS' )% 
 //	%f_clear_list(INCLUDED_FILES)\
  [%f] clear_list %( 'INCLUDED_FILES' )% 
 //	

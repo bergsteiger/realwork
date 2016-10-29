@@ -177,10 +177,18 @@ PROCEDURE .ProcessTmpOut:
  VAR l_OutFileName 
  VAR l_FileName
  aFileName >>> l_FileName
- if ( l_FileName sysutils:ExtractFilePath .IsNil ) then
+ VAR l_Path
+ l_FileName sysutils:ExtractFilePath >>> l_Path
+ if ( l_Path .IsNil ) then
  begin
   [ sysutils:GetCurrentDir l_FileName ] cPathSep strings:CatSep >>> l_FileName
- end // ( l_FileName sysutils:ExtractFilePath .IsNil )
+ end // ( l_Path .IsNil )
+ else
+ if ( '.\' l_Path StartsStr ) then
+ begin
+  l_FileName '.' sysutils:GetCurrentDir string:ReplaceFirst >>> l_FileName
+  //l_FileName Msg
+ end // ( '.\' l_Path StartsStr )
  [ 'C:\Temp\' CreateUID '.tmp' ] strings:Cat >>> l_OutFileName
  l_OutFileName .ProcessOut: ( aLambda DO ) 
  if (

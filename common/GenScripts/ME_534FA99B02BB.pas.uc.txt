@@ -1,0 +1,45 @@
+//#UC START# *534FA99B02BB_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\ReminderWordsPack.pas
+//#UC END# *534FA99B02BB_ext:FileName
+//#UC START# *534FA99B02BBimpl_uses*
+//#UC END# *534FA99B02BBimpl_uses*
+//#UC START# *550047F201E5_550047F201E5_532973740186_Word_impl*
+ Result := ((aReminder.PopupForm <> nil) and aReminder.PopupForm.Visible);
+//#UC END# *550047F201E5_550047F201E5_532973740186_Word_impl*
+//#UC START# *550047F201E5_550047F201E5_532973740186_Word_var*
+//#UC END# *550047F201E5_550047F201E5_532973740186_Word_var*
+//#UC START# *550048F80073_550048F80073_532973740186_Word_impl*
+ Result := aReminder.vgTextRect.Fill.Color;
+//#UC END# *550048F80073_550048F80073_532973740186_Word_impl*
+//#UC START# *550048F80073_550048F80073_532973740186_Word_var*
+//#UC END# *550048F80073_550048F80073_532973740186_Word_var*
+//#UC START# *55004A3A0131_55004A3A0131_532973740186_Word_impl*
+ RunnerAssert(aReminder.Owner is TvgRemindersLine, 'Не найдена линия медали', aCtx);
+ (aReminder.Owner as TvgRemindersLine).OffSetLine(aDelta.X, aDelta.Y);
+//#UC END# *55004A3A0131_55004A3A0131_532973740186_Word_impl*
+//#UC START# *55004A3A0131_55004A3A0131_532973740186_Word_var*
+//#UC END# *55004A3A0131_55004A3A0131_532973740186_Word_var*
+//#UC START# *55004A7901B4_55004A7901B4_532973740186_Word_impl*
+ with aReminder do
+ begin
+  RunnerAssert(Assigned(PopupForm) and PopupForm.Visible, 'Баллон не существует или невидим.', aCtx);
+  l_F := PopupForm.Panel.Controls[0] as TForm;
+  l_E := l_F.FindComponent('Viewer');
+  RunnerAssert(Assigned(l_E), 'Не найден редактор в баллоне.', aCtx);
+  Result := l_E;
+ end;//with aReminder
+//#UC END# *55004A7901B4_55004A7901B4_532973740186_Word_impl*
+//#UC START# *55004A7901B4_55004A7901B4_532973740186_Word_var*
+var
+ l_F : TForm;
+ l_E : TComponent;
+//#UC END# *55004A7901B4_55004A7901B4_532973740186_Word_var*
+//#UC START# *55004A9B02E5_55004A9B02E5_532973740186_Word_impl*
+ l_Pt.X := 0;
+ l_Pt.Y := 0;
+ Result := Tl3PopupMenuHelper.Instance.GetPopupMenu(aReminder, l_Pt);
+//#UC END# *55004A9B02E5_55004A9B02E5_532973740186_Word_impl*
+//#UC START# *55004A9B02E5_55004A9B02E5_532973740186_Word_var*
+var
+ l_Pt: TPoint;
+//#UC END# *55004A9B02E5_55004A9B02E5_532973740186_Word_var*

@@ -1,0 +1,544 @@
+//#UC START# *479731C50290_53FC907B01EC_impl*
+ inherited;
+ FreeAndNil(f_Items);
+//#UC END# *479731C50290_53FC907B01EC_impl*
+//#UC START# *479731C50290_53FC907B01EC_var*
+//#UC END# *479731C50290_53FC907B01EC_var*
+//#UC START# *47D1602000C6_53FC907B01EC_impl*
+ inherited Create(AOwner);
+ FArrowsSelect := True;
+
+ ComboStyle := ct_cbDropDown;
+
+ f_Items := DoCreateStrings;
+ ShowHint := True;
+
+ f_NeedDropFiltering := False;
+ f_NeedGotoNode := False;
+ f_TabEaten := False;
+ f_TreeIsFiltered := False;
+ AutoSelect := False;
+ f_SetToBeginOnTreeSelect := False;
+ f_ErrorColor := clRed;
+ f_TextValid := True;
+ f_ShowFullPath := True;
+//#UC END# *47D1602000C6_53FC907B01EC_impl*
+//#UC START# *47D1602000C6_53FC907B01EC_var*
+//#UC END# *47D1602000C6_53FC907B01EC_var*
+//#UC START# *4831634B00FF_53FC907B01EC_impl*
+ inherited;
+ if DrawWithErrorColor then
+  aCanvas.Font.ForeColor := ErrorColor;
+ if not Enabled then
+ begin
+  if (BorderStyle = bsNone) and (Parent <> nil) then
+   aCanvas.Font.BackColor := THackWinControl(Parent).Color
+  else
+   aCanvas.Font.BackColor := clBtnFace;
+  aCanvas.Font.ForeColor := clWindowText;
+ end;//not Enabled
+//#UC END# *4831634B00FF_53FC907B01EC_impl*
+//#UC START# *4831634B00FF_53FC907B01EC_var*
+//#UC END# *4831634B00FF_53FC907B01EC_var*
+//#UC START# *52A9AADF0289_53FC907B01EC_impl*
+//#UC END# *52A9AADF0289_53FC907B01EC_impl*
+//#UC START# *52A9AADF0289_53FC907B01EC_var*
+//#UC END# *52A9AADF0289_53FC907B01EC_var*
+//#UC START# *52A9AAEA0068_53FC907B01EC_impl*
+//#UC END# *52A9AAEA0068_53FC907B01EC_impl*
+//#UC START# *52A9AAEA0068_53FC907B01EC_var*
+//#UC END# *52A9AAEA0068_53FC907B01EC_var*
+//#UC START# *53ECD12B0045_53FC907B01ECset_impl*
+{$IfNDef DesignTimeLibrary}
+ if (FRestrictOnTextChange = 0) and (ComboStyle <> ct_cbEdit) then
+ begin
+  if (f_SetDroppedLock = 0) then
+  begin
+   Inc(f_SetDroppedLock);
+   try
+    if (aValue <> Dropped) then
+    begin
+     if aValue then
+     begin
+      if (Windows.GetFocus <> Self.Handle) then
+        Windows.SetFocus(Self.Handle);
+      if (f_Items.Count > 0) then
+      begin
+       MakeNodesFromItems;
+       l_Node := FindCurrent(Text);
+       if (l_Node <> nil) then
+        Tree.GotoOnNode(l_Node);
+      end//f_Items.Count > 0
+      else
+      if f_NeedDropFiltering and f_TreeIsFiltered then
+      begin
+       Tree.TreeStruct.Changing;
+       try
+        DefilterTree;
+       finally
+        Tree.TreeStruct.Changed;
+       end;//try..finally
+      end;//f_NeedDropFiltering
+      if f_NeedGotoNode then
+      begin
+       Tree.GotoOnNode(f_TempObjectCompleted);
+       f_NeedGotoNode := False;
+      end;//f_NeedGotoNode
+      CalcDropDimensions;
+      // CalcDropDimensions нельзя ставить перед предыдущим блоком
+     end//aValue
+     else
+     begin
+     end;//aValue
+    end;//aValue <> Dropped
+    inherited;
+   finally
+    Dec(f_SetDroppedLock);
+   end;//try..finally
+  end;//f_SetDroppedLock = 0
+ end;//ComboStyle <> cbEdit
+{$EndIf}
+//#UC END# *53ECD12B0045_53FC907B01ECset_impl*
+//#UC START# *53ECD12B0045_53FC907B01ECset_var*
+{$IfNDef DesignTimeLibrary}
+var
+ l_Node: Il3SimpleNode;
+{$EndIf}
+//#UC END# *53ECD12B0045_53FC907B01ECset_var*
+//#UC START# *53EE09AA0268_53FC907B01EC_impl*
+{$IfNDef DesignTimeLibrary}
+ Result := Tree.RowHeight * Tree.TreeStruct.CountView;
+ if (Result > aMaxSize) then
+  Result := aMaxSize
+ else
+ if (Result < aMinSize) then
+  Result := aMinSize;
+ Inc(Result, 4);
+{$EndIf DesignTimeLibrary}
+//#UC END# *53EE09AA0268_53FC907B01EC_impl*
+//#UC START# *53EE09AA0268_53FC907B01EC_var*
+//#UC END# *53EE09AA0268_53FC907B01EC_var*
+//#UC START# *53EE09D70249_53FC907B01EC_impl*
+{$IfNDef DesignTimeLibrary}
+ Result := Tree.GetMinSizeX;
+ if (Tree.RowHeight > 0) then
+  for l_Index := 0 to ((aSizeY - Tree.GetBorderSize ) div Tree.RowHeight) - 1 do
+  begin
+   l_Width := Tree.GetItemDim(l_Index).X;
+   if l_Width > Result then
+    Result := l_Width;
+   if (l_Width > aMaxSizeX) and (aMaxSizeX>=0) then
+   begin
+    Result := aMaxSizeX;
+    exit;
+   end;//l_Width > aMaxSizeX..
+  end;//for l_Index
+ Result := Result + Tree.Width - Tree.ClientWidth + 2;
+ // - видимо тут учитывается ширина скроллера
+ if (Result > aMaxSizeX) and (aMaxSizeX>=0) then
+  Result := aMaxSizeX;
+{$EndIf  DesignTimeLibrary}
+//#UC END# *53EE09D70249_53FC907B01EC_impl*
+//#UC START# *53EE09D70249_53FC907B01EC_var*
+{$IfNDef DesignTimeLibrary}
+var
+ l_Width : Integer;
+ l_Index : Integer;
+{$EndIf  DesignTimeLibrary}
+//#UC END# *53EE09D70249_53FC907B01EC_var*
+//#UC START# *53EE0A730393_53FC907B01EC_impl*
+ {$IfNDef DesignTimeLibrary}
+ Inc(FRestrictOnTextChange);
+ try
+  if ComboStyle <> ct_cbEdit then
+  begin
+   inherited;
+   f_TabEaten := false;
+   if ChooseFromTree then
+   begin
+    if (Tree.GetCurrentNode = nil) then
+     Exit;
+    f_TempObjectCompleted := Tree.GetCurrentNode;
+   end;//ChooseFromTree
+
+   if ChooseFromTree or (cmSetCurrent in CurrentMode) or
+      (cmClear in CurrentMode) or (cmVcmExecute in CurrentMode) then
+   begin
+    if (f_TempObjectCompleted <> nil) then
+    begin
+     if f_ShowFullPath then
+      l_S := getFullPath(f_TempObjectCompleted)
+     else
+      l_S := l3CStr(f_TempObjectCompleted.Text);
+     l3Replace(l_S, #10, l3PCharLen(#32));
+     // - http://mdp.garant.ru/pages/viewpage.action?pageId=114065443&focusedCommentId=114065453#comment-114065453
+     Paras.ParagraphStrings[0] := l_S;
+     f_NeedGotoNode := IsNeedGotoNode(f_TempObjectCompleted);
+     //if not f_NeedGotoNode then
+      State := esCompleted;
+    end//f_TempObjectCompleted <> nil
+    else
+     Paras.ParagraphStrings[0] := nil;
+   end;//ChooseFromTree or
+
+   DoUnselect;
+   LocalUpdateAction;
+   AdjustWidth;
+
+   // в обычных комбобоксах скроллим вправо
+   case ComboStyle of
+    ct_cbDropDown:
+     f_Border := TextLen;
+    else
+     f_Border := 0;
+   end;//case ComboStyle
+
+   DoMoveCursor(f_Border);
+   DoSelect(f_Border, f_Border);
+   InternalSetText(Text);
+   SaveState;
+
+   {/}
+   if aTriggerSelect then
+   begin
+    if Assigned(f_OnSelect) then
+     if not f_IsFirstLoad then
+      //if ((ComboStyle <> ct_cbDropDown) or Dropped) then
+       ActionExecuteHandler;
+
+    if IsList then
+    begin
+     if (f_TempObjectCompleted <> nil) then
+      f_ItemIndex := FindIndexOf(f_TempObjectCompleted);
+    end;//IsList
+    // Раньше был прямой вызов DoChange
+    // Но по ходу K-137463980 сильно потребовалось возможность давить вызов обработчика.
+    Change;
+   end;//aTriggerSelect
+  end;//ComboStyle <> ct_cbEdit
+  if SetToBeginOnTreeSelect then
+   SelStart := 0
+  else
+   SelStart := TextLen;
+  Repaint;
+ finally
+  Dec(FRestrictOnTextChange);
+ end;//try..finally 
+ {$EndIf DesignTimeLibrary}
+//#UC END# *53EE0A730393_53FC907B01EC_impl*
+//#UC START# *53EE0A730393_53FC907B01EC_var*
+{$IfNDef DesignTimeLibrary} //morozov
+var
+  lNode  : Il3SimpleNode;
+  l_Tree : Il3Tree;
+  l_S    : Il3CString;
+{$EndIf DesignTimeLibrary} //morozov
+//#UC END# *53EE0A730393_53FC907B01EC_var*
+//#UC START# *53F45A560187_53FC907B01EC_impl*
+ inherited;
+ if not ReadOnly then
+ begin
+  DoMoveCursor(TextLen);
+  DoSelect(0, TextLen);
+  Repaint;
+ end;//not ReadOnly
+//#UC END# *53F45A560187_53FC907B01EC_impl*
+//#UC START# *53F45A560187_53FC907B01EC_var*
+//#UC END# *53F45A560187_53FC907B01EC_var*
+//#UC START# *53F45B29001D_53FC907B01ECset_impl*
+ Assert(ComboStyle = ct_cbEdit);
+ if (f_TextValid <> aValue) and (ComboStyle = ct_cbEdit) then
+ begin
+  f_TextValid := aValue;
+  SetTextColor(Canvas);
+  SetFlag(ev_uwfBlock);
+  Invalidate;
+ end;//f_TextValid <> aValue
+//#UC END# *53F45B29001D_53FC907B01ECset_impl*
+//#UC START# *53F45B29001D_53FC907B01ECset_var*
+//#UC END# *53F45B29001D_53FC907B01ECset_var*
+//#UC START# *53F45B880294_53FC907B01ECget_impl*
+ if (ComboStyle in [ct_cbDropDownList, ct_cbDropDown]) then
+  Result := f_TempObjectCompleted
+ else
+  Result := nil;
+//#UC END# *53F45B880294_53FC907B01ECget_impl*
+//#UC START# *53F45B880294_53FC907B01ECget_var*
+//#UC END# *53F45B880294_53FC907B01ECget_var*
+//#UC START# *53F45BE201E1_53FC907B01ECget_impl*
+ Result := f_Items;
+//#UC END# *53F45BE201E1_53FC907B01ECget_impl*
+//#UC START# *53F45BE201E1_53FC907B01ECget_var*
+//#UC END# *53F45BE201E1_53FC907B01ECget_var*
+//#UC START# *53F45BE201E1_53FC907B01ECset_impl*
+ f_Items.Assign(aValue);
+//#UC END# *53F45BE201E1_53FC907B01ECset_impl*
+//#UC START# *53F45BE201E1_53FC907B01ECset_var*
+//#UC END# *53F45BE201E1_53FC907B01ECset_var*
+//#UC START# *53F45C5001BD_53FC907B01ECset_impl*
+ if (f_ErrorColor <> aValue) then
+ begin
+  f_ErrorColor := aValue;
+  Invalidate;
+ end;//f_ErrorColor <> aValue
+//#UC END# *53F45C5001BD_53FC907B01ECset_impl*
+//#UC START# *53F45C5001BD_53FC907B01ECset_var*
+//#UC END# *53F45C5001BD_53FC907B01ECset_var*
+//#UC START# *53F45C970310_53FC907B01ECget_impl*
+ Result := f_ItemIndex;
+//#UC END# *53F45C970310_53FC907B01ECget_impl*
+//#UC START# *53F45C970310_53FC907B01ECget_var*
+//#UC END# *53F45C970310_53FC907B01ECget_var*
+//#UC START# *53F45C970310_53FC907B01ECset_impl*
+{$IfNDef DesignTimeLibrary}
+ Inc(FRestrictOnTextChange);
+ try
+  Lock(Self);
+  try
+   if (aValue = -1) then
+   begin
+    Tree.SetNoCurrent;
+    f_TempObjectCompleted := nil;
+    Paras.ParagraphStrings[0] := nil;
+    Repaint;
+    f_ItemIndex := aValue;
+    Exit;
+   end;//aValue = -1
+
+   if Assigned(RootNode) and (f_ItemIndex <> aValue) then
+   begin
+    l_Count := aValue + 1;
+    l_Node := Tree.TreeStruct.SimpleIterateF(l3L2SNA(@lp_FindIndex), imCheckResult);
+    if Assigned(l_Node) then
+    begin
+     Tree.GotoOnNode(l_Node);
+     ProcessTreeSelect(True, True);
+     f_ItemIndex := aValue;
+    end;
+   end else
+   if {(f_Items.Count > 0) and} (f_ItemIndex <> aValue) {and (f_RootNode <> nil)} and
+      (aValue >= 0) and not Dropped{and (aValue < f_RootNode.AllChildrenCount)}{and IsList} then
+   // условие о Dropped нужно, т.к. vcm'вских update'ах мне постоянно выставляют Itemindex
+   // и если его убрать, в vcm'овских комбобоксах нельзя будет "ходить" кнопками
+   begin
+    f_IsFirstLoad := (f_ItemIndex = -1);
+    MakeNodesFromItems;
+    with Tree, Tree.TreeStruct do
+    begin
+     l_Node := GetNode(aValue);
+     if Assigned(l_Node) then
+      try
+       GotoOnNode(l_Node);
+       ProcessTreeSelect(True, True);
+      finally
+       l_Node := nil;
+      end;//try..finally
+     f_ItemIndex := aValue;
+    end;//with Tree
+    f_IsFirstLoad := False;
+   end;//f_Items.Count > 0..
+  finally
+   Unlock(Self);
+  end;//try..finally
+ finally
+  Dec(FRestrictOnTextChange);
+ end;//try..finally
+{$EndIf DesignTimeLibrary}
+//#UC END# *53F45C970310_53FC907B01ECset_impl*
+//#UC START# *53F45C970310_53FC907B01ECset_var*
+{$IfNDef DesignTimeLibrary}
+var
+ l_Node: Il3SimpleNode;
+
+var
+ l_Count : Integer;
+
+ function lp_FindIndex(const aIterNode: Il3SimpleNode): Boolean;
+ begin//FindIndex
+  Dec(l_Count);
+  Result := (l_Count = 0);
+ end;//FindIndex
+
+{$EndIf DesignTimeLibrary}
+//#UC END# *53F45C970310_53FC907B01ECset_var*
+//#UC START# *53F45F040009_53FC907B01EC_impl*
+ Result := True;
+ l_Temp := Tree.GetCurrentNode;
+ if Assigned(l_Temp) then
+ try
+  if l_Temp.IsSame(aNode) then
+   Result := False;
+ finally
+  l_Temp := nil;
+ end;
+//#UC END# *53F45F040009_53FC907B01EC_impl*
+//#UC START# *53F45F040009_53FC907B01EC_var*
+var
+ l_Temp: Il3SimpleNode;
+//#UC END# *53F45F040009_53FC907B01EC_var*
+//#UC START# *53F45F5500CC_53FC907B01EC_impl*
+ case ComboStyle of
+  ct_cbEdit:
+   Result := not TextValid;
+  else
+   Result := State = esWrong;
+ end;//case ComboStyle
+//#UC END# *53F45F5500CC_53FC907B01EC_impl*
+//#UC START# *53F45F5500CC_53FC907B01EC_var*
+//#UC END# *53F45F5500CC_53FC907B01EC_var*
+//#UC START# *53F45F9F030D_53FC907B01EC_impl*
+ Assert(Self is TFakeBox);
+ Result := TctFakeBoxStrings.Create(Self as TFakeBox);
+//#UC END# *53F45F9F030D_53FC907B01EC_impl*
+//#UC START# *53F45F9F030D_53FC907B01EC_var*
+//#UC END# *53F45F9F030D_53FC907B01EC_var*
+//#UC START# *53F4601A00BD_53FC907B01EC_impl*
+{$IfNDef DesignTimeLibrary}
+ if f_TreeIsFiltered then
+ begin
+  Il3ChangeRecipient(Tree).Changing;
+  try
+   if Supports(Tree.TreeStruct, Il3Tree, l_Tree) then
+    if not Tree.TreeStruct.RootNode.IsSame(RootNode) then
+     Tree.TreeStruct.RootNode := RootNode as Il3SimpleRootNode
+    else
+     l_Tree.SetAllFlag(sbDeselect, nfHidden)
+   else
+    if Supports(Tree.TreeStruct, Il3FilterableTree, l_FilterableTree) then
+     Tree.TreeStruct := l_FilterableTree.MakeFiltered(l_FilterableTree.CloneFilters.SetContext(nil),
+                                                      Tree.GetCurrentNode,
+                                                      l_SyncIndex,
+                                                      False);
+  finally
+   Il3ChangeRecipient(Tree).Changed;
+  end;//try..finally
+  f_TreeIsFiltered := False;
+ end;//f_TreeIsFiltered
+{$EndIf DesignTimeLibrary}
+//#UC END# *53F4601A00BD_53FC907B01EC_impl*
+//#UC START# *53F4601A00BD_53FC907B01EC_var*
+{$IfNDef DesignTimeLibrary}
+var
+ l_Tree: Il3Tree;
+ l_FilterableTree: Il3FilterableTree;
+ l_SyncIndex: Integer;
+{$EndIf DesignTimeLibrary}
+//#UC END# *53F4601A00BD_53FC907B01EC_var*
+//#UC START# *53F46070029D_53FC907B01EC_impl*
+ Result := afw.IsObjectLocked(Self);
+//#UC END# *53F46070029D_53FC907B01EC_impl*
+//#UC START# *53F46070029D_53FC907B01EC_var*
+//#UC END# *53F46070029D_53FC907B01EC_var*
+//#UC START# *53F460A302FE_53FC907B01EC_impl*
+ case ComboStyle of
+  ct_cbEdit:
+   Result := TextValid;
+  else
+   Result := True;
+ end;//case ComboStyle
+//#UC END# *53F460A302FE_53FC907B01EC_impl*
+//#UC START# *53F460A302FE_53FC907B01EC_var*
+//#UC END# *53F460A302FE_53FC907B01EC_var*
+//#UC START# *53F460C800DF_53FC907B01EC_impl*
+ if (aNode <> nil) then
+ begin
+  f_TempObjectCompleted := aNode;
+  CurrentMode := CurrentMode + [cmSetCurrent];
+  try
+   ProcessTreeSelect(False, TriggerSelect);
+  finally
+   CurrentMode := CurrentMode - [cmSetCurrent];
+  end;//try..finally
+ end//aNode <> nil
+ else
+  Clear;
+//#UC END# *53F460C800DF_53FC907B01EC_impl*
+//#UC START# *53F460C800DF_53FC907B01EC_var*
+//#UC END# *53F460C800DF_53FC907B01EC_var*
+//#UC START# *53F46100000A_53FC907B01EC_impl*
+ l_Count := -1;
+ Result := -1;
+ if Tree.TreeStruct.SimpleIterateF(l3L2SNA(@FindIndex), imCheckResult) <> nil then
+  Result := l_Count;
+//#UC END# *53F46100000A_53FC907B01EC_impl*
+//#UC START# *53F46100000A_53FC907B01EC_var*
+var
+  l_Count : Integer;
+
+ function FindIndex(const aIterNode: Il3SimpleNode): boolean;
+ begin//FindIndex
+  Result := aIterNode.IsSame(aNode);
+  Inc(l_Count);
+ end;//FindIndex
+//#UC END# *53F46100000A_53FC907B01EC_var*
+//#UC START# *53F4613C008E_53FC907B01EC_impl*
+ Tree.SetSimpleTree(aTree);
+//#UC END# *53F4613C008E_53FC907B01EC_impl*
+//#UC START# *53F4613C008E_53FC907B01EC_var*
+//#UC END# *53F4613C008E_53FC907B01EC_var*
+//#UC START# *53F47740011A_53FC907B01EC_impl*
+ Result := Tree.TreeStruct.SimpleIterateF(l3L2SNA(@FindCurr), imCheckResult);
+//#UC END# *53F47740011A_53FC907B01EC_impl*
+//#UC START# *53F47740011A_53FC907B01EC_var*
+ function FindCurr(const aIterNode: Il3SimpleNode): boolean;
+ begin//FindCurr
+  Result := l3Same(aIterNode.Text, aText, true);
+ end;//FindCurr
+//#UC END# *53F47740011A_53FC907B01EC_var*
+//#UC START# *53FC907B01EC_ext:ParentFileName
+w:\common\components\gui\Garant\VT\ComboTree\FakeBox.pas
+//#UC END# *53FC907B01EC_ext:ParentFileName
+//#UC START# *57B5DCEB02EC_53FC907B01EC_impl*
+ if not Assigned(RootNode) then
+  Result := (f_Items as Il3Strings).Items.Text
+ else
+ begin
+  l_Res := '';
+  Tree.TreeStruct.SimpleIterateF(l3L2SNA(@lp_GetText));
+  Result := l_Res;
+ end;
+//#UC END# *57B5DCEB02EC_53FC907B01EC_impl*
+//#UC START# *57B5DCEB02EC_53FC907B01EC_var*
+ procedure lp_Add(var S1: String; const S2: String);
+ begin
+  if (Length(S1) > 0) then
+   if (Length(S2) > 0) then
+    S1 := S1 + #13#10 + S2
+   else
+    //S1 := S1
+  else
+   S1 := S2;
+ end;
+
+var
+ l_Res: String;
+
+ function lp_GetText(const aNode: Il3SimpleNode): Boolean;
+ begin
+  lp_Add(l_Res, l3Str(GetFullPath(aNode)));
+ end;
+
+var
+ l_Tree: Il3SimpleTree;
+//#UC END# *57B5DCEB02EC_53FC907B01EC_var*
+//#UC START# *57B6EC4E020A_53FC907B01EC_impl*
+ if not Assigned(RootNode) and (f_Items.Count > 0) then
+  Result := Items.IndexOf(aText)
+ else
+ begin
+  l_Count := -1;
+  Result := -1;
+  if (Tree.TreeStruct.SimpleIterateF(l3L2SNA(@lp_Find), imCheckResult) <> nil) then
+   Result := l_Count;
+ end;
+//#UC END# *57B6EC4E020A_53FC907B01EC_impl*
+//#UC START# *57B6EC4E020A_53FC907B01EC_var*
+var
+ l_Count: Integer;
+ 
+ function lp_Find(const aNode: Il3SimpleNode): Boolean;
+ begin
+  Result := l3Same(aNode.Text, aText, True) or l3Same(GetFullPath(aNode), aText, True);
+  Inc(l_Count);
+ end;
+//#UC END# *57B6EC4E020A_53FC907B01EC_var*

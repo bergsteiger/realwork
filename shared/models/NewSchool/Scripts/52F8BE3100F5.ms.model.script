@@ -83,7 +83,6 @@ FORWARD ME_52F8EDDA037F
 ME ME_52F8F4EC03AD
  MEPROP Name 'aTask'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
  ;
 
@@ -349,6 +348,16 @@ ME ME_5804B53F0300
 
 ENDME // ME_5804B53F0300 
 
+ME ME_5811BBB000D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL? 'ME_5811BB7F013F' // TalcuServerFilesDeliverer
+ ;
+
+ENDME // ME_5811BBB000D1 
+
 MEREF ME_5385C616025E_ME_52F8E80D00A5_impl
  MELINK Original WL 'ME_5385C616025E' '5385C5B200E6.ms.model.script' // DoTaskChanged
  ;
@@ -446,6 +455,7 @@ ME ME_52F8E80D00A5
  ME_57EBC0E501DF // TalcuMultiClearAttributesExecutor
  ME_57EE6EB80261 // TalcuMultiOperationExecutor
  ME_5804B53F0300 // TalcuMultiChangeHyperLinksExecutor
+ ME_5811BBB000D1 // TalcuServerFilesDeliverer
  )
  ; // Dependencies
  MESTRINGLIST DiagramsNames

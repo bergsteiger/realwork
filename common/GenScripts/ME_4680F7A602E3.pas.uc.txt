@@ -1,0 +1,25 @@
+//#UC START# *4680F7A602E3_ext:FileName
+w:\common\components\rtl\Garant\L3\l3InterfacedDataObject.imp.pas
+//#UC END# *4680F7A602E3_ext:FileName
+//#UC START# *479731C50290_4680F7A602E3_impl*
+ f_Data := nil;
+ inherited;
+//#UC END# *479731C50290_4680F7A602E3_impl*
+//#UC START# *479731C50290_4680F7A602E3_var*
+//#UC END# *479731C50290_4680F7A602E3_var*
+//#UC START# *4A60B23E00C3_4680F7A602E3_impl*
+ if (f_Data = nil) then
+  Result.SetNOINTERFACE
+ else
+  Result := Tl3HResult_C(f_Data.QueryInterface(IID.IID, Obj));
+ if Result.Fail then
+  Result := inherited COMQueryInterface(IID, Obj);
+//#UC END# *4A60B23E00C3_4680F7A602E3_impl*
+//#UC START# *4A60B23E00C3_4680F7A602E3_var*
+//#UC END# *4A60B23E00C3_4680F7A602E3_var*
+//#UC START# *4CE27E5A011A_4680F7A602E3_impl*
+ inherited Create(aFormats);
+ f_Data := aData;
+//#UC END# *4CE27E5A011A_4680F7A602E3_impl*
+//#UC START# *4CE27E5A011A_4680F7A602E3_var*
+//#UC END# *4CE27E5A011A_4680F7A602E3_var*

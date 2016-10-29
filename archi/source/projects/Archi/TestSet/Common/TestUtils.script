@@ -517,10 +517,10 @@ PROCEDURE "Сравнить список выборки с эталоном"
 	l_File '%' tests:CheckEtalon
 ;
 
-PROCEDURE "Сохранить в BMP и сравнить с эталоном" OBJECT IN aViewer
+PROCEDURE "Сохранить в PNG и сравнить с эталоном" OBJECT IN aViewer
 	aViewer ImageEnViewer:SaveBitmap
 	STRING VAR l_FileName
-	script:FileName csBMPExt sysutils:ChangeFileExt
+	script:FileName csPNGExt sysutils:ChangeFileExt
 	sysutils:ExtractFileName >>> l_FileName
 	l_FileName '' tests:CheckEtalon	
 ;
@@ -3297,4 +3297,32 @@ PROCEDURE "Открыть контекстное меню метки курсором мыши и сравнить с эталоном"
 		"Клик левой кнопкой мыши"
 	)
 	"Клик правой кнопкой мыши"
+;
+
+PROCEDURE "Изменить тип объекта в окне 'Внешний объект' на 'Документ Microsoft Word'"
+	"Выбрать в выпадающем списке комбобокса {('cbObjType')} значение индекса {(0)}"
+;
+
+PROCEDURE "На вкладке Корреспонденты выбрать курсором мыши документ и открыть двойным кликом"
+	"Контрол по имени {('ParentDocList')}" pop:Control:SetFocus ?ASSURE [ 'Нельзя установить фокус в ' 'ParentDocList' ]
+	"Установить курсор мыши по координатам {(50 10)} относительно контрола в фокусе"
+	"Двойной клик"
+;
+
+PROCEDURE "Выделить слово 'Тестовый'"
+	OBJECT VAR l_Object
+	"Контрол по имени {("Контрол редактора текста")}" >>> l_Object
+	"Выделить слово {(l_Object)}"
+;
+
+PROCEDURE "Проверить чекбокс 'Документ подключен'"
+	OBJECT VAR l_Object
+	"Контрол по имени {('cbxIncDone')}" >>> l_Object
+	 ( "Чекбокс {(l_Object)} отмечен?" ) ?ASSURE 'Чекбокс не был отмечен!'
+;
+
+PROCEDURE "Перейти в параграф с текстом и нажать 'Выровнять вправо' сочетанием (Alt+R)"
+	"В начало документа"
+	6 раз ( "Нажать вниз" )
+	"Нажать 'Выровнять вправо' сочетанием (Alt+R)"
 ;

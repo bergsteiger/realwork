@@ -1,0 +1,95 @@
+//#UC START# *4DAEEDE10285_55AE4C31002C_Word_impl*
+ Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.CloseSelectedTab;
+//#UC END# *4DAEEDE10285_55AE4C31002C_Word_impl*
+//#UC START# *4DAEEDE10285_55AE4C31002C_Word_var*
+//#UC END# *4DAEEDE10285_55AE4C31002C_Word_var*
+//#UC START# *4DAEEDE10285_55AE4C630229_Word_impl*
+ Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.CloseAllButActiveTab;
+//#UC END# *4DAEEDE10285_55AE4C630229_Word_impl*
+//#UC START# *4DAEEDE10285_55AE4C630229_Word_var*
+//#UC END# *4DAEEDE10285_55AE4C630229_Word_var*
+//#UC START# *4DAEEDE10285_55AE7931034C_Word_impl*
+ Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.OpenNewTab;
+//#UC END# *4DAEEDE10285_55AE7931034C_Word_impl*
+//#UC START# *4DAEEDE10285_55AE7931034C_Word_var*
+//#UC END# *4DAEEDE10285_55AE7931034C_Word_var*
+//#UC START# *4DAEEDE10285_55DB1B1500D4_Word_impl*
+ with Tl3TabbedContainersDispatcher.Instance do
+  ReopenClosedTab(GetActiveTabbedContainer);
+//#UC END# *4DAEEDE10285_55DB1B1500D4_Word_impl*
+//#UC START# *4DAEEDE10285_55DB1B1500D4_Word_var*
+//#UC END# *4DAEEDE10285_55DB1B1500D4_Word_var*
+//#UC START# *55AE40B600B7_ext:FileName
+w:\common\components\gui\Garant\VCM\vcmTabsWordsPack.pas
+//#UC END# *55AE40B600B7_ext:FileName
+//#UC START# *55AE40B600B7impl_uses*
+//#UC END# *55AE40B600B7impl_uses*
+//#UC START# *55AE4C470082_55AE4C470082_Word_impl*
+ with Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer do
+  CloseTab(Tabs[aTabIndex]);
+//#UC END# *55AE4C470082_55AE4C470082_Word_impl*
+//#UC START# *55AE4C470082_55AE4C470082_Word_var*
+//#UC END# *55AE4C470082_55AE4C470082_Word_var*
+//#UC START# *55AE78F700E1_55AE78F700E1_Word_impl*
+ Result := Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.ActiveTab.VisibleIndex;
+//#UC END# *55AE78F700E1_55AE78F700E1_Word_impl*
+//#UC START# *55AE78F700E1_55AE78F700E1_Word_var*
+//#UC END# *55AE78F700E1_55AE78F700E1_Word_var*
+//#UC START# *55AE790302E8_55AE790302E8_Word_impl*
+ with Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer do
+  ActiveTab := Tabs[aValue];
+//#UC END# *55AE790302E8_55AE790302E8_Word_impl*
+//#UC START# *55AE790302E8_55AE790302E8_Word_var*
+//#UC END# *55AE790302E8_55AE790302E8_Word_var*
+//#UC START# *55AE79190270_55AE79190270_Word_impl*
+ Result := Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.TabCount;
+//#UC END# *55AE79190270_55AE79190270_Word_impl*
+//#UC START# *55AE79190270_55AE79190270_Word_var*
+//#UC END# *55AE79190270_55AE79190270_Word_var*
+//#UC START# *55AE794F0259_55AE794F0259_Word_impl*
+ Result := Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.CanOpenNewTab;
+//#UC END# *55AE794F0259_55AE794F0259_Word_impl*
+//#UC START# *55AE794F0259_55AE794F0259_Word_var*
+//#UC END# *55AE794F0259_55AE794F0259_Word_var*
+//#UC START# *55DB1AF403B8_55DB1AF403B8_Word_impl*
+ with Tl3TabbedContainersDispatcher.Instance do
+  CloneTab(GetActiveTabbedContainer.TabByVisibleIndex[aTabIndex]);
+//#UC END# *55DB1AF403B8_55DB1AF403B8_Word_impl*
+//#UC START# *55DB1AF403B8_55DB1AF403B8_Word_var*
+//#UC END# *55DB1AF403B8_55DB1AF403B8_Word_var*
+//#UC START# *55DB1B7A0137_55DB1B7A0137_Word_impl*
+ with Tl3TabbedContainersDispatcher.Instance do
+  Result := CanReopenClosedTab(GetActiveTabbedContainer);
+//#UC END# *55DB1B7A0137_55DB1B7A0137_Word_impl*
+//#UC START# *55DB1B7A0137_55DB1B7A0137_Word_var*
+//#UC END# *55DB1B7A0137_55DB1B7A0137_Word_var*
+//#UC START# *55DB1BAC0203_55DB1BAC0203_Word_impl*
+ with Tl3TabbedContainersDispatcher.Instance do
+  Result := CanCloneTab(GetActiveTabbedContainer.Tabs[aTabIndex]);
+//#UC END# *55DB1BAC0203_55DB1BAC0203_Word_impl*
+//#UC START# *55DB1BAC0203_55DB1BAC0203_Word_var*
+//#UC END# *55DB1BAC0203_55DB1BAC0203_Word_var*
+//#UC START# *560168780139_560168780139_Word_impl*
+ with Tl3TabbedContainersDispatcher.Instance do
+  Result := GetTabIcon(GetActiveTabbedContainer.TabByVisibleIndex[aTabIndex]);
+//#UC END# *560168780139_560168780139_Word_impl*
+//#UC START# *560168780139_560168780139_Word_var*
+//#UC END# *560168780139_560168780139_Word_var*
+//#UC START# *56727DFE03B2_56727DFE03B2_Word_impl*
+ with Tl3TabbedContainersDispatcher.Instance do
+  Result := GetTabCaption(GetActiveTabbedContainer.TabByVisibleIndex[aTabIndex]);
+//#UC END# *56727DFE03B2_56727DFE03B2_Word_impl*
+//#UC START# *56727DFE03B2_56727DFE03B2_Word_var*
+//#UC END# *56727DFE03B2_56727DFE03B2_Word_var*
+//#UC START# *5698FB1801C8_5698FB1801C8_Word_impl*
+ with Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer do
+  Result := CanUndockFormFromTab(aTabIndex);
+//#UC END# *5698FB1801C8_5698FB1801C8_Word_impl*
+//#UC START# *5698FB1801C8_5698FB1801C8_Word_var*
+//#UC END# *5698FB1801C8_5698FB1801C8_Word_var*
+//#UC START# *5698FB610250_5698FB610250_Word_impl*
+ with Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer do
+  UndockFormFromTab(aTabIndex);
+//#UC END# *5698FB610250_5698FB610250_Word_impl*
+//#UC START# *5698FB610250_5698FB610250_Word_var*
+//#UC END# *5698FB610250_5698FB610250_Word_var*

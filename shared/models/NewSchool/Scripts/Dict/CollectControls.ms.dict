@@ -77,10 +77,13 @@ PROCEDURE CollectControls
         IN aDictFileName
        if ( aWord .IsStereotype st_SimpleClass ) then
        begin
-        if ( aWord .Name .InArray: l_Names ) then
+        if ( aWord .IsReferencedType ! ) then
         begin
-         aWord aDictFileName .OutWordLink
-        end // ( aWord .Name .InArray: l_Names )
+         if ( aWord .Name .InArray: l_Names ) then
+         begin
+          aWord aDictFileName .OutWordLink
+         end // ( aWord .Name .InArray: l_Names )
+        end // ( aWord .IsReferencedType ! )
        end // ( aWord .IsStereotype st_SimpleClass )
       ) // aDict .ProcessDictionary:
      end

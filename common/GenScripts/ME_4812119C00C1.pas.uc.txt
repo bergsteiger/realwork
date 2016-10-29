@@ -1,0 +1,35 @@
+//#UC START# *4811DB8A0323_4812119C00C1_impl*
+ Canvas.StartObject(aShape.AnchorID);
+ inherited;
+//#UC END# *4811DB8A0323_4812119C00C1_impl*
+//#UC START# *4811DB8A0323_4812119C00C1_var*
+//#UC END# *4811DB8A0323_4812119C00C1_var*
+//#UC START# *48120D32035F_4812119C00C1_impl*
+ Result := f_HiddenStyles;
+//#UC END# *48120D32035F_4812119C00C1_impl*
+//#UC START# *48120D32035F_4812119C00C1_var*
+//#UC END# *48120D32035F_4812119C00C1_var*
+//#UC START# *4812119C00C1_ext:FileName
+w:\common\components\gui\Garant\Everest\new\nevPrintView.pas
+//#UC END# *4812119C00C1_ext:FileName
+//#UC START# *4812119C00C1impl_uses*
+//#UC END# *4812119C00C1impl_uses*
+//#UC START# *48121CB0013E_4812119C00C1_impl*
+ //Result := Min(Canvas.SectionExtent.X, inherited GetLimitWidth);
+ Result := Canvas.SectionExtent.X;
+//#UC END# *48121CB0013E_4812119C00C1_impl*
+//#UC START# *48121CB0013E_4812119C00C1_var*
+//#UC END# *48121CB0013E_4812119C00C1_var*
+//#UC START# *4CB5BEE50148_4812119C00C1_impl*
+ f_HoldedText := aText;
+ // - чтобы ссылка не "протухла", т.к. предок держит “ќЋ№ ќ —ЋјЅ”ё ссылку
+ inherited Create(aText, aCanvas);
+ f_HiddenStyles := aHiddenStyles;
+//#UC END# *4CB5BEE50148_4812119C00C1_impl*
+//#UC START# *4CB5BEE50148_4812119C00C1_var*
+//#UC END# *4CB5BEE50148_4812119C00C1_var*
+//#UC START# *4F66FDB60040_4812119C00C1_impl*
+ Result := [ev_slFoundWords];
+//#UC END# *4F66FDB60040_4812119C00C1_impl*
+//#UC START# *4F66FDB60040_4812119C00C1_var*
+//#UC END# *4F66FDB60040_4812119C00C1_var*

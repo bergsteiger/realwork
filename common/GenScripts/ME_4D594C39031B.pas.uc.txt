@@ -1,0 +1,92 @@
+//#UC START# *48E266730188_4D594C39031B_impl*
+ Result := false;
+//#UC END# *48E266730188_4D594C39031B_impl*
+//#UC START# *48E266730188_4D594C39031B_var*
+//#UC END# *48E266730188_4D594C39031B_var*
+//#UC START# *48E266AA00A4_4D594C39031B_impl*
+ Result := true;
+//#UC END# *48E266AA00A4_4D594C39031B_impl*
+//#UC START# *48E266AA00A4_4D594C39031B_var*
+//#UC END# *48E266AA00A4_4D594C39031B_var*
+//#UC START# *48E266C70128_4D594C39031B_impl*
+ DoCollapse(aView);
+ Result := true;
+//#UC END# *48E266C70128_4D594C39031B_impl*
+//#UC START# *48E266C70128_4D594C39031B_var*
+//#UC END# *48E266C70128_4D594C39031B_var*
+//#UC START# *48E266DE026B_4D594C39031B_impl*
+ DoCollapse(aView);
+ Result := true;
+//#UC END# *48E266DE026B_4D594C39031B_impl*
+//#UC START# *48E266DE026B_4D594C39031B_var*
+//#UC END# *48E266DE026B_4D594C39031B_var*
+//#UC START# *48E266FB01FC_4D594C39031B_impl*
+ Result := false;
+//#UC END# *48E266FB01FC_4D594C39031B_impl*
+//#UC START# *48E266FB01FC_4D594C39031B_var*
+//#UC END# *48E266FB01FC_4D594C39031B_var*
+//#UC START# *48E267150266_4D594C39031B_impl*
+ Result := false;
+//#UC END# *48E267150266_4D594C39031B_impl*
+//#UC START# *48E267150266_4D594C39031B_var*
+//#UC END# *48E267150266_4D594C39031B_var*
+//#UC START# *49DB4675025E_4D594C39031B_impl*
+ Result := false;
+//#UC END# *49DB4675025E_4D594C39031B_impl*
+//#UC START# *49DB4675025E_4D594C39031B_var*
+//#UC END# *49DB4675025E_4D594C39031B_var*
+//#UC START# *49DB468302A5_4D594C39031B_impl*
+ Result := false;
+//#UC END# *49DB468302A5_4D594C39031B_impl*
+//#UC START# *49DB468302A5_4D594C39031B_var*
+//#UC END# *49DB468302A5_4D594C39031B_var*
+//#UC START# *4A267FC6016B_4D594C39031B_impl*
+ inherited;
+ theInfo.rCursor := ev_csHandPoint;
+ if aView.IsObjectCollapsed[f_Para] then
+  theInfo.rHint := str_tphhsShowVersionInfo.AsCStr
+ else
+  theInfo.rHint := str_tphhsHideVersionInfo.AsCStr;
+//#UC END# *4A267FC6016B_4D594C39031B_impl*
+//#UC START# *4A267FC6016B_4D594C39031B_var*
+//#UC END# *4A267FC6016B_4D594C39031B_var*
+//#UC START# *4D594C39031B_ext:FileName
+w:\common\components\gui\Garant\Everest\evTextParaHeaderHotSpot.pas
+//#UC END# *4D594C39031B_ext:FileName
+//#UC START# *4D594C39031Bimpl_uses*
+//#UC END# *4D594C39031Bimpl_uses*
+//#UC START# *4D594C980253_4D594C39031B_impl*
+ inherited Create(aPara.AsObject, aProcessor);
+ f_Para := aPara;
+//#UC END# *4D594C980253_4D594C39031B_impl*
+//#UC START# *4D594C980253_4D594C39031B_var*
+//#UC END# *4D594C980253_4D594C39031B_var*
+//#UC START# *4D59515E0255_4D594C39031B_impl*
+ l_S := f_Para.AsObject.IntA[k2_tiStyle];
+ l_C := not aView.IsObjectCollapsed[f_Para];
+ l_P := f_Para;
+ l_Op := Processor.StartOp;
+ try
+  while (l_P <> nil) AND l_P.AsObject.IsValid AND
+        (l_P.AsObject.IntA[k2_tiStyle] = l_S) do
+  begin
+   aView.IsObjectCollapsed[l_P] := l_C;
+   l_P := evNextOverallPara(l_P);
+  end;//while (l_P <> nil)..
+ finally
+  l_Op := nil;
+ end;//try..finally
+ f_Para.Invalidate([nev_spExtent]);
+//#UC END# *4D59515E0255_4D594C39031B_impl*
+//#UC START# *4D59515E0255_4D594C39031B_var*
+var
+ l_C  : Boolean;
+ l_Op : InevOp;
+ l_S  : Integer;
+ l_P  : InevPara;
+//#UC END# *4D59515E0255_4D594C39031B_var*
+//#UC START# *4ECCD6840014_4D594C39031B_impl*
+ Result := True;
+//#UC END# *4ECCD6840014_4D594C39031B_impl*
+//#UC START# *4ECCD6840014_4D594C39031B_var*
+//#UC END# *4ECCD6840014_4D594C39031B_var*

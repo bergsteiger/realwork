@@ -257,6 +257,8 @@ BOOLEAN elem_func IsMeStub
  RULES
   ( Self .IsNil )
    false
+  ( Self IsString )
+   false 
   DEFAULT
    begin
     RULES
@@ -402,6 +404,10 @@ ModelElement STRING elem_func Stereotype
  Self 'Stereotype' .ElemWord >>> Result
 ; // Stereotype
 
+ModelElement STRING elem_func GeneralizedStereotype
+ Self 'GeneralizedStereotype' .ElemWord >>> Result
+; // Stereotype
+
 USES
  WordsRTTI.ms.dict
 ;
@@ -443,6 +449,8 @@ BOOLEAN FUNCTION IsStereoKindOf
  ) 
  >>> Result
 ; // IsStereoKindOf
+
+WordAlias .IsStereoKindOf IsStereoKindOf
 
 elem_iterator Inherits
  Self 'Inherits' .ElemList >>> Result
@@ -505,7 +513,15 @@ ARRAY FUNCTION .CopyWithoutDuplicatedUIDs
     VAR l_Empty
     true >>> l_Empty
     anArray 
-    .filter> ( .LUID .AddToArray?: l_CopyNames )
+    .filter> ( 
+      IN anItem
+     RULES 
+      ( anItem .LUID .IsNil )
+       true
+      DEFAULT
+       ( anItem .LUID .AddToArray?: l_CopyNames )
+     ; // RULES 
+    ) // .filter>
     .for> ( 
       IN anElement
      anElement .AddToArray: l_Copy
@@ -618,23 +634,32 @@ BOOLEAN elem_func IsStereotype
     ModelElement VAR l_OurStereo
     Self .Stereotype >>> l_OurStereo
     
+    if ( l_OurStereo IsString ) then
+    begin
+     Self .StereotypeInModel .Stereotype >>> l_OurStereo
+    end // ( l_OurStereo IsString )
+    
     RULES 
      ( l_OurStereo .IsNil )
        false
      (  
       ( l_OurStereo .IsMeStub )
-      OR ( l_OurStereo .StereotypeInModel l_OurStereo ?== )
+      //OR ( l_OurStereo .StereotypeInModel l_OurStereo ?== )
      ) 
       begin
        ModelElement VAR l_Stereo
        aStereo DO >>> l_Stereo
-       l_OurStereo l_Stereo IsStereoKindOf
+       l_OurStereo l_Stereo .IsStereoKindOf
       end // // l_OurStereo IsNil
      DEFAULT 
       begin
        ModelElement VAR l_Stereo
        aStereo DO >>> l_Stereo
-       l_OurStereo l_Stereo .IsStereotypeInModelKindOf
+       //l_OurStereo .StereotypeInModel l_Stereo .IsStereotypeInModelKindOf
+       l_OurStereo l_Stereo .IsStereotypeInModelKindOf >>> Result
+       Result ! ?
+        ( l_OurStereo l_Stereo .IsStereoKindOf >>> Result )
+       Result 
       end // // l_OurStereo IsNil
     ; // RULES
    end // DEFAULT 
@@ -727,6 +752,8 @@ BOOLEAN elem_func IsReferencedType
 
 ModelElement elem_func ReferencedTypeOriginal
  RULES
+  ( Self .IsNil )
+   Self
   ( Self .IsReferencedType )
    ( Self .Original )
   DEFAULT
@@ -734,3 +761,19 @@ ModelElement elem_func ReferencedTypeOriginal
  ; // RULES
  >>> Result
 ; // ReferencedTypeOriginal
+
+ModelElement elem_func ReferencedOriginal
+ RULES
+  ( Self .IsNil )
+   Self
+  ( Self .OpKind opkind_Normal ?!= )
+   ( Self .Original )
+  DEFAULT
+   Self 
+ ; // RULES
+ >>> Result
+; // ReferencedOriginal
+
+ANY elem_func ModelValue
+ Self .GetUP 'Value' >>> Result
+; // ModelValue

@@ -1,0 +1,80 @@
+//#UC START# *476961930017_52A087CA0218_impl*
+ if not TvcmDispatcher.Instance.As_IvcmDispatcher.InOp(True) and
+    (Action is TvcmOperationAction) and
+    (TvcmOperationAction(Action).OpDef.OperationType in vcm_ComboOperations) and
+    (Action.ActionComponent = nil) then
+ begin
+  l_Form := afw.GetTopParentForm(FClient);
+  if (l_Form <> nil) then
+  begin
+   l_MF := TvcmDispatcher.Instance.FormDispatcher.CurrentMainForm;
+   if (l_MF.VCLWinControl <> l_Form) then // 595975850
+   begin
+    l_ToolBar := FClient.Owner;
+    Assert(l_Toolbar is TCustomToolbar97);
+    Assert(l_ToolBar.Owner is TvcmEntityForm);
+    l_Form := afw.GetTopParentForm(l_ToolBar.Owner);
+   end; // 595975850
+   if (l_MF.VCLWinControl = l_Form) then
+   try
+    DoButtonPopup(FClient as TvcmToolButtonDef);
+   except
+    FClient := nil;
+    try
+     l3System.Msg2Log('TvcmToolButtonDefActionLink.ParamsChanged fail');
+     l3System.Msg2Log(TvcmOperationAction(Self.Action).Caption);
+     l3System.Msg2Log(Self.Action.Name);
+    except
+     l3System.Msg2Log('TvcmToolButtonDefActionLink.ParamsChanged info fail');
+    end;//try..except
+   end;//try..except
+  end;//l_Form <> nil
+ end;//not vcmDispatcher.InOp(True)
+//#UC END# *476961930017_52A087CA0218_impl*
+//#UC START# *476961930017_52A087CA0218_var*
+ procedure DoButtonPopup(aButton: TvcmToolButtonDef);
+   { - }
+ var
+  l_Popup : TPopupMenu;
+ begin
+  with aButton do
+  begin
+   l_Popup := DropdownMenu;
+   if not anAction.HasInfoForCombo then
+   begin
+    if (l_Popup <> nil) then
+    begin
+     DropdownMenu := nil;
+     if (l_Popup.Owner <> nil) then
+      l_Popup.Owner.RemoveComponent(l_Popup);
+     RequestClearPopup(l_Popup);
+    end;//l_Popup <> nil
+    Exit;
+   end;//not anAction.HasInfoForCombo
+   if (l_Popup = nil) then
+   begin
+    l_Popup := TvcmButtonPopupMenu.Create(aButton);
+    {$IfNDef DesignTimeLibrary}
+    {$IfDef l3HackedVCL}
+    l_Popup.DrawGraphicChecks := True;
+    {$EndIf l3HackedVCL}
+    {$EndIf DesignTimeLibrary}
+    DropdownMenu := l_Popup;
+   end;//l_Popup = nil
+  end;//with aButton
+  l_Popup.Items.Clear;
+  vcmMakeComboMenu(TvcmAction(Action), l_Popup.Items);
+ end;
+
+var
+ l_Form : TafwCustomForm;
+ l_MF   : IvcmEntityForm;
+ l_ToolBar: TComponent;
+//#UC END# *476961930017_52A087CA0218_var*
+//#UC START# *476961A40369_52A087CA0218_impl*
+//#UC END# *476961A40369_52A087CA0218_impl*
+//#UC START# *476961A40369_52A087CA0218_var*
+//#UC END# *476961A40369_52A087CA0218_var*
+//#UC START# *52A087CA0218_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMenuManager.pas
+//#UC END# *52A087CA0218_ext:ParentFileName

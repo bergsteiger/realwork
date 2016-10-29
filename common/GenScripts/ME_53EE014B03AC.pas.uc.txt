@@ -1,0 +1,17 @@
+//#UC START# *52D6471802DC_53EE014B03AC_impl*
+ //aControl.PopupMenu;
+ RunnerAssert(aCtx.rEngine.IsTopObj, 'Не задан объект класса aSubPanelSub!', aCtx);
+ l_SubPanelSub := aCtx.rEngine.PopObj as TevSubPanelSub;
+ l_SPoint := nev.CrtIC.LP2DP(l_SubPanelSub.DrawRect.TopLeft);
+ aCtx.rEngine.PushObj(Tl3PopupMenuHelper.Instance.GetPopupMenu(aControl, Point(l_SPoint.X, l_SPoint.Y)));
+//#UC END# *52D6471802DC_53EE014B03AC_impl*
+//#UC START# *52D6471802DC_53EE014B03AC_var*
+var
+ l_SPoint     : Tl3_SPoint;
+ l_SubPanelSub: TevSubPanelSub;
+//#UC END# *52D6471802DC_53EE014B03AC_var*
+//#UC START# *53EE014B03AC_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\kwSubPanelGetPopupMenuForSub.pas
+//#UC END# *53EE014B03AC_ext:FileName
+//#UC START# *53EE014B03ACimpl_uses*
+//#UC END# *53EE014B03ACimpl_uses*

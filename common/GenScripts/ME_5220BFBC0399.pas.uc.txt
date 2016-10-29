@@ -1,0 +1,234 @@
+//#UC START# *478CF34E02CE_5220BFBC0399_impl*
+ if Source is TddIntegerConfigItem then
+ begin
+  inherited;
+  Self.f_MaxValue := TddIntegerConfigItem(Source).MaxValue;
+  Self.f_MinValue := TddIntegerConfigItem(Source).MinValue;
+ end else
+  inherited;
+//#UC END# *478CF34E02CE_5220BFBC0399_impl*
+//#UC START# *478CF34E02CE_5220BFBC0399_var*
+//#UC END# *478CF34E02CE_5220BFBC0399_var*
+//#UC START# *5217273F000F_5220BFBC0399_impl*
+ inherited Create(aAlias, aCaption, aDefaultValue, aMasterItem);
+ MinValue := ddMinInt;
+ MaxValue := ddMaxInt;
+ LabelTop := False;
+ f_Value.Kind := dd_vkInteger;
+//#UC END# *5217273F000F_5220BFBC0399_impl*
+//#UC START# *5217273F000F_5220BFBC0399_var*
+//#UC END# *5217273F000F_5220BFBC0399_var*
+//#UC START# *52172B72014C_5220BFBC0399_impl*
+ l_Value.Kind := dd_vkInteger;
+ l_Value.AsInteger := aStorage.ReadInteger(Alias, DefaultValue.AsInteger);
+ if InRange(l_Value.AsInteger, MinValue, MaxValue) then
+  Value := l_Value;
+//#UC END# *52172B72014C_5220BFBC0399_impl*
+//#UC START# *52172B72014C_5220BFBC0399_var*
+var
+ l_Value: TddConfigValue;
+//#UC END# *52172B72014C_5220BFBC0399_var*
+//#UC START# *52172CA801E3_5220BFBC0399_impl*
+ aStorage.WriteInteger(Alias, Value.AsInteger);
+//#UC END# *52172CA801E3_5220BFBC0399_impl*
+//#UC START# *52172CA801E3_5220BFBC0399_var*
+//#UC END# *52172CA801E3_5220BFBC0399_var*
+//#UC START# *5217602C020A_5220BFBC0399get_impl*
+ Result := inherited pm_GetLabelTop;
+//#UC END# *5217602C020A_5220BFBC0399get_impl*
+//#UC START# *5217602C020A_5220BFBC0399get_var*
+//#UC END# *5217602C020A_5220BFBC0399get_var*
+//#UC START# *5217602C020A_5220BFBC0399set_impl*
+ f_LabelTop := False;
+//#UC END# *5217602C020A_5220BFBC0399set_impl*
+//#UC START# *5217602C020A_5220BFBC0399set_var*
+//#UC END# *5217602C020A_5220BFBC0399set_var*
+//#UC START# *521761BB03DE_5220BFBC0399_impl*
+{$IFDEF ddUseVTSpin}
+ Result := TvtSpinEdit.Create(aParent);
+{$ELSE}
+ //Result := TSpinEdit.Create(aParent);
+ Result := TEdit.Create(aParent);
+ f_UpDown := TUpDown.Create(aParent);
+ with f_UpDown do
+ begin
+  Parent := aParent;
+  Thousands := False;
+ end;
+ {$ENDIF}
+ Result.Parent := aParent;
+ {$IFDEF ddUseVTSpin}
+ //TvtSpinEdit(Result).ButtonKind := bkClassic;
+ TvtSpinEdit(Result).MaxValue := MaxValue;
+ TvtSpinEdit(Result).MinValue := MinValue;
+ TvtSpinEdit(Result).AllowAnyValueManualInput := True;
+ TvtSpinEdit(Result).EmptyValue := MinValue - 1;
+ TvtSpinEdit(Result).OnChange := DoOnChange;
+ {$ELSE}
+ TEdit(Result).OnChange := DoOnChange;
+ TEdit(Result).MaxLength := Length(IntToStr(MaxValue));
+ f_UpDown.Min := MinValue;
+ f_UpDown.Max := MaxValue;
+ {$ENDIF}
+ Result.Top := aTop;
+ Result.Left := aLeft;
+ l_MaxValue := Max(Abs(MaxValue), Abs(MinValue));
+ if l_MaxValue = 0 then
+  l_MaxValue := Low(l_MaxValue);
+ Result.Width := GetCanvas(aParent).TextWidth(IntToStr(l_MaxValue) + ' ') + 16 + c_ConfigItemLeft;
+ {$IfNDef ddUseVTSpin}
+ f_UpDown.Associate := TWinControl(Result);
+ {$EndIf ddUseVTSpin}
+//#UC END# *521761BB03DE_5220BFBC0399_impl*
+//#UC START# *521761BB03DE_5220BFBC0399_var*
+var
+ l_MaxValue: Integer;
+//#UC END# *521761BB03DE_5220BFBC0399_var*
+//#UC START# *521B05280392_5220BFBC0399_impl*
+ inherited;
+ FirstLabel := nil;
+//#UC END# *521B05280392_5220BFBC0399_impl*
+//#UC START# *521B05280392_5220BFBC0399_var*
+//#UC END# *521B05280392_5220BFBC0399_var*
+//#UC START# *521B053F03C3_5220BFBC0399_impl*
+ {$IFDEF ddUseVTSpin}
+ with TvtSpinEdit.Create(aParent) do
+ try
+  Parent := aParent;
+  Result := Height;
+ finally
+  Free;
+ end;
+ {$ELSE}
+ with TEdit.Create(aParent) do
+ try
+  Parent := aParent;
+  Result := Height;
+ finally
+  Free;
+ end;
+ {$ENDIF}
+//#UC END# *521B053F03C3_5220BFBC0399_impl*
+//#UC START# *521B053F03C3_5220BFBC0399_var*
+//#UC END# *521B053F03C3_5220BFBC0399_var*
+//#UC START# *521B058801FD_5220BFBC0399_impl*
+ {$IFDEF ddUseVTSpin}
+ if StrToIntDef(TvtSpinEdit(Control).Text, MaxInt) = MaxInt then
+  raise EddInvalidValue.CreateFmt(str_ddcmInvalidIntegerValue.AsStr,
+   [TvtSpinEdit(Control).Text], Self);
+
+ IntegerValue := TvtSpinEdit(Control).AsInteger;
+ Validate;
+ {$ELSE}
+ IntegerValue := lpCheckValue;
+ {$ENDIF}
+//#UC END# *521B058801FD_5220BFBC0399_impl*
+//#UC START# *521B058801FD_5220BFBC0399_var*
+ function lpCheckValue : Integer;
+ var
+  lValue : Integer;
+ begin
+  Assert(Control is TEdit, Control.ClassName); 
+  lValue := StrToIntDef(TEdit(Control).Text, MaxInt);
+  // Не является числом
+  if lValue = MaxInt then
+   raise EddInvalidValue.CreateFmt(str_ddcmInvalidIntegerValue.AsStr,
+    [TEdit(Control).Text], Self);
+  // Выходит за пределы диапазона
+  if  not InRange(lValue, MinValue, MaxValue) then
+   raise EddInvalidValue.CreateFmt(str_ddcmErrorIntegerRange.AsStr,
+    [lValue, MinValue, MaxValue], Self);
+  Result := lValue;
+ end;
+//#UC END# *521B058801FD_5220BFBC0399_var*
+//#UC START# *521B061A0387_5220BFBC0399_impl*
+ Result := 32;
+//#UC END# *521B061A0387_5220BFBC0399_impl*
+//#UC START# *521B061A0387_5220BFBC0399_var*
+//#UC END# *521B061A0387_5220BFBC0399_var*
+//#UC START# *521B07030052_5220BFBC0399_impl*
+ if aDefault then
+  I := DefaultValue.AsInteger
+ else
+  I := IntegerValue;
+ {$IFDEF ddUseVTSpin}
+ Assert(Control is TvtSpinEdit, Control.ClassName);
+ TvtSpinEdit(Control).Value := I;
+ {$ELSE}
+ Assert(Control is TEdit, Control.ClassName); 
+ TEdit(Control).Text := IntToStr(I);
+ f_UpDown.Position := I;
+ {$ENDIF}
+//#UC END# *521B07030052_5220BFBC0399_impl*
+//#UC START# *521B07030052_5220BFBC0399_var*
+var
+ I: Integer;
+//#UC END# *521B07030052_5220BFBC0399_var*
+//#UC START# *5220BFBC0399_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas
+//#UC END# *5220BFBC0399_ext:ParentFileName
+//#UC START# *5220C01C00FF_5220BFBC0399set_impl*
+ if f_MaxValue <> aValue then
+ begin
+  if aValue <= ddMaxInt then
+   f_MaxValue := aValue
+  else
+   raise EddConfigError.CreateFmt(str_ddcmInvalidMaxValue.AsStr, [aValue, ddMaxInt]);
+ end;
+//#UC END# *5220C01C00FF_5220BFBC0399set_impl*
+//#UC START# *5220C01C00FF_5220BFBC0399set_var*
+//#UC END# *5220C01C00FF_5220BFBC0399set_var*
+//#UC START# *5220C02A0383_5220BFBC0399set_impl*
+ if f_MinValue <> aValue then
+ begin
+  if aValue >= ddMinInt then
+   f_MinValue := aValue
+  else
+   raise EddConfigError.CreateFmt(str_ddcmInvalidMinValue.AsStr, [aValue, ddMaxInt]);
+ end;
+//#UC END# *5220C02A0383_5220BFBC0399set_impl*
+//#UC START# *5220C02A0383_5220BFBC0399set_var*
+//#UC END# *5220C02A0383_5220BFBC0399set_var*
+//#UC START# *5220C05000A7_5220BFBC0399_impl*
+ if (IntegerValue > MaxValue) or (IntegerValue < MinValue) then
+  raise EddInvalidValue.CreateFmt(str_ddcmErrorIntegerRange.AsStr,
+    [IntegerValue, MinValue, MaxValue], Self);
+//#UC END# *5220C05000A7_5220BFBC0399_impl*
+//#UC START# *5220C05000A7_5220BFBC0399_var*
+//#UC END# *5220C05000A7_5220BFBC0399_var*
+//#UC START# *5220C06103B2_5220BFBC0399_impl*
+ {$IFDEF ddUseVTSpin}
+ Assert(Control is TvtSpinEdit, Control.ClassName); 
+ Changed := TvtSpinEdit(Control).Text <> IntToStr(IntegerValue);
+ {$ELSE}
+ Assert(Control is TEdit, Control.ClassName); 
+ Changed := TEdit(Control).Text <> IntToStr(IntegerValue);
+ {$ENDIF}
+//#UC END# *5220C06103B2_5220BFBC0399_impl*
+//#UC START# *5220C06103B2_5220BFBC0399_var*
+//#UC END# *5220C06103B2_5220BFBC0399_var*
+//#UC START# *5220C0FF0081_5220BFBC0399_impl*
+ with l_Value do
+ begin
+  Kind := dd_vkInteger;
+  AsInteger := aDefaultValue;
+ end;
+ Create(aAlias, aCaption, l_Value, aMasterItem);
+//#UC END# *5220C0FF0081_5220BFBC0399_impl*
+//#UC START# *5220C0FF0081_5220BFBC0399_var*
+var
+ l_Value : TddConfigValue;
+//#UC END# *5220C0FF0081_5220BFBC0399_var*
+//#UC START# *552BB745031E_5220BFBC0399_impl*
+ if aControl is TvtSpinEdit then
+  TvtSpinEdit(aControl).ReadOnly := ReadOnly
+ else
+ begin
+  if aControl is TEdit then
+   TEdit(aControl).ReadOnly := ReadOnly;
+  if Assigned(f_UpDown) then
+   f_UpDown.Enabled := f_UpDown.Enabled and not ReadOnly;
+ end;
+//#UC END# *552BB745031E_5220BFBC0399_impl*
+//#UC START# *552BB745031E_5220BFBC0399_var*
+//#UC END# *552BB745031E_5220BFBC0399_var*

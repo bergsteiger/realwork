@@ -1,0 +1,22 @@
+//#UC START# *523038EA00E7_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigStrings.pas
+//#UC END# *523038EA00E7_ext:ParentFileName
+//#UC START# *52303EBD00B4_523038EA00E7_impl*
+ // Показываем окно выбора файла
+ with TOpenDialog.Create(nil) do
+ try
+  Title := Caption;
+  Filter := FilterMask;
+  FileName := (Control as TEdit).Text;
+  if Execute then
+   (Control as TEdit).Text := FileName;
+ finally
+  Free;
+ end;
+//#UC END# *52303EBD00B4_523038EA00E7_impl*
+//#UC START# *52303EBD00B4_523038EA00E7_var*
+//#UC END# *52303EBD00B4_523038EA00E7_var*
+//#UC START# *52303ECC02B3_523038EA00E7_impl*
+//#UC END# *52303ECC02B3_523038EA00E7_impl*
+//#UC START# *52303ECC02B3_523038EA00E7_var*
+//#UC END# *52303ECC02B3_523038EA00E7_var*

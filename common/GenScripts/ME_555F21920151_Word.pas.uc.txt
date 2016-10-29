@@ -1,0 +1,29 @@
+//#UC START# *555F21920151_555F21920151_Word_impl*
+ l_S2 := Mangle(aSubName);
+ l_S1 := Mangle(aName);
+ aCtx.rCaller.TimeToLog(aValue, l_S1, l_S2);
+//#UC END# *555F21920151_555F21920151_Word_impl*
+//#UC START# *555F21920151_555F21920151_Word_var*
+
+ function Mangle(const aStr: AnsiString): AnsiString;
+(* const
+  cLimit = 30;*)
+ begin
+  Result := aStr;
+(*  Result := l3Transliterate(aStr);
+  l3Replace(Result, ' ', '_');
+  l3Replace(Result, '''', '_');
+  l3Replace(Result, '(', '_');
+  l3Replace(Result, ')', '_');
+  l3Replace(Result, '.', '_');
+  if (Length(Result) > cLimit) then
+   SetLength(Result, cLimit);*)
+ end;
+ 
+var
+ l_S1 : AnsiString;
+ l_S2 : AnsiString;
+//#UC END# *555F21920151_555F21920151_Word_var*
+//#UC START# *555F21920151_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\SysUtilsPack.pas
+//#UC END# *555F21920151_Word_ext:ParentFileName

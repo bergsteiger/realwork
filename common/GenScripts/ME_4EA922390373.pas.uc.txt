@@ -1,0 +1,51 @@
+//#UC START# *4BF4E6A00093_4EA922390373_impl*
+ Result := f_Point.MostInner.Obj^.AsPara;
+ f_Point := nil;
+//#UC END# *4BF4E6A00093_4EA922390373_impl*
+//#UC START# *4BF4E6A00093_4EA922390373_var*
+//#UC END# *4BF4E6A00093_4EA922390373_var*
+//#UC START# *4C3C927B027E_4EA922390373_impl*
+ if aMap = nil then
+  Result := l3Point0
+ else
+  Result := l3Point(aMap.Bounds.Right - f_DeltaX, aMap.Bounds.Bottom - f_DeltaY);
+//#UC END# *4C3C927B027E_4EA922390373_impl*
+//#UC START# *4C3C927B027E_4EA922390373_var*
+//#UC END# *4C3C927B027E_4EA922390373_var*
+//#UC START# *4EA922390373_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSetCursorByPoint.pas
+//#UC END# *4EA922390373_ext:FileName
+//#UC START# *4EA922390373impl_uses*
+//#UC END# *4EA922390373impl_uses*
+//#UC START# *4F4CB81200CA_4EA922390373_impl*
+ if aCtx.rEngine.IsTopInt then
+  f_DeltaY := aCtx.rEngine.PopInt
+ else
+  RunnerError('Не задана дельта к координате Y.', aCtx);
+ if aCtx.rEngine.IsTopInt then
+  f_DeltaX := aCtx.rEngine.PopInt
+ else
+  RunnerError('Не задана дельта к координате X.', aCtx);
+ f_Point := anEditor.Selection.Cursor;
+ l_l3Pt := TranslatePara2Point(anEditor);
+ l_EditorHotSpot := anEditor.HotSpotClass.Make(anEditor, nil);
+ try
+  l3FillChar(l_Effect, SizeOf(l_Effect), 0);
+  l_Effect.rNeedAsyncLoop := True;
+  l3FillChar(l_Keys, SizeOf(l_Keys), 0);
+  l_Keys.rKeys := [];
+  l_Keys.rInitialPoint := l_l3Pt;
+  l_Keys.rPoint := l_l3Pt;
+  l_EditorHotSpot.LButtonDown(anEditor.View, l_Keys, l_Effect);
+  l_EditorHotSpot.LButtonUp(anEditor.View, l_Keys);
+ finally
+  l_EditorHotSpot := nil;
+ end;
+//#UC END# *4F4CB81200CA_4EA922390373_impl*
+//#UC START# *4F4CB81200CA_4EA922390373_var*
+var
+ l_Effect        : TevMouseEffect;
+ l_Keys          : TevMouseState;
+ l_l3Pt          : Tl3Point;
+ l_EditorHotSpot : IevHotSpot;
+//#UC END# *4F4CB81200CA_4EA922390373_var*

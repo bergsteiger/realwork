@@ -1,0 +1,155 @@
+UNIT StereotypeAllowedElements.ms.dict
+
+USES
+ core.ms.dict
+;
+
+USES
+ arrays.ms.dict
+;
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ ElemMemberPrim.ms.dict
+;
+
+USES
+ CopyWithoutDuplicates.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+USES
+ joinWithLambded.ms.dict
+;
+
+USES
+ CopyWithoutDuplicatedNames.ms.dict
+;
+
+USES
+ CopyWithoutDuplicatedUnstereotyped.ms.dict
+;
+
+elem_iterator StereotypeAllowedElements
+ Cached:
+ (
+  RULES
+   ( Self .IsNil )
+    [empty]
+   DEFAULT
+    begin
+     Self .Dependencies
+     .filter> ( .IsStereotype st_include::Dependency )
+     .map> .Target
+     .join> (
+      Self .Children
+      .filter> (
+        IN anElement
+       RULES
+        ( anElement .IsStereotype: st_MDAAttribute )
+         true
+        ( anElement .IsStereotype: st_MDAOperation )
+         true
+        ( anElement .IsStereotype: st_MDADependency )
+         true
+        DEFAULT
+         false
+       ; // RULES 
+      ) // .filter>
+     ) // .join>
+     
+     if ( Self .GetUP "inherite constraints" false ?!= ) then
+     begin
+      .joinWithLambded> 
+      ( Self .StereotypeAncestors ) 
+      call.me
+     end // ( Self .GetUP "inherite constraints" false ?!= )
+    end // DEFAULT
+  ; // RULES
+  .CopyWithoutDuplicatedModelElements
+  array:CopyWithoutDuplicatedNames
+  array:CopyWithoutDuplicatedUnstereotyped
+ ) 
+ >>> Result  
+; // StereotypeAllowedElements
+
+elem_iterator AllowedElements
+ Self .Stereotype .StereotypeInModel 
+ .StereotypeAllowedElements
+ 
+ RULES
+  ( Self .MDAClass class_Operation ?== )
+   ( .join> [ st_in st_inout st_out st_const st_noconst ] )
+ ; // RULES
+ 
+ >>> Result
+; // AllowedElements
+
+elem_iterator ParentAllowedElementsLikeMe
+ Cached:
+ (
+  VAR l_AllowedElements
+  Self .Parent .AllowedElements >>> l_AllowedElements
+  
+  RULES
+   ( Self .MDAClass class_Attribute ?== )
+    ( 
+     l_AllowedElements
+     .filter> ( .IsStereotype st_MDAAttribute )
+    ) // ( Self .MDAClass class_Attribute ?== )
+   ( Self .MDAClass class_Operation ?== )
+    ( 
+     l_AllowedElements
+     .filter> ( 
+       IN anElement
+      RULES 
+       ( anElement .IsStereotype st_MDAOperation )
+        true
+       ( anElement .IsStereotypeInModelKindOf: st_method )
+        true
+       ( anElement .IsStereotypeInModelKindOf: st_Iterator )
+        true
+       DEFAULT
+        false 
+      ; // RULES
+     ) // .filter>
+    ) // ( Self .MDAClass class_Operation ?== )
+   ( Self .MDAClass class_Dependency ?== )
+    ( 
+     l_AllowedElements
+     .filter> ( .IsStereotype st_MDADependency )
+    ) // ( Self .MDAClass class_Dependency ?== )
+   ( Self .MDAClass class_Parameter ?== )
+    ( 
+     l_AllowedElements
+     .filter> ( .IsStereotype st_MDAParameter )
+    ) // ( Self .MDAClass class_Parameter ?== )
+   DEFAULT
+    l_AllowedElements
+  ; // RULES
+  >>> l_AllowedElements
+  l_AllowedElements 
+ )
+ >>> Result
+; // ParentAllowedElementsLikeMe
+
+USES
+ FirstElement.ms.dict
+;
+
+ModelElement elem_func ParentDefaultStereotypeLikeMe
+ Self .ParentAllowedElementsLikeMe
+ .filter> .IsUnstereotypedStereo
+ .FirstElement
+ >>> Result
+; // ParentDefaultStereotypeLikeMe

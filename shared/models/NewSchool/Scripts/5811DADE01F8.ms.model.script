@@ -1,0 +1,93 @@
+// TmsmLoadedWordsListModel 5811DADE01F8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5811DADE01F8
+
+ME ME_57E51BD6031C
+ MEPROP UID '57E51BD6031C'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5811DADE01F8 // TmsmLoadedWordsListModel
+ ;
+
+ENDME // ME_57E51BD6031C Create
+
+MEREF ME_57E51BD6031C_ME_57E51BDF0094_G
+ MELINK Original HWL ME_57E51BD6031C // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57E51BD6031C_ME_57E51BDF0094_G Create
+
+MEREF ME_57B178F400EB_ME_57E51BDF0094_R
+ MELINK Original WL 'ME_57B178F400EB' '57ADC53E00B6.ms.model.script' // ImsmListModel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B178F400EB_ME_57E51BDF0094_R ImsmListModel
+
+%%ImplementedBy ME_57B178F400EB ME_57E51BDF0094
+
+%%InheritedBy ME_57E51BD6031C ME_57E51BDF0094
+
+ME ME_57E51BDF0094
+ MEPROP UID '57E51BDF0094'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5811DADE01F8 // TmsmLoadedWordsListModel
+ ;
+ MELIST Inherits
+   Seq: ( ME_57E51BD6031C_ME_57E51BDF0094_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_57B178F400EB_ME_57E51BDF0094_R // ImsmListModel
+ )
+ ; // Implements
+
+ENDME // ME_57E51BDF0094 Make
+
+MEREF ME_57E51B3002A8_ME_5811DADE01F8_G
+ MELINK Original WL? 'ME_57E51B3002A8' // TmsmSomeWordsListModel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57E51B3002A8_ME_5811DADE01F8_G TmsmSomeWordsListModel
+
+%%InheritedBy ME_57E51B3002A8 ME_5811DADE01F8
+
+ME ME_5811DADE01F8
+ MEPROP UID '5811DADE01F8'
+ MEPROP Name 'TmsmLoadedWordsListModel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57AE0D6601AE' // ConcreteModels
+ ;
+ MELIST Inherits
+   Seq: ( ME_57E51B3002A8_ME_5811DADE01F8_G // TmsmSomeWordsListModel
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57E51BD6031C // Create
+ HWL ME_57E51BDF0094 // Make
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmLoadedWordsListModel.pas'
+ UP extprop:rc:SelfName 'msmLoadedWordsListModel'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmLoadedWordsListModel'
+
+ENDME // ME_5811DADE01F8 TmsmLoadedWordsListModel

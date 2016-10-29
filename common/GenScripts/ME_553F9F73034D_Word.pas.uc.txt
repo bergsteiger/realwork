@@ -1,0 +1,25 @@
+//#UC START# *553F9F73034D_553F9F73034D_Word_impl*
+ l_Count := seAddModalWorker(aWord, aCtx);
+ try
+  try
+   aBeforeModal.DoIt(aCtx);
+  except
+(*   {$If defined(nsTest)}
+   on El3TryEnterModalState do
+    Exit;
+   {$Else}*)
+   // - закомментировал, т.к. непонятно - зачем в тестах это исключение давить
+   raise;
+(*   {$IfEnd} //nsTest*)
+  end;//try..except
+ finally
+  RunnerAssert(seIsValidModalWorkersCount(l_Count), 'Видимо не выполнился код модального окна', aCtx);
+ end;//try..finally
+//#UC END# *553F9F73034D_553F9F73034D_Word_impl*
+//#UC START# *553F9F73034D_553F9F73034D_Word_var*
+var
+ l_Count : Integer;
+//#UC END# *553F9F73034D_553F9F73034D_Word_var*
+//#UC START# *553F9F73034D_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\CodeFlowWordsPack.pas
+//#UC END# *553F9F73034D_Word_ext:ParentFileName

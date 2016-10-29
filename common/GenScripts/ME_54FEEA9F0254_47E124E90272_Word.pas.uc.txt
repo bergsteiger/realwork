@@ -1,0 +1,16 @@
+//#UC START# *54FEEA9F0254_47E124E90272_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\WinControlsProcessingPack.pas
+//#UC END# *54FEEA9F0254_47E124E90272_Word_ext:ParentFileName
+//#UC START# *54FEEA9F0254_54FEEA9F0254_47E124E90272_Word_impl*
+ with aControl.BoundsRect do
+  l_Pos := Point(Left + aPoint.X, Top + aPoint.Y);
+ l_MousePos := PointToSmallPoint(l_Pos);
+
+ SendMessage(aControl.Handle, WM_RBUTTONDOWN, 0, Longint(l_MousePos));
+ SendMessage(aControl.Handle, WM_RBUTTONUP, 0, Longint(l_MousePos));
+//#UC END# *54FEEA9F0254_54FEEA9F0254_47E124E90272_Word_impl*
+//#UC START# *54FEEA9F0254_54FEEA9F0254_47E124E90272_Word_var*
+var
+ l_Pos      : TPoint;
+ l_MousePos : TSmallPoint;
+//#UC END# *54FEEA9F0254_54FEEA9F0254_47E124E90272_Word_var*

@@ -1,0 +1,120 @@
+// TtfwParserServiceFileNameToFileNameMap 580934E0010C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_580934E0010C
+
+ME ME_580935B40084
+ MEPROP UID '580935B40084'
+ MEPROP Name 'KeyType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_580934E0010C // TtfwParserServiceFileNameToFileNameMap
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_580935B40084 KeyType
+
+ME ME_580935D800F4
+ MEPROP UID '580935D800F4'
+ MEPROP Name 'ValueType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_580934E0010C // TtfwParserServiceFileNameToFileNameMap
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_580935D800F4 ValueType
+
+ME ME_58093659011E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_580934E0010C // TtfwParserServiceFileNameToFileNameMap
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_58093659011E 
+
+ME ME_58093691005A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_580934E0010C // TtfwParserServiceFileNameToFileNameMap
+ ;
+ MELINK Target WL? 'ME_483C378301CB' // StrUtils
+ ;
+
+ENDME // ME_58093691005A 
+
+MEREF ME_5609091B00C0_ME_580934E0010C_impl
+ MELINK Original WL 'ME_5609091B00C0' '560907E00134.ms.model.script' // CompareKeys
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5609091B00C0_ME_580934E0010C_impl CompareKeys
+
+MEREF ME_5609096C03BE_ME_580934E0010C_G
+ MELINK Original WL? 'ME_5609096C03BE' // l3Map
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5609096C03BE_ME_580934E0010C_G l3Map
+
+MEREF ME_57C5572B036F_ME_580934E0010C_R
+ MELINK Original WL? 'ME_57C5572B036F' // seCriticalSectionHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57C5572B036F_ME_580934E0010C_R seCriticalSectionHolder
+
+%%ImplementedBy ME_57C5572B036F ME_580934E0010C
+
+%%InheritedBy ME_5609096C03BE ME_580934E0010C
+
+ME ME_580934E0010C
+ MEPROP UID '580934E0010C'
+ MEPROP Name 'TtfwParserServiceFileNameToFileNameMap'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F4734A40270' // Parser
+ ;
+ MELIST Inherits
+   Seq: ( ME_5609096C03BE_ME_580934E0010C_G // l3Map
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_57C5572B036F_ME_580934E0010C_R // seCriticalSectionHolder
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_580935B40084 // KeyType
+ HWL ME_580935D800F4 // ValueType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_5609091B00C0_ME_580934E0010C_impl // CompareKeys
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_58093659011E // SysUtils
+ ME_58093691005A // StrUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwParserServiceFileNameToFileNameMap.pas'
+ UP extprop:rc:SelfName 'ParserServiceFileNameToFileNameMap'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwParserServiceFileNameToFileNameMap'
+
+ENDME // ME_580934E0010C TtfwParserServiceFileNameToFileNameMap

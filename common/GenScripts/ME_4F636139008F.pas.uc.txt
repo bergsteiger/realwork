@@ -1,0 +1,285 @@
+//#UC START# *479731C50290_4F636139008F_impl*
+ f_WndProcListeners.Clear;
+ f_WndProcRetListeners.Clear;
+ f_CBTListeners.Clear;
+ f_GetMessageListeners.Clear;
+ f_MouseListeners.Clear;
+ f_MouseWheelListeners.Clear;
+ UpdateHooks;
+ FreeAndNil(f_WndProcListeners);
+ FreeAndNil(f_WndProcRetListeners);
+ FreeAndNil(f_CBTListeners);
+ FreeAndNil(f_GetMessageListeners);
+ FreeAndNil(f_MouseListeners);
+ FreeAndNil(f_MouseWheelListeners);
+ AssertUnhook([f_WndProcHook, f_WndProcRetHook, f_CBTHook, f_GetMessageHook, f_MouseHook]);
+ inherited;
+//#UC END# *479731C50290_4F636139008F_impl*
+//#UC START# *479731C50290_4F636139008F_var*
+ procedure AssertUnhook(aHooks: array of HHOOK);
+ var
+  I: Integer;
+ begin
+  for I := Low(aHooks) to High(aHooks) do
+   if (aHooks[I] <> 0) then
+   begin
+    UnhookWindowsHookEx(aHooks[I]);
+    Assert(False);
+   end;
+ end;
+//#UC END# *479731C50290_4F636139008F_var*
+//#UC START# *47A042E100E2_4F636139008F_impl*
+ inherited;
+ f_WndProcListeners := Tl3WndProcListenersList.Create;
+ f_MouseWheelListeners := Tl3MouseWheelListenersList.Create;
+ f_MouseListeners := Tl3MouseListenersList.Create;
+ f_WndProcRetListeners := Tl3WndProcRetListenersList.Create;
+ f_GetMessageListeners := Tl3GetMessageListenersList.Create;
+ f_CBTListeners := Tl3CBTListenersList.Create;
+//#UC END# *47A042E100E2_4F636139008F_impl*
+//#UC START# *47A042E100E2_4F636139008F_var*
+//#UC END# *47A042E100E2_4F636139008F_var*
+//#UC START# *4F636139008F_ext:FileName
+w:\common\components\rtl\Garant\L3\l3ListenersManager.pas
+//#UC END# *4F636139008F_ext:FileName
+//#UC START# *4F636139008Fimpl_uses*
+//#UC END# *4F636139008Fimpl_uses*
+//#UC START# *4F636B3003E5_4F636139008F_impl*
+ with Instance do
+  if CBTListeners.IndexOf(aListener) < 0 then
+  begin
+   CBTListeners.Add(aListener);
+   UpdateHooks;
+  end;
+//#UC END# *4F636B3003E5_4F636139008F_impl*
+//#UC START# *4F636B3003E5_4F636139008F_var*
+//#UC END# *4F636B3003E5_4F636139008F_var*
+//#UC START# *4F6370E0022B_4F636139008F_impl*
+ with Instance do
+  if WndProcListeners.IndexOf(aListener) < 0 then
+  begin
+   WndProcListeners.Add(aListener);
+   UpdateHooks;
+  end;
+//#UC END# *4F6370E0022B_4F636139008F_impl*
+//#UC START# *4F6370E0022B_4F636139008F_var*
+//#UC END# *4F6370E0022B_4F636139008F_var*
+//#UC START# *4F63711700CB_4F636139008F_impl*
+ with Instance do
+  if GetMessageListeners.IndexOf(aListener) < 0 then
+  begin
+   GetMessageListeners.Add(aListener);
+   UpdateHooks;
+  end;
+//#UC END# *4F63711700CB_4F636139008F_impl*
+//#UC START# *4F63711700CB_4F636139008F_var*
+//#UC END# *4F63711700CB_4F636139008F_var*
+//#UC START# *4F6372FC0118_4F636139008F_impl*
+ if Exists then
+  with Instance do
+  begin
+   CBTListeners.Remove(aListener);
+   UpdateHooks;
+  end;
+//#UC END# *4F6372FC0118_4F636139008F_impl*
+//#UC START# *4F6372FC0118_4F636139008F_var*
+//#UC END# *4F6372FC0118_4F636139008F_var*
+//#UC START# *4F63733101FE_4F636139008F_impl*
+ if Exists then
+  with Instance do
+  begin
+   WndProcListeners.Remove(aListener);
+   UpdateHooks;
+  end;
+//#UC END# *4F63733101FE_4F636139008F_impl*
+//#UC START# *4F63733101FE_4F636139008F_var*
+//#UC END# *4F63733101FE_4F636139008F_var*
+//#UC START# *4F6373800326_4F636139008F_impl*
+ if Exists then
+  with Instance do
+  begin
+   GetMessageListeners.Remove(aListener);
+   UpdateHooks;
+  end;
+//#UC END# *4F6373800326_4F636139008F_impl*
+//#UC START# *4F6373800326_4F636139008F_var*
+//#UC END# *4F6373800326_4F636139008F_var*
+//#UC START# *4F670A190240_4F636139008F_impl*
+ DoCBT;
+ DoGetMessage;
+ DoWndProc;
+ DoWndProcRet;
+ DoMouse;
+//#UC END# *4F670A190240_4F636139008F_impl*
+//#UC START# *4F670A190240_4F636139008F_var*
+ procedure DoCBT;
+ begin
+  if (f_CBTListeners.Count > 0) and (f_CBThook = 0) then
+   f_CBTHook := SetWindowsHookEx(WH_CBT, @CBTHookFunc, 0, GetCurrentThreadId)
+  else
+  if (f_CBTListeners.Count = 0) and (f_CBThook <> 0) then
+  begin
+   UnhookWindowsHookEx(f_CBTHook);
+   f_CBTHook := 0;
+  end;
+ end; //DoCBT;
+
+ procedure DoGetMessage;
+ begin
+  if ((f_GetMessageListeners.Count > 0) or (f_MouseWheelListeners.Count > 0)) and
+     (f_GetMessageHook = 0) then
+   f_GetMessageHook := SetWindowsHookEx(WH_GETMESSAGE, @GetMessageHookFunc, 0, GetCurrentThreadId)
+  else
+  if (f_GetMessageListeners.Count = 0) and (f_MouseWheelListeners.Count = 0) and (f_GetMessageHook <> 0) then
+  begin
+   UnhookWindowsHookEx(f_GetMessageHook);
+   f_GetMessageHook := 0;
+  end;
+ end; //DoGetMessage;
+
+ procedure DoWndProc;
+ begin
+   if ((f_WndProcListeners.Count > 0) {or (f_MouseWheelListeners.Count > 0)}) and
+      (f_WndProcHook = 0) then
+    f_WndProcHook := SetWindowsHookEx(WH_CALLWNDPROC, @CallWndProcHookFunc, 0, GetCurrentThreadID)
+   else
+   if (f_WndProcListeners.Count = 0) and
+      {(f_MouseWheelListeners.Count = 0) and}
+      (f_WndProcHook <> 0) then
+   begin
+    UnhookWindowsHookEx(f_WndProcHook);
+    f_WndProcHook := 0;
+   end;
+ end; //DoWndProc;
+
+ procedure DoWndProcRet;
+ begin
+  if (f_WndProcRetListeners.Count > 0) and (f_WndProcRetHook = 0) then
+   f_WndProcRetHook := SetWindowsHookEx(WH_CALLWNDPROCRET, @CallWndProcRetHookFunc, 0, GetCurrentThreadID)
+  else
+  if (f_WndProcRetListeners.Count = 0) and (f_WndProcRetHook <> 0) then
+  begin
+   UnhookWindowsHookEx(f_WndProcRetHook);
+   f_WndProcRetHook := 0;
+  end;
+ end; //DoWndProcRet;
+
+ procedure DoMouse;
+ begin
+  if (f_MouseListeners.Count > 0) and (f_MouseHook = 0) then
+   f_MouseHook := SetWindowsHookEx(WH_MOUSE, @MouseHookFunc, 0, GetCurrentThreadID)
+  else
+  if (f_MouseListeners.Count = 0) and (f_MouseHook <> 0) then
+  begin
+   UnhookWindowsHookEx(f_MouseHook);
+   f_MouseHook := 0;
+  end;
+ end; //DoMouse;
+
+//#UC END# *4F670A190240_4F636139008F_var*
+//#UC START# *4F7322B90325_4F636139008F_impl*
+ with Instance do
+  if WndProcRetListeners.IndexOf(aListener) < 0 then
+  begin
+   WndProcRetListeners.Add(aListener);
+   UpdateHooks;
+  end;
+//#UC END# *4F7322B90325_4F636139008F_impl*
+//#UC START# *4F7322B90325_4F636139008F_var*
+//#UC END# *4F7322B90325_4F636139008F_var*
+//#UC START# *4F7322EA002B_4F636139008F_impl*
+ if Exists then
+  with Instance do
+  begin
+   WndProcRetListeners.Remove(aListener);
+   UpdateHooks;
+  end;
+//#UC END# *4F7322EA002B_4F636139008F_impl*
+//#UC START# *4F7322EA002B_4F636139008F_var*
+//#UC END# *4F7322EA002B_4F636139008F_var*
+//#UC START# *4F74226B03A5_4F636139008F_impl*
+ with Instance do
+  if MouseListeners.IndexOf(aListener) < 0 then
+  begin
+   MouseListeners.Add(aListener);
+   UpdateHooks;
+  end;               
+//#UC END# *4F74226B03A5_4F636139008F_impl*
+//#UC START# *4F74226B03A5_4F636139008F_var*
+//#UC END# *4F74226B03A5_4F636139008F_var*
+//#UC START# *4F74229F007B_4F636139008F_impl*
+ if Exists then
+  with Instance do
+  begin
+   MouseListeners.Remove(aListener);
+   UpdateHooks;
+  end;
+//#UC END# *4F74229F007B_4F636139008F_impl*
+//#UC START# *4F74229F007B_4F636139008F_var*
+//#UC END# *4F74229F007B_4F636139008F_var*
+//#UC START# *4F79BC3000BD_4F636139008F_impl*
+ with Instance do
+  if MouseWheelListeners.IndexOf(aListener) < 0 then
+  begin
+   MouseWheelListeners.Add(aListener);
+   UpdateHooks;
+  end;
+//#UC END# *4F79BC3000BD_4F636139008F_impl*
+//#UC START# *4F79BC3000BD_4F636139008F_var*
+//#UC END# *4F79BC3000BD_4F636139008F_var*
+//#UC START# *4F79BC860012_4F636139008F_impl*
+ if Exists then
+  with Instance do
+  begin
+   MouseWheelListeners.Remove(aListener);
+   UpdateHooks;
+  end;
+//#UC END# *4F79BC860012_4F636139008F_impl*
+//#UC START# *4F79BC860012_4F636139008F_var*
+//#UC END# *4F79BC860012_4F636139008F_var*
+//#UC START# *4F79BCB203AE_4F636139008F_impl*
+ if Supports(aListener, Il3CBTListener, l_CBTListener) then
+  AddCBTListener(l_CBTListener);
+ if Supports(aListener, Il3WndProcListener, l_WndProcListener) then
+  AddWndProcListener(l_WndProcListener);
+ if Supports(aListener, Il3GetMessageListener, l_GetMessageListener) then
+  AddGetMessageListener(l_GetMessageListener);
+ if Supports(aListener, Il3WndProcRetListener, l_WndProcRetListener) then
+  AddWndProcRetListener(l_WndProcRetListener);
+ if Supports(aListener, Il3MouseListener, l_MouseListener) then
+  AddMouseListener(l_MouseListener);
+ if Supports(aListener, Il3MouseWheelListener, l_MouseWheelListener) then
+  AddMouseWheelListener(l_MouseWheelListener);
+//#UC END# *4F79BCB203AE_4F636139008F_impl*
+//#UC START# *4F79BCB203AE_4F636139008F_var*
+var
+ l_CBTListener: Il3CBTListener;
+ l_WndProcListener: Il3WndProcListener;
+ l_GetMessageListener: Il3GetMessageListener;
+ l_WndProcRetListener: Il3WndProcRetListener;
+ l_MouseListener: Il3MouseListener;
+ l_MouseWheelListener: Il3MouseWheelListener;
+//#UC END# *4F79BCB203AE_4F636139008F_var*
+//#UC START# *4F79BD74036A_4F636139008F_impl*
+ if Supports(aListener, Il3CBTListener, l_CBTListener) then
+  RemoveCBTListener(l_CBTListener);
+ if Supports(aListener, Il3WndProcListener, l_WndProcListener) then
+  RemoveWndProcListener(l_WndProcListener);
+ if Supports(aListener, Il3GetMessageListener, l_GetMessageListener) then
+  RemoveGetMessageListener(l_GetMessageListener);
+ if Supports(aListener, Il3WndProcRetListener, l_WndProcRetListener) then
+  RemoveWndProcRetListener(l_WndProcRetListener);
+ if Supports(aListener, Il3MouseListener, l_MouseListener) then
+  RemoveMouseListener(l_MouseListener);
+ if Supports(aListener, Il3MouseWheelListener, l_MouseWheelListener) then
+  RemoveMouseWheelListener(l_MouseWheelListener);
+//#UC END# *4F79BD74036A_4F636139008F_impl*
+//#UC START# *4F79BD74036A_4F636139008F_var*
+var
+ l_CBTListener: Il3CBTListener;
+ l_WndProcListener: Il3WndProcListener;
+ l_GetMessageListener: Il3GetMessageListener;
+ l_WndProcRetListener: Il3WndProcRetListener;
+ l_MouseListener: Il3MouseListener;
+ l_MouseWheelListener: Il3MouseWheelListener;
+//#UC END# *4F79BD74036A_4F636139008F_var*

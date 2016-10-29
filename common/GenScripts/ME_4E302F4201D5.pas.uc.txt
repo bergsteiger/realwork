@@ -1,0 +1,408 @@
+//#UC START# *478CF34E02CE_4E302F4201D5_impl*
+ if Source is TddBaseConfigItem then
+ begin
+  AbsoluteIndex := TddBaseConfigItem(Source).AbsoluteIndex;
+  DefaultValue := TddBaseConfigItem(Source).DefaultValue;
+  Alias := TddBaseConfigItem(Source).Alias;
+  Caption := TddBaseConfigItem(Source).Caption;
+  Changed := TddBaseConfigItem(Source).Changed;
+  Enabled := TddBaseConfigItem(Source).Enabled;
+  Value := TddBaseConfigItem(Source).Value;
+  f_ReadOnly := TddBaseConfigItem(Source).ReadOnly;
+ end
+ else
+  inherited;
+//#UC END# *478CF34E02CE_4E302F4201D5_impl*
+//#UC START# *478CF34E02CE_4E302F4201D5_var*
+//#UC END# *478CF34E02CE_4E302F4201D5_var*
+//#UC START# *479731C50290_4E302F4201D5_impl*
+ FreeAndNil(f_Slaves);
+ inherited;
+//#UC END# *479731C50290_4E302F4201D5_impl*
+//#UC START# *479731C50290_4E302F4201D5_var*
+//#UC END# *479731C50290_4E302F4201D5_var*
+//#UC START# *4E302F4201D5_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas
+//#UC END# *4E302F4201D5_ext:ParentFileName
+//#UC START# *52171C590103_4E302F4201D5_impl*
+ f_Slaves.Add(aSlave);
+//#UC END# *52171C590103_4E302F4201D5_impl*
+//#UC START# *52171C590103_4E302F4201D5_var*
+//#UC END# *52171C590103_4E302F4201D5_var*
+//#UC START# *52171C8500C0_4E302F4201D5_impl*
+ f_Slaves.Remove(aSlave);
+//#UC END# *52171C8500C0_4E302F4201D5_impl*
+//#UC START# *52171C8500C0_4E302F4201D5_var*
+//#UC END# *52171C8500C0_4E302F4201D5_var*
+//#UC START# *52171CBA0170_4E302F4201D5_impl*
+ Changed := True;
+//#UC END# *52171CBA0170_4E302F4201D5_impl*
+//#UC START# *52171CBA0170_4E302F4201D5_var*
+var
+ I: Integer;
+//#UC END# *52171CBA0170_4E302F4201D5_var*
+//#UC START# *52171D0D031D_4E302F4201D5_impl*
+ //virtual
+//#UC END# *52171D0D031D_4E302F4201D5_impl*
+//#UC START# *52171D0D031D_4E302F4201D5_var*
+//#UC END# *52171D0D031D_4E302F4201D5_var*
+//#UC START# *52171FCA00C1_4E302F4201D5set_impl*
+ f_Alias := aValue;
+//#UC END# *52171FCA00C1_4E302F4201D5set_impl*
+//#UC START# *52171FCA00C1_4E302F4201D5set_var*
+//#UC END# *52171FCA00C1_4E302F4201D5set_var*
+//#UC START# *52171FDF0382_4E302F4201D5get_impl*
+ Result := Value.AsBoolean;
+//#UC END# *52171FDF0382_4E302F4201D5get_impl*
+//#UC START# *52171FDF0382_4E302F4201D5get_var*
+//#UC END# *52171FDF0382_4E302F4201D5get_var*
+//#UC START# *52171FDF0382_4E302F4201D5set_impl*
+ if f_Value.AsBoolean <> aValue then
+ begin
+  f_Value.AsBoolean := aValue;
+  Changing;
+ end;
+//#UC END# *52171FDF0382_4E302F4201D5set_impl*
+//#UC START# *52171FDF0382_4E302F4201D5set_var*
+//#UC END# *52171FDF0382_4E302F4201D5set_var*
+//#UC START# *5217205002F2_4E302F4201D5get_impl*
+ Result := f_Changed;
+//#UC END# *5217205002F2_4E302F4201D5get_impl*
+//#UC START# *5217205002F2_4E302F4201D5get_var*
+//#UC END# *5217205002F2_4E302F4201D5get_var*
+//#UC START# *5217205002F2_4E302F4201D5set_impl*
+ f_Changed := aValue;
+//#UC END# *5217205002F2_4E302F4201D5set_impl*
+//#UC START# *5217205002F2_4E302F4201D5set_var*
+//#UC END# *5217205002F2_4E302F4201D5set_var*
+//#UC START# *5217207F003D_4E302F4201D5get_impl*
+ if Value.AsDateTime = ddEmptyDateValue.AsDateTime then
+  Result := Now
+ else
+  Result := Value.AsDateTime;
+//#UC END# *5217207F003D_4E302F4201D5get_impl*
+//#UC START# *5217207F003D_4E302F4201D5get_var*
+//#UC END# *5217207F003D_4E302F4201D5get_var*
+//#UC START# *5217207F003D_4E302F4201D5set_impl*
+ if not SameDateTime(Value.AsDateTime, aValue) then
+ begin
+  f_Value.AsDateTime := aValue;
+  Changing;
+ end;
+//#UC END# *5217207F003D_4E302F4201D5set_impl*
+//#UC START# *5217207F003D_4E302F4201D5set_var*
+//#UC END# *5217207F003D_4E302F4201D5set_var*
+//#UC START# *521720A10002_4E302F4201D5get_impl*
+ Result := f_DefaultValue.AsBoolean;
+//#UC END# *521720A10002_4E302F4201D5get_impl*
+//#UC START# *521720A10002_4E302F4201D5get_var*
+//#UC END# *521720A10002_4E302F4201D5get_var*
+//#UC START# *521720A10002_4E302F4201D5set_impl*
+ with f_DefaultValue do
+ begin
+  Kind := dd_vkBoolean;
+  AsBoolean := aValue;
+ end;
+//#UC END# *521720A10002_4E302F4201D5set_impl*
+//#UC START# *521720A10002_4E302F4201D5set_var*
+//#UC END# *521720A10002_4E302F4201D5set_var*
+//#UC START# *52172110032B_4E302F4201D5get_impl*
+ Result := f_DefaultValue.AsDateTime;
+//#UC END# *52172110032B_4E302F4201D5get_impl*
+//#UC START# *52172110032B_4E302F4201D5get_var*
+//#UC END# *52172110032B_4E302F4201D5get_var*
+//#UC START# *52172110032B_4E302F4201D5set_impl*
+  with f_DefaultValue do
+  begin
+   Kind := dd_vkDateTime;
+   AsDateTime := aValue;
+  end;
+//#UC END# *52172110032B_4E302F4201D5set_impl*
+//#UC START# *52172110032B_4E302F4201D5set_var*
+//#UC END# *52172110032B_4E302F4201D5set_var*
+//#UC START# *521721320074_4E302F4201D5get_impl*
+ Result := f_DefaultValue.AsInteger;
+//#UC END# *521721320074_4E302F4201D5get_impl*
+//#UC START# *521721320074_4E302F4201D5get_var*
+//#UC END# *521721320074_4E302F4201D5get_var*
+//#UC START# *521721320074_4E302F4201D5set_impl*
+ with f_DefaultValue do
+ begin
+  AsInteger := aValue;
+  Kind := dd_vkInteger;
+ end;
+//#UC END# *521721320074_4E302F4201D5set_impl*
+//#UC START# *521721320074_4E302F4201D5set_var*
+//#UC END# *521721320074_4E302F4201D5set_var*
+//#UC START# *5217217B014F_4E302F4201D5get_impl*
+ Result := f_DefaultValue.AsObject;                             
+//#UC END# *5217217B014F_4E302F4201D5get_impl*
+//#UC START# *5217217B014F_4E302F4201D5get_var*
+//#UC END# *5217217B014F_4E302F4201D5get_var*
+//#UC START# *5217217B014F_4E302F4201D5set_impl*
+ with f_DefaultValue do
+ begin
+  Kind := dd_vkObject;
+  AsObject := aValue;
+ end;
+//#UC END# *5217217B014F_4E302F4201D5set_impl*
+//#UC START# *5217217B014F_4E302F4201D5set_var*
+//#UC END# *5217217B014F_4E302F4201D5set_var*
+//#UC START# *521721A6018E_4E302F4201D5get_impl*
+ Result := f_DefaultValue.AsString;
+//#UC END# *521721A6018E_4E302F4201D5get_impl*
+//#UC START# *521721A6018E_4E302F4201D5get_var*
+//#UC END# *521721A6018E_4E302F4201D5get_var*
+//#UC START# *521721A6018E_4E302F4201D5set_impl*
+ with f_DefaultValue do
+ begin
+  Kind := dd_vkString;
+  AsString := aValue;
+ end;
+//#UC END# *521721A6018E_4E302F4201D5set_impl*
+//#UC START# *521721A6018E_4E302F4201D5set_var*
+//#UC END# *521721A6018E_4E302F4201D5set_var*
+//#UC START# *5217221402A6_4E302F4201D5set_impl*
+ l3Move(aValue, f_DefaultValue, SizeOf(aValue));
+ l3Move(aValue, f_Value, SizeOf(aValue));
+//#UC END# *5217221402A6_4E302F4201D5set_impl*
+//#UC START# *5217221402A6_4E302F4201D5set_var*
+//#UC END# *5217221402A6_4E302F4201D5set_var*
+//#UC START# *521722C103B5_4E302F4201D5get_impl*
+ Result := f_Enabled;
+ if MasterItem <> nil then
+  if Supports(MasterItem, IddMasterItem, l_MasterItem) then
+   Result := Result and MasterItem.Enabled and l_MasterItem.BooleanValue
+  else
+   Result := Result and MasterItem.Enabled and MasterItem.BooleanValue
+//#UC END# *521722C103B5_4E302F4201D5get_impl*
+//#UC START# *521722C103B5_4E302F4201D5get_var*
+var
+ l_MasterItem: IddMasterItem;
+//#UC END# *521722C103B5_4E302F4201D5get_var*
+//#UC START# *521722C103B5_4E302F4201D5set_impl*
+ f_Enabled := aValue;
+ DoEnabled;
+//#UC END# *521722C103B5_4E302F4201D5set_impl*
+//#UC START# *521722C103B5_4E302F4201D5set_var*
+//#UC END# *521722C103B5_4E302F4201D5set_var*
+//#UC START# *521723D100AE_4E302F4201D5get_impl*
+ Result := Value.AsInteger;
+//#UC END# *521723D100AE_4E302F4201D5get_impl*
+//#UC START# *521723D100AE_4E302F4201D5get_var*
+//#UC END# *521723D100AE_4E302F4201D5get_var*
+//#UC START# *521723D100AE_4E302F4201D5set_impl*
+ if Value.AsInteger <> aValue then
+ begin
+  f_Value.AsInteger := aValue;
+  Changing;
+ end;
+//#UC END# *521723D100AE_4E302F4201D5set_impl*
+//#UC START# *521723D100AE_4E302F4201D5set_var*
+//#UC END# *521723D100AE_4E302F4201D5set_var*
+//#UC START# *521723F70062_4E302F4201D5get_impl*
+ Result := Required and IsValueEmpty(f_Value) and Enabled;
+//#UC END# *521723F70062_4E302F4201D5get_impl*
+//#UC START# *521723F70062_4E302F4201D5get_var*
+//#UC END# *521723F70062_4E302F4201D5get_var*
+//#UC START# *521724460319_4E302F4201D5set_impl*
+ if f_MasterItem <> aValue then
+ begin
+  if f_MasterItem <> nil then
+   f_MasterItem.RemoveSlave(Self);
+  f_MasterItem := aValue;
+  f_MasterItem.AddSlave(Self);
+  if f_MasterItem <> nil then
+   if Supports(f_MasterItem, IddMasterItem, l_MasterItem) then
+    Enabled := l_MasterItem.BooleanValue
+   else
+    Enabled := f_MasterItem.Value.AsBoolean;
+ end;
+//#UC END# *521724460319_4E302F4201D5set_impl*
+//#UC START# *521724460319_4E302F4201D5set_var*
+var
+ l_MasterItem: IddMasterItem;
+//#UC END# *521724460319_4E302F4201D5set_var*
+//#UC START# *5217247901BD_4E302F4201D5get_impl*
+ Result := Value.AsObject;
+//#UC END# *5217247901BD_4E302F4201D5get_impl*
+//#UC START# *5217247901BD_4E302F4201D5get_var*
+//#UC END# *5217247901BD_4E302F4201D5get_var*
+//#UC START# *5217247901BD_4E302F4201D5set_impl*
+ if f_Value.AsObject <> aValue then
+ begin
+  f_Value.AsObject := aValue;
+  Changing;
+ end;
+//#UC END# *5217247901BD_4E302F4201D5set_impl*
+//#UC START# *5217247901BD_4E302F4201D5set_var*
+//#UC END# *5217247901BD_4E302F4201D5set_var*
+//#UC START# *521724C0003E_4E302F4201D5get_impl*
+ Result := f_Required;
+//#UC END# *521724C0003E_4E302F4201D5get_impl*
+//#UC START# *521724C0003E_4E302F4201D5get_var*
+//#UC END# *521724C0003E_4E302F4201D5get_var*
+//#UC START# *521724C0003E_4E302F4201D5set_impl*
+ f_Required := aValue;
+//#UC END# *521724C0003E_4E302F4201D5set_impl*
+//#UC START# *521724C0003E_4E302F4201D5set_var*
+//#UC END# *521724C0003E_4E302F4201D5set_var*
+//#UC START# *521724F702D9_4E302F4201D5get_impl*
+ Result := Value.AsString;
+//#UC END# *521724F702D9_4E302F4201D5get_impl*
+//#UC START# *521724F702D9_4E302F4201D5get_var*
+//#UC END# *521724F702D9_4E302F4201D5get_var*
+//#UC START# *521724F702D9_4E302F4201D5set_impl*
+ if Value.AsString <> aValue then
+ begin
+  f_Value.AsString := aValue;
+  Changing;
+ end;
+//#UC END# *521724F702D9_4E302F4201D5set_impl*
+//#UC START# *521724F702D9_4E302F4201D5set_var*
+//#UC END# *521724F702D9_4E302F4201D5set_var*
+//#UC START# *521725130281_4E302F4201D5get_impl*
+ Result := f_Value;
+//#UC END# *521725130281_4E302F4201D5get_impl*
+//#UC START# *521725130281_4E302F4201D5get_var*
+//#UC END# *521725130281_4E302F4201D5get_var*
+//#UC START# *521725130281_4E302F4201D5set_impl*
+ l3Move(aValue, f_Value, SizeOf(aValue));
+ Changing;
+//#UC END# *521725130281_4E302F4201D5set_impl*
+//#UC START# *521725130281_4E302F4201D5set_var*
+var
+ I: Integer;
+//#UC END# *521725130281_4E302F4201D5set_var*
+//#UC START# *521725C301A5_4E302F4201D5_impl*
+ Result := True;
+//#UC END# *521725C301A5_4E302F4201D5_impl*
+//#UC START# *521725C301A5_4E302F4201D5_var*
+//#UC END# *521725C301A5_4E302F4201D5_var*
+//#UC START# *521726060214_4E302F4201D5_impl*
+ Value := DefaultValue;
+//#UC END# *521726060214_4E302F4201D5_impl*
+//#UC START# *521726060214_4E302F4201D5_var*
+//#UC END# *521726060214_4E302F4201D5_var*
+//#UC START# *5217273F000F_4E302F4201D5_impl*
+ inherited Create;
+ f_Slaves := Tl3ObjectList.Create;
+ f_Alias := aAlias;
+ f_Caption := aCaption;
+ f_Enabled := True;
+ f_AbsoluteIndex := -1;
+ DefaultValue := aDefaultValue;
+//#UC END# *5217273F000F_4E302F4201D5_impl*
+//#UC START# *5217273F000F_4E302F4201D5_var*
+//#UC END# *5217273F000F_4E302F4201D5_var*
+//#UC START# *5217286C0304_4E302F4201D5_impl*
+ if aOnChange then
+ case aValue.Kind of
+  dd_vkBoolean: BooleanValue := aValue.AsBoolean;
+  dd_vkDateTime: DateTimeValue := aValue.AsDateTime;
+  dd_vkInteger: IntegerValue := aValue.AsInteger;
+  dd_vkObject: ObjectValue := aValue.AsObject;
+  dd_vkString: StringValue := aValue.AsString;
+ end
+ else
+  f_Value := aValue;
+//#UC END# *5217286C0304_4E302F4201D5_impl*
+//#UC START# *5217286C0304_4E302F4201D5_var*
+//#UC END# *5217286C0304_4E302F4201D5_var*
+//#UC START# *52172A7700CB_4E302F4201D5_impl*
+ Result := AnsiCompareText(anAlias, Alias) = 0;
+ if Result then
+  theItem := Self
+ else
+  theItem := nil;
+//#UC END# *52172A7700CB_4E302F4201D5_impl*
+//#UC START# *52172A7700CB_4E302F4201D5_var*
+//#UC END# *52172A7700CB_4E302F4201D5_var*
+//#UC START# *52172AE002EA_4E302F4201D5_impl*
+ Result := HasValue(anAlias, l_Obj);
+//#UC END# *52172AE002EA_4E302F4201D5_impl*
+//#UC START# *52172AE002EA_4E302F4201D5_var*
+var
+ l_Obj: TddBaseConfigItem;
+//#UC END# *52172AE002EA_4E302F4201D5_var*
+//#UC START# *52172B0A003B_4E302F4201D5_impl*
+ Result := f_Locked > 0;
+//#UC END# *52172B0A003B_4E302F4201D5_impl*
+//#UC START# *52172B0A003B_4E302F4201D5_var*
+//#UC END# *52172B0A003B_4E302F4201D5_var*
+//#UC START# *52172B340290_4E302F4201D5_impl*
+ Lock;
+ try
+  LoadValue(aStorage);
+ except
+  on E: Exception do
+   l3System.Msg2Log('Ошибка "%s" загрузки значения элемента "%s"', [E.Message, Alias]);
+ end;
+ Unlock;
+ Changed := False;
+//#UC END# *52172B340290_4E302F4201D5_impl*
+//#UC START# *52172B340290_4E302F4201D5_var*
+//#UC END# *52172B340290_4E302F4201D5_var*
+//#UC START# *52172B72014C_4E302F4201D5_impl*
+ case f_Value.Kind of
+  dd_vkBoolean: f_Value.AsBoolean := aStorage.ReadBool(f_Alias, f_DefaultValue.AsBoolean);
+  dd_vkDateTime: f_Value.AsDateTime := aStorage.ReadDateTime(f_Alias, f_DefaultValue.AsDateTime);
+  dd_vkInteger: f_Value.AsInteger := aStorage.ReadInteger(f_Alias, f_DefaultValue.AsInteger);
+  dd_vkString: f_Value.AsString := l3Str(aStorage.ReadString(f_Alias, f_DefaultValue.AsString));
+ end;
+//#UC END# *52172B72014C_4E302F4201D5_impl*
+//#UC START# *52172B72014C_4E302F4201D5_var*
+//#UC END# *52172B72014C_4E302F4201D5_var*
+//#UC START# *52172BB502E3_4E302F4201D5_impl*
+ Inc(f_Locked);
+//#UC END# *52172BB502E3_4E302F4201D5_impl*
+//#UC START# *52172BB502E3_4E302F4201D5_var*
+//#UC END# *52172BB502E3_4E302F4201D5_var*
+//#UC START# *52172BC5003D_4E302F4201D5_impl*
+ Assert(f_Locked > 0);
+ Dec(f_Locked);
+//#UC END# *52172BC5003D_4E302F4201D5_impl*
+//#UC START# *52172BC5003D_4E302F4201D5_var*
+//#UC END# *52172BC5003D_4E302F4201D5_var*
+//#UC START# *52172C50023A_4E302F4201D5_impl*
+ { TODO -oДмитрий Дудко -cРазвитие : Сброс всех значений в значение по умолчанию }
+//#UC END# *52172C50023A_4E302F4201D5_impl*
+//#UC START# *52172C50023A_4E302F4201D5_var*
+//#UC END# *52172C50023A_4E302F4201D5_var*
+//#UC START# *52172C68039D_4E302F4201D5_impl*
+ if Changed then
+  SaveValue(aStorage);
+//#UC END# *52172C68039D_4E302F4201D5_impl*
+//#UC START# *52172C68039D_4E302F4201D5_var*
+//#UC END# *52172C68039D_4E302F4201D5_var*
+//#UC START# *52172CA801E3_4E302F4201D5_impl*
+ if f_Changed then
+  case f_Value.Kind of
+   dd_vkBoolean: aStorage.WriteBool(f_Alias, f_Value.AsBoolean);
+   dd_vkDateTime: aStorage.WriteDateTime(f_Alias, f_Value.AsDateTime);
+   dd_vkInteger: aStorage.WriteInteger(f_Alias, f_Value.AsInteger);
+   dd_vkString: aStorage.WriteString(f_Alias, f_Value.AsString);
+  end;
+//#UC END# *52172CA801E3_4E302F4201D5_impl*
+//#UC START# *52172CA801E3_4E302F4201D5_var*
+//#UC END# *52172CA801E3_4E302F4201D5_var*
+//#UC START# *5301EC7500FF_4E302F4201D5_impl*
+ Result := RddBaseConfigItem(ClassType).Create(Alias, Caption, DefaultValue, MasterItem);
+ TddBaseConfigItem(Result).Assign(Self);
+//#UC END# *5301EC7500FF_4E302F4201D5_impl*
+//#UC START# *5301EC7500FF_4E302F4201D5_var*
+//#UC END# *5301EC7500FF_4E302F4201D5_var*
+//#UC START# *552BA4A103A3_4E302F4201D5set_impl*
+ if f_ReadOnly <> aValue then
+ begin
+  f_ReadOnly := aValue;
+  ReadOnlyChanged;
+ end;
+//#UC END# *552BA4A103A3_4E302F4201D5set_impl*
+//#UC START# *552BA4A103A3_4E302F4201D5set_var*
+//#UC END# *552BA4A103A3_4E302F4201D5set_var*
+//#UC START# *552BA9B9039B_4E302F4201D5_impl*
+// DoNothing
+//#UC END# *552BA9B9039B_4E302F4201D5_impl*
+//#UC START# *552BA9B9039B_4E302F4201D5_var*
+//#UC END# *552BA9B9039B_4E302F4201D5_var*

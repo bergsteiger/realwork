@@ -1,0 +1,52 @@
+//#UC START# *525E2AE802B2_ext:FileName
+w:\common\components\rtl\Garant\dd\ddBorderPart.pas
+//#UC END# *525E2AE802B2_ext:FileName
+//#UC START# *525E2AE802B2impl_uses*
+//#UC END# *525E2AE802B2impl_uses*
+//#UC START# *525E2CA7024F_525E2AE802B2_impl*
+ f_FrameType := btNone;
+ f_Color := 0;
+ f_Width := 0;
+ f_Space := 20;
+ inherited;
+//#UC END# *525E2CA7024F_525E2AE802B2_impl*
+//#UC START# *525E2CA7024F_525E2AE802B2_var*
+//#UC END# *525E2CA7024F_525E2AE802B2_var*
+//#UC START# *525E2E760175_525E2AE802B2get_impl*
+ Result := f_FrameType <> btNone;
+//#UC END# *525E2E760175_525E2AE802B2get_impl*
+//#UC START# *525E2E760175_525E2AE802B2get_var*
+//#UC END# *525E2E760175_525E2AE802B2get_var*
+//#UC START# *525E2E760175_525E2AE802B2set_impl*
+ if aValue <> Enable then
+ begin
+  if aValue then
+  begin
+   f_FrameType := btSingleThick;
+   f_Color := clBlack;
+   f_Width := 10;
+  end // if Enable
+  else
+   f_FrameType := btNone;  
+ end; // if Value <> Enable
+//#UC END# *525E2E760175_525E2AE802B2set_impl*
+//#UC START# *525E2E760175_525E2AE802B2set_var*
+//#UC END# *525E2E760175_525E2AE802B2set_var*
+//#UC START# *52BACF8A01A9_525E2AE802B2_impl*
+ if (anObject is TddBorderPart) then
+ begin
+  f_FrameType := TddBorderPart(anObject).f_FrameType;
+  f_Color := TddBorderPart(anObject).f_Color;
+  f_Width := TddBorderPart(anObject).f_Width;
+  f_Space := TddBorderPart(anObject).f_Space;
+ end // if (Source Is TddBorderPart) then
+ else
+  inherited Assign(anObject);
+//#UC END# *52BACF8A01A9_525E2AE802B2_impl*
+//#UC START# *52BACF8A01A9_525E2AE802B2_var*
+//#UC END# *52BACF8A01A9_525E2AE802B2_var*
+//#UC START# *54DC9795018B_525E2AE802B2_impl*
+ 
+//#UC END# *54DC9795018B_525E2AE802B2_impl*
+//#UC START# *54DC9795018B_525E2AE802B2_var*
+//#UC END# *54DC9795018B_525E2AE802B2_var*

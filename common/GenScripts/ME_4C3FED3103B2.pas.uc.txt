@@ -1,0 +1,30 @@
+//#UC START# *4836D4C20059_4C3FED3103B2_impl*
+ if CurrentType.IsKindOf(k2_typTable) then
+ begin
+  if f_NeedChange and (Generator <> nil) then
+   Generator.AddBoolAtom(k2_tiOldNSRC, True);
+ end; // if CurrentType.IsKindOf(k2_typTableCell) then
+ inherited;
+//#UC END# *4836D4C20059_4C3FED3103B2_impl*
+//#UC START# *4836D4C20059_4C3FED3103B2_var*
+//#UC END# *4836D4C20059_4C3FED3103B2_var*
+//#UC START# *4A2D1217037A_4C3FED3103B2_impl*
+ if (TypeID = k2_typTable) then
+  f_NeedChange := True;
+ inherited;
+//#UC END# *4A2D1217037A_4C3FED3103B2_impl*
+//#UC START# *4A2D1217037A_4C3FED3103B2_var*
+//#UC END# *4A2D1217037A_4C3FED3103B2_var*
+//#UC START# *4A2D1634025B_4C3FED3103B2_impl*
+ if CurrentType.IsKindOf(k2_typTable) and (AtomIndex = k2_tiOldNSRC) then
+  if VariantAsInteger(AtomIndex, Value) = Ord(True) then
+   f_NeedChange := False;
+ inherited;
+//#UC END# *4A2D1634025B_4C3FED3103B2_impl*
+//#UC START# *4A2D1634025B_4C3FED3103B2_var*
+//#UC END# *4A2D1634025B_4C3FED3103B2_var*
+//#UC START# *4C3FED3103B2_ext:FileName
+w:\common\components\gui\Garant\EverestCommon\evOEMTableFlagFilter.pas
+//#UC END# *4C3FED3103B2_ext:FileName
+//#UC START# *4C3FED3103B2impl_uses*
+//#UC END# *4C3FED3103B2impl_uses*

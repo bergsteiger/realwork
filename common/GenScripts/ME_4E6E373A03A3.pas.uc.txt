@@ -1,0 +1,114 @@
+//#UC START# *4A250DD6037C_4E6E373A03A3_impl*
+ l_IPt := aPt.Inner;
+ if (l_IPt <> nil) then
+ begin
+  l_Child := l_IPt.Obj^;
+  if l_Child.AsObject.IsValid then
+  begin
+   if not EvExpandedText(ParaX.AsObject) and aMap.FI.DecorObj(nev_dtHeader).IsValid then
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=288000491
+   begin
+    l_M := aMap.FI.Spacing;
+    l_Y := aState.rPoint.Y - aMap.Bounds.Top;
+    if (l_Child.PID = 0) OR
+       IsAfterHiddenChild
+       // - заточка для скрытых параграфов
+       then
+     if (l_M.Top > 0) AND
+        (l_Y < l_M.Top) then
+      if GetDecorHotSpot(nev_dtHeader, aView, aState, aMap, theSpot) then
+      begin
+       Result := true;
+       theSpot := TevDecorHotSpot.Make(ParaX, theSpot);
+       Exit;
+      end;//GetDecorHotSpot
+    end;//aMap.FI.DecorObj(nev_dtHeader).IsValid
+  end;//l_Child.IsValid
+ end;//l_IPt <> nil
+ Result := DoGetAdvancedHotSpot(aView, aState, aPt, aMap, theSpot);
+//#UC END# *4A250DD6037C_4E6E373A03A3_impl*
+//#UC START# *4A250DD6037C_4E6E373A03A3_var*
+
+var
+ l_Child : InevObject;
+
+ function IsAfterHiddenChild : Boolean;
+ var
+  l_P : InevPara;
+  l_Cnt : Integer;
+ begin//IsAfterHiddenChild
+  Result := false;
+  if (l_Child.PID = 1) then
+   if l_Child.AsObject.QT(InevPara, l_P) then
+   begin
+    l_Cnt := 10;
+    // http://mdp.garant.ru/pages/viewpage.action?pageId=288000491
+    while not Result AND (l_Cnt > 0) do
+    begin
+     l_P := EvPrevOverallPara(l_P);
+     if (l_P <> nil) AND l_P.AsObject.IsValid then
+     begin
+      if aView.FormatInfoByPara(l_P).IsHidden(true, true) then
+       Result := true
+      else
+       //break
+       // - почему не break - что-то не понимаю
+       ;
+     end//l_P <> nil
+     else
+      break;
+     Dec(l_Cnt); 
+    end;//while true
+   end;//l_Child.QT(InevPara, l_P)
+ end;//IsAfterHiddenChild
+
+var
+ l_IPt : InevBasePoint;
+ l_M   : TnevRect;
+ l_Y   : Integer;
+//#UC END# *4A250DD6037C_4E6E373A03A3_var*
+//#UC START# *4D6406EE0228_4E6E373A03A3_impl*
+ if aChild.AsObject.QT(InevHotSpotTester2, l_HotSpotTester, Processor) then
+  try
+   Result := l_HotSpotTester.GetAdvancedHotSpot(aView,
+                                                aState,
+                                                aPt,
+                                                aMap,
+                                                theSpot);
+  finally
+   l_HotSpotTester := nil;
+  end//try..finally
+ else
+  Result := false;
+//#UC END# *4D6406EE0228_4E6E373A03A3_impl*
+//#UC START# *4D6406EE0228_4E6E373A03A3_var*
+var
+ l_HotSpotTester : InevHotSpotTester2;
+//#UC END# *4D6406EE0228_4E6E373A03A3_var*
+//#UC START# *4E6E373A03A3_ext:FileName
+w:\common\components\gui\Garant\Everest\evParaListHotSpotTesterPrim.pas
+//#UC END# *4E6E373A03A3_ext:FileName
+//#UC START# *4E6E373A03A3impl_uses*
+//#UC END# *4E6E373A03A3impl_uses*
+//#UC START# *4E6E4DA50023_4E6E373A03A3_impl*
+ inherited Create(aTag, aProcessor);
+//#UC END# *4E6E4DA50023_4E6E373A03A3_impl*
+//#UC START# *4E6E4DA50023_4E6E373A03A3_var*
+//#UC END# *4E6E4DA50023_4E6E373A03A3_var*
+//#UC START# *4E6E4F91001A_4E6E373A03A3_impl*
+ Result := false;
+ l_IPt := aPt.Inner;
+ if (l_IPt <> nil) then
+  Result := GetChildHotSpot(aView,
+                            aState,
+                            l_IPt,
+                            aMap.ReserveMap(l_IPt.Obj^),
+                            l_IPt.Obj^,
+                            theSpot);
+//#UC END# *4E6E4F91001A_4E6E373A03A3_impl*
+//#UC START# *4E6E4F91001A_4E6E373A03A3_var*
+var
+ //l_AcceptDrop : Bool;
+ l_IPt        : InevBasePoint;
+ //l_List       : InevParaList;
+//#UC END# *4E6E4F91001A_4E6E373A03A3_var*

@@ -1,0 +1,53 @@
+//#UC START# *4AC09F1D0356_4CCAA9E50274_impl*
+ Assert(aData <> nil);
+ if not defDataAdapter.AdministratorLogin then
+  aData.Open;
+//#UC END# *4AC09F1D0356_4CCAA9E50274_impl*
+//#UC START# *4AC09F1D0356_4CCAA9E50274_var*
+//#UC END# *4AC09F1D0356_4CCAA9E50274_var*
+//#UC START# *4AC09F4F011A_4CCAA9E50274_impl*
+ if not defDataAdapter.AdministratorLogin then
+ begin
+  l_Filters := TenFilters.MakeSingleChild(CheckContainer(aContainer).NativeMainForm,
+                   vcmMakeParams(anAggregate, CheckContainer(aContainer), anOwner),
+                   vcm_ztNavigator);
+  l_Filters.SetActiveInParent;
+  op_List_SetNewContent.Call(l_Filters);
+ end;//not defDataAdapter.AdministratorLogin
+//#UC END# *4AC09F4F011A_4CCAA9E50274_impl*
+//#UC START# *4AC09F4F011A_4CCAA9E50274_var*
+var
+ l_Filters : IvcmEntityForm;
+//#UC END# *4AC09F4F011A_4CCAA9E50274_var*
+//#UC START# *4CB6AFA801C1_4CCAA9E50274_impl*
+ l_Form := TCreateFilterForm.Make(TdsCreateFilter.Make(nil, TdeFilter.Make(aQuery)),
+                                  vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(nil))),
+                                  vcm_ztManualModal,
+                                  Ord(cfCreate));
+
+ try
+  Result := l_Form.ShowModal;
+ finally
+  l_Form := nil;
+ end;
+//#UC END# *4CB6AFA801C1_4CCAA9E50274_impl*
+//#UC START# *4CB6AFA801C1_4CCAA9E50274_var*
+ l_Form : IvcmEntityForm;
+//#UC END# *4CB6AFA801C1_4CCAA9E50274_var*
+//#UC START# *4CB6AFEE024B_4CCAA9E50274_impl*
+ l_Form := TCreateFilterForm.Make(TdsCreateFilter.Make(nil, TdeFilter.Make(aFilter)),
+                                  vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(nil))),
+                                  vcm_ztManualModal,
+                                  Ord(cfRename));
+ try
+  l_Form.ShowModal;
+ finally
+  l_Form := nil;
+ end;
+//#UC END# *4CB6AFEE024B_4CCAA9E50274_impl*
+//#UC START# *4CB6AFEE024B_4CCAA9E50274_var*
+ l_Form : IvcmEntityForm;
+//#UC END# *4CB6AFEE024B_4CCAA9E50274_var*
+//#UC START# *4CCAA9E50274_57975E0B00ED_Impl_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Filters_Module.pas
+//#UC END# *4CCAA9E50274_57975E0B00ED_Impl_ext:ParentFileName

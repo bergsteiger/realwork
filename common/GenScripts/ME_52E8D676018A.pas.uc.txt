@@ -1,0 +1,82 @@
+//#UC START# *52E8D676018A_ext:FileName
+w:\archi\source\projects\PipeInAuto\AutoPipeServer.dpr
+//#UC END# *52E8D676018A_ext:FileName
+//#UC START# *52E8D676018Amanualcode*
+  AssertRunningFromLocal;
+  Application.Initialize;
+  {$IFDEF Region}
+  Application.Title := 'Сервер автоматизации. "Архивариус" (рег)';
+  {$ELSE}
+  Application.Title := 'Сервер автоматизации. "Архивариус"';
+  {$ENDIF}
+  Application.HelpFile := '';
+  Application.CreateForm(TArchiServerForm, ArchiServerForm);
+  Application.Run;
+//#UC END# *52E8D676018Amanualcode*
+//#UC START# *52E8D676018Amanualres*
+{$R versioninfo.res} // включаем Version Info
+
+{$IFDEF Service}
+Для сборки приложения нужно выключить директиву Service в ProjectDefine.inc
+{$ENDIF}
+
+//#UC END# *52E8D676018Amanualres*
+//#UC START# *52E8D676018Amanualuses*
+  ,
+  alcuCloseQueryDlg in 'alcuCloseQueryDlg.pas' {alcuCloseQueryDlgForm},
+  alcuRegionAutoExportTaskPrim in 'Tasks\alcuRegionAutoExportTaskPrim.pas',
+  alcuRegionAutoExportTask in 'Tasks\alcuRegionAutoExportTask.pas',
+  alcuFTPBrowserParams in 'Process\alcuFTPBrowserParams.pas',
+  alcuFTPBrowser in 'Process\alcuFTPBrowser.pas',
+{$IFDEF MDPSyncIntegrated}
+  alcuMDP in 'Process\alcuMDP.pas',
+  GarDocsUnit in 'W:\MDProcess\ArchiAdapterLib\GarDocsUnit.pas',
+  ArchiAdapter in 'W:\MDProcess\ArchiAdapter\ArchiAdapter.pas',
+{$ENDIF MDPSyncIntegrated}
+{$IFDEF AAC}
+  alcuAACImportTaskResult in 'Tasks\alcuAACImportTaskResult.pas',
+  alcuAACImport in 'Tasks\alcuAACImport.pas',
+{$ENDIF AAC}
+  alcuCourtDecisionSubChecker in 'Process\alcuCourtDecisionSubChecker.pas',
+  alcuImportTaskResult in 'Tasks\alcuImportTaskResult.pas',
+  alcuConfig in 'Server\alcuConfig.pas',
+  alcuAutoLinkUpdater in 'Process\alcuAutoLinkUpdater.pas',
+  alcuCourtDecision in 'Process\alcuCourtDecision.pas',
+  alcuSpellChecker in 'Process\alcuSpellChecker.pas',
+  alcuAutoSpellTaskResult in 'Tasks\alcuAutoSpellTaskResult.pas',
+  alcuAutoSpell in 'Tasks\alcuAutoSpell.pas',
+  alcuAutoExport in 'Process\alcuAutoExport.pas',
+  alcuAutoExportTaskResult in 'Tasks\alcuAutoExportTaskResult.pas',
+  alcuAutoExportTaskPrim in 'Tasks\alcuAutoExportTaskPrim.pas',
+  alcuAutoExportTask in 'Tasks\alcuAutoExportTask.pas',
+  alcuZipUtils in 'Process\alcuZipUtils.pas',
+  alcuPrime in 'Process\alcuPrime.pas',
+  alcuFTPUtils in 'Server\alcuFTPUtils.pas',
+  alcuUtils in 'Server\alcuUtils.pas',
+  ddCaseCodeMaker in 'Tasks\ddCaseCodeMaker.pas',
+  alcuRegionImportTaskResult in 'Tasks\alcuRegionImportTaskResult.pas',
+  alcuRegionImportTaskPrim in 'Tasks\alcuRegionImportTaskPrim.pas',
+  alcuRegionImportTask in 'Tasks\alcuRegionImportTask.pas',
+  alcuRegionLoader in 'Tasks\alcuRegionLoader.pas',
+  alcuExport in 'Tasks\alcuExport.pas',
+  alcuImport in 'Tasks\alcuImport.pas',
+  alcuAutoClassTaskResult in 'Tasks\alcuAutoClassTaskResult.pas',
+  alcuAutoClassifier in 'Tasks\alcuAutoClassifier.pas',
+  alcuAnoncedExportPrim in 'Tasks\alcuAnoncedExportPrim.pas',
+  alcuAnoncedExport in 'Tasks\alcuAnoncedExport.pas',
+  alcuRelPublishTaskResult in 'Tasks\alcuRelPublishTaskResult.pas',
+  alcuRelCorrector in 'Tasks\alcuRelCorrector.pas',
+{$IFDEF HavanskyExport}
+  alcuHavanskyExportTaskPrim in 'Tasks\alcuHavanskyExportTaskPrim.pas',
+  alcuHavanskyExportTask in 'Tasks\alcuHavanskyExportTask.pas',
+{$ENDIF HavanskyExport}
+  alcuAnnotationTaskResult in 'Tasks\alcuAnnotationTaskResult.pas',
+  alcuAnnotationTask in 'Tasks\alcuAnnotationTask.pas',
+  alcuContainerTask in 'Tasks\alcuContainerTask.pas',
+  alcuSchedulerProxyTask in 'Tasks\alcuSchedulerProxyTask.pas',
+  alcuAutoAnnoExportTaskPrim in 'Tasks\alcuAutoAnnoExportTaskPrim.pas',
+  alcuAutoAnnoExportTask in 'Tasks\alcuAutoAnnoExportTask.pas',
+  alcuSpellCorrectTask in 'Tasks\alcuSpellCorrectTask.pas',
+  alcuDeliveryProfileTask in 'Tasks\alcuDeliveryProfileTask.pas',
+  alcuAutolinkerTask in 'Tasks\alcuAutolinkerTask.pas'
+//#UC END# *52E8D676018Amanualuses*

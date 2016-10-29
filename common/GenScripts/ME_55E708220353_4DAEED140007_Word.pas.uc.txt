@@ -1,0 +1,14 @@
+//#UC START# *55E708220353_4DAEED140007_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\WordsRTTIPack.pas
+//#UC END# *55E708220353_4DAEED140007_Word_ext:ParentFileName
+//#UC START# *55E708220353_55E708220353_4DAEED140007_Word_impl*
+ if (aWord = nil) then
+  Result := TtfwMembersIterator.Make(nil)
+ else
+ if (aWord Is TkwForwardDeclaration) then
+  Result := TtfwMembersIterator.Make(TkwForwardDeclaration(aWord).RealWord.InnerDictionary)
+ else
+  Result := TtfwMembersIterator.Make(aWord.InnerDictionary);
+//#UC END# *55E708220353_55E708220353_4DAEED140007_Word_impl*
+//#UC START# *55E708220353_55E708220353_4DAEED140007_Word_var*
+//#UC END# *55E708220353_55E708220353_4DAEED140007_Word_var*

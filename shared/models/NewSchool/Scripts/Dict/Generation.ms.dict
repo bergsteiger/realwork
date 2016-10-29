@@ -369,6 +369,10 @@ elem_iterator InheritsEx
       end // ( Self .IsControlPrim )
      ( Self .IsScriptKeyword )
       ( ToArray: GarantModel::TtfwRegisterableWord )
+     ( Self .IsServiceImplementation ) 
+      ( ToArray: GarantModel::Tl3ProtoObject )
+     ( Self .IsService ) 
+      ( ToArray: GarantModel::Tl3ProtoObject )
      DEFAULT
       [empty]
     ; // RULES 
@@ -914,7 +918,9 @@ elem_proc DeleteWordFile
 ; // DeleteWordFile
 
 ModelElement elem_func MainAncestorPrim
- Self .InheritsEx .FirstElement
+ Self .InheritsEx 
+ .map> .ReferencedTypeOriginal
+ .FirstElement
  >>> Result
 ; // MainAncestorPrim
 
@@ -944,6 +950,10 @@ BOOLEAN elem_func IsInterface
  >>> Result
 ; // IsInterface
 
+USES
+ NS.ms.dict
+;
+
 BOOLEAN elem_func IsMixIn
  Cached:
  (
@@ -954,7 +964,7 @@ BOOLEAN elem_func IsMixIn
     true
    ( Self .IsVCMCustomForm )
     RULES
-     ( Self .Abstraction at_abstract == )
+     ( Self .NSAbstraction at_abstract == )
       RULES
        ( Self .MainAncestorPrim .IsNil )
         true
@@ -967,13 +977,13 @@ BOOLEAN elem_func IsMixIn
       false
     ; // RULES
 /*{   ( Self .IsUseCaseController )
-    ( Self .Abstraction at_abstract == )
+    ( Self .NSAbstraction at_abstract == )
    ( Self .IsViewAreaController )
-    ( Self .Abstraction at_abstract == )}*/
+    ( Self .NSAbstraction at_abstract == )}*/
    ( Self .IsUseCaseControllerImp )
-    ( Self .Abstraction at_abstract == )
+    ( Self .NSAbstraction at_abstract == )
    ( Self .IsViewAreaControllerImp )
-    ( Self .Abstraction at_abstract == )
+    ( Self .NSAbstraction at_abstract == )
    DEFAULT
     false 
   ; // RULES 
@@ -999,7 +1009,7 @@ ModelElement elem_func DefaultAncestor
     GarantModel::TDataModule
    ( Self .IsVCMCustomForm )
     GarantModel::TvcmEntityForm
-   ( Self .Abstraction at_abstract == )
+   ( Self .NSAbstraction at_abstract == )
     nil
    ( Self .IsViewAreaController )
     GarantModel::IvcmViewAreaController
@@ -1522,7 +1532,7 @@ STRING elem_func IfNDefStr
 
 ARRAY FUNCTION .mapToTarget>
   ARRAY IN anArray
- anArray .map> .Target 
+ anArray .map> ( .Target .ReferencedTypeOriginal )
  >>> Result
 ; // .mapToTarget>
 
@@ -1638,6 +1648,61 @@ elem_iterator ChildrenExPrim
      .filter> ( .Name Self .ServiceMixInName == )
      .FirstElement >>> l_MixIn
 
+     if ( l_MixIn .IsNil ) then
+     begin
+      l_Children .join> ToArray: (
+       Self .ServiceMixInName
+       nil
+       MakeFacet: (
+         IN aMade
+        aMade -> UID := ( [ Self .LUID '_MixIn' ] strings:Cat )
+        aMade -> %SUM := ( [ 'Контракт сервиса ' Self .Name ] strings:Cat )
+        aMade -> Parent := ( Self .WeakRef )
+        aMade -> Visibility := PublicAccess
+        aMade -> Stereotype := st_PureMixIn
+        aMade -> Operations := [
+         Self .Operations
+         .filter> .IsResponsibility
+         .for> (
+           IN anOp
+          anOp .DecorateMethod:
+          (
+            IN aMethod
+           aMethod -> Stereotype := st_operation::Operation
+           aMethod -> Abstraction := at_abstract
+           aMethod -> Visibility := PublicAccess
+           aMethod -> OriginalStereotype := ( anOp .Stereotype .Name )
+           aMethod -> Parent := ( aMade .WeakRef )
+          ) // anOp .DecorateMethod:
+         ) // .for>
+         Self .Operations
+         .filter> .IsServiceIterator
+         .for> (
+           IN anOp
+          anOp .DecorateMethod:
+          (
+            IN aMethod
+           aMethod -> Stereotype := st_facetiterator
+           aMethod -> Name := ( anOp .Name 'F' Cat )
+           aMethod -> Abstraction := at_abstract
+           aMethod -> Visibility := PublicAccess
+           aMethod -> OriginalStereotype := ( anOp .Stereotype .Name )
+           aMethod -> Parent := ( aMade .WeakRef )
+           aMethod -> Speller := ( anOp .WeakRef )
+          ) // anOp .DecorateMethod:
+         ) // .for>
+        ] // aMade -> Operations
+        // - тут ещё надо responsibility скоприровать
+        // через DecorateMethod и st_operation::Operation
+        //aMade >>> l_MixIn
+       ) // MakeFacet:
+       >>> l_MixIn
+       // - надо наверное интерфейс в переменную класть
+       l_MixIn
+      ) // l_Children .join> ToArray:
+      >>> l_Children
+     end // ( l_MixIn .IsNil )
+     
      l_Children .join> ToArray: (
       Self .ServiceFacetName
       nil
@@ -1845,7 +1910,7 @@ elem_iterator ScriptKeywordsPackProperties
   
   Self .InheritsEx
   .filter> .IsVCMCustomForm
-  .filter> ( .Abstraction at_final == )
+  .filter> ( .NSAbstraction at_final == )
   .for> (
     IN aForm
    aForm .AllControls
@@ -2463,25 +2528,6 @@ INTERFACE elem_func OverrideMethod
  >>> Result
 ; // OverrideMethod
 
-INTERFACE elem_func ImplementMethod:
-  ^ IN aLambda
- Self .DecorateMethod:
- (
-   IN aMethod
-  aMethod -> OpKind := opkind_Implemented
-  aMethod aLambda DO
- ) // Self .DecorateMethod:
- >>> Result
-; // ImplementMethod:
-
-INTERFACE elem_func ImplementMethod
- Cached:
- (
-  Self .ImplementMethod: DROP
- )
- >>> Result
-; // ImplementMethod
-
 INTERFACE FUNCTION MakeInOutParam
   STRING IN aName
   ModelElement IN aType
@@ -2600,10 +2646,14 @@ elem_iterator InterfaceOperationsTotalDeep
  >>> Result
 ; // InterfaceOperationsTotalDeep
 
+USES
+ NSImplemented.ms.dict
+;
+
 elem_iterator ImplementedEx
  Cached:
  (
-  Self .Implemented
+  Self .NSImplemented
   
   if ( Self .IsClassOrMixIn ) then
   begin
@@ -2747,6 +2797,22 @@ BOOLEAN elem_func IsOverride
  >>> Result
 ; // IsOverride
 
+BOOLEAN elem_func NeedsIndex
+ RULES
+  ( Self .UPisTrue "needs index" )
+   true
+  (
+   Self .Attributes
+   .filter> .IsIndexType
+   .NotEmpty
+  ) 
+   true
+  DEFAULT
+   false 
+ ; // RULES
+ >>> Result 
+; // NeedsIndex
+
 ModelElement elem_func IteratorAction
  Cached:
  (
@@ -2783,7 +2849,7 @@ ModelElement elem_func IteratorAction
          .FirstElement
          .ItemParam
          
-         if ( Self .UPisTrue "needs index" ) then
+         if ( Self .NeedsIndex ) then
          begin
           VAR l_IndexType
           Self .Attributes
@@ -2797,7 +2863,7 @@ ModelElement elem_func IteratorAction
           end // ( l_IndexType .IsNil )
           
           l_IndexType .IndexParam
-         end // ( Self .UPisTrue "needs index" )
+         end // ( Self .NeedsIndex )
         ] // aMadeOp -> Parameters
        ) // 'DoIt' GarantModel::Boolean MakeFunction: 
       ] // aMade -> Operations
@@ -3249,7 +3315,7 @@ ARRAY elem_func MethodParameters
         RULES
          (
           ( Self .FirstOperation .IsSummoned )
-          AND ( Self .Abstraction at_regular == )
+          AND ( Self .NSAbstraction at_regular == )
          ) 
           ( Self .MainAncestor call.me ) 
          DEFAULT
@@ -3258,6 +3324,8 @@ ARRAY elem_func MethodParameters
        DEFAULT
         ( Self .MainAncestor call.me )
       ; // RULES 
+     ( Self .Parameters .NotIsNil ) 
+      ( Self .Parameters )
      DEFAULT
       ( Self .FirstOperation .Parameters )
     ; // ( Self .IsMethod )
@@ -3593,11 +3661,15 @@ USES
  DictName.ms.dict
 ;
 
+USES
+ ImplExt.ms.dict
+;
+
 elem_iterator ImplementorsEx
  Cached:
  (
   Self .Implementors
-  .join> ( Self cModelScript '.impl' Cat '_Implementors' .LoadList )
+  .join> ( Self cModelScript ImplExt Cat '_Implementors' .LoadList )
   .CopyWithoutDuplicatedModelElements
  )
  >>> Result
@@ -3946,7 +4018,7 @@ elem_iterator Properties
   
   if ( Self .IsVCMCustomForm ) then
   begin
-   //if ( Self .Abstraction at_final == ) then
+   //if ( Self .NSAbstraction at_final == ) then
    begin
     .join>
     ( 
@@ -3955,7 +4027,7 @@ elem_iterator Properties
      .filter> ( .NotInArray: l_Properties )
      array:Copy
     )
-   end // ( Self .Abstraction at_final == )
+   end // ( Self .NSAbstraction at_final == )
   end // ( Self .IsVCMCustomForm )
   
   if ( Self .IsUseCaseController ) then
@@ -4055,7 +4127,7 @@ BOOLEAN elem_func NeedsField
     DEFAULT
      false 
    ; // RULES
-  ( Self .Abstraction at_abstract == ) 
+  ( Self .NSAbstraction at_abstract == ) 
    false
   ( Self .UPisTrue "needs field" )
    true
@@ -4104,7 +4176,7 @@ elem_iterator Fields
     Self .Properties 
 
     .join> ( 
-     Self .Implemented 
+     Self .NSImplemented 
      .filter> .IsProperty
      .filter> ( .Parent .IsInterface ) 
     ) // .join>
@@ -4178,9 +4250,9 @@ elem_iterator Fields
 BOOLEAN elem_func IsSingleton
  RULES
   ( Self .IsEvent )
-   ( Self .Abstraction at_abstract != )
+   ( Self .NSAbstraction at_abstract != )
   ( Self .IsVCMFormSetFactory )
-   ( Self .Abstraction at_final == )
+   ( Self .NSAbstraction at_final == )
   ( Self .IsService ) 
    true
   ( Self .IsServiceImplementation ) 
@@ -4249,7 +4321,7 @@ elem_iterator GlobalVars
 
      if ( Self .IsVCMModuleContract ) then
      begin
-      if ( Self .Abstraction at_final == ) then
+      if ( Self .NSAbstraction at_final == ) then
       begin
        VAR l_Vars
        VAR l_ModuleName
@@ -4283,12 +4355,12 @@ elem_iterator GlobalVars
        >>> l_Vars
        Self .AddModuleOperationToVars
        l_Vars
-      end // ( Self .Abstraction at_final == )
+      end // ( Self .NSAbstraction at_final == )
      end // ( Self .IsVCMModuleContract )
 
      if ( Self .IsVCMFormsPack ) then
      begin
-      if ( Self .Abstraction at_final == ) then
+      if ( Self .NSAbstraction at_final == ) then
       begin
        VAR l_Vars
        VAR l_ModuleName
@@ -4325,7 +4397,7 @@ elem_iterator GlobalVars
        >>> l_Vars
        Self .AddModuleOperationToVars
        l_Vars
-      end // ( Self .Abstraction at_final == )
+      end // ( Self .NSAbstraction at_final == )
      end // ( Self .IsVCMFormsPack )
 
     ) // ( Self .IsClassOrMixIn )
@@ -5082,13 +5154,18 @@ STRING elem_func UnCastSig
 
 elem_iterator BindServiceImplementationUC
  [
+  VAR l_WasRegistration
+  false >>> l_WasRegistration
   Self .ImplementsInDependencies
   .for> (
     IN anItem
+   if l_WasRegistration then
+    \n 
    anItem .IfDefBrace:
    (
     cSpace anItem .TypeName '.Instance.Alien := ' Self .TypeName '.Instance;'
    ) // anItem .IfDefBrace:
+   true >>> l_WasRegistration
   ) // Self .ImplementsInDependencies
  ]
  >>> Result
@@ -5266,6 +5343,22 @@ BOOLEAN elem_func IsConstructorsHolder
  >>> Result
 ; // IsConstructorsHolder
 
+BOOLEAN elem_func NeedsResult
+ RULES
+  ( Self .UPisTrue "needs result" )
+   true
+  (
+   Self .Attributes 
+   .filter> .IsResultType
+   .NotEmpty
+  ) 
+   true
+  DEFAULT
+   false 
+ ; // RULES
+ >>> Result 
+; // NeedsResult
+
 ModelElement elem_func MethodType
  Cached:
  (
@@ -5302,7 +5395,7 @@ ModelElement elem_func MethodType
      RULES
       ( Self .MainAncestor .IsNotNil )
        ( Self .MainAncestor call.me )
-      ( Self .UPisTrue "needs result" ) 
+      ( Self .NeedsResult ) 
        (
         VAR l_Type
         Self .Attributes 
@@ -6684,10 +6777,10 @@ elem_proc OutUses:
         begin
          RULES
           ( Self .IsVCMForm )
-           if ( Self .Abstraction at_final != ) then
+           if ( Self .NSAbstraction at_final != ) then
              OutUC
           ( Self .IsVCMFormsPack )
-           if ( Self .Abstraction at_final != ) then
+           if ( Self .NSAbstraction at_final != ) then
              OutUC
           ( Self .IsVCMApplication )
            OutUC
@@ -6941,7 +7034,7 @@ elem_iterator ChildrenEx
 
     Self .InheritsEx
     .filter> .IsVCMCustomForm
-    .filter> ( .Abstraction at_final == )
+    .filter> ( .NSAbstraction at_final == )
     .for> (
       IN aForm
 
@@ -7161,7 +7254,7 @@ elem_iterator ChildrenEx
 
    if ( Self .IsVCMCustomForm ) then
    begin
-    if ( Self .Abstraction at_final == ) then
+    if ( Self .NSAbstraction at_final == ) then
     begin
      VAR l_PackName
      [ Self .Name 'KeywordsPack' ] strings:Cat >>> l_PackName
@@ -7197,7 +7290,7 @@ elem_iterator ChildrenEx
       array:Copy
       >>> l_Children
      end // ( l_Children l_ClassName .HasModelElementWithName ! )
-    end // ( Self .Abstraction at_final == )
+    end // ( Self .NSAbstraction at_final == )
    end // ( Self .IsVCMCustomForm )
 
    if ( Self .IsUserType ) then
@@ -7355,6 +7448,8 @@ elem_iterator ChildrenEx
              IN aProp
             aProp .TuneProp
             RULES
+             ( aParam .Stereotype .IsNil )
+              ( aProp -> Stereotype := st_readonly::Attribute )
              ( aParam .IsStereotype st_in )
               ( aProp -> Stereotype := st_readonly::Attribute )
             ; // RULES
@@ -8606,6 +8701,7 @@ elem_iterator InitEntitiesUC
    elem_proc CollectExcludedUserTypes
     Self .InheritsEx
     .filter> .IsUserType
+    .map> .ReferencedTypeOriginal
     .filter> .AddToArray?: l_Excludes
     .for> DROP
     
@@ -8646,6 +8742,7 @@ elem_iterator InitEntitiesUC
    elem_proc CollectIncludedUserTypes
     Self .InheritsEx
     .filter> .IsUserType
+    .map> .ReferencedTypeOriginal
     .filter> .AddToArray?: l_Includes
     .for> DROP
     
@@ -8837,7 +8934,7 @@ elem_iterator OverriddenEx
    begin
     if ( Self .IsMixIn ! ) then
     begin
-     if ( Self .Abstraction at_abstract != ) then
+     if ( Self .NSAbstraction at_abstract != ) then
      begin
       if ( Self GarantModel::TtfwRegisterableWord .InheritsFromOrSomeAncestorImplements ) then
       begin
@@ -8890,7 +8987,7 @@ elem_iterator OverriddenEx
         ) // aMethod .AddMethodWithParams: cImplementationUserCodeName
        ) // .ForceOverrideMethod:
       end // ( Self GarantModel::TtfwRegisterableWord .InheritsFromOrSomeAncestorImplements )
-     end // ( Self .Abstraction at_abstract != )
+     end // ( Self .NSAbstraction at_abstract != )
     end // ( Self .IsMixIn ! )
 
     BOOLEAN VAR l_HasDoIt
@@ -9160,7 +9257,7 @@ elem_iterator OverriddenEx
    
    if ( Self .ChildrenEx
         .filter> .IsVCMForm
-        .filter> ( .Abstraction at_final == )
+        .filter> ( .NSAbstraction at_final == )
         .NotEmpty ) then
    begin     
     .join> ToArray: ( 
@@ -9173,7 +9270,7 @@ elem_iterator OverriddenEx
         ' inherited;'
         Self .ChildrenEx
         .filter> .IsVCMForm
-        .filter> ( .Abstraction at_final == )
+        .filter> ( .NSAbstraction at_final == )
         .for> (
           IN aForm
          [
@@ -9668,13 +9765,13 @@ elem_iterator IntfUses
    begin
     .join> ToArray: GarantModel::vcmInterfaces
    end // ( Self .NeedsMakeControls )
-   if ( Self .Abstraction at_final != ) then
+   if ( Self .NSAbstraction at_final != ) then
    begin
     .join> ToArray: GarantModel::vcmExternalInterfaces
     // - вообще это надо только для Internal операций
-   end // ( Self .Abstraction at_final != )
+   end // ( Self .NSAbstraction at_final != )
    
-   if ( Self .Abstraction at_final == ) then
+   if ( Self .NSAbstraction at_final == ) then
    begin
     if ( Self .IsVCMForm ) then
     begin
@@ -9687,7 +9784,7 @@ elem_iterator IntfUses
      .map> .AttrType
      .filterNil>
     ) // .join>
-   end // ( Self .Abstraction at_final == )
+   end // ( Self .NSAbstraction at_final == )
    else
    begin
     .join> ( 
@@ -9695,7 +9792,7 @@ elem_iterator IntfUses
      .map> .AttrType
      .filterNil>
     ) // .join>
-   end // ( Self .Abstraction at_final == )
+   end // ( Self .NSAbstraction at_final == )
   end // ( Self .IsVCMCustomForm )
   
   if ( Self .IsVCMFormsPack ) then
@@ -9718,13 +9815,17 @@ elem_iterator IntfUses
  >>> Result
 ; // IntfUses
 
+USES
+ InjExt.ms.dict
+;
+
 elem_iterator InjectedElements
  Cached:
  (
   Self .Injected
   .filter> .IsInjects
   .map> .Parent
-  .join> ( Self cModelScript '.inj' Cat '_InjectedElements' .LoadList )
+  .join> ( Self cModelScript InjExt Cat '_InjectedElements' .LoadList )
   .CopyWithoutDuplicatedModelElements
  ) 
  >>> Result
@@ -9859,7 +9960,7 @@ ModelElement elem_func FormDataSourceType
  (
   Self .ImplementsEx
   .filter> .IsViewAreaController
-  .filter> ( .Abstraction at_abstract != )
+  .filter> ( .NSAbstraction at_abstract != )
   .FirstElement >>> Result
   if ( Result .IsNil ) then
   begin
@@ -9870,7 +9971,7 @@ ModelElement elem_func FormDataSourceType
      IN aG
     aG .ImplementsEx
     .filter> .IsViewAreaController
-    .filter> ( .Abstraction at_abstract != )
+    .filter> ( .NSAbstraction at_abstract != )
     .FirstElement >>> Result
    ) // .for>
   end // ( Result .IsNil )
@@ -9887,7 +9988,7 @@ elem_iterator MixInValues
   
   if ( Self .IsUseCaseControllerImp ) then
   begin
-   if ( Self .Abstraction at_abstract != ) then
+   if ( Self .NSAbstraction at_abstract != ) then
    begin
     VAR l_MixInValues
     DUP >>> l_MixInValues
@@ -9902,12 +10003,12 @@ elem_iterator MixInValues
       ) // .join> ToArray:
      end // ( l_SetType .NotIsNil )
     end // ( l_MixInValues 'SetType' .HasModelElementWithName ! )
-   end // ( Self .Abstraction at_abstract != )
+   end // ( Self .NSAbstraction at_abstract != )
   end // ( Self .IsUseCaseControllerImp )
 
   if ( Self .IsViewAreaControllerImp ) then
   begin
-   if ( Self .Abstraction at_final == ) then
+   if ( Self .NSAbstraction at_final == ) then
    begin
     VAR l_MixInValues
     DUP >>> l_MixInValues
@@ -9922,7 +10023,7 @@ elem_iterator MixInValues
       ) // .join> ToArray:
      end // ( l_SetType .NotIsNil )
     end // ( l_MixInValues 'SetType' .HasModelElementWithName ! )
-   end // ( Self .Abstraction at_abstract != )
+   end // ( Self .NSAbstraction at_abstract != )
   end // ( Self .IsViewAreaControllerImp )
  )
  >>> Result
@@ -10003,7 +10104,7 @@ BOOLEAN elem_func NeedRegisterInScripts
       false
      ( Self .IsMixIn )
       false 
-     ( Self .Abstraction at_abstract == ) 
+     ( Self .NSAbstraction at_abstract == ) 
       true
      ( Self .IsScriptKeyword )
       false
@@ -10145,13 +10246,13 @@ elem_iterator Used
    if (
        Self .InheritsEx
        .filter> .IsVCMCustomForm
-       .filter> ( .Abstraction at_final == )
+       .filter> ( .NSAbstraction at_final == )
        .NotEmpty
       ) then
    begin
     Self .InheritsEx
     .filter> .IsVCMCustomForm
-    .filter> ( .Abstraction at_final == )
+    .filter> ( .NSAbstraction at_final == )
     .for> (
       IN aForm
      .join> ( 
@@ -10214,7 +10315,7 @@ elem_iterator Used
 
   if ( Self .IsVCMFormsPack ) then
   begin
-   if ( Self .Abstraction at_final == ) then
+   if ( Self .NSAbstraction at_final == ) then
    begin
     .join> ToArray: GarantModel::TvcmModulesForRegister
     .join> ToArray: GarantModel::TvcmModuleOperationsForRegister
@@ -10227,7 +10328,7 @@ elem_iterator Used
       .join> ToArray: anOp
      ) // .for>
     ) .IterateVCMFormsPacksFromApplication
-   end // ( Self .Abstraction at_final == )
+   end // ( Self .NSAbstraction at_final == )
   end // ( Self .IsVCMFormsPack )
 
   .join> ( Self .UsedElements )
@@ -10249,7 +10350,7 @@ elem_iterator AbstractUses
   ( 
    Self .InheritsEx
    .filter> .IsSimpleClass 
-   .filter> ( .Abstraction at_abstract == )
+   .filter> ( .NSAbstraction at_abstract == )
   ) .for> ( 
     IN aG
    .joinWithLambded> ( 
@@ -10271,7 +10372,7 @@ BOOLEAN elem_func IsTestForTestLibrary
    true
   ( Self .IsTestCase )
    RULES
-    ( Self .Abstraction at_abstract == )
+    ( Self .NSAbstraction at_abstract == )
      false
     DEFAULT
      true
@@ -10366,10 +10467,10 @@ elem_iterator ImplUses
   
   if ( Self .IsVCMForm ) then
   begin
-   if ( Self .Abstraction at_final != ) then
+   if ( Self .NSAbstraction at_final != ) then
    begin
     .join> ToArray: GarantModel::StdRes
-   end // ( Self .Abstraction at_final != )
+   end // ( Self .NSAbstraction at_final != )
   end // ( Self .IsVCMForm )
   
   if ( Self .IsVCMFormSetFactory ) then
@@ -10382,10 +10483,10 @@ elem_iterator ImplUses
   begin
    .join> ( Self .ChildrenWithOwnFile )
    .join> ToArray: GarantModel::evExtFormat
-   if ( Self .Abstraction at_final == ) then
+   if ( Self .NSAbstraction at_final == ) then
    begin
     .join> ToArray: GarantModel::StdRes
-   end // ( Self .Abstraction at_final == )
+   end // ( Self .NSAbstraction at_final == )
   end // ( Self .IsVCMApplication )
   
   if ( Self .IsVCMUseCaseRealization ) then
@@ -10847,7 +10948,7 @@ INTEGER elem_func MethodAbstraction
       ( Self .IsOperationOverride )
        at_override
       DEFAULT
-       ( Self .Abstraction )
+       ( Self .NSAbstraction )
      ; // RULES
     ) // opkind_Normal
    opkind_Implemented
@@ -10902,8 +11003,12 @@ STRING elem_func MethodNamePrefix
       'Set'
      ( Self .UPisTrue "pm" )
       'pm_Set'
-     DEFAULT
+     ( Self .GetUP "pm" false ?== )
       'Set_'
+     ( Self .ParentIsInterface ) 
+      'Set_'
+     DEFAULT
+      'pm_Set'
     ; // RULES  
    end // ( Self .IsSetter )
   ( Self .IsProperty )
@@ -10913,8 +11018,12 @@ STRING elem_func MethodNamePrefix
       'Get'
      ( Self .UPisTrue "pm" )
       'pm_Get'
-     DEFAULT
+     ( Self .GetUP "pm" false ?== )
       'Get_'
+     ( Self .ParentIsInterface ) 
+      'Get_'
+     DEFAULT
+      'pm_Get'
     ; // RULES  
    end // ( Self .IsProperty )
   DEFAULT
@@ -10927,83 +11036,9 @@ STRING CompileTime-VAR g_MethodParentPrefix ''
 BOOLEAN CompileTime-VAR g_EnableMethodDirectives true
 BOOLEAN CompileTime-VAR g_EnableMethodDocumentation true
 
-ANY elem_func ExtValue
- Cached:
- (
-  Self .GetUP 'extprop:pas:Value' >>> Result
-  if ( Result .IsValueValid ) then
-  begin
-   RULES
-    ( Result IsString )
-     begin
-      RULES
-       ( '.[]' Result EndsStr )
-        begin
-         '[]' >>> Result
-        end // ( '.[]' Result EndsStr )
-       ( '.nil' Result EndsStr )
-        begin
-         'nil' >>> Result
-        end // ( '.[]' Result EndsStr )
-       ( '1.0' Result EndsStr )
-        ()
-       ( '.0' Result EndsStr )
-       // - вообще тут надо проверять, что впереди буква
-        begin
-         '0' >>> Result
-        end // ( '.[]' Result EndsStr )
-       ( 
-        ( ']' Result EndsStr )
-        AND ( '[' Result StartsStr ! )
-       ) 
-        begin
-         VAR l_Head
-         Result cDot string:Split >>> Result >>> l_Head
-         if ( Result .IsNil ) then
-         begin
-          l_Head >>> Result
-         end // ( Result .IsNil )
-        end // ( '.[]' Result EndsStr )
-       ( 'vcmUserControls.vcm_utAny' Result == )
-        ( 'vcm_utAny' >>> Result )
-       ( 'vcm_ztvcm_ztAny' Result == )
-        ( 'vcm_ztAny' >>> Result )
-       ( 'evdInterfaces.evDefaultStoreFlags' Result == )
-        ( 'evDefaultStoreFlags' >>> Result )
-       DEFAULT
-        begin
-         VAR l_Type
-         Self .ValueType >>> l_Type
-         if ( l_Type .IsNotNil ) then
-         begin
-          VAR l_Target
-          Self .Target >>> l_Target
-          if (
-              ( l_Target .IsNil )
-              OR ( l_Target l_Type != ) 
-             ) then
-          begin
-           VAR l_Unit
-           l_Type .EffectiveUnitName >>> l_Unit
-           if ( Self .EffectiveUnitName l_Unit != ) then
-           begin 
-            l_Unit cDot Cat >>> l_Unit
-            if ( l_Unit Result StartsStr ! ) then
-            begin
-             l_Unit Result Cat >>> Result
-            end // ( l_Unit Result StartsStr ! ) 
-           end // ( Self .EffectiveUnitName l_Unit != )
-          end // ( Self .Target l_Type != )
-         end // ( l_Type .IsNotNil )
-        end // DEFAULT
-      ; // RULES
-     end // ( Result IsString )
-   ; // RULES
-  end // ( Result .IsValueValid )
-  Result
- )
- >>> Result
-; // ExtValue
+USES
+ ExtValue.ms.dict
+;
 
 elem_proc MethodInterfacePrim
  IN aPrefix
@@ -11122,7 +11157,7 @@ elem_proc MethodInterfacePrim
        //if ( l_MethodAbstraction at_override != ) then
        begin
         VAR l_Value
-        aParam .ExtValue >>> l_Value
+        aParam .ExtValueOrValue >>> l_Value
         //aParam .GetUP 'Value' >>> l_Value
         if ( l_Value .IsValueValid ) then
         begin
@@ -11245,7 +11280,7 @@ elem: AsIteratorFDo:
   aMethod ->^ cImplementationUserCodeName ^:= [
   ' try' \n
   '  '
-  if ( Self .UPisTrue "needs result" ) then
+  if ( Self .NeedsResult ) then
    'Result := '
   RULES
    ( Self .IsMethodAndImplementsIterator ) 
@@ -11680,6 +11715,7 @@ elem_iterator AllOperationsForOverload
        .joinWithLambded> 
        ( 
         anItem .InterfaceForClassImplements 
+        .map> .ReferencedTypeOriginal
         .filter> ( .AddToArray?: l_CastMethods )
        ) 
        (
@@ -11922,7 +11958,7 @@ elem_proc OutProperty
    end // ( Self .UPisTrue "needs stored directive" )
  
    VAR l_Value
-   Self .ExtValue >>> l_Value
+   Self .ExtValueOrValue >>> l_Value
    if ( l_Value .IsValueValid ) then
    begin
     \n
@@ -12008,7 +12044,7 @@ INTEGER elem_func MethodVisibility
       PublicAccess
      (
       ( Self .Visibility PrivateAccess == ) 
-      AND ( Self .Abstraction at_abstract == )
+      AND ( Self .NSAbstraction at_abstract == )
      ) 
       ProtectedAccess
      DEFAULT
@@ -12018,7 +12054,7 @@ INTEGER elem_func MethodVisibility
     RULES
      ( 
       Self .IsStaticMethod 
-      AND ( Self .Abstraction at_abstract == )
+      AND ( Self .NSAbstraction at_abstract == )
      )
       PublicAccess
      ( Self .Visibility PrivateAccess == ) 
@@ -12060,7 +12096,7 @@ elem_proc OutClassInner
  Indented: (
   if ( Self .IsVCMCustomForm ) then
   begin
-   if ( Self .Abstraction at_final == ) then
+   if ( Self .NSAbstraction at_final == ) then
    begin
     Indented: (
      if ( Self .IsVCMForm ) then
@@ -12075,7 +12111,7 @@ elem_proc OutClassInner
       [ aControl .AttrName ' : ' aControl .AttrType .TypeName ';' ] .Out
      ) // .for>
     ) // Indented:
-   end // ( Self .Abstraction at_final == )
+   end // ( Self .NSAbstraction at_final == )
   end // ( Self .IsVCMCustomForm )
   Self .Fields .ByVisibility> .FieldVisibility .OutField
   
@@ -12419,7 +12455,7 @@ elem_proc OutClass
   Self .TypeName 
   ' = ' 
   
-  Self .Abstraction CASE
+  Self .NSAbstraction CASE
    at_abstract
     [ cOpenComment 'abstract' cCloseComment cSpace ]
    at_final
@@ -12437,6 +12473,7 @@ elem_proc OutClass
   l_Parent .ToArray
   .join> ( 
    Self .ClassImplements 
+   .map> .ReferencedTypeOriginal
    .filter> .AddToArray?: l_Implements
   ) // .join>
   .With()> (
@@ -12634,7 +12671,7 @@ elem_proc OutPureMixIn
 ; // OutPureMixIn
 
 ANY elem_func ExtValueOrName
- Self .ExtValue >>> Result
+ Self .ExtValueOrValue >>> Result
  if ( Result .IsValueValid ! ) then
  begin
   Self .Name >>> Result
@@ -12737,7 +12774,7 @@ elem_proc OutEnum
       l_Prefix aChild .Name
      
       VAR l_Value
-      aChild .ExtValue >>> l_Value
+      aChild .ExtValueOrValue >>> l_Value
       if ( l_Value .IsValueValid ) then
       begin
        ' = ' l_Value ToPrintable
@@ -13192,7 +13229,7 @@ elem_proc OutConstants
       anItem .IfDef:
       ( 
        ( 
-        anItem .ExtValue 
+        anItem .ExtValueOrValue
         if l_IsPointer then
         begin
          '@'
@@ -13221,7 +13258,7 @@ elem_proc OutConstants
          false >>> l_WasComma
          '['
          Self .Attributes 
-         .map> .ExtValue
+         .map> .ExtValueOrValue
          .filter> .IsValueValid
          .map> ( l_Prefix SWAP Cat )
          .for> (
@@ -13484,7 +13521,7 @@ elem_proc OutVar
     end // ( Self .UPisTrue "IsResult" )
     
     VAR l_Value
-    Self .ExtValue >>> l_Value
+    Self .ExtValueOrValue >>> l_Value
     if ( l_Value .IsValueValid ) then
     begin
      ' = ' l_Value
@@ -13758,10 +13795,10 @@ elem_proc OutClassImplementation
 
  if ( Self .IsVCMCustomForm ) then
  begin
-  if ( Self .Abstraction at_final == ) then
+  if ( Self .NSAbstraction at_final == ) then
   begin
    [ '{$R *.DFM}' \n ] .Out
-  end // ( Self .Abstraction at_final == )
+  end // ( Self .NSAbstraction at_final == )
  end // ( Self .IsVCMCustomForm )
  
  Self .IfDef:
@@ -14285,7 +14322,7 @@ elem_iterator IniOperations
     end // ( Self .IsConstants )
    (
     ( Self .IsTestCase )
-    AND ( Self .Abstraction at_abstract != )
+    AND ( Self .NSAbstraction at_abstract != )
     AND ( Self .IsMixIn ! )
    ) 
     ( .join> ToArray: ( Self .RegisterTestCaseMethod ) )
@@ -14305,7 +14342,7 @@ elem_iterator IniOperations
      
      if ( Self .IsMixIn ! ) then
      begin
-      if ( Self .Abstraction at_abstract != ) then
+      if ( Self .NSAbstraction at_abstract != ) then
       begin
        if ( Self GarantModel::TtfwRegisterableWord .InheritsFromOrSomeAncestorImplements ) then
        begin
@@ -14325,7 +14362,7 @@ elem_iterator IniOperations
           ) // .join>
         end // ( l_IniOperations 'Ini_Reg' .HasModelElementWithName ! )
        end // ( l_IniOperations 'Ini_Reg' .HasModelElementWithName ! )
-      end // ( Self .Abstraction at_abstract != )
+      end // ( Self .NSAbstraction at_abstract != )
      end // ( Self .IsMixIn ! )
      
      if ( l_WasRegisterInEngine ! ) then
@@ -14524,7 +14561,7 @@ elem_iterator IniOperations
   RULES
    ( Self .IsVCMFormsPack )
     begin
-     if ( Self .Abstraction at_final == ) then
+     if ( Self .NSAbstraction at_final == ) then
      begin
       .join> ToArray: (
        'RegisterModule'
@@ -14583,7 +14620,7 @@ elem_iterator IniOperations
         ) // aMade .AddMethodWithParams: cUserCodePrefix Self
        ) // MakeIniProcedure:
       ) // .join> ToArray:
-     end // ( Self .Abstraction at_final == )
+     end // ( Self .NSAbstraction at_final == )
     end // ( Self .IsVCMFormsPack )
   ; // RULES
   
@@ -15300,6 +15337,10 @@ elem_generator pas
  
  CONST Ext '.pas'
 
+ STRING elem_func GenEffectiveUnitName
+  Self .EffectiveUnitName >>> Result
+ ; // GenEffectiveUnitName
+ 
  BOOLEAN elem_func CanCopyToFinalFile
   RULES
    ( Self .UseNewGen )
@@ -15447,7 +15488,7 @@ elem_generator dfm
 
  BOOLEAN elem_func NeedOwnFilePrim
   Self .IsVCMCustomForm
-  AND ( Self .Abstraction at_final == )
+  AND ( Self .NSAbstraction at_final == )
   >>> Result 
  ; // NeedOwnFilePrim
  

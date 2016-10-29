@@ -62,7 +62,6 @@ FORWARD ME_57AD8E570241
 ME ME_57AD8E66010A
  MEPROP Name 'anEvent'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_57B5682D00D1 // TmsmEvent
  ;
 
@@ -130,7 +129,6 @@ FORWARD ME_57B4228B001E
 ME ME_57B4229D02E3
  MEPROP Name 'aListener'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_57AD9309039B // ImsmEventsSubscriber
  ;
 
@@ -142,7 +140,7 @@ ME ME_57B422960170
  MEPROP Class class_Operation
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_final
- MELINK Parent HWL ME_57B4228B001E // Subscribe
+ MELINK Parent HWL ME_57B4228B001E // AddEventsSubscriber
  ;
  MELIST Parameters
    Seq: ( ME_57B4229D02E3 // aListener
@@ -153,7 +151,7 @@ ENDME // ME_57B422960170 DoIt
 
 ME ME_57B4228B001E
  MEPROP UID '57B4228B001E'
- MEPROP Name 'Subscribe'
+ MEPROP Name 'AddEventsSubscriber'
  MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
@@ -166,19 +164,19 @@ ME ME_57B4228B001E
  )
  ; // Operations
 
-ENDME // ME_57B4228B001E Subscribe
+ENDME // ME_57B4228B001E AddEventsSubscriber
 
 MEREF ME_57B4228B001E_ME_57B422AB0293_G
- MELINK Original HWL ME_57B4228B001E // Subscribe
+ MELINK Original HWL ME_57B4228B001E // AddEventsSubscriber
  ;
  MEPROP OpKind opkind_ReferencedType
-ENDMEREF // ME_57B4228B001E_ME_57B422AB0293_G Subscribe
+ENDMEREF // ME_57B4228B001E_ME_57B422AB0293_G AddEventsSubscriber
 
 %%InheritedBy ME_57B4228B001E ME_57B422AB0293
 
 ME ME_57B422AB0293
  MEPROP UID '57B422AB0293'
- MEPROP Name 'Unsubscribe'
+ MEPROP Name 'RemoveEventsSubscriber'
  MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
@@ -187,11 +185,11 @@ ME ME_57B422AB0293
  MELINK Parent HWL ME_57ADE3C3031B // MmsmEventsPublisher
  ;
  MELIST Inherits
-   Seq: ( ME_57B4228B001E_ME_57B422AB0293_G // Subscribe
+   Seq: ( ME_57B4228B001E_ME_57B422AB0293_G // AddEventsSubscriber
  )
  ; // Inherits
 
-ENDME // ME_57B422AB0293 Unsubscribe
+ENDME // ME_57B422AB0293 RemoveEventsSubscriber
 
 ME ME_57ADE3C3031B
  MEPROP UID '57ADE3C3031B'
@@ -204,8 +202,8 @@ ME ME_57ADE3C3031B
  MELINK Parent HWL ME_57B5730D0123 // msmEvents
  ;
  MELIST Operations
-   Seq: ( HWL ME_57B4228B001E // Subscribe
- HWL ME_57B422AB0293 // Unsubscribe
+   Seq: ( HWL ME_57B4228B001E // AddEventsSubscriber
+ HWL ME_57B422AB0293 // RemoveEventsSubscriber
  )
  ; // Operations
  MESTRINGLIST DiagramsNames
@@ -268,7 +266,6 @@ FORWARD ME_57B59F2B03A1
 ME ME_57B59F420265
  MEPROP Name 'anEvent'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_57B5682D00D1 // TmsmEvent
  ;
 
@@ -355,16 +352,16 @@ ENDME // ME_57B59EFD01DD MmsmEventsManaging
 FORWARD ME_57B6B9670157
 
 MEREF ME_57B4228B001E_ME_57B6B9670157_impl
- MELINK Original HWL ME_57B4228B001E // Subscribe
+ MELINK Original HWL ME_57B4228B001E // AddEventsSubscriber
  ;
  MEPROP OpKind opkind_Implemented
-ENDMEREF // ME_57B4228B001E_ME_57B6B9670157_impl Subscribe
+ENDMEREF // ME_57B4228B001E_ME_57B6B9670157_impl AddEventsSubscriber
 
 MEREF ME_57B422AB0293_ME_57B6B9670157_impl
- MELINK Original HWL ME_57B422AB0293 // Unsubscribe
+ MELINK Original HWL ME_57B422AB0293 // RemoveEventsSubscriber
  ;
  MEPROP OpKind opkind_Implemented
-ENDMEREF // ME_57B422AB0293_ME_57B6B9670157_impl Unsubscribe
+ENDMEREF // ME_57B422AB0293_ME_57B6B9670157_impl RemoveEventsSubscriber
 
 MEREF ME_57ADE3C3031B_ME_57B6B9670157_R
  MELINK Original HWL ME_57ADE3C3031B // MmsmEventsPublisher
@@ -390,8 +387,8 @@ ME ME_57B6B9670157
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_57B4228B001E_ME_57B6B9670157_impl // Subscribe
- ME_57B422AB0293_ME_57B6B9670157_impl // Unsubscribe
+   Seq: ( ME_57B4228B001E_ME_57B6B9670157_impl // AddEventsSubscriber
+ ME_57B422AB0293_ME_57B6B9670157_impl // RemoveEventsSubscriber
  )
  ; // Implemented
  UP extprop:rc:SelfName 'msmEventsPublisher'
@@ -404,7 +401,6 @@ FORWARD ME_57CD82BF0129
 ME ME_57CD82D10332
  MEPROP Name 'anEvent'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_57B5682D00D1 // TmsmEvent
  ;
 

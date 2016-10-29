@@ -1,0 +1,35 @@
+//#UC START# *4F4CB81200CA_52650217029A_impl*
+ l_Format := GetFormat(aCtx);
+ RunnerAssert(aCtx.rEngine.IsTopString, 'Не задано имя файла!', aCtx);
+ l_FileName := aCtx.rEngine.PopDelphiString;
+ l_FileName := aCtx.rCaller.ResolveInputFilePath(l_FileName);
+ l_Filer := Tl3CustomDOSFiler.Make(l_FileName, l3_fmRead, False);
+ try
+  InevDocumentContainerInternal(anEditor.TextSource.DocumentContainer.Internal).GetReader(l_Format,
+                                                                                          l_Filer As IStream,
+                                                                                          l_Reader,
+                                                                                          False,
+                                                                                          l_Filer.CodePage);
+  try
+   if l_Reader = nil then Exit;
+   with anEditor do
+    TextSource.DocumentContainer.TagWriter.WriteTagEx(View, l_Reader, Selection.Cursor);
+  finally
+   l3Free(l_Reader);
+  end;//try..finally
+ finally
+  l3Free(l_Filer);
+ end;
+//#UC END# *4F4CB81200CA_52650217029A_impl*
+//#UC START# *4F4CB81200CA_52650217029A_var*
+var
+ l_Filer    : Tl3CustomDOSFiler;
+ l_Format   : Integer;
+ l_Reader   : Tk2CustomReader;
+ l_FileName : AnsiString;
+//#UC END# *4F4CB81200CA_52650217029A_var*
+//#UC START# *52650217029A_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\kwInsertFromStreamCommon.pas
+//#UC END# *52650217029A_ext:FileName
+//#UC START# *52650217029Aimpl_uses*
+//#UC END# *52650217029Aimpl_uses*

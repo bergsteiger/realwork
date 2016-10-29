@@ -1,0 +1,61 @@
+//#UC START# *479731C50290_5770F2450027_impl*
+ FreeAndNil(f_FunctionFactory);
+ FreeAndNil(f_Connection);
+ f_QueryFactory := nil;
+ FreeAndNil(f_MainHelper);
+ FreeAndNil(f_CurrentHelper);
+ inherited;
+//#UC END# *479731C50290_5770F2450027_impl*
+//#UC START# *479731C50290_5770F2450027_var*
+//#UC END# *479731C50290_5770F2450027_var*
+//#UC START# *5770F2450027_ext:FileName
+w:\common\components\rtl\Garant\PG\pgFreeIDHelperHolder.pas
+//#UC END# *5770F2450027_ext:FileName
+//#UC START# *5770F2450027impl_uses*
+//#UC END# *5770F2450027impl_uses*
+//#UC START# *5770F26F036D_5770F2450027get_impl*
+ case aFamilyID of
+  MainTblsFamily:
+   begin
+    if f_MainHelper = nil then
+     f_MainHelper := TpgFreeIDHelper.Create(f_Connection, f_QueryFactory, f_FunctionFactory, aFamilyID);
+    Result := f_MainHelper;
+   end;
+  CurrentFamily:
+   begin
+    if f_CurrentHelper = nil then
+     f_CurrentHelper := TpgFreeIDHelper.Create(f_Connection, f_QueryFactory, f_FunctionFactory, aFamilyID);
+    Result := f_CurrentHelper;
+   end;
+  else
+  begin
+   Result := nil;
+   Assert(False);
+  end;
+ end;
+//#UC END# *5770F26F036D_5770F2450027get_impl*
+//#UC START# *5770F26F036D_5770F2450027get_var*
+//#UC END# *5770F26F036D_5770F2450027get_var*
+//#UC START# *5770FDA901D4_5770F2450027_impl*
+ inherited Create;
+ aConnection.SetRefTo(f_Connection);
+ f_QueryFactory := aQueryFactory;
+ aFunctionFactory.SetRefTo(f_FunctionFactory);
+//#UC END# *5770FDA901D4_5770F2450027_impl*
+//#UC START# *5770FDA901D4_5770F2450027_var*
+//#UC END# *5770FDA901D4_5770F2450027_var*
+//#UC START# *577123B6029A_5770F2450027_impl*
+ FreeIDHelper[TdaScheme.Instance.Table(aTable).FamilyID].ExcludeFree(TdaScheme.Instance.Table(aTable).Code, anID);
+//#UC END# *577123B6029A_5770F2450027_impl*
+//#UC START# *577123B6029A_5770F2450027_var*
+//#UC END# *577123B6029A_5770F2450027_var*
+//#UC START# *5771241A0324_5770F2450027_impl*
+ Result := FreeIDHelper[TdaScheme.Instance.Table(aTable).FamilyID].GetFree(TdaScheme.Instance.Table(aTable).Code);
+//#UC END# *5771241A0324_5770F2450027_impl*
+//#UC START# *5771241A0324_5770F2450027_var*
+//#UC END# *5771241A0324_5770F2450027_var*
+//#UC START# *577CC0BF0321_5770F2450027_impl*
+ FreeIDHelper[TdaScheme.Instance.Table(aTable).FamilyID].PutFree(TdaScheme.Instance.Table(aTable).Code, anID);
+//#UC END# *577CC0BF0321_5770F2450027_impl*
+//#UC START# *577CC0BF0321_5770F2450027_var*
+//#UC END# *577CC0BF0321_5770F2450027_var*

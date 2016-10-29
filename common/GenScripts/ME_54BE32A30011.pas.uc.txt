@@ -1,0 +1,42 @@
+//#UC START# *479731C50290_54BE32A30011_impl*
+ FreeAndNil(f_Data);
+ inherited;
+//#UC END# *479731C50290_54BE32A30011_impl*
+//#UC START# *479731C50290_54BE32A30011_var*
+//#UC END# *479731C50290_54BE32A30011_var*
+//#UC START# *47A042E100E2_54BE32A30011_impl*
+ inherited;
+ f_Data := TalcuDetachedExecutorList.Make;
+//#UC END# *47A042E100E2_54BE32A30011_impl*
+//#UC START# *47A042E100E2_54BE32A30011_var*
+//#UC END# *47A042E100E2_54BE32A30011_var*
+//#UC START# *54BE32A30011_ext:FileName
+w:\archi\source\projects\PipeInAuto\Tasks\alcuDetachedExecutorPool.pas
+//#UC END# *54BE32A30011_ext:FileName
+//#UC START# *54BE32A30011impl_uses*
+//#UC END# *54BE32A30011impl_uses*
+//#UC START# *54BE5EBC03D3_54BE32A30011_impl*
+ Lock;
+ try
+  f_Data.Add(anExecutor);
+  anExecutor.Suspended := False;
+ finally
+  Unlock;
+ end;
+//#UC END# *54BE5EBC03D3_54BE32A30011_impl*
+//#UC START# *54BE5EBC03D3_54BE32A30011_var*
+//#UC END# *54BE5EBC03D3_54BE32A30011_var*
+//#UC START# *54BE5ED201CC_54BE32A30011_impl*
+ Lock;
+ try
+  for l_IDX := f_Data.Count - 1 downto 0 do
+   if f_Data[l_IDX].Suspended then
+    f_Data.Delete(l_IDX);
+ finally
+  Unlock;
+ end;
+//#UC END# *54BE5ED201CC_54BE32A30011_impl*
+//#UC START# *54BE5ED201CC_54BE32A30011_var*
+var
+ l_IDX: Integer;
+//#UC END# *54BE5ED201CC_54BE32A30011_var*

@@ -14,7 +14,6 @@ ME ME_53FC5716BBEF
  MEPROP Name 'aDialog'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_4AF32FBD00F5' // TnsSaveDialog
  ;
 
@@ -58,13 +57,41 @@ ME ME_D50DF667C759
 
 ENDME // ME_D50DF667C759 GetFileName
 
+FORWARD ME_5811C5A001F6
+
+ME ME_3B3E1FCF3F9D
+ MEPROP Name 'aName'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_3B3E1FCF3F9D aName
+
+ME ME_8E32D0CAA2B7
+ MEPROP UID '8E32D0CAA2B7'
+ MEPROP Name 'SetFileName'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_1F9B40407B77 // MnsSaveDialogExecutor
+ ;
+ MELIST Parameters
+   Seq: ( ME_3B3E1FCF3F9D // aName
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_5811C5A001F6 // SetFileName
+ ;
+
+ENDME // ME_8E32D0CAA2B7 SetFileName
+
 FORWARD ME_57447EFA00A1
 
 ME ME_44C5FD781072
  MEPROP Name 'aFileFormat'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_57335B010093' '4A6854C70390.ms.model.script' // TnsFileFormat
  ;
 
@@ -94,7 +121,6 @@ ME ME_F2EA4A77451E
  MEPROP Name 'aValue'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4990374602FC' '49804E310263.ms.model.script' // TnsSaveDialogListTarget
  ;
 
@@ -124,7 +150,6 @@ ME ME_34DA685574C6
  MEPROP Name 'aValue'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -154,7 +179,6 @@ ME ME_99F40B52227E
  MEPROP Name 'aValue'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -193,6 +217,7 @@ ME ME_1F9B40407B77
  MELIST Operations
    Seq: ( HWL ME_52B375B038DC // Call
  HWL ME_D50DF667C759 // GetFileName
+ HWL ME_8E32D0CAA2B7 // SetFileName
  HWL ME_593F1F6D46A5 // SetFileFormat
  HWL ME_4020F60E166B // SetSaveObjects
  HWL ME_8E9943B92E87 // SetMergeFiles
@@ -205,7 +230,6 @@ ENDME // ME_1F9B40407B77 MnsSaveDialogExecutor
 ME ME_573A0F43004A
  MEPROP Name 'aDialog'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_4AF32FBD00F5' // TnsSaveDialog
  ;
 
@@ -243,10 +267,33 @@ ME ME_57447EC501FC
 
 ENDME // ME_57447EC501FC GetFileName
 
+ME ME_5811C5A90198
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5811C5A90198 aName
+
+ME ME_5811C5A001F6
+ MEPROP UID '5811C5A001F6'
+ MEPROP Name 'SetFileName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_573A0A7E0387 // TnsSaveDialogExecutor
+ ;
+ MELIST Parameters
+   Seq: ( ME_5811C5A90198 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_5811C5A001F6 SetFileName
+
 ME ME_57447F080213
  MEPROP Name 'aFileFormat'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_57335B010093' '4A6854C70390.ms.model.script' // TnsFileFormat
  ;
 
@@ -271,7 +318,6 @@ ENDME // ME_57447EFA00A1 SetFileFormat
 ME ME_57FCE285032F
  MEPROP Name 'aValue'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4990374602FC' '49804E310263.ms.model.script' // TnsSaveDialogListTarget
  ;
 
@@ -296,7 +342,6 @@ ENDME // ME_57FCE260011C SetSaveObjects
 ME ME_57FCE37B00D8
  MEPROP Name 'aValue'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -321,7 +366,6 @@ ENDME // ME_57FCE36B0114 SetMergeFiles
 ME ME_57FCE9A801BF
  MEPROP Name 'aValue'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -389,6 +433,7 @@ ME ME_573A0A7E0387
  MELIST Operations
    Seq: ( HWL ME_573A0E8C0257 // Call
  HWL ME_57447EC501FC // GetFileName
+ HWL ME_5811C5A001F6 // SetFileName
  HWL ME_57447EFA00A1 // SetFileFormat
  HWL ME_57FCE260011C // SetSaveObjects
  HWL ME_57FCE36B0114 // SetMergeFiles

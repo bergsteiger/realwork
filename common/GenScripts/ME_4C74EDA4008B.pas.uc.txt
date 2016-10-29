@@ -1,0 +1,35 @@
+//#UC START# *4C74EDA4008B_ext:FileName
+w:\common\components\rtl\Garant\Daily\GZipTest.pas
+//#UC END# *4C74EDA4008B_ext:FileName
+//#UC START# *4C74EDA4008Bimpl_uses*
+//#UC END# *4C74EDA4008Bimpl_uses*
+//#UC START# *4C74EDE00008_4C74EDA4008B_impl*
+ l_In := FileFromCurrent(KPage + cIExt);
+ l_FS := Tl3FileStream.Create(l_In, l3_fmRead);
+ try
+  l_GZ := Tl3GZipStream.Create(l_FS);
+  try
+   l_FS2 := Tl3FileStream.Create(FileForOutput, l3_fmWrite);
+   try
+    l_FS2.CopyFrom(l_GZ, l_GZ.Size);
+   finally
+    FreeAndNil(l_FS2);
+   end;//try..finally
+  finally
+   FreeAndNil(l_GZ);
+  end;//try..finally
+ finally
+  FreeAndNil(l_FS);
+ end;//try..finally
+ CheckOutputWithInput(ChangeFileExt(l_In, EtalonSuffix + cOExt));
+//#UC END# *4C74EDE00008_4C74EDA4008B_impl*
+//#UC START# *4C74EDE00008_4C74EDA4008B_var*
+const
+ cIExt = '.gz';
+ cOExt = '.xml';
+var
+ l_FS  : Tl3FileStream;
+ l_FS2 : Tl3FileStream;
+ l_GZ  : Tl3GZipStream;
+ l_In  : String;
+//#UC END# *4C74EDE00008_4C74EDA4008B_var*

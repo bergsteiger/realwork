@@ -1,0 +1,31 @@
+//#UC START# *476961930017_52A845E50292_impl*
+ DoParamsChanged(anAction);
+//#UC END# *476961930017_52A845E50292_impl*
+//#UC START# *476961930017_52A845E50292_var*
+//#UC END# *476961930017_52A845E50292_var*
+//#UC START# *476961A40369_52A845E50292_impl*
+ DoParamsChanging(anAction);
+//#UC END# *476961A40369_52A845E50292_impl*
+//#UC START# *476961A40369_52A845E50292_var*
+//#UC END# *476961A40369_52A845E50292_var*
+//#UC START# *52A845E50292_ext:FileName
+w:\common\components\gui\Garant\VCM\implementation\Visual\vcmWinControlActionLink.pas
+//#UC END# *52A845E50292_ext:FileName
+//#UC START# *52A845E50292impl_uses*
+//#UC END# *52A845E50292impl_uses*
+//#UC START# *52A8469903AF_52A845E50292_impl*
+ if (FClient is TControl) then
+  if (anAction.Font <> nil) then
+   with anAction.Font do
+   begin
+    if (BackColor <> clDefault) then
+     THackControl(FClient).Color := BackColor;
+    Assign2Font(THackControl(FClient).Font);
+   end;//with anAction.Font
+//#UC END# *52A8469903AF_52A845E50292_impl*
+//#UC START# *52A8469903AF_52A845E50292_var*
+//#UC END# *52A8469903AF_52A845E50292_var*
+//#UC START# *52A846AF0108_52A845E50292_impl*
+//#UC END# *52A846AF0108_52A845E50292_impl*
+//#UC START# *52A846AF0108_52A845E50292_var*
+//#UC END# *52A846AF0108_52A845E50292_var*

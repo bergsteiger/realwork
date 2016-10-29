@@ -1,0 +1,49 @@
+//#UC START# *4A3911C50154_ext:FileName
+w:\common\components\gui\Garant\Everest\evTextParaMarkers.pas
+//#UC END# *4A3911C50154_ext:FileName
+//#UC START# *4A3911C50154impl_uses*
+//#UC END# *4A3911C50154impl_uses*
+//#UC START# *4E3A3F0D0388_4A3911D80203_impl*
+ l_OldValue := Self.ClientValue;
+ if (l_OldValue <> aValue) then
+ begin
+  with Para do
+  begin
+   l_Delta := l_OldValue + IntA[k2_tiRightIndent] - aValue;
+   IntW[k2_tiRightIndent, aContext] := l_Delta;
+  end; // with Para do
+ end; // l_OldValue <> aValue
+//#UC END# *4E3A3F0D0388_4A3911D80203_impl*
+//#UC START# *4E3A3F0D0388_4A3911D80203_var*
+var
+ l_OldValue : LongInt;
+ l_Delta    : LongInt;
+//#UC END# *4E3A3F0D0388_4A3911D80203_var*
+//#UC START# *4E3A4C4B03A0_4A3911D80203_impl*
+ with Para do
+ begin
+  if (IntA[k2_tiJustification] = Ord(ev_itPreformatted)) then
+   Result := evShapeNil
+  else
+  begin
+   l_FI := View.FormatInfoByPara(Para);
+   if (l_FI <> nil) then
+    Result := l_FI.Width
+   else
+    Result := 0;
+  end;//IntA[k2_tiJustification] = Ord(ev_itPreformatted)
+ end;//with Para
+//#UC END# *4E3A4C4B03A0_4A3911D80203_impl*
+//#UC START# *4E3A4C4B03A0_4A3911D80203_var*
+var
+ l_FI : TnevFormatInfoPrim;
+//#UC END# *4E3A4C4B03A0_4A3911D80203_var*
+//#UC START# *4ED31DEA0077_4A3911D80203_impl*
+ if (Self.Value <> aValue) then
+ begin
+  SetClientValue(View.FormatInfoByPara(ParaInst).ParentToClient(l3PointX(aValue)).X, Context);
+  ParaInst.Invalidate([nev_spExtent]);
+ end;//Self.Value <> aValue
+//#UC END# *4ED31DEA0077_4A3911D80203_impl*
+//#UC START# *4ED31DEA0077_4A3911D80203_var*
+//#UC END# *4ED31DEA0077_4A3911D80203_var*

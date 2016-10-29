@@ -1,0 +1,58 @@
+//#UC START# *479731C50290_502B789B03CA_impl*
+ f_WasStyle := False;
+ inherited;
+//#UC END# *479731C50290_502B789B03CA_impl*
+//#UC START# *479731C50290_502B789B03CA_var*
+//#UC END# *479731C50290_502B789B03CA_var*
+//#UC START# *47A042E100E2_502B789B03CA_impl*
+ inherited;
+ f_WasStyle := False;
+//#UC END# *47A042E100E2_502B789B03CA_impl*
+//#UC START# *47A042E100E2_502B789B03CA_var*
+//#UC END# *47A042E100E2_502B789B03CA_var*
+//#UC START# *4A2D1217037A_502B789B03CA_impl*
+ if InCell then
+  f_WasStyle := False;
+ inherited DoStartChild(TypeID);
+//#UC END# *4A2D1217037A_502B789B03CA_impl*
+//#UC START# *4A2D1217037A_502B789B03CA_var*
+//#UC END# *4A2D1217037A_502B789B03CA_var*
+//#UC START# *4A2D1634025B_502B789B03CA_impl*
+ if InCell then
+  case AtomIndex of
+   k2_tiFrame: Exit;
+   k2_tiStyle: if (Value.AsInteger = ev_saTxtNormalANSI) then
+               begin
+                f_WasStyle := True;
+                AddIntegerAtom(AtomIndex, ev_saNormalTable);
+                Exit;
+               end // if Value.AsInteger = ev_saTxtNormalANSI then
+               else
+                f_WasStyle := True;
+   k2_tiLeftIndent: if Value.AsInteger < 0 then Exit;
+  end;
+ if (AtomIndex = k2_tiFrame) and CurrentType.IsKindOf(k2_typDocument) then Exit;
+ if (AtomIndex = k2_tiRightIndent) and (Abs(Value.AsInteger) > cnMaxIndent) then Exit;
+ inherited;
+//#UC END# *4A2D1634025B_502B789B03CA_impl*
+//#UC START# *4A2D1634025B_502B789B03CA_var*
+const cnMaxIndent = 1000;
+//#UC END# *4A2D1634025B_502B789B03CA_var*
+//#UC START# *4E45166B0156_502B789B03CA_impl*
+ if InCell then
+  if not f_WasStyle then
+   Generator.AddIntegerAtom(k2_tiStyle, ev_saNormalTable);
+ inherited;
+//#UC END# *4E45166B0156_502B789B03CA_impl*
+//#UC START# *4E45166B0156_502B789B03CA_var*
+//#UC END# *4E45166B0156_502B789B03CA_var*
+//#UC START# *502B789B03CA_ext:FileName
+w:\common\components\gui\Garant\Everest\evTextInTableCorrector.pas
+//#UC END# *502B789B03CA_ext:FileName
+//#UC START# *502B789B03CAimpl_uses*
+//#UC END# *502B789B03CAimpl_uses*
+//#UC START# *539003570066_502B789B03CA_impl*
+ Result := CurrentType.IsKindOf(k2_typTextPara) and TopType[1].IsKindOf(k2_typTableCell);
+//#UC END# *539003570066_502B789B03CA_impl*
+//#UC START# *539003570066_502B789B03CA_var*
+//#UC END# *539003570066_502B789B03CA_var*

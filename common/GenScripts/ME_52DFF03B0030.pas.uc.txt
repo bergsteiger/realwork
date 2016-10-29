@@ -1,0 +1,33 @@
+//#UC START# *52CFC11603C8_52DFF03B0030get_impl*
+ if (Code <> nil) then
+  if (Code.Count = 1) then
+  begin
+   Result := Code.Items[0].ResultTypeInfo[aCtx];
+   Exit;
+  end;//Code.Count = 1
+ Result := inherited pm_GetResultTypeInfo(aCtx); 
+//#UC END# *52CFC11603C8_52DFF03B0030get_impl*
+//#UC START# *52CFC11603C8_52DFF03B0030get_var*
+//#UC END# *52CFC11603C8_52DFF03B0030get_var*
+//#UC START# *52DFE48500BB_52DFF03B0030_impl*
+ Result := Self;
+//#UC END# *52DFE48500BB_52DFF03B0030_impl*
+//#UC START# *52DFE48500BB_52DFF03B0030_var*
+//#UC END# *52DFE48500BB_52DFF03B0030_var*
+//#UC START# *52DFF03B0030_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\kwBeginLikeCompiledCode.pas
+//#UC END# *52DFF03B0030_ext:FileName
+//#UC START# *52DFF03B0030impl_uses*
+//#UC END# *52DFF03B0030impl_uses*
+//#UC START# *55CB5B8C004E_52DFF03B0030_impl*
+(* if (Code <> nil) then
+  if (Code.Count = 1) then
+   if (LocalDictionary = nil) OR LocalDictionary.Empty then
+   begin
+    Result := Code.Items[0].Use;
+    Exit;
+   end;//LocalDictionary = nil*)
+ Result := inherited MakeRefForCompile(aCtx, aSNI);
+//#UC END# *55CB5B8C004E_52DFF03B0030_impl*
+//#UC START# *55CB5B8C004E_52DFF03B0030_var*
+//#UC END# *55CB5B8C004E_52DFF03B0030_var*

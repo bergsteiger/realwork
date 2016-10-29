@@ -1,0 +1,600 @@
+//#UC START# *47D1602000C6_4FD0A98C01BD_impl*
+ inherited;
+ f_AvailableSizes := cDefaultAvailableSizes;
+ for lSize := Low(TvtPILSize) to High(TvtPILSize) do
+ begin
+  for lBpp := Low(TvtPILBpp) to High(TvtPILBpp) do
+  begin
+   f_Glyph[lSize, lBpp] := TIEBitmap.Create;
+   with f_Glyph[lSize, lBpp] do
+   begin
+    PixelFormat := ie24RGB;
+    CreateAlphaChannel;
+    Location := ieFile;
+    MinFileSize := 51200;
+   end;
+  end;
+ end;
+ Width := PILSize[ps16x16];
+ Height := PILSize[ps16x16];
+ f_CurSize := ps16x16;
+ f_CurBpp := bpp24;
+ f_Count := 0;
+ f_ChangeOn := True;
+ HandleNeeded;
+ if g_PILList = nil then
+  g_PILList := Tl3ObjectList.Make;
+ g_PILList.Add(Self);
+ f_Rebuilding := False;
+//#UC END# *47D1602000C6_4FD0A98C01BD_impl*
+//#UC START# *47D1602000C6_4FD0A98C01BD_var*
+var
+ lBpp: TvtPILBpp;
+ lSize: TvtPILSize;
+//#UC END# *47D1602000C6_4FD0A98C01BD_var*
+//#UC START# *48077504027E_4FD0A98C01BD_impl*
+ for lSize := Low(TvtPILSize) to High(TvtPILSize) do
+ begin
+  for lBpp := Low(TvtPILBpp) to High(TvtPILBpp) do
+   l3Free(f_Glyph[lSize, lBpp]);
+  l3Free(f_DrawCache[lSize]);
+  l3Free(f_AlphaDrawCache[lSize]);
+ end;
+ g_PILList.Remove(Self);
+ if g_PILList.Count = 0 then
+  l3Free(g_PILList);
+ inherited;
+//#UC END# *48077504027E_4FD0A98C01BD_impl*
+//#UC START# *48077504027E_4FD0A98C01BD_var*
+var
+ lBpp: TvtPILBpp;
+ lSize: TvtPILSize;
+//#UC END# *48077504027E_4FD0A98C01BD_var*
+//#UC START# *4F950C6D03BE_4FD0A98C01BD_impl*
+ if (Index < 0) or (Index > Count-1) then
+  Exit;
+ DrawGlyphSpecified(Index, Canvas, f_CurSize, f_CurBpp, X, Y, Enabled, HalfTransparent);
+//#UC END# *4F950C6D03BE_4FD0A98C01BD_impl*
+//#UC START# *4F950C6D03BE_4FD0A98C01BD_var*
+//#UC END# *4F950C6D03BE_4FD0A98C01BD_var*
+//#UC START# *4FD08E8503DC_4FD0A98C01BD_impl*
+ if f_ChangeOn then
+  inherited;
+ ClearAlphaDrawCache; 
+//#UC END# *4FD08E8503DC_4FD0A98C01BD_impl*
+//#UC START# *4FD08E8503DC_4FD0A98C01BD_var*
+//#UC END# *4FD08E8503DC_4FD0A98C01BD_var*
+//#UC START# *4FD08EF002D0_4FD0A98C01BD_impl*
+ inherited DefineProperties(Filer);
+ Filer.DefineBinaryProperty('PNGData', ReadData, WriteData, DoWrite);
+//#UC END# *4FD08EF002D0_4FD0A98C01BD_impl*
+//#UC START# *4FD08EF002D0_4FD0A98C01BD_var*
+  function DoWrite: Boolean;
+  begin
+    {if Filer.Ancestor <> nil then
+      Result := not (Filer.Ancestor is TCustomImageList) or
+        not Equal(TCustomImageList(Filer.Ancestor))
+    else}
+      Result := Count > 0;
+  end;
+//#UC END# *4FD08EF002D0_4FD0A98C01BD_var*
+//#UC START# *4FD08F7F01AD_4FD0A98C01BD_impl*
+ IO := TImageEnIO.Create(nil);
+ try
+  for lSize := Low(TvtPILSize) to High(TvtPILSize) do
+   for lBpp := Low(TvtPILBpp) to High(TvtPILBpp) do
+   begin
+    IO.AttachedIEBitmap := f_Glyph[lSize, lBpp];
+    IO.LoadFromStreamPNG(Stream);
+   end;
+ finally
+  IO.Free;
+ end;
+ CalcCount;
+ if f_Count <> 0 then
+ begin
+  for lSize := Low(TvtPILSize) to High(TvtPILSize) do
+   if (lSize in AvailableSizes) then
+    for lBpp := Low(TvtPILBpp) to High(TvtPILBpp) do
+     if f_Glyph[lSize, lBpp].Width = 0 then // не загрузились - надо создать
+     with f_Glyph[lSize, lBpp] do
+     begin
+      Width := PILSize[lSize] * f_Count;
+      Height := PILSize[lSize];
+      with AlphaChannel.Canvas do
+      begin
+       Brush.Style := bsSolid;
+       Brush.Color := 0;
+       FillRect(Rect(0,0,PILSize[lSize] * f_Count, PILSize[lSize]));
+      end;
+     end;
+ end;
+ {$IFDEF DesignTimeLibrary}
+ RebuildForDesignTime;
+ {$ENDIF}
+//#UC END# *4FD08F7F01AD_4FD0A98C01BD_impl*
+//#UC START# *4FD08F7F01AD_4FD0A98C01BD_var*
+var
+ lBpp: TvtPILBpp;
+ IO: TImageEnIO;
+ lSize: TvtPILSize;
+//#UC END# *4FD08F7F01AD_4FD0A98C01BD_var*
+//#UC START# *4FD08FA7008C_4FD0A98C01BD_impl*
+ IO := TImageEnIO.Create(nil);
+ try
+  for lSize := Low(TvtPILSize) to High(TvtPILSize) do
+   for lBpp := Low(TvtPILBpp) to High(TvtPILBpp) do
+   begin
+    IO.AttachedIEBitmap := f_Glyph[lSize, lBpp];
+    IO.SaveToStreamPNG(Stream);
+   end;
+ finally
+  IO.Free;
+ end;
+//#UC END# *4FD08FA7008C_4FD0A98C01BD_impl*
+//#UC START# *4FD08FA7008C_4FD0A98C01BD_var*
+var
+ lBpp: TvtPILBpp;
+ IO: TImageEnIO;
+ lSize : TvtPILSize;
+//#UC END# *4FD08FA7008C_4FD0A98C01BD_var*
+//#UC START# *4FD092040227_4FD0A98C01BD_impl*
+ {$IFDEF DesignTimeLibrary}
+ inherited Clear;
+ {$ENDIF}
+ inherited;
+//#UC END# *4FD092040227_4FD0A98C01BD_impl*
+//#UC START# *4FD092040227_4FD0A98C01BD_var*
+//#UC END# *4FD092040227_4FD0A98C01BD_var*
+//#UC START# *4FD093CB025F_4FD0A98C01BD_impl*
+ if (Index < 0) or (Index > Count-1) then
+  Exit;
+ DrawGlyphSpecified(Index, Canvas, f_CurSize, f_CurBpp, X, Y, Enabled);
+//#UC END# *4FD093CB025F_4FD0A98C01BD_impl*
+//#UC START# *4FD093CB025F_4FD0A98C01BD_var*
+//#UC END# *4FD093CB025F_4FD0A98C01BD_var*
+//#UC START# *4FD0944D0202_4FD0A98C01BD_impl*
+ Result.X := Width;
+ Result.Y := Height;
+//#UC END# *4FD0944D0202_4FD0A98C01BD_impl*
+//#UC START# *4FD0944D0202_4FD0A98C01BD_var*
+//#UC END# *4FD0944D0202_4FD0A98C01BD_var*
+//#UC START# *4FD095D20217_4FD0A98C01BD_impl*
+ Result := True;
+//#UC END# *4FD095D20217_4FD0A98C01BD_impl*
+//#UC START# *4FD095D20217_4FD0A98C01BD_var*
+//#UC END# *4FD095D20217_4FD0A98C01BD_var*
+//#UC START# *4FD0A98C01BD_ext:ParentFileName
+w:\common\components\gui\Garant\VT\vtPngImgList.pas
+//#UC END# *4FD0A98C01BD_ext:ParentFileName
+//#UC START# *4FD0A98C01BDci*
+//#UC END# *4FD0A98C01BDci*
+//#UC START# *4FD0A98C01BDcit*
+//#UC END# *4FD0A98C01BDcit*
+//#UC START# *4FD0A98C01BDimpl*
+{$ifndef DesignTimeLibrary}
+{$IfNDef XE}
+function TvtPngImageListPrim.GetCount: Integer;
+begin
+ Result := f_Count;
+end;
+{$endif}
+{$endif}
+//#UC END# *4FD0A98C01BDimpl*
+//#UC START# *4FD0A98C01BDpubl*
+  {$IFDEF DesignTimeLibrary}
+  procedure RebuildForDesignTime;
+  {$ENDIF}
+   {$ifndef DesignTimeLibrary}
+   {$IfNDef XE}
+  protected
+   function GetCount: Integer; override;
+   {$EndIf}
+   {$endif}
+//#UC END# *4FD0A98C01BDpubl*
+//#UC START# *4FD0A9FC01F1_4FD0A98C01BDset_impl*
+ if f_AvailableSizes <> aValue then
+ begin
+  for lSize := Low(TvtPILSize) to High(TvtPILSize) do
+  begin
+   if (lSize in f_AvailableSizes) and not (lSize in aValue) then
+    TrimSize(lSize)
+   else
+    if not (lSize in f_AvailableSizes) and (lSize in aValue) then
+     RebuildSize(lSize);
+  end;
+  f_AvailableSizes := aValue;
+  Change;
+ end;
+//#UC END# *4FD0A9FC01F1_4FD0A98C01BDset_impl*
+//#UC START# *4FD0A9FC01F1_4FD0A98C01BDset_var*
+var
+ lSize: TvtPILSize;
+
+ procedure TrimSize(aSize: TvtPILSize);
+ var
+  lBpp: TvtPILBpp;
+ begin
+  for lBpp := Low(TvtPILBpp) to High(TvtPILBpp) do
+   f_Glyph[aSize, lBpp].Resize(1, 1, 0, 0, iehLeft, ievTop);
+ end;
+
+ procedure RebuildSize(aSize: TvtPILSize);
+ var
+  lBpp: TvtPILBpp;
+ begin
+  if f_Count = 0 then
+   Exit;
+  for lBpp := Low(TvtPILBpp) to High(TvtPILBpp) do
+   f_Glyph[aSize, lBpp].Resize(f_Count*PILSize[aSize], PILSize[aSize], 0, 0, iehLeft, ievTop);
+ end;
+//#UC END# *4FD0A9FC01F1_4FD0A98C01BDset_var*
+//#UC START# *4FD0AA8C002B_4FD0A98C01BDget_impl*
+ Result := f_Count;
+//#UC END# *4FD0AA8C002B_4FD0A98C01BDget_impl*
+//#UC START# *4FD0AA8C002B_4FD0A98C01BDget_var*
+//#UC END# *4FD0AA8C002B_4FD0A98C01BDget_var*
+//#UC START# *4FD0ACBB038A_4FD0A98C01BDset_impl*
+ if f_CurBpp <> aValue then
+ begin
+  f_CurBpp := aValue;
+  Change;
+ end;
+//#UC END# *4FD0ACBB038A_4FD0A98C01BDset_impl*
+//#UC START# *4FD0ACBB038A_4FD0A98C01BDset_var*
+//#UC END# *4FD0ACBB038A_4FD0A98C01BDset_var*
+//#UC START# *4FD0ACFD0363_4FD0A98C01BDset_impl*
+ if (f_CurSize <> aValue) and (aValue in f_AvailableSizes) then
+ begin
+  f_CurSize := aValue;
+  f_ChangeOn := False;
+  try
+   Width := PILSize[f_CurSize];
+   Height := PILSize[f_CurSize];
+  finally
+   f_ChangeOn := True;
+  end; {try..finally}
+  Change;
+ end;
+//#UC END# *4FD0ACFD0363_4FD0A98C01BDset_impl*
+//#UC START# *4FD0ACFD0363_4FD0A98C01BDset_var*
+//#UC END# *4FD0ACFD0363_4FD0A98C01BDset_var*
+//#UC START# *4FD0B13F0065_4FD0A98C01BD_impl*
+ f_Count := 0;
+ for lSize := Low(TvtPILSize) to High(TvtPILSize) do
+ begin
+  if lSize in AvailableSizes then
+  begin
+   if UseNewSizes then
+    f_Count := f_Glyph[lSize, bpp24].Width div PILSize[lSize]
+   else
+    f_Count := f_Glyph[lSize, bpp24].Width div OldPILSize[lSize];
+   Break;
+  end;
+ end;
+//#UC END# *4FD0B13F0065_4FD0A98C01BD_impl*
+//#UC START# *4FD0B13F0065_4FD0A98C01BD_var*
+var
+ lSize: TvtPILSize;
+//#UC END# *4FD0B13F0065_4FD0A98C01BD_var*
+//#UC START# *4FD0B1C601D7_4FD0A98C01BD_impl*
+ for lSize := Low(TvtPILSize) to High(TvtPILSize) do
+  if lSize in f_AvailableSizes then
+  begin
+   for lBpp := Low(TvtPILBpp) to High(TvtPILBpp) do
+   begin
+    if aCount = 0 then
+     f_Glyph[lSize, lBpp].Resize(1, 1, 0, 0, iehLeft, ievTop)
+    else
+     f_Glyph[lSize, lBpp].Resize(aCount*PILSize[lSize], PILSize[lSize], 0, 0, iehLeft, ievTop);
+   end;
+  end; {if..}
+//#UC END# *4FD0B1C601D7_4FD0A98C01BD_impl*
+//#UC START# *4FD0B1C601D7_4FD0A98C01BD_var*
+var
+ lBpp: TvtPILBpp;
+ lSize: TvtPILSize;
+//#UC END# *4FD0B1C601D7_4FD0A98C01BD_var*
+//#UC START# *4FD0B1FB01EA_4FD0A98C01BD_impl*
+ Result := not f_Rebuilding and (aBpp = bpp24) and (@g_AlphaBlendFunc <> nil) and Assigned(f_Glyph[aSize, bpp24]);
+ if Result then
+ begin
+  if f_AlphaDrawCache[aSize] = nil then
+  begin
+   f_AlphaDrawCache[aSize] := Tl3Bitmap.Create;
+   with f_AlphaDrawCache[aSize] do
+   begin
+    Width  := f_Glyph[aSize, bpp24].Width;
+    Height := f_Glyph[aSize, bpp24].Height*2;
+    PixelFormat := pf32bit;
+   end;
+   f_NeedPrepareAlphaDrawCache[aSize] := True;
+  end;
+  if f_NeedPrepareAlphaDrawCache[aSize] then
+  begin
+   PrepareAlphaBitmap(f_Glyph[aSize, bpp24], f_AlphaDrawCache[aSize]);
+   f_NeedPrepareAlphaDrawCache[aSize] := False;
+  end;
+ end;
+//#UC END# *4FD0B1FB01EA_4FD0A98C01BD_impl*
+//#UC START# *4FD0B1FB01EA_4FD0A98C01BD_var*
+//#UC END# *4FD0B1FB01EA_4FD0A98C01BD_var*
+//#UC START# *4FD0B21900E8_4FD0A98C01BD_impl*
+ if not f_Rebuilding then
+  for l_Size := Low(TvtPILSize) to High(TvtPILSize) do
+   f_NeedPrepareAlphaDrawCache[l_Size] := True;
+//#UC END# *4FD0B21900E8_4FD0A98C01BD_impl*
+//#UC START# *4FD0B21900E8_4FD0A98C01BD_var*
+var
+ l_Size: TvtPILSize;
+//#UC END# *4FD0B21900E8_4FD0A98C01BD_var*
+//#UC START# *4FD0B23002E8_4FD0A98C01BD_impl*
+ for l_Size := Low(TvtPILSize) to High(TvtPILSize) do
+ begin
+  l3Free(f_AlphaDrawCache[l_Size]);
+  l3Free(f_DrawCache[l_Size]);
+ end;
+//#UC END# *4FD0B23002E8_4FD0A98C01BD_impl*
+//#UC START# *4FD0B23002E8_4FD0A98C01BD_var*
+var
+ l_Size: TvtPILSize;
+//#UC END# *4FD0B23002E8_4FD0A98C01BD_var*
+//#UC START# *4FD0B2980233_4FD0A98C01BD_impl*
+ Inc(f_Count);
+ ResizeAll(f_Count);
+ Result := f_Count;
+ Change;
+//#UC END# *4FD0B2980233_4FD0A98C01BD_impl*
+//#UC START# *4FD0B2980233_4FD0A98C01BD_var*
+//#UC END# *4FD0B2980233_4FD0A98C01BD_var*
+//#UC START# *4FD0B2F50112_4FD0A98C01BD_impl*
+ if (aIndex < 0) or (aIndex > Count-1) then
+  Exit;
+ if aIndex < (Count-1) then
+ begin
+  // переносим картинки влево
+  for lSize := Low(TvtPILSize) to High(TvtPILSize) do
+   for lBpp := Low(TvtPILBpp) to High(TvtPILBpp) do
+   begin
+    lFrom := (aIndex+1)*PILSize[lSize];
+    lTo := aIndex*PILSize[lSize];
+    lHowMuch := (Count-aIndex-1)*PILSize[lSize];
+    f_Glyph[lSize, lBpp].CopyRectTo(f_Glyph[lSize, lBpp], lFrom, 0, lTo, 0,
+       lHowMuch, PILSize[lSize]);
+    f_Glyph[lSize, lBpp].AlphaChannel.CopyRectTo(f_Glyph[lSize, lBpp].AlphaChannel,
+       lFrom, 0, lTo, 0, lHowMuch, PILSize[lSize]);
+   end;
+ end;
+ Dec(f_Count);
+ ResizeAll(f_Count);
+ Change;
+//#UC END# *4FD0B2F50112_4FD0A98C01BD_impl*
+//#UC START# *4FD0B2F50112_4FD0A98C01BD_var*
+var
+ lHowMuch: Integer;
+ lTo: Integer;
+ lFrom: Integer;
+ lBpp: TvtPILBpp;
+ lSize: TvtPILSize;
+//#UC END# *4FD0B2F50112_4FD0A98C01BD_var*
+//#UC START# *4FD0B3500288_4FD0A98C01BD_impl*
+ if (Index < 0) or (Index > Count-1) then
+  Exit;
+ if not (Size in f_AvailableSizes) then
+  Exit;
+ lShiftX := (Image.Width - PILSize[Size]) div 2;
+ lShiftY := (Image.Height - PILSize[Size]) div 2;
+
+ Image.CopyRectTo(f_Glyph[Size, Bpp], lShiftX, lShiftY, Index*PILSize[Size], 0, PILSize[Size], PILSize[Size]);
+ Image.AlphaChannel.CopyRectTo(f_Glyph[Size, Bpp].AlphaChannel, lShiftX, lShiftY, Index*PILSize[Size], 0, PILSize[Size], PILSize[Size]);
+ f_Glyph[Size, Bpp].AlphaChannel.SyncFull;
+ ClearAlphaDrawCache;
+//#UC END# *4FD0B3500288_4FD0A98C01BD_impl*
+//#UC START# *4FD0B3500288_4FD0A98C01BD_var*
+var
+ lShiftY: Integer;
+ lShiftX: Integer;
+//#UC END# *4FD0B3500288_4FD0A98C01BD_var*
+//#UC START# *4FD0B37801F0_4FD0A98C01BD_impl*
+ DrawGlyphSpecified(Index, Canvas.Canvas, Size, Bpp, X, Y, Enabled);
+//#UC END# *4FD0B37801F0_4FD0A98C01BD_impl*
+//#UC START# *4FD0B37801F0_4FD0A98C01BD_var*
+//#UC END# *4FD0B37801F0_4FD0A98C01BD_var*
+//#UC START# *4FD0B43A020D_4FD0A98C01BD_impl*
+ lBMP := TIEBitmap.Create;
+ try
+  lBMP.Height := PILSize[ps32x32];
+  lBMP.Width := PILSize[ps32x32];
+  lBMP.PixelFormat := ie24RGB;
+  lBMP.CreateAlphaChannel;
+  for lSize := Low(TvtPILSize) to High(TvtPILSize) do
+   if lSize in f_AvailableSizes then
+   begin
+    for lBpp := Low(TvtPILBpp) to High(TvtPILBpp) do
+    begin
+     f_Glyph[lSize, lBpp].CopyRectTo(lBMP, Index1*PILSize[lSize], 0, 0, 0, PILSize[lSize], PILSize[lSize]);
+     f_Glyph[lSize, lBpp].AlphaChannel.CopyRectTo(lBMP.AlphaChannel, Index1*PILSize[lSize], 0, 0, 0, PILSize[lSize], PILSize[lSize]);
+     f_Glyph[lSize, lBpp].CopyRectTo(f_Glyph[lSize, lBpp], Index2*PILSize[lSize], 0, Index1*PILSize[lSize], 0, PILSize[lSize], PILSize[lSize]);
+     f_Glyph[lSize, lBpp].AlphaChannel.CopyRectTo(f_Glyph[lSize, lBpp].AlphaChannel, Index2*PILSize[lSize], 0, Index1*PILSize[lSize], 0, PILSize[lSize], PILSize[lSize]);
+     lBMP.CopyRectTo(f_Glyph[lSize, lBpp], 0, 0, Index2*PILSize[lSize], 0, PILSize[lSize], PILSize[lSize]);
+     lBMP.AlphaChannel.CopyRectTo(f_Glyph[lSize, lBpp].AlphaChannel, 0, 0, Index2*PILSize[lSize], 0, PILSize[lSize], PILSize[lSize]);
+    end;
+   end; {if..}
+ finally
+  lBMP.Free;
+ end;
+ Change;
+//#UC END# *4FD0B43A020D_4FD0A98C01BD_impl*
+//#UC START# *4FD0B43A020D_4FD0A98C01BD_var*
+var
+ lBpp: TvtPILBpp;
+ lSize: TvtPILSize;
+ lBMP: TIEBitmap;
+//#UC END# *4FD0B43A020D_4FD0A98C01BD_var*
+//#UC START# *4FD0B4640341_4FD0A98C01BD_impl*
+ CalcCount(False);
+ for lSize := Low(TvtPILSize) to High(TvtPILSize) do
+ begin
+  if not (lSize in f_AvailableSizes) then
+   Continue;
+  lNewImage := TIEBitmap.Create;
+  try
+   with lNewImage do
+   begin
+    PixelFormat := ie24RGB;
+    CreateAlphaChannel;
+    Location := ieFile;
+    MinFileSize := 51200;
+    Width := PILSize[lSize]*f_Count;
+    Height := PILSize[lSize];
+   end; {with..}
+   for lBpp := Low(TvtPILBpp) to High(TvtPILBpp) do
+   begin
+    for I := 0 to f_Count-1 do
+    begin
+     f_Glyph[lSize, lBpp].CopyRectTo(lNewImage, I*OldPilSize[lSize]+1, 1, I*PILSize[lSize], 0,
+         PILSize[lSize], PILSize[lSize]);
+     f_Glyph[lSize, lBpp].AlphaChannel.CopyRectTo(lNewImage.AlphaChannel, I*OldPilSize[lSize]+1, 1, I*PILSize[lSize], 0,
+         PILSize[lSize], PILSize[lSize]);
+    end;
+    f_Glyph[lSize, lBpp].Assign(lNewImage);
+   end;
+  finally
+    lNewImage.Free;
+  end; {try..finally}
+ end;
+ Change;
+//#UC END# *4FD0B4640341_4FD0A98C01BD_impl*
+//#UC START# *4FD0B4640341_4FD0A98C01BD_var*
+var
+ I: Integer;
+ lNewImage: TIEBitmap;
+ lBpp: TvtPILBpp;
+ lSize: TvtPILSize;
+//#UC END# *4FD0B4640341_4FD0A98C01BD_var*
+//#UC START# *4FD0B4D500C1_4FD0A98C01BD_impl*
+ if not f_Rebuilding then
+  for l_Size := Low(TvtPILSize) to High(TvtPILSize) do
+   f_NeedPrepareAlphaDrawCache[l_Size] := True;
+//#UC END# *4FD0B4D500C1_4FD0A98C01BD_impl*
+//#UC START# *4FD0B4D500C1_4FD0A98C01BD_var*
+var
+ l_Size: TvtPILSize;
+//#UC END# *4FD0B4D500C1_4FD0A98C01BD_var*
+//#UC START# *4FD0B4EF00CE_4FD0A98C01BD_impl*
+ if Count > 0 then
+ begin
+  for lBpp := Low(TvtPILBpp) to High(TvtPILBpp) do
+  begin
+   f_Glyph[aSizeFrom, lBpp].StretchRectTo(f_Glyph[aSizeTo, lBpp],
+       0, 0, PILSize[aSizeTo]*Count, PILSize[aSizeTo],
+       0, 0, PILSize[aSizeFrom]*Count, PILSize[aSizeFrom], rfLanczos3, 255);
+   f_Glyph[aSizeTo, lBpp].AlphaChannel.SyncFull;
+  end;
+  ClearAlphaDrawCache;
+ end;
+//#UC END# *4FD0B4EF00CE_4FD0A98C01BD_impl*
+//#UC START# *4FD0B4EF00CE_4FD0A98C01BD_var*
+var
+ lBpp: TvtPILBpp;
+//#UC END# *4FD0B4EF00CE_4FD0A98C01BD_var*
+//#UC START# *4FD0B54000ED_4FD0A98C01BD_impl*
+ if (aIndex < 0) or (aIndex > Count-1) then
+  Exit;
+ if not (aSize in f_AvailableSizes) then
+  Exit;
+ l_Src := f_Glyph[aSize, aBpp];
+ l_Img := TIEBitmap.Create;
+ try
+  l_Img.PixelFormat := l_Src.PixelFormat;
+  l_Img.Width := PILSize[aSize] + 2; // добавляем "рамочку"
+  l_Img.Height := PILSize[aSize] + 2;
+  l_Img.FillRect(0, 0, PILSize[aSize] + 2, PILSize[aSize] + 2, $FF00FF);
+  l_Img.CreateAlphaChannel;
+  l_Img.AlphaChannel.FillRect(0, 0, PILSize[aSize] + 2, PILSize[aSize] + 2, 0);
+  l_Src.CopyRectTo(l_Img, aIndex*PILSize[aSize], 0, 1, 1, PILSize[aSize], PILSize[aSize]);
+  l_Src.AlphaChannel.CopyRectTo(l_Img.AlphaChannel, aIndex*PILSize[aSize], 0, 1, 1, PILSize[aSize],
+       PILSize[aSize]);
+  l_Img.AlphaChannel.SyncFull;
+  l_IO := TImageEnIO.Create(nil);
+  try
+   l_IO.AttachedIEBitmap := l_Img;
+   l_IO.SaveToFilePNG(aFileName);
+  finally
+   l3Free(l_IO);
+  end;
+ finally
+  l_Img.Free;
+ end;
+//#UC END# *4FD0B54000ED_4FD0A98C01BD_impl*
+//#UC START# *4FD0B54000ED_4FD0A98C01BD_var*
+var
+ l_Img: TIEBitmap;
+ l_Src: TIEBitmap;
+ l_IO : TImageEnIO;
+//#UC END# *4FD0B54000ED_4FD0A98C01BD_var*
+//#UC START# *4FD0B8CB02B7_4FD0A98C01BD_impl*
+ if (Index < 0) or (Index > Count-1) then
+  Exit;
+ if not (Size in f_AvailableSizes) then
+  Exit;
+
+ l_Painted := CanAlphaDraw(Bpp, Size);
+ if l_Painted then
+ begin
+  if Enabled then
+   l_CacheTop := 0
+  else
+   l_CacheTop := PILSize[Size];
+  g_BlendOp.SourceConstantAlpha := CalcTransparenctColor(cFullAlpha, HalfTransparent);
+  l_Painted := AlphaBlend(Canvas.Handle, X, Y, PILSize[Size], PILSize[Size], f_AlphaDrawCache[Size].Canvas.Handle,Index*PILSize[Size],l_CacheTop,PILSize[Size],PILSize[Size],g_BlendOp);
+  g_BlendOp.SourceConstantAlpha := cFullAlpha;
+ end;
+ if not l_Painted then
+ begin
+  if f_DrawCache[Size] = nil then
+   begin
+    f_DrawCache[Size] := Tl3Bitmap.Create;
+    with f_DrawCache[Size] do
+    begin
+     Width  := PILSize[Size];
+     Height := PILSize[Size];
+     PixelFormat := pf24bit;
+     Dormant;
+    end;
+   end;
+  StretchBlt(f_DrawCache[Size].Canvas.Handle, 0, 0, PILSize[Size], PILSize[Size], Canvas.Handle, X, Y,
+     PILSize[Size], PILSize[Size], SRCCOPY);
+  if Enabled then
+  begin
+   lAlpha := CalcTransparenctColor(cFullAlpha, HalfTransparent);
+   lROP := ielNormal;
+  end
+  else
+  begin
+   lAlpha := CalcTransparenctColor(cDisabledAlpha, HalfTransparent);
+   lROP := ielGreyDown;
+  end; {if..}
+  f_Glyph[Size, Bpp].RenderToTBitmap(f_DrawCache[Size], 0, 0, PILSize[Size], PILSize[Size],
+    Index*PILSize[Size], 0, PILSize[Size], PILSize[Size], True, rfNone, True, lAlpha, lROP);
+  Canvas.Draw(X, Y, f_DrawCache[Size]);
+ end;
+//#UC END# *4FD0B8CB02B7_4FD0A98C01BD_impl*
+//#UC START# *4FD0B8CB02B7_4FD0A98C01BD_var*
+var
+ lAlpha: Byte;
+ lROP: TIERenderOperation;
+ l_CacheTop: Integer;
+ l_Painted: Boolean;
+//#UC END# *4FD0B8CB02B7_4FD0A98C01BD_var*
+//#UC START# *502543E60239_4FD0A98C01BD_impl*
+ Result.X := Width;
+ Result.Y := Height;
+//#UC END# *502543E60239_4FD0A98C01BD_impl*
+//#UC START# *502543E60239_4FD0A98C01BD_var*
+//#UC END# *502543E60239_4FD0A98C01BD_var*
+//#UC START# *53282D3E0350_4FD0A98C01BD_impl*
+ Assert(False, 'todo');
+//#UC END# *53282D3E0350_4FD0A98C01BD_impl*
+//#UC START# *53282D3E0350_4FD0A98C01BD_var*
+//#UC END# *53282D3E0350_4FD0A98C01BD_var*

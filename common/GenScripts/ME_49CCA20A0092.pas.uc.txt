@@ -1,0 +1,57 @@
+//#UC START# *475E9466022A_49CCA20A0092_impl*
+ DoGetStatusInfo(theString, theNeedProgress);
+//#UC END# *475E9466022A_49CCA20A0092_impl*
+//#UC START# *475E9466022A_49CCA20A0092_var*
+//#UC END# *475E9466022A_49CCA20A0092_var*
+//#UC START# *479731C50290_49CCA20A0092_impl*
+ inherited;
+ DoUnsubscribe;
+//#UC END# *479731C50290_49CCA20A0092_impl*
+//#UC START# *479731C50290_49CCA20A0092_var*
+//#UC END# *479731C50290_49CCA20A0092_var*
+//#UC START# *49CCA20A0092_ext:FileName
+w:\common\components\gui\Garant\AFW\implementation\afwStatusElement.imp.pas
+//#UC END# *49CCA20A0092_ext:FileName
+//#UC START# *49CCA29A000E_49CCA20A0092_impl*
+ if (afw.Application = nil) OR
+    (afw.Application.CurrentMainForm = nil) OR
+    (afw.Application.CurrentMainForm.Status = nil) then
+ begin
+  Result := false;
+  DoUnsubscribe;
+  // - ‡ ÚÓ ¬ƒ–”√, Ï˚ ”∆≈ ¡€À» œŒƒœ»—¿Õ€
+ end//afw.Application = nil
+ else
+ begin
+  Result := true;
+  l_Status := afw.Application.CurrentMainForm.Status;
+  if (l_Status <> f_Status) then
+  begin
+   if (f_Status <> nil) then
+    f_Status.RemoveElement(Self);
+    // - ‡ ÚÓ ¬ƒ–”√, Ï˚ ”∆≈ ¡€À» œŒƒœ»—¿Õ€
+   f_Status := l_Status;
+   f_Status.AddElement(Self);
+  end;//l_Status <> f_Status
+ end;//afwGetApplication = nil
+//#UC END# *49CCA29A000E_49CCA20A0092_impl*
+//#UC START# *49CCA29A000E_49CCA20A0092_var*
+var
+ l_Status : IafwStatus;
+//#UC END# *49CCA29A000E_49CCA20A0092_var*
+//#UC START# *49CCA2C80106_49CCA20A0092_impl*
+ if (f_Status <> nil) then
+ begin
+  f_Status.RemoveElement(Self);
+  if NeedUpdateOnUnsubscribe then
+   f_Status.Update;
+  f_Status := nil;
+ end;//f_Status <> nil
+//#UC END# *49CCA2C80106_49CCA20A0092_impl*
+//#UC START# *49CCA2C80106_49CCA20A0092_var*
+//#UC END# *49CCA2C80106_49CCA20A0092_var*
+//#UC START# *49CCA4C90343_49CCA20A0092_impl*
+ Result := false;
+//#UC END# *49CCA4C90343_49CCA20A0092_impl*
+//#UC START# *49CCA4C90343_49CCA20A0092_var*
+//#UC END# *49CCA4C90343_49CCA20A0092_var*

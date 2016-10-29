@@ -1,0 +1,251 @@
+//#UC START# *47CE9ECA031E_48D367B20014_impl*
+ DoAfterHideControl;
+//#UC END# *47CE9ECA031E_48D367B20014_impl*
+//#UC START# *47CE9ECA031E_48D367B20014_var*
+//#UC END# *47CE9ECA031E_48D367B20014_var*
+//#UC START# *47CE9ED103AA_48D367B20014_impl*
+ DoEscPressed;
+//#UC END# *47CE9ED103AA_48D367B20014_impl*
+//#UC START# *47CE9ED103AA_48D367B20014_var*
+//#UC END# *47CE9ED103AA_48D367B20014_var*
+//#UC START# *47CE9EE302A2_48D367B20014_impl*
+ DropContainer.HideControl(true);
+ SetChecked(False);
+//#UC END# *47CE9EE302A2_48D367B20014_impl*
+//#UC START# *47CE9EE302A2_48D367B20014_var*
+//#UC END# *47CE9EE302A2_48D367B20014_var*
+//#UC START# *47CE9EF3009B_48D367B20014_impl*
+ Result := True;
+ if aDown then
+  GetControl.Perform(WM_VScroll, SB_LINEDOWN, 0)
+ else
+  GetControl.Perform(WM_VScroll, SB_LINEUP, 0);
+//#UC END# *47CE9EF3009B_48D367B20014_impl*
+//#UC START# *47CE9EF3009B_48D367B20014_var*
+//#UC END# *47CE9EF3009B_48D367B20014_var*
+//#UC START# *47CE9F040044_48D367B20014_impl*
+ Result := DropContainer.KeyDown(aView, Msg, Para.AsObject);
+//#UC END# *47CE9F040044_48D367B20014_impl*
+//#UC START# *47CE9F040044_48D367B20014_var*
+//#UC END# *47CE9F040044_48D367B20014_var*
+//#UC START# *47CE9F4300B1_48D367B20014_impl*
+ HideControl;
+//#UC END# *47CE9F4300B1_48D367B20014_impl*
+//#UC START# *47CE9F4300B1_48D367B20014_var*
+//#UC END# *47CE9F4300B1_48D367B20014_var*
+//#UC START# *47CE9F560359_48D367B20014get_impl*
+ Result := Para.AsObject.BoolA[k2_tiChecked];
+//#UC END# *47CE9F560359_48D367B20014get_impl*
+//#UC START# *47CE9F560359_48D367B20014get_var*
+//#UC END# *47CE9F560359_48D367B20014get_var*
+//#UC START# *47CE9F560359_48D367B20014set_impl*
+ SetChecked(aValue);
+//#UC END# *47CE9F560359_48D367B20014set_impl*
+//#UC START# *47CE9F560359_48D367B20014set_var*
+//#UC END# *47CE9F560359_48D367B20014set_var*
+//#UC START# *47CE9F82032D_48D367B20014_impl*
+ Result := False;
+ l_QueryAd := DropContainer;
+ try
+  if l_QueryAd.IsDropTreeVisible then
+  begin
+   l_DataPanel := nil;
+   EscPressed;
+   SetChecked(False);
+  end 
+  else
+   l_DataPanel := Self;
+  try
+   if (aView = nil) then
+    Exit;
+   l_Map := aView.MapByPoint(aTextPara.MakePoint);
+   if (l_Map = nil) then
+   begin
+    if Supports(aView, InevControlView, l_CV) then
+     try
+      l_CV.Control.ForceRepaint;
+      l_Map := aView.MapByPoint(aTextPara.MakePoint);
+     finally
+      l_CV := nil;
+     end//try..finally
+    else
+     Exit;
+    if (l_Map = nil) then
+     Exit;
+   end;//l_Map = nil
+   l_QueryAd.SetDropTree(l_DataPanel, Para);
+   if (l_DataPanel <> nil) then
+   begin
+    Assert(l_Map <> nil);
+    with Tl3Rect(l_Map.Bounds) do
+    begin
+     l_Pt0 := TopLeft;
+     l_Ex := BottomRight.Sub(l_Pt0);
+    end;//with l_Map.Bounds
+    if (l_Pt0.X < 0) AND (l_Ex.X <= 0) then
+    // http://mdp.garant.ru/pages/viewpage.action?pageId=204113269
+    // Параграф не отформатирован (не отрисован) надо попробовать перерисовать всё
+    // и потом взять новые координаты.
+    begin
+     if Supports(aView, InevControlView, l_CV) then
+      try
+       l_CV.Control.ForceRepaint;
+       with Tl3Rect(l_Map.Bounds) do
+       begin
+        l_Pt0 := TopLeft;
+        l_Ex := BottomRight.Sub(l_Pt0);
+       end;//with l_Map.Bounds
+       Assert((l_Pt0.X >= 0) OR (l_Ex.X > 0));
+      finally
+       l_CV := nil;
+      end//try..finally
+     else
+      Exit;
+    end;//l_Pt0.X < 0
+    Set_Para(aTextPara);
+    CalcControlPosition(aView, l_Pt0, l_Ex, l_Point, l_Invert, l_Width);
+    DoDrop(l_Point, l_Invert, l_Width, ByUser);
+    SetChecked(l_QueryAd.IsDropTreeVisible);
+    Result := True;
+   end;//if (l_DataPanel <> nil) then
+  finally
+   l_DataPanel := nil;
+  end;//try..finally
+ finally
+  l_QueryAd := nil;
+ end;//try..finally
+//#UC END# *47CE9F82032D_48D367B20014_impl*
+//#UC START# *47CE9F82032D_48D367B20014_var*
+var
+ l_Pt0       : Tl3Point;
+ l_Ex        : Tl3Point;
+ l_Point     : TPoint;
+ l_DataPanel : IevDropControl;
+ l_Invert    : Boolean;
+ l_Width     : Integer;
+ l_QueryAd   : IevDropContainer;
+ l_Map       : InevMap;
+ l_CV        : InevControlView;
+//#UC END# *47CE9F82032D_48D367B20014_var*
+//#UC START# *47CE9FA402DC_48D367B20014get_impl*
+ Result := inherited Get_Para;
+//#UC END# *47CE9FA402DC_48D367B20014get_impl*
+//#UC START# *47CE9FA402DC_48D367B20014get_var*
+//#UC END# *47CE9FA402DC_48D367B20014get_var*
+//#UC START# *48845FB30308_48D367B20014_impl*
+// Do Nothing;
+ DoDropDownCurrentChanged(aNode);
+//#UC END# *48845FB30308_48D367B20014_impl*
+//#UC START# *48845FB30308_48D367B20014_var*
+//#UC END# *48845FB30308_48D367B20014_var*
+//#UC START# *48D145B8036A_48D367B20014_impl*
+ if aCmd = ccFastFindNext then
+ begin
+  DropDown(aView, aTextPara, True);
+  Result := True;
+ end
+ else
+  if (aCmd = ccActionItem) then
+  begin
+   Get_Req.KeyAction(aCmd);
+   Result := True;  
+  end
+  else  
+   Result := False;
+//#UC END# *48D145B8036A_48D367B20014_impl*
+//#UC START# *48D145B8036A_48D367B20014_var*
+//#UC END# *48D145B8036A_48D367B20014_var*
+//#UC START# *48D1461101C6_48D367B20014_impl*
+ Result := True;
+//#UC END# *48D1461101C6_48D367B20014_impl*
+//#UC START# *48D1461101C6_48D367B20014_var*
+//#UC END# *48D1461101C6_48D367B20014_var*
+//#UC START# *48D1464501E8_48D367B20014_impl*
+ if anInPara and PtInButton(aPt, aMap) then 
+  Result := DropDown(aView, aTextPara, True)
+ else 
+  Result := False;//anInPara;
+//#UC END# *48D1464501E8_48D367B20014_impl*
+//#UC START# *48D1464501E8_48D367B20014_var*
+//#UC END# *48D1464501E8_48D367B20014_var*
+//#UC START# *48D367B20014_ext:FileName
+w:\common\components\gui\Garant\Everest\qf\evDropControl.pas
+//#UC END# *48D367B20014_ext:FileName
+//#UC START# *48D367B20014impl_uses*
+//#UC END# *48D367B20014impl_uses*
+//#UC START# *48D378F50068_48D367B20014_impl*
+ Get_Req.QueryCard.QueryInterface(IevDropContainer, Result);
+//#UC END# *48D378F50068_48D367B20014_impl*
+//#UC START# *48D378F50068_48D367B20014_var*
+//#UC END# *48D378F50068_48D367B20014_var*
+//#UC START# *48D3795502E6_48D367B20014_impl*
+ Result := DropContainer.GetControl;
+//#UC END# *48D3795502E6_48D367B20014_impl*
+//#UC START# *48D3795502E6_48D367B20014_var*
+//#UC END# *48D3795502E6_48D367B20014_var*
+//#UC START# *48D37B8500D3_48D367B20014_impl*
+ aInvert := False;
+ with Para do 
+ begin
+  l_Extend := l3Point(aExtend.X, 0); //Ширина
+  l_SpaceAfter := (Para.AsObject.IntA[k2_tiSpaceAfter] div 2);
+  l_SpacesTop := l3Point(aPt0.X,
+    aPt0.Y + aExtend.Y - l_SpaceAfter);
+ end;//with Para do
+ l_PtS := aView.Metrics.InfoCanvas.LP2DP(l_Extend);    
+ l_PtS.X := l_PtS.X - 2;  
+ aDropPoint := DocumentToScreen(l_SpacesTop);            
+ aDropPoint.Y := aDropPoint.Y + 2;
+ // - смещаем на высоту рамки http://mdp.garant.ru/pages/viewpage.action?pageId=228691765
+ //Пересчет параметров
+ l_Monitor := Screen.MonitorFromPoint(aDropPoint);
+ if Screen.Width < ((aDropPoint.X - l_Monitor.Left) + l_PtS.X) then
+  l_PtS.X := Screen.Width - (aDropPoint.X - l_Monitor.Left);
+ with Para do
+  if ((aDropPoint.Y + DropControlHeigth) > Screen.Height) and
+    ((Screen.Height - aDropPoint.Y) < aDropPoint.Y) then 
+   if not aInvert then 
+   begin
+    aInvert := True;
+    l_SpacesTop := l3Point(aPt0.X, aPt0.Y + Para.AsObject.IntA[k2_tiSpaceAfter]);
+    aDropPoint := DocumentToScreen(l_SpacesTop);
+    aDropPoint.Y := aDropPoint.Y + 2;
+   end;//if not l_Invert then
+ aWidth := l_PtS.X;
+//#UC END# *48D37B8500D3_48D367B20014_impl*
+//#UC START# *48D37B8500D3_48D367B20014_var*
+var
+ l_PtS        : Tl3SPoint;  
+ l_Extend     : Tl3Point;
+ l_SpacesTop  : Tl3Point;
+ l_Monitor    : TMonitor;
+ l_SpaceAfter : Integer;
+//#UC END# *48D37B8500D3_48D367B20014_var*
+//#UC START# *48D37D3303B1_48D367B20014_impl*
+ Result := Get_Req.QueryCard.Editor.LP2DP(aPt, true);
+//#UC END# *48D37D3303B1_48D367B20014_impl*
+//#UC START# *48D37D3303B1_48D367B20014_var*
+//#UC END# *48D37D3303B1_48D367B20014_var*
+//#UC START# *48D37D4E0201_48D367B20014_impl*
+ Result := DropContainer.DropControlHeigth;
+//#UC END# *48D37D4E0201_48D367B20014_impl*
+//#UC START# *48D37D4E0201_48D367B20014_var*
+//#UC END# *48D37D4E0201_48D367B20014_var*
+//#UC START# *48D37D94002E_48D367B20014_impl*
+ Result := (aPt.X > aMap.FI.Width) and
+           (aPt.X < (aMap.FI.Width + Para.AsObject.IntA[k2_tiRightIndent]));
+//#UC END# *48D37D94002E_48D367B20014_impl*
+//#UC START# *48D37D94002E_48D367B20014_var*
+//#UC END# *48D37D94002E_48D367B20014_var*
+//#UC START# *48D3824000D5_48D367B20014_impl*
+//#UC END# *48D3824000D5_48D367B20014_impl*
+//#UC START# *48D3824000D5_48D367B20014_var*
+//#UC END# *48D3824000D5_48D367B20014_var*
+//#UC START# *48D38273036D_48D367B20014_impl*
+//#UC END# *48D38273036D_48D367B20014_impl*
+//#UC START# *48D38273036D_48D367B20014_var*
+//#UC END# *48D38273036D_48D367B20014_var*
+//#UC START# *48D382AA012A_48D367B20014_impl*
+//#UC END# *48D382AA012A_48D367B20014_impl*
+//#UC START# *48D382AA012A_48D367B20014_var*
+//#UC END# *48D382AA012A_48D367B20014_var*

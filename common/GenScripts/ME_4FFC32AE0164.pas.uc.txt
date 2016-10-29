@@ -1,0 +1,43 @@
+//#UC START# *479731C50290_4FFC32AE0164_impl*
+ vcmFree(f_Childs);
+ inherited;
+//#UC END# *479731C50290_4FFC32AE0164_impl*
+//#UC START# *479731C50290_4FFC32AE0164_var*
+//#UC END# *479731C50290_4FFC32AE0164_var*
+//#UC START# *4FFC32AE0164_ext:FileName
+w:\common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFormsCollectionItem.pas
+//#UC END# *4FFC32AE0164_ext:FileName
+//#UC START# *4FFC32AE0164impl_uses*
+//#UC END# *4FFC32AE0164impl_uses*
+//#UC START# *511CD7C201AC_4FFC32AE0164get_impl*
+ Assert(FormDescriptor <> nil);
+ Result := FormDescriptor^.rFormID;
+//#UC END# *511CD7C201AC_4FFC32AE0164get_impl*
+//#UC START# *511CD7C201AC_4FFC32AE0164get_var*
+//#UC END# *511CD7C201AC_4FFC32AE0164get_var*
+//#UC START# *511CD84A009F_4FFC32AE0164_impl*
+ if ZoneType = vcm_ztModal then
+  Result := vcm_ztManualModal
+ else
+  Result := ZoneType;
+//#UC END# *511CD84A009F_4FFC32AE0164_impl*
+//#UC START# *511CD84A009F_4FFC32AE0164_var*
+//#UC END# *511CD84A009F_4FFC32AE0164_var*
+//#UC START# *511CD887038E_4FFC32AE0164_impl*
+ Assert(FormDescriptor <> nil);
+ if Assigned(aForm) then
+  Result := (aForm.UserType = Self.UserType) and
+            (aForm.ZoneType = Self.ZoneType) and
+            ((aForm.VCLWinControl as TvcmEntityForm).FormID.
+             EQ(FormDescriptor^.rFormID))
+ else
+  Result := false;
+//#UC END# *511CD887038E_4FFC32AE0164_impl*
+//#UC START# *511CD887038E_4FFC32AE0164_var*
+//#UC END# *511CD887038E_4FFC32AE0164_var*
+//#UC START# *511CD8A30163_4FFC32AE0164_impl*
+ if (f_Childs = nil) then
+  f_Childs := TvcmFormSetFormsCollection.Create;
+//#UC END# *511CD8A30163_4FFC32AE0164_impl*
+//#UC START# *511CD8A30163_4FFC32AE0164_var*
+//#UC END# *511CD8A30163_4FFC32AE0164_var*

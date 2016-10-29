@@ -126,8 +126,13 @@ BOOLEAN elem_func UPisTrue
  Self aName |N false .ElemMember true ?== >>> Result  
 ; // UPisTrue
 
+BOOLEAN elem_func IsUnstereotypedStereo
+ Self .UPisTrue "unstereotyped"
+ >>> Result
+; // IsUnstereotypedStereo
+
 USES
- MDProcess_Templates.tpi.script
+ MDProcess_Templates.tpi.ms.dict
 ;
 
 USES
@@ -248,6 +253,8 @@ USES
 BOOLEAN elem_func IsUP
  RULES
   ( 'uc:' Self .WordName StartsStr )
+   false
+  ( 'msm:' Self .WordName StartsStr )
    false
   ( Self pop:Word:Producer @ UP ?== ) 
    true
@@ -406,6 +413,8 @@ STRING elem_func MDAClassString
    'Inherits'
   ( Self .MDAClass class_Implements == )
    'Implements'
+  ( Self .MDAClass class_Const == )
+   'Const'
   DEFAULT
    ( Self .MDAClass ToPrintable )
  ; // RULES
@@ -435,48 +444,145 @@ USES
 ;
 
 USES
- MDProcess_CoreTemplates.tpi.script
+ MDProcess_CoreTemplates.tpi.ms.dict
 ;
 
 USES
- MDProcess_ForDelphi.tpi.script
+ MDProcess_ForDelphi.tpi.ms.dict
 ;
 
 USES
- MDProcess_ForF1.tpi.script
+ MDProcess_ForF1.tpi.ms.dict
 ;
 
 USES
  ME.ms.dict
 ;
 
+ME ME_EmptyStereo
+ MEPROP Name 'empty_stereo'
+ENDME
+
 ME st_ModelRoot
  MEPROP Name 'ModelRoot'
 ENDME // st_ModelRoot
 
 ME st_in
+ MEPROP UID 'in'
  MEPROP Name 'in'
+ %SUMMARY 'Входной параметр' ;
+ MEPROP Stereotype st_MDAParameter
+ UP "unstereotyped" true
+ //MEPROP Stereotype ME_EmptyStereo
 ENDME // st_in
 
 ME st_inout
+ MEPROP UID 'inout'
  MEPROP Name 'inout'
+ %SUMMARY 'Изменяемый параметр' ;
+ MEPROP Stereotype st_MDAParameter
+ //MEPROP Stereotype ME_EmptyStereo
 ENDME // st_inout
 
 ME st_out
+ MEPROP UID 'out'
  MEPROP Name 'out'
+ %SUMMARY 'Выходной параметр' ;
+ MEPROP Stereotype st_MDAParameter
+ //MEPROP Stereotype ME_EmptyStereo
 ENDME // st_out
 
 ME st_const
+ MEPROP UID 'const'
  MEPROP Name 'const'
+ %SUMMARY 'Гарантированно константный параметр' ;
+ MEPROP Stereotype st_MDAParameter
+ //MEPROP Stereotype ME_EmptyStereo
 ENDME // st_const
 
 ME st_noconst
+ MEPROP UID 'noconst'
  MEPROP Name 'noconst'
+ %SUMMARY 'Гарантированно неконстантный параметр' ;
+ MEPROP Stereotype st_MDAParameter
+ //MEPROP Stereotype ME_EmptyStereo
 ENDME // st_noconst
 
 ME st_NodeType_
  MEPROP Name 'NodeType_'
 ENDME // st_NodeType_
+
+ME ME_PublicAccess
+ MEPROP Name 'public'
+ MEPROP msm:Value PublicAccess
+ MEPROP Stereotype ME_EmptyStereo
+ENDME
+
+ME ME_ProtectedAccess
+ MEPROP Name 'protected'
+ MEPROP msm:Value ProtectedAccess
+ MEPROP Stereotype ME_EmptyStereo
+ENDME
+
+ME ME_PrivateAccess
+ MEPROP Name 'private'
+ MEPROP msm:Value PrivateAccess
+ MEPROP Stereotype ME_EmptyStereo
+ENDME
+
+ME ME_Regular
+ MEPROP Name 'regular'
+ MEPROP msm:Value at_regular
+ MEPROP Stereotype ME_EmptyStereo
+ENDME
+
+ME ME_Abstract
+ MEPROP Name 'abstract'
+ MEPROP msm:Value at_abstract
+ MEPROP Stereotype ME_EmptyStereo
+ENDME
+
+ME ME_Final
+ MEPROP Name 'final'
+ MEPROP msm:Value at_final
+ MEPROP Stereotype ME_EmptyStereo
+ENDME
+
+ME ME_Undefined
+ MEPROP Name 'undefined'
+ MEPROP msm:Value 'undefined'
+ MEPROP Stereotype ME_EmptyStereo
+ENDME
+
+ME ME_False
+ MEPROP Name 'false'
+ MEPROP msm:Value false
+ MEPROP Stereotype ME_EmptyStereo
+ENDME
+
+ME ME_True
+ MEPROP Name 'true'
+ MEPROP msm:Value true
+ MEPROP Stereotype ME_EmptyStereo
+ENDME
+
+ME ME_agr
+ MEPROP Name 'agr'
+ MEPROP msm:Value lt_agr
+ MEPROP Stereotype ME_EmptyStereo
+ENDME
+
+ME ME_lnk
+ MEPROP Name 'lnk'
+ MEPROP msm:Value lt_lnk
+ MEPROP Stereotype ME_EmptyStereo
+ENDME
+
+ME ME_ref
+ MEPROP Name 'ref'
+ MEPROP msm:Value lt_ref
+ MEPROP Stereotype ME_EmptyStereo
+ENDME
 
 EXPORTS
  ElemMemberPrim.ms.dict
@@ -491,7 +597,7 @@ EXPORTS
  ModelElementsDefinition.ms.dict
 
 EXPORTS
- MDProcess_ForF1.tpi.script 
+ MDProcess_ForF1.tpi.ms.dict
  
 EXPORTS
  ref.ms.dict
@@ -503,11 +609,11 @@ EXPORTS
  ModelElement.ms.dict
 
 EXPORTS
- MDProcess_CoreTemplates.tpi.script
+ MDProcess_CoreTemplates.tpi.ms.dict
  
 EXPORTS
- MDProcess_Templates.tpi.script
+ MDProcess_Templates.tpi.ms.dict
  
 EXPORTS
- MDProcess_ForDelphi.tpi.script
+ MDProcess_ForDelphi.tpi.ms.dict
  

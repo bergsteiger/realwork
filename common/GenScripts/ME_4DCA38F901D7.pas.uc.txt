@@ -1,0 +1,98 @@
+//#UC START# *4DCA38F901D7_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddTextToTableConverters.pas
+//#UC END# *4DCA38F901D7_ext:ParentFileName
+//#UC START# *4FACDFA2002E_4DCA38F901D7_impl*
+  C := 0;
+  SepS := TL3String.Create;
+  try
+   SepS.AsString := Separator;  
+   f_RowList.Clear;
+   Seps.MakeBMTable(l_BT);
+   for l_Line:= 0 to f_Lines.Count - 1 do
+   begin
+    f_CurLine := l_Line;
+    Text := Tl3String.Make(Tl3String(f_Lines.Items[l_Line]));
+    try
+     if not Text.Empty then
+     begin
+      f_Row := TddTableRow.Create(nil);
+      l_RowLen := 0;
+      try
+       l_Txt := Tl3String.Make(Text);
+       try
+        while SepS.BMSearchUC(l_Txt, l_BT, l_Pos) do
+        begin
+         f_Row.AddCellAndPara;
+         f_Row.LastCell.Props.CellOffset:= l_Pos;
+         Inc(l_RowLen, f_Row.LastCell.Props.CellOffset);
+         f_Row.LastCell.LastTextPara.AddText(Copy(l_Txt.AsString, 0, l_Pos), l_Txt.CodePage);
+         l_Txt.Delete(0, l_Pos+1);
+        end; // while SepS.BMSearchUC(l_Txt, l_BT, l_Pos) do
+        f_Row.AddCellAndPara;
+        f_Row.LastCell.Props.CellOffset := l_Txt.Len;
+        Inc(l_RowLen, f_Row.LastCell.Props.CellOffset);
+        f_Row.LastCell.LastTextPara.AddText(l_Txt);
+       finally
+        l3Free(l_Txt);
+       end; // l_Txt
+       f_RowList.Add(f_Row);
+      finally
+       l3Free(f_Row);
+      end; // f_Row
+     end; // if not Text.Empty
+    finally
+     l3Free(Text);
+    end; // Text
+   end; // for l_Line:= 0 to f_Lines.Count - 1 do
+  finally
+   l3Free(SepS);
+  end;
+  C := 0;
+  for i := 0 to f_RowList.Count - 1 do
+   C := Max(C, TddTableRow(f_RowList.Items[i]).CellCount);
+  f_CellCount := C;
+  if AutoFit = afEqual then
+  begin
+   l_DefWidth := TableWidth div C;
+   for i := 0 to f_RowList.Count - 1 do
+   begin
+    l_Row := TddTableRow(f_RowList.Items[i]);
+    for j := 0 to l_Row.CellCount - 1 do
+     if l_Row.CellCount = C then
+      l_Row.Cells[j].Props.CellOffset := l_DefWidth
+     else
+      l_Row.Cells[j].Props.CellOffset := TableWidth div l_Row.CellCount;
+   end; //for i:= 0
+  end; //if AutoFit = afEqual
+//#UC END# *4FACDFA2002E_4DCA38F901D7_impl*
+//#UC START# *4FACDFA2002E_4DCA38F901D7_var*
+var
+ i, j, C: Integer;
+ B: Boolean;
+ l_Map, SepS, Text, l_Txt: Tl3String;
+ l_Pos: Cardinal;
+ l_BT: Tl3BMTable;
+ l_HasText, l_First: Boolean;
+ l_Line, l_RowLen,
+ l_DefWidth: Integer;
+ l_Row: TddTableRow;
+//#UC END# *4FACDFA2002E_4DCA38F901D7_var*
+//#UC START# *4FACDFDE03BB_4DCA38F901D7_impl*
+//#UC END# *4FACDFDE03BB_4DCA38F901D7_impl*
+//#UC START# *4FACDFDE03BB_4DCA38F901D7_var*
+//#UC END# *4FACDFDE03BB_4DCA38F901D7_var*
+//#UC START# *4FACEE4703D3_4DCA38F901D7_impl*
+ inherited Create;
+ f_Separator := aSeparator;
+//#UC END# *4FACEE4703D3_4DCA38F901D7_impl*
+//#UC START# *4FACEE4703D3_4DCA38F901D7_var*
+//#UC END# *4FACEE4703D3_4DCA38F901D7_var*
+//#UC START# *4FACEE7E0008_4DCA38F901D7set_impl*
+ if f_Separator <> aValue then
+ begin
+  f_Separator:= aValue;
+  Analyze;
+ end;
+//#UC END# *4FACEE7E0008_4DCA38F901D7set_impl*
+//#UC START# *4FACEE7E0008_4DCA38F901D7set_var*
+//#UC END# *4FACEE7E0008_4DCA38F901D7set_var*

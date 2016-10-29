@@ -1,0 +1,64 @@
+//#UC START# *52BAC22601F8_ext:ParentFileName
+w:\common\components\gui\Garant\VT\vtNavigator.pas
+//#UC END# *52BAC22601F8_ext:ParentFileName
+//#UC START# *52BAC30A020A_52BAC22601F8_impl*
+ Message.HintInfo.HintStr := MakeHint;
+ inherited;
+//#UC END# *52BAC30A020A_52BAC22601F8_impl*
+//#UC START# *52BAC30A020A_52BAC22601F8_var*
+//#UC END# *52BAC30A020A_52BAC22601F8_var*
+//#UC START# *52BAC31903DB_52BAC22601F8_impl*
+ inherited;
+ Windows.SetCursor(Screen.Cursors[crDefault]);
+//#UC END# *52BAC31903DB_52BAC22601F8_impl*
+//#UC START# *52BAC31903DB_52BAC22601F8_var*
+//#UC END# *52BAC31903DB_52BAC22601F8_var*
+//#UC START# *52BAC32B010A_52BAC22601F8_impl*
+ inherited Create(AOwner);
+ // inherited
+ ShowHint := True;
+ ControlStyle := ControlStyle + [csNoDesignVisible];
+ // internal
+ f_Navigator := aNavigator;
+ f_BtnType := aBtnType;
+//#UC END# *52BAC32B010A_52BAC22601F8_impl*
+//#UC START# *52BAC32B010A_52BAC22601F8_var*
+//#UC END# *52BAC32B010A_52BAC22601F8_var*
+//#UC START# *52BAC34B0242_52BAC22601F8_impl*
+ Result := '';
+ case f_BtnType of
+  nbtAutoHide:
+   // навигатор на форме
+   if not f_Navigator.Float then
+   begin
+    if (f_Navigator.State = nsAutoHide) then
+      Result := f_Navigator.AutoHideOffHint
+    else
+      Result := f_Navigator.AutoHideOnHint
+   end//not f_Navigator.Float
+   // плавающий навигатор
+   else
+   if (f_Navigator.f_FloatNavigator.State = fwsMinimized) then
+    Result := f_Navigator.MinimizedOffHint
+   else
+    Result := f_Navigator.MinimizedOnHint;
+  nbtMinimize:
+   // навигатор на форме
+   if not f_Navigator.Float then
+   begin
+    // навигатор скрыт
+    if f_Navigator.State = nsMinimized then
+     Result := f_Navigator.MinimizedOffHint
+    // навигатор нормальный
+    else
+     Result := f_Navigator.MinimizedOnHint;
+   end//not f_Navigator.Float
+   // плавающий навигатор
+   else
+    Result := f_Navigator.CloseHint;
+ else
+  Result := Hint;
+ end;//case f_BtnType of
+//#UC END# *52BAC34B0242_52BAC22601F8_impl*
+//#UC START# *52BAC34B0242_52BAC22601F8_var*
+//#UC END# *52BAC34B0242_52BAC22601F8_var*

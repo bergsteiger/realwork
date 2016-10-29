@@ -1,0 +1,248 @@
+UNIT StereotypeUPs.ms.dict
+
+USES
+ axiom_push.ms.dict
+;
+
+USES
+ core.ms.dict
+;
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ joinWithLambded.ms.dict
+;
+
+USES
+ ElemMemberPrim.ms.dict
+;
+
+USES
+ MDProcess_Templates.tpi.ms.dict
+;
+
+USES
+ CopyWithoutDuplicatedNames.ms.dict
+;
+
+elem_iterator StereotypeUPs
+ Cached:
+ (
+  Self .Attributes
+  .filter> ( .IsStereotype: st_UserProperty::Attribute )
+  .joinWithLambded> 
+  ( Self .StereotypeAncestors ) 
+  call.me
+  .CopyWithoutDuplicatedModelElements
+  array:CopyWithoutDuplicatedNames
+ )
+ >>> Result
+; // StereotypeUPs
+
+USES
+ string.ms.dict
+;
+
+USES
+ KeyValuesCreateAndDo.ms.dict
+;
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+USES
+ FirstElement.ms.dict
+;
+
+ANY elem_func msm:Value
+ Self 'msm:Value' nil .ElemMember >>> Result
+; // msm:Value
+
+elem_iterator UPValueList
+ Cached:
+ (
+  RULES
+   ( Self .IsStereotype: st_list::Attribute )
+    begin
+     [
+      Self .ModelValue '|' string:Split:for> (
+        IN aSubstr
+       KeyValuesCreate: (
+         IN aMade
+        aMade -> Name := aSubstr
+        aMade -> msm:Value := aSubstr
+        aMade -> Stereotype := ME_EmptyStereo
+       ) // KeyValuesCreate: 
+      ) // Self .ModelValue '|' string:Split:for>
+     ]
+    end // ( Self .IsStereotype: st_list::Attribute )
+   ( Self .IsStereotype: st_tribool::Attribute )
+     ( [ ME_Undefined ME_False ME_True ] )
+   ( Self .IsStereotype: st_bool::Attribute )
+     ( [ ME_False ME_True ] )
+   DEFAULT
+    nil 
+  ; // RULES
+ )
+ >>> Result
+; // UPValueList
+
+ANY elem_func UPDefaultValue
+ Cached:
+ (
+  VAR l_DefaultValue
+  '' >>> l_DefaultValue
+  RULES
+   ( Self .IsStereotype: st_list::Attribute )
+    begin
+     Self .UPValueList
+     .FirstElement
+     >>> l_DefaultValue
+    end // ( Self .IsStereotype: st_list::Attribute )
+   ( Self .IsStereotype: st_tribool::Attribute )
+    begin
+     Self .ModelValue >>> l_DefaultValue
+     if ( l_DefaultValue .IsValueValid ! ) then
+     begin
+      'undefined' >>> l_DefaultValue
+     end // ( l_DefaultValue .IsValueValid ! )
+    end // ( aUP .IsStereotype: st_bool::Attribute )
+   ( Self .IsStereotype: st_bool::Attribute )
+    begin
+     Self .ModelValue >>> l_DefaultValue
+     if ( l_DefaultValue .IsValueValid ! ) then
+     begin
+      false >>> l_DefaultValue
+     end // ( l_DefaultValue .IsValueValid ! )
+    end // ( aUP .IsStereotype: st_bool::Attribute )
+   ( Self .IsStereotype: st_string::Attribute )
+    begin
+     Self .ModelValue >>> l_DefaultValue
+     if ( l_DefaultValue .IsValueValid ! ) then
+     begin
+      '' >>> l_DefaultValue
+     end // ( l_DefaultValue .IsValueValid ! )
+    end // ( aUP .IsStereotype: st_string::Attribute )
+   DEFAULT
+    begin
+     Self .ModelValue >>> l_DefaultValue
+    end // DEFAULT
+  ; // RULES
+  l_DefaultValue
+ )
+ >>> Result
+; // UPDefaultValue    
+
+USES
+ StereotypeAllowedElements.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
+
+ModelElement STRING elem_func ValidatedStereotype
+ Self .Stereotype
+ >>> Result
+ 
+ RULES
+  ( Result .IsNil )
+   begin
+    RULES
+     ( Self .Parent .NotIsNil )
+      begin
+       Self .ParentDefaultStereotypeLikeMe >>> Result
+      end // ( Self .Parent .NotIsNil )
+    ; // RULES
+   end // ( Result .IsNil )
+  ( Result IsString )
+   ()
+  DEFAULT 
+   begin
+    VAR l_StereotypeInModel
+    Result .StereotypeInModel >>> l_StereotypeInModel
+    RULES
+     ( l_StereotypeInModel .IsNil )
+      ()
+     ( 
+      ( l_StereotypeInModel .IsStereotype st_MDAOperation ) 
+      OR ( l_StereotypeInModel .IsStereotype st_MDAAttribute ) 
+      OR ( l_StereotypeInModel .IsStereotype st_MDADependency ) 
+     ) 
+      begin
+       VAR l_Validated
+       Self .ParentAllowedElementsLikeMe
+       .filter> ( .Name l_StereotypeInModel .Name ?== )
+       .FirstElement
+       >>> l_Validated
+       if ( l_Validated .NotIsNil ) then
+       begin
+        l_Validated >>> Result
+       end // ( l_Validated .NotIsNil )
+      end // ( Result .IsStereotype st_MDAOperation ) 
+    ; // RULES 
+   end // DEFAULT  
+ ; // RULES
+; // ValidatedStereotype
+
+elem_iterator AllowedUPs
+ Self .ValidatedStereotype .StereotypeInModel .StereotypeUPs
+ >>> Result
+; // AllowedUPs
+
+USES
+ CountIt.ms.dict
+;
+
+BOOLEAN elem_func IsUPDefaultValue
+  STRING IN anUpName
+  IN anUpValue
+ false >>> Result
+ 
+ if ( anUpValue .IsValueValid ) then
+ begin
+  VAR l_Ups
+  Self .AllowedUPs >>> l_Ups
+  if ( l_Ups .NotEmpty ) then
+  begin
+   VAR l_Up
+   l_Ups 
+   .filter> ( 
+     IN anUp
+    [ '"' anUp .Name '"' ] strings:Cat 
+    anUpName ?== 
+   ) // .filter>
+   .FirstElement >>> l_Up
+   if ( l_Up .NotIsNil ) then
+   begin
+    //l_Up .Name Msg
+    VAR l_UpDefaultValue
+    l_Up .UPDefaultValue >>> l_UpDefaultValue
+    //l_UpDefaultValue Msg
+    if ( l_UpDefaultValue .IsValueValid ) then
+    begin
+     RULES
+      ( l_UpDefaultValue IsObj )
+       ( l_UpDefaultValue .msm:Value >>> l_UpDefaultValue )
+      ( l_UpDefaultValue IsIntf )
+       ( l_UpDefaultValue .msm:Value >>> l_UpDefaultValue )
+     ; // RULES
+     if ( l_UpDefaultValue anUpValue ?== ) then
+     begin
+      true >>> Result
+     end // ( l_UpDefaultValue anUpValue ?== )
+     else
+     begin
+      //l_Up .Name Msg
+      //l_UpDefaultValue Msg
+     end // ( l_UpDefaultValue anUpValue ?== )
+    end // ( l_UpDefaultValue .IsValueValid )
+   end // ( l_Up .NotIsNil )
+  end // ( l_Ups .NotEmpty )
+ end // ( aUpValue .IsValueValid )
+ 
+; // IsUPDefaultValue

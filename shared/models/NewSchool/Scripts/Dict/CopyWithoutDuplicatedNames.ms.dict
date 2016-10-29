@@ -1,0 +1,48 @@
+UNIT CopyWithoutDuplicatedNames.ms.dict
+
+USES
+ axiom_push.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
+
+USES
+ arrays.ms.dict
+;
+
+USES
+ ElemMemberPrim.ms.dict
+;
+
+ARRAY FUNCTION array:CopyWithoutDuplicatedNames
+  IN anArray
+ RULES
+  ( anArray .IsNil )
+   [nil]
+  DEFAULT 
+   (
+    VAR l_CopyNames
+    [] >>> l_CopyNames
+    VAR l_Copy
+    [] >>> l_Copy
+    VAR l_Empty
+    true >>> l_Empty
+    anArray 
+    .filter> ( .Name .AddToArray?: l_CopyNames )
+    .for> ( 
+      IN anElement
+     anElement .AddToArray: l_Copy
+     false >>> l_Empty
+    ) // anArray .for>
+    RULES
+     l_Empty
+      [nil]
+     DEFAULT
+      l_Copy 
+    ; // RULES
+   ) 
+ ; // RULES 
+ >>> Result
+; // array:CopyWithoutDuplicatedNames

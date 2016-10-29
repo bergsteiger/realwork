@@ -1,0 +1,91 @@
+//#UC START# *4DB6CF7202CB_52EA594400DD_impl*
+ Result := false;
+//#UC END# *4DB6CF7202CB_52EA594400DD_impl*
+//#UC START# *4DB6CF7202CB_52EA594400DD_var*
+//#UC END# *4DB6CF7202CB_52EA594400DD_var*
+//#UC START# *4F22776902FC_52EA594400DD_impl*
+ Assert(Integer(@f_NestedCallsCount) mod 4 = 0);
+ l_NestedCallsCount := l3InterlockedIncrement(f_NestedCallsCount);
+ try
+  EtfwCheck.IsTrue(l_NestedCallsCount > 0, 'Сломанный счётчик рекурсивных вызовов');
+  try
+   if IsCompiled then
+   // - отсекаем некомпилированные слова, т.к. с ними наверное всё хорошо
+   //   а иначе падает например на том же INCLUDE
+    if {$IfDef seThreadSafe}
+       true
+       {$Else  seThreadSafe}
+       (l_NestedCallsCount > 1)
+       {$EndIf seThreadSafe} then
+    begin
+     Self.StoreState(aCtx);
+     try
+      //l3InterlockedIncrement(f_NestedCallsCount);
+      try
+       TtfwWord(Self).RunnerAssert(l_NestedCallsCount < 3000, 'Слишком глубокая вложенность, возможно зацикливание', aCtx);
+       DoDoIt(aCtx);
+      finally
+       //l3InterlockedDecrement(f_NestedCallsCount);
+      end;//try..finally
+     finally
+      Self.RestoreState(aCtx);
+     end;//try..finally
+     Exit;
+     //raise EtfwRecursionNotSupportedYet.Create('Вложенные вызовы слов пока не поддерживаются');
+     // - тут вообще говоря надо сложить значения переменных в стек, вызвать DoDoIt, а потом восстановит переменные
+    end;//IsCompiled
+   //l3InterlockedIncrement(f_NestedCallsCount);
+   try
+    try
+     DoDoIt(aCtx);
+    finally
+     ClearState(aCtx);
+    end;///try..finally
+   finally
+    //l3InterlockedDecrement(f_NestedCallsCount);
+   end;//try..finally
+  except
+   on EtfwExitOrBreak do
+    raise;
+   else
+   begin
+    aCtx.rEngine.WordFail(SourcePoint);
+    raise;
+   end;//else
+  end;//try..except
+ finally
+  l3InterlockedDecrement(f_NestedCallsCount);
+ end;//try..finally
+//#UC END# *4F22776902FC_52EA594400DD_impl*
+//#UC START# *4F22776902FC_52EA594400DD_var*
+var
+ l_NestedCallsCount: Integer;
+//#UC END# *4F22776902FC_52EA594400DD_var*
+//#UC START# *4F49428A01EA_52EA594400DD_impl*
+ // - ничего не делаем
+//#UC END# *4F49428A01EA_52EA594400DD_impl*
+//#UC START# *4F49428A01EA_52EA594400DD_var*
+//#UC END# *4F49428A01EA_52EA594400DD_var*
+//#UC START# *4F4942C50339_52EA594400DD_impl*
+ // - ничего не делаем
+//#UC END# *4F4942C50339_52EA594400DD_impl*
+//#UC START# *4F4942C50339_52EA594400DD_var*
+//#UC END# *4F4942C50339_52EA594400DD_var*
+//#UC START# *52EA594400DD_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\tfwScriptingInterfaces.pas
+//#UC END# *52EA594400DD_ext:ParentFileName
+//#UC START# *53C90EC00136_52EA594400DD_impl*
+ // - ничего не делаем
+//#UC END# *53C90EC00136_52EA594400DD_impl*
+//#UC START# *53C90EC00136_52EA594400DD_var*
+//#UC END# *53C90EC00136_52EA594400DD_var*
+//#UC START# *556317DE02B5_52EA594400DD_impl*
+ Result := TtfwSourcePoint_E;
+//#UC END# *556317DE02B5_52EA594400DD_impl*
+//#UC START# *556317DE02B5_52EA594400DD_var*
+//#UC END# *556317DE02B5_52EA594400DD_var*
+//#UC START# *55EED3920052_52EA594400DD_impl*
+ EtfwCheck.Fail('Недоделано. Может и не пригодится');
+//#UC END# *55EED3920052_52EA594400DD_impl*
+//#UC START# *55EED3920052_52EA594400DD_var*
+//#UC END# *55EED3920052_52EA594400DD_var*

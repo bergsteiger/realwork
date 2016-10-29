@@ -1,0 +1,56 @@
+//#UC START# *479731C50290_51D2776D03C3_impl*
+ inherited;
+ f_FielsInsruction := nil;
+ f_FormField := nil;
+ f_FieldResult := nil;
+ f_Private := False;
+//#UC END# *479731C50290_51D2776D03C3_impl*
+//#UC START# *479731C50290_51D2776D03C3_var*
+//#UC END# *479731C50290_51D2776D03C3_var*
+//#UC START# *51D2776D03C3_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\dd_rtfFields.pas
+//#UC END# *51D2776D03C3_ext:ParentFileName
+//#UC START# *51D27EC50388_51D2776D03C3_impl*
+ if (propType = propField) and (What = propfldpriv) then
+  f_Private := True;
+//#UC END# *51D27EC50388_51D2776D03C3_impl*
+//#UC START# *51D27EC50388_51D2776D03C3_var*
+//#UC END# *51D27EC50388_51D2776D03C3_var*
+//#UC START# *5461BEC2017D_51D2776D03C3_impl*
+ l_ClearFieldResult := f_FieldResult <> nil;
+ if (aNewDest is TdestNorm) and not f_Private then
+ begin
+  l_FieldType := f_FielsInsruction.FieldType;
+  if aNewDest = f_FieldResult then
+   l_ClearFieldResult := False
+  else
+  if l_FieldType <> dd_fieldPAGE then
+  begin
+   if l_FieldType = dd_fieldForm then
+    f_FieldResult.AppendData(f_FormField)
+   else
+    f_FieldResult.AppendData(f_FielsInsruction);
+   if f_FieldResult.Valid then
+    TdestNorm(aNewDest).Append(aState, f_FieldResult, True);
+  end; // if aNewDest <> f_FieldResult then
+ end; // if (aNewDest is TdestNorm) and f_Private then
+ f_FielsInsruction.Clear;
+ if f_FormField <> nil then
+  f_FormField.Clear;
+ if l_ClearFieldResult then
+ begin
+  f_FieldResult.Clear;
+  f_FieldResult.ParagraphsClear;
+ end; // if l_ClearFieldResult then
+//#UC END# *5461BEC2017D_51D2776D03C3_impl*
+//#UC START# *5461BEC2017D_51D2776D03C3_var*
+var
+ l_FieldType       : TddFieldType;
+ l_FieldResult     : AnsiString;
+ l_ClearFieldResult: Boolean;
+//#UC END# *5461BEC2017D_51D2776D03C3_var*
+//#UC START# *54E1F08400F9_51D2776D03C3_impl*
+ Assert(False);
+//#UC END# *54E1F08400F9_51D2776D03C3_impl*
+//#UC START# *54E1F08400F9_51D2776D03C3_var*
+//#UC END# *54E1F08400F9_51D2776D03C3_var*

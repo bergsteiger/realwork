@@ -61,16 +61,16 @@ ME ME_57B1A47403C5
 ENDME // ME_57B1A47403C5 Caption
 
 MEREF ME_57B4228B001E_ME_57B1A4520214_impl
- MELINK Original WL 'ME_57B4228B001E' '57B5730D0123.ms.model.script' // Subscribe
+ MELINK Original WL 'ME_57B4228B001E' '57B5730D0123.ms.model.script' // AddEventsSubscriber
  ;
  MEPROP OpKind opkind_Implemented
-ENDMEREF // ME_57B4228B001E_ME_57B1A4520214_impl Subscribe
+ENDMEREF // ME_57B4228B001E_ME_57B1A4520214_impl AddEventsSubscriber
 
 MEREF ME_57B422AB0293_ME_57B1A4520214_impl
- MELINK Original WL 'ME_57B422AB0293' '57B5730D0123.ms.model.script' // Unsubscribe
+ MELINK Original WL 'ME_57B422AB0293' '57B5730D0123.ms.model.script' // RemoveEventsSubscriber
  ;
  MEPROP OpKind opkind_Implemented
-ENDMEREF // ME_57B422AB0293_ME_57B1A4520214_impl Unsubscribe
+ENDMEREF // ME_57B422AB0293_ME_57B1A4520214_impl RemoveEventsSubscriber
 
 MEREF ME_57ADBE5B024A_ME_57B1A4520214_G
  MELINK Original WL 'ME_57ADBE5B024A' '57CEB4640283.ms.model.script' // ImsmModel
@@ -100,8 +100,8 @@ ME ME_57B1A4520214
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_57B4228B001E_ME_57B1A4520214_impl // Subscribe
- ME_57B422AB0293_ME_57B1A4520214_impl // Unsubscribe
+   Seq: ( ME_57B4228B001E_ME_57B1A4520214_impl // AddEventsSubscriber
+ ME_57B422AB0293_ME_57B1A4520214_impl // RemoveEventsSubscriber
  )
  ; // Implemented
  UP extprop:rc:SelfName 'msmCaptionModel'
@@ -624,7 +624,6 @@ FORWARD ME_57B3461C0319
 ME ME_57B4902C0278
  MEPROP Name 'aView'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_57AAEAEC003A // TmsmView
  ;
 
@@ -667,7 +666,6 @@ FORWARD ME_57B345EC0195
 ME ME_57B3460C032D
  MEPROP Name 'aView'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_57AAEAEC003A // TmsmView
  ;
 
@@ -676,7 +674,6 @@ ENDME // ME_57B3460C032D aView
 ME ME_57B4906F001F
  MEPROP Name 'aContext'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_57B49009009A // TmsmViewContext
  ;
 

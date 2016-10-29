@@ -1,0 +1,295 @@
+//#UC START# *479731C50290_4ADDF4470087_impl*
+ ClearCache;
+ inherited;
+//#UC END# *479731C50290_4ADDF4470087_impl*
+//#UC START# *479731C50290_4ADDF4470087_var*
+//#UC END# *479731C50290_4ADDF4470087_var*
+//#UC START# *4ADDF4470087_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsBaseNode.pas
+//#UC END# *4ADDF4470087_ext:FileName
+//#UC START# *4ADDF4470087impl_uses*
+//#UC END# *4ADDF4470087impl_uses*
+//#UC START# *4ADEE648003C_4ADDF4470087_impl*
+ InsCacheableClearNums(aRecursive);
+//#UC END# *4ADEE648003C_4ADDF4470087_impl*
+//#UC START# *4ADEE648003C_4ADDF4470087_var*
+//#UC END# *4ADEE648003C_4ADDF4470087_var*
+//#UC START# *4ADEE659029C_4ADDF4470087_impl*
+ Result := InsCacheableNext;
+//#UC END# *4ADEE659029C_4ADDF4470087_impl*
+//#UC START# *4ADEE659029C_4ADDF4470087_var*
+//#UC END# *4ADEE659029C_4ADDF4470087_var*
+//#UC START# *4ADEE67A002B_4ADDF4470087get_impl*
+ Result := LastChild;
+//#UC END# *4ADEE67A002B_4ADDF4470087get_impl*
+//#UC START# *4ADEE67A002B_4ADDF4470087get_var*
+//#UC END# *4ADEE67A002B_4ADDF4470087get_var*
+//#UC START# *4ADEE67A002B_4ADDF4470087set_impl*
+ LastChild := aValue;
+//#UC END# *4ADEE67A002B_4ADDF4470087set_impl*
+//#UC START# *4ADEE67A002B_4ADDF4470087set_var*
+//#UC END# *4ADEE67A002B_4ADDF4470087set_var*
+//#UC START# *4ADEE7A00336_4ADDF4470087get_impl*
+ Result := f_LastChild;
+//#UC END# *4ADEE7A00336_4ADDF4470087get_impl*
+//#UC START# *4ADEE7A00336_4ADDF4470087get_var*
+//#UC END# *4ADEE7A00336_4ADDF4470087get_var*
+//#UC START# *4ADEE7A00336_4ADDF4470087set_impl*
+ f_LastChild := aValue;
+//#UC END# *4ADEE7A00336_4ADDF4470087set_impl*
+//#UC START# *4ADEE7A00336_4ADDF4470087set_var*
+//#UC END# *4ADEE7A00336_4ADDF4470087set_var*
+//#UC START# *4ADEE7F1039D_4ADDF4470087_impl*
+ f_AdapterCaption := nil;
+ f_AllChildrenCount := -1;
+//#UC END# *4ADEE7F1039D_4ADDF4470087_impl*
+//#UC START# *4ADEE7F1039D_4ADDF4470087_var*
+//#UC END# *4ADEE7F1039D_4ADDF4470087_var*
+//#UC START# *4ADEE7FC0068_4ADDF4470087_impl*
+ l_Cacheable := InsCacheableNext;
+ while (l_Cacheable <> nil) do
+ begin
+  l_Cacheable.ClearNums(false);
+  l_Cacheable := l_Cacheable.Next;
+ end;//while (l_Cacheable
+//#UC END# *4ADEE7FC0068_4ADDF4470087_impl*
+//#UC START# *4ADEE7FC0068_4ADDF4470087_var*
+var
+ l_Cacheable : InsCacheable;
+//#UC END# *4ADEE7FC0068_4ADDF4470087_var*
+//#UC START# *4ADEE99702C7_4ADDF4470087_impl*
+ f_NumInParent := -1;
+ f_TotalNumInParent := -1;
+//#UC END# *4ADEE99702C7_4ADDF4470087_impl*
+//#UC START# *4ADEE99702C7_4ADDF4470087_var*
+//#UC END# *4ADEE99702C7_4ADDF4470087_var*
+//#UC START# *4ADEE9B203C9_4ADDF4470087_impl*
+ Supports(f_NextNode, InsCacheable, Result);
+//#UC END# *4ADEE9B203C9_4ADDF4470087_impl*
+//#UC START# *4ADEE9B203C9_4ADDF4470087_var*
+//#UC END# *4ADEE9B203C9_4ADDF4470087_var*
+//#UC START# *4ADEE9D002E9_4ADDF4470087_impl*
+ DoClearNums;
+ if aRecursive then
+  CallNextClearNums;
+//#UC END# *4ADEE9D002E9_4ADDF4470087_impl*
+//#UC START# *4ADEE9D002E9_4ADDF4470087_var*
+//#UC END# *4ADEE9D002E9_4ADDF4470087_var*
+//#UC START# *4ADEEFA00164_4ADDF4470087_impl*
+ ChildNode := aValue;
+//#UC END# *4ADEEFA00164_4ADDF4470087_impl*
+//#UC START# *4ADEEFA00164_4ADDF4470087_var*
+//#UC END# *4ADEEFA00164_4ADDF4470087_var*
+//#UC START# *4AE05F2A0067_4ADDF4470087_impl*
+ DoClearNums;
+ inherited Create(aNode, aNumInParent);
+ f_AllChildrenCount := -1;
+ f_TotalNumInParent := aTotalNumInParent;
+//#UC END# *4AE05F2A0067_4ADDF4470087_impl*
+//#UC START# *4AE05F2A0067_4ADDF4470087_var*
+//#UC END# *4AE05F2A0067_4ADDF4470087_var*
+//#UC START# *54C78C200291_4ADDF4470087_impl*
+ if (f_AllChildrenCount < 0) then
+ begin
+  Result := 0;
+  IterateF(l3L2NA(@CountChild), imOneLevel);
+  f_AllChildrenCount := Result;
+ end
+ else
+  Result := f_AllChildrenCount;
+//#UC END# *54C78C200291_4ADDF4470087_impl*
+//#UC START# *54C78C200291_4ADDF4470087_var*
+ procedure CountChild(const aNode: Il3Node);
+ begin
+  Inc(Result, aNode.AllChildrenCount);
+  Inc(Result);
+ end;
+//#UC END# *54C78C200291_4ADDF4470087_var*
+//#UC START# *54C78E2702B3_4ADDF4470087_impl*
+ Result := ChildNode;
+//#UC END# *54C78E2702B3_4ADDF4470087_impl*
+//#UC START# *54C78E2702B3_4ADDF4470087_var*
+//#UC END# *54C78E2702B3_4ADDF4470087_var*
+//#UC START# *54C8E0850062_4ADDF4470087_impl*
+ if not HasChild or // если в текущей ветке нет детей или
+    ChildNode.IsLast then // если в ветке всего один элемент - то ничего делать не надо
+  exit;
+
+ if (aChild <> nil) then // Позиционирование указанного элемента относительно остальных детей
+ begin
+  // Позиционирование указанного элемента относительно остальных детей
+  if not IsSame(aChild.ParentNode) then
+   exit;
+
+  lNextNode := (ChildNode as Il3InternalNode);
+  lChild := aChild as Il3InternalNode;
+
+  // Ищем позицию для перемещения для lСhild, начиная с lNextNode
+  while true do
+  begin
+   if not lChild.IsSame(lNextNode) then
+   begin
+    if CompareChild(lChild, lNextNode) < 0 then
+     Break; // позиция для перемещения найдена
+   end;//not lChild.IsSameNode(lNextNode)
+
+   lNextNode := lNextNode.NextNode as Il3InternalNode;
+
+   if lNextNode.IsFirst then // просмотрен весь список детей
+   begin
+    lNextNode := nil; // будем перемещать lChild в конец списка.
+    Break;
+   end;
+  end;//while true
+
+  lpMoveNode(lChild, lNextNode); // перемещение
+ end//aChild <> nil
+ else // Сортировка всех детей в ветке
+ begin
+  lChild := ChildNode.NextNode as Il3InternalNode;
+  lEndList := lChild.IsLast;
+  while true do
+  begin
+   lNextNode := ChildNode as Il3InternalNode;
+
+   while true do
+   begin
+    if not lChild.IsSame(lNextNode) then
+    begin
+     if (CompareChild(lChild, lNextNode) < 0) then
+     begin
+      lNextOfChild := lChild.NextNode as Il3InternalNode;
+      if lNextNode.IsLast then
+       lpMoveNode(lChild, nil)
+      else
+       lpMoveNode(lChild, lNextNode);
+      lChild := lNextOfChild;
+      Break;
+     end
+    end
+    else
+    begin
+     lChild := lChild.NextNode as Il3InternalNode;
+     Break;
+    end;
+    lNextNode := lNextNode.NextNode as Il3InternalNode;
+   end;//while true
+
+   if lEndList then Break; {конец списка}
+   lEndList := lChild.IsLast;
+  end;//while true
+ end;//aChild <> nil
+//#UC END# *54C8E0850062_4ADDF4470087_impl*
+//#UC START# *54C8E0850062_4ADDF4470087_var*
+var
+ lChild,
+ lNextNode,
+ lNextOfChild : Il3InternalNode;
+
+ lEndList     : Boolean;
+
+ lUserParam   : Pointer;
+
+ procedure lpMoveNode(const aMoveNode : Il3InternalNode;
+                      const aNextNode : Il3InternalNode);
+ begin
+  // Если aMoveNode и так стоит перед aNextNode или она единственная, то ничего делать не надо
+  if (not aMoveNode.IsLast and (aMoveNode.NextNode As Il3InternalNode).IsSame(aNextNode)) or
+     (aMoveNode.IsFirst and aMoveNode.IsLast) then
+   exit;
+
+  Notify(ntMoveBegin, aMoveNode);
+  try
+   lUserParam := nil;
+   aMoveNode.BeginMove(lUserParam);
+   try
+    // aMoveNode перемещается из конца списка
+    if aMoveNode.IsLast then
+     LastChild := aMoveNode.PrevNode
+    else
+     if not aMoveNode.IsFirst then
+      (aMoveNode.NextNode As Il3InternalNode).PrevNode := aMoveNode.PrevNode
+     else
+      (aMoveNode.NextNode As Il3InternalNode).PrevNode := nil;
+
+    // aMoveNode перемещается из начала списка
+    if aMoveNode.IsFirst then
+     ChildNode := aMoveNode.NextNode
+    else
+     if not aMoveNode.IsLast then
+      (aMoveNode.PrevNode As Il3InternalNode).NextNode := aMoveNode.NextNode
+     else
+      (aMoveNode.PrevNode As Il3InternalNode).NextNode := nil;
+
+    
+    // aMoveNode перемещается в конец списка
+    if aNextNode = nil then
+    begin
+     aMoveNode.NextNode := nil;
+     aMoveNode.PrevNode := LastChild;
+     (aMoveNode.PrevNode As Il3InternalNode).NextNode := aMoveNode;
+     LastChild := aMoveNode;
+    end
+    else
+     // aMoveNode перемещается в начало списка
+     if aNextNode.IsFirst then
+     begin
+      ChildNode := aMoveNode;
+      aMoveNode.PrevNode := nil;
+      aMoveNode.NextNode := aNextNode;
+      aNextNode.PrevNode := aMoveNode;
+     end
+     else
+     begin
+      // вставляем aMoveNode перед aNextNode
+      aMoveNode.PrevNode := aNextNode.PrevNode;
+      aMoveNode.NextNode := aNextNode;
+      (aNextNode.PrevNode As Il3InternalNode).NextNode := aMoveNode;
+      aNextNode.PrevNode := aMoveNode;
+     end;
+
+    // Cбрасываем закэшированные NumInParent и TotalNumInParent
+    (aMoveNode as InsCacheable).ClearNums(true);
+   finally
+    aMoveNode.EndMove(lUserParam);
+   end;//try..finally
+  finally
+   Notify(ntMoveEnd, aMoveNode);
+  end;//try..finally
+ end;//lpMoveNode
+//#UC END# *54C8E0850062_4ADDF4470087_var*
+//#UC START# *54C8E1F30128_4ADDF4470087_impl*
+ if aOnlyOneLevel then
+  Result := inherited DoGetNumInParent(aOnlyOneLevel)
+ else
+ begin
+  if (f_TotalNumInParent < 0) then
+   f_TotalNumInParent := inherited DoGetNumInParent(false);
+  Result := f_TotalNumInParent;
+ end;//aOnlyOneLevel
+//#UC END# *54C8E1F30128_4ADDF4470087_impl*
+//#UC START# *54C8E1F30128_4ADDF4470087_var*
+//#UC END# *54C8E1F30128_4ADDF4470087_var*
+//#UC START# *54C8E22F0223_4ADDF4470087_impl*
+ Notify(ntChildClear, Self);
+ AllChildrenCount := 0;
+ ChildNode := nil;
+ AdapterNode := nil;
+ LastChild := nil;
+//#UC END# *54C8E22F0223_4ADDF4470087_impl*
+//#UC START# *54C8E22F0223_4ADDF4470087_var*
+//#UC END# *54C8E22F0223_4ADDF4470087_var*
+//#UC START# *54C8E4A8037A_4ADDF4470087_impl*
+ if (aInc <> 0) then
+ begin
+  if (f_AllChildrenCount >= 0) then
+   f_AllChildrenCount := f_AllChildrenCount + aInc
+  else
+   AllChildrenCount;
+
+  if (ParentNode <> nil) then ParentNode.IncAllChildrenCount(aInc);
+  CallNextClearNums;
+ end;
+//#UC END# *54C8E4A8037A_4ADDF4470087_impl*
+//#UC START# *54C8E4A8037A_4ADDF4470087_var*
+//#UC END# *54C8E4A8037A_4ADDF4470087_var*

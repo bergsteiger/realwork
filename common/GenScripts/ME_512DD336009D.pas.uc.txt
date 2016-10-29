@@ -1,0 +1,22 @@
+//#UC START# *4DAEEDE10285_512DD336009D_impl*
+ if aCtx.rEngine.IsTopString then
+ begin
+  l_FileExt := aCtx.rEngine.PopDelphiString;
+  l_FileName := ChangeFileExt(aCtx.rStreamFactory.Filename, l_FileExt);
+  l_FileName := ExtractFileName(l_FileName);
+  l_FileName := aCtx.rCaller.ResolveInputFilePath(l_FileName);
+  SaveDocumentAs(l_FileName);
+ end // if aCtx.rEngine.IsTopString then
+ else
+  Assert(False, 'Не задано новое расширение!');
+//#UC END# *4DAEEDE10285_512DD336009D_impl*
+//#UC START# *4DAEEDE10285_512DD336009D_var*
+var
+ l_FileExt  : String;
+ l_FileName : String;
+//#UC END# *4DAEEDE10285_512DD336009D_var*
+//#UC START# *512DD336009D_ext:FileName
+w:\archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwSaveWithOtherExtention.pas
+//#UC END# *512DD336009D_ext:FileName
+//#UC START# *512DD336009Dimpl_uses*
+//#UC END# *512DD336009Dimpl_uses*

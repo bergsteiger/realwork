@@ -1,0 +1,63 @@
+UNIT CopyWithoutDuplicatedUnstereotyped.ms.dict
+
+USES
+ axiom_push.ms.dict
+;
+
+USES
+ arrays.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+ARRAY FUNCTION array:CopyWithoutDuplicatedUnstereotyped
+  IN anArray
+ RULES
+  ( anArray .IsNil )
+   [nil]
+  DEFAULT 
+   (
+    VAR l_WasUnstereotyped
+    [] >>> l_WasUnstereotyped
+    VAR l_Copy
+    [] >>> l_Copy
+    VAR l_Empty
+    true >>> l_Empty
+    anArray 
+    .filter> ( 
+      IN anElement
+     RULES
+      ( anElement .IsUnstereotypedStereo ! )
+       true
+      ( anElement .IsUnstereotypedStereo )
+       begin 
+        if ( anElement .Stereotype .AddToArray?: l_WasUnstereotyped ) then
+         true
+        else
+         false 
+       end // ( anElement .IsUnstereotypedStereo )
+      DEFAULT
+       true 
+     ; // RULES 
+    ) // .filter>
+    .for> ( 
+      IN anElement
+     anElement .AddToArray: l_Copy
+     false >>> l_Empty
+    ) // anArray .for>
+    RULES
+     l_Empty
+      [nil]
+     DEFAULT
+      l_Copy 
+    ; // RULES
+   ) 
+ ; // RULES 
+ >>> Result
+; // array:CopyWithoutDuplicatedUnstereotyped

@@ -9,11 +9,11 @@ USES
 ;
 
 USES
- MDProcess_Templates.tpi.script
+ MDProcess_Templates.tpi.ms.dict
 ;
 
 USES
- MDProcess_ForDelphi.tpi.script
+ MDProcess_ForDelphi.tpi.ms.dict
 ;
 
 BOOLEAN elem_func IsLocalMethod
@@ -217,4 +217,14 @@ BOOLEAN elem_func IsInterface
  Self .IsStereotype st_Facet
  >>> Result
 ; // IsInterface
+
+BOOLEAN elem_func IsIterator
+ Self .IsStereotype st_Iterator 
+ >>> Result
+; // IsIterator
+
+BOOLEAN elem_func IsInline
+ Self .IsStereotype st_inline::Operation 
+ >>> Result
+; // IsInline
  

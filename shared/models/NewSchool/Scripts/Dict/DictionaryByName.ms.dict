@@ -1,36 +1,11 @@
 UNIT DictionaryByName.ms.dict
 
 USES
- FirstElement.ms.dict
+ DictionaryByNamePrim.ms.dict
 ;
 
-IMMEDIATE MACRO thisDictionary
- Ctx:Engine pop:ScriptEngine:CurrentCompilingDictionary CompileValue
-; // thisDictionary
-
-USES
- Chars.ms.dict
-;
-
-OBJECT FUNCTION .DictionaryByName
-  IN aDictName
- nil >>> Result
- STRING VAR l_Code 
- [ 
-  'INCLUDE ' 
-  cQuote aDictName cQuote 
-  ' [EXECUTE] ( Ctx:Engine pop:ScriptEngine:CurrentCompilingDictionary CompileValue ) ' 
- ] strings:Cat >>> l_Code 
- l_Code script:CompileStringAndProcess ( 
-  DO
-  VAR l_OurDict
-  >>> l_OurDict
-  
-  l_OurDict pop:DictionaryEx:UsedDictionaries
-  .filter> ( pop:DictionaryEx:FileName sysutils:ExtractFileName aDictName sysutils:ExtractFileName == )
-  .FirstElement >>> Result
- ) // l_Code script:CompileStringAndProcess
-; // .DictionaryByName
+WordAlias thisDictionary thisDictionary
+WordAlias .DictionaryByName .DictionaryByName
 
 USES
  LoadOnDemand.ms.dict

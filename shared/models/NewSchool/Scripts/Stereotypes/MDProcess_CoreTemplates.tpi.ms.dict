@@ -1,0 +1,306 @@
+UNIT MDProcess_CoreTemplates.tpi.ms.dict
+
+INCLUDE 'ME.ms.dict'
+
+MESTUB gen_spell
+ MEPROP UID '4A41A13D03D5'
+ MEPROP Name 'spell'
+ MEPROP Stereotype 'generator'
+ MELINK StereotypeInModel WL 'ME_4A41A13D03D5' '46E80398003B.ms.model.script' // spell
+ ;
+
+ENDMESTUB // gen_spell
+
+MESTUB gen_wiki
+ MEPROP UID '46E6D4BB0339'
+ MEPROP Name 'wiki'
+ MEPROP Stereotype 'generator'
+ MELINK StereotypeInModel WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+
+ENDMESTUB // gen_wiki
+
+MESTUB st_WikiPackageImpl
+ MEPROP UID '471738DF00DA'
+ MEPROP Name 'WikiPackageImpl'
+ MEPROP Stereotype 'MDACategory'
+ MELINK StereotypeInModel WL 'ME_471738DF00DA' '46E80398003B.ms.model.script' // WikiPackageImpl
+ ;
+
+ENDMESTUB // st_WikiPackageImpl
+
+MESTUB st_WikiImplClass
+ MEPROP UID '471723E1037A'
+ MEPROP Name 'WikiImplClass'
+ MEPROP Stereotype 'MDAClass'
+ MELINK StereotypeInModel WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ ;
+
+ENDMESTUB // st_WikiImplClass
+
+MESTUB st_UMLModule
+ MEPROP UID '4704814501D4'
+ MEPROP Name 'UMLModule'
+ MEPROP Stereotype 'MDACategory'
+ MELINK StereotypeInModel WL 'ME_4704814501D4' '470481B700FA.ms.model.script' // UMLModule
+ ;
+ UP "can be main" true
+ UP "personal label" 'code_uml_module'
+ UP "visualization bg color" 13427169
+
+ENDMESTUB // st_UMLModule
+
+MESTUB st_UMLPrimitive
+ MEPROP UID '4704818D00DA'
+ MEPROP Name 'UMLPrimitive'
+ MEPROP Stereotype 'MDAClass'
+ MELINK StereotypeInModel WL 'ME_4704818D00DA' '470481B700FA.ms.model.script' // UMLPrimitive
+ ;
+ UP "disable forward decl" true
+ UP "personal label" 'code_uml_primitive'
+ UP "visualization bg color" 13427169
+
+ENDMESTUB // st_UMLPrimitive
+
+MESTUB st_Requirements
+ MEPROP UID '47047244009C'
+ MEPROP Name 'Requirements'
+ MEPROP Stereotype 'MDACategory'
+ MELINK StereotypeInModel WL 'ME_47047244009C' '470335E60290.ms.model.script' // Requirements
+ ;
+ UP "personal label" 'requirements'
+ UP "visualization bg color" 12824565
+ UP "visualization f-font color" 6566600
+ UP "visualization f-line color" 6566600
+
+ENDMESTUB // st_Requirements
+
+MESTUB st_UseCases
+ MEPROP UID '470472F6005D'
+ MEPROP Name 'UseCases'
+ MEPROP Stereotype 'MDACategory'
+ MELINK StereotypeInModel WL 'ME_470472F6005D' '470335E60290.ms.model.script' // UseCases
+ ;
+ UP "personal label" 'usecases'
+ UP "visualization bg color" 12510975
+ UP "visualization f-font color" 8568555
+ UP "visualization f-line color" 6584470
+
+ENDMESTUB // st_UseCases
+
+MESTUB st_Features
+ MEPROP UID '470473D60213'
+ MEPROP Name 'Features'
+ MEPROP Stereotype 'MDACategory'
+ MELINK StereotypeInModel WL 'ME_470473D60213' '470335E60290.ms.model.script' // Features
+ ;
+ UP "disable forward decl" true
+ UP "personal label" 'features'
+ UP "visualization bg color" 11531715
+ UP "visualization f-font color" 705290
+ UP "visualization f-line color" 705290
+
+ENDMESTUB // st_Features
+
+MESTUB st_Problems
+ MEPROP UID '4704742800BB'
+ MEPROP Name 'Problems'
+ MEPROP Stereotype 'MDACategory'
+ MELINK StereotypeInModel WL 'ME_4704742800BB' '470335E60290.ms.model.script' // Problems
+ ;
+ UP "disable forward decl" true
+ UP "personal label" 'problems'
+ UP "visualization bg color" 12824565
+ UP "visualization f-font color" 5911215
+ UP "visualization f-line color" 5911215
+
+ENDMESTUB // st_Problems
+
+MESTUB st_Actor
+ MEPROP UID '4704752002AF'
+ MEPROP Name 'Actor'
+ MEPROP Stereotype 'MDAClass'
+ MELINK StereotypeInModel WL 'ME_4704752002AF' '470335E60290.ms.model.script' // Actor
+ ;
+ UP "abstraction type" 'ra'
+ UP "personal label" 'code_actor'
+ UP "visability type" '+'
+ UP "visualization bg color" 16766935
+ UP "visualization f-font color" 16714250
+ UP "visualization f-line color" 16714250
+ UP "visualization type" 'd'
+
+ENDMESTUB // st_Actor
+
+MESTUB st_ClassDependency::Dependency
+ MEPROP UID '470475BF032C'
+ MEPROP Name 'ClassDependency::Dependency'
+ MEPROP Stereotype 'MDADependency'
+ MELINK StereotypeInModel WL 'ME_470475BF032C' '470335E60290.ms.model.script' // ClassDependency
+ ;
+ UP "personal label" 'code_dep'
+ UP "unstereotyped" true
+
+ENDMESTUB // st_ClassDependency::Dependency
+
+MESTUB st_UserNeeds
+ MEPROP UID '470476510157'
+ MEPROP Name 'UserNeeds'
+ MEPROP Stereotype 'MDAClass'
+ MELINK StereotypeInModel WL 'ME_470476510157' '470335E60290.ms.model.script' // UserNeeds
+ ;
+ UP "abstraction type" 'r'
+ UP "personal label" 'userneeds'
+ UP "visability type" '+'
+ UP "visualization bg color" 12824565
+ UP "visualization f-font color" 5911215
+ UP "visualization f-line color" 5911215
+
+ENDMESTUB // st_UserNeeds
+
+MESTUB st_Feature
+ MEPROP UID '47047810029F'
+ MEPROP Name 'Feature'
+ MEPROP Stereotype 'MDAClass'
+ MELINK StereotypeInModel WL 'ME_47047810029F' '470335E60290.ms.model.script' // Feature
+ ;
+ UP "abstraction type" 'ra'
+ UP "personal label" 'feature'
+ UP "visability type" '+'
+ UP "visualization bg color" 11531715
+ UP "visualization f-font color" 705290
+ UP "visualization f-line color" 705290
+ UP "visualization type" 'i'
+
+ENDMESTUB // st_Feature
+
+MESTUB st_UseCase
+ MEPROP UID '470478900251'
+ MEPROP Name 'UseCase'
+ MEPROP Stereotype 'MDAClass'
+ MELINK StereotypeInModel WL 'ME_470478900251' '470335E60290.ms.model.script' // UseCase
+ ;
+ UP "abstraction type" 'ra'
+ UP "personal label" 'usecase'
+ UP "visability type" '+'
+ UP "visualization bg color" 12510975
+ UP "visualization f-font color" 1989310
+ UP "visualization f-line color" 1989310
+ UP "visualization type" 'i'
+
+ENDMESTUB // st_UseCase
+
+MESTUB st_include::Dependency
+ MEPROP UID '470479110280'
+ MEPROP Name 'include::Dependency'
+ MEPROP Stereotype 'MDADependency'
+ MELINK StereotypeInModel WL 'ME_470479110280' '470335E60290.ms.model.script' // include
+ ;
+ UP "personal label" 'code_dep_include'
+
+ENDMESTUB // st_include::Dependency
+
+MESTUB st_extend::Dependency Inherits ( st_include::Dependency )
+ MEPROP UID '47047929006D'
+ MEPROP Name 'extend::Dependency'
+ MEPROP Stereotype 'MDADependency'
+ MELINK StereotypeInModel WL 'ME_47047929006D' '470335E60290.ms.model.script' // extend
+ ;
+ UP "personal label" 'code_dep_extend'
+
+ENDMESTUB // st_extend::Dependency
+
+MESTUB st_notify::Dependency
+ MEPROP UID '4704795200AB'
+ MEPROP Name 'notify::Dependency'
+ MEPROP Stereotype 'MDADependency'
+ MELINK StereotypeInModel WL 'ME_4704795200AB' '470335E60290.ms.model.script' // notify
+ ;
+ UP "personal label" 'code_dep_notify'
+
+ENDMESTUB // st_notify::Dependency
+
+MESTUB st_follow::Dependency
+ MEPROP UID '48E35B39018E'
+ MEPROP Name 'follow::Dependency'
+ MEPROP Stereotype 'MDADependency'
+ MELINK StereotypeInModel WL 'ME_48E35B39018E' '470335E60290.ms.model.script' // follow
+ ;
+
+ENDMESTUB // st_follow::Dependency
+
+MESTUB st_UseCaseRequirement Inherits ( st_UseCase )
+ MEPROP UID '4E3021A70212'
+ MEPROP Name 'UseCaseRequirement'
+ MEPROP Stereotype 'MDAClass'
+ MELINK StereotypeInModel WL 'ME_4E3021A70212' '470335E60290.ms.model.script' // UseCaseRequirement
+ ;
+ UP "inherite constraints" false
+
+ENDMESTUB // st_UseCaseRequirement
+
+MESTUB st_realized_by::Dependency
+ MEPROP UID '4E9F0231024F'
+ MEPROP Name 'realized_by::Dependency'
+ MEPROP Stereotype 'MDADependency'
+ MELINK StereotypeInModel WL 'ME_4E9F0231024F' '470335E60290.ms.model.script' // realized_by
+ ;
+
+ENDMESTUB // st_realized_by::Dependency
+
+MESTUB st_UseCaseSetting Inherits ( st_UseCaseRequirement )
+ MEPROP UID '4E3022100248'
+ MEPROP Name 'UseCaseSetting'
+ MEPROP Stereotype 'MDAClass'
+ MELINK StereotypeInModel WL 'ME_4E3022100248' '470335E60290.ms.model.script' // UseCaseSetting
+ ;
+
+ENDMESTUB // st_UseCaseSetting
+
+MESTUB st_UseCaseSettingValue
+ MEPROP UID '4E30271A0247'
+ MEPROP Name 'UseCaseSettingValue'
+ MEPROP Stereotype 'MDAClass'
+ MELINK StereotypeInModel WL 'ME_4E30271A0247' '470335E60290.ms.model.script' // UseCaseSettingValue
+ ;
+ UP "personal label" 'usecase'
+ UP "visualization bg color" 10025880
+ UP "visualization f-font color" 7451452
+ UP "visualization f-line color" 7451452
+
+ENDMESTUB // st_UseCaseSettingValue
+
+MESTUB st_UseCaseTagRequirement Inherits ( st_UseCaseRequirement )
+ MEPROP UID '4E5D084401FE'
+ MEPROP Name 'UseCaseTagRequirement'
+ MEPROP Stereotype 'MDAClass'
+ MELINK StereotypeInModel WL 'ME_4E5D084401FE' '470335E60290.ms.model.script' // UseCaseTagRequirement
+ ;
+ UP "inherite constraints" false
+
+ENDMESTUB // st_UseCaseTagRequirement
+
+MESTUB st_UseCaseTagValueRequirement Inherits ( st_UseCaseRequirement )
+ MEPROP UID '4E5D0C7A0101'
+ MEPROP Name 'UseCaseTagValueRequirement'
+ MEPROP Stereotype 'MDAClass'
+ MELINK StereotypeInModel WL 'ME_4E5D0C7A0101' '470335E60290.ms.model.script' // UseCaseTagValueRequirement
+ ;
+ UP "inherite constraints" false
+
+ENDMESTUB // st_UseCaseTagValueRequirement
+
+MESTUB st_Project
+ MEPROP UID '49F99EB100B2'
+ MEPROP Name 'Project'
+ MEPROP Stereotype 'MDACategory'
+ MELINK StereotypeInModel WL 'ME_49F99EB100B2' '49F99E9101A3.ms.model.script' // Project
+ ;
+ UP "can be main" true
+ UP "personal label" 'code_project'
+ UP "visualization bg color" 12842435
+ UP "visualization f-font color" 5961040
+ UP "visualization f-line color" 5961040
+
+ENDMESTUB // st_Project
+

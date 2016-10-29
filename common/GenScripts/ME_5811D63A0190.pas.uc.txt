@@ -1,0 +1,45 @@
+//#UC START# *479731C50290_5811D63A0190_impl*
+ f_Listener := nil;
+ inherited;
+//#UC END# *479731C50290_5811D63A0190_impl*
+//#UC START# *479731C50290_5811D63A0190_var*
+//#UC END# *479731C50290_5811D63A0190_var*
+//#UC START# *5811D63A0190_ext:FileName
+w:\archi\source\projects\Archi\Processing\arClientFilesDeliverer.pas
+//#UC END# *5811D63A0190_ext:FileName
+//#UC START# *5811D63A0190impl_uses*
+//#UC END# *5811D63A0190impl_uses*
+//#UC START# *58131D6100E4_5811D63A0190_impl*
+ Listener.CheckTaskExistence(aTaskID);
+//#UC END# *58131D6100E4_5811D63A0190_impl*
+//#UC START# *58131D6100E4_5811D63A0190_var*
+//#UC END# *58131D6100E4_5811D63A0190_var*
+//#UC START# *58131F3000D0_5811D63A0190_impl*
+ inherited Create(aPipe);
+ f_Listener := Pointer(aWeakListener);
+ f_RequestDeliveryProc := aRequestDeliveryProc;
+ Assert(Assigned(f_RequestDeliveryProc));
+//#UC END# *58131F3000D0_5811D63A0190_impl*
+//#UC START# *58131F3000D0_5811D63A0190_var*
+//#UC END# *58131F3000D0_5811D63A0190_var*
+//#UC START# *58131F9D00CB_5811D63A0190get_impl*
+ Result := IarResultDelivererListner(f_Listener);
+//#UC END# *58131F9D00CB_5811D63A0190get_impl*
+//#UC START# *58131F9D00CB_5811D63A0190get_var*
+//#UC END# *58131F9D00CB_5811D63A0190get_var*
+//#UC START# *5813272603DC_5811D63A0190_impl*
+ Listener.RequestSendMessage(aMessage);
+//#UC END# *5813272603DC_5811D63A0190_impl*
+//#UC START# *5813272603DC_5811D63A0190_var*
+//#UC END# *5813272603DC_5811D63A0190_var*
+//#UC START# *5813275F019D_5811D63A0190_impl*
+ Listener.ChangeResultFolder(aTaskID, aFolder);
+ f_RequestDeliveryProc();
+//#UC END# *5813275F019D_5811D63A0190_impl*
+//#UC START# *5813275F019D_5811D63A0190_var*
+//#UC END# *5813275F019D_5811D63A0190_var*
+//#UC START# *581330B0019D_5811D63A0190_impl*
+ Result := Listener.RequestNewFolder(theFolder);
+//#UC END# *581330B0019D_5811D63A0190_impl*
+//#UC START# *581330B0019D_5811D63A0190_var*
+//#UC END# *581330B0019D_5811D63A0190_var*

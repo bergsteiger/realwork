@@ -4,6 +4,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_5461F0A303D6
 %%Inner ME_5461F0A303D6
+%%Inner ME_5461F0A303D6
 
 FORWARD ME_5461F0A303D6
 
@@ -139,6 +140,155 @@ ME ME_54996019037A
 
 ENDME // ME_54996019037A TncsResultKind
 
+FORWARD ME_5810923B0021
+
+ME ME_581098100122
+ MEPROP UID '581098100122'
+ MEPROP Name 'ncs_dcGetTasksList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5810923B0021 // TncsDeliveryCommand
+ ;
+
+ENDME // ME_581098100122 ncs_dcGetTasksList
+
+ME ME_5810982F00C2
+ MEPROP UID '5810982F00C2'
+ MEPROP Name 'ncs_dcGetFilesList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5810923B0021 // TncsDeliveryCommand
+ ;
+
+ENDME // ME_5810982F00C2 ncs_dcGetFilesList
+
+ME ME_5810984002D8
+ MEPROP UID '5810984002D8'
+ MEPROP Name 'ncs_dcGetFileCRC'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5810923B0021 // TncsDeliveryCommand
+ ;
+
+ENDME // ME_5810984002D8 ncs_dcGetFileCRC
+
+ME ME_58109862032E
+ MEPROP UID '58109862032E'
+ MEPROP Name 'ncs_dcGetFile'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5810923B0021 // TncsDeliveryCommand
+ ;
+
+ENDME // ME_58109862032E ncs_dcGetFile
+
+ME ME_58109876033D
+ MEPROP UID '58109876033D'
+ MEPROP Name 'ncs_dcGetTargetFolder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5810923B0021 // TncsDeliveryCommand
+ ;
+
+ENDME // ME_58109876033D ncs_dcGetTargetFolder
+
+ME ME_58109897025D
+ MEPROP UID '58109897025D'
+ MEPROP Name 'ncs_dcSetProgress'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5810923B0021 // TncsDeliveryCommand
+ ;
+
+ENDME // ME_58109897025D ncs_dcSetProgress
+
+ME ME_581098A50330
+ MEPROP UID '581098A50330'
+ MEPROP Name 'ncs_dcSetDeliveryResult'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5810923B0021 // TncsDeliveryCommand
+ ;
+
+ENDME // ME_581098A50330 ncs_dcSetDeliveryResult
+
+ME ME_581098C202E3
+ MEPROP UID '581098C202E3'
+ MEPROP Name 'ncs_dcCorrectTargetFolder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5810923B0021 // TncsDeliveryCommand
+ ;
+
+ENDME // ME_581098C202E3 ncs_dcCorrectTargetFolder
+
+ME ME_581098DC02D8
+ MEPROP UID '581098DC02D8'
+ MEPROP Name 'ncs_dcCheckAlive'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5810923B0021 // TncsDeliveryCommand
+ ;
+
+ENDME // ME_581098DC02D8 ncs_dcCheckAlive
+
+ME ME_581098EA0255
+ MEPROP UID '581098EA0255'
+ MEPROP Name 'ncs_dcDoneProcess'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5810923B0021 // TncsDeliveryCommand
+ ;
+
+ENDME // ME_581098EA0255 ncs_dcDoneProcess
+
+ME ME_5810923B0021
+ MEPROP UID '5810923B0021'
+ MEPROP Name 'TncsDeliveryCommand'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5461F0A303D6 // evdNcsTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_581098100122 // ncs_dcGetTasksList
+ HWL ME_5810982F00C2 // ncs_dcGetFilesList
+ HWL ME_5810984002D8 // ncs_dcGetFileCRC
+ HWL ME_58109862032E // ncs_dcGetFile
+ HWL ME_58109876033D // ncs_dcGetTargetFolder
+ HWL ME_58109897025D // ncs_dcSetProgress
+ HWL ME_581098A50330 // ncs_dcSetDeliveryResult
+ HWL ME_581098C202E3 // ncs_dcCorrectTargetFolder
+ HWL ME_581098DC02D8 // ncs_dcCheckAlive
+ HWL ME_581098EA0255 // ncs_dcDoneProcess
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5810923B0021 TncsDeliveryCommand
+
 ME ME_5461F0A303D6
  MEPROP UID '5461F0A303D6'
  MEPROP Name 'evdNcsTypes'
@@ -153,6 +303,7 @@ ME ME_5461F0A303D6
  MELIST Children
    Seq: ( HWL ME_5461CFB8002C // TncsMessageKind
  HWL ME_54996019037A // TncsResultKind
+ HWL ME_5810923B0021 // TncsDeliveryCommand
  )
  ; // Children
  MESTRINGLIST DiagramsNames

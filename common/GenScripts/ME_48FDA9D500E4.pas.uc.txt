@@ -1,0 +1,110 @@
+//#UC START# *45EEC8E102FE_48FDA9D500E4_impl*
+ if IsInGetByVisibleIndex then
+  // Дерево разворачивалось в процессе получения узла
+  f_CountViewChanged := True;
+
+ if (GetCurrentThreadID = MainThreadID) then
+  ChangeChildrenCountPrim(Node_Index, Delta, Index_Path, Child_Index)
+ else
+ begin
+  with l_Data do
+  begin
+   rNodeIndex := Node_Index;
+   rDelta := Delta;
+   rIndexPath := Index_Path;
+   rChildIndex := Child_Index;
+  end;//with l_Data
+  Synchronize(ChangeChildrenCountThread, @l_Data, SizeOf(l_Data), [l_Data.rIndexPath]);
+ end;//GetCurrentThreadID = MainThreadID
+//#UC END# *45EEC8E102FE_48FDA9D500E4_impl*
+//#UC START# *45EEC8E102FE_48FDA9D500E4_var*
+var
+ l_Data: TnsThreadCallParamsRec;
+//#UC END# *45EEC8E102FE_48FDA9D500E4_var*
+//#UC START# *45EEC8E10303_48FDA9D500E4_impl*
+ ResetChildrenCountPrim;
+//#UC END# *45EEC8E10303_48FDA9D500E4_impl*
+//#UC START# *45EEC8E10303_48FDA9D500E4_var*
+//#UC END# *45EEC8E10303_48FDA9D500E4_var*
+//#UC START# *45EEC8E10304_48FDA9D500E4_impl*
+ Result := GetShowRoot;
+//#UC END# *45EEC8E10304_48FDA9D500E4_impl*
+//#UC START# *45EEC8E10304_48FDA9D500E4_var*
+//#UC END# *45EEC8E10304_48FDA9D500E4_var*
+//#UC START# *45EEC8E10305_48FDA9D500E4_impl*
+ Result := IsOneLevelPrim;
+//#UC END# *45EEC8E10305_48FDA9D500E4_impl*
+//#UC START# *45EEC8E10305_48FDA9D500E4_var*
+//#UC END# *45EEC8E10305_48FDA9D500E4_var*
+//#UC START# *45EEC8E10306_48FDA9D500E4_impl*
+ if (GetCurrentThreadID = MainThreadID) then
+  InvalidatePrim
+ else
+ begin
+  with l_Data do
+  begin
+   rNodeIndex := 0;
+   rDelta := 0;
+   rIndexPath := nil;
+   rChildIndex := 0;
+  end;//with l_Data
+  Synchronize(InvalidateThread, @l_Data, SizeOf(l_Data));
+ end;
+//#UC END# *45EEC8E10306_48FDA9D500E4_impl*
+//#UC START# *45EEC8E10306_48FDA9D500E4_var*
+var
+ l_Data: TnsThreadCallParamsRec;
+//#UC END# *45EEC8E10306_48FDA9D500E4_var*
+//#UC START# *45EEC8E10308_48FDA9D500E4_impl*
+ // Эта операция целенаправлено не синхронизируется с основной триадой, а выполняется сразу
+ // т.к. в ней идет запоминание текущих нод, которые влидну только непосредственно в момент этого вызова
+ //
+ // Причем в ходе обработки НЕ РЕКОМЕНДУЕТСЯ создавать/убивать кэшируемые объекты на классах
+ // которые общаются с адаптером - это может приводить к следующему дедлоку
+ // майн - убивает объект подписанный на адаптерную нотификацию
+ //        входит в добавление в кэш с захватом критической секции
+ // этот поток - Адаптер перед каждой нотификацией захватывает адаптерный мьютекс
+ //              создает/убивает кэшируемый объект при этом встает на критической секции
+ // майн - выполняет Cleanup и пытается отписаться от адаптерной нотификации и встает на
+ //        адаптерном мьютексе
+ ChangingPrim;
+//#UC END# *45EEC8E10308_48FDA9D500E4_impl*
+//#UC START# *45EEC8E10308_48FDA9D500E4_var*
+//#UC END# *45EEC8E10308_48FDA9D500E4_var*
+//#UC START# *45EEC8E10309_48FDA9D500E4_impl*
+ if (GetCurrentThreadID = MainThreadID) then
+  ChangedPrim
+ else
+ begin
+  with l_Data do
+  begin
+   rNodeIndex := 0;
+   rDelta := 0;
+   rIndexPath := nil;
+   rChildIndex := 0;
+  end;//with l_Data
+  Synchronize(ChangedThread, @l_Data, SizeOf(l_Data));
+ end;
+//#UC END# *45EEC8E10309_48FDA9D500E4_impl*
+//#UC START# *45EEC8E10309_48FDA9D500E4_var*
+var
+ l_Data: TnsThreadCallParamsRec;
+//#UC END# *45EEC8E10309_48FDA9D500E4_var*
+//#UC START# *475E4B020072_48FDA9D500E4_impl*
+ Result := TNotifierID(Self);
+//#UC END# *475E4B020072_48FDA9D500E4_impl*
+//#UC START# *475E4B020072_48FDA9D500E4_var*
+//#UC END# *475E4B020072_48FDA9D500E4_var*
+//#UC START# *48FDA9D500E4_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifierImplementation.imp.pas
+//#UC END# *48FDA9D500E4_ext:FileName
+//#UC START# *48FDAA2000B3_48FDA9D500E4_impl*
+ inherited Changing;
+//#UC END# *48FDAA2000B3_48FDA9D500E4_impl*
+//#UC START# *48FDAA2000B3_48FDA9D500E4_var*
+//#UC END# *48FDAA2000B3_48FDA9D500E4_var*
+//#UC START# *48FDAA330353_48FDA9D500E4_impl*
+ inherited Changed;
+//#UC END# *48FDAA330353_48FDA9D500E4_impl*
+//#UC START# *48FDAA330353_48FDA9D500E4_var*
+//#UC END# *48FDAA330353_48FDA9D500E4_var*

@@ -1,0 +1,138 @@
+//#UC START# *47A750E70096_5289CD8F0001_impl*
+ // В EQ сравниваем по ключам и rNeedMake, поэтому два Item'a с разными
+ // rNeedMake могли бы добавиться - проверяем здесь по ключу
+ if (GetFormIndex(anItem.rKey) = -1) then
+  Result := inherited Add(anItem)
+ else
+  Assert(False);         
+//#UC END# *47A750E70096_5289CD8F0001_impl*
+//#UC START# *47A750E70096_5289CD8F0001_var*
+//#UC END# *47A750E70096_5289CD8F0001_var*
+//#UC START# *47B2C42A0163_5289CD8F0001_impl*
+ Assert(False);
+//#UC END# *47B2C42A0163_5289CD8F0001_impl*
+//#UC START# *47B2C42A0163_5289CD8F0001_var*
+//#UC END# *47B2C42A0163_5289CD8F0001_var*
+//#UC START# *47B9866E034D_5289CD8F0001_impl*
+ inherited;
+ Duplicates := l3_dupError;
+ Sorted := true;
+//#UC END# *47B9866E034D_5289CD8F0001_impl*
+//#UC START# *47B9866E034D_5289CD8F0001_var*
+//#UC END# *47B9866E034D_5289CD8F0001_var*
+//#UC START# *47B99D4503A2_5289CD8F0001_impl*
+ Result := CI.rA.Compare(CI.rB^);
+//#UC END# *47B99D4503A2_5289CD8F0001_impl*
+//#UC START# *47B99D4503A2_5289CD8F0001_var*
+//#UC END# *47B99D4503A2_5289CD8F0001_var*
+//#UC START# *5289C78503E2_ext:FileName
+w:\common\components\gui\Garant\VCM\vcmFormSetFormItemList.pas
+//#UC END# *5289C78503E2_ext:FileName
+//#UC START# *5289C78503E2impl_uses*
+//#UC END# *5289C78503E2impl_uses*
+//#UC START# *5289CC6003B0_5289C7D4012A_impl*
+ Result := (Self.rZoneType = anOther.rZoneType) AND (Self.rFormID.EQ(anOther.rFormID)) AND
+  (Self.rUserType = anOther.rUserType) AND
+   ((Self.rSubUserType = anOther.rSubUserType) or
+    ((Self.rSubUserType = 0) and (anOther.rSubUserType = vcm_utAny)) or
+    ((Self.rSubUserType = vcm_utAny) and (anOther.rSubUserType = 0)));
+//#UC END# *5289CC6003B0_5289C7D4012A_impl*
+//#UC START# *5289CC6003B0_5289C7D4012A_var*
+//#UC END# *5289CC6003B0_5289C7D4012A_var*
+//#UC START# *5289CC9F0130_5289C7D4012A_impl*
+ l_UT := Self.rUserType - anOther.rUserType;
+ l_Name := AnsiCompareStr(Self.rFormID.rName, anOther.rFormID.rName);
+ l_ZT := Ord(Self.rZoneType) - Ord(anOther.rZoneType);
+ l_ID := Self.rFormID.rID - anOther.rFormID.rID;
+ l_SubUT := Self.rSubUserType - anOther.rUserType;
+ Result := 0;
+ if (l_UT < 0) or (l_Name < 0) or (l_ZT < 0) or (l_ID < 0) or (l_SubUT < 0) then
+  Result := -1
+ else
+ if (l_UT > 0) or (l_Name > 0) or (l_ZT > 0) or (l_ID > 0) or (l_SubUT > 0) then
+  Result := 1;
+//#UC END# *5289CC9F0130_5289C7D4012A_impl*
+//#UC START# *5289CC9F0130_5289C7D4012A_var*
+var
+ l_UT: Integer;
+ l_SubUT: Integer;
+ l_ZT: Integer;
+ l_Name: Integer;
+ l_ID: Integer;
+//#UC END# *5289CC9F0130_5289C7D4012A_var*
+//#UC START# *5289CD300046_5289CA7803D8_impl*
+ // Сравниваем ключи и значения, иначе не проходит присовение Item'ов
+ Result := (Self.rKey.EQ(anOther.rKey)) AND (Self.rNeedMake = anOther.rNeedMake);
+//#UC END# *5289CD300046_5289CA7803D8_impl*
+//#UC START# *5289CD300046_5289CA7803D8_var*
+//#UC END# *5289CD300046_5289CA7803D8_var*
+//#UC START# *5289CD3602F8_5289CA7803D8_impl*
+ Result := Self.rKey.Compare(anOther.rKey);
+ if (Result = 0) then
+  Result := Ord(Self.rNeedMake) - Ord(anOther.rNeedMake);
+//#UC END# *5289CD3602F8_5289CA7803D8_impl*
+//#UC START# *5289CD3602F8_5289CA7803D8_var*
+//#UC END# *5289CD3602F8_5289CA7803D8_var*
+//#UC START# *528B51C0030E_5289CA7803D8_impl*
+ Result.rKey := aKey;
+ Result.rNeedMake := aNeedMake;
+//#UC END# *528B51C0030E_5289CA7803D8_impl*
+//#UC START# *528B51C0030E_5289CA7803D8_var*
+//#UC END# *528B51C0030E_5289CA7803D8_var*
+//#UC START# *528B525300DE_5289C7D4012A_impl*
+ Result.rFormID := aFormID;
+ Result.rZoneType := aZoneType;
+ Result.rUserType := aUserType;
+ Result.rSubUserType := aSubUserType;
+//#UC END# *528B525300DE_5289C7D4012A_impl*
+//#UC START# *528B525300DE_5289C7D4012A_var*
+//#UC END# *528B525300DE_5289C7D4012A_var*
+//#UC START# *528DB25B023B_5289CD8F0001get_impl*
+ Result := vcm_nmNo;
+ l_ItemIndex := GetFormIndex(Index);
+ if (l_ItemIndex <> -1) then
+  Result := Items[l_ItemIndex].rNeedMake;
+//#UC END# *528DB25B023B_5289CD8F0001get_impl*
+//#UC START# *528DB25B023B_5289CD8F0001get_var*
+var
+ l_ItemIndex: Integer;
+//#UC END# *528DB25B023B_5289CD8F0001get_var*
+//#UC START# *528DB25B023B_5289CD8F0001set_impl*
+ l_ItemIndex := GetFormIndex(Index);
+ if (l_ItemIndex <> -1) then
+ begin
+  l_Item := Items[l_ItemIndex];
+  l_Item.rNeedMake := aValue;
+  Items[l_ItemIndex] := l_Item;
+  Assert(Items[l_ItemIndex].rNeedMake = aValue);
+ end;
+//#UC END# *528DB25B023B_5289CD8F0001set_impl*
+//#UC START# *528DB25B023B_5289CD8F0001set_var*
+var
+ l_ItemIndex: Integer;
+ l_Item: TvcmFormSetFormItem;
+//#UC END# *528DB25B023B_5289CD8F0001set_var*
+//#UC START# *528DB44C02D7_5289CD8F0001_impl*
+ Result := -1;
+ IterateAllF(l3L2IA(@lp_FindItem));
+//#UC END# *528DB44C02D7_5289CD8F0001_impl*
+//#UC START# *528DB44C02D7_5289CD8F0001_var*
+
+ function lp_FindItem(P: PItemType; Index: Integer): Boolean;
+ begin
+  if (P^.rKey.EQ(aFormDescr)) then
+  begin
+   GetFormIndex := Index;
+   Result := False;
+  end//if (P^.rKey.EQ(aFormDescr))
+  else
+   Result := True;
+ end;//lp_FindItem
+
+//#UC END# *528DB44C02D7_5289CD8F0001_var*
+//#UC START# *529845780295_5289CD8F0001_impl*
+ if pm_GetNeedMakeDS(aForm) = vcm_nmNo then
+  pm_SetNeedMakeDS(aForm, aValue);
+//#UC END# *529845780295_5289CD8F0001_impl*
+//#UC START# *529845780295_5289CD8F0001_var*
+//#UC END# *529845780295_5289CD8F0001_var*

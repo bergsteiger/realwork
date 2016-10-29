@@ -1,0 +1,38 @@
+//#UC START# *551D60A60370_551D60A60370_Word_impl*
+ {$IfNDef NoVCL}
+ l_Window := nil;
+ if (aWnd.rType = tfw_vtInt) then
+ begin
+  l_Handle := THandle(aWnd.AsInt);
+  l_Window := FindControl(l_Handle);
+ end//aWnd.rType = tfw_vtInt
+ else
+  l_Handle := 0;
+
+ if Assigned(l_Window) or
+    (aWnd.rType = tfw_vtObj) then
+ begin
+  if not Assigned(l_Window) then
+   l_Window := aWnd.AsObject As TWinControl;
+  RunnerAssert(l_Window is TWinControl, '√де окно?!', aCtx);
+  if Tl3CloseFormHelper.Instance.Close(l_Window) then
+   Exit;
+  if (l_Handle <> 0) then
+   l_Handle := l_Window.Handle;
+ end;//Assigned(l_Window) or
+ RunnerAssert(l_Handle <> 0, '√де окно?!', aCtx);
+ PostMessage(l_Handle, WM_CLOSE, 0, 0);
+ {$Else  NoVCL}
+ Assert(false);
+ {$EndIf NoVCL}
+//#UC END# *551D60A60370_551D60A60370_Word_impl*
+//#UC START# *551D60A60370_551D60A60370_Word_var*
+{$IfNDef NoVCL}
+var
+ l_Window: TWinControl;
+ l_Handle: THandle;
+{$EndIf  NoVCL}
+//#UC END# *551D60A60370_551D60A60370_Word_var*
+//#UC START# *551D60A60370_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\WinUtilsPack.pas
+//#UC END# *551D60A60370_Word_ext:ParentFileName

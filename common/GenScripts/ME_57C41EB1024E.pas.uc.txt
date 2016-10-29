@@ -1,0 +1,30 @@
+//#UC START# *57C41EB1024E_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\tfwThreadVarPrim.pas
+//#UC END# *57C41EB1024E_ext:ParentFileName
+//#UC START# *57C41F090346_57C41EB1024E_impl*
+ if (Self.rThreadID > anOther.rThreadID) then
+  Result := +1
+ else
+ if (Self.rThreadID < anOther.rThreadID) then
+  Result := -1
+ else
+  Result := 0;
+ if (Result = 0) then
+ begin
+  if PChar(Self.rWord) > PChar(anOther.rWord) then
+   Result := +1
+  else
+  if PChar(Self.rWord) < PChar(anOther.rWord) then
+   Result := -1
+  else
+   Result := 0;
+ end;//Result = 0
+//#UC END# *57C41F090346_57C41EB1024E_impl*
+//#UC START# *57C41F090346_57C41EB1024E_var*
+//#UC END# *57C41F090346_57C41EB1024E_var*
+//#UC START# *57C41FC6012C_57C41EB1024E_impl*
+ Result.rWord := aWord;
+ Result.rThreadID := aThreadID;
+//#UC END# *57C41FC6012C_57C41EB1024E_impl*
+//#UC START# *57C41FC6012C_57C41EB1024E_var*
+//#UC END# *57C41FC6012C_57C41EB1024E_var*

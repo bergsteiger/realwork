@@ -1,0 +1,316 @@
+//#UC START# *46A450C703AE_508EBD870312_impl*
+ if (aOperation = cvcm_tpOperationAdded) and
+  Supports(aInterface, IvcmCustOpsGroupOperation, l_Op) then
+ try
+  AddOp(l_Op);
+  SortChilds;
+ finally
+  l_Op := nil;
+ end;//try..finally
+//#UC END# *46A450C703AE_508EBD870312_impl*
+//#UC START# *46A450C703AE_508EBD870312_var*
+var
+ l_Op: IvcmCustOpsGroupOperation;
+//#UC END# *46A450C703AE_508EBD870312_var*
+//#UC START# *479731C50290_508EBD870312_impl*
+ if (Group <> nil) then
+  Group.As_Il3ChangeNotifier.Unsubscribe(IvcmTaskPanelNotifyRecipient(Self));
+ Group := nil;
+ inherited;
+//#UC END# *479731C50290_508EBD870312_impl*
+//#UC START# *479731C50290_508EBD870312_var*
+//#UC END# *479731C50290_508EBD870312_var*
+//#UC START# *4F71E1460089_508EBD870312_impl*
+ inherited;
+ if AParent <> nil then
+ begin
+  TreeStruct.RootNode := TnscTasksPanelRootNode.Make;
+  AddOps;
+ end;//if AParent then
+//#UC END# *4F71E1460089_508EBD870312_impl*
+//#UC START# *4F71E1460089_508EBD870312_var*
+//#UC END# *4F71E1460089_508EBD870312_var*
+//#UC START# *4F884F39020F_508EBD870312_impl*
+ inherited;
+ if Supports(TreeStruct.RootNode, Il3Node, l_Root) then
+ try
+  l_Root.IterateF(l3L2NA(@lp_IteratorFunc));
+ finally
+  l_Root := nil;
+ end;//try..finally
+//#UC END# *4F884F39020F_508EBD870312_impl*
+//#UC START# *4F884F39020F_508EBD870312_var*
+ function lp_IteratorFunc(const aNode: Il3Node): Boolean;
+ var
+  l_Op: InscOperationNode;
+ begin
+  Result := False;
+  if Supports(aNode, InscOperationNode, l_Op) then
+  try
+   l_Op.Op.RepOp.Action.Update;
+  finally
+   l_Op := nil;
+  end;//try..finally
+ end;//lp_IteratorFunc
+
+var
+ l_Root: Il3Node;
+//#UC END# *4F884F39020F_508EBD870312_var*
+//#UC START# *508EBD870312_ext:ParentFileName
+w:\common\components\gui\Garant\Nemesis\nscTasksPanelView.pas
+//#UC END# *508EBD870312_ext:ParentFileName
+//#UC START# *508F7DD70004_508EBD870312get_impl*
+ if f_PopupMenu = nil then
+  f_PopupMenu := TvcmPopupMenuPrim.Create(Self);
+ Result := f_PopupMenu;
+//#UC END# *508F7DD70004_508EBD870312get_impl*
+//#UC START# *508F7DD70004_508EBD870312get_var*
+//#UC END# *508F7DD70004_508EBD870312get_var*
+//#UC START# *508F7E6E004B_508EBD870312_impl*
+ if Supports(TreeStruct.RootNode, Il3Node, l_Root) then
+ try
+  l_Op := TnscTasksPanelOperationNode.Create(aOp);
+  try
+   l_Op.Link := TnscTasksPanelActionLink.Create(l_Op.Op.RepOp.Action, Self, l_Op);
+   l_Root.InsertChild(l_Op);
+  finally
+   l3Free(l_Op);
+  end;//try..finally
+ finally
+  l_Root := nil;
+ end;//try..finally
+//#UC END# *508F7E6E004B_508EBD870312_impl*
+//#UC START# *508F7E6E004B_508EBD870312_var*
+var
+ l_Root: Il3Node;
+ l_Op: TnscTasksPanelOperationNode;
+//#UC END# *508F7E6E004B_508EBD870312_var*
+//#UC START# *508F7E8400C4_508EBD870312_impl*
+ l_Iterator := Group.Operations;
+ if (l_Iterator <> nil) then
+  try
+   l_Op := l_Iterator.Next;
+   while l_Op <> nil do
+   begin
+    AddOp(l_Op);
+    l_Op := l_Iterator.Next;
+   end;//while l_Op <> nil do
+   SortChilds;
+  finally
+   l_Iterator := nil;
+  end;//try..finally
+//#UC END# *508F7E8400C4_508EBD870312_impl*
+//#UC START# *508F7E8400C4_508EBD870312_var*
+var
+ l_Iterator: IvcmCustOpsGroupOperationsIterator;
+ l_Op: IvcmCustOpsGroupOperation;
+//#UC END# *508F7E8400C4_508EBD870312_var*
+//#UC START# *508F7E930197_508EBD870312_impl*
+ if Supports(TreeStruct.RootNode, Il3Node, l_Root) then
+ try
+  l_Root.SortChilds;
+ finally
+  l_Root := nil;
+ end;//try..finally
+//#UC END# *508F7E930197_508EBD870312_impl*
+//#UC START# *508F7E930197_508EBD870312_var*
+var
+ l_Root: Il3Node;
+//#UC END# *508F7E930197_508EBD870312_var*
+//#UC START# *508F7EA501A1_508EBD870312_impl*
+ if Supports(GetNode(aItemIndex), InscOperationNode, l_Op) then
+ try
+  Result := l_Op.Op.RepOp.Action;
+ finally
+  l_Op := nil;
+ end//try..finally
+ else
+  Result := nil;
+//#UC END# *508F7EA501A1_508EBD870312_impl*
+//#UC START# *508F7EA501A1_508EBD870312_var*
+var
+ l_Op: InscOperationNode;
+//#UC END# *508F7EA501A1_508EBD870312_var*
+//#UC START# *508F7F930094_508EBD870312_impl*
+ Result := inherited DoIsCommandPublished(Cmd);
+ if not Result then
+  Result := Cmd in [ccTreeAllExpand, ccAllSelect, ccAllDeselect];
+   // - компонент создаетс€ динамически по причине чего регистраци€ операций не
+   //   производитс€ и соответственно в предке значение f_Published будет False,
+   //   а нам нужно запретить использование этих команд компонентом. ¬озможно
+   //   если бы операции должны быть показаны на компоненте стоило бы сделать
+   //   так чтобы операции регистрировались и дл€ компонентов в RunTime;
+//#UC END# *508F7F930094_508EBD870312_impl*
+//#UC START# *508F7F930094_508EBD870312_var*
+//#UC END# *508F7F930094_508EBD870312_var*
+//#UC START# *508F7FED005E_508EBD870312_impl*
+ if ItemAction(aIndex).Enabled
+  then Result := crHandPoint
+  else Result := crDefault;
+//#UC END# *508F7FED005E_508EBD870312_impl*
+//#UC START# *508F7FED005E_508EBD870312_var*
+//#UC END# *508F7FED005E_508EBD870312_var*
+//#UC START# *508F81110075_508EBD870312_impl*
+ Result := inherited DoOnGetItemImageIndex(aItemIndex, aImages);
+ if Result = vtItemWithoutImage then
+  with ItemAction(aItemIndex) do
+   if ImageIndex <> -1 then
+    Result := ImageIndex;
+//#UC END# *508F81110075_508EBD870312_impl*
+//#UC START# *508F81110075_508EBD870312_var*
+//#UC END# *508F81110075_508EBD870312_var*
+//#UC START# *508F81C1004D_508EBD870312_impl*
+ inherited;
+ l_LockUpdate := False;
+ // ќпераци€ доступна дл€ выполнени€:
+ if Supports(GetNode(Index), InscOperationNode, l_Op) and
+  l_Op.Op.RepOp.Action.Enabled then
+ try
+  View.DoOperationExecute;
+  if Supports(l_Op.Op.RepOp.Action, IvcmAction, l_Action) then
+  try
+   if Supports(l_Op.Op.RepOp, IvcmOperationDef, l_OpDef) then
+   try
+    // ќперации с выпадающим списком:
+    if (l_OpDef.OperationType in c_ComboOperations) then
+    begin
+     // ≈сли меню будет показано, то выполн€ть Action не нужно:
+     if l_Action.HasInfoForCombo then
+     begin
+      lp_BuildAndShowPopupMenu(l_Op, l_OpDef.OperationType);
+      Exit;
+     end;
+    end//if Supports(l_Op.Op.RepOp, IvcmOperationDef
+    else
+     // ќпераци€ типа календарна€ дата:
+     if l_OpDef.OperationType = vcm_otDate then
+     begin
+      if not lp_SelectDate(l_Action, l_OpDef) then
+       Exit
+      else
+       l_LockUpdate := True;
+     end;//if l_OpDef.OperationType = vcm_otDate then
+   finally
+    l_OpDef := nil;
+   end;//try..finally
+   lp_ExecuteAction(l_Action, l_LockUpdate);
+  finally
+   l_Action := nil;
+  end;//try..finally
+ finally
+  l_Op := nil;
+ end;//try..finally
+//#UC END# *508F81C1004D_508EBD870312_impl*
+//#UC START# *508F81C1004D_508EBD870312_var*
+ procedure lp_BuildAndShowPopupMenu(const aOp: InscOperationNode;
+                                    aType: TvcmOperationType);
+ var
+  l_Point: TPoint;
+  l_MenuItem: TMenuItem;
+  l_Action: IvcmAction;
+  l_Height: Integer;
+ begin
+  // ќчистим меню, оно одно на панель задач:
+  PopupMenu.Items.Clear;
+  Assert(aOp.Op.RepOp.Action is TvcmAction);
+  // ѕостроим меню:
+  vcmMakeComboMenu(TvcmAction(aOp.Op.RepOp.Action),
+                   PopupMenu.Items,
+                   True,
+                   vcmMenuItemClassByOpType(aType));
+  if PopupMenu.Items.Count > 0 then
+  begin
+   if Supports(aOp.Op.RepOp.Action, IvcmAction, l_Action) then
+    l_MenuItem := PopupMenu.Items.Find(vcmStr(l_Action.SelectedString))
+   else
+    l_MenuItem := PopupMenu.Items.Find(aOp.Op.RepOp.Action.Caption);
+   if (l_MenuItem <> nil) and l_MenuItem.RadioItem then
+    l_MenuItem.Checked := True;
+   // ѕокажем список под элементом:
+   with GetDrawRect(Index) do
+   begin
+    l_Point := ClientToScreen(Point(Left, Bottom));
+    l_Height := Bottom - Top;
+   end;
+   with l_Point do
+    PopupMenu.Popup(X + GetItemTextIndent(Index, l_Height), Y);
+  end;//if PopupMenu.Items.Count > 0 then
+ end;//lp_BuildAndShowPopupMenu
+
+ function lp_SelectDate(const anAction: IvcmAction;
+                        const anOpDef: IvcmOperationDef): Boolean;
+ var
+  l_Date: Il3CString;
+ begin
+  l_Date := vcmSelectDate(anOpDef.Caption, anAction.SelectedString);
+  Result := not l3IsNil(l_Date);
+  if Result then
+   anAction.SelectedString := l_Date;
+ end;//lp_SelectDate
+
+ procedure lp_ExecuteAction(const anAction: IvcmAction;
+                            aLockUpdate: Boolean);
+ begin
+  if aLockUpdate then
+   anAction.LockUpdate;
+  try
+   anAction.Execute;
+  finally
+   if aLockUpdate then
+    anAction.UnlockUpdate;
+  end;//try..finally
+ end;//lp_ExecuteAction
+
+var
+ l_Op: InscOperationNode;
+ l_OpDef: IvcmOperationDef;
+ l_Action: IvcmAction;
+ l_LockUpdate: Boolean;
+//#UC END# *508F81C1004D_508EBD870312_var*
+//#UC START# *508F825303E4_508EBD870312_impl*
+ inherited;
+ l_Focused := Focused;
+ if not l_Focused then
+  aTextBackColor := Self.Color;
+ // ƒл€ текущего выделенного в активном дереве не мен€ем цветовую схему:
+ if not (l_Focused and (aItemIndex = Current)) then
+  if Supports(GetNode(aItemIndex), InscOperationNode, l_Op) then
+  try
+   if ItemAction(aItemIndex).Enabled then
+    aFont.ForeColor := Font.Color
+   else
+    aFont.ForeColor := clGray;
+  finally
+   l_Op := nil;
+  end;//try..finally
+//#UC END# *508F825303E4_508EBD870312_impl*
+//#UC START# *508F825303E4_508EBD870312_var*
+var
+ l_Op: InscOperationNode;
+ l_Focused: Boolean;
+//#UC END# *508F825303E4_508EBD870312_var*
+//#UC START# *508F83890058_508EBD870312_impl*
+ aEnabled := ItemAction(aItemIndex).Enabled;
+//#UC END# *508F83890058_508EBD870312_impl*
+//#UC START# *508F83890058_508EBD870312_var*
+//#UC END# *508F83890058_508EBD870312_var*
+//#UC START# *50913263038F_508EBD870312_impl*
+ inherited Create(AOwner);
+ Assert(AOwner is TnscCustomTasksPanelView);
+ View := TnscCustomTasksPanelView(AOwner);
+ Group := aGroup;
+ if (Group <> nil) then
+  Group.As_Il3ChangeNotifier.Subscribe(IvcmTaskPanelNotifyRecipient(Self));
+ f_CursorItem := -1;
+ ControlStyle := ControlStyle + [csActionClient];
+ OnGetItemCursor := DoOnGetCursor;
+{$If not defined(DesignTimeLibrary)}
+ Settings := afw.Settings;
+{$IfEnd} 
+ BorderStyle := bsNone;
+ ActionElementMode := l3_amSingleClick;
+ ViewOptions := ViewOptions - [voShowLines];
+ ViewOptions := ViewOptions + [voShowInterRowSpace];
+//#UC END# *50913263038F_508EBD870312_impl*
+//#UC START# *50913263038F_508EBD870312_var*
+//#UC END# *50913263038F_508EBD870312_var*

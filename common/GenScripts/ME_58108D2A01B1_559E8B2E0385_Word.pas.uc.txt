@@ -1,0 +1,19 @@
+//#UC START# *58108D2A01B1_559E8B2E0385_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryExWordsPack.pas
+//#UC END# *58108D2A01B1_559E8B2E0385_Word_ext:ParentFileName
+//#UC START# *58108D2A01B1_58108D2A01B1_559E8B2E0385_Word_impl*
+ with TtfwDictionaryCache.Instance do
+ begin
+  Lock;
+  try
+   l_Name := TtfwCStringFactory.C(aCtx.ResolveIncludedFilePath(l3Str(aName)));
+   Result := FindDictionary(l_Name);
+  finally
+   Unlock;
+  end;//try..finally
+ end;//with TtfwDictionaryCache.Instance
+//#UC END# *58108D2A01B1_58108D2A01B1_559E8B2E0385_Word_impl*
+//#UC START# *58108D2A01B1_58108D2A01B1_559E8B2E0385_Word_var*
+var
+ l_Name : Il3CString;
+//#UC END# *58108D2A01B1_58108D2A01B1_559E8B2E0385_Word_var*

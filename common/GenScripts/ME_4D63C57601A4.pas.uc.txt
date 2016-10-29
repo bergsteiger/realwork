@@ -1,0 +1,50 @@
+//#UC START# *4804BC2401C2_4D63C57601A4_impl*
+ Result := inherited DoDraw;
+//#UC END# *4804BC2401C2_4D63C57601A4_impl*
+//#UC START# *4804BC2401C2_4D63C57601A4_var*
+//#UC END# *4804BC2401C2_4D63C57601A4_var*
+//#UC START# *4D63C57601A4_ext:FileName
+w:\common\components\gui\Garant\Everest\evReqGroupPainter.pas
+//#UC END# *4D63C57601A4_ext:FileName
+//#UC START# *4D63C57601A4impl_uses*
+//#UC END# *4D63C57601A4impl_uses*
+//#UC START# *4D63E3490015_4D63C57601A4_impl*
+ PushWO;
+ try
+  inherited;
+ finally
+  PopWO;
+ end;//try..finally
+ if (aChild.PID = Max(0, (ParaX.ChildrenCount - 1) div 2)) then
+ begin
+  SmartCanvas.DrawCheckOrRadio(false,
+                               l3SBounds(10,
+                                         Area.rCanvas.LP2DP(l3PointY(aChildInfo.rMap.FI.Height)).Y div 2
+                                         - cDim div 2 + 3,
+                                         // ^ - это магия чисел
+                                         cDim,
+                                         cDim),
+                               lc_State[ParaX.BoolA[k2_tiChecked]],
+                               true{ParaX.BoolA[k2_tiChecked]},
+                               false);
+ end;//aChild.PID = Max..
+ if not ParaX.BoolA[k2_tiChecked] then
+ begin
+  PushBC;
+  try
+   with Area.rCanvas do
+   begin
+    BackColor := ParaX.IntA[k2_tiBackColor];
+    FillEmptyRect(Tl3Rect(aChildInfo.rMap.Bounds).AddPt(WindowOrg));
+   end;//with Area.rCanvas
+  finally
+   PopBC;
+  end;//try..finally
+ end;//not ParaX.BoolA[k2_tiChecked]
+//#UC END# *4D63E3490015_4D63C57601A4_impl*
+//#UC START# *4D63E3490015_4D63C57601A4_var*
+const
+ cDim = 10;
+const
+ lc_State: array [Boolean] of Tl3CheckBoxState = (l3_cbUnchecked, l3_cbChecked);
+//#UC END# *4D63E3490015_4D63C57601A4_var*

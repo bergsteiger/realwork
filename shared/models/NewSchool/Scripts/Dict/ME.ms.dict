@@ -20,14 +20,17 @@ STACK_CHANGING_MACRO ENDME
  axiom:PushSymbol CacheME
 ; // ENDME
 
-WordAlias ENDMEREF ENDME
+USES
+ ref.ms.dict
+;
 
-STACK_CHANGING_MACRO ENDMESTUB
+WordAlias ENDMESTUB ref;
+/*{STACK_CHANGING_MACRO ENDMESTUB
  axiom:PushSymbol @SELF
  axiom:PushSymbol ;
  Ctx:WordDefiningNow
  axiom:PushSymbol CacheME
-; // ENDMESTUB
+; // ENDMESTUB}*/
 
 STACK_CHANGING_MACRO ENDMEDIAGRAM
  axiom:PushSymbol @SELF
@@ -49,9 +52,8 @@ USES
 EXPORTS
  classRelations.ms.dict
  
-USES
- ref.ms.dict
-;
+//WordAlias ENDMEREF ENDME
+WordAlias ENDMEREF ref;
 
 EXPORTS
  ref.ms.dict

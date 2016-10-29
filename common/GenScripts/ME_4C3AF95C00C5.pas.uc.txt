@@ -1,0 +1,23 @@
+//#UC START# *4C345B580083_4C3AF95C00C5_impl*
+ l_Table := aRange.Table;
+ l_OldRowCount := l_Table.RowCount;
+ inherited ApplyTools(aRange);
+ l_RowIterator := l_Table.RowsIterator;
+ l_RowIterator.First;
+ for i := 0 to l_OldRowCount + 1 do
+  l_Row := l_RowIterator.Next;
+ CheckTrue(l_Row.CellsIterator.CellsCount = 3, 'В строках таблицы должно быть по три ячейки!');
+//#UC END# *4C345B580083_4C3AF95C00C5_impl*
+//#UC START# *4C345B580083_4C3AF95C00C5_var*
+var
+ i             : Integer;
+ l_Table       : IedTable;
+ l_Row         : IedRow;
+ l_RowIterator : IedRowsIterator;
+ l_OldRowCount : Integer;
+//#UC END# *4C345B580083_4C3AF95C00C5_var*
+//#UC START# *4C3AF95C00C5_ext:FileName
+w:\common\components\rtl\Garant\Daily\K224791621.pas
+//#UC END# *4C3AF95C00C5_ext:FileName
+//#UC START# *4C3AF95C00C5impl_uses*
+//#UC END# *4C3AF95C00C5impl_uses*

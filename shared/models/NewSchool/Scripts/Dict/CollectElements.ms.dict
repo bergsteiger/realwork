@@ -189,7 +189,7 @@ PROCEDURE .OutCollected
  .map> pop:WordBox:Boxed
  .for> (
    IN aRec
-  aRec -> Target .UID anExt Cat .ProcessTmpOut: (
+  [ '.\' aRec -> Target .UID anExt Cat ] cPathSep strings:CatSep .ProcessTmpOut: (
    [ 'INCLUDE ' cQuote 'ElementsRTTI.ms.dict' cQuote ] .Out
    OutLn
    [ ': ME_' aRec -> Target .UID aFuncSuffix ' // ' aRec -> Target .Name ] .Out

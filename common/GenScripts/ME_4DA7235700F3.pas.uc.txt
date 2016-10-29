@@ -1,0 +1,12 @@
+//#UC START# *47E136A80191_4DA7235700F3_impl*
+ if (Message.Msg = CM_INVALIDATE) or (Message.Msg = WM_SETCURSOR) then
+  if (afwFacade.g_DisableMessageHook <= 0) then
+   if Assigned(afwFacade.g_MessageHook) then
+    afwFacade.g_MessageHook(Self, Message);
+ inherited;
+//#UC END# *47E136A80191_4DA7235700F3_impl*
+//#UC START# *47E136A80191_4DA7235700F3_var*
+//#UC END# *47E136A80191_4DA7235700F3_var*
+//#UC START# *4DA7235700F3_ext:FileName
+w:\common\components\gui\Garant\AFW\implementation\afwVGSceneUpdater.imp.pas
+//#UC END# *4DA7235700F3_ext:FileName

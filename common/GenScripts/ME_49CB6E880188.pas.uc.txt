@@ -1,0 +1,67 @@
+//#UC START# *479731C50290_49CB6E880188_impl*
+ FreeAndNil(f_Offsets);
+ FreeAndNil(f_Widths);
+ inherited;
+//#UC END# *479731C50290_49CB6E880188_impl*
+//#UC START# *479731C50290_49CB6E880188_var*
+//#UC END# *479731C50290_49CB6E880188_var*
+//#UC START# *49CB6E880188_ext:FileName
+w:\common\components\gui\Garant\Everest\evCellsOffsets.pas
+//#UC END# *49CB6E880188_ext:FileName
+//#UC START# *49CB6E880188impl_uses*
+//#UC END# *49CB6E880188impl_uses*
+//#UC START# *4A562C3A013E_49CB6E880188_impl*
+ if (f_Offsets <> nil) then
+ begin
+  f_Offsets.Clear;
+  f_Widths.Clear;
+  f_Offset := 0;
+  f_Width := 0;
+ end; // if (f_Offsets <> nil) then
+//#UC END# *4A562C3A013E_49CB6E880188_impl*
+//#UC START# *4A562C3A013E_49CB6E880188_var*
+//#UC END# *4A562C3A013E_49CB6E880188_var*
+//#UC START# *4A562C5301A5_49CB6E880188_impl*
+ if f_Offsets = nil then
+ begin
+  f_Offsets := TevEpsilonLongIntList.Make;
+  f_Widths := TevEpsilonLongIntList.Make;
+ end; // if f_Offsets = nil then
+ f_Offsets.Add(f_Offset);
+ f_Widths.Add(f_Width);
+//#UC END# *4A562C5301A5_49CB6E880188_impl*
+//#UC START# *4A562C5301A5_49CB6E880188_var*
+//#UC END# *4A562C5301A5_49CB6E880188_var*
+//#UC START# *4A562C6C00A6_49CB6E880188_impl*
+ if (f_Offsets <> nil) and f_Offsets.FindData(f_Offset, l_Index) then
+  if not aCheckWidth or (Abs(f_Widths[l_Index] - f_Width) <= evFindCellDelta) then
+  begin
+   f_Offsets.Delete(l_Index);
+   f_Widths.Delete(l_Index);
+  end; // if Abs(f_Widths[l_Index]...
+//#UC END# *4A562C6C00A6_49CB6E880188_impl*
+//#UC START# *4A562C6C00A6_49CB6E880188_var*
+//#UC END# *4A562C6C00A6_49CB6E880188_var*
+//#UC START# *4A562C85014A_49CB6E880188_impl*
+ Result := f_Offsets = nil; // Result = True - не нашли!
+ if not Result then
+  Result := not (f_Offsets.FindData(f_Offset, l_Index) and (Abs(f_Widths[l_Index] - f_Width) <= evFindCellDelta));
+//#UC END# *4A562C85014A_49CB6E880188_impl*
+//#UC START# *4A562C85014A_49CB6E880188_var*
+//#UC END# *4A562C85014A_49CB6E880188_var*
+//#UC START# *4A562C9902F5_49CB6E880188_impl*
+ Inc(f_Offset, f_Width);
+//#UC END# *4A562C9902F5_49CB6E880188_impl*
+//#UC START# *4A562C9902F5_49CB6E880188_var*
+//#UC END# *4A562C9902F5_49CB6E880188_var*
+//#UC START# *4A562CA901FA_49CB6E880188_impl*
+ f_Offset := 0;
+ f_Width := 0;
+//#UC END# *4A562CA901FA_49CB6E880188_impl*
+//#UC START# *4A562CA901FA_49CB6E880188_var*
+//#UC END# *4A562CA901FA_49CB6E880188_var*
+//#UC START# *4A562CBD0279_49CB6E880188_impl*
+ f_Width := aWidth;
+//#UC END# *4A562CBD0279_49CB6E880188_impl*
+//#UC START# *4A562CBD0279_49CB6E880188_var*
+//#UC END# *4A562CBD0279_49CB6E880188_var*

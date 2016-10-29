@@ -4,6 +4,8 @@
 USES
  axiom:Control
  axiom:cc
+ axiom:Wait
+ axiom:Waited
  axiom:Clipboard
  axiom:Editor
 ;
@@ -482,4 +484,26 @@ PROCEDURE "Сравнить выделенный текст редактора с эталоном в формате PDF с привяз
 	EtalonNeedsComputerName
 	"Убедиться, что фокус в редакторе"
 	CF_PDF "Контрол в фокусе" pop:editor:GetSelectionTextInFormat .
+;
+
+VOID WORDWORKER "Выполнить с ожиданием 'Да'"
+	wait:Yes
+	TRY
+		( WordToWork DO )
+	FINALLY
+		waited:? ASSERT
+	END
+;
+
+VOID WORDWORKER "Выполнить с ожиданием 'OK'"
+ 	wait:Ok
+	TRY
+	  	( WordToWork DO )
+	FINALLY
+	  	waited:? ASSERT
+	END
+;
+
+PROCEDURE "Нажать кнопку 'Проверка орфографии' по (F7)"
+	'F7' key	
 ;

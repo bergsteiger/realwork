@@ -1,0 +1,18 @@
+//#UC START# *4BA8DE8C03D8_4BAA279500E6_impl*
+ Result := -1;
+ TevRange(Self).DoIterateF(evL2TSA(@_DoChild), nil, nil, aStart);
+//#UC END# *4BA8DE8C03D8_4BAA279500E6_impl*
+//#UC START# *4BA8DE8C03D8_4BAA279500E6_var*
+
+ function _DoChild(const aBlock: InevRange; anIndex: Long): Boolean;
+ begin//_DoChild
+  Iterate := anIndex;
+  Result := anAction(aBlock, anIndex);
+ end;//_DoChild
+
+//#UC END# *4BA8DE8C03D8_4BAA279500E6_var*
+//#UC START# *4BAA279500E6_ext:FileName
+w:\common\components\gui\Garant\Everest\nevRangePrim.pas
+//#UC END# *4BAA279500E6_ext:FileName
+//#UC START# *4BAA279500E6impl_uses*
+//#UC END# *4BAA279500E6impl_uses*

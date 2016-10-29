@@ -1,0 +1,53 @@
+//#UC START# *4720862F0238_ext:FileName
+w:\common\components\rtl\Garant\m3\m3StorageInterfaces.pas
+//#UC END# *4720862F0238_ext:FileName
+//#UC START# *5451F543029B_47208CA50237_impl*
+ Assert((aType = m3_stNone) OR (aType = m3_stStream) OR (aType = m3_stStorage));
+ Assert(aPosition >= -1);
+ Result.rPosition := aPosition;
+ Result.rStoreType := aType;
+//#UC END# *5451F543029B_47208CA50237_impl*
+//#UC START# *5451F543029B_47208CA50237_var*
+//#UC END# *5451F543029B_47208CA50237_var*
+//#UC START# *5451F57B0181_5451F4E50226_impl*
+ Result.rInfo := anInfo;
+ Result.rName := aName;
+//#UC END# *5451F57B0181_5451F4E50226_impl*
+//#UC START# *5451F57B0181_5451F4E50226_var*
+//#UC END# *5451F57B0181_5451F4E50226_var*
+//#UC START# *5452154901F5_545210E8021B_impl*
+ Result.rStream := aStream;
+ if (aStream = nil) then
+  Result.rResult := E_NoInterface
+ else
+  Result.rResult := S_Ok; 
+//#UC END# *5452154901F5_545210E8021B_impl*
+//#UC START# *5452154901F5_545210E8021B_var*
+//#UC END# *5452154901F5_545210E8021B_var*
+//#UC START# *5452156A0229_545210E8021B_impl*
+ Result.rStorage := aStorage;
+ if (aStorage = nil) then
+  Result.rResult := E_NoInterface
+ else
+  Result.rResult := S_Ok; 
+//#UC END# *5452156A0229_545210E8021B_impl*
+//#UC START# *5452156A0229_545210E8021B_var*
+//#UC END# *5452156A0229_545210E8021B_var*
+//#UC START# *5452198301A0_545210E8021B_impl*
+ if (rStorage = nil) then
+  Result := nil
+ else
+  Result := rStorage.As_IStorage;  
+//#UC END# *5452198301A0_545210E8021B_impl*
+//#UC START# *5452198301A0_545210E8021B_var*
+//#UC END# *5452198301A0_545210E8021B_var*
+//#UC START# *545221CD0019_545210E8021B_impl*
+ Result.rResult := E_NoInterface;
+//#UC END# *545221CD0019_545210E8021B_impl*
+//#UC START# *545221CD0019_545210E8021B_var*
+//#UC END# *545221CD0019_545210E8021B_var*
+//#UC START# *545227580181_545210E8021B_impl*
+ Result.rResult := aResult;
+//#UC END# *545227580181_545210E8021B_impl*
+//#UC START# *545227580181_545210E8021B_var*
+//#UC END# *545227580181_545210E8021B_var*

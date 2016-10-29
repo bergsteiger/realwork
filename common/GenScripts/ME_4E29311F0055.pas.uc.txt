@@ -1,0 +1,23 @@
+//#UC START# *4DAEEDE10285_4E29311F0055_impl*
+{$If defined(NoVCM)}
+ RunnerAssert(False, 'VCM не поддерживается в Арчи.', aCtx);
+{$ELSE}
+ if aCtx.rEngine.IsTopClass then
+ begin
+  l_Class := aCtx.rEngine.PopClass;
+  RunnerAssert(l_Class.InheritsFrom(TvcmEntityForm), 'Неправильный класс формы', aCtx);
+  aCtx.rEngine.PushObj(RvcmEntityForm(l_Class).Make(vcmMakeParams).VCLWinControl As TCustomForm);
+ end//aCtx.rEngine.IsTopString
+ else
+  RunnerAssert(False, 'Не задан класс формы.', aCtx);
+{$IfEnd} //not NoVCM
+//#UC END# *4DAEEDE10285_4E29311F0055_impl*
+//#UC START# *4DAEEDE10285_4E29311F0055_var*
+var
+ l_Class: TClass;
+//#UC END# *4DAEEDE10285_4E29311F0055_var*
+//#UC START# *4E29311F0055_ext:FileName
+w:\common\components\gui\Garant\VCM\implementation\Scripting\kwObjectCreate.pas
+//#UC END# *4E29311F0055_ext:FileName
+//#UC START# *4E29311F0055impl_uses*
+//#UC END# *4E29311F0055impl_uses*

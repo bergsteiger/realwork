@@ -1,0 +1,56 @@
+//#UC START# *479731C50290_4C8DD8C602D3_impl*
+ g_dmTasksPanelMenu := nil;
+ inherited;
+//#UC END# *479731C50290_4C8DD8C602D3_impl*
+//#UC START# *479731C50290_4C8DD8C602D3_var*
+//#UC END# *479731C50290_4C8DD8C602D3_var*
+//#UC START# *47D1602000C6_4C8DD8C602D3_impl*
+ inherited;
+ //Name := 'vcm_dmTasksPanelMenu';
+ Assert(not Assigned(g_dmTasksPanelMenu));
+ g_dmTasksPanelMenu := Self;
+//#UC END# *47D1602000C6_4C8DD8C602D3_impl*
+//#UC START# *47D1602000C6_4C8DD8C602D3_var*
+//#UC END# *47D1602000C6_4C8DD8C602D3_var*
+//#UC START# *4C8DD8C602D3_ext:FileName
+w:\common\components\gui\Garant\VCM\View\TasksPanel\PrimTasksPanelMenu_Module.pas
+//#UC END# *4C8DD8C602D3_ext:FileName
+//#UC START# *4C8DD8C602D3impl_uses*
+//#UC END# *4C8DD8C602D3impl_uses*
+//#UC START# *4C8DD91901C8_4C8DD8C602D3exec_impl*
+ if Supports((aParams As IvcmExecuteParams).Container.NativeMainForm, IvcmMainForm, l_MainForm) then
+  TTaskPanelService.Instance.CustomizePanel(l_MainForm.TasksPanel)
+ else
+  Assert(False);
+//#UC END# *4C8DD91901C8_4C8DD8C602D3exec_impl*
+//#UC START# *4C8DD91901C8_4C8DD8C602D3exec_var*
+var
+ l_MainForm: IvcmMainForm;
+//#UC END# *4C8DD91901C8_4C8DD8C602D3exec_var*
+//#UC START# *4C8E59B80380_4C8DD8C602D3_impl*
+  (TCustomizeTasksPanelForm.Make(aPanel, vcmMakeParams, vcm_ztAny).
+    VCLWinControl As TCustomForm).ShowModal;
+//#UC END# *4C8E59B80380_4C8DD8C602D3_impl*
+//#UC START# *4C8E59B80380_4C8DD8C602D3_var*
+//#UC END# *4C8E59B80380_4C8DD8C602D3_var*
+//#UC START# *4C8F777E02AD_4C8DD8C602D3_impl*
+ Result := g_dmTasksPanelMenu.PopupMenu;
+//#UC END# *4C8F777E02AD_4C8DD8C602D3_impl*
+//#UC START# *4C8F777E02AD_4C8DD8C602D3_var*
+//#UC END# *4C8F777E02AD_4C8DD8C602D3_var*
+//#UC START# *4C8F78BC0331_4C8DD8C602D3get_impl*
+ if not Assigned(f_PopupMenu) then
+ begin
+  f_PopupMenu := TvcmPopupMenuPrim.Create(Self);
+  // Это нужно чтобы был найден группирующий элемент
+  f_PopupMenu.Items.Caption := vcmStr(ModuleDef.ModuleDef.Caption);
+  // Контекстные операции модуля
+  vcmMakeModuleMenu(f_PopupMenu.Items,
+                    ModuleDef.ModuleDef,
+                    [{vcm_ooShowInContextMenu}],
+                    False);
+ end;//if not Assigned(f_PopupMenu) then
+ Result := f_PopupMenu;
+//#UC END# *4C8F78BC0331_4C8DD8C602D3get_impl*
+//#UC START# *4C8F78BC0331_4C8DD8C602D3get_var*
+//#UC END# *4C8F78BC0331_4C8DD8C602D3get_var*

@@ -1,0 +1,434 @@
+//#UC START# *4683E75B01D8_531DB14D03CC_impl*
+{$If not defined(DesignTimeLibrary)}
+ Result := DoSaveState(theState, aStateType, False);
+{$ifend}
+//#UC END# *4683E75B01D8_531DB14D03CC_impl*
+//#UC START# *4683E75B01D8_531DB14D03CC_var*
+//#UC END# *4683E75B01D8_531DB14D03CC_var*
+//#UC START# *4683E79D0331_531DB14D03CC_impl*
+{$If not defined(DesignTimeLibrary)}
+ Result := DoLoadState(theState, aStateType, aClone);
+{$ifend}
+//#UC END# *4683E79D0331_531DB14D03CC_impl*
+//#UC START# *4683E79D0331_531DB14D03CC_var*
+//#UC END# *4683E79D0331_531DB14D03CC_var*
+//#UC START# *475E9466022A_531DB14D03CC_impl*
+ theString := nil;
+ theNeedProgress := False;
+ if NeedStatus AND IsTreeAssign AND (TreeStruct <> nil) AND
+  ((f_TreeView = nil) OR not f_TreeView.Tree.IsChanging) then
+ begin
+  with TreeStruct do
+  begin
+   if (RootNode <> nil) then
+   begin
+    if Supports(RootNode, Il3Wake, l_Wake) and l_Wake.IsSleep then
+     Exit;
+    l_Elements := lp_AmountElements;
+    // коммерческа€ верси€
+
+    if not afw.Application.IsInternal then
+     theString := l3Fmt(str_nevmmDocumentCount.AsCStr,
+                         [lp_IndexInParent,
+                         l_Elements])
+    // внутренней верси€
+    else
+     theString := l3Fmt(str_nevmmDocumentCountInt.AsCStr,
+                         [lp_IndexInParent,
+                         l_Elements,
+                         GetSelectedCountForStatusbar]);
+    if Assigned(f_OnFormatStatusInfo) then
+     f_OnFormatStatusInfo(self, theString, lp_IndexInParent, l_Elements, GetSelectedCountForStatusbar);
+   end;//RootNode <> nil
+  end;//with TreeStruct
+ end //if NeedStatus
+//#UC END# *475E9466022A_531DB14D03CC_impl*
+//#UC START# *475E9466022A_531DB14D03CC_var*
+ function lp_IndexInParent: Integer;
+ var
+  l_Root: Il3SimpleNode;
+  l_Node: Il3SimpleNode;
+  l_Temp: Il3SimpleNode;
+ begin
+  l_Node := GetCurrentNode;
+  if Assigned(l_Node) and
+    Supports(TreeStruct.RootNode, Il3SimpleNode, l_Root) then
+   while Assigned(l_Node) and not l_Root.IsSame(l_Node.Parent) do
+   begin
+    l_Temp := l_Node.Parent;
+    l_Node := l_Temp;
+   end;
+  if Assigned(l_Node) then
+   Result := Succ(l_Node.IndexInParent)
+  else
+   Result := Succ(Current);
+ end;
+
+ function lp_AmountElements: Integer;
+ var
+  l_Node: Il3SimpleNode;
+ begin
+  if Supports(TreeStruct.RootNode, Il3SimpleNode, l_Node) then
+  try
+   Result := l_Node.ThisChildrenCount;
+  finally
+   l_Node := nil;
+  end
+  else
+   Result := Total;
+ end;
+
+var
+ l_Wake: Il3Wake;
+ l_Elements: Integer;
+//#UC END# *475E9466022A_531DB14D03CC_var*
+//#UC START# *477244190062_531DB14D03CC_impl*
+ if (aOperation in [ntDelete, ntInsert]) then
+  f_CurNode := nil;
+//#UC END# *477244190062_531DB14D03CC_impl*
+//#UC START# *477244190062_531DB14D03CC_var*
+//#UC END# *477244190062_531DB14D03CC_var*
+//#UC START# *479731C50290_531DB14D03CC_impl*
+ {$IfNDef DesignTimeLibrary}
+ evDelStyleTableSpy(Self);
+ {$EndIf  DesignTimeLibrary}
+ f_PrevNode := nil;
+ f_CurNode := nil;
+ if Supports(f_TreeView, IeeTool, l_Tool) then
+ try
+  l_Tool.OwnerDead;
+ finally
+  l_Tool := nil;
+ end;//try..finally
+ f_TreeView := nil;
+ inherited;
+//#UC END# *479731C50290_531DB14D03CC_impl*
+//#UC START# *479731C50290_531DB14D03CC_var*
+var
+ l_Tool: IeeTool;
+//#UC END# *479731C50290_531DB14D03CC_var*
+//#UC START# *47D1602000C6_531DB14D03CC_impl*
+ inherited;
+ f_ClearTreeStructOnSaveState := True;
+ DblClickOnFolder := True;
+ UseStyleTable := True;
+//#UC END# *47D1602000C6_531DB14D03CC_impl*
+//#UC START# *47D1602000C6_531DB14D03CC_var*
+//#UC END# *47D1602000C6_531DB14D03CC_var*
+//#UC START# *48C7C4990287_531DB14D03CC_impl*
+ if IID.SomeOf([IeeTreeView, IeeTree]) then
+ begin
+  if Supports(pm_GetTreeView, IID.IID, Obj) then
+   Result.SetOk
+  else
+   Result.SetNoInterface;
+ end//IID.SomeOf([IeeTreeView, IeeTree])
+ else
+  Result := inherited COMQueryInterface(IID, Obj);
+//#UC END# *48C7C4990287_531DB14D03CC_impl*
+//#UC START# *48C7C4990287_531DB14D03CC_var*
+//#UC END# *48C7C4990287_531DB14D03CC_var*
+//#UC START# *5151AE2202F5_531DB14D03CC_impl*
+ Result := True;
+//#UC END# *5151AE2202F5_531DB14D03CC_impl*
+//#UC START# *5151AE2202F5_531DB14D03CC_var*
+{* - определ€ет нужно ли вызывать событие OnCurrentChanged в случае если пришел NewCurrent = -1. }
+//#UC END# *5151AE2202F5_531DB14D03CC_var*
+//#UC START# *5152C93400EB_531DB14D03CC_impl*
+ Result := inherited DoDoProcessCommand(Cmd);
+ if Result then
+ case Cmd of
+  ccHome, ccExtendHome,
+  ccEnd, ccExtendEnd,
+  ccPrevPage, ccExtendPgUp,
+  ccNextPage, ccExtendPgDn:
+   repeat
+    l_Current := Current;
+    vlbMakeItemVisiblePrim(l_Current);
+   until l_Current = Current;
+ end;
+//#UC END# *5152C93400EB_531DB14D03CC_impl*
+//#UC START# *5152C93400EB_531DB14D03CC_var*
+var
+ l_Current: LongInt;
+//#UC END# *5152C93400EB_531DB14D03CC_var*
+//#UC START# *5152CC6A0355_531DB14D03CC_impl*
+ f_CurNode := nil;
+ // - это об€зательно, а иначе получим не то, что нужно при GetNode(aNewCurent)
+ if (aNewCurrent = -1) then
+  f_PrevNode := nil;
+ if aNewCurrent <> -1 then
+  f_CurNode := (Self As IeeTreeView).GetNode(aNewCurrent);
+ if (f_PrevNode = nil) OR not f_PrevNode.IsSameNode(f_CurNode) then
+ begin
+  f_PrevNode := f_CurNode;
+  inherited;
+ end;//f_PrevNode = nil
+ DoCurrentIndexChanged(aNewCurrent, aOldCurrent);
+//#UC END# *5152CC6A0355_531DB14D03CC_impl*
+//#UC START# *5152CC6A0355_531DB14D03CC_var*
+//#UC END# *5152CC6A0355_531DB14D03CC_var*
+//#UC START# *515EF27A028F_531DB14D03CCget_impl*
+ Result := inherited pm_GetTreeStruct;
+//#UC END# *515EF27A028F_531DB14D03CCget_impl*
+//#UC START# *515EF27A028F_531DB14D03CCget_var*
+//#UC END# *515EF27A028F_531DB14D03CCget_var*
+//#UC START# *515EF27A028F_531DB14D03CCset_impl*
+ if (f_TreeStruct <> aValue) then
+ begin
+  if (f_TreeStruct = nil) then
+   l_OldRoot := nil
+  else
+  begin
+   l_OldRoot := Il3SimpleTree(f_TreeStruct).RootNode;
+//   f_TreeStruct.DelRootSpy(Self);
+//   f_TreeStruct.DelNotifiedObj(Self); ѕотребуетс€, если RootSpy будет вести себ€ отлично от простого NotifiedObj
+  end;//f_TreeStruct = nil
+  inherited;
+  if (f_TreeStruct = nil) then
+   l_NewRoot := nil
+  else
+  begin
+   l_NewRoot := Il3SimpleTree(f_TreeStruct).RootNode;
+//   f_TreeStruct.AddRootSpy(Self);
+//   f_TreeStruct.AddNotifiedObj(Self); ѕотребуетс€, если RootSpy будет вести себ€ отлично от простого NotifiedObj
+  end;//f_TreeStruct = nil
+  if not l3IEQ(l_OldRoot, l_NewRoot) then
+   RootChanged(l_OldRoot, l_NewRoot);
+ end;//f_TreeStruct <> aValue
+//#UC END# *515EF27A028F_531DB14D03CCset_impl*
+//#UC START# *515EF27A028F_531DB14D03CCset_var*
+var
+ l_OldRoot: Il3SimpleRootNode;
+ l_NewRoot: Il3SimpleRootNode;
+//#UC END# *515EF27A028F_531DB14D03CCset_var*
+//#UC START# *516297E40319_531DB14D03CC_impl*
+ inherited;
+ aTreeStruct.Subscribe(Il3SelectCountChangedRecipient(Self));
+ aTreeStruct.Subscribe(Il3NodeNotifyRecipient(Self));
+ aTreeStruct.Subscribe(Il3ExternalTreeChangedRecipient(Self));
+ aTreeStruct.Subscribe(Il3RootSpy(Self));
+//#UC END# *516297E40319_531DB14D03CC_impl*
+//#UC START# *516297E40319_531DB14D03CC_var*
+//#UC END# *516297E40319_531DB14D03CC_var*
+//#UC START# *5162982100FB_531DB14D03CC_impl*
+ inherited;
+ aTreeStruct.Unsubscribe(Il3SelectCountChangedRecipient(Self));
+ aTreeStruct.Unsubscribe(Il3NodeNotifyRecipient(Self));
+ aTreeStruct.Unsubscribe(Il3ExternalTreeChangedRecipient(Self));
+ aTreeStruct.Unsubscribe(Il3RootSpy(Self));
+//#UC END# *5162982100FB_531DB14D03CC_impl*
+//#UC START# *5162982100FB_531DB14D03CC_var*
+//#UC END# *5162982100FB_531DB14D03CC_var*
+//#UC START# *51629A880103_531DB14D03CC_impl*
+ if not Assigned(f_TreeStruct) then
+  TreeStruct;
+//#UC END# *51629A880103_531DB14D03CC_impl*
+//#UC START# *51629A880103_531DB14D03CC_var*
+{* - вызываетс€ перед отрисовкой, бывает что до этого момента никто TreeStruct не спросил, хот€ сделать его готовы. }
+//#UC END# *51629A880103_531DB14D03CC_var*
+//#UC START# *51629C9B00C2_531DB14D03CC_impl*
+ // {“учнин ƒ.ј.} ƒл€ новых деревьев Current корректируетс€ при операции сворачивани€ автоматически,
+ // в результате CallCurrentChanged не приходит и возможна ситуаци€, когда f_CurNode становитс€ не валидной.
+ // Ќапример, когда текущим был ребенок в сворачиваемой ветке.
+ if not Expand then
+ begin
+  f_CurNode := nil;
+  f_PrevNode := nil;
+ end;
+ Result := inherited DoOnExpand(Expand, CNode);
+//#UC END# *51629C9B00C2_531DB14D03CC_impl*
+//#UC START# *51629C9B00C2_531DB14D03CC_var*
+//#UC END# *51629C9B00C2_531DB14D03CC_var*
+//#UC START# *51629D5D018A_531DB14D03CC_impl*
+ inherited;
+ UpdateStatus;
+//#UC END# *51629D5D018A_531DB14D03CC_impl*
+//#UC START# *51629D5D018A_531DB14D03CC_var*
+//#UC END# *51629D5D018A_531DB14D03CC_var*
+//#UC START# *51629D8E02C8_531DB14D03CC_impl*
+ if (f_TreeStruct <> aTreeStruct) then
+ begin
+  if (f_TreeStruct = nil) then
+   l_OldRoot := nil
+  else
+  begin
+   l_OldRoot := Il3SimpleTree(f_TreeStruct).RootNode;
+//   f_TreeStruct.DelRootSpy(Self);
+//   f_TreeStruct.DelNotifiedObj(Self); ѕотребуетс€, если RootSpy будет вести себ€ отлично от простого NotifiedObj
+  end;//f_TreeStruct = nil
+  inherited;
+  if (f_TreeStruct = nil) then
+   l_NewRoot := nil
+  else
+  begin
+   l_NewRoot := Il3SimpleTree(f_TreeStruct).RootNode;
+//   f_TreeStruct.AddRootSpy(Self);
+//   f_TreeStruct.AddNotifiedObj(Self); ѕотребуетс€, если RootSpy будет вести себ€ отлично от простого NotifiedObj
+  end;//f_TreeStruct = nil
+
+  if not l3IEQ(l_OldRoot, l_NewRoot) then
+   RootChanged(l_OldRoot, l_NewRoot);
+
+  if NeedAssignTreeStructFromHistory then
+  begin
+   f_CurNode := nil;
+   f_CurNode := (Self as IeeTreeView).GetNode(aData.rCurrent);
+   f_PrevNode := f_CurNode;
+  end;
+  //Current := aData.rCurrent;
+ end;//f_TreeStruct <> aTreeStruct
+//#UC END# *51629D8E02C8_531DB14D03CC_impl*
+//#UC START# *51629D8E02C8_531DB14D03CC_var*
+var
+ l_OldRoot: Il3SimpleRootNode;
+ l_NewRoot: Il3SimpleRootNode;
+//#UC END# *51629D8E02C8_531DB14D03CC_var*
+//#UC START# *51DBCA8C0206_531DB14D03CC_impl*
+ Result := TreeStruct.SelectCount;
+//#UC END# *51DBCA8C0206_531DB14D03CC_impl*
+//#UC START# *51DBCA8C0206_531DB14D03CC_var*
+//#UC END# *51DBCA8C0206_531DB14D03CC_var*
+//#UC START# *52DD0F440276_531DB14D03CC_impl*
+ case aStateType of
+  vcm_stContent :
+  begin
+   if (f_TreeStruct = nil) OR (f_TreeStruct.RootNode = nil) {OR
+      (not ShowRoot AND (f_TreeStruct.RootNode.AllChildrenCount = 0))} then
+    Result := false
+   else
+   begin
+    Result := true;
+    aState := TeeTreeState.Make(TreeStruct, GetHistoryData);
+    if f_ClearTreeStructOnSaveState and (not aForClone) then
+    begin
+     f_ChangingForHistory := True;
+     try
+      TreeStruct := nil;
+     finally
+      f_ChangingForHistory := False;
+     end;
+    end;//f_ClearTreeStructOnSaveState
+   end;//f_TreeStruct = nil
+  end;//vcm_stContent
+  else
+   Result := false;
+ end;//case aStateType
+//#UC END# *52DD0F440276_531DB14D03CC_impl*
+//#UC START# *52DD0F440276_531DB14D03CC_var*
+//#UC END# *52DD0F440276_531DB14D03CC_var*
+//#UC START# *52DD0F6F0223_531DB14D03CC_impl*
+ f_LoadingCloneState := aForClone;
+ case aStateType of
+  vcm_stContent :
+  begin
+   Result := true;
+   with (aState As IeeTreeState) do
+   begin
+    l_Data := GetData;
+    l_Tree := GetTree;
+    try
+     // —охран€ть не нужно, потому что во первых данные не будут сохранены в
+     // историю, во вторых будут проблемы с двум€ выделенными элементами, т.к.
+     // в следующей строке произойдет создание TreeStruct (потому что nil) и
+     // позиционированние на первый элемент, далее выделитьс€ второй, зачитанный
+     // из истории и получитьс€ два выделенных вместо одного
+     //  
+     // SetTree(TreeStruct, GetHistoryData);
+     //
+     SetTreeStructFromHistory(l_Tree, l_Data);
+    finally
+     l_Tree := nil;
+    end;//try..finally
+   end;//with (aState As IeeTreeState) do
+  end;//vcm_stContent
+  else
+   Result := false;
+ end;//case aStateType
+ f_LoadingCloneState := False; 
+//#UC END# *52DD0F6F0223_531DB14D03CC_impl*
+//#UC START# *52DD0F6F0223_531DB14D03CC_var*
+var
+ l_Tree: Il3SimpleTree;
+ l_Data: TvtOutlinerHystoryData;
+//#UC END# *52DD0F6F0223_531DB14D03CC_var*
+//#UC START# *5319ECD7006D_531DB14D03CCget_impl*
+ if (f_TreeView = nil) then
+ begin
+  f_TreeView := TeeTreeViewShadow.Make(Self);
+  UpdateStatus;
+ end;
+ Result := f_TreeView;
+//#UC END# *5319ECD7006D_531DB14D03CCget_impl*
+//#UC START# *5319ECD7006D_531DB14D03CCget_var*
+//#UC END# *5319ECD7006D_531DB14D03CCget_var*
+//#UC START# *5319F116018F_531DB14D03CC_impl*
+ if not (csDestroying in ComponentState) then
+ begin
+  f_PrevNode := nil;
+  f_CurNode := nil;
+  RootChanged(TeeNode.Make(anOldRoot), TeeNode.Make(aNewRoot));
+ end;//not (csDestroying in ComponentState)
+//#UC END# *5319F116018F_531DB14D03CC_impl*
+//#UC START# *5319F116018F_531DB14D03CC_var*
+//#UC END# *5319F116018F_531DB14D03CC_var*
+//#UC START# *5319F17400EC_531DB14D03CC_impl*
+ if Assigned(f_OnRootChanged) then
+  f_OnRootChanged(Self, anOldRoot, aNewRoot);
+//#UC END# *5319F17400EC_531DB14D03CC_impl*
+//#UC START# *5319F17400EC_531DB14D03CC_var*
+//#UC END# *5319F17400EC_531DB14D03CC_var*
+//#UC START# *5319F25902B0_531DB14D03CC_impl*
+ if Assigned(f_OnCurrentIndexChanged) then
+  f_OnCurrentIndexChanged(anOld, aNew);
+//#UC END# *5319F25902B0_531DB14D03CC_impl*
+//#UC START# *5319F25902B0_531DB14D03CC_var*
+//#UC END# *5319F25902B0_531DB14D03CC_var*
+//#UC START# *5319F2A101E6_531DB14D03CC_impl*
+ if (afw.Application <> nil) and
+    (afw.Application.CurrentMainForm <> nil) then
+  afw.Application.CurrentMainForm.Status.Update;
+//#UC END# *5319F2A101E6_531DB14D03CC_impl*
+//#UC START# *5319F2A101E6_531DB14D03CC_var*
+//#UC END# *5319F2A101E6_531DB14D03CC_var*
+//#UC START# *5319F2CE0307_531DB14D03CC_impl*
+ Result := Assigned(f_TreeStruct);
+//#UC END# *5319F2CE0307_531DB14D03CC_impl*
+//#UC START# *5319F2CE0307_531DB14D03CC_var*
+//#UC END# *5319F2CE0307_531DB14D03CC_var*
+//#UC START# *5319F2F10189_531DB14D03CC_impl*
+ vlbMakeItemVisible(aIndex);
+//#UC END# *5319F2F10189_531DB14D03CC_impl*
+//#UC START# *5319F2F10189_531DB14D03CC_var*
+//#UC END# *5319F2F10189_531DB14D03CC_var*
+//#UC START# *531DB14D03CC_ext:ParentFileName
+w:\common\components\gui\Garant\Everest_Engine\eeTreeViewExport.pas
+//#UC END# *531DB14D03CC_ext:ParentFileName
+//#UC START# *531DB6C5003F_531DB14D03CC_impl*
+ HitTest(SmallPointToPoint(Msg.Pos), N, l_Part);
+ if (l_Part <> ihtIcon) OR DblClickOnFolder then
+  inherited;
+//#UC END# *531DB6C5003F_531DB14D03CC_impl*
+//#UC START# *531DB6C5003F_531DB14D03CC_var*
+var
+ N: Longint;
+ l_Part: Byte;
+//#UC END# *531DB6C5003F_531DB14D03CC_var*
+//#UC START# *55DC1CFE018D_531DB14D03CC_impl*
+ {$IfNDef DesignTimeLibrary}
+ Result := DoSaveState(theState, aStateType, True);
+ {$Else}
+ Result := false;
+ {$EndIf}
+//#UC END# *55DC1CFE018D_531DB14D03CC_impl*
+//#UC START# *55DC1CFE018D_531DB14D03CC_var*
+//#UC END# *55DC1CFE018D_531DB14D03CC_var*
+//#UC START# *55DC1D21005D_531DB14D03CC_impl*
+ f_LoadingCloneState := True;
+ {$IfNDef DesignTimeLibrary}
+ DoLoadState(aState, aStateType, True);
+ {$EndIf}
+ f_LoadingCloneState := False; 
+//#UC END# *55DC1D21005D_531DB14D03CC_impl*
+//#UC START# *55DC1D21005D_531DB14D03CC_var*
+//#UC END# *55DC1D21005D_531DB14D03CC_var*

@@ -1,0 +1,46 @@
+//#UC START# *4E3A3F0D0388_4ED5C8320252_impl*
+ l_FI := View.FormatInfoByPara(ParaInst);
+ if l_FI = nil then
+  Exit
+ else
+  l_FI.ResizeColumn(ColumnID, aValue, aContext);
+//#UC END# *4E3A3F0D0388_4ED5C8320252_impl*
+//#UC START# *4E3A3F0D0388_4ED5C8320252_var*
+var
+ l_FI : TnevFormatInfoPrim;
+//#UC END# *4E3A3F0D0388_4ED5C8320252_var*
+//#UC START# *4E3A4C4B03A0_4ED5C8320252_impl*
+ try
+  l_FI := View.FormatInfoByPara(ParaInst);
+  if l_FI = nil then
+   Result := 0
+  else
+   Result := l_FI.CalcClientValue4Column(ColumnID);
+ except
+  on Ek2ConversionError do
+   Result := 0;
+ end;//try..except
+//#UC END# *4E3A4C4B03A0_4ED5C8320252_impl*
+//#UC START# *4E3A4C4B03A0_4ED5C8320252_var*
+var
+ l_FI: TnevFormatInfoPrim;
+//#UC END# *4E3A4C4B03A0_4ED5C8320252_var*
+//#UC START# *4ECF8E2C007D_4ED5C8320252_impl*
+ try
+  l_FI := View.FormatInfoByPara(ParaInst);
+  if l_FI = nil then
+   Result := ClientValue
+  else
+   Result := l_FI.ClientToParent(l_FI.CalcClientValue4Column(ColumnID));
+ except
+  on Ek2ConversionError do
+   Result := 0;
+ end;//try..except
+//#UC END# *4ECF8E2C007D_4ED5C8320252_impl*
+//#UC START# *4ECF8E2C007D_4ED5C8320252_var*
+var
+ l_FI: TnevFormatInfoPrim;
+//#UC END# *4ECF8E2C007D_4ED5C8320252_var*
+//#UC START# *4ED5C8320252_ext:FileName
+w:\common\components\gui\Garant\Everest\SBSColumnMarker.imp.pas
+//#UC END# *4ED5C8320252_ext:FileName

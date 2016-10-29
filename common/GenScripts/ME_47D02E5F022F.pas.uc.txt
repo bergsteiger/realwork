@@ -1,0 +1,95 @@
+//#UC START# *4728C6D400FA_47D02E5F022F_impl*
+ l_Bitmap := Tl3Bitmap.Create;
+ try
+  with l_Bitmap do
+  begin
+   Width := aRect.Right - aRect.Left;
+   Height := aRect.Bottom - aRect.Top;
+   Canvas.Brush.Style := bsSolid;
+   Canvas.Brush.Color := aFillColor;
+   Canvas.FillRect(Rect(0,0,Width,Height));
+   l_ImgX := (Width - f_List.Width) div 2;
+   l_ImgY := (Height - f_List.Height) div 2;
+   f_List.Draw(Canvas, l_ImgX, l_ImgY, Index, Enabled);
+  end;
+  aCanvas.Canvas.Draw(aRect.Left, aRect.Top, l_Bitmap);
+ finally
+  l_Bitmap.Free;
+ end;
+//#UC END# *4728C6D400FA_47D02E5F022F_impl*
+//#UC START# *4728C6D400FA_47D02E5F022F_var*
+var
+ l_ImgX, l_ImgY: Integer;
+ l_Bitmap: Tl3Bitmap;
+//#UC END# *4728C6D400FA_47D02E5F022F_var*
+//#UC START# *4728C6F401E6_47D02E5F022F_impl*
+ f_List.Draw(aCanvas.Canvas, X, Y, Index, Enabled);
+//#UC END# *4728C6F401E6_47D02E5F022F_impl*
+//#UC START# *4728C6F401E6_47D02E5F022F_var*
+//#UC END# *4728C6F401E6_47D02E5F022F_var*
+//#UC START# *4728C76E03C2_47D02E5F022F_impl*
+ f_List.Draw(aCanvas.Canvas,
+             X, Y,
+             Index,
+             TDrawingStyle(ADrawingStyle),
+             TImageType(AImageType),
+             Enabled);
+//#UC END# *4728C76E03C2_47D02E5F022F_impl*
+//#UC START# *4728C76E03C2_47D02E5F022F_var*
+//#UC END# *4728C76E03C2_47D02E5F022F_var*
+//#UC START# *4728C79B0269_47D02E5F022F_impl*
+ Result := f_List;
+//#UC END# *4728C79B0269_47D02E5F022F_impl*
+//#UC START# *4728C79B0269_47D02E5F022F_var*
+//#UC END# *4728C79B0269_47D02E5F022F_var*
+//#UC START# *4728C7A90345_47D02E5F022Fget_impl*
+ Result := f_List.Width;
+//#UC END# *4728C7A90345_47D02E5F022Fget_impl*
+//#UC START# *4728C7A90345_47D02E5F022Fget_var*
+//#UC END# *4728C7A90345_47D02E5F022Fget_var*
+//#UC START# *4728C7B50144_47D02E5F022Fget_impl*
+ Result := f_List.Height;
+//#UC END# *4728C7B50144_47D02E5F022Fget_impl*
+//#UC START# *4728C7B50144_47D02E5F022Fget_var*
+//#UC END# *4728C7B50144_47D02E5F022Fget_var*
+//#UC START# *4728C7C7006D_47D02E5F022Fget_impl*
+ Result := f_List.Count;
+//#UC END# *4728C7C7006D_47D02E5F022Fget_impl*
+//#UC START# *4728C7C7006D_47D02E5F022Fget_var*
+//#UC END# *4728C7C7006D_47D02E5F022Fget_var*
+//#UC START# *4728C7D202A4_47D02E5F022Fget_impl*
+ Result := f_List.Handle;
+//#UC END# *4728C7D202A4_47D02E5F022Fget_impl*
+//#UC START# *4728C7D202A4_47D02E5F022Fget_var*
+//#UC END# *4728C7D202A4_47D02E5F022Fget_var*
+//#UC START# *4728C7DC01EA_47D02E5F022Fget_impl*
+ Result := DoGetBigSize;
+//#UC END# *4728C7DC01EA_47D02E5F022Fget_impl*
+//#UC START# *4728C7DC01EA_47D02E5F022Fget_var*
+//#UC END# *4728C7DC01EA_47D02E5F022Fget_var*
+//#UC START# *4728C7DC01EA_47D02E5F022Fset_impl*
+ DoSetBigSize(aValue);
+//#UC END# *4728C7DC01EA_47D02E5F022Fset_impl*
+//#UC START# *4728C7DC01EA_47D02E5F022Fset_var*
+//#UC END# *4728C7DC01EA_47D02E5F022Fset_var*
+//#UC START# *47D02E5F022F_ext:FileName
+w:\common\components\rtl\Garant\L3\l3ImageList.pas
+//#UC END# *47D02E5F022F_ext:FileName
+//#UC START# *47D02E5F022Fimpl_uses*
+//#UC END# *47D02E5F022Fimpl_uses*
+//#UC START# *47D14ADF03A0_47D02E5F022F_impl*
+ Assert(aList <> nil);
+ inherited Create;
+ f_List := aList;
+//#UC END# *47D14ADF03A0_47D02E5F022F_impl*
+//#UC START# *47D14ADF03A0_47D02E5F022F_var*
+//#UC END# *47D14ADF03A0_47D02E5F022F_var*
+//#UC START# *47D14E0C0120_47D02E5F022F_impl*
+ Result := false;
+//#UC END# *47D14E0C0120_47D02E5F022F_impl*
+//#UC START# *47D14E0C0120_47D02E5F022F_var*
+//#UC END# *47D14E0C0120_47D02E5F022F_var*
+//#UC START# *47D14E1A009A_47D02E5F022F_impl*
+//#UC END# *47D14E1A009A_47D02E5F022F_impl*
+//#UC START# *47D14E1A009A_47D02E5F022F_var*
+//#UC END# *47D14E1A009A_47D02E5F022F_var*

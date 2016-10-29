@@ -1,0 +1,21 @@
+//#UC START# *5731CABE014E_5731CABE014E_Word_impl*
+ l_S := Tl3NamedTextStream.Create(aCtx.rCaller.ResolveOutputFilePath(aFileName),
+                                  l3_fmWrite);
+ try
+  with TevStyleInterfaceEx.Make do
+   try
+    Save(l_S);
+   finally
+    Free;
+   end;//try..finally
+ finally
+  FreeAndNil(l_S);
+ end;//try..finally
+//#UC END# *5731CABE014E_5731CABE014E_Word_impl*
+//#UC START# *5731CABE014E_5731CABE014E_Word_var*
+var
+ l_S : Tl3NamedTextStream;
+//#UC END# *5731CABE014E_5731CABE014E_Word_var*
+//#UC START# *5731CABE014E_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\evSchemaWordsPack.pas
+//#UC END# *5731CABE014E_Word_ext:ParentFileName

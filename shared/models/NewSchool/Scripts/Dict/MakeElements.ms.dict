@@ -47,6 +47,14 @@ INTERFACE elem_func DecorateMethod:
  ) // Self .DecorateMethodAndDo:
 ; // DecorateMethod:
 
+USES
+ CreateGUID.ms.dict
+;
+
+USES
+ LUID.ms.dict
+;
+
 INTERFACE FUNCTION MakeParam:
   STRING IN aName
   ModelElement IN aType
@@ -70,6 +78,15 @@ INTERFACE FUNCTION MakeParam:
   end // ( aType .IsNotNil )
   
   l_Param aLambda DO
+  
+  if ( l_Param .LUID .IsNil ) then
+  // - здесь обеспечиваем уникальность идентификаторов
+  begin
+   VAR l_UID
+   aName aType .CreateAutoMUID >>> l_UID
+   //l_UID Msg
+   l_Param -> UID := l_UID
+  end // ( l_Param .LUID .IsNil )
  ) // KeyValuesCreateAndDoEx:
  
 ; // MakeParam:
@@ -102,3 +119,29 @@ MACRO MakeProcedure:
 
 WordAlias MakeView: MakeProcedure:
 
+USES
+ RoseModel.ms.dict
+;
+
+USES
+ ElemMemberPrim.ms.dict
+;
+
+INTERFACE elem_func ImplementMethod:
+  ^ IN aLambda
+ Self .DecorateMethod:
+ (
+   IN aMethod
+  aMethod -> OpKind := opkind_Implemented
+  aMethod aLambda DO
+ ) // Self .DecorateMethod:
+ >>> Result
+; // ImplementMethod:
+
+INTERFACE elem_func ImplementMethod
+ Cached:
+ (
+  Self .ImplementMethod: DROP
+ )
+ >>> Result
+; // ImplementMethod

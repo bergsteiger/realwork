@@ -24,7 +24,6 @@ FORWARD ME_57D2DFA70064
 ME ME_57D2DFD502AD
  MEPROP Name 'aUseCase'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_57D2D2E90182' '57D2DB49000A.ms.model.script' // ImsmDrawingUseCase
  ;
 
@@ -33,7 +32,6 @@ ENDME // ME_57D2DFD502AD aUseCase
 ME ME_57D2E75E00A6
  MEPROP Name 'aMainZone'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_57AAF0E701FA' '57AAE8D403E5.ms.model.script' // ImsmViewParent
  ;
 
@@ -42,7 +40,6 @@ ENDME // ME_57D2E75E00A6 aMainZone
 ME ME_57D2E75E00E2
  MEPROP Name 'aChildZone'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_57AAF0E701FA' '57AAE8D403E5.ms.model.script' // ImsmViewParent
  ;
 
@@ -51,7 +48,6 @@ ENDME // ME_57D2E75E00E2 aChildZone
 ME ME_57D2E75E0128
  MEPROP Name 'aLeftZone'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_57AAF0E701FA' '57AAE8D403E5.ms.model.script' // ImsmViewParent
  ;
 
@@ -60,7 +56,6 @@ ENDME // ME_57D2E75E0128 aLeftZone
 ME ME_57D2E75E0178
  MEPROP Name 'aFloatingZone'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_57AAF0E701FA' '57AAE8D403E5.ms.model.script' // ImsmViewParent
  ;
 
@@ -69,7 +64,6 @@ ENDME // ME_57D2E75E0178 aFloatingZone
 ME ME_57EAA33F01CA
  MEPROP Name 'aTopZone'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_57AAF0E701FA' '57AAE8D403E5.ms.model.script' // ImsmViewParent
  ;
 
@@ -244,7 +238,7 @@ ME ME_57E51C05010E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
  ;
- MELINK Target WL? 'ME_57E51B3002A8' // TmsmLoadedWordsListModel
+ MELINK Target WL? 'ME_57E51B3002A8' // TmsmSomeWordsListModel
  ;
 
 ENDME // ME_57E51C05010E 
@@ -349,6 +343,26 @@ ME ME_5804D4EE023D
 
 ENDME // ME_5804D4EE023D 
 
+ME ME_5811DB0E03C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
+ ;
+ MELINK Target WL? 'ME_5811DADE01F8' // TmsmLoadedWordsListModel
+ ;
+
+ENDME // ME_5811DB0E03C9 
+
+ME ME_5811DB2600A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
+ ;
+ MELINK Target WL? 'ME_57E51B3002A8' // TmsmSomeWordsListModel
+ ;
+
+ENDME // ME_5811DB2600A8 
+
 MEREF ME_479731C50290_ME_57D2DF7E00CE_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
@@ -427,7 +441,7 @@ ME ME_57D2DF7E00CE
  ME_57E261A2014A // TmsmCopySelection
  ME_57E28049000D // TmsmPaste
  ME_57E4580D00A6 // TmsmWordsManaging
- ME_57E51C05010E // TmsmLoadedWordsListModel
+ ME_57E51C05010E // TmsmSomeWordsListModel
  ME_57E552110130 // TmsmSomeModelElementsListModel
  ME_57E55C8B00B3 // TmsmSomeModelElementsList
  ME_57EA4F3300FD // TmsmMultiPanelViewParentHorz
@@ -438,6 +452,8 @@ ME ME_57D2DF7E00CE
  ME_57F7B74E03CF // TmsmDeleteSelection
  ME_57FC272800A7 // TmsmChangeProperties
  ME_5804D4EE023D // TmsmChangePropertiesBinding
+ ME_5811DB0E03C9 // TmsmLoadedWordsListModel
+ ME_5811DB2600A8 // TmsmSomeWordsListModel
  )
  ; // Dependencies
  MESTRINGLIST DiagramsNames

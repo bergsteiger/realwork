@@ -1,0 +1,656 @@
+//#UC START# *479731C50290_5506A3B0036E_impl*
+ TChromeLikeTabSetAnimationManager.Instance.RemoveAnimable(Self);
+ FreeAndNil(f_Margins);
+ inherited;
+//#UC END# *479731C50290_5506A3B0036E_impl*
+//#UC START# *479731C50290_5506A3B0036E_var*
+//#UC END# *479731C50290_5506A3B0036E_var*
+//#UC START# *5506A3B0036E_ext:FileName
+w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseVisualObjectPrim.pas
+//#UC END# *5506A3B0036E_ext:FileName
+//#UC START# *5506A3B0036Eimpl_uses*
+//#UC END# *5506A3B0036Eimpl_uses*
+//#UC START# *5506A3DF0209_5506A3B0036E_impl*
+ for l_Index := 0 to Pred(ChildrenCount) do
+  Children[l_Index].Paint(aContext);
+//#UC END# *5506A3DF0209_5506A3B0036E_impl*
+//#UC START# *5506A3DF0209_5506A3B0036E_var*
+var
+ l_Index: Integer;
+//#UC END# *5506A3DF0209_5506A3B0036E_var*
+//#UC START# *5506A438011F_5506A3B0036E_impl*
+ LayoutChildren(PositionRect);
+//#UC END# *5506A438011F_5506A3B0036E_impl*
+//#UC START# *5506A438011F_5506A3B0036E_var*
+//#UC END# *5506A438011F_5506A3B0036E_var*
+//#UC START# *5506A447006A_5506A3B0036E_impl*
+ l_Rect := aRect;
+ for l_Index := 0 to Pred(ChildrenCount) do
+ begin
+  l_Child := Children[l_Index];
+  l_Child.Layout(l_Rect);
+ end;
+//#UC END# *5506A447006A_5506A3B0036E_impl*
+//#UC START# *5506A447006A_5506A3B0036E_var*
+var
+ l_Index: Integer;
+ l_Rect: TRect;
+ l_Child: TChromeLikeBaseVisualObjectPrim;
+//#UC END# *5506A447006A_5506A3B0036E_var*
+//#UC START# *5506A45102AC_5506A3B0036E_impl*
+ LayoutChildren(PositionRect);
+//#UC END# *5506A45102AC_5506A3B0036E_impl*
+//#UC START# *5506A45102AC_5506A3B0036E_var*
+//#UC END# *5506A45102AC_5506A3B0036E_var*
+//#UC START# *5506A45B0272_5506A3B0036E_impl*
+ for l_Index := Pred(ChildrenCount) downto 0 do
+ begin
+  l_Child := Children[l_Index];
+  RemoveChild(l_Index);
+  FreeAndNil(l_Child);
+ end;
+//#UC END# *5506A45B0272_5506A3B0036E_impl*
+//#UC START# *5506A45B0272_5506A3B0036E_var*
+var
+ l_Index: Integer;
+ l_Child: TChromeLikeBaseVisualObjectPrim;
+//#UC END# *5506A45B0272_5506A3B0036E_var*
+//#UC START# *5506A46700C1_5506A3B0036E_impl*
+ if (f_Parent <> nil) then
+  f_Parent.RequestLayoutChildren;
+//#UC END# *5506A46700C1_5506A3B0036E_impl*
+//#UC START# *5506A46700C1_5506A3B0036E_var*
+//#UC END# *5506A46700C1_5506A3B0036E_var*
+//#UC START# *5506A4F20013_5506A3B0036Eget_impl*
+ Assert(False);
+//#UC END# *5506A4F20013_5506A3B0036Eget_impl*
+//#UC START# *5506A4F20013_5506A3B0036Eget_var*
+//#UC END# *5506A4F20013_5506A3B0036Eget_var*
+//#UC START# *5506A55103DB_5506A3B0036Eget_impl*
+ Result := f_PositionRect;
+//#UC END# *5506A55103DB_5506A3B0036Eget_impl*
+//#UC START# *5506A55103DB_5506A3B0036Eget_var*
+//#UC END# *5506A55103DB_5506A3B0036Eget_var*
+//#UC START# *5506A55103DB_5506A3B0036Eset_impl*
+ if (not SameRect(f_PositionRect, aValue)) then
+ begin
+  f_PositionRect := aValue;
+//  f_PositionInitialized := True;
+  PositionChanged;
+  Invalidate;
+ end;
+//#UC END# *5506A55103DB_5506A3B0036Eset_impl*
+//#UC START# *5506A55103DB_5506A3B0036Eset_var*
+//#UC END# *5506A55103DB_5506A3B0036Eset_var*
+//#UC START# *5506A56B01BB_5506A3B0036Eget_impl*
+ Result := f_Parent;
+//#UC END# *5506A56B01BB_5506A3B0036Eget_impl*
+//#UC START# *5506A56B01BB_5506A3B0036Eget_var*
+//#UC END# *5506A56B01BB_5506A3B0036Eget_var*
+//#UC START# *5506A56B01BB_5506A3B0036Eset_impl*
+ if (aValue <> f_Parent) then
+ begin
+  f_Parent := aValue;
+  f_Parent.InsertObject(Self);
+ end;
+//#UC END# *5506A56B01BB_5506A3B0036Eset_impl*
+//#UC START# *5506A56B01BB_5506A3B0036Eset_var*
+//#UC END# *5506A56B01BB_5506A3B0036Eset_var*
+//#UC START# *5506A596034A_5506A3B0036Eget_impl*
+ Result := f_Align;
+//#UC END# *5506A596034A_5506A3B0036Eget_impl*
+//#UC START# *5506A596034A_5506A3B0036Eget_var*
+//#UC END# *5506A596034A_5506A3B0036Eget_var*
+//#UC START# *5506A596034A_5506A3B0036Eset_impl*
+ if (aValue <> f_Align) then
+ begin
+  f_Align := aValue;
+  if (f_Parent <> nil) then
+   f_Parent.RequestLayoutChildren;
+ end;
+//#UC END# *5506A596034A_5506A3B0036Eset_impl*
+//#UC START# *5506A596034A_5506A3B0036Eset_var*
+//#UC END# *5506A596034A_5506A3B0036Eset_var*
+//#UC START# *5506A7C900D2_5506A3B0036Eget_impl*
+ Result := f_HintText;
+//#UC END# *5506A7C900D2_5506A3B0036Eget_impl*
+//#UC START# *5506A7C900D2_5506A3B0036Eget_var*
+//#UC END# *5506A7C900D2_5506A3B0036Eget_var*
+//#UC START# *5506A7C900D2_5506A3B0036Eset_impl*
+ if (aValue <> f_HintText) then
+  f_HintText := aValue;
+//#UC END# *5506A7C900D2_5506A3B0036Eset_impl*
+//#UC START# *5506A7C900D2_5506A3B0036Eset_var*
+//#UC END# *5506A7C900D2_5506A3B0036Eset_var*
+//#UC START# *5506AA9C0043_5506A3B0036Eget_impl*
+ Result := f_State;
+//#UC END# *5506AA9C0043_5506A3B0036Eget_impl*
+//#UC START# *5506AA9C0043_5506A3B0036Eget_var*
+//#UC END# *5506AA9C0043_5506A3B0036Eget_var*
+//#UC START# *5506AA9C0043_5506A3B0036Eset_impl*
+ if (aValue <> f_State) then
+ begin
+  f_State := aValue;
+  StateChanged;
+ end;
+//#UC END# *5506AA9C0043_5506A3B0036Eset_impl*
+//#UC START# *5506AA9C0043_5506A3B0036Eset_var*
+//#UC END# *5506AA9C0043_5506A3B0036Eset_var*
+//#UC START# *5506AC7800C3_5506AC0F0361get_impl*
+ Result := f_RectData.Left;
+//#UC END# *5506AC7800C3_5506AC0F0361get_impl*
+//#UC START# *5506AC7800C3_5506AC0F0361get_var*
+//#UC END# *5506AC7800C3_5506AC0F0361get_var*
+//#UC START# *5506AC7800C3_5506AC0F0361set_impl*
+ if (aValue <> f_RectData.Left) then
+ begin
+  f_RectData.Left := aValue;
+  Changed;
+ end;
+//#UC END# *5506AC7800C3_5506AC0F0361set_impl*
+//#UC START# *5506AC7800C3_5506AC0F0361set_var*
+//#UC END# *5506AC7800C3_5506AC0F0361set_var*
+//#UC START# *5506AC830083_5506AC0F0361get_impl*
+ Result := f_RectData.Top;
+//#UC END# *5506AC830083_5506AC0F0361get_impl*
+//#UC START# *5506AC830083_5506AC0F0361get_var*
+//#UC END# *5506AC830083_5506AC0F0361get_var*
+//#UC START# *5506AC830083_5506AC0F0361set_impl*
+ if (aValue <> f_RectData.Top) then
+ begin
+  f_RectData.Top := aValue;
+  Changed;
+ end;
+//#UC END# *5506AC830083_5506AC0F0361set_impl*
+//#UC START# *5506AC830083_5506AC0F0361set_var*
+//#UC END# *5506AC830083_5506AC0F0361set_var*
+//#UC START# *5506AC9101D3_5506AC0F0361get_impl*
+ Result := f_RectData.Right;
+//#UC END# *5506AC9101D3_5506AC0F0361get_impl*
+//#UC START# *5506AC9101D3_5506AC0F0361get_var*
+//#UC END# *5506AC9101D3_5506AC0F0361get_var*
+//#UC START# *5506AC9101D3_5506AC0F0361set_impl*
+ if (aValue <> f_RectData.Right) then
+ begin
+  f_RectData.Right := aValue;
+  Changed;
+ end;
+//#UC END# *5506AC9101D3_5506AC0F0361set_impl*
+//#UC START# *5506AC9101D3_5506AC0F0361set_var*
+//#UC END# *5506AC9101D3_5506AC0F0361set_var*
+//#UC START# *5506AC9C0173_5506AC0F0361get_impl*
+ Result := f_RectData.Bottom;
+//#UC END# *5506AC9C0173_5506AC0F0361get_impl*
+//#UC START# *5506AC9C0173_5506AC0F0361get_var*
+//#UC END# *5506AC9C0173_5506AC0F0361get_var*
+//#UC START# *5506AC9C0173_5506AC0F0361set_impl*
+ if (aValue <> f_RectData.Bottom) then
+ begin
+  f_RectData.Bottom := aValue;
+  Changed;
+ end;
+//#UC END# *5506AC9C0173_5506AC0F0361set_impl*
+//#UC START# *5506AC9C0173_5506AC0F0361set_var*
+//#UC END# *5506AC9C0173_5506AC0F0361set_var*
+//#UC START# *5506ACBA0169_5506AC0F0361_impl*
+ if Assigned(f_OnChange) then
+  f_OnChange(Self)
+ else
+  Assert(False);
+//#UC END# *5506ACBA0169_5506AC0F0361_impl*
+//#UC START# *5506ACBA0169_5506AC0F0361_var*
+//#UC END# *5506ACBA0169_5506AC0F0361_var*
+//#UC START# *5506ACCF00D0_5506AC0F0361_impl*
+ inherited Create;
+ f_RectData.Top := aTop;
+ f_RectData.Left := aLeft;
+ f_RectData.Right := aRight;
+ f_RectData.Bottom := aBottom;
+//#UC END# *5506ACCF00D0_5506AC0F0361_impl*
+//#UC START# *5506ACCF00D0_5506AC0F0361_var*
+//#UC END# *5506ACCF00D0_5506AC0F0361_var*
+//#UC START# *5506ADD800E4_5506A3B0036Eget_impl*
+ Result := f_Visible;
+//#UC END# *5506ADD800E4_5506A3B0036Eget_impl*
+//#UC START# *5506ADD800E4_5506A3B0036Eget_var*
+//#UC END# *5506ADD800E4_5506A3B0036Eget_var*
+//#UC START# *5506ADD800E4_5506A3B0036Eset_impl*
+ if (aValue <> f_Visible) then
+ begin
+  f_Visible := aValue;
+  Invalidate;
+ end;
+//#UC END# *5506ADD800E4_5506A3B0036Eset_impl*
+//#UC START# *5506ADD800E4_5506A3B0036Eset_var*
+//#UC END# *5506ADD800E4_5506A3B0036Eset_var*
+//#UC START# *5506AE050362_5506A3B0036E_impl*
+ if (f_Parent <> nil) then
+  f_Parent.Invalidate;
+//#UC END# *5506AE050362_5506A3B0036E_impl*
+//#UC START# *5506AE050362_5506A3B0036E_var*
+//#UC END# *5506AE050362_5506A3B0036E_var*
+//#UC START# *5506AE1D02F9_5506A3B0036E_impl*
+ TChromeLikeTabSetAnimationManager.Instance.RemoveAnimable(Self);
+ f_InAnimation := False;
+//#UC END# *5506AE1D02F9_5506A3B0036E_impl*
+//#UC START# *5506AE1D02F9_5506A3B0036E_var*
+//#UC END# *5506AE1D02F9_5506A3B0036E_var*
+//#UC START# *5506AE35023A_5506A3B0036E_impl*
+ Assert(False);
+//#UC END# *5506AE35023A_5506A3B0036E_impl*
+//#UC START# *5506AE35023A_5506A3B0036E_var*
+//#UC END# *5506AE35023A_5506A3B0036E_var*
+//#UC START# *5506AE54016E_5506A3B0036E_impl*
+ // Ничего не делаем
+//#UC END# *5506AE54016E_5506A3B0036E_impl*
+//#UC START# *5506AE54016E_5506A3B0036E_var*
+//#UC END# *5506AE54016E_5506A3B0036E_var*
+//#UC START# *5506AE90023B_5506A3B0036E_impl*
+ if Assigned(f_OnClick) then
+  f_OnClick(Self);
+//#UC END# *5506AE90023B_5506A3B0036E_impl*
+//#UC START# *5506AE90023B_5506A3B0036E_var*
+//#UC END# *5506AE90023B_5506A3B0036E_var*
+//#UC START# *5506AEB502A2_5506A3B0036E_impl*
+ LayoutChildren(PositionRect);
+ Invalidate;
+//#UC END# *5506AEB502A2_5506A3B0036E_impl*
+//#UC START# *5506AEB502A2_5506A3B0036E_var*
+//#UC END# *5506AEB502A2_5506A3B0036E_var*
+//#UC START# *5506AEC501BC_5506A3B0036E_impl*
+ Invalidate;
+//#UC END# *5506AEC501BC_5506A3B0036E_impl*
+//#UC START# *5506AEC501BC_5506A3B0036E_var*
+//#UC END# *5506AEC501BC_5506A3B0036E_var*
+//#UC START# *5506AED800F4_5506A3B0036E_impl*
+ Result := (cltcbMovable in f_Behaviours);
+//#UC END# *5506AED800F4_5506A3B0036E_impl*
+//#UC START# *5506AED800F4_5506A3B0036E_var*
+//#UC END# *5506AED800F4_5506A3B0036E_var*
+//#UC START# *5506AEEE02B8_5506A3B0036E_impl*
+ Result := (cltcbUndockable in f_Behaviours);
+//#UC END# *5506AEEE02B8_5506A3B0036E_impl*
+//#UC START# *5506AEEE02B8_5506A3B0036E_var*
+//#UC END# *5506AEEE02B8_5506A3B0036E_var*
+//#UC START# *5506AF040179_5506A3B0036E_impl*
+ Result := (cltcbClickable in f_Behaviours);
+//#UC END# *5506AF040179_5506A3B0036E_impl*
+//#UC START# *5506AF040179_5506A3B0036E_var*
+//#UC END# *5506AF040179_5506A3B0036E_var*
+//#UC START# *5506AF1A025E_5506A3B0036E_impl*
+ Result := (cltcbAnimable in f_Behaviours);
+//#UC END# *5506AF1A025E_5506A3B0036E_impl*
+//#UC START# *5506AF1A025E_5506A3B0036E_var*
+//#UC END# *5506AF1A025E_5506A3B0036E_var*
+//#UC START# *5506AF4E01FC_5506A3B0036Eget_impl*
+ Assert(False);
+//#UC END# *5506AF4E01FC_5506A3B0036Eget_impl*
+//#UC START# *5506AF4E01FC_5506A3B0036Eget_var*
+//#UC END# *5506AF4E01FC_5506A3B0036Eget_var*
+//#UC START# *5506AF8F0264_5506A3B0036E_impl*
+ l_AreaSize := MeasureSize;
+ // - размер области, занимаемой контролом
+ l_ContentSize := l_AreaSize;
+ // - размер содержимого, подлежащего отрисовке
+
+ Inc(l_AreaSize.cx, Margins.Left + Margins.Right);
+ Inc(l_AreaSize.cy, Margins.Top + Margins.Bottom);
+ // - увеличием размер занимаемой области с учетом маргинации
+
+ SetRectEmpty(l_AreaRect);
+ SetRectEmpty(l_ContentRect);
+ SetRectEmpty(l_RemainderRect);
+
+ case Align of
+  // откусываем нужный кусок прямоугольника с соответствующей стороны
+  alNone:
+   l_AreaRect := Types.Rect(0,
+                            0,
+                            Pred(l_AreaSize.cx),
+                            Pred(l_AreaSize.cy));
+  alTop:
+   l_AreaRect := Types.Rect(aRect.Left,
+                            aRect.Top,
+                            aRect.Right,
+                            Min(aRect.Top + l_AreaSize.cy, aRect.Top));
+  alBottom:
+   l_AreaRect := Types.Rect(aRect.Left,
+                            Min(aRect.Bottom - Margins.Bottom - l_AreaSize.cy, aRect.Top),
+                            aRect.Right,
+                            aRect.Bottom);
+  alLeft:
+   l_AreaRect := Types.Rect(aRect.Left,
+                           aRect.Top,
+                           Min(aRect.Left + l_AreaSize.cx, aRect.Right),
+                           aRect.Bottom);
+  alRight:
+   l_AreaRect := Types.Rect(Max(aRect.Right - l_AreaSize.cx, aRect.Left),
+                            aRect.Top,
+                            aRect.Right,
+                            aRect.Bottom);
+  alClient:
+   l_AreaRect := aRect;
+ end;
+
+ if (Align <> alClient) then
+  SetPosition(PlaceRectInCenter(l_ContentSize, l_AreaRect, Margins.Left,
+    Margins.Top, Margins.Right, Margins.Bottom), 0, ttNone)
+ else
+  SetPosition(l_AreaRect, 0, ttNone);
+
+ with l_AreaRect do
+ begin
+  Left := Max(aRect.Left, l_AreaRect.Left - Margins.Left);
+  Top := Max(aRect.Top, l_AreaRect.Top - Margins.Top);
+  Right := Min(aRect.Right, l_AreaRect.Right + Margins.Top);
+  Bottom := Min(aRect.Bottom, l_AreaRect.Bottom + Margins.Bottom);
+ end;
+ l_RemainderRect := lp_SubtractRect(aRect, l_AreaRect);
+ // - Вычитаем из поданного прямоугольника прямоугольник, занятый контролом
+ // с учетом маргинации
+ aRect := l_RemainderRect;
+//#UC END# *5506AF8F0264_5506A3B0036E_impl*
+//#UC START# *5506AF8F0264_5506A3B0036E_var*
+
+ function lp_SubtractRect(const aObject: TRect;
+                          const aSubject: TRect): TRect;
+ begin
+  case Align of
+   alLeft:
+    Result := Rect(aSubject.Right,
+                   aObject.Top,
+                   aObject.Right,
+                   aObject.Bottom);
+   alTop:
+    Result := Rect(aObject.Left,
+                   aSubject.Top,
+                   aObject.Right,
+                   aObject.Bottom);
+   alBottom:
+    Result := Rect(aObject.Left,
+                   aObject.Top,
+                   aObject.Right,
+                   aSubject.Top);
+   alRight:
+    Result := Rect(aObject.Left,
+                   aObject.Top,
+                   aSubject.Left,
+                   aObject.Bottom);
+  else
+   SetRectEmpty(Result);
+  end;
+ end;//lp_SubtractRect
+
+var
+ l_ContentSize: TSize;
+ l_AreaSize: TSize;
+ l_AreaRect: TRect;
+ l_ContentRect: TRect;
+ l_RemainderRect: TRect;
+//#UC END# *5506AF8F0264_5506A3B0036E_var*
+//#UC START# *5506B04102C9_5506A3B0036E_impl*
+ FillChar(Result, SizeOf(Result), 0);
+//#UC END# *5506B04102C9_5506A3B0036E_impl*
+//#UC START# *5506B04102C9_5506A3B0036E_var*
+//#UC END# *5506B04102C9_5506A3B0036E_var*
+//#UC START# *5506B0630312_5506A3B0036E_impl*
+ Result := [cltcbClickable];
+//#UC END# *5506B0630312_5506A3B0036E_impl*
+//#UC START# *5506B0630312_5506A3B0036E_var*
+//#UC END# *5506B0630312_5506A3B0036E_var*
+//#UC START# *5506B0910208_5506A3B0036E_impl*
+ // Ничего не делаем
+//#UC END# *5506B0910208_5506A3B0036E_impl*
+//#UC START# *5506B0910208_5506A3B0036E_var*
+//#UC END# *5506B0910208_5506A3B0036E_var*
+//#UC START# *5506B0A5038A_5506A3B0036E_impl*
+ Result := IsMovable;
+//#UC END# *5506B0A5038A_5506A3B0036E_impl*
+//#UC START# *5506B0A5038A_5506A3B0036E_var*
+//#UC END# *5506B0A5038A_5506A3B0036E_var*
+//#UC START# *5506B0C600DB_5506A3B0036E_impl*
+ Result := DoGetCanMove(aPoint);
+//#UC END# *5506B0C600DB_5506A3B0036E_impl*
+//#UC START# *5506B0C600DB_5506A3B0036E_var*
+//#UC END# *5506B0C600DB_5506A3B0036E_var*
+//#UC START# *5506B0F5038D_5506A3B0036E_impl*
+ Result := (f_StartTicks > 0) and (f_CurrentTickCount < f_AnimationTime);
+
+ if Result then
+ begin
+  f_CurrentTickCount := GetTickCount - f_StartTicks;
+  if f_CurrentTickCount > f_AnimationTime then
+   f_CurrentTickCount := f_AnimationTime;
+
+  l_NewRect := TransformRect(f_StartRect,
+                             f_EndRect,
+                             f_CurrentTickCount,
+                             f_AnimationTime,
+                             f_EaseType);
+
+  PositionRect := l_NewRect;
+  if SameRect(l_NewRect, f_EndRect) then
+   AnimationFinished;
+ end;
+//#UC END# *5506B0F5038D_5506A3B0036E_impl*
+//#UC START# *5506B0F5038D_5506A3B0036E_var*
+var
+ l_NewRect: TRect;
+//#UC END# *5506B0F5038D_5506A3B0036E_var*
+//#UC START# *5506B120003B_5506A3B0036E_impl*
+ Result := nil;
+ if f_Visible and
+    Intersects(aPoint) then
+ begin
+  for l_Index := 0 to Pred(ChildrenCount) do
+  begin
+   Result := Children[l_Index].HitTest(aPoint);
+   if (Result <> nil) then
+    Break
+  end;
+  if (Result = nil) then
+   Result := Self;
+ end;
+//#UC END# *5506B120003B_5506A3B0036E_impl*
+//#UC START# *5506B120003B_5506A3B0036E_var*
+var
+ l_Index: Integer;
+//#UC END# *5506B120003B_5506A3B0036E_var*
+//#UC START# *5506B156039B_5506A3B0036E_impl*
+ f_EaseType := aEaseType;
+ f_AnimationTime := aAnimationTime;
+
+ if IsAnimable and
+//    f_PositionInitialised and
+    (aEaseType <> ttNone) then
+ begin
+  // Нужно начать анимацию или находимся в процессе анимации -
+  // установим конечные границы и посчитаем инкремент анимации
+  if not SameRect(f_EndRect, aRect) then
+  begin
+   f_InAnimation := True;
+   TChromeLikeTabSetAnimationManager.Instance.AddAnimable(Self);
+   f_EndRect := aRect;
+   f_StartRect := f_PositionRect;
+
+   f_StartTicks := GetTickCount;
+   f_CurrentTickCount := 0;
+   PositionChanged;
+  end
+  else
+   f_InAnimation := False;
+ end
+ else
+ begin
+  f_PositionInitialised := True;
+
+  f_InAnimation := False;
+
+  f_PositionRect := aRect;
+  f_StartRect := aRect;
+  f_EndRect := aRect;
+  f_StartTicks := f_AnimationTime;
+  f_CurrentTickCount := f_StartTicks;
+  PositionChanged;
+ end;
+//#UC END# *5506B156039B_5506A3B0036E_impl*
+//#UC START# *5506B156039B_5506A3B0036E_var*
+//#UC END# *5506B156039B_5506A3B0036E_var*
+//#UC START# *5506B17F0017_5506A3B0036E_impl*
+ SetPosition(Types.Rect(f_PositionRect.Left,
+                        f_PositionRect.Top,
+                        f_PositionRect.Right,
+                        f_PositionRect.Top + aValue),
+             aAnimationTime,
+             aEaseType);
+//#UC END# *5506B17F0017_5506A3B0036E_impl*
+//#UC START# *5506B17F0017_5506A3B0036E_var*
+//#UC END# *5506B17F0017_5506A3B0036E_var*
+//#UC START# *5506B2660232_5506A3B0036E_impl*
+ SetPosition(Types.Rect(f_PositionRect.Left,
+                        f_PositionRect.Top,
+                        f_PositionRect.Left + aValue,
+                        f_PositionRect.Bottom),
+             aAnimationTime,
+             aEaseType);
+//#UC END# *5506B2660232_5506A3B0036E_impl*
+//#UC START# *5506B2660232_5506A3B0036E_var*
+//#UC END# *5506B2660232_5506A3B0036E_var*
+//#UC START# *5506B2830242_5506A3B0036E_impl*
+ SetPosition(Types.Rect(aValue,
+                        f_PositionRect.Top,
+                        RectWidth(f_PositionRect) + aValue,
+                        f_PositionRect.Bottom),
+             aAnimationTime,
+             aEaseType);
+//#UC END# *5506B2830242_5506A3B0036E_impl*
+//#UC START# *5506B2830242_5506A3B0036E_var*
+//#UC END# *5506B2830242_5506A3B0036E_var*
+//#UC START# *5506B29C034A_5506A3B0036E_impl*
+ SetPosition(Types.Rect(f_PositionRect.Left,
+                        aValue,
+                        f_PositionRect.Right,
+                        RectHeight(f_PositionRect) + aValue),
+             aAnimationTime,
+             aEaseType);
+//#UC END# *5506B29C034A_5506A3B0036E_impl*
+//#UC START# *5506B29C034A_5506A3B0036E_var*
+//#UC END# *5506B29C034A_5506A3B0036E_var*
+//#UC START# *5506B2B700BD_5506A3B0036E_impl*
+ if f_Visible then
+ begin
+  DoPaint(aContext);
+  PaintChildren(aContext);
+ end;
+//#UC END# *5506B2B700BD_5506A3B0036E_impl*
+//#UC START# *5506B2B700BD_5506A3B0036E_var*
+//#UC END# *5506B2B700BD_5506A3B0036E_var*
+//#UC START# *5506B2E902C4_5506A3B0036E_impl*
+ l_HitTestControl := HitTest(aPoint);
+
+ if ((State = cltcsHovered) and (l_HitTestControl <> Self)) then
+  pm_SetState(cltcsNormal)
+ else
+ if (cltcbHoverable in Behaviours) and (l_HitTestControl = Self) then
+  pm_SetState(cltcsHovered);
+
+ for l_Index := 0 to Pred(ChildrenCount) do
+  Children[l_Index].MouseMove(aPoint);
+
+ DoMouseMove(aPoint);
+//#UC END# *5506B2E902C4_5506A3B0036E_impl*
+//#UC START# *5506B2E902C4_5506A3B0036E_var*
+var
+ l_HitTestControl: TChromeLikeBaseVisualObjectPrim;
+ l_Index: Integer;
+//#UC END# *5506B2E902C4_5506A3B0036E_var*
+//#UC START# *5506B30003D3_5506A3B0036E_impl*
+ if (cltcbClickable in Behaviours) then
+ begin
+  l_HitTestControl := HitTest(aPoint);
+  if (l_HitTestControl <> nil) and
+     (l_HitTestControl <> Self) and
+     (l_HitTestControl.Visible) then
+   l_HitTestControl.Click(aPoint)
+  else
+  if (l_HitTestControl = Self) then
+   DoClick(aPoint);
+ end;
+//#UC END# *5506B30003D3_5506A3B0036E_impl*
+//#UC START# *5506B30003D3_5506A3B0036E_var*
+var
+ l_HitTestControl: TChromeLikeBaseVisualObjectPrim;
+//#UC END# *5506B30003D3_5506A3B0036E_var*
+//#UC START# *5506B3150222_5506A3B0036E_impl*
+ LayoutChildren(PositionRect);
+//#UC END# *5506B3150222_5506A3B0036E_impl*
+//#UC START# *5506B3150222_5506A3B0036E_var*
+//#UC END# *5506B3150222_5506A3B0036E_var*
+//#UC START# *5506B7960083_5506A3B0036E_impl*
+ inherited Create;
+ f_Margins := TChromeLikeMargins.Create;
+ f_Margins.OnChange := DoOnMarginsChanged;
+ SetRectEmpty(f_PositionRect);
+ f_StartTicks := 0;
+ f_CurrentTickCount:= 0 ;
+ f_AnimationTime := 0;
+ SetRectEmpty(f_StartRect);
+ SetRectEmpty(f_EndRect);
+ f_EaseType := ttNone;
+ f_Visible := True;
+ f_Behaviours := MakeBehaviourParams;
+ MakeChildControls;
+//#UC END# *5506B7960083_5506A3B0036E_impl*
+//#UC START# *5506B7960083_5506A3B0036E_var*
+//#UC END# *5506B7960083_5506A3B0036E_var*
+//#UC START# *550A65720020_5506A3B0036E_impl*
+ Result := DoAnimateMovement;
+//#UC END# *550A65720020_5506A3B0036E_impl*
+//#UC START# *550A65720020_5506A3B0036E_var*
+//#UC END# *550A65720020_5506A3B0036E_var*
+//#UC START# *550FD78403C0_5506A3B0036E_impl*
+ Result := IsPtInRect(aPoint, PositionRect);
+//#UC END# *550FD78403C0_5506A3B0036E_impl*
+//#UC START# *550FD78403C0_5506A3B0036E_var*
+//#UC END# *550FD78403C0_5506A3B0036E_var*
+//#UC START# *552638BD00A3_5506A3B0036E_impl*
+ for l_Index := 0 to Pred(ChildrenCount) do
+  Children[l_Index].MouseLeave;
+//#UC END# *552638BD00A3_5506A3B0036E_impl*
+//#UC START# *552638BD00A3_5506A3B0036E_var*
+var
+ l_Index: Integer;
+//#UC END# *552638BD00A3_5506A3B0036E_var*
+//#UC START# *552638E40107_5506A3B0036E_impl*
+ DoMouseLeave;
+//#UC END# *552638E40107_5506A3B0036E_impl*
+//#UC START# *552638E40107_5506A3B0036E_var*
+//#UC END# *552638E40107_5506A3B0036E_var*
+//#UC START# *5541B8970334_5506A3B0036E_impl*
+ if (cltcbMiddleButtonClickable in Behaviours) then
+ begin
+  l_HitTestControl := HitTest(aPoint);
+  if (l_HitTestControl <> nil) and
+     (l_HitTestControl <> Self) and
+     (l_HitTestControl.Visible) and
+     (cltcbMiddleButtonClickable in l_HitTestControl.Behaviours) then
+   l_HitTestControl.MiddleButtonClick(aPoint)
+  else
+   DoMiddleButtonClick(aPoint);
+ end;
+//#UC END# *5541B8970334_5506A3B0036E_impl*
+//#UC START# *5541B8970334_5506A3B0036E_var*
+var
+ l_HitTestControl: TChromeLikeBaseVisualObjectPrim;
+//#UC END# *5541B8970334_5506A3B0036E_var*
+//#UC START# *5541B8C900EE_5506A3B0036E_impl*
+ // Ничего не делаем
+//#UC END# *5541B8C900EE_5506A3B0036E_impl*
+//#UC START# *5541B8C900EE_5506A3B0036E_var*
+//#UC END# *5541B8C900EE_5506A3B0036E_var*
+//#UC START# *55ACE26F032B_5506A3B0036E_impl*
+ PositionRect := f_EndRect;
+ AnimationFinished;
+//#UC END# *55ACE26F032B_5506A3B0036E_impl*
+//#UC START# *55ACE26F032B_5506A3B0036E_var*
+//#UC END# *55ACE26F032B_5506A3B0036E_var*

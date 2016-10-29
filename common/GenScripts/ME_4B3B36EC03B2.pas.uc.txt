@@ -1,0 +1,86 @@
+//#UC START# *071573E75439_4B98D6C201AD_impl*
+ {$IfDef Nemesis}
+  {$IfNDef NoVCM}
+   Assert(not g_l3ConstStringsSealed);
+  {$EndIf  NoVCM}
+ {$EndIf Nemesis}
+ {$IfNDef DesignTimeLibrary}
+ if (theStr.rValue <> '') then
+  Tl3ConstStrings.Instance.Add(@theStr);
+ {$EndIf  DesignTimeLibrary}
+ theStr.rS := -1;
+ if (f_Alien <> nil) then
+  f_Alien.Init(theStr);
+//#UC END# *071573E75439_4B98D6C201AD_impl*
+//#UC START# *071573E75439_4B98D6C201AD_var*
+//#UC END# *071573E75439_4B98D6C201AD_var*
+//#UC START# *201B50E5979A_4B98D6C201AD_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.AsCStr(aStr)
+ else
+  Result := l3CStr(aStr.rValue);
+//#UC END# *201B50E5979A_4B98D6C201AD_impl*
+//#UC START# *201B50E5979A_4B98D6C201AD_var*
+//#UC END# *201B50E5979A_4B98D6C201AD_var*
+//#UC START# *47A042E100E2_4BA223D801B3_impl*
+ inherited;
+ Sorted := true;
+//#UC END# *47A042E100E2_4BA223D801B3_impl*
+//#UC START# *47A042E100E2_4BA223D801B3_var*
+//#UC END# *47A042E100E2_4BA223D801B3_var*
+//#UC START# *47B99D4503A2_4BA223D801B3_impl*
+ {$IfDef l3Items_HasCustomSort}
+ Assert(CI.rSortIndex = l3_siNative);
+ {$EndIf l3Items_HasCustomSort}
+ //Result := CompareStr(CI.rA^.rKey, CI.rB^.rKey);
+ //Result := l3Compare(l3PCharLen(CI.rA^.rKey), l3PCharLen(CI.rB^.rKey), CI.rSortIndex);
+ Result := Integer(CI.rA^) - Integer(CI.rB^);
+ // - надо сравнивать именно адреса, а не ключи, т.к. ключи могут быть одинаковыми - из примесей
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=265404457&focusedCommentId=265407436#comment-265407436
+//#UC END# *47B99D4503A2_4BA223D801B3_impl*
+//#UC START# *47B99D4503A2_4BA223D801B3_var*
+//#UC END# *47B99D4503A2_4BA223D801B3_var*
+//#UC START# *4B3B36EC03B2_ext:FileName
+w:\common\components\rtl\Garant\L3\l3StringIDEx.pas
+//#UC END# *4B3B36EC03B2_ext:FileName
+//#UC START# *4B3B36EC03B2impl_uses*
+//#UC END# *4B3B36EC03B2impl_uses*
+//#UC START# *4B3B3B51012A_4B3B3728004C_impl*
+ Result := Tl3StringIDExHelper.Instance.AsCStr(Self);
+//#UC END# *4B3B3B51012A_4B3B3728004C_impl*
+//#UC START# *4B3B3B51012A_4B3B3728004C_var*
+//#UC END# *4B3B3B51012A_4B3B3728004C_var*
+//#UC START# *4B3B3F25003B_4B3B3728004C_impl*
+ Result := Tl3StringIDExHelper.Instance.AsStr(Self);
+//#UC END# *4B3B3F25003B_4B3B3728004C_impl*
+//#UC START# *4B3B3F25003B_4B3B3728004C_var*
+//#UC END# *4B3B3F25003B_4B3B3728004C_var*
+//#UC START# *4B3B4D0A0026_4B3B3728004C_impl*
+ Tl3StringIDExHelper.Instance.Init(Self);
+//#UC END# *4B3B4D0A0026_4B3B3728004C_impl*
+//#UC START# *4B3B4D0A0026_4B3B3728004C_var*
+//#UC END# *4B3B4D0A0026_4B3B3728004C_var*
+//#UC START# *4BB9D8550292_4B3B3728004C_impl*
+ rLocalized := true;
+ rValue := anAlien;
+//#UC END# *4BB9D8550292_4B3B3728004C_impl*
+//#UC START# *4BB9D8550292_4B3B3728004C_var*
+//#UC END# *4BB9D8550292_4B3B3728004C_var*
+//#UC START# *4CFE25B202FA_4B3B3728004C_impl*
+ Result := l3WideString(AsCStr);
+//#UC END# *4CFE25B202FA_4B3B3728004C_impl*
+//#UC START# *4CFE25B202FA_4B3B3728004C_var*
+//#UC END# *4CFE25B202FA_4B3B3728004C_var*
+//#UC START# *4D7258F003D4_4B3B3728004C_impl*
+ Result := l3PCharLen(AsCStr);
+//#UC END# *4D7258F003D4_4B3B3728004C_impl*
+//#UC START# *4D7258F003D4_4B3B3728004C_var*
+//#UC END# *4D7258F003D4_4B3B3728004C_var*
+//#UC START# *74E80608E1B4_4B98D6C201AD_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.AsStr(aStr)
+ else
+  Result := aStr.rValue;
+//#UC END# *74E80608E1B4_4B98D6C201AD_impl*
+//#UC START# *74E80608E1B4_4B98D6C201AD_var*
+//#UC END# *74E80608E1B4_4B98D6C201AD_var*

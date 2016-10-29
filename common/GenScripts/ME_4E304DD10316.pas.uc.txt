@@ -1,0 +1,58 @@
+//#UC START# *4E304DD10316_ext:FileName
+w:\common\components\rtl\Garant\dd\ddAppConfigConst.pas
+//#UC END# *4E304DD10316_ext:FileName
+//#UC START# *4E304DD10316impl_uses*
+//#UC END# *4E304DD10316impl_uses*
+//#UC START# *522DAA88028E*
+ c_ScrollBarWidth := GetSystemMetrics(SM_CYVSCROLL);
+ c_ConfigItemRight := 10;
+//#UC END# *522DAA88028E*
+//#UC START# *522DAC7C00FA_4E304DD10316_impl*
+ l3FillChar(Result, SizeOf(Result), 0);
+//#UC END# *522DAC7C00FA_4E304DD10316_impl*
+//#UC START# *522DAC7C00FA_4E304DD10316_var*
+//#UC END# *522DAC7C00FA_4E304DD10316_var*
+//#UC START# *522DAC9D010F_4E304DD10316_impl*
+ case aValue.Kind of
+  dd_vkString:  Result := aValue.AsString = '';
+  dd_vkDateTime: Result := aValue.AsDateTime = 0;
+  dd_vkObject : Result:= aValue.AsObject = nil;
+ else
+  Result := False;
+ end;
+//#UC END# *522DAC9D010F_4E304DD10316_impl*
+//#UC START# *522DAC9D010F_4E304DD10316_var*
+//#UC END# *522DAC9D010F_4E304DD10316_var*
+//#UC START# *522DADCB0268_4E304DD10316_impl*
+ Result := ddEmptyIntValue;
+ Result.AsInteger:= aValue;
+//#UC END# *522DADCB0268_4E304DD10316_impl*
+//#UC START# *522DADCB0268_4E304DD10316_var*
+//#UC END# *522DADCB0268_4E304DD10316_var*
+//#UC START# *522DADEB02C0_4E304DD10316_impl*
+ Result := ddEmptyValue;
+ Result.Kind:= dd_vkBoolean;
+ Result.AsBoolean:= aValue;
+//#UC END# *522DADEB02C0_4E304DD10316_impl*
+//#UC START# *522DADEB02C0_4E304DD10316_var*
+//#UC END# *522DADEB02C0_4E304DD10316_var*
+//#UC START# *522DAE100037_4E304DD10316_impl*
+ Result := ddEmptyValue;
+ Result.Kind:= dd_vkDateTime;
+ Result.AsDateTime:= aDateTime;
+//#UC END# *522DAE100037_4E304DD10316_impl*
+//#UC START# *522DAE100037_4E304DD10316_var*
+//#UC END# *522DAE100037_4E304DD10316_var*
+//#UC START# *522DAE820041_4E304DD10316_impl*
+ Result := ddEmptyValue;
+ Result.Kind:= dd_vkDateTime;
+ Result.AsDateTime:= EncodeDate(aYear, aMonth, aDay);
+//#UC END# *522DAE820041_4E304DD10316_impl*
+//#UC START# *522DAE820041_4E304DD10316_var*
+//#UC END# *522DAE820041_4E304DD10316_var*
+//#UC START# *522DAEA70090_4E304DD10316_impl*
+ Result := ddEmptyValue;
+ Result.AsString:= aValue;
+//#UC END# *522DAEA70090_4E304DD10316_impl*
+//#UC START# *522DAEA70090_4E304DD10316_var*
+//#UC END# *522DAEA70090_4E304DD10316_var*

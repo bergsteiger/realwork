@@ -1,0 +1,41 @@
+//#UC START# *57D2A771002F_57E4EEC200D1_impl*
+ l_Counter.Reset;
+ l_Counter.Start;
+ l_Message := aContext.rMessage as TcsMultiModifyDocs;
+ l_Reply := TcsMultiModifyDocsReply.Create(l_Message);
+ try
+  l_Reply.IsSuccess := False;
+  l_Reply.ErrorMessage := '';
+  try
+   l_Reply.IsSuccess := False;
+   l_Task := TalcuMultiModifyDocsRequest.Create(l_Message.UserID);
+   try
+    l_Task.Message := l_Message;
+    l_Task.Reply := l_Reply;
+    IncomingList.Push(l_Task);
+    SpeedupRequest;
+    l_Task.WaitForReady;
+   finally
+    FreeAndNil(l_Task);
+   end;
+  finally
+   aContext.rTransporter.Send(l_Reply);
+  end;
+ finally
+  FreeAndNil(l_Reply);
+ end;
+ l_Counter.Stop;
+ l3System.Msg2Log('Remote multimodify documents - %s', [FormatFloat('#,##0 ms', l_Counter.Time * 1000)], l3_msgLevel10);
+//#UC END# *57D2A771002F_57E4EEC200D1_impl*
+//#UC START# *57D2A771002F_57E4EEC200D1_var*
+var
+ l_Message: TcsMultiModifyDocs;
+ l_Reply: TcsMultiModifyDocsReply;
+ l_Task: TalcuMultiModifyDocsRequest;
+ l_Counter: Tl3StopWatch;
+//#UC END# *57D2A771002F_57E4EEC200D1_var*
+//#UC START# *57E4EEC200D1_ext:FileName
+w:\archi\source\projects\PipeInAuto\Tasks\alcuMultiModifyDocsExecutor.pas
+//#UC END# *57E4EEC200D1_ext:FileName
+//#UC START# *57E4EEC200D1impl_uses*
+//#UC END# *57E4EEC200D1impl_uses*

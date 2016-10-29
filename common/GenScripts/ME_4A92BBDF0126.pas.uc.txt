@@ -1,0 +1,218 @@
+//#UC START# *385066897B82_57A35C870031_impl*
+ TPrimF1Res.LogUserActivity(aKind);
+//#UC END# *385066897B82_57A35C870031_impl*
+//#UC START# *385066897B82_57A35C870031_var*
+//#UC END# *385066897B82_57A35C870031_var*
+//#UC START# *4A92BBDF0126_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\PrimF1Res.pas
+//#UC END# *4A92BBDF0126_ext:FileName
+//#UC START# *4A92BBDF0126impl_uses*
+ , LoggingWrapperInterfaces
+ , afwInterfaces
+ , vcmBaseMenuManager
+//#UC END# *4A92BBDF0126impl_uses*
+//#UC START# *4AA7BAF10057_4A92BBDF0126_impl*
+ // Разделитель, для формирования пути сохранения в настройки
+ g_afwPathSep := PROPERTY_PATH_DELIMITER;
+ // make memory manager thread safe
+ IsMultiThread := True;
+ //
+ g_vcmHistoryLimit := 10;
+ g_evDocumentsCacheLimit := 15;
+ //
+ with Application do
+  if (Handle <> HWND(0)) then
+   SetWindowLong(Handle, GWL_EXSTYLE, GetWindowLong(Handle, GWL_EXSTYLE) or
+     WS_EX_TOOLWINDOW);
+     
+  Application.HintHidePause := 15000; // Время показа хинтов в системе
+//#UC END# *4AA7BAF10057_4A92BBDF0126_impl*
+//#UC START# *4AA7BAF10057_4A92BBDF0126_var*
+//#UC END# *4AA7BAF10057_4A92BBDF0126_var*
+//#UC START# *4AA7C28A0113_4A92BBDF0126_impl*
+ Result := true;
+ with TnsStartupSupport do
+ begin
+  repeat
+   StartupPendingNotify;
+   if (TryUnlockLogin or TrySwitchToOtherRunningCopy) then
+   begin
+    StartupCompleteNotify;
+    Result := false;
+    Exit;
+   end;//TryUnlockLogin or TrySwitchToOtherRunningCopy
+   StartupCompleteNotify;
+  until (CheckAndCreateRunningCopyMutex);
+  StartupPendingNotify;
+ end;//with TnsStartupSupport
+//#UC END# *4AA7C28A0113_4A92BBDF0126_impl*
+//#UC START# *4AA7C28A0113_4A92BBDF0126_var*
+//#UC END# *4AA7C28A0113_4A92BBDF0126_var*
+//#UC START# *4AA7D40B02F4_4A92BBDF0126_impl*
+ Result := true;
+ if nsIsOtherPrimeOrShellRunning(aLogo) then
+  Result := false
+ else
+  nsCheckRequiredFonts(aLogo);
+//#UC END# *4AA7D40B02F4_4A92BBDF0126_impl*
+//#UC START# *4AA7D40B02F4_4A92BBDF0126_var*
+//#UC END# *4AA7D40B02F4_4A92BBDF0126_var*
+//#UC START# *4AA7D7CA00FE_4A92BBDF0126_impl*
+ Result := true;
+ try
+  DataAdapter.GlobalInit(aLogo, afw.Application.LocaleInfo.Name);
+  {$IfDef Monitorings}
+  if not defDataAdapter.Monitoring.IsExist then
+  begin
+   aLogo.Hide;
+   defDataAdapter.ShowMessageWithDealerInfo(err_PrimeNotAvaliable);
+   Result := false;
+   Exit;
+  end;//not defDataAdapter.Monitoring.IsExist
+  {$EndIf Monitorings}
+ except
+  on EAbort do
+  begin
+   l3System.CheckClipboard;
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=121145106
+   Result := false;
+   Exit;
+   // здесь нужно именно так, чтобы выполнились все секции финализации (в частности те, которые удаляют временные файлы)
+  end;//on EAbort
+  on ECorbaException do
+  begin
+   aLogo.Hide;
+   Application.HandleException(nil);
+   TerminateProcess(GetCurrentProcess, 255);
+  end;//on ECorbaException
+  else
+  begin
+   aLogo.Hide;
+   theSplash := nil;
+   TerminateProcess(GetCurrentProcess, 255);
+  end;
+ end;//try..except
+//#UC END# *4AA7D7CA00FE_4A92BBDF0126_impl*
+//#UC START# *4AA7D7CA00FE_4A92BBDF0126_var*
+//#UC END# *4AA7D7CA00FE_4A92BBDF0126_var*
+//#UC START# *4AA7DDA90337_4A92BBDF0126_impl*
+  Result := DoGlobalInit(aLogo, theSplash);
+  Application.Initialize;
+  SPCorrectHelpFileName;
+//#UC END# *4AA7DDA90337_4A92BBDF0126_impl*
+//#UC START# *4AA7DDA90337_4A92BBDF0126_var*
+//#UC END# *4AA7DDA90337_4A92BBDF0126_var*
+//#UC START# *4AA7E4DC0047_4A92BBDF0126_impl*
+ // - ничего не делаем, пусть потомки разбираются
+//#UC END# *4AA7E4DC0047_4A92BBDF0126_impl*
+//#UC START# *4AA7E4DC0047_4A92BBDF0126_var*
+//#UC END# *4AA7E4DC0047_4A92BBDF0126_var*
+//#UC START# *4B13A1F202D9_4B14F1AB03A0_impl*
+ l_Data := MakeParamsList;
+ l_NeedWrite := False;
+ for l_IDX := Low(f_COunters) to High(f_Counters) do
+ begin
+  l_Data.AddULong(f_Counters[l_IDX]);
+  if f_Counters[l_IDX] > 0 then
+  begin
+   f_Counters[l_IDX] := 0;
+   l_NeedWrite := True;
+  end;
+ end;
+ if l_NeedWrite then
+  GetLogger.AddEvent(LE_USER_OPERATION, l_Data);
+//#UC END# *4B13A1F202D9_4B14F1AB03A0_impl*
+//#UC START# *4B13A1F202D9_4B14F1AB03A0_var*
+var
+ l_Data: InsLogEventData;
+ l_NeedWrite: Boolean;
+ l_IDX: TvcmOperationCallType;
+//#UC END# *4B13A1F202D9_4B14F1AB03A0_var*
+//#UC START# *4B14F1720053_4A92BBDF0126_impl*
+ {$if not defined(Monitorings)}
+ TnsUserOperationEvent.Instance.Log(aKind);
+ {$ifend}
+//#UC END# *4B14F1720053_4A92BBDF0126_impl*
+//#UC START# *4B14F1720053_4A92BBDF0126_var*
+//#UC END# *4B14F1720053_4A92BBDF0126_var*
+//#UC START# *4B14F21C029D_4B14F1AB03A0_impl*
+ Inc(f_Counters[aKind]);
+ RequestWrite;
+//#UC END# *4B14F21C029D_4B14F1AB03A0_impl*
+//#UC START# *4B14F21C029D_4B14F1AB03A0_var*
+//#UC END# *4B14F21C029D_4B14F1AB03A0_var*
+//#UC START# *4F6AF5860291_4A92BBDF0126_impl*
+ l3ExceptionsLog.CheckOpenedLog;
+ //l3SysUtils.ImmDisableIME;
+ InitDefaults;
+ if not RunOtherProcesses then
+  Exit;
+
+ // Создаем форму с заставкой:
+ l_Logo := TLogoForm.Create(nil);
+ try
+  l_Logo.UpdateLoadString(str_ApplicationLoading.AsCStr);
+  {$IFDEF DEBUG}
+  l_Logo.UpdateVerInfo(str_FullVersionMessage.AsCStr);
+  {$ENDIF}
+  l_Logo.Show;
+  afw.ProcessMessages;
+
+  // это надо здесь ! {
+  MakeResources;
+  RegisterOperations;
+  //afw.Application.ApplyActiveLanguage(Tl3ConstStrings.Instance);
+  if (afw.Application <> nil) then
+   if (afw.Application.LocaleInfo <> nil) then
+    if (afw.Application.LocaleInfo.Language <> afw_lngRussian) then
+    begin
+     Assert(g_MenuManager <> nil);
+     afw.Application.ApplyActiveLanguage(g_MenuManager);
+     // - http://mdp.garant.ru/pages/viewpage.action?pageId=631998941&focusedCommentId=633043871#comment-633043871
+    end;//afw.Application.LocaleInfo.Language <> afw_lngRussian
+  // } это надо здесь !
+
+  if not CanRun(l_Logo) then
+   Exit;
+
+  Application.HelpFile := aHelpFile;
+  Application.Title := aTitle.AsStr;
+  // это надо здесь! Иначе для форм логина/регистрации/.. хелп работать не будт
+  TnsAppTitleData.Instance.Title := aTitle.AsStr;
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=562594453
+  if not GlobalInit(l_Logo, l_Splash) then
+   Exit;
+  try
+   TnsContextFilterEventListener.Instance;
+   DoRun(l_Splash);
+   BeforeApplicationRun;
+  except
+   on E: ENoServer do
+   begin
+    if Assigned(l_Logo) then
+      l_Logo.Hide;
+    l_Splash := nil;
+    TerminateProcess(GetCurrentProcess, 255);
+   end;
+   on E: Exception do
+    defDataAdapter.GlobalExceptionRaised(nil, E);
+  end;//try..except
+ finally
+  FreeAndNil(l_Logo);
+ end;//try..finally
+
+ TnsStartupSupport.StartupCompleteNotify;
+ Tf1StartupCompleteNotificationService.Instance.Notify;
+ Application.Run;
+//#UC END# *4F6AF5860291_4A92BBDF0126_impl*
+//#UC START# *4F6AF5860291_4A92BBDF0126_var*
+var
+ l_Splash : IUnknown;
+ l_Logo : TLogoForm;
+//#UC END# *4F6AF5860291_4A92BBDF0126_var*
+//#UC START# *4F6AF5F00058_4A92BBDF0126_impl*
+ inherited;
+ Application.CreateForm(StdRes.TdmStdRes, StdRes.dmStdRes);
+//#UC END# *4F6AF5F00058_4A92BBDF0126_impl*
+//#UC START# *4F6AF5F00058_4A92BBDF0126_var*
+//#UC END# *4F6AF5F00058_4A92BBDF0126_var*

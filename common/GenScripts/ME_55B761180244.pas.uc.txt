@@ -1,0 +1,35 @@
+//#UC START# *479731C50290_55B761180244_impl*
+ f_LogManager := nil;
+ f_LoggingTestService := nil;
+ inherited;
+//#UC END# *479731C50290_55B761180244_impl*
+//#UC START# *479731C50290_55B761180244_var*
+//#UC END# *479731C50290_55B761180244_var*
+//#UC START# *47A042E100E2_55B761180244_impl*
+ inherited;
+ f_LogManager := nil;
+ f_LoggingTestService := TnsLoggingTestService.Instance;
+//#UC END# *47A042E100E2_55B761180244_impl*
+//#UC START# *47A042E100E2_55B761180244_var*
+//#UC END# *47A042E100E2_55B761180244_var*
+//#UC START# *55B760550256_55B761180244_impl*
+ l_LogString := GetEnumName(TypeInfo(TLogEvent), Ord(aLogEvent)) + aData.AsString;
+ f_LoggingTestService.AddLogString(l_LogString);
+ LogManager.AddEvent(aLogEvent, aData.AsLogEventData);
+//#UC END# *55B760550256_55B761180244_impl*
+//#UC START# *55B760550256_55B761180244_var*
+var
+ l_LogString: String;
+//#UC END# *55B760550256_55B761180244_var*
+//#UC START# *55B761180244_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLogManager.pas
+//#UC END# *55B761180244_ext:FileName
+//#UC START# *55B761180244impl_uses*
+//#UC END# *55B761180244impl_uses*
+//#UC START# *55B761D70223_55B761180244get_impl*
+ if not Assigned(f_LogManager) and Assigned(DefDataAdapter) then
+  f_LogManager := DefDataAdapter.LogManager;
+ Result := f_LogManager;
+//#UC END# *55B761D70223_55B761180244get_impl*
+//#UC START# *55B761D70223_55B761180244get_var*
+//#UC END# *55B761D70223_55B761180244get_var*

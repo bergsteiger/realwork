@@ -1,0 +1,38 @@
+//#UC START# *46A5D4220369_5487291700EB_impl*
+ f_Document := nil;
+//#UC END# *46A5D4220369_5487291700EB_impl*
+//#UC START# *46A5D4220369_5487291700EB_var*
+//#UC END# *46A5D4220369_5487291700EB_var*
+//#UC START# *479731C50290_5487291700EB_impl*
+ if (f_Document <> nil) then
+  (Document as IeeToolOwner).RemoveTool(Self);
+ f_Document := nil;
+ inherited;
+//#UC END# *479731C50290_5487291700EB_impl*
+//#UC START# *479731C50290_5487291700EB_var*
+//#UC END# *479731C50290_5487291700EB_var*
+//#UC START# *5487291700EB_ext:FileName
+w:\common\components\gui\Garant\Everest_Engine\eeTagEditorTool.pas
+//#UC END# *5487291700EB_ext:FileName
+//#UC START# *5487291700EBimpl_uses*
+//#UC END# *5487291700EBimpl_uses*
+//#UC START# *54872D7C031E_5487291700EBget_impl*
+ Result := IeeDocumentEx(f_Document);
+//#UC END# *54872D7C031E_5487291700EBget_impl*
+//#UC START# *54872D7C031E_5487291700EBget_var*
+//#UC END# *54872D7C031E_5487291700EBget_var*
+//#UC START# *54872DB8021E_5487291700EB_impl*
+ inherited Create(aTagWrap, aProcessor);
+ f_Document := Pointer(aDocument);
+ if (f_Document <> nil) then
+  (Document as IeeToolOwner).AddTool(Self);
+//#UC END# *54872DB8021E_5487291700EB_impl*
+//#UC START# *54872DB8021E_5487291700EB_var*
+//#UC END# *54872DB8021E_5487291700EB_var*
+//#UC START# *54BD0F310322_5487291700EB_impl*
+ Result := inherited GetProcessor;
+ if (Result = nil) AND (Document <> nil) then
+  Result := Document.Processor;
+//#UC END# *54BD0F310322_5487291700EB_impl*
+//#UC START# *54BD0F310322_5487291700EB_var*
+//#UC END# *54BD0F310322_5487291700EB_var*

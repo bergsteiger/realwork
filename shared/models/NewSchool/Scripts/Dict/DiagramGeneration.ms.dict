@@ -128,12 +128,15 @@ elem_generator diagram.script
  STRING elem_func FinalFileNamePrim
   [
    DiagramsRoot
+  [
    if ( Self .LUID .IsNil ) then
     ( Self .Name )
    else
     ( Self .LUID )
    DiagramExt
-  ] strings:Cat >>> Result
+  ] strings:Cat 
+  ] cPathSep strings:CatSep
+  >>> Result
  ; // FinalFileNamePrim
  
  [
@@ -237,7 +240,7 @@ elem_generator diagram.script
        Dec l_LinkCount
        l_Name MakeView: (
          IN aMade
-        aMade -> OriginalName := ( [ Self .NameInModel ' -> ' aLink .NameInModel ] strings:Cat )
+        aMade -> OriginalName := ( [ Self .NameInModel ' ==> ' aLink .NameInModel ] strings:Cat )
        ) //l_Name MakeView:
        .AddToArray: l_Views
 
@@ -317,7 +320,7 @@ elem_generator diagram.script
         Dec l_LinkCount
         l_Name MakeView: (
           IN aMade
-         aMade -> OriginalName := ( [ anElement .NameInModel ' -> ' aLink .Target .NameInModel ] strings:Cat )
+         aMade -> OriginalName := ( [ anElement .NameInModel ' ==> ' aLink .Target .NameInModel ] strings:Cat )
         ) //l_Name MakeView:
         .AddToArray: l_Views
 

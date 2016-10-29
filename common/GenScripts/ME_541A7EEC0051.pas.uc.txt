@@ -1,0 +1,22 @@
+//#UC START# *4836D52400D9_541A7EEC0051_impl*
+ if (AtomIndex = k2_tiStyle) and (Value.AsInteger = ev_saHyperLinkCont) then
+ begin
+  l_Value := Tk2VariantImpl.Make(ev_saContents);
+  try
+   inherited AddAtomEx(AtomIndex, l_Value);
+  finally
+   l_Value := nil;
+  end;
+ end // if (AtomIndex = k2_tiStyle) and (Value.AsInteger = ev_saHyperLinkCont) then
+ else
+  inherited;
+//#UC END# *4836D52400D9_541A7EEC0051_impl*
+//#UC START# *4836D52400D9_541A7EEC0051_var*
+var
+ l_Value: Tk2Variant;
+//#UC END# *4836D52400D9_541A7EEC0051_var*
+//#UC START# *541A7EEC0051_ext:FileName
+w:\common\components\rtl\Garant\EVD\evdPDFHyperLinkEliminator.pas
+//#UC END# *541A7EEC0051_ext:FileName
+//#UC START# *541A7EEC0051impl_uses*
+//#UC END# *541A7EEC0051impl_uses*

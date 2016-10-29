@@ -1,0 +1,27 @@
+//#UC START# *4F3E401D03AF_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\kwIntegerFactory.pas
+//#UC END# *4F3E401D03AF_ext:FileName
+//#UC START# *4F3E401D03AFimpl_uses*
+//#UC END# *4F3E401D03AFimpl_uses*
+//#UC START# *4F3E412801B7_4F3E401D03AF_impl*
+ if (aValue >= 0) AND (aValue < cLimit) then
+ begin
+  l_KW := Self.Items[aValue];
+  if (l_KW = nil) then
+  begin
+   l_KW := TkwInteger.Create(aValue);
+   Self.Items[aValue] := l_KW;
+   Result := l_KW;
+  end//l_KW = nil
+  else
+   Result := l_KW.Use;
+ end//aValue < cLimit
+ else
+  Result := TkwInteger.Create(aValue);
+//#UC END# *4F3E412801B7_4F3E401D03AF_impl*
+//#UC START# *4F3E412801B7_4F3E401D03AF_var*
+const
+ cLimit = 3000;
+var
+ l_KW : TkwInteger;
+//#UC END# *4F3E412801B7_4F3E401D03AF_var*

@@ -29,7 +29,7 @@ ENDME // ME_492D69E50332 cExportFlag
 ME ME_492D69CC016E
  MEPROP UID '492D69CC016E'
  MEPROP Name 'Flags'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -328,7 +328,6 @@ ENDME // ME_5624AC6402E0 f_InitialNeedApplyPermanentFilters
 ME ME_492D71A7014B
  MEPROP Name 'aNode'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
  ;
 
@@ -369,7 +368,6 @@ ENDME // ME_47F0D913030D NotifyAboutChangeCurrent
 ME ME_492D71AF00AB
  MEPROP Name 'aOnlyFirstLevel'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value true
@@ -465,7 +463,6 @@ ENDME // ME_47F2661502C9 DoOpenDocument
 ME ME_560CE67F015D
  MEPROP Name 'aNewList'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
  ;
 
@@ -474,7 +471,6 @@ ENDME // ME_560CE67F015D aNewList
 ME ME_560CE67F019B
  MEPROP Name 'aAllDocumentsFiltered'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value false
@@ -596,7 +592,6 @@ ENDME // ME_47F61F910350 FinishExporting
 ME ME_47F620EE021D
  MEPROP Name 'aOnlyFirstLevel'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -605,7 +600,6 @@ ENDME // ME_47F620EE021D aOnlyFirstLevel
 ME ME_47F620EE028A
  MEPROP Name 'aOnlySelection'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -631,7 +625,6 @@ ENDME // ME_47F620AB0178 MarkDocumentsForExport
 ME ME_492D71D50398
  MEPROP Name 'aNode'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
  ;
 
@@ -640,7 +633,6 @@ ENDME // ME_492D71D50398 aNode
 ME ME_49538CBB0053
  MEPROP Name 'aOnlyFirstLevel'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -666,7 +658,6 @@ ENDME // ME_47F9BFED004F MarkNodeForExport
 ME ME_492D71DA03AB
  MEPROP Name 'aDoc'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
  ;
 
@@ -693,7 +684,6 @@ ENDME // ME_47FA022002B5 DoMakeDocumentPreview
 ME ME_492D71E500F1
  MEPROP Name 'aNode'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
  ;
 
@@ -748,7 +738,6 @@ ENDME // ME_47FB00640212 DoIsMain
 ME ME_492D71ED010A
  MEPROP Name 'aList'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
  ;
 
@@ -757,7 +746,6 @@ ENDME // ME_492D71ED010A aList
 ME ME_492D71ED01BC
  MEPROP Name 'aOperation'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_47F2791D019A' '4A6854C70390.ms.model.script' // TListLogicOperation
  ;
 
@@ -813,7 +801,6 @@ ENDME // ME_48034E86029A MakeDocumentFromBookmark
 ME ME_4A40751C018C
  MEPROP Name 'aTree'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
  ;
 
@@ -861,7 +848,6 @@ ENDME // ME_525805880132 ApplyFilters
 ME ME_525BC496033E
  MEPROP Name 'aFilters'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
  ;
 
@@ -1458,6 +1444,16 @@ ME ME_5645E9B3035F
 
 ENDME // ME_5645E9B3035F 
 
+ME ME_5811C61B02D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL? 'ME_573A0A7E0387' // TnsSaveDialogExecutor
+ ;
+
+ENDME // ME_5811C61B02D2 
+
 MEREF ME_46A4504B03C4_ME_47E9EDA800FE_impl
  MELINK Original WL 'ME_46A4504B03C4' '4677FBA70343.ms.model.script' // Notify
  ;
@@ -1994,6 +1990,7 @@ ME ME_47E9EDA800FE
  ME_56444F8603B3 // TnsFiltersEnumerator
  ME_56457677010D // InsFiltersEnumerator
  ME_5645E9B3035F // TnsDocumentWithSnippetList
+ ME_5811C61B02D2 // TnsSaveDialogExecutor
  )
  ; // Dependencies
  MESTRINGLIST DiagramsNames

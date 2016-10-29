@@ -1,0 +1,819 @@
+//#UC START# *467D2CB10135_4E732D8B0291_impl*
+ DoStyleTableChanged;
+//#UC END# *467D2CB10135_4E732D8B0291_impl*
+//#UC START# *467D2CB10135_4E732D8B0291_var*
+//#UC END# *467D2CB10135_4E732D8B0291_var*
+//#UC START# *479731C50290_4E732D8B0291_impl*
+ {$IfNDef DesignTimeLibrary}
+ evDelStyleTableSpy(Self);
+ {$EndIf DesignTimeLibrary}
+ l3Free(f_ButtonChangeLink);
+ l3Free(f_HeaderChangeLink);
+ inherited;
+//#UC END# *479731C50290_4E732D8B0291_impl*
+//#UC START# *479731C50290_4E732D8B0291_var*
+//#UC END# *479731C50290_4E732D8B0291_var*
+//#UC START# *47D1602000C6_4E732D8B0291_impl*
+ inherited;
+ ControlStyle := ControlStyle + [csAcceptsControls];
+ Height := c_hfHeight;
+ Width := c_hfWidth;
+ // Увеличим счетчик компонентов
+ Inc(g_HideFieldCount);
+ // Self
+ f_TopImageIndent := c_hfTopImageIndent;
+ with Font do
+ begin
+  Name := 'Arial';
+  Color := clWhite;
+  Style := [fsUnderline, fsBold];
+ end;//with Font
+ f_HeaderChangeLink := TChangeLink.Create;
+ f_HeaderChangeLink.OnChange := OnImageListChange;
+ f_ButtonChangeLink := TChangeLink.Create;
+ f_ButtonChangeLink.OnChange := OnImageListChange;
+ f_Options           := cDefaultOptions;
+ f_TopHeaderIndent   := 0;
+ f_ClientIndent      := 0;
+ f_LeftHeaderIndent  := 0;
+ f_LeftImageIndent   := 0;
+ f_ButtonCloseImage  := -1;
+ f_ButtonOpenImage   := -1;
+ f_HeaderImage       := -1;
+ f_HeaderColor       := c_hfHeaderColor;
+ f_ShowHeight        := 0;
+ f_State             := hfsShow;
+ f_DownPoint         := Point(-1, -1);
+ f_BeforeClientSpace := 0;
+ f_AfterClientSpace  := 0;
+ f_StyleId := evd_saGUI;
+ {$IfNDef DesignTimeLibrary}
+ evAddStyleTableSpy(Self, True);
+ {$EndIf DesignTimeLibrary}
+ DoubleBuffered := True;
+//#UC END# *47D1602000C6_4E732D8B0291_impl*
+//#UC START# *47D1602000C6_4E732D8B0291_var*
+//#UC END# *47D1602000C6_4E732D8B0291_var*
+//#UC START# *48BD1E3C03B5_4E732D8B0291_impl*
+ SetCommands(ovcListCommands, Result);
+//#UC END# *48BD1E3C03B5_4E732D8B0291_impl*
+//#UC START# *48BD1E3C03B5_4E732D8B0291_var*
+//#UC END# *48BD1E3C03B5_4E732D8B0291_var*
+//#UC START# *48BD22E601F2_4E732D8B0291_impl*
+ Result := inherited DoProcessCommand(Cmd, aForce, aCount);
+ if not Result then
+ begin
+  if Assigned(f_OnNeedProcessCommand) then
+   Result := not f_OnNeedProcessCommand(Self, Cmd);
+  if not Result then
+   case Cmd of
+    // Стрелка вниз:
+    ccDown: if lp_CanMoveFocus then
+            begin
+             ClientControl.SetFocus;
+             Result := True;
+            end;//if (ClientControl <> nil) and (ClientControl.CanFocus) then
+    // -:
+    ccTreeCollapse: if hfoCanHide in Options then
+                    begin
+                     State := hfsHide;
+                     Result := True;
+                    end;//if hfoCanHide in Options then
+    // +:
+    ccTreeExpand: if hfoCanHide in Options then
+                  begin
+                   ExchangeState;
+                   Result := True;
+                  end;//if hfoCanHide in Options then
+    // Enter:
+    ccActionItem: if hfoHyperlink in Options then
+                  begin
+                   DoHyperlink;
+                   Result := True;
+                  end else
+                  if hfoCanHide in Options then
+                  begin
+                   ExchangeState;
+                   Result := True;
+                  end//if hfoCanHide in Options then
+   end;//case Cmd of
+ end;//
+//#UC END# *48BD22E601F2_4E732D8B0291_impl*
+//#UC START# *48BD22E601F2_4E732D8B0291_var*
+  function lp_CanMoveFocus: Boolean;
+  begin
+   Result := (ClientControl <> nil) and (ClientControl.CanFocus) and
+    (State = hfsShow);
+  end;//lp_CanMoveFocus
+//#UC END# *48BD22E601F2_4E732D8B0291_var*
+//#UC START# *48C6C044025E_4E732D8B0291_impl*
+ TRect(l_ClientRect) := ClientRect;
+ // зальём фон белым:
+ lp_FillHideField;
+ // зальём заголовок:
+ lp_FillHeader;
+ // покажем рамку фокуса:
+ lp_DrawFocus;
+ // покажем название:
+ lp_DrawCaption;
+ // нарисуем кнопку
+ lp_DrawHideButton;
+ // иконка заголовка
+ lp_DrawIcon;
+//#UC END# *48C6C044025E_4E732D8B0291_impl*
+//#UC START# *48C6C044025E_4E732D8B0291_var*
+var
+ l_ClientRect: Tl3SRect;
+
+ procedure lp_DrawFocus;
+ var
+  l_FocusRect: Tl3SRect;
+ begin
+  l_FocusRect := l_ClientRect;
+  l_FocusRect.Inflate(-1, -1);
+   // - цвет шрифта может совпадать с цветом фона, поэтому рамку нужно рисовать
+   //   внутри рамки заголовка;
+  if Focused then
+   //DrawFocusRect(l_R);
+   with CN.Canvas do
+   begin
+    Pen.Color := Self.Font.Color;
+    Rectangle(TRect(l_FocusRect));
+   end;//if Focused then
+ end;//lp_DrawFocus
+
+ procedure lp_FillHideField;
+ begin
+  with CN do
+  begin
+   BackColor := Self.Color;
+   FillRect(l_ClientRect);
+  end;//with CN do
+ end;//lp_FillHideField
+
+ procedure lp_FillHeader;
+ begin
+  with CN do
+  begin
+   TRect(l_ClientRect) := GetHeaderLineRect;
+   BackColor := f_HeaderColor;
+   FillRect(l_ClientRect);
+  end;//with CN do
+ end;//lp_FillHeader
+
+ procedure lp_DrawCaption;
+ var
+  l_R1: TRect;
+ begin
+  with CN do
+  begin
+   if not l3IsNil(CCaption) then
+   begin
+    l_R1 := CaptionRect;
+    // Выводим
+    Font.AssignFont(Self.Font);
+    DrawText(CCaption.AsWStr, l_R1, DT_VCENTER or DT_SINGLELINE or DT_END_ELLIPSIS);
+   end;//not l3IsNil(CCaption)
+  end;//with CN do
+ end;//lp_DrawCaptions
+
+ procedure lp_DrawHideButton;
+ var
+  l_Image: TImageIndex;
+  l_R1 : TRect;
+  l_X : Integer;
+  l_Y : Integer;
+ begin
+  if (hfoCanHide in f_Options) then
+  begin
+   case f_State of
+    hfsHide:
+     l_Image := f_ButtonOpenImage;
+    hfsShow:
+     l_Image := f_ButtonCloseImage;
+    else
+     l_Image := -1;
+   end;
+   l_Y := 0;
+   if Assigned(f_OnValidateStateChanged) AND not l3IsNil(CCaption) then
+   begin
+    l_R1 := CaptionRect;
+    l_X := l_ClientRect.Left + (l_R1.Right - l_R1.Left) + 4;
+    l_Y := 2;
+   end//if not l3IsNil(CCaption) then
+   else
+    l_X := l_ClientRect.Right - f_ButtonImageList.Width;
+   if CheckImage(f_ButtonImageList, l_Image) then
+    f_ButtonImageList.Draw(CN.Canvas, l_X,
+     l_ClientRect.Top + l_Y + (((l_ClientRect.Bottom - l_ClientRect.Top) - f_ButtonImageList.Height) div 2), l_Image);
+  end;//hfoCanHide in f_Options
+ end;//lp_DrawHideButton
+
+ procedure lp_DrawIcon;
+ begin
+  if CheckImage(f_Images, f_HeaderImage) then
+  begin
+   TRect(l_ClientRect) := GetImageRect;
+   f_Images.Draw(CN.Canvas, l_ClientRect.Left, l_ClientRect.Top, f_HeaderImage);
+  end;//CheckImage
+ end;//lp_DrawIcon
+//#UC END# *48C6C044025E_4E732D8B0291_var*
+//#UC START# *48E22B250241_4E732D8B0291_impl*
+ inherited;
+ if (hfoHyperlink in f_Options) and (not l3IsNil(CCaption)) and
+   (PtInRect(CaptionRect, Point(X, Y)) or
+    PtInRect(GetImageRect, Point(X, Y))) then
+  Windows.SetCursor(Screen.Cursors[crHandPoint])
+ else
+  Windows.SetCursor(Screen.Cursors[crDefault]);
+//#UC END# *48E22B250241_4E732D8B0291_impl*
+//#UC START# *48E22B250241_4E732D8B0291_var*
+//#UC END# *48E22B250241_4E732D8B0291_var*
+//#UC START# *4E732D7F0082_ext:FileName
+w:\common\components\gui\Garant\VT\vtHideField.pas
+//#UC END# *4E732D7F0082_ext:FileName
+//#UC START# *4E732D7F0082ci*
+//#UC END# *4E732D7F0082ci*
+//#UC START# *4E732D7F0082cit*
+//#UC END# *4E732D7F0082cit*
+//#UC START# *4E732D7F0082impl*
+//#UC END# *4E732D7F0082impl*
+//#UC START# *4E732D7F0082impl_uses*
+//#UC END# *4E732D7F0082impl_uses*
+//#UC START# *4E732D7F0082intf_uses*
+//#UC END# *4E732D7F0082intf_uses*
+//#UC START# *4E732D7F0082publ*
+  published
+    property Align;
+    property Caption;
+    property ButtonCloseImage default -1;
+    property ButtonImageList;
+    property ButtonOpenImage default -1;
+    property CaptionIndent default 0;
+    property ClientControl;
+    property Color;
+    property ClientIndent;
+    property HeaderImage default -1;
+    property Images;
+    property LeftHeaderIndent default 0;
+    property LeftImageIndent default 0;
+    property Options;
+    property AfterClientSpace default 0;
+    property BeforeClientSpace default 0;
+    property TopHeaderIndent default 0;
+    property TabOrder;
+    property TopImageIndent default c_hfTopImageIndent;
+    property Width default c_hfWidth;
+    property Height default c_hfHeight;
+    property StyleId {default evd_saGUI};
+    property TabStop;
+  published
+    property OnHyperlinkClick;
+    property OnStateChanged;
+//#UC END# *4E732D7F0082publ*
+//#UC START# *4E7896270076_4E732D8B0291_impl*
+ inherited;
+ if Button = mbLeft then
+ begin
+  l_Point := Point(X, Y);
+  if lp_OpenHyperlink then
+   DoHyperlink
+  else
+   if lp_CanHide then
+    ExchangeState;
+ end;//if Button = mbLeft then
+//#UC END# *4E7896270076_4E732D8B0291_impl*
+//#UC START# *4E7896270076_4E732D8B0291_var*
+var
+ l_Point : TPoint;
+
+ function lp_OpenHyperlink: Boolean;
+ begin
+  Result := (hfoHyperlink in f_Options) and
+            (PtInRect(CaptionRect, l_Point) or
+            (PtInRect(GetImageRect, l_Point))) and
+            (not l3IsNil(CCaption));
+ end;//lp_OpenHyperlink
+
+ function lp_CanHide: Boolean;
+ begin
+  Result := // включено скрытие
+            (hfoCanHide in f_Options) and
+            // мышь между нажитием и отпусканием не двигали
+            PointsEqual(f_DownPoint, l_Point) and
+            // в пределах линии заголовка
+            PtInRect(GetHeaderLineRect, l_Point);
+ end;//lp_CanHide
+//#UC END# *4E7896270076_4E732D8B0291_var*
+//#UC START# *4F88473B03CD_4E732D8B0291_impl*
+ inherited;
+ if Button = mbLeft then
+ begin
+  f_DownPoint := Point(X, Y);
+  if TabStop AND not Focused then
+  begin
+   SetFocus;
+   Invalidate;
+  end;//TabStop AND not Focused
+ end else
+  f_DownPoint := Point(-1, -1);
+//#UC END# *4F88473B03CD_4E732D8B0291_impl*
+//#UC START# *4F88473B03CD_4E732D8B0291_var*
+//#UC END# *4F88473B03CD_4E732D8B0291_var*
+//#UC START# *508F957E0283_4E732D8B0291_impl*
+ inherited;
+ with HeaderRect do
+  Inc(Rect.Top, Bottom - Top);
+ // Отступ слева
+ Inc(Rect.Left, f_ClientIndent);
+ // Отступ снизу
+ Dec(Rect.Bottom, f_AfterClientSpace); 
+//#UC END# *508F957E0283_4E732D8B0291_impl*
+//#UC START# *508F957E0283_4E732D8B0291_var*
+//#UC END# *508F957E0283_4E732D8B0291_var*
+//#UC START# *508F96700139_4E732D8B0291_impl*
+ if Assigned(f_OnStateChanged) then
+  f_OnStateChanged(Self);
+//#UC END# *508F96700139_4E732D8B0291_impl*
+//#UC START# *508F96700139_4E732D8B0291_var*
+//#UC END# *508F96700139_4E732D8B0291_var*
+//#UC START# *5110DC1F02C4_4E732D8B0291set_impl*
+ if aValue <> f_StyleId then
+ begin
+  f_StyleId := aValue;
+  {$IfNDef DesignTimeLibrary}
+  StyleTableChanged;
+  {$EndIf DesignTimeLibrary}
+ end;//if aValue <> f_StyleId then
+//#UC END# *5110DC1F02C4_4E732D8B0291set_impl*
+//#UC START# *5110DC1F02C4_4E732D8B0291set_var*
+//#UC END# *5110DC1F02C4_4E732D8B0291set_var*
+//#UC START# *5110DD530218_4E732D8B0291set_impl*
+ if f_ShowHeight <> aValue then
+ begin
+  f_ShowHeight := aValue;
+  if (f_State = hfsShow) and not (Align in [alClient, alLeft, alRight]) then
+   Height := f_ShowHeight;
+ end;
+//#UC END# *5110DD530218_4E732D8B0291set_impl*
+//#UC START# *5110DD530218_4E732D8B0291set_var*
+//#UC END# *5110DD530218_4E732D8B0291set_var*
+//#UC START# *5110DD72026C_4E732D8B0291get_impl*
+ with HeaderRect do
+  Result := Bottom - Top;
+//#UC END# *5110DD72026C_4E732D8B0291get_impl*
+//#UC START# *5110DD72026C_4E732D8B0291get_var*
+//#UC END# *5110DD72026C_4E732D8B0291get_var*
+//#UC START# *5110DD8902D1_4E732D8B0291set_impl*
+ if f_TopHeaderIndent <> aValue then
+ begin
+  f_TopHeaderIndent := aValue;
+  Rebuild;
+ end;
+//#UC END# *5110DD8902D1_4E732D8B0291set_impl*
+//#UC START# *5110DD8902D1_4E732D8B0291set_var*
+//#UC END# *5110DD8902D1_4E732D8B0291set_var*
+//#UC START# *5110DDB602F6_4E732D8B0291set_impl*
+ if f_AfterClientSpace <> aValue then
+ begin
+  f_AfterClientSpace := aValue;
+  Rebuild;
+ end;
+//#UC END# *5110DDB602F6_4E732D8B0291set_impl*
+//#UC START# *5110DDB602F6_4E732D8B0291set_var*
+//#UC END# *5110DDB602F6_4E732D8B0291set_var*
+//#UC START# *5110DDE30377_4E732D8B0291set_impl*
+ if f_BeforeClientSpace <> aValue then
+ begin
+  f_BeforeClientSpace := aValue;
+  Rebuild;
+ end;
+//#UC END# *5110DDE30377_4E732D8B0291set_impl*
+//#UC START# *5110DDE30377_4E732D8B0291set_var*
+//#UC END# *5110DDE30377_4E732D8B0291set_var*
+//#UC START# *5110DE5C018F_4E732D8B0291set_impl*
+ f_Options := aValue;
+ Invalidate;
+//#UC END# *5110DE5C018F_4E732D8B0291set_impl*
+//#UC START# *5110DE5C018F_4E732D8B0291set_var*
+//#UC END# *5110DE5C018F_4E732D8B0291set_var*
+//#UC START# *5110DE5C018FStored_4E732D8B0291_impl*
+ Result := f_Options <> cDefaultOptions;;
+//#UC END# *5110DE5C018FStored_4E732D8B0291_impl*
+//#UC START# *5110DE5C018FStored_4E732D8B0291_var*
+//#UC END# *5110DE5C018FStored_4E732D8B0291_var*
+//#UC START# *5110DE7900DD_4E732D8B0291set_impl*
+ if f_ClientIndent <> aValue then
+ begin
+  f_ClientIndent := aValue;
+  Rebuild;
+ end;
+//#UC END# *5110DE7900DD_4E732D8B0291set_impl*
+//#UC START# *5110DE7900DD_4E732D8B0291set_var*
+//#UC END# *5110DE7900DD_4E732D8B0291set_var*
+//#UC START# *5110E07D03D6_4E732D8B0291set_impl*
+ if f_HeaderColor <> aValue then
+ begin
+  f_HeaderColor := aValue;
+  Rebuild;
+ end;
+//#UC END# *5110E07D03D6_4E732D8B0291set_impl*
+//#UC START# *5110E07D03D6_4E732D8B0291set_var*
+//#UC END# *5110E07D03D6_4E732D8B0291set_var*
+//#UC START# *5110E16E0250_4E732D8B0291set_impl*
+ if (f_ButtonImageList <> aValue) then
+ begin
+  if (f_ButtonChangeLink <> nil) AND (f_ButtonChangeLink.Sender = nil) then
+   // - список картинок уже убит - надо его зачистить
+   f_ButtonImageList := nil;
+  // отрегистрируем
+  if Assigned(f_ButtonImageList) then
+   f_ButtonImageList.UnRegisterChanges(f_ButtonChangeLink);
+  // зарегистрируем
+  f_ButtonImageList := aValue;
+  if Assigned(f_ButtonImageList) then
+   f_ButtonImageList.RegisterChanges(f_ButtonChangeLink);
+  Rebuild;
+ end;
+//#UC END# *5110E16E0250_4E732D8B0291set_impl*
+//#UC START# *5110E16E0250_4E732D8B0291set_var*
+//#UC END# *5110E16E0250_4E732D8B0291set_var*
+//#UC START# *5110E2580305_4E732D8B0291set_impl*
+ if f_ButtonOpenImage <> aValue then
+ begin
+  f_ButtonOpenImage := aValue;
+  Rebuild;
+ end;
+//#UC END# *5110E2580305_4E732D8B0291set_impl*
+//#UC START# *5110E2580305_4E732D8B0291set_var*
+//#UC END# *5110E2580305_4E732D8B0291set_var*
+//#UC START# *5110E2E302A3_4E732D8B0291set_impl*
+ if f_ButtonCloseImage <> aValue then
+ begin
+  f_ButtonCloseImage := aValue;
+  Rebuild;
+ end;
+//#UC END# *5110E2E302A3_4E732D8B0291set_impl*
+//#UC START# *5110E2E302A3_4E732D8B0291set_var*
+//#UC END# *5110E2E302A3_4E732D8B0291set_var*
+//#UC START# *5110E32A0238_4E732D8B0291set_impl*
+ if f_HeaderImage <> aValue then
+ begin
+  f_HeaderImage := aValue;
+  Rebuild;
+ end;
+//#UC END# *5110E32A0238_4E732D8B0291set_impl*
+//#UC START# *5110E32A0238_4E732D8B0291set_var*
+//#UC END# *5110E32A0238_4E732D8B0291set_var*
+//#UC START# *5110E37A0105_4E732D8B0291set_impl*
+ if f_CaptionIndent <> aValue then
+ begin
+  f_CaptionIndent := aValue;
+  Rebuild;
+ end;//if f_CaptionIndent <> aValue then
+//#UC END# *5110E37A0105_4E732D8B0291set_impl*
+//#UC START# *5110E37A0105_4E732D8B0291set_var*
+//#UC END# *5110E37A0105_4E732D8B0291set_var*
+//#UC START# *5110E4050114_4E732D8B0291set_impl*
+ if f_LeftImageIndent <> aValue then
+ begin
+  f_LeftImageIndent := aValue;
+  Rebuild;
+ end;
+//#UC END# *5110E4050114_4E732D8B0291set_impl*
+//#UC START# *5110E4050114_4E732D8B0291set_var*
+//#UC END# *5110E4050114_4E732D8B0291set_var*
+//#UC START# *5110E46E02FC_4E732D8B0291set_impl*
+ if f_TopImageIndent <> aValue then
+ begin
+  f_TopImageIndent := aValue;
+  Rebuild;
+ end;
+//#UC END# *5110E46E02FC_4E732D8B0291set_impl*
+//#UC START# *5110E46E02FC_4E732D8B0291set_var*
+//#UC END# *5110E46E02FC_4E732D8B0291set_var*
+//#UC START# *5110E4CD02AE_4E732D8B0291set_impl*
+ if f_LeftHeaderIndent <> aValue then
+ begin
+  f_LeftHeaderIndent := aValue;
+  Rebuild;
+ end;
+//#UC END# *5110E4CD02AE_4E732D8B0291set_impl*
+//#UC START# *5110E4CD02AE_4E732D8B0291set_var*
+//#UC END# *5110E4CD02AE_4E732D8B0291set_var*
+//#UC START# *5110E5130372_4E732D8B0291set_impl*
+ if (aValue <> f_Images) then
+ begin
+  if (f_HeaderChangeLink <> nil) AND (f_HeaderChangeLink.Sender = nil) then
+   // - список картинок уже убит - надо его зачистить
+   f_Images := nil;
+  // отрегистрируем
+  if Assigned(f_Images) then
+   f_Images.UnRegisterChanges(f_HeaderChangeLink);
+  // зарегистрируем
+  f_Images := aValue;
+  if Assigned(f_Images) then
+   f_Images.RegisterChanges(f_HeaderChangeLink);
+  Rebuild;
+ end;
+//#UC END# *5110E5130372_4E732D8B0291set_impl*
+//#UC START# *5110E5130372_4E732D8B0291set_var*
+//#UC END# *5110E5130372_4E732D8B0291set_var*
+//#UC START# *5110E5650373_4E732D8B0291set_impl*
+ f_ClientControl := aValue;
+ if Assigned(f_ClientControl) then
+  with f_ClientControl do
+  begin
+   Align := alClient;
+   Parent := Self;
+   if State = hfsHide then
+    HideControl;
+  end;//with f_ClientControl do
+//#UC END# *5110E5650373_4E732D8B0291set_impl*
+//#UC START# *5110E5650373_4E732D8B0291set_var*
+//#UC END# *5110E5650373_4E732D8B0291set_var*
+//#UC START# *5110E5A70033_4E732D8B0291set_impl*
+ if aValue <> f_State then
+ begin
+  f_State := aValue;
+  if Assigned(f_OnValidateStateChanged) then
+   f_OnValidateStateChanged(Self, f_State);
+  if (f_State <> aValue) then
+   Exit;
+  case f_State of
+   // показать
+   hfsShow:
+   begin
+    if ClientControl <> nil then
+     ClientControl.Show;
+    Height := f_ShowHeight;
+   end;//hfsShow
+   // скрыть
+   hfsHide:
+   begin
+    f_ShowHeight := Height;
+    MakeHideHeight;
+    if ClientControl <> nil then
+     ClientControl.Hide;
+   end;//hfsHide
+  end;//case f_State of
+  l_Rect := ClientRect;
+  AlignControls(nil, l_Rect); // http://mdp.garant.ru/pages/viewpage.action?pageId=336665276&focusedCommentId=337514167#comment-337514167
+  DoStateChanged;
+ end;//if aValue <> f_State then
+//#UC END# *5110E5A70033_4E732D8B0291set_impl*
+//#UC START# *5110E5A70033_4E732D8B0291set_var*
+var
+ l_Rect: TRect;
+//#UC END# *5110E5A70033_4E732D8B0291set_var*
+//#UC START# *5110E710033A_4E732D8B0291get_impl*
+ Result := GetHeaderLineRect;
+ l_I := Result.Left;
+ // Выводим после иконки:
+ if CheckImage(f_Images, f_HeaderImage) then
+  l_I := Max(l_I, f_LeftImageIndent + f_Images.Width);
+ // Отсуп названия:
+ Inc(l_I, f_CaptionIndent);
+ Result.Left := Max(Result.Left, l_I);
+ // Учтем иконку свернуть/развернуть справа от заголовка:
+ if CheckImage(f_ButtonImageList, f_ButtonCloseImage) then
+  Result.Right := Result.Right - f_ButtonImageList.Width;
+ // Реальная длина
+ SetRectEmpty(l_R);
+ if not l3IsNil(CCaption) then
+ begin
+  l_IC := l3CrtIC;
+  l_IC.Font.AssignFont(Font);
+  l_IC.PasswordChar := #0; // http://mdp.garant.ru/pages/viewpage.action?pageId=294589287
+  l_IC.DrawText(CCaption.AsWStr, l_R, DT_SINGLELINE or DT_CALCRECT);
+  l_I := Min(Result.Right - Result.Left, l_R.Right);
+  Result.Right := Result.Left + l_I;
+ end;//not l3IsNil(CCaption)
+//#UC END# *5110E710033A_4E732D8B0291get_impl*
+//#UC START# *5110E710033A_4E732D8B0291get_var*
+var
+ l_I  : Integer;
+ l_R  : TRect;
+ l_IC : Il3InfoCanvas;
+//#UC END# *5110E710033A_4E732D8B0291get_var*
+//#UC START# *5110E73702B2_4E732D8B0291get_impl*
+ SetRectEmpty(Result);
+ Result := ClientRect;
+ l_I := 0;
+ // Высота иконки заголовка
+ if CheckImage(f_Images, f_HeaderImage) then
+  l_I := f_Images.Height + f_TopImageIndent;
+ // Высота заголовка
+ l_BeforeClientSpace := 0;
+ if Assigned(f_ClientControl) then
+  l_BeforeClientSpace := f_BeforeClientSpace;
+ Result.Bottom := Max(Result.Top + l_I, GetHeaderLineRect.Bottom) +
+  l_BeforeClientSpace;
+//#UC END# *5110E73702B2_4E732D8B0291get_impl*
+//#UC START# *5110E73702B2_4E732D8B0291get_var*
+var
+ l_I                 : Integer;
+ l_BeforeClientSpace : Integer;
+//#UC END# *5110E73702B2_4E732D8B0291get_var*
+//#UC START# *5110E8730017_4E732D8B0291_impl*
+ Result := Assigned(aImages) and (aImageIndex <> -1) and (aImageIndex < aImages.Count);
+//#UC END# *5110E8730017_4E732D8B0291_impl*
+//#UC START# *5110E8730017_4E732D8B0291_var*
+//#UC END# *5110E8730017_4E732D8B0291_var*
+//#UC START# *5110E8D4004F_4E732D8B0291_impl*
+ if Assigned(f_OnHyperlinkClick) then
+  f_OnHyperlinkClick(Self);
+//#UC END# *5110E8D4004F_4E732D8B0291_impl*
+//#UC START# *5110E8D4004F_4E732D8B0291_var*
+//#UC END# *5110E8D4004F_4E732D8B0291_var*
+//#UC START# *5110E94B0295_4E732D8B0291_impl*
+ Rebuild;
+//#UC END# *5110E94B0295_4E732D8B0291_impl*
+//#UC START# *5110E94B0295_4E732D8B0291_var*
+//#UC END# *5110E94B0295_4E732D8B0291_var*
+//#UC START# *5110E98600A4_4E732D8B0291_impl*
+ case f_State of
+  hfsHide: State := hfsShow;
+ else
+  State := hfsHide;
+ end;
+//#UC END# *5110E98600A4_4E732D8B0291_impl*
+//#UC START# *5110E98600A4_4E732D8B0291_var*
+//#UC END# *5110E98600A4_4E732D8B0291_var*
+//#UC START# *5110E9B3001D_4E732D8B0291_impl*
+ Result := ClientRect;
+ // Верхняя точка
+ Result.Top := f_TopHeaderIndent;
+ // Высота заголовка
+ Result.Bottom := Result.Top + GetHeaderLineHeight;
+ // Отступ слева
+ Result.Left := f_LeftHeaderIndent;
+//#UC END# *5110E9B3001D_4E732D8B0291_impl*
+//#UC START# *5110E9B3001D_4E732D8B0291_var*
+//#UC END# *5110E9B3001D_4E732D8B0291_var*
+//#UC START# *5110E9DF0198_4E732D8B0291_impl*
+ // Высота текста
+ SetRectEmpty(lRect);
+ l_IC := l3CrtIC;
+ l_IC.Font.AssignFont(Font);
+ if l3IsNil(CCaption) then
+  lStr := l3CStr('W')
+ else
+  lStr := CCaption;
+ l_IC.DrawText(lStr.AsWStr, lRect, DT_CALCRECT);
+ // Высота кнопки заголовка
+ lI := 0;
+ if CheckImage(f_ButtonImageList, f_ButtonOpenImage) then
+  lI := f_ButtonImageList.Height;
+ // Наибольшая высота
+ Result := Max(lRect.Bottom, lI);
+ // Добавим снизу и сверху по 2 дополнительных пикселя
+ Inc(Result, 4);
+//#UC END# *5110E9DF0198_4E732D8B0291_impl*
+//#UC START# *5110E9DF0198_4E732D8B0291_var*
+var
+ lRect : TRect;
+ lI    : Integer;
+ lStr  : Il3CString;
+ l_IC  : Il3InfoCanvas;
+//#UC END# *5110E9DF0198_4E732D8B0291_var*
+//#UC START# *5110EA09030A_4E732D8B0291_impl*
+ with Result do
+ begin
+  Left := f_LeftImageIndent;
+  Top := GetImageTop;
+  if f_Images <> nil then
+  begin
+   Right := Left + f_Images.Width;
+   Bottom := Top + f_Images.Height;
+  end
+  else
+  begin
+   Right := Left;
+   Bottom := Top;
+  end;
+ end;
+//#UC END# *5110EA09030A_4E732D8B0291_impl*
+//#UC START# *5110EA09030A_4E732D8B0291_var*
+//#UC END# *5110EA09030A_4E732D8B0291_var*
+//#UC START# *5110EAD80111_4E732D8B0291_impl*
+ Result := ClientRect.Top + f_TopImageIndent;
+//#UC END# *5110EAD80111_4E732D8B0291_impl*
+//#UC START# *5110EAD80111_4E732D8B0291_var*
+//#UC END# *5110EAD80111_4E732D8B0291_var*
+//#UC START# *5110EB070102_4E732D8B0291_impl*
+ if not (csLoading in ComponentState) then
+ begin
+  case f_State of
+   hfsShow: Realign;
+   hfsHide: MakeHideHeight;
+  end;//case f_State
+  Invalidate;
+ end;//not (csLoading in ComponentState)
+//#UC END# *5110EB070102_4E732D8B0291_impl*
+//#UC START# *5110EB070102_4E732D8B0291_var*
+//#UC END# *5110EB070102_4E732D8B0291_var*
+//#UC START# *5110EB2F030B_4E732D8B0291_impl*
+ with HeaderRect do
+  Self.Height := Bottom - Top;
+//#UC END# *5110EB2F030B_4E732D8B0291_impl*
+//#UC START# *5110EB2F030B_4E732D8B0291_var*
+//#UC END# *5110EB2F030B_4E732D8B0291_var*
+//#UC START# *5110EB5702F3_4E732D8B0291_impl*
+ Use;
+ try
+  afw.BeginOp;
+  try
+   l_Time := GetTickCount;
+   Result := ProcessMessage(TMessage(Msg), l_Time);
+   if Result then
+    Msg.Result := -1;
+  finally
+   afw.EndOp;
+  end;//try..finally
+ finally
+  Free;
+ end;//try..finally
+//#UC END# *5110EB5702F3_4E732D8B0291_impl*
+//#UC START# *5110EB5702F3_4E732D8B0291_var*
+var
+ l_Time: Cardinal;
+//#UC END# *5110EB5702F3_4E732D8B0291_var*
+//#UC START# *5110EBF201E1_4E732D8B0291_impl*
+ inherited;
+ lControl := TControl(Message.WParam);
+ // компонент добавили
+ if Boolean(Message.LParam) then
+ begin
+  if (lControl <> f_ClientControl) then
+   ClientControl := TWinControl(lControl);
+ end
+ // компонент удалили
+ else
+  if f_ClientControl = lControl then
+   ClientControl := nil;
+//#UC END# *5110EBF201E1_4E732D8B0291_impl*
+//#UC START# *5110EBF201E1_4E732D8B0291_var*
+var
+ lControl : TControl;
+//#UC END# *5110EBF201E1_4E732D8B0291_var*
+//#UC START# *5110EC050384_4E732D8B0291_impl*
+ Message.Result := 1;
+//#UC END# *5110EC050384_4E732D8B0291_impl*
+//#UC START# *5110EC050384_4E732D8B0291_var*
+//#UC END# *5110EC050384_4E732D8B0291_var*
+//#UC START# *5110EC1D028D_4E732D8B0291_impl*
+ inherited;
+ if not (csLoading in ComponentState) then
+  Invalidate;
+//#UC END# *5110EC1D028D_4E732D8B0291_impl*
+//#UC START# *5110EC1D028D_4E732D8B0291_var*
+//#UC END# *5110EC1D028D_4E732D8B0291_var*
+//#UC START# *5110EC4100FE_4E732D8B0291_impl*
+ inherited;
+ if not (csLoading in ComponentState) then
+  Invalidate;
+//#UC END# *5110EC4100FE_4E732D8B0291_impl*
+//#UC START# *5110EC4100FE_4E732D8B0291_var*
+//#UC END# *5110EC4100FE_4E732D8B0291_var*
+//#UC START# *5110EC5900F2_4E732D8B0291_impl*
+ inherited;
+ Invalidate;
+//#UC END# *5110EC5900F2_4E732D8B0291_impl*
+//#UC START# *5110EC5900F2_4E732D8B0291_var*
+//#UC END# *5110EC5900F2_4E732D8B0291_var*
+//#UC START# *5110EC6D0373_4E732D8B0291_impl*
+ inherited;
+ Invalidate;
+//#UC END# *5110EC6D0373_4E732D8B0291_impl*
+//#UC START# *5110EC6D0373_4E732D8B0291_var*
+//#UC END# *5110EC6D0373_4E732D8B0291_var*
+//#UC START# *5110EC890276_4E732D8B0291_impl*
+ if not IsHandledShortcut(Msg) then
+  inherited;
+//#UC END# *5110EC890276_4E732D8B0291_impl*
+//#UC START# *5110EC890276_4E732D8B0291_var*
+//#UC END# *5110EC890276_4E732D8B0291_var*
+//#UC START# *5110ECA600E4_4E732D8B0291_impl*
+ if not IsHandledShortcut(Msg) then
+  inherited;
+//#UC END# *5110ECA600E4_4E732D8B0291_impl*
+//#UC START# *5110ECA600E4_4E732D8B0291_var*
+//#UC END# *5110ECA600E4_4E732D8B0291_var*
+//#UC START# *51124356016F_4E732D8B0291_impl*
+ with TevStyleInterface.Make(k2_typTextPara, f_StyleId) do
+ try
+  Font.Assign2Font(Self.Font);
+  HeaderColor := Font.BackColor;
+ finally
+  Free;
+ end;//try..finally
+//#UC END# *51124356016F_4E732D8B0291_impl*
+//#UC START# *51124356016F_4E732D8B0291_var*
+//#UC END# *51124356016F_4E732D8B0291_var*
+//#UC START# *5295F76F02C5_4E732D8B0291_impl*
+ if (f_ClientControl <> nil) then
+  f_ClientControl.Hide;
+//#UC END# *5295F76F02C5_4E732D8B0291_impl*
+//#UC START# *5295F76F02C5_4E732D8B0291_var*
+//#UC END# *5295F76F02C5_4E732D8B0291_var*

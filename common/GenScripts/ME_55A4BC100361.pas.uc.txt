@@ -1,0 +1,92 @@
+//#UC START# *479731C50290_55A4BC100361_impl*
+ FreeAndNil(f_FormList);
+ inherited;
+//#UC END# *479731C50290_55A4BC100361_impl*
+//#UC START# *479731C50290_55A4BC100361_var*
+//#UC END# *479731C50290_55A4BC100361_var*
+//#UC START# *55A4BB09012B_55A4BC100361_impl*
+ for l_Index := 0 to Pred(aFormSet.EntitiesCount) do
+ begin
+  if Supports(aFormSet.Entity[l_Index], IvcmEntityForm, l_Form) then
+  try
+   f_Items.Add(MakeItem(aFormSet, aContainer, l_Form));
+  finally
+   l_Form := nil;
+  end;
+ end;
+//#UC END# *55A4BB09012B_55A4BC100361_impl*
+//#UC START# *55A4BB09012B_55A4BC100361_var*
+var
+ l_Index: Integer;
+ l_Entity: IvcmEntity;
+ l_Form: IvcmEntityForm;
+//#UC END# *55A4BB09012B_55A4BC100361_var*
+//#UC START# *55A4BB850020_55A4BC100361_impl*
+ Result := TvcmFormSetFormHistoryItem.Make(aForm);
+//#UC END# *55A4BB850020_55A4BC100361_impl*
+//#UC START# *55A4BB850020_55A4BC100361_var*
+//#UC END# *55A4BB850020_55A4BC100361_var*
+//#UC START# *55A4BC100361_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmFormSetHistory.pas
+//#UC END# *55A4BC100361_ext:ParentFileName
+//#UC START# *55A4BC700145_55A4BC100361_impl*
+ inherited;
+ f_FormList := TvcmFormSetFormList.Create;
+ if aForClone then
+  f_FormSetToClone := aFormSet;
+ aFormSet.SaveFormList(f_FormList);
+ if (f_FormSetToClone <> nil) then
+ begin
+  f_DataSource := aFormSet.DataSource.MakeClone;
+  f_DataSource.FormSet := nil;
+ end
+ else
+  f_DataSource := aFormSet.DataSource;
+ f_Factory := aFormSet.Factory.GetSimpleFactory;
+ f_DataSource.PopToHistory; 
+//#UC END# *55A4BC700145_55A4BC100361_impl*
+//#UC START# *55A4BC700145_55A4BC100361_var*
+//#UC END# *55A4BC700145_55A4BC100361_var*
+//#UC START# *55A4C21A006B_55A4BC100361_impl*
+ f_DataSource.PushFromHistory;
+ aFormSet := f_Factory.MakeFormSet(f_DataSource, aContainer, False, False, f_FormSetToClone);
+
+// aFormSet.AssignFormList(f_FormList);
+// aFormSet.Refresh(nil);
+
+ for l_Index := 0 to Pred(aFormSet.EntitiesCount) do
+ begin
+  l_Form := aFormSet.Entity[l_Index].AsForm;
+  l_FormItem := lp_GetFormItem(l_Form);
+  if (l_FormItem <> nil) and
+     (l_Formitem.FormData <> nil) then
+    DoLoadFormState(l_Form, l_FormItem);
+ end;
+//#UC END# *55A4C21A006B_55A4BC100361_impl*
+//#UC START# *55A4C21A006B_55A4BC100361_var*
+
+ function lp_GetFormItem(const aForm: IvcmEntityForm): IvcmFormSetFormHistoryItem;
+ var
+  l_Index: Integer;
+  l_Item: IvcmFormSetFormHistoryItem;
+ begin
+  Result := nil;
+  for l_Index := 0 to Pred(f_Items.Count) do
+  begin
+    l_Item := f_Items[l_Index];
+    if (aForm.SameName(l_Item.FormID)) and
+       (l_Item.ZoneType = aForm.ZoneType) and
+       (l_Item.UserType = aForm.UserType) and
+       (l_Item.SubUserType = aForm.SubUserType) then
+    begin
+     Result := l_Item;
+     Break;
+    end;
+  end;
+ end;
+
+var
+ l_Index: Integer;
+ l_Form: IvcmEntityForm;
+ l_FormItem: IvcmFormSetFormHistoryItem;
+//#UC END# *55A4C21A006B_55A4BC100361_var*

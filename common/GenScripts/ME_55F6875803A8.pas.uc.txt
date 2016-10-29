@@ -1,0 +1,245 @@
+//#UC START# *479731C50290_55F6875803A8_impl*
+ FreeAndNil(f_LongProcessList);
+ FreeAndNil(f_Listeners);
+ FreeAndNil(f_TransactionsLocks);
+ inherited;
+//#UC END# *479731C50290_55F6875803A8_impl*
+//#UC START# *479731C50290_55F6875803A8_var*
+//#UC END# *479731C50290_55F6875803A8_var*
+//#UC START# *55F6875803A8_ext:FileName
+w:\common\components\rtl\Garant\PG\pgConnection.pas
+//#UC END# *55F6875803A8_ext:FileName
+//#UC START# *55F6875803A8impl_uses*
+//#UC END# *55F6875803A8impl_uses*
+//#UC START# *55F68CE401CB_55F6875803A8_impl*
+ ConnectAs('postgres','admin','archi', aParams);
+//#UC END# *55F68CE401CB_55F6875803A8_impl*
+//#UC START# *55F68CE401CB_55F6875803A8_var*
+//#UC END# *55F68CE401CB_55F6875803A8_var*
+//#UC START# *55F68CFA009F_55F6875803A8_impl*
+ if Assigned(f_Handle) then
+ begin
+  try
+   if PQstatus(f_Handle) <> CONNECTION_OK then
+    raise EPgError.Create(PQerrorMessage(f_Handle))
+  finally
+   NotifyBeforeDisconnect;
+   PQfinish(f_Handle);
+   f_Handle := nil;
+  end;
+ end;
+//#UC END# *55F68CFA009F_55F6875803A8_impl*
+//#UC START# *55F68CFA009F_55F6875803A8_var*
+var
+ l_Message: AnsiString;
+//#UC END# *55F68CFA009F_55F6875803A8_var*
+//#UC START# *55F68D160072_55F6875803A8_impl*
+ Result := Assigned(f_Handle);
+//#UC END# *55F68D160072_55F6875803A8_impl*
+//#UC START# *55F68D160072_55F6875803A8_var*
+//#UC END# *55F68D160072_55F6875803A8_var*
+//#UC START# *55F7BAE0023F_55F6875803A8_impl*
+ Result := Format('postgresql://%s:%s@%s:%d/%s?client_encoding=WIN1251',
+  [anUser, aPassword, aParams.DataServerHostName, aParams.DataServerPort, aDatabase]);
+//#UC END# *55F7BAE0023F_55F6875803A8_impl*
+//#UC START# *55F7BAE0023F_55F6875803A8_var*
+//#UC END# *55F7BAE0023F_55F6875803A8_var*
+//#UC START# *564EE49B000D_55F6875803A8_impl*
+ Result := LockAction(pg_laLock, Level);
+//#UC END# *564EE49B000D_55F6875803A8_impl*
+//#UC START# *564EE49B000D_55F6875803A8_var*
+//#UC END# *564EE49B000D_55F6875803A8_var*
+//#UC START# *564EE4C50158_55F6875803A8_impl*
+ if not LockAction(pg_laUnLock, Level) then
+  EPgError.Create('Не удалось отпустить базу');
+//#UC END# *564EE4C50158_55F6875803A8_impl*
+//#UC START# *564EE4C50158_55F6875803A8_var*
+//#UC END# *564EE4C50158_55F6875803A8_var*
+//#UC START# *564EE4E40187_55F6875803A8_impl*
+ if PQstatus(f_Handle) <> CONNECTION_OK then
+  raise Exception.Create(PQerrorMessage(f_Handle));
+
+ l_Result := PQExec(f_Handle, PAnsiChar(Format('select %s(%d)', [cMap[Action, Level], LockValue])));
+ try
+  if not (PQresultStatus(l_Result) in [PGRES_EMPTY_QUERY, PGRES_COMMAND_OK, PGRES_TUPLES_OK]) then
+   raise EpgError.Create(PQresultErrorMessage(l_Result));
+
+  Assert(PQntuples(l_Result) = 1);
+  Assert(PQnfields(l_Result) = 1);
+  Result := AnsiSameText(PQgetvalue(l_Result, 0, 0), 't');
+ finally
+  PQclear(l_Result);
+ end;
+//#UC END# *564EE4E40187_55F6875803A8_impl*
+//#UC START# *564EE4E40187_55F6875803A8_var*
+var
+  l_Result: PPGResult;
+const
+  cMap: array[TpgLockAction, TpgLockLevel] of String = (
+   ('pg_try_advisory_lock_shared', 'pg_try_advisory_lock'),  // Lock
+   ('pg_advisory_unlock_shared', 'pg_advisory_unlock')   // unLock
+  );
+//#UC END# *564EE4E40187_55F6875803A8_var*
+//#UC START# *565D75140131_55F6875803A8_impl*
+ Result := False;
+ try
+  DoBeginTransaction(aTables);
+  Result := True;
+ except
+  on EpgLockError do
+  begin
+   if Assigned(f_LongProcessList) then
+    f_LongProcessList.LongProcessNotify(da_psStart);
+   try
+    repeat
+     Sleep(200);
+     try
+      DoBeginTransaction(aTables);
+      Result := True;
+      Exit;
+     except
+      on EpgLockError do
+      begin
+       if Assigned(f_LongProcessList) and f_LongProcessList.LongProcessNotify(da_psCurrent) then
+        Exit;
+      end;
+     end;
+    until False;
+   finally
+    if Assigned(f_LongProcessList) then
+     f_LongProcessList.LongProcessNotify(da_psEnd);
+   end;
+  end;
+ end;
+//#UC END# *565D75140131_55F6875803A8_impl*
+//#UC START# *565D75140131_55F6875803A8_var*
+//#UC END# *565D75140131_55F6875803A8_var*
+//#UC START# *565D753001A0_55F6875803A8_impl*
+ Assert(IsInTransaction);
+ if f_TransactionsLocks.Count = 1 then
+  ExecSQLCommand('COMMIT');
+ UnLockTransactionTables(f_TransactionsLocks.Last);
+ f_TransactionsLocks.Delete(f_TransactionsLocks.Count - 1);
+//#UC END# *565D753001A0_55F6875803A8_impl*
+//#UC START# *565D753001A0_55F6875803A8_var*
+//#UC END# *565D753001A0_55F6875803A8_var*
+//#UC START# *565D753C0370_55F6875803A8_impl*
+ Assert(IsInTransaction);
+ if f_TransactionsLocks.Count = 1 then
+  ExecSQLCommand('ROLLBACK');
+ UnLockTransactionTables(f_TransactionsLocks.Last);
+ f_TransactionsLocks.Delete(f_TransactionsLocks.Count - 1);
+ if IsInTransaction then
+  raise EpgInnerTransactionFailed.Create('');
+//#UC END# *565D753C0370_55F6875803A8_impl*
+//#UC START# *565D753C0370_55F6875803A8_var*
+//#UC END# *565D753C0370_55F6875803A8_var*
+//#UC START# *565D75C902C3_55F6875803A8_impl*
+ if not LockAction(pg_laLock, pg_llExclusive, Ord(aTableID)) then
+  raise EpgLockError.CreateFmt('Can''t lock table %s', [GetEnumName(TypeInfo(TdaTables), ord(aTableID))]);
+//#UC END# *565D75C902C3_55F6875803A8_impl*
+//#UC START# *565D75C902C3_55F6875803A8_var*
+//#UC END# *565D75C902C3_55F6875803A8_var*
+//#UC START# *565D75E80254_55F6875803A8_impl*
+ LockAction(pg_laUnLock, pg_llExclusive, Ord(aTableID));
+//#UC END# *565D75E80254_55F6875803A8_impl*
+//#UC START# *565D75E80254_55F6875803A8_var*
+//#UC END# *565D75E80254_55F6875803A8_var*
+//#UC START# *565D9862017B_55F6875803A8_impl*
+ for l_IDX := Low(TdaTables) to High(TdaTables) do
+  if l_IDX in aTables then
+   UnlockTable(l_IDX);
+//#UC END# *565D9862017B_55F6875803A8_impl*
+//#UC START# *565D9862017B_55F6875803A8_var*
+var
+ l_IDX: TdaTables;
+//#UC END# *565D9862017B_55F6875803A8_var*
+//#UC START# *565D98760004_55F6875803A8_impl*
+ l_Result := PQExec(f_Handle, PAnsiChar(anSQL));
+ try
+  if not (PQresultStatus(l_Result) in [PGRES_EMPTY_QUERY, PGRES_COMMAND_OK, PGRES_TUPLES_OK]) then
+   raise EpgError.Create(PQresultErrorMessage(l_Result));
+ finally
+  PQclear(l_Result);
+ end;
+//#UC END# *565D98760004_55F6875803A8_impl*
+//#UC START# *565D98760004_55F6875803A8_var*
+var
+  l_Result: PPGResult;
+//#UC END# *565D98760004_55F6875803A8_var*
+//#UC START# *565D9EA2007D_55F6875803A8_impl*
+ LockTransactionTables(aTables);
+ f_TransactionsLocks.Add(aTables);
+ if f_TransactionsLocks.Count = 1 then
+  ExecSQLCommand('START TRANSACTION');
+//#UC END# *565D9EA2007D_55F6875803A8_impl*
+//#UC START# *565D9EA2007D_55F6875803A8_var*
+var
+ l_IDX: TdaTables;
+//#UC END# *565D9EA2007D_55F6875803A8_var*
+//#UC START# *565EA7B30042_55F6875803A8_impl*
+ inherited Create;
+ aList.SetRefTo(f_LongProcessList);
+ f_Listeners := TpgConnectionListenerList.Make;
+ f_TransactionsLocks := TpgLockedTablesList.Make;
+//#UC END# *565EA7B30042_55F6875803A8_impl*
+//#UC START# *565EA7B30042_55F6875803A8_var*
+//#UC END# *565EA7B30042_55F6875803A8_var*
+//#UC START# *569636A400D9_55F6875803A8_impl*
+ f_Handle := PQconnectdb(PAnsiChar(BuildConnectString(anUser, aPassword, aDatabase, aParams)));
+ if PQstatus(f_Handle) <> CONNECTION_OK then
+ begin
+  l_Message := PQerrorMessage(f_Handle);
+  PQfinish(f_Handle);
+  f_Handle := nil;
+  raise EPgError.Create(l_Message);
+ end;
+ if not Lock(pg_llShared) then
+  EPgError.Create('Не удалось захватить базу');
+ NotifyAfterConnect; 
+//#UC END# *569636A400D9_55F6875803A8_impl*
+//#UC START# *569636A400D9_55F6875803A8_var*
+var
+ l_Message: AnsiString;
+//#UC END# *569636A400D9_55F6875803A8_var*
+//#UC START# *5769250A0041_55F6875803A8_impl*
+ if f_Listeners.IndexOf(aListener) = -1 then
+  f_Listeners.Add(aListener);
+//#UC END# *5769250A0041_55F6875803A8_impl*
+//#UC START# *5769250A0041_55F6875803A8_var*
+//#UC END# *5769250A0041_55F6875803A8_var*
+//#UC START# *576925380066_55F6875803A8_impl*
+ f_Listeners.Remove(aListener);
+//#UC END# *576925380066_55F6875803A8_impl*
+//#UC START# *576925380066_55F6875803A8_var*
+//#UC END# *576925380066_55F6875803A8_var*
+//#UC START# *57692617007C_55F6875803A8_impl*
+ for l_IDX := 0 to f_Listeners.Count - 1 do
+  f_Listeners[l_IDX].AfterConnect;
+//#UC END# *57692617007C_55F6875803A8_impl*
+//#UC START# *57692617007C_55F6875803A8_var*
+var
+ l_IDX: Integer;
+//#UC END# *57692617007C_55F6875803A8_var*
+//#UC START# *5769262501D9_55F6875803A8_impl*
+ for l_IDX := 0 to f_Listeners.Count - 1 do
+  f_Listeners[l_IDX].BeforeDisconnect;
+//#UC END# *5769262501D9_55F6875803A8_impl*
+//#UC START# *5769262501D9_55F6875803A8_var*
+var
+ l_IDX: Integer;
+//#UC END# *5769262501D9_55F6875803A8_var*
+//#UC START# *57A8368A01F6_55F6875803A8_impl*
+ for l_IDX := Low(TdaTables) to High(TdaTables) do
+  if l_IDX in aTables then
+   LockTable(l_IDX);
+//#UC END# *57A8368A01F6_55F6875803A8_impl*
+//#UC START# *57A8368A01F6_55F6875803A8_var*
+var
+ l_IDX: TdaTables;
+//#UC END# *57A8368A01F6_55F6875803A8_var*
+//#UC START# *57A8534A00D5_55F6875803A8_impl*
+ Result := f_TransactionsLocks.Count > 0;
+//#UC END# *57A8534A00D5_55F6875803A8_impl*
+//#UC START# *57A8534A00D5_55F6875803A8_var*
+//#UC END# *57A8534A00D5_55F6875803A8_var*

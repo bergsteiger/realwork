@@ -1,0 +1,71 @@
+//#UC START# *479731C50290_54F9A60200A8_impl*
+ FreeAndNil(f_AliasesList);
+ inherited;
+//#UC END# *479731C50290_54F9A60200A8_impl*
+//#UC START# *479731C50290_54F9A60200A8_var*
+//#UC END# *479731C50290_54F9A60200A8_var*
+//#UC START# *47A042E100E2_54F9A60200A8_impl*
+ inherited;
+ f_AliasesList := TStringList.Create;
+//#UC END# *47A042E100E2_54F9A60200A8_impl*
+//#UC START# *47A042E100E2_54F9A60200A8_var*
+//#UC END# *47A042E100E2_54F9A60200A8_var*
+//#UC START# *54F9A60200A8_ext:FileName
+w:\common\components\rtl\Garant\DA\daDataProviderParams.pas
+//#UC END# *54F9A60200A8_ext:FileName
+//#UC START# *54F9A60200A8impl_uses*
+//#UC END# *54F9A60200A8impl_uses*
+//#UC START# *550AB45B0179_54F9A60200A8_impl*
+ Result := GetTaggedDataType.TagType.AsString;
+//#UC END# *550AB45B0179_54F9A60200A8_impl*
+//#UC START# *550AB45B0179_54F9A60200A8_var*
+//#UC END# *550AB45B0179_54F9A60200A8_var*
+//#UC START# *55194F830311_54F9A60200A8_impl*
+ f_AliasesList.Clear;
+ if DocStoragePath <> '' then
+  f_AliasesList.Add(Format('FamilyPath=%s', [DocStoragePath]));
+//#UC END# *55194F830311_54F9A60200A8_impl*
+//#UC START# *55194F830311_54F9A60200A8_var*
+//#UC END# *55194F830311_54F9A60200A8_var*
+//#UC START# *55195AE803E0_54F9A60200A8_impl*
+ Assert(aPath <> '');
+ DocStoragePath := aPath;
+ DocImagePath := ConcatDirName(aPath, 'images');
+ DocImageCachePath := ConcatDirName(aPath, 'images_cache');
+ HomeDirPath := ConcatDirName(aPath, 'homes');
+//#UC END# *55195AE803E0_54F9A60200A8_impl*
+//#UC START# *55195AE803E0_54F9A60200A8_var*
+//#UC END# *55195AE803E0_54F9A60200A8_var*
+//#UC START# *553A37E902C9_54F9A60200A8_impl*
+ UserID := aParams.UserID;
+ Login := aParams.Login;
+ Password := aParams.Password;
+ DocStoragePath := aParams.DocStoragePath;
+ DocImagePath := aParams.DocImagePath;
+ DocImageCachePath := aParams.DocImageCachePath;
+ HomeDirPath := aParams.HomeDirPath;
+ DocBaseVersion := aParams.DocBaseVersion;
+ AdminBaseVersion := aParams.AdminBaseVersion;
+ AliasesList.Assign(aParams.AliasesList);
+//#UC END# *553A37E902C9_54F9A60200A8_impl*
+//#UC START# *553A37E902C9_54F9A60200A8_var*
+//#UC END# *553A37E902C9_54F9A60200A8_var*
+//#UC START# *55C1ECC40309_54F9A60200A8get_impl*
+ if UserID <> 0 then
+  Result := ConcatDirName(HomeDirPath, GetHomePathCode(UserID))
+ else
+  Result := HomeDirPath;
+//#UC END# *55C1ECC40309_54F9A60200A8get_impl*
+//#UC START# *55C1ECC40309_54F9A60200A8get_var*
+//#UC END# *55C1ECC40309_54F9A60200A8get_var*
+//#UC START# *55F7DD1803E2_54F9A60200A8_impl*
+ l_BaseIniPath := ConcatDirName(DocStoragePath, 'garant\base.ini');
+ if not FileExists(l_BaseIniPath) then
+  raise Exception.Create('Не найден файл ' + l_BaseIniPath);
+
+ Result := TCfgList.Create(l_BaseIniPath);
+//#UC END# *55F7DD1803E2_54F9A60200A8_impl*
+//#UC START# *55F7DD1803E2_54F9A60200A8_var*
+var
+ l_BaseIniPath: AnsiString;
+//#UC END# *55F7DD1803E2_54F9A60200A8_var*

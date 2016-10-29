@@ -1,0 +1,152 @@
+//#UC START# *47D1602000C6_533D01CB01B1_impl*
+ inherited;
+ f_Active := False;
+ f_State := cbsNormal;
+//#UC END# *47D1602000C6_533D01CB01B1_impl*
+//#UC START# *47D1602000C6_533D01CB01B1_var*
+//#UC END# *47D1602000C6_533D01CB01B1_var*
+//#UC START# *4A97E78202FC_533D01CB01B1_impl*
+ inherited;
+ if (AParent <> nil) then
+  f_ParentForm := lp_GetParentForm;
+//#UC END# *4A97E78202FC_533D01CB01B1_impl*
+//#UC START# *4A97E78202FC_533D01CB01B1_var*
+
+ function lp_GetParentForm: TForm;
+ var
+  l_Control: TControl;
+ begin
+  Result := nil;
+  l_Control := Parent;
+  while (l_Control <> nil) and (not (l_Control is TCustomForm)) do
+  begin
+   l_Control := l_Control.Parent;
+  end;
+  if (l_Control is TCustomForm) then
+   Result := TForm(l_Control);
+ end;//lp_GetParentForm
+
+//#UC END# *4A97E78202FC_533D01CB01B1_var*
+//#UC START# *4E7896270076_533D01CB01B1_impl*
+ if Enabled then
+ begin
+  if PtInRect(ClientRect, Point(X, Y)) then
+   l_State := cbsHot
+  else
+   l_State := cbsNormal;
+  pm_SetState(l_State);
+ end;
+ inherited;
+//#UC END# *4E7896270076_533D01CB01B1_impl*
+//#UC START# *4E7896270076_533D01CB01B1_var*
+var
+ l_State: TChromeLikeWindowCaptionButtonState;
+//#UC END# *4E7896270076_533D01CB01B1_var*
+//#UC START# *4F88469E0021_533D01CB01B1_impl*
+ if Assigned(f_OnClick) then
+  f_OnClick(Self);
+//#UC END# *4F88469E0021_533D01CB01B1_impl*
+//#UC START# *4F88469E0021_533D01CB01B1_var*
+//#UC END# *4F88469E0021_533D01CB01B1_var*
+//#UC START# *4F88473B03CD_533D01CB01B1_impl*
+ if Enabled then
+  pm_SetState(cbsPushed);
+ inherited;
+//#UC END# *4F88473B03CD_533D01CB01B1_impl*
+//#UC START# *4F88473B03CD_533D01CB01B1_var*
+//#UC END# *4F88473B03CD_533D01CB01B1_var*
+//#UC START# *533D01CB01B1_ext:FileName
+w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseWindowCaptionButton.pas
+//#UC END# *533D01CB01B1_ext:FileName
+//#UC START# *533D01CB01B1impl_uses*
+//#UC END# *533D01CB01B1impl_uses*
+//#UC START# *533D0269002B_533D01CB01B1get_impl*
+ Result := f_State;
+//#UC END# *533D0269002B_533D01CB01B1get_impl*
+//#UC START# *533D0269002B_533D01CB01B1get_var*
+//#UC END# *533D0269002B_533D01CB01B1get_var*
+//#UC START# *533D0269002B_533D01CB01B1set_impl*
+ if (aValue <> f_State) then
+ begin
+  f_State := aValue;
+  Invalidate;
+ end;
+//#UC END# *533D0269002B_533D01CB01B1set_impl*
+//#UC START# *533D0269002B_533D01CB01B1set_var*
+//#UC END# *533D0269002B_533D01CB01B1set_var*
+//#UC START# *533D02A3034C_533D01CB01B1get_impl*
+ Result := f_Active;
+//#UC END# *533D02A3034C_533D01CB01B1get_impl*
+//#UC START# *533D02A3034C_533D01CB01B1get_var*
+//#UC END# *533D02A3034C_533D01CB01B1get_var*
+//#UC START# *533D02A3034C_533D01CB01B1set_impl*
+ if (aValue <> f_Active) then
+ begin
+  f_Active := aValue;
+  Invalidate;
+ end;
+//#UC END# *533D02A3034C_533D01CB01B1set_impl*
+//#UC START# *533D02A3034C_533D01CB01B1set_var*
+//#UC END# *533D02A3034C_533D01CB01B1set_var*
+//#UC START# *533D035E03BC_533D01CB01B1get_impl*
+ Result := f_ParentForm;
+//#UC END# *533D035E03BC_533D01CB01B1get_impl*
+//#UC START# *533D035E03BC_533D01CB01B1get_var*
+//#UC END# *533D035E03BC_533D01CB01B1get_var*
+//#UC START# *533D037C00E9_533D01CB01B1_impl*
+ if Enabled then
+  pm_SetState(cbsHot);
+//#UC END# *533D037C00E9_533D01CB01B1_impl*
+//#UC START# *533D037C00E9_533D01CB01B1_var*
+//#UC END# *533D037C00E9_533D01CB01B1_var*
+//#UC START# *533D03A40389_533D01CB01B1_impl*
+ if Enabled then
+  pm_SetState(cbsNormal);
+//#UC END# *533D03A40389_533D01CB01B1_impl*
+//#UC START# *533D03A40389_533D01CB01B1_var*
+//#UC END# *533D03A40389_533D01CB01B1_var*
+//#UC START# *533D03BE0299_533D01CB01B1_impl*
+ aMessage.Result := 1;
+//#UC END# *533D03BE0299_533D01CB01B1_impl*
+//#UC START# *533D03BE0299_533D01CB01B1_var*
+//#UC END# *533D03BE0299_533D01CB01B1_var*
+//#UC START# *533D04A00242_533D01CB01B1_impl*
+ inherited;
+ if not Enabled then
+  pm_SetState(cbsDisabled)
+ else
+  pm_SetState(cbsNormal);
+//#UC END# *533D04A00242_533D01CB01B1_impl*
+//#UC START# *533D04A00242_533D01CB01B1_var*
+
+ function lp_GetParentForm: TForm;
+ var
+  l_Control: TControl;
+ begin
+  Result := nil;
+  l_Control := Parent;
+  while (l_Control <> nil) and (not (l_Control is TCustomForm)) do
+  begin
+   l_Control := l_Control.Parent;
+  end;
+  if (l_Control is TCustomForm) then
+   Result := TForm(l_Control);
+ end;//lp_GetParentForm
+
+//#UC END# *533D04A00242_533D01CB01B1_var*
+//#UC START# *54744FB502AB_533D01CB01B1_impl*
+ if NeedUpdateHint then
+  Hint := l3Str(GetHintText);
+//#UC END# *54744FB502AB_533D01CB01B1_impl*
+//#UC START# *54744FB502AB_533D01CB01B1_var*
+//#UC END# *54744FB502AB_533D01CB01B1_var*
+//#UC START# *54744FED0113_533D01CB01B1_impl*
+ Result := (Hint = '');
+//#UC END# *54744FED0113_533D01CB01B1_impl*
+//#UC START# *54744FED0113_533D01CB01B1_var*
+//#UC END# *54744FED0113_533D01CB01B1_var*
+//#UC START# *5474500600DA_533D01CB01B1_impl*
+ Result := nil;
+//#UC END# *5474500600DA_533D01CB01B1_impl*
+//#UC START# *5474500600DA_533D01CB01B1_var*
+//#UC END# *5474500600DA_533D01CB01B1_var*

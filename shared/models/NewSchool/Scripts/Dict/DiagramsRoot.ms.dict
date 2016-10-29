@@ -4,6 +4,11 @@ USES
  ModelRoot.ms.dict
 ;
 
+USES
+ cPathSep.ms.dict
+;
+
 STRING FUNCTION DiagramsRoot
- ModelRoot >>> Result
+ [ ModelRoot 'Diagrams\' ] cPathSep strings:CatSep >>> Result
+ //ModelRoot >>> Result
 ; // DiagramsRoot

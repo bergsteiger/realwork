@@ -1,0 +1,48 @@
+//#UC START# *57D2A771002F_57D6592F0210_impl*
+ l_Counter.Reset;
+ l_Counter.Start;
+ l_Message := aContext.rMessage as TcsUploadDocStream;
+ l_Reply := TcsUploadDocStreamReply.Create(l_Message);
+ try
+  l_Reply.IsSuccess := False;
+  l_Reply.ErrorMessage := '';
+  try
+   l_Reply.IsSuccess := False;
+   l_Task := TalcuUploadDocRequest.Create(l_Message.UserID);
+   try
+    l_Task.Message := l_Message;
+    l_Task.Reply := l_Reply;
+    l_Task.OnEraseNotify := f_OnEraseNotify;
+    IncomingList.Push(l_Task);
+    SpeedupRequest;
+    l_Task.WaitForReady;
+   finally
+    FreeAndNil(l_Task);
+   end;
+  finally
+   aContext.rTransporter.Send(l_Reply);
+  end;
+ finally
+  FreeAndNil(l_Reply);
+ end;
+ l_Counter.Stop;
+ l3System.Msg2Log('Remote receive document - %s', [FormatFloat('#,##0 ms', l_Counter.Time * 1000)], l3_msgLevel10);
+//#UC END# *57D2A771002F_57D6592F0210_impl*
+//#UC START# *57D2A771002F_57D6592F0210_var*
+var
+ l_Message: TcsUploadDocStream;
+ l_Reply: TcsUploadDocStreamReply;
+ l_Task: TalcuUploadDocRequest;
+ l_Counter: Tl3StopWatch;
+//#UC END# *57D2A771002F_57D6592F0210_var*
+//#UC START# *57D6592F0210_ext:FileName
+w:\archi\source\projects\PipeInAuto\Tasks\alcuUploadDocStreamExecutor.pas
+//#UC END# *57D6592F0210_ext:FileName
+//#UC START# *57D6592F0210impl_uses*
+//#UC END# *57D6592F0210impl_uses*
+//#UC START# *57D69430002E_57D6592F0210_impl*
+ inherited Create(aList, aProc);
+ f_OnEraseNotify := aEraseNotify;
+//#UC END# *57D69430002E_57D6592F0210_impl*
+//#UC START# *57D69430002E_57D6592F0210_var*
+//#UC END# *57D69430002E_57D6592F0210_var*

@@ -1,0 +1,19 @@
+//#UC START# *479731C50290_48FD9AE5001C_impl*
+ if (Data <> nil) then
+  PnsThreadCallParamsRec(Data)^.rIndexPath := nil; 
+ inherited;
+//#UC END# *479731C50290_48FD9AE5001C_impl*
+//#UC START# *479731C50290_48FD9AE5001C_var*
+//#UC END# *479731C50290_48FD9AE5001C_var*
+//#UC START# *47A042E100E2_48FD9AE5001C_impl*
+ inherited;
+ if (Data <> nil) then
+  if (PnsThreadCallParamsRec(Data)^.rIndexPath <> nil) then
+   PnsThreadCallParamsRec(Data)^.rIndexPath._AddRef;
+   // - добавляем счетчик ссылок
+//#UC END# *47A042E100E2_48FD9AE5001C_impl*
+//#UC START# *47A042E100E2_48FD9AE5001C_var*
+//#UC END# *47A042E100E2_48FD9AE5001C_var*
+//#UC START# *48FD9AE5001C_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifierBase.imp.pas
+//#UC END# *48FD9AE5001C_ext:ParentFileName

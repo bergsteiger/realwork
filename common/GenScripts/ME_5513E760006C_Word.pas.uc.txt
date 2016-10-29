@@ -1,0 +1,21 @@
+//#UC START# *5513E760006C_5513E760006C_Word_impl*
+ while true do
+ begin
+  aCondition.DoIt(aCtx);
+  if not aCtx.rEngine.PopBool then
+   break;
+  try
+   aWord.DoIt(aCtx);
+  except
+   on EtfwBreak do
+    break;
+   on EtfwContinue do
+    continue;
+  end;//try..except
+ end;//while true
+//#UC END# *5513E760006C_5513E760006C_Word_impl*
+//#UC START# *5513E760006C_5513E760006C_Word_var*
+//#UC END# *5513E760006C_5513E760006C_Word_var*
+//#UC START# *5513E760006C_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\BasicsPack.pas
+//#UC END# *5513E760006C_Word_ext:ParentFileName

@@ -1,0 +1,37 @@
+//#UC START# *53FDFAF900ED_53FF322603A8_impl*
+ Result := cHeaderID;
+//#UC END# *53FDFAF900ED_53FF322603A8_impl*
+//#UC START# *53FDFAF900ED_53FF322603A8_var*
+const
+ cHeaderID : TCLSID = '{F7E473D9-ED70-478E-91C4-D80BAAAB385B}';
+//#UC END# *53FDFAF900ED_53FF322603A8_var*
+//#UC START# *53FF322603A8_ext:FileName
+w:\common\components\rtl\Garant\m3\m3BaseHashInfoStream.pas
+//#UC END# *53FF322603A8_ext:FileName
+//#UC START# *53FF322603A8impl_uses*
+//#UC END# *53FF322603A8impl_uses*
+//#UC START# *53FF324503ADpubl*
+   RZerroFrontierByte: Byte;
+     {* - начальный ноль. }
+   RVersion: Int64;
+     {* - версия hash-info. }
+   RHashCount: Word;
+     {* - количество элементов хеша. }
+   RHashSize:  LongInt;
+     {* - максимальный размер куска строки для хеширования. }
+   RHashVersion: Word;
+     {* - версия алгоритма хеширования. }
+//#UC END# *53FF324503ADpubl*
+//#UC START# *53FF37DC003A_53FF322603A8_impl*
+ Result := CHeaderData000;
+//#UC END# *53FF37DC003A_53FF322603A8_impl*
+//#UC START# *53FF37DC003A_53FF322603A8_var*
+const
+  CHeaderData000 : Tm3HashInfoStreamHeader = (
+   RZerroFrontierByte: 0;
+   RVersion: Low(Int64);
+   RHashCount: Cm2HASDefCount;
+   RHashSize: Cm2HASDefSize;
+   RHashVersion: Cm2HASVersion;
+ );
+//#UC END# *53FF37DC003A_53FF322603A8_var*

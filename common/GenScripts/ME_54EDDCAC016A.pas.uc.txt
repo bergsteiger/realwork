@@ -1,0 +1,191 @@
+//#UC START# *4DAEEDE10285_5731CA8500B0_Word_impl*
+ EvNotifyStyleTableChanged;
+//#UC END# *4DAEEDE10285_5731CA8500B0_Word_impl*
+//#UC START# *4DAEEDE10285_5731CA8500B0_Word_var*
+//#UC END# *4DAEEDE10285_5731CA8500B0_Word_var*
+//#UC START# *4DAEEDE10285_5731CA920303_Word_impl*
+ EvNotifyStyleTableChanging;
+//#UC END# *4DAEEDE10285_5731CA920303_Word_impl*
+//#UC START# *4DAEEDE10285_5731CA920303_Word_var*
+//#UC END# *4DAEEDE10285_5731CA920303_Word_var*
+//#UC START# *53C7C3B90110*
+ Tk2TypeTable.AddCreatedListener(TkwRegisterSchema.RegisterSchema);
+//#UC END# *53C7C3B90110*
+//#UC START# *53C7C3DC0014_53C7C38A011C_impl*
+ l_TT := k2.TypeTable;
+ TtfwClassRef.Register(l_TT.ClassType);
+ for l_Index := 0 to l_TT.MaxTypeID do
+ begin
+  l_Type := l_TT.TypeByHandle[l_Index];
+  if (l_Type <> nil) then
+  begin
+   TtfwIntegerConstantRegistrator.Register('evd::id_' + l_Type.AsString, l_Type.ID);
+   if (l_Type.AtomType <> nil) then
+   begin
+    if (l_Type.AtomType.Kind = tkEnumeration) then
+     TtfwEnumRegistrator.RegisterEnum(l_Type.AtomType);
+    if (l_Type.AtomClass <> nil) then
+     TtfwClassRef.Register(l_Type.AtomClass);
+   end;//l_Type.AtomType <> nil
+   if (l_Type.WrapperType <> nil) then
+    TtfwClassRef.Register(l_Type.WrapperType);
+   if (l_Type.InterfaceFactory <> nil) then
+    TtfwClassRef.Register(l_Type.InterfaceFactory.ClassType);
+  end;//l_Type <> nil
+ end;//for l_Index
+ Tk2Attributes.Instance.IterateAllF(l3L2IA(@DoAttr));
+ l_SI := TevStyleInterface.Make;
+ try
+  l_SI.IterateF(l3L2IA(@OutStyle));
+  l_SI.IterateF(l3L2IA(@OutStyle1));
+ finally
+  FreeAndNil(l_SI);
+ end;//try..finally
+//#UC END# *53C7C3DC0014_53C7C38A011C_impl*
+//#UC START# *53C7C3DC0014_53C7C38A011C_var*
+
+ function DoAttr(const anAttr: Tk2Attribute; anIndex: Integer): Boolean;
+ begin
+  Result := true;
+  TtfwIntegerConstantRegistrator.Register('evd::ti_' + anAttr.rName, anAttr.rID);
+ end;
+
+ function OutStyle(aStyle: Pl3Variant; Index: Integer): Boolean;
+ var
+  l_Tag : Tl3Tag;
+  l_H   : Integer;
+ begin//OutStyle
+  Result := true;
+  l_Tag := aStyle^;
+  l_H := -l_Tag.IntA[k2_tiHandle];
+  if (l_H >= Low(StandardNames)) AND (l_H <= High(StandardNames)) then
+  begin
+   TtfwIntegerConstantRegistrator.Register('evd::sa_' + StandardNames[l_H], -l_H);
+  end;//l_H >= Low(StandardNames)
+ end;//OutStyle
+
+ function OutStyle1(aStyle: Pl3Variant; Index: Integer): Boolean;
+ var
+  l_Tag : Tl3Tag;
+  l_H   : Integer;
+ begin//OutStyle1
+  Result := true;
+  l_Tag := astyle^;
+  l_H := l_Tag.IntA[k2_tiHandle];
+  TtfwIntegerConstantRegistrator.Register('evd::стиль:"' + l_Tag.StrA[k2_tiName] + '"', -l_H);
+ end;//OutStyle1
+  
+var
+ l_TT : Tk2TypeTable;
+ l_Index : Integer;
+ l_Type : Tk2Type;
+ l_SI : TevStyleInterface;
+//#UC END# *53C7C3DC0014_53C7C38A011C_var*
+//#UC START# *54EDDCAC016A_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\evSchemaWordsPack.pas
+//#UC END# *54EDDCAC016A_ext:FileName
+//#UC START# *54EDDCAC016Aimpl_uses*
+//#UC END# *54EDDCAC016Aimpl_uses*
+//#UC START# *5731A85502C3_5731A85502C3_Word_impl*
+ Result := evTypes.CF_PDF;
+//#UC END# *5731A85502C3_5731A85502C3_Word_impl*
+//#UC START# *5731A85502C3_5731A85502C3_Word_var*
+//#UC END# *5731A85502C3_5731A85502C3_Word_var*
+//#UC START# *5731A87401CE_5731A87401CE_Word_impl*
+ Result := evTypes.CF_HTML;
+//#UC END# *5731A87401CE_5731A87401CE_Word_impl*
+//#UC START# *5731A87401CE_5731A87401CE_Word_var*
+//#UC END# *5731A87401CE_5731A87401CE_Word_var*
+//#UC START# *5731A8840004_5731A8840004_Word_impl*
+ Result := evTypes.CF_XML;
+//#UC END# *5731A8840004_5731A8840004_Word_impl*
+//#UC START# *5731A8840004_5731A8840004_Word_var*
+//#UC END# *5731A8840004_5731A8840004_Word_var*
+//#UC START# *5731A891035F_5731A891035F_Word_impl*
+ Result := evTypes.CF_EverestTxt;
+//#UC END# *5731A891035F_5731A891035F_Word_impl*
+//#UC START# *5731A891035F_5731A891035F_Word_var*
+//#UC END# *5731A891035F_5731A891035F_Word_var*
+//#UC START# *5731A8A201E3_5731A8A201E3_Word_impl*
+ Result := evTypes.CF_RTF;
+//#UC END# *5731A8A201E3_5731A8A201E3_Word_impl*
+//#UC START# *5731A8A201E3_5731A8A201E3_Word_var*
+//#UC END# *5731A8A201E3_5731A8A201E3_Word_var*
+//#UC START# *5731A8B30033_5731A8B30033_Word_impl*
+ Result := evTypes.CF_EverestBin;
+//#UC END# *5731A8B30033_5731A8B30033_Word_impl*
+//#UC START# *5731A8B30033_5731A8B30033_Word_var*
+//#UC END# *5731A8B30033_5731A8B30033_Word_var*
+//#UC START# *5731CAA20015_5731CAA20015_Word_impl*
+ {$IFDEF EverestLite}
+ RunnerError(Format('Функция %s не поддерживается в EverestLite!', [GetWordNameForRegister]), aCtx);
+ {$ELSE}
+ //RunnerAssert(aCtx.rEngine.IsTopString, 'Нужна строка', aCtx);
+ l_InData := l3PCharLen(aData);
+ l_InStream := Tl3ConstMemoryStream.Create(l_InData.S, l_InData.SLen);
+ try
+  l_OutStream := Tl3StringStream.Create;
+  try
+   l_InFiler := Tl3CustomFiler.Create;
+   try
+    l_InFiler.Stream := l_InStream;
+    l_OutFiler := Tl3CustomFiler.Create;
+    try
+     l_OutFiler.Stream := l_OutStream;
+     l_EverestReader := TevEvdReader.Create;
+     try
+      l_EverestWriter := TevdNativeWriter.Create;
+      try
+       l_EverestReader.Filer := l_InFiler;
+       l_EverestWriter.Filer := l_OutFiler;
+       l_EverestReader.Generator := l_EverestWriter;
+       l_EverestWriter.Binary := False;
+       l_EverestReader.Execute;
+       Result := l_OutStream as Il3CString;
+      finally
+       FreeAndNil(l_EverestWriter);
+      end;
+     finally
+      FreeAndNil(l_EverestReader);
+     end;
+    finally
+     FreeAndNil(l_OutFiler);
+    end;
+   finally
+    FreeAndNil(l_InFiler);
+   end;
+  finally
+   FreeAndNil(l_OutStream);
+  end;
+ finally
+  FreeAndNil(l_InStream);
+ end;
+ {$ENDIF EverestLite}
+//#UC END# *5731CAA20015_5731CAA20015_Word_impl*
+//#UC START# *5731CAA20015_5731CAA20015_Word_var*
+var
+ l_InFiler, l_OutFiler : Tl3CustomFiler;
+ l_InData: Tl3WString;
+ l_InStream: Tl3ConstMemoryStream;
+ l_OutStream: Tl3StringStream;
+ l_EverestReader : TevEvdReader;
+ l_EverestWriter : TevdNativeWriter;
+//#UC END# *5731CAA20015_5731CAA20015_Word_var*
+//#UC START# *5731CABE014E_5731CABE014E_Word_impl*
+ l_S := Tl3NamedTextStream.Create(aCtx.rCaller.ResolveOutputFilePath(aFileName),
+                                  l3_fmWrite);
+ try
+  with TevStyleInterfaceEx.Make do
+   try
+    Save(l_S);
+   finally
+    Free;
+   end;//try..finally
+ finally
+  FreeAndNil(l_S);
+ end;//try..finally
+//#UC END# *5731CABE014E_5731CABE014E_Word_impl*
+//#UC START# *5731CABE014E_5731CABE014E_Word_var*
+var
+ l_S : Tl3NamedTextStream;
+//#UC END# *5731CABE014E_5731CABE014E_Word_var*

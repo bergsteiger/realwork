@@ -1,0 +1,260 @@
+//#UC START# *52FA3DB401BE_ext:FileName
+w:\archi\source\projects\PipeInAuto\Tasks\alcuTaskList.pas
+//#UC END# *52FA3DB401BE_ext:FileName
+//#UC START# *52FA3DB401BEimpl_uses*
+//#UC END# *52FA3DB401BEimpl_uses*
+//#UC START# *53A049770398_52FA3DB401BE_var*
+//#UC END# *53A049770398_52FA3DB401BE_var*
+//#UC START# *53A049770398iter*
+ Result := 0;
+ Self.
+//#UC END# *53A049770398iter*
+//#UC START# *53A049B30045_52FA3DB401BE_var*
+//#UC END# *53A049B30045_52FA3DB401BE_var*
+//#UC START# *53A049B30045iter*
+ Result := nil;
+ Self.
+//#UC END# *53A049B30045iter*
+//#UC START# *53A049ED0084_52FA3DB401BE_impl*
+ Lock;
+ try
+(*  if (Count <= 0) then
+   Exit;*)
+  l_FileName := ConcatDirName(f_TaskFolder, 'UserTasks.dat');
+  l_Writer := TevdNativeWriter.Create;
+  try
+   l_Writer.Binary := false;
+   l_Writer.NeedOutHeader := false;
+   l_Filer := Tl3DOSFiler.Make(l_FileName + '.evd', l3_fmExclusiveWrite{l3_fmWrite}, false);
+   try
+    l_Filer.Open;
+    try
+     l_Writer.Filer := l_Filer;
+     l_Writer.Start;
+     try
+      DoSave;
+     finally
+      l_Writer.Finish;
+     end;//try..finally
+    finally
+     l_Filer.Close;
+    end;//try..finally
+   finally
+    FreeAndNil(l_Filer);
+   end;//try..finally
+  finally
+   FreeAndNil(l_Writer);
+  end;//try..finally
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *53A049ED0084_52FA3DB401BE_impl*
+//#UC START# *53A049ED0084_52FA3DB401BE_var*
+var
+ l_FileName : String;
+ l_Filer  : Tl3DOSFiler;
+//#UC END# *53A049ED0084_52FA3DB401BE_var*
+//#UC START# *53A04A0F017D__var*
+//#UC END# *53A04A0F017D__var*
+//#UC START# *53A04A0F017Diter*
+  Self.
+//#UC END# *53A04A0F017Diter*
+//#UC START# *53A04A4D01E1_52FA3DB401BE_impl*
+ l_Stream := Tl3FileStream.Create(TaskFileName(theTask.TaskID), l3_fmExclusiveWrite{l3_fmWrite});
+ try
+  theTask.SaveTo(l_Stream, False);
+ finally
+  FreeAndNil(l_Stream);
+ end; // try..finally
+//#UC END# *53A04A4D01E1_52FA3DB401BE_impl*
+//#UC START# *53A04A4D01E1_52FA3DB401BE_var*
+var
+ l_Stream: Tl3FileStream;
+//#UC END# *53A04A4D01E1_52FA3DB401BE_var*
+//#UC START# *53A04D8B00D3_52FA3DB401BE_impl*
+ Result := ConcatDirName(f_TaskFolder, theTaskID + '.query');
+//#UC END# *53A04D8B00D3_52FA3DB401BE_impl*
+//#UC START# *53A04D8B00D3_52FA3DB401BE_var*
+//#UC END# *53A04D8B00D3_52FA3DB401BE_var*
+//#UC START# *53A057D502C1__impl*
+  Result := true;
+  if (anItem.TaskType in EnabledTypes) then
+   if (anItem.Status in ([cs_tsQuery]+cs_tsRunningStatuses)) then
+    Inc(l_Result);
+//#UC END# *53A057D502C1__impl*
+//#UC START# *53A057D502C1__var*
+//#UC END# *53A057D502C1__var*
+//#UC START# *53A063B303E4_52FA3DB401BE_impl*
+ Lock;
+ try
+  Items.Sort;
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *53A063B303E4_52FA3DB401BE_impl*
+//#UC START# *53A063B303E4_52FA3DB401BE_var*
+//#UC END# *53A063B303E4_52FA3DB401BE_var*
+//#UC START# *53A1803801A2_52FA3DB401BEset_impl*
+ f_FileName := aValue;
+ f_TaskFolder:= ExtractDirName(f_FileName);
+//#UC END# *53A1803801A2_52FA3DB401BEset_impl*
+//#UC START# *53A1803801A2_52FA3DB401BEset_var*
+//#UC END# *53A1803801A2_52FA3DB401BEset_var*
+//#UC START# *53A180B502CB_52FA3DB401BE_impl*
+ Result := true;
+ if Atom.Box.IsKindOf(k2_typTask) then
+ begin
+  Assert(f_TaskAtomCounter > 0);
+  Dec(f_TaskAtomCounter);
+  if f_TaskAtomCounter = 0 then
+  begin
+   l_TaskMade := nil;
+   try
+    l_TaskMade := TddTaskItem.MakeFromTaggedData(Atom.Box, f_TaskFolder, False, true);
+    if not (l_TaskMade Is TddProcessTask) then
+    begin
+     FreeAndNil(l_TaskMade);
+     l3System.Msg2Log('Не удалось загрузить задачу из EVD хранилища. Задача проигнорирована');
+    end;//not l_TaskMade Is TddProcessTask
+    l_Task := l_TaskMade As TddProcessTask;
+    if (l_Task <> nil) then
+    begin
+     l_Task.CorrectStatus;
+     Self.Add(l_Task);
+    end;//l_Task <> nil
+   finally
+    FreeAndNil(l_TaskMade);
+   end;//try..finally
+  end;//f_TaskAtomCounter = 0
+ end;//Atom.Box.IsKindOf(k2_typTask)
+//#UC END# *53A180B502CB_52FA3DB401BE_impl*
+//#UC START# *53A180B502CB_52FA3DB401BE_var*
+var  
+ l_TaskMade : TddTaskItem;
+ l_Task : TddProcessTask;
+//#UC END# *53A180B502CB_52FA3DB401BE_var*
+//#UC START# *53A180E50119_52FA3DB401BE_impl*
+ Lock;
+ try
+  Self.Add(aTask);
+  Save;
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *53A180E50119_52FA3DB401BE_impl*
+//#UC START# *53A180E50119_52FA3DB401BE_var*
+//#UC END# *53A180E50119_52FA3DB401BE_var*
+//#UC START# *53A181000062_52FA3DB401BE_impl*
+ LockNotification;
+ try
+  Changing;
+  try
+   Lock;
+   try
+    l_OldDuplicates := Items.Duplicates;
+    Items.Duplicates := l3_dupIgnore;
+    try
+     l_FileName := FileName + '.evd';
+     if FileExists(l_FileName) then
+     begin
+      l_Reader := TevdNativeReader.Create;
+      try
+       l_Filer := Tl3DOSFiler.Make(l_FileName, l3_fmRead, false);
+       try
+        l_Filer.Open;
+        try
+         l_Reader.Filer := l_Filer;
+         l_Gen := TalcuTaskGenerator.Create;
+         try
+          l_Gen.OnStartAtom := DoStartAtom;
+          l_Gen.OnFinishAtom := DoFinishAtom;
+          l_Reader.Generator := l_Gen;
+         finally
+          FreeAndNil(l_Gen);
+         end;//try..finally
+         try
+          l_Reader.Execute;
+         except
+          on EParserError do
+          // - давим ошибки чтения пустого или битого файла
+           ;
+         end;//try..except
+        finally
+         l_Filer.Close;
+        end;//try..finally
+       finally
+        FreeAndNil(l_Filer);
+       end;//try..finally
+      finally
+       FreeAndNil(l_Reader);
+      end;//try..finally
+     end;//FileExists(l_FileName)
+    finally
+     Items.Duplicates := l_OldDuplicates;
+    end;
+   finally
+    Unlock;
+   end;//try..finally
+  finally
+   Changed;
+  end;
+ finally
+  UnlockNotification;
+ end;
+//#UC END# *53A181000062_52FA3DB401BE_impl*
+//#UC START# *53A181000062_52FA3DB401BE_var*
+var
+  l_Reader : TevdNativeReader;
+  l_Filer  : Tl3DOSFiler;
+  l_FileName : String;
+  l_Gen : TalcuTaskGenerator;
+  l_OldDuplicates: Tl3Duplicates;
+
+//#UC END# *53A181000062_52FA3DB401BE_var*
+//#UC START# *53A18113014B_52FA3DB401BE_impl*
+ Lock;
+ try
+  Remove(aTask);
+  Save;
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *53A18113014B_52FA3DB401BE_impl*
+//#UC START# *53A18113014B_52FA3DB401BE_var*
+//#UC END# *53A18113014B_52FA3DB401BE_var*
+//#UC START# *570CB611007A_52FA3DB401BE_impl*
+ if Atom.Box.IsKindOf(k2_typTask) then
+  Inc(f_TaskAtomCounter);
+//#UC END# *570CB611007A_52FA3DB401BE_impl*
+//#UC START# *570CB611007A_52FA3DB401BE_var*
+//#UC END# *570CB611007A_52FA3DB401BE_var*
+//#UC START# *590637D17394__impl*
+  if (anItem.TaskType = aTaskType) then
+  begin
+   FindTask := anItem;
+   Result := false;
+  end//anItem.TaskType = aTaskType
+  else
+   Result := true;
+//#UC END# *590637D17394__impl*
+//#UC START# *590637D17394__var*
+//#UC END# *590637D17394__var*
+//#UC START# *FD19BDB28F10__impl*
+   Result := true;
+   if (anItem.Status in (cs_tsFinishedStatuses + [cs_tsAborting])) then
+    Exit;
+   if (anItem.Status = cs_tsReadyToDelivery) then
+    if (DaysBetween(anItem.Date, Now) > 10) then
+     Exit;
+(*   SaveTask(anItem);*)
+   l_Writer.StartChild(anItem.TaggedData.TagType{k2_typTask});
+   try
+    anItem.TaskID;
+    //l_Writer.AddStringAtom(k2_attrTaskID, anItem.TaskID);
+    anItem.TaggedData.WriteTag(l_Writer);
+   finally
+    l_Writer.Finish;
+   end;//try..finally
+//#UC END# *FD19BDB28F10__impl*
+//#UC START# *FD19BDB28F10__var*
+//#UC END# *FD19BDB28F10__var*

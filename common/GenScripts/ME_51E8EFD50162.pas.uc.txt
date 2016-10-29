@@ -1,0 +1,63 @@
+//#UC START# *479731C50290_51E8EFD50162_impl*
+ FreeAndNil(f_SEP);
+ inherited;
+//#UC END# *479731C50290_51E8EFD50162_impl*
+//#UC START# *479731C50290_51E8EFD50162_var*
+//#UC END# *479731C50290_51E8EFD50162_var*
+//#UC START# *518A504F00F5_51E8EFD50162_impl*
+ case BreakType of
+   breakPage :
+       begin
+        Generator.StartChild(k2_typPageBreak);
+        Generator.Finish;
+       end;
+   breakSection:
+       begin
+        Generator.StartChild(k2_typSectionBreak);
+        try
+         Generator.StartTag(k2_tiParas);
+         try
+          if SEP.Landscape then
+          begin
+           Generator.AddIntegerAtom(k2_tiOrientation, Ord(l3_poLandscape));
+           Generator.AddIntegerAtom(k2_tiHeight, Max(SEP.yaPage, SEP.xaPage));
+           Generator.AddIntegerAtom(k2_tiWidth, Min(SEP.xaPage, SEP.yaPage));
+          end
+          else
+          begin
+           Generator.AddIntegerAtom(k2_tiOrientation, Ord(l3_poPortrait));
+           Generator.AddIntegerAtom(k2_tiHeight, Max(SEP.yaPage, SEP.xaPage));
+           Generator.AddIntegerAtom(k2_tiWidth, Min(SEP.xaPage, SEP.yaPage));
+          end;
+         finally
+          Generator.Finish;
+         end;{try..finally}
+        finally
+         Generator.Finish;
+        end;
+       end;
+ end;
+//#UC END# *518A504F00F5_51E8EFD50162_impl*
+//#UC START# *518A504F00F5_51E8EFD50162_var*
+//#UC END# *518A504F00F5_51E8EFD50162_var*
+//#UC START# *51E8EFD50162_ext:FileName
+w:\common\components\rtl\Garant\dd\ddBreak.pas
+//#UC END# *51E8EFD50162_ext:FileName
+//#UC START# *51E8EFD50162impl_uses*
+//#UC END# *51E8EFD50162impl_uses*
+//#UC START# *51E91BA80051_51E8EFD50162_impl*
+ inherited Create(aDetination);
+ f_SEP := TddSectionProperty.Create;
+//#UC END# *51E91BA80051_51E8EFD50162_impl*
+//#UC START# *51E91BA80051_51E8EFD50162_var*
+//#UC END# *51E91BA80051_51E8EFD50162_var*
+//#UC START# *5268D65201D6_51E8EFD50162_impl*
+ Result := True;
+//#UC END# *5268D65201D6_51E8EFD50162_impl*
+//#UC START# *5268D65201D6_51E8EFD50162_var*
+//#UC END# *5268D65201D6_51E8EFD50162_var*
+//#UC START# *53883BAC01A0_51E8EFD50162_impl*
+ Result := not SEP.Landscape and (SEP.xaPage = defPageWidth) and (SEP.yaPage = defPageHeight);
+//#UC END# *53883BAC01A0_51E8EFD50162_impl*
+//#UC START# *53883BAC01A0_51E8EFD50162_var*
+//#UC END# *53883BAC01A0_51E8EFD50162_var*

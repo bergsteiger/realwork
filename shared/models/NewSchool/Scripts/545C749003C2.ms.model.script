@@ -81,6 +81,7 @@ ME ME_545C8DB902E3
  ;
  MELINK Target WL 'ME_5465A598039E' '5460A4DB018A.ms.model.script' // IncsClientTransporter
  ;
+ UP "ifndef" 'DeliveryByDataPipe'
 
 ENDME // ME_545C8DB902E3 f_Transporter
 
@@ -129,12 +130,56 @@ ME ME_57F39C8A03BF
 
 ENDME // ME_57F39C8A03BF f_Counter
 
+ME ME_580DF63D0232
+ MEPROP UID '580DF63D0232'
+ MEPROP Name 'f_TotalSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+ UP "ifdef" 'DeliveryByDataPipe'
+
+ENDME // ME_580DF63D0232 f_TotalSize
+
+ME ME_580DFFB6031F
+ MEPROP UID '580DFFB6031F'
+ MEPROP Name 'f_ClientID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_537F4A04037C' '537F49C801FE.ms.model.script' // TCsClientId
+ ;
+ UP "ifdef" 'DeliveryByDataPipe'
+
+ENDME // ME_580DFFB6031F f_ClientID
+
+ME ME_5811D6830002
+ MEPROP UID '5811D6830002'
+ MEPROP Name 'f_Deliverer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL? 'ME_5811D63A0190' // TarClientFilesDeliverer
+ ;
+ UP "ifdef" 'DeliveryByDataPipe'
+
+ENDME // ME_5811D6830002 f_Deliverer
+
 FORWARD ME_5465FDD1009D
 
 ME ME_5465FDEB0376
  MEPROP Name 'aTaskID'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -146,7 +191,7 @@ ME ME_5465FDDA015C
  MEPROP Class class_Operation
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_final
- MELINK Parent HWL ME_5465FDD1009D // ReceiveTaskResult
+ MELINK Parent HWL ME_5465FDD1009D // ReceiveTaskResultByTransporter
  ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
@@ -160,7 +205,7 @@ ENDME // ME_5465FDDA015C DoIt
 ME ME_546AFE39008F
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_5465FDD1009D // ReceiveTaskResult
+ MELINK Parent HWL ME_5465FDD1009D // ReceiveTaskResultByTransporter
  ;
  MELINK Target WL? 'ME_546AFE0D01CB' // TarOneTaskDeliverer
  ;
@@ -169,7 +214,7 @@ ENDME // ME_546AFE39008F
 
 ME ME_5465FDD1009D
  MEPROP UID '5465FDD1009D'
- MEPROP Name 'ReceiveTaskResult'
+ MEPROP Name 'ReceiveTaskResultByTransporter'
  MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
@@ -185,15 +230,15 @@ ME ME_5465FDD1009D
    Seq: ( ME_546AFE39008F // TarOneTaskDeliverer
  )
  ; // Dependencies
+ UP "ifndef" 'DeliveryByDataPipe'
 
-ENDME // ME_5465FDD1009D ReceiveTaskResult
+ENDME // ME_5465FDD1009D ReceiveTaskResultByTransporter
 
 FORWARD ME_546AF1220010
 
 ME ME_549AA03C024F
  MEPROP Name 'aWeakListener'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_549A9A51038D' '549A9AB80233.ms.model.script' // IarResultDelivererListner
  ;
 
@@ -230,6 +275,60 @@ ME ME_546AF1220010
  ; // Operations
 
 ENDME // ME_546AF1220010 Create
+
+ME ME_580DC1050078
+ MEPROP UID '580DC1050078'
+ MEPROP Name 'DoExecuteByTransporter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ UP "ifndef" 'DeliveryByDataPipe'
+
+ENDME // ME_580DC1050078 DoExecuteByTransporter
+
+ME ME_580DC11F0204
+ MEPROP UID '580DC11F0204'
+ MEPROP Name 'DoExecuteByDataPipe'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ UP "ifdef" 'DeliveryByDataPipe'
+
+ENDME // ME_580DC11F0204 DoExecuteByDataPipe
+
+MEREF ME_538DA3DA035E_ME_580DF5DF01F5_G
+ MELINK Original WL 'ME_538DA3DA035E' '538DA3BD02A0.ms.model.script' // TCsQueryProc
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_538DA3DA035E_ME_580DF5DF01F5_G TCsQueryProc
+
+%%InheritedBy ME_538DA3DA035E ME_580DF5DF01F5
+
+ME ME_580DF5DF01F5
+ MEPROP UID '580DF5DF01F5'
+ MEPROP Name 'pipe_CheckDelivery'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELIST Inherits
+   Seq: ( ME_538DA3DA035E_ME_580DF5DF01F5_G // TCsQueryProc
+ )
+ ; // Inherits
+ UP "ifdef" 'DeliveryByDataPipe'
+
+ENDME // ME_580DF5DF01F5 pipe_CheckDelivery
 
 ME ME_545C84E90055
  MEPROP UID '545C84E90055'
@@ -459,6 +558,36 @@ ME ME_54E343B00031
 
 ENDME // ME_54E343B00031 
 
+ME ME_580E02DF0228
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_580DE63E01AA' '538DA3BD02A0.ms.model.script' // TCsQueryRequester
+ ;
+
+ENDME // ME_580E02DF0228 
+
+ME ME_580F03BD018C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_545C9F2A010C' '538DA49902A4.ms.model.script' // cErrorCodes
+ ;
+
+ENDME // ME_580F03BD018C 
+
+ME ME_580F0A79014F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_4807756101FE' '478CF30500C1.ms.model.script' // TStringList
+ ;
+
+ENDME // ME_580F0A79014F 
+
 MEREF ME_4911B69E037D_ME_545C749003C2_impl
  MELINK Original WL 'ME_4911B69E037D' '4773D64E036C.ms.model.script' // DoExecute
  ;
@@ -509,11 +638,17 @@ ME ME_545C749003C2
  HWL ME_549AA06700E2 // f_Listener
  HWL ME_549AA07C02A4 // Listener
  HWL ME_57F39C8A03BF // f_Counter
+ HWL ME_580DF63D0232 // f_TotalSize
+ HWL ME_580DFFB6031F // f_ClientID
+ HWL ME_5811D6830002 // f_Deliverer
  )
  ; // Attributes
  MELIST Operations
-   Seq: ( HWL ME_5465FDD1009D // ReceiveTaskResult
+   Seq: ( HWL ME_5465FDD1009D // ReceiveTaskResultByTransporter
  HWL ME_546AF1220010 // Create
+ HWL ME_580DC1050078 // DoExecuteByTransporter
+ HWL ME_580DC11F0204 // DoExecuteByDataPipe
+ HWL ME_580DF5DF01F5 // pipe_CheckDelivery
  HWL ME_545C84E90055 // TerminateProcess
  HWL ME_545C88760010 // RequestDelivery
  HWL ME_545C888301CF // CanRequestDelivery
@@ -548,6 +683,9 @@ ME ME_545C749003C2
  ME_549BBB740215 // Msg Codes
  ME_54B8DE3603E4 // l3Interlocked
  ME_54E343B00031 // TncsSynchroCompatibilityClientTransporter
+ ME_580E02DF0228 // TCsQueryRequester
+ ME_580F03BD018C // cErrorCodes
+ ME_580F0A79014F // TStringList
  )
  ; // Dependencies
  MESTRINGLIST DiagramsNames

@@ -1,0 +1,34 @@
+//#UC START# *4C6D0FD10112_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsTagNodePrimPrim.pas
+//#UC END# *4C6D0FD10112_ext:FileName
+//#UC START# *4C6D0FD10112impl_uses*
+//#UC END# *4C6D0FD10112impl_uses*
+//#UC START# *4C6D103002F8_4C6D0FD10112_impl*
+ Result := inherited GetSubAtom(aProp, Data)
+//#UC END# *4C6D103002F8_4C6D0FD10112_impl*
+//#UC START# *4C6D103002F8_4C6D0FD10112_var*
+//#UC END# *4C6D103002F8_4C6D0FD10112_var*
+//#UC START# *4E68A61B0222_4C6D0FD10112_impl*
+ if Tk2Type(aProp.AtomType).IsOrd then
+  l_Tag := aProp.MakeTag(aValue).AsObject
+ else
+ begin
+  Assert(false);
+  l_Tag := nil{Tk2Type(aProp.AtomType)._IntToTag(aValue)};
+ end;//Tk2Type(aProp.AtomType).IsOrd
+ StoreTagAtom(aProp, l_Tag);
+//#UC END# *4E68A61B0222_4C6D0FD10112_impl*
+//#UC START# *4E68A61B0222_4C6D0FD10112_var*
+var
+ l_Tag : Tl3Variant;
+//#UC END# *4E68A61B0222_4C6D0FD10112_var*
+//#UC START# *4E68A69B0273_4C6D0FD10112_impl*
+ l_P{$IfDef XE4}.r_PropInPrim_{$EndIf}.rProp := aProp;
+ l_P.rOp := nil;
+ l_P{$IfDef XE4}.r_PropInPrim_{$EndIf}.rDeleteMapped := true;
+ SetSubAtom(_PropIn_(l_P), aValue);
+//#UC END# *4E68A69B0273_4C6D0FD10112_impl*
+//#UC START# *4E68A69B0273_4C6D0FD10112_var*
+var
+ l_P : _PropLoc_;
+//#UC END# *4E68A69B0273_4C6D0FD10112_var*

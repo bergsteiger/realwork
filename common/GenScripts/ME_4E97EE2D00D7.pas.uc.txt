@@ -1,0 +1,31 @@
+//#UC START# *4C3C927B027E_4E97EE2D00D7_impl*
+ if aMap = nil then
+  Result := l3Point0
+ else
+  Result := l3Point(aMap.Bounds.Left + 3 * evEpsilon, aMap.Outer.Bounds.Bottom - 2 * evEpsilon);
+//#UC END# *4C3C927B027E_4E97EE2D00D7_impl*
+//#UC START# *4C3C927B027E_4E97EE2D00D7_var*
+//#UC END# *4C3C927B027E_4E97EE2D00D7_var*
+//#UC START# *4E97EE2D00D7_ext:FileName
+w:\common\components\gui\Garant\Everest\EditorUsers\CellSelectionByMouse.imp.pas
+//#UC END# *4E97EE2D00D7_ext:FileName
+//#UC START# *4E97EEAA0320_4E97EE2D00D7_impl*
+ l_l3Pt := TranslatePara2Point(aText);
+ l_HotSpot := GetHotSpot(aText, l_l3Pt, False);
+ if l_HotSpot <> nil then
+ begin
+  l3FillChar(l_Keys, SizeOf(l_Keys), 0);
+  l_Keys.rKeys := [];
+  l_Keys.rInitialPoint := l_l3Pt;
+  l_Keys.rPoint := l_l3Pt;
+  l_HotSpot.LButtonDown(aText.View, l_Keys, l_Effect);
+ end; // if l_HotSpotTester.GetAdvancedHotSpot(aText.View,
+ Result := true;
+//#UC END# *4E97EEAA0320_4E97EE2D00D7_impl*
+//#UC START# *4E97EEAA0320_4E97EE2D00D7_var*
+var
+ l_HotSpot : IevHotSpot;
+ l_Effect  : TevMouseEffect;
+ l_Keys    : TevMouseState;
+ l_l3Pt    : Tl3Point;
+//#UC END# *4E97EEAA0320_4E97EE2D00D7_var*

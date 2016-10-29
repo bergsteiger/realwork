@@ -1,0 +1,515 @@
+//#UC START# *479731C50290_4831599C0300_impl*
+ FreeAndNil(f_Tree);
+ inherited;
+//#UC END# *479731C50290_4831599C0300_impl*
+//#UC START# *479731C50290_4831599C0300_var*
+//#UC END# *479731C50290_4831599C0300_var*
+//#UC START# *47D1602000C6_4831599C0300_impl*
+ inherited Create(AOwner);
+ Cursor := crIBeam;
+ f_Invert := False;
+
+ f_DropHeight := 0;
+ f_DropWidth := 0;
+ f_SizeableTree := True;
+ f_ShowGripper := True;
+ ReadOnly := False;
+ f_CalcDimensions := True;
+//#UC END# *47D1602000C6_4831599C0300_impl*
+//#UC START# *47D1602000C6_4831599C0300_var*
+//#UC END# *47D1602000C6_4831599C0300_var*
+//#UC START# *482BFC2E0363_4831599C0300_impl*
+ if not Enabled or ((ComboStyle = ct_cbDropDownList) and not Focused) then
+  Result := nil
+ else
+ begin
+  Result := inherited GetPaintSelection;
+  if (Result <> nil) and Result.Solid(View) then
+  begin
+   Result.GetBorderPoints(l_S, l_F);
+   if (l_F <> nil) and (l_F.MostInner <> nil) then
+    l_F.MostInner.SetAtEnd(View, False);
+  end;//(Result <> nil) AND Result.Solid(View)
+ end;//not Enabled..
+//#UC END# *482BFC2E0363_4831599C0300_impl*
+//#UC START# *482BFC2E0363_4831599C0300_var*
+var
+ l_S, l_F: InevBasePoint;  
+//#UC END# *482BFC2E0363_4831599C0300_var*
+//#UC START# *4831599C0300_ext:ParentFileName
+w:\common\components\gui\Garant\VT\ComboTree\DropDownTree.pas
+//#UC END# *4831599C0300_ext:ParentFileName
+//#UC START# *53ECD12B0045_4831599C0300set_impl*
+ if (Dropped <> aValue) and (ComboStyle <> ct_cbEdit) then
+ begin
+  inherited;
+  if (aValue = True) and (not Focused) and (not Tree.Focused) and
+     not (cmButtonClick in CurrentMode) then
+   Exit;
+
+  if aValue then
+  begin
+   CalcDropDimensions;
+
+   Tree.Height := f_DropHeight;
+   if f_DropWidth < Width then
+    Tree.Width := Width
+   else
+    Tree.Width := f_DropWidth;
+
+   P := Point(Left, Top + Height);
+   P := Parent.ClientToScreen(P);
+
+   if GrowDropTreeWidthByIcons then
+   begin
+    l_Delta := CalcGrowingWidth;
+    l_MonitorRect := Screen.MonitorFromPoint(P).WorkareaRect;
+    Dec(P.X, l_Delta);
+
+    l_DropWidth := Tree.Width;
+    if l_DropWidth < Width + 2 * l_Delta then
+     l_DropWidth := Width + 2 * l_Delta;
+    if (P.X + l_DropWidth) > l_MonitorRect.Right then
+     Dec(l_DropWidth, (P.X + l_DropWidth) - l_MonitorRect.Right);
+
+    Tree.Width := l_DropWidth;
+   end;//GrowDropTreeWidthByIcons
+
+   f_IgnoreFocus := True;
+   try
+    if (P.Y + Tree.Height > Screen.Height) and
+       ((Screen.Height - P.Y) < ClientToScreen(Point(Left, Top)).Y) then
+    begin
+     if f_Invert <> True then begin
+       f_Invert := True;
+       Tree.RecreateTree;
+     end;
+     P.Y := P.Y - Tree.Height - Height;
+    end//P.Y + Tree.Height > Screen.Height..
+    else
+    if (f_Invert <> False) then
+    begin
+     f_Invert := False;
+     Tree.RecreateTree;
+    end;//f_Invert <> False
+    if AdjustDropDownPos then
+    begin
+      PF := GetParentForm(Self);
+      P1 := Point(0, PF.ClientHeight);
+      P1 := PF.ClientToScreen(P1);
+      if (P.Y + Tree.Height > P1.y) then
+      begin
+       P1 := Point(0, 0);
+       P1 := PF.ClientToScreen(P1);
+       if (P.Y - Height - Tree.Height >= P1.y) then
+         P.Y := P.Y - Height - Tree.Height;
+      end;//Y + Tree.Height > P1.y
+    end;//AdjustDropDownPos
+    f_IgnoreDrop := True;
+    try
+     SetWindowPos(Tree.Handle,
+                  HWND_TOPMOST, P.x, P.y, 0, 0,
+                  SWP_NOSIZE or SWP_NOACTIVATE or SWP_SHOWWINDOW);
+     Tree.Visible := True;
+     SetFocus;
+    finally
+     f_IgnoreDrop := False;
+    end;//try..finally
+   finally
+    f_IgnoreFocus := False;
+   end;//try..finally
+  end//aValue
+  else
+  begin
+   f_IgnoreDrop := True;
+   try
+    f_DropHeight := Tree.Height;
+    f_IgnoreFocus := True;
+
+    HideDropDown;
+
+    f_IgnoreFocus := False;
+   finally
+    f_IgnoreDrop := False;
+   end;//try..finally
+  end;//aValue
+ end//Dropped <> aValue
+ else
+ inherited;
+//#UC END# *53ECD12B0045_4831599C0300set_impl*
+//#UC START# *53ECD12B0045_4831599C0300set_var*
+var
+ P, P1: TPoint;
+ PF: TCustomForm;
+ l_Delta: Integer;
+ l_MonitorRect: TRect;
+ l_DropWidth: Integer;
+//#UC END# *53ECD12B0045_4831599C0300set_var*
+//#UC START# *53EDCF91019F_4831599C0300_impl*
+ Result := Tree;
+//#UC END# *53EDCF91019F_4831599C0300_impl*
+//#UC START# *53EDCF91019F_4831599C0300_var*
+//#UC END# *53EDCF91019F_4831599C0300_var*
+//#UC START# *53EDCFAF00AA_4831599C0300_impl*
+ inherited;
+ if Assigned(Tree) and Tree.HandleAllocated then
+ begin
+  if Tree.Visible then
+   Tree.Visible := False;
+  SetWindowPos(Tree.Handle,
+               HWND_NOTOPMOST,
+               0, 0, 0, 0,
+               SWP_NOMOVE or SWP_NOSIZE or SWP_HIDEWINDOW or SWP_NOACTIVATE);
+ end;//Assigned(Tree)
+ if Dropped then
+  Dropped := False;
+//#UC END# *53EDCFAF00AA_4831599C0300_impl*
+//#UC START# *53EDCFAF00AA_4831599C0300_var*
+//#UC END# *53EDCFAF00AA_4831599C0300_var*
+//#UC START# *53EDFEBC01FA_4831599C0300set_impl*
+ if (f_SizeableTree <> aValue) and (ComboStyle <> ct_cbEdit) then
+ begin
+  f_SizeableTree := aValue;
+  Tree.RecreateTree;
+ end;//FSizeableTree <> aValue
+//#UC END# *53EDFEBC01FA_4831599C0300set_impl*
+//#UC START# *53EDFEBC01FA_4831599C0300set_var*
+//#UC END# *53EDFEBC01FA_4831599C0300set_var*
+//#UC START# *53EDFEE9025C_4831599C0300set_impl*
+ if (f_ShowGripper <> aValue) and (ComboStyle <> ct_cbEdit) then
+ begin
+  f_ShowGripper := aValue;
+  Tree.RecreateTree;
+ end;//FShowGripper <> aValue
+//#UC END# *53EDFEE9025C_4831599C0300set_impl*
+//#UC START# *53EDFEE9025C_4831599C0300set_var*
+//#UC END# *53EDFEE9025C_4831599C0300set_var*
+//#UC START# *53EDFF4400C0_4831599C0300set_impl*
+ f_OnGetItemImage := aValue;
+ ShowIcons := Assigned(aValue);
+//#UC END# *53EDFF4400C0_4831599C0300set_impl*
+//#UC START# *53EDFF4400C0_4831599C0300set_var*
+//#UC END# *53EDFF4400C0_4831599C0300set_var*
+//#UC START# *53EE003E0191_4831599C0300get_impl*
+ if (ComboStyle <> ct_cbEdit) then
+  Result := Tree.ShowRoot
+ else
+  Result := False;
+//#UC END# *53EE003E0191_4831599C0300get_impl*
+//#UC START# *53EE003E0191_4831599C0300get_var*
+//#UC END# *53EE003E0191_4831599C0300get_var*
+//#UC START# *53EE003E0191_4831599C0300set_impl*
+ if ComboStyle <> ct_cbEdit then
+  Tree.ShowRoot := aValue;
+//#UC END# *53EE003E0191_4831599C0300set_impl*
+//#UC START# *53EE003E0191_4831599C0300set_var*
+//#UC END# *53EE003E0191_4831599C0300set_var*
+//#UC START# *53EE005F008B_4831599C0300get_impl*
+ if (ComboStyle <> ct_cbEdit) then
+  Result := voShowIcons in Tree.ViewOptions
+ else
+  Result := False;
+//#UC END# *53EE005F008B_4831599C0300get_impl*
+//#UC START# *53EE005F008B_4831599C0300get_var*
+//#UC END# *53EE005F008B_4831599C0300get_var*
+//#UC START# *53EE005F008B_4831599C0300set_impl*
+ if (ComboStyle <> ct_cbEdit) then
+ begin
+  if aValue then
+   Tree.ViewOptions := Tree.ViewOptions + [voShowIcons]
+  else
+   Tree.ViewOptions := Tree.ViewOptions - [voShowIcons];
+ end;//ComboStyle <> ct_cbEdit
+//#UC END# *53EE005F008B_4831599C0300set_impl*
+//#UC START# *53EE005F008B_4831599C0300set_var*
+//#UC END# *53EE005F008B_4831599C0300set_var*
+//#UC START# *53EE012C0211_4831599C0300_impl*
+ FreeAndNil(f_Tree);
+ if aValue <> ct_cbEdit then
+  f_Tree := CreateSubTree;
+//#UC END# *53EE012C0211_4831599C0300_impl*
+//#UC START# *53EE012C0211_4831599C0300_var*
+//#UC END# *53EE012C0211_4831599C0300_var*
+//#UC START# *53EE01540251_4831599C0300_impl*
+ Result := TSubTree.Create(Self);
+//#UC END# *53EE01540251_4831599C0300_impl*
+//#UC START# *53EE01540251_4831599C0300_var*
+//#UC END# *53EE01540251_4831599C0300_var*
+//#UC START# *53EE01CD00F4_4831599C0300get_impl*
+ if ComboStyle <> ct_cbEdit then
+  Result := Tree.Images
+ else
+  Result := nil;
+//#UC END# *53EE01CD00F4_4831599C0300get_impl*
+//#UC START# *53EE01CD00F4_4831599C0300get_var*
+//#UC END# *53EE01CD00F4_4831599C0300get_var*
+//#UC START# *53EE01CD00F4_4831599C0300set_impl*
+ if ComboStyle <> ct_cbEdit then
+  Tree.Images := aValue
+//#UC END# *53EE01CD00F4_4831599C0300set_impl*
+//#UC START# *53EE01CD00F4_4831599C0300set_var*
+//#UC END# *53EE01CD00F4_4831599C0300set_var*
+//#UC START# *53EE01CD00F4Stored_4831599C0300_impl*
+ if ComboStyle <> ct_cbEdit then
+  Result := Tree.ImagesStored
+ else
+  Result := False;
+//#UC END# *53EE01CD00F4Stored_4831599C0300_impl*
+//#UC START# *53EE01CD00F4Stored_4831599C0300_var*
+//#UC END# *53EE01CD00F4Stored_4831599C0300_var*
+//#UC START# *53EE02C3009D_4831599C0300get_impl*
+ if ComboStyle <> ct_cbEdit then
+  Result := Tree.GetCurrentNode
+ else
+  Result := nil;
+//#UC END# *53EE02C3009D_4831599C0300get_impl*
+//#UC START# *53EE02C3009D_4831599C0300get_var*
+//#UC END# *53EE02C3009D_4831599C0300get_var*
+//#UC START# *53EE02C3009D_4831599C0300set_impl*
+//#UC END# *53EE02C3009D_4831599C0300set_impl*
+//#UC START# *53EE02C3009D_4831599C0300set_var*
+//#UC END# *53EE02C3009D_4831599C0300set_var*
+//#UC START# *53EE08DF03BA_4831599C0300_impl*
+ Result := (Cursor <> crIBeam);
+//#UC END# *53EE08DF03BA_4831599C0300_impl*
+//#UC START# *53EE08DF03BA_4831599C0300_var*
+//#UC END# *53EE08DF03BA_4831599C0300_var*
+//#UC START# *53EE0968005D_4831599C0300get_impl*
+ Result := Tree.TreeStruct;
+//#UC END# *53EE0968005D_4831599C0300get_impl*
+//#UC START# *53EE0968005D_4831599C0300get_var*
+//#UC END# *53EE0968005D_4831599C0300get_var*
+//#UC START# *53EE0968005D_4831599C0300set_impl*
+ if (ComboStyle <> ct_cbEdit) then
+  Tree.TreeStruct := aValue;
+//#UC END# *53EE0968005D_4831599C0300set_impl*
+//#UC START# *53EE0968005D_4831599C0300set_var*
+//#UC END# *53EE0968005D_4831599C0300set_var*
+//#UC START# *53EE09AA0268_4831599C0300_impl*
+ Result := 100;
+//#UC END# *53EE09AA0268_4831599C0300_impl*
+//#UC START# *53EE09AA0268_4831599C0300_var*
+//#UC END# *53EE09AA0268_4831599C0300_var*
+//#UC START# *53EE09D70249_4831599C0300_impl*
+ Result := Width;
+//#UC END# *53EE09D70249_4831599C0300_impl*
+//#UC START# *53EE09D70249_4831599C0300_var*
+//#UC END# *53EE09D70249_4831599C0300_var*
+//#UC START# *53EE0A060099_4831599C0300_impl*
+ l_Point := ClientToScreen(Point(0, 0));
+
+ if (Screen.DesktopLeft + Screen.DesktopWidth) > (l_Point.X + Width) then
+  l_MaxWidth := Screen.DesktopLeft + Screen.DesktopWidth - l_Point.X
+ else
+  l_MaxWidth := -1;
+
+ if f_CalcDimensions then
+ begin
+  if (f_DropHeight=0) then begin
+   f_DropHeight := EstimateTreeHeight(Tree.GetMinSizeY, Tree.GetMaxSizeY);
+   Inc(f_DropHeight, Tree.getBorderSize);
+  end;
+  if not f_KeepLastDropWidth then
+   f_DropWidth := EstimateTreeWidth(l_MaxWidth, f_DropHeight);
+  f_KeepLastDropWidth := False;
+  f_CalcDimensions := False;
+ end;
+
+ if f_DropWidth > l_MaxWidth then
+  f_DropWidth := l_MaxWidth;
+{  if f_DropWidth < Width then
+  f_DropWidth := Width; }
+//#UC END# *53EE0A060099_4831599C0300_impl*
+//#UC START# *53EE0A060099_4831599C0300_var*
+var
+ l_Point: TPoint;
+ l_MaxWidth: integer;
+//#UC END# *53EE0A060099_4831599C0300_var*
+//#UC START# *53EE0A11020D_4831599C0300_impl*
+ f_CalcDimensions := True;
+//#UC END# *53EE0A11020D_4831599C0300_impl*
+//#UC START# *53EE0A11020D_4831599C0300_var*
+//#UC END# *53EE0A11020D_4831599C0300_var*
+//#UC START# *53EE0A28005A_4831599C0300_impl*
+ if Tree.Current > -1 then
+ begin
+  DR := Tree.GetDrawRect(Tree.Current);
+  Result := Tree.GetItemTextIndent(Tree.Current, DR.Bottom - DR.Top);
+ end
+ else
+ if Tree.Total > 0 then
+ begin
+  DR := Tree.GetDrawRect(Tree.TopIndex);
+  Result := Tree.GetItemTextIndent(Tree.TopIndex, DR.Bottom - DR.Top);
+ end
+ else
+  Result := 0;
+//#UC END# *53EE0A28005A_4831599C0300_impl*
+//#UC START# *53EE0A28005A_4831599C0300_var*
+var
+ DR: TRect;
+//#UC END# *53EE0A28005A_4831599C0300_var*
+//#UC START# *53EE0A3D023F_4831599C0300_impl*
+//#UC END# *53EE0A3D023F_4831599C0300_impl*
+//#UC START# *53EE0A3D023F_4831599C0300_var*
+//#UC END# *53EE0A3D023F_4831599C0300_var*
+//#UC START# *53EE0A5601CD_4831599C0300_impl*
+ Dropped := False;
+//     afw.ProcessMessages; нельзя :(
+ afw.BeginOp;
+ try
+  ProcessTreeSelect(True, True);
+ finally
+  afw.EndOp;
+ end;
+//#UC END# *53EE0A5601CD_4831599C0300_impl*
+//#UC START# *53EE0A5601CD_4831599C0300_var*
+//#UC END# *53EE0A5601CD_4831599C0300_var*
+//#UC START# *53EE0A730393_4831599C0300_impl*
+//#UC END# *53EE0A730393_4831599C0300_impl*
+//#UC START# *53EE0A730393_4831599C0300_var*
+//#UC END# *53EE0A730393_4831599C0300_var*
+//#UC START# *53EE0AD700F8_4831599C0300_impl*
+ Result := -1;
+ if Assigned(f_OnGetItemImage) then
+  Result := f_OnGetItemImage(Self, anIndex, aImages);
+//#UC END# *53EE0AD700F8_4831599C0300_impl*
+//#UC START# *53EE0AD700F8_4831599C0300_var*
+//#UC END# *53EE0AD700F8_4831599C0300_var*
+//#UC START# *53EE177B02C6_4831599C0300_impl*
+ if (ComboStyle in ReadOnlyComboStyles) then
+ begin
+  SendCancelMode(Self);
+  if csClickEvents in ControlStyle then
+   ControlState := ControlState + [csClicked];
+  if not (csNoStdEvents in ControlStyle) then
+   with Message do
+    MouseDown(mbLeft, KeysToShiftState(Keys), XPos, YPos);
+  TriggerDropCloseEvent(not Dropped);
+  Dropped := not Dropped;
+  SendMessage(Handle, EM_SETSEL, -1, -1);
+ end//ComboStyle in ReadOnlyComboStyles
+ else
+  inherited;
+//#UC END# *53EE177B02C6_4831599C0300_impl*
+//#UC START# *53EE177B02C6_4831599C0300_var*
+//#UC END# *53EE177B02C6_4831599C0300_var*
+//#UC START# *53EE183B0353_4831599C0300_impl*
+ if (ComboStyle in ReadOnlyComboStyles) then
+ begin
+  with Message do
+   MouseUp(mbLeft, KeysToShiftState(Keys), XPos, YPos);
+  SendMessage(Handle, EM_SETSEL, -1, -1);
+ end//ComboStyle in ReadOnlyComboStyles
+ else
+  inherited;
+//#UC END# *53EE183B0353_4831599C0300_impl*
+//#UC START# *53EE183B0353_4831599C0300_var*
+//#UC END# *53EE183B0353_4831599C0300_var*
+//#UC START# *53EE188E031B_4831599C0300_impl*
+ if not (csDestroying in ComponentState) and
+   ((ComboStyle = ct_cbEdit) or
+   ((Message.FocusedWnd<>Tree.Handle) and
+   (Message.FocusedWnd<>Self.Handle))) then 
+  inherited;
+//#UC END# *53EE188E031B_4831599C0300_impl*
+//#UC START# *53EE188E031B_4831599C0300_var*
+//#UC END# *53EE188E031B_4831599C0300_var*
+//#UC START# *53EE191B004A_4831599C0300_impl*
+  // Tree.WMSetFocus вызывает SetFocus этого объекта
+  if (ComboStyle = ct_cbEdit) or
+     ((Message.FocusedWnd<>Tree.Handle) and (Message.FocusedWnd<>Handle)) and
+     not (cmFocusing in CurrentMode) then
+   CustomDoEnter;
+  inherited;
+//#UC END# *53EE191B004A_4831599C0300_impl*
+//#UC START# *53EE191B004A_4831599C0300_var*
+//#UC END# *53EE191B004A_4831599C0300_var*
+//#UC START# *53EE192E02CD_4831599C0300_impl*
+ if not Assigned(Tree) then
+  Exit;
+ Pt := Point(Message.wParam, Message.lParam);
+ Tree.HitTest(Pt, N, lItemPart, False);
+ if (lItemPart in [ihtText, ihtIcon, ihtPickIcon, ihtOpenChip]) then
+ begin
+  Dropped := False;
+  afw.ProcessMessages;
+  ProcessTreeSelect(True, True);
+ end;//lItemPart=ihtText
+//#UC END# *53EE192E02CD_4831599C0300_impl*
+//#UC START# *53EE192E02CD_4831599C0300_var*
+var
+ N: Integer;
+ lItemPart : Byte;
+ Pt: TPoint;
+//#UC END# *53EE192E02CD_4831599C0300_var*
+//#UC START# *53F1D483009C_4831599C0300get_impl*
+ Result := False;
+//#UC END# *53F1D483009C_4831599C0300get_impl*
+//#UC START# *53F1D483009C_4831599C0300get_var*
+//#UC END# *53F1D483009C_4831599C0300get_var*
+//#UC START# *53F1DB47024C_4831599C0300_impl*
+//#UC END# *53F1DB47024C_4831599C0300_impl*
+//#UC START# *53F1DB47024C_4831599C0300_var*
+//#UC END# *53F1DB47024C_4831599C0300_var*
+//#UC START# *53F1DB6200C6_4831599C0300_impl*
+ Result := True;
+ GetWindowRect(Handle, l_Rect);
+ if PtInRect(l_Rect, aPoint) then
+  Exit;
+ GetWindowRect(Tree.Handle, l_Rect);
+ if PtInRect(l_Rect, aPoint) then
+  Exit;
+ Result := False;
+//#UC END# *53F1DB6200C6_4831599C0300_impl*
+//#UC START# *53F1DB6200C6_4831599C0300_var*
+var
+ l_Rect: TRect;
+//#UC END# *53F1DB6200C6_4831599C0300_var*
+//#UC START# *53F1DB7F0036_4831599C0300_impl*
+ Result := (aHandle = Handle) or (aHandle = Tree.Handle);
+//#UC END# *53F1DB7F0036_4831599C0300_impl*
+//#UC START# *53F1DB7F0036_4831599C0300_var*
+//#UC END# *53F1DB7F0036_4831599C0300_var*
+//#UC START# *53F2095303D0_4831599C0300get_impl*
+ if f_Tree = nil then
+  RecreateTreeIfNeeded(ComboStyle);
+ Result := f_Tree;
+//#UC END# *53F2095303D0_4831599C0300get_impl*
+//#UC START# *53F2095303D0_4831599C0300get_var*
+//#UC END# *53F2095303D0_4831599C0300get_var*
+//#UC START# *54084F6B01FD_4831599C0300_impl*
+ // Безуспешная борьба с http://mdp.garant.ru/pages/viewpage.action?pageId=185828256
+ if Supports(f_Tree, IvcmState, l_State) then
+  // Supports никогда на самом деле не отработает ибо TSubTree не наследник TeeTreeViewExport
+  Result := l_State.LoadState(aState, aStateType, aClone)
+ else
+  Result := False;
+ //Result := inherited IvcmState_LoadState(aState, aStateType);
+//#UC END# *54084F6B01FD_4831599C0300_impl*
+//#UC START# *54084F6B01FD_4831599C0300_var*
+var
+ l_State: IvcmState;
+//#UC END# *54084F6B01FD_4831599C0300_var*
+//#UC START# *54084FBC0018_4831599C0300_impl*
+ // Безуспешная борьба с http://mdp.garant.ru/pages/viewpage.action?pageId=185828256
+ if Supports(f_Tree, IvcmState, l_State) then
+  // Supports никогда на самом деле не отработает ибо TSubTree не наследник TeeTreeViewExport
+  Result := (f_Tree as IvcmState).SaveState(aState, aStateType)
+ else
+  Result := False;
+ //Result := inherited IvcmState_SaveState(aState, aStateType);
+ // !! Если будешь здесь копаться, то читай и TAbstractDropDown.IvcmState_SaveState
+//#UC END# *54084FBC0018_4831599C0300_impl*
+//#UC START# *54084FBC0018_4831599C0300_var*
+var
+ l_State: IvcmState;
+//#UC END# *54084FBC0018_4831599C0300_var*
+//#UC START# *573F0DAA02BB_4831599C0300_impl*
+ if Assigned(Tree) and Tree.HandleAllocated then
+  Result := Tree.Handle
+ else
+  Result := 0;
+//#UC END# *573F0DAA02BB_4831599C0300_impl*
+//#UC START# *573F0DAA02BB_4831599C0300_var*
+//#UC END# *573F0DAA02BB_4831599C0300_var*

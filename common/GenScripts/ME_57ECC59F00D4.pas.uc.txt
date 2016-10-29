@@ -1,0 +1,93 @@
+//#UC START# *479731C50290_57ECC59F00D4_impl*
+ FreeAndNil(f_Message);
+ FreeAndNil(f_Reply);
+ inherited;
+//#UC END# *479731C50290_57ECC59F00D4_impl*
+//#UC START# *479731C50290_57ECC59F00D4_var*
+//#UC END# *479731C50290_57ECC59F00D4_var*
+//#UC START# *53A2EEE90097_57ECC59F00D4_impl*
+ l_Counter.Reset;
+ l_Counter.Start;
+ try
+  l_IDList := Tl3IDList.Create;
+  try
+   f_Message.DocumentIDList.ToList(l_IDList);
+   SetLength(l_SelectedArray, f_Message.Attributes.Count);
+   for l_IDX := Low(l_SelectedArray) to High(l_SelectedArray) do
+    l_SelectedArray[l_IDX] := TdaDictionaryType(f_Message.Attributes.Items[l_IDX]);
+   l_Helper := TarDirectMultiClearAttributesHelper.Create(f_Message.FamilyID, l_IDList, f_Message.RightsNeeded, l_SelectedArray);
+  finally
+   FreeAndNil(l_IDList);
+  end;
+  try
+   try
+    l_Helper.ClearAttributes;
+    if l_Helper.HasRejectedDocs then
+    begin
+     l_RejectedList := f_Reply.RejectedIDList;
+     l_DataList := Tl3StringDataList.Create;
+     try
+      l_Helper.FillRejectedList(l_DataList);
+      Assert(l_DataList.DataSize <= SizeOf(l_ID));
+      for l_IDX := 0 to l_DataList.Count - 1 do
+      begin
+        l_ID := 0;
+        System.Move(l_DataList.Data[l_IDX]^, l_ID, l_DataList.DataSize);
+        l_RejectedList.Add(l_ID, l_DataList.PasStr[l_IDX]);
+      end;
+     finally
+      FreeAndNil(l_DataList);
+     end;
+    end;
+
+    f_Reply.ErrorMessage := '';
+    f_Reply.IsSuccess := True;
+   except
+    on E: Exception do
+    begin
+     f_Reply.ErrorMessage := E.Message;
+     f_Reply.IsSuccess := False;
+     l3System.Exception2Log(E);
+    end;
+   end;
+  finally
+   FreeAndNil(l_Helper);
+  end;
+ finally
+  l_Counter.Stop;
+  SignalReady;
+  l3System.Msg2Log('Remote multimodify documents - %s', [FormatFloat('#,##0 ms', l_Counter.Time * 1000)], l3_msgLevel10);
+ end;
+//#UC END# *53A2EEE90097_57ECC59F00D4_impl*
+//#UC START# *53A2EEE90097_57ECC59F00D4_var*
+var
+ l_Helper: TarDirectMultiClearAttributesHelper;
+ l_IDList: Tl3IDList;
+ l_SelectedArray: TdaDictionaryTypeArray;
+ l_IDX: Integer;
+ l_RejectedList: RejectedIDListHelper;
+ l_Counter: Tl3StopWatch;
+ l_DataList: Tl3StringDataList;
+ l_ID: Cardinal;
+//#UC END# *53A2EEE90097_57ECC59F00D4_var*
+//#UC START# *57C4135700F7_57ECC59F00D4_impl*
+ f_Reply.ErrorMessage := 'Операция прервана';
+ SignalReady;
+//#UC END# *57C4135700F7_57ECC59F00D4_impl*
+//#UC START# *57C4135700F7_57ECC59F00D4_var*
+//#UC END# *57C4135700F7_57ECC59F00D4_var*
+//#UC START# *57ECC59F00D4_ext:FileName
+w:\archi\source\projects\PipeInAuto\Tasks\alcuMultiClearAttributesRequest.pas
+//#UC END# *57ECC59F00D4_ext:FileName
+//#UC START# *57ECC59F00D4impl_uses*
+//#UC END# *57ECC59F00D4impl_uses*
+//#UC START# *57ECC5BA02DA_57ECC59F00D4set_impl*
+ aValue.SetRefTo(f_Message);
+//#UC END# *57ECC5BA02DA_57ECC59F00D4set_impl*
+//#UC START# *57ECC5BA02DA_57ECC59F00D4set_var*
+//#UC END# *57ECC5BA02DA_57ECC59F00D4set_var*
+//#UC START# *57ECC5D70126_57ECC59F00D4set_impl*
+ aValue.SetRefTo(f_Reply);
+//#UC END# *57ECC5D70126_57ECC59F00D4set_impl*
+//#UC START# *57ECC5D70126_57ECC59F00D4set_var*
+//#UC END# *57ECC5D70126_57ECC59F00D4set_var*

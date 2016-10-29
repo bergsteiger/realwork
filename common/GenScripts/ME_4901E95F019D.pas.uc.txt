@@ -1,0 +1,62 @@
+//#UC START# *479731C50290_4901E95F019D_impl*
+ f_Flags := nil;
+ f_Group := nil;
+ f_PermanentFlags := nil;
+ inherited;
+//#UC END# *479731C50290_4901E95F019D_impl*
+//#UC START# *479731C50290_4901E95F019D_var*
+//#UC END# *479731C50290_4901E95F019D_var*
+//#UC START# *48FF4F47010F_4901E95F019D_impl*
+ inherited Create(aSource);
+ if Supports(aSource, InsUserFlagsFilters, l_Filter) then
+ begin
+  if Assigned(l_Filter.PermanentUserFlags) then
+   f_PermanentFlags := TnsUserFlagsFilter.Make(l_Filter.PermanentUserFlags.UserFlag);
+  if Assigned(l_Filter.UserFlags) then
+   f_Flags := TnsUserFlagsFilter.Make(l_Filter.UserFlags.UserFlag);
+  if Assigned(l_Filter.Group) then
+   f_Group := TnsGroupFilter.Make(l_Filter.Group.GroupUID);
+ end;
+//#UC END# *48FF4F47010F_4901E95F019D_impl*
+//#UC START# *48FF4F47010F_4901E95F019D_var*
+var
+ l_Filter: InsUserFlagsFilters;
+//#UC END# *48FF4F47010F_4901E95F019D_var*
+//#UC START# *4901E691032E_4901E95F019Dget_impl*
+ Result := f_Flags;
+//#UC END# *4901E691032E_4901E95F019Dget_impl*
+//#UC START# *4901E691032E_4901E95F019Dget_var*
+//#UC END# *4901E691032E_4901E95F019Dget_var*
+//#UC START# *4901E6C301FD_4901E95F019D_impl*
+ f_Flags := aFilter;
+ Result := Self;
+//#UC END# *4901E6C301FD_4901E95F019D_impl*
+//#UC START# *4901E6C301FD_4901E95F019D_var*
+//#UC END# *4901E6C301FD_4901E95F019D_var*
+//#UC START# *4901E95F019D_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserFlagsFilters.pas
+//#UC END# *4901E95F019D_ext:FileName
+//#UC START# *4901E95F019Dimpl_uses*
+//#UC END# *4901E95F019Dimpl_uses*
+//#UC START# *49F0161A037E_4901E95F019Dget_impl*
+ Result := f_Group;
+//#UC END# *49F0161A037E_4901E95F019Dget_impl*
+//#UC START# *49F0161A037E_4901E95F019Dget_var*
+//#UC END# *49F0161A037E_4901E95F019Dget_var*
+//#UC START# *49F019C2015C_4901E95F019D_impl*
+ f_Group := aFilter;
+ Result := Self;
+//#UC END# *49F019C2015C_4901E95F019D_impl*
+//#UC START# *49F019C2015C_4901E95F019D_var*
+//#UC END# *49F019C2015C_4901E95F019D_var*
+//#UC START# *49F1573C02B4_4901E95F019Dget_impl*
+ Result := f_PermanentFlags;
+//#UC END# *49F1573C02B4_4901E95F019Dget_impl*
+//#UC START# *49F1573C02B4_4901E95F019Dget_var*
+//#UC END# *49F1573C02B4_4901E95F019Dget_var*
+//#UC START# *49F157660281_4901E95F019D_impl*
+ f_PermanentFlags := aFilter;
+ Result := Self;
+//#UC END# *49F157660281_4901E95F019D_impl*
+//#UC START# *49F157660281_4901E95F019D_var*
+//#UC END# *49F157660281_4901E95F019D_var*

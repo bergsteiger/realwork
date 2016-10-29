@@ -1,0 +1,34 @@
+//#UC START# *4AA931390118_57A3147602EE_Impl_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Search\CommonSearch_Module.pas
+//#UC END# *4AA931390118_57A3147602EE_Impl_ext:ParentFileName
+//#UC START# *4AAF73E6039E_4AA931390118_impl*
+ l_Params := vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(nil)));
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=606808801
+ Result := TefPreviewForm.Make(aPreview, l_Params);
+//#UC END# *4AAF73E6039E_4AA931390118_impl*
+//#UC START# *4AAF73E6039E_4AA931390118_var*
+ l_Params: IvcmMakeParams;
+//#UC END# *4AAF73E6039E_4AA931390118_var*
+//#UC START# *4AAF85DA01D1_4AA931390118_impl*
+ l_Form := Ten_PageSetup.Make(aData);
+ try
+  Assert((l_Form <> nil));
+  Result := l_Form.ShowModal;
+ finally
+  l_Form := nil;
+ end;//try..finally
+//#UC END# *4AAF85DA01D1_4AA931390118_impl*
+//#UC START# *4AAF85DA01D1_4AA931390118_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4AAF85DA01D1_4AA931390118_var*
+//#UC START# *4AAF8EE1019C_4AA931390118_impl*
+ Result := Ten_PrintDialog.Make(aPreview);
+ if (Result <> nil) AND (Result.ZoneType <> vcm_ztModal) then
+ begin
+  Result.ShowModal;
+  Result := nil;
+ end;//Result <> nil
+//#UC END# *4AAF8EE1019C_4AA931390118_impl*
+//#UC START# *4AAF8EE1019C_4AA931390118_var*
+//#UC END# *4AAF8EE1019C_4AA931390118_var*

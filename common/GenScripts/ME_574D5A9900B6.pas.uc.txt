@@ -1,0 +1,131 @@
+//#UC START# *479731C50290_574D5A9900B6_impl*
+ f_HTClause := nil;
+ f_PGClause := nil;
+ f_Factory := nil;;
+ inherited;
+//#UC END# *479731C50290_574D5A9900B6_impl*
+//#UC START# *479731C50290_574D5A9900B6_var*
+//#UC END# *479731C50290_574D5A9900B6_var*
+//#UC START# *5608E5F20118_574D5A9900B6_impl*
+ Result := f_HTClause.BuildSQLValue(aHelper);
+ Assert(Result = f_PGClause.BuildSQLValue(aHelper));
+//#UC END# *5608E5F20118_574D5A9900B6_impl*
+//#UC START# *5608E5F20118_574D5A9900B6_var*
+//#UC END# *5608E5F20118_574D5A9900B6_var*
+//#UC START# *57442BFD03BE_574D5A9900B6_impl*
+ Result := f_HTClause.HasTable(aTable);
+ Assert(Result = f_PGClause.HasTable(aTable));
+//#UC END# *57442BFD03BE_574D5A9900B6_impl*
+//#UC START# *57442BFD03BE_574D5A9900B6_var*
+//#UC END# *57442BFD03BE_574D5A9900B6_var*
+//#UC START# *5744366C003B_574D5A9900B6_impl*
+ Result := f_HTClause.FindTable(aTableAlias);
+ Assert(Result = f_PGClause.FindTable(aTableAlias));
+//#UC END# *5744366C003B_574D5A9900B6_impl*
+//#UC START# *5744366C003B_574D5A9900B6_var*
+//#UC END# *5744366C003B_574D5A9900B6_var*
+//#UC START# *574443A401BE_574D5A9900B6_impl*
+ f_HTClause.IterateTablesF(anAction);
+//!! !!! Needs to be implemented !!! Что с PGClause;
+//#UC END# *574443A401BE_574D5A9900B6_impl*
+//#UC START# *574443A401BE_574D5A9900B6_var*
+//#UC END# *574443A401BE_574D5A9900B6_var*
+//#UC START# *57456F6B01D2_574D5A9900B6get_impl*
+ if Supports(f_HTClause, IdaJoin, l_HTJoin) and Supports(f_PGClause, IdaJoin, l_PGJoin) then
+  Result := TcaFromClause.Make(f_Factory, l_HTJoin.Left, l_PGJoin.Left) as IdaFromClause
+ else
+  Result := nil;
+//#UC END# *57456F6B01D2_574D5A9900B6get_impl*
+//#UC START# *57456F6B01D2_574D5A9900B6get_var*
+var
+ l_HTJoin: IdaJoin;
+ l_PGJoin: IdaJoin;
+//#UC END# *57456F6B01D2_574D5A9900B6get_var*
+//#UC START# *57456F800124_574D5A9900B6get_impl*
+ if Supports(f_HTClause, IdaJoin, l_HTJoin) and Supports(f_PGClause, IdaJoin, l_PGJoin) then
+  Result := TcaFromClause.Make(f_Factory, l_HTJoin.Right, l_PGJoin.Right) as IdaFromClause
+ else
+  Result := nil;
+//#UC END# *57456F800124_574D5A9900B6get_impl*
+//#UC START# *57456F800124_574D5A9900B6get_var*
+var
+ l_HTJoin: IdaJoin;
+ l_PGJoin: IdaJoin;
+//#UC END# *57456F800124_574D5A9900B6get_var*
+//#UC START# *5745700A0180_574D5A9900B6get_impl*
+ if Supports(f_HTClause, IdaJoin, l_HTJoin) and Supports(f_PGClause, IdaJoin, l_PGJoin) then
+ begin
+  Result := l_HTJoin.Kind;
+  Assert(Result = l_PGJoin.Kind);
+ end
+ else
+  Result := da_jkInner;
+//#UC END# *5745700A0180_574D5A9900B6get_impl*
+//#UC START# *5745700A0180_574D5A9900B6get_var*
+var
+ l_HTJoin: IdaJoin;
+ l_PGJoin: IdaJoin;
+//#UC END# *5745700A0180_574D5A9900B6get_var*
+//#UC START# *5745702503A6_574D5A9900B6get_impl*
+ if Supports(f_HTClause, IdaJoin, l_HTJoin) then
+  Result := l_HTJoin.Condition
+ else
+  Result := nil;
+//#UC END# *5745702503A6_574D5A9900B6get_impl*
+//#UC START# *5745702503A6_574D5A9900B6get_var*
+var
+ l_HTJoin: IdaJoin;
+//#UC END# *5745702503A6_574D5A9900B6get_var*
+//#UC START# *574570520193_574D5A9900B6_impl*
+ if Supports(f_HTClause, IdaJoin, l_HTJoin) and Supports(f_PGClause, IdaJoin, l_PGJoin) then
+ begin
+  l_HTJoin.SetCondition(aCondition);
+  l_PGJoin.SetCondition(aCondition);
+  Result := Self;
+ end;
+//#UC END# *574570520193_574D5A9900B6_impl*
+//#UC START# *574570520193_574D5A9900B6_var*
+var
+ l_HTJoin: IdaJoin;
+ l_PGJoin: IdaJoin;
+//#UC END# *574570520193_574D5A9900B6_var*
+//#UC START# *574570790329_574D5A9900B6_impl*
+ Result := f_Factory.MakeJoin(Self, aRight, aKind);
+//#UC END# *574570790329_574D5A9900B6_impl*
+//#UC START# *574570790329_574D5A9900B6_var*
+//#UC END# *574570790329_574D5A9900B6_var*
+//#UC START# *57480BE20140_574D5A9900B6_impl*
+ Result := f_HTClause.IsRelationsConditionsValid;
+ Assert(Result = f_PGClause.IsRelationsConditionsValid);
+//#UC END# *57480BE20140_574D5A9900B6_impl*
+//#UC START# *57480BE20140_574D5A9900B6_var*
+//#UC END# *57480BE20140_574D5A9900B6_var*
+//#UC START# *574824090133_574D5A9900B6_impl*
+ f_HTClause.IterateRelationConditionsF(anAction);
+//!! !!! Needs to be implemented !!! Что с PGClause;
+//#UC END# *574824090133_574D5A9900B6_impl*
+//#UC START# *574824090133_574D5A9900B6_var*
+//#UC END# *574824090133_574D5A9900B6_var*
+//#UC START# *574D5A4C0298_574D5A9900B6get_impl*
+ Result := f_HTClause;
+//#UC END# *574D5A4C0298_574D5A9900B6get_impl*
+//#UC START# *574D5A4C0298_574D5A9900B6get_var*
+//#UC END# *574D5A4C0298_574D5A9900B6get_var*
+//#UC START# *574D5A61018D_574D5A9900B6get_impl*
+ Result := f_PGClause;
+//#UC END# *574D5A61018D_574D5A9900B6get_impl*
+//#UC START# *574D5A61018D_574D5A9900B6get_var*
+//#UC END# *574D5A61018D_574D5A9900B6get_var*
+//#UC START# *574D5A9900B6_ext:FileName
+w:\common\components\rtl\Garant\ComboAccess\caFromClause.pas
+//#UC END# *574D5A9900B6_ext:FileName
+//#UC START# *574D5A9900B6impl_uses*
+//#UC END# *574D5A9900B6impl_uses*
+//#UC START# *574D5AFE0110_574D5A9900B6_impl*
+ inherited Create;
+ f_HTClause := aHTCLause;
+ f_PGClause := aPGClause;
+ f_Factory := aFactory;
+//#UC END# *574D5AFE0110_574D5A9900B6_impl*
+//#UC START# *574D5AFE0110_574D5A9900B6_var*
+//#UC END# *574D5AFE0110_574D5A9900B6_var*

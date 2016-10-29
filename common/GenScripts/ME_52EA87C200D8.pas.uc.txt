@@ -1,0 +1,28 @@
+//#UC START# *4DAEEDE10285_52EA87C200D8_impl*
+ Assert(ItemsCountInSlice > 0);
+ aCtx.rEngine.DupN(ItemsCountInSlice);
+ f_Lambda.DoIt(aCtx);
+ if aCtx.rEngine.PopBool then
+  WordToWork.DoIt(aCtx)
+ else
+  aCtx.rEngine.DropN(ItemsCountInSlice);
+(* l_V := aCtx.rEngine.Pop;
+ try
+  aCtx.rEngine.Push(l_V);
+  f_Lambda.DoIt(aCtx);
+  if aCtx.rEngine.PopBool then
+  begin
+   aCtx.rEngine.Push(l_V);
+   WordToWork.DoIt(aCtx);
+  end;//aCtx.rEngine.PopBool
+ finally
+  Finalize(l_V);
+ end;//try..finally*)
+//#UC END# *4DAEEDE10285_52EA87C200D8_impl*
+//#UC START# *4DAEEDE10285_52EA87C200D8_var*
+(*var
+ l_V : TtfwStackValue;*)
+//#UC END# *4DAEEDE10285_52EA87C200D8_var*
+//#UC START# *52EA87C200D8_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\tfwFilteredArrayView.pas
+//#UC END# *52EA87C200D8_ext:ParentFileName

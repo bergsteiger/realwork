@@ -1,0 +1,11 @@
+//#UC START# *5604F2910025_ext:FileName
+w:\common\components\rtl\Garant\PG\pgUtils.pas
+//#UC END# *5604F2910025_ext:FileName
+//#UC START# *5604F2910025impl_uses*
+//#UC END# *5604F2910025impl_uses*
+//#UC START# *5604F2A802A0_5604F2910025_impl*
+ if Assigned(aResult) and (PQresultStatus(aResult) in [PGRES_BAD_RESPONSE, PGRES_NONFATAL_ERROR, PGRES_FATAL_ERROR]) then
+  raise EpgError.Create(PQresultErrorMessage(aResult));
+//#UC END# *5604F2A802A0_5604F2910025_impl*
+//#UC START# *5604F2A802A0_5604F2910025_var*
+//#UC END# *5604F2A802A0_5604F2910025_var*

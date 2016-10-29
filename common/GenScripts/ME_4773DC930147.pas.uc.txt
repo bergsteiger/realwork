@@ -1,0 +1,110 @@
+//#UC START# *4773DC930147_ext:FileName
+w:\common\components\rtl\Garant\L3\l3LongintListPrim.pas
+//#UC END# *4773DC930147_ext:FileName
+//#UC START# *4773DC930147ci*
+ {$Define l3Items_NoChanging}
+//#UC END# *4773DC930147ci*
+//#UC START# *4773DC930147cit*
+//#UC END# *4773DC930147cit*
+//#UC START# *4773DC930147impl*
+//#UC END# *4773DC930147impl*
+//#UC START# *4773DC930147impl_uses*
+//#UC END# *4773DC930147impl_uses*
+//#UC START# *4773DC930147intf_uses*
+//#UC END# *4773DC930147intf_uses*
+//#UC START# *4773DC930147publ*
+//#UC END# *4773DC930147publ*
+//#UC START# *47A6FEE600FC_4773DC930147_impl*
+ Result := true;
+//#UC END# *47A6FEE600FC_4773DC930147_impl*
+//#UC START# *47A6FEE600FC_4773DC930147_var*
+//#UC END# *47A6FEE600FC_4773DC930147_var*
+//#UC START# *47AAC5B30149_4773DC930147_impl*
+ with aStream do
+ begin
+  aStream.Read(l_Count, SizeOf(l_Count));
+  Count := l_Count;
+  if Count > 0 then
+  begin
+   l_Size := Count*SizeOf(Longint);
+   Read(ItemSlot(0)^, l_Size);
+   if Sorted then Sort;
+  end; // Count > 0
+ end;//with aStream
+//#UC END# *47AAC5B30149_4773DC930147_impl*
+//#UC START# *47AAC5B30149_4773DC930147_var*
+var
+ l_Size : Longint;
+ l_Count : Long;
+//#UC END# *47AAC5B30149_4773DC930147_var*
+//#UC START# *47AAC5BE01E3_4773DC930147_impl*
+ l_Count := Count;
+ aStream.Write(l_Count, SizeOf(l_Count));
+ SaveToStream(aStream);
+//#UC END# *47AAC5BE01E3_4773DC930147_impl*
+//#UC START# *47AAC5BE01E3_4773DC930147_var*
+var
+ l_Count: Long;
+//#UC END# *47AAC5BE01E3_4773DC930147_var*
+//#UC START# *47AAC7E50323_4773DC930147_impl*
+ {$IfNDef l3Items_NoChanging}
+ Changing;
+ try
+ {$EndIf  l3Items_NoChanging}
+  CheckIndex(anIndex);
+  l_P := ItemSlot(anIndex);
+  Result := l_P^;
+  Dec(f_Count);
+  if (anIndex = f_Count) then
+   l_P^ := 0
+  else
+   MoveItems(anIndex, Succ(anIndex), f_Count-anIndex, Self);
+ {$IfNDef l3Items_NoChanging}
+ finally
+  Changed;
+ end;//try..finally
+ {$EndIf  l3Items_NoChanging}
+//#UC END# *47AAC7E50323_4773DC930147_impl*
+//#UC START# *47AAC7E50323_4773DC930147_var*
+var
+ l_P : PItemType;
+//#UC END# *47AAC7E50323_4773DC930147_var*
+//#UC START# *47B17EEC020C_4773DC930147_impl*
+ IterateAllF(l3L2IA(@_WriteInteger));
+//#UC END# *47B17EEC020C_4773DC930147_impl*
+//#UC START# *47B17EEC020C_4773DC930147_var*
+
+ function _WriteInteger(aWord: PObject; anIndex: Long): Bool;
+ begin
+  Result := true;
+  aStream.Write(PLong(aWord)^, SizeOf(PLong(aWord)^));
+ end;
+
+//#UC END# *47B17EEC020C_4773DC930147_var*
+//#UC START# *47B19BBB00BA_4773DC930147_impl*
+ with aStream do
+ begin
+  l_Size := Size - Position;
+  if (l_Size > 0) then
+  begin
+   if (l_Size mod SizeOf(LongInt) <> 0) then
+    LoadFromStreamError
+   else
+   begin
+    Count := l_Size div SizeOf(LongInt);
+    Read(ItemSlot(0)^, l_Size);
+    if Sorted and aNeedSort then Sort;
+   end;//l_Size mod SizeOf(LongInt)..
+  end;//l_Size > 0
+ end;//with aStream
+//#UC END# *47B19BBB00BA_4773DC930147_impl*
+//#UC START# *47B19BBB00BA_4773DC930147_var*
+
+ procedure LoadFromStreamError;
+ begin
+  raise El3Exception.Create('Длина потока не кратна размеру элемента');
+ end;
+
+var
+ l_Size : Longint;
+//#UC END# *47B19BBB00BA_4773DC930147_var*

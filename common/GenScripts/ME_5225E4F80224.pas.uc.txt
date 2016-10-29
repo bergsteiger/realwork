@@ -1,0 +1,119 @@
+//#UC START# *52161FC80131_5225E4F80224get_impl*
+ if Control <> nil then
+ begin
+  Assert(Control is TvtCheckBox, Control.ClassName);
+  Result := (Control as TvtCheckBox).Checked
+ end
+ else
+  Result := inherited pm_GetBooleanValue;
+//#UC END# *52161FC80131_5225E4F80224get_impl*
+//#UC START# *52161FC80131_5225E4F80224get_var*
+//#UC END# *52161FC80131_5225E4F80224get_var*
+//#UC START# *521724C0003E_5225E4F80224get_impl*
+ Result := False;
+//#UC END# *521724C0003E_5225E4F80224get_impl*
+//#UC START# *521724C0003E_5225E4F80224get_var*
+//#UC END# *521724C0003E_5225E4F80224get_var*
+//#UC START# *521724C0003E_5225E4F80224set_impl*
+ raise EddConfigError.CreateFmt('Значение элемента %s не может быть обязательно к заполнению', [ClassName]);
+//#UC END# *521724C0003E_5225E4F80224set_impl*
+//#UC START# *521724C0003E_5225E4F80224set_var*
+//#UC END# *521724C0003E_5225E4F80224set_var*
+//#UC START# *521725C301A5_5225E4F80224_impl*
+ Result := False;
+//#UC END# *521725C301A5_5225E4F80224_impl*
+//#UC START# *521725C301A5_5225E4F80224_var*
+//#UC END# *521725C301A5_5225E4F80224_var*
+//#UC START# *5217273F000F_5225E4F80224_impl*
+ inherited Create(aAlias, aCaption, aDefaultValue, aMasterItem);
+ f_Value.Kind := dd_vkBoolean;
+ Labeled := False;
+//#UC END# *5217273F000F_5225E4F80224_impl*
+//#UC START# *5217273F000F_5225E4F80224_var*
+//#UC END# *5217273F000F_5225E4F80224_var*
+//#UC START# *52172B72014C_5225E4F80224_impl*
+ BooleanValue := aStorage.ReadBool(Alias, DefaultValue.AsBoolean);
+//#UC END# *52172B72014C_5225E4F80224_impl*
+//#UC START# *52172B72014C_5225E4F80224_var*
+//#UC END# *52172B72014C_5225E4F80224_var*
+//#UC START# *52172CA801E3_5225E4F80224_impl*
+ aStorage.WriteBool(Alias, BooleanValue);
+//#UC END# *52172CA801E3_5225E4F80224_impl*
+//#UC START# *52172CA801E3_5225E4F80224_var*
+//#UC END# *52172CA801E3_5225E4F80224_var*
+//#UC START# *521760660110_5225E4F80224get_impl*
+ Result := ControlHeight(aParent);
+//#UC END# *521760660110_5225E4F80224get_impl*
+//#UC START# *521760660110_5225E4F80224get_var*
+//#UC END# *521760660110_5225E4F80224get_var*
+//#UC START# *521761BB03DE_5225E4F80224_impl*
+ Result := TvtCheckBox.Create(aParent);
+ TvtCheckBox(Result).Caption := Caption;
+ Result.Parent := aParent;
+ Result.Left := aLeft;
+ Result.Top := aTop;
+ Result.Width := MinWidth(aParent); //aParent.ClientWidth - aLeft -2*c_ConfigItemLeft;
+ if Hint <> '' then
+ begin
+  TvtCheckBox(Result).Hint := Hint;
+  TvtCheckBox(Result).ShowHint := True;
+ end;
+ TvtCheckBox(Result).OnClick := OnClick;
+//#UC END# *521761BB03DE_5225E4F80224_impl*
+//#UC START# *521761BB03DE_5225E4F80224_var*
+//#UC END# *521761BB03DE_5225E4F80224_var*
+//#UC START# *521B053F03C3_5225E4F80224_impl*
+ with TvtCheckBox.Create(nil) do
+ try
+  Parent := aParent;
+  Result := Height;
+ finally
+  Free;
+ end;
+//#UC END# *521B053F03C3_5225E4F80224_impl*
+//#UC START# *521B053F03C3_5225E4F80224_var*
+//#UC END# *521B053F03C3_5225E4F80224_var*
+//#UC START# *521B058801FD_5225E4F80224_impl*
+ Assert(Control is TvtCheckBox, Control.ClassName);
+ BooleanValue := (Control as TvtCheckBox).Checked;
+//#UC END# *521B058801FD_5225E4F80224_impl*
+//#UC START# *521B058801FD_5225E4F80224_var*
+//#UC END# *521B058801FD_5225E4F80224_var*
+//#UC START# *521B061A0387_5225E4F80224_impl*
+ if Caption = '' then
+  Result := 40
+ else
+  Result := 40 + GetCanvas(aParent).TextWidth(Caption) + c_ConfigItemLeft;
+//#UC END# *521B061A0387_5225E4F80224_impl*
+//#UC START# *521B061A0387_5225E4F80224_var*
+var
+ l_Form: TForm;
+//#UC END# *521B061A0387_5225E4F80224_var*
+//#UC START# *521B07030052_5225E4F80224_impl*
+ Assert(Control is TvtCheckBox, Control.ClassName);
+ if aDefault then
+  (Control as TvtCheckBox).Checked := DefaultValue.AsBoolean
+ else
+  (Control as TvtCheckBox).Checked := Value.AsBoolean;
+ { TODO -oNarry -cРазвитие : нужно реагировать на доступность повелителя }
+ ChangeSlaveStatus(BooleanValue);
+//#UC END# *521B07030052_5225E4F80224_impl*
+//#UC START# *521B07030052_5225E4F80224_var*
+//#UC END# *521B07030052_5225E4F80224_var*
+//#UC START# *5225E4F80224_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas
+//#UC END# *5225E4F80224_ext:ParentFileName
+//#UC START# *5225E578019A_5225E4F80224_impl*
+ Assert(Sender is TvtCheckBox, Sender.ClassName);
+ ChangeSlaveStatus((Sender as TvtCheckBox).Checked);
+ if inherited pm_GetBooleanValue <> (Sender as TvtCheckBox).Checked then
+  Changed := True;
+//#UC END# *5225E578019A_5225E4F80224_impl*
+//#UC START# *5225E578019A_5225E4F80224_var*
+//#UC END# *5225E578019A_5225E4F80224_var*
+//#UC START# *552BB745031E_5225E4F80224_impl*
+ if aControl is TvtCheckBox then
+  TvtCheckBox(aControl).Enabled := TvtCheckBox(aControl).Enabled and not ReadOnly;
+//#UC END# *552BB745031E_5225E4F80224_impl*
+//#UC START# *552BB745031E_5225E4F80224_var*
+//#UC END# *552BB745031E_5225E4F80224_var*

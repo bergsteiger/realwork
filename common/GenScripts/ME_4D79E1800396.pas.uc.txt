@@ -1,0 +1,19 @@
+//#UC START# *4BE419AF0217_4D79E1800396_impl*
+ l_Op := aForm.Text.StartOp;
+ try
+  aForm.Text.Selection.Cursor.MostInner.SetEntryPoint(10, l_Op);
+  aForm.Text.Selection.Cursor.Move(aForm.Text.View, ev_ocLineDown, l_Op);
+ finally
+  l_Op := nil;
+ end;
+ Check(aForm.Text.Selection.Cursor.MostInner.Position = 10);
+//#UC END# *4BE419AF0217_4D79E1800396_impl*
+//#UC START# *4BE419AF0217_4D79E1800396_var*
+var
+ l_Op : InevOp;
+//#UC END# *4BE419AF0217_4D79E1800396_var*
+//#UC START# *4D79E1800396_ext:FileName
+w:\common\components\rtl\Garant\Abstract_Tests\VerticalCursorMovingTest.pas
+//#UC END# *4D79E1800396_ext:FileName
+//#UC START# *4D79E1800396impl_uses*
+//#UC END# *4D79E1800396impl_uses*

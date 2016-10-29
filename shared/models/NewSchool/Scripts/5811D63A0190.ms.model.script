@@ -1,0 +1,193 @@
+// TarClientFilesDeliverer 5811D63A0190 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5811D63A0190
+
+ME ME_58131F240076
+ MEPROP UID '58131F240076'
+ MEPROP Name 'f_Listener'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5811D63A0190 // TarClientFilesDeliverer
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_58131F240076 f_Listener
+
+ME ME_58131F9D00CB
+ MEPROP UID '58131F9D00CB'
+ MEPROP Name 'Listener'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5811D63A0190 // TarClientFilesDeliverer
+ ;
+ MELINK Target WL 'ME_549A9A51038D' '549A9AB80233.ms.model.script' // IarResultDelivererListner
+ ;
+ UP "pm" true
+
+ENDME // ME_58131F9D00CB Listener
+
+ME ME_581334770098
+ MEPROP UID '581334770098'
+ MEPROP Name 'f_RequestDeliveryProc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5811D63A0190 // TarClientFilesDeliverer
+ ;
+ MELINK Target WL 'ME_581334490064' '549A9AB80233.ms.model.script' // TarRequestDeliveryProc
+ ;
+
+ENDME // ME_581334770098 f_RequestDeliveryProc
+
+FORWARD ME_58131F3000D0
+
+ME ME_58131F8E02F1
+ MEPROP Name 'aPipe'
+ MEPROP Class class_Parameter
+ MELINK Target WL? 'ME_537F62DD009F' // TCsDataPipe
+ ;
+
+ENDME // ME_58131F8E02F1 aPipe
+
+ME ME_58131F8E0301
+ MEPROP Name 'aWeakListener'
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_549A9A51038D' '549A9AB80233.ms.model.script' // IarResultDelivererListner
+ ;
+
+ENDME // ME_58131F8E0301 aWeakListener
+
+ME ME_581334960289
+ MEPROP Name 'aRequestDeliveryProc'
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_581334490064' '549A9AB80233.ms.model.script' // TarRequestDeliveryProc
+ ;
+
+ENDME // ME_581334960289 aRequestDeliveryProc
+
+ME ME_58131F3800A8
+ MEPROP UID '58131F3800A8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_58131F3000D0 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_58131F8E02F1 // aPipe
+ ME_58131F8E0301 // aWeakListener
+ ME_581334960289 // aRequestDeliveryProc
+ )
+ ; // Parameters
+
+ENDME // ME_58131F3800A8 DoIt
+
+ME ME_58131F3000D0
+ MEPROP UID '58131F3000D0'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5811D63A0190 // TarClientFilesDeliverer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_58131F3800A8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_58131F3000D0 Create
+
+MEREF ME_58131D6100E4_ME_5811D63A0190_impl
+ MELINK Original WL 'ME_58131D6100E4' '5811CF1B02E6.ms.model.script' // CheckTaskExistence
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_58131D6100E4_ME_5811D63A0190_impl CheckTaskExistence
+
+MEREF ME_5813272603DC_ME_5811D63A0190_impl
+ MELINK Original WL 'ME_5813272603DC' '5811CF1B02E6.ms.model.script' // RequestSendMessage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5813272603DC_ME_5811D63A0190_impl RequestSendMessage
+
+MEREF ME_5813275F019D_ME_5811D63A0190_impl
+ MELINK Original WL 'ME_5813275F019D' '5811CF1B02E6.ms.model.script' // ChangeResultFolder
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5813275F019D_ME_5811D63A0190_impl ChangeResultFolder
+
+MEREF ME_581330B0019D_ME_5811D63A0190_impl
+ MELINK Original WL 'ME_581330B0019D' '5811CF1B02E6.ms.model.script' // RequestNewFolder
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_581330B0019D_ME_5811D63A0190_impl RequestNewFolder
+
+MEREF ME_479731C50290_ME_5811D63A0190_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5811D63A0190_over Cleanup
+
+MEREF ME_5811CF1B02E6_ME_5811D63A0190_G
+ MELINK Original WL? 'ME_5811CF1B02E6' // TncsClientFilesDeliverer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5811CF1B02E6_ME_5811D63A0190_G TncsClientFilesDeliverer
+
+%%InheritedBy ME_5811CF1B02E6 ME_5811D63A0190
+
+ME ME_5811D63A0190
+ MEPROP UID '5811D63A0190'
+ MEPROP Name 'TarClientFilesDeliverer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_545C74760255' // ExportDelivery
+ ;
+ MELIST Inherits
+   Seq: ( ME_5811CF1B02E6_ME_5811D63A0190_G // TncsClientFilesDeliverer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_58131F240076 // f_Listener
+ HWL ME_58131F9D00CB // Listener
+ HWL ME_581334770098 // f_RequestDeliveryProc
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_58131F3000D0 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_58131D6100E4_ME_5811D63A0190_impl // CheckTaskExistence
+ ME_5813272603DC_ME_5811D63A0190_impl // RequestSendMessage
+ ME_5813275F019D_ME_5811D63A0190_impl // ChangeResultFolder
+ ME_581330B0019D_ME_5811D63A0190_impl // RequestNewFolder
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5811D63A0190_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Archi\Processing\arClientFilesDeliverer.pas'
+ UP extprop:rc:SelfName 'arClientFilesDeliverer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'arClientFilesDeliverer'
+
+ENDME // ME_5811D63A0190 TarClientFilesDeliverer

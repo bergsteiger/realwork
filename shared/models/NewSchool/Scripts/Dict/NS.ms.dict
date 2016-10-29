@@ -1,0 +1,132 @@
+UNIT NS.ms.dict
+
+USES
+ core.ms.dict
+;
+
+USES
+ arrays.ms.dict
+;
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ joinWithLambded.ms.dict
+;
+
+USES
+ ElemMemberPrim.ms.dict
+;
+
+USES
+ RoseModel.ms.dict
+;
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+USES
+ msmMetaModel.ms.dict
+;
+
+INTEGER elem_func NSAbstraction
+ RULES
+  ( Self .IsInline )
+   at_abstract
+  ( Self .IsStereotype: st_facetmethod ) 
+   at_abstract
+  ( Self .IsStereotype: st_facetiterator ) 
+   at_abstract
+  ( Self .MDAClass class_Dependency == ) 
+   at_regular
+  ( 
+   ( Self .MDAClass class_Operation == )
+   OR ( Self .MDAClass class_Attribute == )
+  )
+   RULES
+    ( Self .IsStereotype: st_static::Attribute )
+     ( Self .Abstraction )
+    ( Self .IsStereotype: st_static::Operation )
+     ( Self .Abstraction )
+    ( Self .Parent .IsStereotype: st_Facet )
+     at_abstract
+    DEFAULT
+     ( Self .Abstraction )
+   ; // RULES
+  DEFAULT
+   ( Self .Abstraction )
+ ; // RULES
+ >>> Result 
+; // NSAbstraction
+
+elem_iterator CanOverridePrim
+ [empty]
+ 
+ elem: CanOverrideFromAncestors
+  .joinWithLambded> 
+  (
+   ( Self .Inherits )
+   .join> ( Self .Implements )
+  ) 
+  ( 
+    IN anItem
+   anItem .Operations 
+   .join> ( anItem .Attributes )
+   .filter> (
+     IN anOp
+     RULES
+      ( anOp .NSAbstraction at_abstract ?== )
+       true
+      ( anOp .NSAbstraction at_regular ?== )
+       true
+      DEFAULT
+       false
+     ; //RULES
+   )
+   //.join> 
+   ( anItem call.me )
+  )
+ ; // CanOverrideFromAncestors
+ 
+ Self .CanOverrideFromAncestors
+ .CopyWithoutDuplicatedModelElements
+ >>> Result
+; // CanOverridePrim
+
+BOOLEAN elem_func CanBeOverridden
+ RULES
+  ( Self .Parent .IsInterface )
+   false
+  DEFAULT
+   true
+ ; // RULES
+ >>> Result 
+; // CanBeOverridden
+
+BOOLEAN elem_func CanBeImplemented
+ RULES
+  ( Self .IsStereotype st_impurity_param::Attribute )
+   false
+  ( Self .IsStereotype st_impurity_value::Attribute ) 
+   false
+  DEFAULT
+   true
+ ; // RULES
+ >>> Result 
+; // CanBeImplemented
+
+elem_iterator CanOverride
+ Self .CanOverridePrim
+ .filter> .CanBeOverridden
+ >>> Result
+; // CanOverride
+
+elem_iterator CanImplement
+ Self .CanOverridePrim
+ .filter> ( .NSAbstraction at_abstract ?== )
+ .filter> .CanBeImplemented
+ >>> Result
+; // CanImplement

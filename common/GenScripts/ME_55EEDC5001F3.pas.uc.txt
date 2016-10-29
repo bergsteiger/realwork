@@ -1,0 +1,81 @@
+//#UC START# *479731C50290_55EEDC5001F3_impl*
+ FreeAndNil(f_LeftWordRefs);
+ inherited;
+//#UC END# *479731C50290_55EEDC5001F3_impl*
+//#UC START# *479731C50290_55EEDC5001F3_var*
+//#UC END# *479731C50290_55EEDC5001F3_var*
+//#UC START# *4DAEEDE10285_55EEDC5001F3_impl*
+ PushParams(aCtx);
+ WordProducer.DoIt(aCtx);
+//#UC END# *4DAEEDE10285_55EEDC5001F3_impl*
+//#UC START# *4DAEEDE10285_55EEDC5001F3_var*
+//#UC END# *4DAEEDE10285_55EEDC5001F3_var*
+//#UC START# *52CFC11603C8_55EEDC5001F3get_impl*
+ Result := WordProducer.ResultTypeInfo[aCtx];
+//#UC END# *52CFC11603C8_55EEDC5001F3get_impl*
+//#UC START# *52CFC11603C8_55EEDC5001F3get_var*
+//#UC END# *52CFC11603C8_55EEDC5001F3get_var*
+//#UC START# *52D00B00031A_55EEDC5001F3_impl*
+ PushParams(aCtx);
+ WordProducer.SetValuePrim(aValue, aCtx);
+//#UC END# *52D00B00031A_55EEDC5001F3_impl*
+//#UC START# *52D00B00031A_55EEDC5001F3_var*
+//#UC END# *52D00B00031A_55EEDC5001F3_var*
+//#UC START# *52D399A00173_55EEDC5001F3_impl*
+ Result := WordProducer.GetValue(aCtx);
+//#UC END# *52D399A00173_55EEDC5001F3_impl*
+//#UC START# *52D399A00173_55EEDC5001F3_var*
+//#UC END# *52D399A00173_55EEDC5001F3_var*
+//#UC START# *52E9282B0271_55EEDC5001F3_impl*
+ Result := WordProducer.RightParamsCount(aCtx);
+//#UC END# *52E9282B0271_55EEDC5001F3_impl*
+//#UC START# *52E9282B0271_55EEDC5001F3_var*
+//#UC END# *52E9282B0271_55EEDC5001F3_var*
+//#UC START# *53E4914101D2_55EEDC5001F3_impl*
+ Result := WordProducer.LeftWordRefParamsCount(aCtx);
+//#UC END# *53E4914101D2_55EEDC5001F3_impl*
+//#UC START# *53E4914101D2_55EEDC5001F3_var*
+//#UC END# *53E4914101D2_55EEDC5001F3_var*
+//#UC START# *53E4A3C100AB_55EEDC5001F3_impl*
+ CompilerAssert(f_LeftWordRefs <> nil, 'Ќету значений дл€ левых параметров по ссылке', aCtx);
+ CompilerAssert((anIndex >= 0) AND (anIndex < f_LeftWordRefs.Count), 'Ќету значени€ дл€ левого параметра по ссылке, дл€ индекса ' + IntToStr(anIndex), aCtx);
+ Result := f_LeftWordRefs.Items[anIndex];
+//#UC END# *53E4A3C100AB_55EEDC5001F3_impl*
+//#UC START# *53E4A3C100AB_55EEDC5001F3_var*
+//#UC END# *53E4A3C100AB_55EEDC5001F3_var*
+//#UC START# *53E4A96A0085_55EEDC5001F3_impl*
+ if (f_LeftWordRefs = nil) then
+  Result := 0
+ else
+  Result := f_LeftWordRefs.Count; 
+//#UC END# *53E4A96A0085_55EEDC5001F3_impl*
+//#UC START# *53E4A96A0085_55EEDC5001F3_var*
+//#UC END# *53E4A96A0085_55EEDC5001F3_var*
+//#UC START# *559687E6025A_55EEDC5001F3_impl*
+ Result := WordProducer.GetAllParamsCount(aCtx);
+//#UC END# *559687E6025A_55EEDC5001F3_impl*
+//#UC START# *559687E6025A_55EEDC5001F3_var*
+//#UC END# *559687E6025A_55EEDC5001F3_var*
+//#UC START# *55EEDC5001F3_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\tfwClassLike.pas
+//#UC END# *55EEDC5001F3_ext:ParentFileName
+//#UC START# *55EEDC7E039C_55EEDC5001F3_impl*
+ inherited Create(aWordProducer, aCtx, aWordProducer.Key);
+ aLeftWordRefs.SetRefTo(f_LeftWordRefs);
+//#UC END# *55EEDC7E039C_55EEDC5001F3_impl*
+//#UC START# *55EEDC7E039C_55EEDC5001F3_var*
+//#UC END# *55EEDC7E039C_55EEDC5001F3_var*
+//#UC START# *56096688024A_55EEDC5001F3_impl*
+ PushParams(aCtx);
+ WordProducer.SetValue(aValue, aCtx);
+//#UC END# *56096688024A_55EEDC5001F3_impl*
+//#UC START# *56096688024A_55EEDC5001F3_var*
+//#UC END# *56096688024A_55EEDC5001F3_var*
+//#UC START# *5617E35E018C_55EEDC5001F3_impl*
+ for l_Index := 0 to Pred(f_LeftWordRefs.Count) do
+  f_LeftWordRefs.Items[l_Index].DoIt(aCtx);
+//#UC END# *5617E35E018C_55EEDC5001F3_impl*
+//#UC START# *5617E35E018C_55EEDC5001F3_var*
+var
+ l_Index : Integer;
+//#UC END# *5617E35E018C_55EEDC5001F3_var*

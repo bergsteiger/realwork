@@ -1,0 +1,24 @@
+//#UC START# *4BE13147032C_4DDF6677000D_impl*
+ ClickOnPoint(aForm.Text, True);
+ {$IfDef evNeedCollapsedVersionComments}
+ Check(CheckCollapsed(aForm.Text));
+ {$Else  evNeedCollapsedVersionComments}
+ Check(not CheckCollapsed(aForm.Text));
+ {$EndIf evNeedCollapsedVersionComments}
+//#UC END# *4BE13147032C_4DDF6677000D_impl*
+//#UC START# *4BE13147032C_4DDF6677000D_var*
+//#UC END# *4BE13147032C_4DDF6677000D_var*
+//#UC START# *4DDF6677000D_ext:FileName
+w:\common\components\rtl\Garant\Abstract_Tests\ClickOnCommentTest.pas
+//#UC END# *4DDF6677000D_ext:FileName
+//#UC START# *4DDF6677000Dimpl_uses*
+//#UC END# *4DDF6677000Dimpl_uses*
+//#UC START# *4DE7456800BE_4DDF6677000D_impl*
+ {$IfDef evNeedCollapsedVersionComments}
+ Result := aText.View.IsObjectCollapsed[GetInnerPara(aText.View, aText.Document)];
+ {$Else  evNeedCollapsedVersionComments}
+ Result := false;
+ {$EndIf evNeedCollapsedVersionComments}
+//#UC END# *4DE7456800BE_4DDF6677000D_impl*
+//#UC START# *4DE7456800BE_4DDF6677000D_var*
+//#UC END# *4DE7456800BE_4DDF6677000D_var*

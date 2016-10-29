@@ -53,6 +53,13 @@ implementation @ Мета-MDA
  begin
 //	%f_clear_list(GENERATED_STEREOS)\
   [%f] clear_list %( 'GENERATED_STEREOS' )% 
+//	[UNIT %S#f_tpi_script_FileName()\n\n]\
+  if NOT-EMPTY
+  begin
+   'UNIT '
+   %S %?f tpi_script_FileName %( )% #13#10#13#10 
+  end // if
+  NOP
 //	INCLUDE 'ME.ms.dict'\n\n\
   'INCLUDE ''ME.ms.dict'''#13#10#13#10
 
@@ -284,6 +291,7 @@ implementation @ Мета-MDA
 : tpi_script_NamePrim OBJECT IN %S
 // возвращаемый результат: a-string
 //#UC START# *565872E001A9for46E28D3A01E4*
+//@ %SU
 //	[{%SS=MDAClass|%SS=MDACategory|%SS=MDAAbstractClass|%SS=generator}{\
  if ( ( %S |S ) %== 'MDAClass' OR 
    ( ( %S |S ) %== 'MDACategory'  ) OR 

@@ -1,0 +1,90 @@
+//#UC START# *4E01D1E002AE_ext:ParentFileName
+w:\common\components\rtl\Garant\L3\l3MessageID.pas
+//#UC END# *4E01D1E002AE_ext:ParentFileName
+//#UC START# *4E01D1E002AEInit_4E01D1E002AE_impl*
+ DoInit;
+ TPl3MessageIDList.Instance.Add(@Self);
+//#UC END# *4E01D1E002AEInit_4E01D1E002AE_impl*
+//#UC START# *4E01D26702F9_4E01D1E002AE_impl*
+ FillChar(rData, SizeOf(rData), 0);
+ inherited Init;
+ {$IfNDef NoVCL}
+ rData.rDefaultButton := mbOk;
+ rData.rCancelButton := mbCancel;
+ SetDlgType(mtCustom);
+ {$EndIf  NoVCL}
+//#UC END# *4E01D26702F9_4E01D1E002AE_impl*
+//#UC START# *4E01D26702F9_4E01D1E002AE_var*
+//#UC END# *4E01D26702F9_4E01D1E002AE_var*
+//#UC START# *4E09C6930204_4E01D1E002AE_impl*
+ if (rData.rChoices = nil) then
+  rData.rChoices := TPl3StringIDExList.Create;
+ rData.rChoices.Add(@aChoice);
+//#UC END# *4E09C6930204_4E01D1E002AE_impl*
+//#UC START# *4E09C6930204_4E01D1E002AE_var*
+//#UC END# *4E09C6930204_4E01D1E002AE_var*
+//#UC START# *4E09D6DA034C_4E01D1E002AE_impl*
+ l_Index := rData.rChoices.IndexOf(@aChoice);
+ Assert(l_Index >= 0);
+ rData.rCustomChoice := -(l_Index + 1);
+//#UC END# *4E09D6DA034C_4E01D1E002AE_impl*
+//#UC START# *4E09D6DA034C_4E01D1E002AE_var*
+var
+ l_Index : Integer;
+//#UC END# *4E09D6DA034C_4E01D1E002AE_var*
+//#UC START# *4E0A010A0200_4E01D1E002AE_impl*
+ l_Index := rData.rChoices.IndexOf(@aChoice);
+ Assert(l_Index >= 0);
+ rData.rDefaultChoice := -(l_Index + 1);
+//#UC END# *4E0A010A0200_4E01D1E002AE_impl*
+//#UC START# *4E0A010A0200_4E01D1E002AE_var*
+var
+ l_Index : Integer;
+//#UC END# *4E0A010A0200_4E01D1E002AE_var*
+//#UC START# *4E0A074B000E_4E01D1E002AE_impl*
+ rData.rDlgType := aType;
+ Case aType of
+  mtWarning,
+  mtInformation,
+  mtError,
+  mtCustom :
+   rData.rButtons := [mbOk];
+  mtConfirmation :
+   rData.rButtons := [mbYes, mbNo];
+  else
+   rData.rButtons := [mbOk];
+ end;//Case aType
+//#UC END# *4E0A074B000E_4E01D1E002AE_impl*
+//#UC START# *4E0A074B000E_4E01D1E002AE_var*
+//#UC END# *4E0A074B000E_4E01D1E002AE_var*
+//#UC START# *4E0B01570024_4E01D1E002AEget_impl*
+ Result := Tl3Message_C(Self);
+//#UC END# *4E0B01570024_4E01D1E002AEget_impl*
+//#UC START# *4E0B01570024_4E01D1E002AEget_var*
+//#UC END# *4E0B01570024_4E01D1E002AEget_var*
+//#UC START# *4E9E81D40059_4E01D1E002AE_impl*
+ rData.rCheckCaption := @aValue;
+//#UC END# *4E9E81D40059_4E01D1E002AE_impl*
+//#UC START# *4E9E81D40059_4E01D1E002AE_var*
+//#UC END# *4E9E81D40059_4E01D1E002AE_var*
+//#UC START# *4EB14B8A010B_4E01D1E002AE_impl*
+ rData.rSettingsCaption := @aValue;
+//#UC END# *4EB14B8A010B_4E01D1E002AE_impl*
+//#UC START# *4EB14B8A010B_4E01D1E002AE_var*
+//#UC END# *4EB14B8A010B_4E01D1E002AE_var*
+//#UC START# *4EB14BAB00E3_4E01D1E002AE_impl*
+ rData.rLongHint := @aValue;
+//#UC END# *4EB14BAB00E3_4E01D1E002AE_impl*
+//#UC START# *4EB14BAB00E3_4E01D1E002AE_var*
+//#UC END# *4EB14BAB00E3_4E01D1E002AE_var*
+//#UC START# *4EB157EE021C_4E01D1E002AE_impl*
+ rData.rNeedCheck := aValue;
+//#UC END# *4EB157EE021C_4E01D1E002AE_impl*
+//#UC START# *4EB157EE021C_4E01D1E002AE_var*
+//#UC END# *4EB157EE021C_4E01D1E002AE_var*
+//#UC START# *4F9BCBC101F7_4E01D1E002AE_impl*
+ FreeAndNil(rData.rChoices);
+ Finalize(Self);
+//#UC END# *4F9BCBC101F7_4E01D1E002AE_impl*
+//#UC START# *4F9BCBC101F7_4E01D1E002AE_var*
+//#UC END# *4F9BCBC101F7_4E01D1E002AE_var*

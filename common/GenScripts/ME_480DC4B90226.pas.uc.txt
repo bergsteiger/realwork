@@ -1,0 +1,150 @@
+//#UC START# *479731C50290_480DC4B90226_impl*
+ FreeAndNil(F_BitMap);
+ inherited;
+//#UC END# *479731C50290_480DC4B90226_impl*
+//#UC START# *479731C50290_480DC4B90226_var*
+//#UC END# *479731C50290_480DC4B90226_var*
+//#UC START# *480DC4B90226_ext:FileName
+w:\common\components\gui\Garant\AFW\implementation\Visual\afwCustomCaretType.pas
+//#UC END# *480DC4B90226_ext:FileName
+//#UC START# *480DC4B90226ci*
+//#UC END# *480DC4B90226ci*
+//#UC START# *480DC4B90226cit*
+const
+ DefAlign = caLeft;
+ DefBlinkTime = 0;
+ DefCaretWd = 2;
+ DefCaretHt = 10;
+ DefIsGray = False;
+ DefShape = csVertLine;
+type 
+//#UC END# *480DC4B90226cit*
+//#UC START# *480DC4B90226impl*
+//#UC END# *480DC4B90226impl*
+//#UC START# *480DC4B90226impl_uses*
+//#UC END# *480DC4B90226impl_uses*
+//#UC START# *480DC4B90226intf_uses*
+//#UC END# *480DC4B90226intf_uses*
+//#UC START# *480DC4B90226publ*
+//#UC END# *480DC4B90226publ*
+//#UC START# *480DC92503DD_480DC4B90226set_impl*
+ if (aValue <> F_Shape) then
+ begin
+  F_Shape := aValue;
+  case F_Shape of
+   csBlock:
+    F_Align := caLeft;
+   csVertLine :
+   begin
+    F_Align := caLeft;
+    f_CaretWidth := 2;
+   end;//csVertLine
+   csHalfBlock:
+    F_Align := caBottom;
+   csHorzLine :
+   begin
+    F_Align := caBottom;
+    F_CaretHeight := 2;
+   end;//csHorzLine
+   csBitmap :
+   begin
+    F_CaretHeight := F_BitMap.Height;
+    F_CaretWidth := F_BitMap.Width;
+   end;//csBitmap
+  end;//case F_Shape
+  NotifyChange;
+ end;//aValue <> F_Shape
+//#UC END# *480DC92503DD_480DC4B90226set_impl*
+//#UC START# *480DC92503DD_480DC4B90226set_var*
+//#UC END# *480DC92503DD_480DC4B90226set_var*
+//#UC START# *480DC95E036D_480DC4B90226set_impl*
+ if not Assigned(aValue) then
+   Exit;
+ F_BitMap.Assign(aValue);
+ NotifyChange;
+//#UC END# *480DC95E036D_480DC4B90226set_impl*
+//#UC START# *480DC95E036D_480DC4B90226set_var*
+//#UC END# *480DC95E036D_480DC4B90226set_var*
+//#UC START# *480DC9770164_480DC4B90226set_impl*
+ if (aValue <> f_BitmapHotSpotX) then
+ begin
+  f_BitmapHotSpotX := aValue;
+  if (Shape = csBitMap) then
+    NotifyChange;
+ end;//aValue <> FBitMapX
+//#UC END# *480DC9770164_480DC4B90226set_impl*
+//#UC START# *480DC9770164_480DC4B90226set_var*
+//#UC END# *480DC9770164_480DC4B90226set_var*
+//#UC START# *480DC99901B3_480DC4B90226set_impl*
+ if (aValue <> f_BitmapHotSpotY) then
+ begin
+  f_BitmapHotSpotY := aValue;
+  if (Shape = csBitMap) then
+    NotifyChange;
+ end;//aValue <> FBitMapY
+//#UC END# *480DC99901B3_480DC4B90226set_impl*
+//#UC START# *480DC99901B3_480DC4B90226set_var*
+//#UC END# *480DC99901B3_480DC4B90226set_var*
+//#UC START# *480DC9AF007C_480DC4B90226set_impl*
+ if (aValue <> F_Align) then
+ begin
+  F_Align := aValue;
+  NotifyChange;
+ end;//aValue <> F_Align
+//#UC END# *480DC9AF007C_480DC4B90226set_impl*
+//#UC START# *480DC9AF007C_480DC4B90226set_var*
+//#UC END# *480DC9AF007C_480DC4B90226set_var*
+//#UC START# *480DC9C50199_480DC4B90226set_impl*
+ if (aValue <> f_BlinkTime) then
+ begin
+  f_BlinkTime := aValue;
+  NotifyChange;
+ end;//aValue <> f_BlinkTime
+//#UC END# *480DC9C50199_480DC4B90226set_impl*
+//#UC START# *480DC9C50199_480DC4B90226set_var*
+//#UC END# *480DC9C50199_480DC4B90226set_var*
+//#UC START# *480DC9FC0128_480DC4B90226set_impl*
+ if (aValue <> f_CaretHeight) and (aValue > 0) then
+ begin
+  f_CaretHeight := aValue;
+  NotifyChange;
+ end;//aValue <> f_CaretHeight
+//#UC END# *480DC9FC0128_480DC4B90226set_impl*
+//#UC START# *480DC9FC0128_480DC4B90226set_var*
+//#UC END# *480DC9FC0128_480DC4B90226set_var*
+//#UC START# *480DCA13027E_480DC4B90226set_impl*
+ if (aValue <> f_CaretWidth) and (aValue > 0) then
+ begin
+  f_CaretWidth := aValue;
+  NotifyChange;
+ end;//aValue <> f_CaretWidth
+//#UC END# *480DCA13027E_480DC4B90226set_impl*
+//#UC START# *480DCA13027E_480DC4B90226set_var*
+//#UC END# *480DCA13027E_480DC4B90226set_var*
+//#UC START# *480DCA2701E2_480DC4B90226set_impl*
+ if (aValue <> f_IsGray) then
+ begin
+  f_IsGray := aValue;
+  NotifyChange;
+ end;//aValue <> f_IsGray
+//#UC END# *480DCA2701E2_480DC4B90226set_impl*
+//#UC START# *480DCA2701E2_480DC4B90226set_var*
+//#UC END# *480DCA2701E2_480DC4B90226set_var*
+//#UC START# *480DCA5C03B7_480DC4B90226_impl*
+ inherited Create;
+ F_Shape := DefShape;
+ F_Align := DefAlign;
+ F_BlinkTime := DefBlinkTime;
+ F_IsGray := DefIsGray;
+ F_BitMap := Tl3BitMap.Create;
+ F_CaretHeight := DefCaretHt;
+ F_CaretWidth := DefCaretWd;
+//#UC END# *480DCA5C03B7_480DC4B90226_impl*
+//#UC START# *480DCA5C03B7_480DC4B90226_var*
+//#UC END# *480DCA5C03B7_480DC4B90226_var*
+//#UC START# *480DCA6F0113_480DC4B90226_impl*
+ if Assigned(F_OnChange) then
+  F_OnChange(Self);
+//#UC END# *480DCA6F0113_480DC4B90226_impl*
+//#UC START# *480DCA6F0113_480DC4B90226_var*
+//#UC END# *480DCA6F0113_480DC4B90226_var*

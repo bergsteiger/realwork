@@ -1,0 +1,23 @@
+//#UC START# *4ADDF4020322_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsPrimNode.pas
+//#UC END# *4ADDF4020322_ext:FileName
+//#UC START# *4ADDF4020322impl_uses*
+//#UC END# *4ADDF4020322impl_uses*
+//#UC START# *4AE030AF029D_4ADDF4020322_impl*
+ inherited Create;
+ f_NumInParent := aNumInParent;
+//#UC END# *4AE030AF029D_4ADDF4020322_impl*
+//#UC START# *4AE030AF029D_4ADDF4020322_var*
+//#UC END# *4AE030AF029D_4ADDF4020322_var*
+//#UC START# *54C8E1F30128_4ADDF4020322_impl*
+ if aOnlyOneLevel then
+ begin
+  if (f_NumInParent < 0) then
+   f_NumInParent := inherited DoGetNumInParent(true);
+  Result := f_NumInParent;
+ end//aOnlyOneLevel
+ else
+  Result := inherited DoGetNumInParent(aOnlyOneLevel);
+//#UC END# *54C8E1F30128_4ADDF4020322_impl*
+//#UC START# *54C8E1F30128_4ADDF4020322_var*
+//#UC END# *54C8E1F30128_4ADDF4020322_var*

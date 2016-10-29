@@ -1,0 +1,48 @@
+//#UC START# *512AF4A800AA_ext:FileName
+w:\archi\source\projects\Everest\Lite\7.0\Express\EverestLiteTest.dpr
+//#UC END# *512AF4A800AA_ext:FileName
+//#UC START# *512AF4A800AACVSPath*
+//#UC END# *512AF4A800AACVSPath*
+//#UC START# *512AF4A800AAmanualcode*
+ Application.Title := 'ЭВЕРЕСТ (lite)';
+ if (vtStdResources = nil) then
+  Application.CreateForm(TvtStdResources, vtStdResources);
+ Application.CreateForm(TdmStandardRes, dmStandardRes);
+ Application.CreateForm(TMainForm, MainForm);
+ //--- Инициализация тестов ----
+ //g_CVSPath := 'w:\archi\source\projects\Archi\';
+ TArchiAutoTestSuite.Register;
+ TEverestLiteTestRes.ReadyToRun;
+ // ------
+ Application.Run;
+//#UC END# *512AF4A800AAmanualcode*
+//#UC START# *512AF4A800AAmanualres*
+{$R versioninfo.res} // включаем Version Info
+//#UC END# *512AF4A800AAmanualres*
+//#UC START# *512AF4A800AAmanualuses*
+
+  ,
+  evdSchema,
+  evExtActionsRes,
+  evExtActions,
+  evExtFormat,
+  afwApplication,
+  arSpeller in 'w:\archi\source\projects\Archi\arSpeller.pas',
+  D_mdilst in '..\..\..\DLG\D_MDILST.PAS' {MDIListDlg},
+  D_repcon in '..\..\..\DLG\D_REPCON.PAS' {ReplaceConfirmDlg},
+  Brddlg in '..\..\..\..\Common\Dialogs\brddlg.PAS' {BorderDlg},
+  D_ID in '..\..\..\dlg\D_ID.pas' {IDDlg},
+  D_Hyperlink in '..\..\..\dlg\D_Hyperlink.pas' {dHyperLink},
+  fr_SubCombo in '..\..\..\Frames\fr_SubCombo.pas' {frSubCombo: TFrame},
+  D_Base in '..\..\..\..\Common\Meta\D_Base.pas' {BaseDlg},
+  D_DocumentProperties in '..\..\..\dlg\D_DocumentProperties.pas' {DocumentPropertiesDlg},
+  MainMDI in '..\..\MainMDI.pas',
+  MainMDIEx in '..\..\MainMDIEx.pas' {evMainMDIFormEx},
+  MainLiteExpress in 'MainLiteExpress.pas' {MainLiteExpressForm},
+  Main in 'Main.pas' {MainForm},
+  dmStdResLite in 'dmStdResLite.pas' {dmStandardRes: TDataModule},
+  BottomBtnDlg in '..\..\..\..\Archi\MetaForms\BottomBtnDlg.pas',
+  BtnDlg in '..\..\..\..\Archi\MetaForms\BtnDlg.pas' {BtnDlg},
+  D_Style in '..\..\..\..\Common\Dialogs\D_Style.pas' {StyleDesignDlg},
+  PreviewFormUnit in '..\..\..\..\Common\Dialogs\PreviewFormUnit.pas' {PreviewForm}
+//#UC END# *512AF4A800AAmanualuses*

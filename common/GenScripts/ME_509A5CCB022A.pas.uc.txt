@@ -1,0 +1,31 @@
+//#UC START# *4DAEEDE10285_509A5CCB022A_impl*
+ if aCtx.rEngine.IsTopObj then
+ begin
+  l_Form := aCtx.rEngine.PopObj;
+  if aCtx.rEngine.IsTopString then
+  begin
+   l_FileName := aCtx.rEngine.PopDelphiString;
+   l_FileName := aCtx.rCaller.ResolveInputFilePath(l_FileName);
+   with (l_Form as TPrimTextLoadForm) do
+   begin
+    LoadManager.FileName := l_FileName;
+    LoadManager.Load(TextSource, k2_typDocument);
+    AfterLoad;
+   end // with (aForm as TPrimTextLoadForm) do
+  end
+  else
+   Assert(False, 'Не задано название файла!');
+ end // if aCtx.rEngine.IsTopObj then
+ else
+  Assert(False, 'Не задана форма для загрузки текста!');
+//#UC END# *4DAEEDE10285_509A5CCB022A_impl*
+//#UC START# *4DAEEDE10285_509A5CCB022A_var*
+var
+ l_Form     : TObject;
+ l_FileName : String;
+//#UC END# *4DAEEDE10285_509A5CCB022A_var*
+//#UC START# *509A5CCB022A_ext:FileName
+w:\common\components\rtl\Garant\Keywords4Daily\kwLoadFromFile.pas
+//#UC END# *509A5CCB022A_ext:FileName
+//#UC START# *509A5CCB022Aimpl_uses*
+//#UC END# *509A5CCB022Aimpl_uses*

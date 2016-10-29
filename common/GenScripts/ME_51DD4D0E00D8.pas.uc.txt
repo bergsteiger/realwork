@@ -1,0 +1,44 @@
+//#UC START# *479731C50290_51DD4D0E00D8_impl*
+ inherited;
+ FreeAndNil(f_ListOverride);
+//#UC END# *479731C50290_51DD4D0E00D8_impl*
+//#UC START# *479731C50290_51DD4D0E00D8_var*
+//#UC END# *479731C50290_51DD4D0E00D8_var*
+//#UC START# *51D27A48038E_51DD4D0E00D8_impl*
+ f_ListOverride.Clear;
+//#UC END# *51D27A48038E_51DD4D0E00D8_impl*
+//#UC START# *51D27A48038E_51DD4D0E00D8_var*
+//#UC END# *51D27A48038E_51DD4D0E00D8_var*
+//#UC START# *51D27EC50388_51DD4D0E00D8_impl*
+ case What of
+  ipropLS: ListOverride.LS := Value;
+  iproplistid: ListOverride.ListID := Value;
+  iproplistoverridecount: ListOverride.ListOverrideCount := Value;
+ end;
+//#UC END# *51D27EC50388_51DD4D0E00D8_impl*
+//#UC START# *51D27EC50388_51DD4D0E00D8_var*
+//#UC END# *51D27EC50388_51DD4D0E00D8_var*
+//#UC START# *51DD4D0E00D8_ext:FileName
+w:\common\components\rtl\Garant\dd\destListoverride.pas
+//#UC END# *51DD4D0E00D8_ext:FileName
+//#UC START# *51DD4D0E00D8impl_uses*
+//#UC END# *51DD4D0E00D8impl_uses*
+//#UC START# *51E7C9DB0213_51DD4D0E00D8_impl*
+ inherited Create(aRTFReader);
+ f_ListOverride := TrtfListOverride.Create();
+//#UC END# *51E7C9DB0213_51DD4D0E00D8_impl*
+//#UC START# *51E7C9DB0213_51DD4D0E00D8_var*
+//#UC END# *51E7C9DB0213_51DD4D0E00D8_var*
+//#UC START# *5461BEC2017D_51DD4D0E00D8_impl*
+ if (aNewDest.RDS = rdsListOverrideTable) then
+  TdestListOverrideTable(aNewDest).AddListOverride(Self);
+ if aNewDest.RDS <> RDS then
+  Clear;
+//#UC END# *5461BEC2017D_51DD4D0E00D8_impl*
+//#UC START# *5461BEC2017D_51DD4D0E00D8_var*
+//#UC END# *5461BEC2017D_51DD4D0E00D8_var*
+//#UC START# *54E1F08400F9_51DD4D0E00D8_impl*
+ Assert(False);
+//#UC END# *54E1F08400F9_51DD4D0E00D8_impl*
+//#UC START# *54E1F08400F9_51DD4D0E00D8_var*
+//#UC END# *54E1F08400F9_51DD4D0E00D8_var*

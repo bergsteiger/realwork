@@ -1,6 +1,10 @@
 UNIT CollectBackLinks.ms.dict
 
 USES
+ arrays.ms.dict
+;
+
+USES
  ElementsRTTI.ms.dict
 ;
 
@@ -24,6 +28,14 @@ USES
  ModelScriptExt.ms.dict
 ;
 
+USES
+ InjExt.ms.dict
+;
+
+USES
+ ImplExt.ms.dict
+;
+
 PROCEDURE CollectBackLinks
  CollectInAllDictionaries: 
  ( 
@@ -34,15 +46,20 @@ PROCEDURE CollectBackLinks
  ) 
  (
    IN aWord
-  aWord .Dependencies
-  .filter> .IsInjects
-  .map> .Target
-  if ( aWord .IsScriptKeywordsPack ) then
-  begin
-   .join> ( aWord .Inherits )
-  end // ( aWord .IsScriptKeywordsPack )
+  if ( aWord .IsReferencedType ! ) then
+  begin 
+   aWord .Dependencies
+   .filter> .IsInjects
+   .map> .Target
+   if ( aWord .IsScriptKeywordsPack ) then
+   begin
+    .join> ( aWord .Inherits .map> .ReferencedTypeOriginal )
+   end // ( aWord .IsScriptKeywordsPack )
+  end // ( aWord .IsReferencedType ! )
+  else
+   [empty]
  ) // CollectInAllDictionaries:
-  ModelScriptExt '.inj' Cat '_InjectedElements' .OutCollected
+  ModelScriptExt InjExt Cat '_InjectedElements' .OutCollected
  
  CollectInAllDictionaries: 
  ( 
@@ -64,18 +81,24 @@ PROCEDURE CollectBackLinks
  ) 
  (
    IN aWord
-  aWord .Implements
-  .filter> ( 
-    IN anElement
-   RULES 
-    ( anElement .IsVCMFormDefinition )
-     true
-    ( anElement .IsAtom )
-     true
-    DEFAULT
-     false
-   ; // RULES   
-  ) // .filter>
+  if ( aWord .IsReferencedType ! ) then
+  begin
+   aWord .Implements
+   .map> .ReferencedTypeOriginal
+   .filter> ( 
+     IN anElement
+    RULES 
+     ( anElement .IsVCMFormDefinition )
+      true
+     ( anElement .IsAtom )
+      true
+     DEFAULT
+      false
+    ; // RULES   
+   ) // .filter>
+  end // ( aWord .IsReferencedType ! )
+  else
+   [empty]
  ) // CollectInAllDictionaries:
-  ModelScriptExt '.impl' Cat '_Implementors' .OutCollected
+  ModelScriptExt ImplExt Cat '_Implementors' .OutCollected
 ; // CollectBackLinks

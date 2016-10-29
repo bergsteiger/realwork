@@ -1,0 +1,39 @@
+//#UC START# *07D78AC0F47E__impl*
+   if l3Same(l_Name, anItem.ReqName) then
+   begin
+    Result := false;
+    anItem.Group.Expanded := not l_Value;
+    Exit;
+   end//l3Same(l_Name, anItem.ReqName)
+   else
+    Result := true;
+//#UC END# *07D78AC0F47E__impl*
+//#UC START# *07D78AC0F47E__var*
+//#UC END# *07D78AC0F47E__var*
+//#UC START# *4E808E8B01BB_4F69959502BB_impl*
+ DoModelImpl(aCtx, aCard);
+//#UC END# *4E808E8B01BB_4F69959502BB_impl*
+//#UC START# *4E808E8B01BB_4F69959502BB_var*
+//#UC END# *4E808E8B01BB_4F69959502BB_var*
+//#UC START# *4F69959502BB_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeSetCollapsed.pas
+//#UC END# *4F69959502BB_ext:FileName
+//#UC START# *4F69959502BBimpl_uses*
+//#UC END# *4F69959502BBimpl_uses*
+//#UC START# *4F6995F7028A_4F69959502BB_impl*
+ l_Value := aCtx.rEngine.PopBool;
+ l_Name := aCtx.rEngine.PopString;
+ l_Op := aCard.StartOp;
+ try
+  CallIterator;
+ finally
+  l_Op := nil;
+ end;//try..finally
+//#UC END# *4F6995F7028A_4F69959502BB_impl*
+//#UC START# *4F6995F7028A_4F69959502BB_var*
+//#UC END# *4F6995F7028A_4F69959502BB_var*
+//#UC START# *4F6996830081__var*
+//#UC END# *4F6996830081__var*
+//#UC START# *4F6996830081iter*
+  TevReqIterator.Make(aCard).
+//#UC END# *4F6996830081iter*

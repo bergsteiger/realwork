@@ -29,72 +29,25 @@ USES
  RoseModel.ms.dict
 ;
 
-//USES
-// DictionaryByName.ms.dict
-//;
+USES
+ DictionaryByNamePrim.ms.dict
+;
 
 USES
  ProcessModelFiles.ms.dict
 ;
 
+USES
+ AddWordToIndex.ms.dict
+;
+
 PROCEDURE WordToCache
   STRING IN aWordName
   TtfwWord IN aWord
+  
  aWordName aWord msm:WordToCache 
- 
- if ( aWord .IsSomeView ! ) then
- begin
-  if ( aWord pop:Word:Producer @ ME ?== ) then
-  begin
-   if ( aWord pop:Word:GetRefForCompare .NotIsNil ) then
-   begin
-    RULES
-     ( aWord .xStereotype IsString )
-      ()
-     ( aWord .xMDAClass class_Unknown == )
-      ()
-     ( aWord .xMDAClass class_Parameter == )
-      ()
-     ( aWord .xMDAClass class_Dependency == )
-      ()
-     ( aWord .xMDAClass class_Attribute == )
-      ()
-     ( aWord .xMDAClass class_Operation == )
-      ()
-     ( aWord .xStereotype .xName 'method' ?== )
-      ()
-     ( aWord .xStereotype .xName 'virtualmethod' ?== )
-      ()
-     ( aWord .xStereotype .xName 'abstractmethod' ?== )
-      ()
-     ( aWord .xStereotype .xName 'facetmethod' ?== )
-      ()
-     ( aWord .xStereotype .xName 'Constructor' ?== )
-      ()
-     ( aWord .xStereotype .xName 'Factory' ?== )
-      ()
-     ( aWord .xStereotype .xName 'UseCase' ?== )
-      ()
-     ( aWord .xStereotype .xName 'UseCaseSetting' ?== )
-      ()
-     ( aWord .xStereotype .xName 'UseCaseTagRequirement' ?== )
-      ()
-     ( aWord .xStereotype .xName 'UseCaseSettingValue' ?== )
-      ()
-     ( aWord .xStereotype .xName 'MDAAttribute' ?== )
-      ()
-     ( aWord .xStereotype .xName 'MDAOperation' ?== )
-      ()
-     ( aWord .xStereotype .xName 'MDADependency' ?== )
-      ()
-     ( aWord .xStereotype .xName 'MDAParameter' ?== )
-      ()
-     DEFAULT
-      ( aWord .xNameInModel aWord msm:AddWordToIndex )
-    ; // RULES
-   end // ( aWord pop:Word:GetRefForCompare .NotIsNil )
-  end // ( aWord pop:Word:Producer @ ME ?== )
- end // ( aWord .IsSomeView ! )
+
+ aWord .msm:Cache:AddWordToIndex 
  
   PROCEDURE .CheckChild
     IN aChild
@@ -139,9 +92,9 @@ PROCEDURE WordToCache
        STRING IN anItem
       if ( [ '%%Inner ' aWordName ] strings:Cat anItem FindInFile ) then 
       begin
-       //anItem .DictionaryByName DROP
+       anItem .DictionaryByName DROP
        //anItem Msg
-       anItem msm:DictionaryByFile DROP
+       //anItem msm:DictionaryByFile DROP
       end
      ; // DoFile
       
@@ -153,5 +106,5 @@ PROCEDURE WordToCache
 ; // WordToCache
 
 //USES
-// MDProcess_Templates.tpi.script
+// MDProcess_Templates.tpi.ms.dict
 //;

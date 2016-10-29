@@ -1,0 +1,48 @@
+//#UC START# *4FFFDF740099_52F8EE5400B0_impl*
+ try
+  TddServerTaskManagerForTests(ServerTaskManager).TaskDone(f_Task);
+ finally
+  FreeAndNil(f_Task);
+ end;//try..finally
+//#UC END# *4FFFDF740099_52F8EE5400B0_impl*
+//#UC START# *4FFFDF740099_52F8EE5400B0_var*
+//#UC END# *4FFFDF740099_52F8EE5400B0_var*
+//#UC START# *52F8E8A101EC_ext:FileName
+w:\archi\source\projects\PipeInAuto\Tests\ddServerTaskManagerForTests.pas
+//#UC END# *52F8E8A101EC_ext:FileName
+//#UC START# *52F8E8A101ECimpl_uses*
+//#UC END# *52F8E8A101ECimpl_uses*
+//#UC START# *52F8EDDA037F_52F8E8A101EC_impl*
+ inherited;
+ with TTaskDone.Create(false) do
+ begin
+  aTask.SetRefTo(f_Task);
+  ServerTaskManager := Self;
+  FreeOnTerminate := true;
+  Resume;
+ end;//with TTaskDone.Create(false)
+ // - тут эмулируем отправку сообщения пользователю
+//#UC END# *52F8EDDA037F_52F8E8A101EC_impl*
+//#UC START# *52F8EDDA037F_52F8E8A101EC_var*
+//#UC END# *52F8EDDA037F_52F8E8A101EC_var*
+//#UC START# *52F8EDF703C0_52F8E8A101EC_impl*
+ inherited;
+ Sleep(100);
+ // - эмулируем задержку, чтобы другие потоки смогли "проскочить вперёд"
+//#UC END# *52F8EDF703C0_52F8E8A101EC_impl*
+//#UC START# *52F8EDF703C0_52F8E8A101EC_var*
+//#UC END# *52F8EDF703C0_52F8E8A101EC_var*
+//#UC START# *52F8F0990208_52F8E8A101EC_impl*
+ Result := Tl3BatchService.Instance.IsBatchMode;
+ // - не давим исключения, чтобы увидеть их в тестах
+//#UC END# *52F8F0990208_52F8E8A101EC_impl*
+//#UC START# *52F8F0990208_52F8E8A101EC_var*
+//#UC END# *52F8F0990208_52F8E8A101EC_var*
+//#UC START# *52FA2A9C014E*
+ alcuServerTaskManagerFactory.g_FactoryClass := TalcuServerTaskManagerFactoryForTests;
+//#UC END# *52FA2A9C014E*
+//#UC START# *52FA2C99010A_52FA2C470046_impl*
+ Result := TddServerTaskManagerForTests.Create(aRootPath, aBaseEngineHolder);
+//#UC END# *52FA2C99010A_52FA2C470046_impl*
+//#UC START# *52FA2C99010A_52FA2C470046_var*
+//#UC END# *52FA2C99010A_52FA2C470046_var*

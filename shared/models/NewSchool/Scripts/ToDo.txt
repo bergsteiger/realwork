@@ -61,27 +61,6 @@ STRING elem_func IfDefStr
 54. Self .Abstraction at_abstract == заменить на Self .Abstraction .EQ at_abstract - MACRO, а не =
 57. nsQuestions AddDefaultChoice.
 61. Генерировать коды операций как синглетоны.
-62. Заменить "фабрики модулей" на сервисы.
-> FormSetFactory::Class
-> FormFactory::Class
-> FactoryMethod::Class
-> VCMFormSetFactory::Class
-> ModuleMethod::Class
-M:\NewSchool\Scripts\4951181B02B6.pas.ms.script
-M:\NewSchool\Scripts\4958E382019E.pas.ms.script
-M:\NewSchool\Scripts\497DCBF8017B.pas.ms.script
-M:\NewSchool\Scripts\497ED74F0032.pas.ms.script
-M:\NewSchool\Scripts\4A66D6BF0190.pas.ms.script
-M:\NewSchool\Scripts\4A85282C0252.pas.ms.script
-M:\NewSchool\Scripts\4A924BCA0092.pas.ms.script
-M:\NewSchool\Scripts\4A92D644009B.pas.ms.script
-M:\NewSchool\Scripts\4AA6418F02AD.pas.ms.script
-M:\NewSchool\Scripts\4AA66B460175.pas.ms.script
-M:\NewSchool\Scripts\4AA79F630309.pas.ms.script
-M:\NewSchool\Scripts\4AA9196700EB.pas.ms.script
-M:\NewSchool\Scripts\4CC97BDA02DF.pas.ms.script
-M:\NewSchool\Scripts\4F6B66140294.pas.ms.script
-M:\NewSchool\Scripts\MDProcess_ForDelphi.tpi.script
 64. Выделить Shared Delphi Lib For F1 и Shared Delphi Lib For Archi.
 66. Определения предметной области - поставить UseNewGen. Проверив, что там нет форм.
 67. Также поставить UseNewGen другим "базовым" пакетам.
@@ -244,7 +223,6 @@ M:\NewSchool\Scripts\MDProcess_ForDelphi.tpi.script
    .join> ( Self .ImplementedAndOverridden .OperationsNeededElements )
   end // Self .IsTypedef !
 - использовать что-то вроде .map> .ReferencedTypeOriginal.
-229. Диаграммы выливать в подкаталог Diagrams.
 230. array:CopyWithoutDuplicatedNames - в отдельный файл.
 231. array:CopyWithoutDuplicatedUnstereotyped - в отдельный файл.
 232. IsUnstereotypedStereo - в отдельный файл.
@@ -280,4 +258,35 @@ M:\NewSchool\Scripts\MDProcess_ForDelphi.tpi.script
  ; // BOOLEAN elem_func SomeFunc
 235. inj и impl выводить в поддиректорию.
 236. Невалидные связи рисовать ПО-ДРУГОМУ. Например ДРУГИМ цветом. Ну или с "привычной" буквой (M).
-237. 
+239. Не забыть про Decorated и Referenced.
+241. И msm:DeleteWordCachedValues. Подумать.
+242. Работать с ImsmElementList. Все Array:Add заменить на ImsmElementList.Add. msm:AddChangedElement - туда же убрать. И msm:DeleteWordCachedValues.
+243. Сделать подписку к спискам.
+244. Убрать ListContentChanged из модели.
+245. Сделать подписку в ImsmElemengStringList.
+247. Кешировать Call и CalledFile и TimeStamp. Вот тут:
+class function TmsmModelElementMethodCaller.Call(const aParameters: array of TtfwStackValue;
+ const aMethodName: AnsiString): TtfwStackValue;
+- хотя там есть l_WasCompiled.
+248. Open In New Window - учитывать ReferencedTypeOriginal.
+249. -> заменить на SetElementVar.
+251. Не кешировать f_SubElementName, там где есть : и ПРОБЕЛ.
+253. TmsmLoadedWordsList сделать синглетоном.
+254. Не давать AddElement если список стереотипов пустой.
+255. Кнопки PgUp, PgDn обрабатывать в TmsmDrawingView. А также стрелки.
+257. implements::Dependency - дублируются. "группа генераторов" и "указание что используется".
+258. Для Not IsMeStub писать РЕАЛЬНЫЕ стереотипы через WL, а НЕ st_XXX. См. предыдущий пункт - 257.
+260. Из NSImplemented удалять методы с совпадающими сигнатурами. Чтобы не морочиться с Exclude.
+261. В Impurity не дают вложить method. Почему-то не учитывается StandardClassInclude.
+263. В NSImplemented inline должны попадать ВСЕГДА, независимо от Abstraction. Abstraction в NS* надо заменить на MetaModelAbstraction.
+264. Для Impurity etc выводить переопределение, чтобы были видны все вложенные стереотипы. См. пункт 261.
+265. Копировать FactoryOnModule в MixIn.
+266. Разрешить DeleteElement в Children.
+269. NeededElementsFromInheritsOrImplements - мапировать на ReferencedTypeOriginal.
+271. Учитывать Elements Prefix в ExtValueOrValue.
+276. Добавлять msm:AddWordToIndex при создании НОВОГО элемента.
+277. Пересортировывать msm:AddWordToIndex при смене имени элемента.
+278. Удалять одноимённые свойства от интерфейсов в Implemented.
+279. Для UtilityPack возвращать abstraction at_regular.
+280. Перегенерировать Archi etc.
+281. 

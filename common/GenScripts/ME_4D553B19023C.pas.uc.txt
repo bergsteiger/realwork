@@ -1,0 +1,28 @@
+//#UC START# *4D553AC103A3_4D553B19023C_impl*
+ l_R := aBlock.BottomChildBlock(aView);
+ l_R.GetBorderPoints(l_S, l_F);
+ l_StartRange := l_R.Obj.Range(nil, l_S);
+ l_StartRange.AsStorable.Store(aView, f_G);
+ l_FinishRange := l_R.Obj.Range(nil, l_F);
+ l_FinishRange.Modify.Delete(aView, Container);
+ Result := true;
+//#UC END# *4D553AC103A3_4D553B19023C_impl*
+//#UC START# *4D553AC103A3_4D553B19023C_var*
+var
+ l_R : InevRange;
+ l_StartRange : InevRange;
+ l_FinishRange : InevRange;
+ l_S, l_F : InevBasePoint;
+//#UC END# *4D553AC103A3_4D553B19023C_var*
+//#UC START# *4D553B19023C_ext:FileName
+w:\common\components\gui\Garant\Everest\evParaSplitter.pas
+//#UC END# *4D553B19023C_ext:FileName
+//#UC START# *4D553B19023Cimpl_uses*
+//#UC END# *4D553B19023Cimpl_uses*
+//#UC START# *4D553BBA0140_4D553B19023C_impl*
+ inherited Create;
+ f_G := aGen;
+ Options := anOptions;
+//#UC END# *4D553BBA0140_4D553B19023C_impl*
+//#UC START# *4D553BBA0140_4D553B19023C_var*
+//#UC END# *4D553BBA0140_4D553B19023C_var*

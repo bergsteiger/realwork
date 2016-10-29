@@ -84,6 +84,14 @@ USES
  CutPrefix.ms.dict
 ;
 
+USES
+ PrimitivesModel.ms.dict
+;
+
+USES
+ NS.ms.dict
+;
+
 STRING elem_func KindString
  RULES
   ( Self .Kind kind_NormalClass == )
@@ -112,16 +120,16 @@ STRING elem_func VisibilityString
  
 STRING elem_func AbstractionString
  RULES
-  ( Self .Abstraction at_final == )
+  ( Self .NSAbstraction at_final == )
    'final'
-  ( Self .Abstraction at_regular == )
+  ( Self .NSAbstraction at_regular == )
    'regular'
-  ( Self .Abstraction at_abstract == )
+  ( Self .NSAbstraction at_abstract == )
    'abstract'
-  ( Self .Abstraction at_optional == )
+  ( Self .NSAbstraction at_optional == )
    'optional'
   DEFAULT
-   ( Self .Abstraction ToPrintable )
+   ( Self .NSAbstraction ToPrintable )
  ; // RULES
  >>> Result
 ; // AbstractionString
@@ -217,6 +225,10 @@ USES
 
 USES
  filterNil.ms.dict
+;
+
+USES
+ StereotypeUPs.ms.dict
 ;
 
 elem_proc ModelGeneration
@@ -415,7 +427,14 @@ elem_proc ModelGeneration
        ( l_Value IsObj )
         ( 'UPLINK ' aUP .WordName ' ' l_Value .ValueToString ' ;' )
        DEFAULT
-        ( 'UP ' aUP .WordName ' ' l_Value .ValueToString )
+        ( 
+         VAR l_Name
+         aUP .WordName >>> l_Name
+         if ( Self l_Name l_Value .IsUPDefaultValue ! ) then
+         begin
+          'UP ' l_Name ' ' l_Value .ValueToString 
+         end // ( Self l_Name l_Value .IsUPDefaultValue ! )
+        ) // DEFAULT
       ; // RULES
      ] .Out
     ) // Self .UpList .for>
@@ -507,7 +526,10 @@ elem_proc ModelGeneration
   Indented: (
    Self .IsNewSchoolElement ?
     ( [ 'MEPROP IsNewSchool ' 'true' ] .Out )
-   Self .UID .NotIsNil ?
+   Self .UID .NotIsNil 
+   AND ( Self .MDAClass class_Parameter != )
+   AND ( Self .MDAClass class_Dependency != ) 
+   ?
     ( [ 'MEPROP UID ' cQuote Self .UID cQuote ] .Out )
    Self .GUID .NotIsNil ?
     ( [ 'MEPROP GUID ' cQuote Self .GUID cQuote ] .Out )
@@ -515,6 +537,31 @@ elem_proc ModelGeneration
     ( [ 'MEPROP Name ' cQuote Self .Name .FineString cQuote ] .Out )
    Self .FullName .NotIsNil ?
     ( [ 'MEPROP FullName ' cQuote Self .FullName .FineString cQuote ] .Out )
+    
+   PROCEDURE OutStereo
+     IN aStereo   
+     STRING IN aPropName
+    aStereo .NotIsNil 
+    AND ( aStereo .IsUnstereotypedStereo ! )
+    ?
+     (
+      [ 
+        'MELINK ' aPropName ' st_' 
+        if ( aStereo .FullName .NotIsNil ) then
+        begin
+         aStereo .FullName
+        end // ( aStereo .FullName .NotIsNil )
+        else
+        begin
+         aStereo .Name ' ' '_' string:Replace
+        end // ( l_Stereo .FullName .NotIsNil )
+        ' ;'
+      ] .Out 
+     )
+   ; // OutStereo   
+   
+   Self .GeneralizedStereotype 'GeneralizedStereotype' OutStereo
+   
    Self .OriginalName .NotIsNil ?
     ( [ 'MEPROP OriginalName ' cQuote Self .OriginalName .FineString cQuote ] .Out )
    Self .IsSummoned ?
@@ -526,43 +573,37 @@ elem_proc ModelGeneration
    Self .MDAClass class_Unknown != ?
     ( [ 
        'MEPROP Class class_' 
-       if ( Self .IsMethod ) then
-       begin
-        'Operation'
-       end // ( Self .IsMethod )
-       else
-       begin
-        Self .MDAClassString 
-       end // ( Self .IsMethod )
-      ] .Out )
-   VAR l_Stereo   
-   Self .Stereotype >>> l_Stereo
-   l_Stereo .NotIsNil 
-   AND ( l_Stereo .UPisTrue "unstereotyped" ! )
-   ?
-    ( [ 
-       'MELINK Stereotype st_' 
-       l_Stereo .Name ' ' '_' string:Replace
        RULES
-        (
-         ( l_Stereo .IsMeStub ! )
-         AND ( l_Stereo .Stereotype .NotIsNil )
-         AND ( l_Stereo .Stereotype .StereotypeInModel .IsStereotypeInModelKindOf: st_MDASubStereotype )
-         AND ( Self .MDAClassString 'Class' ?!= )
-         AND ( Self .MDAClassString 'Category' ?!= )
-        ) 
-         ( '::' Self .MDAClassString )
+        ( Self .IsMethod )
+         begin
+          'Operation'
+         end // ( Self .IsMethod )
+        ( Self .IsIterator )
+         begin
+          'Operation'
+         end // ( Self .IsIterator )
+        DEFAULT 
+         begin
+          Self .MDAClassString 
+         end // DEFAULT
        ; // RULES
-       ' ;' 
       ] .Out )
+   
+   Self .Stereotype 'Stereotype' OutStereo
+   
    Self .Kind kind_Unknown != ?
     ( [ 'MEPROP Kind kind_' Self .KindString ] .Out )
    Self .Documentation .NotIsNil ?
     ( [ '%SUMMARY ' cQuote Self .Documentation .FineString cQuote ' ;' ] .Out )
-   Self .Visibility UnknownAccess != ?
+   Self .Visibility UnknownAccess != 
+   AND ( Self .MDAClass class_Parameter != )
+   AND ( Self .MDAClass class_Dependency != )
+   ?
     ( [ 'MEPROP Visibility ' Self .VisibilityString ] .Out )
-   ( Self .MDAClass class_Parameter != ) AND
-   ( Self .MDAClass class_Dependency != ) ?
+   Self .NSAbstraction at_unknown != 
+   AND ( Self .MDAClass class_Parameter != )
+   AND ( Self .MDAClass class_Dependency != ) 
+   ?
     ( [ 'MEPROP Abstraction at_' Self .AbstractionString ] .Out )
    Self .LinkType lt_unknown != ?
     ( [ 'MEPROP LinkType lt_' Self .LinkTypeString ] .Out )
@@ -573,12 +614,14 @@ elem_proc ModelGeneration
    AND ( Self .Parent .IsProjectGroup ! )
    ?
     ( [ 'MELINK Parent ' Self .Parent .pas_script_Reference ' ;' ] .Out )
-   Self .Target .NotIsNil ?
+   Self .Target .NotIsNil 
+   AND ( Self .Target Primitives::void ?!= )
+   ?
     ( [ 'MELINK Target ' Self .Target .pas_script_Reference ' ;' ] .Out )
    Self .TargetStereotype .NotIsNil ?
     ( [ 'MEPROP TargetStereotype ' cQuote Self .TargetStereotype cQuote ] .Out )
-   Self .GetUP 'Value' .IsValueValid ?
-    ( [ 'MEPROP Value ' Self .GetUP 'Value' .ValueToString ] .Out )
+   Self .ModelValue .IsValueValid ?
+    ( [ 'MEPROP Value ' Self .ModelValue .ValueToString ] .Out )
    Self .ValueType .NotIsNil ?
     ( [ 'MELINK ValueType ' Self .ValueType .pas_script_Reference ' ;' ] .Out )
 

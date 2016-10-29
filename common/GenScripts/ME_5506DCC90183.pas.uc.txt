@@ -1,0 +1,160 @@
+//#UC START# *5506DCC90183_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\implementation\vcmHistory.pas
+//#UC END# *5506DCC90183_ext:ParentFileName
+//#UC START# *55080FE40284_5506DCC90183_impl*
+ Result := True; 
+ // Форма должна быть закрыта
+ if f_ItemType = vcm_hitClose then
+ begin
+  l_Form := nil;
+  if NeedCheckHasForm then
+   aMainForm.AsContainer.HasForm(f_FormId, f_ZoneType, True, @l_Form, f_UserType, nil, f_SubUserType);
+  if Assigned(l_Form) then
+  try
+   f_ItemType := vcm_hitContent;
+   UpdateFormInfo(l_Form);
+   if not l_Form.SaveState(l_FormData, f_StateType) then
+    l_FormData := nil;
+   f_FormData := l_FormData;
+   l_Form.SafeClose;
+  finally
+   l_Form := nil;
+  end;//try..finally
+ end//if f_StateType = vcm_stMissing then
+ // Создадим форму из истории
+ else
+ begin
+  l_Children := nil;
+  l_Docked := nil;
+  try
+   l_FormData := f_FormData;
+   // Форма ничего не знает про тип
+   if lpFindForm(l_Form) then
+   begin
+    // Форма была открыта в процессе работы
+    l_UtilizeForm := True;
+    if (f_ItemType = vcm_hitContent) then
+     f_ItemType := vcm_hitNone;
+    SaveOwned(l_Form, f_StateType, l_Children);
+    SaveDocked(l_Form, f_StateType, l_Docked);
+    if not l_Form.SaveState(l_FormData, f_StateType) then
+     // - сохраняем данные, для симметричности вызовов SaveState/LoadState.
+     l_FormData := nil;
+   end//lpFindForm(l_Form)
+   else
+   begin
+    l_Form := MakeForm(aMainForm, anOwner, f_DataSource);
+    if (l_Form = nil) then
+     Exit;
+    l_Children := nil;
+    l_Docked := nil;
+    // Форма должна быть закрыта
+    f_ItemType := vcm_hitClose;
+    l_UtilizeForm := False;
+   end;//lpFindForm(l_Form)
+   l_Caption := l_Form.{VCLForm.}MainCaption;
+   //l_Form.DataSource := f_DataSource;
+   // ^Если ты бля такой умный и хочешь переставить эту строчку сюда,
+   //  то читай внимательно - http://mdp.garant.ru/pages/viewpage.action?pageId=267324195&focusedCommentId=269072024#comment-269072024
+   l_Form.LoadState(f_FormData, f_StateType);
+   l_Form.Caption := f_Caption;
+   RestoreFocused(l_Form);
+   f_Caption := l_Caption;
+   // Только для форм без сборки, сборка сама контролирует запись в историю
+   ActivateList(aMainForm, l_Form, f_Children, Assigned(l_Form.FormSet));
+   ActivateList(aMainForm, nil, f_Docked, Assigned(l_Form.FormSet));
+   l_DataSource := l_Form.DataSource;
+   // Если утилизируем форму снесем ей сначала DataSource
+   // чтоб эмулировать удаление/создание K-136262540
+   if l_UtilizeForm then
+   begin
+    if l_Form.IsMainInFormSet and not lp_SameUseCase(l_Form) then
+     l_Form.FormSet.PopToHistory;
+    l_Form.DataSource := nil;
+   end;//l_UtilizeForm
+   l_Form.DataSource := f_DataSource;
+   f_DataSource := l_DataSource;
+   f_FormData := l_FormData;
+   // - устанавливаем новые данные формы
+   vcmSet(f_Children, l_Children);
+   // - устанавливаем информацию о новых детях
+   vcmSet(f_Docked, l_Docked);
+   // - устанавливаем информацию о новых подчиненных
+   if (f_ItemType = vcm_hitContent) then
+    f_ItemType := vcm_hitClose;
+  finally
+   FreeAndNil(l_Children);
+   FreeAndNil(l_Docked);
+  end;//try..finally
+ end;//if f_StateType = vcm_stMissing then
+//#UC END# *55080FE40284_5506DCC90183_impl*
+//#UC START# *55080FE40284_5506DCC90183_var*
+ function lpFindForm(out aForm: IvcmEntityForm): Boolean;
+ begin//lpFindForm
+  Result := False;
+  if vcmInFormSet(f_DataSource) and
+     NeedCheckHasForm then
+  begin
+   Result := Container(aMainForm).HasForm(f_FormId,
+                                          f_ZoneType,
+                                          True,
+                                          @aForm,
+                                          f_UserType,
+                                          nil,
+                                          f_SubUserType);
+   if Result then                                       
+    Assert(not aForm.VCMClosing);
+    // - если форма УЖЕ закрывается, то её наверное повторно использовать НЕЛЬЗЯ
+  end//vcmInFormSet(f_DataSource)
+  else
+  begin
+   if NeedCheckHasForm then
+    Result := TvcmDispatcher.Instance.FormDispatcher.FindForm(f_FormGUID, aForm);
+   if Result then
+   begin
+    //Assert(not aForm.VCMClosing);
+    if aForm.VCMClosing then
+    // - если форма УЖЕ закрывается, то её наверное повторно использовать НЕЛЬЗЯ
+    begin
+     TvcmDispatcher.Instance.FormDispatcher.RemoveForm(aForm);
+     // - удалить её надо из диспетчера, чтобы больше не находилась
+     aForm := nil;
+     Result := False;
+    end;//aForm.VCMClosing 
+   end;//Result
+  end;//vcmInFormSet(f_DataSource)
+ end;//lpFindForm
+
+ function lp_SameUseCase(const aForm: IvcmEntityForm): Boolean;
+ begin//lp_SameUseCase
+  Result := True;
+  if Assigned(f_DataSource) and Assigned(f_DataSource.UseCaseController) and
+     Assigned(aForm.DataSource) and Assigned(aForm.DataSource.UseCaseController) then
+      Result := vcmIEQ(f_DataSource.UseCaseController, aForm.DataSource.UseCaseController);
+ end;//lp_SameUseCase
+
+var
+ l_FormData: IvcmBase;
+ l_Form: IvcmEntityForm;
+ l_Caption: IvcmCString;
+ l_Children: TvcmFormHistoryItemList;
+ l_Docked: TvcmFormHistoryItemList;
+ l_DataSource: IvcmFormDataSource;
+ l_UtilizeForm: Boolean;
+//#UC END# *55080FE40284_5506DCC90183_var*
+//#UC START# *550811520043_5506DCC90183_impl*
+ inherited Create(aForm, aStateType, aFormId, aUserType, aZoneType, aItemType, aSubUserType, aForClone);
+ f_StateType := aStateType;
+//#UC END# *550811520043_5506DCC90183_impl*
+//#UC START# *550811520043_5506DCC90183_var*
+//#UC END# *550811520043_5506DCC90183_var*
+//#UC START# *550825AC0253_5506DCC90183_impl*
+ Result := Make(aForm, aStateType);
+//#UC END# *550825AC0253_5506DCC90183_impl*
+//#UC START# *550825AC0253_5506DCC90183_var*
+//#UC END# *550825AC0253_5506DCC90183_var*
+//#UC START# *559F7CBC036D_5506DCC90183_impl*
+ Result := not SavingClone;
+//#UC END# *559F7CBC036D_5506DCC90183_impl*
+//#UC START# *559F7CBC036D_5506DCC90183_var*
+//#UC END# *559F7CBC036D_5506DCC90183_var*

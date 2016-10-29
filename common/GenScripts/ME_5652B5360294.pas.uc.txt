@@ -1,0 +1,39 @@
+//#UC START# *479731C50290_5652B5360294_impl*
+ f_ToRealQuery := nil;
+ inherited;
+//#UC END# *479731C50290_5652B5360294_impl*
+//#UC START# *479731C50290_5652B5360294_var*
+//#UC END# *479731C50290_5652B5360294_var*
+//#UC START# *5652B5360294_ext:FileName
+w:\common\components\rtl\Garant\PG\pgRenumerator.pas
+//#UC END# *5652B5360294_ext:FileName
+//#UC START# *5652B5360294impl_uses*
+//#UC END# *5652B5360294impl_uses*
+//#UC START# *5652B58D01EF_5652B5360294_impl*
+ Result := 0;
+ if aImpID = 0 then
+  exit;
+ f_ToRealQuery.Param['p_ID'].AsLargeInt := aImpID;
+ l_ResultSet := f_ToRealQuery.OpenResultSet;
+ try
+  if l_ResultSet.IsEmpty then
+   Result := cUndefDocID
+  else
+   Result := l_ResultSet.Field['RealID'].AsInteger;
+ finally
+  l_ResultSet := nil;
+ end;
+//#UC END# *5652B58D01EF_5652B5360294_impl*
+//#UC START# *5652B58D01EF_5652B5360294_var*
+var
+ l_ResultSet: IdaResultSet;
+//#UC END# *5652B58D01EF_5652B5360294_var*
+//#UC START# *5652CB64000B_5652B5360294_impl*
+ inherited Create;
+ f_ToRealQuery := aFactory.MakeTabledQuery(aFactory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_ftRenum)));
+ f_ToRealQuery.AddSelectField(aFactory.MakeSelectField('', TdaScheme.Instance.Table(da_ftRenum)['RealID']));
+ f_ToRealQuery.WhereCondition := aFactory.MakeParamsCondition('', TdaScheme.Instance.Table(da_ftRenum)['ImportID'], da_copEqual, 'p_ID');
+ f_ToRealQuery.Prepare;
+//#UC END# *5652CB64000B_5652B5360294_impl*
+//#UC START# *5652CB64000B_5652B5360294_var*
+//#UC END# *5652CB64000B_5652B5360294_var*

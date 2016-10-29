@@ -1,0 +1,60 @@
+//#UC START# *46A4504B03C4_508EBDA900AE_impl*
+ case TvcmTaskPanelOperation(aOperation) of
+  cvcm_tpOperationRemove:
+  begin
+   l3Free(f_Link);
+    // - почистим св€зь с Action, т.к. при удалении Action будет приходить
+    //   информаци€ о чистке полей Caption и т.д., а обновл€ть уже будет некого
+    //   (CQ: OIT5-26549);
+   if (Op <> nil) then
+    Op.As_Il3ChangeNotifier.Unsubscribe(Il3ItemNotifyRecipient(Self));
+   Remove;
+  end;//cvcm_tpOperationRemove
+  cvcm_tpOpPosChanged:
+  begin
+   ParentNode.SortChilds;
+   CaptionChanged;
+  end;//cvcm_tpOpPosChanged
+  cvcm_tpOpCaptionChanged:
+   CaptionChanged;
+ end;//case aOperation of
+//#UC END# *46A4504B03C4_508EBDA900AE_impl*
+//#UC START# *46A4504B03C4_508EBDA900AE_var*
+//#UC END# *46A4504B03C4_508EBDA900AE_var*
+//#UC START# *479731C50290_508EBDA900AE_impl*
+ if (Op <> nil) then
+  Op.As_Il3ChangeNotifier.Unsubscribe(Il3ItemNotifyRecipient(Self));
+ Op := nil;
+ l3Free(f_Link);
+ inherited;
+//#UC END# *479731C50290_508EBDA900AE_impl*
+//#UC START# *479731C50290_508EBDA900AE_var*
+//#UC END# *479731C50290_508EBDA900AE_var*
+//#UC START# *499C1A5C03B4_508EBDA900AE_impl*
+ {$IfDef nscTasksPanelShowPosition}
+  Text := l3PCharLen(vcmCat(vcmCat(Op.Caption, ' ('), IntToStr(Op.Position) + ')'));
+ {$Else nscTasksPanelShowPosition}
+  Text := Op.Caption.AsWStr;
+ {$EndIf nscTasksPanelShowPosition}
+//#UC END# *499C1A5C03B4_508EBDA900AE_impl*
+//#UC START# *499C1A5C03B4_508EBDA900AE_var*
+//#UC END# *499C1A5C03B4_508EBDA900AE_var*
+//#UC START# *499C1AA001FF_508EBDA900AEget_impl*
+ Result := f_Op;
+//#UC END# *499C1AA001FF_508EBDA900AEget_impl*
+//#UC START# *499C1AA001FF_508EBDA900AEget_var*
+//#UC END# *499C1AA001FF_508EBDA900AEget_var*
+//#UC START# *508EBDA900AE_ext:FileName
+w:\common\components\gui\Garant\Nemesis\nscTasksPanelOperationNode.pas
+//#UC END# *508EBDA900AE_ext:FileName
+//#UC START# *508EBDA900AEimpl_uses*
+//#UC END# *508EBDA900AEimpl_uses*
+//#UC START# *508FE2F30143_508EBDA900AE_impl*
+ inherited Create;
+ Op := aOp;
+ if (Op <> nil) then
+  Op.As_Il3ChangeNotifier.Subscribe(Il3ItemNotifyRecipient(Self));
+ CaptionChanged;
+//#UC END# *508FE2F30143_508EBDA900AE_impl*
+//#UC START# *508FE2F30143_508EBDA900AE_var*
+//#UC END# *508FE2F30143_508EBDA900AE_var*

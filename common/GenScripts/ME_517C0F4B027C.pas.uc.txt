@@ -1,0 +1,19 @@
+//#UC START# *4CC847800383_517C0F4B027C_impl*
+ l_R := Tl3Region.Create;
+ try
+  l_R.Rgn := CreateRoundRectRgn(1, 0, Width + 1, Height, cRad, cRad);
+  aRegion.Combine(l_R, RGN_OR);
+  //aRegion.CombineRect(l3SRect(Width - cRad, 0, Width, Height), RGN_OR);
+ finally
+  FreeAndNil(l_R);
+ end;//try..fianlly
+//#UC END# *4CC847800383_517C0F4B027C_impl*
+//#UC START# *4CC847800383_517C0F4B027C_var*
+const
+ cRad = 15;
+var
+ l_R : Tl3Region;
+//#UC END# *4CC847800383_517C0F4B027C_var*
+//#UC START# *517C0F4B027C_ext:FileName
+w:\common\components\SandBox\RoundedControl.imp.pas
+//#UC END# *517C0F4B027C_ext:FileName

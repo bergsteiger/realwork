@@ -1,0 +1,41 @@
+//#UC START# *1E86D84EDB95__impl*
+   if l3Same(l_Name, anItem.ReqName) then
+   begin
+    Result := false;
+    l_F := anItem.FirstField;
+    l_IsEnabled := (l_F As IevEditorFieldWithTree).IsLogicalStateButtonEnabled; 
+    Exit;
+   end else
+    Result := true;
+//#UC END# *1E86D84EDB95__impl*
+//#UC START# *1E86D84EDB95__var*
+  var
+   l_F : IevEditorControlField;
+//#UC END# *1E86D84EDB95__var*
+//#UC START# *4E808E8B01BB_50EFDD9B0123_impl*
+ DoModelImpl(aCtx, aCard);
+//#UC END# *4E808E8B01BB_50EFDD9B0123_impl*
+//#UC START# *4E808E8B01BB_50EFDD9B0123_var*
+//#UC END# *4E808E8B01BB_50EFDD9B0123_var*
+//#UC START# *50EFDD9B0123_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeIsLogicOperationEnabled.pas
+//#UC END# *50EFDD9B0123_ext:FileName
+//#UC START# *50EFDD9B0123impl_uses*
+//#UC END# *50EFDD9B0123impl_uses*
+//#UC START# *50F011CD0374_50EFDD9B0123_impl*
+ l_Name := aCtx.rEngine.PopString;
+ l_Op := aCard.StartOp;
+ try
+  CallIterator;
+ finally
+  l_Op := nil;
+ end;//try..finally
+ aCtx.rEngine.PushBool(l_IsEnabled);
+//#UC END# *50F011CD0374_50EFDD9B0123_impl*
+//#UC START# *50F011CD0374_50EFDD9B0123_var*
+//#UC END# *50F011CD0374_50EFDD9B0123_var*
+//#UC START# *50F01237000C__var*
+//#UC END# *50F01237000C__var*
+//#UC START# *50F01237000Citer*
+  TevReqIterator.Make(aCard).
+//#UC END# *50F01237000Citer*

@@ -1,0 +1,257 @@
+//#UC START# *479731C50290_52A1D6020217_impl*
+ if Assigned(f_Form) then
+ begin
+  if Assigned(f_Operation.OnTest) then
+   f_Operation.OnTest := f_OldOnTest;
+  if Assigned(f_Operation.OnExecute) then
+   f_Operation.OnExecute := f_OldOnExecute;
+  if Assigned(f_Operation.OnContextTest) then
+   f_Operation.OnContextTest := f_OldOnContextTest;
+  if Assigned(f_Operation.OnContextExecute) then
+   f_Operation.OnContextExecute := f_OldOnContextExecute;
+  f_Form := nil;
+ end;
+ inherited;
+//#UC END# *479731C50290_52A1D6020217_impl*
+//#UC START# *479731C50290_52A1D6020217_var*
+//#UC END# *479731C50290_52A1D6020217_var*
+//#UC START# *52A1D6020217_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\implementation\Visual\vcmBaseMenuManager.pas
+//#UC END# *52A1D6020217_ext:ParentFileName
+//#UC START# *52A1D76D0351_52A1D6020217_impl*
+ inherited Create;
+ f_Form := aForm;
+ FormActivate := aFormActivate;
+ Operation := aOperation;
+//#UC END# *52A1D76D0351_52A1D6020217_impl*
+//#UC START# *52A1D76D0351_52A1D6020217_var*
+//#UC END# *52A1D76D0351_52A1D6020217_var*
+//#UC START# *52A1D7950232_52A1D6020217_impl*
+ if not Assigned(aParams) then
+  Exit;
+ l_Caption := aParams.Op.Caption;
+ { ¬ любом случае выводим Hint показать закладку }
+ if (f_Form <> nil) and
+    (f_Form.ZoneType = vcm_ztNavigator) then
+  aParams.Op.Hint := vcmFmt(str_vcmShowTab.AsCStr, [l_Caption]);
+ FindForm((aParams as IvcmTestParams).Container, @l_Form);
+ if Assigned(l_Form) then
+ try
+//  ѕо требованию ”ћ вместо имени формы выводим им€ операции
+//  l_Caption := f_FormActivate.Caption;
+//  if l_Form._VCLForm.Caption <> '' then
+//   l_Caption := l_Form._VCLForm.Caption;
+  aParams.Op.Flag[vcm_ofChecked] := l_Form.IsActiveInParent;
+
+  if (l_Form.ZoneType = vcm_ztNavigator) then
+  begin
+   if aParams.Op.Flag[vcm_ofChecked] then
+    if (l_Form.VCLWinControl as TvcmEntityForm).IsFloatingStateAndParentNotVisible then
+     aParams.Op.Flag[vcm_ofChecked] := false;
+   // - http://mdp.garant.ru/pages/viewpage.action?pageId=297703519  
+   if aParams.Op.Flag[vcm_ofChecked] then
+    aParams.Op.Hint := vcmFmt(str_vcmHideTab.AsCStr, [l_Caption])
+   else
+    aParams.Op.Hint := vcmFmt(str_vcmShowTab.AsCStr, [l_Caption]);
+  end;//l_Form.ZoneType = vcm_ztNavigator
+ finally
+  l_Form := nil;
+ end;//try..finally
+ if Assigned(aHandler) then
+  aHandler(aParams);
+//#UC END# *52A1D7950232_52A1D6020217_impl*
+//#UC START# *52A1D7950232_52A1D6020217_var*
+var
+ l_Form : IvcmEntityForm;
+ l_Caption : IvcmCString;
+//#UC END# *52A1D7950232_52A1D6020217_var*
+//#UC START# *52A1D7CA00CD_52A1D6020217_impl*
+ // ¬ыбор произведен из выпадающего меню кнопки:
+ l_MenuItem := (aParams.ItemIndex > 0) or (aParams.CurrentNode <> nil);
+ // ”правление формой:
+ case lp_ActivateForm of
+  arOpened:
+   if not f_FormActivate.DoExecuteIfExists and
+      not l_MenuItem and
+      not (f_FormActivate.RepeatedActivationBehaviour = vcm_rabJustExecuteIfActive) then
+    Exit;
+  arClosed:
+   Exit;
+ end;
+ // Execute операции:
+ if Assigned(aHandler) then
+ begin
+  if FindForm(aParams.Container) then
+  begin
+   lp_ActivateForm(True);
+   // - сначала активируем, потому что в aHandler может быть создана
+   //   и активирована друга€ форма к которой операци€ не прив€зана;
+   aHandler(aParams);
+  end//if FindForm(aParams) then
+  else
+  begin
+   aHandler(aParams);
+
+   // - формы может не быть сначала ее нужно создать, потом активировать
+   lp_ActivateForm(True);
+
+   if FindForm(aParams.Container, @l_Form) then
+   try
+    if lp_IsFormFloatingAndParentNotVisible(l_Form) then
+     lp_MakeFloatingFormVisible(l_Form);
+   finally
+    l_Form := nil;
+   end;
+   // - http://mdp.garant.ru/pages/viewpage.action?pageId=390585459
+  end;//if FindForm(aParams) then
+ end;//if Assigned(aHandler) then
+//#UC END# *52A1D7CA00CD_52A1D6020217_impl*
+//#UC START# *52A1D7CA00CD_52A1D6020217_var*
+var
+ l_MenuItem: Boolean;
+
+type
+ TActivationResult = (arDontExists, arOpened, arClosed);
+
+ function lp_IsFormFloatingAndParentNotVisible(const aForm: IvcmEntityForm): Boolean;
+ begin
+  Result := (aForm <> nil) and
+            (aForm.VCLWinControl as TvcmEntityForm).IsFloatingStateAndParentNotVisible;
+ end;//lp_IsFormFloatingAndParentNotVisible
+
+ procedure lp_MakeFloatingFormVisible(const aForm: IvcmEntityForm);
+ begin
+  if (aForm <> nil) then
+  begin
+   (aForm.VCLWinControl as TvcmEntityForm).MakeFloatingParentVisible;
+   aForm.SetActiveAndShowInParent;
+  end;
+ end;//lp_MakeFloatingFormVisible
+
+ function lp_ActivateForm(const anAfterCreate: Boolean = False): TActivationResult;
+ var
+  l_Form: IvcmEntityForm;
+ begin
+  Result := arDontExists;
+  FindForm(aParams.Container, @l_Form);
+  if Assigned(l_Form) then
+  try
+   Result := arOpened;
+   if anAfterCreate then
+    l_Form.SetActiveAndShowInParent
+   else
+   if lp_IsFormFloatingAndParentNotVisible(l_Form) then
+    lp_MakeFloatingFormVisible(l_Form)
+   else
+    if l_MenuItem then
+     l_Form.SetActiveInParent
+    else
+     case f_FormActivate.RepeatedActivationBehaviour of
+      { ¬сегда показывать }
+      vcm_rabNone:
+       l_Form.SetActiveAndShowInParent;
+      { «акрывать если активна }
+      vcm_rabClose:
+       if l_Form.IsActiveInParent then
+       begin
+         l_Form.CloseInParent;
+         Result := arClosed;
+       end
+       else
+        l_Form.SetActiveAndShowInParent;
+      vcm_rabInactivate:
+       if l_Form.IsActiveInParent then
+        l_Form.SetInactiveInParent
+       else
+        l_Form.SetActiveAndShowInParent;
+      { ѕоказать если не активна, просто выполнить операцию если активна}
+      //http://mdp.garant.ru/pages/viewpage.action?pageId=515841696 
+      vcm_rabJustExecuteIfActive:
+       begin
+        if not l_Form.IsActiveInParent then
+         l_Form.SetActiveAndShowInParent;
+        Result := arOpened;
+       end;
+     end;//case f_FormActivate.RepeatedActivationBehaviour of
+   // ѕри активации закладки устанавливаем в нее фокус (CQ: OIT500021234):
+   {$IfNDef DesignTimeLibrary}
+   if Result = arOpened then
+    vtFocusWinControlEx(l_Form.VCLWinControl);
+   {$EndIf  DesignTimeLibrary}
+  finally
+   l_Form := nil;
+  end;{try..finally}
+ end;//lp_ActivateForm
+
+var
+ l_Form: IvcmEntityForm;
+//#UC END# *52A1D7CA00CD_52A1D6020217_var*
+//#UC START# *52A1D8080172_52A1D6020217_impl*
+ DoTest(aParams, f_OldOnTest);
+//#UC END# *52A1D8080172_52A1D6020217_impl*
+//#UC START# *52A1D8080172_52A1D6020217_var*
+//#UC END# *52A1D8080172_52A1D6020217_var*
+//#UC START# *52A1D8460273_52A1D6020217_impl*
+ DoExecute(aParams, f_OldOnExecute);
+//#UC END# *52A1D8460273_52A1D6020217_impl*
+//#UC START# *52A1D8460273_52A1D6020217_var*
+//#UC END# *52A1D8460273_52A1D6020217_var*
+//#UC START# *52A1D8630372_52A1D6020217_impl*
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=482148811
+ l_OnTestEvent := nil;
+ if Assigned(f_OldOnContextTest) then
+  l_OnTestEvent := f_OldOnContextTest
+ else
+ if Assigned(f_OldOnTest) then
+  l_OnTestEvent := f_OldOnTest;
+ DoTest(aParams, l_OnTestEvent);
+//#UC END# *52A1D8630372_52A1D6020217_impl*
+//#UC START# *52A1D8630372_52A1D6020217_var*
+var
+ l_OnTestEvent: TvcmTestEvent;
+//#UC END# *52A1D8630372_52A1D6020217_var*
+//#UC START# *52A1D87D00CD_52A1D6020217_impl*
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=482148811
+ l_OnExecuteEvent := nil;
+ if Assigned(f_OldOnContextExecute) then
+  l_OnExecuteEvent := f_OldOnContextExecute
+ else
+ if Assigned(f_OldOnExecute) then
+  l_OnExecuteEvent := f_OldOnExecute;
+ DoExecute(aParams, l_OnExecuteEvent);
+//#UC END# *52A1D87D00CD_52A1D6020217_impl*
+//#UC START# *52A1D87D00CD_52A1D6020217_var*
+var
+ l_OnExecuteEvent: TvcmExecuteEvent;
+//#UC END# *52A1D87D00CD_52A1D6020217_var*
+//#UC START# *52A1D8A90263_52A1D6020217_impl*
+ if Assigned(theForm) then
+  theForm^ := nil;
+ Result := False;
+ if (aParams <> nil) then
+  Result := aParams.NativeMainForm.HasForm(f_FormID,
+   f_FormActivate.ZoneType, True, theForm, f_FormActivate.UserType);
+//#UC END# *52A1D8A90263_52A1D6020217_impl*
+//#UC START# *52A1D8A90263_52A1D6020217_var*
+//#UC END# *52A1D8A90263_52A1D6020217_var*
+//#UC START# *52A6FBB20278_52A1D6020217set_impl*
+ f_Operation := aValue;
+ { «апомним прежние значени€ }
+ f_OldOnExecute := aValue.OnExecute;
+ f_OldOnTest := aValue.OnTest;
+ f_OldOnContextExecute := aValue.OnContextExecute;
+ f_OldOnContextTest := aValue.OnContextTest;
+ { ”стновим новые значени€ }
+ aValue.OnExecute := OnExecute;
+ aValue.OnTest := OnTest;
+ aValue.OnContextExecute := OnContextExecute;
+ aValue.OnContextTest := OnContextTest;
+//#UC END# *52A6FBB20278_52A1D6020217set_impl*
+//#UC START# *52A6FBB20278_52A1D6020217set_var*
+//#UC END# *52A6FBB20278_52A1D6020217set_var*
+//#UC START# *52A6FBC9005C_52A1D6020217set_impl*
+ f_FormActivate := aValue;
+ f_FormID.rName := aValue.Name;
+//#UC END# *52A6FBC9005C_52A1D6020217set_impl*
+//#UC START# *52A6FBC9005C_52A1D6020217set_var*
+//#UC END# *52A6FBC9005C_52A1D6020217set_var*

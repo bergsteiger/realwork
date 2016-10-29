@@ -1,0 +1,84 @@
+//#UC START# *479731C50290_5810A0CC0383_impl*
+ FreeAndNil(f_DataPipe);
+ inherited;
+//#UC END# *479731C50290_5810A0CC0383_impl*
+//#UC START# *479731C50290_5810A0CC0383_var*
+//#UC END# *479731C50290_5810A0CC0383_var*
+//#UC START# *5810A0CC0383_ext:FileName
+w:\common\components\rtl\Garant\cs\ncsServerFilesDeliverer.pas
+//#UC END# *5810A0CC0383_ext:FileName
+//#UC START# *5810A0CC0383impl_uses*
+//#UC END# *5810A0CC0383impl_uses*
+//#UC START# *5810A1E7027C_5810A0CC0383_impl*
+ inherited Create;
+ aPipe.SetRefTo(f_DataPipe);
+//#UC END# *5810A1E7027C_5810A0CC0383_impl*
+//#UC START# *5810A1E7027C_5810A0CC0383_var*
+//#UC END# *5810A1E7027C_5810A0CC0383_var*
+//#UC START# *5811A63E0083_5810A0CC0383_impl*
+ f_Terminating := True;
+//#UC END# *5811A63E0083_5810A0CC0383_impl*
+//#UC START# *5811A63E0083_5810A0CC0383_var*
+//#UC END# *5811A63E0083_5810A0CC0383_var*
+//#UC START# *5811A656035A_5810A0CC0383_impl*
+ while not f_Stopped do
+ begin
+  case GetCommand of
+   ncs_dcGetTasksList: SendTasksList;
+//   ncs_dcGetFilesList
+//   ncs_dcGetFileCRC
+//   ncs_dcGetFile
+//   ncs_dcGetTargetFolder
+//   ncs_dcSetProgress
+   ncs_dcSetDeliveryResult: SetDeliveryResult;
+   ncs_dcCorrectTargetFolder: CorrectTargetFolder;
+//   ncs_dcCheckAlive
+   ncs_dcDoneProcess: f_Stopped := True;
+  end;
+ end;
+//#UC END# *5811A656035A_5810A0CC0383_impl*
+//#UC START# *5811A656035A_5810A0CC0383_var*
+//#UC END# *5811A656035A_5810A0CC0383_var*
+//#UC START# *5811A6F4011C_5810A0CC0383_impl*
+ Result := TncsDeliveryCommand(DataPipe.ReadInteger);
+//#UC END# *5811A6F4011C_5810A0CC0383_impl*
+//#UC START# *5811A6F4011C_5810A0CC0383_var*
+//#UC END# *5811A6F4011C_5810A0CC0383_var*
+//#UC START# *5811EF6E00F7_5810A0CC0383_impl*
+ DataPipe.WriteInteger(aList.Count);
+ for l_IDX := 0 to aList.Count - 1 do
+  DataPipe.WriteLn(aList[l_IDX]);
+//#UC END# *5811EF6E00F7_5810A0CC0383_impl*
+//#UC START# *5811EF6E00F7_5810A0CC0383_var*
+var
+ l_List: TStringList;
+ l_IDX: Integer;
+//#UC END# *5811EF6E00F7_5810A0CC0383_var*
+//#UC START# *5811EF870053_5810A0CC0383_impl*
+ l_List := TStringList.Create;
+ try
+  FillTasksList(l_List);
+  SendStringList(l_List);
+ finally
+  FreeAndNil(l_List);
+ end;
+//#UC END# *5811EF870053_5810A0CC0383_impl*
+//#UC START# *5811EF870053_5810A0CC0383_var*
+var
+ l_List: TStringList;
+//#UC END# *5811EF870053_5810A0CC0383_var*
+//#UC START# *58133D0403B9_5810A0CC0383_impl*
+ DoCorrectTargetFolder(DataPipe.ReadLn, DataPipe.ReadLn);
+//#UC END# *58133D0403B9_5810A0CC0383_impl*
+//#UC START# *58133D0403B9_5810A0CC0383_var*
+//#UC END# *58133D0403B9_5810A0CC0383_var*
+//#UC START# *58133D11024D_5810A0CC0383_impl*
+ l_TaskID := DataPipe.ReadLn;
+ l_Result := DataPipe.ReadInteger;
+ DoSetDeliveryResult(l_TaskID, TncsResultKind(l_Result));
+//#UC END# *58133D11024D_5810A0CC0383_impl*
+//#UC START# *58133D11024D_5810A0CC0383_var*
+var
+ l_TaskID: String;
+ l_Result: Integer;
+//#UC END# *58133D11024D_5810A0CC0383_var*

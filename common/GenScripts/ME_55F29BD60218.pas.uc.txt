@@ -1,0 +1,49 @@
+//#UC START# *5195F36403BC_55F29BD60218_impl*
+ l_ZipFN := g_CVSPath + '\testbase.zip';
+ Check(FileExists(l_ZipFN), Format('Не найден архив с пустой базой (%s)', [l_ZipFN]));
+ l_Zip := TZipForge.Create(nil);
+ try
+  l_Zip.FileName := l_ZipFN;
+  DelDir(GetDatabasePath); // на случай, если база осталась от какого-то из предыдущих тестов...
+  ForceDirectories(GetDatabasePath);
+  l_Zip.BaseDir := GetDatabasePath;
+  l_Zip.OpenArchive;
+  l_Zip.ExtractFiles('*.*');
+ finally
+  FreeAndNil(l_Zip);
+ end;
+//#UC END# *5195F36403BC_55F29BD60218_impl*
+//#UC START# *5195F36403BC_55F29BD60218_var*
+var
+ l_Zip : TZipForge;
+ l_ZipFN: AnsiString;
+//#UC END# *5195F36403BC_55F29BD60218_var*
+//#UC START# *5195F59C007D_55F29BD60218_impl*
+ InitStationAndServerConfig;
+ Check(InitBaseEngine(GetDatabasePath, 'fireton', 'pyro', True), 'Не удалось подключиться к базе данных');
+//#UC END# *5195F59C007D_55F29BD60218_impl*
+//#UC START# *5195F59C007D_55F29BD60218_var*
+//#UC END# *5195F59C007D_55F29BD60218_var*
+//#UC START# *5195F68401A9_55F29BD60218_impl*
+ f_SabFiller := nil;
+ f_NumSab := nil;
+ DoneClientBaseEngine;
+ Tm3StorageHolderList.DropAll;
+//#UC END# *5195F68401A9_55F29BD60218_impl*
+//#UC START# *5195F68401A9_55F29BD60218_var*
+//#UC END# *5195F68401A9_55F29BD60218_var*
+//#UC START# *5195F6A9018D_55F29BD60218_impl*
+ Check(DelDir(GetDatabasePath), 'Не удалось удалить базу после теста');
+//#UC END# *5195F6A9018D_55F29BD60218_impl*
+//#UC START# *5195F6A9018D_55F29BD60218_var*
+//#UC END# *5195F6A9018D_55F29BD60218_var*
+//#UC START# *519615B000D3_55F29BD60218_impl*
+ Result := ExtractFilePath(ParamStr(0)) + 'DB';
+//#UC END# *519615B000D3_55F29BD60218_impl*
+//#UC START# *519615B000D3_55F29BD60218_var*
+//#UC END# *519615B000D3_55F29BD60218_var*
+//#UC START# *55F29BD60218_ext:FileName
+w:\archi\source\projects\ImportExportTest\ArchiDBTests\archiDBTest.pas
+//#UC END# *55F29BD60218_ext:FileName
+//#UC START# *55F29BD60218impl_uses*
+//#UC END# *55F29BD60218impl_uses*

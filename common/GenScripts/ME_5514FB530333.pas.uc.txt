@@ -1,0 +1,27 @@
+//#UC START# *5514FB530333_ext:FileName
+w:\common\components\gui\Garant\Everest\evCollapsedStylePainter.imp.pas
+//#UC END# *5514FB530333_ext:FileName
+//#UC START# *5514FC280243_5514FB530333_impl*
+ if aTop then
+  l_DT := nev_dtHeader
+ else
+  l_DT := nev_dtFooter;
+ l_Decor := FormatInfo.DecorObj(l_DT);
+ l_Style := ParaX.AsObject.Attr[k2_tiStyle];
+ if l_Style.IsValid then
+ begin
+  l_Text := l_Style.PCharLenA[k2_tiShortName];
+  if not l3IsNil(l_Text) then
+   InternalDrawFrameText(l_Text, aTop, aSpace, l_DT, l_Decor, aFirstIndent)
+  else
+  if l_Decor.IsValid then
+   InternalDrawFrameText(Tl3PCharLen(cc_EmptyStr), aTop, aSpace, l_DT, l_Decor, aFirstIndent)
+ end;//l_Style.IsValid
+//#UC END# *5514FC280243_5514FB530333_impl*
+//#UC START# *5514FC280243_5514FB530333_var*
+var
+ l_Style : Tl3Variant;
+ l_Text  : Tl3PCharLen;
+ l_Decor : Tl3Variant;
+ l_DT    : TnevDecorType;
+//#UC END# *5514FC280243_5514FB530333_var*

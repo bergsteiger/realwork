@@ -1,0 +1,55 @@
+//#UC START# *4CA0D39501A8_4CA0D4C90266_impl*
+//#UC END# *4CA0D39501A8_4CA0D4C90266_impl*
+//#UC START# *4CA0D39501A8_4CA0D4C90266_var*
+//#UC END# *4CA0D39501A8_4CA0D4C90266_var*
+//#UC START# *4CA0D3AD017C_4CA0D4C90266_impl*
+ Result := 'ClientSecurity';
+//#UC END# *4CA0D3AD017C_4CA0D4C90266_impl*
+//#UC START# *4CA0D3AD017C_4CA0D4C90266_var*
+//#UC END# *4CA0D3AD017C_4CA0D4C90266_var*
+//#UC START# *4CA0D42302FC_4CA0D4C90266_impl*
+  WriteLn('Send_request: ', ri.operation, ' ', GetCurrentThreadId);
+  Flush(Output);
+  sc.context_id := ISID_SERVER_SECURITY;
+  SetLength(sc.context_data, Sizeof(authorized_session));
+  Move(authorized_session, sc.context_data[0], Sizeof(authorized_session));
+  ri.add_request_service_context(sc, true);
+//#UC END# *4CA0D42302FC_4CA0D4C90266_impl*
+//#UC START# *4CA0D42302FC_4CA0D4C90266_var*
+const
+  ISID_SERVER_SECURITY: ServiceId = 3879353251;
+var
+  sc: ServiceContext;
+//#UC END# *4CA0D42302FC_4CA0D4C90266_var*
+//#UC START# *4CA0D43401E5_4CA0D4C90266_impl*
+//#UC END# *4CA0D43401E5_4CA0D4C90266_impl*
+//#UC START# *4CA0D43401E5_4CA0D4C90266_var*
+//#UC END# *4CA0D43401E5_4CA0D4C90266_var*
+//#UC START# *4CA0D44F0352_4CA0D4C90266_impl*
+  WriteLn('Receive_reply: ', ri.operation, ' ', GetCurrentThreadId);
+  Flush(Output);
+//#UC END# *4CA0D44F0352_4CA0D4C90266_impl*
+//#UC START# *4CA0D44F0352_4CA0D4C90266_var*
+//#UC END# *4CA0D44F0352_4CA0D4C90266_var*
+//#UC START# *4CA0D46502E4_4CA0D4C90266_impl*
+  WriteLn('Receive_exception: ', ri.operation, ' ', GetCurrentThreadId);
+  Flush(Output);
+//#UC END# *4CA0D46502E4_4CA0D4C90266_impl*
+//#UC START# *4CA0D46502E4_4CA0D4C90266_var*
+//#UC END# *4CA0D46502E4_4CA0D4C90266_var*
+//#UC START# *4CA0D47C037F_4CA0D4C90266_impl*
+  WriteLn('Receive_other: ', ri.operation, ' ', GetCurrentThreadId);
+  Flush(Output);
+//#UC END# *4CA0D47C037F_4CA0D4C90266_impl*
+//#UC START# *4CA0D47C037F_4CA0D4C90266_var*
+//#UC END# *4CA0D47C037F_4CA0D4C90266_var*
+//#UC START# *4CA0D4C90266_ext:FileName
+w:\common\components\rtl\Garant\GarORB\GarClientSecurity.pas
+//#UC END# *4CA0D4C90266_ext:FileName
+//#UC START# *4CA0D4C90266impl_uses*
+//#UC END# *4CA0D4C90266impl_uses*
+//#UC START# *4CA0D4D6026F_4CA0D4C90266_impl*
+ inherited Create;
+//#UC END# *4CA0D4D6026F_4CA0D4C90266_impl*
+//#UC START# *4CA0D4D6026F_4CA0D4C90266_var*
+//#UC END# *4CA0D4D6026F_4CA0D4C90266_var*

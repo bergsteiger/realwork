@@ -1,0 +1,150 @@
+//#UC START# *478CF34E02CE_55D076150061_impl*
+ if (Source is TvcmBaseCollectionItem) then
+ begin
+  Name := TvcmBaseCollectionItem(Source).Name;
+  Caption := TvcmBaseCollectionItem(Source).Caption;
+ end//P is TvcmBaseCollectionItem
+ else
+  inherited;
+//#UC END# *478CF34E02CE_55D076150061_impl*
+//#UC START# *478CF34E02CE_55D076150061_var*
+//#UC END# *478CF34E02CE_55D076150061_var*
+//#UC START# *479F2B3302C1_55D076150061_impl*
+ inherited;
+ f_Name := '';
+ f_Caption := '';
+//#UC END# *479F2B3302C1_55D076150061_impl*
+//#UC START# *479F2B3302C1_55D076150061_var*
+//#UC END# *479F2B3302C1_55D076150061_var*
+//#UC START# *4FFC3347011F_ext:FileName
+w:\common\components\gui\Garant\VCM\implementation\Components\vcmBaseCollectionItem.pas
+//#UC END# *4FFC3347011F_ext:FileName
+//#UC START# *4FFC3347011Fci*
+//#UC END# *4FFC3347011Fci*
+//#UC START# *4FFC3347011Fcit*
+//#UC END# *4FFC3347011Fcit*
+//#UC START# *4FFC3347011Fimpl*
+//#UC END# *4FFC3347011Fimpl*
+//#UC START# *4FFC3347011Fimpl_uses*
+ , SysUtils
+ , RTLConsts
+//#UC END# *4FFC3347011Fimpl_uses*
+//#UC START# *4FFC3347011Fintf_uses*
+//#UC END# *4FFC3347011Fintf_uses*
+//#UC START# *4FFC3347011Fpubl*
+  published
+   property Caption;
+   property Name;
+//#UC END# *4FFC3347011Fpubl*
+//#UC START# *55CCB8960010_55D076150061get_impl*
+ Result := f_Name;
+//#UC END# *55CCB8960010_55D076150061get_impl*
+//#UC START# *55CCB8960010_55D076150061get_var*
+//#UC END# *55CCB8960010_55D076150061get_var*
+//#UC START# *55CCB8960010_55D076150061set_impl*
+ if (f_Name <> aValue) then
+ begin
+  {$IfDef DesignTimeLibrary}
+  if (aValue <> '') and not IsValidIdent(aValue) then
+    raise EComponentError.CreateResFmt(@SInvalidName, [aValue]);
+  {$EndIf DesignTimeLibrary}
+  ChangeName(f_Name, aValue);
+  SetCaptionFromName(aValue);
+  f_Name := aValue;
+  NameChanged;
+ end;//f_Name <> aName
+//#UC END# *55CCB8960010_55D076150061set_impl*
+//#UC START# *55CCB8960010_55D076150061set_var*
+//#UC END# *55CCB8960010_55D076150061set_var*
+//#UC START# *55CCB95D0197_55D076150061get_impl*
+ Result := f_Caption;
+//#UC END# *55CCB95D0197_55D076150061get_impl*
+//#UC START# *55CCB95D0197_55D076150061get_var*
+//#UC END# *55CCB95D0197_55D076150061get_var*
+//#UC START# *55CCB95D0197_55D076150061set_impl*
+ if (Caption <> aValue) then
+  DoSetCaption(aValue);
+//#UC END# *55CCB95D0197_55D076150061set_impl*
+//#UC START# *55CCB95D0197_55D076150061set_var*
+//#UC END# *55CCB95D0197_55D076150061set_var*
+//#UC START# *55CCB95D0197Stored_55D076150061_impl*
+ Result := GetCaptionStored;
+//#UC END# *55CCB95D0197Stored_55D076150061_impl*
+//#UC START# *55CCB95D0197Stored_55D076150061_var*
+//#UC END# *55CCB95D0197Stored_55D076150061_var*
+//#UC START# *55CCB9830041_55D076150061_impl*
+ if (Name = Caption) then
+  Caption := aName;
+//#UC END# *55CCB9830041_55D076150061_impl*
+//#UC START# *55CCB9830041_55D076150061_var*
+//#UC END# *55CCB9830041_55D076150061_var*
+//#UC START# *55CCB9A30160_55D076150061_impl*
+ ChangeCaption(Caption, aName);
+ f_Caption := aName;
+ CaptionChanged;
+//#UC END# *55CCB9A30160_55D076150061_impl*
+//#UC START# *55CCB9A30160_55D076150061_var*
+//#UC END# *55CCB9A30160_55D076150061_var*
+//#UC START# *55CCBA0103DE_55D076150061_impl*
+ Result := (Caption <> Name);
+//#UC END# *55CCBA0103DE_55D076150061_impl*
+//#UC START# *55CCBA0103DE_55D076150061_var*
+//#UC END# *55CCBA0103DE_55D076150061_var*
+//#UC START# *55CCBA3C0190_55D076150061_impl*
+//#UC END# *55CCBA3C0190_55D076150061_impl*
+//#UC START# *55CCBA3C0190_55D076150061_var*
+//#UC END# *55CCBA3C0190_55D076150061_var*
+//#UC START# *55CCBA65014E_55D076150061_impl*
+//#UC END# *55CCBA65014E_55D076150061_impl*
+//#UC START# *55CCBA65014E_55D076150061_var*
+//#UC END# *55CCBA65014E_55D076150061_var*
+//#UC START# *55CCBA8003C7_55D076150061_impl*
+//#UC END# *55CCBA8003C7_55D076150061_impl*
+//#UC START# *55CCBA8003C7_55D076150061_var*
+//#UC END# *55CCBA8003C7_55D076150061_var*
+//#UC START# *55CCBA910119_55D076150061_impl*
+ if Assigned(Collection) then
+  TvcmBaseCollection(Collection).CaptionChanged(Self);
+//#UC END# *55CCBA910119_55D076150061_impl*
+//#UC START# *55CCBA910119_55D076150061_var*
+//#UC END# *55CCBA910119_55D076150061_var*
+//#UC START# *55CCBAAB00F4_55D076150061_impl*
+ Assert(false, 'Данная коллекция не поддерживает поиска элемента по идентификатору');
+ Result := -1;
+//#UC END# *55CCBAAB00F4_55D076150061_impl*
+//#UC START# *55CCBAAB00F4_55D076150061_var*
+//#UC END# *55CCBAAB00F4_55D076150061_var*
+//#UC START# *55CCBAC800F0_55D076150061_impl*
+ Assert(false, 'Данная коллекция не поддерживает поиска элемента по идентификатору');
+ Result := -1;
+//#UC END# *55CCBAC800F0_55D076150061_impl*
+//#UC START# *55CCBAC800F0_55D076150061_var*
+//#UC END# *55CCBAC800F0_55D076150061_var*
+//#UC START# *55CCBB5A01E5_55D076150061_impl*
+ Result := Caption;
+//#UC END# *55CCBB5A01E5_55D076150061_impl*
+//#UC START# *55CCBB5A01E5_55D076150061_var*
+//#UC END# *55CCBB5A01E5_55D076150061_var*
+//#UC START# *55CCBC12038F_55D076150061_impl*
+ if (Name = '') then
+  Result := inherited GetNamePath
+ else
+ begin
+  Result := Name;
+  if (Collection <> nil) then
+  begin
+   l_Owner := Collection.Owner;
+   if (l_Owner is TvcmBaseCollectionItem) then
+    Result := TvcmBaseCollectionItem(l_Owner).Name + '.' + Result
+   else
+   if (l_Owner is TComponent) then
+    Result := TComponent(l_Owner).Name + '.' + Result
+   else
+    Result := Collection.GetNamePath + '.' + Result;
+  end;//Collection <> nil
+ end;//Name = ''
+//#UC END# *55CCBC12038F_55D076150061_impl*
+//#UC START# *55CCBC12038F_55D076150061_var*
+var
+ l_Owner: TPersistent;
+//#UC END# *55CCBC12038F_55D076150061_var*

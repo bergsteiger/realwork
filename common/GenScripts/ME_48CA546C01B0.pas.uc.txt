@@ -1,0 +1,242 @@
+//#UC START# *479731C50290_48CA54A000F7_impl*
+ FreeAndNil(f_BoundsArray);
+ inherited;
+//#UC END# *479731C50290_48CA54A000F7_impl*
+//#UC START# *479731C50290_48CA54A000F7_var*
+//#UC END# *479731C50290_48CA54A000F7_var*
+//#UC START# *47A6FEE600FC_48CA557F02FF_impl*
+ Result := true;
+//#UC END# *47A6FEE600FC_48CA557F02FF_impl*
+//#UC START# *47A6FEE600FC_48CA557F02FF_var*
+//#UC END# *47A6FEE600FC_48CA557F02FF_var*
+//#UC START# *47B2C42A0163_48CA557F02FF_impl*
+ Assert(false);
+//#UC END# *47B2C42A0163_48CA557F02FF_impl*
+//#UC START# *47B2C42A0163_48CA557F02FF_var*
+//#UC END# *47B2C42A0163_48CA557F02FF_var*
+//#UC START# *47B99D4503A2_48CA557F02FF_impl*
+ Result := -1;
+ Assert(false);
+//#UC END# *47B99D4503A2_48CA557F02FF_impl*
+//#UC START# *47B99D4503A2_48CA557F02FF_var*
+//#UC END# *47B99D4503A2_48CA557F02FF_var*
+//#UC START# *48CA546C01B0_ext:FileName
+w:\common\components\rtl\Garant\L3\l3FrameLine.pas
+//#UC END# *48CA546C01B0_ext:FileName
+//#UC START# *48CA546C01B0impl_uses*
+//#UC END# *48CA546C01B0impl_uses*
+//#UC START# *48CA56FC0278_48CA54A000F7_impl*
+ if (f_BoundsArray <> nil) then
+ begin
+  l_Count := f_BoundsArray.Count - 1;
+  for i := 0 to l_Count do
+  begin
+   l_Part := f_BoundsArray[i];
+   if l_Part.rStart = aSource then
+    l_Part.rStart := aDest;
+   if l_Part.rFinish = aSource then
+    l_Part.rFinish := aDest;
+   f_BoundsArray[i] := l_Part;
+  end; //for i := 0 to f_BndArrayLen - 1 do
+ end; // if (f_BoundsArray <> nil) then
+//#UC END# *48CA56FC0278_48CA54A000F7_impl*
+//#UC START# *48CA56FC0278_48CA54A000F7_var*
+var
+ i      : Integer;
+ l_Part : Tl3LinePart;
+ l_Count: Integer;
+//#UC END# *48CA56FC0278_48CA54A000F7_var*
+//#UC START# *48CA574603C2_48CA54A000F7_impl*
+ if (f_BoundsArray = nil) then
+  f_BoundsArray := Tl3LineParts.Create;
+ l_Count := f_BoundsArray.Count;
+ l_Delta := l_Count;
+ Inc(l_Count, aValue.f_BoundsArray.Count);
+ for i := 0 to aValue.f_BoundsArray.Count - 1 do
+ begin
+  l_LinePart := aValue.f_BoundsArray[i];
+  l_LinePart.rStart.ChangeLine(aValue, Self);
+  l_LinePart.rFinish.ChangeLine(aValue, Self);
+  l_LinePart.rWasDrawn := False;
+  if l_LinePart.rDrawType <> lpdDraw then
+   f_BoundsArray.Add(l_LinePart)
+  else
+   f_BoundsArray.Insert(0, l_LinePart);
+ end; // for i := 0 to aValue.f_BoundsArray.Count - 1 do
+//#UC END# *48CA574603C2_48CA54A000F7_impl*
+//#UC START# *48CA574603C2_48CA54A000F7_var*
+var
+ i          : Integer;
+ l_Delta    : Integer;
+ l_Count    : Integer;
+ l_LinePart : Tl3LinePart;
+//#UC END# *48CA574603C2_48CA54A000F7_var*
+//#UC START# *48CA575E00E2_48CA54A000F7_impl*
+ with aCanvas do
+ begin
+  PushBC;
+  try
+   PushWO;
+   try
+    PushWO;
+    try
+     SWindowOrg := l3SPoint0;
+     l_E := l3SPoint(1, 1);
+     DPtoLP(DC, l_E, 1);
+     // - Без сдвига начала координат в ноль эта функция возвращает неправильные значения
+     l_MW := l_E.X;
+    finally
+     PopWO;
+    end;//try..finally
+    if f_BoundsArray <> nil then
+    begin
+     l_Count := f_BoundsArray.Count - 1;
+     for i := l_Count downto 0 do
+     begin
+      l_LP := f_BoundsArray[i];
+      if aVert then
+      begin
+       l_X := LineCoordinate;
+       l_X1 := l_X;
+       l_Y := l_LP.rStart.LineCoordinate;
+       l_Y1 := l_LP.rFinish.LineCoordinate;
+      end//aVert
+      else
+      begin
+       l_Y := LineCoordinate;
+       l_Y1 := l_Y;
+       l_X := l_LP.rStart.LineCoordinate;
+       l_X1 := l_LP.rFinish.LineCoordinate;
+      end;//else
+
+      with l_LP do
+       if not rWasDrawn and
+          ((rDrawType = lpdDraw) or (DrawSpecial and (rDrawType = lpdSpecialDraw))) then
+       begin
+        l_E := LP2DP(l3Point(l_X1 - l_X, l_Y1 - l_Y));
+        WindowOrg := l3Point(l_X, l_Y).Neg;
+        BackColor := aColorArray[rDrawType];
+        l_LP.rWasDrawn := True;
+        if aVert then
+         FillForeRect(l3SRect(l3SPoint0, l3SPoint(Max(aWidth, l_MW), l_E.Y)))
+        else
+         FillForeRect(l3SRect(l3SPoint0, l3SPoint(l_E.X, Max(aWidth, l_MW))));
+        f_BoundsArray[i] := l_LP;
+       end;//if (rDrawType = lpdDraw) ...
+     end;//for i := 0 to f_BndArrayLen - 1 do
+    end; // if f_BoundsArray <> nil then
+   finally
+    PopWO;
+   end;//try..finally
+  finally
+   PopBC;
+  end;//try..finally
+ end;//with aCanvas
+//#UC END# *48CA575E00E2_48CA54A000F7_impl*
+//#UC START# *48CA575E00E2_48CA54A000F7_var*
+var
+ i       : Integer;
+ l_X     : Integer;
+ l_Y     : Integer;
+ l_E     : Tl3SPoint;
+ l_MW    : Integer;
+ l_X1    : Integer;
+ l_Y1    : Integer;
+ l_LP    : Tl3LinePart;
+ l_Count : Integer;
+//#UC END# *48CA575E00E2_48CA54A000F7_var*
+//#UC START# *48CA578300F4_48CA54A000F7_impl*
+ Assert((aMinBound <> nil) and (aMaxBound <> nil), 'Одна из границ отрисовки линии не задана!');
+ if (f_BoundsArray = nil) then
+  f_BoundsArray := Tl3LineParts.Create;
+ l_LinePart.rStart := aMinBound;
+ l_LinePart.rFinish := aMaxBound;
+ l_LinePart.rWasDrawn := False;
+ l_LinePart.rDrawType := aLinePartType;
+ l_Count := f_BoundsArray.Count;
+ // Корректируем видимость линии.
+ if l_Count > 1 then
+ begin
+  l_Start := l_LinePart.rStart.LineCoordinate;
+  l_Finish := l_LinePart.rFinish.LineCoordinate;
+  // Ищем предыдущую линию:
+  l_FndIndex := -1;
+  Dec(l_Count, 2);
+  for i := l_Count downto 0 do
+  begin
+   l_Start1 := f_BoundsArray[i].rStart.LineCoordinate;
+   l_Finish1 := f_BoundsArray[i].rFinish.LineCoordinate;
+   if (Abs(l_Start - l_Start1) < L3FrameLinesDelta) and 
+      (Abs(l_Finish - l_Finish1) < L3FrameLinesDelta) then
+   begin
+    l_FndIndex := i;
+    Break;
+   end; //if (Abs(l_Start - l_Start1) < L3FrameLinesDelta) and ...   
+  end; //for i := f_BndArrayLen - 2 to 0 do
+  // Анализируем...
+  if l_FndIndex > -1 then
+  begin
+   // Далее идет попытка оптимизации (не выводим дублирующие строки):
+   l_FoundPart := f_BoundsArray[l_FndIndex];
+   if (l_FoundPart.rDrawType = lpdDraw) and
+     (l_LinePart.rDrawType = lpdDraw) then
+    l_FoundPart.rDrawType := lpdHidden;
+   if (l_FoundPart.rDrawType = lpdSpecialDraw) and
+     (l_LinePart.rDrawType = lpdDraw) then
+    l_FoundPart.rDrawType := lpdHidden;
+   if (l_FoundPart.rDrawType = lpdDraw) and
+     (l_LinePart.rDrawType = lpdSpecialDraw) then
+   begin
+    l_FoundPart.rDrawType := lpdHidden;
+    l_LinePart.rDrawType := lpdDraw;
+   end; //if (l_FoundPart.rDrawType = lpdDraw) and
+   if (l_FoundPart.rDrawType = lpdSpecialDraw) and
+      (l_LinePart.rDrawType = lpdSpecialDraw) then
+    l_LinePart.rDrawType := lpdHidden;
+   f_BoundsArray[l_FndIndex] := l_FoundPart;
+  end; //if l_FndIndex > -1 then
+ end; //if f_BndArrayLen > 1 then
+ if l_LinePart.rDrawType = lpdDraw then
+  f_BoundsArray.Insert(0, l_LinePart)
+ else
+  f_BoundsArray.Add(l_LinePart);
+//#UC END# *48CA578300F4_48CA54A000F7_impl*
+//#UC START# *48CA578300F4_48CA54A000F7_var*
+var                                 
+ i           : Integer;
+ l_Count     : Integer;
+ l_Start     : Integer;
+ l_Finish    : Integer;
+ l_Start1    : Integer;
+ l_Finish1   : Integer;
+ l_FndIndex  : Integer; 
+ l_LinePart  : Tl3LinePart;
+ l_FoundPart : Tl3LinePart;
+//#UC END# *48CA578300F4_48CA54A000F7_var*
+//#UC START# *48CA57CF0049_48CA54A000F7_impl*
+ inherited Create;
+ f_LineCoordinate := aLineCoordinate;
+//#UC END# *48CA57CF0049_48CA54A000F7_impl*
+//#UC START# *48CA57CF0049_48CA54A000F7_var*
+//#UC END# *48CA57CF0049_48CA54A000F7_var*
+//#UC START# *491449690084_48CA54A000F7_impl*
+ if (Abs(f_BoundsArray[0].rStart.LineCoordinate - aMinBound) <= L3FrameLinesDelta) and
+    (Abs(f_BoundsArray[0].rFinish.LineCoordinate - aMaxBound) <= L3FrameLinesDelta) then
+  f_LineCoordinate := cAlingByBoundary;
+//#UC END# *491449690084_48CA54A000F7_impl*
+//#UC START# *491449690084_48CA54A000F7_var*
+//#UC END# *491449690084_48CA54A000F7_var*
+//#UC START# *4BE2E84C0134_48CA54C5025F_impl*
+ Result :=
+  (rWasDrawn = Another.rWasDrawn) AND
+  (rStart = Another.rStart) AND
+  (rFinish = Another.rFinish) AND
+  (rDrawType = Another.rDrawType);
+//#UC END# *4BE2E84C0134_48CA54C5025F_impl*
+//#UC START# *4BE2E84C0134_48CA54C5025F_var*
+//#UC END# *4BE2E84C0134_48CA54C5025F_var*
+//#UC START# *4D00C0D90279_48CA54A000F7_impl*
+ Result := f_BoundsArray;
+//#UC END# *4D00C0D90279_48CA54A000F7_impl*
+//#UC START# *4D00C0D90279_48CA54A000F7_var*
+//#UC END# *4D00C0D90279_48CA54A000F7_var*
