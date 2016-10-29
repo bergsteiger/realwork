@@ -3,8 +3,36 @@
 INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_538DA3DA035E
+%%Inner ME_580DE63E01AA
 
 FORWARD ME_538DA3BD02A0
+
+FORWARD ME_538DA3DA035E
+
+FORWARD ME_580E07B3027C
+
+ME ME_580E07CE0196
+ MEPROP Name 'aPipe'
+ MEPROP Class class_Parameter
+ MELINK Target WL? 'ME_537F62DD009F' // TCsDataPipe
+ ;
+
+ENDME // ME_580E07CE0196 aPipe
+
+ME ME_580E07B3027C
+ MEPROP UID '580E07B3027C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_538DA3DA035E // TCsQueryProc
+ ;
+ MELIST Parameters
+   Seq: ( ME_580E07CE0196 // aPipe
+ )
+ ; // Parameters
+
+ENDME // ME_580E07B3027C DoIt
 
 ME ME_538DA3DA035E
  MEPROP UID '538DA3DA035E'
@@ -16,9 +44,28 @@ ME ME_538DA3DA035E
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_538DA3BD02A0 // CsQueryRequester
  ;
- UP "of object" False
+ MELIST Operations
+   Seq: ( HWL ME_580E07B3027C // DoIt
+ )
+ ; // Operations
 
 ENDME // ME_538DA3DA035E TCsQueryProc
+
+ME ME_580DE63E01AA
+ MEPROP UID '580DE63E01AA'
+ MEPROP Name 'TCsQueryRequester'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_538DA3BD02A0 // CsQueryRequester
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CsQueryRequester'
+
+ENDME // ME_580DE63E01AA TCsQueryRequester
 
 ME ME_538DA6440050
  MEPROP Class class_Dependency
@@ -43,6 +90,7 @@ ME ME_538DA3BD02A0
  ;
  MELIST Children
    Seq: ( HWL ME_538DA3DA035E // TCsQueryProc
+ HWL ME_580DE63E01AA // TCsQueryRequester
  )
  ; // Children
  MELIST Dependencies

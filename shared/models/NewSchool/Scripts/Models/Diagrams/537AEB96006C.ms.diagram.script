@@ -1,0 +1,125 @@
+// vcmTabbedContainerFormDispatcher 537AEB96006C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_537AEB96006C_diagrams
+
+ MEDIAGRAM ME_537AEB96006C_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_537AEB96006C' ; // vcmTabbedContainerFormDispatcher
+
+  MEVIEW ME_537AEA3B02A5_view
+   MELINK Original WL 'ME_537AEA3B02A5' '537AEB96006C.ms.model.script' ; // TvcmContainedFormDescr
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_537AEA3B02A5_view
+
+  MEVIEW ME_537AEACC00D6_view
+   MELINK Original WL 'ME_537AEACC00D6' '537AEB96006C.ms.model.script' ; // TvcmFormToContainerMap
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_537AEACC00D6_view
+
+  MEVIEW ME_537AEC5E03DD_view
+   MELINK Original WL 'ME_537AEC5E03DD' '537AEB96006C.ms.model.script' ; // TvcmTabbedContainerFormDispatcher
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_537AEC5E03DD_view
+
+  MEVIEW ME_537C2C930099_view
+   MELINK Original WL 'ME_537C2C930099' '537AEB96006C.ms.model.script' ; // PvcmContainedFormDescr
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_537C2C930099_view
+
+  MEVIEW ME_53859B590365_view
+   MELINK Original WL 'ME_53859B590365' '537AEB96006C.ms.model.script' ; // THackApplication
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_53859B590365_view
+
+  MEVIEW ME_54619B6300EF_view
+   MELINK Original WL 'ME_54619B6300EF' '537AEB96006C.ms.model.script' ; // TvcmChromeLikeMainFormProvider
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_54619B6300EF_view
+
+  MEVIEW ME_5583D5B8012C_view
+   MELINK Original WL 'ME_5583D5B8012C' '537AEB96006C.ms.model.script' ; // TvcmContainerWithTabMaker
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_5583D5B8012C_view
+
+  MEVIEWLINK ME_537B3E800031_viewlink
+   MELINK Original WL 'ME_537B3E800031' '537AEB96006C.ms.model.script' ;
+   MELINK From ME_537AEACC00D6_view ;
+   MELINK To ME_537AEA3B02A5_view ;
+  ENDMEVIEWLINK // ME_537B3E800031_viewlink
+
+  MEVIEWLINK ME_537B42DD000F_viewlink
+   MELINK Original WL 'ME_537B42DD000F' '537AEB96006C.ms.model.script' ;
+   MELINK From ME_537AEC5E03DD_view ;
+   MELINK To ME_537AEA3B02A5_view ;
+  ENDMEVIEWLINK // ME_537B42DD000F_viewlink
+
+  MEVIEWLINK ME_537B42F502F9_viewlink
+   MELINK Original WL 'ME_537B42F502F9' '537AEB96006C.ms.model.script' ;
+   MELINK From ME_537AEC5E03DD_view ;
+   MELINK To ME_537AEACC00D6_view ;
+  ENDMEVIEWLINK // ME_537B42F502F9_viewlink
+
+  MEVIEWLINK ME_537C2F860255_viewlink
+   MELINK Original WL 'ME_537C2F860255' '537AEB96006C.ms.model.script' ;
+   MELINK From ME_537AEC5E03DD_view ;
+   MELINK To ME_537C2C930099_view ;
+  ENDMEVIEWLINK // ME_537C2F860255_viewlink
+
+  MEVIEWLINK ME_5385A5D60127_viewlink
+   MELINK Original WL 'ME_5385A5D60127' '537AEB96006C.ms.model.script' ;
+   MELINK From ME_537AEC5E03DD_view ;
+   MELINK To ME_53859B590365_view ;
+  ENDMEVIEWLINK // ME_5385A5D60127_viewlink
+
+  MEVIEWLINK ME_5461A1700071_viewlink
+   MELINK Original WL 'ME_5461A1700071' '537AEB96006C.ms.model.script' ;
+   MELINK From ME_537AEC5E03DD_view ;
+   MELINK To ME_54619B6300EF_view ;
+  ENDMEVIEWLINK // ME_5461A1700071_viewlink
+
+  MEVIEWLINK ME_537B430E02C8_viewlink
+   MELINK Original WL 'ME_537B430E02C8' '537AEB96006C.ms.model.script' ;
+   MELINK From ME_537AEC5E03DD_view ;
+   MELINK To ME_537AEACC00D6_view ;
+  ENDMEVIEWLINK // ME_537B430E02C8_viewlink
+
+  MEVIEWLINK ME_537C2C930099_ME_537AEA3B02A5_Inherits
+   MELINK From ME_537C2C930099_view ;
+   MELINK To ME_537AEA3B02A5_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_537C2C930099_ME_537AEA3B02A5_Inherits
+
+  MELIST Views
+   Seq: ( ME_537AEA3B02A5_view // TvcmContainedFormDescr
+   ME_537AEACC00D6_view // TvcmFormToContainerMap
+   ME_537AEC5E03DD_view // TvcmTabbedContainerFormDispatcher
+   ME_537C2C930099_view // PvcmContainedFormDescr
+   ME_53859B590365_view // THackApplication
+   ME_54619B6300EF_view // TvcmChromeLikeMainFormProvider
+   ME_5583D5B8012C_view // TvcmContainerWithTabMaker
+   ME_537B3E800031_viewlink // TvcmFormToContainerMap ==> TvcmContainedFormDescr
+   ME_537B42DD000F_viewlink // TvcmTabbedContainerFormDispatcher ==> TvcmContainedFormDescr
+   ME_537B42F502F9_viewlink // TvcmTabbedContainerFormDispatcher ==> TvcmFormToContainerMap
+   ME_537C2F860255_viewlink // TvcmTabbedContainerFormDispatcher ==> PvcmContainedFormDescr
+   ME_5385A5D60127_viewlink // TvcmTabbedContainerFormDispatcher ==> THackApplication
+   ME_5461A1700071_viewlink // TvcmTabbedContainerFormDispatcher ==> TvcmChromeLikeMainFormProvider
+   ME_537B430E02C8_viewlink // TvcmTabbedContainerFormDispatcher ==> TvcmFormToContainerMap
+   ME_537C2C930099_ME_537AEA3B02A5_Inherits // PvcmContainedFormDescr ==> TvcmContainedFormDescr
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_537AEB96006C_main
+
+ MELIST Diagrams
+  Seq: ( ME_537AEB96006C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_537AEB96006C_diagrams

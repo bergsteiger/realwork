@@ -24,7 +24,7 @@ uses
 
 const
  c_BadVersion = 0;
- c_DocBaseVersion = 134;
+ c_DocBaseVersion = {$ifDef HT_NEWDLL} 135 {$ELSE} 134 {$ENDIF};
  c_AdminBaseVersion = c_DocBaseVersion;
  usSupervisor = 1;
  usAdminReservedHard = $FFFFFFFE;

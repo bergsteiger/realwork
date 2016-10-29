@@ -28,7 +28,6 @@ ME ME_5465AB2B00CA
  ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
- UP "pm" False
 
 ENDME // ME_5465AB2B00CA Connected
 
@@ -44,7 +43,6 @@ ME ME_546608F101DE
  ;
  MELINK Target WL 'ME_537F4A04037C' '537F49C801FE.ms.model.script' // TCsClientId
  ;
- UP "pm" False
 
 ENDME // ME_546608F101DE ClientID
 
@@ -61,7 +59,6 @@ ME ME_5486B96A0025
  ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
- UP "pm" False
 
 ENDME // ME_5486B96A0025 Processing
 
@@ -77,7 +74,6 @@ ME ME_548FEF4F002E
  ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
- UP "pm" False
 
 ENDME // ME_548FEF4F002E SessionID
 
@@ -86,7 +82,6 @@ FORWARD ME_5464B4E900DA
 ME ME_5464B4F800B5
  MEPROP Name 'aMessage'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
  ;
 
@@ -112,7 +107,6 @@ FORWARD ME_5464B52F02D5
 ME ME_547C4DC000DF
  MEPROP Name 'aMessage'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
  ;
 
@@ -130,7 +124,6 @@ ENDME // ME_547C4DC0010E theReply
 ME ME_547C4DC0014D
  MEPROP Name 'aTimeOut'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
  ;
  MEPROP Value 'INFINITE'
@@ -164,7 +157,6 @@ FORWARD ME_57F3749202B7
 ME ME_57F374A702F3
  MEPROP Name 'aHelper'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
  ;
 
@@ -190,7 +182,6 @@ FORWARD ME_57F374AC00AA
 ME ME_57F374B20275
  MEPROP Name 'aHelper'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
  ;
 
@@ -278,7 +269,6 @@ FORWARD ME_5464B3B5000D
 ME ME_5464B3D00211
  MEPROP Name 'aMessage'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
  ;
 
@@ -287,7 +277,6 @@ ENDME // ME_5464B3D00211 aMessage
 ME ME_5464B78E0275
  MEPROP Name 'aTransporter'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_5464B4730055 // IncsTransporter
  ;
 
@@ -359,7 +348,6 @@ FORWARD ME_54607DDC0159
 ME ME_5464B3F4039B
  MEPROP Name 'aContext'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_5464B37E01ED // TncsExecuteContext
  ;
 
@@ -407,7 +395,6 @@ FORWARD ME_546082B801F3
 ME ME_5460A53E01D7
  MEPROP Name 'aMessage'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
  ;
 
@@ -484,7 +471,6 @@ FORWARD ME_544A1FD802E9
 ME ME_5451F5060233
  MEPROP Name 'aServerHost'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -493,7 +479,6 @@ ENDME // ME_5451F5060233 aServerHost
 ME ME_5451F5060262
  MEPROP Name 'aServerPort'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
@@ -502,7 +487,6 @@ ENDME // ME_5451F5060262 aServerPort
 ME ME_548FEFC000C2
  MEPROP Name 'aSessionID'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -513,7 +497,7 @@ ME ME_544A1FD802E9
  MEPROP Name 'Connect'
  MEPROP Class class_Operation
  MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
+ MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_5465A598039E // IncsClientTransporter
  ;
  MELIST Parameters
@@ -530,7 +514,6 @@ FORWARD ME_544A1FF00062
 ME ME_547C1A5702EF
  MEPROP Name 'Immidiate'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value False
@@ -572,28 +555,24 @@ MEREF ME_5465AB2B00CA_ME_5465A598039E_impl
  MELINK Original HWL ME_5465AB2B00CA // Connected
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_5465AB2B00CA_ME_5465A598039E_impl Connected
 
 MEREF ME_546608F101DE_ME_5465A598039E_impl
  MELINK Original HWL ME_546608F101DE // ClientID
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_546608F101DE_ME_5465A598039E_impl ClientID
 
 MEREF ME_5486B96A0025_ME_5465A598039E_impl
  MELINK Original HWL ME_5486B96A0025 // Processing
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_5486B96A0025_ME_5465A598039E_impl Processing
 
 MEREF ME_548FEF4F002E_ME_5465A598039E_impl
  MELINK Original HWL ME_548FEF4F002E // SessionID
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_548FEF4F002E_ME_5465A598039E_impl SessionID
 
 MEREF ME_57F3749202B7_ME_5465A598039E_impl
@@ -666,7 +645,6 @@ ME ME_5459E3150030
  ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
- UP "pm" False
 
 ENDME // ME_5459E3150030 Terminated
 
@@ -675,7 +653,6 @@ FORWARD ME_545335BF0283
 ME ME_5492AD2202E7
  MEPROP Name 'IsMainSocket'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -701,7 +678,6 @@ FORWARD ME_5459D46D01FE
 ME ME_545CC00401A7
  MEPROP Name 'WaitForTermination'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value True
@@ -716,7 +692,7 @@ ME ME_5459D46D01FE
  MEPROP Name 'Terminate'
  MEPROP Class class_Operation
  MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
+ MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_5465A5AB0324 // IncsServerTransporter
  ;
  MELIST Parameters
@@ -731,7 +707,6 @@ FORWARD ME_549180E701E0
 ME ME_54918100017A
  MEPROP Name 'aHandler'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_538DDC890328' // TcsIdIOHandlerAbstractAdapter
  ;
 
@@ -768,28 +743,24 @@ MEREF ME_5465AB2B00CA_ME_5465A5AB0324_impl
  MELINK Original HWL ME_5465AB2B00CA // Connected
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_5465AB2B00CA_ME_5465A5AB0324_impl Connected
 
 MEREF ME_546608F101DE_ME_5465A5AB0324_impl
  MELINK Original HWL ME_546608F101DE // ClientID
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_546608F101DE_ME_5465A5AB0324_impl ClientID
 
 MEREF ME_5486B96A0025_ME_5465A5AB0324_impl
  MELINK Original HWL ME_5486B96A0025 // Processing
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_5486B96A0025_ME_5465A5AB0324_impl Processing
 
 MEREF ME_548FEF4F002E_ME_5465A5AB0324_impl
  MELINK Original HWL ME_548FEF4F002E // SessionID
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_548FEF4F002E_ME_5465A5AB0324_impl SessionID
 
 MEREF ME_57F3749202B7_ME_5465A5AB0324_impl

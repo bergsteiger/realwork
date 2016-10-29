@@ -47,7 +47,6 @@ ME ME_549163F102D4
    Seq: ( HWL ME_549164000118 // 
  )
  ; // Attributes
- UP "array type" 'dynamic'
 
 ENDME // ME_549163F102D4 TncsClientArray
 
@@ -63,9 +62,6 @@ ME ME_544DF69502E9
  MELINK Parent HWL ME_544DF67C0075 // TimeoutConsts
  ;
  MEPROP Value '10 * 1000'
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '10 * 1000'
 
 ENDME // ME_544DF69502E9 c_ClientConnectTimeout
@@ -80,9 +76,6 @@ ME ME_544DF6C40248
  MELINK Parent HWL ME_544DF67C0075 // TimeoutConsts
  ;
  MEPROP Value '{$IFDEF CsDebug} 1000 * 1000 {$ELSE} 10 * 1000 {$ENDIF}'
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '{$IFDEF CsDebug} 1000 * 1000 {$ELSE} 10 * 1000 {$ENDIF}'
 
 ENDME // ME_544DF6C40248 c_ClientReadTimeout
@@ -90,7 +83,7 @@ ENDME // ME_544DF6C40248 c_ClientReadTimeout
 ME ME_544DF67C0075
  MEPROP UID '544DF67C0075'
  MEPROP Name 'TimeoutConsts'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'В миллисек' ;
@@ -103,7 +96,6 @@ ME ME_544DF67C0075
  HWL ME_544DF6C40248 // c_ClientReadTimeout
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_544DF67C0075 TimeoutConsts
 

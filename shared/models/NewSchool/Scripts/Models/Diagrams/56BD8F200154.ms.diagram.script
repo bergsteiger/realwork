@@ -1,0 +1,55 @@
+// TcaJournal 56BD8F200154 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_56BD8F200154_diagrams
+
+ MEDIAGRAM ME_56BD8F200154_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_56BD8F200154' ; // TcaJournal
+
+  MEVIEW ME_56BD9BFD0109_view
+   MELINK Original WL 'ME_56BD9BFD0109' '56BD8F200154.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_56BD9BFD0109_view
+
+  MEVIEW ME_56BD9C15024A_view
+   MELINK Original WL 'ME_56BD9C15024A' '56BD8F200154.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_56BD9C15024A_view
+
+  MEVIEW ME_56BDCB8B0200_view
+   MELINK Original WL 'ME_56BDCB8B0200' '56BD8F200154.ms.model.script' ; // f_HTJournal
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_56BDCB8B0200_view
+
+  MEVIEW ME_56BDCB9C0272_view
+   MELINK Original WL 'ME_56BDCB9C0272' '56BD8F200154.ms.model.script' ; // f_PGJournal
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_56BDCB9C0272_view
+
+  MEVIEWLINK ME_56BD9C15024A_ME_56BD9BFD0109_Inherits
+   MELINK From ME_56BD9C15024A_view ;
+   MELINK To ME_56BD9BFD0109_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_56BD9C15024A_ME_56BD9BFD0109_Inherits
+
+  MELIST Views
+   Seq: ( ME_56BD9BFD0109_view // Create
+   ME_56BD9C15024A_view // Make
+   ME_56BDCB8B0200_view // f_HTJournal
+   ME_56BDCB9C0272_view // f_PGJournal
+   ME_56BD9C15024A_ME_56BD9BFD0109_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_56BD8F200154_main
+
+ MELIST Diagrams
+  Seq: ( ME_56BD8F200154_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_56BD8F200154_diagrams

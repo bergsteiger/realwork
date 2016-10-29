@@ -1,0 +1,69 @@
+// TdaSubQueryCondition 5641ED5A01D1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_5641ED5A01D1_diagrams
+
+ MEDIAGRAM ME_5641ED5A01D1_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_5641ED5A01D1' ; // TdaSubQueryCondition
+
+  MEVIEW ME_5641ED7401B8_view
+   MELINK Original WL 'ME_5641ED7401B8' '5641ED5A01D1.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5641ED7401B8_view
+
+  MEVIEW ME_5641ED7C0238_view
+   MELINK Original WL 'ME_5641ED7C0238' '5641ED5A01D1.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5641ED7C0238_view
+
+  MEVIEW ME_56F3AB4F0096_view
+   MELINK Original WL 'ME_56F3AB4F0096' '5641ED5A01D1.ms.model.script' ; // IterateX
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_56F3AB4F0096_view
+
+  MEVIEW ME_5642FD2E0037_view
+   MELINK Original WL 'ME_5642FD2E0037' '5641ED5A01D1.ms.model.script' ; // f_TableAlias
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_5642FD2E0037_view
+
+  MEVIEW ME_5642FD3800C4_view
+   MELINK Original WL 'ME_5642FD3800C4' '5641ED5A01D1.ms.model.script' ; // f_Field
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_5642FD3800C4_view
+
+  MEVIEW ME_5642FD4501C8_view
+   MELINK Original WL 'ME_5642FD4501C8' '5641ED5A01D1.ms.model.script' ; // f_SubQuery
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_5642FD4501C8_view
+
+  MEVIEWLINK ME_5641ED7C0238_ME_5641ED7401B8_Inherits
+   MELINK From ME_5641ED7C0238_view ;
+   MELINK To ME_5641ED7401B8_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5641ED7C0238_ME_5641ED7401B8_Inherits
+
+  MELIST Views
+   Seq: ( ME_5641ED7401B8_view // Create
+   ME_5641ED7C0238_view // Make
+   ME_56F3AB4F0096_view // IterateX
+   ME_5642FD2E0037_view // f_TableAlias
+   ME_5642FD3800C4_view // f_Field
+   ME_5642FD4501C8_view // f_SubQuery
+   ME_5641ED7C0238_ME_5641ED7401B8_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5641ED5A01D1_main
+
+ MELIST Diagrams
+  Seq: ( ME_5641ED5A01D1_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5641ED5A01D1_diagrams

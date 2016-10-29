@@ -1,0 +1,41 @@
+// Application 50883A2E00B3 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_50883A2E00B3_diagrams
+
+ MEDIAGRAM ME_50883A2E00B3_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_50883A2E00B3' ; // Application
+
+  MEVIEW ME_4AB22E140136_view
+   MELINK Original WL? 'ME_4AB22E140136' ; // TvcmApplication
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AB22E140136_view
+
+  MEVIEW ME_523040FB01AA_view
+   MELINK Original WL 'ME_523040FB01AA' '50883A2E00B3.ms.model.script' ; // MvcmApplication
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_523040FB01AA_view
+
+  MEVIEWLINK ME_523040FB01AA_ME_4AB22E140136_Inherits
+   MELINK From ME_523040FB01AA_view ;
+   MELINK To ME_4AB22E140136_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_523040FB01AA_ME_4AB22E140136_Inherits
+
+  MELIST Views
+   Seq: ( ME_4AB22E140136_view // TvcmApplication
+   ME_523040FB01AA_view // MvcmApplication
+   ME_523040FB01AA_ME_4AB22E140136_Inherits // MvcmApplication ==> TvcmApplication
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_50883A2E00B3_main
+
+ MELIST Diagrams
+  Seq: ( ME_50883A2E00B3_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_50883A2E00B3_diagrams

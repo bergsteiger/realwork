@@ -1,0 +1,55 @@
+// TdaSortField 5680EF290107 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_5680EF290107_diagrams
+
+ MEDIAGRAM ME_5680EF290107_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_5680EF290107' ; // TdaSortField
+
+  MEVIEW ME_5680EF4703D5_view
+   MELINK Original WL 'ME_5680EF4703D5' '5680EF290107.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5680EF4703D5_view
+
+  MEVIEW ME_5680EF7D0314_view
+   MELINK Original WL 'ME_5680EF7D0314' '5680EF290107.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5680EF7D0314_view
+
+  MEVIEW ME_5680EFB301F6_view
+   MELINK Original WL 'ME_5680EFB301F6' '5680EF290107.ms.model.script' ; // f_SelectField
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_5680EFB301F6_view
+
+  MEVIEW ME_5680EFBF00EA_view
+   MELINK Original WL 'ME_5680EFBF00EA' '5680EF290107.ms.model.script' ; // f_SortOrder
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_5680EFBF00EA_view
+
+  MEVIEWLINK ME_5680EF7D0314_ME_5680EF4703D5_Inherits
+   MELINK From ME_5680EF7D0314_view ;
+   MELINK To ME_5680EF4703D5_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5680EF7D0314_ME_5680EF4703D5_Inherits
+
+  MELIST Views
+   Seq: ( ME_5680EF4703D5_view // Create
+   ME_5680EF7D0314_view // Make
+   ME_5680EFB301F6_view // f_SelectField
+   ME_5680EFBF00EA_view // f_SortOrder
+   ME_5680EF7D0314_ME_5680EF4703D5_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5680EF290107_main
+
+ MELIST Diagrams
+  Seq: ( ME_5680EF290107_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5680EF290107_diagrams

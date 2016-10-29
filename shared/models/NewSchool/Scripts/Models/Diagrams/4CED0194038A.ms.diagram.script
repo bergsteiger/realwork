@@ -1,0 +1,41 @@
+// Para2Point 4CED0194038A Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4CED0194038A_diagrams
+
+ MEDIAGRAM ME_4CED0194038A_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4CED0194038A' ; // Para2Point
+
+  MEVIEW ME_4BF4E6A00093_view
+   MELINK Original WL 'ME_4BF4E6A00093' '4CED0194038A.ms.model.script' ; // GetInnerPara
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4BF4E6A00093_view
+
+  MEVIEW ME_4C3C927B027E_view
+   MELINK Original WL 'ME_4C3C927B027E' '4CED0194038A.ms.model.script' ; // GetPoint
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C3C927B027E_view
+
+  MEVIEW ME_4CED034C0356_view
+   MELINK Original WL 'ME_4CED034C0356' '4CED0194038A.ms.model.script' ; // TranslatePara2Point
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CED034C0356_view
+
+  MELIST Views
+   Seq: ( ME_4BF4E6A00093_view // GetInnerPara
+   ME_4C3C927B027E_view // GetPoint
+   ME_4CED034C0356_view // TranslatePara2Point
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4CED0194038A_main
+
+ MELIST Diagrams
+  Seq: ( ME_4CED0194038A_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4CED0194038A_diagrams

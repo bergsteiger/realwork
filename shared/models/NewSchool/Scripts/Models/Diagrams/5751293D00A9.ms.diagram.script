@@ -1,0 +1,55 @@
+// TcaPriorityCalculator 5751293D00A9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_5751293D00A9_diagrams
+
+ MEDIAGRAM ME_5751293D00A9_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_5751293D00A9' ; // TcaPriorityCalculator
+
+  MEVIEW ME_5751296703D0_view
+   MELINK Original WL 'ME_5751296703D0' '5751293D00A9.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5751296703D0_view
+
+  MEVIEW ME_5751299C0215_view
+   MELINK Original WL 'ME_5751299C0215' '5751293D00A9.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5751299C0215_view
+
+  MEVIEW ME_575129B4022C_view
+   MELINK Original WL 'ME_575129B4022C' '5751293D00A9.ms.model.script' ; // f_HTCalculator
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_575129B4022C_view
+
+  MEVIEW ME_575129C0018E_view
+   MELINK Original WL 'ME_575129C0018E' '5751293D00A9.ms.model.script' ; // f_PGCalculator
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_575129C0018E_view
+
+  MEVIEWLINK ME_5751299C0215_ME_5751296703D0_Inherits
+   MELINK From ME_5751299C0215_view ;
+   MELINK To ME_5751296703D0_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5751299C0215_ME_5751296703D0_Inherits
+
+  MELIST Views
+   Seq: ( ME_5751296703D0_view // Create
+   ME_5751299C0215_view // Make
+   ME_575129B4022C_view // f_HTCalculator
+   ME_575129C0018E_view // f_PGCalculator
+   ME_5751299C0215_ME_5751296703D0_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5751293D00A9_main
+
+ MELIST Diagrams
+  Seq: ( ME_5751293D00A9_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5751293D00A9_diagrams

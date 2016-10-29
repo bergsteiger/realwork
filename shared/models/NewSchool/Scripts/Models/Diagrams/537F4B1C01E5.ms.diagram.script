@@ -1,0 +1,41 @@
+// Clients 537F4B1C01E5 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_537F4B1C01E5_diagrams
+
+ MEDIAGRAM ME_537F4B1C01E5_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_537F4B1C01E5' ; // Clients
+
+  MEVIEW ME_537F4B3B03DD_view
+   MELINK Original WL? 'ME_537F4B3B03DD' ; // TCsClientInfo
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_537F4B3B03DD_view
+
+  MEVIEW ME_537F4CAB01B2_view
+   MELINK Original WL? 'ME_537F4CAB01B2' ; // TCsClientInfoList
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_537F4CAB01B2_view
+
+  MEVIEWLINK ME_537F4CBA0208_viewlink
+   MELINK Original WL 'ME_537F4CBA0208' '537F4CAB01B2.ms.model.script' ;
+   MELINK From ME_537F4CAB01B2_view ;
+   MELINK To ME_537F4B3B03DD_view ;
+  ENDMEVIEWLINK // ME_537F4CBA0208_viewlink
+
+  MELIST Views
+   Seq: ( ME_537F4B3B03DD_view // TCsClientInfo
+   ME_537F4CAB01B2_view // TCsClientInfoList
+   ME_537F4CBA0208_viewlink // TCsClientInfoList ==> TCsClientInfo
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_537F4B1C01E5_main
+
+ MELIST Diagrams
+  Seq: ( ME_537F4B1C01E5_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_537F4B1C01E5_diagrams

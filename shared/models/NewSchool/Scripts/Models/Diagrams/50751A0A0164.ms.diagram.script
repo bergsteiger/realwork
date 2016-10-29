@@ -1,0 +1,69 @@
+// evTableSearch 50751A0A0164 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_50751A0A0164_diagrams
+
+ MEDIAGRAM ME_50751A0A0164_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_50751A0A0164' ; // evTableSearch
+
+  MEVIEW ME_50751AB90061_view
+   MELINK Original WL 'ME_50751AB90061' '50751A0A0164.ms.model.script' ; // TevTableTextSearcher
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_50751AB90061_view
+
+  MEVIEW ME_50751AEF02A9_view
+   MELINK Original WL 'ME_50751AEF02A9' '50751A0A0164.ms.model.script' ; // TevFirstTableCellSearcher
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_50751AEF02A9_view
+
+  MEVIEW ME_50751B080168_view
+   MELINK Original WL 'ME_50751B080168' '50751A0A0164.ms.model.script' ; // TevOldNSRCFlagReplacer
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_50751B080168_view
+
+  MEVIEW ME_50751B12004F_view
+   MELINK Original WL 'ME_50751B12004F' '50751A0A0164.ms.model.script' ; // TevTableCellFrameReplacer
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_50751B12004F_view
+
+  MEVIEW ME_50751F2001E9_view
+   MELINK Original WL 'ME_50751F2001E9' '50751A0A0164.ms.model.script' ; // TevTextInContinueCellSearcher
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_50751F2001E9_view
+
+  MEVIEWLINK ME_50751AEF02A9_ME_50751AB90061_Inherits
+   MELINK From ME_50751AEF02A9_view ;
+   MELINK To ME_50751AB90061_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_50751AEF02A9_ME_50751AB90061_Inherits
+
+  MEVIEWLINK ME_50751F2001E9_ME_50751AB90061_Inherits
+   MELINK From ME_50751F2001E9_view ;
+   MELINK To ME_50751AB90061_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_50751F2001E9_ME_50751AB90061_Inherits
+
+  MELIST Views
+   Seq: ( ME_50751AB90061_view // TevTableTextSearcher
+   ME_50751AEF02A9_view // TevFirstTableCellSearcher
+   ME_50751B080168_view // TevOldNSRCFlagReplacer
+   ME_50751B12004F_view // TevTableCellFrameReplacer
+   ME_50751F2001E9_view // TevTextInContinueCellSearcher
+   ME_50751AEF02A9_ME_50751AB90061_Inherits // TevFirstTableCellSearcher ==> TevTableTextSearcher
+   ME_50751F2001E9_ME_50751AB90061_Inherits // TevTextInContinueCellSearcher ==> TevTableTextSearcher
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_50751A0A0164_main
+
+ MELIST Diagrams
+  Seq: ( ME_50751A0A0164_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_50751A0A0164_diagrams

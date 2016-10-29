@@ -1,0 +1,41 @@
+// ThtPriorityCalculator 575008E903D1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_575008E903D1_diagrams
+
+ MEDIAGRAM ME_575008E903D1_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_575008E903D1' ; // ThtPriorityCalculator
+
+  MEVIEW ME_5750180302CA_view
+   MELINK Original WL 'ME_5750180302CA' '575008E903D1.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5750180302CA_view
+
+  MEVIEW ME_5750181A03BE_view
+   MELINK Original WL 'ME_5750181A03BE' '575008E903D1.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5750181A03BE_view
+
+  MEVIEWLINK ME_5750181A03BE_ME_5750180302CA_Inherits
+   MELINK From ME_5750181A03BE_view ;
+   MELINK To ME_5750180302CA_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5750181A03BE_ME_5750180302CA_Inherits
+
+  MELIST Views
+   Seq: ( ME_5750180302CA_view // Create
+   ME_5750181A03BE_view // Make
+   ME_5750181A03BE_ME_5750180302CA_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_575008E903D1_main
+
+ MELIST Diagrams
+  Seq: ( ME_575008E903D1_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_575008E903D1_diagrams

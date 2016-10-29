@@ -1,0 +1,165 @@
+// TncsServerFilesDelivererPool 5810A1310248 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5810A1310248
+
+ME ME_5810A151036C
+ MEPROP UID '5810A151036C'
+ MEPROP Name 'f_DelivererList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5810A1310248 // TncsServerFilesDelivererPool
+ ;
+ MELINK Target WL? 'ME_5810A0FF0073' // TncsServerFilesDelivererList
+ ;
+
+ENDME // ME_5810A151036C f_DelivererList
+
+FORWARD ME_5810A17E0037
+
+ME ME_5810A19D019B
+ MEPROP Name 'aDeliverer'
+ MEPROP Class class_Parameter
+ MELINK Target WL? 'ME_5810A0CC0383' // TncsServerFilesDeliverer
+ ;
+
+ENDME // ME_5810A19D019B aDeliverer
+
+ME ME_5810A17E0037
+ MEPROP UID '5810A17E0037'
+ MEPROP Name 'RegisterDeliverer'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5810A1310248 // TncsServerFilesDelivererPool
+ ;
+ MELIST Parameters
+   Seq: ( ME_5810A19D019B // aDeliverer
+ )
+ ; // Parameters
+
+ENDME // ME_5810A17E0037 RegisterDeliverer
+
+FORWARD ME_5810A1A500B4
+
+ME ME_5810A1AB01A4
+ MEPROP Name 'aDeliverer'
+ MEPROP Class class_Parameter
+ MELINK Target WL? 'ME_5810A0CC0383' // TncsServerFilesDeliverer
+ ;
+
+ENDME // ME_5810A1AB01A4 aDeliverer
+
+ME ME_5810A1A500B4
+ MEPROP UID '5810A1A500B4'
+ MEPROP Name 'UnRegisterDeliverer'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5810A1310248 // TncsServerFilesDelivererPool
+ ;
+ MELIST Parameters
+   Seq: ( ME_5810A1AB01A4 // aDeliverer
+ )
+ ; // Parameters
+
+ENDME // ME_5810A1A500B4 UnRegisterDeliverer
+
+ME ME_5810A1BA01F9
+ MEPROP UID '5810A1BA01F9'
+ MEPROP Name 'TerminateAll'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5810A1310248 // TncsServerFilesDelivererPool
+ ;
+
+ENDME // ME_5810A1BA01F9 TerminateAll
+
+ME ME_5810AB4801F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5810A1310248 // TncsServerFilesDelivererPool
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5810AB4801F6 
+
+ME ME_5811B62D0104
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5810A1310248 // TncsServerFilesDelivererPool
+ ;
+ MELINK Target WL 'ME_4CED3B270143' '4773D64E036C.ms.model.script' // l3L2IA
+ ;
+
+ENDME // ME_5811B62D0104 
+
+MEREF ME_479731C50290_ME_5810A1310248_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5810A1310248_over Cleanup
+
+MEREF ME_47A042E100E2_ME_5810A1310248_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_5810A1310248_over InitFields
+
+MEREF ME_49E7754802A9_ME_5810A1310248_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5810A1310248_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_5810A1310248
+
+ME ME_5810A1310248
+ MEPROP UID '5810A1310248'
+ MEPROP Name 'TncsServerFilesDelivererPool'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_546457E203C0' // ResultDelivery
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E7754802A9_ME_5810A1310248_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5810A151036C // f_DelivererList
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5810A17E0037 // RegisterDeliverer
+ HWL ME_5810A1A500B4 // UnRegisterDeliverer
+ HWL ME_5810A1BA01F9 // TerminateAll
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5810A1310248_over // Cleanup
+ ME_47A042E100E2_ME_5810A1310248_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5810AB4801F6 // FreeAndNil
+ ME_5811B62D0104 // l3L2IA
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'ncsServerFilesDelivererPool'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ncsServerFilesDelivererPool'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsServerFilesDelivererPool.pas'
+
+ENDME // ME_5810A1310248 TncsServerFilesDelivererPool

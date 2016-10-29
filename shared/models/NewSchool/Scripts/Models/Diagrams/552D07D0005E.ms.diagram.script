@@ -1,0 +1,69 @@
+// DataScheme 552D07D0005E Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_552D07D0005E_diagrams
+
+ MEDIAGRAM ME_552D07D0005E_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_552D07D0005E' ; // DataScheme
+
+  MEVIEW ME_5538E9AE0163_view
+   MELINK Original WL? 'ME_5538E9AE0163' ; // TdaFieldDescriptionListPrim
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5538E9AE0163_view
+
+  MEVIEW ME_5538D0A902AF_view
+   MELINK Original WL? 'ME_5538D0A902AF' ; // TdaFieldDescription
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5538D0A902AF_view
+
+  MEVIEW ME_5538E9E500EE_view
+   MELINK Original WL? 'ME_5538E9E500EE' ; // TdaFieldDescriptionList
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_5538E9E500EE_view
+
+  MEVIEW ME_552D07EB03CB_view
+   MELINK Original WL? 'ME_552D07EB03CB' ; // TdaScheme
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_552D07EB03CB_view
+
+  MEVIEW ME_55CB200E0058_view
+   MELINK Original WL? 'ME_55CB200E0058' ; // daTableDescription
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_55CB200E0058_view
+
+  MEVIEW ME_5654635F0268_view
+   MELINK Original WL? 'ME_5654635F0268' ; // daSchemeConsts
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_5654635F0268_view
+
+  MEVIEWLINK ME_5538E9E500EE_ME_5538E9AE0163_Inherits
+   MELINK From ME_5538E9E500EE_view ;
+   MELINK To ME_5538E9AE0163_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5538E9E500EE_ME_5538E9AE0163_Inherits
+
+  MELIST Views
+   Seq: ( ME_5538E9AE0163_view // TdaFieldDescriptionListPrim
+   ME_5538D0A902AF_view // TdaFieldDescription
+   ME_5538E9E500EE_view // TdaFieldDescriptionList
+   ME_552D07EB03CB_view // TdaScheme
+   ME_55CB200E0058_view // daTableDescription
+   ME_5654635F0268_view // daSchemeConsts
+   ME_5538E9E500EE_ME_5538E9AE0163_Inherits // TdaFieldDescriptionList ==> TdaFieldDescriptionListPrim
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_552D07D0005E_main
+
+ MELIST Diagrams
+  Seq: ( ME_552D07D0005E_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_552D07D0005E_diagrams

@@ -1,0 +1,118 @@
+// ServerSide 538DA26C020A Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_538DA26C020A_diagrams
+
+ MEDIAGRAM ME_538DA26C020A_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_538DA26C020A' ; // ServerSide
+
+  MEVIEW ME_537F6306025B_view
+   MELINK Original WL? 'ME_537F6306025B' ; // TCsProcWithId
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_537F6306025B_view
+
+  MEVIEW ME_537F63D60108_view
+   MELINK Original WL? 'ME_537F63D60108' ; // TCsProcWithIdList
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_537F63D60108_view
+
+  MEVIEW ME_537F645C01D1_view
+   MELINK Original WL? 'ME_537F645C01D1' ; // TCsReplyProceduresPrim
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_537F645C01D1_view
+
+  MEVIEW ME_538DEBDF0374_view
+   MELINK Original WL? 'ME_538DEBDF0374' ; // TCsReply
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_538DEBDF0374_view
+
+  MEVIEW ME_538DEBEA032D_view
+   MELINK Original WL? 'ME_538DEBEA032D' ; // TCsReplyTool
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_538DEBEA032D_view
+
+  MEVIEW ME_5395C8DC03A7_view
+   MELINK Original WL? 'ME_5395C8DC03A7' ; // TCsReplyProceduresWithRegistering
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_5395C8DC03A7_view
+
+  MEVIEW ME_5395BF930007_view
+   MELINK Original WL? 'ME_5395BF930007' ; // TCsQueryExecutor
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_5395BF930007_view
+
+  MEVIEW ME_5395BFCE0389_view
+   MELINK Original WL? 'ME_5395BFCE0389' ; // TCsServer
+   MEPROP X 40
+   MEPROP Y 180
+  ENDMEVIEW // ME_5395BFCE0389_view
+
+  MEVIEW ME_5395B29D0177_view
+   MELINK Original WL? 'ME_5395B29D0177' ; // TCsReplyProcedures
+   MEPROP X 200
+   MEPROP Y 180
+  ENDMEVIEW // ME_5395B29D0177_view
+
+  MEVIEW ME_5507E70200AF_view
+   MELINK Original WL? 'ME_5507E70200AF' ; // TncsServerParamsStorage
+   MEPROP X 360
+   MEPROP Y 180
+  ENDMEVIEW // ME_5507E70200AF_view
+
+  MEVIEWLINK ME_537F63EC035D_viewlink
+   MELINK Original WL 'ME_537F63EC035D' '537F63D60108.ms.model.script' ;
+   MELINK From ME_537F63D60108_view ;
+   MELINK To ME_537F6306025B_view ;
+  ENDMEVIEWLINK // ME_537F63EC035D_viewlink
+
+  MEVIEWLINK ME_537F64680304_viewlink
+   MELINK Original WL 'ME_537F64680304' '537F645C01D1.ms.model.script' ;
+   MELINK From ME_537F645C01D1_view ;
+   MELINK To ME_537F63D60108_view ;
+  ENDMEVIEWLINK // ME_537F64680304_viewlink
+
+  MEVIEWLINK ME_5395C8DC03A7_ME_537F645C01D1_Inherits
+   MELINK From ME_5395C8DC03A7_view ;
+   MELINK To ME_537F645C01D1_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5395C8DC03A7_ME_537F645C01D1_Inherits
+
+  MEVIEWLINK ME_5395B29D0177_ME_5395C8DC03A7_Inherits
+   MELINK From ME_5395B29D0177_view ;
+   MELINK To ME_5395C8DC03A7_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5395B29D0177_ME_5395C8DC03A7_Inherits
+
+  MELIST Views
+   Seq: ( ME_537F6306025B_view // TCsProcWithId
+   ME_537F63D60108_view // TCsProcWithIdList
+   ME_537F645C01D1_view // TCsReplyProceduresPrim
+   ME_538DEBDF0374_view // TCsReply
+   ME_538DEBEA032D_view // TCsReplyTool
+   ME_5395C8DC03A7_view // TCsReplyProceduresWithRegistering
+   ME_5395BF930007_view // TCsQueryExecutor
+   ME_5395BFCE0389_view // TCsServer
+   ME_5395B29D0177_view // TCsReplyProcedures
+   ME_5507E70200AF_view // TncsServerParamsStorage
+   ME_537F63EC035D_viewlink // TCsProcWithIdList ==> TCsProcWithId
+   ME_537F64680304_viewlink // TCsReplyProceduresPrim ==> TCsProcWithIdList
+   ME_5395C8DC03A7_ME_537F645C01D1_Inherits // TCsReplyProceduresWithRegistering ==> TCsReplyProceduresPrim
+   ME_5395B29D0177_ME_5395C8DC03A7_Inherits // TCsReplyProcedures ==> TCsReplyProceduresWithRegistering
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_538DA26C020A_main
+
+ MELIST Diagrams
+  Seq: ( ME_538DA26C020A_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_538DA26C020A_diagrams

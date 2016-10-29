@@ -1,0 +1,76 @@
+// TpgField 5627445F00C1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_5627445F00C1_diagrams
+
+ MEDIAGRAM ME_5627445F00C1_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_5627445F00C1' ; // TpgField
+
+  MEVIEW ME_562744D501B9_view
+   MELINK Original WL 'ME_562744D501B9' '5627445F00C1.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_562744D501B9_view
+
+  MEVIEW ME_5627450303CF_view
+   MELINK Original WL 'ME_5627450303CF' '5627445F00C1.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5627450303CF_view
+
+  MEVIEW ME_56274C87017A_view
+   MELINK Original WL 'ME_56274C87017A' '5627445F00C1.ms.model.script' ; // BufferPtr
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_56274C87017A_view
+
+  MEVIEW ME_5627452D02A2_view
+   MELINK Original WL 'ME_5627452D02A2' '5627445F00C1.ms.model.script' ; // f_ClientInfo
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_5627452D02A2_view
+
+  MEVIEW ME_5627453A03E5_view
+   MELINK Original WL 'ME_5627453A03E5' '5627445F00C1.ms.model.script' ; // f_DataBuffer
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_5627453A03E5_view
+
+  MEVIEW ME_5627455001BF_view
+   MELINK Original WL 'ME_5627455001BF' '5627445F00C1.ms.model.script' ; // f_DataConverter
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_5627455001BF_view
+
+  MEVIEW ME_56274FD301C2_view
+   MELINK Original WL 'ME_56274FD301C2' '5627445F00C1.ms.model.script' ; // f_FieldIndex
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_56274FD301C2_view
+
+  MEVIEWLINK ME_5627450303CF_ME_562744D501B9_Inherits
+   MELINK From ME_5627450303CF_view ;
+   MELINK To ME_562744D501B9_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5627450303CF_ME_562744D501B9_Inherits
+
+  MELIST Views
+   Seq: ( ME_562744D501B9_view // Create
+   ME_5627450303CF_view // Make
+   ME_56274C87017A_view // BufferPtr
+   ME_5627452D02A2_view // f_ClientInfo
+   ME_5627453A03E5_view // f_DataBuffer
+   ME_5627455001BF_view // f_DataConverter
+   ME_56274FD301C2_view // f_FieldIndex
+   ME_5627450303CF_ME_562744D501B9_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5627445F00C1_main
+
+ MELIST Diagrams
+  Seq: ( ME_5627445F00C1_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5627445F00C1_diagrams

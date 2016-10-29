@@ -1,0 +1,55 @@
+// ThtUserManager 5629E343023B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_5629E343023B_diagrams
+
+ MEDIAGRAM ME_5629E343023B_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_5629E343023B' ; // ThtUserManager
+
+  MEVIEW ME_5629F0F901C8_view
+   MELINK Original WL 'ME_5629F0F901C8' '5629E343023B.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5629F0F901C8_view
+
+  MEVIEW ME_5629F11200B8_view
+   MELINK Original WL 'ME_5629F11200B8' '5629E343023B.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5629F11200B8_view
+
+  MEVIEW ME_573988920153_view
+   MELINK Original WL 'ME_573988920153' '5629E343023B.ms.model.script' ; // f_UserStatusChangedSubscriberList
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_573988920153_view
+
+  MEVIEW ME_575009400366_view
+   MELINK Original WL 'ME_575009400366' '5629E343023B.ms.model.script' ; // f_PriorityCalculator
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_575009400366_view
+
+  MEVIEWLINK ME_5629F11200B8_ME_5629F0F901C8_Inherits
+   MELINK From ME_5629F11200B8_view ;
+   MELINK To ME_5629F0F901C8_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5629F11200B8_ME_5629F0F901C8_Inherits
+
+  MELIST Views
+   Seq: ( ME_5629F0F901C8_view // Create
+   ME_5629F11200B8_view // Make
+   ME_573988920153_view // f_UserStatusChangedSubscriberList
+   ME_575009400366_view // f_PriorityCalculator
+   ME_5629F11200B8_ME_5629F0F901C8_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5629E343023B_main
+
+ MELIST Diagrams
+  Seq: ( ME_5629E343023B_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5629E343023B_diagrams

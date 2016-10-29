@@ -1,0 +1,55 @@
+// TdaFieldFromTable 574C12B400EA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_574C12B400EA_diagrams
+
+ MEDIAGRAM ME_574C12B400EA_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_574C12B400EA' ; // TdaFieldFromTable
+
+  MEVIEW ME_574C12D70130_view
+   MELINK Original WL 'ME_574C12D70130' '574C12B400EA.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_574C12D70130_view
+
+  MEVIEW ME_574C130301A7_view
+   MELINK Original WL 'ME_574C130301A7' '574C12B400EA.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_574C130301A7_view
+
+  MEVIEW ME_574C132E031E_view
+   MELINK Original WL 'ME_574C132E031E' '574C12B400EA.ms.model.script' ; // f_TableAlias
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_574C132E031E_view
+
+  MEVIEW ME_574C1338038B_view
+   MELINK Original WL 'ME_574C1338038B' '574C12B400EA.ms.model.script' ; // f_Field
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_574C1338038B_view
+
+  MEVIEWLINK ME_574C130301A7_ME_574C12D70130_Inherits
+   MELINK From ME_574C130301A7_view ;
+   MELINK To ME_574C12D70130_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_574C130301A7_ME_574C12D70130_Inherits
+
+  MELIST Views
+   Seq: ( ME_574C12D70130_view // Create
+   ME_574C130301A7_view // Make
+   ME_574C132E031E_view // f_TableAlias
+   ME_574C1338038B_view // f_Field
+   ME_574C130301A7_ME_574C12D70130_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_574C12B400EA_main
+
+ MELIST Diagrams
+  Seq: ( ME_574C12B400EA_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_574C12B400EA_diagrams

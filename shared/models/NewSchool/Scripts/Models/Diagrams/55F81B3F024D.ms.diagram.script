@@ -1,0 +1,69 @@
+// TpgTableQueryFactory 55F81B3F024D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_55F81B3F024D_diagrams
+
+ MEDIAGRAM ME_55F81B3F024D_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_55F81B3F024D' ; // TpgTableQueryFactory
+
+  MEVIEW ME_55F81B5C029C_view
+   MELINK Original WL 'ME_55F81B5C029C' '55F81B3F024D.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_55F81B5C029C_view
+
+  MEVIEW ME_55F81B7D0343_view
+   MELINK Original WL 'ME_55F81B7D0343' '55F81B3F024D.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_55F81B7D0343_view
+
+  MEVIEW ME_56F11DEF037F_view
+   MELINK Original WL 'ME_56F11DEF037F' '55F81B3F024D.ms.model.script' ; // UserNameQuery
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_56F11DEF037F_view
+
+  MEVIEW ME_55F81BAA0343_view
+   MELINK Original WL 'ME_55F81BAA0343' '55F81B3F024D.ms.model.script' ; // f_DataConverter
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_55F81BAA0343_view
+
+  MEVIEW ME_5603B92601BF_view
+   MELINK Original WL 'ME_5603B92601BF' '55F81B3F024D.ms.model.script' ; // f_Connection
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_5603B92601BF_view
+
+  MEVIEW ME_56F121D8016E_view
+   MELINK Original WL 'ME_56F121D8016E' '55F81B3F024D.ms.model.script' ; // f_UserNameQuery
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_56F121D8016E_view
+
+  MEVIEWLINK ME_55F81B7D0343_ME_55F81B5C029C_Inherits
+   MELINK From ME_55F81B7D0343_view ;
+   MELINK To ME_55F81B5C029C_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_55F81B7D0343_ME_55F81B5C029C_Inherits
+
+  MELIST Views
+   Seq: ( ME_55F81B5C029C_view // Create
+   ME_55F81B7D0343_view // Make
+   ME_56F11DEF037F_view // UserNameQuery
+   ME_55F81BAA0343_view // f_DataConverter
+   ME_5603B92601BF_view // f_Connection
+   ME_56F121D8016E_view // f_UserNameQuery
+   ME_55F81B7D0343_ME_55F81B5C029C_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_55F81B3F024D_main
+
+ MELIST Diagrams
+  Seq: ( ME_55F81B3F024D_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_55F81B3F024D_diagrams

@@ -1,0 +1,41 @@
+// VT$ImgList 4FD078CD00F6 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4FD078CD00F6_diagrams
+
+ MEDIAGRAM ME_4FD078CD00F6_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4FD078CD00F6' ; // VT$ImgList
+
+  MEVIEW ME_4F8BEB580354_view
+   MELINK Original WL? 'ME_4F8BEB580354' ; // vtInterfaces
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F8BEB580354_view
+
+  MEVIEW ME_4FD078FF017D_view
+   MELINK Original WL? 'ME_4FD078FF017D' ; // vtImgLists
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4FD078FF017D_view
+
+  MEVIEWLINK ME_4FD078FF017D_ME_4F8BEB580354_Depends
+   MELINK From ME_4FD078FF017D_view ;
+   MELINK To ME_4F8BEB580354_view ;
+   MEPROP Class class_Depends
+  ENDMEVIEWLINK // ME_4FD078FF017D_ME_4F8BEB580354_Depends
+
+  MELIST Views
+   Seq: ( ME_4F8BEB580354_view // vtInterfaces
+   ME_4FD078FF017D_view // vtImgLists
+   ME_4FD078FF017D_ME_4F8BEB580354_Depends // vtImgLists ==> vtInterfaces
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4FD078CD00F6_main
+
+ MELIST Diagrams
+  Seq: ( ME_4FD078CD00F6_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4FD078CD00F6_diagrams

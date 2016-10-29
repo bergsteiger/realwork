@@ -1,0 +1,104 @@
+// ncsMessageInterfaces 5460A4DB018A UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_5460A4DB018A_diagrams
+
+ MEDIAGRAM ME_5460A4DB018A_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_5460A4DB018A' ; // ncsMessageInterfaces
+
+  MEVIEW ME_5464B4730055_view
+   MELINK Original WL 'ME_5464B4730055' '5460A4DB018A.ms.model.script' ; // IncsTransporter
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5464B4730055_view
+
+  MEVIEW ME_5464B37E01ED_view
+   MELINK Original WL 'ME_5464B37E01ED' '5460A4DB018A.ms.model.script' ; // TncsExecuteContext
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5464B37E01ED_view
+
+  MEVIEW ME_5460731E025E_view
+   MELINK Original WL 'ME_5460731E025E' '5460A4DB018A.ms.model.script' ; // IncsExecutor
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_5460731E025E_view
+
+  MEVIEW ME_5460829B0384_view
+   MELINK Original WL 'ME_5460829B0384' '5460A4DB018A.ms.model.script' ; // IncsMessageExecutorFactory
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_5460829B0384_view
+
+  MEVIEW ME_5460C1A00144_view
+   MELINK Original WL 'ME_5460C1A00144' '5460A4DB018A.ms.model.script' ; // PIncsMessageExecutorFactory
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_5460C1A00144_view
+
+  MEVIEW ME_5465A598039E_view
+   MELINK Original WL 'ME_5465A598039E' '5460A4DB018A.ms.model.script' ; // IncsClientTransporter
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_5465A598039E_view
+
+  MEVIEW ME_5465A5AB0324_view
+   MELINK Original WL 'ME_5465A5AB0324' '5460A4DB018A.ms.model.script' ; // IncsServerTransporter
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_5465A5AB0324_view
+
+  MEVIEW ME_5490036B0204_view
+   MELINK Original WL 'ME_5490036B0204' '5460A4DB018A.ms.model.script' ; // TncsSocketKind
+   MEPROP X 40
+   MEPROP Y 180
+  ENDMEVIEW // ME_5490036B0204_view
+
+  MEVIEWLINK ME_5464B4B80072_viewlink
+   MELINK Original WL 'ME_5464B4B80072' '5460A4DB018A.ms.model.script' ;
+   MELINK From ME_5464B37E01ED_view ;
+   MELINK To ME_5464B4730055_view ;
+  ENDMEVIEWLINK // ME_5464B4B80072_viewlink
+
+  MEVIEWLINK ME_5460C1A00144_ME_5460829B0384_Inherits
+   MELINK From ME_5460C1A00144_view ;
+   MELINK To ME_5460829B0384_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5460C1A00144_ME_5460829B0384_Inherits
+
+  MEVIEWLINK ME_5465A598039E_ME_5464B4730055_Inherits
+   MELINK From ME_5465A598039E_view ;
+   MELINK To ME_5464B4730055_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5465A598039E_ME_5464B4730055_Inherits
+
+  MEVIEWLINK ME_5465A5AB0324_ME_5464B4730055_Inherits
+   MELINK From ME_5465A5AB0324_view ;
+   MELINK To ME_5464B4730055_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5465A5AB0324_ME_5464B4730055_Inherits
+
+  MELIST Views
+   Seq: ( ME_5464B4730055_view // IncsTransporter
+   ME_5464B37E01ED_view // TncsExecuteContext
+   ME_5460731E025E_view // IncsExecutor
+   ME_5460829B0384_view // IncsMessageExecutorFactory
+   ME_5460C1A00144_view // PIncsMessageExecutorFactory
+   ME_5465A598039E_view // IncsClientTransporter
+   ME_5465A5AB0324_view // IncsServerTransporter
+   ME_5490036B0204_view // TncsSocketKind
+   ME_5464B4B80072_viewlink // TncsExecuteContext ==> IncsTransporter
+   ME_5460C1A00144_ME_5460829B0384_Inherits // PIncsMessageExecutorFactory ==> IncsMessageExecutorFactory
+   ME_5465A598039E_ME_5464B4730055_Inherits // IncsClientTransporter ==> IncsTransporter
+   ME_5465A5AB0324_ME_5464B4730055_Inherits // IncsServerTransporter ==> IncsTransporter
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5460A4DB018A_main
+
+ MELIST Diagrams
+  Seq: ( ME_5460A4DB018A_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5460A4DB018A_diagrams

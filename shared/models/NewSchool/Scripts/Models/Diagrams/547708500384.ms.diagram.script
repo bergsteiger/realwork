@@ -1,0 +1,48 @@
+// TncsCompatibilityClientTransporter 547708500384 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_547708500384_diagrams
+
+ MEDIAGRAM ME_547708500384_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_547708500384' ; // TncsCompatibilityClientTransporter
+
+  MEVIEW ME_5481A0E30063_view
+   MELINK Original WL 'ME_5481A0E30063' '547708500384.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5481A0E30063_view
+
+  MEVIEW ME_5481A13200D2_view
+   MELINK Original WL 'ME_5481A13200D2' '547708500384.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5481A13200D2_view
+
+  MEVIEW ME_5481A0B20013_view
+   MELINK Original WL 'ME_5481A0B20013' '547708500384.ms.model.script' ; // f_QueryID
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_5481A0B20013_view
+
+  MEVIEWLINK ME_5481A13200D2_ME_5481A0E30063_Inherits
+   MELINK From ME_5481A13200D2_view ;
+   MELINK To ME_5481A0E30063_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5481A13200D2_ME_5481A0E30063_Inherits
+
+  MELIST Views
+   Seq: ( ME_5481A0E30063_view // Create
+   ME_5481A13200D2_view // Make
+   ME_5481A0B20013_view // f_QueryID
+   ME_5481A13200D2_ME_5481A0E30063_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_547708500384_main
+
+ MELIST Diagrams
+  Seq: ( ME_547708500384_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_547708500384_diagrams

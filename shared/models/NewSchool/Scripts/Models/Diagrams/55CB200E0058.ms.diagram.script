@@ -1,0 +1,41 @@
+// daTableDescription 55CB200E0058 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_55CB200E0058_diagrams
+
+ MEDIAGRAM ME_55CB200E0058_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_55CB200E0058' ; // daTableDescription
+
+  MEVIEW ME_55360B420250_view
+   MELINK Original WL 'ME_55360B420250' '55CB200E0058.ms.model.script' ; // TdaTableDescription
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_55360B420250_view
+
+  MEVIEW ME_55CB2045030F_view
+   MELINK Original WL 'ME_55CB2045030F' '55CB200E0058.ms.model.script' ; // CompareFields
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_55CB2045030F_view
+
+  MEVIEWLINK ME_55CB20B3018F_viewlink
+   MELINK Original WL 'ME_55CB20B3018F' '55CB200E0058.ms.model.script' ;
+   MELINK From ME_55360B420250_view ;
+   MELINK To ME_55CB2045030F_view ;
+  ENDMEVIEWLINK // ME_55CB20B3018F_viewlink
+
+  MELIST Views
+   Seq: ( ME_55360B420250_view // TdaTableDescription
+   ME_55CB2045030F_view // CompareFields
+   ME_55CB20B3018F_viewlink // TdaTableDescription ==> CompareFields
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_55CB200E0058_main
+
+ MELIST Diagrams
+  Seq: ( ME_55CB200E0058_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_55CB200E0058_diagrams

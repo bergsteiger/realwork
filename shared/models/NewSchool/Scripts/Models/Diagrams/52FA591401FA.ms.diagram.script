@@ -1,0 +1,62 @@
+// csServerTaskTypes 52FA591401FA UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_52FA591401FA_diagrams
+
+ MEDIAGRAM ME_52FA591401FA_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_52FA591401FA' ; // csServerTaskTypes
+
+  MEVIEW ME_52FA5925012A_view
+   MELINK Original WL 'ME_52FA5925012A' '52FA591401FA.ms.model.script' ; // TDictEditQuery
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_52FA5925012A_view
+
+  MEVIEW ME_531704CF018F_view
+   MELINK Original WL 'ME_531704CF018F' '52FA591401FA.ms.model.script' ; // TGetDictEditQuery
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_531704CF018F_view
+
+  MEVIEW ME_5317052201F3_view
+   MELINK Original WL 'ME_5317052201F3' '52FA591401FA.ms.model.script' ; // TDeleteDocsQuery
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_5317052201F3_view
+
+  MEVIEW ME_5317058B0047_view
+   MELINK Original WL 'ME_5317058B0047' '52FA591401FA.ms.model.script' ; // TUserEditQuery
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_5317058B0047_view
+
+  MEVIEW ME_531705CC02E9_view
+   MELINK Original WL 'ME_531705CC02E9' '52FA591401FA.ms.model.script' ; // TddRunCommandTask
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_531705CC02E9_view
+
+  MEVIEWLINK ME_531704CF018F_ME_52FA5925012A_Inherits
+   MELINK From ME_531704CF018F_view ;
+   MELINK To ME_52FA5925012A_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_531704CF018F_ME_52FA5925012A_Inherits
+
+  MELIST Views
+   Seq: ( ME_52FA5925012A_view // TDictEditQuery
+   ME_531704CF018F_view // TGetDictEditQuery
+   ME_5317052201F3_view // TDeleteDocsQuery
+   ME_5317058B0047_view // TUserEditQuery
+   ME_531705CC02E9_view // TddRunCommandTask
+   ME_531704CF018F_ME_52FA5925012A_Inherits // TGetDictEditQuery ==> TDictEditQuery
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_52FA591401FA_main
+
+ MELIST Diagrams
+  Seq: ( ME_52FA591401FA_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_52FA591401FA_diagrams

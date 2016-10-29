@@ -75,7 +75,6 @@ FORWARD ME_537AEA8C02EF
 ME ME_537AEAB00026
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
@@ -84,7 +83,6 @@ ENDME // ME_537AEAB00026 aForm
 ME ME_537AEAB0003D
  MEPROP Name 'aContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_534F69E702D9' // TvcmTabbedContainerForm
  ;
 
@@ -112,7 +110,6 @@ FORWARD ME_537AEB05030D
 ME ME_537AEB1D02FF
  MEPROP Name 'anOther'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_537AEA3B02A5 // TvcmContainedFormDescr
  ;
 
@@ -140,7 +137,6 @@ FORWARD ME_537AEB28016D
 ME ME_537AEB360207
  MEPROP Name 'anOther'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_537AEA3B02A5 // TvcmContainedFormDescr
  ;
 
@@ -168,7 +164,6 @@ FORWARD ME_53D62F3F03C1
 ME ME_53D62F630192
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
@@ -177,7 +172,6 @@ ENDME // ME_53D62F630192 aForm
 ME ME_53D62F6301B2
  MEPROP Name 'aContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_534F69E702D9' // TvcmTabbedContainerForm
  ;
 
@@ -186,7 +180,6 @@ ENDME // ME_53D62F6301B2 aContainer
 ME ME_53D62F6301D3
  MEPROP Name 'aImageIndex'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
@@ -195,7 +188,6 @@ ENDME // ME_53D62F6301D3 aImageIndex
 ME ME_53D62F6301F5
  MEPROP Name 'aNeedUpdateImageIndex'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -337,9 +329,6 @@ ME ME_53ABA03C000C
  MELINK Parent HWL ME_53ABA029031D // Internal constants
  ;
  MEPROP Value 10
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 10
 
 ENDME // ME_53ABA03C000C cMaxTabCount
@@ -354,9 +343,6 @@ ME ME_53ABD31D01A5
  MELINK Parent HWL ME_53ABA029031D // Internal constants
  ;
  MEPROP Value 10
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 10
 
 ENDME // ME_53ABD31D01A5 cMaxContainerCount
@@ -371,9 +357,6 @@ ME ME_53B26CB30320
  MELINK Parent HWL ME_53ABA029031D // Internal constants
  ;
  MEPROP Value '[Ord(''0'')..Ord(''9'')]'
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '[Ord(''0'')..Ord(''9'')]'
 
 ENDME // ME_53B26CB30320 cTabNumberKeys
@@ -388,9 +371,6 @@ ME ME_53B26CDD02F0
  MELINK Parent HWL ME_53ABA029031D // Internal constants
  ;
  MEPROP Value '[VK_NUMPAD0..VK_NUMPAD9]'
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '[VK_NUMPAD0..VK_NUMPAD9]'
 
 ENDME // ME_53B26CDD02F0 cTabNumpadKeys
@@ -398,7 +378,7 @@ ENDME // ME_53B26CDD02F0 cTabNumpadKeys
 ME ME_53ABA029031D
  MEPROP UID '53ABA029031D'
  MEPROP Name 'Internal constants'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -412,7 +392,6 @@ ME ME_53ABA029031D
  HWL ME_53B26CDD02F0 // cTabNumpadKeys
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_53ABA029031D Internal constants
 
@@ -443,7 +422,6 @@ ME ME_537AEEA5023F
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP "needs field" True
- UP "pm" True
 
 ENDME // ME_537AEEA5023F ContainerCount
 
@@ -473,7 +451,6 @@ ME ME_537B325901F9
  ;
  MELINK Target WL 'ME_52A58D6E003A' '49525B34022A.ms.model.script' // RvcmEntityForm
  ;
- UP "pm" True
 
 ENDME // ME_537B325901F9 DockableFormClass
 
@@ -490,7 +467,6 @@ ME ME_537B430E02C8
  MELINK Target HWL ME_537AEACC00D6 // TvcmFormToContainerMap
  ;
  UP "needs field" True
- UP "pm" True
 
 ENDME // ME_537B430E02C8 FormToContainerMap
 
@@ -507,7 +483,6 @@ ME ME_537DAC3B001A
  MELINK Target WL 'ME_473DA2AF0168' '4AB0F6DB029C.ms.model.script' // TCustomImageList
  ;
  UP "needs field" True
- UP "pm" True
 
 ENDME // ME_537DAC3B001A MenuImages
 
@@ -538,7 +513,6 @@ ME ME_53A3ED4F0081
  MELINK Target WL? 'ME_534F69E702D9' // TvcmTabbedContainerForm
  ;
  UP "needs field" True
- UP "pm" True
 
 ENDME // ME_53A3ED4F0081 ActiveContainer
 
@@ -554,7 +528,6 @@ ME ME_53AAA84202D2
  ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
- UP "pm" True
 
 ENDME // ME_53AAA84202D2 FormTabCount
 
@@ -590,7 +563,6 @@ ME ME_53C8B56E0152
    Seq: ( HWL ME_53C8B58600D8 // Index
  )
  ; // Attributes
- UP "pm" True
 
 ENDME // ME_53C8B56E0152 MainForms
 
@@ -606,7 +578,6 @@ ME ME_53C8B59C02E2
  ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
- UP "pm" True
 
 ENDME // ME_53C8B59C02E2 MainFormsCount
 
@@ -623,7 +594,6 @@ ME ME_53C8BC8A01BA
  MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
  ;
  UP "needs field" True
- UP "pm" True
 
 ENDME // ME_53C8BC8A01BA ContainerList
 
@@ -640,7 +610,6 @@ ME ME_53D0CE72027D
  MELINK Target WL 'ME_473DA2AF0168' '4AB0F6DB029C.ms.model.script' // TCustomImageList
  ;
  UP "needs field" True
- UP "pm" True
 
 ENDME // ME_53D0CE72027D TabImages
 
@@ -657,7 +626,6 @@ ME ME_53DF47200079
  MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
  ;
  UP "needs field" True
- UP "pm" True
 
 ENDME // ME_53DF47200079 Listeners
 
@@ -702,7 +670,6 @@ ME ME_541955CE02D2
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "needs field" False
- UP "pm" True
 
 ENDME // ME_541955CE02D2 IsLocked
 
@@ -732,7 +699,6 @@ ME ME_5444CBCA00F3
  ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
- UP "pm" True
 
 ENDME // ME_5444CBCA00F3 HasAnyDockedForms
 
@@ -791,7 +757,6 @@ ME ME_5518E2180290
  MELINK Target WL 'ME_551552FA002B' '53F2D7B00186.ms.model.script' // TChromeLikeTabSetParams
  ;
  UP "needs field" True
- UP "pm" True
  UP "reads field" True
  UP "writes field" True
 
@@ -823,7 +788,6 @@ ME ME_5583E3F7021E
  ;
  MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
  ;
- UP "pm" True
 
 ENDME // ME_5583E3F7021E ActiveVCMContainer
 
@@ -840,7 +804,6 @@ ME ME_5608DA3500B4
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "needs field" True
- UP "pm" True
  UP "reads field" True
 
 ENDME // ME_5608DA3500B4 CloningTab
@@ -858,7 +821,6 @@ ME ME_560BA7C70186
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "needs field" True
- UP "pm" True
 
 ENDME // ME_560BA7C70186 ReopeningTab
 
@@ -883,7 +845,6 @@ FORWARD ME_537AF07D01D8
 ME ME_537AF08A038F
  MEPROP Name 'aContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_534F69E702D9' // TvcmTabbedContainerForm
  ;
 
@@ -958,7 +919,6 @@ FORWARD ME_537AF1C303B6
 ME ME_552787DA026F
  MEPROP Name 'aChildForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
@@ -967,7 +927,6 @@ ENDME // ME_552787DA026F aChildForm
 ME ME_552787DA0277
  MEPROP Name 'aNeedPlace'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value True
@@ -980,7 +939,6 @@ ENDME // ME_552787DA0277 aNeedPlace
 ME ME_552787DA027E
  MEPROP Name 'aNeedLoadFromSettings'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value True
@@ -993,7 +951,6 @@ ENDME // ME_552787DA027E aNeedLoadFromSettings
 ME ME_552787DA0286
  MEPROP Name 'aNeedShow'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value True
@@ -1006,7 +963,6 @@ ENDME // ME_552787DA0286 aNeedShow
 ME ME_552787DA028D
  MEPROP Name 'aParams'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_53F2D7D90245' '553213D902E0.ms.model.script' // Il3TabParams
  ;
  MEPROP Value 'nil'
@@ -1061,7 +1017,6 @@ FORWARD ME_537AF147017B
 ME ME_5448D672027D
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
  ;
 
@@ -1070,7 +1025,6 @@ ENDME // ME_5448D672027D aForm
 ME ME_5448D672029D
  MEPROP Name 'aRect'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
  ;
 
@@ -1079,7 +1033,6 @@ ENDME // ME_5448D672029D aRect
 ME ME_5448D67202BC
  MEPROP Name 'aParams'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_53F2D7D90245' '553213D902E0.ms.model.script' // Il3TabParams
  ;
  MEPROP Value 'nil'
@@ -1132,7 +1085,6 @@ FORWARD ME_537C26250105
 ME ME_537C263A02A4
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
  ;
 
@@ -1141,7 +1093,6 @@ ENDME // ME_537C263A02A4 aForm
 ME ME_537C263A02BA
  MEPROP Name 'aContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_534F69E702D9' // TvcmTabbedContainerForm
  ;
 
@@ -1187,7 +1138,6 @@ FORWARD ME_537C299A0169
 ME ME_537C29AA0083
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
  ;
 
@@ -1234,7 +1184,6 @@ FORWARD ME_537C34190063
 ME ME_537C34770025
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
  ;
 
@@ -1243,7 +1192,6 @@ ENDME // ME_537C34770025 aForm
 ME ME_537C3477003C
  MEPROP Name 'aContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_534F69E702D9' // TvcmTabbedContainerForm
  ;
 
@@ -1289,7 +1237,6 @@ FORWARD ME_537C3FFD02EC
 ME ME_55016EA000D3
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
  ;
 
@@ -1298,7 +1245,6 @@ ENDME // ME_55016EA000D3 aForm
 ME ME_55016EA000DB
  MEPROP Name 'aNewContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_534F69E702D9' // TvcmTabbedContainerForm
  ;
 
@@ -1307,7 +1253,6 @@ ENDME // ME_55016EA000DB aNewContainer
 ME ME_55016EA000E2
  MEPROP Name 'aMousePoint'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
  ;
 
@@ -1354,7 +1299,6 @@ FORWARD ME_5386CEB70314
 ME ME_5386CEC90373
  MEPROP Name 'aPoint'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
  ;
 
@@ -1363,7 +1307,6 @@ ENDME // ME_5386CEC90373 aPoint
 ME ME_5386CEC9038B
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
  ;
 
@@ -1411,7 +1354,6 @@ FORWARD ME_5386CEE50361
 ME ME_5386CF10007B
  MEPROP Name 'aPoint'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
  ;
 
@@ -1420,7 +1362,6 @@ ENDME // ME_5386CF10007B aPoint
 ME ME_5386CF100093
  MEPROP Name 'aDockClientForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
@@ -1429,7 +1370,6 @@ ENDME // ME_5386CF100093 aDockClientForm
 ME ME_5386CF1000AC
  MEPROP Name 'aContainerForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_534F69E702D9' // TvcmTabbedContainerForm
  ;
 
@@ -1478,7 +1418,6 @@ FORWARD ME_539FDFA00074
 ME ME_539FDFA80059
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
  ;
 
@@ -1523,7 +1462,6 @@ FORWARD ME_539FFBC102FB
 ME ME_539FFBC401D2
  MEPROP Name 'aContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_534F69E702D9' // TvcmTabbedContainerForm
  ;
 
@@ -1570,7 +1508,6 @@ FORWARD ME_53A0036100C4
 ME ME_53A003870190
  MEPROP Name 'aContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_534F69E702D9' // TvcmTabbedContainerForm
  ;
 
@@ -1617,7 +1554,6 @@ FORWARD ME_53A01C180283
 ME ME_53A01C22002A
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
  ;
 
@@ -1664,7 +1600,6 @@ FORWARD ME_53A3EDE7010E
 ME ME_55CAFE620305
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
@@ -1673,7 +1608,6 @@ ENDME // ME_55CAFE620305 aForm
 ME ME_55CAFE620343
  MEPROP Name 'aContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_534F69E702D9' // TvcmTabbedContainerForm
  ;
 
@@ -1682,7 +1616,6 @@ ENDME // ME_55CAFE620343 aContainer
 ME ME_55CAFE620372
  MEPROP Name 'aNeedSwitchTab'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -1691,7 +1624,6 @@ ENDME // ME_55CAFE620372 aNeedSwitchTab
 ME ME_55CAFE6203B0
  MEPROP Name 'aAddLast'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value False
@@ -1704,7 +1636,6 @@ ENDME // ME_55CAFE6203B0 aAddLast
 ME ME_55CAFE6203DF
  MEPROP Name 'aOpenAfter'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
  MEPROP Value 'nil'
@@ -1757,7 +1688,6 @@ FORWARD ME_53A3F24003D2
 ME ME_53A3F24B02C8
  MEPROP Name 'aContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_534F69E702D9' // TvcmTabbedContainerForm
  ;
 
@@ -1802,7 +1732,6 @@ FORWARD ME_53A417060315
 ME ME_55CAFE0A01C2
  MEPROP Name 'aPrevContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
  ;
 
@@ -1811,7 +1740,6 @@ ENDME // ME_55CAFE0A01C2 aPrevContainer
 ME ME_55CAFE0A01F1
  MEPROP Name 'aNewContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
  ;
 
@@ -1820,7 +1748,6 @@ ENDME // ME_55CAFE0A01F1 aNewContainer
 ME ME_55CAFE0A022F
  MEPROP Name 'aOpenKind'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_53A410AA031B' '4683F37902CF.ms.model.script' // TvcmMainFormOpenKind
  ;
 
@@ -1829,7 +1756,6 @@ ENDME // ME_55CAFE0A022F aOpenKind
 ME ME_55CAFE0A025E
  MEPROP Name 'aNeedSwitchTab'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -1838,7 +1764,6 @@ ENDME // ME_55CAFE0A025E aNeedSwitchTab
 ME ME_55CAFE0A029D
  MEPROP Name 'aOpenLast'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value False
@@ -1851,7 +1776,6 @@ ENDME // ME_55CAFE0A029D aOpenLast
 ME ME_55CAFE0A02DB
  MEPROP Name 'aOpenAfter'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
  MEPROP Value 'nil'
@@ -1907,7 +1831,6 @@ FORWARD ME_53ABAD3C03BE
 ME ME_55CAF9C2011D
  MEPROP Name 'aContainerMaker'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_53ABAC5D0352' '4683F37902CF.ms.model.script' // IvcmContainerMaker
  ;
 
@@ -1916,7 +1839,6 @@ ENDME // ME_55CAF9C2011D aContainerMaker
 ME ME_55CAF9C2015B
  MEPROP Name 'aPrevContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
  ;
 
@@ -1925,7 +1847,6 @@ ENDME // ME_55CAF9C2015B aPrevContainer
 ME ME_55CAF9C2018A
  MEPROP Name 'aOpenKind'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_53A410AA031B' '4683F37902CF.ms.model.script' // TvcmMainFormOpenKind
  ;
 
@@ -1934,7 +1855,6 @@ ENDME // ME_55CAF9C2018A aOpenKind
 ME ME_55CAF9C201C8
  MEPROP Name 'aNeedSwitchTab'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -1943,7 +1863,6 @@ ENDME // ME_55CAF9C201C8 aNeedSwitchTab
 ME ME_55CAF9C20207
  MEPROP Name 'aOpenLast'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value False
@@ -1956,7 +1875,6 @@ ENDME // ME_55CAF9C20207 aOpenLast
 ME ME_55CAF9C20235
  MEPROP Name 'aOpenAfter'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
  MEPROP Value 'nil'
@@ -2012,7 +1930,6 @@ FORWARD ME_53ABC9E60241
 ME ME_53ABCEF6038E
  MEPROP Name 'aContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_534F69E702D9' // TvcmTabbedContainerForm
  ;
 
@@ -2091,7 +2008,6 @@ FORWARD ME_53B251C902CE
 ME ME_53B251DE011A
  MEPROP Name 'aContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_534F69E702D9' // TvcmTabbedContainerForm
  ;
 
@@ -2100,7 +2016,6 @@ ENDME // ME_53B251DE011A aContainer
 ME ME_53B251DE0132
  MEPROP Name 'aTabIndex'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
@@ -2208,7 +2123,6 @@ FORWARD ME_53B38FF802F4
 ME ME_53B39040015F
  MEPROP Name 'aContainedForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
  ;
 
@@ -2217,7 +2131,6 @@ ENDME // ME_53B39040015F aContainedForm
 ME ME_53B390400178
  MEPROP Name 'aChildForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
  ;
 
@@ -2226,7 +2139,6 @@ ENDME // ME_53B390400178 aChildForm
 ME ME_53B390400190
  MEPROP Name 'aFormDataSource'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_47EB900B0216' '4683F37902CF.ms.model.script' // IvcmFormDataSource
  ;
 
@@ -2273,7 +2185,6 @@ FORWARD ME_53B66E9B001A
 ME ME_53BCC81E025F
  MEPROP Name 'aChildForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
  ;
 
@@ -2318,7 +2229,6 @@ FORWARD ME_53BCCB57009F
 ME ME_53BCCB66023D
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
  ;
 
@@ -2365,7 +2275,6 @@ FORWARD ME_53BCE4FD0029
 ME ME_53BCE505001D
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
  ;
 
@@ -2374,7 +2283,6 @@ ENDME // ME_53BCE505001D aForm
 ME ME_53BCE505003F
  MEPROP Name 'aCaption'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
  ;
 
@@ -2482,7 +2390,6 @@ FORWARD ME_53D201F90069
 ME ME_53D2020C01EE
  MEPROP Name 'aCurrent'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
  ;
 
@@ -2559,7 +2466,6 @@ FORWARD ME_53D21F66033C
 ME ME_53D21F6A01EF
  MEPROP Name 'aCurrent'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
  ;
 
@@ -2606,7 +2512,6 @@ FORWARD ME_53D6273C01A1
 ME ME_53D6274B027A
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
@@ -2651,7 +2556,6 @@ FORWARD ME_53D8D40800A6
 ME ME_53D8D40C007F
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
@@ -2698,7 +2602,6 @@ FORWARD ME_53D8D5B100DF
 ME ME_53D8D5B402DF
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
@@ -2745,7 +2648,6 @@ FORWARD ME_53DF4B4302DC
 ME ME_5411A6C800E2
  MEPROP Name 'aNotification'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_54118F530217' '553213D902E0.ms.model.script' // Tl3TabbedContainerNotificationType
  ;
 
@@ -2790,7 +2692,6 @@ FORWARD ME_53DF5F36037E
 ME ME_53DF5F3C0351
  MEPROP Name 'aContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_534F69E702D9' // TvcmTabbedContainerForm
  ;
 
@@ -2835,7 +2736,6 @@ FORWARD ME_53E895A402F9
 ME ME_53E895AD004C
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
@@ -2882,7 +2782,6 @@ FORWARD ME_53F1E8E50320
 ME ME_53F1E8FA0121
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
@@ -2929,7 +2828,6 @@ FORWARD ME_53F42BB801D9
 ME ME_53F42BBE0242
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
@@ -2976,7 +2874,6 @@ FORWARD ME_53FADEBC012E
 ME ME_53FADEC50296
  MEPROP Name 'aContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_534F69E702D9' // TvcmTabbedContainerForm
  ;
 
@@ -3021,7 +2918,6 @@ FORWARD ME_5444F53E01B0
 ME ME_5444F546016E
  MEPROP Name 'aVisible'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -3066,7 +2962,6 @@ FORWARD ME_543E46B30052
 ME ME_543E46C302A8
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
@@ -3143,7 +3038,6 @@ FORWARD ME_551514C10060
 ME ME_551514CA0348
  MEPROP Name 'aContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_534F69E702D9' // TvcmTabbedContainerForm
  ;
 
@@ -3188,7 +3082,6 @@ FORWARD ME_552619460223
 ME ME_55261949025D
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
  ;
 
@@ -3197,7 +3090,6 @@ ENDME // ME_55261949025D aForm
 ME ME_55261949027C
  MEPROP Name 'aParams'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_53F2D7D90245' '553213D902E0.ms.model.script' // Il3TabParams
  ;
 
@@ -3243,7 +3135,6 @@ FORWARD ME_558BCEB601F9
 ME ME_558BCEC90278
  MEPROP Name 'aContainer'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
  ;
 
@@ -3252,7 +3143,6 @@ ENDME // ME_558BCEC90278 aContainer
 ME ME_558BCEC90296
  MEPROP Name 'aTabHistoryState'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_558946640194' '4683F37902CF.ms.model.script' // IvcmHistoryState
  ;
 
@@ -3298,7 +3188,6 @@ FORWARD ME_55B881C202A6
 ME ME_55B881C50224
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
  ;
 
@@ -3345,7 +3234,6 @@ FORWARD ME_5602A54602B8
 ME ME_5602A54A0330
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
@@ -3402,7 +3290,6 @@ FORWARD ME_57AADA6A037D
 ME ME_57AADA7B0307
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
  ;
 
@@ -4247,7 +4134,6 @@ FORWARD ME_5583D6030204
 ME ME_5583D60E00F7
  MEPROP Name 'aRealContainerMaker'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_53ABAC5D0352' '4683F37902CF.ms.model.script' // IvcmContainerMaker
  ;
 

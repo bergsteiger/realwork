@@ -16,9 +16,6 @@ ME ME_5658225E008C
  MELINK Parent HWL ME_5658224F01BD // cErrorMessages
  ;
  MEPROP Value '''Ошибка получения свободного номера'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Ошибка получения свободного номера'''
 
 ENDME // ME_5658225E008C cFreeTblErr
@@ -26,7 +23,7 @@ ENDME // ME_5658225E008C cFreeTblErr
 ME ME_5658224F01BD
  MEPROP UID '5658224F01BD'
  MEPROP Name 'cErrorMessages'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -37,7 +34,6 @@ ME ME_5658224F01BD
    Seq: ( HWL ME_5658225E008C // cFreeTblErr
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_5658224F01BD cErrorMessages
 
@@ -53,9 +49,6 @@ ME ME_5773A2780046
  MELINK Parent HWL ME_5773A26902DD // cTimeouts
  ;
  MEPROP Value 20
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 20
 
 ENDME // ME_5773A2780046 ATTEMPT_AMOUNT
@@ -71,9 +64,6 @@ ME ME_5773A28A01EE
  MELINK Parent HWL ME_5773A26902DD // cTimeouts
  ;
  MEPROP Value 500
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 500
 
 ENDME // ME_5773A28A01EE PAUSE_SIZE
@@ -81,7 +71,7 @@ ENDME // ME_5773A28A01EE PAUSE_SIZE
 ME ME_5773A26902DD
  MEPROP UID '5773A26902DD'
  MEPROP Name 'cTimeouts'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -93,7 +83,6 @@ ME ME_5773A26902DD
  HWL ME_5773A28A01EE // PAUSE_SIZE
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_5773A26902DD cTimeouts
 
@@ -137,7 +126,6 @@ ME ME_565ECB810377
  ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
- UP "pm" True
  UP "reads field" True
 
 ENDME // ME_565ECB810377 ExclusiveUse
@@ -205,7 +193,6 @@ FORWARD ME_5656EF940349
 ME ME_577109B100EA
  MEPROP Name 'aConnection'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_55F6875803A8' // TpgConnection
  ;
 
@@ -214,7 +201,6 @@ ENDME // ME_577109B100EA aConnection
 ME ME_577109B10109
  MEPROP Name 'aQueryFactory'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_554C78BD038C' '5432518A0316.ms.model.script' // IdaTableQueryFactory
  ;
 
@@ -223,7 +209,6 @@ ENDME // ME_577109B10109 aQueryFactory
 ME ME_577109B10119
  MEPROP Name 'aFunctionFactory'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_56613507012C' // TpgFunctionFactory
  ;
 
@@ -232,7 +217,6 @@ ENDME // ME_577109B10119 aFunctionFactory
 ME ME_577109B10138
  MEPROP Name 'aFamilyID'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_551E7DD302E0' '5432448401BC.ms.model.script' // TdaFamilyID
  ;
 
@@ -280,7 +264,6 @@ FORWARD ME_565703ED0016
 ME ME_565703FE0172
  MEPROP Name 'aKey'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -327,7 +310,6 @@ FORWARD ME_5658230F02C2
 ME ME_5658231903CC
  MEPROP Name 'aKey'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -374,7 +356,6 @@ FORWARD ME_5658230203A1
 ME ME_565827ED01EA
  MEPROP Name 'aKey'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -431,7 +412,6 @@ FORWARD ME_565822E400A5
 ME ME_565827E50263
  MEPROP Name 'aKey'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -520,7 +500,6 @@ FORWARD ME_5770DAA50326
 ME ME_5770DAB30236
  MEPROP Name 'aKey'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -529,7 +508,6 @@ ENDME // ME_5770DAB30236 aKey
 ME ME_5770DAB30245
  MEPROP Name 'anID'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
  ;
 
@@ -575,7 +553,6 @@ FORWARD ME_57739AB90151
 ME ME_57739AC10172
  MEPROP Name 'aKey'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -584,7 +561,6 @@ ENDME // ME_57739AC10172 aKey
 ME ME_57739AC10192
  MEPROP Name 'anID'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
  ;
 
@@ -632,7 +608,6 @@ FORWARD ME_57739AC6009F
 ME ME_57739AC80137
  MEPROP Name 'aKey'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -641,7 +616,6 @@ ENDME // ME_57739AC80137 aKey
 ME ME_57739AC80147
  MEPROP Name 'anID'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
  ;
 
@@ -685,7 +659,6 @@ FORWARD ME_565589E102C3
 ME ME_565589FE018C
  MEPROP Name 'aKey'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -713,7 +686,6 @@ FORWARD ME_56558EF30265
 ME ME_56558F080070
  MEPROP Name 'aKey'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
  ;
 
@@ -741,7 +713,6 @@ FORWARD ME_577CC0A10277
 ME ME_577CC0B30334
  MEPROP Name 'aKey'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -750,7 +721,6 @@ ENDME // ME_577CC0B30334 aKey
 ME ME_577CC0B30354
  MEPROP Name 'anID'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
  ;
 

@@ -16,9 +16,6 @@ ME ME_538DCE8002AC
  MELINK Parent HWL ME_538DCE7102AD // Constants
  ;
  MEPROP Value '4 * 1024'
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '4 * 1024'
 
 ENDME // ME_538DCE8002AC c_MaxDataStringLength
@@ -33,9 +30,6 @@ ME ME_538DCE9C02B7
  MELINK Parent HWL ME_538DCE7102AD // Constants
  ;
  MEPROP Value '''<>'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''<>'''
 
 ENDME // ME_538DCE9C02B7 c_NoMoreFiles
@@ -43,7 +37,7 @@ ENDME // ME_538DCE9C02B7 c_NoMoreFiles
 ME ME_538DCE7102AD
  MEPROP UID '538DCE7102AD'
  MEPROP Name 'Constants'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -55,7 +49,6 @@ ME ME_538DCE7102AD
  HWL ME_538DCE9C02B7 // c_NoMoreFiles
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_538DCE7102AD Constants
 
@@ -71,7 +64,6 @@ ME ME_548EECCB01DC
  ;
  MELINK Target WL 'ME_537F4A04037C' '537F49C801FE.ms.model.script' // TCsClientId
  ;
- UP "pm" True
  UP "reads field" True
  UP "writes field" True
 
@@ -90,7 +82,6 @@ ME ME_538DB550025A
  ;
  MELINK Target WL? 'ME_538DDC890328' // TcsIdIOHandlerAbstractAdapter
  ;
- UP "pm" True
  UP "reads field" True
 
 ENDME // ME_538DB550025A IOHandler
@@ -102,7 +93,6 @@ FORWARD ME_538DC4A00082
 ME ME_538DC4AE0146
  MEPROP Name 'aIOHandler'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_538DDC890328' // TcsIdIOHandlerAbstractAdapter
  ;
 
@@ -147,7 +137,6 @@ FORWARD ME_538DC50302F2
 ME ME_538DC50802D5
  MEPROP Name 'aIOHandler'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_538DAED40203' // TIdIOHandler
  ;
 
@@ -336,6 +325,18 @@ MEREF ME_54F5C09C0302_ME_538DC31F03A5_impl
  MEPROP OpKind opkind_Implemented
 ENDMEREF // ME_54F5C09C0302_ME_538DC31F03A5_impl ReadLargeStr
 
+MEREF ME_580F367C0052_ME_538DC31F03A5_impl
+ MELINK Original WL 'ME_580F367C0052' '538DB4F00335.ms.model.script' // ReadStreamWithCRCCheck
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_580F367C0052_ME_538DC31F03A5_impl ReadStreamWithCRCCheck
+
+MEREF ME_580F36A802FA_ME_538DC31F03A5_impl
+ MELINK Original WL 'ME_580F36A802FA' '538DB4F00335.ms.model.script' // WriteStreamWithCRCCheck
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_580F36A802FA_ME_538DC31F03A5_impl WriteStreamWithCRCCheck
+
 MEREF ME_479731C50290_ME_538DC31F03A5_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
@@ -396,6 +397,8 @@ ME ME_538DC31F03A5
  ME_54536C8F036B_ME_538DC31F03A5_impl // WaitForReadData
  ME_54F5C07302CC_ME_538DC31F03A5_impl // WriteLargeStr
  ME_54F5C09C0302_ME_538DC31F03A5_impl // ReadLargeStr
+ ME_580F367C0052_ME_538DC31F03A5_impl // ReadStreamWithCRCCheck
+ ME_580F36A802FA_ME_538DC31F03A5_impl // WriteStreamWithCRCCheck
  )
  ; // Implemented
  MELIST Overridden

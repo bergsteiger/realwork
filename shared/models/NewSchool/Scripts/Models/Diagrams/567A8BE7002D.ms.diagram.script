@@ -1,0 +1,48 @@
+// TpgFunctionSelectField 567A8BE7002D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_567A8BE7002D_diagrams
+
+ MEDIAGRAM ME_567A8BE7002D_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_567A8BE7002D' ; // TpgFunctionSelectField
+
+  MEVIEW ME_567BB5780118_view
+   MELINK Original WL 'ME_567BB5780118' '567A8BE7002D.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_567BB5780118_view
+
+  MEVIEW ME_567BB59A006B_view
+   MELINK Original WL 'ME_567BB59A006B' '567A8BE7002D.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_567BB59A006B_view
+
+  MEVIEW ME_567BB5C90150_view
+   MELINK Original WL 'ME_567BB5C90150' '567A8BE7002D.ms.model.script' ; // f_Description
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_567BB5C90150_view
+
+  MEVIEWLINK ME_567BB59A006B_ME_567BB5780118_Inherits
+   MELINK From ME_567BB59A006B_view ;
+   MELINK To ME_567BB5780118_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_567BB59A006B_ME_567BB5780118_Inherits
+
+  MELIST Views
+   Seq: ( ME_567BB5780118_view // Create
+   ME_567BB59A006B_view // Make
+   ME_567BB5C90150_view // f_Description
+   ME_567BB59A006B_ME_567BB5780118_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_567A8BE7002D_main
+
+ MELIST Diagrams
+  Seq: ( ME_567A8BE7002D_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_567A8BE7002D_diagrams

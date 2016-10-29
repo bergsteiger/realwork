@@ -1,0 +1,55 @@
+// Implementation 55082F190334 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_55082F190334_diagrams
+
+ MEDIAGRAM ME_55082F190334_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_55082F190334' ; // Implementation
+
+  MEVIEW ME_558947020183_view
+   MELINK Original WL? 'ME_558947020183' ; // TvcmHistoryItemList
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_558947020183_view
+
+  MEVIEW ME_5614F2B602CC_view
+   MELINK Original WL? 'ME_5614F2B602CC' ; // TvcmHistoryFormNode
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5614F2B602CC_view
+
+  MEVIEW ME_4AA7B6AB0214_view
+   MELINK Original WL? 'ME_4AA7B6AB0214' ; // vcmHistory
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AA7B6AB0214_view
+
+  MEVIEWLINK ME_558A36B40083_viewlink
+   MELINK Original WL 'ME_558A36B40083' '4AA7B6AB0214.ms.model.script' ;
+   MELINK From ME_4AA7B6AB0214_view ;
+   MELINK To ME_558947020183_view ;
+  ENDMEVIEWLINK // ME_558A36B40083_viewlink
+
+  MEVIEWLINK ME_5614F2DD02E0_viewlink
+   MELINK Original WL 'ME_5614F2DD02E0' '4AA7B6AB0214.ms.model.script' ;
+   MELINK From ME_4AA7B6AB0214_view ;
+   MELINK To ME_5614F2B602CC_view ;
+  ENDMEVIEWLINK // ME_5614F2DD02E0_viewlink
+
+  MELIST Views
+   Seq: ( ME_558947020183_view // TvcmHistoryItemList
+   ME_5614F2B602CC_view // TvcmHistoryFormNode
+   ME_4AA7B6AB0214_view // vcmHistory
+   ME_558A36B40083_viewlink // vcmHistory ==> TvcmHistoryItemList
+   ME_5614F2DD02E0_viewlink // vcmHistory ==> TvcmHistoryFormNode
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_55082F190334_main
+
+ MELIST Diagrams
+  Seq: ( ME_55082F190334_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_55082F190334_diagrams

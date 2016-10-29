@@ -1,0 +1,83 @@
+// Operations 4E200FED0213 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4E200FED0213_diagrams
+
+ MEDIAGRAM ME_4E200FED0213_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4E200FED0213' ; // Operations
+
+  MEVIEW ME_523006F7004A_view
+   MELINK Original WL? 'ME_523006F7004A' ; // TkwEntityOperationPrim
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_523006F7004A_view
+
+  MEVIEW ME_4DDBBDB00019_view
+   MELINK Original WL? 'ME_4DDBBDB00019' ; // TkwEntityOperation
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4DDBBDB00019_view
+
+  MEVIEW ME_5230072D031A_view
+   MELINK Original WL? 'ME_5230072D031A' ; // TkwEntityOperationTest
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_5230072D031A_view
+
+  MEVIEW ME_52A73D1701B9_view
+   MELINK Original WL? 'ME_52A73D1701B9' ; // TkwOperationsRegistrar
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_52A73D1701B9_view
+
+  MEVIEW ME_4DB060930263_view
+   MELINK Original WL? 'ME_4DB060930263' ; // TtfwModuleOperationWord
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4DB060930263_view
+
+  MEVIEW ME_5770F145022B_view
+   MELINK Original WL? 'ME_5770F145022B' ; // TtfwModuleOperationWordEx
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_5770F145022B_view
+
+  MEVIEWLINK ME_4DDBBDB00019_ME_523006F7004A_Inherits
+   MELINK From ME_4DDBBDB00019_view ;
+   MELINK To ME_523006F7004A_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4DDBBDB00019_ME_523006F7004A_Inherits
+
+  MEVIEWLINK ME_5230072D031A_ME_523006F7004A_Inherits
+   MELINK From ME_5230072D031A_view ;
+   MELINK To ME_523006F7004A_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5230072D031A_ME_523006F7004A_Inherits
+
+  MEVIEWLINK ME_5770F145022B_ME_4DB060930263_Inherits
+   MELINK From ME_5770F145022B_view ;
+   MELINK To ME_4DB060930263_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5770F145022B_ME_4DB060930263_Inherits
+
+  MELIST Views
+   Seq: ( ME_523006F7004A_view // TkwEntityOperationPrim
+   ME_4DDBBDB00019_view // TkwEntityOperation
+   ME_5230072D031A_view // TkwEntityOperationTest
+   ME_52A73D1701B9_view // TkwOperationsRegistrar
+   ME_4DB060930263_view // TtfwModuleOperationWord
+   ME_5770F145022B_view // TtfwModuleOperationWordEx
+   ME_4DDBBDB00019_ME_523006F7004A_Inherits // TkwEntityOperation ==> TkwEntityOperationPrim
+   ME_5230072D031A_ME_523006F7004A_Inherits // TkwEntityOperationTest ==> TkwEntityOperationPrim
+   ME_5770F145022B_ME_4DB060930263_Inherits // TtfwModuleOperationWordEx ==> TtfwModuleOperationWord
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E200FED0213_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E200FED0213_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E200FED0213_diagrams

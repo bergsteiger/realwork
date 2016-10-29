@@ -1,0 +1,48 @@
+// TdaProgressProcHolder 552523F2014F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_552523F2014F_diagrams
+
+ MEDIAGRAM ME_552523F2014F_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_552523F2014F' ; // TdaProgressProcHolder
+
+  MEVIEW ME_552524220076_view
+   MELINK Original WL 'ME_552524220076' '552523F2014F.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_552524220076_view
+
+  MEVIEW ME_5525244202B3_view
+   MELINK Original WL 'ME_5525244202B3' '552523F2014F.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5525244202B3_view
+
+  MEVIEW ME_552524710094_view
+   MELINK Original WL 'ME_552524710094' '552523F2014F.ms.model.script' ; // f_Proc
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_552524710094_view
+
+  MEVIEWLINK ME_5525244202B3_ME_552524220076_Inherits
+   MELINK From ME_5525244202B3_view ;
+   MELINK To ME_552524220076_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5525244202B3_ME_552524220076_Inherits
+
+  MELIST Views
+   Seq: ( ME_552524220076_view // Create
+   ME_5525244202B3_view // Make
+   ME_552524710094_view // f_Proc
+   ME_5525244202B3_ME_552524220076_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_552523F2014F_main
+
+ MELIST Diagrams
+  Seq: ( ME_552523F2014F_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_552523F2014F_diagrams
