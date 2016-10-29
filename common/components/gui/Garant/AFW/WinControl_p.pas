@@ -31,7 +31,7 @@ uses
 ;
 
 {$If NOT Defined(NoVCL)}
-function TWinControl_Get_ControlCount(Self: TWinControl): Integer;
+function TWinControl_pm_GetControlCount(Self: TWinControl): Integer;
 //#UC START# *53D12BB30380_53D12ADE0303get_var*
 //#UC END# *53D12BB30380_53D12ADE0303get_var*
 begin
@@ -41,9 +41,9 @@ begin
   Result := ControlCount;
 //#UC END# *53D12BB30380_53D12ADE0303get_impl*
  end;//with Self
-end;//TWinControl_Get_ControlCount
+end;//TWinControl_pm_GetControlCount
 
-function TWinControl_Get_Controls(Self: TWinControl;
+function TWinControl_pm_GetControls(Self: TWinControl;
  Index: Integer): TControl;
 //#UC START# *53D12B6E016C_53D12ADE0303get_var*
 //#UC END# *53D12B6E016C_53D12ADE0303get_var*
@@ -54,7 +54,7 @@ begin
   Result := Controls[Index];
 //#UC END# *53D12B6E016C_53D12ADE0303get_impl*
  end;//with Self
-end;//TWinControl_Get_Controls
+end;//TWinControl_pm_GetControls
 
 procedure TWinControl_Get_ControlCount_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

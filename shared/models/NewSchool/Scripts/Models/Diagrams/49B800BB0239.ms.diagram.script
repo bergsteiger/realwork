@@ -1,0 +1,48 @@
+// Shared Delphi Tools 49B800BB0239 Project Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_49B800BB0239_diagrams
+
+ MEDIAGRAM ME_49B800BB0239_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_49B800BB0239' ; // Shared Delphi Tools
+
+  MEVIEW ME_4EF09DD80155_view
+   MELINK Original WL? 'ME_4EF09DD80155' ; // Требования
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4EF09DD80155_view
+
+  MEVIEW ME_474AD18D0096_view
+   MELINK Original WL? 'ME_474AD18D0096' ; // RenderEVD
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_474AD18D0096_view
+
+  MEVIEW ME_474AD1C7020C_view
+   MELINK Original WL? 'ME_474AD1C7020C' ; // RenderEVD$Engine
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_474AD1C7020C_view
+
+  MEVIEWLINK ME_474AD1C7020C_ME_474AD18D0096_Depends
+   MELINK From ME_474AD1C7020C_view ;
+   MELINK To ME_474AD18D0096_view ;
+   MEPROP Class class_Depends
+  ENDMEVIEWLINK // ME_474AD1C7020C_ME_474AD18D0096_Depends
+
+  MELIST Views
+   Seq: ( ME_4EF09DD80155_view // Требования
+   ME_474AD18D0096_view // RenderEVD
+   ME_474AD1C7020C_view // RenderEVD$Engine
+   ME_474AD1C7020C_ME_474AD18D0096_Depends // RenderEVD$Engine ==> RenderEVD
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_49B800BB0239_main
+
+ MELIST Diagrams
+  Seq: ( ME_49B800BB0239_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_49B800BB0239_diagrams

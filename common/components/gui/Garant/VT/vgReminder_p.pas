@@ -34,7 +34,7 @@ uses
 ;
 
 {$If NOT Defined(NoVGScene)}
-function TvgReminder_Get_Caption(Self: TvgReminder): AnsiString;
+function TvgReminder_pm_GetCaption(Self: TvgReminder): AnsiString;
 //#UC START# *536B5D8B01C6_536B5D600367get_var*
 //#UC END# *536B5D8B01C6_536B5D600367get_var*
 begin
@@ -44,9 +44,9 @@ begin
    SetString(Result, Caption.AsWStr.S, Caption.AsWStr.SLen);
 //#UC END# *536B5D8B01C6_536B5D600367get_impl*
  end;//with Self
-end;//TvgReminder_Get_Caption
+end;//TvgReminder_pm_GetCaption
 
-function TvgReminder_Get_Flash(Self: TvgReminder): Boolean;
+function TvgReminder_pm_GetFlash(Self: TvgReminder): Boolean;
 //#UC START# *536B5D980340_536B5D600367get_var*
 //#UC END# *536B5D980340_536B5D600367get_var*
 begin
@@ -56,9 +56,9 @@ begin
   Result := Flash;
 //#UC END# *536B5D980340_536B5D600367get_impl*
  end;//with Self
-end;//TvgReminder_Get_Flash
+end;//TvgReminder_pm_GetFlash
 
-function TvgReminder_Get_Visible(Self: TvgReminder): Boolean;
+function TvgReminder_pm_GetVisible(Self: TvgReminder): Boolean;
 //#UC START# *53712731020C_536B5D600367get_var*
 //#UC END# *53712731020C_536B5D600367get_var*
 begin
@@ -68,9 +68,9 @@ begin
   Result := Visible;
 //#UC END# *53712731020C_536B5D600367get_impl*
  end;//with Self
-end;//TvgReminder_Get_Visible
+end;//TvgReminder_pm_GetVisible
 
-function TvgReminder_Get_vgImage(Self: TvgReminder): TvgImage;
+function TvgReminder_pm_GetvgImage(Self: TvgReminder): TvgImage;
 //#UC START# *536B5E2E033B_536B5D600367get_var*
 //#UC END# *536B5E2E033B_536B5D600367get_var*
 begin
@@ -80,7 +80,7 @@ begin
   Result := vgImage;
 //#UC END# *536B5E2E033B_536B5D600367get_impl*
  end;//with Self
-end;//TvgReminder_Get_vgImage
+end;//TvgReminder_pm_GetvgImage
 
 procedure TvgReminder_Get_Caption_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

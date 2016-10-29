@@ -32,7 +32,7 @@ uses
 ;
 
 {$If NOT Defined(NoVGScene)}
-function TChromeLikeTab_Get_Text(Self: TChromeLikeTab): AnsiString;
+function TChromeLikeTab_pm_GetText(Self: TChromeLikeTab): AnsiString;
 //#UC START# *551D692303AB_551D67AC02C4get_var*
 //#UC END# *551D692303AB_551D67AC02C4get_var*
 begin
@@ -42,9 +42,9 @@ begin
   Result := Text;
 //#UC END# *551D692303AB_551D67AC02C4get_impl*
  end;//with Self
-end;//TChromeLikeTab_Get_Text
+end;//TChromeLikeTab_pm_GetText
 
-function TChromeLikeTab_Get_IsSelected(Self: TChromeLikeTab): Boolean;
+function TChromeLikeTab_pm_GetIsSelected(Self: TChromeLikeTab): Boolean;
 //#UC START# *551D693400A4_551D67AC02C4get_var*
 //#UC END# *551D693400A4_551D67AC02C4get_var*
 begin
@@ -54,9 +54,9 @@ begin
   Result := Selected;
 //#UC END# *551D693400A4_551D67AC02C4get_impl*
  end;//with Self
-end;//TChromeLikeTab_Get_IsSelected
+end;//TChromeLikeTab_pm_GetIsSelected
 
-function TChromeLikeTab_Get_Visible(Self: TChromeLikeTab): Boolean;
+function TChromeLikeTab_pm_GetVisible(Self: TChromeLikeTab): Boolean;
 //#UC START# *551D69B60184_551D67AC02C4get_var*
 //#UC END# *551D69B60184_551D67AC02C4get_var*
 begin
@@ -66,9 +66,9 @@ begin
   Result := Visible;
 //#UC END# *551D69B60184_551D67AC02C4get_impl*
  end;//with Self
-end;//TChromeLikeTab_Get_Visible
+end;//TChromeLikeTab_pm_GetVisible
 
-function TChromeLikeTab_Get_Hint(Self: TChromeLikeTab): AnsiString;
+function TChromeLikeTab_pm_GetHint(Self: TChromeLikeTab): AnsiString;
 //#UC START# *551D69EA00CA_551D67AC02C4get_var*
 //#UC END# *551D69EA00CA_551D67AC02C4get_var*
 begin
@@ -78,9 +78,9 @@ begin
   Result := HintText;
 //#UC END# *551D69EA00CA_551D67AC02C4get_impl*
  end;//with Self
-end;//TChromeLikeTab_Get_Hint
+end;//TChromeLikeTab_pm_GetHint
 
-function TChromeLikeTab_Get_PositionRect(Self: TChromeLikeTab): TRectWrap;
+function TChromeLikeTab_pm_GetPositionRect(Self: TChromeLikeTab): TRectWrap;
 //#UC START# *551D72CA0359_551D67AC02C4get_var*
 //#UC END# *551D72CA0359_551D67AC02C4get_var*
 begin
@@ -90,7 +90,7 @@ begin
   Result := TRectWrap.Create(PositionRect);
 //#UC END# *551D72CA0359_551D67AC02C4get_impl*
  end;//with Self
-end;//TChromeLikeTab_Get_PositionRect
+end;//TChromeLikeTab_pm_GetPositionRect
 
 procedure TChromeLikeTab_Get_Text_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

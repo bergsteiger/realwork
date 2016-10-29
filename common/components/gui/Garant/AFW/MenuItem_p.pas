@@ -31,7 +31,7 @@ uses
 ;
 
 {$If NOT Defined(NoVCL)}
-function TMenuItem_Get_Caption(Self: TMenuItem): AnsiString;
+function TMenuItem_pm_GetCaption(Self: TMenuItem): AnsiString;
 //#UC START# *49A3EA0603D1_499AF24802D2get_var*
 //#UC END# *49A3EA0603D1_499AF24802D2get_var*
 begin
@@ -41,9 +41,9 @@ begin
   Result := Caption;
 //#UC END# *49A3EA0603D1_499AF24802D2get_impl*
  end;//with Self
-end;//TMenuItem_Get_Caption
+end;//TMenuItem_pm_GetCaption
 
-function TMenuItem_Get_Count(Self: TMenuItem): Integer;
+function TMenuItem_pm_GetCount(Self: TMenuItem): Integer;
 //#UC START# *49A3EAB701E7_499AF24802D2get_var*
 //#UC END# *49A3EAB701E7_499AF24802D2get_var*
 begin
@@ -53,9 +53,9 @@ begin
   Result := Count;
 //#UC END# *49A3EAB701E7_499AF24802D2get_impl*
  end;//with Self
-end;//TMenuItem_Get_Count
+end;//TMenuItem_pm_GetCount
 
-function TMenuItem_Get_MenuIndex(Self: TMenuItem): Integer;
+function TMenuItem_pm_GetMenuIndex(Self: TMenuItem): Integer;
 //#UC START# *49A3EB07006A_499AF24802D2get_var*
 //#UC END# *49A3EB07006A_499AF24802D2get_var*
 begin
@@ -65,9 +65,9 @@ begin
   Result := MenuIndex;
 //#UC END# *49A3EB07006A_499AF24802D2get_impl*
  end;//with Self
-end;//TMenuItem_Get_MenuIndex
+end;//TMenuItem_pm_GetMenuIndex
 
-function TMenuItem_Get_Visible(Self: TMenuItem): Boolean;
+function TMenuItem_pm_GetVisible(Self: TMenuItem): Boolean;
 //#UC START# *49A3EB180091_499AF24802D2get_var*
 //#UC END# *49A3EB180091_499AF24802D2get_var*
 begin
@@ -77,9 +77,9 @@ begin
   Result := Visible;
 //#UC END# *49A3EB180091_499AF24802D2get_impl*
  end;//with Self
-end;//TMenuItem_Get_Visible
+end;//TMenuItem_pm_GetVisible
 
-function TMenuItem_Get_Enabled(Self: TMenuItem): Boolean;
+function TMenuItem_pm_GetEnabled(Self: TMenuItem): Boolean;
 //#UC START# *49A3EB1F0087_499AF24802D2get_var*
 //#UC END# *49A3EB1F0087_499AF24802D2get_var*
 begin
@@ -89,9 +89,9 @@ begin
   Result := Enabled;
 //#UC END# *49A3EB1F0087_499AF24802D2get_impl*
  end;//with Self
-end;//TMenuItem_Get_Enabled
+end;//TMenuItem_pm_GetEnabled
 
-function TMenuItem_Get_Checked(Self: TMenuItem): Boolean;
+function TMenuItem_pm_GetChecked(Self: TMenuItem): Boolean;
 //#UC START# *49A3EB2702F0_499AF24802D2get_var*
 //#UC END# *49A3EB2702F0_499AF24802D2get_var*
 begin
@@ -101,9 +101,9 @@ begin
   Result := Checked;
 //#UC END# *49A3EB2702F0_499AF24802D2get_impl*
  end;//with Self
-end;//TMenuItem_Get_Checked
+end;//TMenuItem_pm_GetChecked
 
-function TMenuItem_Get_Items(Self: TMenuItem;
+function TMenuItem_pm_GetItems(Self: TMenuItem;
  Index: Integer): TMenuItem;
 //#UC START# *49A3EA8000B8_499AF24802D2get_var*
 //#UC END# *49A3EA8000B8_499AF24802D2get_var*
@@ -114,9 +114,9 @@ begin
   Result := Items[Index];
 //#UC END# *49A3EA8000B8_499AF24802D2get_impl*
  end;//with Self
-end;//TMenuItem_Get_Items
+end;//TMenuItem_pm_GetItems
 
-function TMenuItem_Get_Parent(Self: TMenuItem): TMenuItem;
+function TMenuItem_pm_GetParent(Self: TMenuItem): TMenuItem;
 //#UC START# *49A3EAE00085_499AF24802D2get_var*
 //#UC END# *49A3EAE00085_499AF24802D2get_var*
 begin
@@ -126,7 +126,7 @@ begin
   Result := Parent;
 //#UC END# *49A3EAE00085_499AF24802D2get_impl*
  end;//with Self
-end;//TMenuItem_Get_Parent
+end;//TMenuItem_pm_GetParent
 
 procedure TMenuItem_Get_Caption_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

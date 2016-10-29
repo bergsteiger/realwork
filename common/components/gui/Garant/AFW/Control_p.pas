@@ -39,7 +39,7 @@ type
   {* ƒруг к классу TControl }
  end;//TControlFriend
 
-function TControl_Get_QCPopupMenu(Self: TControlFriend): TPopupMenu;
+function TControl_pm_GetQCPopupMenu(Self: TControlFriend): TPopupMenu;
 //#UC START# *49A575600252_49A572510280get_var*
 //#UC END# *49A575600252_49A572510280get_var*
 begin
@@ -49,7 +49,7 @@ begin
   Result := PopupMenu;
 //#UC END# *49A575600252_49A572510280get_impl*
  end;//with Self
-end;//TControl_Get_QCPopupMenu
+end;//TControl_pm_GetQCPopupMenu
 
 procedure TControl_Get_QCPopupMenu_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

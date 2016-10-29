@@ -1,0 +1,34 @@
+// NewReminders 536A56A6004E TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_536A56A6004E_diagrams
+
+ MEDIAGRAM ME_536A56A6004E_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_536A56A6004E' ; // NewReminders
+
+  MEVIEW ME_536A57190399_view
+   MELINK Original WL 'ME_536A57190399' '536A56A6004E.ms.model.script' ; // TvgRemindersLine
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_536A57190399_view
+
+  MEVIEW ME_536B5D600367_view
+   MELINK Original WL 'ME_536B5D600367' '536A56A6004E.ms.model.script' ; // TvgReminder
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_536B5D600367_view
+
+  MELIST Views
+   Seq: ( ME_536A57190399_view // TvgRemindersLine
+   ME_536B5D600367_view // TvgReminder
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_536A56A6004E_main
+
+ MELIST Diagrams
+  Seq: ( ME_536A56A6004E_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_536A56A6004E_diagrams

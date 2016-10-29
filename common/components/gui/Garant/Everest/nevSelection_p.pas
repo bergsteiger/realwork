@@ -32,7 +32,7 @@ uses
  , tc6PublicInfo
 ;
 
-function TnevSelection_Get_CurrentObjectType(Self: TnevSelection): AnsiString;
+function TnevSelection_pm_GetCurrentObjectType(Self: TnevSelection): AnsiString;
 //#UC START# *499985C40249_49997D89034Eget_var*
 //#UC END# *499985C40249_49997D89034Eget_var*
 begin
@@ -42,9 +42,9 @@ begin
   Result := Cursor.MostInner.Obj.AsObject.StrA[k2_tiType];
 //#UC END# *499985C40249_49997D89034Eget_impl*
  end;//with Self
-end;//TnevSelection_Get_CurrentObjectType
+end;//TnevSelection_pm_GetCurrentObjectType
 
-function TnevSelection_Get_CurrentObjectName(Self: TnevSelection): AnsiString;
+function TnevSelection_pm_GetCurrentObjectName(Self: TnevSelection): AnsiString;
 //#UC START# *4999A08E01C9_49997D89034Eget_var*
 //#UC END# *4999A08E01C9_49997D89034Eget_var*
 begin
@@ -54,9 +54,9 @@ begin
   Result := Cursor.MostInner.Obj.AsObject.StrA[k2_tiName];
 //#UC END# *4999A08E01C9_49997D89034Eget_impl*
  end;//with Self
-end;//TnevSelection_Get_CurrentObjectName
+end;//TnevSelection_pm_GetCurrentObjectName
 
-function TnevSelection_Get_CurrentObjectShortName(Self: TnevSelection): AnsiString;
+function TnevSelection_pm_GetCurrentObjectShortName(Self: TnevSelection): AnsiString;
 //#UC START# *4999A09D0016_49997D89034Eget_var*
 //#UC END# *4999A09D0016_49997D89034Eget_var*
 begin
@@ -66,9 +66,9 @@ begin
   Result := Cursor.MostInner.Obj.AsObject.StrA[k2_tiShortName];
 //#UC END# *4999A09D0016_49997D89034Eget_impl*
  end;//with Self
-end;//TnevSelection_Get_CurrentObjectShortName
+end;//TnevSelection_pm_GetCurrentObjectShortName
 
-function TnevSelection_Get_CurrentObjectText(Self: TnevSelection): AnsiString;
+function TnevSelection_pm_GetCurrentObjectText(Self: TnevSelection): AnsiString;
 //#UC START# *4999A0A60316_49997D89034Eget_var*
 //#UC END# *4999A0A60316_49997D89034Eget_var*
 begin
@@ -78,9 +78,9 @@ begin
   Result := Cursor.MostInner.Obj.AsObject.StrA[k2_tiText];
 //#UC END# *4999A0A60316_49997D89034Eget_impl*
  end;//with Self
-end;//TnevSelection_Get_CurrentObjectText
+end;//TnevSelection_pm_GetCurrentObjectText
 
-function TnevSelection_Get_CurrentObjectOwnerReqId(Self: TnevSelection): AnsiString;
+function TnevSelection_pm_GetCurrentObjectOwnerReqId(Self: TnevSelection): AnsiString;
 //#UC START# *4999A0B201AF_49997D89034Eget_var*
 //#UC END# *4999A0B201AF_49997D89034Eget_var*
 begin
@@ -90,9 +90,9 @@ begin
   Result := Cursor.MostInner.Obj.OwnerObj.OwnerObj.AsObject.StrA[k2_tiReqID];
 //#UC END# *4999A0B201AF_49997D89034Eget_impl*
  end;//with Self
-end;//TnevSelection_Get_CurrentObjectOwnerReqId
+end;//TnevSelection_pm_GetCurrentObjectOwnerReqId
 
-function TnevSelection_Get_CurrentObjectRowID(Self: TnevSelection): TnevParaIndex;
+function TnevSelection_pm_GetCurrentObjectRowID(Self: TnevSelection): TnevParaIndex;
 //#UC START# *4999A0D501E5_49997D89034Eget_var*
 //#UC END# *4999A0D501E5_49997D89034Eget_var*
 begin
@@ -102,9 +102,9 @@ begin
   Result := Cursor.MostInner.Obj.OwnerObj.OwnerObj.PID;
 //#UC END# *4999A0D501E5_49997D89034Eget_impl*
  end;//with Self
-end;//TnevSelection_Get_CurrentObjectRowID
+end;//TnevSelection_pm_GetCurrentObjectRowID
 
-function TnevSelection_Get_CurrentObjectCellID(Self: TnevSelection): TnevParaIndex;
+function TnevSelection_pm_GetCurrentObjectCellID(Self: TnevSelection): TnevParaIndex;
 //#UC START# *4999A0F302F1_49997D89034Eget_var*
 //#UC END# *4999A0F302F1_49997D89034Eget_var*
 begin
@@ -114,9 +114,9 @@ begin
   Result := Cursor.MostInner.Obj.OwnerObj.PID;
 //#UC END# *4999A0F302F1_49997D89034Eget_impl*
  end;//with Self
-end;//TnevSelection_Get_CurrentObjectCellID
+end;//TnevSelection_pm_GetCurrentObjectCellID
 
-function TnevSelection_Get_CurrentObjectOwnerText(Self: TnevSelection): AnsiString;
+function TnevSelection_pm_GetCurrentObjectOwnerText(Self: TnevSelection): AnsiString;
 //#UC START# *4999A10101CF_49997D89034Eget_var*
 //#UC END# *4999A10101CF_49997D89034Eget_var*
 begin
@@ -126,9 +126,9 @@ begin
   Result := Cursor.MostInner.Obj.OwnerObj.AsObject.StrA[k2_tiText];
 //#UC END# *4999A10101CF_49997D89034Eget_impl*
  end;//with Self
-end;//TnevSelection_Get_CurrentObjectOwnerText
+end;//TnevSelection_pm_GetCurrentObjectOwnerText
 
-function TnevSelection_Get_CurrentObjectState(Self: TnevSelection): Integer;
+function TnevSelection_pm_GetCurrentObjectState(Self: TnevSelection): Integer;
 //#UC START# *4999A10C005F_49997D89034Eget_var*
 //#UC END# *4999A10C005F_49997D89034Eget_var*
 begin
@@ -138,9 +138,9 @@ begin
   Result := Cursor.MostInner.Obj.AsObject.IntA[k2_tiStateIndex] - Cursor.MostInner.Obj.AsObject.IntA[k2_tiImageIndex];
 //#UC END# *4999A10C005F_49997D89034Eget_impl*
  end;//with Self
-end;//TnevSelection_Get_CurrentObjectState
+end;//TnevSelection_pm_GetCurrentObjectState
 
-function TnevSelection_Get_CardType(Self: TnevSelection): Integer;
+function TnevSelection_pm_GetCardType(Self: TnevSelection): Integer;
 //#UC START# *4999A1180355_49997D89034Eget_var*
 //#UC END# *4999A1180355_49997D89034Eget_var*
 begin
@@ -150,9 +150,9 @@ begin
   Result := Document.IntA[k2_tiCardType];
 //#UC END# *4999A1180355_49997D89034Eget_impl*
  end;//with Self
-end;//TnevSelection_Get_CardType
+end;//TnevSelection_pm_GetCardType
 
-function TnevSelection_Get_Caret(Self: TnevSelection): TafwCaret;
+function TnevSelection_pm_GetCaret(Self: TnevSelection): TafwCaret;
 //#UC START# *4999A48D0296_49997D89034Eget_var*
 //#UC END# *4999A48D0296_49997D89034Eget_var*
 begin
@@ -162,7 +162,7 @@ begin
   Result := Caret;
 //#UC END# *4999A48D0296_49997D89034Eget_impl*
  end;//with Self
-end;//TnevSelection_Get_Caret
+end;//TnevSelection_pm_GetCaret
 
 procedure TnevSelection_Get_CurrentObjectType_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

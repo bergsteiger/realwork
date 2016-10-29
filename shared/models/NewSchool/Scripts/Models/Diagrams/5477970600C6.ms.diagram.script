@@ -1,0 +1,41 @@
+// Wrap 5477970600C6 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_5477970600C6_diagrams
+
+ MEDIAGRAM ME_5477970600C6_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_5477970600C6' ; // Wrap
+
+  MEVIEW ME_547869730335_view
+   MELINK Original WL? 'ME_547869730335' ; // TRectWrap
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_547869730335_view
+
+  MEVIEW ME_5477971800CE_view
+   MELINK Original WL? 'ME_5477971800CE' ; // TvcmMenuForChromeLikeItemWrap
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5477971800CE_view
+
+  MEVIEWLINK ME_5477ADBA02BC_viewlink
+   MELINK Original WL 'ME_5477ADBA02BC' '5477971800CE.ms.model.script' ;
+   MELINK From ME_5477971800CE_view ;
+   MELINK To ME_547869730335_view ;
+  ENDMEVIEWLINK // ME_5477ADBA02BC_viewlink
+
+  MELIST Views
+   Seq: ( ME_547869730335_view // TRectWrap
+   ME_5477971800CE_view // TvcmMenuForChromeLikeItemWrap
+   ME_5477ADBA02BC_viewlink // TvcmMenuForChromeLikeItemWrap ==> TRectWrap
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5477970600C6_main
+
+ MELIST Diagrams
+  Seq: ( ME_5477970600C6_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5477970600C6_diagrams

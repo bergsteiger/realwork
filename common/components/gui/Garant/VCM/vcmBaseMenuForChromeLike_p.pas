@@ -37,7 +37,7 @@ type
   {* ƒруг к классу TvcmBaseMenuForChromeLike }
  end;//TvcmBaseMenuForChromeLikeFriend
 
-function TvcmBaseMenuForChromeLike_Get_ItemCount(Self: TvcmBaseMenuForChromeLikeFriend): Integer;
+function TvcmBaseMenuForChromeLike_pm_GetItemCount(Self: TvcmBaseMenuForChromeLikeFriend): Integer;
 //#UC START# *547769DD0375_54776921001Aget_var*
 //#UC END# *547769DD0375_54776921001Aget_var*
 begin
@@ -47,9 +47,9 @@ begin
   Result := ItemCount;
 //#UC END# *547769DD0375_54776921001Aget_impl*
  end;//with Self
-end;//TvcmBaseMenuForChromeLike_Get_ItemCount
+end;//TvcmBaseMenuForChromeLike_pm_GetItemCount
 
-function TvcmBaseMenuForChromeLike_Get_Items(Self: TvcmBaseMenuForChromeLikeFriend;
+function TvcmBaseMenuForChromeLike_pm_GetItems(Self: TvcmBaseMenuForChromeLikeFriend;
  Index: Integer): TvcmMenuForChromeLikeItemWrap;
 //#UC START# *54779C5903A7_54776921001Aget_var*
 //#UC END# *54779C5903A7_54776921001Aget_var*
@@ -60,7 +60,7 @@ begin
   Result := TvcmMenuForChromeLikeItemWrap.Create(Items[Index]);
 //#UC END# *54779C5903A7_54776921001Aget_impl*
  end;//with Self
-end;//TvcmBaseMenuForChromeLike_Get_Items
+end;//TvcmBaseMenuForChromeLike_pm_GetItems
 
 procedure TvcmBaseMenuForChromeLike_Get_ItemCount_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

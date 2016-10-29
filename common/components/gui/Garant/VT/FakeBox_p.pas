@@ -28,7 +28,7 @@ uses
  , tc6PublicInfo
 ;
 
-function TFakeBox_Get_ItemIndex(Self: TFakeBox): Integer;
+function TFakeBox_pm_GetItemIndex(Self: TFakeBox): Integer;
 //#UC START# *499A86B50355_499A86AA0326get_var*
 //#UC END# *499A86B50355_499A86AA0326get_var*
 begin
@@ -38,9 +38,9 @@ begin
  Result := ItemIndex;
 //#UC END# *499A86B50355_499A86AA0326get_impl*
  end;//with Self
-end;//TFakeBox_Get_ItemIndex
+end;//TFakeBox_pm_GetItemIndex
 
-procedure TFakeBox_Set_ItemIndex(Self: TFakeBox;
+procedure TFakeBox_pm_SetItemIndex(Self: TFakeBox;
  aValue: Integer);
 //#UC START# *499A86B50355_499A86AA0326set_var*
 //#UC END# *499A86B50355_499A86AA0326set_var*
@@ -51,7 +51,7 @@ begin
  ItemIndex := aValue;
 //#UC END# *499A86B50355_499A86AA0326set_impl*
  end;//with Self
-end;//TFakeBox_Set_ItemIndex
+end;//TFakeBox_pm_SetItemIndex
 
 procedure TFakeBox_Get_ItemIndex_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

@@ -1,0 +1,34 @@
+// ComboTree 499A8677021B TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_499A8677021B_diagrams
+
+ MEDIAGRAM ME_499A8677021B_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_499A8677021B' ; // ComboTree
+
+  MEVIEW ME_499A86AA0326_view
+   MELINK Original WL 'ME_499A86AA0326' '499A8677021B.ms.model.script' ; // TFakeBox
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_499A86AA0326_view
+
+  MEVIEW ME_499AE0580291_view
+   MELINK Original WL 'ME_499AE0580291' '499A8677021B.ms.model.script' ; // TSubTree
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_499AE0580291_view
+
+  MELIST Views
+   Seq: ( ME_499A86AA0326_view // TFakeBox
+   ME_499AE0580291_view // TSubTree
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_499A8677021B_main
+
+ MELIST Diagrams
+  Seq: ( ME_499A8677021B_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_499A8677021B_diagrams

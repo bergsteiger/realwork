@@ -31,7 +31,7 @@ uses
 ;
 
 {$If NOT Defined(NoVGScene)}
-function TChromeLikeTabSetControl_Get_TabCount(Self: TChromeLikeTabSetControl): Integer;
+function TChromeLikeTabSetControl_pm_GetTabCount(Self: TChromeLikeTabSetControl): Integer;
 //#UC START# *551D543A00E5_551D53DB0049get_var*
 //#UC END# *551D543A00E5_551D53DB0049get_var*
 begin
@@ -41,9 +41,9 @@ begin
   Result := TabCount;
 //#UC END# *551D543A00E5_551D53DB0049get_impl*
  end;//with Self
-end;//TChromeLikeTabSetControl_Get_TabCount
+end;//TChromeLikeTabSetControl_pm_GetTabCount
 
-function TChromeLikeTabSetControl_Get_Tabs(Self: TChromeLikeTabSetControl;
+function TChromeLikeTabSetControl_pm_GetTabs(Self: TChromeLikeTabSetControl;
  Index: Integer): TChromeLikeTab;
 //#UC START# *551D5407013B_551D53DB0049get_var*
 //#UC END# *551D5407013B_551D53DB0049get_var*
@@ -54,7 +54,7 @@ begin
   Result := Tabs[Index];
 //#UC END# *551D5407013B_551D53DB0049get_impl*
  end;//with Self
-end;//TChromeLikeTabSetControl_Get_Tabs
+end;//TChromeLikeTabSetControl_pm_GetTabs
 
 procedure TChromeLikeTabSetControl_Get_TabCount_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

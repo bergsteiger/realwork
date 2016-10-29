@@ -1,0 +1,76 @@
+// TnsWindowsListPrim 4ADC5146016D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4ADC5146016D_diagrams
+
+ MEDIAGRAM ME_4ADC5146016D_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4ADC5146016D' ; // TnsWindowsListPrim
+
+  MEVIEW ME_4ADC55470317_view
+   MELINK Original WL 'ME_4ADC55470317' '4ADC5146016D.ms.model.script' ; // TnsUniqueName
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4ADC55470317_view
+
+  MEVIEW ME_4ADC538702FA_view
+   MELINK Original WL 'ME_4ADC538702FA' '4ADC5146016D.ms.model.script' ; // CheckLength
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4ADC538702FA_view
+
+  MEVIEW ME_4ADC54290390_view
+   MELINK Original WL 'ME_4ADC54290390' '4ADC5146016D.ms.model.script' ; // FindNode
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4ADC54290390_view
+
+  MEVIEW ME_4ADC5467036A_view
+   MELINK Original WL 'ME_4ADC5467036A' '4ADC5146016D.ms.model.script' ; // Remove
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4ADC5467036A_view
+
+  MEVIEW ME_4ADC54070106_view
+   MELINK Original WL 'ME_4ADC54070106' '4ADC5146016D.ms.model.script' ; // Reload
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4ADC54070106_view
+
+  MEVIEW ME_4ADC564B01E9_view
+   MELINK Original WL 'ME_4ADC564B01E9' '4ADC5146016D.ms.model.script' ; // nsGetWindowCaption
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_4ADC564B01E9_view
+
+  MEVIEW ME_4ADC531F03B4_view
+   MELINK Original WL 'ME_4ADC531F03B4' '4ADC5146016D.ms.model.script' ; // Root
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_4ADC531F03B4_view
+
+  MEVIEWLINK ME_521B85F003B3_viewlink
+   MELINK Original WL 'ME_521B85F003B3' '4ADC5146016D.ms.model.script' ;
+   MELINK From ME_4ADC54070106_view ;
+   MELINK To ME_4ADC55470317_view ;
+  ENDMEVIEWLINK // ME_521B85F003B3_viewlink
+
+  MELIST Views
+   Seq: ( ME_4ADC55470317_view // TnsUniqueName
+   ME_4ADC538702FA_view // CheckLength
+   ME_4ADC54290390_view // FindNode
+   ME_4ADC5467036A_view // Remove
+   ME_4ADC54070106_view // Reload
+   ME_4ADC564B01E9_view // nsGetWindowCaption
+   ME_4ADC531F03B4_view // Root
+   ME_521B85F003B3_viewlink // Reload ==> TnsUniqueName
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4ADC5146016D_main
+
+ MELIST Diagrams
+  Seq: ( ME_4ADC5146016D_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4ADC5146016D_diagrams

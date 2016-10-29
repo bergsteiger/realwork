@@ -31,7 +31,7 @@ uses
 ;
 
 {$If NOT Defined(NoVGScene)}
-function TvgRemindersLine_Get_Count(Self: TvgRemindersLine): Integer;
+function TvgRemindersLine_pm_GetCount(Self: TvgRemindersLine): Integer;
 //#UC START# *536B5DA30257_536A57190399get_var*
 //#UC END# *536B5DA30257_536A57190399get_var*
 begin
@@ -41,9 +41,9 @@ begin
   Result := Count;
 //#UC END# *536B5DA30257_536A57190399get_impl*
  end;//with Self
-end;//TvgRemindersLine_Get_Count
+end;//TvgRemindersLine_pm_GetCount
 
-function TvgRemindersLine_Get_Reminder(Self: TvgRemindersLine;
+function TvgRemindersLine_pm_GetReminder(Self: TvgRemindersLine;
  Index: Integer): TvgReminder;
 //#UC START# *536AC39500C3_536A57190399get_var*
 //#UC END# *536AC39500C3_536A57190399get_var*
@@ -54,7 +54,7 @@ begin
   Result := Reminder[Index];
 //#UC END# *536AC39500C3_536A57190399get_impl*
  end;//with Self
-end;//TvgRemindersLine_Get_Reminder
+end;//TvgRemindersLine_pm_GetReminder
 
 procedure TvgRemindersLine_Get_Count_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

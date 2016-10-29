@@ -53,7 +53,7 @@ begin
  end;//with Self
 end;//TSubTree_GoToBeginNode
 
-function TSubTree_Get_CurrentNodeLevel(Self: TSubTree): Integer;
+function TSubTree_pm_GetCurrentNodeLevel(Self: TSubTree): Integer;
 //#UC START# *499AE6750165_499AE0580291get_var*
 //#UC END# *499AE6750165_499AE0580291get_var*
 begin
@@ -63,9 +63,9 @@ begin
   Result := TreeStruct.GetLevel(GetCurrentNode);
 //#UC END# *499AE6750165_499AE0580291get_impl*
  end;//with Self
-end;//TSubTree_Get_CurrentNodeLevel
+end;//TSubTree_pm_GetCurrentNodeLevel
 
-function TSubTree_Get_CurrentNodeIndex(Self: TSubTree): Integer;
+function TSubTree_pm_GetCurrentNodeIndex(Self: TSubTree): Integer;
 //#UC START# *499AE7600051_499AE0580291get_var*
 //#UC END# *499AE7600051_499AE0580291get_var*
 begin
@@ -75,9 +75,9 @@ begin
  Result := TreeStruct.GetIndex(GetCurrentNode);
 //#UC END# *499AE7600051_499AE0580291get_impl*
  end;//with Self
-end;//TSubTree_Get_CurrentNodeIndex
+end;//TSubTree_pm_GetCurrentNodeIndex
 
-function TSubTree_Get_CurrentNodeExpanded(Self: TSubTree): Boolean;
+function TSubTree_pm_GetCurrentNodeExpanded(Self: TSubTree): Boolean;
 //#UC START# *499AE76A0273_499AE0580291get_var*
 //#UC END# *499AE76A0273_499AE0580291get_var*
 begin
@@ -87,7 +87,7 @@ begin
   Result := TreeStruct.IsExpanded(GetCurrentNode);
 //#UC END# *499AE76A0273_499AE0580291get_impl*
  end;//with Self
-end;//TSubTree_Get_CurrentNodeExpanded
+end;//TSubTree_pm_GetCurrentNodeExpanded
 
 procedure TSubTree_ExpandCurrentNode_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

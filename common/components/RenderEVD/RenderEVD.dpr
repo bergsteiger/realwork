@@ -461,6 +461,7 @@ uses
  , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
  , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
  , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
+ , tfwParserServiceFileNameToFileNameMap in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParserServiceFileNameToFileNameMap.pas'
  , IniFiles {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\IniFiles.pas' {$EndIf}
  , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
  {$If NOT Defined(NoScripts)}
@@ -795,6 +796,7 @@ uses
  {$If NOT Defined(NoScripts) AND NOT Defined(NoImageEn)}
  , kwImageEnControl in 'w:\common\components\rtl\Garant\ScriptEngine\kwImageEnControl.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoImageEn)
+ , l3ImageUtils in 'w:\common\components\rtl\Garant\L3\l3ImageUtils.pas'
  {$If NOT Defined(NoScripts) AND NOT Defined(NoImageEn)}
  , ImageEnViewRegistrator in 'w:\common\components\rtl\Garant\ScriptEngine\ImageEnViewRegistrator.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoImageEn)
@@ -803,7 +805,6 @@ uses
  , imageenio in 'w:\common\components\rtl\external\ImageEn\src\imageenio.pas'
  {$IfEnd} // NOT Defined(NoImageEn)
  , ddConst in 'w:\common\components\rtl\Garant\dd\ddConst.pas'
- , l3ImageUtils in 'w:\common\components\rtl\Garant\L3\l3ImageUtils.pas'
  , l3Metafile in 'w:\common\components\rtl\Garant\L3\l3Metafile.pas'
  , Consts {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Consts.pas' {$EndIf}
  , ddHexCharReader in 'w:\common\components\rtl\Garant\dd\ddHexCharReader.pas'

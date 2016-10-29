@@ -30,7 +30,7 @@ uses
  , tc6PublicInfo
 ;
 
-function TafwCaret_Get_X(Self: TafwCaret): Integer;
+function TafwCaret_pm_GetX(Self: TafwCaret): Integer;
 //#UC START# *4999A591039A_4999A54402D3get_var*
 //#UC END# *4999A591039A_4999A54402D3get_var*
 begin
@@ -40,9 +40,9 @@ begin
   Result := Position.X;
 //#UC END# *4999A591039A_4999A54402D3get_impl*
  end;//with Self
-end;//TafwCaret_Get_X
+end;//TafwCaret_pm_GetX
 
-function TafwCaret_Get_Y(Self: TafwCaret): Integer;
+function TafwCaret_pm_GetY(Self: TafwCaret): Integer;
 //#UC START# *4999A59B011A_4999A54402D3get_var*
 //#UC END# *4999A59B011A_4999A54402D3get_var*
 begin
@@ -52,9 +52,9 @@ begin
   Result := Position.Y;
 //#UC END# *4999A59B011A_4999A54402D3get_impl*
  end;//with Self
-end;//TafwCaret_Get_Y
+end;//TafwCaret_pm_GetY
 
-function TafwCaret_Get_CellHeight(Self: TafwCaret): Integer;
+function TafwCaret_pm_GetCellHeight(Self: TafwCaret): Integer;
 //#UC START# *4999A5A5023C_4999A54402D3get_var*
 //#UC END# *4999A5A5023C_4999A54402D3get_var*
 begin
@@ -64,9 +64,9 @@ begin
   Result := CellHeight;
 //#UC END# *4999A5A5023C_4999A54402D3get_impl*
  end;//with Self
-end;//TafwCaret_Get_CellHeight
+end;//TafwCaret_pm_GetCellHeight
 
-function TafwCaret_Get_CellWidth(Self: TafwCaret): Integer;
+function TafwCaret_pm_GetCellWidth(Self: TafwCaret): Integer;
 //#UC START# *4999A5B103E1_4999A54402D3get_var*
 //#UC END# *4999A5B103E1_4999A54402D3get_var*
 begin
@@ -76,9 +76,9 @@ begin
   Result := CellWidth;
 //#UC END# *4999A5B103E1_4999A54402D3get_impl*
  end;//with Self
-end;//TafwCaret_Get_CellWidth
+end;//TafwCaret_pm_GetCellWidth
 
-function TafwCaret_Get_InsCaretType(Self: TafwCaret): TafwInsCaretType;
+function TafwCaret_pm_GetInsCaretType(Self: TafwCaret): TafwInsCaretType;
 //#UC START# *4999A5DB03C9_4999A54402D3get_var*
 //#UC END# *4999A5DB03C9_4999A54402D3get_var*
 begin
@@ -88,9 +88,9 @@ begin
   Result := InsCaretType;
 //#UC END# *4999A5DB03C9_4999A54402D3get_impl*
  end;//with Self
-end;//TafwCaret_Get_InsCaretType
+end;//TafwCaret_pm_GetInsCaretType
 
-function TafwCaret_Get_OvrCaretType(Self: TafwCaret): TafwOvrCaretType;
+function TafwCaret_pm_GetOvrCaretType(Self: TafwCaret): TafwOvrCaretType;
 //#UC START# *4999A5E5007C_4999A54402D3get_var*
 //#UC END# *4999A5E5007C_4999A54402D3get_var*
 begin
@@ -100,7 +100,7 @@ begin
   Result := OvrCaretType;
 //#UC END# *4999A5E5007C_4999A54402D3get_impl*
  end;//with Self
-end;//TafwCaret_Get_OvrCaretType
+end;//TafwCaret_pm_GetOvrCaretType
 
 procedure TafwCaret_Get_X_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin
