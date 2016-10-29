@@ -1,0 +1,34 @@
+// oneway 470F56670000 MDAOperation Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_470F56670000_diagrams
+
+ MEDIAGRAM ME_470F56670000_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_470F56670000' '478DF69F0205.ms.model.script' ; // oneway
+
+  MEVIEW ME_470F641E0157_view
+   MELINK Original WL 'ME_470F641E0157' '478DF69F0205.ms.model.script' ; // param
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_470F641E0157_view
+
+  MEVIEW ME_470F568E035B_view
+   MELINK Original WL 'ME_470F568E035B' '478DF69F0205.ms.model.script' ; // separate thread pool
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_470F568E035B_view
+
+  MELIST Views
+   Seq: ( ME_470F641E0157_view // param
+   ME_470F568E035B_view // separate thread pool
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_470F56670000_main
+
+ MELIST Diagrams
+  Seq: ( ME_470F56670000_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_470F56670000_diagrams
