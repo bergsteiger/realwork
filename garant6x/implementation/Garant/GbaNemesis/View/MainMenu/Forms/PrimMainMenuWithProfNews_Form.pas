@@ -692,22 +692,24 @@ begin
  begin
   if DefDataAdapter.IsInternetAgentEnabled then
   begin
-   //http://mdp.garant.ru/pages/viewpage.action?pageId=431371899
-   afw.BeginOp;
-   try
-    nsOpenDocumentByNumber(c_OnlineResDocId + c_InternalDocShift, 0, dptSub, True);
-   finally
-    afw.EndOp;
-   end;//try..finally
+   if (afw.Application.LocaleInfo.Language = afw_lngEnglish) then
+    vcmDispatcher.ModuleOperation(mod_opcode_InternetAgentService_InternetAgent)
+   else
+   begin
+    //http://mdp.garant.ru/pages/viewpage.action?pageId=431371899
+    afw.BeginOp;
+    try
+     nsOpenDocumentByNumber(c_OnlineResDocId + c_InternalDocShift, 0, dptSub, True);
+    finally
+     afw.EndOp;
+    end;//try..finally
+   end;
   end;
  end//Sender = pbOnLineResources
  else
  if (Sender = pbWebVersion) then
  begin
-  if (afw.Application.LocaleInfo.Language = afw_lngEnglish) then
-   vcmDispatcher.ModuleOperation(mod_opcode_InternetAgentService_InternetAgent)
-  else
-   vcmDispatcher.ModuleOperation(mod_opcode_CommonService_OpenIntranet);
+  vcmDispatcher.ModuleOperation(mod_opcode_CommonService_OpenIntranet);
  end;//Sender = pbWebVersion
 //#UC END# *57023AD501A4_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.PaintBoxClick

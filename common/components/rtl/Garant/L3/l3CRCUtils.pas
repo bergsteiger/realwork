@@ -8,7 +8,14 @@ uses
   Classes
   ;
 
-function L3CalcCRC32(aStream: TStream): Cardinal;
+
+function l3CalcCRC32(aStream: TStream;
+ ReadOffset: Int64 = 0;
+ ReadSize: Int64 = -1): Cardinal;
+
+procedure l3AccumulateBufferCRC32(var theCRC: Cardinal;
+ aBuffer: Pointer;
+ aSize: Cardinal);
 
 implementation
 
@@ -16,7 +23,7 @@ implementation
 
 uses zlibh;
 
-function L3CalcCRC32(aStream: TStream): Cardinal;
+function l3CalcCRC32(aStream: TStream; ReadOffset: Int64 = 0; ReadSize: Int64 = -1): Cardinal;
 const
  c_BufLen = 32 * 1024;
 var
@@ -26,8 +33,10 @@ var
  l_Buf: array[1..c_BufLen] of Byte;
  I: Integer;
 begin
- aStream.Seek(0, soBeginning);
- l_TotalBytes := aStream.Size;
+ aStream.Seek(ReadOffset, soBeginning);
+ l_TotalBytes := aStream.Size - aStream.Position;
+ if (ReadSize >= 0) and (l_TotalBytes > ReadSize) then
+  l_TotalBytes := ReadSize;
  Result := zlibh.crc32(0, nil, 0);
  while l_TotalBytes > 0 do
  begin
@@ -42,5 +51,12 @@ begin
   l_TotalBytes := l_TotalBytes - l_BytesToRead;
  end;
 end;//L3CalcCRC32
+
+procedure l3AccumulateBufferCRC32(var theCRC: Cardinal;
+ aBuffer: Pointer;
+ aSize: Cardinal);
+begin
+ theCRC := zlibh.crc32(theCRC, aBuffer, aSize);
+end;//l3AccumulateBufferCRC32
 
 end.

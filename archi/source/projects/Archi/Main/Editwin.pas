@@ -1,6 +1,6 @@
 unit Editwin;
 
-{ $Id: Editwin.pas,v 1.198 2016/09/14 11:35:38 dinishev Exp $ }
+{ $Id: Editwin.pas,v 1.199 2016/10/20 10:28:52 dinishev Exp $ }
 
 {$I arDefine.inc}
 
@@ -571,6 +571,8 @@ type
     acPMRelSubPanelSubNum: TAction;
     acSaveLocal: TAction;
     miLinkAddressToClipboard: TMenuItem;
+    acStyleRightSBS: TAction;
+    miUserStyleSBSRight: TMenuItem;
 
    procedure FormClose(Sender: TObject; var Action: TCloseAction);
    procedure FormDestroy(Sender: TObject);
@@ -6596,8 +6598,8 @@ begin
   10: CurEditor.TextPara.Style.ID := ev_saVersionInfo;   {-Информация о версии}
   11: evSetExpiredStyle(CurEditor, ev_saNotApplied);                  {-Не вступил в силу}
   12: CurEditor.TextPara.Style.ID := ev_saTechComment;   {-Тех. коментарий}
-  13: CurEditor.TextPara.Style.ID := ev_saEnclosureHeader;   {-Заголовок приложения}    
-
+  13: CurEditor.TextPara.Style.ID := ev_saEnclosureHeader;  {-Заголовок приложения}
+  14: CurEditor.TextPara.Style.ID := ev_saNormalSBSRight;   {-Нормальный (приж. вправо)}
 
   //CurEditor.TextPara.Style.ID :=ev_saNormalTable;    {-Нормальный для таблиц}
  end;

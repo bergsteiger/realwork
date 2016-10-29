@@ -12,6 +12,8 @@ interface
 uses
  l3IntfUses
  , csProcessTask
+ , evdDTTypes
+ , evdTasksHelpers
  , k2Base
 ;
 

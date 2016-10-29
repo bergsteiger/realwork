@@ -643,6 +643,10 @@ var
 begin
 //#UC START# *47EA4E9002C6_49257BB801C7_impl*
  inherited;
+
+ if not defDataAdapter.IsInpharmExists then
+  Exit;
+
  if Supports(pm_GetSimpleTree.RootNode, INodeBase, l_Root) then
  begin
   l_Root.FindNode(f_Current, l_Node);

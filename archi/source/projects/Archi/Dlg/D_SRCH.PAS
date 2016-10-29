@@ -1,6 +1,6 @@
 unit D_Srch;
 
-{ $Id: D_SRCH.PAS,v 1.100 2016/06/16 05:38:44 lukyanets Exp $ }
+{ $Id: D_SRCH.PAS,v 1.101 2016/10/20 16:58:42 voba Exp $ }
 
 {$I l3Define.inc}
 
@@ -140,6 +140,7 @@ type
     procedure cbxWithEqualsClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure cbNumberChange(Sender: TObject);
 
    private
     fQuery         : TdtQuery;
@@ -159,6 +160,7 @@ type
     fFamily : TdaFamilyID;
     fDocument     : TarDocumentWithAttr;
     f_AlienQuery: TdtQuery;
+    fNeedRefreshNumberList : boolean;
 
     procedure AddToAlien(aQuery: TdtQuery);
     function TSAddBrackets(Sender: TObject;
@@ -667,7 +669,7 @@ begin
     if (lQuery is TdtMainAttrQuery) and (TdtMainAttrQuery(lQuery).Field = fUrgency_fld) then
      cbUrgency.ItemIndex := TdtMainAttrQuery(lQuery).Value + 1
     else
-     AddToAlien(lQuery); 
+     AddToAlien(lQuery);
    end;
 
 end;
@@ -698,8 +700,14 @@ end;
 procedure TDocSearchDlg.cbDocTypeChange(Sender: TObject);
 begin
  TComponent(Sender).Tag:=1;
- If Sender = cbDocType then cbNumber.Items.Clear;
+ fNeedRefreshNumberList := True;
  IniRec.PrefDNType := cbDocType.ItemIndex;
+end;
+
+procedure TDocSearchDlg.cbNumberChange(Sender: TObject);
+begin
+ TComponent(Sender).Tag:=1;
+ fNeedRefreshNumberList := True;
 end;
 
 procedure TDocSearchDlg.cbxSrchInNameOnlyClick(Sender: TObject);
@@ -770,11 +778,12 @@ end;
 
 procedure TDocSearchDlg.cbNumberDropDown(Sender: TObject);
 begin
- if cbNumber.Items.Count = 0 then
+ if (cbNumber.Items.Count = 0) or (fNeedRefreshNumberList) then
  begin
+  fNeedRefreshNumberList := false;
   Screen.Cursor:=crHourGlass;
   try
-   DictServer(Family).GetNumberList(TDNType(cbDocType.ItemIndex),cbNumber.Items);
+   DictServer(Family).GetNumberList(TDNType(cbDocType.ItemIndex),cbNumber.Text, cbNumber.Items);
   finally
    Screen.Cursor:=crDefault;
   end;

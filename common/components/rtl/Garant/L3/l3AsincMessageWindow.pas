@@ -1,9 +1,12 @@
 unit l3AsincMessageWindow;
 {* Вывод ассинхронного окна с сообщением в отдельной триаде }
 
-// $Id: l3AsincMessageWindow.pas,v 1.29 2016/10/06 14:51:54 lulin Exp $
+// $Id: l3AsincMessageWindow.pas,v 1.30 2016/10/28 16:47:11 lulin Exp $
 
 // $Log: l3AsincMessageWindow.pas,v $
+// Revision 1.30  2016/10/28 16:47:11  lulin
+// - подтачиваем.
+//
 // Revision 1.29  2016/10/06 14:51:54  lulin
 // - подтачиваем.
 //
@@ -457,6 +460,8 @@ begin
  try
   with ProgressRect do
   begin
+   if (f_Waitbar = nil) then
+    Exit;
    Assert(f_Waitbar <> nil);
    f_Waitbar.SetBounds(0, 0, Right - Left, Bottom - Top);
   end;//ProgressRect

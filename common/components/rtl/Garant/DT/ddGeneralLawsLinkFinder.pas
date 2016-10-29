@@ -1,6 +1,6 @@
 unit ddGeneralLawsLinkFinder;
 
-{ $Id: ddGeneralLawsLinkFinder.pas,v 1.12 2016/10/14 15:25:08 fireton Exp $ }
+{ $Id: ddGeneralLawsLinkFinder.pas,v 1.13 2016/10/26 11:16:56 fireton Exp $ }
 
 interface
 
@@ -1014,8 +1014,17 @@ end;
 
 function TddGeneralLawsLinkFinderBox.GetFinder(aAllowedSources: Tl3LongintList; const aDataFileName: AnsiString):
  TddGeneralLawsLinkFinder;
+
+ function IsAllowedSourcesDifferent: Boolean;
+ begin
+  if Assigned(aAllowedSources) then
+   Result := not l3IsIdenticalLists(aAllowedSources, f_Finder.f_AllowedSources)
+  else
+   Result := f_Finder.f_AllowedSources.Count > 0;
+ end;
+
 begin
- if not Assigned(f_Finder) or not l3IsIdenticalLists(aAllowedSources, f_Finder.f_AllowedSources) or
+ if not Assigned(f_Finder) or IsAllowedSourcesDifferent or
     not AnsiSameText(aDataFileName, f_Finder.f_DataFileName) then
  begin
   KillFinder;

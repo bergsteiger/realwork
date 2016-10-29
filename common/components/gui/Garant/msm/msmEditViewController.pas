@@ -12,7 +12,7 @@ uses
  l3IntfUses
  , msmEdit
  , msmControllers
- , msmViewControllersUtils
+ , msmEditViewUtils
  , msmEvents
  , msmParentedViewController
  , msmModels
@@ -31,6 +31,7 @@ uses
  , tfwCStringFactory
  , l3String
  , SysUtils
+ , msmViewControllersUtils
  //#UC START# *57FCD0D10020impl_uses*
  //#UC END# *57FCD0D10020impl_uses*
 ;

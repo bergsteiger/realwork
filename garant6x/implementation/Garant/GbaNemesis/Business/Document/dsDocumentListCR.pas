@@ -142,6 +142,7 @@ uses
  , l3InterfacesMisc
  //#UC START# *492D687F0214impl_uses*
  , vcmDispatcher
+ , nsSaveDialogExecutor
  //#UC END# *492D687F0214impl_uses*
 ;
 

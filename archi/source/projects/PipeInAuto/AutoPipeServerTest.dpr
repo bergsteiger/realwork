@@ -461,6 +461,7 @@ uses
  , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
  , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
  , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
+ , tfwParserServiceFileNameToFileNameMap in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParserServiceFileNameToFileNameMap.pas'
  , IniFiles {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\IniFiles.pas' {$EndIf}
  , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
  {$If NOT Defined(NoScripts)}
@@ -2236,6 +2237,15 @@ uses
  {$If NOT Defined(Nemesis)}
  , ddProcessTaskPrim in 'w:\common\components\rtl\Garant\cs\ddProcessTaskPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
+ , evdTasksHelpers in 'w:\common\components\rtl\Garant\EVD\evdTasksHelpers.pas'
+ , k2SizedMemoryPool in 'w:\common\components\rtl\Garant\K2\k2SizedMemoryPool.pas'
+ , k2MemoryPoolAdapter in 'w:\common\components\rtl\Garant\K2\k2MemoryPoolAdapter.pas'
+ , k2MemoryStream in 'w:\common\components\rtl\Garant\K2\k2MemoryStream.pas'
+ , l3TempMemoryStream in 'w:\common\components\rtl\Garant\L3\l3TempMemoryStream.pas'
+ , ComObj {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\ComObj.pas' {$EndIf}
+ , TaskID_Const in 'w:\common\components\rtl\Garant\EVD\TaskID_Const.pas'
+ , FoundSelector_Const in 'w:\common\components\rtl\Garant\EVD\FoundSelector_Const.pas'
+ , DocIDWithComment_Const in 'w:\common\components\rtl\Garant\EVD\DocIDWithComment_Const.pas'
  , ddProgressObj in 'w:\common\components\rtl\Garant\dd\ddProgressObj.pas'
  , ProcessTask_Const in 'w:\common\components\rtl\Garant\EVD\ProcessTask_Const.pas'
  , csTaskResult in 'w:\common\components\rtl\Garant\EVD\csTaskResult.pas'
@@ -2334,15 +2344,6 @@ uses
  {$If NOT Defined(Nemesis)}
  , ncsGetReadyToDeliveryTasksReply in 'w:\common\components\rtl\Garant\cs\ncsGetReadyToDeliveryTasksReply.pas'
  {$IfEnd} // NOT Defined(Nemesis)
- , evdTasksHelpers in 'w:\common\components\rtl\Garant\EVD\evdTasksHelpers.pas'
- , k2SizedMemoryPool in 'w:\common\components\rtl\Garant\K2\k2SizedMemoryPool.pas'
- , k2MemoryPoolAdapter in 'w:\common\components\rtl\Garant\K2\k2MemoryPoolAdapter.pas'
- , k2MemoryStream in 'w:\common\components\rtl\Garant\K2\k2MemoryStream.pas'
- , l3TempMemoryStream in 'w:\common\components\rtl\Garant\L3\l3TempMemoryStream.pas'
- , ComObj {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\ComObj.pas' {$EndIf}
- , TaskID_Const in 'w:\common\components\rtl\Garant\EVD\TaskID_Const.pas'
- , FoundSelector_Const in 'w:\common\components\rtl\Garant\EVD\FoundSelector_Const.pas'
- , DocIDWithComment_Const in 'w:\common\components\rtl\Garant\EVD\DocIDWithComment_Const.pas'
  , csGetReadyToDeliveryTasksReply_Const in 'w:\common\components\rtl\Garant\EVD\csGetReadyToDeliveryTasksReply_Const.pas'
  {$If Defined(ServerTasks)}
  , alcuGetTaskDescriptionExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuGetTaskDescriptionExecutor.pas'
@@ -2354,8 +2355,11 @@ uses
  {$If NOT Defined(Nemesis)}
  , ncsGetTaskDescriptionReply in 'w:\common\components\rtl\Garant\cs\ncsGetTaskDescriptionReply.pas'
  {$IfEnd} // NOT Defined(Nemesis)
- , csGetTaskDescriptionReply_Const in 'w:\common\components\rtl\Garant\EVD\csGetTaskDescriptionReply_Const.pas'
+ {$If NOT Defined(Nemesis)}
+ , ncsFileDescHelper in 'w:\common\components\rtl\Garant\cs\ncsFileDescHelper.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
  , FileDesc_Const in 'w:\common\components\rtl\Garant\EVD\FileDesc_Const.pas'
+ , csGetTaskDescriptionReply_Const in 'w:\common\components\rtl\Garant\EVD\csGetTaskDescriptionReply_Const.pas'
  {$If NOT Defined(Nemesis)}
  , ncsFileDesc in 'w:\common\components\rtl\Garant\cs\ncsFileDesc.pas'
  {$IfEnd} // NOT Defined(Nemesis)
@@ -2439,9 +2443,6 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
  , ncsExecutorFactoryList in 'w:\common\components\rtl\Garant\cs\ncsExecutorFactoryList.pas'
- {$IfEnd} // NOT Defined(Nemesis)
- {$If NOT Defined(Nemesis)}
- , ncsFileDescHelper in 'w:\common\components\rtl\Garant\cs\ncsFileDescHelper.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If Defined(ServerTasks)}
  , alcuCorrectFolderExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuCorrectFolderExecutor.pas'
@@ -2635,6 +2636,22 @@ uses
  , arCustomMultiChangeHyperLinksHelper in 'w:\archi\source\projects\Common\Utils\arCustomMultiChangeHyperLinksHelper.pas'
  , arConst in 'w:\archi\source\projects\Common\Utils\arConst.pas'
  , MultiChangeHyperLinksRequest_Const in 'w:\common\components\rtl\Garant\EVD\MultiChangeHyperLinksRequest_Const.pas'
+ {$If Defined(ServerTasks)}
+ , alcuServerFilesDeliverer in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuServerFilesDeliverer.pas'
+ {$IfEnd} // Defined(ServerTasks)
+ {$If NOT Defined(Nemesis)}
+ , ncsServerFilesDeliverer in 'w:\common\components\rtl\Garant\cs\ncsServerFilesDeliverer.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , CsDataPipe in 'w:\common\components\rtl\Garant\cs\CsDataPipe.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , CsDataPipePrim in 'w:\common\components\rtl\Garant\cs\CsDataPipePrim.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , IdIOHandler in 'w:\common\components\rtl\external\Indy\Source\Core\IdIOHandler.pas'
+ {$If NOT Defined(Nemesis)}
+ , csIdIOHandlerAdapter in 'w:\common\components\rtl\Garant\cs\csIdIOHandlerAdapter.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
  , alcuMdpSyncIntf in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpSyncIntf.pas'
  {$If NOT Defined(Nemesis)}
  , dt_DictConst in 'w:\common\components\rtl\Garant\DT\dt_DictConst.pas'
@@ -2717,16 +2734,6 @@ uses
  {$IfEnd} // Defined(InsiderTest)
  {$If NOT Defined(Nemesis)}
  , csRequestTask in 'w:\common\components\rtl\Garant\cs\csRequestTask.pas'
- {$IfEnd} // NOT Defined(Nemesis)
- {$If NOT Defined(Nemesis)}
- , CsDataPipe in 'w:\common\components\rtl\Garant\cs\CsDataPipe.pas'
- {$IfEnd} // NOT Defined(Nemesis)
- {$If NOT Defined(Nemesis)}
- , CsDataPipePrim in 'w:\common\components\rtl\Garant\cs\CsDataPipePrim.pas'
- {$IfEnd} // NOT Defined(Nemesis)
- , IdIOHandler in 'w:\common\components\rtl\external\Indy\Source\Core\IdIOHandler.pas'
- {$If NOT Defined(Nemesis)}
- , csIdIOHandlerAdapter in 'w:\common\components\rtl\Garant\cs\csIdIOHandlerAdapter.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , RequestTask_Const in 'w:\common\components\rtl\Garant\EVD\RequestTask_Const.pas'
  {$If Defined(InsiderTest)}
@@ -2830,9 +2837,21 @@ uses
  {$If NOT Defined(Nemesis)}
  , csImportTaskPrim in 'w:\common\components\rtl\Garant\cs\csImportTaskPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
- , ImportTask_Const in 'w:\common\components\rtl\Garant\EVD\ImportTask_Const.pas'
- , File_Const in 'w:\common\components\rtl\Garant\EVD\File_Const.pas'
+ {$If NOT Defined(Nemesis)}
+ , csTasksHelpers in 'w:\common\components\rtl\Garant\cs\csTasksHelpers.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
  , PlainFile_Const in 'w:\common\components\rtl\Garant\EVD\PlainFile_Const.pas'
+ , File_Const in 'w:\common\components\rtl\Garant\EVD\File_Const.pas'
+ , evNSRCConst in 'w:\common\components\rtl\Garant\dd\evNSRCConst.pas'
+ , ddSegmentScanner in 'w:\common\components\rtl\Garant\dd\ddSegmentScanner.pas'
+ , ddNSRCSegments in 'w:\common\components\rtl\Garant\dd\ddNSRCSegments.pas'
+ , segTargetList in 'w:\common\components\rtl\Garant\dd\segTargetList.pas'
+ , segTarget in 'w:\common\components\rtl\Garant\dd\segTarget.pas'
+ , ddNSRCStackItemList in 'w:\common\components\rtl\Garant\dd\ddNSRCStackItemList.pas'
+ , segObjectList in 'w:\common\components\rtl\Garant\dd\segObjectList.pas'
+ , segHyperLinkList in 'w:\common\components\rtl\Garant\dd\segHyperLinkList.pas'
+ , segSegList in 'w:\common\components\rtl\Garant\dd\segSegList.pas'
+ , ImportTask_Const in 'w:\common\components\rtl\Garant\EVD\ImportTask_Const.pas'
  {$If Defined(InsiderTest)}
  , K517772970_TalcuRegionAutoExportTask in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuRegionAutoExportTask.pas'
  {$IfEnd} // Defined(InsiderTest)
@@ -3011,18 +3030,6 @@ uses
  {$If NOT Defined(Nemesis)}
  , csSpellCorrectTaskPrim in 'w:\common\components\rtl\Garant\cs\csSpellCorrectTaskPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
- {$If NOT Defined(Nemesis)}
- , csTasksHelpers in 'w:\common\components\rtl\Garant\cs\csTasksHelpers.pas'
- {$IfEnd} // NOT Defined(Nemesis)
- , evNSRCConst in 'w:\common\components\rtl\Garant\dd\evNSRCConst.pas'
- , ddSegmentScanner in 'w:\common\components\rtl\Garant\dd\ddSegmentScanner.pas'
- , ddNSRCSegments in 'w:\common\components\rtl\Garant\dd\ddNSRCSegments.pas'
- , segTargetList in 'w:\common\components\rtl\Garant\dd\segTargetList.pas'
- , segTarget in 'w:\common\components\rtl\Garant\dd\segTarget.pas'
- , ddNSRCStackItemList in 'w:\common\components\rtl\Garant\dd\ddNSRCStackItemList.pas'
- , segObjectList in 'w:\common\components\rtl\Garant\dd\segObjectList.pas'
- , segHyperLinkList in 'w:\common\components\rtl\Garant\dd\segHyperLinkList.pas'
- , segSegList in 'w:\common\components\rtl\Garant\dd\segSegList.pas'
  , SpellCorrectTask_Const in 'w:\common\components\rtl\Garant\EVD\SpellCorrectTask_Const.pas'
  {$If Defined(InsiderTest)}
  , K517772970_TcsUserDefinedExport in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsUserDefinedExport.pas'

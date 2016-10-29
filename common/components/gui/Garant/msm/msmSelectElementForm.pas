@@ -74,11 +74,13 @@ uses
  l3ImplUses
  , msmListControllerWithExternalView
  , msmEvents
+ , msmListToCaptionBinding
  , msmEditViewController
  , msmListViewController
  , msmCaptionModel
  , msmListAndTreeViewUtils
  , msmMemoViewController
+ , msmEditViewUtils
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -109,6 +111,13 @@ type
    procedure LinkEventHandlers; override;
  end;//TmsmElementSelectBinding
 
+ TmsmCurrentElementStereotypeDocToCaptionBinding = class(TmsmListToCaptionBinding)
+  protected
+   procedure DoCurrentElementChangedEvent(anEvent: TmsmEvent);
+   procedure LinkDataToView; override;
+   procedure LinkEventHandlers; override;
+ end;//TmsmCurrentElementStereotypeDocToCaptionBinding
+
 procedure TmsmElementSelectBinding.DoActionElementEvent(anEvent: TmsmEvent);
 //#UC START# *57F51FDF012B_57B2B0C602DF_57F51FDF012B_var*
 //#UC END# *57F51FDF012B_57B2B0C602DF_57F51FDF012B_var*
@@ -123,6 +132,34 @@ begin
  inherited;
  Self.LinkEventHandler(ActionElementEvent.Instance, DoActionElementEvent);
 end;//TmsmElementSelectBinding.LinkEventHandlers
+
+procedure TmsmCurrentElementStereotypeDocToCaptionBinding.DoCurrentElementChangedEvent(anEvent: TmsmEvent);
+//#UC START# *5810B6830253_57B31D1000FA_5810B6830253_var*
+//#UC END# *5810B6830253_57B31D1000FA_5810B6830253_var*
+begin
+//#UC START# *5810B6830253_57B31D1000FA_5810B6830253_impl*
+ inherited;
+ if (Self.ModelToListen.CurrentElement = nil) then
+  Self.ModelToFire.Caption := nil
+ else
+  Self.ModelToFire.Caption := Self.ModelToListen.CurrentElement.StringProp['msm:StereotypeDocumentation'];
+//#UC END# *5810B6830253_57B31D1000FA_5810B6830253_impl*
+end;//TmsmCurrentElementStereotypeDocToCaptionBinding.DoCurrentElementChangedEvent
+
+procedure TmsmCurrentElementStereotypeDocToCaptionBinding.LinkDataToView;
+//#UC START# *57B6A49900F4_5810B6830253_var*
+//#UC END# *57B6A49900F4_5810B6830253_var*
+begin
+//#UC START# *57B6A49900F4_5810B6830253_impl*
+ inherited;
+//#UC END# *57B6A49900F4_5810B6830253_impl*
+end;//TmsmCurrentElementStereotypeDocToCaptionBinding.LinkDataToView
+
+procedure TmsmCurrentElementStereotypeDocToCaptionBinding.LinkEventHandlers;
+begin
+ inherited;
+ Self.LinkEventHandler(CurrentElementChangedEvent.Instance, DoCurrentElementChangedEvent);
+end;//TmsmCurrentElementStereotypeDocToCaptionBinding.LinkEventHandlers
 
 class procedure TmsmSelectElementForm.SelectElement(const aSelector: ImsmElementSelector);
 //#UC START# *57F50F400051_57F50ED80120_var*
@@ -154,18 +191,32 @@ var
 
   procedure SetupValues(const aUseCase: ImsmUseCase; aParent: TmsmViewParentControl);
 
+   function CreateValueSizeablePanel(aHeight: Integer): TmsmSizeablePanel;
+   begin//CreateValueSizeablePanel
+    Result := TmsmSizeablePanel.Create(aParent);
+    Result.Parent := aParent;
+    Result.Height := aHeight;
+    Result.Align := alTop;
+    //Result.BorderStyle := bsSingle;
+    Result.Font.Name := FontName;
+    Result.Font.Size := 8;
+    Result.SizeableSides := [szBottom];
+    Result.SplitterBevel := bvRaised;
+   end;//CreateValueSizeablePanel
+
   var
    l_ValueParent : TmsmViewParentControl;
    l_IsEdit : Boolean;
    l_IsMemo : Boolean;
    l_VL : ItfwArray;
-   
+
    procedure CreateValueParent;
    const
     cMaxListCount = 6;
    var
     l_ValuePanel : TmsmPanel;
     l_ValueSizeablePanel : TmsmSizeablePanel;
+    l_Height : Integer;
    begin//CreateValueParent
     l_ValuePanel := nil;
     l_ValueSizeablePanel := nil;
@@ -195,23 +246,17 @@ var
     end//l_IsEdit AND not l_IsMemo
     else
     begin
-     l_ValueSizeablePanel := TmsmSizeablePanel.Create(aParent);
-     l_ValueSizeablePanel.Parent := aParent;
+     l_Height := 24;
      if l_IsEdit then
      begin
       if l_IsMemo then
-       l_ValueSizeablePanel.Height := 80{120}
+       l_Height := 80{120}
       else
-       l_ValueSizeablePanel.Height := 24{30};
+       l_Height := 24{30};
      end//l_IsEdit
      else
-      l_ValueSizeablePanel.Height := Min(l_VL.Count, cMaxListCount) * 16 + 8 - 2 - 2;
-     l_ValueSizeablePanel.Align := alTop;
-     //l_ValueSizeablePanel.BorderStyle := bsSingle;
-     l_ValueSizeablePanel.Font.Name := FontName;
-     l_ValueSizeablePanel.Font.Size := 8;
-     l_ValueSizeablePanel.SizeableSides := [szBottom];
-     l_ValueSizeablePanel.SplitterBevel := bvRaised;
+      l_Height := Min(l_VL.Count, cMaxListCount) * 16 + 8 - 2 - 2;
+     l_ValueSizeablePanel := CreateValueSizeablePanel(l_Height);
      l_ValueParent := l_ValueSizeablePanel;
     end;//l_IsEdit AND not l_IsMemo
    end;//CreateValueParent
@@ -228,6 +273,8 @@ var
    l_List : ImsmListModel;
    l_ListContext : TmsmListViewtInitContext;
    l_EV : TmsmValueForSelect;
+   l_EditContext : TmsmEditViewInitContext;
+   l_StereoDoc : ImsmCaptionModel;
   begin//SetupValues
    l_Values := aSelector.KeyValues;
    Assert(l_Values <> nil);
@@ -275,18 +322,20 @@ var
       l_Caption.Caption := l_V.AsPrintable
      else
       Assert(false);
+     l_EditContext := TmsmEditViewInitContext_C;
+     l_EditContext.rReadOnly := l_E.BoolProp['msm:IsReadOnly']; 
      if l_IsMemo then
       aUseCase.AddController(
        DisableActionElementEvent
        (
-        TmsmMemoViewController.Make(l_Caption, TmsmSingleViewParent.Make(l_ValueParent))
+        TmsmMemoViewController.Make(l_Caption, TmsmSingleViewParent.Make(l_ValueParent), l_EditContext)
        )
       )
-     else 
+     else
       aUseCase.AddController(
        DisableActionElementEvent
        (
-        TmsmEditViewController.Make(l_Caption, TmsmSingleViewParent.Make(l_ValueParent))
+        TmsmEditViewController.Make(l_Caption, TmsmSingleViewParent.Make(l_ValueParent), l_EditContext)
        )
       );
      l_EV.rCaption := l_Caption;
@@ -309,7 +358,20 @@ var
       )
      );
      if (l_Name = 'Stereotype') then
+     begin
+      l_ValueParent := CreateValueSizeablePanel(80);
+      l_StereoDoc := TmsmCaptionModel.Make;
+      l_EditContext := TmsmEditViewInitContext_C;
+      l_EditContext.rReadOnly := true;
+      aUseCase.AddController(
+       DisableActionElementEvent
+       (
+        TmsmMemoViewController.Make(l_StereoDoc, TmsmSingleViewParent.Make(l_ValueParent), l_EditContext)
+       )
+      );
+      aUseCase.Bind(TmsmCurrentElementStereotypeDocToCaptionBinding.Make(l_List, l_StereoDoc));
       aUseCase.Bind(TmsmElementSelectBinding.Make(l_F, l_List));
+     end;//l_Name = 'Stereotype'
      l_EV.rList := l_List;
      if (l_V.rType = tfw_vtStr) then
       l_ValueElement := nil
@@ -403,6 +465,7 @@ begin
  f_UseCase := nil;
  f_Selector := nil;
  f_Values := nil;
+ f_Edit := nil;
  FreeAndNil(f_ValuesForSelect);
  inherited;
 //#UC END# *479731C50290_57F50ED80120_impl*
@@ -436,6 +499,7 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
  var
   l_Index : Integer;
   l_CE : ImsmModelElement;
+  l_Caption : AnsiString;
  begin//ApplyData
   for l_Index := 0 to Pred(f_ValuesForSelect.Count) do
   begin
@@ -452,7 +516,11 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
    l_CE := nil
   else
    l_CE := f_List.CurrentElement;
-  f_Selector.SelectElement(l3Str(f_Edit.Caption), l_CE, f_Values);
+  if (f_Edit = nil) then
+   l_Caption := ''
+  else
+   l_Caption := l3Str(f_Edit.Caption);   
+  f_Selector.SelectElement(l_Caption, l_CE, f_Values);
  end;//ApplyData
 
 //#UC END# *4980403E021E_57F50ED80120_var*
@@ -482,7 +550,7 @@ function TmsmSelectElementForm.ShowModal: Integer;
 //#UC END# *520B42AF0115_57F50ED80120_var*
 begin
 //#UC START# *520B42AF0115_57F50ED80120_impl*
- Assert(f_Edit <> nil);
+ //Assert(f_Edit <> nil);
  Assert(f_Selector <> nil);
  //Assert(f_List <> nil);
  Result := inherited ShowModal;

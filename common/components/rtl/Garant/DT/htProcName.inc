@@ -194,6 +194,7 @@ const
  sHTEXCLUDERESULTS         = '_htExcludeResults@12';
  sHTRECORDSBYVALUES        = '_htRecordsByValues@24';
  sHTLASTERRORTEXT          = '_htLastErrorText@8';
+ sHTSETPARAM               = '_HTSETPARAM@8';
 {$ELSE}
  not use!! ///
 

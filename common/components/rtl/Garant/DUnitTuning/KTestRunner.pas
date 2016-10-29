@@ -158,7 +158,7 @@ procedure LoadTestNamesFromFile(const aFileName: AnsiString;
  {* Загрузка имен тестов для выполнения из файла. }
 function NeedRunTest(const aTestName: AnsiString): Boolean;
  {* Проверяет нужно ли запускать тест (наличие его названия в списке загруженных). }
-procedure CheckFileParam;
+function CheckFileParam: Boolean;
  {* Проверяет есть ли параметр для загрузки непрошедших тестов. }
 procedure CheckNeedRandom;
 function NeedRandom: Boolean;
@@ -667,7 +667,7 @@ begin
 //#UC END# *4D1AF4DC0002_4B2A6D4303A9_impl*
 end;//NeedRunTest
 
-procedure CheckFileParam;
+function CheckFileParam: Boolean;
  {* Проверяет есть ли параметр для загрузки непрошедших тестов. }
 //#UC START# *4D1AFEBF00A5_4B2A6D4303A9_var*
 const
@@ -680,6 +680,7 @@ var
 //#UC END# *4D1AFEBF00A5_4B2A6D4303A9_var*
 begin
 //#UC START# *4D1AFEBF00A5_4B2A6D4303A9_impl*
+ Result := False;
  for i := 1 to ParamCount do
  begin
   l_Param := ParamStr(i);
@@ -688,6 +689,7 @@ begin
   begin
    l_Param := Copy(l_Param, cnParamLen + 1, l_LenParam - cnParamLen);
    TTestNameList.Instance.LoadFromFile(l_Param);
+   Result := True;
    Break;
   end // if Pos(csFileParam, l_Param) > 0 then
   else

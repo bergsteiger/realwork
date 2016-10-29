@@ -14,14 +14,18 @@ uses
  , msmConcreteModels
  , msmElementViews
  , msmModelElements
+ , msmEvents
+ , msmEventList
+ , msmEventHandlers
 ;
 
 type
- TmsmListModelPrim = {abstract} class(TmsmListLikeModel, ImsmListModel)
+ _msmEventsSubscriberPrim_Parent_ = TmsmListLikeModel;
+ {$Include w:\common\components\gui\Garant\msm\msmEventsSubscriberPrim.imp.pas}
+ TmsmListModelPrim = {abstract} class(_msmEventsSubscriberPrim_, ImsmListModel)
   private
    f_List: ImsmModelElementStringList;
   protected
-   f_IsDir: Boolean;
    f_SubElementName: AnsiString;
   protected
    procedure CheckUnexisting(const anElement: ImsmModelElement;
@@ -30,7 +34,10 @@ type
    function DoGetList: ImsmModelElementStringList; override;
    procedure DoShowElementAsList(const anElement: ImsmModelElement); override;
    procedure SetList(const aList: ImsmModelElementStringList);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    function DoGetCaption: AnsiString; override;
+   procedure DoHandleEvent(anEvent: TmsmEvent); override;
    procedure ClearFields; override;
  end;//TmsmListModelPrim
 
@@ -38,8 +45,7 @@ implementation
 
 uses
  l3ImplUses
- , msmModelElementDir
- , msmModelElementRelationList
+ , msmModelElementStringList
  , msmListAndTreeInterfaces
  {$If NOT Defined(NoScripts)}
  , tfwWordRefList
@@ -55,6 +61,8 @@ uses
  //#UC START# *57B189990202impl_uses*
  //#UC END# *57B189990202impl_uses*
 ;
+
+{$Include w:\common\components\gui\Garant\msm\msmEventsSubscriberPrim.imp.pas}
 
 procedure TmsmListModelPrim.CheckUnexisting(const anElement: ImsmModelElement;
  var theNewElement: ImsmModelElement;
@@ -108,12 +116,12 @@ begin
 
  l_NewElement := anElement;
 
- if f_IsDir then
+ if f_ElementView.rIsDir then
  begin
   Assert(f_SubElementName = '');
   if l_NewElement.BoolProp['IsSomeView'] then
    l_NewElement := l_NewElement.ElementProp['Viewed'];
- end//f_IsDir
+ end//f_ElementView.rIsDir
  else
  begin
   if (f_SubElementName <> '') then
@@ -126,7 +134,7 @@ begin
     CheckUnexisting(anElement, l_NewElement, l_ElementToSelect);
    end;//l_NewElement = nil
   end;//f_SubElementName <> ''
- end;//f_IsDir
+ end;//f_ElementView.rIsDir
 
  if (f_ElementView.rElement <> nil)
     AND f_ElementView.rElement.IsSameElement(l_NewElement)
@@ -137,10 +145,10 @@ begin
  if (f_ElementView.rElement = nil) then
   Self.SetList(nil)
  else
- if f_IsDir then
-  Self.SetList(TmsmModelElementDir.Make(f_ElementView))
+ if f_ElementView.rIsDir then
+  Self.SetList(TmsmModelElementStringList.Make(f_ElementView.ChangeIsDir(true)))
  else
-  Self.SetList(TmsmModelElementRelationList.Make(f_ElementView));
+  Self.SetList(TmsmModelElementStringList.Make(f_ElementView.ChangeIsDir(false)));
  if (l_ElementToSelect <> nil) then
   Set_CurrentElement(l_ElementToSelect); 
 //#UC END# *57D2A7D900FE_57B189990202_impl*
@@ -153,11 +161,26 @@ begin
 //#UC START# *57E54FA00289_57B189990202_impl*
  if (f_List <> aList) then
  begin
+  if (f_List <> nil) then
+   f_List.As_ImsmEventsPublisher.RemoveEventsSubscriber(Self);
   f_List := aList;
-  Fire(ListChangedEvent.Instance);
+  if (f_List <> nil) then
+   f_List.As_ImsmEventsPublisher.AddEventsSubscriber(Self);
+  Self.Fire(ListChangedEvent.Instance);
  end;//f_StringList <> aList
 //#UC END# *57E54FA00289_57B189990202_impl*
 end;//TmsmListModelPrim.SetList
+
+procedure TmsmListModelPrim.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_57B189990202_var*
+//#UC END# *479731C50290_57B189990202_var*
+begin
+//#UC START# *479731C50290_57B189990202_impl*
+ SetList(nil);
+ inherited;
+//#UC END# *479731C50290_57B189990202_impl*
+end;//TmsmListModelPrim.Cleanup
 
 function TmsmListModelPrim.DoGetCaption: AnsiString;
 //#UC START# *57E331B90378_57B189990202_var*
@@ -173,6 +196,16 @@ begin
   Result := f_SubElementName; 
 //#UC END# *57E331B90378_57B189990202_impl*
 end;//TmsmListModelPrim.DoGetCaption
+
+procedure TmsmListModelPrim.DoHandleEvent(anEvent: TmsmEvent);
+//#UC START# *580A1AD9019C_57B189990202_var*
+//#UC END# *580A1AD9019C_57B189990202_var*
+begin
+//#UC START# *580A1AD9019C_57B189990202_impl*
+ inherited;
+ Self.Fire(anEvent);
+//#UC END# *580A1AD9019C_57B189990202_impl*
+end;//TmsmListModelPrim.DoHandleEvent
 
 procedure TmsmListModelPrim.ClearFields;
 begin

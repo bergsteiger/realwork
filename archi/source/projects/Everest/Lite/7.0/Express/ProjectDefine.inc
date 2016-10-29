@@ -45,4 +45,6 @@
 
 {$DEFINE evNotArchi}
 
+{$DEFINE evSpellChecker}
+
 {$DEFINE EverestLite}

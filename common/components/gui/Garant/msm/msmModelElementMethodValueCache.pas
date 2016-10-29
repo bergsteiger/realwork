@@ -187,27 +187,29 @@ procedure TmsmModelElementMethodValueCache.DeleteWordCachedValues(aWord: TtfwWor
 var
  l_Index : Integer;
  l_NeedClear : Boolean;
+ l_Word : TtfwWord;
 //#UC END# *57D25F960241_57B2E6B90102_var*
 begin
 //#UC START# *57D25F960241_57B2E6B90102_impl*
  l_NeedClear := true;
- l_NeedClear := CanCacheWord(aWord);
+ l_Word := aWord.GetRefForCompare;
+ l_NeedClear := CanCacheWord(l_Word);
  if l_NeedClear then
  begin
   Lock;
   try
    l_Index := 0;
-   FindData(TmsmModelElementMethodValue_C(aWord, nil), l_Index);
+   FindData(TmsmModelElementMethodValue_C(l_Word, nil), l_Index);
    {if (l_Index > 0) then
     Dec(l_Index);}
    while (l_Index < Count) do
    begin
-    if ItemSlot(l_Index).rWord = aWord then
+    if ItemSlot(l_Index).rWord = l_Word then
     begin
-     while (ItemSlot(l_Index).rWord = aWord) do
+     while (ItemSlot(l_Index).rWord = l_Word) do
       Delete(l_Index);
      Exit;
-    end//ItemSlot(l_Index).rWord = aWord
+    end//ItemSlot(l_Index).rWord = l_Word
     else
      Inc(l_Index);
     break;

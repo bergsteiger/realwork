@@ -4,9 +4,12 @@ unit ddNativeSpell;
 { Автор: Люлин А.В. ©     }
 { Модуль: ddNativeSpell - }
 { Начат: 29.10.2002 13:11 }
-{ $Id: ddNativeSpell.pas,v 1.37 2016/09/23 09:33:45 voba Exp $ }
+{ $Id: ddNativeSpell.pas,v 1.38 2016/10/25 11:43:54 dinishev Exp $ }
 
 // $Log: ddNativeSpell.pas,v $
+// Revision 1.38  2016/10/25 11:43:54  dinishev
+// {Requestlink:632538966}
+//
 // Revision 1.37  2016/09/23 09:33:45  voba
 // no message
 //
@@ -325,6 +328,8 @@ var
  end;
 
  function CheckOneWord(aStr: Tl3PCharLen; IsLast: Bool): Bool;
+ var
+  l_CheckStr: Tl3String;
  begin
   Result := True;
   if HasSymbolOnly(aStr) then Exit;
@@ -344,16 +349,22 @@ var
    aStr.SLen := aStr.SLen -1;
 
   // собственно, проверка правописания
-  l3Replace(aStr, [cc_RSingleQuote], cc_Apostrophe);
+  l_CheckStr := Tl3String.Make(CP_Ansi);
+  try
+   l_CheckStr.Append(aStr);
+   l3Replace(l_CheckStr.AsWStr, [cc_RSingleQuote], cc_Apostrophe);
 
-  f_NormFormFound := gSpeller.CheckSpell(aStr);
-  if (not f_NormFormFound) and
-     not ((IsIgnoreForm(aStr) or (Assigned(FFilter) and FFilter(aStr)))) then
-  begin
-   l_BadWordFound := True;
-   ABegRes := aStr.S - l_PCharLen.S + ABegPos;
-   AEndRes := ABegRes + aStr.SLen;
-   Result := False;
+   f_NormFormFound := gSpeller.CheckSpell(l_CheckStr.AsPCharLen);
+   if (not f_NormFormFound) and
+      not ((IsIgnoreForm(aStr) or (Assigned(FFilter) and FFilter(aStr)))) then
+   begin
+    l_BadWordFound := True;
+    ABegRes := aStr.S - l_PCharLen.S + ABegPos;
+    AEndRes := ABegRes + aStr.SLen;
+    Result := False;
+   end;
+  finally
+   l3Free(l_CheckStr);
   end;
  end;
 

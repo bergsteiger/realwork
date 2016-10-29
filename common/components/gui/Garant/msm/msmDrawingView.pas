@@ -132,10 +132,10 @@ begin
  if (f_Model <> aValue) then
  begin
   if (f_Model <> nil) then
-   f_Model.As_ImsmEventsPublisher.Unsubscribe(Self);
+   f_Model.As_ImsmEventsPublisher.RemoveEventsSubscriber(Self);
   f_Model := aValue;
   if (f_Model <> nil) then
-   f_Model.As_ImsmEventsPublisher.Subscribe(Self);
+   f_Model.As_ImsmEventsPublisher.AddEventsSubscriber(Self);
   ModelStateChanged;
  end;//f_Model <> aValue
 //#UC END# *57D00B180365_57D00ACC01B0set_impl*
@@ -343,7 +343,7 @@ var
   end//l_IsCategory
   else
   begin
-   if anElement.BoolProp['HasMainDiagram'] then
+   if anElement.BoolProp['msm:HasMainDiagram'] then
     l_PenColor := clRed;
   end;//l_IsCategory
   CN.FillRect(l_Rect);
@@ -368,7 +368,7 @@ var
     CN.PopClipRect;
    end;//try..finally
   end;//not l3IsNil(l_N)
-  l_N := anElement.StringProp['Signature'];
+  l_N := anElement.StringProp['msm:SignatureAndValue'];
   CN.PushClipRect;
   try
    CN.Font.Bold := anElement.BoolProp['IsFinal'];

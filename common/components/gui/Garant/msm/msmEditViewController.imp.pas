@@ -8,7 +8,7 @@
 {$Define msmEditViewController_imp}
 
  _ConcreteModel_ = ImsmCaptionModel;
- _InitContext_ = TmsmDefaultInitContext;
+ _InitContext_ = TmsmEditViewInitContext;
  {$Include w:\common\components\gui\Garant\msm\msmConcreteModelOwnViewController.imp.pas}
  _msmEditViewController_ = class(_msmConcreteModelOwnViewController_)
   protected
@@ -54,6 +54,8 @@ begin
  inherited;
  OwnView.AutoSelect := false;
  OwnView.OnTextChange := Self.DoTextChange;
+ OwnView.Enabled := not InitContext.rDisabled;
+ OwnView.ReadOnly := InitContext.rReadOnly;
 //#UC END# *57ADFB33027D_57FBA9B70217_impl*
 end;//_msmEditViewController_.InitOwnView
 

@@ -461,6 +461,7 @@ uses
  , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
  , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
  , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
+ , tfwParserServiceFileNameToFileNameMap in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParserServiceFileNameToFileNameMap.pas'
  , IniFiles {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\IniFiles.pas' {$EndIf}
  , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
  {$If NOT Defined(NoScripts)}
@@ -2214,6 +2215,7 @@ uses
   evExtActions,
   evExtFormat,
   afwApplication,
+  arSpeller in 'w:\archi\source\projects\Archi\arSpeller.pas',
   D_mdilst in '..\..\..\DLG\D_MDILST.PAS' {MDIListDlg},
   D_repcon in '..\..\..\DLG\D_REPCON.PAS' {ReplaceConfirmDlg},
   Brddlg in '..\..\..\..\Common\Dialogs\brddlg.PAS' {BorderDlg},

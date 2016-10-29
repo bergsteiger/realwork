@@ -13,6 +13,9 @@ interface
 uses
  l3IntfUses
  , PrimCreateFilter_cfCreate_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3StringIDEx
 ;
 

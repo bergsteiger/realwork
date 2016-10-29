@@ -41,7 +41,7 @@ constructor TmsmDrawingModel.Create(const anElement: ImsmModelElement);
 begin
 //#UC START# *57E297C403B4_57D27E6802A5_impl*
  //CreateSubElementList(TmsmModelElementView_C(anElement, 'Views'), 'MainDiagram');
- CreateSubElementList(TmsmModelElementView_C(anElement, 'Views'), 'DiagramByName: main');
+ CreateSubElementList(TmsmModelElementView_C(anElement, 'Views'), 'msm:DiagramByName: main');
 //#UC END# *57E297C403B4_57D27E6802A5_impl*
 end;//TmsmDrawingModel.Create
 
@@ -68,7 +68,7 @@ begin
  begin
   if (theNewElement = nil) then
   begin
-   anElement.Call([], 'CheckMainDiagram');
+   anElement.Call([], 'msm:CheckMainDiagram');
    theNewElement := anElement.ElementProp[f_SubElementName];
    if (theNewElement <> nil) then
    begin

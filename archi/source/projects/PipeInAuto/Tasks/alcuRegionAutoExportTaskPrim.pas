@@ -12,6 +12,7 @@ interface
 uses
  l3IntfUses
  , alcuAutoExportTask
+ , l3Variant
  , k2Base
 ;
 

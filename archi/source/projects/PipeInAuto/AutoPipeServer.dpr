@@ -461,6 +461,7 @@ uses
  , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
  , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
  , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
+ , tfwParserServiceFileNameToFileNameMap in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParserServiceFileNameToFileNameMap.pas'
  , IniFiles {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\IniFiles.pas' {$EndIf}
  , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
  {$If NOT Defined(NoScripts)}
@@ -792,12 +793,67 @@ uses
  {$If NOT Defined(Nemesis)}
  , csTaskTypes in 'w:\common\components\rtl\Garant\cs\csTaskTypes.pas'
  {$IfEnd} // NOT Defined(Nemesis)
- , ddProgressObj in 'w:\common\components\rtl\Garant\dd\ddProgressObj.pas'
- , ProcessTask_Const in 'w:\common\components\rtl\Garant\EVD\ProcessTask_Const.pas'
+ , evdTasksHelpers in 'w:\common\components\rtl\Garant\EVD\evdTasksHelpers.pas'
+ , k2SizedMemoryPool in 'w:\common\components\rtl\Garant\K2\k2SizedMemoryPool.pas'
+ , k2BaseStruct in 'w:\common\components\rtl\Garant\K2\k2BaseStruct.pas'
+ , k2TagList in 'w:\common\components\rtl\Garant\K2\k2TagList.pas'
+ , k2TagListPrim in 'w:\common\components\rtl\Garant\K2\k2TagListPrim.pas'
+ , k2ListTag in 'w:\common\components\rtl\Garant\K2\k2ListTag.pas'
+ , k2NonAtomicTag in 'w:\common\components\rtl\Garant\K2\k2NonAtomicTag.pas'
+ , k2RawData_Const in 'w:\common\components\rtl\Garant\K2\k2RawData_Const.pas'
+ , k2MemoryPoolAdapter in 'w:\common\components\rtl\Garant\K2\k2MemoryPoolAdapter.pas'
+ , k2MemoryStream in 'w:\common\components\rtl\Garant\K2\k2MemoryStream.pas'
+ , l3TempMemoryStream in 'w:\common\components\rtl\Garant\L3\l3TempMemoryStream.pas'
+ , l3Dict in 'w:\common\components\rtl\Garant\L3\l3Dict.pas'
+ , l3DictionaryPrim in 'w:\common\components\rtl\Garant\L3\l3DictionaryPrim.pas'
+ , l3IDIndex in 'w:\common\components\rtl\Garant\L3\l3IDIndex.pas'
+ , l3IDIndexPrim in 'w:\common\components\rtl\Garant\L3\l3IDIndexPrim.pas'
+ , k2Const in 'w:\common\components\rtl\Garant\K2\k2Const.pas'
+ , k2Except in 'w:\common\components\rtl\Garant\K2\k2Except.pas'
+ , k2Facade in 'w:\common\components\rtl\Garant\K2\k2Facade.pas'
+ , k2OList_Const in 'w:\common\components\rtl\Garant\K2\k2OList_Const.pas'
+ , k2l3Base_Const in 'w:\common\components\rtl\Garant\K2\k2l3Base_Const.pas'
+ , k2Dictionary in 'w:\common\components\rtl\Garant\K2\k2Dictionary.pas'
+ , k2DictionaryPrim in 'w:\common\components\rtl\Garant\K2\k2DictionaryPrim.pas'
+ , k2NonOptimizeContext in 'w:\common\components\rtl\Garant\K2\k2NonOptimizeContext.pas'
+ , k2Context in 'w:\common\components\rtl\Garant\K2\k2Context.pas'
+ , k2OperationContainer in 'w:\common\components\rtl\Garant\K2\k2OperationContainer.pas'
+ , k2OpRefList in 'w:\common\components\rtl\Garant\K2\k2OpRefList.pas'
+ , k2Op in 'w:\common\components\rtl\Garant\K2\k2Op.pas'
+ , l3CacheableBase in 'w:\common\components\rtl\Garant\L3\l3CacheableBase.pas'
+ , k2NilOp in 'w:\common\components\rtl\Garant\K2\k2NilOp.pas'
+ , l3IntegerValueMapManager in 'w:\common\components\rtl\Garant\L3\l3IntegerValueMapManager.pas'
+ , l3ValueMapManager in 'w:\common\components\rtl\Garant\L3\l3ValueMapManager.pas'
+ , l3ValueMapManagerPrim in 'w:\common\components\rtl\Garant\L3\l3ValueMapManagerPrim.pas'
+ , l3ValueMap in 'w:\common\components\rtl\Garant\L3\l3ValueMap.pas'
+ , l3BaseWithIDList in 'w:\common\components\rtl\Garant\L3\l3BaseWithIDList.pas'
+ , l3BaseWithIDListPrim in 'w:\common\components\rtl\Garant\L3\l3BaseWithIDListPrim.pas'
+ , l3BaseWithID in 'w:\common\components\rtl\Garant\L3\l3BaseWithID.pas'
+ , k2DictionaryIDIndex in 'w:\common\components\rtl\Garant\K2\k2DictionaryIDIndex.pas'
+ , k2DictionaryIDIndexPrim in 'w:\common\components\rtl\Garant\K2\k2DictionaryIDIndexPrim.pas'
+ , k2Bool_Const in 'w:\common\components\rtl\Garant\K2\k2Bool_Const.pas'
+ , k2Enum_Const in 'w:\common\components\rtl\Garant\K2\k2Enum_Const.pas'
+ , k2String in 'w:\common\components\rtl\Garant\K2\k2String.pas'
+ , k2InterfaceFactory in 'w:\common\components\rtl\Garant\K2\k2InterfaceFactory.pas'
+ , k2InterfaceCache in 'w:\common\components\rtl\Garant\K2\k2InterfaceCache.pas'
+ , k2InterfaceList in 'w:\common\components\rtl\Garant\K2\k2InterfaceList.pas'
+ , k2ToolPrim in 'w:\common\components\rtl\Garant\K2\k2ToolPrim.pas'
+ , k2ToolCacheList in 'w:\common\components\rtl\Garant\K2\k2ToolCacheList.pas'
+ , k2ToolPrimList in 'w:\common\components\rtl\Garant\K2\k2ToolPrimList.pas'
+ , l3ProtoObjectRefList in 'w:\common\components\rtl\Garant\L3\l3ProtoObjectRefList.pas'
+ , k2TagPointer in 'w:\common\components\rtl\Garant\K2\k2TagPointer.pas'
+ , k2List in 'w:\common\components\rtl\Garant\K2\k2List.pas'
+ , ComObj {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\ComObj.pas' {$EndIf}
  , Address_Const in 'w:\common\components\rtl\Garant\EVD\Address_Const.pas'
  , k2Handle_Const in 'w:\common\components\rtl\Garant\K2\k2Handle_Const.pas'
  , Type_Const in 'w:\common\components\rtl\Garant\EVD\Type_Const.pas'
  , evdTypes in 'w:\common\components\rtl\Garant\EVD\evdTypes.pas'
+ , l3InterfacedIntegerList in 'w:\common\components\rtl\Garant\L3\l3InterfacedIntegerList.pas'
+ , TaskID_Const in 'w:\common\components\rtl\Garant\EVD\TaskID_Const.pas'
+ , FoundSelector_Const in 'w:\common\components\rtl\Garant\EVD\FoundSelector_Const.pas'
+ , DocIDWithComment_Const in 'w:\common\components\rtl\Garant\EVD\DocIDWithComment_Const.pas'
+ , ddProgressObj in 'w:\common\components\rtl\Garant\dd\ddProgressObj.pas'
+ , ProcessTask_Const in 'w:\common\components\rtl\Garant\EVD\ProcessTask_Const.pas'
  , csTaskResult in 'w:\common\components\rtl\Garant\EVD\csTaskResult.pas'
  , TaskResult_Const in 'w:\common\components\rtl\Garant\EVD\TaskResult_Const.pas'
  {$If Defined(ServerTasks)}
@@ -879,7 +935,6 @@ uses
  , l3RectList in 'w:\common\components\rtl\Garant\L3\l3RectList.pas'
  , l3Region in 'w:\common\components\rtl\Garant\L3\l3Region.pas'
  , l3Defaults in 'w:\common\components\rtl\Garant\L3\l3Defaults.pas'
- , l3CacheableBase in 'w:\common\components\rtl\Garant\L3\l3CacheableBase.pas'
  , l3CanvasUtils in 'w:\common\components\rtl\Garant\L3\l3CanvasUtils.pas'
  , l3ScreenIC in 'w:\common\components\rtl\Garant\L3\l3ScreenIC.pas'
  , l3LogFont in 'w:\common\components\rtl\Garant\L3\l3LogFont.pas'
@@ -888,7 +943,6 @@ uses
  , l3FontManagerPrimPrim in 'w:\common\components\rtl\Garant\L3\l3FontManagerPrimPrim.pas'
  , l3FontTools in 'w:\common\components\rtl\Garant\L3\l3FontTools.pas'
  , l3FormattedLines in 'w:\common\components\rtl\Garant\L3\l3FormattedLines.pas'
- , l3ProtoObjectRefList in 'w:\common\components\rtl\Garant\L3\l3ProtoObjectRefList.pas'
  , l3LineArray in 'w:\common\components\rtl\Garant\L3\l3LineArray.pas'
  , l3VirtualCanvas in 'w:\common\components\rtl\Garant\L3\l3VirtualCanvas.pas'
  , l3Bitmap in 'w:\common\components\rtl\Garant\L3\l3Bitmap.pas'
@@ -902,7 +956,6 @@ uses
  , l3FrameLineList in 'w:\common\components\rtl\Garant\L3\l3FrameLineList.pas'
  , l3FrameLine in 'w:\common\components\rtl\Garant\L3\l3FrameLine.pas'
  , l3UnitsTools in 'w:\common\components\rtl\Garant\L3\l3UnitsTools.pas'
- , l3InterfacedIntegerList in 'w:\common\components\rtl\Garant\L3\l3InterfacedIntegerList.pas'
  , l3FrameLinesSpy in 'w:\common\components\rtl\Garant\L3\l3FrameLinesSpy.pas'
  , l3Operations in 'w:\common\components\rtl\Garant\L3\l3Operations.pas'
  , l3DropTarget in 'w:\common\components\rtl\Garant\L3\l3DropTarget.pas'
@@ -939,24 +992,12 @@ uses
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , RadioGroupWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\RadioGroupWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- , k2OperationContainer in 'w:\common\components\rtl\Garant\K2\k2OperationContainer.pas'
- , k2OpRefList in 'w:\common\components\rtl\Garant\K2\k2OpRefList.pas'
- , k2Op in 'w:\common\components\rtl\Garant\K2\k2Op.pas'
- , k2NilOp in 'w:\common\components\rtl\Garant\K2\k2NilOp.pas'
- , l3IntegerValueMapManager in 'w:\common\components\rtl\Garant\L3\l3IntegerValueMapManager.pas'
- , l3ValueMapManager in 'w:\common\components\rtl\Garant\L3\l3ValueMapManager.pas'
- , l3ValueMapManagerPrim in 'w:\common\components\rtl\Garant\L3\l3ValueMapManagerPrim.pas'
- , l3ValueMap in 'w:\common\components\rtl\Garant\L3\l3ValueMap.pas'
- , l3BaseWithIDList in 'w:\common\components\rtl\Garant\L3\l3BaseWithIDList.pas'
- , l3BaseWithIDListPrim in 'w:\common\components\rtl\Garant\L3\l3BaseWithIDListPrim.pas'
- , l3BaseWithID in 'w:\common\components\rtl\Garant\L3\l3BaseWithID.pas'
  , l3CustomControlCanvas in 'w:\common\components\rtl\Garant\L3\l3CustomControlCanvas.pas'
  , nevBase in 'w:\common\components\gui\Garant\Everest\new\nevBase.pas'
  , evdStyles in 'w:\common\components\rtl\Garant\EVD\evdStyles.pas'
  , evConst in 'w:\common\components\gui\Garant\Everest\evConst.pas'
  , evdInterfaces in 'w:\common\components\rtl\Garant\EVD\evdInterfaces.pas'
  , nevTypes in 'w:\common\components\gui\Garant\Everest\new\nevTypes.pas'
- , k2BaseStruct in 'w:\common\components\rtl\Garant\K2\k2BaseStruct.pas'
  , evResultFontInterfaces in 'w:\common\components\gui\Garant\Everest\evResultFontInterfaces.pas'
  , evResultFont in 'w:\common\components\gui\Garant\Everest\evResultFont.pas'
  , nevTools in 'w:\common\components\gui\Garant\Everest\new\nevTools.pas'
@@ -967,15 +1008,11 @@ uses
  , StyledLeafPara_Const in 'w:\common\components\gui\Garant\Everest\StyledLeafPara_Const.pas'
  , LeafPara_Const in 'w:\common\components\rtl\Garant\EVD\LeafPara_Const.pas'
  , Para_Const in 'w:\common\components\rtl\Garant\EVD\Para_Const.pas'
- , k2Bool_Const in 'w:\common\components\rtl\Garant\K2\k2Bool_Const.pas'
- , k2Enum_Const in 'w:\common\components\rtl\Garant\K2\k2Enum_Const.pas'
  , k2Inch_Const in 'w:\common\components\rtl\Garant\K2\k2Inch_Const.pas'
  , k2Color_Const in 'w:\common\components\rtl\Garant\K2\k2Color_Const.pas'
  , evdFrame_Const in 'w:\common\components\rtl\Garant\EVD\evdFrame_Const.pas'
  , FramePart_Const in 'w:\common\components\rtl\Garant\EVD\FramePart_Const.pas'
  , SubLayer_Const in 'w:\common\components\rtl\Garant\EVD\SubLayer_Const.pas'
- , k2OList_Const in 'w:\common\components\rtl\Garant\K2\k2OList_Const.pas'
- , k2l3Base_Const in 'w:\common\components\rtl\Garant\K2\k2l3Base_Const.pas'
  , Sub_Const in 'w:\common\components\rtl\Garant\EVD\Sub_Const.pas'
  , DictItem_Const in 'w:\common\components\rtl\Garant\EVD\DictItem_Const.pas'
  , DictRec_Const in 'w:\common\components\rtl\Garant\EVD\DictRec_Const.pas'
@@ -988,12 +1025,6 @@ uses
  , k2FontName_Const in 'w:\common\components\rtl\Garant\K2\k2FontName_Const.pas'
  , evdStyleContainer in 'w:\common\components\rtl\Garant\EVD\evdStyleContainer.pas'
  , k2DictionaryEx in 'w:\common\components\rtl\Garant\K2\k2DictionaryEx.pas'
- , k2Dictionary in 'w:\common\components\rtl\Garant\K2\k2Dictionary.pas'
- , k2DictionaryPrim in 'w:\common\components\rtl\Garant\K2\k2DictionaryPrim.pas'
- , k2NonOptimizeContext in 'w:\common\components\rtl\Garant\K2\k2NonOptimizeContext.pas'
- , k2Context in 'w:\common\components\rtl\Garant\K2\k2Context.pas'
- , k2DictionaryIDIndex in 'w:\common\components\rtl\Garant\K2\k2DictionaryIDIndex.pas'
- , k2DictionaryIDIndexPrim in 'w:\common\components\rtl\Garant\K2\k2DictionaryIDIndexPrim.pas'
  , evStyleInterfaceEx in 'w:\common\components\gui\Garant\Everest\evStyleInterfaceEx.pas'
  , evStyleInterface in 'w:\common\components\gui\Garant\Everest\evStyleInterface.pas'
  , evStyles_SH in 'w:\common\components\gui\Garant\Everest\evStyles_SH.pas'
@@ -1005,11 +1036,6 @@ uses
  , evFontInterface in 'w:\common\components\gui\Garant\Everest\evFontInterface.pas'
  , l3Nodes in 'w:\common\components\rtl\Garant\L3\l3Nodes.pas'
  , k2SimpleTagList in 'w:\common\components\rtl\Garant\K2\k2SimpleTagList.pas'
- , k2TagList in 'w:\common\components\rtl\Garant\K2\k2TagList.pas'
- , k2TagListPrim in 'w:\common\components\rtl\Garant\K2\k2TagListPrim.pas'
- , k2ListTag in 'w:\common\components\rtl\Garant\K2\k2ListTag.pas'
- , k2NonAtomicTag in 'w:\common\components\rtl\Garant\K2\k2NonAtomicTag.pas'
- , k2Facade in 'w:\common\components\rtl\Garant\K2\k2Facade.pas'
  , evStylesPrintAndExportSettingRes in 'w:\common\components\gui\Garant\Everest\evStylesPrintAndExportSettingRes.pas'
  , evStylesPrintAndExportFontSizeSettingRes in 'w:\common\components\gui\Garant\Everest\evStylesPrintAndExportFontSizeSettingRes.pas'
  , l3MessageID in 'w:\common\components\rtl\Garant\L3\l3MessageID.pas'
@@ -1076,13 +1102,6 @@ uses
  {$IfEnd} // Defined(k2ForEditor) AND Defined(evNeedEditableCursors)
  , k2ProcessorTagTool in 'w:\common\components\rtl\Garant\K2\k2ProcessorTagTool.pas'
  , k2TagTool in 'w:\common\components\rtl\Garant\K2\k2TagTool.pas'
- , k2TagPointer in 'w:\common\components\rtl\Garant\K2\k2TagPointer.pas'
- , k2ToolPrim in 'w:\common\components\rtl\Garant\K2\k2ToolPrim.pas'
- , k2InterfaceFactory in 'w:\common\components\rtl\Garant\K2\k2InterfaceFactory.pas'
- , k2InterfaceCache in 'w:\common\components\rtl\Garant\K2\k2InterfaceCache.pas'
- , k2InterfaceList in 'w:\common\components\rtl\Garant\K2\k2InterfaceList.pas'
- , k2ToolCacheList in 'w:\common\components\rtl\Garant\K2\k2ToolCacheList.pas'
- , k2ToolPrimList in 'w:\common\components\rtl\Garant\K2\k2ToolPrimList.pas'
  , evEditorInterfaces in 'w:\common\components\gui\Garant\Everest\evEditorInterfaces.pas'
  , evEditorInterfacesTypes in 'w:\common\components\gui\Garant\Everest\evEditorInterfacesTypes.pas'
  {$If Defined(k2ForEditor)}
@@ -1119,13 +1138,11 @@ uses
  , ActiveInterval_Const in 'w:\common\components\rtl\Garant\EVD\ActiveInterval_Const.pas'
  , Alarm_Const in 'w:\common\components\rtl\Garant\EVD\Alarm_Const.pas'
  , Participant_Const in 'w:\common\components\gui\Garant\Everest\Participant_Const.pas'
- , k2RawData_Const in 'w:\common\components\rtl\Garant\K2\k2RawData_Const.pas'
  , EditablePart_Const in 'w:\common\components\gui\Garant\Everest\EditablePart_Const.pas'
  , evQueryCardInt in 'w:\common\components\gui\Garant\Everest\qf\evQueryCardInt.pas'
  , Formula_Const in 'w:\common\components\gui\Garant\Everest\Formula_Const.pas'
  , DecorTextPara_Const in 'w:\common\components\gui\Garant\Everest\DecorTextPara_Const.pas'
  , LeafParaDecorationsHolder_Const in 'w:\common\components\gui\Garant\Everest\LeafParaDecorationsHolder_Const.pas'
- , k2Const in 'w:\common\components\rtl\Garant\K2\k2Const.pas'
  , afwCaret in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwCaret.pas'
  , afwCaretPair in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwCaretPair.pas'
  , afwSingleCaret in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwSingleCaret.pas'
@@ -1233,13 +1250,6 @@ uses
  , l3GraphicContainer in 'w:\common\components\rtl\Garant\L3\l3GraphicContainer.pas'
  , l3GraphicContainerStack in 'w:\common\components\rtl\Garant\L3\l3GraphicContainerStack.pas'
  , l3IEBitmapContainerStack in 'w:\common\components\rtl\Garant\L3\l3IEBitmapContainerStack.pas'
- , l3Dict in 'w:\common\components\rtl\Garant\L3\l3Dict.pas'
- , l3DictionaryPrim in 'w:\common\components\rtl\Garant\L3\l3DictionaryPrim.pas'
- , l3IDIndex in 'w:\common\components\rtl\Garant\L3\l3IDIndex.pas'
- , l3IDIndexPrim in 'w:\common\components\rtl\Garant\L3\l3IDIndexPrim.pas'
- , k2Except in 'w:\common\components\rtl\Garant\K2\k2Except.pas'
- , k2String in 'w:\common\components\rtl\Garant\K2\k2String.pas'
- , k2List in 'w:\common\components\rtl\Garant\K2\k2List.pas'
  , nevLeafRenderInfo in 'w:\common\components\gui\Garant\Everest\new\nevLeafRenderInfo.pas'
  , nevTextParaRenderInfo in 'w:\common\components\gui\Garant\Everest\new\nevTextParaRenderInfo.pas'
  {$If Defined(k2ForEditor)}
@@ -1809,15 +1819,6 @@ uses
  {$If NOT Defined(Nemesis)}
  , ncsGetReadyToDeliveryTasksReply in 'w:\common\components\rtl\Garant\cs\ncsGetReadyToDeliveryTasksReply.pas'
  {$IfEnd} // NOT Defined(Nemesis)
- , evdTasksHelpers in 'w:\common\components\rtl\Garant\EVD\evdTasksHelpers.pas'
- , k2SizedMemoryPool in 'w:\common\components\rtl\Garant\K2\k2SizedMemoryPool.pas'
- , k2MemoryPoolAdapter in 'w:\common\components\rtl\Garant\K2\k2MemoryPoolAdapter.pas'
- , k2MemoryStream in 'w:\common\components\rtl\Garant\K2\k2MemoryStream.pas'
- , l3TempMemoryStream in 'w:\common\components\rtl\Garant\L3\l3TempMemoryStream.pas'
- , ComObj {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\ComObj.pas' {$EndIf}
- , TaskID_Const in 'w:\common\components\rtl\Garant\EVD\TaskID_Const.pas'
- , FoundSelector_Const in 'w:\common\components\rtl\Garant\EVD\FoundSelector_Const.pas'
- , DocIDWithComment_Const in 'w:\common\components\rtl\Garant\EVD\DocIDWithComment_Const.pas'
  , csGetReadyToDeliveryTasksReply_Const in 'w:\common\components\rtl\Garant\EVD\csGetReadyToDeliveryTasksReply_Const.pas'
  {$If Defined(ServerTasks)}
  , alcuGetTaskDescriptionExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuGetTaskDescriptionExecutor.pas'
@@ -1829,8 +1830,11 @@ uses
  {$If NOT Defined(Nemesis)}
  , ncsGetTaskDescriptionReply in 'w:\common\components\rtl\Garant\cs\ncsGetTaskDescriptionReply.pas'
  {$IfEnd} // NOT Defined(Nemesis)
- , csGetTaskDescriptionReply_Const in 'w:\common\components\rtl\Garant\EVD\csGetTaskDescriptionReply_Const.pas'
+ {$If NOT Defined(Nemesis)}
+ , ncsFileDescHelper in 'w:\common\components\rtl\Garant\cs\ncsFileDescHelper.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
  , FileDesc_Const in 'w:\common\components\rtl\Garant\EVD\FileDesc_Const.pas'
+ , csGetTaskDescriptionReply_Const in 'w:\common\components\rtl\Garant\EVD\csGetTaskDescriptionReply_Const.pas'
  {$If NOT Defined(Nemesis)}
  , ncsFileDesc in 'w:\common\components\rtl\Garant\cs\ncsFileDesc.pas'
  {$IfEnd} // NOT Defined(Nemesis)
@@ -1914,9 +1918,6 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
  , ncsExecutorFactoryList in 'w:\common\components\rtl\Garant\cs\ncsExecutorFactoryList.pas'
- {$IfEnd} // NOT Defined(Nemesis)
- {$If NOT Defined(Nemesis)}
- , ncsFileDescHelper in 'w:\common\components\rtl\Garant\cs\ncsFileDescHelper.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If Defined(ServerTasks)}
  , alcuCorrectFolderExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuCorrectFolderExecutor.pas'
@@ -2115,6 +2116,22 @@ uses
  , arCustomMultiChangeHyperLinksHelper in 'w:\archi\source\projects\Common\Utils\arCustomMultiChangeHyperLinksHelper.pas'
  , arConst in 'w:\archi\source\projects\Common\Utils\arConst.pas'
  , MultiChangeHyperLinksRequest_Const in 'w:\common\components\rtl\Garant\EVD\MultiChangeHyperLinksRequest_Const.pas'
+ {$If Defined(ServerTasks)}
+ , alcuServerFilesDeliverer in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuServerFilesDeliverer.pas'
+ {$IfEnd} // Defined(ServerTasks)
+ {$If NOT Defined(Nemesis)}
+ , ncsServerFilesDeliverer in 'w:\common\components\rtl\Garant\cs\ncsServerFilesDeliverer.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , CsDataPipe in 'w:\common\components\rtl\Garant\cs\CsDataPipe.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , CsDataPipePrim in 'w:\common\components\rtl\Garant\cs\CsDataPipePrim.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , IdIOHandler in 'w:\common\components\rtl\external\Indy\Source\Core\IdIOHandler.pas'
+ {$If NOT Defined(Nemesis)}
+ , csIdIOHandlerAdapter in 'w:\common\components\rtl\Garant\cs\csIdIOHandlerAdapter.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
  , alcuMdpSyncIntf in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpSyncIntf.pas'
  {$If NOT Defined(Nemesis)}
  , dt_DictConst in 'w:\common\components\rtl\Garant\DT\dt_DictConst.pas'

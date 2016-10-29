@@ -226,6 +226,7 @@ begin
 
   CompileResScriptToAxiomatics(theNewContext.rPrev^, 'res:kwMain');
 
+  {$IfNDef MSM}
   CompileScriptToAxiomatics(theNewContext.rPrev^, [
    {$IfNDef NoVCM}
    'CONST ANYUSERTYPE 31'
@@ -244,7 +245,7 @@ begin
    'WordAlias "Дождаться переключения вкладок" "Задержка имени Жени Кусакина"'
    {$EndIf Nemesis}
   ]);
-  
+
   {$IfNDef NoVCM}
   CompileScriptToAxiomaticsIfDefined(theNewContext.rPrev^,
   ['vcm:History:DeleteBackItem'],
@@ -358,6 +359,7 @@ begin
 
    {$EndIf Nemesis}
   ]);
+  {$EndIf  MSM}
 
   with TtfwAxiomaticsResNameGetters.Instance do
    for l_Index := 0 to Pred(Count) do
@@ -369,6 +371,7 @@ begin
   TtfwAutoregisteredDiction.Instance.AllAxiomaticsDefined := true;
  end;//try..finally
 
+ {$IfNDef MSM}
  l_SystemFilename := theNewContext.rPrev^.ResolveIncludedFilePath('Exports.script');
  if FileExists(l_SystemFilename) then
  begin
@@ -400,6 +403,8 @@ begin
    FreeAndNil(l_NS);
   end;//try..finally
  end;//FileExists(l_SystemFilename);
+ {$EndIf  MSM}
+ 
 //#UC END# *4DB6CDDA038B_4DC90A1E03C2_impl*
 end;//TkwMain.BeforeCompile
 

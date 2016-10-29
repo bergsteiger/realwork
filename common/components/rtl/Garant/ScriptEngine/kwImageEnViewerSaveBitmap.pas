@@ -42,6 +42,7 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ , l3ImageUtils
  , Windows
  {$If NOT Defined(NoVCL)}
  , Controls
@@ -56,17 +57,15 @@ uses
 procedure TkwImageEnViewerSaveBitmap.DoWithImageEn(aControl: TImageEnView;
  const aCtx: TtfwContext);
 //#UC START# *52E20FD6017C_52E20E70006F_var*
-const
- csBMPExt = '.bmp';
 var
  l_FileName: AnsiString;
 //#UC END# *52E20FD6017C_52E20E70006F_var*
 begin
 //#UC START# *52E20FD6017C_52E20E70006F_impl*
- l_FileName := ChangeFileExt(aCtx.rStreamFactory.Filename, csBMPExt);
+ l_FileName := ChangeFileExt(aCtx.rStreamFactory.Filename, l3PNGExt);
  l_FileName := ExtractFileName(l_FileName);
- l_FileName := aCtx.rCaller.ResolveInputFilePath(l_FileName);
- aControl.Bitmap.SaveToFile(l_FileName);
+ l_FileName := aCtx.rCaller.ResolveOutputFilePath(l_FileName);
+ l3SaveBitmap2Png(aControl.Bitmap, l_FileName);
 //#UC END# *52E20FD6017C_52E20E70006F_impl*
 end;//TkwImageEnViewerSaveBitmap.DoWithImageEn
 

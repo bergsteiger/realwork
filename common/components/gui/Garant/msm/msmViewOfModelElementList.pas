@@ -37,18 +37,35 @@ implementation
 uses
  l3ImplUses
  //#UC START# *57E3BE8101FEimpl_uses*
+ , l3Base
  //#UC END# *57E3BE8101FEimpl_uses*
 ;
 
 function TmsmViewOfModelElementList.pm_GetList: ItfwValueList;
 //#UC START# *57E3BECB002C_57E3BE8101FEget_var*
+var
+ l_List : ItfwValueList;
 //#UC END# *57E3BECB002C_57E3BE8101FEget_var*
 begin
 //#UC START# *57E3BECB002C_57E3BE8101FEget_impl*
  if (f_List = nil) then
  begin
   Assert(Self.Element.rElement <> nil);
-  pm_SetList(Self.Element.rElement.ListProp[Self.Element.rListName]);
+  l_List := Self.Element.rElement.ListProp[Self.Element.rListName];
+  pm_SetList(l_List);
+ end//f_List = nil
+ else
+ begin
+  if (Self.Element.rElement <> nil) then
+  begin
+   l_List := Self.Element.rElement.ListProp[Self.Element.rListName];
+   if (f_List <> l_List) then
+   // - список почему-то поменялся
+   begin
+    l3System.Msg2Log('Список поменялся неожиданно: ' + Self.Element.rListName);
+    pm_SetList(l_List);
+   end;//f_List <> l_List
+  end;//(Self.Element.rElement <> nil)
  end;//f_List = nil
  Result := f_List; 
 //#UC END# *57E3BECB002C_57E3BE8101FEget_impl*

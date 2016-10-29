@@ -269,7 +269,8 @@ begin
    Assert(l_O.rExternalID > 0);
   except
    on E: Exception do
-   vtMessageDlg(l3CStr(E.Message), mtError);
+    vtMessageDlg(l3CStr('Не удаётся назначить ID для изображения! Обратитесь в службу поддержки.'), mtError);
+   // vtMessageDlg(l3CStr(E.Message), mtError);
   end;//try..except 
   aPara.IntA[k2_tiInternalHandle] := l_O.rInternalID;
   aPara.IntA[k2_tiExternalHandle] := l_O.rExternalID;

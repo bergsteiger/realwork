@@ -459,6 +459,7 @@ uses
  , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
  , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
  , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
+ , tfwParserServiceFileNameToFileNameMap in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParserServiceFileNameToFileNameMap.pas'
  , IniFiles {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\IniFiles.pas' {$EndIf}
  , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
  {$If NOT Defined(NoScripts)}
@@ -1644,6 +1645,9 @@ uses
  , msmChangedElements in 'w:\common\components\gui\Garant\msm\msmChangedElements.pas'
  , msmDeletedElements in 'w:\common\components\gui\Garant\msm\msmDeletedElements.pas'
  {$If NOT Defined(NoScripts)}
+ , msmModelElementMethodCallerTranslatePack in 'w:\common\components\gui\Garant\msm\msmModelElementMethodCallerTranslatePack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
  , msmModelElementMethodCallerPack in 'w:\common\components\gui\Garant\msm\msmModelElementMethodCallerPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
@@ -1764,8 +1768,12 @@ uses
  , msmViewOfModelElementList in 'w:\common\components\gui\Garant\msm\msmViewOfModelElementList.pas'
  , msmViewOfModelElement in 'w:\common\components\gui\Garant\msm\msmViewOfModelElement.pas'
  , msmElementViews in 'w:\common\components\gui\Garant\msm\msmElementViews.pas'
+ , ImsmEventsSubscriberList in 'w:\common\components\gui\Garant\msm\ImsmEventsSubscriberList.pas'
  , msmModelElementListFactory in 'w:\common\components\gui\Garant\msm\msmModelElementListFactory.pas'
  , msmModelElementListFactoryPrim in 'w:\common\components\gui\Garant\msm\msmModelElementListFactoryPrim.pas'
+ {$If NOT Defined(NoScripts)}
+ , ImsmModelElementListWordsPack in 'w:\common\components\gui\Garant\msm\ImsmModelElementListWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
  , msmModelElementFactory in 'w:\common\components\gui\Garant\msm\msmModelElementFactory.pas'
  , msmModelElementFactoryPrim in 'w:\common\components\gui\Garant\msm\msmModelElementFactoryPrim.pas'
  , msmModelService in 'w:\common\components\gui\Garant\msm\msmModelService.pas'
@@ -1782,9 +1790,9 @@ uses
  , msmParentedViewController in 'w:\common\components\gui\Garant\msm\msmParentedViewController.pas'
  , msmViewController in 'w:\common\components\gui\Garant\msm\msmViewController.pas'
  , msmController in 'w:\common\components\gui\Garant\msm\msmController.pas'
+ , msmOperationsList in 'w:\common\components\gui\Garant\msm\msmOperationsList.pas'
  , msmEventList in 'w:\common\components\gui\Garant\msm\msmEventList.pas'
  , msmEventHandlers in 'w:\common\components\gui\Garant\msm\msmEventHandlers.pas'
- , msmOperationsList in 'w:\common\components\gui\Garant\msm\msmOperationsList.pas'
  , msmNullOperationsList in 'w:\common\components\gui\Garant\msm\msmNullOperationsList.pas'
  , msmViewControllersUtils in 'w:\common\components\gui\Garant\msm\msmViewControllersUtils.pas'
  , msmListAndTreeInterfaces in 'w:\common\components\gui\Garant\msm\msmListAndTreeInterfaces.pas'
@@ -1802,10 +1810,9 @@ uses
  , msmListModelPrim in 'w:\common\components\gui\Garant\msm\msmListModelPrim.pas'
  , msmListLikeModel in 'w:\common\components\gui\Garant\msm\msmListLikeModel.pas'
  , msmModel in 'w:\common\components\gui\Garant\msm\msmModel.pas'
- , ImsmEventsSubscriberList in 'w:\common\components\gui\Garant\msm\ImsmEventsSubscriberList.pas'
  , msmElementSelection in 'w:\common\components\gui\Garant\msm\msmElementSelection.pas'
  , msmModelElementDir in 'w:\common\components\gui\Garant\msm\msmModelElementDir.pas'
- , msmModelElementRelationList in 'w:\common\components\gui\Garant\msm\msmModelElementRelationList.pas'
+ //, msmModelElementRelationList in 'w:\common\components\gui\Garant\msm\msmModelElementRelationList.pas'
  , msmTreeModel in 'w:\common\components\gui\Garant\msm\msmTreeModel.pas'
  , msmTreeModelPrim in 'w:\common\components\gui\Garant\msm\msmTreeModelPrim.pas'
  , msmModelElementTree in 'w:\common\components\gui\Garant\msm\msmModelElementTree.pas'
@@ -1890,6 +1897,7 @@ uses
  , msmEditViewController in 'w:\common\components\gui\Garant\msm\msmEditViewController.pas'
  , msmEdit in 'w:\common\components\gui\Garant\msm\msmEdit.pas'
  , evEdit in 'w:\common\components\gui\Garant\Everest\evEdit.pas'
+ , msmEditViewUtils in 'w:\common\components\gui\Garant\msm\msmEditViewUtils.pas'
  , msmMemoViewController in 'w:\common\components\gui\Garant\msm\msmMemoViewController.pas'
  , msmMemo in 'w:\common\components\gui\Garant\msm\msmMemo.pas'
  , evMemo in 'w:\common\components\gui\Garant\Everest\evMemo.pas'

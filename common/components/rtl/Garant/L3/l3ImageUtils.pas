@@ -1,8 +1,14 @@
 unit l3ImageUtils;
 
-{ $Id: l3ImageUtils.pas,v 1.19 2016/06/28 09:04:28 lulin Exp $ }
+{ $Id: l3ImageUtils.pas,v 1.21 2016/10/27 10:33:01 dinishev Exp $ }
 
 // $Log: l3ImageUtils.pas,v $
+// Revision 1.21  2016/10/27 10:33:01  dinishev
+// Переход в эталонах на PNG
+//
+// Revision 1.20  2016/10/27 10:20:55  dinishev
+// Переход в эталонах на PNG
+//
 // Revision 1.19  2016/06/28 09:04:28  lulin
 // - считаем #10 разделителем строк для чтения файла построчно.
 //
@@ -74,6 +80,9 @@ uses
 type
  Tl3CompareImageResult = (l3_rImagesEqual, l3_rImagesDissimilar, l3_rError);
 
+const
+ l3PNGExt = '.png';
+
 {$IfNDef DesignTimeLibrary}
 function l3IsImageEqual(const aFirst: AnsiString; const aSecond: AnsiString; const aDiff: AnsiString): Tl3CompareImageResult;
 {$EndIf  DesignTimeLibrary}
@@ -82,6 +91,7 @@ procedure l3MakeScreenShot(aBitmap: TBitmap; aLeft, aTop, aWidth, aHeight: Integ
 procedure l3SaveScreenShot2File(aFileName: AnsiString; aLeft, aTop, aWidth, aHeight: Integer; aHandle: THandle);
 procedure l3BuildComparisonImage(const aEtalonFN, aTestFN, aResultFN: string);
 procedure l3SetFuzzValueInPercent(aValue: Integer);
+procedure l3SaveBitmap2Png(const aBitmap: TBitmap; aFileName: string);
 
 procedure l3BitmapToAlphaPNG(aBitmap: TBitmap; aDest: TStream); overload;
 procedure l3BitmapToAlphaPNG(aBitmap: TBitmap; aDest: IStream); overload;
@@ -149,7 +159,7 @@ function l3IsImageEqual(const aFirst: AnsiString; const aSecond: AnsiString; con
  begin
   l_Ext := ExtractFileExt(aDiff);
   if (l_Ext = '.emf') or (l_Ext = '.wmf') then
-   Result := ChangeFileExt(aDiff, '.png')
+   Result := ChangeFileExt(aDiff, l3PNGExt)
   else
    Result := aDiff;
  end;
@@ -323,35 +333,43 @@ begin
  end;
 end;
 
+procedure l3SaveBitmap2Png(const aBitmap: TBitmap; aFileName: string);
+var
+ l_IO      : TImageEnIO;
+ l_Stream  : Tl3MemoryStream;
+ l_FileName: AnsiString;
+begin
+ l_FileName := aFileName;
+ if ExtractFileExt(aFileName) <> l3PNGExt then
+  l_FileName := ChangeFileExt(l_FileName, l3PNGExt);
+ l_Stream := Tl3MemoryStream.Create;
+ try
+  aBitmap.SaveToStream(l_Stream);
+  l_Stream.Seek(0, 0);
+  l_IO := TImageEnIO.Create(nil);
+  try
+   l_IO.LoadFromStreamBMP(l_Stream);
+   l_IO.SaveToFilePNG(aFileName);
+  finally
+   FreeAndNil(l_IO);
+  end;
+ finally
+  FreeAndNil(l_Stream);
+ end;//try..finally
+end;
+
 procedure l3SaveScreenShot2File(aFileName: AnsiString; aLeft, aTop, aWidth, aHeight: Integer; aHandle: THandle);
 {$IfNDef NoImageEn}
 var
- l_IO    : TImageEnIO;
  l_Bitmap: TBitmap;
- l_Stream: Tl3MemoryStream;
 {$EndIf  NoImageEn}
 begin
  {$IfNDef NoImageEn}
  l_Bitmap := TBitmap.Create;
  try
   l3MakeScreenShot(l_Bitmap, aLeft, aTop, aWidth, aHeight, aHandle);
-  if ExtractFileExt(aFileName) = '.png' then
-  begin
-   l_Stream := Tl3MemoryStream.Create;
-   try
-    l_Bitmap.SaveToStream(l_Stream);
-    l_Stream.Seek(0, 0);
-    l_IO := TImageEnIO.Create(nil);
-    try
-     l_IO.LoadFromStreamBMP(l_Stream);
-     l_IO.SaveToFilePNG(aFileName);
-    finally
-     FreeAndNil(l_IO);
-    end;
-  finally
-   FreeAndNil(l_Stream);
-  end;//try..finally
-  end // if ExtractFileExt(l_FileName) = '.png' then
+  if ExtractFileExt(aFileName) = l3PNGExt then
+   l3SaveBitmap2Png(l_Bitmap, aFileName)
   else
    l_Bitmap.SaveToFile(aFileName);
  finally

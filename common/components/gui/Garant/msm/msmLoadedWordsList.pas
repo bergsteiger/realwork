@@ -10,26 +10,21 @@ interface
 
 uses
  l3IntfUses
- , l3CProtoObject
+ , msmSomeWordsListPrim
  , msmElementViews
  , msmModelElements
- , l3Interfaces
 ;
 
 type
- TmsmLoadedWordsList = class(Tl3CProtoObject, ImsmModelElementStringList)
+ TmsmLoadedWordsList = class(TmsmSomeWordsListPrim)
   protected
-   function Get_Item(anIndex: Integer): ImsmModelElement;
-   function Get_Count: Integer;
-   function Get_Owner: ImsmModelElement;
-   function Get_Strings(anIndex: Integer): Il3CString;
-   function Get_StringsToFind(anIndex: Integer): Il3CString;
+   function DoGetCount: Integer; override;
+   function DoGetItem(anIndex: Integer): ImsmModelElement; override;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
    constructor Create; reintroduce;
    class function Make: ImsmModelElementStringList; reintroduce;
-   function IndexOfElementView(const anElement: ImsmModelElement): Integer;
  end;//TmsmLoadedWordsList
 
 implementation
@@ -47,7 +42,7 @@ constructor TmsmLoadedWordsList.Create;
 //#UC END# *57E51B9E01E1_57E51860015E_var*
 begin
 //#UC START# *57E51B9E01E1_57E51860015E_impl*
- inherited Create;
+ inherited Create(TmsmModelElementView_C(nil, 'All'));
 //#UC END# *57E51B9E01E1_57E51860015E_impl*
 end;//TmsmLoadedWordsList.Create
 
@@ -63,28 +58,11 @@ begin
  end;//try..finally
 end;//TmsmLoadedWordsList.Make
 
-function TmsmLoadedWordsList.Get_Item(anIndex: Integer): ImsmModelElement;
-//#UC START# *57AAD86403AD_57E51860015Eget_var*
-//#UC END# *57AAD86403AD_57E51860015Eget_var*
+function TmsmLoadedWordsList.DoGetCount: Integer;
+//#UC START# *5811547001A8_57E51860015E_var*
+//#UC END# *5811547001A8_57E51860015E_var*
 begin
-//#UC START# *57AAD86403AD_57E51860015Eget_impl*
- with TmsmWordsByUserNameIndex.Instance do
- begin
-  Lock;
-  try
-   Result := TmsmModelElement.MakeFromWord(Items[anIndex].rValue);
-  finally
-   Unlock;
-  end;//try..finally
- end;//with TmsmWordsByUserNameIndex.Instance
-//#UC END# *57AAD86403AD_57E51860015Eget_impl*
-end;//TmsmLoadedWordsList.Get_Item
-
-function TmsmLoadedWordsList.Get_Count: Integer;
-//#UC START# *57AAD89C0277_57E51860015Eget_var*
-//#UC END# *57AAD89C0277_57E51860015Eget_var*
-begin
-//#UC START# *57AAD89C0277_57E51860015Eget_impl*
+//#UC START# *5811547001A8_57E51860015E_impl*
  with TmsmWordsByUserNameIndex.Instance do
  begin
   Lock;
@@ -94,68 +72,25 @@ begin
    Unlock;
   end;//try..finally
  end;//with TmsmWordsByUserNameIndex.Instance
-//#UC END# *57AAD89C0277_57E51860015Eget_impl*
-end;//TmsmLoadedWordsList.Get_Count
+//#UC END# *5811547001A8_57E51860015E_impl*
+end;//TmsmLoadedWordsList.DoGetCount
 
-function TmsmLoadedWordsList.Get_Owner: ImsmModelElement;
-//#UC START# *57AE2E140297_57E51860015Eget_var*
-//#UC END# *57AE2E140297_57E51860015Eget_var*
+function TmsmLoadedWordsList.DoGetItem(anIndex: Integer): ImsmModelElement;
+//#UC START# *581154A203C2_57E51860015E_var*
+//#UC END# *581154A203C2_57E51860015E_var*
 begin
-//#UC START# *57AE2E140297_57E51860015Eget_impl*
- Result := nil;
-//#UC END# *57AE2E140297_57E51860015Eget_impl*
-end;//TmsmLoadedWordsList.Get_Owner
-
-function TmsmLoadedWordsList.Get_Strings(anIndex: Integer): Il3CString;
-//#UC START# *57AEBED1018D_57E51860015Eget_var*
-//#UC END# *57AEBED1018D_57E51860015Eget_var*
-begin
-//#UC START# *57AEBED1018D_57E51860015Eget_impl*
- Result := Get_Item(anIndex).StringProp['DefaultText'];
-//#UC END# *57AEBED1018D_57E51860015Eget_impl*
-end;//TmsmLoadedWordsList.Get_Strings
-
-function TmsmLoadedWordsList.Get_StringsToFind(anIndex: Integer): Il3CString;
-//#UC START# *57B6C7D40215_57E51860015Eget_var*
-//#UC END# *57B6C7D40215_57E51860015Eget_var*
-begin
-//#UC START# *57B6C7D40215_57E51860015Eget_impl*
- Result := Get_Item(anIndex).StringProp['DefaultSearchText'];
-//#UC END# *57B6C7D40215_57E51860015Eget_impl*
-end;//TmsmLoadedWordsList.Get_StringsToFind
-
-function TmsmLoadedWordsList.IndexOfElementView(const anElement: ImsmModelElement): Integer;
-//#UC START# *57D1327900BC_57E51860015E_var*
-var
- l_Index : Integer;
- l_E : ImsmModelElement;
-//#UC END# *57D1327900BC_57E51860015E_var*
-begin
-//#UC START# *57D1327900BC_57E51860015E_impl*
- Result := -1;
- if (anElement <> nil) then
+//#UC START# *581154A203C2_57E51860015E_impl*
+ with TmsmWordsByUserNameIndex.Instance do
  begin
-  for l_Index := 0 to Pred(Get_Count) do
-  begin
-   l_E := Get_Item(l_Index);
-   if l_E.IsSameElement(anElement) then
-   begin
-    Result := l_Index;
-    Exit;
-   end;//l_E.IsSameElement(anElement)
-  end;//for l_Index
-  for l_Index := 0 to Pred(Get_Count) do
-  begin
-   l_E := Get_Item(l_Index);
-   if l_E.IsSameElementView(anElement) then
-   begin
-    Result := l_Index;
-    Exit;
-   end;//l_E.IsSameElementView(anElement)
-  end;//for l_Index
- end;//anElement <> nil
-//#UC END# *57D1327900BC_57E51860015E_impl*
-end;//TmsmLoadedWordsList.IndexOfElementView
+  Lock;
+  try
+   Result := TmsmModelElement.MakeFromWord(Items[anIndex].rValue);
+  finally
+   Unlock;
+  end;//try..finally
+ end;//with TmsmWordsByUserNameIndex.Instance
+//#UC END# *581154A203C2_57E51860015E_impl*
+end;//TmsmLoadedWordsList.DoGetItem
 
 procedure TmsmLoadedWordsList.Cleanup;
  {* Функция очистки полей объекта. }

@@ -1,8 +1,11 @@
 Unit dt_Table;
 
-{ $Id: dt_Table.pas,v 1.65 2016/10/13 15:15:15 voba Exp $ }
+{ $Id: dt_Table.pas,v 1.66 2016/10/28 14:34:09 voba Exp $ }
 
 // $Log: dt_Table.pas,v $
+// Revision 1.66  2016/10/28 14:34:09  voba
+// - убрали логику с cRecordsAdditionCriteria, поскольку yTech начиная с версии 297 сам все делает
+//
 // Revision 1.65  2016/10/13 15:15:15  voba
 // no message
 //
@@ -347,7 +350,7 @@ implementation
   DT_Err, DT_Misc{, l3Filer};
 
 const
- cRecordsAdditionCriteria = 10;
+ //cRecordsAdditionCriteria = 10;
 
  c_EmptyTrId: HT_Const.TRID = (mTrID:((0),(0),(0),(0),(0),(0)));
 
@@ -491,12 +494,7 @@ var
  I         : Cardinal;
  lHTStub   : Pointer;
  lHTStubErr : Pointer;
- {$IfDef DEBUGOUT2}
-   lStartTime : Cardinal;
-  {$EndIf}
 begin
- if aRecCount > cRecordsAdditionCriteria then  // при большом количестве записей добавлять по одной весьма накладно
- begin
   if StartTA(cMaxAddTime) then
   try
    lHTStub := HTStub3(@lAddBufferedData);
@@ -521,37 +519,6 @@ begin
    RollBackTA;
    raise;
   end;
- end
- else // if aRecCount > RecordsAdditionCriteria then
- begin
-  l3System.GetLocalMemZ(lCurRec, RecSize);
-  try
-  {$IfDef DEBUGOUT2}
-  lStartTime := dbgStartTimeCounter;
-  {$EndIf}
-   for I := 1 to aRecCount do
-   begin
-    if aFillBuffProc(lCurRec, RecSize) = RecSize then
-    try
-     dtCheckErr(htRecordAdd(Handle, lCurRec));
-    except
-     on E : EHtErrors do
-      if E.ErrorValue = -13 then
-      begin
-       l3System.Msg2Log('Record: ' + RecordAsString(lCurRec));
-       l3System.Exception2Log(E);
-      end 
-      else Raise;
-     else Raise;
-    end;
-   end;
-  {$IfDef DEBUGOUT2}
-  l3System.Msg2Log('AddRecs Singl (Table = %s) RecCount=%d : %s', [TblName, aRecCount, dbgFinishTimeCounter(lStartTime)]);
-  {$EndIf}
-  finally
-   l3System.FreeLocalMem(lCurRec);
-  end;
- end;
 end;
 
 {TdtTable}

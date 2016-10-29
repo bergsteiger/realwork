@@ -41,6 +41,7 @@ uses
  , l3Base
  //#UC START# *57F7BA1703A5impl_uses*
  , tfwScriptingInterfaces
+ , msmWaitCursor
  //#UC END# *57F7BA1703A5impl_uses*
 ;
 
@@ -63,6 +64,7 @@ begin
 //#UC START# *57E105510123_57F7BA1703A5_impl*
  if Self.Empty then
   Exit;
+ TmsmWaitCursor.Make; 
  Lock;
  try
   l_List := TtfwWordRefList.Create;

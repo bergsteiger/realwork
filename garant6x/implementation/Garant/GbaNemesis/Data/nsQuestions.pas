@@ -11,6 +11,7 @@ interface
 uses
  l3IntfUses
  , l3StringIDEx
+ , l3MessageID
 ;
 
 const
@@ -72,7 +73,6 @@ implementation
 
 uses
  l3ImplUses
- , l3MessageID
  {$If NOT Defined(NoVCL)}
  , Dialogs
  {$IfEnd} // NOT Defined(NoVCL)

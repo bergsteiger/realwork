@@ -12,6 +12,7 @@ uses
  l3IntfUses
  , l3ProtoObject
  , l3StringList
+ , tfwParserServiceFileNameToFileNameMap
 ;
 
  (*
@@ -37,6 +38,7 @@ type
   private
    f_CoFileDir: AnsiString;
    f_IncludePaths: Tl3StringList;
+   f_FileNameToFileNameMap: TtfwParserServiceFileNameToFileNameMap;
    f_Alien: ItfwParserService;
     {* ¬нешн€€ реализаци€ сервиса ItfwParserService }
   protected
@@ -202,27 +204,50 @@ function TtfwParserService.ResolveIncludedFilePath(const aFile: AnsiString): Ans
   l_Index : Integer;
   l_FileName : String;
   l_ResultFileName : String;
+  l_ItemIndex : Integer;
  begin//DoResolve
   Result := aFile;
   if not AnsiStartsText('axiom:', Result) then
   begin
-   if not FileExists(Result) then
-   begin
-    LoadIncludePaths;
-    if (f_IncludePaths <> nil) then
+   if (f_FileNameToFileNameMap = nil) then
+    f_FileNameToFileNameMap := TtfwParserServiceFileNameToFileNameMap.Create;
+   f_FileNameToFileNameMap.Lock;
+   try
     begin
-     l_FileName := ExtractFileName(Result);
-     for l_Index := 0 to Pred(f_IncludePaths.Count) do
+     l_ItemIndex := f_FileNameToFileNameMap.IndexByKey(Result);
+     if (l_ItemIndex >= 0) then
      begin
-      l_ResultFileName := ConcatDirName(f_IncludePaths[l_Index].AsString, l_FileName);
-      if FileExists(l_ResultFileName) then
+      Result := f_FileNameToFileNameMap.ValueByIndex(l_ItemIndex);
+      Exit;
+     end//f_FileNameToFileNameMap.Has(Result)
+     else
+     if (f_FileNameToFileNameMap.Count > 5000) then
+      f_FileNameToFileNameMap.Clear;
+    end;//f_FileNameToFileNameMap = nil
+    if not FileExists(Result) then
+    begin
+     LoadIncludePaths;
+     if (f_IncludePaths <> nil) then
+     begin
+      l_FileName := ExtractFileName(Result);
+      for l_Index := 0 to Pred(f_IncludePaths.Count) do
       begin
-       Result := l_ResultFileName;
-       Exit;
-      end;//FileExists(l_ResultFileName)
-     end;//for l_Index
-    end;//f_IncludePaths <> nil
-   end;//not FileExists(Result)
+       l_ResultFileName := ConcatDirName(f_IncludePaths[l_Index].AsString, l_FileName);
+       if FileExists(l_ResultFileName) then
+       begin
+        f_FileNameToFileNameMap.Add(Result, l_ResultFileName);
+        Result := l_ResultFileName;
+        Exit;
+       end;//FileExists(l_ResultFileName)
+      end;//for l_Index
+      f_FileNameToFileNameMap.Add(Result, Result);
+     end;//f_IncludePaths <> nil
+    end//not FileExists(Result)
+    else
+     f_FileNameToFileNameMap.Add(Result, Result);
+   finally
+    f_FileNameToFileNameMap.Unlock;
+   end;//try..finally
   end;//not AnsiStartsText('axiom:', Result)
  end;//DoResolve
 
@@ -277,6 +302,7 @@ procedure TtfwParserService.Cleanup;
 begin
 //#UC START# *479731C50290_57726B250063_impl*
  FreeAndNil(f_IncludePaths);
+ FreeAndNil(f_FileNameToFileNameMap);
  inherited;
 //#UC END# *479731C50290_57726B250063_impl*
 end;//TtfwParserService.Cleanup

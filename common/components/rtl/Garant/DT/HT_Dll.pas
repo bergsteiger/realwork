@@ -6,9 +6,12 @@
    HyTech 2.56  Copyright (c) 1993, 99 by SKAZ_M Ltd
 *)
 
-// $Id: HT_Dll.pas,v 1.23 2016/07/21 06:01:26 fireton Exp $
+// $Id: HT_Dll.pas,v 1.24 2016/10/28 14:32:06 voba Exp $
 
 // $Log: HT_Dll.pas,v $
+// Revision 1.24  2016/10/28 14:32:06  voba
+// no message
+//
 // Revision 1.23  2016/07/21 06:01:26  fireton
 // - не собиралось
 //
@@ -1680,7 +1683,7 @@ Uses HT_Const;
   Function htWhoLockSet(Var sSAB:SAB;Var sOwner:OWNER):SmallInt;stdcall;
 
 (* Определить захватчика таблицы *)
-  Function htWhoLockTable(fpTabName:PAnsiChar;Var sOwner:OWNER):SmallInt;stdcall;
+  Function htWhoLockTable(fpTabName: PAnsiChar; var sOwner: OWNER):SmallInt;stdcall;
 
 (* Управление флагом подмены обработчика CtrlBreak (вызов SetConsoleCtrlHandler) *)
 (* Возвращает старое состояние флаги и проставляет новое *)
@@ -1695,6 +1698,10 @@ Uses HT_Const;
 (* Печать заданной кучи процесса *)
 (* печать идет в файл HtHeap.dmp в текущем каталоге *)
   Procedure htPrintHytechHeap(hTask : LongWord;bGlobal : ShortInt);stdcall;
+
+//* Выводить сведения о выполнении операций ядра СУБД */
+//HTRET HTAPI htSetParam( const char* cpName, const char* cpValue );
+ function htSetParam(aParamName: PAnsiChar; aParamValue: PAnsiChar): SmallInt; stdcall;
 
  // Константы для конвертации таблиц
  const
@@ -1907,6 +1914,8 @@ Implementation
   Function  htExcludeResults;            external HTDLL name sHTEXCLUDERESULTS;
   Function  htRecordsByValues;           external HTDLL name sHTRECORDSBYVALUES;
   Function  htLastErrorText;             external HTDLL name sHTLASTERRORTEXT;
+  Function  htSetParam;                  external HTDLL name sHTSETPARAM;
+
   {$endif}
 
 end.

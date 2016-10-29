@@ -11,10 +11,14 @@ interface
 {$If NOT Defined(Nemesis)}
 uses
  l3IntfUses
+ , CsDataPipe
 ;
 
 type
- TCsQueryProc = procedure;
+ TCsQueryProc = procedure(aPipe: TCsDataPipe);
+
+ TCsQueryRequester = class
+ end;//TCsQueryRequester
 {$IfEnd} // NOT Defined(Nemesis)
 
 implementation

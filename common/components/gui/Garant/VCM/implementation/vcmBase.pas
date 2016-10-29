@@ -5,9 +5,12 @@ unit vcmBase;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmBase -       }
 { Начат: 21.02.2003 16:19 }
-{ $Id: vcmBase.pas,v 1.269 2016/10/17 15:26:18 kostitsin Exp $ }
+{ $Id: vcmBase.pas,v 1.270 2016/10/21 17:12:00 kostitsin Exp $ }
 
 // $Log: vcmBase.pas,v $
+// Revision 1.270  2016/10/21 17:12:00  kostitsin
+// {requestlink: 630594870 }
+//
 // Revision 1.269  2016/10/17 15:26:18  kostitsin
 // {requestlink: 632196057 }
 //
@@ -1645,8 +1648,10 @@ end;
 function vcmDispatcher: IvcmDispatcher;
   {* - возвращает диспетчер. }
 begin
- Assert(not l3SystemDown);
- Result := TvcmDispatcher.Instance.As_IvcmDispatcher;
+ if TvcmDispatcher.Exists then
+  Result := TvcmDispatcher.Instance.As_IvcmDispatcher
+ else
+  Result := nil;
 end;
 
 {$IfDef DesignTimeLibrary}

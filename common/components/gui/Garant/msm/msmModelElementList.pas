@@ -13,11 +13,22 @@ uses
  , msmViewOfModelElementList
  , msmModelElements
  , msmElementViews
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptingInterfaces
+ {$IfEnd} // NOT Defined(NoScripts)
+ , msmEvents
+ , ImsmEventsSubscriberList
 ;
 
 type
- TmsmModelElementList = class(TmsmViewOfModelElementList, ImsmModelElementList)
+ _msmEventsPublisher_Parent_ = TmsmViewOfModelElementList;
+ {$Include w:\common\components\gui\Garant\msm\msmEventsPublisher.imp.pas}
+ _msmEventFire_Parent_ = _msmEventsPublisher_;
+ {$Include w:\common\components\gui\Garant\msm\msmEventFire.imp.pas}
+ TmsmModelElementList = class(_msmEventFire_, ImsmModelElementList, ImsmEventsPublisher)
   protected
+   function As_ImsmEventsPublisher: ImsmEventsPublisher;
+    {* Метод приведения нашего интерфейса к ImsmEventsPublisher }
    function Get_Item(anIndex: Integer): ImsmModelElement;
    function Get_Count: Integer;
    function Get_Owner: ImsmModelElement;
@@ -28,6 +39,7 @@ type
    class function Make(const anElement: TmsmModelElementView): ImsmModelElementList;
    procedure Reget;
    function IndexOfElementView(const anElement: ImsmModelElement): Integer;
+   procedure Add(anItem: TtfwWord);
  end;//TmsmModelElementList
 
 implementation
@@ -37,9 +49,20 @@ uses
  , msmModelElement
  , msmModelElementListFactory
  , msmModelElementMethodValueCache
+ {$If NOT Defined(NoScripts)}
+ , ImsmModelElementListWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
  //#UC START# *57AADABA0154impl_uses*
+ , tfwArray
+ , msmListAndTreeInterfaces
+ , msmChangedElements
  //#UC END# *57AADABA0154impl_uses*
 ;
+
+{$Include w:\common\components\gui\Garant\msm\msmEventsPublisher.imp.pas}
+
+{$Include w:\common\components\gui\Garant\msm\msmEventFire.imp.pas}
 
 constructor TmsmModelElementList.Create(const anElement: TmsmModelElementView);
 //#UC START# *57AADC1802AE_57AADABA0154_var*
@@ -68,9 +91,16 @@ begin
  List := nil;
  Assert(Self.Element.rElement <> nil);
  TmsmModelElementMethodValueCache.Instance.DeleteWordCachedValue(Self.Element.rElement.MainWord, Self.Element.rListName);
- List;
+ //List;
+ // - лучше потом получить
 //#UC END# *57FE4D3B0255_57AADABA0154_impl*
 end;//TmsmModelElementList.Reget
+
+function TmsmModelElementList.As_ImsmEventsPublisher: ImsmEventsPublisher;
+ {* Метод приведения нашего интерфейса к ImsmEventsPublisher }
+begin
+ Result := Self;
+end;//TmsmModelElementList.As_ImsmEventsPublisher
 
 function TmsmModelElementList.Get_Item(anIndex: Integer): ImsmModelElement;
 //#UC START# *57AAD86403AD_57AADABA0154get_var*
@@ -137,6 +167,21 @@ begin
  end;//anElement <> nil
 //#UC END# *57D1327900BC_57AADABA0154_impl*
 end;//TmsmModelElementList.IndexOfElementView
+
+procedure TmsmModelElementList.Add(anItem: TtfwWord);
+//#UC START# *58094B920194_57AADABA0154_var*
+//#UC END# *58094B920194_57AADABA0154_var*
+begin
+//#UC START# *58094B920194_57AADABA0154_impl*
+ Assert(Self.Element.rElement <> nil);
+ if (Self.List = nil) then
+  Self.Element.rElement.ListProp[Self.Element.rListName] := TtfwArray.Make;
+ Assert(Self.List <> nil);
+ Self.List.Add(TtfwStackValue_C(anItem));
+ TmsmChangedElements.Instance.Add(Self.Element.rElement.MainWord);
+ Self.Fire(ListContentChangedEvent.Instance);
+//#UC END# *58094B920194_57AADABA0154_impl*
+end;//TmsmModelElementList.Add
 
 procedure TmsmModelElementList.Cleanup;
  {* Функция очистки полей объекта. }

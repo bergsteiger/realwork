@@ -26,8 +26,8 @@ type
 
  (*
  MmsmEventsPublisher = interface
-  procedure Subscribe(const aListener: ImsmEventsSubscriber);
-  procedure Unsubscribe(const aListener: ImsmEventsSubscriber);
+  procedure AddEventsSubscriber(const aListener: ImsmEventsSubscriber);
+  procedure RemoveEventsSubscriber(const aListener: ImsmEventsSubscriber);
  end;//MmsmEventsPublisher
  *)
 
@@ -46,8 +46,8 @@ type
 
  ImsmEventsPublisher = interface
   ['{43C89C07-7F9C-42DF-9BB6-1503E8B64D25}']
-  procedure Subscribe(const aListener: ImsmEventsSubscriber);
-  procedure Unsubscribe(const aListener: ImsmEventsSubscriber);
+  procedure AddEventsSubscriber(const aListener: ImsmEventsSubscriber);
+  procedure RemoveEventsSubscriber(const aListener: ImsmEventsSubscriber);
  end;//ImsmEventsPublisher
 
  TmsmEventHandler = procedure(anEvent: TmsmEvent) of object;

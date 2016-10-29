@@ -1,8 +1,11 @@
 unit CsQueryTypes;
 
-{ $Id: CsQueryTypes.pas,v 1.45 2016/08/29 12:51:56 lukyanets Exp $ }
+{ $Id: CsQueryTypes.pas,v 1.46 2016/10/24 13:34:49 lukyanets Exp $ }
 
 // $Log: CsQueryTypes.pas,v $
+// Revision 1.46  2016/10/24 13:34:49  lukyanets
+// Готовим новую функциональность.
+//
 // Revision 1.45  2016/08/29 12:51:56  lukyanets
 // Принимаем запрос и готовимся отдавать файл
 //
@@ -195,7 +198,7 @@ type
                qtalcuSendEMailNotify, // Переправить сообщение через alcuMail.SendEmailNotify
                qtalcuSendSMSNotify, // Переправить сообщение через alcuMail.SendSMSNotify
                qtalcuSendTaskResult, // Переправить результат выполнения из утилиты в сервер
-               qtRequestDeliveryTaskList, // Получить список задач по которым готовы результаты
+               qtRequestDelivery, // Получить список задач по которым готовы результаты
                qtalcuAACNeedTerminate, // Надо ли прерывать AACImport - сугубо затычка
                qtalcuExportResultProcessing, // Обменяться результатами экспорта с докачкой и прочей фигней (CRC etc).
                qtalcuSendTask, // Отослать задачу с забором дополнительных файлов с докачкой и прочей фигней (CRC etc).

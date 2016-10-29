@@ -22,6 +22,7 @@ uses
   {* Контракт сервиса TnsSaveDialogExecutor }
   function Call(aDialog: TnsSaveDialog): Boolean;
   function GetFileName: AnsiString;
+  procedure SetFileName(const aName: AnsiString);
   procedure SetFileFormat(aFileFormat: TnsFileFormat);
   procedure SetSaveObjects(aValue: TnsSaveDialogListTarget);
   procedure SetMergeFiles(aValue: Boolean);
@@ -34,6 +35,7 @@ type
   {* Интерфейс сервиса TnsSaveDialogExecutor }
   function Call(aDialog: TnsSaveDialog): Boolean;
   function GetFileName: AnsiString;
+  procedure SetFileName(const aName: AnsiString);
   procedure SetFileFormat(aFileFormat: TnsFileFormat);
   procedure SetSaveObjects(aValue: TnsSaveDialogListTarget);
   procedure SetMergeFiles(aValue: Boolean);
@@ -50,6 +52,7 @@ type
   public
    function Call(aDialog: TnsSaveDialog): Boolean;
    function GetFileName: AnsiString;
+   procedure SetFileName(const aName: AnsiString);
    procedure SetFileFormat(aFileFormat: TnsFileFormat);
    procedure SetSaveObjects(aValue: TnsSaveDialogListTarget);
    procedure SetMergeFiles(aValue: Boolean);
@@ -120,6 +123,18 @@ begin
   Assert(False);
 //#UC END# *D50DF667C759_573A0A7E0387_impl*
 end;//TnsSaveDialogExecutor.GetFileName
+
+procedure TnsSaveDialogExecutor.SetFileName(const aName: AnsiString);
+//#UC START# *8E32D0CAA2B7_573A0A7E0387_var*
+//#UC END# *8E32D0CAA2B7_573A0A7E0387_var*
+begin
+//#UC START# *8E32D0CAA2B7_573A0A7E0387_impl*
+ if Assigned(f_Alien) then
+  f_Alien.SetFileName(aName)
+ else
+  Assert(False);
+//#UC END# *8E32D0CAA2B7_573A0A7E0387_impl*
+end;//TnsSaveDialogExecutor.SetFileName
 
 procedure TnsSaveDialogExecutor.SetFileFormat(aFileFormat: TnsFileFormat);
 //#UC START# *593F1F6D46A5_573A0A7E0387_var*

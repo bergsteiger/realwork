@@ -14,8 +14,8 @@
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
-   procedure Subscribe(const aListener: ImsmEventsSubscriber);
-   procedure Unsubscribe(const aListener: ImsmEventsSubscriber);
+   procedure AddEventsSubscriber(const aListener: ImsmEventsSubscriber);
+   procedure RemoveEventsSubscriber(const aListener: ImsmEventsSubscriber);
  end;//_msmEventsPublisher_
 
 {$Else msmEventsPublisher_imp}
@@ -24,7 +24,7 @@
 
 {$Define msmEventsPublisher_imp_impl}
 
-procedure _msmEventsPublisher_.Subscribe(const aListener: ImsmEventsSubscriber);
+procedure _msmEventsPublisher_.AddEventsSubscriber(const aListener: ImsmEventsSubscriber);
 //#UC START# *57B4228B001E_57B6B275018D_var*
 //#UC END# *57B4228B001E_57B6B275018D_var*
 begin
@@ -33,9 +33,9 @@ begin
   f_Subscribers := TImsmEventsSubscriberList.Create;
  f_Subscribers.Add(aListener);
 //#UC END# *57B4228B001E_57B6B275018D_impl*
-end;//_msmEventsPublisher_.Subscribe
+end;//_msmEventsPublisher_.AddEventsSubscriber
 
-procedure _msmEventsPublisher_.Unsubscribe(const aListener: ImsmEventsSubscriber);
+procedure _msmEventsPublisher_.RemoveEventsSubscriber(const aListener: ImsmEventsSubscriber);
 //#UC START# *57B422AB0293_57B6B275018D_var*
 //#UC END# *57B422AB0293_57B6B275018D_var*
 begin
@@ -43,7 +43,7 @@ begin
  if (f_Subscribers <> nil) then
   f_Subscribers.Remove(aListener); 
 //#UC END# *57B422AB0293_57B6B275018D_impl*
-end;//_msmEventsPublisher_.Unsubscribe
+end;//_msmEventsPublisher_.RemoveEventsSubscriber
 
 procedure _msmEventsPublisher_.Cleanup;
  {* Функция очистки полей объекта. }

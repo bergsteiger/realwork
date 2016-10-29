@@ -189,11 +189,14 @@ begin
  Assert(l_Map <> nil);
  if (l_Map.Bounds.Bottom > ViewExtent.Y) then
  begin
-  if (l_Prev = nil) and (aMode = nev_ppmNeedAnchor) then // [$219124086]
-  begin
-   l_Line := -1;
-   Result := MoveCursor(Result, l_Line, aMode);
-  end; // if (l_Prev <> nil) then
+   if (l_Prev = nil) and (aMode = nev_ppmNeedAnchor) then // [$219124086]
+   begin
+    if evSinglePictureInSegment(l_Map, l_MI) then
+     l_Line := -1
+    else
+     l_Line := 1;
+    Result := MoveCursor(Result, l_Line, aMode);
+   end; // if (l_Prev <> nil) then
  end;//l_Rect.Bottom > ViewExtent.Y
 //#UC END# *5011297D01AA_4811E4BA020A_impl*
 end;//TnevBaseDrawView.CorrectFoundPoint

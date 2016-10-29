@@ -8,8 +8,11 @@ unit nsUtils;
 { Описание   : Общие функции проекта Немезис.                                  }
 {------------------------------------------------------------------------------}
 
-// $Id: nsUtils.pas,v 1.52 2016/09/30 06:45:28 morozov Exp $
+// $Id: nsUtils.pas,v 1.53 2016/10/28 14:11:41 kostitsin Exp $
 // $Log: nsUtils.pas,v $
+// Revision 1.53  2016/10/28 14:11:41  kostitsin
+// {requestlink: 631999129 }
+//
 // Revision 1.52  2016/09/30 06:45:28  morozov
 // {RequestLink: 630816084}
 //
@@ -1133,8 +1136,8 @@ begin
   l_Topic.rPosition.rType := bsBusinessToAdapter(aPosType);
 
   TnsTryingToOpenMissingDocumentFromLinkEvent.Log(l_Topic);
-
-  TbsDocumentMissingMessage.Show(False, l_MI);
+  if aShowFaultMessageOnInvalidRef then
+   TbsDocumentMissingMessage.Show(False, l_MI);
  end;
 
  if Result and ((l_Document.GetDocType = DT_REF) and (not aIgnoreRefDoc)) then
@@ -1156,10 +1159,7 @@ begin
   finally
    l_ContainerMaker := nil;
   end;
-  TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(l_Document,
-                                         TbsDocPos_C(aPosType,
-                                                     Longword(aPosID))),
-                         l_Container);
+  TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(l_Document, TbsDocPos_C(aPosType, Longword(aPosID))), l_Container);
  end;
 end;
 

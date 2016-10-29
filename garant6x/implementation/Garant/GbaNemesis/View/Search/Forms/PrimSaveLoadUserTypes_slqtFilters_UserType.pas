@@ -13,6 +13,9 @@ interface
 uses
  l3IntfUses
  , PrimSaveLoadUserTypes_slqtPublishSource_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3StringIDEx
 ;
 

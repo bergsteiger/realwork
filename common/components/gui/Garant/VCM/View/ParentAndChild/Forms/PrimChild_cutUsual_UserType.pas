@@ -10,6 +10,9 @@ interface
 
 uses
  l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3StringIDEx
 ;
 

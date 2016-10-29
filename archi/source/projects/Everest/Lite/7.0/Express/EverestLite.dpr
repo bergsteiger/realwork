@@ -1,8 +1,11 @@
 program EverestLite;
 
-{ $Id: EverestLite.dpr,v 1.21 2015/04/06 07:47:15 dinishev Exp $ }
+{ $Id: EverestLite.dpr,v 1.22 2016/10/21 11:12:52 dinishev Exp $ }
 
 // $Log: EverestLite.dpr,v $
+// Revision 1.22  2016/10/21 11:12:52  dinishev
+// Восстановил Speller у Эвереста.
+//
 // Revision 1.21  2015/04/06 07:47:15  dinishev
 // Перегенерация. Правки за Мишей Костициным.
 //
@@ -81,6 +84,7 @@ uses
   evExtFormat,
   BitmapPara_Const,
   afwApplication,
+  arSpeller in 'w:\archi\source\projects\Archi\arSpeller.pas',
   Edwin in 'Main\EDWIN.PAS' {EditorWindow},
   D_mdilst in '..\..\..\DLG\D_MDILST.PAS' {MDIListDlg},
   D_repcon in '..\..\..\DLG\D_REPCON.PAS' {ReplaceConfirmDlg},

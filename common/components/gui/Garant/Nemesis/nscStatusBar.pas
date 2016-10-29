@@ -131,6 +131,7 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4E15A08E030Dimpl_uses*
+ , vcmDispatcher
  //#UC END# *4E15A08E030Dimpl_uses*
 ;
 
@@ -376,7 +377,7 @@ begin
  LockResize;
  try
   {$IfNDef NoVCM}
-  vcmDispatcher.FormDispatcher.Lock;
+  TvcmDispatcher.Instance.FormDispatcher.Lock;
   try
   {$EndIf  NoVCM}
    afw.BeginOp;
@@ -431,7 +432,7 @@ begin
    end;
   {$IfNDef NoVCM}
   finally
-   vcmDispatcher.FormDispatcher.Unlock;
+   TvcmDispatcher.Instance.FormDispatcher.Unlock;
   end;
   {$EndIf  NoVCM}
  finally

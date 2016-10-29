@@ -341,6 +341,7 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
+ , l3MessageID
  , nsTypes
  , Graphics
  {$If NOT Defined(NoVCL)}

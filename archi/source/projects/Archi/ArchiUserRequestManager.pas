@@ -1,7 +1,10 @@
 unit ArchiUserRequestManager;
-{ $Id: ArchiUserRequestManager.pas,v 1.125 2016/10/14 10:16:22 lukyanets Exp $ }
+{ $Id: ArchiUserRequestManager.pas,v 1.126 2016/10/24 13:32:43 lukyanets Exp $ }
 
 // $Log: ArchiUserRequestManager.pas,v $
+// Revision 1.126  2016/10/24 13:32:43  lukyanets
+// Готовим новую функциональность.
+//
 // Revision 1.125  2016/10/14 10:16:22  lukyanets
 // автолинкер как задача
 //
@@ -622,6 +625,7 @@ type
    procedure ReportResult(const aResult: String);
    procedure DoTerminateTask(aTaskID: AnsiString);
   protected
+   // IarResultDelivererListner
    procedure CheckTaskExistance(const aTaskID: AnsiString);
    procedure RequestSendMessage(const aMessage: AnsiString);
    function RequestNewFolder(var aFolder: AnsiString): Boolean;

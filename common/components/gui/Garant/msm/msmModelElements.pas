@@ -15,6 +15,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwScriptingInterfaces
  {$IfEnd} // NOT Defined(NoScripts)
+ , msmEvents
  , msmUsualData
  , msmModelElementMethodCaller
 ;
@@ -48,6 +49,8 @@ type
    const aValue: ImsmModelElement);
   function Get_MainWord: TtfwWord;
   function Get_ListProp(const aName: AnsiString): ItfwValueList;
+  procedure Set_ListProp(const aName: AnsiString;
+   const aValue: ItfwValueList);
   function IsView: Boolean;
   function IsSameElement(const anOther: ImsmModelElement): Boolean;
   function IsSameElementView(const anOther: ImsmModelElement): Boolean;
@@ -76,7 +79,8 @@ type
   property MainWord: TtfwWord
    read Get_MainWord;
   property ListProp[const aName: AnsiString]: ItfwValueList
-   read Get_ListProp;
+   read Get_ListProp
+   write Set_ListProp;
  end;//ImsmModelElement
 
  (*
@@ -84,6 +88,7 @@ type
   function Get_Item(anIndex: Integer): ImsmModelElement;
   function Get_Owner: ImsmModelElement;
   function IndexOfElementView(const anElement: ImsmModelElement): Integer;
+  procedure Add(anItem: TtfwWord);
   property Item[anIndex: Integer]: ImsmModelElement
    read Get_Item;
    default;
@@ -97,7 +102,10 @@ type
   function Get_Item(anIndex: Integer): ImsmModelElement;
   function Get_Owner: ImsmModelElement;
   function Get_Count: Integer;
+  function As_ImsmEventsPublisher: ImsmEventsPublisher;
+   {* Метод приведения нашего интерфейса к ImsmEventsPublisher }
   function IndexOfElementView(const anElement: ImsmModelElement): Integer;
+  procedure Add(anItem: TtfwWord);
   property Item[anIndex: Integer]: ImsmModelElement
    read Get_Item;
    default;

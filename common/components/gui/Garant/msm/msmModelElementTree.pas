@@ -12,12 +12,16 @@ uses
  l3IntfUses
  , l3SimpleTree
  , msmElementViews
+ , msmEvents
  , msmModelElementNodeList
  , msmModelElementRootNode
  , l3LongintList
  , msmModelElements
  , l3Interfaces
  , l3TreeInterfaces
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptingInterfaces
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *57AC3A8100E5intf_uses*
  //#UC END# *57AC3A8100E5intf_uses*
 ;
@@ -27,7 +31,7 @@ type
  //#UC END# *57AC3A8100E5ci*
  //#UC START# *57AC3A8100E5cit*
  //#UC END# *57AC3A8100E5cit*
- TmsmModelElementTree = class(Tl3SimpleTree, ImsmModelElementTree, ImsmModelElementStringList)
+ TmsmModelElementTree = class(Tl3SimpleTree, ImsmModelElementTree, ImsmModelElementStringList, ImsmEventsPublisher)
   private
    f_Nodes: TmsmModelElementNodeList;
    f_Root: TmsmModelElementRootNode;
@@ -35,6 +39,8 @@ type
   protected
    function As_ImsmModelElementStringList: ImsmModelElementStringList;
     {* Метод приведения нашего интерфейса к ImsmModelElementStringList }
+   function As_ImsmEventsPublisher: ImsmEventsPublisher;
+    {* Метод приведения нашего интерфейса к ImsmEventsPublisher }
    function Get_Item(anIndex: Integer): ImsmModelElement;
    function Get_Count: Integer;
    function Get_Elements(anIndex: Integer): ImsmModelElement;
@@ -47,7 +53,10 @@ type
   public
    constructor Create(const anElement: TmsmModelElementView); reintroduce;
    class function Make(const anElement: TmsmModelElementView): ImsmModelElementTree; reintroduce;
+   procedure AddEventsSubscriber(const aListener: ImsmEventsSubscriber);
+   procedure RemoveEventsSubscriber(const aListener: ImsmEventsSubscriber);
    function IndexOfElementView(const anElement: ImsmModelElement): Integer;
+   procedure Add(anItem: TtfwWord);
  //#UC START# *57AC3A8100E5publ*
   protected
    function DoGet_Nodes(anIndex: Integer): Il3SimpleNode; override;
@@ -71,7 +80,7 @@ uses
  l3ImplUses
  , SysUtils
  , msmModelElementNode
- , msmModelElementDir
+ , msmModelElementStringList
  //#UC START# *57AC3A8100E5impl_uses*
  , l3Bits
  //#UC END# *57AC3A8100E5impl_uses*
@@ -123,6 +132,12 @@ begin
  Result := Self;
 end;//TmsmModelElementTree.As_ImsmModelElementStringList
 
+function TmsmModelElementTree.As_ImsmEventsPublisher: ImsmEventsPublisher;
+ {* Метод приведения нашего интерфейса к ImsmEventsPublisher }
+begin
+ Result := Self;
+end;//TmsmModelElementTree.As_ImsmEventsPublisher
+
 function TmsmModelElementTree.Get_Item(anIndex: Integer): ImsmModelElement;
 //#UC START# *57AAD86403AD_57AC3A8100E5get_var*
 //#UC END# *57AAD86403AD_57AC3A8100E5get_var*
@@ -171,6 +186,24 @@ begin
   Result := rElement.StringProp[rTextName];
 //#UC END# *57AEBED1018D_57AC3A8100E5get_impl*
 end;//TmsmModelElementTree.Get_Strings
+
+procedure TmsmModelElementTree.AddEventsSubscriber(const aListener: ImsmEventsSubscriber);
+//#UC START# *57B4228B001E_57AC3A8100E5_var*
+//#UC END# *57B4228B001E_57AC3A8100E5_var*
+begin
+//#UC START# *57B4228B001E_57AC3A8100E5_impl*
+ Assert(false);
+//#UC END# *57B4228B001E_57AC3A8100E5_impl*
+end;//TmsmModelElementTree.AddEventsSubscriber
+
+procedure TmsmModelElementTree.RemoveEventsSubscriber(const aListener: ImsmEventsSubscriber);
+//#UC START# *57B422AB0293_57AC3A8100E5_var*
+//#UC END# *57B422AB0293_57AC3A8100E5_var*
+begin
+//#UC START# *57B422AB0293_57AC3A8100E5_impl*
+ Assert(false);
+//#UC END# *57B422AB0293_57AC3A8100E5_impl*
+end;//TmsmModelElementTree.RemoveEventsSubscriber
 
 function TmsmModelElementTree.Get_StringsToFind(anIndex: Integer): Il3CString;
 //#UC START# *57B6C7D40215_57AC3A8100E5get_var*
@@ -233,6 +266,15 @@ begin
  end;//anElement <> nil
 //#UC END# *57D1327900BC_57AC3A8100E5_impl*
 end;//TmsmModelElementTree.IndexOfElementView
+
+procedure TmsmModelElementTree.Add(anItem: TtfwWord);
+//#UC START# *58094B920194_57AC3A8100E5_var*
+//#UC END# *58094B920194_57AC3A8100E5_var*
+begin
+//#UC START# *58094B920194_57AC3A8100E5_impl*
+ Assert(false);
+//#UC END# *58094B920194_57AC3A8100E5_impl*
+end;//TmsmModelElementTree.Add
 
 procedure TmsmModelElementTree.Cleanup;
  {* Функция очистки полей объекта. }

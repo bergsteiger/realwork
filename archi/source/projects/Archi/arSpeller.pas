@@ -6,6 +6,9 @@ interface
  procedure ReleaseSpeller;
 
 implementation
+
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
+
 uses
  SysUtils,
  Forms,
@@ -17,7 +20,7 @@ uses
  l3Speller,
  Dialogs,
  vtDialogs,
- l3IniFile,
+ l3IniFile,                                     
  IniShop;
 
 procedure InitSpeller;
@@ -107,6 +110,7 @@ var
  lPath := ExtractFilePath(Application.ExeName); //'dict\';
  lSpeller := Tl3Speller.Create;
  try
+  {$IFDEF Archi}
   StationConfig.Section := 'SpellChecker';
   lIterFunc := MakeRGLStub(@IterFunc);
   try
@@ -114,6 +118,7 @@ var
   finally
    FreeRGLStub(lIterFunc);
   end;
+  {$ENDIF EverestLite}
 
   if not lHasIniData then // конфигурация "по-умолчанию" - mlmaru + 'en_GB' если есть
   begin

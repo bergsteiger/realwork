@@ -51,7 +51,7 @@ type
     const aLocalPath: AnsiString;
     aRemoteDesc: TncsFileDesc); reintroduce;
    procedure CommitDelivery;
-   function DoProcess(aProgressor: TddProgressObject): Boolean; overload;
+   function DoProcess(aProgressor: TddProgressObject): Boolean;
   public
    property ReceiveTime: Double
     read f_ReceiveTime;
@@ -235,9 +235,11 @@ const
 //#UC END# *5472E6E201EE_546F3804032D_var*
 begin
 //#UC START# *5472E6E201EE_546F3804032D_impl*
+{$IFNDEF AQTIME_PROFILE}
  l_StreamWatch.Reset;
  l_Watch.Reset;
  l_Watch.Start;
+{$ENDIF AQTIME_PROFILE}
  try
   aProgressor.SetRefTo(f_Progressor);
   try
@@ -251,14 +253,20 @@ begin
      l_RawReply := nil;
      if not FileExists(LocalPartialFileName) then
       raise EInOutError.Create('File not found');
+{$IFNDEF AQTIME_PROFILE}
      l_StreamWatch.Start;
+{$ENDIF AQTIME_PROFILE}
      f_Stream := Tl3FileStream.Create(LocalPartialFileName, l3_fmExclusiveReadWrite);
+{$IFNDEF AQTIME_PROFILE}
      l_StreamWatch.Stop;
+{$ENDIF AQTIME_PROFILE}
      try
       repeat
        if not f_Transporter.Processing then
        begin
+{$IFNDEF AQTIME_PROFILE}
         l3System.Msg2Log('Ошибка доставки - обрыв связи');
+{$ENDIF AQTIME_PROFILE}
         Exit;
        end;
        l_Message := TncsGetFilePart.Create;
@@ -270,24 +278,34 @@ begin
         f_Transporter.Send(l_Message);
         FreeAndNil(l_RawReply);
         try
+{$IFNDEF AQTIME_PROFILE}
          g_WaitFile.Start;
+{$ENDIF AQTIME_PROFILE}
          try
           if not f_Transporter.WaitForReply(l_Message, l_RawReply) then
           begin
+{$IFNDEF AQTIME_PROFILE}
            l3System.Msg2Log('Ошибка доставки - не дождались ответа на запрос файла');
+{$ENDIF AQTIME_PROFILE}
            Exit;
           end;
          finally
+{$IFNDEF AQTIME_PROFILE}
           g_WaitFile.Stop;
+{$ENDIF AQTIME_PROFILE}
          end;
          if not (l_RawReply is TncsGetFilePartReply) then
          begin
+{$IFNDEF AQTIME_PROFILE}
           l3System.Msg2Log('Ошибка доставки - нераспознанный ответ на запрос файла');
+{$ENDIF AQTIME_PROFILE}
           Exit;
          end;
          if not TncsGetFilePartReply(l_RawReply).IsSuccess then
          begin
+{$IFNDEF AQTIME_PROFILE}
           l3System.Msg2Log('Ошибка доставки - неуспешный ответ на запрос файла');
+{$ENDIF AQTIME_PROFILE}
           Exit;
          end;
         finally
@@ -311,15 +329,21 @@ begin
          SaveControl;
         end;
        end
+{$IFNDEF AQTIME_PROFILE}
        else
         l3System.Msg2Log('Доставка файлов - несовпал размер после сигнала об успехе');
+{$ENDIF AQTIME_PROFILE}
       until False;
      finally
       SaveControl;
+{$IFNDEF AQTIME_PROFILE}
       l_StreamWatch.Start;
+{$ENDIF AQTIME_PROFILE}
       FreeAndNil(f_Stream);
+{$IFNDEF AQTIME_PROFILE}
       l_StreamWatch.Stop;
       f_WriteTime := f_WriteTime + l_StreamWatch.Time;
+{$ENDIF AQTIME_PROFILE}
      end;
     end;
    finally
@@ -329,8 +353,10 @@ begin
    FreeAndNil(f_Progressor);
   end;
  finally
+{$IFNDEF AQTIME_PROFILE}
   l_Watch.Stop;
   f_ReceiveTime := f_ReceiveTime + l_Watch.Time;
+{$ENDIF AQTIME_PROFILE}
  end;
 //#UC END# *5472E6E201EE_546F3804032D_impl*
 end;//TncsOneFileDeliverer.DoProcess
@@ -343,19 +369,27 @@ var
 //#UC END# *54607DDC0159_546F3804032D_var*
 begin
 //#UC START# *54607DDC0159_546F3804032D_impl*
+{$IFNDEF AQTIME_PROFILE}
  l_Watch.Reset;
  g_ReceivePartFile.Start;
+{$ENDIF AQTIME_PROFILE}
  try
   l_Message := aContext.rMessage as TncsPushFilePart;
 
+{$IFNDEF AQTIME_PROFILE}
   l_Watch.Start;
+{$ENDIF AQTIME_PROFILE}
 
   f_Stream.Seek(l_Message.Offset, soBeginning);
+{$IFNDEF AQTIME_PROFILE}
  g_WriteFile.Start;
+{$ENDIF AQTIME_PROFILE}
   l_Message.Data.CopyTo(f_Stream, l_Message.PartSize);
+{$IFNDEF AQTIME_PROFILE}
  g_WriteFile.Stop;
   l_Watch.Stop;
   f_WriteTime := f_WriteTime + l_Watch.Time;
+{$ENDIF AQTIME_PROFILE}
 
   if Assigned(f_Counter) then
    f_Counter.DoProgress(l_Message.PartSize);
@@ -364,7 +398,9 @@ begin
   if Assigned(f_Progressor) then
    f_Progressor.IncProgress(l_Message.PartSize);
  finally
+{$IFNDEF AQTIME_PROFILE}
   g_ReceivePartFile.Stop;
+{$ENDIF AQTIME_PROFILE}
  end; 
 //#UC END# *54607DDC0159_546F3804032D_impl*
 end;//TncsOneFileDeliverer.Execute

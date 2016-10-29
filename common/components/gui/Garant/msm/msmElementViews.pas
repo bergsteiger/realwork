@@ -12,8 +12,12 @@ uses
  l3IntfUses
  , l3TreeInterfaces
  , msmModelElements
+ , msmEvents
  , msmUsualData
  , l3Interfaces
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptingInterfaces
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type
@@ -25,6 +29,8 @@ type
    rIsDir: Boolean;
   public
    function CompareListKey(const anOther: TmsmModelElementView): Integer;
+   function ChangeIsDir(aIsDir: Boolean): TmsmModelElementView;
+   function CompareStringListKey(const anOther: TmsmModelElementView): Integer;
  end;//TmsmModelElementView
 
  ImsmStringList = interface
@@ -45,7 +51,10 @@ type
   function Get_Item(anIndex: Integer): ImsmModelElement;
   function Get_Owner: ImsmModelElement;
   function Get_Count: Integer;
+  function As_ImsmEventsPublisher: ImsmEventsPublisher;
+   {* Метод приведения нашего интерфейса к ImsmEventsPublisher }
   function IndexOfElementView(const anElement: ImsmModelElement): Integer;
+  procedure Add(anItem: TtfwWord);
   property Item[anIndex: Integer]: ImsmModelElement
    read Get_Item;
    default;
@@ -157,5 +166,28 @@ begin
   Result := l3Compare(Self.rListName, anOther.rListName);  
 //#UC END# *57F4ED230163_57B3262B00D2_impl*
 end;//TmsmModelElementView.CompareListKey
+
+function TmsmModelElementView.ChangeIsDir(aIsDir: Boolean): TmsmModelElementView;
+//#UC START# *5811C4AC0136_57B3262B00D2_var*
+//#UC END# *5811C4AC0136_57B3262B00D2_var*
+begin
+//#UC START# *5811C4AC0136_57B3262B00D2_impl*
+ Result := Self;
+ Result.rIsDir := aIsDir;
+//#UC END# *5811C4AC0136_57B3262B00D2_impl*
+end;//TmsmModelElementView.ChangeIsDir
+
+function TmsmModelElementView.CompareStringListKey(const anOther: TmsmModelElementView): Integer;
+//#UC START# *5811C4ED035E_57B3262B00D2_var*
+//#UC END# *5811C4ED035E_57B3262B00D2_var*
+begin
+//#UC START# *5811C4ED035E_57B3262B00D2_impl*
+ Result := CompareListKey(anOther);
+ if (Result = 0) then
+  Result := l3Compare(Self.rTextName, anOther.rTextName);
+ if (Result = 0) then   
+  Result := Ord(Self.rIsDir) - Ord(anOther.rIsDir);
+//#UC END# *5811C4ED035E_57B3262B00D2_impl*
+end;//TmsmModelElementView.CompareStringListKey
 
 end.

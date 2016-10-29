@@ -128,8 +128,9 @@ uses
  , l3String
  , afwFacade
  , afwLongProcessVisualizer
- , l3ListenersManager
- , l3MouseWheelHelper
+ //, l3ListenersManager
+ //, l3MouseWheelHelper
+ , l3FileUtils
  //#UC END# *57A9C16601B9impl_uses*
 ;
 
@@ -208,7 +209,8 @@ procedure TmsmOpenServiceImpl.OpenListInNewWindow(const anElementForList: ImsmMo
 //#UC END# *5077A5E39FAB_57CED5100343_var*
 begin
 //#UC START# *5077A5E39FAB_57CED5100343_impl*
- TmsmMainForm.RunWithList(anElementForList);
+ if (anElementForList <> nil) then
+  TmsmMainForm.RunWithList(anElementForList.ElementProp['ReferencedOriginal']);
 //#UC END# *5077A5E39FAB_57CED5100343_impl*
 end;//TmsmOpenServiceImpl.OpenListInNewWindow
 

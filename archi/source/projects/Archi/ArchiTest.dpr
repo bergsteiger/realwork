@@ -461,6 +461,7 @@ uses
  , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
  , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
  , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
+ , tfwParserServiceFileNameToFileNameMap in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParserServiceFileNameToFileNameMap.pas'
  , IniFiles {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\IniFiles.pas' {$EndIf}
  , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
  {$If NOT Defined(NoScripts)}
@@ -2594,6 +2595,9 @@ uses
  {$If Defined(AppClientSide) AND NOT Defined(NoScripts)}
  , kwClearConfig in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearConfig.pas'
  {$IfEnd} // Defined(AppClientSide) AND NOT Defined(NoScripts)
+ {$If Defined(AppClientSide) AND NOT Defined(NoScripts)}
+ , kwClearSpellDictionary in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearSpellDictionary.pas'
+ {$IfEnd} // Defined(AppClientSide) AND NOT Defined(NoScripts)
  , l3CustomSortIntegerList in 'w:\common\components\rtl\Garant\L3\l3CustomSortIntegerList.pas'
  , l3CustomOtherListView in 'w:\common\components\rtl\Garant\L3\l3CustomOtherListView.pas'
  , l3CustomLongintListView in 'w:\common\components\rtl\Garant\L3\l3CustomLongintListView.pas'
@@ -3009,6 +3013,7 @@ uses
   F_MiscDocImgView in 'Frames\F_MiscDocImgView.pas' {frmMiscDocImgView: TFrame},
   D_Doc2DocLinkEdit in 'Dlg\D_Doc2DocLinkEdit.pas' {Doc2DocLinkEditDlg},
   d_SrchByDocLink in 'Dlg\d_SrchByDocLink.pas' {SearchByDocLinkDlg},
+  arClientFilesDeliverer in 'Processing\arClientFilesDeliverer.pas',
   arDeliveryList in 'arDeliveryList.pas',
   arResultDeliverer in 'Processing\arResultDeliverer.pas',
   arOneTaskDeliverer in 'Processing\arOneTaskDeliverer.pas',

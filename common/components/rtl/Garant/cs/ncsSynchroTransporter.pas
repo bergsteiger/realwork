@@ -155,8 +155,10 @@ begin
    except
     on E: Exception do
     begin
+{$IFNDEF AQTIME_PROFILE}
      l3System.Msg2Log('Исключение при обработке сообщения %s', [aMessage.TaggedData.TagType.AsString]);
      l3System.Exception2Log(E);
+{$ENDIF AQTIME_PROFILE}
      if aMessage.Kind = ncs_mkMessage then
      begin
       l_FakeReply := TncsInvalidMessage.Create;
@@ -172,8 +174,10 @@ begin
     end;
    end;
  end
+{$IFNDEF AQTIME_PROFILE}
  else
   l3System.Msg2Log('Не удалось найти Executor для %s', [aMessage.TaggedData.TagType.AsString]);
+{$ENDIF AQTIME_PROFILE}
 //#UC END# *54E45D5E01D9_54E333CD0130_impl*
 end;//TncsSynchroTransporter.ProcessMessage
 
@@ -242,7 +246,9 @@ begin
     l_Stream := Tl3TempMemoryStream.Create;
     try
      IOHandler.ReadStream(l_Stream);
+{$IFNDEF AQTIME_PROFILE}
      g_ReveiveMessage.Start;
+{$ENDIF AQTIME_PROFILE}
      try
       l_Stream.Seek(0, soFromBeginning);
 {$IFDEF ncsSniffMessage}
@@ -260,11 +266,15 @@ begin
       end;
 {$ENDIF ncsSniffMessage}
 
+{$IFNDEF AQTIME_PROFILE}
       g_LoadMessage.Start;
+{$ENDIF AQTIME_PROFILE}
       try
        l_Message := TncsMessageFactory.MakeFromEVD(l_Stream);
       finally
+{$IFNDEF AQTIME_PROFILE}
        g_LoadMessage.Stop;
+{$ENDIF AQTIME_PROFILE}
       end;
       try
        if Assigned(l_Message) then
@@ -284,13 +294,17 @@ begin
         else
           ProcessMessage(l_Message);
        end
+{$IFNDEF AQTIME_PROFILE}
        else
         l3System.Msg2Log('Не удалось разобрать ncsMessage!!');
+{$ENDIF AQTIME_PROFILE}
       finally
        FreeAndNil(l_Message);
       end;
      finally
+{$IFNDEF AQTIME_PROFILE}
       g_ReveiveMessage.Stop;
+{$ENDIF AQTIME_PROFILE}
      end;
     finally
      FreeAndNil(l_Stream);

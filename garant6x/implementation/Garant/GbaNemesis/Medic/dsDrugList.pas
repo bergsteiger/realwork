@@ -149,6 +149,7 @@ uses
  , l3InterfacesMisc
  //#UC START# *47E9EDD301A4impl_uses*
  , vcmDispatcher
+ , nsSaveDialogExecutor
  //#UC END# *47E9EDD301A4impl_uses*
 ;
 

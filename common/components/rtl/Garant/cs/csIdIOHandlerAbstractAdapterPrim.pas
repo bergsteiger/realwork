@@ -40,6 +40,12 @@ type
    function WaitForReadData(aTimeout: Integer): Boolean; virtual; abstract;
    procedure WriteLargeStr(const aString: AnsiString); virtual; abstract;
    function ReadLargeStr: AnsiString; virtual; abstract;
+   function ReadStreamWithCRCCheck(aStream: TStream;
+    CalcCRCFromBegin: Boolean = True;
+    ReadOffset: Int64 = 0;
+    ReadSize: Int64 = -1): Boolean; virtual; abstract;
+   procedure WriteStreamWithCRCCheck(aStream: TStream;
+    KeepPosition: Boolean = False); virtual; abstract;
  end;//TcsIdIOHandlerAbstractAdapterPrim
 {$IfEnd} // NOT Defined(Nemesis)
 

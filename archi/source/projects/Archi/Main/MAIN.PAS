@@ -1,6 +1,6 @@
 unit Main;
 
-{ $Id: MAIN.PAS,v 1.135 2016/10/13 14:14:30 dinishev Exp $ }
+{ $Id: MAIN.PAS,v 1.136 2016/10/21 07:40:03 lukyanets Exp $ }
 
 {$I arDefine.inc }
 
@@ -994,7 +994,11 @@ procedure TMainForm.FormCreate(Sender: TObject);
    Application.HelpFile := ExpandFileName('Archi.hlp');
 
    StationConfig.Section := PrefSectName;
+{$IFDEF AQTIME_PROFILE}
+   miUtils.Visible := True;
+{$ELSE AQTIME_PROFILE}
    miUtils.Visible := StationConfig.ReadParamBoolDef('Admin',false) and GlobalDataProvider.AdminRights;
+{$ENDIF AQTIME_PROFILE}
    acAnno_CloseDay.Enabled := GlobalDataProvider.AdminRights;
    acDoAutoclassify.Enabled:= GlobalDataProvider.AdminRights;
    vtVisibleAndEnabled(acAnnoImportFromRTF, AccessServer.TestRightsMaskForDocGroup(CurrentFamily, agIncludedGroup, acgAnno));

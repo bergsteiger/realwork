@@ -12,6 +12,8 @@ interface
 uses
  l3IntfUses
  , ddServerTask
+ , evdTaskTypes
+ , evdTasksHelpers
  , k2Base
  , ddProgressObj
 ;

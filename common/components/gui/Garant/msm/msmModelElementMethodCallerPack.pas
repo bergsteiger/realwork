@@ -2,7 +2,7 @@ unit msmModelElementMethodCallerPack;
 
 // Модуль: "w:\common\components\gui\Garant\msm\msmModelElementMethodCallerPack.pas"
 // Стереотип: "ScriptKeywordsPack"
-// Элемент модели: "msmModelElementMethodCallerPack" MUID: (57EE79280327)
+// Элемент модели: "msmModelElementMethodCallerPack" MUID: (580E9BCF034D)
 
 {$Include w:\common\components\msm.inc}
 
@@ -21,23 +21,24 @@ uses
  l3ImplUses
  , tfwGlobalKeyWord
  , tfwScriptingInterfaces
- , l3Interfaces
  , TypInfo
  , msmModelElementMethodCaller
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
- //#UC START# *57EE79280327impl_uses*
- //#UC END# *57EE79280327impl_uses*
+ //#UC START# *580E9BCF034Dimpl_uses*
+ //#UC END# *580E9BCF034Dimpl_uses*
 ;
 
 type
- TkwMsmDictionaryByFile = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта msm:DictionaryByFile }
+ TkwMsmCallSetter = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта msm:CallSetter }
   private
-   function msm_DictionaryByFile(const aCtx: TtfwContext;
-    const aFileName: Il3CString): TObject;
-    {* Реализация слова скрипта msm:DictionaryByFile }
+   procedure msm_CallSetter(const aCtx: TtfwContext;
+    aWord: TtfwWord;
+    const aMethodName: AnsiString;
+    const aValue: TtfwStackValue);
+    {* Реализация слова скрипта msm:CallSetter }
   protected
    class function GetWordNameForRegister: AnsiString; override;
    procedure DoDoIt(const aCtx: TtfwContext); override;
@@ -45,64 +46,85 @@ type
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
- end;//TkwMsmDictionaryByFile
+ end;//TkwMsmCallSetter
 
-function TkwMsmDictionaryByFile.msm_DictionaryByFile(const aCtx: TtfwContext;
- const aFileName: Il3CString): TObject;
- {* Реализация слова скрипта msm:DictionaryByFile }
-//#UC START# *57EE7B510228_57EE7B510228_Word_var*
-//#UC END# *57EE7B510228_57EE7B510228_Word_var*
+procedure TkwMsmCallSetter.msm_CallSetter(const aCtx: TtfwContext;
+ aWord: TtfwWord;
+ const aMethodName: AnsiString;
+ const aValue: TtfwStackValue);
+ {* Реализация слова скрипта msm:CallSetter }
+//#UC START# *580E9C0901F9_580E9C0901F9_Word_var*
+//#UC END# *580E9C0901F9_580E9C0901F9_Word_var*
 begin
-//#UC START# *57EE7B510228_57EE7B510228_Word_impl*
- Result := 
-  TmsmModelElementMethodCaller.Call(
-   [TtfwStackValue_C(aFileName)],
-   'DictionaryByName').AsObject;
-//#UC END# *57EE7B510228_57EE7B510228_Word_impl*
-end;//TkwMsmDictionaryByFile.msm_DictionaryByFile
+//#UC START# *580E9C0901F9_580E9C0901F9_Word_impl*
+ TmsmModelElementMethodCaller.CallSetter(aWord, aMethodName, aValue);
+//#UC END# *580E9C0901F9_580E9C0901F9_Word_impl*
+end;//TkwMsmCallSetter.msm_CallSetter
 
-class function TkwMsmDictionaryByFile.GetWordNameForRegister: AnsiString;
+class function TkwMsmCallSetter.GetWordNameForRegister: AnsiString;
 begin
- Result := 'msm:DictionaryByFile';
-end;//TkwMsmDictionaryByFile.GetWordNameForRegister
+ Result := 'msm:CallSetter';
+end;//TkwMsmCallSetter.GetWordNameForRegister
 
-function TkwMsmDictionaryByFile.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+function TkwMsmCallSetter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := TypeInfo(TObject);
-end;//TkwMsmDictionaryByFile.GetResultTypeInfo
+ Result := @tfw_tiVoid;
+end;//TkwMsmCallSetter.GetResultTypeInfo
 
-function TkwMsmDictionaryByFile.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+function TkwMsmCallSetter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
-end;//TkwMsmDictionaryByFile.GetAllParamsCount
+ Result := 3;
+end;//TkwMsmCallSetter.GetAllParamsCount
 
-function TkwMsmDictionaryByFile.ParamsTypes: PTypeInfoArray;
+function TkwMsmCallSetter.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([@tfw_tiString]);
-end;//TkwMsmDictionaryByFile.ParamsTypes
+ Result := OpenTypesToTypes([TypeInfo(TtfwWord), @tfw_tiString, @tfw_tiStruct]);
+end;//TkwMsmCallSetter.ParamsTypes
 
-procedure TkwMsmDictionaryByFile.DoDoIt(const aCtx: TtfwContext);
-var l_aFileName: Il3CString;
+procedure TkwMsmCallSetter.DoDoIt(const aCtx: TtfwContext);
+var l_aWord: TtfwWord;
+var l_aMethodName: AnsiString;
+var l_aValue: TtfwStackValue;
 begin
  try
-  l_aFileName := Il3CString(aCtx.rEngine.PopString);
+  l_aWord := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
  except
   on E: Exception do
   begin
-   RunnerError('Ошибка при получении параметра aFileName: Il3CString : ' + E.Message, aCtx);
+   RunnerError('Ошибка при получении параметра aWord: TtfwWord : ' + E.Message, aCtx);
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(msm_DictionaryByFile(aCtx, l_aFileName));
-end;//TkwMsmDictionaryByFile.DoDoIt
+ try
+  l_aMethodName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMethodName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aValue := aCtx.rEngine.Pop;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: TtfwStackValue : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ msm_CallSetter(aCtx, l_aWord, l_aMethodName, l_aValue);
+end;//TkwMsmCallSetter.DoDoIt
 
 initialization
- TkwMsmDictionaryByFile.RegisterInEngine;
- {* Регистрация msm_DictionaryByFile }
- TtfwTypeRegistrator.RegisterType(TypeInfo(TObject));
- {* Регистрация типа TObject }
+ TkwMsmCallSetter.RegisterInEngine;
+ {* Регистрация msm_CallSetter }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));
+ {* Регистрация типа TtfwWord }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа Il3CString }
+ {* Регистрация типа AnsiString }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
+ {* Регистрация типа TtfwStackValue }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

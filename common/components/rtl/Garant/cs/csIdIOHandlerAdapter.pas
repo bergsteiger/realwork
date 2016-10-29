@@ -53,6 +53,12 @@ type
    procedure InputBufferClear; override;
    procedure WriteLargeStr(const aString: AnsiString); override;
    function ReadLargeStr: AnsiString; override;
+   function ReadStreamWithCRCCheck(aStream: TStream;
+    CalcCRCFromBegin: Boolean = True;
+    ReadOffset: Int64 = 0;
+    ReadSize: Int64 = -1): Boolean; override;
+   procedure WriteStreamWithCRCCheck(aStream: TStream;
+    KeepPosition: Boolean = False); override;
  end;//TcsIdIOHandlerAdapter
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -65,6 +71,7 @@ uses
  , l3Base
  , l3Memory
  , SysUtils
+ , l3CRCUtils
  //#UC START# *538DB527006Cimpl_uses*
  //#UC END# *538DB527006Cimpl_uses*
 ;
@@ -352,6 +359,117 @@ begin
  end; 
 //#UC END# *54F5C09C0302_538DB527006C_impl*
 end;//TcsIdIOHandlerAdapter.ReadLargeStr
+
+function TcsIdIOHandlerAdapter.ReadStreamWithCRCCheck(aStream: TStream;
+ CalcCRCFromBegin: Boolean = True;
+ ReadOffset: Int64 = 0;
+ ReadSize: Int64 = -1): Boolean;
+//#UC START# *580F367C0052_538DB527006C_var*
+var
+ l_SizeToRead: Int64;
+ l_CalcCRCFromBegin: Byte;
+ l_LocalCRC: Cardinal;
+ l_BufferLength: Integer;
+ l_Buffer: TIdBytes;
+ l_Readed: Int64;
+ l_CheckCRC: Cardinal;
+//#UC END# *580F367C0052_538DB527006C_var*
+begin
+//#UC START# *580F367C0052_538DB527006C_impl*
+ Result := False;
+ f_IOHandler.Write(ReadOffset);
+ f_IOHandler.Write(ReadSize);
+ l_SizeToRead := f_IOHandler.ReadInt64;
+ if l_SizeToRead = 0 then
+  Exit;
+ if CalcCRCFromBegin then
+  l_CalcCRCFromBegin := 1
+ else
+  l_CalcCRCFromBegin := 0;
+ f_IOHandler.Write(l_CalcCRCFromBegin);
+ if CalcCRCFromBegin then
+  l_LocalCRC := l3CalcCRC32(aStream, 0, ReadOffset)
+ else
+  l_LocalCRC := l3CalcCRC32(aStream, ReadOffset, 0);
+ l_BufferLength := f_IOHandler.ReadInt32;
+ SetLength(l_Buffer, l_BufferLength);
+ try
+  while l_SizeToRead > 0 do
+  begin
+   f_IOHandler.ReadBytes(l_Buffer, l_BufferLength, False);
+   l3AccumulateBufferCRC32(l_LocalCRC, @l_Buffer[0], l_BufferLength);
+   aStream.WriteBuffer(l_Buffer[0], l_BufferLength);
+   l_SizeToRead := l_SizeToRead - l_BufferLength;
+   if l_BufferLength > l_SizeToRead then
+    l_BufferLength := l_SizeToRead;
+  end;
+ finally
+  SetLength(l_Buffer, 0);
+ end;
+ l_CheckCRC := f_IOHandler.ReadInt32;
+ Result := l_CheckCRC = l_LocalCRC;
+//#UC END# *580F367C0052_538DB527006C_impl*
+end;//TcsIdIOHandlerAdapter.ReadStreamWithCRCCheck
+
+procedure TcsIdIOHandlerAdapter.WriteStreamWithCRCCheck(aStream: TStream;
+ KeepPosition: Boolean = False);
+//#UC START# *580F36A802FA_538DB527006C_var*
+var
+ l_Offset: Int64;
+ l_Size: Int64;
+ l_SizeToWrite: Int64;
+ l_CalcCRCFromBegin: Byte;
+ l_LocalCRC: Cardinal;
+ l_Buffer: TIdBytes;
+ l_OldPosition: Int64;
+ l_Readed: Int64;
+ l_BufferLength: Integer;
+//#UC END# *580F36A802FA_538DB527006C_var*
+begin
+//#UC START# *580F36A802FA_538DB527006C_impl*
+ l_OldPosition := aStream.Position;
+ try
+  l_Offset := f_IOHandler.ReadInt64;
+  l_Size := f_IOHandler.ReadInt64;
+  if l_Size = -1 then
+   l_Size := aStream.Size - l_Offset;
+  l_SizeToWrite := aStream.Size - l_Offset;
+  if l_SizeToWrite < 0 then
+   l_SizeToWrite := 0;
+  if l_SizeToWrite > l_Size then
+   l_SizeToWrite := l_Size;
+  f_IOHandler.Write(l_SizeToWrite);
+  if l_SizeToWrite = 0 then
+   Exit;
+  l_CalcCRCFromBegin := f_IOHandler.ReadByte;
+  if l_CalcCRCFromBegin = 1 then
+   l_LocalCRC := l3CalcCRC32(aStream, 0, l_Offset)
+  else
+   l_LocalCRC := l3CalcCRC32(aStream, l_Offset, 0);
+  l_BufferLength := f_IOHandler.SendBufferSize;
+  f_IOHandler.Write(l_BufferLength);
+  SetLength(l_Buffer, l_BufferLength);
+  try
+   while l_SizeToWrite > 0 do
+   begin
+    l_Readed := aStream.Read(l_Buffer[0], l_BufferLength);
+    Assert(l_Readed = l_SizeToWrite);
+    l3AccumulateBufferCRC32(l_LocalCRC, @l_Buffer[0], l_BufferLength);
+    f_IOHandler.Write(l_Buffer, l_BufferLength);
+    l_SizeToWrite := l_SizeToWrite - l_Readed;
+    if l_BufferLength > l_SizeToWrite then
+     l_BufferLength := l_SizeToWrite;
+   end;
+  finally
+   SetLength(l_Buffer, 0);
+  end;
+  f_IOHandler.Write(l_LocalCRC);
+ finally
+  if KeepPosition then
+   aStream.Seek(l_OldPosition, soBeginning);
+ end;
+//#UC END# *580F36A802FA_538DB527006C_impl*
+end;//TcsIdIOHandlerAdapter.WriteStreamWithCRCCheck
 
 procedure TcsIdIOHandlerAdapter.Cleanup;
  {* Функция очистки полей объекта. }

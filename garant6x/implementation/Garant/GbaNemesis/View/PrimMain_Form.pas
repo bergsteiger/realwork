@@ -14,6 +14,7 @@ uses
  l3IntfUses
  , MainPrim_Form
  , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -62,7 +63,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , F1Like_FormDefinitions_Controls
  , nsCustomStyleProcessor
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

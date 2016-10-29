@@ -35,6 +35,7 @@ implementation
 
 uses
  l3ImplUses
+ , SysUtils
  //#UC START# *57B317B00274impl_uses*
  //#UC END# *57B317B00274impl_uses*
 ;
@@ -55,11 +56,10 @@ constructor TmsmListModel.Create(const anElementView: TmsmModelElementView;
 //#UC END# *57B326FD0285_57B317B00274_var*
 begin
 //#UC START# *57B326FD0285_57B317B00274_impl*
- f_ElementView := anElementView;
- f_IsDir := aIsDir;
+ f_ElementView := anElementView.ChangeIsDir(aIsDir);
  f_SubElementName := aSubElementName;
- inherited Create(anElementView);
- ShowElementAsList(anElementView.rElement);
+ inherited Create(f_ElementView);
+ ShowElementAsList(f_ElementView.rElement);
 //#UC END# *57B326FD0285_57B317B00274_impl*
 end;//TmsmListModel.Create
 

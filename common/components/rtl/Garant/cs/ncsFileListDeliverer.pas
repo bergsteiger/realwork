@@ -137,6 +137,7 @@ begin
   PrepareDescription(aList);
   if aList.Count = 0 then
    raise EncsEmptyResults.Create('Empty delivery list');
+{$IFNDEF AQTIME_PROFILE}
   if Assigned(f_Progressor) then
    f_Progressor.ProcessUpdate(piCurrent, 0, 'Передача файлов');
   if not f_Transporter.Processing then
@@ -144,32 +145,45 @@ begin
    l3System.Msg2Log('Ошибка доставки - обрыв связи');
    Exit;
   end;
+{$ENDIF AQTIME_PROFILE}
   for l_IDX := 0 to f_Data.Count - 1 do
   begin
+{$IFNDEF AQTIME_PROFILE}
    if not f_Transporter.Processing then
    begin
     l3System.Msg2Log('Ошибка доставки - обрыв связи');
     Exit;
    end;
+{$ENDIF AQTIME_PROFILE}
    try
+{$IFDEF AQTIME_PROFILE}
+    f_Data[l_IDX].DoProcess(nil);
+{$ELSE AQTIME_PROFILE}
     if not f_Data[l_IDX].DoProcess(f_Progressor) then
      Exit;
+{$ENDIF AQTIME_PROFILE}
    finally
+{$IFNDEF AQTIME_PROFILE}
     f_ReceiveTime := f_ReceiveTime + f_Data[l_IDX].ReceiveTime;
     f_WriteTime := f_WriteTime + f_Data[l_IDX].WriteTime;
+{$ENDIF AQTIME_PROFILE}
    end;
   end;
   Result := aList.Count > 0;
   if Result then
   begin
+{$IFNDEF AQTIME_PROFILE}
    l3System.Msg2Log('Доставка - переименование файлов');
+{$ENDIF AQTIME_PROFILE}
    for l_IDX := 0 to f_Data.Count - 1 do
     f_Data[l_IDX].CommitDelivery;
   end;
  finally
   f_Data.Clear;
+{$IFNDEF AQTIME_PROFILE}
   if Assigned(f_Progressor) then
    f_Progressor.Stop;
+{$ENDIF AQTIME_PROFILE}
  end;
 //#UC END# *546F3BE702A4_546F398E0203_impl*
 end;//TncsFileListDeliverer.Execute

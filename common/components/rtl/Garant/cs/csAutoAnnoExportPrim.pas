@@ -12,6 +12,7 @@ interface
 uses
  l3IntfUses
  , csExport
+ , evdTasksHelpers
  , k2Base
 ;
 

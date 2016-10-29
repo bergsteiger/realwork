@@ -34,6 +34,7 @@ type
   public
    function Call(aDialog: TnsSaveDialog): Boolean;
    function GetFileName: AnsiString;
+   procedure SetFileName(const aName: AnsiString);
    procedure SetFileFormat(aFileFormat: TnsFileFormat);
    procedure SetSaveObjects(aValue: TnsSaveDialogListTarget);
    procedure SetMergeFiles(aValue: Boolean);
@@ -51,12 +52,12 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoVCL)}
- , Dialogs
- {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3BatchService
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
  , SysUtils
  , l3Base
  //#UC START# *573B090C02C5impl_uses*
@@ -126,6 +127,15 @@ begin
  Result := f_FileName;
 //#UC END# *D50DF667C759_573B090C02C5_impl*
 end;//TnsSaveDialogImpl.GetFileName
+
+procedure TnsSaveDialogImpl.SetFileName(const aName: AnsiString);
+//#UC START# *8E32D0CAA2B7_573B090C02C5_var*
+//#UC END# *8E32D0CAA2B7_573B090C02C5_var*
+begin
+//#UC START# *8E32D0CAA2B7_573B090C02C5_impl*
+ f_FileName := aName;
+//#UC END# *8E32D0CAA2B7_573B090C02C5_impl*
+end;//TnsSaveDialogImpl.SetFileName
 
 procedure TnsSaveDialogImpl.SetFileFormat(aFileFormat: TnsFileFormat);
 //#UC START# *593F1F6D46A5_573B090C02C5_var*

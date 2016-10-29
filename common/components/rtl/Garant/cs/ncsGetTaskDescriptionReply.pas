@@ -12,6 +12,7 @@ interface
 uses
  l3IntfUses
  , ncsMessage
+ , ncsFileDescHelper
  , k2Base
 ;
 

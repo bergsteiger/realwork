@@ -102,6 +102,8 @@ uses
  , evExtFormat
  //#UC START# *4A92BBDF0126impl_uses*
  , LoggingWrapperInterfaces
+ , afwInterfaces
+ , vcmBaseMenuManager
  //#UC END# *4A92BBDF0126impl_uses*
 ;
 
@@ -395,6 +397,15 @@ begin
   // это надо здесь ! {
   MakeResources;
   RegisterOperations;
+  //afw.Application.ApplyActiveLanguage(Tl3ConstStrings.Instance);
+  if (afw.Application <> nil) then
+   if (afw.Application.LocaleInfo <> nil) then
+    if (afw.Application.LocaleInfo.Language <> afw_lngRussian) then
+    begin
+     Assert(g_MenuManager <> nil);
+     afw.Application.ApplyActiveLanguage(g_MenuManager);
+     // - http://mdp.garant.ru/pages/viewpage.action?pageId=631998941&focusedCommentId=633043871#comment-633043871
+    end;//afw.Application.LocaleInfo.Language <> afw_lngRussian
   // } это надо здесь !
 
   if not CanRun(l_Logo) then

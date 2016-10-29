@@ -62,7 +62,7 @@ uses
  , msmCopySelection
  , msmPaste
  , msmWordsManaging
- , msmLoadedWordsListModel
+ , msmSomeWordsListModel
  , msmSomeModelElementsListModel
  , msmSomeModelElementsList
  , msmMultiPanelViewParentHorz
@@ -73,6 +73,7 @@ uses
  , msmDeleteSelection
  , msmChangeProperties
  , msmChangePropertiesBinding
+ , msmLoadedWordsListModel
  , l3Memory
  //#UC START# *57D2DF7E00CEimpl_uses*
  , SysUtils
@@ -270,7 +271,7 @@ begin
  if (aChildZone <> nil) then
  begin
   l_ListContext := TmsmListViewtInitContext_C;
-  AddChildViews(['Depends', 'Inherits', 'Implements', {'Inner',} 'Children', 'Constants', 'Attributes', 'Operations', 'Dependencies', 'Implemented', 'Overridden'],
+  AddChildViews(['Depends', 'Inherits', 'Implements', {'Inner',} 'Children', 'Constants', 'Attributes', 'Operations', 'Dependencies', 'Implemented', 'Overridden', 'Parameters'],
                 aChildZone,
                 l_ListContext
                 );
@@ -317,7 +318,7 @@ begin
    )
   );
 
-  if false then
+  if true{false} then
   begin
    l_AllWords := TmsmLoadedWordsListModel.Make;
    AddController(
@@ -332,6 +333,22 @@ begin
    // - список всех слов модели
    Bind(TmsmListOpener.Make(l_AllWords, aUseCase.MainList));
   end;//false
+  
+  if true{false} then
+  begin
+   l_AllWords := TmsmSomeWordsListModel.Make('Primitives');
+   AddController(
+    AddReadonlyListOperations(
+     DisableActionElementEvent
+     (
+      TmsmListViewController.Make(l_AllWords, aFloatingZone)
+     )
+     , l_AllWords
+    )
+   );
+   // - список примитивов
+   Bind(TmsmListOpener.Make(l_AllWords, aUseCase.MainList));
+  end;//false
 
   if true then
   begin
@@ -342,7 +359,7 @@ begin
     AddChildView('AllowedElements', aFloatingZone, l_ListContext);
     // - список стереотипов доступных для текущего элемента
    end;//false
-   if true then
+   if false{true} then
    begin
     l_ListContext := TmsmListViewtInitContext_C;
     AddChildView('AccessibleTypes', aFloatingZone, l_ListContext);

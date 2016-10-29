@@ -12,6 +12,7 @@ interface
 uses
  l3IntfUses
  , alcuImport
+ , l3Variant
  , k2Base
 ;
 

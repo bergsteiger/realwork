@@ -20,8 +20,8 @@ type
   private
    f_Searcher: IevSearcher;
    f_FoundBlock: InevDataObjectPrim2;
-   f_Point: IevDocumentPoint;
    f_WasFound: Boolean;
+   f_ChildPara: Tl3Variant;
   protected
    function TrySelect(const aContainer: InevDocumentContainer): Boolean;
    function TrySelectObj(const aContainer: InevDocumentContainer;
@@ -62,8 +62,8 @@ begin
  inherited Create(aControl As Il3ToolOwner);
  f_Searcher := aSearcher;
  f_FoundBlock := nil;
- f_Point := nil;
  f_WasFound := False;
+ f_ChildPara := nil;
 //#UC END# *4EA6A573010B_4EA6A47C0260_impl*
 end;//TevSearchWaiter.Create
 
@@ -88,14 +88,10 @@ function TevSearchWaiter.TrySelect(const aContainer: InevDocumentContainer): Boo
 //#UC START# *47C6B3040133_4EA6A47C0260_var*
 var
  l_Sel     : InevSelection;
- l_Pt      : InevBasePoint;
- l_DocP    : IevDocumentPart;
- l_DocPt   : IevDocumentPoint;
- l_DPara   : InevPara;
+ l_Para    : InevPara;
  l_NewPt   : InevPoint;
  l_Start   : InevBasePoint;
  l_Finish  : InevBasePoint;
- l_Handle  : Integer;
  l_NewSel  : InevRange;
  l_Control : InevControl;
 //#UC END# *47C6B3040133_4EA6A47C0260_var*
@@ -113,26 +109,19 @@ begin
     Result := False
    else
    begin
-    l_Pt := (f_Point as InevLocation).AsPoint;
-    l_Handle := l_Pt.Obj.Owner.IntA[k2_tiHandle];
-    if l_Handle > 0 then
+    if (f_ChildPara <> nil) and f_ChildPara.QT(InevObject, l_Para) then
     begin
-     l_DocP := aContainer.Document.SubList.Block[l_Handle];
-     if Supports(l_DocP, IevDocumentPoint, l_DocPt) then
-     begin
-      l_DPara := l_DocPt.Obj.AsPara;
-      l_NewPt := l_DPara.MakePoint;
-      l_NewPt.SetEntryPoint(l_Pt.Obj.PID + 1);
-      l_Start := l_NewPt.ClonePoint(l_Control.View).Inner;
-      l_Start.SetEntryPoint(f_FoundBlock.Borders.rStart);
-      l_Start := l_Start.PointToParent;
-      l_Finish := l_NewPt.ClonePoint(l_Control.View).Inner;
-      l_Finish.SetEntryPoint(f_FoundBlock.Borders.rFinish);
-      l_Finish := l_Finish.PointToParent;
-      l_NewSel := l_Sel.GetBlock;
-      (l_NewSel as InevRangeFactory).Init(l_Start, l_Finish);
-      l_Sel.Select(l_NewSel, false);
-     end; // if Supports(l_DocP, IevDocumentPoint, l_DocPt) then
+     l_NewPt := l_Para.OwnerPara.MakePoint;
+     l_NewPt.SetEntryPoint(l_Para.PID + 1);
+     l_Start := l_NewPt.ClonePoint(l_Control.View).Inner;
+     l_Start.SetEntryPoint(f_FoundBlock.Borders.rStart);
+     l_Start := l_Start.PointToParent;
+     l_Finish := l_NewPt.ClonePoint(l_Control.View).Inner;
+     l_Finish.SetEntryPoint(f_FoundBlock.Borders.rFinish);
+     l_Finish := l_Finish.PointToParent;
+     l_NewSel := l_Sel.GetBlock;
+     (l_NewSel as InevRangeFactory).Init(l_Start, l_Finish);
+     l_Sel.Select(l_NewSel, false);
     end; // if l_Handle > 0 then
     Result := True;
    end;
@@ -144,11 +133,12 @@ function TevSearchWaiter.TrySelectObj(const aContainer: InevDocumentContainer;
  aParent: Tl3Variant;
  aChild: Tl3Variant): Boolean;
 //#UC START# *47C6B30F0277_4EA6A47C0260_var*
+
 var
  l_Sel        : InevSelection;
- l_FoundBlock : IevdDataObject;
  l_Para       : InevObject;
  l_OutPara    : InevObject;
+ l_FoundBlock : IevdDataObject;
 //#UC END# *47C6B30F0277_4EA6A47C0260_var*
 begin
 //#UC START# *47C6B30F0277_4EA6A47C0260_impl*
@@ -164,7 +154,7 @@ begin
     try
      if evSearchPara(l_Para, f_Searcher, l_OutPara, False, @l_FoundBlock) then
      begin
-      f_Point := l_OutPara.MakePoint As IevDocumentPoint;
+      f_ChildPara := aChild;
       f_FoundBlock := l_FoundBlock As InevDataObjectPrim2;
       f_WasFound := True;
      end; // if evSearchPara(l_Para, f_Searcher, l_OutPara, False, @l_FoundBlock) then
@@ -185,8 +175,8 @@ begin
 //#UC START# *479731C50290_4EA6A47C0260_impl*
  f_Searcher := nil;
  f_FoundBlock := nil;
- f_Point := nil;
  f_WasFound := False;
+ f_ChildPara := nil;
  inherited;
 //#UC END# *479731C50290_4EA6A47C0260_impl*
 end;//TevSearchWaiter.Cleanup

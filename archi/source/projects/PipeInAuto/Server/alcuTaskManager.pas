@@ -1,7 +1,22 @@
 unit alcuTaskManager;
-{ $Id: alcuTaskManager.pas,v 1.179 2016/10/18 09:47:18 lukyanets Exp $ }
+{ $Id: alcuTaskManager.pas,v 1.184 2016/10/28 12:59:51 lukyanets Exp $ }
 
 // $Log: alcuTaskManager.pas,v $
+// Revision 1.184  2016/10/28 12:59:51  lukyanets
+// Готовимя принимать список файлов
+//
+// Revision 1.183  2016/10/27 13:14:52  lukyanets
+// Готовимся переправлять список задач
+//
+// Revision 1.182  2016/10/26 13:32:05  lukyanets
+// Готовимя отправлять файлы по новому
+//
+// Revision 1.181  2016/10/25 12:59:28  lukyanets
+// Готовим новую функциональность.
+//
+// Revision 1.180  2016/10/24 13:32:42  lukyanets
+// Готовим новую функциональность.
+//
 // Revision 1.179  2016/10/18 09:47:18  lukyanets
 // Отладка
 //
@@ -1274,6 +1289,8 @@ uses
  CSDataPipe, csMessageManager,
  ddServerTaskList, ddScheduler, dtIntf, dt_Sab, alcuTypes,
  csServerCommandsManager, csTaskTypes, ddServerTask, DT_AskList, alcuTaskList,
+ ncsServerFilesDelivererPool,
+ alcuServerFilesDeliverer,
 
  l3ProtoObject,
  alcuTaskListPrim,
@@ -1343,6 +1360,7 @@ type
 
     f_SerachActiveTaskCounter: Integer;// Отладочная ловушка - потом можно грохнуть.
     f_SpeedupRequestHandle: Windows.THandle;
+    f_DelivererPool: TncsServerFilesDelivererPool;
     procedure AddDelayedTask(aTask: TddProcessTask);
     procedure ChangeServerStatus(atask: TddProcessTask);
     procedure CheckDeliveringTasks;
@@ -1448,7 +1466,7 @@ type
     procedure cs_StopMonitoringReply(aPipe: TCSDataPipe);
     procedure cs_AsyncProgress(aPipe: TCSDataPipe);
     procedure cs_ReceiveTaskResult(aPipe: TCSDataPipe);
-    procedure cs_RequestDeliveryTaskList(aPipe: TCSDataPipe);
+    procedure cs_RequestDelivery(aPipe: TCSDataPipe);
     procedure cs_ExportResultProcessing(aPipe: TCSDataPipe);
     procedure cs_TransporterHandshake(aPipe: TCSDataPipe);
     procedure cs_TaskSend(aPipe: TCSDataPipe);
@@ -1638,6 +1656,7 @@ begin
   f_WorkPool.RegisterNotifier(Self);
   f_TransporterPool := TncsServerTransporterPool.Create;
   f_DetachedExecutorPool := TalcuDetachedExecutorPool.Create;
+  f_DelivererPool := TncsServerFilesDelivererPool.Create;
 
   f_SpeedupRequestHandle := Classes.AllocateHWnd(SpeedupRequestWndProc);
 
@@ -1762,6 +1781,7 @@ begin
  l3Free(f_BaseEngineHolder);
  l3Free(f_TransporterPool);
  l3Free(f_DetachedExecutorPool);
+ l3Free(f_DelivererPool);
  Classes.DeallocateHWnd(f_SpeedUpRequestHandle);
  inherited;
 end;
@@ -3042,6 +3062,7 @@ begin
   if WaitForFreeze then
    WaitForAsyncRunningTasks;
   f_TransporterPool.TerminateAll;
+  f_DelivererPool.TerminateAll;
  finally
   Changed;
  end;
@@ -3174,9 +3195,11 @@ begin
  end;
 end;
 
-procedure TddServerTaskManager.cs_RequestDeliveryTaskList(
+procedure TddServerTaskManager.cs_RequestDelivery(
   aPipe: TCSDataPipe);
 var
+ l_Deliverer: TalcuServerFilesDeliverer;
+(*
  l_UserID: TdaUserID;
  l_List: TStringList;
  l_IDX: Integer;
@@ -3187,18 +3210,31 @@ var
   if (anItem.Status = cs_tsReadyToDelivery) and (anItem.UserID = l_UserID) then
    l_List.Add(anItem.TaskID);
  end;
-
+*)
 begin
- l_UserID := aPipe.ReadCardinal;
+ l_Deliverer := TalcuServerFilesDeliverer.Create(aPipe, f_ActiveTaskList, Self);
+ try
+  f_DelivererPool.RegisterDeliverer(l_Deliverer);
+  try
+   l_Deliverer.ProcessCommands;
+  finally
+   f_DelivererPool.UnRegisterDeliverer(l_Deliverer);
+  end;
+ finally
+  FreeAndNil(l_Deliverer);
+ end;
+(*
+ l_UserID := aPipe.ClientID;
  l_List := TStringList.Create;
  try
   f_ActiveTaskList.ForEachF(L2AlcuTasksIteratorForEachFAction(@DoIt));
   aPipe.WriteInteger(l_List.Count);
   for l_IDX := 0 to l_List.Count - 1 do
-   aPipe.WRiteLn(l_List[l_IDX]);
+   aPipe.WriteLn(l_List[l_IDX]);
  finally
   FreeAndNil(l_List);
  end;
+*)
 end;
 
 procedure TddServerTaskManager.cs_ExportResultProcessing(

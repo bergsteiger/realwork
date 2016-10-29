@@ -14,18 +14,18 @@ uses
  , msmControllers
  , msmModels
  , msmEvents
- , msmEventList
- , msmEventHandlers
  , msmOperations
  , msmOperationsList
+ , msmEventList
+ , msmEventHandlers
 ;
 
 type
- _msmEventsSubscriber_Parent_ = Tl3ProtoObject;
- {$Include w:\common\components\gui\Garant\msm\msmEventsSubscriber.imp.pas}
- _msmOperationsManaging_Parent_ = _msmEventsSubscriber_;
+ _msmOperationsManaging_Parent_ = Tl3ProtoObject;
  {$Include w:\common\components\gui\Garant\msm\msmOperationsManaging.imp.pas}
- TmsmController = class(_msmOperationsManaging_, ImsmController)
+ _msmEventsSubscriber_Parent_ = _msmOperationsManaging_;
+ {$Include w:\common\components\gui\Garant\msm\msmEventsSubscriber.imp.pas}
+ TmsmController = class(_msmEventsSubscriber_, ImsmController)
   private
    f_Model: ImsmModel;
   protected
@@ -60,9 +60,9 @@ uses
  //#UC END# *57B1F28B030Dimpl_uses*
 ;
 
-{$Include w:\common\components\gui\Garant\msm\msmEventsSubscriber.imp.pas}
-
 {$Include w:\common\components\gui\Garant\msm\msmOperationsManaging.imp.pas}
+
+{$Include w:\common\components\gui\Garant\msm\msmEventsSubscriber.imp.pas}
 
 procedure TmsmController.DoActivate;
 //#UC START# *57B1ABC80368_57B1F28B030D_var*

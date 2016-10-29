@@ -42,9 +42,7 @@ type
    f_Desc: TnscTasksPanelGroupDesc;
    f_ID: Integer;
   protected
-   function As_Il3ChangeNotifier: Il3ChangeNotifier; overload;
-    {* Метод приведения нашего интерфейса к Il3ChangeNotifier }
-   function As_Il3ChangeNotifier: Il3ChangeNotifier; overload;
+   function As_Il3ChangeNotifier: Il3ChangeNotifier;
     {* Метод приведения нашего интерфейса к Il3ChangeNotifier }
    {$If NOT Defined(NoVCM)}
    function pm_GetPosition: Integer;
@@ -123,12 +121,6 @@ begin
   l_Inst.Free;
  end;//try..finally
 end;//TnscTasksPanelGroup.Make
-
-function TnscTasksPanelGroup.As_Il3ChangeNotifier: Il3ChangeNotifier;
- {* Метод приведения нашего интерфейса к Il3ChangeNotifier }
-begin
- Result := Self;
-end;//TnscTasksPanelGroup.As_Il3ChangeNotifier
 
 function TnscTasksPanelGroup.As_Il3ChangeNotifier: Il3ChangeNotifier;
  {* Метод приведения нашего интерфейса к Il3ChangeNotifier }

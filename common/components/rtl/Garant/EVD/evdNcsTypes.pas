@@ -29,6 +29,19 @@ type
   , ncs_rkEmpty
  );//TncsResultKind
 
+ TncsDeliveryCommand = (
+  ncs_dcGetTasksList
+  , ncs_dcGetFilesList
+  , ncs_dcGetFileCRC
+  , ncs_dcGetFile
+  , ncs_dcGetTargetFolder
+  , ncs_dcSetProgress
+  , ncs_dcSetDeliveryResult
+  , ncs_dcCorrectTargetFolder
+  , ncs_dcCheckAlive
+  , ncs_dcDoneProcess
+ );//TncsDeliveryCommand
+
 implementation
 
 uses

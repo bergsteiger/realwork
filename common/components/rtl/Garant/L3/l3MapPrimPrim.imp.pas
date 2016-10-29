@@ -35,6 +35,8 @@ type
    function ValueByKey(const aKey: _KeyType_): _ValueType_;
    function ValueSlotByKey(const aKey: _KeyType_): PValueType;
    function IndexByKey(const aKey: _KeyType_): Integer;
+   function ValueByIndex(anIndex: Integer): _ValueType_;
+   function KeyByIndex(anIndex: Integer): _KeyType_;
  end;//_l3MapPrimPrim_
 
 function Tl3KeyValuePair_C(const aKey: _KeyType_;
@@ -143,6 +145,24 @@ begin
   Result := -1;
 //#UC END# *56092E020346_560907E00134_impl*
 end;//_l3MapPrimPrim_.IndexByKey
+
+function _l3MapPrimPrim_.ValueByIndex(anIndex: Integer): _ValueType_;
+//#UC START# *5809431802DB_560907E00134_var*
+//#UC END# *5809431802DB_560907E00134_var*
+begin
+//#UC START# *5809431802DB_560907E00134_impl*
+ Result := ItemSlot(anIndex).rValue;
+//#UC END# *5809431802DB_560907E00134_impl*
+end;//_l3MapPrimPrim_.ValueByIndex
+
+function _l3MapPrimPrim_.KeyByIndex(anIndex: Integer): _KeyType_;
+//#UC START# *580943610083_560907E00134_var*
+//#UC END# *580943610083_560907E00134_var*
+begin
+//#UC START# *580943610083_560907E00134_impl*
+ Result := ItemSlot(anIndex).rKey;
+//#UC END# *580943610083_560907E00134_impl*
+end;//_l3MapPrimPrim_.KeyByIndex
 
 procedure _l3MapPrimPrim_.InitFields;
 //#UC START# *47A042E100E2_560907E00134_var*

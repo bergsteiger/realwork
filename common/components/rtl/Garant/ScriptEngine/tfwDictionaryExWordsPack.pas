@@ -172,6 +172,21 @@ type
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwDictionaryExCheckNamedDictionary
 
+ TkwDictionaryExFindNamedDictionary = {final} class(TtfwClassLike)
+  {* Слово скрипта DictionaryEx:FindNamedDictionary }
+  private
+   function FindNamedDictionary(const aCtx: TtfwContext;
+    const aName: Il3CString): TtfwDictionaryEx;
+    {* Реализация слова скрипта DictionaryEx:FindNamedDictionary }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwDictionaryExFindNamedDictionary
+
  TtfwDictionaryExWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
@@ -612,6 +627,63 @@ begin
  aCtx.rEngine.PushObj(CheckNamedDictionary(aCtx, l_aName));
 end;//TkwDictionaryExCheckNamedDictionary.DoDoIt
 
+function TkwDictionaryExFindNamedDictionary.FindNamedDictionary(const aCtx: TtfwContext;
+ const aName: Il3CString): TtfwDictionaryEx;
+ {* Реализация слова скрипта DictionaryEx:FindNamedDictionary }
+//#UC START# *58108D2A01B1_58108D2A01B1_559E8B2E0385_Word_var*
+var
+ l_Name : Il3CString;
+//#UC END# *58108D2A01B1_58108D2A01B1_559E8B2E0385_Word_var*
+begin
+//#UC START# *58108D2A01B1_58108D2A01B1_559E8B2E0385_Word_impl*
+ with TtfwDictionaryCache.Instance do
+ begin
+  Lock;
+  try
+   l_Name := TtfwCStringFactory.C(aCtx.ResolveIncludedFilePath(l3Str(aName)));
+   Result := FindDictionary(l_Name);
+  finally
+   Unlock;
+  end;//try..finally
+ end;//with TtfwDictionaryCache.Instance
+//#UC END# *58108D2A01B1_58108D2A01B1_559E8B2E0385_Word_impl*
+end;//TkwDictionaryExFindNamedDictionary.FindNamedDictionary
+
+class function TkwDictionaryExFindNamedDictionary.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'DictionaryEx:FindNamedDictionary';
+end;//TkwDictionaryExFindNamedDictionary.GetWordNameForRegister
+
+function TkwDictionaryExFindNamedDictionary.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TtfwDictionaryEx);
+end;//TkwDictionaryExFindNamedDictionary.GetResultTypeInfo
+
+function TkwDictionaryExFindNamedDictionary.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwDictionaryExFindNamedDictionary.GetAllParamsCount
+
+function TkwDictionaryExFindNamedDictionary.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwDictionaryEx), @tfw_tiString]);
+end;//TkwDictionaryExFindNamedDictionary.ParamsTypes
+
+procedure TkwDictionaryExFindNamedDictionary.DoDoIt(const aCtx: TtfwContext);
+var l_aName: Il3CString;
+begin
+ try
+  l_aName := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(FindNamedDictionary(aCtx, l_aName));
+end;//TkwDictionaryExFindNamedDictionary.DoDoIt
+
 class function TtfwDictionaryExWordsPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'tfwDictionaryExWordsPack';
@@ -636,6 +708,8 @@ initialization
  {* Регистрация pop_DictionaryEx_RemoveFromCache }
  TkwDictionaryExCheckNamedDictionary.RegisterInEngine;
  {* Регистрация DictionaryEx_CheckNamedDictionary }
+ TkwDictionaryExFindNamedDictionary.RegisterInEngine;
+ {* Регистрация DictionaryEx_FindNamedDictionary }
  TtfwDictionaryExWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwDictionaryEx));

@@ -103,6 +103,7 @@ uses
  , l3String
  , msmDeletedElements
  , msmChangedElements
+ , msmWaitCursor
  //#UC END# *57B57EDB003Fimpl_uses*
 ;
 
@@ -158,6 +159,18 @@ type
    class function Make(const aModel: ImsmListLikeModel;
     const aTarget: ImsmModelElement): ImsmElementSelector; reintroduce;
  end;//TmsmDependencyAdder
+
+ TmsmParameterAdder = class(TmsmListLikeModelWorker, ImsmElementSelector)
+  protected
+   procedure SelectElement(const anElementName: AnsiString;
+    const anElementStereotype: ImsmModelElement;
+    const aKeyValues: ItfwArray);
+   function SelectFormCaption: AnsiString;
+   function KeyValues: ItfwArray;
+  public
+   class function Make(const aModel: ImsmListLikeModel;
+    const aTarget: ImsmModelElement): ImsmElementSelector; reintroduce;
+ end;//TmsmParameterAdder
 
 constructor TmsmListLikeModelWorker.Create(const aModel: ImsmListLikeModel;
  const aTarget: ImsmModelElement);
@@ -218,6 +231,7 @@ function TmsmAttributeAdder.KeyValues: ItfwArray;
 //#UC END# *57FB86B0027E_58049B2C00EB_var*
 begin
 //#UC START# *57FB86B0027E_58049B2C00EB_impl*
+ TmsmWaitCursor.Make;
  Result := Model.List.Owner.CallAndGetList([TtfwStackValue_C(Self.Target.MainWord)], 'msm:KeyValuesForNewAttribute');
 //#UC END# *57FB86B0027E_58049B2C00EB_impl*
 end;//TmsmAttributeAdder.KeyValues
@@ -260,6 +274,7 @@ function TmsmOperationAdder.KeyValues: ItfwArray;
 //#UC END# *57FB86B0027E_58049DA603A3_var*
 begin
 //#UC START# *57FB86B0027E_58049DA603A3_impl*
+ TmsmWaitCursor.Make;
  Result := Model.List.Owner.CallAndGetList([TtfwStackValue_C(Self.Target.MainWord)], 'msm:KeyValuesForNewOperation');
 //#UC END# *57FB86B0027E_58049DA603A3_impl*
 end;//TmsmOperationAdder.KeyValues
@@ -302,9 +317,53 @@ function TmsmDependencyAdder.KeyValues: ItfwArray;
 //#UC END# *57FB86B0027E_5804A3BE00EE_var*
 begin
 //#UC START# *57FB86B0027E_5804A3BE00EE_impl*
+ TmsmWaitCursor.Make;
  Result := Model.List.Owner.CallAndGetList([TtfwStackValue_C(Self.Target.MainWord)], 'msm:KeyValuesForNewDependency');
 //#UC END# *57FB86B0027E_5804A3BE00EE_impl*
 end;//TmsmDependencyAdder.KeyValues
+
+class function TmsmParameterAdder.Make(const aModel: ImsmListLikeModel;
+ const aTarget: ImsmModelElement): ImsmElementSelector;
+var
+ l_Inst : TmsmParameterAdder;
+begin
+ l_Inst := Create(aModel, aTarget);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TmsmParameterAdder.Make
+
+procedure TmsmParameterAdder.SelectElement(const anElementName: AnsiString;
+ const anElementStereotype: ImsmModelElement;
+ const aKeyValues: ItfwArray);
+//#UC START# *57F509AC007F_5810ACC40099_var*
+//#UC END# *57F509AC007F_5810ACC40099_var*
+begin
+//#UC START# *57F509AC007F_5810ACC40099_impl*
+ Model.AddNewElement(anElementName, anElementStereotype, aKeyValues);
+//#UC END# *57F509AC007F_5810ACC40099_impl*
+end;//TmsmParameterAdder.SelectElement
+
+function TmsmParameterAdder.SelectFormCaption: AnsiString;
+//#UC START# *57FB8665023E_5810ACC40099_var*
+//#UC END# *57FB8665023E_5810ACC40099_var*
+begin
+//#UC START# *57FB8665023E_5810ACC40099_impl*
+ Result := 'Add parameter';
+//#UC END# *57FB8665023E_5810ACC40099_impl*
+end;//TmsmParameterAdder.SelectFormCaption
+
+function TmsmParameterAdder.KeyValues: ItfwArray;
+//#UC START# *57FB86B0027E_5810ACC40099_var*
+//#UC END# *57FB86B0027E_5810ACC40099_var*
+begin
+//#UC START# *57FB86B0027E_5810ACC40099_impl*
+ TmsmWaitCursor.Make;
+ Result := Model.List.Owner.CallAndGetList([TtfwStackValue_C(Self.Target.MainWord)], 'msm:KeyValuesForNewParameter');
+//#UC END# *57FB86B0027E_5810ACC40099_impl*
+end;//TmsmParameterAdder.KeyValues
 
 function TmsmListLikeModel.DoGetCaption: AnsiString;
 //#UC START# *57E331B90378_57B57EDB003F_var*
@@ -476,7 +535,7 @@ begin
   l_A := Self.Get_List.Owner.CallAndGetList([TtfwStackValue_C(anArray)], 'msm:Diagram:PasteElements')
  else
   Assert(false);
- Fire(ListContentChangedEvent.Instance);
+ //Fire(ListContentChangedEvent.Instance);
  Selection.SelectElements(l_A); 
 //#UC END# *57E3FC26029F_57B57EDB003F_impl*
 end;//TmsmListLikeModel.Paste
@@ -564,6 +623,9 @@ begin
  if (f_ElementView.rListName = 'Dependencies') then
   TmsmModelElementSelectService.Instance.SelectElement(TmsmDependencyAdder.Make(Self, anElement))
  else
+ if (f_ElementView.rListName = 'Parameters') then
+  TmsmModelElementSelectService.Instance.SelectElement(TmsmParameterAdder.Make(Self, anElement))
+ else
  begin
   Assert(Self.Get_List <> nil);
   Assert(Self.Get_List.Owner <> nil);
@@ -582,7 +644,7 @@ begin
   else
    Assert(false);
  end;//else 
- Fire(ListContentChangedEvent.Instance);
+ //Fire(ListContentChangedEvent.Instance);
  if (l_E <> nil) then
  begin
   Selection.Clear;
@@ -619,6 +681,7 @@ begin
  if (f_ElementView.rListName = 'Attributes')
     OR (f_ElementView.rListName = 'Operations')
     OR (f_ElementView.rListName = 'Dependencies')
+    OR (f_ElementView.rListName = 'Parameters')
     then
  begin
   if (f_ElementView.rElement = nil) then
@@ -628,6 +691,31 @@ begin
   Result := true;
   Exit;
  end;//f_ElementView.rListName = 'Attributes'
+
+ if (f_ElementView.rListName = 'Inherits') then
+ begin
+  if (f_ElementView.rElement = nil) then
+   Exit;
+  Result := true;
+  Exit;
+ end;//f_ElementView.rListName = 'Inherits'
+
+ if (f_ElementView.rListName = 'Overridden') then
+ begin
+  if (f_ElementView.rElement = nil) then
+   Exit;
+  Result := true;
+  Exit;
+ end;//f_ElementView.rListName = 'Overridden'
+
+ if (f_ElementView.rListName = 'Implements') then
+ begin
+  if (f_ElementView.rElement = nil) then
+   Exit;
+  Result := true;
+  Exit;
+ end;//f_ElementView.rListName = 'Implements'
+
  if (Self.Get_List = nil) then
   Exit; 
  if (Self.Get_List.Owner = nil) then
@@ -652,12 +740,14 @@ var
 begin
 //#UC START# *57F4FE8F022B_57B57EDB003F_impl*
  //Assert(anElementName <> '');
- Assert(anElementStereotype <> nil);
+ //Assert(anElementStereotype <> nil);
  l_E := nil;
  if (f_ElementView.rListName = 'Attributes')
     OR (f_ElementView.rListName = 'Operations')
-    OR (f_ElementView.rListName = 'Dependencies') then
+    OR (f_ElementView.rListName = 'Dependencies')
+    OR (f_ElementView.rListName = 'Parameters') then
  begin
+  Assert(anElementStereotype <> nil);
   Assert(not Self.f_ElementView.rElement.BoolProp['IsSomeView']);
   Assert(not Self.f_ElementView.rElement.BoolProp['IsDiagram']);
   l_E :=
@@ -669,9 +759,40 @@ begin
      'msm:AddElement'
     )
    );
- end
+ end//f_ElementView.rListName = 'Attributes'
+ else
+ if (f_ElementView.rListName = 'Inherits') then
+ begin
+  Assert(not Self.f_ElementView.rElement.BoolProp['IsSomeView']);
+  Assert(not Self.f_ElementView.rElement.BoolProp['IsDiagram']);
+    Self.f_ElementView.rElement.Call(
+     [TtfwStackValue_C(aKeyValues)],
+     'msm:AddNewInherits'
+    )
+ end//f_ElementView.rListName = 'Inherits'
+ else
+ if (f_ElementView.rListName = 'Implements') then
+ begin
+  Assert(not Self.f_ElementView.rElement.BoolProp['IsSomeView']);
+  Assert(not Self.f_ElementView.rElement.BoolProp['IsDiagram']);
+    Self.f_ElementView.rElement.Call(
+     [TtfwStackValue_C(aKeyValues)],
+     'msm:AddNewImplements'
+    )
+ end//f_ElementView.rListName = 'Implements'
+ else
+ if (f_ElementView.rListName = 'Overridden') then
+ begin
+  Assert(not Self.f_ElementView.rElement.BoolProp['IsSomeView']);
+  Assert(not Self.f_ElementView.rElement.BoolProp['IsDiagram']);
+    Self.f_ElementView.rElement.Call(
+     [TtfwStackValue_C(aKeyValues)],
+     'msm:AddNewOverridden'
+    )
+ end//f_ElementView.rListName = 'Overridden'
  else
  begin
+  Assert(anElementStereotype <> nil);
   Assert(Self.Get_List <> nil);
   Assert(Self.Get_List.Owner <> nil);
   if Self.Get_List.Owner.BoolProp['IsDiagram'] then
@@ -687,7 +808,7 @@ begin
   else
    Assert(false);
  end;//else
- Fire(ListContentChangedEvent.Instance);
+ //Fire(ListContentChangedEvent.Instance);
  if (l_E <> nil) then
  begin
   Selection.Clear;
@@ -740,6 +861,8 @@ procedure TmsmListLikeModel.DeleteSelection;
    begin
     Assert(not anElement.BoolProp['IsSomeView']);
     // - ибо пока по-моему такого не бывает, а там логика может быть более сложная
+    // - здесь ещё надо вставить проверку того, что элемент принадлежит списку
+    // Иначе можно огрести как с пустым Inherits.
     DeleteElement(anElement);
 (*    if anElement.BoolProp['IsSomeView'] then
       DeleteElement(anElement.ElementProp['Viewed']);*)
@@ -762,12 +885,13 @@ begin
  if Self.Get_List.Owner.BoolProp['IsDiagram'] then
   DoDeleteView
  else
- if {(f_ElementView.rListName = 'Inherits')
+ if (f_ElementView.rListName = 'Inherits')
     OR (f_ElementView.rListName = 'Implements')
-    OR }(f_ElementView.rListName = 'Overridden')
+    OR (f_ElementView.rListName = 'Overridden')
     OR (f_ElementView.rListName = 'Attributes')
     OR (f_ElementView.rListName = 'Operations')
     OR (f_ElementView.rListName = 'Dependencies')
+    OR (f_ElementView.rListName = 'Parameters')
     then
   DoDeleteElement
  else
@@ -797,12 +921,13 @@ begin
   Result := true;
   Exit;
  end;//Self.Get_List.Owner.BoolProp['IsDiagram']
- if {(f_ElementView.rListName = 'Inherits')
+ if (f_ElementView.rListName = 'Inherits')
     OR (f_ElementView.rListName = 'Implements')
-    OR }(f_ElementView.rListName = 'Overridden')
+    OR (f_ElementView.rListName = 'Overridden')
     OR (f_ElementView.rListName = 'Attributes')
     OR (f_ElementView.rListName = 'Operations')
     OR (f_ElementView.rListName = 'Dependencies')
+    OR (f_ElementView.rListName = 'Parameters')
     then
  begin
   Result := true;
@@ -846,6 +971,7 @@ function TmsmListLikeModel.PropertiesForNewElement: ItfwArray;
 //#UC END# *57FCC057014C_57B57EDB003F_var*
 begin
 //#UC START# *57FCC057014C_57B57EDB003F_impl*
+ TmsmWaitCursor.Make;
  Assert(Self.f_ElementView.rElement <> nil);
  if (f_ElementView.rListName = 'Attributes') then
   Result := Self.f_ElementView.rElement.CallAndGetList([TtfwStackValue_NULL], 'msm:KeyValuesForNewAttribute')
@@ -855,6 +981,18 @@ begin
  else
  if (f_ElementView.rListName = 'Dependencies') then
   Result := Self.f_ElementView.rElement.CallAndGetList([TtfwStackValue_NULL], 'msm:KeyValuesForNewDependency')
+ else
+ if (f_ElementView.rListName = 'Parameters') then
+  Result := Self.f_ElementView.rElement.CallAndGetList([TtfwStackValue_NULL], 'msm:KeyValuesForNewParameter')
+ else
+ if (f_ElementView.rListName = 'Inherits') then
+  Result := Self.f_ElementView.rElement.CallAndGetList([], 'msm:KeyValuesForNewInherits')
+ else
+ if (f_ElementView.rListName = 'Implements') then
+  Result := Self.f_ElementView.rElement.CallAndGetList([], 'msm:KeyValuesForNewImplements')
+ else
+ if (f_ElementView.rListName = 'Overridden') then
+  Result := Self.f_ElementView.rElement.CallAndGetList([], 'msm:KeyValuesForNewOverridden')
  else
  begin
   Assert(Self.Get_List <> nil);
@@ -869,6 +1007,7 @@ function TmsmListLikeModel.Properties: ItfwArray;
 //#UC END# *57FCC083017F_57B57EDB003F_var*
 begin
 //#UC START# *57FCC083017F_57B57EDB003F_impl*
+ TmsmWaitCursor.Make;
  Result := Self.Get_CurrentElement.CallAndGetList([], 'msm:GetProperties');
 //#UC END# *57FCC083017F_57B57EDB003F_impl*
 end;//TmsmListLikeModel.Properties
@@ -895,6 +1034,7 @@ begin
     OR (f_ElementView.rListName = 'Attributes')
     OR (f_ElementView.rListName = 'Operations')
     OR (f_ElementView.rListName = 'Dependencies')
+    OR (f_ElementView.rListName = 'Parameters')
     then
  begin
   Result := true;

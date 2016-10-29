@@ -28,6 +28,7 @@ procedure acSaveTextAs(const aFileName: AnsiString);
 procedure arClearTemplateStorage;
 procedure acMainFormFormClose;
 procedure acClearConfig;
+procedure arClearSpellDictionary;
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
@@ -176,6 +177,15 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *56A09EF601E1_4E4B5F29031C_impl*
 end;//acClearConfig
+
+procedure arClearSpellDictionary;
+//#UC START# *5813388F029E_4E4B5F29031C_var*
+//#UC END# *5813388F029E_4E4B5F29031C_var*
+begin
+//#UC START# *5813388F029E_4E4B5F29031C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5813388F029E_4E4B5F29031C_impl*
+end;//arClearSpellDictionary
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

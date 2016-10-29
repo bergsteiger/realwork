@@ -41,6 +41,8 @@ type
    function Get_MainWord: TtfwWord;
    function IsView: Boolean;
    function Get_ListProp(const aName: AnsiString): ItfwValueList;
+   procedure Set_ListProp(const aName: AnsiString;
+    const aValue: ItfwValueList);
    function IsSameElementView(const anOther: ImsmModelElement): Boolean;
    function IsViewLink: Boolean;
    function Call(const aParameters: array of TtfwStackValue;
@@ -291,6 +293,16 @@ begin
  Result := TmsmModelElementMethodCaller.CallAndGetList(MainWord, aName);
 //#UC END# *57E30E3802C5_57A9F5170275get_impl*
 end;//TmsmModelElement.Get_ListProp
+
+procedure TmsmModelElement.Set_ListProp(const aName: AnsiString;
+ const aValue: ItfwValueList);
+//#UC START# *57E30E3802C5_57A9F5170275set_var*
+//#UC END# *57E30E3802C5_57A9F5170275set_var*
+begin
+//#UC START# *57E30E3802C5_57A9F5170275set_impl*
+ TmsmModelElementMethodCaller.CallListSetter(MainWord, aName, aValue);
+//#UC END# *57E30E3802C5_57A9F5170275set_impl*
+end;//TmsmModelElement.Set_ListProp
 
 function TmsmModelElement.IsSameElementView(const anOther: ImsmModelElement): Boolean;
 //#UC START# *57E3F150013E_57A9F5170275_var*

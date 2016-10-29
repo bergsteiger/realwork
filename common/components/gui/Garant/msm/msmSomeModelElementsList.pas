@@ -17,13 +17,19 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , msmModelElements
  , l3Interfaces
+ , msmEvents
+ , ImsmEventsSubscriberList
 ;
 
 type
- TmsmSomeModelElementsList = class(Tl3CProtoObject, ImsmModelElementStringList)
+ _msmEventsPublisher_Parent_ = Tl3CProtoObject;
+ {$Include w:\common\components\gui\Garant\msm\msmEventsPublisher.imp.pas}
+ TmsmSomeModelElementsList = class(_msmEventsPublisher_, ImsmModelElementStringList, ImsmEventsPublisher)
   private
    f_List: ItfwValueList;
   protected
+   function As_ImsmEventsPublisher: ImsmEventsPublisher;
+    {* Метод приведения нашего интерфейса к ImsmEventsPublisher }
    function Get_Item(anIndex: Integer): ImsmModelElement;
    function Get_Count: Integer;
    function Get_Owner: ImsmModelElement;
@@ -36,6 +42,7 @@ type
    constructor Create(const aList: ItfwValueList); reintroduce;
    class function Make(const aList: ItfwValueList): ImsmModelElementStringList; reintroduce;
    function IndexOfElementView(const anElement: ImsmModelElement): Integer;
+   procedure Add(anItem: TtfwWord);
  end;//TmsmSomeModelElementsList
 
 implementation
@@ -43,9 +50,12 @@ implementation
 uses
  l3ImplUses
  , msmModelElement
+ , SysUtils
  //#UC START# *57E54DCD0141impl_uses*
  //#UC END# *57E54DCD0141impl_uses*
 ;
+
+{$Include w:\common\components\gui\Garant\msm\msmEventsPublisher.imp.pas}
 
 constructor TmsmSomeModelElementsList.Create(const aList: ItfwValueList);
 //#UC START# *57E54E69027B_57E54DCD0141_var*
@@ -69,6 +79,12 @@ begin
   l_Inst.Free;
  end;//try..finally
 end;//TmsmSomeModelElementsList.Make
+
+function TmsmSomeModelElementsList.As_ImsmEventsPublisher: ImsmEventsPublisher;
+ {* Метод приведения нашего интерфейса к ImsmEventsPublisher }
+begin
+ Result := Self;
+end;//TmsmSomeModelElementsList.As_ImsmEventsPublisher
 
 function TmsmSomeModelElementsList.Get_Item(anIndex: Integer): ImsmModelElement;
 //#UC START# *57AAD86403AD_57E54DCD0141get_var*
@@ -165,6 +181,15 @@ begin
  end;//anElement <> nil
 //#UC END# *57D1327900BC_57E54DCD0141_impl*
 end;//TmsmSomeModelElementsList.IndexOfElementView
+
+procedure TmsmSomeModelElementsList.Add(anItem: TtfwWord);
+//#UC START# *58094B920194_57E54DCD0141_var*
+//#UC END# *58094B920194_57E54DCD0141_var*
+begin
+//#UC START# *58094B920194_57E54DCD0141_impl*
+ Assert(false);
+//#UC END# *58094B920194_57E54DCD0141_impl*
+end;//TmsmSomeModelElementsList.Add
 
 procedure TmsmSomeModelElementsList.Cleanup;
  {* Функция очистки полей объекта. }

@@ -13,7 +13,12 @@ uses
  , Classes
 ;
 
-function l3CalcCRC32(aStream: TStream): Cardinal;
+function l3CalcCRC32(aStream: TStream;
+ ReadOffset: Int64 = 0;
+ ReadSize: Int64 = -1): Cardinal;
+procedure l3AccumulateBufferCRC32(var theCRC: Cardinal;
+ aBuffer: Pointer;
+ aSize: Cardinal);
 
 implementation
 
@@ -23,7 +28,9 @@ uses
  //#UC END# *546F0E690374impl_uses*
 ;
 
-function l3CalcCRC32(aStream: TStream): Cardinal;
+function l3CalcCRC32(aStream: TStream;
+ ReadOffset: Int64 = 0;
+ ReadSize: Int64 = -1): Cardinal;
 //#UC START# *546F0E81033E_546F0E690374_var*
 const
  c_BufLen = 32 * 1024;
@@ -53,5 +60,16 @@ begin
  end;
 //#UC END# *546F0E81033E_546F0E690374_impl*
 end;//l3CalcCRC32
+
+procedure l3AccumulateBufferCRC32(var theCRC: Cardinal;
+ aBuffer: Pointer;
+ aSize: Cardinal);
+//#UC START# *5810646503C4_546F0E690374_var*
+//#UC END# *5810646503C4_546F0E690374_var*
+begin
+//#UC START# *5810646503C4_546F0E690374_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5810646503C4_546F0E690374_impl*
+end;//l3AccumulateBufferCRC32
 
 end.

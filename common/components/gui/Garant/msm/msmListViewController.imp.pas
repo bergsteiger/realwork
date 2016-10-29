@@ -83,6 +83,7 @@ procedure _msmListViewController_.LinkDataToView;
 //#UC START# *57B6A49900F4_57B6C958008A_var*
 var
  l_Index : Integer;
+ l_E : ImsmModelElement;
 //#UC END# *57B6A49900F4_57B6C958008A_var*
 begin
 //#UC START# *57B6A49900F4_57B6C958008A_impl*
@@ -98,7 +99,25 @@ begin
  begin
   l_Index := Self.Model.List.IndexOfElementView(Self.Model.CurrentElement);
   if (l_Index < 0) then
-   OwnView.Current := 0
+  begin
+   if (Self.Model.List.Count > 0) then
+   begin
+    OwnView.Current := 0;
+    l_E := Self.Model.List[0];
+    if (l_E <> nil) then
+    begin
+     if (Self.Model.CurrentElement = nil) OR
+        not Self.Model.CurrentElement.IsSameElementView(l_E) then
+      Self.Model.CurrentElement := l_E;
+    end;//l_E <> nil
+   end//Self.Model.List.Count > 0
+   else
+   begin
+    //OwnView.Current := -1;
+    OwnView.Current := 0;
+    Self.Model.CurrentElement := nil;
+   end;//Self.Model.List.Count > 0
+  end//l_Index < 0
   else
    OwnView.Current := l_Index;
  end;//Self.Model.List = nil

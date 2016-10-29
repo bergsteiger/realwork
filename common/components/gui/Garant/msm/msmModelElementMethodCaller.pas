@@ -57,6 +57,9 @@ type
    class procedure CallWordSetter(aWord: TtfwWord;
     const aMethodName: AnsiString;
     aValue: TtfwWord);
+   class procedure CallListSetter(aWord: TtfwWord;
+    const aMethodName: AnsiString;
+    const aValue: ItfwArray);
  end;//TmsmModelElementMethodCaller
 
 implementation
@@ -74,6 +77,12 @@ uses
  , msmWordsByName
  , msmChangedElementsPrim
  , msmChangedElements
+ {$If NOT Defined(NoScripts)}
+ , msmWordsCachePack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , msmModelElementMethodCallerTranslatePack
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , msmModelElementMethodCallerPack
  {$IfEnd} // NOT Defined(NoScripts)
@@ -186,23 +195,33 @@ var
  l_V : TmsmModelElementMethodValue;
  l_Index : Integer;
  l_MethodName: Il3CString;
+ l_HasSpace : Boolean;
 //#UC END# *57AA00EB01D8_57AA00BD022E_var*
 begin
 //#UC START# *57AA00EB01D8_57AA00BD022E_impl*
- l_MethodName := TtfwCStringFactory.C('.' + aMethodName);
+ l_HasSpace := Pos(#32, aMethodName) > 0;
+ //if l_HasSpace then
+ // l_HasSpace := false;
+ if AnsiStartsText('.', aMethodName) then
+  l_MethodName := TtfwCStringFactory.C(aMethodName)
+ else
+  l_MethodName := TtfwCStringFactory.C('.' + aMethodName);
  l_V := TmsmModelElementMethodValue_C(aWord, l_MethodName);
  with TmsmModelElementMethodValueCache.Instance do
  begin
-  Lock;
-  try
-   if FindData(l_V, l_Index) then
-   begin
-    Result := Items[l_Index].rValue;
-    Exit;
-   end;//FindData(l_V, l_Index)
-  finally
-   Unlock;
-  end;//try..finally
+  if not l_HasSpace then
+  begin
+   Lock;
+   try
+    if FindData(l_V, l_Index) then
+    begin
+     Result := Items[l_Index].rValue;
+     Exit;
+    end;//FindData(l_V, l_Index)
+   finally
+    Unlock;
+   end;//try..finally
+  end;//not l_HasSpace
   l_Cursor := Screen.Cursor;
   Screen.Cursor := crHourGlass;
   try
@@ -210,8 +229,11 @@ begin
    //TmsmModelLoadingThread.CreateManaged(aWord, 'LoadLevel');
    {$EndIf seThreadSafe}
    Result := RawCall(aWord, aMethodName);
-   l_V.rValue := Result;
-   Add(l_V);
+   if not l_HasSpace then
+   begin
+    l_V.rValue := Result;
+    Add(l_V);
+   end;//not l_HasSpace 
    {$IfDef seThreadSafe}
    //TmsmModelLoadingThread.CreateManaged(aWord, 'LoadLevel');
    {$EndIf seThreadSafe}
@@ -424,7 +446,10 @@ var
 //#UC END# *57D68123004E_57AA00BD022E_var*
 begin
 //#UC START# *57D68123004E_57AA00BD022E_impl*
- l_MethodName := TtfwCStringFactory.C('.' + aMethodName);
+ if AnsiStartsText('.', aMethodName) then
+  l_MethodName := TtfwCStringFactory.C(aMethodName)
+ else 
+  l_MethodName := TtfwCStringFactory.C('.' + aMethodName);
  l_V := TmsmModelElementMethodValue_C(aWord, l_MethodName);
  with TmsmModelElementMethodValueCache.Instance do
  begin
@@ -491,5 +516,16 @@ begin
  CallSetter(aWord, aMethodName, TtfwStackValue_C(aValue));
 //#UC END# *57FBBAFC02D9_57AA00BD022E_impl*
 end;//TmsmModelElementMethodCaller.CallWordSetter
+
+class procedure TmsmModelElementMethodCaller.CallListSetter(aWord: TtfwWord;
+ const aMethodName: AnsiString;
+ const aValue: ItfwArray);
+//#UC START# *580A28150084_57AA00BD022E_var*
+//#UC END# *580A28150084_57AA00BD022E_var*
+begin
+//#UC START# *580A28150084_57AA00BD022E_impl*
+ CallSetter(aWord, aMethodName, TtfwStackValue_C(aValue));
+//#UC END# *580A28150084_57AA00BD022E_impl*
+end;//TmsmModelElementMethodCaller.CallListSetter
 
 end.

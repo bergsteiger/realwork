@@ -1,9 +1,12 @@
 
 unit Dt_Dict;
 
-{ $Id: DT_DICT.PAS,v 1.440 2016/07/05 13:31:20 lukyanets Exp $ }
+{ $Id: DT_DICT.PAS,v 1.441 2016/10/20 16:57:41 voba Exp $ }
 
 // $Log: DT_DICT.PAS,v $
+// Revision 1.441  2016/10/20 16:57:41  voba
+// -k:632423870
+//
 // Revision 1.440  2016/07/05 13:31:20  lukyanets
 // Cleanup
 //
@@ -1995,7 +1998,7 @@ Type
    //procedure  SaveAllDicts;
    procedure  ReloadDict(aDict : TdaDictionaryType);
 
-   procedure  GetNumberList(aTyp : TDNType;aList : TStrings);
+   procedure  GetNumberList(aTyp : TDNType; const aNum : string; aList : TStrings);
 
    //procedure  DoCompileDictionaries(aProgress : Tl3ProgressProc);
    //procedure  CompileDictionary(aCompStream : TmgCompPhraseQueryStream; aProgress : Tl3ProgressProc);
@@ -5665,7 +5668,7 @@ begin
 end;
 
 
-procedure TDictionaryServer.GetNumberList(aTyp : TDNType; aList : TStrings);
+procedure TDictionaryServer.GetNumberList(aTyp : TDNType; const aNum : string; aList : TStrings);
 var
  //SrchTblH : HT_Const.THandle;
  //SrchList : LPSAB;
@@ -5679,11 +5682,20 @@ var
  //Res2List  : SAB;
 
  lSab : ISab;
+ lNum : string;
+
+ lCnt : integer;
 
  function lRecAccessProc(aItemPtr : Pointer) : Boolean;
  begin
-  Result := True;
-  aList.Add(l3ArrayToString(PNumberStr(aItemPtr)^, SizeOf(TNumberStr)));
+  if lCnt > 100 then
+   Result := false
+  else
+  begin
+   inc(lCnt);
+   Result := True;
+   aList.Add(l3ArrayToString(PNumberStr(aItemPtr)^, SizeOf(TNumberStr)));
+  end;
  end;
 
  var
@@ -5704,8 +5716,16 @@ begin
   lSab := MakeSab(GroupTbl[da_dlDateNums]);
   lSab.Select(dnTypFld, aTyp);
  end;
+
+ if aNum <> '' then
+ begin
+  lNum := aNum +'*';
+  lSab.SubSelect(dnNumFld, lNum[1], WILDCASE);
+ end;
+
  lSab.ValuesOfKey(dnNumFld);
 
+ lCnt := 0;
  lRAProcStub := L2RecAccessProc(@lRecAccessProc);
  try
   lSab.IterateRecords(lRAProcStub);

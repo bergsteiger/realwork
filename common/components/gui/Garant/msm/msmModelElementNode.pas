@@ -130,8 +130,11 @@ begin
  Assert(anElement.rTextName <> '');
  l_Element := anElement;
  if (l_Element.rElement <> nil) then
+ begin
   if l_Element.rElement.BoolProp['IsSomeView'] then
    l_Element.rElement := l_Element.rElement.ElementProp['Viewed'];
+  l_Element.rElement := l_Element.rElement.ElementProp['ReferencedOriginal'];
+ end;//l_Element.rElement <> nil
  f_IndexInParent := anIndex;
  inherited Create(l_Element);
 //#UC END# *57AC3DD20352_57AC3AE0039B_impl*

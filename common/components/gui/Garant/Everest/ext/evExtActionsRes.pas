@@ -4,9 +4,12 @@ unit evExtActionsRes;
 { Автор: Люлин А.В. ©       }
 { Модуль: evExtActionsRes - }
 { Начат: 04.10.2001 11:32   }
-{ $Id: evExtActionsRes.pas,v 1.21 2012/11/01 09:41:42 lulin Exp $ }
+{ $Id: evExtActionsRes.pas,v 1.22 2016/10/20 10:15:52 dinishev Exp $ }
 
 // $Log: evExtActionsRes.pas,v $
+// Revision 1.22  2016/10/20 10:15:52  dinishev
+// {Requestlink:632196336}. Убрал горячие клавиши у кнопок с индексами.
+//
 // Revision 1.21  2012/11/01 09:41:42  lulin
 // - забыл точку с запятой.
 //
@@ -145,8 +148,13 @@ evAddOperationDescriptor(ev_ccBold,        'Жирный', 'Жирный текст', 'Ctrl+B', t
 evAddOperationDescriptor(ev_ccItalic,      'Курсив', 'Текст курсивом', 'Ctrl+I', true);
 evAddOperationDescriptor(ev_ccUnderline,   'Подчеркнутый', 'Подчеркнутый текст', 'Ctrl+U', true);
 evAddOperationDescriptor(ev_ccStrikeout,   'Перечеркнутый', 'Перечеркнутый текст', '', true);
+{$IFDEF Archi}
+evAddOperationDescriptor(ev_ccSubscript,   'Нижний индекс', '', '', true, ev_giFontIndex);
+evAddOperationDescriptor(ev_ccSuperscript, 'Верхний индекс', '', '', true, ev_giFontIndex);
+{$ELSE}
 evAddOperationDescriptor(ev_ccSubscript,   'Нижний индекс', '', 'Shift+Ctrl+=', true, ev_giFontIndex);
 evAddOperationDescriptor(ev_ccSuperscript, 'Верхний индекс', '', 'Ctrl+=', true, ev_giFontIndex);
+{$ENDIF}
 evAddOperationDescriptor(ev_ccVisible,     'Видимый', 'Видимый текст', '', true);
 {файловые операции:}
 evAddOperationDescriptor(ev_ccNew,   'Новый', 'Создать новый документ', 'Ctrl+N');

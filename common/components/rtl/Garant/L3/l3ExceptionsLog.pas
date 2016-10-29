@@ -7,11 +7,14 @@ unit l3ExceptionsLog;
 //
 // Copyright (c) 1997-2000 by Archivarius Team, free for non commercial use.
 //
-// $Id: l3ExceptionsLog.pas,v 1.55 2016/07/15 13:19:08 lulin Exp $
+// $Id: l3ExceptionsLog.pas,v 1.56 2016/10/27 12:44:31 voba Exp $
 //
 *)
 
 // $Log: l3ExceptionsLog.pas,v $
+// Revision 1.56  2016/10/27 12:44:31  voba
+// -check map-file age
+//
 // Revision 1.55  2016/07/15 13:19:08  lulin
 // - собираем DesignTime.
 //
@@ -839,6 +842,9 @@ begin
       SaveMessage(Cm0EXCLibINF, Format('  [Stack #%3d] %s',
        [I, GetLocationInfoStr(Pointer(Items[I].StackInfo.CallerAddr))]));
   except
+   on E : ETooOldMapException do SaveMessage(Cm0EXCLibINF, 'SaveStack: MAP не соответствует EXE ('+E.Message+')');
+   on E : Exception do SaveMessage(Cm0EXCLibINF, 'SaveStack: '+ E.Message);
+   else raise;
   end;//try..except
 end;
 {$EndIf}

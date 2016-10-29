@@ -70,6 +70,8 @@ function evInBlock(anAtom: Tl3Variant;
  out theParent: Tl3Variant): Boolean;
 function evCheckParaOwner(aPara: Tl3Variant): Tl3Variant; overload;
 function evCheckParaOwner(const aPara: InevPara): InevPara; overload;
+function evSinglePictureInSegment(const aMap: InevMap;
+ const anInner: InevBasePoint): Boolean;
 function evSearchPara(const aList: InevObject;
  const aSearcher: IevSearcher;
  out aPara: InevObject;
@@ -191,6 +193,7 @@ uses
  , k2Const
  , evdStyles
  , evdFrame_Const
+ , nevFacade
  //#UC START# *47F1F3BC0330impl_uses*
  //#UC END# *47F1F3BC0330impl_uses*
 ;
@@ -717,6 +720,27 @@ begin
   Result := Result.OwnerPara;
 //#UC END# *57187A510399_47F1F3BC0330_impl*
 end;//evCheckParaOwner
+
+function evSinglePictureInSegment(const aMap: InevMap;
+ const anInner: InevBasePoint): Boolean;
+//#UC START# *580F3E140213_47F1F3BC0330_var*
+var
+ l_Obj     : Tl3Variant;
+ l_Segments: Tl3Variant;
+//#UC END# *580F3E140213_47F1F3BC0330_var*
+begin
+//#UC START# *580F3E140213_47F1F3BC0330_impl*
+ Result := True;
+ if (anInner.AsLeaf <> nil) and (aMap.FI.Lines <> nil) then
+ begin
+  l_Obj := anInner.Obj.AsObject;
+  l_Segments := l_Obj.rAtomEx([k2_tiSegments, k2_tiChildren, k2_tiHandle, Ord(ev_slObjects)]);
+  if l_Segments.IsValid and (l_Segments.ChildrenCount = 1) and (aMap.FI.Lines.Count = 1) then
+   if (aMap.Bounds.Bottom - aMap.Bounds.Top) > 2 * nev.LineScrollDelta.Y then
+    Result := False;
+ end; // if anInner.AsLeaf <> nil then
+//#UC END# *580F3E140213_47F1F3BC0330_impl*
+end;//evSinglePictureInSegment
 
 function evSearchPara(const aList: InevObject;
  const aSearcher: IevSearcher;

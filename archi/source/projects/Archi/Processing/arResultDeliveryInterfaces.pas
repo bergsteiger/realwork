@@ -16,12 +16,14 @@ uses
 type
  IarResultDelivererListner = interface
   ['{E71B8A5D-E73D-4FA6-B569-41304F6F79EE}']
-  procedure CheckTaskExistance(const aTaskID: AnsiString);
+  procedure CheckTaskExistence(const aTaskID: AnsiString);
   procedure RequestSendMessage(const aMessage: AnsiString);
   function RequestNewFolder(var aFolder: AnsiString): Boolean;
   procedure ChangeResultFolder(const aTaskID: AnsiString;
    const aNewFolder: AnsiString);
  end;//IarResultDelivererListner
+
+ TarRequestDeliveryProc = procedure of object;
 {$IfEnd} // Defined(AppClientSide)
 
 implementation

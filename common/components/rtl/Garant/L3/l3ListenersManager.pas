@@ -39,6 +39,7 @@ type
    procedure UpdateHooks;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   procedure InitFields; override;
   public
    class procedure AddCBTListener(const aListener: Il3CBTListener);
    class procedure AddWndProcListener(const aListener: Il3WndProcListener);
@@ -109,16 +110,11 @@ class procedure Tl3ListenersManager.AddCBTListener(const aListener: Il3CBTListen
 begin
 //#UC START# *4F636B3003E5_4F636139008F_impl*
  with Instance do
- begin
-  if not Assigned(f_CBTListeners) then
-   f_CBTListeners := Tl3CBTListenersList.Create;
-
-  if f_CBTListeners.IndexOf(aListener) < 0 then
+  if CBTListeners.IndexOf(aListener) < 0 then
   begin
-   f_CBTListeners.Add(aListener);
+   CBTListeners.Add(aListener);
    UpdateHooks;
   end;
- end;
 //#UC END# *4F636B3003E5_4F636139008F_impl*
 end;//Tl3ListenersManager.AddCBTListener
 
@@ -128,16 +124,11 @@ class procedure Tl3ListenersManager.AddWndProcListener(const aListener: Il3WndPr
 begin
 //#UC START# *4F6370E0022B_4F636139008F_impl*
  with Instance do
- begin
-  if not Assigned(f_WndProcListeners) then
-   f_WndProcListeners := Tl3WndProcListenersList.Create;
-
-  if f_WndProcListeners.IndexOf(aListener) < 0 then
+  if WndProcListeners.IndexOf(aListener) < 0 then
   begin
-   f_WndProcListeners.Add(aListener);
+   WndProcListeners.Add(aListener);
    UpdateHooks;
   end;
- end;
 //#UC END# *4F6370E0022B_4F636139008F_impl*
 end;//Tl3ListenersManager.AddWndProcListener
 
@@ -147,16 +138,11 @@ class procedure Tl3ListenersManager.AddGetMessageListener(const aListener: Il3Ge
 begin
 //#UC START# *4F63711700CB_4F636139008F_impl*
  with Instance do
- begin
-  if not Assigned(f_GetMessageListeners) then
-   f_GetMessageListeners := Tl3GetMessageListenersList.Create;
-
-  if f_GetMessageListeners.IndexOf(aListener) < 0 then
+  if GetMessageListeners.IndexOf(aListener) < 0 then
   begin
-   f_GetMessageListeners.Add(aListener);
+   GetMessageListeners.Add(aListener);
    UpdateHooks;
   end;
- end;
 //#UC END# *4F63711700CB_4F636139008F_impl*
 end;//Tl3ListenersManager.AddGetMessageListener
 
@@ -165,14 +151,12 @@ class procedure Tl3ListenersManager.RemoveCBTListener(const aListener: Il3CBTLis
 //#UC END# *4F6372FC0118_4F636139008F_var*
 begin
 //#UC START# *4F6372FC0118_4F636139008F_impl*
- if not Assigned(g_Tl3ListenersManager) then
-  Exit;
-
- if Assigned(g_Tl3ListenersManager.f_CBTListeners) then
- begin
-  g_Tl3ListenersManager.f_CBTListeners.Remove(aListener);
-  g_Tl3ListenersManager.UpdateHooks;
- end;
+ if Exists then
+  with Instance do
+  begin
+   CBTListeners.Remove(aListener);
+   UpdateHooks;
+  end;
 //#UC END# *4F6372FC0118_4F636139008F_impl*
 end;//Tl3ListenersManager.RemoveCBTListener
 
@@ -181,14 +165,12 @@ class procedure Tl3ListenersManager.RemoveWndProcListener(const aListener: Il3Wn
 //#UC END# *4F63733101FE_4F636139008F_var*
 begin
 //#UC START# *4F63733101FE_4F636139008F_impl*
- if not Assigned(g_Tl3ListenersManager) then
-  Exit;
-
- if Assigned(g_Tl3ListenersManager.f_WndProcListeners) then
- begin
-  g_Tl3ListenersManager.f_WndProcListeners.Remove(aListener);
-  g_Tl3ListenersManager.UpdateHooks;
- end;
+ if Exists then
+  with Instance do
+  begin
+   WndProcListeners.Remove(aListener);
+   UpdateHooks;
+  end;
 //#UC END# *4F63733101FE_4F636139008F_impl*
 end;//Tl3ListenersManager.RemoveWndProcListener
 
@@ -197,14 +179,12 @@ class procedure Tl3ListenersManager.RemoveGetMessageListener(const aListener: Il
 //#UC END# *4F6373800326_4F636139008F_var*
 begin
 //#UC START# *4F6373800326_4F636139008F_impl*
- if not Assigned(g_Tl3ListenersManager) then
-  Exit;
-
- if Assigned(g_Tl3ListenersManager.f_GetMessageListeners) then
- begin
-  g_Tl3ListenersManager.f_GetMessageListeners.Remove(aListener);
-  g_Tl3ListenersManager.UpdateHooks;
- end;
+ if Exists then
+  with Instance do
+  begin
+   GetMessageListeners.Remove(aListener);
+   UpdateHooks;
+  end;
 //#UC END# *4F6373800326_4F636139008F_impl*
 end;//Tl3ListenersManager.RemoveGetMessageListener
 
@@ -212,85 +192,66 @@ procedure Tl3ListenersManager.UpdateHooks;
 //#UC START# *4F670A190240_4F636139008F_var*
  procedure DoCBT;
  begin
-  if Assigned(f_CBTListeners) then
+  if (f_CBTListeners.Count > 0) and (f_CBThook = 0) then
+   f_CBTHook := SetWindowsHookEx(WH_CBT, @CBTHookFunc, 0, GetCurrentThreadId)
+  else
+  if (f_CBTListeners.Count = 0) and (f_CBThook <> 0) then
   begin
-   if (f_CBTListeners.Count > 0) and (f_CBThook = 0) then
-    f_CBTHook := SetWindowsHookEx(WH_CBT, @CBTHookFunc, 0, GetCurrentThreadId)
-   else
-   if (f_CBTListeners.Count = 0) and (f_CBThook <> 0) then
-   begin
-    UnhookWindowsHookEx(f_CBTHook);
-    f_CBTHook := 0;
-   end;
-  end;//Assigned(f_CBTListeners)                                           
+   UnhookWindowsHookEx(f_CBTHook);
+   f_CBTHook := 0;
+  end;
  end; //DoCBT;
 
  procedure DoGetMessage;
  begin
-  //if Assigned(f_GetMessageListeners) OR Assigned(f_MouseWheelListeners) then
+  if ((f_GetMessageListeners.Count > 0) or (f_MouseWheelListeners.Count > 0)) and
+     (f_GetMessageHook = 0) then
+   f_GetMessageHook := SetWindowsHookEx(WH_GETMESSAGE, @GetMessageHookFunc, 0, GetCurrentThreadId)
+  else
+  if (f_GetMessageListeners.Count = 0) and (f_MouseWheelListeners.Count = 0) and (f_GetMessageHook <> 0) then
   begin
-   if ((f_GetMessageListeners <> nil) AND (f_GetMessageListeners.Count > 0))
-      OR ((f_MouseWheelListeners <> nil) AND (f_MouseWheelListeners.Count > 0)) and
-      (f_GetMessageHook = 0) then
-    f_GetMessageHook := SetWindowsHookEx(WH_GETMESSAGE, @GetMessageHookFunc, 0, GetCurrentThreadId)
-   else
-   if ((f_GetMessageListeners = nil) OR (f_GetMessageListeners.Count = 0))
-     and ((f_MouseWheelListeners = nil) OR (f_MouseWheelListeners.Count = 0))
-     and (f_GetMessageHook <> 0) then
-   begin
-    UnhookWindowsHookEx(f_GetMessageHook);
-    f_GetMessageHook := 0;
-   end;
-  end;//Assigned(f_GetMessageListeners)
+   UnhookWindowsHookEx(f_GetMessageHook);
+   f_GetMessageHook := 0;
+  end;
  end; //DoGetMessage;
 
  procedure DoWndProc;
  begin
-  if Assigned(f_WndProcListeners) or Assigned(f_MouseWheelListeners) then
-  begin
-   if ((Assigned(f_WndProcListeners) and (f_WndProcListeners.Count > 0)) or
-       (Assigned(f_MouseWheelListeners) and (f_MouseWheelListeners.Count > 0))) and
+   if ((f_WndProcListeners.Count > 0) {or (f_MouseWheelListeners.Count > 0)}) and
       (f_WndProcHook = 0) then
     f_WndProcHook := SetWindowsHookEx(WH_CALLWNDPROC, @CallWndProcHookFunc, 0, GetCurrentThreadID)
    else
-   if (not Assigned(f_WndProcListeners) or (f_WndProcListeners.Count = 0)) and
-      (not Assigned(f_MouseWheelListeners) or (f_MouseWheelListeners.Count = 0)) and
+   if (f_WndProcListeners.Count = 0) and
+      {(f_MouseWheelListeners.Count = 0) and}
       (f_WndProcHook <> 0) then
    begin
     UnhookWindowsHookEx(f_WndProcHook);
     f_WndProcHook := 0;
    end;
-  end;//Assigned(f_WndProcListeners) or Assigned(f_MouseWheelListeners)
  end; //DoWndProc;
 
  procedure DoWndProcRet;
  begin
-  if Assigned(f_WndProcRetListeners) then
+  if (f_WndProcRetListeners.Count > 0) and (f_WndProcRetHook = 0) then
+   f_WndProcRetHook := SetWindowsHookEx(WH_CALLWNDPROCRET, @CallWndProcRetHookFunc, 0, GetCurrentThreadID)
+  else
+  if (f_WndProcRetListeners.Count = 0) and (f_WndProcRetHook <> 0) then
   begin
-   if (f_WndProcRetListeners.Count > 0) and (f_WndProcRetHook = 0) then
-    f_WndProcRetHook := SetWindowsHookEx(WH_CALLWNDPROCRET, @CallWndProcRetHookFunc, 0, GetCurrentThreadID)
-   else
-   if (f_WndProcRetListeners.Count = 0) and (f_WndProcRetHook <> 0) then
-   begin
-    UnhookWindowsHookEx(f_WndProcRetHook);
-    f_WndProcRetHook := 0;
-   end;
-  end;//Assigned(f_WndProcRetListeners)
+   UnhookWindowsHookEx(f_WndProcRetHook);
+   f_WndProcRetHook := 0;
+  end;
  end; //DoWndProcRet;
 
  procedure DoMouse;
  begin
-  if Assigned(f_MouseListeners) then
+  if (f_MouseListeners.Count > 0) and (f_MouseHook = 0) then
+   f_MouseHook := SetWindowsHookEx(WH_MOUSE, @MouseHookFunc, 0, GetCurrentThreadID)
+  else
+  if (f_MouseListeners.Count = 0) and (f_MouseHook <> 0) then
   begin
-   if (f_MouseListeners.Count > 0) and (f_MouseHook = 0) then
-    f_MouseHook := SetWindowsHookEx(WH_MOUSE, @MouseHookFunc, 0, GetCurrentThreadID)
-   else
-   if (f_MouseListeners.Count = 0) and (f_MouseHook <> 0) then
-   begin
-    UnhookWindowsHookEx(f_MouseHook);
-    f_MouseHook := 0;
-   end;
-  end;//Assigned(f_MouseListeners)
+   UnhookWindowsHookEx(f_MouseHook);
+   f_MouseHook := 0;
+  end;
  end; //DoMouse;
 
 //#UC END# *4F670A190240_4F636139008F_var*
@@ -310,16 +271,11 @@ class procedure Tl3ListenersManager.AddWndProcRetListener(const aListener: Il3Wn
 begin
 //#UC START# *4F7322B90325_4F636139008F_impl*
  with Instance do
- begin
-  if not Assigned(f_WndProcRetListeners) then
-   f_WndProcRetListeners := Tl3WndProcRetListenersList.Create;
-
-  if f_WndProcRetListeners.IndexOf(aListener) < 0 then
+  if WndProcRetListeners.IndexOf(aListener) < 0 then
   begin
-   f_WndProcRetListeners.Add(aListener);
+   WndProcRetListeners.Add(aListener);
    UpdateHooks;
   end;
- end;
 //#UC END# *4F7322B90325_4F636139008F_impl*
 end;//Tl3ListenersManager.AddWndProcRetListener
 
@@ -328,14 +284,12 @@ class procedure Tl3ListenersManager.RemoveWndProcRetListener(const aListener: Il
 //#UC END# *4F7322EA002B_4F636139008F_var*
 begin
 //#UC START# *4F7322EA002B_4F636139008F_impl*
- if not Assigned(g_Tl3ListenersManager) then
-  Exit;
-
- if Assigned(g_Tl3ListenersManager.f_WndProcRetListeners) then
- begin
-  g_Tl3ListenersManager.f_WndProcRetListeners.Remove(aListener);
-  g_Tl3ListenersManager.UpdateHooks;
- end;
+ if Exists then
+  with Instance do
+  begin
+   WndProcRetListeners.Remove(aListener);
+   UpdateHooks;
+  end;
 //#UC END# *4F7322EA002B_4F636139008F_impl*
 end;//Tl3ListenersManager.RemoveWndProcRetListener
 
@@ -345,16 +299,11 @@ class procedure Tl3ListenersManager.AddMouseListener(const aListener: Il3MouseLi
 begin
 //#UC START# *4F74226B03A5_4F636139008F_impl*
  with Instance do
- begin
-  if not Assigned(f_MouseListeners) then
-   f_MouseListeners := Tl3MouseListenersList.Create;
-
-  if f_MouseListeners.IndexOf(aListener) < 0 then
+  if MouseListeners.IndexOf(aListener) < 0 then
   begin
-   f_MouseListeners.Add(aListener);
+   MouseListeners.Add(aListener);
    UpdateHooks;
-  end;
- end;
+  end;               
 //#UC END# *4F74226B03A5_4F636139008F_impl*
 end;//Tl3ListenersManager.AddMouseListener
 
@@ -363,14 +312,12 @@ class procedure Tl3ListenersManager.RemoveMouseListener(const aListener: Il3Mous
 //#UC END# *4F74229F007B_4F636139008F_var*
 begin
 //#UC START# *4F74229F007B_4F636139008F_impl*
- if not Assigned(g_Tl3ListenersManager) then
-  Exit;
-
- if Assigned(g_Tl3ListenersManager.f_MouseListeners) then
- begin
-  g_Tl3ListenersManager.f_MouseListeners.Remove(aListener);
-  g_Tl3ListenersManager.UpdateHooks;
- end;
+ if Exists then
+  with Instance do
+  begin
+   MouseListeners.Remove(aListener);
+   UpdateHooks;
+  end;
 //#UC END# *4F74229F007B_4F636139008F_impl*
 end;//Tl3ListenersManager.RemoveMouseListener
 
@@ -380,16 +327,11 @@ class procedure Tl3ListenersManager.AddMouseWheelListener(const aListener: Il3Mo
 begin
 //#UC START# *4F79BC3000BD_4F636139008F_impl*
  with Instance do
- begin
-  if not Assigned(f_MouseWheelListeners) then
-   f_MouseWheelListeners := Tl3MouseWheelListenersList.Create;
-
-  if f_MouseWheelListeners.IndexOf(aListener) < 0 then
+  if MouseWheelListeners.IndexOf(aListener) < 0 then
   begin
-   f_MouseWheelListeners.Add(aListener);
+   MouseWheelListeners.Add(aListener);
    UpdateHooks;
   end;
- end;
 //#UC END# *4F79BC3000BD_4F636139008F_impl*
 end;//Tl3ListenersManager.AddMouseWheelListener
 
@@ -398,14 +340,12 @@ class procedure Tl3ListenersManager.RemoveMouseWheelListener(const aListener: Il
 //#UC END# *4F79BC860012_4F636139008F_var*
 begin
 //#UC START# *4F79BC860012_4F636139008F_impl*
- if not Assigned(g_Tl3ListenersManager) then
-  Exit;
-
- if Assigned(g_Tl3ListenersManager.f_MouseWheelListeners) then
- begin
-  g_Tl3ListenersManager.f_MouseWheelListeners.Remove(aListener);
-  g_Tl3ListenersManager.UpdateHooks;
- end;
+ if Exists then
+  with Instance do
+  begin
+   MouseWheelListeners.Remove(aListener);
+   UpdateHooks;
+  end;
 //#UC END# *4F79BC860012_4F636139008F_impl*
 end;//Tl3ListenersManager.RemoveMouseWheelListener
 
@@ -483,21 +423,26 @@ end;//Tl3ListenersManager.Exists
 procedure Tl3ListenersManager.Cleanup;
  {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F636139008F_var*
+ procedure AssertUnhook(aHooks: array of HHOOK);
+ var
+  I: Integer;
+ begin
+  for I := Low(aHooks) to High(aHooks) do
+   if (aHooks[I] <> 0) then
+   begin
+    UnhookWindowsHookEx(aHooks[I]);
+    Assert(False);
+   end;
+ end;
 //#UC END# *479731C50290_4F636139008F_var*
 begin
 //#UC START# *479731C50290_4F636139008F_impl*
- if Assigned(f_WndProcListeners) then
-  f_WndProcListeners.Clear;
- if Assigned(f_WndProcRetListeners) then
-  f_WndProcRetListeners.Clear;
- if Assigned(f_CBTListeners) then
-  f_CBTListeners.Clear;
- if Assigned(f_GetMessageListeners) then
-  f_GetMessageListeners.Clear;
- if Assigned(f_MouseListeners) then
-  f_MouseListeners.Clear;
- if Assigned(f_MouseWheelListeners) then
-  f_MouseWheelListeners.Clear;
+ f_WndProcListeners.Clear;
+ f_WndProcRetListeners.Clear;
+ f_CBTListeners.Clear;
+ f_GetMessageListeners.Clear;
+ f_MouseListeners.Clear;
+ f_MouseWheelListeners.Clear;
  UpdateHooks;
  FreeAndNil(f_WndProcListeners);
  FreeAndNil(f_WndProcRetListeners);
@@ -505,13 +450,24 @@ begin
  FreeAndNil(f_GetMessageListeners);
  FreeAndNil(f_MouseListeners);
  FreeAndNil(f_MouseWheelListeners);
- f_WndProcHook := 0;
- f_WndProcRetHook := 0;
- f_CBTHook := 0;
- f_GetMessageHook := 0;
- f_MouseHook := 0;
+ AssertUnhook([f_WndProcHook, f_WndProcRetHook, f_CBTHook, f_GetMessageHook, f_MouseHook]);
  inherited;
 //#UC END# *479731C50290_4F636139008F_impl*
 end;//Tl3ListenersManager.Cleanup
+
+procedure Tl3ListenersManager.InitFields;
+//#UC START# *47A042E100E2_4F636139008F_var*
+//#UC END# *47A042E100E2_4F636139008F_var*
+begin
+//#UC START# *47A042E100E2_4F636139008F_impl*
+ inherited;
+ f_WndProcListeners := Tl3WndProcListenersList.Create;
+ f_MouseWheelListeners := Tl3MouseWheelListenersList.Create;
+ f_MouseListeners := Tl3MouseListenersList.Create;
+ f_WndProcRetListeners := Tl3WndProcRetListenersList.Create;
+ f_GetMessageListeners := Tl3GetMessageListenersList.Create;
+ f_CBTListeners := Tl3CBTListenersList.Create;
+//#UC END# *47A042E100E2_4F636139008F_impl*
+end;//Tl3ListenersManager.InitFields
 
 end.

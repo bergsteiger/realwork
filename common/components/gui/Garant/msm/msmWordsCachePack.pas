@@ -321,7 +321,8 @@ begin
   try
    if FindData(l_V, l_Index) then
    begin
-    aCtx.rEngine.Push(Items[l_Index].rValue);
+    aCtx.rEngine.Push(ItemSlot(l_Index)^.rValue);
+    //aCtx.rEngine.Push(Items[l_Index].rValue);
     Exit;
    end;//FindData(l_V, l_Index)
   finally

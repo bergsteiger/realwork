@@ -22,20 +22,46 @@ uses
  {$If NOT Defined(Nemesis)}
  , ncsTrafficCounter
  {$IfEnd} // NOT Defined(Nemesis)
+ , arClientFilesDeliverer
+ {$If NOT Defined(Nemesis)}
+ , CsDataPipe
+ {$IfEnd} // NOT Defined(Nemesis)
 ;
 
 type
  TarResultDeliverer = class(Tl3ThreadContainer)
   private
    f_RequestCounter: Integer;
+   {$If NOT Defined(DeliveryByDataPipe)}
    f_Transporter: IncsClientTransporter;
+   {$IfEnd} // NOT Defined(DeliveryByDataPipe)
    f_Listener: Pointer;
     {* Weak IarResultDelivererListner }
    f_Counter: IncsTrafficCounter;
+   {$If Defined(DeliveryByDataPipe)}
+   f_TotalSize: Int64;
+   {$IfEnd} // Defined(DeliveryByDataPipe)
+   {$If Defined(DeliveryByDataPipe)}
+   f_ClientID: TCsClientId;
+   {$IfEnd} // Defined(DeliveryByDataPipe)
+   {$If Defined(DeliveryByDataPipe)}
+   f_Deliverer: TarClientFilesDeliverer;
+   {$IfEnd} // Defined(DeliveryByDataPipe)
    f_ServerHost: AnsiString;
    f_ServerPort: Integer;
   private
-   function ReceiveTaskResult(const aTaskID: AnsiString): Boolean;
+   {$If NOT Defined(DeliveryByDataPipe)}
+   function ReceiveTaskResultByTransporter(const aTaskID: AnsiString): Boolean;
+   {$IfEnd} // NOT Defined(DeliveryByDataPipe)
+   {$If NOT Defined(DeliveryByDataPipe)}
+   procedure DoExecuteByTransporter;
+   {$IfEnd} // NOT Defined(DeliveryByDataPipe)
+   {$If Defined(DeliveryByDataPipe)}
+   procedure DoExecuteByDataPipe;
+   {$IfEnd} // Defined(DeliveryByDataPipe)
+   {$If Defined(DeliveryByDataPipe)}
+   procedure pipe_CheckDelivery(aPipe: TCsDataPipe);
+   {$IfEnd} // Defined(DeliveryByDataPipe)
   protected
    function pm_GetClientID: TCsClientId;
    procedure pm_SetClientID(aValue: TCsClientId);
@@ -113,6 +139,13 @@ uses
  {$If NOT Defined(Nemesis)}
  , ncsSynchroCompatibilityClientTransporter
  {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , CsQueryRequester
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , CsConst
+ {$IfEnd} // NOT Defined(Nemesis)
+ , Classes
  , arOneTaskDeliverer
  //#UC START# *545C749003C2impl_uses*
  //#UC END# *545C749003C2impl_uses*
@@ -123,7 +156,11 @@ function TarResultDeliverer.pm_GetClientID: TCsClientId;
 //#UC END# *545C74C40316_545C749003C2get_var*
 begin
 //#UC START# *545C74C40316_545C749003C2get_impl*
+{$IFDEF DeliveryByDataPipe}
+ Result := f_ClientID;
+{$ELSE DeliveryByDataPipe}
  Result := f_Transporter.ClientID;
+{$ENDIF DeliveryByDataPipe}
 //#UC END# *545C74C40316_545C749003C2get_impl*
 end;//TarResultDeliverer.pm_GetClientID
 
@@ -132,7 +169,11 @@ procedure TarResultDeliverer.pm_SetClientID(aValue: TCsClientId);
 //#UC END# *545C74C40316_545C749003C2set_var*
 begin
 //#UC START# *545C74C40316_545C749003C2set_impl*
+{$IFDEF DeliveryByDataPipe}
+ f_ClientID := aValue;
+{$ELSE DeliveryByDataPipe}
  f_Transporter.ClientID := aValue;
+{$ENDIF DeliveryByDataPipe}
 //#UC END# *545C74C40316_545C749003C2set_impl*
 end;//TarResultDeliverer.pm_SetClientID
 
@@ -145,7 +186,8 @@ begin
 //#UC END# *549AA07C02A4_545C749003C2get_impl*
 end;//TarResultDeliverer.pm_GetListener
 
-function TarResultDeliverer.ReceiveTaskResult(const aTaskID: AnsiString): Boolean;
+{$If NOT Defined(DeliveryByDataPipe)}
+function TarResultDeliverer.ReceiveTaskResultByTransporter(const aTaskID: AnsiString): Boolean;
 //#UC START# *5465FDD1009D_545C749003C2_var*
 var
  l_Deliverer: TarOneTaskDeliverer;
@@ -164,11 +206,15 @@ begin
 //#UC START# *5465FDD1009D_545C749003C2_impl*
  l_ReceiveTime := 0;
  l_WriteTime := 0;
+{$IFNDEF AQTIME_PROFILE}
  l_Watch.Reset;
  l_Watch.Start;
+{$ENDIF AQTIME_PROFILE}
  try
   Result := False;
+{$IFNDEF AQTIME_PROFILE}
   Listener.CheckTaskExistance(aTaskID);
+{$ENDIF AQTIME_PROFILE}
   l_ResultMsg := TncsDeliveryResult.Create;
   try
    l_ResultMsg.TaskID := aTaskID;
@@ -183,16 +229,21 @@ begin
      inc(l_TryCount);
      if (l_ResultMsg.ResultKind = ncs_rkRetry) and (l_TryCount < cMaxTryCount) then
      begin
+{$IFNDEF AQTIME_PROFILE}
       l3System.Msg2Log('Не удается записать доставку, попытка номер %d', [l_TryCount + 1]);
       Sleep(cTryDelay);
+{$ENDIF AQTIME_PROFILE}
      end;
     until (l_ResultMsg.ResultKind <> ncs_rkRetry) or (l_TryCount = cMaxTryCount);
     case l_ResultMsg.ResultKind of
      ncs_rkOk:
       begin
+{$IFNDEF AQTIME_PROFILE}
        Listener.RequestSendMessage(Format('Результаты экспорта помещены в папку %s', [l_Deliverer.TargetFolder]));
+{$ENDIF AQTIME_PROFILE}
        Result := True;
       end;
+{$IFNDEF AQTIME_PROFILE}
      ncs_rkFail:
       begin
        if f_Transporter.Processing then
@@ -229,6 +280,7 @@ begin
       end;
      else
       Assert(False);
+{$ENDIF AQTIME_PROFILE}
     end;
     if f_Transporter.Processing then
      f_Transporter.Send(l_ResultMsg);
@@ -239,16 +291,21 @@ begin
    FreeAndNil(l_ResultMsg);
   end;
  finally
-  l_Watch.Stop;                                                                  
+{$IFNDEF AQTIME_PROFILE}
+  l_Watch.Stop;
+{$ENDIF AQTIME_PROFILE}
  end;
+{$IFNDEF AQTIME_PROFILE}
  l3System.Msg2Log('Доставка задачи %s завершена - общее время %s ms', [aTaskID, FormatFloat('#,##0.000', l_Watch.Time * 1000)]);
  l3System.Msg2Log('  - объем %s kb', [FormatFloat('#,##0', f_Counter.BytesProcessed / 1024)]);
  l3System.Msg2Log('  - прием+запись %s ms', [FormatFloat('#,##0.000', l_ReceiveTime * 1000)]);
  l3System.Msg2Log('  - скорость приема+записи %s kb/s', [FormatFloat('#,##0.000', f_Counter.BytesProcessed / 1024 / l_ReceiveTime)]);
  l3System.Msg2Log('  - запись %s ms', [FormatFloat('#,##0.000', l_WriteTime * 1000)]);
  l3System.Msg2Log('  - скорость записи %s kb/s', [FormatFloat('#,##0.000', f_Counter.BytesProcessed / 1024 / l_WriteTime)], 5);
+{$ENDIF AQTIME_PROFILE}
 //#UC END# *5465FDD1009D_545C749003C2_impl*
-end;//TarResultDeliverer.ReceiveTaskResult
+end;//TarResultDeliverer.ReceiveTaskResultByTransporter
+{$IfEnd} // NOT Defined(DeliveryByDataPipe)
 
 constructor TarResultDeliverer.Create(const aWeakListener: IarResultDelivererListner);
 //#UC START# *546AF1220010_545C749003C2_var*
@@ -260,6 +317,251 @@ begin
 //#UC END# *546AF1220010_545C749003C2_impl*
 end;//TarResultDeliverer.Create
 
+{$If NOT Defined(DeliveryByDataPipe)}
+procedure TarResultDeliverer.DoExecuteByTransporter;
+//#UC START# *580DC1050078_545C749003C2_var*
+var
+ l_OldValue: Integer;
+ l_TaskListMsg: TncsGetReadyToDeliveryTasks;
+ l_Reply: TncsMessage;
+ l_TaskListReply: TncsGetReadyToDeliveryTasksReply;
+ l_IDX: Integer;
+ l_Watch: Tl3StopWatch;
+ l_TotalSize: Int64;
+
+
+ l_Connect: Tl3StopWatch;
+ l_GetList: Tl3StopWatch;
+ l_Disconnect: Tl3StopWatch;
+//#UC END# *580DC1050078_545C749003C2_var*
+begin
+//#UC START# *580DC1050078_545C749003C2_impl*
+{$IFNDEF AQTIME_PROFILE}
+ l_Watch.Reset;
+ l_Connect.Reset;
+ l_GetList.Reset;
+ l_Disconnect.Reset;
+
+
+ g_SaveMessage.ReSet;
+ g_LoadMessage.ReSet;
+ g_SendMessage.ReSet;
+ g_ReveiveMessage.ReSet;
+ g_WaitFile.ReSet;
+ g_ReceivePartFile.ReSet;
+ g_SaveControl.ReSet;
+ g_WriteFile.ReSet;
+{$ENDIF AQTIME_PROFILE}
+
+ l_TotalSize := 0;
+ try
+{$IFNDEF AQTIME_PROFILE}
+  l_Watch.Start;
+{$ENDIF AQTIME_PROFILE}
+  try
+{$IFNDEF AQTIME_PROFILE}
+   l3System.Msg2Log('Начало проверки результатов экспорта');
+{$ENDIF AQTIME_PROFILE}
+   l_OldValue := f_RequestCounter;
+{$IFNDEF AQTIME_PROFILE}
+ l_Connect.Start;
+{$ENDIF AQTIME_PROFILE}
+   f_Transporter.Connect(ServerHost, ServerPort, l3CreateStringGUID);
+{$IFNDEF AQTIME_PROFILE}
+ l_Connect.Stop;
+{$ENDIF AQTIME_PROFILE}
+   try
+    if not f_Transporter.Connected then
+    begin
+     l3InterlockedExchange(f_RequestCounter, 0);
+{$IFNDEF AQTIME_PROFILE}
+     l3System.Msg2Log('Обрыв связи на старте доставки');
+{$ENDIF AQTIME_PROFILE}
+     Exit;
+    end;
+    // Собственно общаемся
+    l_TaskListReply := nil;
+    try
+     l_Reply := nil;
+     l_TaskListMsg := TncsGetReadyToDeliveryTasks.Create;
+     try
+      l_TaskListMsg.UserID := ClientID;
+      f_Transporter.Send(l_TaskListMsg);
+
+{$IFNDEF AQTIME_PROFILE}
+ l_GetList.Start;
+{$ENDIF AQTIME_PROFILE}
+      if f_Transporter.WaitForReply(l_TaskListMsg, l_Reply) then
+      begin
+{$IFNDEF AQTIME_PROFILE}
+ l_GetList.Stop;
+{$ENDIF AQTIME_PROFILE}
+       l_TaskListReply := l_Reply as TncsGetReadyToDeliveryTasksReply;
+       for l_IDX := 0 to l_TaskListReply.TasksIDList.Count - 1 do
+       begin
+        if not f_Transporter.Processing then
+         Exit;
+        f_Counter.Reset;
+        if not ReceiveTaskResultByTransporter(l_TaskListReply.TasksIDList[l_IDX]) then
+         Exit;
+        l_TotalSize := l_TotalSize + f_Counter.BytesProcessed;
+       end;
+       l3InterlockedExchangeAdd(f_RequestCounter, -l_OldValue);
+      end
+      else
+{$IFNDEF AQTIME_PROFILE}
+ l_GetList.Stop;
+{$ENDIF AQTIME_PROFILE}
+     finally
+      FreeAndNil(l_TaskListMsg);
+     end;
+    finally
+     FreeAndNil(l_TaskListReply);
+    end;
+   finally
+{$IFNDEF AQTIME_PROFILE}
+ l_Disconnect.Start;
+{$ENDIF AQTIME_PROFILE}
+    f_Transporter.Disconnect;
+{$IFNDEF AQTIME_PROFILE}
+ l_Disconnect.Stop;
+{$ENDIF AQTIME_PROFILE}
+   end;
+  finally
+{$IFNDEF AQTIME_PROFILE}
+   l_Watch.Stop;
+{$ENDIF AQTIME_PROFILE}
+  end;
+{$IFNDEF AQTIME_PROFILE}
+  l3System.Msg2Log('Доставка завершена - общее время %s ms', [FormatFloat('#,##0.000', l_Watch.Time * 1000)]);
+  if l_TotalSize > 0 then
+  begin
+   l3System.Msg2Log('    - Соединение %s ms', [FormatFloat('#,##0.000', l_Connect.Time * 1000)], 11);
+   l3System.Msg2Log('    - Получение списка задач %s ms', [FormatFloat('#,##0.000', l_GetList.Time * 1000)], 11);
+   l3System.Msg2Log('    - Отключение %s ms', [FormatFloat('#,##0.000', l_Disconnect.Time * 1000)], 11);
+   l3System.Msg2Log('  - общий объем %s kb', [FormatFloat('#,##0', l_TotalSize / 1024)]);
+   l3System.Msg2Log('  - общая скорость %s kb/s', [FormatFloat('#,##0.000', l_TotalSize / 1024 / l_Watch.Time)]);
+   l3System.Msg2Log('SAVE MESSAGE = %s', [FormatFloat('#,##0.000', g_SaveMessage.Time * 1000)], 11);
+   l3System.Msg2Log('SEND MESSAGE = %s', [FormatFloat('#,##0.000', g_SendMessage.Time * 1000)], 11);
+   l3System.Msg2Log('LOAD MESSAGE = %s', [FormatFloat('#,##0.000', g_LoadMessage.Time * 1000)], 11);
+   l3System.Msg2Log('RECEIVE MESSAGE = %s', [FormatFloat('#,##0.000', g_ReveiveMessage.Time * 1000)], 11);
+   l3System.Msg2Log('WAIT FILE = %s', [FormatFloat('#,##0.000', g_WaitFile.Time * 1000)], 11);
+   l3System.Msg2Log('RECEIVE FILE = %s', [FormatFloat('#,##0.000', g_ReceivePartFile.Time * 1000)], 11);
+   l3System.Msg2Log('WRITE FILE = %s', [FormatFloat('#,##0.000', g_WriteFile.Time * 1000)], 11);
+   l3System.Msg2Log('WRITE CONTROL = %s', [FormatFloat('#,##0.000', g_SaveControl.Time * 1000)], 11);
+   l3System.Msg2Log('TOTAL = %s', [FormatFloat('#,##0.000', l_Watch.Time * 1000)], 11);
+  end;
+  l3System.Msg2Log('Проверка результатов экспорта успешно завершена');
+{$ENDIF AQTIME_PROFILE}
+ except
+  on E: Exception do
+  begin
+   l3InterlockedExchange(f_RequestCounter, 0);
+{$IFNDEF AQTIME_PROFILE}
+   l3System.Msg2Log('Проверка результатов экспорта завершилась с ошибкой');
+   l3System.Exception2Log(E);
+{$ENDIF AQTIME_PROFILE}
+   raise;
+  end;
+ end;
+//#UC END# *580DC1050078_545C749003C2_impl*
+end;//TarResultDeliverer.DoExecuteByTransporter
+{$IfEnd} // NOT Defined(DeliveryByDataPipe)
+
+{$If Defined(DeliveryByDataPipe)}
+procedure TarResultDeliverer.DoExecuteByDataPipe;
+//#UC START# *580DC11F0204_545C749003C2_var*
+var
+ l_Watch: Tl3StopWatch;
+ l_QueryRequester: TcsQueryRequester;
+//#UC END# *580DC11F0204_545C749003C2_var*
+begin
+//#UC START# *580DC11F0204_545C749003C2_impl*
+{$IFNDEF AQTIME_PROFILE}
+ l_Watch.Reset;
+{$ENDIF AQTIME_PROFILE}
+ f_TotalSize := 0;
+ try
+{$IFNDEF AQTIME_PROFILE}
+  l_Watch.Start;
+{$ENDIF AQTIME_PROFILE}
+  try
+{$IFNDEF AQTIME_PROFILE}
+   l3System.Msg2Log('Начало проверки результатов экспорта');
+{$ENDIF AQTIME_PROFILE}
+   l_QueryRequester := TcsQueryRequester.Create;
+   try
+    l_QueryRequester.ClientID := ClientID;
+    l_QueryRequester.Write2Log := False;
+    l_QueryRequester.Start(ServerHost, ServerPort);
+    try
+     Assert(False);
+     if l_QueryRequester.Exec(qtRequestDelivery, pipe_CheckDelivery) <> cs_errOk then
+     begin
+      l3InterlockedExchange(f_RequestCounter, 0);
+{$IFNDEF AQTIME_PROFILE}
+      l3System.Msg2Log('Обрыв связи при доставке');
+{$ENDIF AQTIME_PROFILE}
+     end;
+    finally
+     l_QueryRequester.Stop;
+    end;
+   finally
+    FreeAndNil(l_QueryRequester);
+   end;
+  finally
+{$IFNDEF AQTIME_PROFILE}
+   l_Watch.Stop;
+{$ENDIF AQTIME_PROFILE}
+  end;
+{$IFNDEF AQTIME_PROFILE}
+  l3System.Msg2Log('Доставка завершена - общее время %s ms', [FormatFloat('#,##0.000', l_Watch.Time * 1000)]);
+  if f_TotalSize > 0 then
+  begin
+   l3System.Msg2Log('  - общий объем %s kb', [FormatFloat('#,##0', f_TotalSize / 1024)]);
+   l3System.Msg2Log('  - общая скорость %s kb/s', [FormatFloat('#,##0.000', f_TotalSize / 1024 / l_Watch.Time)]);
+  end;
+  l3System.Msg2Log('Проверка результатов экспорта успешно завершена');
+{$ENDIF AQTIME_PROFILE}
+ except
+  on E: Exception do
+  begin
+   l3InterlockedExchange(f_RequestCounter, 0);
+{$IFNDEF AQTIME_PROFILE}
+   l3System.Msg2Log('Проверка результатов экспорта завершилась с ошибкой');
+   l3System.Exception2Log(E);
+{$ENDIF AQTIME_PROFILE}
+   raise;
+  end;
+ end;
+//#UC END# *580DC11F0204_545C749003C2_impl*
+end;//TarResultDeliverer.DoExecuteByDataPipe
+{$IfEnd} // Defined(DeliveryByDataPipe)
+
+{$If Defined(DeliveryByDataPipe)}
+procedure TarResultDeliverer.pipe_CheckDelivery(aPipe: TCsDataPipe);
+//#UC START# *580DF5DF01F5_545C749003C2_var*
+var
+ l_OldValue: Integer;
+//#UC END# *580DF5DF01F5_545C749003C2_var*
+begin
+//#UC START# *580DF5DF01F5_545C749003C2_impl*
+ f_TotalSize := 0;
+ f_Deliverer := TarClientFilesDeliverer.Create(aPipe, Listener, RequestDelivery);
+ try
+  if Terminated then
+   f_Deliverer.TerminateProcess;
+  l_OldValue := f_RequestCounter;
+  f_TotalSize := f_Deliverer.CheckAndDelivery;
+  if f_Deliverer.IsSuccess then
+   l3InterlockedExchangeAdd(f_RequestCounter, -l_OldValue);
+ finally
+  FreeAndNil(f_Deliverer);
+ end;
+//#UC END# *580DF5DF01F5_545C749003C2_impl*
+end;//TarResultDeliverer.pipe_CheckDelivery
+{$IfEnd} // Defined(DeliveryByDataPipe)
+
 procedure TarResultDeliverer.TerminateProcess;
 //#UC START# *545C84E90055_545C749003C2_var*
 //#UC END# *545C84E90055_545C749003C2_var*
@@ -267,7 +569,12 @@ begin
 //#UC START# *545C84E90055_545C749003C2_impl*
  if not Suspended then
  begin
+{$IFNDEF DeliveryByDataPipe}
   f_Transporter.Disconnect(True);
+{$ELSE DeliveryByDataPipe}
+  if Assigned(f_Deliverer) then
+   f_Deliverer.TerminateProcess;
+{$ENDIF DeliveryByDataPipe}
   Terminate;
  end; 
 //#UC END# *545C84E90055_545C749003C2_impl*
@@ -304,122 +611,14 @@ end;//TarResultDeliverer.HasReadyToDeliveryData
 procedure TarResultDeliverer.DoExecute;
  {* основная процедура нити. Для перекрытия в потомках }
 //#UC START# *4911B69E037D_545C749003C2_var*
-var
- l_OldValue: Integer;
- l_TaskListMsg: TncsGetReadyToDeliveryTasks;
- l_Reply: TncsMessage;
- l_TaskListReply: TncsGetReadyToDeliveryTasksReply;
- l_IDX: Integer;
- l_Watch: Tl3StopWatch;
- l_TotalSize: Int64;
-
-
- l_Connect: Tl3StopWatch;
- l_GetList: Tl3StopWatch;
- l_Disconnect: Tl3StopWatch;
 //#UC END# *4911B69E037D_545C749003C2_var*
 begin
 //#UC START# *4911B69E037D_545C749003C2_impl*
- l_Watch.Reset;
- l_Connect.Reset;
- l_GetList.Reset;
- l_Disconnect.Reset;
-
-
- g_SaveMessage.ReSet;
- g_LoadMessage.ReSet;
- g_SendMessage.ReSet;
- g_ReveiveMessage.ReSet;
- g_WaitFile.ReSet;
- g_ReceivePartFile.ReSet;
- g_SaveControl.ReSet;
- g_WriteFile.ReSet;
-
- l_TotalSize := 0;
- try
-  l_Watch.Start;
-  try
-   l3System.Msg2Log('Начало проверки результатов экспорта');
-   l_OldValue := f_RequestCounter;
- l_Connect.Start;
-   f_Transporter.Connect(ServerHost, ServerPort, l3CreateStringGUID);
- l_Connect.Stop;
-   try
-    if not f_Transporter.Connected then
-    begin
-     l3InterlockedExchange(f_RequestCounter, 0);
-     l3System.Msg2Log('Обрыв связи на старте доставки');
-     Exit;
-    end;
-    // Собственно общаемся
-    l_TaskListReply := nil;
-    try
-     l_Reply := nil;
-     l_TaskListMsg := TncsGetReadyToDeliveryTasks.Create;
-     try
-      l_TaskListMsg.UserID := ClientID;
-      f_Transporter.Send(l_TaskListMsg);
-
- l_GetList.Start;
-      if f_Transporter.WaitForReply(l_TaskListMsg, l_Reply) then
-      begin
- l_GetList.Stop;
-       l_TaskListReply := l_Reply as TncsGetReadyToDeliveryTasksReply;
-       for l_IDX := 0 to l_TaskListReply.TasksIDList.Count - 1 do
-       begin
-        if not f_Transporter.Processing then
-         Exit;
-        f_Counter.Reset;
-        if not ReceiveTaskResult(l_TaskListReply.TasksIDList[l_IDX]) then
-         Exit;
-        l_TotalSize := l_TotalSize + f_Counter.BytesProcessed;
-       end;
-       l3InterlockedExchangeAdd(f_RequestCounter, -l_OldValue);
-      end
-      else
- l_GetList.Stop;
-     finally
-      FreeAndNil(l_TaskListMsg);
-     end;
-    finally
-     FreeAndNil(l_TaskListReply);
-    end;
-   finally
- l_Disconnect.Start;
-    f_Transporter.Disconnect;
- l_Disconnect.Stop;
-   end;
-  finally
-   l_Watch.Stop;
-  end;
-  l3System.Msg2Log('Доставка завершена - общее время %s ms', [FormatFloat('#,##0.000', l_Watch.Time * 1000)]);
-  if l_TotalSize > 0 then
-  begin
-   l3System.Msg2Log('    - Соединение %s ms', [FormatFloat('#,##0.000', l_Connect.Time * 1000)], 11);
-   l3System.Msg2Log('    - Получение списка задач %s ms', [FormatFloat('#,##0.000', l_GetList.Time * 1000)], 11);
-   l3System.Msg2Log('    - Отключение %s ms', [FormatFloat('#,##0.000', l_Disconnect.Time * 1000)], 11);
-   l3System.Msg2Log('  - общий объем %s kb', [FormatFloat('#,##0', l_TotalSize / 1024)]);
-   l3System.Msg2Log('  - общая скорость %s kb/s', [FormatFloat('#,##0.000', l_TotalSize / 1024 / l_Watch.Time)]);
-   l3System.Msg2Log('SAVE MESSAGE = %s', [FormatFloat('#,##0.000', g_SaveMessage.Time * 1000)], 11);
-   l3System.Msg2Log('SEND MESSAGE = %s', [FormatFloat('#,##0.000', g_SendMessage.Time * 1000)], 11);
-   l3System.Msg2Log('LOAD MESSAGE = %s', [FormatFloat('#,##0.000', g_LoadMessage.Time * 1000)], 11);
-   l3System.Msg2Log('RECEIVE MESSAGE = %s', [FormatFloat('#,##0.000', g_ReveiveMessage.Time * 1000)], 11);
-   l3System.Msg2Log('WAIT FILE = %s', [FormatFloat('#,##0.000', g_WaitFile.Time * 1000)], 11);
-   l3System.Msg2Log('RECEIVE FILE = %s', [FormatFloat('#,##0.000', g_ReceivePartFile.Time * 1000)], 11);
-   l3System.Msg2Log('WRITE FILE = %s', [FormatFloat('#,##0.000', g_WriteFile.Time * 1000)], 11);
-   l3System.Msg2Log('WRITE CONTROL = %s', [FormatFloat('#,##0.000', g_SaveControl.Time * 1000)], 11);
-   l3System.Msg2Log('TOTAL = %s', [FormatFloat('#,##0.000', l_Watch.Time * 1000)], 11);
-  end; 
-  l3System.Msg2Log('Проверка результатов экспорта успешно завершена');
- except
-  on E: Exception do
-  begin
-   l3InterlockedExchange(f_RequestCounter, 0);
-   l3System.Msg2Log('Проверка результатов экспорта завершилась с ошибкой');
-   l3System.Exception2Log(E);
-   raise;
-  end;
- end;
+{$IFDEF DeliveryByDataPipe}
+ DoExecuteByDataPipe;
+{$ELSE DeliveryByDataPipe}
+ DoExecuteByTransporter;
+{$ENDIF DeliveryByDataPipe}
 //#UC END# *4911B69E037D_545C749003C2_impl*
 end;//TarResultDeliverer.DoExecute
 
@@ -429,10 +628,14 @@ procedure TarResultDeliverer.Cleanup;
 //#UC END# *479731C50290_545C749003C2_var*
 begin
 //#UC START# *479731C50290_545C749003C2_impl*
+{$IFNDEF DeliveryByDataPipe}
  f_Transporter.UnregisterHelper(f_Counter);
+{$ENDIF DeliveryByDataPipe}
  f_Counter := nil;
  f_Listener := nil;
+{$IFNDEF DeliveryByDataPipe}
  f_Transporter := nil;
+{$ENDIF DeliveryByDataPipe}
  inherited;
 //#UC END# *479731C50290_545C749003C2_impl*
 end;//TarResultDeliverer.Cleanup
@@ -444,6 +647,7 @@ begin
 //#UC START# *47A042E100E2_545C749003C2_impl*
  inherited;
  f_Counter := TncsTrafficCounter.Make;
+{$IFNDEF DeliveryByDataPipe}
 {$IFDEF csSynchroTransport}
  f_Transporter := TncsSynchroCompatibilityClientTransporter.Make(qtalcuExportResultProcessing);
 {$ELSE csSynchroTransport}
@@ -451,6 +655,7 @@ begin
 {$ENDIF csSynchroTransport}
  f_Transporter.RegisterHelper(f_Counter);
  ncsFileTransferReg.ncsClientRegister;
+{$ENDIF DeliveryByDataPipe}
 //#UC END# *47A042E100E2_545C749003C2_impl*
 end;//TarResultDeliverer.InitFields
 

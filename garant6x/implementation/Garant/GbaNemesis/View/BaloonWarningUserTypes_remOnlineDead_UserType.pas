@@ -12,6 +12,9 @@ interface
 uses
  l3IntfUses
  , BaloonWarningUserTypes_remUnreadConsultations_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3StringIDEx
 ;
 

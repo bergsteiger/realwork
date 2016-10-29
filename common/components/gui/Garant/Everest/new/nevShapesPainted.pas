@@ -4,9 +4,12 @@ unit nevShapesPainted;
 { Начал: Морозов М.А.                                                  }
 { Модуль: nevShapesPainted - коллекция отрисованных параграфов.        }
 { Начат: 29.06.2005 16:51                                              }
-{ $Id: nevShapesPainted.pas,v 1.280 2016/04/15 06:27:38 dinishev Exp $ }
+{ $Id: nevShapesPainted.pas,v 1.281 2016/10/26 11:25:57 dinishev Exp $ }
 
 // $Log: nevShapesPainted.pas,v $
+// Revision 1.281  2016/10/26 11:25:57  dinishev
+// {Requestlink:632021610}
+//
 // Revision 1.280  2016/04/15 06:27:38  dinishev
 // {Requestlink:620674289}
 //
@@ -1570,6 +1573,8 @@ type
       {-}
     function MakeUpperPoint: InevBasePoint; virtual;
       {-}
+    function IsLastContinueCell: Boolean; virtual;
+      {-}
     function GetChildMap(anIndex: Integer): InevMap;
       {-}
     procedure SetDrawnTop(aTop: Integer); virtual;
@@ -1825,6 +1830,8 @@ type
      override;
       {-}
   public
+    function IsLastContinueCell: Boolean; override;
+      {-}
     function NeedIncHeight: Boolean; override;
       {* - Нужно ли учитывать высоту элемента при расчете родительcкого. }
     function IsGreater: Boolean;
@@ -1849,7 +1856,12 @@ type
       {-}
    function GetMaxTop: Integer; override;
      {-}
+   function GetMaxBottom(aValue: Integer): Integer;
+     {-}
    procedure SetDrawnTop(aTop: Integer); override;
+      {-}
+   procedure SetDrawnBottom(const aBottom: TnevPoint);
+      override;
       {-}
   public
    function IsRowShape: Boolean; override;
@@ -3683,6 +3695,41 @@ begin
  Result := True;
 end;
 
+function TnevRowShape.GetMaxBottom(aValue: Integer): Integer;
+var
+ i : Integer;
+begin
+ Result := -1;
+ for i := 0 to Count - 1 do
+  if Items[i].Bounds.Bottom > aValue then
+  begin
+   Result := i;
+   Break;
+  end; // if Items[i].Bounds.Bottom > aValue then
+end;
+
+procedure TnevRowShape.SetDrawnBottom(const aBottom: TnevPoint);
+var
+ l_MaxID : Integer;
+ l_Shape : TnevShape;
+ l_Bottom: Integer;
+begin
+ l_Bottom := Max(Bounds.Bottom, aBottom.Y);
+ if InevView(f_AllShapes.f_View).Metrics.InfoCanvas.Printing then
+ begin
+  l_MaxID := GetMaxBottom(aBottom.Y);
+  if l_MaxID > -1 then
+  begin
+   l_Shape := Items[l_MaxID];
+   if (l_Shape.OverlapType = otLower) and l_Shape.IsLastContinueCell then
+    l_Bottom := l_Shape.Bounds.Bottom;
+  end; // if l_MaxID > -1 then
+ end; // if InevView(f_AllShapes.f_View).Metrics.InfoCanvas.Printing then
+ Bounds := l3Rect(Bounds.R.TopLeft,
+                  l3Point(Max(aBottom.X, Bounds.Left + f_FI.rLimitWidth),
+                              l_Bottom));
+end;
+
 procedure TnevRowShape.SetDrawnTop(aTop: Integer);
 begin
  Bounds := l3Rect(l3Point(Bounds.Left, Min(aTop, Bounds.Top)),
@@ -4314,6 +4361,20 @@ begin
  Result := False;
 end;
 
+function TnevCellShape.IsLastContinueCell: Boolean;
+var
+ l_Cell: InevTableCell;
+begin
+ Result := inherited IsLastContinueCell;
+ if (OverlapType = otLower) then
+ begin
+  f_Obj.AsObject.QT(InevTableCell, l_Cell);
+  Assert(l_Cell <> nil);
+  l_Cell := l_Cell.GetContinueCell(True, fc_Down);
+  Result := l_Cell = nil;
+ end; // if (OverlapType = otLower) then
+end;
+
 { TnevHeaderTextParaShape }
 
 function TnevHeaderTextParaShape.pm_GetBounds: TafwRect;
@@ -4325,6 +4386,11 @@ begin
  else
   l_Left := 0;
  Result := l3Rect(f_Bounds.Left + l_Left, f_Bounds.Top, f_Bounds.Right, f_Bounds.Bottom);
+end;
+
+function TnevShape.IsLastContinueCell: Boolean;
+begin
+ Result := False;
 end;
 
 end.

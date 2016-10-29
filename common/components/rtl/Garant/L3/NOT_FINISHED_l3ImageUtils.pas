@@ -25,6 +25,7 @@ procedure l3ShowDiffImage;
 procedure l3MakeScreenShot;
 procedure l3SetFuzzValueInPercent;
 procedure l3IsValidMetafileHeader;
+procedure l3SaveBitmap2Png;
 
 implementation
 
@@ -87,5 +88,14 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *54BCCA3F0137_4CB861CA00F8_impl*
 end;//l3IsValidMetafileHeader
+
+procedure l3SaveBitmap2Png;
+//#UC START# *5811C956007D_4CB861CA00F8_var*
+//#UC END# *5811C956007D_4CB861CA00F8_var*
+begin
+//#UC START# *5811C956007D_4CB861CA00F8_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5811C956007D_4CB861CA00F8_impl*
+end;//l3SaveBitmap2Png
 
 end.

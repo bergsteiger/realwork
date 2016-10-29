@@ -1417,6 +1417,9 @@ function _dsList_.ExportDocuments(aOnlyFirstLevel: Boolean;
 //#UC START# *47F61FC00314_47E9EDA800FE_var*
 var
  l_Result: Boolean absolute Result;
+ {$If Defined(InsiderTest) AND NOT Defined(NoScripts)}
+ l_Files: Il3CString;
+ {$IfEnd}
 
   function lp_ExportDocument(const aNode: Il3SimpleNode): Boolean;
   var
@@ -1444,6 +1447,11 @@ var
        l_PathName := l3Cat(l_PathName, nsGetFileFormatExt(aFormat));
       // Сохраним
       DocumentSaveAs(l_Document, l_PathName, True, aFormat);
+      {$If Defined(InsiderTest) AND NOT Defined(NoScripts)}
+      if not l3IsNil(l_Files) then
+       l_Files := l3Cat(l_Files, #13#10);
+      l_Files := l3Cat([l_Files, l_PathName]);
+      {$IfEnd}
       l_Result := True;
      finally
       l_Document := nil
@@ -1463,6 +1471,9 @@ begin
  try
   if Supports(pm_GetSimpleTree, Il3ExpandedSimpleTree, l_Tree) then
    l_Tree.FlagIterateF(l3L2SNA(@lp_ExportDocument), cExportFlag);
+  {$If Defined(InsiderTest) AND NOT Defined(NoScripts)}
+  TnsSaveDialogExecutor.Instance.SetFileName(l3Str(l_Files));
+  {$IfEnd}
  finally
   FinishExporting;
  end;

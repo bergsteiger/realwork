@@ -1,5 +1,5 @@
  program Archi;
-{ $Id: Archi.dpr,v 1.147 2016/10/17 10:58:22 lukyanets Exp $ }
+{ $Id: Archi.dpr,v 1.148 2016/10/27 13:14:49 lukyanets Exp $ }
 
 //$(ex)\vcl6;$(DELPHI)\Source\ToolsAPI;$(DELPHI)\Source\Rtl\SYS;$(DELPHI)\Source\Rtl\Common\;$(DELPHI)\Lib;$(DELPHI)\Bin;$(DELPHI)\Imports;$(DELPHI)\Projects\Bpl;$(ex)\SysTools;$(in)\l3;$(in)\l3\ext;$(in)\k2;$(in)\m0\pas;$(in)\m1\src;$(in)\m2\src;$(in)\m3\src;$(in)\m4\src;$(in)\mg\pas;$(ing)\Everest;$(ing)\Everest\ext;$(ing)\Everest\Ext\Misc;$(ing)\vt;$(in)\DD;$(in)\DD\pipein;$(in)\DD\pipeout;$(in)\dt;$(in)\da;$(in)\ht;$(in)\pg;$(in)\ComboAccess;$(ex)\SRMgr;$(ex)\Orpheus;$(ex)\TB97\SOURCE;$(ex)\JEDI;$(ex)\RX6;$(ex)\Envision;$(ex)\1C\source;$(pkg);$(ex)\indy\source;$(ex)\DevExpress\ExpressBars\Sources;$(ex)\DevExpress\ExpressCommon\Sources;$(ex)\WinSock
 //X:\#PKG\D6
@@ -118,6 +118,7 @@
   d_SrchByDocLink in 'Dlg\d_SrchByDocLink.pas' {SearchByDocLinkDlg},
   ArchiScriptEngine in 'Archi_Script_Engine\ArchiScriptEngine.pas',
   arDeliveryList in 'arDeliveryList.pas',
+  arClientFilesDeliverer in 'Processing\arClientFilesDeliverer.pas',
   arResultDeliverer in 'Processing\arResultDeliverer.pas',
   arOneTaskDeliverer in 'Processing\arOneTaskDeliverer.pas',
   arResultDeliveryInterfaces in 'Processing\arResultDeliveryInterfaces.pas',

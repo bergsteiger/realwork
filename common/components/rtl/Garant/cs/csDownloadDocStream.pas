@@ -12,6 +12,8 @@ interface
 uses
  l3IntfUses
  , csPersonificatedMessage
+ , evdTasksHelpers
+ , l3MarshalledTypes
  , k2Base
 ;
 

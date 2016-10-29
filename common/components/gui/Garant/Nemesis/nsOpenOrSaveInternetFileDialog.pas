@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, nsDownloaderInterfaces, eeButton, vtButton,
-  vtRadioButton, vtLabel, vcmEntityForm, vtCtrls, ImgList;
+  vtRadioButton, vtLabel, vtCtrls, ImgList;
 
 type
   TnsOpenOrSaveInternetFileDialog = class(TForm)
@@ -27,6 +27,7 @@ type
     FUpdatingParams: Boolean;
     procedure UpdateControls;
   protected
+    procedure Loaded; override;
     function GetParams: InsDownloadParams;
     procedure SetParams(const AParams: InsDownloadParams);
     property Params: InsDownloadParams read GetParams write SetParams;
@@ -41,8 +42,11 @@ uses
  ShellApi,
 
  l3Base,
+ l3String,
 
- vtSaveDialog;
+ vtSaveDialog,
+ vcmBaseTypes,
+ vcmBase;
 
 {$R *.dfm}
 
@@ -53,7 +57,7 @@ class function TnsOpenOrSaveInternetFileDialog.ChooseParams(
 var
  l_Form: TnsOpenOrSaveInternetFileDialog;
 begin
- l_Form := Create(nil);
+ l_Form := Create(Application);
  try
   l_Form.Params := AParams;
   Result := (l_Form.ShowModal = mrOk);
@@ -90,13 +94,19 @@ begin
  lblURL.Hint := lblURL.Caption;
  imgFileTypeIcon.Picture.Icon.Handle := Params.FileIcon;
 
- lblPrompt.Caption := str_OpenOrDownloadQuestion.AsStr;
- lblFileNameCaption.Caption := str_FileName.AsStr;
- lblFileTypeCaption.Caption := str_Type.AsStr;
- lblURLCaption.Caption := str_From.AsStr;
- btnOpen.Caption := str_Open.AsStr;
- btnSave.Caption := str_Download.AsStr;
- btnCancel.Caption := str_Cancel.AsStr;
+ lblPrompt.Caption := l3Str(str_OpenOrDownloadQuestion.AsCStr);
+ lblFileNameCaption.Caption := l3Str(str_FileName.AsCStr);
+ lblFileTypeCaption.Caption := l3Str(str_Type.AsCStr);
+ lblURLCaption.Caption := l3Str(str_From.AsCStr);
+ btnOpen.Caption := l3Str(str_Open.AsCStr);
+ btnSave.Caption := l3Str(str_Download.AsCStr);
+ btnCancel.Caption := l3Str(str_Cancel.AsCStr);
+end;
+
+procedure TnsOpenOrSaveInternetFileDialog.Loaded;
+begin
+ inherited;
+ Caption := l3Str(str_FileDownload.AsCStr);
 end;
 
 function TnsOpenOrSaveInternetFileDialog.GetParams: InsDownloadParams;

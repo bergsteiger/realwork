@@ -13,6 +13,9 @@ interface
 uses
  l3IntfUses
  , ListUserTypes_lftSimilarDocuments_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3StringIDEx
 ;
 

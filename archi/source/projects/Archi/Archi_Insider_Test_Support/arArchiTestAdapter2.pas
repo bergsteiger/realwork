@@ -26,6 +26,7 @@ procedure AcSaveTextAs(const aFileName: AnsiString);
 procedure ArClearTemplateStorage;
 procedure AcMainFormFormClose;
 procedure AcClearConfig(aFileName: AnsiString);
+procedure arClearSpellDictionary;
 {$IfEnd} //InsiderTest AND nsTest
 
 implementation
@@ -297,6 +298,16 @@ begin
   Assert(False, l_Msg);
 //#UC END# *56A09EF601E1_4E4B5F29031C_impl*
 end;//AcClearConfig
+
+procedure arClearSpellDictionary;
+//#UC START# *5813388F029E_4E4B5F29031C_var*
+//#UC END# *5813388F029E_4E4B5F29031C_var*
+begin
+//#UC START# *5813388F029E_4E4B5F29031C_impl*
+ Assert(MainForm <> nil);
+ MainForm.SpellDictionary.ClearWordList;
+//#UC END# *5813388F029E_4E4B5F29031C_impl*
+end;//arClearSpellDictionary
 {$IfEnd} //InsiderTest AND nsTest
 
 end.

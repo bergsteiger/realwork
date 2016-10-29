@@ -56,6 +56,12 @@ type
    function WaitForReadData(aTimeout: Integer): Boolean; override;
    procedure WriteLargeStr(const aString: AnsiString); override;
    function ReadLargeStr: AnsiString; override;
+   function ReadStreamWithCRCCheck(aStream: TStream;
+    CalcCRCFromBegin: Boolean = True;
+    ReadOffset: Int64 = 0;
+    ReadSize: Int64 = -1): Boolean; override;
+   procedure WriteStreamWithCRCCheck(aStream: TStream;
+    KeepPosition: Boolean = False); override;
   public
    property ClientID: TCsClientId
     read f_ClientID
@@ -307,6 +313,28 @@ begin
  Result := f_IOHandler.ReadLargeStr;
 //#UC END# *54F5C09C0302_538DC31F03A5_impl*
 end;//TCsDataPipePrim.ReadLargeStr
+
+function TCsDataPipePrim.ReadStreamWithCRCCheck(aStream: TStream;
+ CalcCRCFromBegin: Boolean = True;
+ ReadOffset: Int64 = 0;
+ ReadSize: Int64 = -1): Boolean;
+//#UC START# *580F367C0052_538DC31F03A5_var*
+//#UC END# *580F367C0052_538DC31F03A5_var*
+begin
+//#UC START# *580F367C0052_538DC31F03A5_impl*
+ Result := f_IOHandler.ReadStreamWithCRCCheck(aStream, CalcCRCFromBegin, ReadOffset, ReadSize);
+//#UC END# *580F367C0052_538DC31F03A5_impl*
+end;//TCsDataPipePrim.ReadStreamWithCRCCheck
+
+procedure TCsDataPipePrim.WriteStreamWithCRCCheck(aStream: TStream;
+ KeepPosition: Boolean = False);
+//#UC START# *580F36A802FA_538DC31F03A5_var*
+//#UC END# *580F36A802FA_538DC31F03A5_var*
+begin
+//#UC START# *580F36A802FA_538DC31F03A5_impl*
+ f_IOHandler.WriteStreamWithCRCCheck(aStream);
+//#UC END# *580F36A802FA_538DC31F03A5_impl*
+end;//TCsDataPipePrim.WriteStreamWithCRCCheck
 
 procedure TCsDataPipePrim.Cleanup;
  {* Функция очистки полей объекта. }

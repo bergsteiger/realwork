@@ -3741,7 +3741,7 @@ begin
   RegisterReplyProcedure(qtalcuSendEMailNotify, alcuMail.cs_SendEMailNotify);
   RegisterReplyProcedure(qtalcuSendSMSNotify, alcuMail.cs_SendSMSNotify);
   RegisterReplyProcedure(qtalcuSendTaskResult, TaskProcessor.cs_ReceiveTaskResult);
-  RegisterReplyProcedure(qtRequestDeliveryTaskList, TaskProcessor.cs_RequestDeliveryTaskList);
+  RegisterReplyProcedure(qtRequestDelivery, TaskProcessor.cs_RequestDelivery);
   RegisterReplyProcedure(qtalcuAACNeedTerminate, cs_AACNeedTerminate);
   RegisterReplyProcedure(qtalcuExportResultProcessing, TaskProcessor.cs_ExportResultProcessing);
   RegisterReplyProcedure(qtalcuHandShake, TaskProcessor.cs_TransporterHandshake);
