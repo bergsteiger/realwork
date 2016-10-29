@@ -1,0 +1,41 @@
+// Storage 4FA137BA02D4 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4FA137BA02D4_diagrams
+
+ MEDIAGRAM ME_4FA137BA02D4_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4FA137BA02D4' ; // Storage
+
+  MEVIEW ME_4FA137DD03E4_view
+   MELINK Original WL? 'ME_4FA137DD03E4' ; // TArchiStorageTest
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4FA137DD03E4_view
+
+  MEVIEW ME_4FBB6C0D0366_view
+   MELINK Original WL? 'ME_4FBB6C0D0366' ; // TArchiStorageTestWithRename
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4FBB6C0D0366_view
+
+  MEVIEWLINK ME_4FBB6C0D0366_ME_4FA137DD03E4_Inherits
+   MELINK From ME_4FBB6C0D0366_view ;
+   MELINK To ME_4FA137DD03E4_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4FBB6C0D0366_ME_4FA137DD03E4_Inherits
+
+  MELIST Views
+   Seq: ( ME_4FA137DD03E4_view // TArchiStorageTest
+   ME_4FBB6C0D0366_view // TArchiStorageTestWithRename
+   ME_4FBB6C0D0366_ME_4FA137DD03E4_Inherits // TArchiStorageTestWithRename ==> TArchiStorageTest
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4FA137BA02D4_main
+
+ MELIST Diagrams
+  Seq: ( ME_4FA137BA02D4_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4FA137BA02D4_diagrams

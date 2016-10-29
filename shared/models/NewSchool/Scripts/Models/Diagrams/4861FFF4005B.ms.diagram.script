@@ -1,0 +1,34 @@
+// Concret 4861FFF4005B Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4861FFF4005B_diagrams
+
+ MEDIAGRAM ME_4861FFF4005B_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4861FFF4005B' ; // Concret
+
+  MEVIEW ME_4862008C0017_view
+   MELINK Original WL 'ME_4862008C0017' '4861FFF4005B.ms.model.script' ; // Concret
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4862008C0017_view
+
+  MEVIEWLINK ME_486200F902AB_viewlink
+   MELINK Original WL 'ME_486200F902AB' '4861FFF4005B.ms.model.script' ;
+   MELINK From ME_4862008C0017_view ;
+   MELINK To ME_4862008C0017_view ;
+  ENDMEVIEWLINK // ME_486200F902AB_viewlink
+
+  MELIST Views
+   Seq: ( ME_4862008C0017_view // Concret
+   ME_486200F902AB_viewlink // Concret ==> Concret
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4861FFF4005B_main
+
+ MELIST Diagrams
+  Seq: ( ME_4861FFF4005B_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4861FFF4005B_diagrams

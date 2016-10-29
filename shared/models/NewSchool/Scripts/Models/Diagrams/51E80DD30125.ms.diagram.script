@@ -1,0 +1,34 @@
+// ListTest 51E80DD30125 TestCaseMixIn Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_51E80DD30125_diagrams
+
+ MEDIAGRAM ME_51E80DD30125_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_51E80DD30125' ; // ListTest
+
+  MEVIEW ME_51E80E0D030D_view
+   MELINK Original WL 'ME_51E80E0D030D' '51E80DD30125.ms.model.script' ; // CreateList
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_51E80E0D030D_view
+
+  MEVIEW ME_51E03FFB0289_view
+   MELINK Original WL 'ME_51E03FFB0289' '51E80DD30125.ms.model.script' ; // ListType
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_51E03FFB0289_view
+
+  MELIST Views
+   Seq: ( ME_51E80E0D030D_view // CreateList
+   ME_51E03FFB0289_view // ListType
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_51E80DD30125_main
+
+ MELIST Diagrams
+  Seq: ( ME_51E80DD30125_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_51E80DD30125_diagrams

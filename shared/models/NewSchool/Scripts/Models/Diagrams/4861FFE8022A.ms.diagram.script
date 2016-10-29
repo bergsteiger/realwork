@@ -1,0 +1,41 @@
+// Pure 4861FFE8022A Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4861FFE8022A_diagrams
+
+ MEDIAGRAM ME_4861FFE8022A_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4861FFE8022A' ; // Pure
+
+  MEVIEW ME_4862001F02D0_view
+   MELINK Original WL 'ME_4862001F02D0' '4861FFE8022A.ms.model.script' ; // T
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4862001F02D0_view
+
+  MEVIEW ME_4862003B01A0_view
+   MELINK Original WL 'ME_4862003B01A0' '4861FFE8022A.ms.model.script' ; // Comparable
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4862003B01A0_view
+
+  MEVIEWLINK ME_486200560334_viewlink
+   MELINK Original WL 'ME_486200560334' '4861FFE8022A.ms.model.script' ;
+   MELINK From ME_4862003B01A0_view ;
+   MELINK To ME_4862001F02D0_view ;
+  ENDMEVIEWLINK // ME_486200560334_viewlink
+
+  MELIST Views
+   Seq: ( ME_4862001F02D0_view // T
+   ME_4862003B01A0_view // Comparable
+   ME_486200560334_viewlink // Comparable ==> T
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4861FFE8022A_main
+
+ MELIST Diagrams
+  Seq: ( ME_4861FFE8022A_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4861FFE8022A_diagrams

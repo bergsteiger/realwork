@@ -225,6 +225,7 @@ uses
  , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
  , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
  , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
+ , tfwParserServiceFileNameToFileNameMap in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParserServiceFileNameToFileNameMap.pas'
  , IniFiles {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\IniFiles.pas' {$EndIf}
  , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
  , tfwCS in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCS.pas'
