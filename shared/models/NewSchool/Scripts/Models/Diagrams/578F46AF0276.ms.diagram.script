@@ -1,0 +1,41 @@
+// m3DBTypes 578F46AF0276 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_578F46AF0276_diagrams
+
+ MEDIAGRAM ME_578F46AF0276_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_578F46AF0276' ; // m3DBTypes
+
+  MEVIEW ME_57BEB05300E0_view
+   MELINK Original WL 'ME_57BEB05300E0' '578F46AF0276.ms.model.script' ; // Tm3DocPartSelector
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_57BEB05300E0_view
+
+  MEVIEW ME_578F4B0203B7_view
+   MELINK Original WL 'ME_578F4B0203B7' '578F46AF0276.ms.model.script' ; // m3_AllDocParts
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_578F4B0203B7_view
+
+  MEVIEWLINK ME_578F4B0203B7_ME_57BEB05300E0_Inherits
+   MELINK From ME_578F4B0203B7_view ;
+   MELINK To ME_57BEB05300E0_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_578F4B0203B7_ME_57BEB05300E0_Inherits
+
+  MELIST Views
+   Seq: ( ME_57BEB05300E0_view // Tm3DocPartSelector
+   ME_578F4B0203B7_view // m3_AllDocParts
+   ME_578F4B0203B7_ME_57BEB05300E0_Inherits // m3_AllDocParts ==> Tm3DocPartSelector
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_578F46AF0276_main
+
+ MELIST Diagrams
+  Seq: ( ME_578F46AF0276_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_578F46AF0276_diagrams

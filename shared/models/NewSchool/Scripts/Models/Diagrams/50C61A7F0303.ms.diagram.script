@@ -1,0 +1,41 @@
+// Hints 50C61A7F0303 Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_50C61A7F0303_diagrams
+
+ MEDIAGRAM ME_50C61A7F0303_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_50C61A7F0303' ; // Hints
+
+  MEVIEW ME_50C61AAC00BF_view
+   MELINK Original WL? 'ME_50C61AAC00BF' ; // TvtMultilineHint
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_50C61AAC00BF_view
+
+  MEVIEW ME_50C6241B0355_view
+   MELINK Original WL? 'ME_50C6241B0355' ; // TvtHintManager
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_50C6241B0355_view
+
+  MEVIEWLINK ME_50C734B60190_viewlink
+   MELINK Original WL 'ME_50C734B60190' '50C6241B0355.ms.model.script' ;
+   MELINK From ME_50C6241B0355_view ;
+   MELINK To ME_50C61AAC00BF_view ;
+  ENDMEVIEWLINK // ME_50C734B60190_viewlink
+
+  MELIST Views
+   Seq: ( ME_50C61AAC00BF_view // TvtMultilineHint
+   ME_50C6241B0355_view // TvtHintManager
+   ME_50C734B60190_viewlink // TvtHintManager ==> TvtMultilineHint
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_50C61A7F0303_main
+
+ MELIST Diagrams
+  Seq: ( ME_50C61A7F0303_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_50C61A7F0303_diagrams

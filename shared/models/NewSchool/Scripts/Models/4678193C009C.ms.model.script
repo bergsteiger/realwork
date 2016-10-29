@@ -217,7 +217,6 @@ ME ME_4727223D039C
    Seq: ( HWL ME_472722810213 // 
  )
  ; // Attributes
- UP "array type" 'dynamic'
  UP "force usage" True
 
 ENDME // ME_4727223D039C TLongArray
@@ -344,7 +343,6 @@ FORWARD ME_476BD5840363
 ME ME_476BD5B302F5
  MEPROP Name 'Data'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
  ;
 
@@ -353,7 +351,6 @@ ENDME // ME_476BD5B302F5 Data
 ME ME_476BD5B30311
  MEPROP Name 'Index'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
  ;
 
@@ -392,7 +389,6 @@ ME ME_469FA03900D4
    Seq: ( HWL ME_476BD5840363 // DoIt
  )
  ; // Operations
- UP "of object" False
 
 ENDME // ME_469FA03900D4 Tl3IteratorAction
 
@@ -545,7 +541,6 @@ FORWARD ME_476BD655007D
 ME ME_476BD65D01CC
  MEPROP Name 'Data'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
  ;
 
@@ -583,7 +578,6 @@ ME ME_476BD6430334
    Seq: ( HWL ME_476BD655007D // DoIt
  )
  ; // Operations
- UP "of object" False
 
 ENDME // ME_476BD6430334 Tl3FreeAction
 
@@ -704,7 +698,6 @@ ME ME_479F11F80049
    Seq: ( HWL ME_479F12080030 // 
  )
  ; // Attributes
- UP "array type" 'dynamic'
 
 ENDME // ME_479F11F80049 TSmallIntArray
 
@@ -1018,7 +1011,6 @@ FORWARD ME_4F192285004C
 ME ME_55251EDF0361
  MEPROP Name 'aState'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476130E5023C' '4807744200AA.ms.model.script' // Byte
  ;
 
@@ -1027,7 +1019,6 @@ ENDME // ME_55251EDF0361 aState
 ME ME_55251EDF0390
  MEPROP Name 'aValue'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
  ;
 
@@ -1036,7 +1027,6 @@ ENDME // ME_55251EDF0390 aValue
 ME ME_55251EDF03AF
  MEPROP Name 'aMsg'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
  MEPROP Value ''''''
@@ -1172,9 +1162,6 @@ ME ME_476F964103E1
  MELINK Parent HWL ME_476F9605006B // Indexes
  ;
  MEPROP Value 'Low(Tl3Index)'
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 'Low(Tl3Index)'
 
 ENDME // ME_476F964103E1 l3MinIndex
@@ -1190,9 +1177,6 @@ ME ME_476F965002F3
  MELINK Parent HWL ME_476F9605006B // Indexes
  ;
  MEPROP Value 'High(Tl3Index)'
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 'High(Tl3Index)'
 
 ENDME // ME_476F965002F3 l3MaxIndex
@@ -1200,7 +1184,7 @@ ENDME // ME_476F965002F3 l3MaxIndex
 ME ME_476F9605006B
  MEPROP UID '476F9605006B'
  MEPROP Name 'Indexes'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Индексы.' ;
@@ -1213,7 +1197,6 @@ ME ME_476F9605006B
  HWL ME_476F965002F3 // l3MaxIndex
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_476F9605006B Indexes
 
@@ -1230,9 +1213,6 @@ ME ME_47F0B92D00C3
  MELINK Parent HWL ME_47F0B9190003 // Notify Consts
  ;
  MEPROP Value 0
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 0
 
 ENDME // ME_47F0B92D00C3 ntNone
@@ -1248,9 +1228,6 @@ ME ME_47F0B93900DD
  MELINK Parent HWL ME_47F0B9190003 // Notify Consts
  ;
  MEPROP Value 1
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 1
 
 ENDME // ME_47F0B93900DD ntInsert
@@ -1266,9 +1243,6 @@ ME ME_47F0B9450144
  MELINK Parent HWL ME_47F0B9190003 // Notify Consts
  ;
  MEPROP Value 3
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 3
 
 ENDME // ME_47F0B9450144 ntDelete
@@ -1284,9 +1258,6 @@ ME ME_47F0B9510210
  MELINK Parent HWL ME_47F0B9190003 // Notify Consts
  ;
  MEPROP Value 4
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 4
 
 ENDME // ME_47F0B9510210 ntDeleteDone
@@ -1302,9 +1273,6 @@ ME ME_47F0B95D01B7
  MELINK Parent HWL ME_47F0B9190003 // Notify Consts
  ;
  MEPROP Value 5
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 5
 
 ENDME // ME_47F0B95D01B7 ntDataChange
@@ -1320,9 +1288,6 @@ ME ME_47F0B96A00EB
  MELINK Parent HWL ME_47F0B9190003 // Notify Consts
  ;
  MEPROP Value 6
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 6
 
 ENDME // ME_47F0B96A00EB ntMoveBegin
@@ -1338,9 +1303,6 @@ ME ME_47F0B9750319
  MELINK Parent HWL ME_47F0B9190003 // Notify Consts
  ;
  MEPROP Value 7
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 7
 
 ENDME // ME_47F0B9750319 ntMoveEnd
@@ -1356,9 +1318,6 @@ ME ME_47F0B983013B
  MELINK Parent HWL ME_47F0B9190003 // Notify Consts
  ;
  MEPROP Value 8
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 8
 
 ENDME // ME_47F0B983013B ntClear
@@ -1374,9 +1333,6 @@ ME ME_47F0B98C0210
  MELINK Parent HWL ME_47F0B9190003 // Notify Consts
  ;
  MEPROP Value 9
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 9
 
 ENDME // ME_47F0B98C0210 ntClearItem
@@ -1392,9 +1348,6 @@ ME ME_47F0B99B0275
  MELINK Parent HWL ME_47F0B9190003 // Notify Consts
  ;
  MEPROP Value 10
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 10
 
 ENDME // ME_47F0B99B0275 ntChildClear
@@ -1410,9 +1363,6 @@ ME ME_47F0B9A50114
  MELINK Parent HWL ME_47F0B9190003 // Notify Consts
  ;
  MEPROP Value 11
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 11
 
 ENDME // ME_47F0B9A50114 ntChildInsert
@@ -1428,9 +1378,6 @@ ME ME_47F0B9B30118
  MELINK Parent HWL ME_47F0B9190003 // Notify Consts
  ;
  MEPROP Value 12
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 12
 
 ENDME // ME_47F0B9B30118 ntFree
@@ -1446,9 +1393,6 @@ ME ME_47F0B9C10107
  MELINK Parent HWL ME_47F0B9190003 // Notify Consts
  ;
  MEPROP Value 13
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 13
 
 ENDME // ME_47F0B9C10107 ntCountChange
@@ -1464,9 +1408,6 @@ ME ME_47F0B9CF0058
  MELINK Parent HWL ME_47F0B9190003 // Notify Consts
  ;
  MEPROP Value 14
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 14
 
 ENDME // ME_47F0B9CF0058 ntChangeItemData
@@ -1482,9 +1423,6 @@ ME ME_47F0B9DA0105
  MELINK Parent HWL ME_47F0B9190003 // Notify Consts
  ;
  MEPROP Value 15
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 15
 
 ENDME // ME_47F0B9DA0105 ntChanging
@@ -1500,9 +1438,6 @@ ME ME_47F0BA0203B7
  MELINK Parent HWL ME_47F0B9190003 // Notify Consts
  ;
  MEPROP Value 16
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 16
 
 ENDME // ME_47F0BA0203B7 ntChanged
@@ -1518,9 +1453,6 @@ ME ME_47F0BA0E02B5
  MELINK Parent HWL ME_47F0B9190003 // Notify Consts
  ;
  MEPROP Value 17
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 17
 
 ENDME // ME_47F0BA0E02B5 ntResortChild
@@ -1528,7 +1460,7 @@ ENDME // ME_47F0BA0E02B5 ntResortChild
 ME ME_47F0B9190003
  MEPROP UID '47F0B9190003'
  MEPROP Name 'Notify Consts'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1555,21 +1487,19 @@ ME ME_47F0B9190003
  HWL ME_47F0BA0E02B5 // ntResortChild
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_47F0B9190003 Notify Consts
 
 ME ME_48EA3BDD0023
  MEPROP UID '48EA3BDD0023'
  MEPROP Name 'ActiveXConsts'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_4678193C009C // l3Types
  ;
- UP "spell names" False
 
 ENDME // ME_48EA3BDD0023 ActiveXConsts
 
@@ -1585,9 +1515,6 @@ ME ME_56B1F66002F7
  MELINK Parent HWL ME_56B1F6580292 // Font Names
  ;
  MEPROP Value '''__Glyph__'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''__Glyph__'''
 
 ENDME // ME_56B1F66002F7 l3GlyphFontName
@@ -1595,7 +1522,7 @@ ENDME // ME_56B1F66002F7 l3GlyphFontName
 ME ME_56B1F6580292
  MEPROP UID '56B1F6580292'
  MEPROP Name 'Font Names'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1606,7 +1533,6 @@ ME ME_56B1F6580292
    Seq: ( HWL ME_56B1F66002F7 // l3GlyphFontName
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_56B1F6580292 Font Names
 
@@ -1621,16 +1547,13 @@ ME ME_56D5A823003C
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_56D5A8130151 // SortIndexes
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
 
 ENDME // ME_56D5A823003C l3_siNative
 
 ME ME_56D5A8130151
  MEPROP UID '56D5A8130151'
  MEPROP Name 'SortIndexes'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1641,14 +1564,13 @@ ME ME_56D5A8130151
    Seq: ( HWL ME_56D5A823003C // l3_siNative
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_56D5A8130151 SortIndexes
 
 ME ME_57C823630210
  MEPROP UID '57C823630210'
  MEPROP Name 'Logging Levels'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1656,7 +1578,6 @@ ME ME_57C823630210
  MELINK Parent HWL ME_4678193C009C // l3Types
  ;
  UP "finished" False
- UP "spell names" False
 
 ENDME // ME_57C823630210 Logging Levels
 
@@ -1725,7 +1646,6 @@ ME ME_4678193C009C
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "finished" False
- UP "is namespace" True
  UP "UseNewGen" True
  UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Types.pas'
 

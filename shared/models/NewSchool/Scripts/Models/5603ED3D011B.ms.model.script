@@ -85,7 +85,6 @@ ME ME_5603F0260334
  ;
  MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
  ;
- UP "pm" False
 
 ENDME // ME_5603F0260334 Filer
 
@@ -325,7 +324,6 @@ FORWARD ME_56419FDA0124
 ME ME_56419FFE02B9
  MEPROP Name 'aSender'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
@@ -334,7 +332,6 @@ ENDME // ME_56419FFE02B9 aSender
 ME ME_56419FFE02C9
  MEPROP Name 'aEmptyCount'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
@@ -388,7 +385,6 @@ ME ME_564C606E003D
  ;
  MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
  ;
- UP "pm" False
 
 ENDME // ME_564C606E003D Name
 
@@ -404,7 +400,6 @@ ME ME_564C611801BD
  ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
- UP "pm" False
 
 ENDME // ME_564C611801BD Count
 
@@ -420,7 +415,6 @@ ME ME_564DA034027A
  ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
- UP "pm" False
 
 ENDME // ME_564DA034027A ID
 
@@ -456,7 +450,6 @@ ME ME_564C61F80097
    Seq: ( HWL ME_564C620500BE // aIdx
  )
  ; // Attributes
- UP "pm" False
 
 ENDME // ME_564C61F80097 Topics
 
@@ -467,7 +460,6 @@ FORWARD ME_564C60EA03DB
 ME ME_564C60FD012A
  MEPROP Name 'aTopic'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
@@ -598,7 +590,7 @@ ENDMEREF // ME_560BB87D0082_ME_560BADDA015F_R TddExportFileMaskPatternType
 ME ME_560BADDA015F
  MEPROP UID '560BADDA015F'
  MEPROP Name 'cExportFileMaskPatterns'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_ConstantArray ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -619,8 +611,6 @@ ME ME_560BADDA015F
  HWL ME_560BBAF40223 // eptExportDate
  )
  ; // Attributes
- UP "Need map interface" False
- UP "Need mapping support" False
 
 ENDME // ME_560BADDA015F cExportFileMaskPatterns
 
@@ -687,7 +677,7 @@ ENDMEREF // ME_5603EDF40264_ME_56126374035D_R TddExportDocPart
 ME ME_56126374035D
  MEPROP UID '56126374035D'
  MEPROP Name 'cDefaultFileMask'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_ConstantArray ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -708,8 +698,6 @@ ME ME_56126374035D
  HWL ME_5612641400DF // edpAnnotation
  )
  ; // Attributes
- UP "Need map interface" False
- UP "Need mapping support" False
 
 ENDME // ME_56126374035D cDefaultFileMask
 
@@ -725,9 +713,6 @@ ME ME_561E0B8D0032
  MELINK Parent HWL ME_561E0B7603E7 // Сообщения
  ;
  MEPROP Value '''CRITICAL ERROR: Ошибка (%s) открытия файла %s'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''CRITICAL ERROR: Ошибка (%s) открытия файла %s'''
 
 ENDME // ME_561E0B8D0032 cFilerOpenErrorMsg
@@ -735,7 +720,7 @@ ENDME // ME_561E0B8D0032 cFilerOpenErrorMsg
 ME ME_561E0B7603E7
  MEPROP UID '561E0B7603E7'
  MEPROP Name 'Сообщения'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -746,7 +731,6 @@ ME ME_561E0B7603E7
    Seq: ( HWL ME_561E0B8D0032 // cFilerOpenErrorMsg
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_561E0B7603E7 Сообщения
 
@@ -787,7 +771,6 @@ ME ME_5603ED3D011B
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "is namespace" True
  UP intf.pas:Path 'common\components\rtl\Garant\dd\ddPipeOutInterfaces.pas'
 
 ENDME // ME_5603ED3D011B ddPipeOutInterfaces

@@ -1,0 +1,55 @@
+// afwStatusElement 49CCA20A0092 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_49CCA20A0092_diagrams
+
+ MEDIAGRAM ME_49CCA20A0092_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_49CCA20A0092' ; // afwStatusElement
+
+  MEVIEW ME_49CCA2480360_view
+   MELINK Original WL 'ME_49CCA2480360' '49CCA20A0092.ms.model.script' ; // DoGetStatusInfo
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_49CCA2480360_view
+
+  MEVIEW ME_49CCA29A000E_view
+   MELINK Original WL 'ME_49CCA29A000E' '49CCA20A0092.ms.model.script' ; // DoSubscribe
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_49CCA29A000E_view
+
+  MEVIEW ME_49CCA2C80106_view
+   MELINK Original WL 'ME_49CCA2C80106' '49CCA20A0092.ms.model.script' ; // DoUnsubscribe
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_49CCA2C80106_view
+
+  MEVIEW ME_49CCA4C90343_view
+   MELINK Original WL 'ME_49CCA4C90343' '49CCA20A0092.ms.model.script' ; // NeedUpdateOnUnsubscribe
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_49CCA4C90343_view
+
+  MEVIEW ME_49CCA30E00E0_view
+   MELINK Original WL 'ME_49CCA30E00E0' '49CCA20A0092.ms.model.script' ; // Status
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_49CCA30E00E0_view
+
+  MELIST Views
+   Seq: ( ME_49CCA2480360_view // DoGetStatusInfo
+   ME_49CCA29A000E_view // DoSubscribe
+   ME_49CCA2C80106_view // DoUnsubscribe
+   ME_49CCA4C90343_view // NeedUpdateOnUnsubscribe
+   ME_49CCA30E00E0_view // Status
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_49CCA20A0092_main
+
+ MELIST Diagrams
+  Seq: ( ME_49CCA20A0092_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_49CCA20A0092_diagrams

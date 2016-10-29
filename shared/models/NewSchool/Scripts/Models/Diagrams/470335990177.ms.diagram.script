@@ -1,0 +1,76 @@
+// Library 470335990177 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_470335990177_diagrams
+
+ MEDIAGRAM ME_470335990177_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_470335990177' ; // Library
+
+  MEVIEW ME_470482B401B5_view
+   MELINK Original WL 'ME_470482B401B5' '470335990177.ms.model.script' ; // LibSupport
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_470482B401B5_view
+
+  MEVIEW ME_470483F102AF_view
+   MELINK Original WL 'ME_470483F102AF' '470335990177.ms.model.script' ; // LibExecutor
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_470483F102AF_view
+
+  MEVIEW ME_470388E800EA_view
+   MELINK Original WL 'ME_470388E800EA' '470335990177.ms.model.script' ; // WikiSupport
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_470388E800EA_view
+
+  MEVIEW ME_470372770203_view
+   MELINK Original WL 'ME_470372770203' '470335990177.ms.model.script' ; // MPCSupport
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_470372770203_view
+
+  MEVIEW ME_4954990B0231_view
+   MELINK Original WL 'ME_4954990B0231' '470335990177.ms.model.script' ; // LibraryGenerator
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4954990B0231_view
+
+  MEVIEW ME_48BFCE850365_view
+   MELINK Original WL 'ME_48BFCE850365' '470335990177.ms.model.script' ; // ConfigSupport
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_48BFCE850365_view
+
+  MEVIEW ME_470361CD0148_view
+   MELINK Original WL 'ME_470361CD0148' '470335990177.ms.model.script' ; // Library
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_470361CD0148_view
+
+  MEVIEWLINK ME_470361CD0148_ME_4954990B0231_Inherits
+   MELINK From ME_470361CD0148_view ;
+   MELINK To ME_4954990B0231_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_470361CD0148_ME_4954990B0231_Inherits
+
+  MELIST Views
+   Seq: ( ME_470482B401B5_view // LibSupport
+   ME_470483F102AF_view // LibExecutor
+   ME_470388E800EA_view // WikiSupport
+   ME_470372770203_view // MPCSupport
+   ME_4954990B0231_view // LibraryGenerator
+   ME_48BFCE850365_view // ConfigSupport
+   ME_470361CD0148_view // Library
+   ME_470361CD0148_ME_4954990B0231_Inherits // Library ==> LibraryGenerator
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_470335990177_main
+
+ MELIST Diagrams
+  Seq: ( ME_470335990177_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_470335990177_diagrams

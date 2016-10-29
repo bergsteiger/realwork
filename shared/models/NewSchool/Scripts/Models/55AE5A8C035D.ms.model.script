@@ -51,7 +51,6 @@ FORWARD ME_55AE65FD001D
 ME ME_55AE65FF033D
  MEPROP Name 'aDictionary'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_559E8B2E0385' // TtfwDictionaryEx
  ;
 
@@ -78,7 +77,6 @@ FORWARD ME_55AE661B00DA
 ME ME_55AE661E0103
  MEPROP Name 'aDictionary'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_559E8B2E0385' // TtfwDictionaryEx
  ;
 
@@ -132,7 +130,6 @@ FORWARD ME_57F665430181
 ME ME_57F66568023D
  MEPROP Name 'aName'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
  ;
 
@@ -153,6 +150,32 @@ ME ME_57F665430181
  ; // Parameters
 
 ENDME // ME_57F665430181 CheckNamedDictionary
+
+FORWARD ME_58108D2A01B1
+
+ME ME_58108D3200DB
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_58108D3200DB aName
+
+ME ME_58108D2A01B1
+ MEPROP UID '58108D2A01B1'
+ MEPROP Name 'FindNamedDictionary'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_creator::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE5A8C035D // tfwDictionaryExWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_58108D3200DB // aName
+ )
+ ; // Parameters
+
+ENDME // ME_58108D2A01B1 FindNamedDictionary
 
 ME ME_55AE5C980270
  MEPROP Class class_Dependency
@@ -286,6 +309,7 @@ ME ME_55AE5A8C035D
  HWL ME_55AE66560055 // FileDateTime
  HWL ME_55AE84FA0076 // RemoveFromCache
  HWL ME_57F665430181 // CheckNamedDictionary
+ HWL ME_58108D2A01B1 // FindNamedDictionary
  )
  ; // Operations
  MELIST Dependencies
@@ -304,7 +328,6 @@ ME ME_55AE5A8C035D
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "ifndef" 'NoScripts'
  UP "needs script" True
  UP extprop:rc:SelfName 'DictionaryExWordsPack'
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryExWordsPack.pas'

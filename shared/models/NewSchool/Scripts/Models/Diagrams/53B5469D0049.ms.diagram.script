@@ -1,0 +1,55 @@
+// k2SizedMemoryPool 53B5469D0049 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_53B5469D0049_diagrams
+
+ MEDIAGRAM ME_53B5469D0049_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_53B5469D0049' ; // k2SizedMemoryPool
+
+  MEVIEW ME_53BD4C1602BC_view
+   MELINK Original WL 'ME_53BD4C1602BC' '53B5469D0049.ms.model.script' ; // StreamCopying
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_53BD4C1602BC_view
+
+  MEVIEW ME_53076BA10113_view
+   MELINK Original WL 'ME_53076BA10113' '53B5469D0049.ms.model.script' ; // Tk2SizedMemoryPool
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_53076BA10113_view
+
+  MEVIEW ME_53B546BC00BF_view
+   MELINK Original WL 'ME_53B546BC00BF' '53B5469D0049.ms.model.script' ; // Tk2RawData
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_53B546BC00BF_view
+
+  MEVIEWLINK ME_53076BA10113_ME_53BD4C1602BC_Implements
+   MELINK From ME_53076BA10113_view ;
+   MELINK To ME_53BD4C1602BC_view ;
+   MEPROP Class class_Implements
+  ENDMEVIEWLINK // ME_53076BA10113_ME_53BD4C1602BC_Implements
+
+  MEVIEWLINK ME_53B546BC00BF_ME_53076BA10113_Inherits
+   MELINK From ME_53B546BC00BF_view ;
+   MELINK To ME_53076BA10113_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_53B546BC00BF_ME_53076BA10113_Inherits
+
+  MELIST Views
+   Seq: ( ME_53BD4C1602BC_view // StreamCopying
+   ME_53076BA10113_view // Tk2SizedMemoryPool
+   ME_53B546BC00BF_view // Tk2RawData
+   ME_53076BA10113_ME_53BD4C1602BC_Implements // Tk2SizedMemoryPool ==> StreamCopying
+   ME_53B546BC00BF_ME_53076BA10113_Inherits // Tk2RawData ==> Tk2SizedMemoryPool
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_53B5469D0049_main
+
+ MELIST Diagrams
+  Seq: ( ME_53B5469D0049_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_53B5469D0049_diagrams

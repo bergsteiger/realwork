@@ -8,14 +8,37 @@ FORWARD ME_546F0E81033E
 
 FORWARD ME_546F0E9702ED
 
-ME ME_546F0EAC008A
+ME ME_580F4EC703B1
  MEPROP Name 'aStream'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
  ;
 
-ENDME // ME_546F0EAC008A aStream
+ENDME // ME_580F4EC703B1 aStream
+
+ME ME_580F4EC703C0
+ MEPROP Name 'ReadOffset'
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_580F4EC703C0 ReadOffset
+
+ME ME_580F4EC703D0
+ MEPROP Name 'ReadSize'
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+ MEPROP Value '-1'
+ MELINK ValueType WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+ UP extprop:pas:Value '-1'
+
+ENDME // ME_580F4EC703D0 ReadSize
 
 ME ME_546F0E9702ED
  MEPROP UID '546F0E9702ED'
@@ -28,7 +51,9 @@ ME ME_546F0E9702ED
  MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
  ;
  MELIST Parameters
-   Seq: ( ME_546F0EAC008A // aStream
+   Seq: ( ME_580F4EC703B1 // aStream
+ ME_580F4EC703C0 // ReadOffset
+ ME_580F4EC703D0 // ReadSize
  )
  ; // Parameters
 
@@ -51,6 +76,70 @@ ME ME_546F0E81033E
  UP extprop:rc:SelfName 'CalcCRC32'
 
 ENDME // ME_546F0E81033E l3CalcCRC32
+
+FORWARD ME_5810646503C4
+
+FORWARD ME_58106475038B
+
+ME ME_581064A700BC
+ MEPROP Name 'theCRC'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_581064A700BC theCRC
+
+ME ME_581064A700DB
+ MEPROP Name 'aBuffer'
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_581064A700DB aBuffer
+
+ME ME_581064A700EB
+ MEPROP Name 'aSize'
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_581064A700EB aSize
+
+ME ME_58106475038B
+ MEPROP UID '58106475038B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5810646503C4 // l3AccumulateBufferCRC32
+ ;
+ MELIST Parameters
+   Seq: ( ME_581064A700BC // theCRC
+ ME_581064A700DB // aBuffer
+ ME_581064A700EB // aSize
+ )
+ ; // Parameters
+
+ENDME // ME_58106475038B DoIt
+
+ME ME_5810646503C4
+ MEPROP UID '5810646503C4'
+ MEPROP Name 'l3AccumulateBufferCRC32'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546F0E690374 // l3CRCUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_58106475038B // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'AccumulateBufferCRC32'
+
+ENDME // ME_5810646503C4 l3AccumulateBufferCRC32
 
 ME ME_546F14F30324
  MEPROP Class class_Dependency
@@ -75,6 +164,7 @@ ME ME_546F0E690374
  ;
  MELIST Operations
    Seq: ( HWL ME_546F0E81033E // l3CalcCRC32
+ HWL ME_5810646503C4 // l3AccumulateBufferCRC32
  )
  ; // Operations
  MELIST Dependencies

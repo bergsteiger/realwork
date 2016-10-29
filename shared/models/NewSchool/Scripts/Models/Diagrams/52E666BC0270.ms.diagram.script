@@ -1,0 +1,76 @@
+// TtfwLambdedArrayView 52E666BC0270 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_52E666BC0270_diagrams
+
+ MEDIAGRAM ME_52E666BC0270_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_52E666BC0270' ; // TtfwLambdedArrayView
+
+  MEVIEW ME_52EA8AD102B0_view
+   MELINK Original WL 'ME_52EA8AD102B0' '52E666BC0270.ms.model.script' ; // TtfwTwoLambdas
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_52EA8AD102B0_view
+
+  MEVIEW ME_52EA8ECC0358_view
+   MELINK Original WL 'ME_52EA8ECC0358' '52E666BC0270.ms.model.script' ; // RtfwTwoLambdas
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_52EA8ECC0358_view
+
+  MEVIEW ME_52E6671B033F_view
+   MELINK Original WL 'ME_52E6671B033F' '52E666BC0270.ms.model.script' ; // Create
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_52E6671B033F_view
+
+  MEVIEW ME_52E66739020A_view
+   MELINK Original WL 'ME_52E66739020A' '52E666BC0270.ms.model.script' ; // Make
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_52E66739020A_view
+
+  MEVIEW ME_52EA8EE702FA_view
+   MELINK Original WL 'ME_52EA8EE702FA' '52E666BC0270.ms.model.script' ; // TwoLabdasClass
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_52EA8EE702FA_view
+
+  MEVIEW ME_52E667570303_view
+   MELINK Original WL 'ME_52E667570303' '52E666BC0270.ms.model.script' ; // f_Lambda
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_52E667570303_view
+
+  MEVIEWLINK ME_52EA8ECC0358_ME_52EA8AD102B0_Inherits
+   MELINK From ME_52EA8ECC0358_view ;
+   MELINK To ME_52EA8AD102B0_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_52EA8ECC0358_ME_52EA8AD102B0_Inherits
+
+  MEVIEWLINK ME_52E66739020A_ME_52E6671B033F_Inherits
+   MELINK From ME_52E66739020A_view ;
+   MELINK To ME_52E6671B033F_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_52E66739020A_ME_52E6671B033F_Inherits
+
+  MELIST Views
+   Seq: ( ME_52EA8AD102B0_view // TtfwTwoLambdas
+   ME_52EA8ECC0358_view // RtfwTwoLambdas
+   ME_52E6671B033F_view // Create
+   ME_52E66739020A_view // Make
+   ME_52EA8EE702FA_view // TwoLabdasClass
+   ME_52E667570303_view // f_Lambda
+   ME_52EA8ECC0358_ME_52EA8AD102B0_Inherits // RtfwTwoLambdas ==> TtfwTwoLambdas
+   ME_52E66739020A_ME_52E6671B033F_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_52E666BC0270_main
+
+ MELIST Diagrams
+  Seq: ( ME_52E666BC0270_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_52E666BC0270_diagrams

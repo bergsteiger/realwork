@@ -1,0 +1,111 @@
+// Draw 474144E20301 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_474144E20301_diagrams
+
+ MEDIAGRAM ME_474144E20301_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_474144E20301' ; // Draw
+
+  MEVIEW ME_47E107E20191_view
+   MELINK Original WL? 'ME_47E107E20191' ; // TafwPreviewPageList
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_47E107E20191_view
+
+  MEVIEW ME_47414C8700D5_view
+   MELINK Original WL? 'ME_47414C8700D5' ; // TafwCanvasEx
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_47414C8700D5_view
+
+  MEVIEW ME_47414D0C018A_view
+   MELINK Original WL? 'ME_47414D0C018A' ; // TafwMeasureCanvas
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_47414D0C018A_view
+
+  MEVIEW ME_474154CE0081_view
+   MELINK Original WL? 'ME_474154CE0081' ; // TafwVirtualCaret
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_474154CE0081_view
+
+  MEVIEW ME_474155B703C6_view
+   MELINK Original WL? 'ME_474155B703C6' ; // TafwPreviewPage
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_474155B703C6_view
+
+  MEVIEW ME_47DF8F0402F7_view
+   MELINK Original WL? 'ME_47DF8F0402F7' ; // TafwComplexDocumentPreview
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_47DF8F0402F7_view
+
+  MEVIEW ME_47DF8C5E01AB_view
+   MELINK Original WL? 'ME_47DF8C5E01AB' ; // TafwComplexDocumentPreviewFactory
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_47DF8C5E01AB_view
+
+  MEVIEW ME_474145DE010F_view
+   MELINK Original WL? 'ME_474145DE010F' ; // TafwPreviewCanvas
+   MEPROP X 40
+   MEPROP Y 180
+  ENDMEVIEW // ME_474145DE010F_view
+
+  MEVIEW ME_480DE55C0315_view
+   MELINK Original WL? 'ME_480DE55C0315' ; // TafwMultiDocumentPreview
+   MEPROP X 200
+   MEPROP Y 180
+  ENDMEVIEW // ME_480DE55C0315_view
+
+  MEVIEW ME_4CB6DFDE0374_view
+   MELINK Original WL? 'ME_4CB6DFDE0374' ; // TafwPreviewPageSpy
+   MEPROP X 360
+   MEPROP Y 180
+  ENDMEVIEW // ME_4CB6DFDE0374_view
+
+  MEVIEW ME_4E2579780027_view
+   MELINK Original WL? 'ME_4E2579780027' ; // afwDrawing
+   MEPROP X 520
+   MEPROP Y 180
+  ENDMEVIEW // ME_4E2579780027_view
+
+  MEVIEWLINK ME_47E1081E014B_viewlink
+   MELINK Original WL 'ME_47E1081E014B' '474155B703C6.ms.model.script' ;
+   MELINK From ME_474155B703C6_view ;
+   MELINK To ME_47E107E20191_view ;
+  ENDMEVIEWLINK // ME_47E1081E014B_viewlink
+
+  MEVIEWLINK ME_47E10DB9012A_viewlink
+   MELINK Original WL 'ME_47E10DB9012A' '474145DE010F.ms.model.script' ;
+   MELINK From ME_474145DE010F_view ;
+   MELINK To ME_47E107E20191_view ;
+  ENDMEVIEWLINK // ME_47E10DB9012A_viewlink
+
+  MELIST Views
+   Seq: ( ME_47E107E20191_view // TafwPreviewPageList
+   ME_47414C8700D5_view // TafwCanvasEx
+   ME_47414D0C018A_view // TafwMeasureCanvas
+   ME_474154CE0081_view // TafwVirtualCaret
+   ME_474155B703C6_view // TafwPreviewPage
+   ME_47DF8F0402F7_view // TafwComplexDocumentPreview
+   ME_47DF8C5E01AB_view // TafwComplexDocumentPreviewFactory
+   ME_474145DE010F_view // TafwPreviewCanvas
+   ME_480DE55C0315_view // TafwMultiDocumentPreview
+   ME_4CB6DFDE0374_view // TafwPreviewPageSpy
+   ME_4E2579780027_view // afwDrawing
+   ME_47E1081E014B_viewlink // TafwPreviewPage ==> TafwPreviewPageList
+   ME_47E10DB9012A_viewlink // TafwPreviewCanvas ==> TafwPreviewPageList
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_474144E20301_main
+
+ MELIST Diagrams
+  Seq: ( ME_474144E20301_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_474144E20301_diagrams

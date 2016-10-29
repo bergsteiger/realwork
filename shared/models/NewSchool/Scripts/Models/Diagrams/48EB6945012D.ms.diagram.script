@@ -1,0 +1,62 @@
+// TevReaderDataObject 48EB6945012D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_48EB6945012D_diagrams
+
+ MEDIAGRAM ME_48EB6945012D_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_48EB6945012D' ; // TevReaderDataObject
+
+  MEVIEW ME_48EB69920154_view
+   MELINK Original WL 'ME_48EB69920154' '48EB6945012D.ms.model.script' ; // Rk2CustomReader
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_48EB69920154_view
+
+  MEVIEW ME_4D3EDD5301AA_view
+   MELINK Original WL 'ME_4D3EDD5301AA' '48EB6945012D.ms.model.script' ; // Create
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D3EDD5301AA_view
+
+  MEVIEW ME_4D3EDD7701A0_view
+   MELINK Original WL 'ME_4D3EDD7701A0' '48EB6945012D.ms.model.script' ; // Make
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D3EDD7701A0_view
+
+  MEVIEW ME_48EB6A0700D9_view
+   MELINK Original WL 'ME_48EB6A0700D9' '48EB6945012D.ms.model.script' ; // ReaderClass
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_48EB6A0700D9_view
+
+  MEVIEW ME_4D3EDD3500E1_view
+   MELINK Original WL 'ME_4D3EDD3500E1' '48EB6945012D.ms.model.script' ; // f_Stream
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D3EDD3500E1_view
+
+  MEVIEWLINK ME_4D3EDD7701A0_ME_4D3EDD5301AA_Inherits
+   MELINK From ME_4D3EDD7701A0_view ;
+   MELINK To ME_4D3EDD5301AA_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4D3EDD7701A0_ME_4D3EDD5301AA_Inherits
+
+  MELIST Views
+   Seq: ( ME_48EB69920154_view // Rk2CustomReader
+   ME_4D3EDD5301AA_view // Create
+   ME_4D3EDD7701A0_view // Make
+   ME_48EB6A0700D9_view // ReaderClass
+   ME_4D3EDD3500E1_view // f_Stream
+   ME_4D3EDD7701A0_ME_4D3EDD5301AA_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_48EB6945012D_main
+
+ MELIST Diagrams
+  Seq: ( ME_48EB6945012D_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_48EB6945012D_diagrams

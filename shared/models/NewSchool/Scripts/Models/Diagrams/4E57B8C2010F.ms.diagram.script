@@ -1,0 +1,27 @@
+// Требования к схеме документа EVD 4E57B8C2010F UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4E57B8C2010F_diagrams
+
+ MEDIAGRAM ME_4E57B8C2010F_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4E57B8C2010F' ; // Требования к схеме документа EVD
+
+  MEVIEW ME_4E67A4B600FB_view
+   MELINK Original WL 'ME_4E67A4B600FB' '4E57B8C2010F.ms.model.script' ; // Стандартная схема документа
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E67A4B600FB_view
+
+  MELIST Views
+   Seq: ( ME_4E67A4B600FB_view // Стандартная схема документа
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E57B8C2010F_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E57B8C2010F_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E57B8C2010F_diagrams

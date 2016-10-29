@@ -1,0 +1,41 @@
+// l3LocaleInfo 478778030195 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_478778030195_diagrams
+
+ MEDIAGRAM ME_478778030195_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_478778030195' ; // l3LocaleInfo
+
+  MEVIEW ME_478778770380_view
+   MELINK Original WL 'ME_478778770380' '478778030195.ms.model.script' ; // Tl3BaseLocaleInfo
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_478778770380_view
+
+  MEVIEW ME_47877893008F_view
+   MELINK Original WL 'ME_47877893008F' '478778030195.ms.model.script' ; // Tl3UnixLocaleInfo
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_47877893008F_view
+
+  MEVIEWLINK ME_47877893008F_ME_478778770380_Inherits
+   MELINK From ME_47877893008F_view ;
+   MELINK To ME_478778770380_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_47877893008F_ME_478778770380_Inherits
+
+  MELIST Views
+   Seq: ( ME_478778770380_view // Tl3BaseLocaleInfo
+   ME_47877893008F_view // Tl3UnixLocaleInfo
+   ME_47877893008F_ME_478778770380_Inherits // Tl3UnixLocaleInfo ==> Tl3BaseLocaleInfo
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_478778030195_main
+
+ MELIST Diagrams
+  Seq: ( ME_478778030195_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_478778030195_diagrams

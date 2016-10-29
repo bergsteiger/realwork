@@ -1,0 +1,41 @@
+// Tm3TempStream 5480A1E100B5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_5480A1E100B5_diagrams
+
+ MEDIAGRAM ME_5480A1E100B5_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_5480A1E100B5' ; // Tm3TempStream
+
+  MEVIEW ME_5480A22102AA_view
+   MELINK Original WL 'ME_5480A22102AA' '5480A1E100B5.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5480A22102AA_view
+
+  MEVIEW ME_5480A250033D_view
+   MELINK Original WL 'ME_5480A250033D' '5480A1E100B5.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5480A250033D_view
+
+  MEVIEWLINK ME_5480A250033D_ME_5480A22102AA_Inherits
+   MELINK From ME_5480A250033D_view ;
+   MELINK To ME_5480A22102AA_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5480A250033D_ME_5480A22102AA_Inherits
+
+  MELIST Views
+   Seq: ( ME_5480A22102AA_view // Create
+   ME_5480A250033D_view // Make
+   ME_5480A250033D_ME_5480A22102AA_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5480A1E100B5_main
+
+ MELIST Diagrams
+  Seq: ( ME_5480A1E100B5_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5480A1E100B5_diagrams

@@ -1,0 +1,69 @@
+// afwApplication 47764DEC01A7 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_47764DEC01A7_diagrams
+
+ MEDIAGRAM ME_47764DEC01A7_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_47764DEC01A7' ; // afwApplication
+
+  MEVIEW ME_47764DD601C3_view
+   MELINK Original WL 'ME_47764DD601C3' '47764DEC01A7.ms.model.script' ; // TafwApplication
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_47764DD601C3_view
+
+  MEVIEW ME_47764EDC002F_view
+   MELINK Original WL 'ME_47764EDC002F' '47764DEC01A7.ms.model.script' ; // TafwApplicationClass
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_47764EDC002F_view
+
+  MEVIEW ME_47764F3F0064_view
+   MELINK Original WL 'ME_47764F3F0064' '47764DEC01A7.ms.model.script' ; // TafwImplementation
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_47764F3F0064_view
+
+  MEVIEW ME_4776508D0395_view
+   MELINK Original WL 'ME_4776508D0395' '47764DEC01A7.ms.model.script' ; // Lang
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4776508D0395_view
+
+  MEVIEW ME_4B72F1360176_view
+   MELINK Original WL 'ME_4B72F1360176' '47764DEC01A7.ms.model.script' ; // FreeApp
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4B72F1360176_view
+
+  MEVIEWLINK ME_47764EDC002F_ME_47764DD601C3_Inherits
+   MELINK From ME_47764EDC002F_view ;
+   MELINK To ME_47764DD601C3_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_47764EDC002F_ME_47764DD601C3_Inherits
+
+  MEVIEWLINK ME_4B72F10A0394_viewlink
+   MELINK Original WL 'ME_4B72F10A0394' '47764DEC01A7.ms.model.script' ;
+   MELINK From ME_4B72F1360176_view ;
+   MELINK To ME_47764DD601C3_view ;
+  ENDMEVIEWLINK // ME_4B72F10A0394_viewlink
+
+  MELIST Views
+   Seq: ( ME_47764DD601C3_view // TafwApplication
+   ME_47764EDC002F_view // TafwApplicationClass
+   ME_47764F3F0064_view // TafwImplementation
+   ME_4776508D0395_view // Lang
+   ME_4B72F1360176_view // FreeApp
+   ME_47764EDC002F_ME_47764DD601C3_Inherits // TafwApplicationClass ==> TafwApplication
+   ME_4B72F10A0394_viewlink // FreeApp ==> TafwApplication
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_47764DEC01A7_main
+
+ MELIST Diagrams
+  Seq: ( ME_47764DEC01A7_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_47764DEC01A7_diagrams

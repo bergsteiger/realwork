@@ -1,0 +1,62 @@
+// CodeFlowWords 4F2163250016 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4F2163250016_diagrams
+
+ MEDIAGRAM ME_4F2163250016_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4F2163250016' ; // CodeFlowWords
+
+  MEVIEW ME_4F21634F01C7_view
+   MELINK Original WL? 'ME_4F21634F01C7' ; // CodeFlowWordsPack
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F21634F01C7_view
+
+  MEVIEW ME_4FC7541C02BA_view
+   MELINK Original WL? 'ME_4FC7541C02BA' ; // seModalSupport
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4FC7541C02BA_view
+
+  MEVIEW ME_4FC7562801FE_view
+   MELINK Original WL? 'ME_4FC7562801FE' ; // TseModalWorkerListPrim
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4FC7562801FE_view
+
+  MEVIEW ME_4FC756830111_view
+   MELINK Original WL? 'ME_4FC756830111' ; // TseModalWorkerList
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4FC756830111_view
+
+  MEVIEW ME_4FC75F0F0061_view
+   MELINK Original WL? 'ME_4FC75F0F0061' ; // seModalWorker
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4FC75F0F0061_view
+
+  MEVIEWLINK ME_4FC756830111_ME_4FC7562801FE_Inherits
+   MELINK From ME_4FC756830111_view ;
+   MELINK To ME_4FC7562801FE_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4FC756830111_ME_4FC7562801FE_Inherits
+
+  MELIST Views
+   Seq: ( ME_4F21634F01C7_view // CodeFlowWordsPack
+   ME_4FC7541C02BA_view // seModalSupport
+   ME_4FC7562801FE_view // TseModalWorkerListPrim
+   ME_4FC756830111_view // TseModalWorkerList
+   ME_4FC75F0F0061_view // seModalWorker
+   ME_4FC756830111_ME_4FC7562801FE_Inherits // TseModalWorkerList ==> TseModalWorkerListPrim
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4F2163250016_main
+
+ MELIST Diagrams
+  Seq: ( ME_4F2163250016_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4F2163250016_diagrams

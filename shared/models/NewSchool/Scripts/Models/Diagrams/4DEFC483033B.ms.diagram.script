@@ -1,0 +1,41 @@
+// RecListView 4DEFC483033B Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4DEFC483033B_diagrams
+
+ MEDIAGRAM ME_4DEFC483033B_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4DEFC483033B' ; // RecListView
+
+  MEVIEW ME_4DEFC4AE0296_view
+   MELINK Original WL? 'ME_4DEFC4AE0296' ; // Tl3CustomRecListView
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4DEFC4AE0296_view
+
+  MEVIEW ME_4DEFC812022F_view
+   MELINK Original WL? 'ME_4DEFC812022F' ; // Tl3EventedRecListView
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4DEFC812022F_view
+
+  MEVIEWLINK ME_4DEFC812022F_ME_4DEFC4AE0296_Inherits
+   MELINK From ME_4DEFC812022F_view ;
+   MELINK To ME_4DEFC4AE0296_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4DEFC812022F_ME_4DEFC4AE0296_Inherits
+
+  MELIST Views
+   Seq: ( ME_4DEFC4AE0296_view // Tl3CustomRecListView
+   ME_4DEFC812022F_view // Tl3EventedRecListView
+   ME_4DEFC812022F_ME_4DEFC4AE0296_Inherits // Tl3EventedRecListView ==> Tl3CustomRecListView
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4DEFC483033B_main
+
+ MELIST Diagrams
+  Seq: ( ME_4DEFC483033B_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4DEFC483033B_diagrams

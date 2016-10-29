@@ -1,0 +1,34 @@
+// injects to 5011502C019D MDADependency Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_5011502C019D_diagrams
+
+ MEDIAGRAM ME_5011502C019D_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_5011502C019D' '492E955C02EC.ms.model.script' ; // injects to
+
+  MEVIEW ME_50123F830077_view
+   MELINK Original WL 'ME_50123F830077' '492E955C02EC.ms.model.script' ; // IsInjectsTo
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_50123F830077_view
+
+  MEVIEW ME_5011505501F9_view
+   MELINK Original WL 'ME_5011505501F9' '492E955C02EC.ms.model.script' ; // needs default form
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5011505501F9_view
+
+  MELIST Views
+   Seq: ( ME_50123F830077_view // IsInjectsTo
+   ME_5011505501F9_view // needs default form
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5011502C019D_main
+
+ MELIST Diagrams
+  Seq: ( ME_5011502C019D_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5011502C019D_diagrams

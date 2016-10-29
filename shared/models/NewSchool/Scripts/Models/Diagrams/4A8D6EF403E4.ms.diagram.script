@@ -1,0 +1,83 @@
+// Containers 4A8D6EF403E4 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4A8D6EF403E4_diagrams
+
+ MEDIAGRAM ME_4A8D6EF403E4_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4A8D6EF403E4' ; // Containers
+
+  MEVIEW ME_4A8D6F31034F_view
+   MELINK Original WL? 'ME_4A8D6F31034F' ; // TvcmCommandIDsListPrim
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A8D6F31034F_view
+
+  MEVIEW ME_4A8D76720025_view
+   MELINK Original WL? 'ME_4A8D76720025' ; // TvcmCommandIDsList
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A8D76720025_view
+
+  MEVIEW ME_4A8D789702FA_view
+   MELINK Original WL? 'ME_4A8D789702FA' ; // vcmOVCCommands
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A8D789702FA_view
+
+  MEVIEW ME_4AC4B66801FC_view
+   MELINK Original WL? 'ME_4AC4B66801FC' ; // TvcmIEntityFormList
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AC4B66801FC_view
+
+  MEVIEW ME_4AC4B82802E1_view
+   MELINK Original WL? 'ME_4AC4B82802E1' ; // TvcmIEntityFormPtrList
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AC4B82802E1_view
+
+  MEVIEW ME_4F1ECEEE028F_view
+   MELINK Original WL? 'ME_4F1ECEEE028F' ; // TvcmIEntityList
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F1ECEEE028F_view
+
+  MEVIEW ME_53D1DC9C03E7_view
+   MELINK Original WL? 'ME_53D1DC9C03E7' ; // TvcmEntityFormsIterable
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_53D1DC9C03E7_view
+
+  MEVIEWLINK ME_4A8D76720025_ME_4A8D6F31034F_Inherits
+   MELINK From ME_4A8D76720025_view ;
+   MELINK To ME_4A8D6F31034F_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4A8D76720025_ME_4A8D6F31034F_Inherits
+
+  MEVIEWLINK ME_53D1DC9C03E7_ME_4AC4B82802E1_Inherits
+   MELINK From ME_53D1DC9C03E7_view ;
+   MELINK To ME_4AC4B82802E1_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_53D1DC9C03E7_ME_4AC4B82802E1_Inherits
+
+  MELIST Views
+   Seq: ( ME_4A8D6F31034F_view // TvcmCommandIDsListPrim
+   ME_4A8D76720025_view // TvcmCommandIDsList
+   ME_4A8D789702FA_view // vcmOVCCommands
+   ME_4AC4B66801FC_view // TvcmIEntityFormList
+   ME_4AC4B82802E1_view // TvcmIEntityFormPtrList
+   ME_4F1ECEEE028F_view // TvcmIEntityList
+   ME_53D1DC9C03E7_view // TvcmEntityFormsIterable
+   ME_4A8D76720025_ME_4A8D6F31034F_Inherits // TvcmCommandIDsList ==> TvcmCommandIDsListPrim
+   ME_53D1DC9C03E7_ME_4AC4B82802E1_Inherits // TvcmEntityFormsIterable ==> TvcmIEntityFormPtrList
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4A8D6EF403E4_main
+
+ MELIST Diagrams
+  Seq: ( ME_4A8D6EF403E4_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4A8D6EF403E4_diagrams

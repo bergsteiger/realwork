@@ -13,7 +13,6 @@ FORWARD ME_4874FDA50243
 ME ME_4874FDB002CF
  MEPROP Name 'Op'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_47E3C7030369' // Tk2Op
  ;
 
@@ -22,7 +21,6 @@ ENDME // ME_4874FDB002CF Op
 ME ME_4874FDB002F0
  MEPROP Name 'Modify'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -78,9 +76,6 @@ ME ME_4BA2033B03DD
  MELINK Parent HWL ME_4BA203260193 // Local
  ;
  MEPROP Value '''Откат'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Откат'''
 
 ENDME // ME_4BA2033B03DD Undo
@@ -95,9 +90,6 @@ ME ME_4BA203470251
  MELINK Parent HWL ME_4BA203260193 // Local
  ;
  MEPROP Value '''Возврат'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Возврат'''
 
 ENDME // ME_4BA203470251 Redo
@@ -105,7 +97,7 @@ ENDME // ME_4BA203470251 Redo
 ME ME_4BA203260193
  MEPROP UID '4BA203260193'
  MEPROP Name 'Local'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -118,9 +110,6 @@ ME ME_4BA203260193
  )
  ; // Attributes
  UP "children prefix" 'l3mm'
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'l3mm'
 
 ENDME // ME_4BA203260193 Local
@@ -166,7 +155,6 @@ ME ME_4874FE290353
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP "needs field" True
- UP "pm" True
  UP "reads field" True
  UP "writes field" True
 
@@ -295,7 +283,6 @@ FORWARD ME_48AC2A7C0229
 ME ME_48AC2A850053
  MEPROP Name 'aProcessor'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_469F6BF0009D' '53317D14019D.ms.model.script' // Ik2Processor
  ;
 
@@ -323,7 +310,6 @@ FORWARD ME_48AC2A8C0035
 ME ME_48AC2A910104
  MEPROP Name 'aProcessor'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_469F6BF0009D' '53317D14019D.ms.model.script' // Ik2Processor
  ;
 
@@ -362,7 +348,6 @@ FORWARD ME_48B2C3ED01BB
 ME ME_48B2C40400D8
  MEPROP Name 'anItem'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL? 'ME_47E3C7030369' // Tk2Op
  ;
 
@@ -388,7 +373,6 @@ FORWARD ME_4DD3EB5A01C3
 ME ME_4DD3EB6700C2
  MEPROP Name 'anOwner'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
@@ -415,7 +399,6 @@ FORWARD ME_4A60A2CF0329
 ME ME_4A60A2CF0359
  MEPROP Name 'Value'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
@@ -539,14 +522,12 @@ MEREF ME_46A5CE840343_ME_47E3C78502FB_impl
  MELINK Original WL 'ME_46A5CE840343' '53317D14019D.ms.model.script' // InUndo
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_46A5CE840343_ME_47E3C78502FB_impl InUndo
 
 MEREF ME_46A5CE9A03B3_ME_47E3C78502FB_impl
  MELINK Original WL 'ME_46A5CE9A03B3' '53317D14019D.ms.model.script' // SaveUndo
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_46A5CE9A03B3_ME_47E3C78502FB_impl SaveUndo
 
 MEREF ME_46A5CEB0018E_ME_47E3C78502FB_impl
@@ -605,7 +586,6 @@ MEREF ME_4874FC1C01D2_ME_47E3C78502FB_impl
  MELINK Original WL 'ME_4874FC1C01D2' '53317D14019D.ms.model.script' // Code
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_4874FC1C01D2_ME_47E3C78502FB_impl Code
 
 MEREF ME_4874FDA50243_ME_47E3C78502FB_impl

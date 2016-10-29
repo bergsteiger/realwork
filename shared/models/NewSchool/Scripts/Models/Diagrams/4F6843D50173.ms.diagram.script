@@ -1,0 +1,90 @@
+// ddBase 4F6843D50173 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4F6843D50173_diagrams
+
+ MEDIAGRAM ME_4F6843D50173_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4F6843D50173' ; // ddBase
+
+  MEVIEW ME_52D36E7C02C8_view
+   MELINK Original WL 'ME_52D36E7C02C8' '4F6843D50173.ms.model.script' ; // TddColorSetRange
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_52D36E7C02C8_view
+
+  MEVIEW ME_52D36F7702E3_view
+   MELINK Original WL 'ME_52D36F7702E3' '4F6843D50173.ms.model.script' ; // TddColorArray
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_52D36F7702E3_view
+
+  MEVIEW ME_52D36FEA02F7_view
+   MELINK Original WL 'ME_52D36FEA02F7' '4F6843D50173.ms.model.script' ; // ddInternalConts
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_52D36FEA02F7_view
+
+  MEVIEW ME_5111FEEE0291_view
+   MELINK Original WL 'ME_5111FEEE0291' '4F6843D50173.ms.model.script' ; // k2JustToJust
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_5111FEEE0291_view
+
+  MEVIEW ME_52CFB420035C_view
+   MELINK Original WL 'ME_52CFB420035C' '4F6843D50173.ms.model.script' ; // ddGetMinimalCellWidth
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_52CFB420035C_view
+
+  MEVIEW ME_52CFE5490025_view
+   MELINK Original WL 'ME_52CFE5490025' '4F6843D50173.ms.model.script' ; // ColorToHighlight
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_52CFE5490025_view
+
+  MEVIEW ME_52CFE56D0247_view
+   MELINK Original WL 'ME_52CFE56D0247' '4F6843D50173.ms.model.script' ; // HighlightToColor
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_52CFE56D0247_view
+
+  MEVIEW ME_52CFE5DC02E2_view
+   MELINK Original WL 'ME_52CFE5DC02E2' '4F6843D50173.ms.model.script' ; // ConvertStyleNumber
+   MEPROP X 40
+   MEPROP Y 180
+  ENDMEVIEW // ME_52CFE5DC02E2_view
+
+  MEVIEWLINK ME_52D36F7702E3_ME_52D36E7C02C8_Inherits
+   MELINK From ME_52D36F7702E3_view ;
+   MELINK To ME_52D36E7C02C8_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_52D36F7702E3_ME_52D36E7C02C8_Inherits
+
+  MEVIEWLINK ME_52D36FF90068_viewlink
+   MELINK Original WL 'ME_52D36FF90068' '4F6843D50173.ms.model.script' ;
+   MELINK From ME_52D36FEA02F7_view ;
+   MELINK To ME_52D36F7702E3_view ;
+  ENDMEVIEWLINK // ME_52D36FF90068_viewlink
+
+  MELIST Views
+   Seq: ( ME_52D36E7C02C8_view // TddColorSetRange
+   ME_52D36F7702E3_view // TddColorArray
+   ME_52D36FEA02F7_view // ddInternalConts
+   ME_5111FEEE0291_view // k2JustToJust
+   ME_52CFB420035C_view // ddGetMinimalCellWidth
+   ME_52CFE5490025_view // ColorToHighlight
+   ME_52CFE56D0247_view // HighlightToColor
+   ME_52CFE5DC02E2_view // ConvertStyleNumber
+   ME_52D36F7702E3_ME_52D36E7C02C8_Inherits // TddColorArray ==> TddColorSetRange
+   ME_52D36FF90068_viewlink // ddInternalConts ==> TddColorArray
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4F6843D50173_main
+
+ MELIST Diagrams
+  Seq: ( ME_4F6843D50173_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4F6843D50173_diagrams

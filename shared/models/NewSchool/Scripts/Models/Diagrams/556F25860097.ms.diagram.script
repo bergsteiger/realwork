@@ -1,0 +1,48 @@
+// Tl3ControlFontInfo 556F25860097 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_556F25860097_diagrams
+
+ MEDIAGRAM ME_556F25860097_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_556F25860097' '556F24A80035.ms.model.script' ; // Tl3ControlFontInfo
+
+  MEVIEW ME_556F25D20367_view
+   MELINK Original WL 'ME_556F25D20367' '556F24A80035.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_556F25D20367_view
+
+  MEVIEW ME_556F25ED00C2_view
+   MELINK Original WL 'ME_556F25ED00C2' '556F24A80035.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_556F25ED00C2_view
+
+  MEVIEW ME_556F25FC0213_view
+   MELINK Original WL 'ME_556F25FC0213' '556F24A80035.ms.model.script' ; // f_Control
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_556F25FC0213_view
+
+  MEVIEWLINK ME_556F25ED00C2_ME_556F25D20367_Inherits
+   MELINK From ME_556F25ED00C2_view ;
+   MELINK To ME_556F25D20367_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_556F25ED00C2_ME_556F25D20367_Inherits
+
+  MELIST Views
+   Seq: ( ME_556F25D20367_view // Create
+   ME_556F25ED00C2_view // Make
+   ME_556F25FC0213_view // f_Control
+   ME_556F25ED00C2_ME_556F25D20367_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_556F25860097_main
+
+ MELIST Diagrams
+  Seq: ( ME_556F25860097_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_556F25860097_diagrams

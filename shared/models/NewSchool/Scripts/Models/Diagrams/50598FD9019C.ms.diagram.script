@@ -1,0 +1,97 @@
+// PipeOut 50598FD9019C Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_50598FD9019C_diagrams
+
+ MEDIAGRAM ME_50598FD9019C_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_50598FD9019C' ; // PipeOut
+
+  MEVIEW ME_50598FF6003B_view
+   MELINK Original WL? 'ME_50598FF6003B' ; // SewerPipe
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_50598FF6003B_view
+
+  MEVIEW ME_519B8D8D00E7_view
+   MELINK Original WL? 'ME_519B8D8D00E7' ; // ExportPipe
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_519B8D8D00E7_view
+
+  MEVIEW ME_560A38A50349_view
+   MELINK Original WL? 'ME_560A38A50349' ; // TddExportFilerMap
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_560A38A50349_view
+
+  MEVIEW ME_5603F0890069_view
+   MELINK Original WL? 'ME_5603F0890069' ; // TddExportFilerDispatcher
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_5603F0890069_view
+
+  MEVIEW ME_560A5BC502D5_view
+   MELINK Original WL? 'ME_560A5BC502D5' ; // TddExportFilerDispatcherElem
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_560A5BC502D5_view
+
+  MEVIEW ME_564C627A03D0_view
+   MELINK Original WL? 'ME_564C627A03D0' ; // TddAnnoKindSortItem
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_564C627A03D0_view
+
+  MEVIEW ME_564C65EC0136_view
+   MELINK Original WL? 'ME_564C65EC0136' ; // TddAnnoKindStatisticListPrim
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_564C65EC0136_view
+
+  MEVIEW ME_564C6BCB02EF_view
+   MELINK Original WL? 'ME_564C6BCB02EF' ; // TddAnnoKindStatisticList
+   MEPROP X 40
+   MEPROP Y 180
+  ENDMEVIEW // ME_564C6BCB02EF_view
+
+  MEVIEW ME_57C56BE4023F_view
+   MELINK Original WL? 'ME_57C56BE4023F' ; // ddFixFilter
+   MEPROP X 200
+   MEPROP Y 180
+  ENDMEVIEW // ME_57C56BE4023F_view
+
+  MEVIEWLINK ME_560A390D03A5_viewlink
+   MELINK Original WL 'ME_560A390D03A5' '5603F0890069.ms.model.script' ;
+   MELINK From ME_5603F0890069_view ;
+   MELINK To ME_560A38A50349_view ;
+  ENDMEVIEWLINK // ME_560A390D03A5_viewlink
+
+  MEVIEWLINK ME_564C6BCB02EF_ME_564C65EC0136_Inherits
+   MELINK From ME_564C6BCB02EF_view ;
+   MELINK To ME_564C65EC0136_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_564C6BCB02EF_ME_564C65EC0136_Inherits
+
+  MELIST Views
+   Seq: ( ME_50598FF6003B_view // SewerPipe
+   ME_519B8D8D00E7_view // ExportPipe
+   ME_560A38A50349_view // TddExportFilerMap
+   ME_5603F0890069_view // TddExportFilerDispatcher
+   ME_560A5BC502D5_view // TddExportFilerDispatcherElem
+   ME_564C627A03D0_view // TddAnnoKindSortItem
+   ME_564C65EC0136_view // TddAnnoKindStatisticListPrim
+   ME_564C6BCB02EF_view // TddAnnoKindStatisticList
+   ME_57C56BE4023F_view // ddFixFilter
+   ME_560A390D03A5_viewlink // TddExportFilerDispatcher ==> TddExportFilerMap
+   ME_564C6BCB02EF_ME_564C65EC0136_Inherits // TddAnnoKindStatisticList ==> TddAnnoKindStatisticListPrim
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_50598FD9019C_main
+
+ MELIST Diagrams
+  Seq: ( ME_50598FD9019C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_50598FD9019C_diagrams

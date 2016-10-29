@@ -1,0 +1,41 @@
+// MultiThread 57C5569A0050 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_57C5569A0050_diagrams
+
+ MEDIAGRAM ME_57C5569A0050_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_57C5569A0050' ; // MultiThread
+
+  MEVIEW ME_57C55713006C_view
+   MELINK Original WL? 'ME_57C55713006C' ; // seCriticalSectionHolderPrim
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_57C55713006C_view
+
+  MEVIEW ME_57C5572B036F_view
+   MELINK Original WL? 'ME_57C5572B036F' ; // seCriticalSectionHolder
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_57C5572B036F_view
+
+  MEVIEWLINK ME_57C5572B036F_ME_57C55713006C_Inherits
+   MELINK From ME_57C5572B036F_view ;
+   MELINK To ME_57C55713006C_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57C5572B036F_ME_57C55713006C_Inherits
+
+  MELIST Views
+   Seq: ( ME_57C55713006C_view // seCriticalSectionHolderPrim
+   ME_57C5572B036F_view // seCriticalSectionHolder
+   ME_57C5572B036F_ME_57C55713006C_Inherits // seCriticalSectionHolder ==> seCriticalSectionHolderPrim
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_57C5569A0050_main
+
+ MELIST Diagrams
+  Seq: ( ME_57C5569A0050_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_57C5569A0050_diagrams

@@ -1,0 +1,97 @@
+// Processors 47ECB04A01F8 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_47ECB04A01F8_diagrams
+
+ MEDIAGRAM ME_47ECB04A01F8_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_47ECB04A01F8' ; // Processors
+
+  MEVIEW ME_47F252060091_view
+   MELINK Original WL? 'ME_47F252060091' ; // evUndoB
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_47F252060091_view
+
+  MEVIEW ME_47F351BC0145_view
+   MELINK Original WL? 'ME_47F351BC0145' ; // evOpProc
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_47F351BC0145_view
+
+  MEVIEW ME_482D8ABE024B_view
+   MELINK Original WL? 'ME_482D8ABE024B' ; // TevNotifiedProcessor
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_482D8ABE024B_view
+
+  MEVIEW ME_47F35FBA0208_view
+   MELINK Original WL? 'ME_47F35FBA0208' ; // TevDefaultContext
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_47F35FBA0208_view
+
+  MEVIEW ME_47ECB0850387_view
+   MELINK Original WL? 'ME_47ECB0850387' ; // TevPreviewProcessor
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_47ECB0850387_view
+
+  MEVIEW ME_482D8A7101CE_view
+   MELINK Original WL? 'ME_482D8A7101CE' ; // TevCustomEditorWindowProcessor
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_482D8A7101CE_view
+
+  MEVIEW ME_47F35EA70305_view
+   MELINK Original WL? 'ME_47F35EA70305' ; // TevEditorWindowProcessor
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_47F35EA70305_view
+
+  MEVIEW ME_552BAA150205_view
+   MELINK Original WL? 'ME_552BAA150205' ; // evStandardActions
+   MEPROP X 40
+   MEPROP Y 180
+  ENDMEVIEW // ME_552BAA150205_view
+
+  MEVIEWLINK ME_47ECB0850387_ME_482D8ABE024B_Inherits
+   MELINK From ME_47ECB0850387_view ;
+   MELINK To ME_482D8ABE024B_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_47ECB0850387_ME_482D8ABE024B_Inherits
+
+  MEVIEWLINK ME_482D8A7101CE_ME_482D8ABE024B_Inherits
+   MELINK From ME_482D8A7101CE_view ;
+   MELINK To ME_482D8ABE024B_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_482D8A7101CE_ME_482D8ABE024B_Inherits
+
+  MEVIEWLINK ME_47F35EA70305_ME_482D8A7101CE_Inherits
+   MELINK From ME_47F35EA70305_view ;
+   MELINK To ME_482D8A7101CE_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_47F35EA70305_ME_482D8A7101CE_Inherits
+
+  MELIST Views
+   Seq: ( ME_47F252060091_view // evUndoB
+   ME_47F351BC0145_view // evOpProc
+   ME_482D8ABE024B_view // TevNotifiedProcessor
+   ME_47F35FBA0208_view // TevDefaultContext
+   ME_47ECB0850387_view // TevPreviewProcessor
+   ME_482D8A7101CE_view // TevCustomEditorWindowProcessor
+   ME_47F35EA70305_view // TevEditorWindowProcessor
+   ME_552BAA150205_view // evStandardActions
+   ME_47ECB0850387_ME_482D8ABE024B_Inherits // TevPreviewProcessor ==> TevNotifiedProcessor
+   ME_482D8A7101CE_ME_482D8ABE024B_Inherits // TevCustomEditorWindowProcessor ==> TevNotifiedProcessor
+   ME_47F35EA70305_ME_482D8A7101CE_Inherits // TevEditorWindowProcessor ==> TevCustomEditorWindowProcessor
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_47ECB04A01F8_main
+
+ MELIST Diagrams
+  Seq: ( ME_47ECB04A01F8_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_47ECB04A01F8_diagrams

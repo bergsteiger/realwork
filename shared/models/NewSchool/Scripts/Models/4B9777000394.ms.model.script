@@ -92,7 +92,6 @@ ME ME_EB523EA50C00
  MEPROP Name 'aStrings'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4683CEE9034C' '467823B7002C.ms.model.script' // IafwStrings
  ;
 
@@ -122,7 +121,6 @@ ME ME_9C0EED7C5E71
  MEPROP Name 'aDisplayName'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
  ;
 
@@ -184,9 +182,6 @@ ME ME_4B97776D0180
  MELINK Parent HWL ME_4B9777220364 // vcmIconSize
  ;
  MEPROP Value '''Автоматически'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Автоматически'''
 
 ENDME // ME_4B97776D0180 Automatic
@@ -201,9 +196,6 @@ ME ME_4B977777034D
  MELINK Parent HWL ME_4B9777220364 // vcmIconSize
  ;
  MEPROP Value '''Маленькие'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Маленькие'''
 
 ENDME // ME_4B977777034D 16x16
@@ -218,9 +210,6 @@ ME ME_4B97778202BF
  MELINK Parent HWL ME_4B9777220364 // vcmIconSize
  ;
  MEPROP Value '''Средние'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Средние'''
 
 ENDME // ME_4B97778202BF 24x24
@@ -235,9 +224,6 @@ ME ME_4B97778F003C
  MELINK Parent HWL ME_4B9777220364 // vcmIconSize
  ;
  MEPROP Value '''Большие'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Большие'''
 
 ENDME // ME_4B97778F003C 32x32
@@ -253,7 +239,7 @@ ENDMEREF // ME_4B977802001D_ME_4B9777220364_G TvcmGlyphSize
 ME ME_4B9777220364
  MEPROP UID '4B9777220364'
  MEPROP Name 'vcmIconSize'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Размеры иконок' ;
@@ -273,9 +259,7 @@ ME ME_4B9777220364
  )
  ; // Attributes
  UP "children prefix" 'vcmgs'
- UP "Need map interface" False
  UP "Need mapping support" True
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'vcmgs'
  UP extprop:rc:SelfName 'IconSize'
 
@@ -299,9 +283,6 @@ ME ME_5A5CB54822E0
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''vcmgsAutomatic''; rValue : ''Автоматически'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmgsAutomatic''; rValue : ''Автоматически'')'
  UPLINK Speller HWL ME_4B97776D0180 // Automatic
  ;
@@ -324,9 +305,6 @@ ME ME_163AC987C7F2
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''vcmgs16x16''; rValue : ''Маленькие'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmgs16x16''; rValue : ''Маленькие'')'
  UPLINK Speller HWL ME_4B977777034D // 16x16
  ;
@@ -349,9 +327,6 @@ ME ME_9CAEB236A6D5
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''vcmgs24x24''; rValue : ''Средние'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmgs24x24''; rValue : ''Средние'')'
  UPLINK Speller HWL ME_4B97778202BF // 24x24
  ;
@@ -374,9 +349,6 @@ ME ME_C6677DECB4CE
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''vcmgs32x32''; rValue : ''Большие'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmgs32x32''; rValue : ''Большие'')'
  UPLINK Speller HWL ME_4B97778F003C // 32x32
  ;
@@ -387,7 +359,7 @@ ME ME_1333F1537465
  MEPROP UID '1333F1537465'
  MEPROP Name 'LCImplvcmIconSize'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Локализуемые строки vcmIconSize' ;
@@ -404,7 +376,6 @@ ME ME_1333F1537465
  ; // Attributes
  UP "children prefix" 'vcmgs'
  UP "elements prefix" 'str'
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'str_vcmgs'
  UP extprop:pas:ElementPrefixBase 'str'
  UPLINK Speller HWL ME_4B9777220364 // vcmIconSize
@@ -508,7 +479,7 @@ ME ME_0493A882BA7D
  MEPROP UID '0493A882BA7D'
  MEPROP Name 'vcmIconSizeMap'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_ConstantArray ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Карта преобразования локализованных строк vcmIconSize' ;
@@ -531,7 +502,6 @@ ME ME_0493A882BA7D
  HWL ME_BBE02D2BA2B0 // 32x32
  )
  ; // Attributes
- UP "Need map interface" False
  UP "Need mapping support" True
  UP extprop:rc:SelfName 'IconSizeMap'
 

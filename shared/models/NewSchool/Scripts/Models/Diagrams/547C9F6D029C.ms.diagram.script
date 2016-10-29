@@ -1,0 +1,97 @@
+// evVisualInterfaces 547C9F6D029C Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_547C9F6D029C_diagrams
+
+ MEDIAGRAM ME_547C9F6D029C_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_547C9F6D029C' ; // evVisualInterfaces
+
+  MEVIEW ME_547CA05403A0_view
+   MELINK Original WL 'ME_547CA05403A0' '547C9F6D029C.ms.model.script' ; // IevToolWindow
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_547CA05403A0_view
+
+  MEVIEW ME_547CA0E40341_view
+   MELINK Original WL 'ME_547CA0E40341' '547C9F6D029C.ms.model.script' ; // IevLinkedToolWindow
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_547CA0E40341_view
+
+  MEVIEW ME_547CA15E035E_view
+   MELINK Original WL 'ME_547CA15E035E' '547C9F6D029C.ms.model.script' ; // IevZoomedLinkedToolWindow
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_547CA15E035E_view
+
+  MEVIEW ME_547CA1B10228_view
+   MELINK Original WL 'ME_547CA1B10228' '547C9F6D029C.ms.model.script' ; // IevSubPanel
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_547CA1B10228_view
+
+  MEVIEW ME_547CA2130299_view
+   MELINK Original WL 'ME_547CA2130299' '547C9F6D029C.ms.model.script' ; // TevOnSetMarker
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_547CA2130299_view
+
+  MEVIEW ME_547CA4880250_view
+   MELINK Original WL 'ME_547CA4880250' '547C9F6D029C.ms.model.script' ; // IevRuler
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_547CA4880250_view
+
+  MEVIEWLINK ME_547CA0E40341_ME_547CA05403A0_Inherits
+   MELINK From ME_547CA0E40341_view ;
+   MELINK To ME_547CA05403A0_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_547CA0E40341_ME_547CA05403A0_Inherits
+
+  MEVIEWLINK ME_547CA15E035E_ME_547CA0E40341_Inherits
+   MELINK From ME_547CA15E035E_view ;
+   MELINK To ME_547CA0E40341_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_547CA15E035E_ME_547CA0E40341_Inherits
+
+  MEVIEWLINK ME_547CA1B10228_ME_547CA15E035E_Inherits
+   MELINK From ME_547CA1B10228_view ;
+   MELINK To ME_547CA15E035E_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_547CA1B10228_ME_547CA15E035E_Inherits
+
+  MEVIEWLINK ME_547CA4880250_ME_547CA15E035E_Inherits
+   MELINK From ME_547CA4880250_view ;
+   MELINK To ME_547CA15E035E_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_547CA4880250_ME_547CA15E035E_Inherits
+
+  MEVIEWLINK ME_547CA55D03B6_viewlink
+   MELINK Original WL 'ME_547CA55D03B6' '547C9F6D029C.ms.model.script' ;
+   MELINK From ME_547CA4880250_view ;
+   MELINK To ME_547CA2130299_view ;
+  ENDMEVIEWLINK // ME_547CA55D03B6_viewlink
+
+  MELIST Views
+   Seq: ( ME_547CA05403A0_view // IevToolWindow
+   ME_547CA0E40341_view // IevLinkedToolWindow
+   ME_547CA15E035E_view // IevZoomedLinkedToolWindow
+   ME_547CA1B10228_view // IevSubPanel
+   ME_547CA2130299_view // TevOnSetMarker
+   ME_547CA4880250_view // IevRuler
+   ME_547CA0E40341_ME_547CA05403A0_Inherits // IevLinkedToolWindow ==> IevToolWindow
+   ME_547CA15E035E_ME_547CA0E40341_Inherits // IevZoomedLinkedToolWindow ==> IevLinkedToolWindow
+   ME_547CA1B10228_ME_547CA15E035E_Inherits // IevSubPanel ==> IevZoomedLinkedToolWindow
+   ME_547CA4880250_ME_547CA15E035E_Inherits // IevRuler ==> IevZoomedLinkedToolWindow
+   ME_547CA55D03B6_viewlink // IevRuler ==> TevOnSetMarker
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_547C9F6D029C_main
+
+ MELIST Diagrams
+  Seq: ( ME_547C9F6D029C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_547C9F6D029C_diagrams

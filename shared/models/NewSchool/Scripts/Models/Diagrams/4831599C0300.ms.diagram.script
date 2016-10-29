@@ -1,0 +1,307 @@
+// TDropDownTreePrim 4831599C0300 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4831599C0300_diagrams
+
+ MEDIAGRAM ME_4831599C0300_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4831599C0300' '53F1DC8F01AD.ms.model.script' ; // TDropDownTreePrim
+
+  MEVIEW ME_53EDF1080244_view
+   MELINK Original WL 'ME_53EDF1080244' '53F1DC8F01AD.ms.model.script' ; // Const
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_53EDF1080244_view
+
+  MEVIEW ME_53EE012C0211_view
+   MELINK Original WL 'ME_53EE012C0211' '53F1DC8F01AD.ms.model.script' ; // RecreateTreeIfNeeded
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_53EE012C0211_view
+
+  MEVIEW ME_53EE01540251_view
+   MELINK Original WL 'ME_53EE01540251' '53F1DC8F01AD.ms.model.script' ; // CreateSubTree
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_53EE01540251_view
+
+  MEVIEW ME_53EE08DF03BA_view
+   MELINK Original WL 'ME_53EE08DF03BA' '53F1DC8F01AD.ms.model.script' ; // CursorStored
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_53EE08DF03BA_view
+
+  MEVIEW ME_53EE09AA0268_view
+   MELINK Original WL 'ME_53EE09AA0268' '53F1DC8F01AD.ms.model.script' ; // EstimateTreeHeight
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_53EE09AA0268_view
+
+  MEVIEW ME_53EE09D70249_view
+   MELINK Original WL 'ME_53EE09D70249' '53F1DC8F01AD.ms.model.script' ; // EstimateTreeWidth
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_53EE09D70249_view
+
+  MEVIEW ME_53EE0A060099_view
+   MELINK Original WL 'ME_53EE0A060099' '53F1DC8F01AD.ms.model.script' ; // CalcDropDimensions
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_53EE0A060099_view
+
+  MEVIEW ME_53EE0A11020D_view
+   MELINK Original WL 'ME_53EE0A11020D' '53F1DC8F01AD.ms.model.script' ; // DropSessionSettings
+   MEPROP X 40
+   MEPROP Y 180
+  ENDMEVIEW // ME_53EE0A11020D_view
+
+  MEVIEW ME_53EE0A28005A_view
+   MELINK Original WL 'ME_53EE0A28005A' '53F1DC8F01AD.ms.model.script' ; // CalcGrowingWidth
+   MEPROP X 200
+   MEPROP Y 180
+  ENDMEVIEW // ME_53EE0A28005A_view
+
+  MEVIEW ME_53EE0A3D023F_view
+   MELINK Original WL 'ME_53EE0A3D023F' '53F1DC8F01AD.ms.model.script' ; // TreeChangedNotification
+   MEPROP X 360
+   MEPROP Y 180
+  ENDMEVIEW // ME_53EE0A3D023F_view
+
+  MEVIEW ME_53EE0A5601CD_view
+   MELINK Original WL 'ME_53EE0A5601CD' '53F1DC8F01AD.ms.model.script' ; // ActionElementHandler
+   MEPROP X 520
+   MEPROP Y 180
+  ENDMEVIEW // ME_53EE0A5601CD_view
+
+  MEVIEW ME_53EE0A730393_view
+   MELINK Original WL 'ME_53EE0A730393' '53F1DC8F01AD.ms.model.script' ; // ProcessTreeSelect
+   MEPROP X 680
+   MEPROP Y 180
+  ENDMEVIEW // ME_53EE0A730393_view
+
+  MEVIEW ME_53EE0AD700F8_view
+   MELINK Original WL 'ME_53EE0AD700F8' '53F1DC8F01AD.ms.model.script' ; // GetItemImageHandler
+   MEPROP X 840
+   MEPROP Y 180
+  ENDMEVIEW // ME_53EE0AD700F8_view
+
+  MEVIEW ME_53F1DB47024C_view
+   MELINK Original WL 'ME_53F1DB47024C' '53F1DC8F01AD.ms.model.script' ; // CustomDoEnter
+   MEPROP X 1000
+   MEPROP Y 180
+  ENDMEVIEW // ME_53F1DB47024C_view
+
+  MEVIEW ME_53F1DB6200C6_view
+   MELINK Original WL 'ME_53F1DB6200C6' '53F1DC8F01AD.ms.model.script' ; // InnerPoint
+   MEPROP X 40
+   MEPROP Y 320
+  ENDMEVIEW // ME_53F1DB6200C6_view
+
+  MEVIEW ME_53F1DB7F0036_view
+   MELINK Original WL 'ME_53F1DB7F0036' '53F1DC8F01AD.ms.model.script' ; // IsInnerControl
+   MEPROP X 200
+   MEPROP Y 320
+  ENDMEVIEW // ME_53F1DB7F0036_view
+
+  MEVIEW ME_53EE177B02C6_view
+   MELINK Original WL 'ME_53EE177B02C6' '53F1DC8F01AD.ms.model.script' ; // WMLButtonDown
+   MEPROP X 360
+   MEPROP Y 320
+  ENDMEVIEW // ME_53EE177B02C6_view
+
+  MEVIEW ME_53EE183B0353_view
+   MELINK Original WL 'ME_53EE183B0353' '53F1DC8F01AD.ms.model.script' ; // WMLButtonUp
+   MEPROP X 520
+   MEPROP Y 320
+  ENDMEVIEW // ME_53EE183B0353_view
+
+  MEVIEW ME_53EE188E031B_view
+   MELINK Original WL 'ME_53EE188E031B' '53F1DC8F01AD.ms.model.script' ; // WMKillFocus
+   MEPROP X 680
+   MEPROP Y 320
+  ENDMEVIEW // ME_53EE188E031B_view
+
+  MEVIEW ME_53EE191B004A_view
+   MELINK Original WL 'ME_53EE191B004A' '53F1DC8F01AD.ms.model.script' ; // WMSetFocus
+   MEPROP X 840
+   MEPROP Y 320
+  ENDMEVIEW // ME_53EE191B004A_view
+
+  MEVIEW ME_53EE192E02CD_view
+   MELINK Original WL 'ME_53EE192E02CD' '53F1DC8F01AD.ms.model.script' ; // CMArtfulBehaviour
+   MEPROP X 1000
+   MEPROP Y 320
+  ENDMEVIEW // ME_53EE192E02CD_view
+
+  MEVIEW ME_53EDF69F005F_view
+   MELINK Original WL 'ME_53EDF69F005F' '53F1DC8F01AD.ms.model.script' ; // f_Invert
+   MEPROP X 40
+   MEPROP Y 460
+  ENDMEVIEW // ME_53EDF69F005F_view
+
+  MEVIEW ME_53EDFD7302FC_view
+   MELINK Original WL 'ME_53EDFD7302FC' '53F1DC8F01AD.ms.model.script' ; // f_CalcDimensions
+   MEPROP X 200
+   MEPROP Y 460
+  ENDMEVIEW // ME_53EDFD7302FC_view
+
+  MEVIEW ME_53EDFE8D0107_view
+   MELINK Original WL 'ME_53EDFE8D0107' '53F1DC8F01AD.ms.model.script' ; // AdjustDropDownPos
+   MEPROP X 360
+   MEPROP Y 460
+  ENDMEVIEW // ME_53EDFE8D0107_view
+
+  MEVIEW ME_53EDFEBC01FA_view
+   MELINK Original WL 'ME_53EDFEBC01FA' '53F1DC8F01AD.ms.model.script' ; // SizeableTree
+   MEPROP X 520
+   MEPROP Y 460
+  ENDMEVIEW // ME_53EDFEBC01FA_view
+
+  MEVIEW ME_53EDFEE9025C_view
+   MELINK Original WL 'ME_53EDFEE9025C' '53F1DC8F01AD.ms.model.script' ; // ShowGripper
+   MEPROP X 680
+   MEPROP Y 460
+  ENDMEVIEW // ME_53EDFEE9025C_view
+
+  MEVIEW ME_53EDFF4400C0_view
+   MELINK Original WL 'ME_53EDFF4400C0' '53F1DC8F01AD.ms.model.script' ; // OnGetItemImage
+   MEPROP X 840
+   MEPROP Y 460
+  ENDMEVIEW // ME_53EDFF4400C0_view
+
+  MEVIEW ME_53EDFF8B003E_view
+   MELINK Original WL 'ME_53EDFF8B003E' '53F1DC8F01AD.ms.model.script' ; // MinVisibleDropCount
+   MEPROP X 1000
+   MEPROP Y 460
+  ENDMEVIEW // ME_53EDFF8B003E_view
+
+  MEVIEW ME_53EDFF9F009A_view
+   MELINK Original WL 'ME_53EDFF9F009A' '53F1DC8F01AD.ms.model.script' ; // MaxVisibleDropCount
+   MEPROP X 40
+   MEPROP Y 600
+  ENDMEVIEW // ME_53EDFF9F009A_view
+
+  MEVIEW ME_53EDFFC90290_view
+   MELINK Original WL 'ME_53EDFFC90290' '53F1DC8F01AD.ms.model.script' ; // GrowDropTreeWidthByIcons
+   MEPROP X 200
+   MEPROP Y 600
+  ENDMEVIEW // ME_53EDFFC90290_view
+
+  MEVIEW ME_53EDFFF00385_view
+   MELINK Original WL 'ME_53EDFFF00385' '53F1DC8F01AD.ms.model.script' ; // KeepLastDropWidth
+   MEPROP X 360
+   MEPROP Y 600
+  ENDMEVIEW // ME_53EDFFF00385_view
+
+  MEVIEW ME_53EE003E0191_view
+   MELINK Original WL 'ME_53EE003E0191' '53F1DC8F01AD.ms.model.script' ; // ShowRoot
+   MEPROP X 520
+   MEPROP Y 600
+  ENDMEVIEW // ME_53EE003E0191_view
+
+  MEVIEW ME_53EE005F008B_view
+   MELINK Original WL 'ME_53EE005F008B' '53F1DC8F01AD.ms.model.script' ; // ShowIcons
+   MEPROP X 680
+   MEPROP Y 600
+  ENDMEVIEW // ME_53EE005F008B_view
+
+  MEVIEW ME_53EE00D20158_view
+   MELINK Original WL 'ME_53EE00D20158' '53F1DC8F01AD.ms.model.script' ; // DropHeight
+   MEPROP X 840
+   MEPROP Y 600
+  ENDMEVIEW // ME_53EE00D20158_view
+
+  MEVIEW ME_53EE00E60260_view
+   MELINK Original WL 'ME_53EE00E60260' '53F1DC8F01AD.ms.model.script' ; // DropWidth
+   MEPROP X 1000
+   MEPROP Y 600
+  ENDMEVIEW // ME_53EE00E60260_view
+
+  MEVIEW ME_53EE01CD00F4_view
+   MELINK Original WL 'ME_53EE01CD00F4' '53F1DC8F01AD.ms.model.script' ; // TreeImages
+   MEPROP X 40
+   MEPROP Y 740
+  ENDMEVIEW // ME_53EE01CD00F4_view
+
+  MEVIEW ME_53EE02C3009D_view
+   MELINK Original WL 'ME_53EE02C3009D' '53F1DC8F01AD.ms.model.script' ; // CurrentNode
+   MEPROP X 200
+   MEPROP Y 740
+  ENDMEVIEW // ME_53EE02C3009D_view
+
+  MEVIEW ME_53EE0968005D_view
+   MELINK Original WL 'ME_53EE0968005D' '53F1DC8F01AD.ms.model.script' ; // TreeStruct
+   MEPROP X 360
+   MEPROP Y 740
+  ENDMEVIEW // ME_53EE0968005D_view
+
+  MEVIEW ME_53F1D483009C_view
+   MELINK Original WL 'ME_53F1D483009C' '53F1DC8F01AD.ms.model.script' ; // IsList
+   MEPROP X 520
+   MEPROP Y 740
+  ENDMEVIEW // ME_53F1D483009C_view
+
+  MEVIEW ME_53F2095303D0_view
+   MELINK Original WL 'ME_53F2095303D0' '53F1DC8F01AD.ms.model.script' ; // Tree
+   MEPROP X 680
+   MEPROP Y 740
+  ENDMEVIEW // ME_53F2095303D0_view
+
+  MEVIEW ME_53F32B8802D7_view
+   MELINK Original WL 'ME_53F32B8802D7' '53F1DC8F01AD.ms.model.script' ; // f_Tree
+   MEPROP X 840
+   MEPROP Y 740
+  ENDMEVIEW // ME_53F32B8802D7_view
+
+  MELIST Views
+   Seq: ( ME_53EDF1080244_view // Const
+   ME_53EE012C0211_view // RecreateTreeIfNeeded
+   ME_53EE01540251_view // CreateSubTree
+   ME_53EE08DF03BA_view // CursorStored
+   ME_53EE09AA0268_view // EstimateTreeHeight
+   ME_53EE09D70249_view // EstimateTreeWidth
+   ME_53EE0A060099_view // CalcDropDimensions
+   ME_53EE0A11020D_view // DropSessionSettings
+   ME_53EE0A28005A_view // CalcGrowingWidth
+   ME_53EE0A3D023F_view // TreeChangedNotification
+   ME_53EE0A5601CD_view // ActionElementHandler
+   ME_53EE0A730393_view // ProcessTreeSelect
+   ME_53EE0AD700F8_view // GetItemImageHandler
+   ME_53F1DB47024C_view // CustomDoEnter
+   ME_53F1DB6200C6_view // InnerPoint
+   ME_53F1DB7F0036_view // IsInnerControl
+   ME_53EE177B02C6_view // WMLButtonDown
+   ME_53EE183B0353_view // WMLButtonUp
+   ME_53EE188E031B_view // WMKillFocus
+   ME_53EE191B004A_view // WMSetFocus
+   ME_53EE192E02CD_view // CMArtfulBehaviour
+   ME_53EDF69F005F_view // f_Invert
+   ME_53EDFD7302FC_view // f_CalcDimensions
+   ME_53EDFE8D0107_view // AdjustDropDownPos
+   ME_53EDFEBC01FA_view // SizeableTree
+   ME_53EDFEE9025C_view // ShowGripper
+   ME_53EDFF4400C0_view // OnGetItemImage
+   ME_53EDFF8B003E_view // MinVisibleDropCount
+   ME_53EDFF9F009A_view // MaxVisibleDropCount
+   ME_53EDFFC90290_view // GrowDropTreeWidthByIcons
+   ME_53EDFFF00385_view // KeepLastDropWidth
+   ME_53EE003E0191_view // ShowRoot
+   ME_53EE005F008B_view // ShowIcons
+   ME_53EE00D20158_view // DropHeight
+   ME_53EE00E60260_view // DropWidth
+   ME_53EE01CD00F4_view // TreeImages
+   ME_53EE02C3009D_view // CurrentNode
+   ME_53EE0968005D_view // TreeStruct
+   ME_53F1D483009C_view // IsList
+   ME_53F2095303D0_view // Tree
+   ME_53F32B8802D7_view // f_Tree
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4831599C0300_main
+
+ MELIST Diagrams
+  Seq: ( ME_4831599C0300_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4831599C0300_diagrams

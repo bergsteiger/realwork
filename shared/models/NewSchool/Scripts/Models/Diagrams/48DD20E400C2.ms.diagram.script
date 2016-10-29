@@ -1,0 +1,69 @@
+// l3GraphicContainer 48DD20E400C2 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_48DD20E400C2_diagrams
+
+ MEDIAGRAM ME_48DD20E400C2_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_48DD20E400C2' ; // l3GraphicContainer
+
+  MEVIEW ME_48DD2129027C_view
+   MELINK Original WL 'ME_48DD2129027C' '48DD20E400C2.ms.model.script' ; // Tl3PrimGraphicContainer
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_48DD2129027C_view
+
+  MEVIEW ME_48DD21170351_view
+   MELINK Original WL 'ME_48DD21170351' '48DD20E400C2.ms.model.script' ; // Tl3SizeableGraphicContainerPrim
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_48DD21170351_view
+
+  MEVIEW ME_48DD2169025C_view
+   MELINK Original WL 'ME_48DD2169025C' '48DD20E400C2.ms.model.script' ; // Tl3SizeableGraphicContainer
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_48DD2169025C_view
+
+  MEVIEW ME_48DD2178012F_view
+   MELINK Original WL 'ME_48DD2178012F' '48DD20E400C2.ms.model.script' ; // Tl3GraphicContainer
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_48DD2178012F_view
+
+  MEVIEWLINK ME_48DD21170351_ME_48DD2129027C_Inherits
+   MELINK From ME_48DD21170351_view ;
+   MELINK To ME_48DD2129027C_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_48DD21170351_ME_48DD2129027C_Inherits
+
+  MEVIEWLINK ME_48DD2169025C_ME_48DD21170351_Inherits
+   MELINK From ME_48DD2169025C_view ;
+   MELINK To ME_48DD21170351_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_48DD2169025C_ME_48DD21170351_Inherits
+
+  MEVIEWLINK ME_48DD2178012F_ME_48DD21170351_Inherits
+   MELINK From ME_48DD2178012F_view ;
+   MELINK To ME_48DD21170351_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_48DD2178012F_ME_48DD21170351_Inherits
+
+  MELIST Views
+   Seq: ( ME_48DD2129027C_view // Tl3PrimGraphicContainer
+   ME_48DD21170351_view // Tl3SizeableGraphicContainerPrim
+   ME_48DD2169025C_view // Tl3SizeableGraphicContainer
+   ME_48DD2178012F_view // Tl3GraphicContainer
+   ME_48DD21170351_ME_48DD2129027C_Inherits // Tl3SizeableGraphicContainerPrim ==> Tl3PrimGraphicContainer
+   ME_48DD2169025C_ME_48DD21170351_Inherits // Tl3SizeableGraphicContainer ==> Tl3SizeableGraphicContainerPrim
+   ME_48DD2178012F_ME_48DD21170351_Inherits // Tl3GraphicContainer ==> Tl3SizeableGraphicContainerPrim
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_48DD20E400C2_main
+
+ MELIST Diagrams
+  Seq: ( ME_48DD20E400C2_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_48DD20E400C2_diagrams

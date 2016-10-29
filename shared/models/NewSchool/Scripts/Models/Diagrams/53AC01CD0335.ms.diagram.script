@@ -1,0 +1,48 @@
+// evdTagHolder 53AC01CD0335 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_53AC01CD0335_diagrams
+
+ MEDIAGRAM ME_53AC01CD0335_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_53AC01CD0335' ; // evdTagHolder
+
+  MEVIEW ME_53AC1EA102D7_view
+   MELINK Original WL 'ME_53AC1EA102D7' '53AC01CD0335.ms.model.script' ; // SaveToEVD
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_53AC1EA102D7_view
+
+  MEVIEW ME_53BFEC6401A9_view
+   MELINK Original WL 'ME_53BFEC6401A9' '53AC01CD0335.ms.model.script' ; // CreateTaggedDataFromEVD
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_53BFEC6401A9_view
+
+  MEVIEW ME_53BFF34F0025_view
+   MELINK Original WL 'ME_53BFF34F0025' '53AC01CD0335.ms.model.script' ; // LoadFromEVD
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_53BFF34F0025_view
+
+  MEVIEW ME_549413590379_view
+   MELINK Original WL 'ME_549413590379' '53AC01CD0335.ms.model.script' ; // NeedSendRawDataAsBinary
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_549413590379_view
+
+  MELIST Views
+   Seq: ( ME_53AC1EA102D7_view // SaveToEVD
+   ME_53BFEC6401A9_view // CreateTaggedDataFromEVD
+   ME_53BFF34F0025_view // LoadFromEVD
+   ME_549413590379_view // NeedSendRawDataAsBinary
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_53AC01CD0335_main
+
+ MELIST Diagrams
+  Seq: ( ME_53AC01CD0335_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_53AC01CD0335_diagrams

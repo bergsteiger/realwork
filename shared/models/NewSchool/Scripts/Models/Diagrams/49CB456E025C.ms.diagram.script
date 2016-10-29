@@ -1,0 +1,48 @@
+// ClassInner 49CB456E025C MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_49CB456E025C_diagrams
+
+ MEDIAGRAM ME_49CB456E025C_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_49CB456E025C' ; // ClassInner
+
+  MEVIEW ME_4AE024D60148_view
+   MELINK Original WL 'ME_4AE024D60148' '49CB456E025C.ms.model.script' ; // Constructor
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AE024D60148_view
+
+  MEVIEW ME_4AE027EC00A7_view
+   MELINK Original WL 'ME_4AE027EC00A7' '49CB456E025C.ms.model.script' ; // FactoryMixIn
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AE027EC00A7_view
+
+  MEVIEW ME_4AE0263A0260_view
+   MELINK Original WL 'ME_4AE0263A0260' '49CB456E025C.ms.model.script' ; // Factory
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AE0263A0260_view
+
+  MEVIEWLINK ME_4AE0263A0260_ME_4AE027EC00A7_Inherits
+   MELINK From ME_4AE0263A0260_view ;
+   MELINK To ME_4AE027EC00A7_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4AE0263A0260_ME_4AE027EC00A7_Inherits
+
+  MELIST Views
+   Seq: ( ME_4AE024D60148_view // Constructor
+   ME_4AE027EC00A7_view // FactoryMixIn
+   ME_4AE0263A0260_view // Factory
+   ME_4AE0263A0260_ME_4AE027EC00A7_Inherits // Factory ==> FactoryMixIn
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_49CB456E025C_main
+
+ MELIST Diagrams
+  Seq: ( ME_49CB456E025C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_49CB456E025C_diagrams

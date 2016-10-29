@@ -1,0 +1,41 @@
+// evOpProc 47F351BC0145 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_47F351BC0145_diagrams
+
+ MEDIAGRAM ME_47F351BC0145_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_47F351BC0145' ; // evOpProc
+
+  MEVIEW ME_47F351E50367_view
+   MELINK Original WL 'ME_47F351E50367' '47F351BC0145.ms.model.script' ; // TevCustomProcessor
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_47F351E50367_view
+
+  MEVIEW ME_47F3521002C7_view
+   MELINK Original WL 'ME_47F3521002C7' '47F351BC0145.ms.model.script' ; // TevCustomUndoProcessor
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_47F3521002C7_view
+
+  MEVIEWLINK ME_47F3521002C7_ME_47F351E50367_Inherits
+   MELINK From ME_47F3521002C7_view ;
+   MELINK To ME_47F351E50367_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_47F3521002C7_ME_47F351E50367_Inherits
+
+  MELIST Views
+   Seq: ( ME_47F351E50367_view // TevCustomProcessor
+   ME_47F3521002C7_view // TevCustomUndoProcessor
+   ME_47F3521002C7_ME_47F351E50367_Inherits // TevCustomUndoProcessor ==> TevCustomProcessor
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_47F351BC0145_main
+
+ MELIST Diagrams
+  Seq: ( ME_47F351BC0145_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_47F351BC0145_diagrams

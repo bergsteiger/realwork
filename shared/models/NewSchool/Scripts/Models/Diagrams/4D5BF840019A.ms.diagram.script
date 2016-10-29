@@ -1,0 +1,41 @@
+// OVP 4D5BF840019A Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4D5BF840019A_diagrams
+
+ MEDIAGRAM ME_4D5BF840019A_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4D5BF840019A' ; // OVP
+
+  MEVIEW ME_4D5BF8930032_view
+   MELINK Original WL? 'ME_4D5BF8930032' ; // Tl3ProtoObjectComparable
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D5BF8930032_view
+
+  MEVIEW ME_4D5BF8B60011_view
+   MELINK Original WL? 'ME_4D5BF8B60011' ; // Tl3ProtoObjectRefSortableList
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D5BF8B60011_view
+
+  MEVIEWLINK ME_4D5BF8DF038D_viewlink
+   MELINK Original WL 'ME_4D5BF8DF038D' '4D5BF8B60011.ms.model.script' ;
+   MELINK From ME_4D5BF8B60011_view ;
+   MELINK To ME_4D5BF8930032_view ;
+  ENDMEVIEWLINK // ME_4D5BF8DF038D_viewlink
+
+  MELIST Views
+   Seq: ( ME_4D5BF8930032_view // Tl3ProtoObjectComparable
+   ME_4D5BF8B60011_view // Tl3ProtoObjectRefSortableList
+   ME_4D5BF8DF038D_viewlink // Tl3ProtoObjectRefSortableList ==> Tl3ProtoObjectComparable
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4D5BF840019A_main
+
+ MELIST Diagrams
+  Seq: ( ME_4D5BF840019A_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4D5BF840019A_diagrams

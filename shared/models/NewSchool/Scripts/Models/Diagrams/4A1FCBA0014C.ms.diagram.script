@@ -1,0 +1,83 @@
+// nevGUIInterfaces 4A1FCBA0014C Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4A1FCBA0014C_diagrams
+
+ MEDIAGRAM ME_4A1FCBA0014C_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4A1FCBA0014C' ; // nevGUIInterfaces
+
+  MEVIEW ME_4E6E466E031D_view
+   MELINK Original WL 'ME_4E6E466E031D' '4A1FCBA0014C.ms.model.script' ; // MnevHotSpotHint
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E6E466E031D_view
+
+  MEVIEW ME_48E2620C0370_view
+   MELINK Original WL 'ME_48E2620C0370' '4A1FCBA0014C.ms.model.script' ; // InevHotSpotHint
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_48E2620C0370_view
+
+  MEVIEW ME_48E2665A0259_view
+   MELINK Original WL 'ME_48E2665A0259' '4A1FCBA0014C.ms.model.script' ; // IevHotSpot
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_48E2665A0259_view
+
+  MEVIEW ME_4A250DB2035E_view
+   MELINK Original WL 'ME_4A250DB2035E' '4A1FCBA0014C.ms.model.script' ; // InevHotSpotTester2
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A250DB2035E_view
+
+  MEVIEW ME_48E263B60071_view
+   MELINK Original WL 'ME_48E263B60071' '4A1FCBA0014C.ms.model.script' ; // IevAdvancedHotSpot
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_48E263B60071_view
+
+  MEVIEW ME_4A23CC4D02F6_view
+   MELINK Original WL 'ME_4A23CC4D02F6' '4A1FCBA0014C.ms.model.script' ; // IevHotSpotSink
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A23CC4D02F6_view
+
+  MEVIEWLINK ME_48E2620C0370_ME_4E6E466E031D_Implements
+   MELINK From ME_48E2620C0370_view ;
+   MELINK To ME_4E6E466E031D_view ;
+   MEPROP Class class_Implements
+  ENDMEVIEWLINK // ME_48E2620C0370_ME_4E6E466E031D_Implements
+
+  MEVIEWLINK ME_48E2665A0259_ME_48E2620C0370_Inherits
+   MELINK From ME_48E2665A0259_view ;
+   MELINK To ME_48E2620C0370_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_48E2665A0259_ME_48E2620C0370_Inherits
+
+  MEVIEWLINK ME_48E263B60071_ME_48E2620C0370_Inherits
+   MELINK From ME_48E263B60071_view ;
+   MELINK To ME_48E2620C0370_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_48E263B60071_ME_48E2620C0370_Inherits
+
+  MELIST Views
+   Seq: ( ME_4E6E466E031D_view // MnevHotSpotHint
+   ME_48E2620C0370_view // InevHotSpotHint
+   ME_48E2665A0259_view // IevHotSpot
+   ME_4A250DB2035E_view // InevHotSpotTester2
+   ME_48E263B60071_view // IevAdvancedHotSpot
+   ME_4A23CC4D02F6_view // IevHotSpotSink
+   ME_48E2620C0370_ME_4E6E466E031D_Implements // InevHotSpotHint ==> MnevHotSpotHint
+   ME_48E2665A0259_ME_48E2620C0370_Inherits // IevHotSpot ==> InevHotSpotHint
+   ME_48E263B60071_ME_48E2620C0370_Inherits // IevAdvancedHotSpot ==> InevHotSpotHint
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4A1FCBA0014C_main
+
+ MELIST Diagrams
+  Seq: ( ME_4A1FCBA0014C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4A1FCBA0014C_diagrams

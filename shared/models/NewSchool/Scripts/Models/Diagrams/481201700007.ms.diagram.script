@@ -1,0 +1,76 @@
+// TnevMeasureView 481201700007 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_481201700007_diagrams
+
+ MEDIAGRAM ME_481201700007_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_481201700007' ; // TnevMeasureView
+
+  MEVIEW ME_4CB5C07B03E3_view
+   MELINK Original WL 'ME_4CB5C07B03E3' '481201700007.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CB5C07B03E3_view
+
+  MEVIEW ME_4CB5C0C90376_view
+   MELINK Original WL 'ME_4CB5C0C90376' '481201700007.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CB5C0C90376_view
+
+  MEVIEW ME_481203AD0062_view
+   MELINK Original WL 'ME_481203AD0062' '481201700007.ms.model.script' ; // IsCaretInited
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_481203AD0062_view
+
+  MEVIEW ME_481203CD0044_view
+   MELINK Original WL 'ME_481203CD0044' '481201700007.ms.model.script' ; // IsCaretVisible
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_481203CD0044_view
+
+  MEVIEW ME_481203E001FE_view
+   MELINK Original WL 'ME_481203E001FE' '481201700007.ms.model.script' ; // CheckShapes
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_481203E001FE_view
+
+  MEVIEW ME_481202360261_view
+   MELINK Original WL 'ME_481202360261' '481201700007.ms.model.script' ; // f_CaretPoint
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_481202360261_view
+
+  MEVIEW ME_4812033C0383_view
+   MELINK Original WL 'ME_4812033C0383' '481201700007.ms.model.script' ; // f_Caret
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_4812033C0383_view
+
+  MEVIEWLINK ME_4CB5C0C90376_ME_4CB5C07B03E3_Inherits
+   MELINK From ME_4CB5C0C90376_view ;
+   MELINK To ME_4CB5C07B03E3_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4CB5C0C90376_ME_4CB5C07B03E3_Inherits
+
+  MELIST Views
+   Seq: ( ME_4CB5C07B03E3_view // Create
+   ME_4CB5C0C90376_view // Make
+   ME_481203AD0062_view // IsCaretInited
+   ME_481203CD0044_view // IsCaretVisible
+   ME_481203E001FE_view // CheckShapes
+   ME_481202360261_view // f_CaretPoint
+   ME_4812033C0383_view // f_Caret
+   ME_4CB5C0C90376_ME_4CB5C07B03E3_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_481201700007_main
+
+ MELIST Diagrams
+  Seq: ( ME_481201700007_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_481201700007_diagrams

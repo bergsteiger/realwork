@@ -1,0 +1,69 @@
+// nevInternalInterfaces 47F0893F0220 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_47F0893F0220_diagrams
+
+ MEDIAGRAM ME_47F0893F0220_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_47F0893F0220' ; // nevInternalInterfaces
+
+  MEVIEW ME_47F09669027A_view
+   MELINK Original WL 'ME_47F09669027A' '47F0893F0220.ms.model.script' ; // Tk2CustomReader
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_47F09669027A_view
+
+  MEVIEW ME_47F090820226_view
+   MELINK Original WL 'ME_47F090820226' '47F0893F0220.ms.model.script' ; // InevTextSourceInternal
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_47F090820226_view
+
+  MEVIEW ME_47F0916400BE_view
+   MELINK Original WL 'ME_47F0916400BE' '47F0893F0220.ms.model.script' ; // InevTextSourcePool
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_47F0916400BE_view
+
+  MEVIEW ME_47F0967A030B_view
+   MELINK Original WL 'ME_47F0967A030B' '47F0893F0220.ms.model.script' ; // Tk2TagGenerator
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_47F0967A030B_view
+
+  MEVIEW ME_47F0897B02B3_view
+   MELINK Original WL 'ME_47F0897B02B3' '47F0893F0220.ms.model.script' ; // InevDocumentContainerInternal
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_47F0897B02B3_view
+
+  MEVIEW ME_4A25415F0318_view
+   MELINK Original WL 'ME_4A25415F0318' '47F0893F0220.ms.model.script' ; // TnevFilerEvents
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A25415F0318_view
+
+  MEVIEWLINK ME_47F0916400BE_ME_47F090820226_Inherits
+   MELINK From ME_47F0916400BE_view ;
+   MELINK To ME_47F090820226_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_47F0916400BE_ME_47F090820226_Inherits
+
+  MELIST Views
+   Seq: ( ME_47F09669027A_view // Tk2CustomReader
+   ME_47F090820226_view // InevTextSourceInternal
+   ME_47F0916400BE_view // InevTextSourcePool
+   ME_47F0967A030B_view // Tk2TagGenerator
+   ME_47F0897B02B3_view // InevDocumentContainerInternal
+   ME_4A25415F0318_view // TnevFilerEvents
+   ME_47F0916400BE_ME_47F090820226_Inherits // InevTextSourcePool ==> InevTextSourceInternal
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_47F0893F0220_main
+
+ MELIST Diagrams
+  Seq: ( ME_47F0893F0220_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_47F0893F0220_diagrams

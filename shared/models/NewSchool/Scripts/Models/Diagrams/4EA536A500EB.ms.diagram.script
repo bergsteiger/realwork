@@ -1,0 +1,41 @@
+// evEvdReader 4EA536A500EB UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4EA536A500EB_diagrams
+
+ MEDIAGRAM ME_4EA536A500EB_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4EA536A500EB' ; // evEvdReader
+
+  MEVIEW ME_4EA536C0031B_view
+   MELINK Original WL 'ME_4EA536C0031B' '4EA536A500EB.ms.model.script' ; // TevCustomEvdStorageReader
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4EA536C0031B_view
+
+  MEVIEW ME_4EA536EC013F_view
+   MELINK Original WL 'ME_4EA536EC013F' '4EA536A500EB.ms.model.script' ; // TevEvdStorageReader
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4EA536EC013F_view
+
+  MEVIEWLINK ME_4EA536EC013F_ME_4EA536C0031B_Inherits
+   MELINK From ME_4EA536EC013F_view ;
+   MELINK To ME_4EA536C0031B_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4EA536EC013F_ME_4EA536C0031B_Inherits
+
+  MELIST Views
+   Seq: ( ME_4EA536C0031B_view // TevCustomEvdStorageReader
+   ME_4EA536EC013F_view // TevEvdStorageReader
+   ME_4EA536EC013F_ME_4EA536C0031B_Inherits // TevEvdStorageReader ==> TevCustomEvdStorageReader
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4EA536A500EB_main
+
+ MELIST Diagrams
+  Seq: ( ME_4EA536A500EB_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4EA536A500EB_diagrams

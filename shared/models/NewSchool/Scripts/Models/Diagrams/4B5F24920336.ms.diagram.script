@@ -1,0 +1,41 @@
+// CustomForms 4B5F24920336 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4B5F24920336_diagrams
+
+ MEDIAGRAM ME_4B5F24920336_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4B5F24920336' ; // CustomForms
+
+  MEVIEW ME_4947E2F10338_view
+   MELINK Original WL 'ME_4947E2F10338' '4B5F24920336.ms.model.script' ; // VCMCustomForm
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4947E2F10338_view
+
+  MEVIEW ME_4B5D670F0257_view
+   MELINK Original WL 'ME_4B5D670F0257' '4B5F24920336.ms.model.script' ; // VCMDataModule
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4B5D670F0257_view
+
+  MEVIEWLINK ME_4B5D670F0257_ME_4947E2F10338_Inherits
+   MELINK From ME_4B5D670F0257_view ;
+   MELINK To ME_4947E2F10338_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4B5D670F0257_ME_4947E2F10338_Inherits
+
+  MELIST Views
+   Seq: ( ME_4947E2F10338_view // VCMCustomForm
+   ME_4B5D670F0257_view // VCMDataModule
+   ME_4B5D670F0257_ME_4947E2F10338_Inherits // VCMDataModule ==> VCMCustomForm
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4B5F24920336_main
+
+ MELIST Diagrams
+  Seq: ( ME_4B5F24920336_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4B5F24920336_diagrams

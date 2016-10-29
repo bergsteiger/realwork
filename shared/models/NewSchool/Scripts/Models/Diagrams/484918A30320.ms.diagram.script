@@ -1,0 +1,55 @@
+// Data Definition 484918A30320 MDALibrary Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_484918A30320_diagrams
+
+ MEDIAGRAM ME_484918A30320_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_484918A30320' ; // Data Definition
+
+  MEVIEW ME_4849199D0140_view
+   MELINK Original WL? 'ME_4849199D0140' ; // Elements
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4849199D0140_view
+
+  MEVIEW ME_4936A16E0294_view
+   MELINK Original WL? 'ME_4936A16E0294' ; // Delphi Specific
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4936A16E0294_view
+
+  MEVIEW ME_48493B130062_view
+   MELINK Original WL? 'ME_48493B130062' ; // Implementation
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_48493B130062_view
+
+  MEVIEW ME_48491B53015C_view
+   MELINK Original WL? 'ME_48491B53015C' ; // Packages
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_48491B53015C_view
+
+  MEVIEWLINK ME_48493B130062_ME_4936A16E0294_Depends
+   MELINK From ME_48493B130062_view ;
+   MELINK To ME_4936A16E0294_view ;
+   MEPROP Class class_Depends
+  ENDMEVIEWLINK // ME_48493B130062_ME_4936A16E0294_Depends
+
+  MELIST Views
+   Seq: ( ME_4849199D0140_view // Elements
+   ME_4936A16E0294_view // Delphi Specific
+   ME_48493B130062_view // Implementation
+   ME_48491B53015C_view // Packages
+   ME_48493B130062_ME_4936A16E0294_Depends // Implementation ==> Delphi Specific
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_484918A30320_main
+
+ MELIST Diagrams
+  Seq: ( ME_484918A30320_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_484918A30320_diagrams

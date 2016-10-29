@@ -1,0 +1,55 @@
+// Contnrs 4807687301D4 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4807687301D4_diagrams
+
+ MEDIAGRAM ME_4807687301D4_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4807687301D4' ; // Contnrs
+
+  MEVIEW ME_4807688A0144_view
+   MELINK Original WL 'ME_4807688A0144' '4807687301D4.ms.model.script' ; // TObjectList
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4807688A0144_view
+
+  MEVIEW ME_502551760345_view
+   MELINK Original WL 'ME_502551760345' '4807687301D4.ms.model.script' ; // TOrderedList
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_502551760345_view
+
+  MEVIEW ME_502551840024_view
+   MELINK Original WL 'ME_502551840024' '4807687301D4.ms.model.script' ; // TStack
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_502551840024_view
+
+  MEVIEW ME_5048F91D0360_view
+   MELINK Original WL 'ME_5048F91D0360' '4807687301D4.ms.model.script' ; // TBucketList
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_5048F91D0360_view
+
+  MEVIEWLINK ME_502551840024_ME_502551760345_Inherits
+   MELINK From ME_502551840024_view ;
+   MELINK To ME_502551760345_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_502551840024_ME_502551760345_Inherits
+
+  MELIST Views
+   Seq: ( ME_4807688A0144_view // TObjectList
+   ME_502551760345_view // TOrderedList
+   ME_502551840024_view // TStack
+   ME_5048F91D0360_view // TBucketList
+   ME_502551840024_ME_502551760345_Inherits // TStack ==> TOrderedList
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4807687301D4_main
+
+ MELIST Diagrams
+  Seq: ( ME_4807687301D4_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4807687301D4_diagrams

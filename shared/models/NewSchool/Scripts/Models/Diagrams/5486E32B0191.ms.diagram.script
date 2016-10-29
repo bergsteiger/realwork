@@ -1,0 +1,69 @@
+// StorageHolder 5486E32B0191 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_5486E32B0191_diagrams
+
+ MEDIAGRAM ME_5486E32B0191_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_5486E32B0191' ; // StorageHolder
+
+  MEVIEW ME_542E5D79018F_view
+   MELINK Original WL? 'ME_542E5D79018F' ; // Tm3StorageHolder
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_542E5D79018F_view
+
+  MEVIEW ME_542E7AB80220_view
+   MELINK Original WL? 'ME_542E7AB80220' ; // Tm3StorageHolderListPrim
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_542E7AB80220_view
+
+  MEVIEW ME_542E8D2902F1_view
+   MELINK Original WL? 'ME_542E8D2902F1' ; // Tm3StorageHolderListPrim1
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_542E8D2902F1_view
+
+  MEVIEW ME_542E7AD00050_view
+   MELINK Original WL? 'ME_542E7AD00050' ; // Tm3StorageHolderList
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_542E7AD00050_view
+
+  MEVIEWLINK ME_542E7AF70226_viewlink
+   MELINK Original WL 'ME_542E7AF70226' '542E7AB80220.ms.model.script' ;
+   MELINK From ME_542E7AB80220_view ;
+   MELINK To ME_542E5D79018F_view ;
+  ENDMEVIEWLINK // ME_542E7AF70226_viewlink
+
+  MEVIEWLINK ME_542E8D2902F1_ME_542E7AB80220_Inherits
+   MELINK From ME_542E8D2902F1_view ;
+   MELINK To ME_542E7AB80220_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_542E8D2902F1_ME_542E7AB80220_Inherits
+
+  MEVIEWLINK ME_542E7AD00050_ME_542E8D2902F1_Inherits
+   MELINK From ME_542E7AD00050_view ;
+   MELINK To ME_542E8D2902F1_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_542E7AD00050_ME_542E8D2902F1_Inherits
+
+  MELIST Views
+   Seq: ( ME_542E5D79018F_view // Tm3StorageHolder
+   ME_542E7AB80220_view // Tm3StorageHolderListPrim
+   ME_542E8D2902F1_view // Tm3StorageHolderListPrim1
+   ME_542E7AD00050_view // Tm3StorageHolderList
+   ME_542E7AF70226_viewlink // Tm3StorageHolderListPrim ==> Tm3StorageHolder
+   ME_542E8D2902F1_ME_542E7AB80220_Inherits // Tm3StorageHolderListPrim1 ==> Tm3StorageHolderListPrim
+   ME_542E7AD00050_ME_542E8D2902F1_Inherits // Tm3StorageHolderList ==> Tm3StorageHolderListPrim1
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5486E32B0191_main
+
+ MELIST Diagrams
+  Seq: ( ME_5486E32B0191_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5486E32B0191_diagrams

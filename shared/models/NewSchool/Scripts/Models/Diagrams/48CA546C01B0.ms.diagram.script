@@ -1,0 +1,90 @@
+// l3FrameLine 48CA546C01B0 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_48CA546C01B0_diagrams
+
+ MEDIAGRAM ME_48CA546C01B0_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_48CA546C01B0' ; // l3FrameLine
+
+  MEVIEW ME_4BE2DE9A032D_view
+   MELINK Original WL 'ME_4BE2DE9A032D' '48CA546C01B0.ms.model.script' ; // Tl3FrameLinePrim
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4BE2DE9A032D_view
+
+  MEVIEW ME_48CA54C5025F_view
+   MELINK Original WL 'ME_48CA54C5025F' '48CA546C01B0.ms.model.script' ; // Tl3LinePart
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_48CA54C5025F_view
+
+  MEVIEW ME_48CA557F02FF_view
+   MELINK Original WL 'ME_48CA557F02FF' '48CA546C01B0.ms.model.script' ; // Tl3LineParts
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_48CA557F02FF_view
+
+  MEVIEW ME_48CA54A000F7_view
+   MELINK Original WL 'ME_48CA54A000F7' '48CA546C01B0.ms.model.script' ; // Tl3FrameLine
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_48CA54A000F7_view
+
+  MEVIEW ME_48CA59A50360_view
+   MELINK Original WL 'ME_48CA59A50360' '48CA546C01B0.ms.model.script' ; // Constants
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_48CA59A50360_view
+
+  MEVIEWLINK ME_48CA54D301C7_viewlink
+   MELINK Original WL 'ME_48CA54D301C7' '48CA546C01B0.ms.model.script' ;
+   MELINK From ME_48CA54C5025F_view ;
+   MELINK To ME_4BE2DE9A032D_view ;
+  ENDMEVIEWLINK // ME_48CA54D301C7_viewlink
+
+  MEVIEWLINK ME_48CA54EC02E1_viewlink
+   MELINK Original WL 'ME_48CA54EC02E1' '48CA546C01B0.ms.model.script' ;
+   MELINK From ME_48CA54C5025F_view ;
+   MELINK To ME_4BE2DE9A032D_view ;
+  ENDMEVIEWLINK // ME_48CA54EC02E1_viewlink
+
+  MEVIEWLINK ME_48CA558A006C_viewlink
+   MELINK Original WL 'ME_48CA558A006C' '48CA546C01B0.ms.model.script' ;
+   MELINK From ME_48CA557F02FF_view ;
+   MELINK To ME_48CA54C5025F_view ;
+  ENDMEVIEWLINK // ME_48CA558A006C_viewlink
+
+  MEVIEWLINK ME_48CA54A000F7_ME_4BE2DE9A032D_Inherits
+   MELINK From ME_48CA54A000F7_view ;
+   MELINK To ME_4BE2DE9A032D_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_48CA54A000F7_ME_4BE2DE9A032D_Inherits
+
+  MEVIEWLINK ME_48CA55B20290_viewlink
+   MELINK Original WL 'ME_48CA55B20290' '48CA546C01B0.ms.model.script' ;
+   MELINK From ME_48CA54A000F7_view ;
+   MELINK To ME_48CA557F02FF_view ;
+  ENDMEVIEWLINK // ME_48CA55B20290_viewlink
+
+  MELIST Views
+   Seq: ( ME_4BE2DE9A032D_view // Tl3FrameLinePrim
+   ME_48CA54C5025F_view // Tl3LinePart
+   ME_48CA557F02FF_view // Tl3LineParts
+   ME_48CA54A000F7_view // Tl3FrameLine
+   ME_48CA59A50360_view // Constants
+   ME_48CA54D301C7_viewlink // Tl3LinePart ==> Tl3FrameLinePrim
+   ME_48CA54EC02E1_viewlink // Tl3LinePart ==> Tl3FrameLinePrim
+   ME_48CA558A006C_viewlink // Tl3LineParts ==> Tl3LinePart
+   ME_48CA54A000F7_ME_4BE2DE9A032D_Inherits // Tl3FrameLine ==> Tl3FrameLinePrim
+   ME_48CA55B20290_viewlink // Tl3FrameLine ==> Tl3LineParts
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_48CA546C01B0_main
+
+ MELIST Diagrams
+  Seq: ( ME_48CA546C01B0_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_48CA546C01B0_diagrams

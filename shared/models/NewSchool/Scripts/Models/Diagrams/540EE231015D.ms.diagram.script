@@ -1,0 +1,41 @@
+// Logging 540EE231015D Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_540EE231015D_diagrams
+
+ MEDIAGRAM ME_540EE231015D_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_540EE231015D' ; // Logging
+
+  MEVIEW ME_540EE24702BC_view
+   MELINK Original WL? 'ME_540EE24702BC' ; // Tl3ExceptionsLog
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_540EE24702BC_view
+
+  MEVIEW ME_540EE27400BE_view
+   MELINK Original WL? 'ME_540EE27400BE' ; // Tl3ExceptionsLogEx
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_540EE27400BE_view
+
+  MEVIEWLINK ME_540EE27400BE_ME_540EE24702BC_Inherits
+   MELINK From ME_540EE27400BE_view ;
+   MELINK To ME_540EE24702BC_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_540EE27400BE_ME_540EE24702BC_Inherits
+
+  MELIST Views
+   Seq: ( ME_540EE24702BC_view // Tl3ExceptionsLog
+   ME_540EE27400BE_view // Tl3ExceptionsLogEx
+   ME_540EE27400BE_ME_540EE24702BC_Inherits // Tl3ExceptionsLogEx ==> Tl3ExceptionsLog
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_540EE231015D_main
+
+ MELIST Diagrams
+  Seq: ( ME_540EE231015D_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_540EE231015D_diagrams

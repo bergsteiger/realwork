@@ -1,0 +1,48 @@
+// tfwDictionaryListIterator 55E9AB2C03C3 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_55E9AB2C03C3_diagrams
+
+ MEDIAGRAM ME_55E9AB2C03C3_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_55E9AB2C03C3' ; // tfwDictionaryListIterator
+
+  MEVIEW ME_55E9ABC00239_view
+   MELINK Original WL 'ME_55E9ABC00239' '55E9AB2C03C3.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_55E9ABC00239_view
+
+  MEVIEW ME_55E9ABE001AD_view
+   MELINK Original WL 'ME_55E9ABE001AD' '55E9AB2C03C3.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_55E9ABE001AD_view
+
+  MEVIEW ME_55E9AB7E0109_view
+   MELINK Original WL 'ME_55E9AB7E0109' '55E9AB2C03C3.ms.model.script' ; // f_ListToIterate
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_55E9AB7E0109_view
+
+  MEVIEWLINK ME_55E9ABE001AD_ME_55E9ABC00239_Inherits
+   MELINK From ME_55E9ABE001AD_view ;
+   MELINK To ME_55E9ABC00239_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_55E9ABE001AD_ME_55E9ABC00239_Inherits
+
+  MELIST Views
+   Seq: ( ME_55E9ABC00239_view // Create
+   ME_55E9ABE001AD_view // Make
+   ME_55E9AB7E0109_view // f_ListToIterate
+   ME_55E9ABE001AD_ME_55E9ABC00239_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_55E9AB2C03C3_main
+
+ MELIST Diagrams
+  Seq: ( ME_55E9AB2C03C3_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_55E9AB2C03C3_diagrams

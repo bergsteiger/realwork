@@ -1,0 +1,69 @@
+// TtfwArrayView 52E270AE02EA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_52E270AE02EA_diagrams
+
+ MEDIAGRAM ME_52E270AE02EA_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_52E270AE02EA' ; // TtfwArrayView
+
+  MEVIEW ME_52E2710E03D9_view
+   MELINK Original WL 'ME_52E2710E03D9' '52E270AE02EA.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_52E2710E03D9_view
+
+  MEVIEW ME_52E27222008A_view
+   MELINK Original WL 'ME_52E27222008A' '52E270AE02EA.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_52E27222008A_view
+
+  MEVIEW ME_52E666F6036E_view
+   MELINK Original WL 'ME_52E666F6036E' '52E270AE02EA.ms.model.script' ; // DoForEachBack
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_52E666F6036E_view
+
+  MEVIEW ME_52E666E80335_view
+   MELINK Original WL 'ME_52E666E80335' '52E270AE02EA.ms.model.script' ; // DoForEach
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_52E666E80335_view
+
+  MEVIEW ME_55E84F5F00ED_view
+   MELINK Original WL 'ME_55E84F5F00ED' '52E270AE02EA.ms.model.script' ; // GetItemsCountInSlice
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_55E84F5F00ED_view
+
+  MEVIEW ME_52E270ED00EF_view
+   MELINK Original WL 'ME_52E270ED00EF' '52E270AE02EA.ms.model.script' ; // f_Other
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_52E270ED00EF_view
+
+  MEVIEWLINK ME_52E27222008A_ME_52E2710E03D9_Inherits
+   MELINK From ME_52E27222008A_view ;
+   MELINK To ME_52E2710E03D9_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_52E27222008A_ME_52E2710E03D9_Inherits
+
+  MELIST Views
+   Seq: ( ME_52E2710E03D9_view // Create
+   ME_52E27222008A_view // Make
+   ME_52E666F6036E_view // DoForEachBack
+   ME_52E666E80335_view // DoForEach
+   ME_55E84F5F00ED_view // GetItemsCountInSlice
+   ME_52E270ED00EF_view // f_Other
+   ME_52E27222008A_ME_52E2710E03D9_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_52E270AE02EA_main
+
+ MELIST Diagrams
+  Seq: ( ME_52E270AE02EA_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_52E270AE02EA_diagrams

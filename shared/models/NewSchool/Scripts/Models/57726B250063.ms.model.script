@@ -16,7 +16,6 @@ ME ME_4B46CD2233F1
  MEPROP Name 'aFileName'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -26,7 +25,6 @@ ME ME_4B46CD2233F2
  MEPROP Name 'anExt'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -61,7 +59,6 @@ ME ME_D417AB5C7D8D
  MEPROP Name 'aFile'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -95,7 +92,6 @@ ME ME_A87B92DCE7B7
  MEPROP Name 'aPath'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -168,6 +164,20 @@ ME ME_57A99A11029C
 
 ENDME // ME_57A99A11029C f_IncludePaths
 
+ME ME_580934FE023A
+ MEPROP UID '580934FE023A'
+ MEPROP Name 'f_FileNameToFileNameMap'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57726B250063 // TtfwParserService
+ ;
+ MELINK Target WL? 'ME_580934E0010C' // TtfwParserServiceFileNameToFileNameMap
+ ;
+
+ENDME // ME_580934FE023A f_FileNameToFileNameMap
+
 ME ME_57CD20D1028F
  MEPROP UID '57CD20D1028F'
  MEPROP Name 'LoadIncludePaths'
@@ -184,7 +194,6 @@ ENDME // ME_57CD20D1028F LoadIncludePaths
 ME ME_57726B890194
  MEPROP Name 'aFileName'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -193,7 +202,6 @@ ENDME // ME_57726B890194 aFileName
 ME ME_57726C1A0249
  MEPROP Name 'anExt'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -221,7 +229,6 @@ ENDME // ME_57726B410203 MakeCompiledCodeName
 ME ME_57A9968003C7
  MEPROP Name 'aFile'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -248,7 +255,6 @@ ENDME // ME_57A9967B0182 ResolveIncludedFilePath
 ME ME_57CD21020070
  MEPROP Name 'aPath'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -342,6 +348,7 @@ ME ME_57726B250063
  MELIST Attributes
    Seq: ( HWL ME_57726CFF02B7 // f_CoFileDir
  HWL ME_57A99A11029C // f_IncludePaths
+ HWL ME_580934FE023A // f_FileNameToFileNameMap
  )
  ; // Attributes
  MELIST Operations
@@ -369,7 +376,6 @@ ME ME_57726B250063
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "auto translate to alien" 'undefined'
  UP extprop:pas:UnitName 'tfwParserService'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ParserService'

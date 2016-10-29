@@ -1,0 +1,55 @@
+// TddAutolinkArbitraryDocEntry 51F258B701B2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_51F258B701B2_diagrams
+
+ MEDIAGRAM ME_51F258B701B2_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_51F258B701B2' ; // TddAutolinkArbitraryDocEntry
+
+  MEVIEW ME_51F269D40190_view
+   MELINK Original WL 'ME_51F269D40190' '51F258B701B2.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_51F269D40190_view
+
+  MEVIEW ME_51F25FA8022A_view
+   MELINK Original WL 'ME_51F25FA8022A' '51F258B701B2.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_51F25FA8022A_view
+
+  MEVIEW ME_51F259D2002D_view
+   MELINK Original WL 'ME_51F259D2002D' '51F258B701B2.ms.model.script' ; // f_DocID
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_51F259D2002D_view
+
+  MEVIEW ME_51F259F50197_view
+   MELINK Original WL 'ME_51F259F50197' '51F258B701B2.ms.model.script' ; // f_TypesList
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_51F259F50197_view
+
+  MEVIEWLINK ME_51F25FA8022A_ME_51F269D40190_Inherits
+   MELINK From ME_51F25FA8022A_view ;
+   MELINK To ME_51F269D40190_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_51F25FA8022A_ME_51F269D40190_Inherits
+
+  MELIST Views
+   Seq: ( ME_51F269D40190_view // Create
+   ME_51F25FA8022A_view // Make
+   ME_51F259D2002D_view // f_DocID
+   ME_51F259F50197_view // f_TypesList
+   ME_51F25FA8022A_ME_51F269D40190_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_51F258B701B2_main
+
+ MELIST Diagrams
+  Seq: ( ME_51F258B701B2_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_51F258B701B2_diagrams

@@ -1,0 +1,48 @@
+// evAutoComplete 53CD0B68029E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_53CD0B68029E_diagrams
+
+ MEDIAGRAM ME_53CD0B68029E_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_53CD0B68029E' ; // evAutoComplete
+
+  MEVIEW ME_53CD0B9F005B_view
+   MELINK Original WL 'ME_53CD0B9F005B' '53CD0B68029E.ms.model.script' ; // IevAutoComplete
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_53CD0B9F005B_view
+
+  MEVIEW ME_53CD0B8200B8_view
+   MELINK Original WL 'ME_53CD0B8200B8' '53CD0B68029E.ms.model.script' ; // TevAutoComplete
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_53CD0B8200B8_view
+
+  MEVIEW ME_53CD0BB00244_view
+   MELINK Original WL 'ME_53CD0BB00244' '53CD0B68029E.ms.model.script' ; // TevACMacro
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_53CD0BB00244_view
+
+  MEVIEWLINK ME_53CD0B8200B8_ME_53CD0B9F005B_Implements
+   MELINK From ME_53CD0B8200B8_view ;
+   MELINK To ME_53CD0B9F005B_view ;
+   MEPROP Class class_Implements
+  ENDMEVIEWLINK // ME_53CD0B8200B8_ME_53CD0B9F005B_Implements
+
+  MELIST Views
+   Seq: ( ME_53CD0B9F005B_view // IevAutoComplete
+   ME_53CD0B8200B8_view // TevAutoComplete
+   ME_53CD0BB00244_view // TevACMacro
+   ME_53CD0B8200B8_ME_53CD0B9F005B_Implements // TevAutoComplete ==> IevAutoComplete
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_53CD0B68029E_main
+
+ MELIST Diagrams
+  Seq: ( ME_53CD0B68029E_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_53CD0B68029E_diagrams

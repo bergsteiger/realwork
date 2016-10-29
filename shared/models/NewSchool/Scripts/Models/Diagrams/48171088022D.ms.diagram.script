@@ -1,0 +1,34 @@
+// nevChildSpy 48171088022D Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_48171088022D_diagrams
+
+ MEDIAGRAM ME_48171088022D_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_48171088022D' ; // nevChildSpy
+
+  MEVIEW ME_481710BB0076_view
+   MELINK Original WL 'ME_481710BB0076' '48171088022D.ms.model.script' ; // ChildAdded
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_481710BB0076_view
+
+  MEVIEW ME_481710C100FB_view
+   MELINK Original WL 'ME_481710C100FB' '48171088022D.ms.model.script' ; // ChildDeleted
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_481710C100FB_view
+
+  MELIST Views
+   Seq: ( ME_481710BB0076_view // ChildAdded
+   ME_481710C100FB_view // ChildDeleted
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_48171088022D_main
+
+ MELIST Diagrams
+  Seq: ( ME_48171088022D_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_48171088022D_diagrams

@@ -1,0 +1,90 @@
+// afwTypes 473C569D0287 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_473C569D0287_diagrams
+
+ MEDIAGRAM ME_473C569D0287_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_473C569D0287' ; // afwTypes
+
+  MEVIEW ME_473C5701008C_view
+   MELINK Original WL 'ME_473C5701008C' '473C569D0287.ms.model.script' ; // TafwPrintPage
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_473C5701008C_view
+
+  MEVIEW ME_473C571F02A2_view
+   MELINK Original WL 'ME_473C571F02A2' '473C569D0287.ms.model.script' ; // TafwPrintPagesArray
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_473C571F02A2_view
+
+  MEVIEW ME_473C573902F9_view
+   MELINK Original WL 'ME_473C573902F9' '473C569D0287.ms.model.script' ; // TafwPagesInterval
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_473C573902F9_view
+
+  MEVIEW ME_475FEDD003AD_view
+   MELINK Original WL 'ME_475FEDD003AD' '473C569D0287.ms.model.script' ; // TafwCommands
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_475FEDD003AD_view
+
+  MEVIEW ME_56D05B910044_view
+   MELINK Original WL 'ME_56D05B910044' '473C569D0287.ms.model.script' ; // TafwScrollBarType
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_56D05B910044_view
+
+  MEVIEW ME_56D05BE903C1_view
+   MELINK Original WL 'ME_56D05BE903C1' '473C569D0287.ms.model.script' ; // TafwScrollBars
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_56D05BE903C1_view
+
+  MEVIEW ME_56D05C220016_view
+   MELINK Original WL 'ME_56D05C220016' '473C569D0287.ms.model.script' ; // afw_sbBoth
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_56D05C220016_view
+
+  MEVIEWLINK ME_473C57290238_viewlink
+   MELINK Original WL 'ME_473C57290238' '473C569D0287.ms.model.script' ;
+   MELINK From ME_473C571F02A2_view ;
+   MELINK To ME_473C5701008C_view ;
+  ENDMEVIEWLINK // ME_473C57290238_viewlink
+
+  MEVIEWLINK ME_56D05BE903C1_ME_56D05B910044_Inherits
+   MELINK From ME_56D05BE903C1_view ;
+   MELINK To ME_56D05B910044_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_56D05BE903C1_ME_56D05B910044_Inherits
+
+  MEVIEWLINK ME_56D05C220016_ME_56D05BE903C1_Inherits
+   MELINK From ME_56D05C220016_view ;
+   MELINK To ME_56D05BE903C1_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_56D05C220016_ME_56D05BE903C1_Inherits
+
+  MELIST Views
+   Seq: ( ME_473C5701008C_view // TafwPrintPage
+   ME_473C571F02A2_view // TafwPrintPagesArray
+   ME_473C573902F9_view // TafwPagesInterval
+   ME_475FEDD003AD_view // TafwCommands
+   ME_56D05B910044_view // TafwScrollBarType
+   ME_56D05BE903C1_view // TafwScrollBars
+   ME_56D05C220016_view // afw_sbBoth
+   ME_473C57290238_viewlink // TafwPrintPagesArray ==> TafwPrintPage
+   ME_56D05BE903C1_ME_56D05B910044_Inherits // TafwScrollBars ==> TafwScrollBarType
+   ME_56D05C220016_ME_56D05BE903C1_Inherits // afw_sbBoth ==> TafwScrollBars
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_473C569D0287_main
+
+ MELIST Diagrams
+  Seq: ( ME_473C569D0287_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_473C569D0287_diagrams

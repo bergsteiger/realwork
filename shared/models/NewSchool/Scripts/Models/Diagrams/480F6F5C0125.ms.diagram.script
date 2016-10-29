@@ -1,0 +1,48 @@
+// l3LineArray 480F6F5C0125 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_480F6F5C0125_diagrams
+
+ MEDIAGRAM ME_480F6F5C0125_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_480F6F5C0125' ; // l3LineArray
+
+  MEVIEW ME_480F6F870304_view
+   MELINK Original WL 'ME_480F6F870304' '480F6F5C0125.ms.model.script' ; // TevLineArray
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_480F6F870304_view
+
+  MEVIEW ME_529F119D0106_view
+   MELINK Original WL 'ME_529F119D0106' '480F6F5C0125.ms.model.script' ; // TevLineInfo
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_529F119D0106_view
+
+  MEVIEW ME_529F11A502D8_view
+   MELINK Original WL 'ME_529F11A502D8' '480F6F5C0125.ms.model.script' ; // PevLineInfo
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_529F11A502D8_view
+
+  MEVIEWLINK ME_529F11A502D8_ME_529F119D0106_Inherits
+   MELINK From ME_529F11A502D8_view ;
+   MELINK To ME_529F119D0106_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_529F11A502D8_ME_529F119D0106_Inherits
+
+  MELIST Views
+   Seq: ( ME_480F6F870304_view // TevLineArray
+   ME_529F119D0106_view // TevLineInfo
+   ME_529F11A502D8_view // PevLineInfo
+   ME_529F11A502D8_ME_529F119D0106_Inherits // PevLineInfo ==> TevLineInfo
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_480F6F5C0125_main
+
+ MELIST Diagrams
+  Seq: ( ME_480F6F5C0125_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_480F6F5C0125_diagrams

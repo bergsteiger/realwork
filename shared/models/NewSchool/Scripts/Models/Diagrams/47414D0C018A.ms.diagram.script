@@ -1,0 +1,48 @@
+// TafwMeasureCanvas 47414D0C018A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_47414D0C018A_diagrams
+
+ MEDIAGRAM ME_47414D0C018A_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_47414D0C018A' ; // TafwMeasureCanvas
+
+  MEVIEW ME_4CC69AD60087_view
+   MELINK Original WL 'ME_4CC69AD60087' '47414D0C018A.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CC69AD60087_view
+
+  MEVIEW ME_4CC69AC100E1_view
+   MELINK Original WL 'ME_4CC69AC100E1' '47414D0C018A.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CC69AC100E1_view
+
+  MEVIEW ME_4CC69C3200C0_view
+   MELINK Original WL 'ME_4CC69C3200C0' '47414D0C018A.ms.model.script' ; // f_Caret
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CC69C3200C0_view
+
+  MEVIEWLINK ME_4CC69AC100E1_ME_4CC69AD60087_Inherits
+   MELINK From ME_4CC69AC100E1_view ;
+   MELINK To ME_4CC69AD60087_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4CC69AC100E1_ME_4CC69AD60087_Inherits
+
+  MELIST Views
+   Seq: ( ME_4CC69AD60087_view // Create
+   ME_4CC69AC100E1_view // Make
+   ME_4CC69C3200C0_view // f_Caret
+   ME_4CC69AC100E1_ME_4CC69AD60087_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_47414D0C018A_main
+
+ MELIST Diagrams
+  Seq: ( ME_47414D0C018A_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_47414D0C018A_diagrams

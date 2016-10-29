@@ -1,0 +1,55 @@
+// nevRealTools 49D2080D020C Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_49D2080D020C_diagrams
+
+ MEDIAGRAM ME_49D2080D020C_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_49D2080D020C' ; // nevRealTools
+
+  MEVIEW ME_49D20910019D_view
+   MELINK Original WL 'ME_49D20910019D' '49D2080D020C.ms.model.script' ; // InevBaseTool
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_49D20910019D_view
+
+  MEVIEW ME_47C697030322_view
+   MELINK Original WL 'ME_47C697030322' '49D2080D020C.ms.model.script' ; // InevDrawingShape
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_47C697030322_view
+
+  MEVIEW ME_47C7DC2801FB_view
+   MELINK Original WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' ; // IevPainter
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_47C7DC2801FB_view
+
+  MEVIEWLINK ME_47C7DC2801FB_ME_47C697030322_Inherits
+   MELINK From ME_47C7DC2801FB_view ;
+   MELINK To ME_47C697030322_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_47C7DC2801FB_ME_47C697030322_Inherits
+
+  MEVIEWLINK ME_47C7DCB10302_viewlink
+   MELINK Original WL 'ME_47C7DCB10302' '49D2080D020C.ms.model.script' ;
+   MELINK From ME_47C7DC2801FB_view ;
+   MELINK To ME_47C7DC2801FB_view ;
+  ENDMEVIEWLINK // ME_47C7DCB10302_viewlink
+
+  MELIST Views
+   Seq: ( ME_49D20910019D_view // InevBaseTool
+   ME_47C697030322_view // InevDrawingShape
+   ME_47C7DC2801FB_view // IevPainter
+   ME_47C7DC2801FB_ME_47C697030322_Inherits // IevPainter ==> InevDrawingShape
+   ME_47C7DCB10302_viewlink // IevPainter ==> IevPainter
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_49D2080D020C_main
+
+ MELIST Diagrams
+  Seq: ( ME_49D2080D020C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_49D2080D020C_diagrams

@@ -34,7 +34,6 @@ FORWARD ME_52CFAAB60179
 ME ME_52CFAAC803E1
  MEPROP Name 'Size'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
  ;
 
@@ -89,7 +88,6 @@ ENDME // ME_52CFAB070363 aDescription
 ME ME_52CFAB070373
  MEPROP Name 'aCategory'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  MEPROP Value 0
@@ -140,7 +138,6 @@ FORWARD ME_52CFAB1F00E6
 ME ME_52CFAB37031F
  MEPROP Name 'TopicNo'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
  ;
 
@@ -149,7 +146,6 @@ ENDME // ME_52CFAB37031F TopicNo
 ME ME_52CFAB37032F
  MEPROP Name 'Comment'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
  ;
 
@@ -1533,7 +1529,6 @@ ME ME_54351392038F
    Seq: ( HWL ME_543513A101B8 // DoIt
  )
  ; // Operations
- UP "of object" False
 
 ENDME // ME_54351392038F TGetLoginPasswordProc
 
@@ -1736,9 +1731,6 @@ ME ME_51DD5C7C00E6
  MELINK Parent HWL ME_51DD5C720260 // Common
  ;
  MEPROP Value 'High(Integer)'
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 'High(Integer)'
 
 ENDME // ME_51DD5C7C00E6 propUndefined
@@ -1753,9 +1745,6 @@ ME ME_53A41C9102C1
  MELINK Parent HWL ME_51DD5C720260 // Common
  ;
  MEPROP Value 108
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 108
 
 ENDME // ME_53A41C9102C1 ddDefaultPad
@@ -1770,9 +1759,6 @@ ME ME_53A41CDD0310
  MELINK Parent HWL ME_51DD5C720260 // Common
  ;
  MEPROP Value '2 * ddDefaultPad'
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '2 * ddDefaultPad'
 
 ENDME // ME_53A41CDD0310 ddDefaultCellWidth
@@ -1780,7 +1766,7 @@ ENDME // ME_53A41CDD0310 ddDefaultCellWidth
 ME ME_51DD5C720260
  MEPROP UID '51DD5C720260'
  MEPROP Name 'Common'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1793,7 +1779,6 @@ ME ME_51DD5C720260
  HWL ME_53A41CDD0310 // ddDefaultCellWidth
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_51DD5C720260 Common
 
@@ -1845,7 +1830,6 @@ ME ME_52CFA9D5031E
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "is namespace" True
  UP intf.pas:Path 'common\components\rtl\Garant\dd\ddTypes.pas'
 
 ENDME // ME_52CFA9D5031E ddTypes

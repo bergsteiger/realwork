@@ -1,0 +1,48 @@
+// Interceptors 47134993036B MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_47134993036B_diagrams
+
+ MEDIAGRAM ME_47134993036B_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_47134993036B' ; // Interceptors
+
+  MEVIEW ME_471349EE01E4_view
+   MELINK Original WL 'ME_471349EE01E4' '47134993036B.ms.model.script' ; // ClientInterceptor
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_471349EE01E4_view
+
+  MEVIEW ME_47134AE700FA_view
+   MELINK Original WL 'ME_47134AE700FA' '47134993036B.ms.model.script' ; // ServerInterceptor
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_47134AE700FA_view
+
+  MEVIEW ME_47134AFB01E4_view
+   MELINK Original WL 'ME_47134AFB01E4' '47134993036B.ms.model.script' ; // CurrentSlot
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_47134AFB01E4_view
+
+  MEVIEWLINK ME_47134AE700FA_ME_471349EE01E4_Inherits
+   MELINK From ME_47134AE700FA_view ;
+   MELINK To ME_471349EE01E4_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_47134AE700FA_ME_471349EE01E4_Inherits
+
+  MELIST Views
+   Seq: ( ME_471349EE01E4_view // ClientInterceptor
+   ME_47134AE700FA_view // ServerInterceptor
+   ME_47134AFB01E4_view // CurrentSlot
+   ME_47134AE700FA_ME_471349EE01E4_Inherits // ServerInterceptor ==> ClientInterceptor
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_47134993036B_main
+
+ MELIST Diagrams
+  Seq: ( ME_47134993036B_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_47134993036B_diagrams

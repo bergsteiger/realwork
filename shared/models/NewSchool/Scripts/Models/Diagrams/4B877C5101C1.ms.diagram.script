@@ -1,0 +1,48 @@
+// TevCustomEditorModelPart 4B877C5101C1 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4B877C5101C1_diagrams
+
+ MEDIAGRAM ME_4B877C5101C1_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4B877C5101C1' ; // TevCustomEditorModelPart
+
+  MEVIEW ME_4B877F3C0242_view
+   MELINK Original WL 'ME_4B877F3C0242' '4B877C5101C1.ms.model.script' ; // TevAllowParaType
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4B877F3C0242_view
+
+  MEVIEW ME_4B8787B400F8_view
+   MELINK Original WL 'ME_4B8787B400F8' '4B877C5101C1.ms.model.script' ; // TevAllowParaTypes
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4B8787B400F8_view
+
+  MEVIEW ME_4B877E7B0330_view
+   MELINK Original WL 'ME_4B877E7B0330' '4B877C5101C1.ms.model.script' ; // AllowParaType
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4B877E7B0330_view
+
+  MEVIEWLINK ME_4B8787B400F8_ME_4B877F3C0242_Inherits
+   MELINK From ME_4B8787B400F8_view ;
+   MELINK To ME_4B877F3C0242_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4B8787B400F8_ME_4B877F3C0242_Inherits
+
+  MELIST Views
+   Seq: ( ME_4B877F3C0242_view // TevAllowParaType
+   ME_4B8787B400F8_view // TevAllowParaTypes
+   ME_4B877E7B0330_view // AllowParaType
+   ME_4B8787B400F8_ME_4B877F3C0242_Inherits // TevAllowParaTypes ==> TevAllowParaType
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4B877C5101C1_main
+
+ MELIST Diagrams
+  Seq: ( ME_4B877C5101C1_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4B877C5101C1_diagrams

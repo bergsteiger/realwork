@@ -1,0 +1,41 @@
+// Печать и экспорт 5214960C034B UseCaseSetting Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_5214960C034B_diagrams
+
+ MEDIAGRAM ME_5214960C034B_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_5214960C034B' '4E3160C802DA.ms.model.script' ; // Печать и экспорт
+
+  MEVIEW ME_521496790363_view
+   MELINK Original WL 'ME_521496790363' '4E3160C802DA.ms.model.script' ; // Использовать для экспорта и печати размер шрифта, отображаемого на экране
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_521496790363_view
+
+  MEVIEW ME_5214969A004C_view
+   MELINK Original WL 'ME_5214969A004C' '4E3160C802DA.ms.model.script' ; // Использовать для экспорта и печати следующий размер шрифта
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5214969A004C_view
+
+  MEVIEWLINK ME_5214969A004C_ME_521496790363_Inherits
+   MELINK From ME_5214969A004C_view ;
+   MELINK To ME_521496790363_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5214969A004C_ME_521496790363_Inherits
+
+  MELIST Views
+   Seq: ( ME_521496790363_view // Использовать для экспорта и печати размер шрифта, отображаемого на экране
+   ME_5214969A004C_view // Использовать для экспорта и печати следующий размер шрифта
+   ME_5214969A004C_ME_521496790363_Inherits // Использовать для экспорта и печати следующий размер шрифта ==> Использовать для экспорта и печати размер шрифта, отображаемого на экране
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5214960C034B_main
+
+ MELIST Diagrams
+  Seq: ( ME_5214960C034B_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5214960C034B_diagrams

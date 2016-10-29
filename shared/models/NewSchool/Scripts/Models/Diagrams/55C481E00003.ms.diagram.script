@@ -1,0 +1,97 @@
+// ScriptCallers 55C481E00003 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_55C481E00003_diagrams
+
+ MEDIAGRAM ME_55C481E00003_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_55C481E00003' ; // ScriptCallers
+
+  MEVIEW ME_55C482690029_view
+   MELINK Original WL? 'ME_55C482690029' ; // TtfwDefaultScriptCaller
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_55C482690029_view
+
+  MEVIEW ME_55C48FCE03AB_view
+   MELINK Original WL? 'ME_55C48FCE03AB' ; // TtfwConsoleScriptCaller
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_55C48FCE03AB_view
+
+  MEVIEW ME_55D345A40226_view
+   MELINK Original WL? 'ME_55D345A40226' ; // TtfwHyperlinkScriptCaller
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_55D345A40226_view
+
+  MEVIEW ME_55D34A7E0127_view
+   MELINK Original WL? 'ME_55D34A7E0127' ; // TtfwArchiHyperlinkScriptCaller
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_55D34A7E0127_view
+
+  MEVIEW ME_55D34A9B0067_view
+   MELINK Original WL? 'ME_55D34A9B0067' ; // TtfwF1HyperlinkScriptCaller
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_55D34A9B0067_view
+
+  MEVIEW ME_56456E3E01E4_view
+   MELINK Original WL? 'ME_56456E3E01E4' ; // TtfwOutToFileScriptCaller
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_56456E3E01E4_view
+
+  MEVIEWLINK ME_55C48FCE03AB_ME_55C482690029_Inherits
+   MELINK From ME_55C48FCE03AB_view ;
+   MELINK To ME_55C482690029_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_55C48FCE03AB_ME_55C482690029_Inherits
+
+  MEVIEWLINK ME_55D345A40226_ME_55C482690029_Inherits
+   MELINK From ME_55D345A40226_view ;
+   MELINK To ME_55C482690029_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_55D345A40226_ME_55C482690029_Inherits
+
+  MEVIEWLINK ME_55D34A7E0127_ME_55D345A40226_Inherits
+   MELINK From ME_55D34A7E0127_view ;
+   MELINK To ME_55D345A40226_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_55D34A7E0127_ME_55D345A40226_Inherits
+
+  MEVIEWLINK ME_55D34A9B0067_ME_55D345A40226_Inherits
+   MELINK From ME_55D34A9B0067_view ;
+   MELINK To ME_55D345A40226_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_55D34A9B0067_ME_55D345A40226_Inherits
+
+  MEVIEWLINK ME_56456E3E01E4_ME_55C48FCE03AB_Inherits
+   MELINK From ME_56456E3E01E4_view ;
+   MELINK To ME_55C48FCE03AB_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_56456E3E01E4_ME_55C48FCE03AB_Inherits
+
+  MELIST Views
+   Seq: ( ME_55C482690029_view // TtfwDefaultScriptCaller
+   ME_55C48FCE03AB_view // TtfwConsoleScriptCaller
+   ME_55D345A40226_view // TtfwHyperlinkScriptCaller
+   ME_55D34A7E0127_view // TtfwArchiHyperlinkScriptCaller
+   ME_55D34A9B0067_view // TtfwF1HyperlinkScriptCaller
+   ME_56456E3E01E4_view // TtfwOutToFileScriptCaller
+   ME_55C48FCE03AB_ME_55C482690029_Inherits // TtfwConsoleScriptCaller ==> TtfwDefaultScriptCaller
+   ME_55D345A40226_ME_55C482690029_Inherits // TtfwHyperlinkScriptCaller ==> TtfwDefaultScriptCaller
+   ME_55D34A7E0127_ME_55D345A40226_Inherits // TtfwArchiHyperlinkScriptCaller ==> TtfwHyperlinkScriptCaller
+   ME_55D34A9B0067_ME_55D345A40226_Inherits // TtfwF1HyperlinkScriptCaller ==> TtfwHyperlinkScriptCaller
+   ME_56456E3E01E4_ME_55C48FCE03AB_Inherits // TtfwOutToFileScriptCaller ==> TtfwConsoleScriptCaller
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_55C481E00003_main
+
+ MELIST Diagrams
+  Seq: ( ME_55C481E00003_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_55C481E00003_diagrams

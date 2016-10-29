@@ -1,0 +1,41 @@
+// ChromeLikeFormFrameDecorator 54211E53007C Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_54211E53007C_diagrams
+
+ MEDIAGRAM ME_54211E53007C_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_54211E53007C' ; // ChromeLikeFormFrameDecorator
+
+  MEVIEW ME_54211E830399_view
+   MELINK Original WL? 'ME_54211E830399' ; // TFormFrameDecorator
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_54211E830399_view
+
+  MEVIEW ME_54211E9E038E_view
+   MELINK Original WL? 'ME_54211E9E038E' ; // TChromeLikeFormFramePainter
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_54211E9E038E_view
+
+  MEVIEWLINK ME_545B65B10112_viewlink
+   MELINK Original WL 'ME_545B65B10112' '54211E830399.ms.model.script' ;
+   MELINK From ME_54211E830399_view ;
+   MELINK To ME_54211E9E038E_view ;
+  ENDMEVIEWLINK // ME_545B65B10112_viewlink
+
+  MELIST Views
+   Seq: ( ME_54211E830399_view // TFormFrameDecorator
+   ME_54211E9E038E_view // TChromeLikeFormFramePainter
+   ME_545B65B10112_viewlink // TFormFrameDecorator ==> TChromeLikeFormFramePainter
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_54211E53007C_main
+
+ MELIST Diagrams
+  Seq: ( ME_54211E53007C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_54211E53007C_diagrams

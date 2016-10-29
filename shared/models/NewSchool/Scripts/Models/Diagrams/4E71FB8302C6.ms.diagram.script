@@ -1,0 +1,48 @@
+// nevStringCache 4E71FB8302C6 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4E71FB8302C6_diagrams
+
+ MEDIAGRAM ME_4E71FB8302C6_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4E71FB8302C6' ; // nevStringCache
+
+  MEVIEW ME_4E568ED60085_view
+   MELINK Original WL 'ME_4E568ED60085' '4E71FB8302C6.ms.model.script' ; // TevParaStringsRange
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E568ED60085_view
+
+  MEVIEW ME_4E568EE902FB_view
+   MELINK Original WL 'ME_4E568EE902FB' '4E71FB8302C6.ms.model.script' ; // TevParaStrings
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E568EE902FB_view
+
+  MEVIEW ME_4E71FBBC035A_view
+   MELINK Original WL 'ME_4E71FBBC035A' '4E71FB8302C6.ms.model.script' ; // f_S
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E71FBBC035A_view
+
+  MEVIEWLINK ME_4E568EE902FB_ME_4E568ED60085_Inherits
+   MELINK From ME_4E568EE902FB_view ;
+   MELINK To ME_4E568ED60085_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4E568EE902FB_ME_4E568ED60085_Inherits
+
+  MELIST Views
+   Seq: ( ME_4E568ED60085_view // TevParaStringsRange
+   ME_4E568EE902FB_view // TevParaStrings
+   ME_4E71FBBC035A_view // f_S
+   ME_4E568EE902FB_ME_4E568ED60085_Inherits // TevParaStrings ==> TevParaStringsRange
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E71FB8302C6_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E71FB8302C6_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E71FB8302C6_diagrams

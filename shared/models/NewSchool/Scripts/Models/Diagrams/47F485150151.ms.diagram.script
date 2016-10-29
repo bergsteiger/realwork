@@ -1,0 +1,76 @@
+// vtCommon 47F485150151 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_47F485150151_diagrams
+
+ MEDIAGRAM ME_47F485150151_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_47F485150151' ; // vtCommon
+
+  MEVIEW ME_47F4853203E7_view
+   MELINK Original WL? 'ME_47F4853203E7' ; // vtUtils
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_47F4853203E7_view
+
+  MEVIEW ME_4AC0B2A102BE_view
+   MELINK Original WL? 'ME_4AC0B2A102BE' ; // vtCtrls
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AC0B2A102BE_view
+
+  MEVIEW ME_578F5E1601B5_view
+   MELINK Original WL? 'ME_578F5E1601B5' ; // vtDragDataTypes
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_578F5E1601B5_view
+
+  MEVIEW ME_4F0C23870303_view
+   MELINK Original WL? 'ME_4F0C23870303' ; // vtForm
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F0C23870303_view
+
+  MEVIEW ME_577629E002C1_view
+   MELINK Original WL? 'ME_577629E002C1' ; // vtClipSpy
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_577629E002C1_view
+
+  MEVIEW ME_5776300D0270_view
+   MELINK Original WL? 'ME_5776300D0270' ; // TvtClipSpyService
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_5776300D0270_view
+
+  MEVIEW ME_4F0C0B6801C7_view
+   MELINK Original WL? 'ME_4F0C0B6801C7' ; // DragData
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F0C0B6801C7_view
+
+  MEVIEWLINK ME_578F5E1F0381_viewlink
+   MELINK Original WL 'ME_578F5E1F0381' '4F0C0B6801C7.ms.model.script' ;
+   MELINK From ME_4F0C0B6801C7_view ;
+   MELINK To ME_578F5E1601B5_view ;
+  ENDMEVIEWLINK // ME_578F5E1F0381_viewlink
+
+  MELIST Views
+   Seq: ( ME_47F4853203E7_view // vtUtils
+   ME_4AC0B2A102BE_view // vtCtrls
+   ME_578F5E1601B5_view // vtDragDataTypes
+   ME_4F0C23870303_view // vtForm
+   ME_577629E002C1_view // vtClipSpy
+   ME_5776300D0270_view // TvtClipSpyService
+   ME_4F0C0B6801C7_view // DragData
+   ME_578F5E1F0381_viewlink // DragData ==> vtDragDataTypes
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_47F485150151_main
+
+ MELIST Diagrams
+  Seq: ( ME_47F485150151_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_47F485150151_diagrams

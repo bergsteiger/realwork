@@ -1,0 +1,55 @@
+// Factories 4A9515FD0390 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4A9515FD0390_diagrams
+
+ MEDIAGRAM ME_4A9515FD0390_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4A9515FD0390' ; // Factories
+
+  MEVIEW ME_4A73234800B8_view
+   MELINK Original WL 'ME_4A73234800B8' '4A9515FD0390.ms.model.script' ; // FormSetFactory
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A73234800B8_view
+
+  MEVIEW ME_4A816E04018E_view
+   MELINK Original WL 'ME_4A816E04018E' '4A9515FD0390.ms.model.script' ; // FormFactory
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A816E04018E_view
+
+  MEVIEW ME_4A8288FF021A_view
+   MELINK Original WL 'ME_4A8288FF021A' '4A9515FD0390.ms.model.script' ; // FactoryMethod
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A8288FF021A_view
+
+  MEVIEWLINK ME_4A816E04018E_ME_4A73234800B8_Inherits
+   MELINK From ME_4A816E04018E_view ;
+   MELINK To ME_4A73234800B8_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4A816E04018E_ME_4A73234800B8_Inherits
+
+  MEVIEWLINK ME_4A8288FF021A_ME_4A73234800B8_Inherits
+   MELINK From ME_4A8288FF021A_view ;
+   MELINK To ME_4A73234800B8_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4A8288FF021A_ME_4A73234800B8_Inherits
+
+  MELIST Views
+   Seq: ( ME_4A73234800B8_view // FormSetFactory
+   ME_4A816E04018E_view // FormFactory
+   ME_4A8288FF021A_view // FactoryMethod
+   ME_4A816E04018E_ME_4A73234800B8_Inherits // FormFactory ==> FormSetFactory
+   ME_4A8288FF021A_ME_4A73234800B8_Inherits // FactoryMethod ==> FormSetFactory
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4A9515FD0390_main
+
+ MELIST Diagrams
+  Seq: ( ME_4A9515FD0390_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4A9515FD0390_diagrams

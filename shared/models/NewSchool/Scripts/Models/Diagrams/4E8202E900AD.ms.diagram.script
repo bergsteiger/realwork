@@ -1,0 +1,48 @@
+// Карточка запроса на основе EVD 4E8202E900AD UseCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4E8202E900AD_diagrams
+
+ MEDIAGRAM ME_4E8202E900AD_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4E8202E900AD' '4E5CF70B01E2.ms.model.script' ; // Карточка запроса на основе EVD
+
+  MEVIEW ME_4E82032103C9_view
+   MELINK Original WL 'ME_4E82032103C9' '4E5CF70B01E2.ms.model.script' ; // Карточки запроса должны уметь заполняться из скриптов
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E82032103C9_view
+
+  MEVIEW ME_4E85C86300AC_view
+   MELINK Original WL 'ME_4E85C86300AC' '4E5CF70B01E2.ms.model.script' ; // Если не задан тег ShortName то не надо рисовать заголовок группы контролов
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E85C86300AC_view
+
+  MEVIEW ME_4F69A954039F_view
+   MELINK Original WL 'ME_4F69A954039F' '4E5CF70B01E2.ms.model.script' ; // Карточки запроса должны уметь сворачивать и разворачивать группы атрибутов из скриптов
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F69A954039F_view
+
+  MEVIEW ME_4F69A97D02E2_view
+   MELINK Original WL 'ME_4F69A97D02E2' '4E5CF70B01E2.ms.model.script' ; // Карточки запросов должны уметь устанавливать фокус в требуемый атрибут из скриптов
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F69A97D02E2_view
+
+  MELIST Views
+   Seq: ( ME_4E82032103C9_view // Карточки запроса должны уметь заполняться из скриптов
+   ME_4E85C86300AC_view // Если не задан тег ShortName то не надо рисовать заголовок группы контролов
+   ME_4F69A954039F_view // Карточки запроса должны уметь сворачивать и разворачивать группы атрибутов из скриптов
+   ME_4F69A97D02E2_view // Карточки запросов должны уметь устанавливать фокус в требуемый атрибут из скриптов
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E8202E900AD_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E8202E900AD_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E8202E900AD_diagrams

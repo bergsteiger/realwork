@@ -76,7 +76,6 @@ FORWARD ME_560909B8036A
 ME ME_560909C801B5
  MEPROP Name 'aKey'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_560908600026 // KeyType
  ;
 
@@ -85,7 +84,6 @@ ENDME // ME_560909C801B5 aKey
 ME ME_560909C801D4
  MEPROP Name 'aValue'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_560908710273 // ValueType
  ;
 
@@ -131,7 +129,6 @@ FORWARD ME_560909E00255
 ME ME_560909E40035
  MEPROP Name 'aKey'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_560908600026 // KeyType
  ;
 
@@ -275,7 +272,6 @@ FORWARD ME_560909F900E9
 ME ME_56090A030168
  MEPROP Name 'aKey'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_560908600026 // KeyType
  ;
 
@@ -322,7 +318,6 @@ FORWARD ME_56090A23002E
 ME ME_56090A2701A3
  MEPROP Name 'aKey'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_560908600026 // KeyType
  ;
 
@@ -331,7 +326,6 @@ ENDME // ME_56090A2701A3 aKey
 ME ME_56090A2701EA
  MEPROP Name 'aValue'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_560908710273 // ValueType
  ;
 
@@ -377,7 +371,6 @@ FORWARD ME_5609149203A8
 ME ME_5609149B024A
  MEPROP Name 'aKey'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_560908600026 // KeyType
  ;
 
@@ -424,7 +417,6 @@ FORWARD ME_560914AE0062
 ME ME_560914B3011B
  MEPROP Name 'aKey'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_560908600026 // KeyType
  ;
 
@@ -471,7 +463,6 @@ FORWARD ME_56092E150146
 ME ME_56092E1B00FE
  MEPROP Name 'aKey'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_560908600026 // KeyType
  ;
 
@@ -511,12 +502,103 @@ ME ME_56092E020346
 
 ENDME // ME_56092E020346 IndexByKey
 
+FORWARD ME_5809431802DB
+
+FORWARD ME_58094333003A
+
+ME ME_5809434A0208
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5809434A0208 anIndex
+
+ME ME_58094333003A
+ MEPROP UID '58094333003A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5809431802DB // ValueByIndex
+ ;
+ MELINK Target HWL ME_560908710273 // ValueType
+ ;
+ MELIST Parameters
+   Seq: ( ME_5809434A0208 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_58094333003A DoIt
+
+ME ME_5809431802DB
+ MEPROP UID '5809431802DB'
+ MEPROP Name 'ValueByIndex'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_560907E00134 // l3MapPrimPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_58094333003A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5809431802DB ValueByIndex
+
+FORWARD ME_580943610083
+
+FORWARD ME_580943750105
+
+ME ME_5809438303B7
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5809438303B7 anIndex
+
+ME ME_580943750105
+ MEPROP UID '580943750105'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_580943610083 // KeyByIndex
+ ;
+ MELINK Target HWL ME_560908600026 // KeyType
+ ;
+ MELIST Parameters
+   Seq: ( ME_5809438303B7 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_580943750105 DoIt
+
+ME ME_580943610083
+ MEPROP UID '580943610083'
+ MEPROP Name 'KeyByIndex'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_560907E00134 // l3MapPrimPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_580943750105 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_580943610083 KeyByIndex
+
 FORWARD ME_5609091B00C0
 
 ME ME_5609094701B6
  MEPROP Name 'aA'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_560908600026 // KeyType
  ;
 
@@ -525,7 +607,6 @@ ENDME // ME_5609094701B6 aA
 ME ME_5609094701EF
  MEPROP Name 'aB'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_560908600026 // KeyType
  ;
 
@@ -612,6 +693,8 @@ ME ME_560907E00134
  HWL ME_560914720336 // ValueByKey
  HWL ME_560914A20271 // ValueSlotByKey
  HWL ME_56092E020346 // IndexByKey
+ HWL ME_5809431802DB // ValueByIndex
+ HWL ME_580943610083 // KeyByIndex
  HWL ME_5609091B00C0 // CompareKeys
  )
  ; // Operations

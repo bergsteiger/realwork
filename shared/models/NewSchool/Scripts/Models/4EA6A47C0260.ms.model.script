@@ -32,20 +32,6 @@ ME ME_4EA6A68F03BA
 
 ENDME // ME_4EA6A68F03BA f_FoundBlock
 
-ME ME_4EA6AF9E00CD
- MEPROP UID '4EA6AF9E00CD'
- MEPROP Name 'f_Point'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4EA6A47C0260 // TevSearchWaiter
- ;
- MELINK Target WL 'ME_47C7DE560312' '47C5207602D1.ms.model.script' // IevDocumentPoint
- ;
-
-ENDME // ME_4EA6AF9E00CD f_Point
-
 ME ME_4EA6B01D02A6
  MEPROP UID '4EA6B01D02A6'
  MEPROP Name 'f_WasFound'
@@ -59,6 +45,20 @@ ME ME_4EA6B01D02A6
  ;
 
 ENDME // ME_4EA6B01D02A6 f_WasFound
+
+ME ME_58086ACF01ED
+ MEPROP UID '58086ACF01ED'
+ MEPROP Name 'f_ChildPara'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EA6A47C0260 // TevSearchWaiter
+ ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_58086ACF01ED f_ChildPara
 
 FORWARD ME_4EA6A573010B
 
@@ -299,8 +299,8 @@ ME ME_4EA6A47C0260
  MELIST Attributes
    Seq: ( HWL ME_4EA6A653025B // f_Searcher
  HWL ME_4EA6A68F03BA // f_FoundBlock
- HWL ME_4EA6AF9E00CD // f_Point
  HWL ME_4EA6B01D02A6 // f_WasFound
+ HWL ME_58086ACF01ED // f_ChildPara
  )
  ; // Attributes
  MELIST Operations

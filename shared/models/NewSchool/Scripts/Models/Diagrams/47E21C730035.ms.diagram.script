@@ -1,0 +1,48 @@
+// l3VCLExtensions 47E21C730035 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_47E21C730035_diagrams
+
+ MEDIAGRAM ME_47E21C730035_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_47E21C730035' ; // l3VCLExtensions
+
+  MEVIEW ME_47E21D07033A_view
+   MELINK Original WL? 'ME_47E21D07033A' ; // Tl3CastableStrings
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_47E21D07033A_view
+
+  MEVIEW ME_47E21D500381_view
+   MELINK Original WL? 'ME_47E21D500381' ; // Tl3VCLStringsItems
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_47E21D500381_view
+
+  MEVIEW ME_48721EA10381_view
+   MELINK Original WL? 'ME_48721EA10381' ; // l3VCLStrings
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_48721EA10381_view
+
+  MEVIEWLINK ME_47E21D500381_ME_47E21D07033A_Inherits
+   MELINK From ME_47E21D500381_view ;
+   MELINK To ME_47E21D07033A_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_47E21D500381_ME_47E21D07033A_Inherits
+
+  MELIST Views
+   Seq: ( ME_47E21D07033A_view // Tl3CastableStrings
+   ME_47E21D500381_view // Tl3VCLStringsItems
+   ME_48721EA10381_view // l3VCLStrings
+   ME_47E21D500381_ME_47E21D07033A_Inherits // Tl3VCLStringsItems ==> Tl3CastableStrings
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_47E21C730035_main
+
+ MELIST Diagrams
+  Seq: ( ME_47E21C730035_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_47E21C730035_diagrams
