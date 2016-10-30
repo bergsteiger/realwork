@@ -1,0 +1,25 @@
+//#UC START# *4AC2000A021C_ext:ParentFileName
+w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atGblAdapterWorker.pas
+//#UC END# *4AC2000A021C_ext:ParentFileName
+//#UC START# *4AC20023031C_4AC2000A021C_impl*
+  inherited Create;
+  //
+  F_LongOperationStart    := RegisterNotifier(NT_LONG_OPERATION_START);
+  F_LongOperationEnd      := RegisterNotifier(NT_LONG_OPERATION_END);
+  F_PredefinedDataLogout  := RegisterNotifier(NT_MONITORING_UPDATE);
+  F_Shutdown              := RegisterNotifier(NT_SHUTDOWN);
+  F_Logout                := RegisterNotifier(NT_LOGOUT);
+  F_BaseUpdateStart       := RegisterNotifier(NT_BASE_UPDATE_START);
+  F_BasesUpdateEnd        := RegisterNotifier(NT_BASE_UPDATE_END);
+  F_BaseUpdateFailed      := RegisterNotifier(NT_BASE_UPDATE_FAILED);
+  F_ConsultationReceived  := RegisterNotifier(NT_CONSULTATION_RECEIVED);
+  F_ConsultationNotSent   := RegisterNotifier(NT_CONSULTATION_NOT_SENT);
+  F_NoSubscription        := RegisterNotifier(NT_NO_SUBSCRIPTION);
+//#UC END# *4AC20023031C_4AC2000A021C_impl*
+//#UC START# *4AC20023031C_4AC2000A021C_var*
+  function RegisterNotifier(const aNotifyType : TNotifyType) : IatNotifier;
+  begin
+    Result := TatFromShellNotifier.Create(aNotifyType);
+    aNotifyManager.RegisterListenerForNotify(aNotifyType, Result as IListener);
+  end;
+//#UC END# *4AC20023031C_4AC2000A021C_var*

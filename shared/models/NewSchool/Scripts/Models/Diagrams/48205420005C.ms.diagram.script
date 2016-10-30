@@ -1,0 +1,118 @@
+// Вход и выход 48205420005C UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_48205420005C_diagrams
+
+ MEDIAGRAM ME_48205420005C_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_48205420005C' ; // Вход и выход
+
+  MEVIEW ME_482054BC03A6_view
+   MELINK Original WL 'ME_482054BC03A6' '48205420005C.ms.model.script' ; // Старт системы
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_482054BC03A6_view
+
+  MEVIEW ME_482054EF0301_view
+   MELINK Original WL 'ME_482054EF0301' '48205420005C.ms.model.script' ; // Регистрация
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_482054EF0301_view
+
+  MEVIEW ME_482055330165_view
+   MELINK Original WL 'ME_482055330165' '48205420005C.ms.model.script' ; // Завершение работы
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_482055330165_view
+
+  MEVIEW ME_482055A60187_view
+   MELINK Original WL 'ME_482055A60187' '48205420005C.ms.model.script' ; // "Гостевой вход"
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_482055A60187_view
+
+  MEVIEW ME_482055D7033C_view
+   MELINK Original WL 'ME_482055D7033C' '48205420005C.ms.model.script' ; // Старт оболочки с определенного документа
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_482055D7033C_view
+
+  MEVIEW ME_482069310030_view
+   MELINK Original WL 'ME_482069310030' '48205420005C.ms.model.script' ; // Предупреждение об устаревшей базе
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_482069310030_view
+
+  MEVIEW ME_4821B9370055_view
+   MELINK Original WL 'ME_4821B9370055' '48205420005C.ms.model.script' ; // Выключение сервера
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_4821B9370055_view
+
+  MEVIEW ME_483CF51B0313_view
+   MELINK Original WL 'ME_483CF51B0313' '48205420005C.ms.model.script' ; // Автологон
+   MEPROP X 40
+   MEPROP Y 180
+  ENDMEVIEW // ME_483CF51B0313_view
+
+  MEVIEW ME_483D178E0008_view
+   MELINK Original WL 'ME_483D178E0008' '48205420005C.ms.model.script' ; // Показ экрана приветствия
+   MEPROP X 200
+   MEPROP Y 180
+  ENDMEVIEW // ME_483D178E0008_view
+
+  MEVIEW ME_483D1B8F00CA_view
+   MELINK Original WL 'ME_483D1B8F00CA' '48205420005C.ms.model.script' ; // Совет дня
+   MEPROP X 360
+   MEPROP Y 180
+  ENDMEVIEW // ME_483D1B8F00CA_view
+
+  MEVIEW ME_483D1DF402D1_view
+   MELINK Original WL 'ME_483D1DF402D1' '48205420005C.ms.model.script' ; // Информация о новых возможностях
+   MEPROP X 520
+   MEPROP Y 180
+  ENDMEVIEW // ME_483D1DF402D1_view
+
+  MEVIEWLINK ME_482055A60187_ME_482054BC03A6_Inherits
+   MELINK From ME_482055A60187_view ;
+   MELINK To ME_482054BC03A6_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_482055A60187_ME_482054BC03A6_Inherits
+
+  MEVIEWLINK ME_482055D7033C_ME_482054BC03A6_Inherits
+   MELINK From ME_482055D7033C_view ;
+   MELINK To ME_482054BC03A6_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_482055D7033C_ME_482054BC03A6_Inherits
+
+  MEVIEWLINK ME_483CF51B0313_ME_482054BC03A6_Inherits
+   MELINK From ME_483CF51B0313_view ;
+   MELINK To ME_482054BC03A6_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_483CF51B0313_ME_482054BC03A6_Inherits
+
+  MELIST Views
+   Seq: ( ME_482054BC03A6_view // Старт системы
+   ME_482054EF0301_view // Регистрация
+   ME_482055330165_view // Завершение работы
+   ME_482055A60187_view // "Гостевой вход"
+   ME_482055D7033C_view // Старт оболочки с определенного документа
+   ME_482069310030_view // Предупреждение об устаревшей базе
+   ME_4821B9370055_view // Выключение сервера
+   ME_483CF51B0313_view // Автологон
+   ME_483D178E0008_view // Показ экрана приветствия
+   ME_483D1B8F00CA_view // Совет дня
+   ME_483D1DF402D1_view // Информация о новых возможностях
+   ME_482055A60187_ME_482054BC03A6_Inherits // "Гостевой вход" ==> Старт системы
+   ME_482055D7033C_ME_482054BC03A6_Inherits // Старт оболочки с определенного документа ==> Старт системы
+   ME_483CF51B0313_ME_482054BC03A6_Inherits // Автологон ==> Старт системы
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_48205420005C_main
+
+ MELIST Diagrams
+  Seq: ( ME_48205420005C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_48205420005C_diagrams

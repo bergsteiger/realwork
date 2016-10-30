@@ -2996,11 +2996,11 @@ uses
  {$If NOT Defined(NoScripts) AND NOT Defined(NoImageEn)}
  , kwImageEnControl in 'w:\common\components\rtl\Garant\ScriptEngine\kwImageEnControl.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoImageEn)
+ , l3ImageUtils in 'w:\common\components\rtl\Garant\L3\l3ImageUtils.pas'
  {$If NOT Defined(NoScripts) AND NOT Defined(NoImageEn)}
  , ImageEnViewRegistrator in 'w:\common\components\rtl\Garant\ScriptEngine\ImageEnViewRegistrator.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoImageEn)
  , ddRTFUnits in 'w:\common\components\rtl\Garant\dd\ddRTFUnits.pas'
- , l3ImageUtils in 'w:\common\components\rtl\Garant\L3\l3ImageUtils.pas'
  , ddHexCharReader in 'w:\common\components\rtl\Garant\dd\ddHexCharReader.pas'
  , l3CharSkipper in 'w:\common\components\rtl\Garant\L3\l3CharSkipper.pas'
  , ddPictureSegment in 'w:\common\components\rtl\Garant\dd\ddPictureSegment.pas'

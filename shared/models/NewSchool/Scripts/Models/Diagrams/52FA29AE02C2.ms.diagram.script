@@ -1,0 +1,55 @@
+// TalcuServerTaskManagerFactory 52FA29AE02C2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_52FA29AE02C2_diagrams
+
+ MEDIAGRAM ME_52FA29AE02C2_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_52FA29AE02C2' ; // TalcuServerTaskManagerFactory
+
+  MEVIEW ME_52FA2A150346_view
+   MELINK Original WL 'ME_52FA2A150346' '52FA29AE02C2.ms.model.script' ; // RalcuServerTaskManagerFactory
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_52FA2A150346_view
+
+  MEVIEW ME_52FA29DE0384_view
+   MELINK Original WL 'ME_52FA29DE0384' '52FA29AE02C2.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_52FA29DE0384_view
+
+  MEVIEW ME_52FA2C99010A_view
+   MELINK Original WL 'ME_52FA2C99010A' '52FA29AE02C2.ms.model.script' ; // DoMake
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_52FA2C99010A_view
+
+  MEVIEW ME_52FA2A6002E1_view
+   MELINK Original WL 'ME_52FA2A6002E1' '52FA29AE02C2.ms.model.script' ; // g_FactoryClass
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_52FA2A6002E1_view
+
+  MEVIEWLINK ME_52FA2C99010A_ME_52FA29DE0384_Inherits
+   MELINK From ME_52FA2C99010A_view ;
+   MELINK To ME_52FA29DE0384_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_52FA2C99010A_ME_52FA29DE0384_Inherits
+
+  MELIST Views
+   Seq: ( ME_52FA2A150346_view // RalcuServerTaskManagerFactory
+   ME_52FA29DE0384_view // Make
+   ME_52FA2C99010A_view // DoMake
+   ME_52FA2A6002E1_view // g_FactoryClass
+   ME_52FA2C99010A_ME_52FA29DE0384_Inherits // DoMake ==> Make
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_52FA29AE02C2_main
+
+ MELIST Diagrams
+  Seq: ( ME_52FA29AE02C2_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_52FA29AE02C2_diagrams

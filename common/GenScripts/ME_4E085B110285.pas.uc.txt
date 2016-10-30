@@ -1,0 +1,80 @@
+//#UC START# *4E085B110285_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Common\bsDocumentMissingMessage.pas
+//#UC END# *4E085B110285_ext:FileName
+//#UC START# *4E085B110285impl_uses*
+ , Base_Operations_F1Services_Contracts
+//#UC END# *4E085B110285impl_uses*
+//#UC START# *4E085B3F01F5_4E085B110285_impl*
+ l_Name := nil;
+(* with DefDataAdapter do
+  l_NeedConsulting := AllowConsulting and
+                      ConsultationManager.CheckConsultingAvailable and
+                      not AdministratorLogin;*)
+ l_MissingMessage := defDataAdapter.GetUnexistDocMessage;
+ l_Msg := str_DocumentMissing.AsMessage;
+ if not l3IsNil(l_MissingMessage) then
+  l_Msg := l_Msg.ChangeMessage(l_MissingMessage);
+ l_Footer := nsCStr('{cloak}' + #13#10);
+ if (aMissingInfo <> nil) then
+ begin
+  aMissingInfo.GetObjName(l_String);
+  l_Name := nsCStr(l_String);
+  l_Footer := l3Cat([l_Footer, str_MissingDocumentInfo.AsCStr]);
+  l_Footer := l3Cat(l_Footer, DupeString(#13#10 + '{indent}', cIndentCount));
+  aMissingInfo.GetBlocksInfo(l_String);
+  l_Footer := l3Cat(l_Footer, #13#10 + 'h2. ');
+  if aMissingInfo.IsOneBlock then
+   l_Footer := l3Cat([l_Footer, str_MissingDocumentIsContainedInBlock.AsCStr])
+  else
+   l_Footer := l3Cat([l_Footer, str_MissingDocumentIsContainedInBlocks.AsCStr]);
+  l_Footer := l3Cat(l_Footer, #13#10 + '{list}' + #13#10);
+  l_Footer := l3Cat(l_Footer, '{fontsize:10}' + #13#10);
+  l_Footer := l3Cat([l_Footer, nsCStr(l_String)]);
+  l_Footer := l3Cat(l_Footer, #13#10 + '{/fontsize}');
+  l_Footer := l3Cat(l_Footer, #13#10 + '{/list}' + #13#10);
+  l_Footer := l3Cat(l_Footer, 'h2. ');
+  l_Footer := l3Cat([l_Footer, str_ContactInfo.AsCStr]);
+  l_Footer := l3Cat(l_Footer, ':');
+ end//aMissingInfo <> nil
+ else
+ begin
+  l_Footer := l3Cat([l_Footer, str_ContactInfo.AsCStr]);
+  l_Footer := l3Cat(l_Footer, DupeString(#13#10 + '{indent}', cIndentCount));
+ end;//aMissingInfo <> nil
+ l_Footer := l3Cat(l_Footer, #13#10'{justification:ev_itLeft}');
+ l_Footer := l3Cat(l_Footer, #13#10);
+ l_Footer := l3Cat(l_Footer, '{fontsize:10}' + #13#10);
+ l_Footer := l3Cat(l_Footer, '{indent}' + #13#10);
+ l_Footer := l3Cat([l_Footer, defDataAdapter.GetDealerInfo]);
+ l_Footer := l3Cat(l_Footer, #13#10 + '{/indent}');
+ l_Footer := l3Cat(l_Footer, #13#10 + '{/fontsize}');
+ l_Footer := l3Cat(l_Footer, DupeString(#13#10 + '{/indent}', cIndentCount));
+ l_Footer := l3Cat(l_Footer, #13#10 + '{/justification}');
+ l_Footer := l3Cat(l_Footer, #13#10 + '{/cloak}');
+ l_Msg := l_Msg.ChangeFooterInfo(l_Footer);
+ if (vcmMessageDlg(l_Msg) = vcm_mrCustomButton) then
+ begin
+  DefDataAdapter.Search.CreateQuery(QT_HANDYCRAFT_CONSULT, l_Query);
+  if Assigned(l_Name) then
+  begin
+   l_ConsultationText := vcmFmt(str_MissingDocTemplate, [l_Name]);
+   l_ConsultationText := l3StringReplace(l_ConsultationText, cc_EOLStr, cc_SoftEnterNativeStr, [rfReplaceAll]);
+   l_ConsultationText := l3StringReplace(l_ConsultationText, cc_HardEnterNativeStr, cc_SoftEnterNativeStr, [rfReplaceAll]);
+   SaveContextNew(l_Query, nsCStr(AT_LAW_SUPPORT_TEXT), l_ConsultationText);
+  end;//Assigned(l_Name)
+  TConsultationService.Instance.OpenSendConsultation(l_Query);
+ end;//vcmMessageDlg(l_Msg) = vcm_mrCustomButton
+//#UC END# *4E085B3F01F5_4E085B110285_impl*
+//#UC START# *4E085B3F01F5_4E085B110285_var*
+var
+ l_Msg: Tl3Message;
+ l_Footer: Il3CString;
+ l_MissingMessage: Il3CString;
+ l_String: IString;
+ l_Query: IQuery;
+ l_ConsultationText: Il3CString;
+ //l_NeedConsulting: Boolean;
+ l_Name: Il3CString;
+const
+ cIndentCount = 2; 
+//#UC END# *4E085B3F01F5_4E085B110285_var*

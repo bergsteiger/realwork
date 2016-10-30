@@ -18,8 +18,6 @@ ME ME_4BD71D5C01A9
  MELINK Parent HWL ME_497F02D20216 // PrimUserProperty
  ;
  UP "CanClose" False
- UP "ImageIndex" '-1'
- UP "Weight" '-1'
  UP extprop:pas:UnitName 'PrimUserProperty_admUseProperties_UserType'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimUserProperty_admUseProperties_UserType.pas'
 
@@ -37,9 +35,6 @@ ME ME_527BDE2800A6
  MELINK Parent HWL ME_527BDE0D02FB // Hints
  ;
  MEPROP Value '''Новый Пароль: должен совпадать с подтверждением пароля'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Новый Пароль: должен совпадать с подтверждением пароля'''
 
 ENDME // ME_527BDE2800A6 edPasswordHint
@@ -54,9 +49,6 @@ ME ME_527BDE430168
  MELINK Parent HWL ME_527BDE0D02FB // Hints
  ;
  MEPROP Value '''Имя пользователя: не должно быть пустым'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Имя пользователя: не должно быть пустым'''
 
 ENDME // ME_527BDE430168 edUserNameHint
@@ -71,9 +63,6 @@ ME ME_527BDE54005C
  MELINK Parent HWL ME_527BDE0D02FB // Hints
  ;
  MEPROP Value '''Новое регистрационное имя'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Новое регистрационное имя'''
 
 ENDME // ME_527BDE54005C edLoginHint
@@ -88,9 +77,6 @@ ME ME_527BDE6603CD
  MELINK Parent HWL ME_527BDE0D02FB // Hints
  ;
  MEPROP Value '''Электронная почта: адрес, на который будет выслан забытый Вами пароль'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Электронная почта: адрес, на который будет выслан забытый Вами пароль'''
 
 ENDME // ME_527BDE6603CD edEmailHint
@@ -105,9 +91,6 @@ ME ME_527BDE86024D
  MELINK Parent HWL ME_527BDE0D02FB // Hints
  ;
  MEPROP Value '''Подтверждение пароля: должно совпадать с новым паролем'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Подтверждение пароля: должно совпадать с новым паролем'''
 
 ENDME // ME_527BDE86024D edConfirmHint
@@ -122,9 +105,6 @@ ME ME_527BDE93033C
  MELINK Parent HWL ME_527BDE0D02FB // Hints
  ;
  MEPROP Value '''Группа пользователя'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Группа пользователя'''
 
 ENDME // ME_527BDE93033C edGroupHint
@@ -132,7 +112,7 @@ ENDME // ME_527BDE93033C edGroupHint
 ME ME_527BDE0D02FB
  MEPROP UID '527BDE0D02FB'
  MEPROP Name 'Hints'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -150,9 +130,6 @@ ME ME_527BDE0D02FB
  ; // Attributes
  UP "elements prefix" 'PrimUserProperty'
  UP "ifdef" 'Admin'
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'PrimUserProperty_'
  UP extprop:pas:ElementPrefixBase 'PrimUserProperty'
 
@@ -174,7 +151,6 @@ ME ME_527BDC210395
  MELINK Parent HWL ME_527BDB99021C // f_TopPanel
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_527BDC210395 UserNameLabel
@@ -191,7 +167,6 @@ ME ME_527BDC320349
  MELINK Parent HWL ME_527BDB99021C // f_TopPanel
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_527BDC320349 PasswordLabel
@@ -208,7 +183,6 @@ ME ME_527BDC4300EA
  MELINK Parent HWL ME_527BDB99021C // f_TopPanel
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_527BDC4300EA LoginLabel
@@ -225,7 +199,6 @@ ME ME_527BDC540026
  MELINK Parent HWL ME_527BDB99021C // f_TopPanel
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_527BDC540026 EMailLabel
@@ -242,7 +215,6 @@ ME ME_527BDC63012B
  MELINK Parent HWL ME_527BDB99021C // f_TopPanel
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_527BDC63012B ConfirmPasswordLabel
@@ -259,7 +231,6 @@ ME ME_527BDC7400E7
  MELINK Parent HWL ME_527BDB99021C // f_TopPanel
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_527BDC7400E7 GroupLabel
@@ -275,7 +246,6 @@ ME ME_527BDC870064
  MELINK Parent HWL ME_527BDB99021C // f_TopPanel
  ;
  UP "ControlClass" 'TnscComboBoxWithPwdChar'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'Password'
 
@@ -292,7 +262,6 @@ ME ME_527BDC9A00FD
  MELINK Parent HWL ME_527BDB99021C // f_TopPanel
  ;
  UP "ControlClass" 'TnscEdit'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'UserName'
 
@@ -309,7 +278,6 @@ ME ME_527BDCAC039C
  MELINK Parent HWL ME_527BDB99021C // f_TopPanel
  ;
  UP "ControlClass" 'TnscEdit'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'Login'
 
@@ -326,7 +294,6 @@ ME ME_527BDCC00247
  MELINK Parent HWL ME_527BDB99021C // f_TopPanel
  ;
  UP "ControlClass" 'TnscEdit'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'Email'
 
@@ -343,7 +310,6 @@ ME ME_527BDCD302CD
  MELINK Parent HWL ME_527BDB99021C // f_TopPanel
  ;
  UP "ControlClass" 'TnscComboBoxWithPwdChar'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'Confirm'
 
@@ -360,7 +326,6 @@ ME ME_527BDCE4027E
  MELINK Parent HWL ME_527BDB99021C // f_TopPanel
  ;
  UP "ControlClass" 'TvtComboBoxQS'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'Group'
 
@@ -395,7 +360,6 @@ ME ME_527BDB99021C
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_527BDB99021C f_TopPanel
@@ -414,7 +378,6 @@ ME ME_527BDD1402A3
  MELINK Parent HWL ME_527BDBDC0365 // f_MiddlePanel
  ;
  UP "ControlClass" 'TvtCheckBox'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'PrivilegedUser'
 
@@ -432,7 +395,6 @@ ME ME_527BDD2E020B
  MELINK Parent HWL ME_527BDBDC0365 // f_MiddlePanel
  ;
  UP "ControlClass" 'TvtCheckBox'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'BuyConsulting'
 
@@ -457,7 +419,6 @@ ME ME_527BDBDC0365
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_527BDBDC0365 f_MiddlePanel
@@ -476,7 +437,6 @@ ME ME_527BDDA40161
  MELINK Parent HWL ME_527BDBEF0097 // f_DontDeleteIdleUserPanel
  ;
  UP "ControlClass" 'TvtCheckBox'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'DontDeleteIdleUser'
 
@@ -500,7 +460,6 @@ ME ME_527BDBEF0097
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_527BDBEF0097 f_DontDeleteIdleUserPanel
@@ -519,7 +478,6 @@ ME ME_527BDDCB02C6
  MELINK Parent HWL ME_527BDC02005D // f_BottomPanel
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_527BDDCB02C6 InfoLabel
@@ -536,7 +494,6 @@ ME ME_527BDDE701FE
  MELINK Parent HWL ME_527BDC02005D // f_BottomPanel
  ;
  UP "ControlClass" 'TvtCheckBox'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'HasSharedFilters'
 
@@ -561,7 +518,6 @@ ME ME_527BDC02005D
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_527BDC02005D f_BottomPanel
@@ -587,7 +543,6 @@ ME ME_527BDB7C03C0
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_527BDB7C03C0 pnMainData
@@ -656,7 +611,6 @@ FORWARD ME_4C8A0FFD005A
 ME ME_4C8A10000384
  MEPROP Name 'aDataSource'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_491DA3AF0290' '491D961C0122.ms.model.script' // IdsUserProperty
  ;
 
@@ -701,7 +655,6 @@ FORWARD ME_4C8A1029029D
 ME ME_4C8A103200FF
  MEPROP Name 'aUserProperty'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_491DA3AF0290' '491D961C0122.ms.model.script' // IdsUserProperty
  ;
 
@@ -1355,13 +1308,8 @@ ME ME_497F02D20216
    Seq: ( 'Main' 'uses' )
  ; // DiagramsNames
  UP "author" 'Люлин А.В.'
- UP "finished dfm" True
- UP "NeedsHackRef" True
  UP "no hands" True
- UP "resizeable" False
- UP "restrict form def" 'undefined'
  UP "started" '27.01.2009 15:50'
- UP "ZoneType" 'Any'
  UP extprop:pas:TypeName 'TPrimUserPropertyForm'
  UP extprop:pas:UnitName 'PrimUserProperty_Form'
  UP extprop:rc:isAcceptableForScripts True

@@ -1,0 +1,363 @@
+//#UC START# *479731C50290_4AC4F49F010B_impl*
+ Tl3ListenersManager.RemoveWndProcListener(Self);
+ f_Data := nil;
+ inherited;
+//#UC END# *479731C50290_4AC4F49F010B_impl*
+//#UC START# *479731C50290_4AC4F49F010B_var*
+//#UC END# *479731C50290_4AC4F49F010B_var*
+//#UC START# *47A042E100E2_4AC4F49F010B_impl*
+ inherited;
+ Tl3ListenersManager.AddWndProcListener(Self);
+ wwwLabel.Cursor := evCursorShape2Cursor(ev_csExternalHand);
+ OnShow := vcmEntityFormShow;
+//#UC END# *47A042E100E2_4AC4F49F010B_impl*
+//#UC START# *47A042E100E2_4AC4F49F010B_var*
+//#UC END# *47A042E100E2_4AC4F49F010B_var*
+//#UC START# *47EA4E9002C6_4AC4F49F010B_impl*
+ inherited;
+ SafeClose;
+//#UC END# *47EA4E9002C6_4AC4F49F010B_impl*
+//#UC START# *47EA4E9002C6_4AC4F49F010B_var*
+//#UC END# *47EA4E9002C6_4AC4F49F010B_var*
+//#UC START# *4A8E8F2E0195_4AC4F49F010B_impl*
+ inherited;
+ with TopPanel do
+ begin
+  Height := 41;
+  Align := alTop;
+  TabOrder := 0;
+ end;
+  with TitlePaintBox do
+  begin
+   Left := 12;
+   Top := 4;
+   Width := 32;
+   Height := 32;
+   OnPaint := TitlePaintBoxPaint;
+  end;
+  with TitleLabel do
+  begin
+   Left := 57;
+   Top := 11;
+   Width := 156;
+   Height := 19;
+   Anchors := [akLeft, akTop, akRight];
+   Font.Height := -16;
+   Font.Style := [fsBold];
+   Layout := tlCenter;
+  end;
+ with BottomPanel do
+ begin
+  Align := alClient;
+  BevelOuter := bvNone;
+  TabOrder := 1;
+ end;
+  with HintPanel do
+  begin
+   Left := 13;
+   Top := 22;
+   Width := 272;
+   Height := 123;
+   BorderStyle := bsSingle;
+   Color := clWindow;
+   TabOrder := 0;
+  end;
+   with TipLabel do
+   begin
+    AutoSize := False;
+    Left := 11;
+    Top := 9;
+    Width := 6;
+    Height := 16;
+    WordWrap := True;
+   end;
+   with DetailLabel do
+   begin
+    Left := 142;
+    Top := 93;
+    Width := 103;
+    Height := 18;
+    Cursor := crHandPoint;
+    TabOrder := 0;
+    Font.Color := clBlue;
+    Font.Style := [fsBold];
+    HighlightColor := clBlue;
+    Hyperlink := True;
+    OnClick := DetailLabelClick;
+   end;
+ with ShowCheckBox do
+ begin
+  Left := 13;
+  Top := 153;
+  Width := 268;
+  Height := 17;
+  TabOrder := 1;
+  OnClick := ShowCheckBoxClick;
+ end;
+ with wwwPanel do
+ begin
+  Left := 11;
+  Top := 178;
+  Width := 270;
+  Height := 19;
+  BevelOuter := bvNone;
+  ParentColor := True;
+  TabOrder := 2;
+ end;
+  with wwwPaintBox do
+  begin
+   Left := 0;
+   Top := 2;
+   Width := 16;
+   Height := 16;
+   OnPaint := wwwPaintBoxPaint;
+  end;
+  with wwwLabel do
+  begin
+   Left := 20;
+   Top := 1;
+   Width := 192;
+   Height := 18;
+   Cursor := crHandPoint;
+   TabOrder := 0;
+   Font.Color := clBlue;
+   HighlightColor := clBlue;
+   Hyperlink := True;
+   OnClick := wwwLabelClick;
+  end;
+ with NextButton do
+ begin
+  Left := 290;
+  Top := 22;
+  Width := 105;
+  Height := 26;
+  DrawDefaultFrame := False;
+  Default := True;
+  NumGlyphs := 1;
+  ThinFrame := True;
+  TabOrder := 3;
+  ParentFont := True;
+  OnClick := NextButtonClick;
+  DockOrientation := doNoOrient;
+ end;
+ with PrevButton do
+ begin
+  Left := 290;
+  Top := 56;
+  Width := 105;
+  Height := 26;
+  DrawDefaultFrame := False;
+  Default := True;
+  NumGlyphs := 1;
+  ThinFrame := True;
+  TabOrder := 4;
+  ParentFont := True;
+  OnClick := PrevButtonClick;
+  DockOrientation := doNoOrient;
+ end;
+ with CloseButton do
+ begin
+  Left := 290;
+  Top := 163;
+  Width := 105;
+  Height := 26;
+  DrawDefaultFrame := False;
+  Cancel := True;
+  Default := True;
+  NumGlyphs := 1;
+  ThinFrame := True;
+  TabOrder := 5;
+  ParentFont := True;
+  OnClick := CloseButtonClick;
+  DockOrientation := doNoOrient;
+ end;
+//#UC END# *4A8E8F2E0195_4AC4F49F010B_impl*
+//#UC START# *4A8E8F2E0195_4AC4F49F010B_var*
+var
+ l_Delta: Integer;
+//#UC END# *4A8E8F2E0195_4AC4F49F010B_var*
+//#UC START# *4AC4F49F010B_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\DayTips\Forms\PrimStartupTips_Form.pas
+//#UC END# *4AC4F49F010B_ext:FileName
+//#UC START# *4AC4F49F010Bimpl_uses*
+//#UC END# *4AC4F49F010Bimpl_uses*
+//#UC START# *4AC4F567002A_4AC4F49F010B_impl*
+   f_Data := aData;
+   Assert(Assigned(f_Data), 'Invalid params');
+   ShowCheckBox.Checked := f_Data.DontShow;
+   UpdateTip;
+//#UC END# *4AC4F567002A_4AC4F49F010B_impl*
+//#UC START# *4F79CF3400BB_4AC4F49F010B_impl*
+ if ZoneType <> vcm_ztForToolbarsInfo then
+  if (Msg.message = WM_ACTIVATE) then
+   if (Msg.hwnd <> Application.Handle) then
+   begin
+    l_IsAct := LoWord(Msg.WParam) <> WA_INACTIVE;
+    if l_IsAct then
+    begin
+     l_ActWnd := Msg.hwnd;
+     if lpIsDropDown(l_ActWnd) then
+      Exit;
+     (* ѕоказали модальную форму, пр€чем навигатор и выходим *)
+     if npIsModalForm(l_ActWnd) then
+     begin
+      lpDoActivate(False);
+      Exit;
+     end;
+     (* јктивировали плавающую форму *)
+     if not npIsInFloatNavigator(l_ActWnd) and npIsFloatingForm(l_ActWnd) then
+     begin
+      lpDoActivate(True);
+      Exit;
+     end;
+    end
+    else
+    begin
+    (* ќкну aMessage.hwnd пришло сообщение о деактивации, handle активированного
+       окна содержитс€ в THandle(aMessage.lParam). ≈сли окно принадлежит
+       главному окну навигатора ничего не делаем или активируем, в противном
+       случае спр€чем *)
+     l_ActWnd := THandle(Msg.lParam);
+     (* »нформацию о деактивации нет смысла обрабатывать если фокус не ушел на
+        рабочий стол, потому что когда придет, через HOOK сообщение об активации
+        окна, то мы спр€чем навигаторы если активировалось окно другой главной
+        формы, или совсем чужое окно *)
+     if  l_ActWnd <> HWND_DESKTOP then
+      Exit;
+    end;
+    (* »зменим состо€ние *)
+
+    lpDoActivate(npIsOwnerWindow(afw.GetAnotherParentForm(Owner), l_ActWnd));
+   end;
+//#UC END# *4F79CF3400BB_4AC4F49F010B_impl*
+//#UC START# *4F79CF3400BB_4AC4F49F010B_var*
+var
+ l_IsAct: Boolean;
+ l_ActWnd: THandle;
+
+ function lpIsDropDown(aWnd : THandle) : Boolean;
+ var
+  lControl: TWinControl;
+  lDropWindow: IafwDropDownWindow;
+ begin
+  Result := False;
+  lControl := FindControl(aWnd);
+  if Assigned(lControl) then
+   if Supports(lControl, IafwDropDownWindow, lDropWindow) then
+   try
+    Result := True;
+   finally
+    lDropWindow := nil;
+   end
+   else
+    Result := not Assigned(lControl.Parent) and not Assigned(lControl.Owner);
+ end;
+
+ procedure lpDoActivate(aActivate : Boolean);
+ const
+  cFlag: array [Boolean] of Cardinal = (SWP_HIDEWINDOW, SWP_SHOWWINDOW);
+  cInsertAfter: array [Boolean] of HWND = (0, HWND_TOPMOST);
+ begin
+  SetWindowPos(Handle, cInsertAfter[aActivate], 0, 0, 0, 0,
+   SWP_NOACTIVATE or SWP_NOMOVE or SWP_NOSIZE or cFlag[aActivate]);
+ end;
+//#UC END# *4F79CF3400BB_4AC4F49F010B_var*
+//#UC START# *5268E6380393_4AC4F49F010B_impl*
+ if Assigned(f_Data) then
+ begin
+  TipLabel.Autosize := False;
+  try
+   TipLabel.Width := HintPanel.Width - 2 * TipLabel.Left;
+   TipLabel.CCaption := f_Data.TipCaption;
+  finally
+   TipLabel.Autosize := True;
+  end;
+ end;
+ l_Delta := TipLabel.Top + TipLabel.Height - (DetailLabel.Top - DetailLabel.Height);
+ if l_Delta > 0 then
+ begin
+  Height := Height + l_Delta;
+  wwwPanel.Top := wwwPanel.Top + l_Delta;
+  ShowCheckBox.Top := ShowCheckBox.Top + l_Delta;
+  HintPanel.Height := HintPanel.Height + l_Delta;
+  DetailLabel.Top := DetailLabel.Top + l_Delta;
+  CloseButton.Top := CloseButton.Top + l_Delta;
+ end;
+
+ l_Delta := CloseButton.Top + CloseButton.Height + 16 - BottomPanel.Height;
+ if l_Delta > 0 then
+  Height := Height + l_Delta;
+//#UC END# *5268E6380393_4AC4F49F010B_impl*
+//#UC START# *5268E6380393_4AC4F49F010B_var*
+var
+ l_Delta: Integer;
+//#UC END# *5268E6380393_4AC4F49F010B_var*
+//#UC START# *5268E6B602FF_4AC4F49F010B_impl*
+ with Sender as TPaintBox do
+  dmStdRes.LargeImageList.Draw(Canvas, width - c_LargeSizeIcon, (Height - c_LargeSizeIcon) div 2, cDayTips);
+//#UC END# *5268E6B602FF_4AC4F49F010B_impl*
+//#UC START# *5268E6B602FF_4AC4F49F010B_var*
+//#UC END# *5268E6B602FF_4AC4F49F010B_var*
+//#UC START# *5268E6C000C2_4AC4F49F010B_impl*
+ with Sender as TPaintBox do
+  dmStdRes.SmallImageList.Draw(Canvas, width - c_SmallSizeIcon, (Height - c_SmallSizeIcon) div 2, cInternetTips);
+//#UC END# *5268E6C000C2_4AC4F49F010B_impl*
+//#UC START# *5268E6C000C2_4AC4F49F010B_var*
+//#UC END# *5268E6C000C2_4AC4F49F010B_var*
+//#UC START# *5268E6C90064_4AC4F49F010B_impl*
+ SafeClose;
+//#UC END# *5268E6C90064_4AC4F49F010B_impl*
+//#UC START# *5268E6C90064_4AC4F49F010B_var*
+//#UC END# *5268E6C90064_4AC4F49F010B_var*
+//#UC START# *5268E6D90201_4AC4F49F010B_impl*
+ PostMessage(Handle, WM_SETFOCUS, 0, 0);
+//#UC END# *5268E6D90201_4AC4F49F010B_impl*
+//#UC START# *5268E6D90201_4AC4F49F010B_var*
+//#UC END# *5268E6D90201_4AC4F49F010B_var*
+//#UC START# *5268E6E102F5_4AC4F49F010B_impl*
+ f_Data.GotoWeb;
+//#UC END# *5268E6E102F5_4AC4F49F010B_impl*
+//#UC START# *5268E6E102F5_4AC4F49F010B_var*
+//#UC END# *5268E6E102F5_4AC4F49F010B_var*
+//#UC START# *5268E6EA00F5_4AC4F49F010B_impl*
+ f_Data.ShowDetails;
+ SafeClose;
+//#UC END# *5268E6EA00F5_4AC4F49F010B_impl*
+//#UC START# *5268E6EA00F5_4AC4F49F010B_var*
+//#UC END# *5268E6EA00F5_4AC4F49F010B_var*
+//#UC START# *5268E6F1015A_4AC4F49F010B_impl*
+ f_Data.Next;
+ UpdateTip;
+//#UC END# *5268E6F1015A_4AC4F49F010B_impl*
+//#UC START# *5268E6F1015A_4AC4F49F010B_var*
+//#UC END# *5268E6F1015A_4AC4F49F010B_var*
+//#UC START# *5268E6F902E6_4AC4F49F010B_impl*
+ f_Data.Prev;
+ UpdateTip;
+//#UC END# *5268E6F902E6_4AC4F49F010B_impl*
+//#UC START# *5268E6F902E6_4AC4F49F010B_var*
+//#UC END# *5268E6F902E6_4AC4F49F010B_var*
+//#UC START# *5268E701030F_4AC4F49F010B_impl*
+ f_Data.DontShow := ShowCheckBox.Checked;
+//#UC END# *5268E701030F_4AC4F49F010B_impl*
+//#UC START# *5268E701030F_4AC4F49F010B_var*
+//#UC END# *5268E701030F_4AC4F49F010B_var*
+//#UC START# *529332B40230_4AC4F49F010B_impl*
+ inherited;
+ BorderIcons := [biSystemMenu];
+ BorderStyle := bsSingle;
+ ClientHeight := 200;
+ ClientWidth := 407;
+ DetailLabel.Left := HintPanel.Width - DetailLabel.Width - (HintPanel.Height - DetailLabel.Top - DetailLabel.Height);
+
+ ActiveControl := NextButton;
+ Position := poMainFormCenter;
+ UpdateTip;
+//#UC END# *529332B40230_4AC4F49F010B_impl*
+//#UC START# *529332B40230_4AC4F49F010B_var*
+//#UC END# *529332B40230_4AC4F49F010B_var*
+//#UC START# *55B9F0BD0069_4AC4F49F010B_impl*
+ Result := False;
+//#UC END# *55B9F0BD0069_4AC4F49F010B_impl*
+//#UC START# *55B9F0BD0069_4AC4F49F010B_var*
+//#UC END# *55B9F0BD0069_4AC4F49F010B_var*

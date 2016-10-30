@@ -21,7 +21,6 @@ ME ME_04215F43D6F5
  MEPROP Name 'aStrings'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4683CEE9034C' '467823B7002C.ms.model.script' // IafwStrings
  ;
 
@@ -51,7 +50,6 @@ ME ME_DAC394915583
  MEPROP Name 'aDisplayName'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
  ;
 
@@ -269,7 +267,6 @@ ME ME_0F0C62FEBDC0
  MEPROP Name 'aStrings'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4683CEE9034C' '467823B7002C.ms.model.script' // IafwStrings
  ;
 
@@ -299,7 +296,6 @@ ME ME_7E6C2FFB6DBF
  MEPROP Name 'aDisplayName'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
  ;
 
@@ -519,9 +515,6 @@ ME ME_4D5A710E0028
  MELINK Parent HWL ME_4D5A70AE0227 // ShowVersionComments
  ;
  MEPROP Value '''В свернутом виде'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''В свернутом виде'''
 
 ENDME // ME_4D5A710E0028 Collapsed
@@ -536,9 +529,6 @@ ME ME_4D5A71230209
  MELINK Parent HWL ME_4D5A70AE0227 // ShowVersionComments
  ;
  MEPROP Value '''В развернутом виде'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''В развернутом виде'''
 
 ENDME // ME_4D5A71230209 Expanded
@@ -554,7 +544,7 @@ ENDMEREF // ME_46A603BB0391_ME_4D5A70AE0227_G Boolean
 ME ME_4D5A70AE0227
  MEPROP UID '4D5A70AE0227'
  MEPROP Name 'ShowVersionComments'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -573,7 +563,6 @@ ME ME_4D5A70AE0227
  UP "children prefix" 'svc'
  UP "Need map interface" True
  UP "Need mapping support" True
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'svc'
 
 ENDME // ME_4D5A70AE0227 ShowVersionComments
@@ -590,10 +579,7 @@ ME ME_4D5A743B0065
  MELINK Parent HWL ME_4D5A741102AD // Local
  ;
  MEPROP Value '''Показывать информацию об изменениях в тексте документа'''
- UP "AutoInc" False
  UP "children prefix" 'cin'
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Показывать информацию об изменениях в тексте документа'''
 
 ENDME // ME_4D5A743B0065 Document_ShowVersionsComment
@@ -608,9 +594,6 @@ ME ME_4D5A765A010B
  MELINK Parent HWL ME_4D5A741102AD // Local
  ;
  MEPROP Value '''Показывать информацию об изменениях в тексте документа'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Показывать информацию об изменениях в тексте документа'''
 
 ENDME // ME_4D5A765A010B Document_ShowVersionsComment_Hint
@@ -625,9 +608,6 @@ ME ME_4DEF86AB030D
  MELINK Parent HWL ME_4D5A741102AD // Local
  ;
  MEPROP Value '''Информация об изменениях'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Информация об изменениях'''
 
 ENDME // ME_4DEF86AB030D Document_SubPanel_ShowVersionComments
@@ -641,9 +621,6 @@ ME ME_53A045B50349
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4D5A741102AD // Local
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP "Value" '''По ссылке в информации об изменениях в тексте документа открывать'''
 
 ENDME // ME_53A045B50349 Document_ShowVersionCommentsLinkBehaviour
@@ -651,7 +628,7 @@ ENDME // ME_53A045B50349 Document_ShowVersionCommentsLinkBehaviour
 ME ME_4D5A741102AD
  MEPROP UID '4D5A741102AD'
  MEPROP Name 'Local'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -666,9 +643,6 @@ ME ME_4D5A741102AD
  )
  ; // Attributes
  UP "elements prefix" 'pi'
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'pi_'
  UP extprop:pas:ElementPrefixBase 'pi'
 
@@ -685,9 +659,6 @@ ME ME_53A045F502E0
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_53A0453F02E3 // VersionCommentsLinkBegaviour
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP "Value" '''Сравнение редакций'''
 
 ENDME // ME_53A045F502E0 Comparison
@@ -701,9 +672,6 @@ ME ME_53A046110355
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_53A0453F02E3 // VersionCommentsLinkBegaviour
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP "Value" '''Текст редакции'''
 
 ENDME // ME_53A046110355 Text
@@ -719,7 +687,7 @@ ENDMEREF // ME_46A603BB0391_ME_53A0453F02E3_G Boolean
 ME ME_53A0453F02E3
  MEPROP UID '53A0453F02E3'
  MEPROP Name 'VersionCommentsLinkBegaviour'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -738,7 +706,6 @@ ME ME_53A0453F02E3
  UP "children prefix" 'vclb'
  UP "Need map interface" True
  UP "Need mapping support" True
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'vclb'
 
 ENDME // ME_53A0453F02E3 VersionCommentsLinkBegaviour
@@ -761,9 +728,6 @@ ME ME_700765AD13B5
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''svcCollapsed''; rValue : ''В свернутом виде'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''svcCollapsed''; rValue : ''В свернутом виде'')'
  UPLINK Speller HWL ME_4D5A710E0028 // Collapsed
  ;
@@ -786,9 +750,6 @@ ME ME_43F6B96CE49A
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''svcExpanded''; rValue : ''В развернутом виде'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''svcExpanded''; rValue : ''В развернутом виде'')'
  UPLINK Speller HWL ME_4D5A71230209 // Expanded
  ;
@@ -799,7 +760,7 @@ ME ME_25ADE6C09708
  MEPROP UID '25ADE6C09708'
  MEPROP Name 'LCImplShowVersionComments'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Локализуемые строки ShowVersionComments' ;
@@ -814,7 +775,6 @@ ME ME_25ADE6C09708
  ; // Attributes
  UP "children prefix" 'svc'
  UP "elements prefix" 'str'
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'str_svc'
  UP extprop:pas:ElementPrefixBase 'str'
  UPLINK Speller HWL ME_4D5A70AE0227 // ShowVersionComments
@@ -880,7 +840,7 @@ ME ME_0FD8471F5004
  MEPROP UID '0FD8471F5004'
  MEPROP Name 'ShowVersionCommentsMap'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_ConstantArray ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Карта преобразования локализованных строк ShowVersionComments' ;
@@ -924,9 +884,6 @@ ME ME_1890D5DD4EB5
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''vclbComparison''; rValue : ''Сравнение редакций'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vclbComparison''; rValue : ''Сравнение редакций'')'
  UPLINK Speller HWL ME_53A045F502E0 // Comparison
  ;
@@ -949,9 +906,6 @@ ME ME_A2A84A7F2C0B
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''vclbText''; rValue : ''Текст редакции'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vclbText''; rValue : ''Текст редакции'')'
  UPLINK Speller HWL ME_53A046110355 // Text
  ;
@@ -962,7 +916,7 @@ ME ME_97D135F69104
  MEPROP UID '97D135F69104'
  MEPROP Name 'LCImplVersionCommentsLinkBegaviour'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Локализуемые строки VersionCommentsLinkBegaviour' ;
@@ -977,7 +931,6 @@ ME ME_97D135F69104
  ; // Attributes
  UP "children prefix" 'vclb'
  UP "elements prefix" 'str'
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'str_vclb'
  UP extprop:pas:ElementPrefixBase 'str'
  UPLINK Speller HWL ME_53A0453F02E3 // VersionCommentsLinkBegaviour
@@ -1043,7 +996,7 @@ ME ME_155855F0A81F
  MEPROP UID '155855F0A81F'
  MEPROP Name 'VersionCommentsLinkBegaviourMap'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_ConstantArray ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Карта преобразования локализованных строк VersionCommentsLinkBegaviour' ;

@@ -1,0 +1,16 @@
+//#UC START# *5280813401EA_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\nsSearchInDocumentDoneEvent.pas
+//#UC END# *5280813401EA_ext:FileName
+//#UC START# *5280813401EAimpl_uses*
+//#UC END# *5280813401EAimpl_uses*
+//#UC START# *528081740164_5280813401EA_impl*
+ l_Data := MakeParamsList;
+ l_Data.AddObject(aDoc);
+ l_Data.AddString(nsAStr(aContext).S);
+ l_Data.AddULong(LongWord(aFoundCount));
+ GetLogger.AddEvent(LE_SEARCH_IN_DOCUMENT_DONE, l_Data);
+//#UC END# *528081740164_5280813401EA_impl*
+//#UC START# *528081740164_5280813401EA_var*
+var
+ l_Data: InsLogEventData;
+//#UC END# *528081740164_5280813401EA_var*

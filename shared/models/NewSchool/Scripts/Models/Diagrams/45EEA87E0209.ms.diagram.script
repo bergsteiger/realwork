@@ -1,0 +1,34 @@
+// Monitoring 45EEA87E0209 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_45EEA87E0209_diagrams
+
+ MEDIAGRAM ME_45EEA87E0209_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_45EEA87E0209' ; // Monitoring
+
+  MEVIEW ME_45EEC0FD01B1_view
+   MELINK Original WL 'ME_45EEC0FD01B1' '45EEA87E0209.ms.model.script' ; // MonitoringList
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_45EEC0FD01B1_view
+
+  MEVIEW ME_45EEC103021E_view
+   MELINK Original WL 'ME_45EEC103021E' '45EEA87E0209.ms.model.script' ; // Monitoring
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_45EEC103021E_view
+
+  MELIST Views
+   Seq: ( ME_45EEC0FD01B1_view // MonitoringList
+   ME_45EEC103021E_view // Monitoring
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_45EEA87E0209_main
+
+ MELIST Diagrams
+  Seq: ( ME_45EEA87E0209_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_45EEA87E0209_diagrams

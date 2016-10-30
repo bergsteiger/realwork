@@ -1,0 +1,60 @@
+//#UC START# *47EA4E9002C6_47F4A2F801D8_impl*
+ inherited;
+ pm_GetDocInfo.ClearListNode;
+ SetData.ResetBooleans; // http://mdp.garant.ru/pages/viewpage.action?pageId=297704301
+ ClearAllDS;
+ Refresh;
+//#UC END# *47EA4E9002C6_47F4A2F801D8_impl*
+//#UC START# *47EA4E9002C6_47F4A2F801D8_var*
+//#UC END# *47EA4E9002C6_47F4A2F801D8_var*
+//#UC START# *47F3778403D9_47F4A2F801D8_impl*
+ Result := TdDrugDocument.Make;
+//#UC END# *47F3778403D9_47F4A2F801D8_impl*
+//#UC START# *47F3778403D9_47F4A2F801D8_var*
+//#UC END# *47F3778403D9_47F4A2F801D8_var*
+//#UC START# *47F37DF001FE_47F4A2F801D8_impl*
+ ChangeDocument(InitialUseCaseData);
+//#UC END# *47F37DF001FE_47F4A2F801D8_impl*
+//#UC START# *47F37DF001FE_47F4A2F801D8_var*
+//#UC END# *47F37DF001FE_47F4A2F801D8_var*
+//#UC START# *47F4A2F801D8_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Drug\sdsDrugDocument.pas
+//#UC END# *47F4A2F801D8_ext:FileName
+//#UC START# *47F4A2F801D8impl_uses*
+//#UC END# *47F4A2F801D8impl_uses*
+//#UC START# *47FDF09F0290_47F4A2F801D8_impl*
+ DoOpenDrugInternationalNameSynonims;
+//#UC END# *47FDF09F0290_47F4A2F801D8_impl*
+//#UC START# *47FDF09F0290_47F4A2F801D8_var*
+//#UC END# *47FDF09F0290_47F4A2F801D8_var*
+//#UC START# *4925B1EC0100_47F4A2F801D8_impl*
+ Result := TdsDrugDocument.Make(Self, DocumentData);
+//#UC END# *4925B1EC0100_47F4A2F801D8_impl*
+//#UC START# *4925B1EC0100_47F4A2F801D8_var*
+//#UC END# *4925B1EC0100_47F4A2F801D8_var*
+//#UC START# *4925B7F00156_47F4A2F801D8_impl*
+ inherited;
+//#UC END# *4925B7F00156_47F4A2F801D8_impl*
+//#UC START# *4925B7F00156_47F4A2F801D8_var*
+//#UC END# *4925B7F00156_47F4A2F801D8_var*
+//#UC START# *493D51ED0329_47F4A2F801D8_impl*
+ inherited;
+ if pm_GetHasDrugInternationalNameSynonims then
+  SetData.dsDrugInternationalNameSynonimsRef.NeedMake := vcm_nmYes;
+//#UC END# *493D51ED0329_47F4A2F801D8_impl*
+//#UC START# *493D51ED0329_47F4A2F801D8_var*
+//#UC END# *493D51ED0329_47F4A2F801D8_var*
+//#UC START# *500CEEBD01CB_47F4A2F801D8area_impl*
+ if Assigned(SetData.ContentsTree) then
+  Result := TdsBaseContents.Make(Self, SetData.ContentsTree)
+ else
+  Result := nil;
+//#UC END# *500CEEBD01CB_47F4A2F801D8area_impl*
+//#UC START# *500CEEBD01CB_47F4A2F801D8area_var*
+//#UC END# *500CEEBD01CB_47F4A2F801D8area_var*
+//#UC START# *500CEEBD01CB_47F4A2F801D8get_need*
+     AND (NeedMake <> vcm_nmNo)
+   // - условие создания ViewArea
+//#UC END# *500CEEBD01CB_47F4A2F801D8get_need*
+//#UC START# *500CEEBD01CB_47F4A2F801D8get_var*
+//#UC END# *500CEEBD01CB_47F4A2F801D8get_var*

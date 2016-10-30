@@ -1,0 +1,62 @@
+// TasksLists 53A05123034C Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_53A05123034C_diagrams
+
+ MEDIAGRAM ME_53A05123034C_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_53A05123034C' ; // TasksLists
+
+  MEVIEW ME_54CB5BB40321_view
+   MELINK Original WL? 'ME_54CB5BB40321' ; // TalcuTaskListBasePrim
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_54CB5BB40321_view
+
+  MEVIEW ME_53A196B800AD_view
+   MELINK Original WL? 'ME_53A196B800AD' ; // TalcuSortedTaskList
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_53A196B800AD_view
+
+  MEVIEW ME_52FA3DB401BE_view
+   MELINK Original WL? 'ME_52FA3DB401BE' ; // TalcuTaskList
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_52FA3DB401BE_view
+
+  MEVIEW ME_53A19980030C_view
+   MELINK Original WL? 'ME_53A19980030C' ; // TalcuNotSortedTaskList
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_53A19980030C_view
+
+  MEVIEW ME_53A051A703D1_view
+   MELINK Original WL? 'ME_53A051A703D1' ; // alcuTaskListBase
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_53A051A703D1_view
+
+  MEVIEWLINK ME_52FA3DB401BE_ME_53A196B800AD_Inherits
+   MELINK From ME_52FA3DB401BE_view ;
+   MELINK To ME_53A196B800AD_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_52FA3DB401BE_ME_53A196B800AD_Inherits
+
+  MELIST Views
+   Seq: ( ME_54CB5BB40321_view // TalcuTaskListBasePrim
+   ME_53A196B800AD_view // TalcuSortedTaskList
+   ME_52FA3DB401BE_view // TalcuTaskList
+   ME_53A19980030C_view // TalcuNotSortedTaskList
+   ME_53A051A703D1_view // alcuTaskListBase
+   ME_52FA3DB401BE_ME_53A196B800AD_Inherits // TalcuTaskList ==> TalcuSortedTaskList
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_53A05123034C_main
+
+ MELIST Diagrams
+  Seq: ( ME_53A05123034C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_53A05123034C_diagrams

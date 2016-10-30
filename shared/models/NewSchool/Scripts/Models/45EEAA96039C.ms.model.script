@@ -138,7 +138,6 @@ ME ME_49DC72900077
    Seq: ( WL 'ME_456EB4540188' '456EA56002BF.ms.model.script' // AccessDenied
  )
  ; // CanRaise
- UP "pm" False
 
 ENDME // ME_49DC72900077 group_id
 
@@ -255,7 +254,6 @@ FORWARD ME_4607D7390157
 ME ME_49E888BF003F
  MEPROP Name 'uid'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -264,7 +262,6 @@ ENDME // ME_49E888BF003F uid
 ME ME_49E888BF0095
  MEPROP Name 'login'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
 
@@ -273,7 +270,6 @@ ENDME // ME_49E888BF0095 login
 ME ME_49E888BF00E9
  MEPROP Name 'name'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
 
@@ -282,7 +278,6 @@ ENDME // ME_49E888BF00E9 name
 ME ME_49E888BF0140
  MEPROP Name 'mail'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
 
@@ -291,7 +286,6 @@ ENDME // ME_49E888BF0140 mail
 ME ME_49E888BF0197
  MEPROP Name 'is_system'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
  ;
 
@@ -300,7 +294,6 @@ ENDME // ME_49E888BF0197 is_system
 ME ME_49E888BF01EE
  MEPROP Name 'has_password'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
  ;
 
@@ -309,7 +302,6 @@ ENDME // ME_49E888BF01EE has_password
 ME ME_49E888BF0244
  MEPROP Name 'can_buy_consulting'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
  ;
 
@@ -318,7 +310,6 @@ ENDME // ME_49E888BF0244 can_buy_consulting
 ME ME_49E888BF029B
  MEPROP Name 'is_permanent'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
  ;
 
@@ -344,7 +335,6 @@ ME ME_4607D7390157
  ME_49E888BF029B // is_permanent
  )
  ; // Parameters
- UP "const_type" 'read-write'
  UP "dll export" False
 
 ENDME // ME_4607D7390157 make
@@ -358,7 +348,6 @@ ME ME_4608D6F501F4
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_45EED78501B5 // UserProfile
  ;
- UP "const_type" 'read-write'
 
 ENDME // ME_4608D6F501F4 make
 
@@ -378,21 +367,18 @@ MEREF ME_456EB3E1017C_ME_45EED78501B5_impl
  MELINK Original WL 'ME_456EB3E1017C' '456EA56002BF.ms.model.script' // is_saved
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_456EB3E1017C_ME_45EED78501B5_impl is_saved
 
 MEREF ME_456EB3E1017D_ME_45EED78501B5_impl
  MELINK Original WL 'ME_456EB3E1017D' '456EA56002BF.ms.model.script' // is_changed
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_456EB3E1017D_ME_45EED78501B5_impl is_changed
 
 MEREF ME_456EE084033C_ME_45EED78501B5_impl
  MELINK Original WL 'ME_456EE084033C' '456EA56002BF.ms.model.script' // eid
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_456EE084033C_ME_45EED78501B5_impl eid
 
 MEREF ME_456EB3E10177_ME_45EED78501B5_G
@@ -444,7 +430,6 @@ ME ME_45EED78501B5
  ME_456EE084033C_ME_45EED78501B5_impl // eid
  )
  ; // Implemented
- UP "single impl" False
  UP extprop:pas:TypeName 'IUserProfile'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'UserProfile'
@@ -465,7 +450,6 @@ ME ME_46260CD8002E
  ;
  MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
  ;
- UP "pm" False
 
 ENDME // ME_46260CD8002E flags
 
@@ -482,7 +466,6 @@ ME ME_49DA00730310
  ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
- UP "pm" False
 
 ENDME // ME_49DA00730310 group_uid
 
@@ -515,7 +498,6 @@ ME ME_45EED57B01AA
  HWL ME_49DA00730310 // group_uid
  )
  ; // Attributes
- UP "single impl" False
  UP extprop:pas:TypeName 'IUserFilter'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'UserFilter'
@@ -533,7 +515,6 @@ ME ME_4607D6CC038A
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_45EED730037A // ProfileNode
  ;
- UP "const_type" 'read-write'
  UP "dll export" False
 
 ENDME // ME_4607D6CC038A make
@@ -821,35 +802,30 @@ MEREF ME_45EEB9590222_ME_45EED730037A_impl
  MELINK Original WL 'ME_45EEB9590222' '457450470167.ms.model.script' // caption
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45EEB9590222_ME_45EED730037A_impl caption
 
 MEREF ME_45EEB9590223_ME_45EED730037A_impl
  MELINK Original WL 'ME_45EEB9590223' '457450470167.ms.model.script' // level
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45EEB9590223_ME_45EED730037A_impl level
 
 MEREF ME_45EEB9590224_ME_45EED730037A_impl
  MELINK Original WL 'ME_45EEB9590224' '457450470167.ms.model.script' // type
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45EEB9590224_ME_45EED730037A_impl type
 
 MEREF ME_45EEB9590227_ME_45EED730037A_impl
  MELINK Original WL 'ME_45EEB9590227' '457450470167.ms.model.script' // child_count
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45EEB9590227_ME_45EED730037A_impl child_count
 
 MEREF ME_45EEB9590228_ME_45EED730037A_impl
  MELINK Original WL 'ME_45EEB9590228' '457450470167.ms.model.script' // is_expanded
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45EEB9590228_ME_45EED730037A_impl is_expanded
 
 MEREF ME_45EECD5D02EF_ME_45EED730037A_impl
@@ -868,35 +844,30 @@ MEREF ME_45F65BEA00DA_ME_45EED730037A_impl
  MELINK Original WL 'ME_45F65BEA00DA' '457450470167.ms.model.script' // entity
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45F65BEA00DA_ME_45EED730037A_impl entity
 
 MEREF ME_45FE5E3000DA_ME_45EED730037A_impl
  MELINK Original WL 'ME_45FE5E3000DA' '457450470167.ms.model.script' // first_child
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45FE5E3000DA_ME_45EED730037A_impl first_child
 
 MEREF ME_45FE5E5902FD_ME_45EED730037A_impl
  MELINK Original WL 'ME_45FE5E5902FD' '457450470167.ms.model.script' // prev
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45FE5E5902FD_ME_45EED730037A_impl prev
 
 MEREF ME_45FE5E9C0109_ME_45EED730037A_impl
  MELINK Original WL 'ME_45FE5E9C0109' '457450470167.ms.model.script' // next
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45FE5E9C0109_ME_45EED730037A_impl next
 
 MEREF ME_45FE5ECB0261_ME_45EED730037A_impl
  MELINK Original WL 'ME_45FE5ECB0261' '457450470167.ms.model.script' // parent
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45FE5ECB0261_ME_45EED730037A_impl parent
 
 MEREF ME_46236D06007D_ME_45EED730037A_impl
@@ -1036,7 +1007,6 @@ ME ME_45EED730037A
  ME_51EFD26E03DF_ME_45EED730037A_impl // set_range_flag_except_first_children_of_root_children
  )
  ; // Implemented
- UP "single impl" False
  UP extprop:pas:TypeName 'IProfileNode'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ProfileNode'
@@ -1087,7 +1057,6 @@ ME ME_4651A5AE00FA
    Seq: ( HWL ME_4651A841007D // 
  )
  ; // Attributes
- UP "array type" 'dynamic'
  UP extprop:pas:TypeName 'IUidList'
 
 ENDME // ME_4651A5AE00FA UidList
@@ -1127,7 +1096,6 @@ FORWARD ME_45EED57B018D
 ME ME_4609028F00EA
  MEPROP Name 'name'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
 
@@ -1136,7 +1104,6 @@ ENDME // ME_4609028F00EA name
 ME ME_4609028F0138
  MEPROP Name 'login'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
 
@@ -1145,7 +1112,6 @@ ENDME // ME_4609028F0138 login
 ME ME_4609028F0177
  MEPROP Name 'password'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
 
@@ -1154,7 +1120,6 @@ ENDME // ME_4609028F0177 password
 ME ME_4609028F01B5
  MEPROP Name 'mail'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
 
@@ -1163,7 +1128,6 @@ ENDME // ME_4609028F01B5 mail
 ME ME_4609028F0203
  MEPROP Name 'can_buy_consulting'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
  ;
 
@@ -1172,7 +1136,6 @@ ENDME // ME_4609028F0203 can_buy_consulting
 ME ME_474AA26C0068
  MEPROP Name 'is_privileged'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
  ;
 
@@ -1181,7 +1144,6 @@ ENDME // ME_474AA26C0068 is_privileged
 ME ME_49E6F8D30106
  MEPROP Name 'group_id'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -1223,7 +1185,6 @@ FORWARD ME_45EED57B0193
 ME ME_46090308037A
  MEPROP Name 'uid'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -1256,7 +1217,6 @@ FORWARD ME_45EED57B0195
 ME ME_4609036A0157
  MEPROP Name 'uid'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -1265,7 +1225,6 @@ ENDME // ME_4609036A0157 uid
 ME ME_4609036A0196
  MEPROP Name 'name'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
 
@@ -1274,7 +1233,6 @@ ENDME // ME_4609036A0196 name
 ME ME_4609036A01D4
  MEPROP Name 'mail'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
 
@@ -1311,7 +1269,6 @@ FORWARD ME_45EED57B0199
 ME ME_460903A00186
  MEPROP Name 'uid'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -1320,7 +1277,6 @@ ENDME // ME_460903A00186 uid
 ME ME_460903A001C5
  MEPROP Name 'password'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
 
@@ -1357,7 +1313,6 @@ FORWARD ME_49E858400139
 ME ME_49E858560325
  MEPROP Name 'user_id'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -1366,7 +1321,6 @@ ENDME // ME_49E858560325 user_id
 ME ME_49E8585603A5
  MEPROP Name 'group_id'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -1398,7 +1352,6 @@ FORWARD ME_49F5595000F7
 ME ME_49F5596000DC
  MEPROP Name 'id_list'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_4651A5AE00FA // UidList
  ;
 
@@ -1407,7 +1360,6 @@ ENDME // ME_49F5596000DC id_list
 ME ME_49F55960015E
  MEPROP Name 'group_id'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -1439,7 +1391,6 @@ FORWARD ME_45EED57B019C
 ME ME_460903F90000
  MEPROP Name 'uid'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -1448,7 +1399,6 @@ ENDME // ME_460903F90000 uid
 ME ME_460903F9005D
  MEPROP Name 'is_allowed'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
  ;
 
@@ -1484,7 +1434,6 @@ FORWARD ME_473DCA89000A
 ME ME_473DCAAB014A
  MEPROP Name 'uid'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -1493,7 +1442,6 @@ ENDME // ME_473DCAAB014A uid
 ME ME_474A9FFB037B
  MEPROP Name 'is_privileged'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
  ;
 
@@ -1527,7 +1475,6 @@ FORWARD ME_45EED57B019F
 ME ME_4609043C03C8
  MEPROP Name 'uid'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -1578,7 +1525,6 @@ FORWARD ME_45EED57B01A2
 ME ME_460905AA00FA
  MEPROP Name 'is_allowed'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
  ;
 
@@ -1609,7 +1555,6 @@ FORWARD ME_45EED57B01A4
 ME ME_460905EC0186
  MEPROP Name 'is_allowed'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
  ;
 
@@ -1654,7 +1599,6 @@ FORWARD ME_4651A57F001F
 ME ME_4651A6FF0000
  MEPROP Name 'list'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_4651A5AE00FA // UidList
  ;
 
@@ -1687,7 +1631,6 @@ FORWARD ME_4651A63100EA
 ME ME_4651A70303D8
  MEPROP Name 'list'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_4651A5AE00FA // UidList
  ;
 
@@ -1718,7 +1661,6 @@ FORWARD ME_4651A670004E
 ME ME_46559D8A0109
  MEPROP Name 'list'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_4651A5AE00FA // UidList
  ;
 
@@ -1727,7 +1669,6 @@ ENDME // ME_46559D8A0109 list
 ME ME_46559D8A0167
  MEPROP Name 'is_payment_allowed'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
  ;
 
@@ -1760,7 +1701,6 @@ FORWARD ME_473DC9D20144
 ME ME_473DC9F40029
  MEPROP Name 'list'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_4651A5AE00FA // UidList
  ;
 
@@ -1769,7 +1709,6 @@ ENDME // ME_473DC9F40029 list
 ME ME_474A9FED034E
  MEPROP Name 'is_privileged'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
  ;
 
@@ -1825,7 +1764,6 @@ ME ME_4607D6430177
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_45EED57B0186 // UserManager
  ;
- UP "const_type" 'read-write'
 
 ENDME // ME_4607D6430177 make
 
@@ -1880,7 +1818,6 @@ FORWARD ME_49C8C2AF03D1
 ME ME_49C8C4380010
  MEPROP Name 'name'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
 
@@ -1914,7 +1851,6 @@ FORWARD ME_49C8C58D029D
 ME ME_49C8C5B30382
  MEPROP Name 'uid'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -1946,7 +1882,6 @@ FORWARD ME_49C8CC1C0238
 ME ME_49C8CC580221
  MEPROP Name 'uid'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -1955,7 +1890,6 @@ ENDME // ME_49C8CC580221 uid
 ME ME_49C8CC5802A3
  MEPROP Name 'blocks_ids'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_483EC24E0308' '457450470167.ms.model.script' // NodeIdList
  ;
 
@@ -1988,7 +1922,6 @@ FORWARD ME_49C8D65B0228
 ME ME_49C8D66C02FE
  MEPROP Name 'uid'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -2022,7 +1955,6 @@ FORWARD ME_49EF1F8F02B6
 ME ME_49EF1FB7006D
  MEPROP Name 'uid'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -2031,7 +1963,6 @@ ENDME // ME_49EF1FB7006D uid
 ME ME_49EF1FB700F9
  MEPROP Name 'name'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
 
@@ -2065,7 +1996,6 @@ FORWARD ME_4E3BC517010A
 ME ME_4E3BC5670182
  MEPROP Name 'uid'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -2094,7 +2024,6 @@ FORWARD ME_4E3BC5700385
 ME ME_4E3BC5B40277
  MEPROP Name 'uid'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -2103,7 +2032,6 @@ ENDME // ME_4E3BC5B40277 uid
 ME ME_4E3BC5B402EC
  MEPROP Name 'state'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
  ;
 
@@ -2131,7 +2059,6 @@ FORWARD ME_4E5F875701F4
 ME ME_4E5F878E027B
  MEPROP Name 'uid'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -2160,7 +2087,6 @@ FORWARD ME_4E5F879F0339
 ME ME_4E5F87C8035A
  MEPROP Name 'uid'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
 
@@ -2169,7 +2095,6 @@ ENDME // ME_4E5F87C8035A uid
 ME ME_4E5F87C803D7
  MEPROP Name 'state'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
  ;
 
@@ -2238,7 +2163,6 @@ ME ME_45EED57B0186
  HWL ME_4E5F879F0339 // set_erasable_state
  )
  ; // Operations
- UP "single impl" False
  UP extprop:pas:TypeName 'IUserManager'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'UserManager'
@@ -2276,7 +2200,6 @@ ME ME_49EF20EE0123
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_49EF204201EB // GroupNode
  ;
- UP "const_type" 'read-write'
  UP "dll export" False
 
 ENDME // ME_49EF20EE0123 make
@@ -2551,35 +2474,30 @@ MEREF ME_45EEB9590222_ME_49EF204201EB_impl
  MELINK Original WL 'ME_45EEB9590222' '457450470167.ms.model.script' // caption
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45EEB9590222_ME_49EF204201EB_impl caption
 
 MEREF ME_45EEB9590223_ME_49EF204201EB_impl
  MELINK Original WL 'ME_45EEB9590223' '457450470167.ms.model.script' // level
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45EEB9590223_ME_49EF204201EB_impl level
 
 MEREF ME_45EEB9590224_ME_49EF204201EB_impl
  MELINK Original WL 'ME_45EEB9590224' '457450470167.ms.model.script' // type
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45EEB9590224_ME_49EF204201EB_impl type
 
 MEREF ME_45EEB9590227_ME_49EF204201EB_impl
  MELINK Original WL 'ME_45EEB9590227' '457450470167.ms.model.script' // child_count
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45EEB9590227_ME_49EF204201EB_impl child_count
 
 MEREF ME_45EEB9590228_ME_49EF204201EB_impl
  MELINK Original WL 'ME_45EEB9590228' '457450470167.ms.model.script' // is_expanded
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45EEB9590228_ME_49EF204201EB_impl is_expanded
 
 MEREF ME_45EECD5D02EF_ME_49EF204201EB_impl
@@ -2598,35 +2516,30 @@ MEREF ME_45F65BEA00DA_ME_49EF204201EB_impl
  MELINK Original WL 'ME_45F65BEA00DA' '457450470167.ms.model.script' // entity
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45F65BEA00DA_ME_49EF204201EB_impl entity
 
 MEREF ME_45FE5E3000DA_ME_49EF204201EB_impl
  MELINK Original WL 'ME_45FE5E3000DA' '457450470167.ms.model.script' // first_child
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45FE5E3000DA_ME_49EF204201EB_impl first_child
 
 MEREF ME_45FE5E5902FD_ME_49EF204201EB_impl
  MELINK Original WL 'ME_45FE5E5902FD' '457450470167.ms.model.script' // prev
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45FE5E5902FD_ME_49EF204201EB_impl prev
 
 MEREF ME_45FE5E9C0109_ME_49EF204201EB_impl
  MELINK Original WL 'ME_45FE5E9C0109' '457450470167.ms.model.script' // next
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45FE5E9C0109_ME_49EF204201EB_impl next
 
 MEREF ME_45FE5ECB0261_ME_49EF204201EB_impl
  MELINK Original WL 'ME_45FE5ECB0261' '457450470167.ms.model.script' // parent
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_45FE5ECB0261_ME_49EF204201EB_impl parent
 
 MEREF ME_46236D06007D_ME_49EF204201EB_impl
@@ -2773,7 +2686,6 @@ ME ME_49EF204201EB
  ME_51EFD26E03DF_ME_49EF204201EB_impl // set_range_flag_except_first_children_of_root_children
  )
  ; // Implemented
- UP "single impl" False
  UP extprop:pas:TypeName 'IGroupNode'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'GroupNode'
@@ -2796,9 +2708,6 @@ ME ME_45EED47801AB
  MEPROP Value 1
  MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 1
 
 ENDME // ME_45EED47801AB UFF_USER_ACTIVE
@@ -2817,9 +2726,6 @@ ME ME_45EED47801AC
  MEPROP Value 2
  MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 2
 
 ENDME // ME_45EED47801AC UFF_USER_NOT_ACTIVE
@@ -2838,9 +2744,6 @@ ME ME_45EED47801AD
  MEPROP Value 4
  MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 4
 
 ENDME // ME_45EED47801AD UFF_USER_SYSTEM
@@ -2859,9 +2762,6 @@ ME ME_45EED47801AE
  MEPROP Value 8
  MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 8
 
 ENDME // ME_45EED47801AE UFF_USER_NOT_SYSTEM
@@ -2880,9 +2780,6 @@ ME ME_45EED47801AF
  MEPROP Value 16
  MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 16
 
 ENDME // ME_45EED47801AF UFF_USER_NOT_CURRENT
@@ -2901,9 +2798,6 @@ ME ME_45EED47801B0
  MEPROP Value 32
  MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 32
 
 ENDME // ME_45EED47801B0 UFF_GUEST_USER
@@ -2922,9 +2816,6 @@ ME ME_45EED47801B1
  MEPROP Value 64
  MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 64
 
 ENDME // ME_45EED47801B1 UFF_NOT_GUEST_USER
@@ -2943,9 +2834,6 @@ ME ME_45EED47801B2
  MEPROP Value 128
  MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 128
 
 ENDME // ME_45EED47801B2 UFF_USER_CAN_BUY_CONSULTING
@@ -2964,9 +2852,6 @@ ME ME_45EED47801B3
  MEPROP Value 256
  MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 256
 
 ENDME // ME_45EED47801B3 UFF_USER_CANT_BUY_CONSULTING
@@ -2985,9 +2870,6 @@ ME ME_473DCE6903BA
  MEPROP Value 512
  MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 512
 
 ENDME // ME_473DCE6903BA UFF_USER_PRIVILEGED
@@ -3006,9 +2888,6 @@ ME ME_473DCE890181
  MEPROP Value 1024
  MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 1024
 
 ENDME // ME_473DCE890181 UFF_USER_NOT_PRIVILEGED
@@ -3028,9 +2907,6 @@ ME ME_49DA00EA0229
  MEPROP Value 2048
  MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 2048
 
 ENDME // ME_49DA00EA0229 UFF_GROUP_UID
@@ -3050,9 +2926,6 @@ ME ME_49EF1F3502B9
  MEPROP Value 4096
  MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 4096
 
 ENDME // ME_49EF1F3502B9 UFF_NOT_GROUPPED_USERS
@@ -3072,9 +2945,6 @@ ME ME_4A41E4A70163
  MEPROP Value 8192
  MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 8192
 
 ENDME // ME_4A41E4A70163 UFF_CHAT_CONTACT_LIST_USERS
@@ -3082,7 +2952,7 @@ ENDME // ME_4A41E4A70163 UFF_CHAT_CONTACT_LIST_USERS
 ME ME_45EED47801AA
  MEPROP UID '45EED47801AA'
  MEPROP Name 'UserFilterFlags'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3106,7 +2976,6 @@ ME ME_45EED47801AA
  HWL ME_4A41E4A70163 // UFF_CHAT_CONTACT_LIST_USERS
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_45EED47801AA UserFilterFlags
 
@@ -3127,9 +2996,6 @@ ME ME_45EED4D003AA
  MEPROP Value 1
  MELINK ValueType WL 'ME_45EEC375006D' '457450470167.ms.model.script' // NodeType
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 1
 
 ENDME // ME_45EED4D003AA PNT_LOGGED_FLAG
@@ -3149,9 +3015,6 @@ ME ME_45EED4D003AB
  MEPROP Value 2
  MELINK ValueType WL 'ME_45EEC375006D' '457450470167.ms.model.script' // NodeType
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 2
 
 ENDME // ME_45EED4D003AB PNT_SYSTEM_FLAG
@@ -3170,9 +3033,6 @@ ME ME_45EED4D003AD
  MEPROP Value 4
  MELINK ValueType WL 'ME_45EEC375006D' '457450470167.ms.model.script' // NodeType
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 4
 
 ENDME // ME_45EED4D003AD PNT_EXIT_FLAG
@@ -3191,9 +3051,6 @@ ME ME_473DCEAB01D1
  MEPROP Value 8
  MELINK ValueType WL 'ME_45EEC375006D' '457450470167.ms.model.script' // NodeType
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 8
 
 ENDME // ME_473DCEAB01D1 PNT_PRIVILEGED_FLAG
@@ -3201,7 +3058,7 @@ ENDME // ME_473DCEAB01D1 PNT_PRIVILEGED_FLAG
 ME ME_45EED4D003A9
  MEPROP UID '45EED4D003A9'
  MEPROP Name 'ProfileNodeType'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Состояния в которых могут находится пользователи с точки зрения их отображения.' ;
@@ -3216,7 +3073,6 @@ ME ME_45EED4D003A9
  HWL ME_473DCEAB01D1 // PNT_PRIVILEGED_FLAG
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_45EED4D003A9 ProfileNodeType
 
@@ -3237,9 +3093,6 @@ ME ME_49E6F67A00A7
  MEPROP Value 0
  MELINK ValueType WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 0
 
 ENDME // ME_49E6F67A00A7 GROUP_ALL_ID
@@ -3247,7 +3100,7 @@ ENDME // ME_49E6F67A00A7 GROUP_ALL_ID
 ME ME_49E6F65F0163
  MEPROP UID '49E6F65F0163'
  MEPROP Name 'GroupsConstants'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'константы, связанные с группами' ;
@@ -3259,7 +3112,6 @@ ME ME_49E6F65F0163
    Seq: ( HWL ME_49E6F67A00A7 // GROUP_ALL_ID
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_49E6F65F0163 GroupsConstants
 

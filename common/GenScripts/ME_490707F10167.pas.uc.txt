@@ -1,0 +1,33 @@
+//#UC START# *48FF56D003E6_490707F10167_impl*
+ Result := gi_cpMedicDiction;
+//#UC END# *48FF56D003E6_490707F10167_impl*
+//#UC START# *48FF56D003E6_490707F10167_var*
+//#UC END# *48FF56D003E6_490707F10167_var*
+//#UC START# *48FF64F60078_490707F10167_impl*
+ Result := DefDataAdapter.NativeAdapter.MakeNodeBase(nsAStr(c_MedDiction_NodeClass));
+//#UC END# *48FF64F60078_490707F10167_impl*
+//#UC START# *48FF64F60078_490707F10167_var*
+//#UC END# *48FF64F60078_490707F10167_var*
+//#UC START# *490707F10167_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicDictionTreeBase.pas
+//#UC END# *490707F10167_ext:FileName
+//#UC START# *490707F10167impl_uses*
+//#UC END# *490707F10167impl_uses*
+//#UC START# *49070844012C_490707F10167_impl*
+ if not defDataAdapter.IsInpharmExists then
+ begin
+  Result := nil;
+  Exit;
+ end;
+ l_Tree := Create(DefDataAdapter.NativeAdapter.MakeNodeBase(nsAStr(c_MedDiction_NodeClass)), False);
+ try
+  Result := l_Tree;
+ finally;
+  FreeAndNil(l_Tree);
+ end;
+//#UC END# *49070844012C_490707F10167_impl*
+//#UC START# *49070844012C_490707F10167_var*
+var
+ l_Tree : TnsMedicDictionTreeBase;
+ l_Root : INodeBase;
+//#UC END# *49070844012C_490707F10167_var*

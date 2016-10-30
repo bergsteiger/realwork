@@ -1,0 +1,84 @@
+//#UC START# *479731C50290_4D8A1D6700A0_impl*
+ FreeAndNil(f_List);
+ inherited;
+//#UC END# *479731C50290_4D8A1D6700A0_impl*
+//#UC START# *479731C50290_4D8A1D6700A0_var*
+//#UC END# *479731C50290_4D8A1D6700A0_var*
+//#UC START# *4D8A1D6700A0_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\nsContextListForSearchViaEverestOwnSearcher.pas
+//#UC END# *4D8A1D6700A0_ext:FileName
+//#UC START# *4D8A1D6700A0ci*
+//#UC END# *4D8A1D6700A0ci*
+//#UC START# *4D8A1D6700A0cit*
+//#UC END# *4D8A1D6700A0cit*
+//#UC START# *4D8A1D6700A0impl*
+function TnsContextListForSearchViaEverestOwnSearcher.pm_GetCount: Integer;
+begin
+ Result := f_List.Count;
+end;
+
+procedure TnsContextListForSearchViaEverestOwnSearcher.pm_SetCount(aValue: Integer);
+begin
+ Assert(false);
+end;
+
+procedure TnsContextListForSearchViaEverestOwnSearcher.Clear;
+begin
+ Assert(false);
+end;
+
+procedure TnsContextListForSearchViaEverestOwnSearcher.Delete(anIndex: Integer);
+begin
+ Assert(false);
+end;
+
+procedure TnsContextListForSearchViaEverestOwnSearcher.pm_GetItem(anIndex: Integer; out aRet: IFragmentList);
+begin
+ aRet := TnsFragmentListForSearchViaEverestOwnSearcher.Make(f_Doc, f_List[anIndex]);
+end;
+
+procedure TnsContextListForSearchViaEverestOwnSearcher.pm_SetItem(anIndex: Integer; const anItem: IFragmentList);
+begin
+ Assert(false);
+end;
+
+function TnsContextListForSearchViaEverestOwnSearcher.Add(const anItem: IFragmentList): Integer;
+begin
+ Result := -1;
+ Assert(false);
+end;
+
+procedure TnsContextListForSearchViaEverestOwnSearcher.Insert(anIndex: Integer; const anItem: IFragmentList);
+begin
+ Assert(false);
+end;
+
+//#UC END# *4D8A1D6700A0impl*
+//#UC START# *4D8A1D6700A0impl_uses*
+//#UC END# *4D8A1D6700A0impl_uses*
+//#UC START# *4D8A1D6700A0intf_uses*
+//#UC END# *4D8A1D6700A0intf_uses*
+//#UC START# *4D8A1D6700A0publ*
+ private
+    function  pm_GetCount: Integer; stdcall;
+    procedure pm_SetCount(aValue: Integer); stdcall;
+      { - методы для доступа к свойству Count. }
+    procedure Clear; stdcall;
+      {* очистить список. }
+    procedure Delete(anIndex: Integer); stdcall;
+      {* удаляет элемент по индексу Index. }
+    procedure  pm_GetItem(anIndex: Integer; out aRet: IFragmentList); stdcall;
+    procedure pm_SetItem(anIndex: Integer; const anItem: IFragmentList); stdcall;
+      {-}
+    function  Add(const anItem: IFragmentList): Integer; stdcall;
+      {* - добавляет элемент Item в конец. }
+    procedure Insert(anIndex: Integer; const anItem: IFragmentList); stdcall;
+      {* - вставляет элемент Item по индексу Index. }
+//#UC END# *4D8A1D6700A0publ*
+//#UC START# *4D8A33A50117_4D8A1D6700A0_impl*
+ inherited Create;
+ f_Doc := aDoc;
+ l3Set(f_List, aList);
+//#UC END# *4D8A33A50117_4D8A1D6700A0_impl*
+//#UC START# *4D8A33A50117_4D8A1D6700A0_var*
+//#UC END# *4D8A33A50117_4D8A1D6700A0_var*

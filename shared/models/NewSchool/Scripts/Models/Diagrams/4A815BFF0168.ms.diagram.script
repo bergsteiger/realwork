@@ -1,0 +1,139 @@
+// Navigation 4A815BFF0168 VCMForms Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4A815BFF0168_diagrams
+
+ MEDIAGRAM ME_4A815BFF0168_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4A815BFF0168' ; // Navigation
+
+  MEVIEW ME_4A815C200111_view
+   MELINK Original WL? 'ME_4A815C200111' ; // HyperlinkProcessor
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A815C200111_view
+
+  MEVIEW ME_4E2067E2007C_view
+   MELINK Original WL? 'ME_4E2067E2007C' ; // TbsHyperLinkProcessorPrim
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E2067E2007C_view
+
+  MEVIEW ME_4A8AC2DB0210_view
+   MELINK Original WL? 'ME_4A8AC2DB0210' ; // HyperlinkProcessorWithOwnLocalLink
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A8AC2DB0210_view
+
+  MEVIEW ME_4AE760FD0182_view
+   MELINK Original WL? 'ME_4AE760FD0182' ; // TnsOpenDocOnNumberData
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AE760FD0182_view
+
+  MEVIEW ME_4A8199550084_view
+   MELINK Original WL? 'ME_4A8199550084' ; // nsHyperLinkProcessor
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A8199550084_view
+
+  MEVIEW ME_4E9C33CD022F_view
+   MELINK Original WL 'ME_4E9C33CD022F' '4A815BFF0168.ms.model.script' ; // MHyperlinkProcessor
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E9C33CD022F_view
+
+  MEVIEW ME_4E9C33A802C8_view
+   MELINK Original WL? 'ME_4E9C33A802C8' ; // HyperlinkProcessorForDocumentCompare
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E9C33A802C8_view
+
+  MEVIEW ME_4F1044DD0281_view
+   MELINK Original WL? 'ME_4F1044DD0281' ; // HyperlinkOperations
+   MEPROP X 40
+   MEPROP Y 180
+  ENDMEVIEW // ME_4F1044DD0281_view
+
+  MEVIEW ME_5418021C0216_view
+   MELINK Original WL? 'ME_5418021C0216' ; // nsHyperlinkProcessorTypes
+   MEPROP X 200
+   MEPROP Y 180
+  ENDMEVIEW // ME_5418021C0216_view
+
+  MEVIEW ME_5417E71801D2_view
+   MELINK Original WL? 'ME_5417E71801D2' ; // TbsHyperlinkProcessorContainerMaker
+   MEPROP X 360
+   MEPROP Y 180
+  ENDMEVIEW // ME_5417E71801D2_view
+
+  MEVIEW ME_4B0A781302C3_view
+   MELINK Original WL? 'ME_4B0A781302C3' ; // TnsOpenDocumentFromLinkEvent
+   MEPROP X 520
+   MEPROP Y 180
+  ENDMEVIEW // ME_4B0A781302C3_view
+
+  MEVIEW ME_527CD1B702B4_view
+   MELINK Original WL? 'ME_527CD1B702B4' ; // TnsTryingToOpenMissingDocumentFromLinkEvent
+   MEPROP X 680
+   MEPROP Y 180
+  ENDMEVIEW // ME_527CD1B702B4_view
+
+  MEVIEWLINK ME_4A81996302EF_viewlink
+   MELINK Original WL 'ME_4A81996302EF' '4A815C200111.ms.model.script' ;
+   MELINK From ME_4A815C200111_view ;
+   MELINK To ME_4A8199550084_view ;
+  ENDMEVIEWLINK // ME_4A81996302EF_viewlink
+
+  MEVIEWLINK ME_5418031B00C4_viewlink
+   MELINK Original WL 'ME_5418031B00C4' '4A815C200111.ms.model.script' ;
+   MELINK From ME_4A815C200111_view ;
+   MELINK To ME_5418021C0216_view ;
+  ENDMEVIEWLINK // ME_5418031B00C4_viewlink
+
+  MEVIEWLINK ME_4A8AC2DB0210_ME_4A815C200111_Inherits
+   MELINK From ME_4A8AC2DB0210_view ;
+   MELINK To ME_4A815C200111_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4A8AC2DB0210_ME_4A815C200111_Inherits
+
+  MEVIEWLINK ME_4E9C33CD022F_ME_4A815C200111_Inherits
+   MELINK From ME_4E9C33CD022F_view ;
+   MELINK To ME_4A815C200111_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4E9C33CD022F_ME_4A815C200111_Inherits
+
+  MEVIEWLINK ME_4E9C33A802C8_ME_4E9C33CD022F_Implements
+   MELINK From ME_4E9C33A802C8_view ;
+   MELINK To ME_4E9C33CD022F_view ;
+   MEPROP Class class_Implements
+  ENDMEVIEWLINK // ME_4E9C33A802C8_ME_4E9C33CD022F_Implements
+
+  MELIST Views
+   Seq: ( ME_4A815C200111_view // HyperlinkProcessor
+   ME_4E2067E2007C_view // TbsHyperLinkProcessorPrim
+   ME_4A8AC2DB0210_view // HyperlinkProcessorWithOwnLocalLink
+   ME_4AE760FD0182_view // TnsOpenDocOnNumberData
+   ME_4A8199550084_view // nsHyperLinkProcessor
+   ME_4E9C33CD022F_view // MHyperlinkProcessor
+   ME_4E9C33A802C8_view // HyperlinkProcessorForDocumentCompare
+   ME_4F1044DD0281_view // HyperlinkOperations
+   ME_5418021C0216_view // nsHyperlinkProcessorTypes
+   ME_5417E71801D2_view // TbsHyperlinkProcessorContainerMaker
+   ME_4B0A781302C3_view // TnsOpenDocumentFromLinkEvent
+   ME_527CD1B702B4_view // TnsTryingToOpenMissingDocumentFromLinkEvent
+   ME_4A81996302EF_viewlink // HyperlinkProcessor ==> nsHyperLinkProcessor
+   ME_5418031B00C4_viewlink // HyperlinkProcessor ==> nsHyperlinkProcessorTypes
+   ME_4A8AC2DB0210_ME_4A815C200111_Inherits // HyperlinkProcessorWithOwnLocalLink ==> HyperlinkProcessor
+   ME_4E9C33CD022F_ME_4A815C200111_Inherits // MHyperlinkProcessor ==> HyperlinkProcessor
+   ME_4E9C33A802C8_ME_4E9C33CD022F_Implements // HyperlinkProcessorForDocumentCompare ==> MHyperlinkProcessor
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4A815BFF0168_main
+
+ MELIST Diagrams
+  Seq: ( ME_4A815BFF0168_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4A815BFF0168_diagrams

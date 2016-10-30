@@ -1,0 +1,67 @@
+//#UC START# *479731C50290_49216B3C02E8_impl*
+ l3Free(f_Comment);
+ inherited;
+//#UC END# *479731C50290_49216B3C02E8_impl*
+//#UC START# *479731C50290_49216B3C02E8_var*
+//#UC END# *479731C50290_49216B3C02E8_var*
+//#UC START# *47A042E100E2_49216B3C02E8_impl*
+ inherited;
+ f_Mark := bs_cmNone;
+//#UC END# *47A042E100E2_49216B3C02E8_impl*
+//#UC START# *47A042E100E2_49216B3C02E8_var*
+//#UC END# *47A042E100E2_49216B3C02E8_var*
+//#UC START# *49216508016D_49216B3C02E8_impl*
+ if (ucc_Consultation <> nil) AND (ucc_Consultation.bsConsultation <> nil) then
+ begin
+  with ucc_Consultation.bsConsultation.Data do
+  begin
+   CreateEstimation(l_Estimation);
+   try
+    with l_Estimation do
+    begin
+     SetValue(bsBusinessToAdapter(f_Mark));
+     SetText(nsIStr(f_Comment.AsWStr));
+    end;//with l_Estimation do
+    SendEstimation(l_Estimation);
+    if (ucc_Consultation <> nil) then
+     ucc_Consultation.MarkSended;
+   finally
+    l_Estimation := nil;
+   end;{try..finally}
+  end;//with ucc_Consultation.bsConsultation.Data do
+ end;//ucc_Consultation.bsConsultation <> nil
+//#UC END# *49216508016D_49216B3C02E8_impl*
+//#UC START# *49216508016D_49216B3C02E8_var*
+var
+ l_Estimation : IEstimation;
+//#UC END# *49216508016D_49216B3C02E8_var*
+//#UC START# *49216542034E_49216B3C02E8get_impl*
+ Result := f_Mark;
+//#UC END# *49216542034E_49216B3C02E8get_impl*
+//#UC START# *49216542034E_49216B3C02E8get_var*
+//#UC END# *49216542034E_49216B3C02E8get_var*
+//#UC START# *49216542034E_49216B3C02E8set_impl*
+ f_Mark := aValue;
+//#UC END# *49216542034E_49216B3C02E8set_impl*
+//#UC START# *49216542034E_49216B3C02E8set_var*
+//#UC END# *49216542034E_49216B3C02E8set_var*
+//#UC START# *49216552037B_49216B3C02E8get_impl*
+ Result := f_Comment.AsWStr;
+//#UC END# *49216552037B_49216B3C02E8get_impl*
+//#UC START# *49216552037B_49216B3C02E8get_var*
+//#UC END# *49216552037B_49216B3C02E8get_var*
+//#UC START# *49216552037B_49216B3C02E8set_impl*
+ l3Set(f_Comment, aValue);
+//#UC END# *49216552037B_49216B3C02E8set_impl*
+//#UC START# *49216552037B_49216B3C02E8set_var*
+//#UC END# *49216552037B_49216B3C02E8set_var*
+//#UC START# *49216566017F_49216B3C02E8get_impl*
+ Result := f_Mark <> bs_cmNone;
+//#UC END# *49216566017F_49216B3C02E8get_impl*
+//#UC START# *49216566017F_49216B3C02E8get_var*
+//#UC END# *49216566017F_49216B3C02E8get_var*
+//#UC START# *49216B3C02E8_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Consultation\dsConsultationMark.pas
+//#UC END# *49216B3C02E8_ext:FileName
+//#UC START# *49216B3C02E8impl_uses*
+//#UC END# *49216B3C02E8impl_uses*

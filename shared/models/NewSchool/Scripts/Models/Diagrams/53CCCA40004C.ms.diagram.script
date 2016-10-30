@@ -1,0 +1,41 @@
+// BaseEngine 53CCCA40004C Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_53CCCA40004C_diagrams
+
+ MEDIAGRAM ME_53CCCA40004C_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_53CCCA40004C' ; // BaseEngine
+
+  MEVIEW ME_53CCCA5B036F_view
+   MELINK Original WL? 'ME_53CCCA5B036F' ; // TalcuBaseEngine
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_53CCCA5B036F_view
+
+  MEVIEW ME_53CE4F2F008D_view
+   MELINK Original WL? 'ME_53CE4F2F008D' ; // TalcuBaseEngineHolder
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_53CE4F2F008D_view
+
+  MEVIEWLINK ME_53CE4F5F0206_viewlink
+   MELINK Original WL 'ME_53CE4F5F0206' '53CE4F2F008D.ms.model.script' ;
+   MELINK From ME_53CE4F2F008D_view ;
+   MELINK To ME_53CCCA5B036F_view ;
+  ENDMEVIEWLINK // ME_53CE4F5F0206_viewlink
+
+  MELIST Views
+   Seq: ( ME_53CCCA5B036F_view // TalcuBaseEngine
+   ME_53CE4F2F008D_view // TalcuBaseEngineHolder
+   ME_53CE4F5F0206_viewlink // TalcuBaseEngineHolder ==> TalcuBaseEngine
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_53CCCA40004C_main
+
+ MELIST Diagrams
+  Seq: ( ME_53CCCA40004C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_53CCCA40004C_diagrams

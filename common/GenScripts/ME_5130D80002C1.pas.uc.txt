@@ -1,0 +1,25 @@
+//#UC START# *4F212C3A015A_512FA1800269_impl*
+ RunnerAssert(aControl is TnscTreeView, 'Ёто не TnscTreeView.', aCtx);
+ DoWithNscTreeView(aControl as TnscTreeView, aCtx);
+//#UC END# *4F212C3A015A_512FA1800269_impl*
+//#UC START# *4F212C3A015A_512FA1800269_var*
+//#UC END# *4F212C3A015A_512FA1800269_var*
+//#UC START# *512FA22703B6_512FA2CC033C_impl*
+ l_Form := afw.GetParentForm(aTreeView);
+ RunnerAssert(Assigned(l_Form) and (l_Form is TPrimListOptionsForm), '„то-то не то со списком. –одительска€ форма не определена или не того класса.', aCtx);
+ l_FF := TnsFileFormat(aCtx.rEngine.PopInt);
+ with TPrimListOptionsFormHack(l_Form) do
+  aCtx.rEngine.PushString(dsList.ListAsString(CalcSaveListKind, True, l_FF));
+//#UC END# *512FA22703B6_512FA2CC033C_impl*
+//#UC START# *512FA22703B6_512FA2CC033C_var*
+var
+ l_Form: TCustomForm;
+ l_FF: TnsFileFormat;
+//#UC END# *512FA22703B6_512FA2CC033C_var*
+//#UC START# *5130D80002C1_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\List\nscTreeViewForDocumentListWordsPack.pas
+//#UC END# *5130D80002C1_ext:FileName
+//#UC START# *5130D80002C1impl_uses*
+//#UC END# *5130D80002C1impl_uses*
+//#UC START# *5130D80002C1intf_uses*
+//#UC END# *5130D80002C1intf_uses*

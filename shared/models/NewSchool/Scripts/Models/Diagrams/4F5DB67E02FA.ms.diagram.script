@@ -1,0 +1,41 @@
+// DictionContainerUserTypes 4F5DB67E02FA VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4F5DB67E02FA_diagrams
+
+ MEDIAGRAM ME_4F5DB67E02FA_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4F5DB67E02FA' ; // DictionContainerUserTypes
+
+  MEVIEW ME_4D77A52C0374_view
+   MELINK Original WL 'ME_4D77A52C0374' '4F5DB67E02FA.ms.model.script' ; // slqtDiction
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D77A52C0374_view
+
+  MEVIEW ME_4D81EE030156_view
+   MELINK Original WL 'ME_4D81EE030156' '4F5DB67E02FA.ms.model.script' ; // slqtMedicDiction
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D81EE030156_view
+
+  MEVIEWLINK ME_4D81EE030156_ME_4D77A52C0374_Inherits
+   MELINK From ME_4D81EE030156_view ;
+   MELINK To ME_4D77A52C0374_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4D81EE030156_ME_4D77A52C0374_Inherits
+
+  MELIST Views
+   Seq: ( ME_4D77A52C0374_view // slqtDiction
+   ME_4D81EE030156_view // slqtMedicDiction
+   ME_4D81EE030156_ME_4D77A52C0374_Inherits // slqtMedicDiction ==> slqtDiction
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4F5DB67E02FA_main
+
+ MELIST Diagrams
+  Seq: ( ME_4F5DB67E02FA_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4F5DB67E02FA_diagrams

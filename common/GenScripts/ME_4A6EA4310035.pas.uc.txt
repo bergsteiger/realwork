@@ -1,0 +1,164 @@
+//#UC START# *479731C50290_4A6EA4310035_impl*
+ if (ZoneType <> vcm_ztForToolbarsInfo) then
+  UnRegisterInDispatcher;
+ inherited;
+//#UC END# *479731C50290_4A6EA4310035_impl*
+//#UC START# *479731C50290_4A6EA4310035_var*
+//#UC END# *479731C50290_4A6EA4310035_var*
+//#UC START# *4A6EA4310035_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\AbstractHistory_Form.pas
+//#UC END# *4A6EA4310035_ext:FileName
+//#UC START# *4A6EA4310035impl_uses*
+//#UC END# *4A6EA4310035impl_uses*
+//#UC START# *4A6EA502033A_4A6EA4310035get_impl*
+ Result := UserID;
+//#UC END# *4A6EA502033A_4A6EA4310035get_impl*
+//#UC START# *4A6EA502033A_4A6EA4310035get_var*
+//#UC END# *4A6EA502033A_4A6EA4310035get_var*
+//#UC START# *4A6EA50801BA_4A6EA4310035_impl*
+ if IsIconic(Handle) then
+  ShowWindow(Handle, SW_RESTORE);
+ SetFocus;
+//#UC END# *4A6EA50801BA_4A6EA4310035_impl*
+//#UC START# *4A6EA50801BA_4A6EA4310035_var*
+//#UC END# *4A6EA50801BA_4A6EA4310035_var*
+//#UC START# *4A6EA62A0096_4A6EA4310035_impl*
+ with HistoryEditor do
+ begin
+  l_W := TextSource.DocumentContainer.TagWriter;
+  Assert(l_W <> nil);
+  l_C := Selection.Cursor;
+  Assert(l_C <> nil);
+  l_Op := Processor.StartOp;
+  try
+   l_C.Move(View, ev_ocBottomRight);
+   OleCheck(aMessage.Title.Seek(0, STREAM_SEEK_SET, l_Fake));
+   l_W.WriteTag(View, cf_EverestTxt, aMessage.Title, l_C, cFlags);
+   l_C.Move(View, ev_ocBottomRight);
+   OleCheck(aMessage.Body.Seek(0, STREAM_SEEK_SET, l_Fake));
+   l_W.WriteTag(View, CF_EverestBin, aMessage.Body, l_C, cFlags);
+   l_C.Move(View, ev_ocBottomRight);
+  finally
+   l_Op := nil;
+  end;
+  Processor.UndoBuffer.Clear;
+ end;//with HistoryEditor
+//#UC END# *4A6EA62A0096_4A6EA4310035_impl*
+//#UC START# *4A6EA62A0096_4A6EA4310035_var*
+const
+ cFlags = (evDefaultLoadFlags + [ev_lfInternal] - [ev_lfNeedJoin]) - [ev_lfSkipSubdocuments];
+var
+ l_Fake : Int64;
+ l_W : InevTagWriter;
+ l_C : InevBasePoint;
+ l_Op : InevOp;
+//#UC END# *4A6EA62A0096_4A6EA4310035_var*
+//#UC START# *4A6EA655038C_4A6EA4310035_impl*
+ if Assigned(aData) then
+ begin
+  for l_IDX := 0 to aData.Messagescount - 1 do
+   AddToHistory(aData.Message[l_IDX]);
+  //HistoryEditor.Selection.Unselect; 
+ end;//Assigned(aData)
+//#UC END# *4A6EA655038C_4A6EA4310035_impl*
+//#UC START# *4A6EA655038C_4A6EA4310035_var*
+var
+ l_IDX: Integer;
+//#UC END# *4A6EA655038C_4A6EA4310035_var*
+//#UC START# *4A8160720125_4A6EA4310035_impl*
+ Result := false;
+//#UC END# *4A8160720125_4A6EA4310035_impl*
+//#UC START# *4A8160720125_4A6EA4310035_var*
+//#UC END# *4A8160720125_4A6EA4310035_var*
+//#UC START# *4A8164E801AE_4A6EA4310035_impl*
+ Assert(false);
+//#UC END# *4A8164E801AE_4A6EA4310035_impl*
+//#UC START# *4A8164E801AE_4A6EA4310035_var*
+//#UC END# *4A8164E801AE_4A6EA4310035_var*
+//#UC START# *4A8168BB0217_4A6EA4310035_impl*
+ Result := nil;
+//#UC END# *4A8168BB0217_4A6EA4310035_impl*
+//#UC START# *4A8168BB0217_4A6EA4310035_var*
+//#UC END# *4A8168BB0217_4A6EA4310035_var*
+//#UC START# *4A82BC390036_4A6EA4310035get_impl*
+ Result := HistoryEditor;
+//#UC END# *4A82BC390036_4A6EA4310035get_impl*
+//#UC START# *4A82BC390036_4A6EA4310035get_var*
+//#UC END# *4A82BC390036_4A6EA4310035get_var*
+//#UC START# *4A8A9DB0001A_4A6EA4310035_impl*
+ Result := true;
+//#UC END# *4A8A9DB0001A_4A6EA4310035_impl*
+//#UC START# *4A8A9DB0001A_4A6EA4310035_var*
+//#UC END# *4A8A9DB0001A_4A6EA4310035_var*
+//#UC START# *4A8A9E2A004F_4A6EA4310035_impl*
+ if (aLink.Address{$IfDef XE4}.rTafwAddress{$EndIf}.TypeID = CI_ExternalOperation) then
+ begin
+  alink.Kind := ev_lvkInternalInvalid;
+  alink.Hint := Tl3PCharLen(nsWStr(vcmCStr(str_UnsupportedLink)));
+ end;//aLink.Address.TypeID = CI_ExternalOperation
+//#UC END# *4A8A9E2A004F_4A6EA4310035_impl*
+//#UC START# *4A8A9E2A004F_4A6EA4310035_var*
+//#UC END# *4A8A9E2A004F_4A6EA4310035_var*
+//#UC START# *4A8AAD450084_4A6EA4310035get_impl*
+ Result := HistoryEditor;
+//#UC END# *4A8AAD450084_4A6EA4310035get_impl*
+//#UC START# *4A8AAD450084_4A6EA4310035get_var*
+//#UC END# *4A8AAD450084_4A6EA4310035get_var*
+//#UC START# *4A8E425D0268_4A6EA4310035_impl*
+ Result := Format('_%d',[f_UserID]);
+//#UC END# *4A8E425D0268_4A6EA4310035_impl*
+//#UC START# *4A8E425D0268_4A6EA4310035_var*
+//#UC END# *4A8E425D0268_4A6EA4310035_var*
+//#UC START# *4A8E8F2E0195_4A6EA4310035_impl*
+ inherited;
+ with HistoryEditor do
+ begin
+  Align := alClient;
+  ReadOnly := true;
+ end;//with HistoryEditor
+//#UC END# *4A8E8F2E0195_4A6EA4310035_impl*
+//#UC START# *4A8E8F2E0195_4A6EA4310035_var*
+//#UC END# *4A8E8F2E0195_4A6EA4310035_var*
+//#UC START# *4AC4EFBA012A_4A6EA4310035_impl*
+   CCaption := vcmFmt(str_ChatWindowCaption, [aName]);
+   UserID := anUID;
+   InitEditors;
+   RegisterInDispatcher;
+   ProcessMessages(TChatService.Instance.MakeChatDispatcher.GetMessages(UserID, HistoryLimit));
+//#UC END# *4AC4EFBA012A_4A6EA4310035_impl*
+//#UC START# *4AC5CD4402E7_4A6EA4310035_impl*
+ HistoryEditor.TextSource.New;
+//#UC END# *4AC5CD4402E7_4A6EA4310035_impl*
+//#UC START# *4AC5CD4402E7_4A6EA4310035_var*
+//#UC END# *4AC5CD4402E7_4A6EA4310035_var*
+//#UC START# *4AC5CD9C02FA_4A6EA4310035_impl*
+ Result := 0;
+//#UC END# *4AC5CD9C02FA_4A6EA4310035_impl*
+//#UC START# *4AC5CD9C02FA_4A6EA4310035_var*
+//#UC END# *4AC5CD9C02FA_4A6EA4310035_var*
+//#UC START# *4AC5D61E0284_4A6EA4310035exec_impl*
+ SafeClose;
+//#UC END# *4AC5D61E0284_4A6EA4310035exec_impl*
+//#UC START# *4AC5D61E0284_4A6EA4310035exec_var*
+//#UC END# *4AC5D61E0284_4A6EA4310035exec_var*
+//#UC START# *4AC5D61E0284_4A6EA4310035getstate_impl*
+ if NeedClose then
+  State := st_user_Result_Cancel_Close
+//#UC END# *4AC5D61E0284_4A6EA4310035getstate_impl*
+//#UC START# *4AC5D61E0284_4A6EA4310035getstate_var*
+//#UC END# *4AC5D61E0284_4A6EA4310035getstate_var*
+//#UC START# *4AC5D61E0284_4A6EA4310035test_impl*
+ // - ничего не делаем
+//#UC END# *4AC5D61E0284_4A6EA4310035test_impl*
+//#UC START# *4AC5D61E0284_4A6EA4310035test_var*
+//#UC END# *4AC5D61E0284_4A6EA4310035test_var*
+//#UC START# *4B1633CF01C2_4A6EA4310035_impl*
+ Result := True;
+//#UC END# *4B1633CF01C2_4A6EA4310035_impl*
+//#UC START# *4B1633CF01C2_4A6EA4310035_var*
+//#UC END# *4B1633CF01C2_4A6EA4310035_var*
+//#UC START# *53A303BE03A8_4A6EA4310035_impl*
+ Assert(False, '513615258');
+//#UC END# *53A303BE03A8_4A6EA4310035_impl*
+//#UC START# *53A303BE03A8_4A6EA4310035_var*
+//#UC END# *53A303BE03A8_4A6EA4310035_var*

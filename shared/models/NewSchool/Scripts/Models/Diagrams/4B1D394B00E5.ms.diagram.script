@@ -1,0 +1,41 @@
+// PrimListInterfaces 4B1D394B00E5 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4B1D394B00E5_diagrams
+
+ MEDIAGRAM ME_4B1D394B00E5_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4B1D394B00E5' ; // PrimListInterfaces
+
+  MEVIEW ME_47F274F101E1_view
+   MELINK Original WL 'ME_47F274F101E1' '4B1D394B00E5.ms.model.script' ; // IdeDocumentList
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_47F274F101E1_view
+
+  MEVIEW ME_492D74C60183_view
+   MELINK Original WL 'ME_492D74C60183' '4B1D394B00E5.ms.model.script' ; // IdeDocumentListCR
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_492D74C60183_view
+
+  MEVIEWLINK ME_492D74C60183_ME_47F274F101E1_Inherits
+   MELINK From ME_492D74C60183_view ;
+   MELINK To ME_47F274F101E1_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_492D74C60183_ME_47F274F101E1_Inherits
+
+  MELIST Views
+   Seq: ( ME_47F274F101E1_view // IdeDocumentList
+   ME_492D74C60183_view // IdeDocumentListCR
+   ME_492D74C60183_ME_47F274F101E1_Inherits // IdeDocumentListCR ==> IdeDocumentList
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4B1D394B00E5_main
+
+ MELIST Diagrams
+  Seq: ( ME_4B1D394B00E5_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4B1D394B00E5_diagrams

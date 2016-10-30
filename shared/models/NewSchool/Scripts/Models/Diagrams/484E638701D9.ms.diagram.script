@@ -1,0 +1,34 @@
+// Консультации 484E638701D9 UseCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_484E638701D9_diagrams
+
+ MEDIAGRAM ME_484E638701D9_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_484E638701D9' '484E610E0335.ms.model.script' ; // Консультации
+
+  MEVIEW ME_4E92C51C0028_view
+   MELINK Original WL 'ME_4E92C51C0028' '484E610E0335.ms.model.script' ; // Консультации должны поддерживать ссылки на документы Гаранта
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E92C51C0028_view
+
+  MEVIEW ME_4F68893A005B_view
+   MELINK Original WL 'ME_4F68893A005B' '484E610E0335.ms.model.script' ; // Правый отступ вложенных документов должен быть равен НУЛЮ
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F68893A005B_view
+
+  MELIST Views
+   Seq: ( ME_4E92C51C0028_view // Консультации должны поддерживать ссылки на документы Гаранта
+   ME_4F68893A005B_view // Правый отступ вложенных документов должен быть равен НУЛЮ
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_484E638701D9_main
+
+ MELIST Diagrams
+  Seq: ( ME_484E638701D9_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_484E638701D9_diagrams

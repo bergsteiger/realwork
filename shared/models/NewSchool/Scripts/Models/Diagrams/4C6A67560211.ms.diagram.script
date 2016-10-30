@@ -1,0 +1,41 @@
+// nsString 4C6A67560211 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4C6A67560211_diagrams
+
+ MEDIAGRAM ME_4C6A67560211_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4C6A67560211' ; // nsString
+
+  MEVIEW ME_4C6A67830106_view
+   MELINK Original WL 'ME_4C6A67830106' '4C6A67560211.ms.model.script' ; // TnsNewString
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C6A67830106_view
+
+  MEVIEW ME_4C6A678F0032_view
+   MELINK Original WL 'ME_4C6A678F0032' '4C6A67560211.ms.model.script' ; // TnsNewConstString
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C6A678F0032_view
+
+  MEVIEWLINK ME_4C6A678F0032_ME_4C6A67830106_Inherits
+   MELINK From ME_4C6A678F0032_view ;
+   MELINK To ME_4C6A67830106_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4C6A678F0032_ME_4C6A67830106_Inherits
+
+  MELIST Views
+   Seq: ( ME_4C6A67830106_view // TnsNewString
+   ME_4C6A678F0032_view // TnsNewConstString
+   ME_4C6A678F0032_ME_4C6A67830106_Inherits // TnsNewConstString ==> TnsNewString
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4C6A67560211_main
+
+ MELIST Diagrams
+  Seq: ( ME_4C6A67560211_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4C6A67560211_diagrams

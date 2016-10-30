@@ -1,0 +1,181 @@
+//#UC START# *47A6FEE600FC_5397269D015F_impl*
+  Result := True;
+//#UC END# *47A6FEE600FC_5397269D015F_impl*
+//#UC START# *47A6FEE600FC_5397269D015F_var*
+//#UC END# *47A6FEE600FC_5397269D015F_var*
+//#UC START# *47A6FEE600FC_539726B801C6_impl*
+  Result := True;
+//#UC END# *47A6FEE600FC_539726B801C6_impl*
+//#UC START# *47A6FEE600FC_539726B801C6_var*
+//#UC END# *47A6FEE600FC_539726B801C6_var*
+//#UC START# *5000565C019C_5397269D015F_impl*
+  FreeAndNil(f_Elements);
+  //
+  inherited;
+//#UC END# *5000565C019C_5397269D015F_impl*
+//#UC START# *5000565C019C_5397269D015F_var*
+//#UC END# *5000565C019C_5397269D015F_var*
+//#UC START# *5000565C019C_539726B801C6_impl*
+  f_NodeType := LNT_EDITIONS_GROUP;
+  f_DocId := 0;
+  f_PositionType := PT_BOOKMARK;
+  f_Position := 0;
+  //
+  inherited;
+//#UC END# *5000565C019C_539726B801C6_impl*
+//#UC START# *5000565C019C_539726B801C6_var*
+//#UC END# *5000565C019C_539726B801C6_var*
+//#UC START# *5397269D015F_ext:FileName
+w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atComparableList.pas
+//#UC END# *5397269D015F_ext:FileName
+//#UC START# *5397269D015Fimpl_uses*
+//#UC END# *5397269D015Fimpl_uses*
+//#UC START# *539728B401BF_539726B801C6_impl*
+  Result := (Self.f_NodeType = anOtherElement.f_NodeType)
+      AND (Self.f_DocId = anOtherElement.f_DocId)
+      AND (Self.f_Position = anOtherElement.f_Position)
+      AND (Self.f_PositionType = anOtherElement.f_PositionType);
+//#UC END# *539728B401BF_539726B801C6_impl*
+//#UC START# *539728B401BF_539726B801C6_var*
+//#UC END# *539728B401BF_539726B801C6_var*
+//#UC START# *5397290302AC_539726B801C6_impl*
+  inherited Create;
+  //
+  with TStringList.Create do
+  try
+    Delimiter := FIELD_DELIMITER;
+    DelimitedText := aString;
+    //
+    if Count <> 4 then
+      Raise EInvalidStringFormat.Create('Должно быть ровно 4 поля');
+
+    f_NodeType := TatListNodeTypeConverter.Instance.ToValue(Strings[0]);
+    f_DocId := StrToInt64(Strings[1]);
+    f_PositionType := TatPositionTypeConverter.Instance.ToValue(Strings[2]);
+    f_Position := StrToInt64(Strings[3]);
+  finally
+    Free;
+  end;
+//#UC END# *5397290302AC_539726B801C6_impl*
+//#UC START# *5397290302AC_539726B801C6_var*
+//#UC END# *5397290302AC_539726B801C6_var*
+//#UC START# *5397291A00C7_539726B801C6_impl*
+  inherited Create;
+  //
+  f_NodeType := TListNodeType(aNode.GetType);
+
+  if f_NodeType <> LNT_EDITIONS_GROUP then
+    with TatListEntryInfo.Create(aNode) do
+    try
+      f_DocId := PID.rObjectId;
+      f_PositionType := Entity.GetType;
+      f_Position := Entity.GetPosition;
+    finally
+      Free;
+    end;
+//#UC END# *5397291A00C7_539726B801C6_impl*
+//#UC START# *5397291A00C7_539726B801C6_var*
+//#UC END# *5397291A00C7_539726B801C6_var*
+//#UC START# *53972BC4005B_5397269D015F_impl*
+  Create;
+  //
+  if aList <> nil then
+    with TatList.Create(aList) do
+    try
+      TatNodeHelper.LoadNodes(FirstElement,
+        65535,
+        MaxInt,
+        OnListNode);
+    finally
+      Free;
+    end;
+//#UC END# *53972BC4005B_5397269D015F_impl*
+//#UC START# *53972BC4005B_5397269D015F_var*
+//#UC END# *53972BC4005B_5397269D015F_var*
+//#UC START# *53972BE1000D_5397269D015F_impl*
+  Create;
+  //
+  AssignFile(l_File, aFileName);
+  try
+    Reset(l_File);
+
+    if Eof(l_File) then
+      Exit;
+
+    ReadLn(l_File, l_Line); //header
+
+    while not Eof(l_File) do
+    begin
+      ReadLn(l_File, l_Line);
+      f_Elements.Add(TatListElement.Create(l_Line));
+    end;
+  finally
+    CloseFile(l_File);
+  end;
+//#UC END# *53972BE1000D_5397269D015F_impl*
+//#UC START# *53972BE1000D_5397269D015F_var*
+  var
+    l_File : Text;
+    l_Line : String;
+//#UC END# *53972BE1000D_5397269D015F_var*
+//#UC START# *53972BFF0358_5397269D015F_impl*
+  inherited;
+  //
+  f_Elements := TatElementsList.Create;
+  f_Elements.OwnsObjects := True;
+//#UC END# *53972BFF0358_5397269D015F_impl*
+//#UC START# *53972BFF0358_5397269D015F_var*
+//#UC END# *53972BFF0358_5397269D015F_var*
+//#UC START# *53972C140349_5397269D015F_impl*
+  Result := Self.f_Elements.Count = anOtherList.f_Elements.Count;
+
+  if Result then
+    for i := 0 to f_Elements.Count-1 do
+      if NOT Self.f_Elements.Items[i].IsEqual(anOtherList.f_Elements.Items[i]) then
+      begin
+        Result := False;
+        Exit;
+      end;
+//#UC END# *53972C140349_5397269D015F_impl*
+//#UC START# *53972C140349_5397269D015F_var*
+  var
+    i : Integer;
+//#UC END# *53972C140349_5397269D015F_var*
+//#UC START# *53972CAF0329_539726B801C6_impl*
+  Result := Format(FORMAT_STR, [
+    TatListNodeTypeConverter.Instance.ToName(f_NodeType),
+    f_DocId,
+    TatPositionTypeConverter.Instance.ToName(f_PositionType),
+    f_Position]);
+//#UC END# *53972CAF0329_539726B801C6_impl*
+//#UC START# *53972CAF0329_539726B801C6_var*
+  const
+    FORMAT_STR = '%s;%u;%s;%u';
+//#UC END# *53972CAF0329_539726B801C6_var*
+//#UC START# *53972CD501F1_5397269D015F_impl*
+  AssignFile(l_File, aFileName);
+  try
+    Rewrite(l_File);
+
+    if f_Elements.Count > 0 then
+    begin
+      WriteLn(l_File, CSV_HEADER);
+      for i := 0 to f_Elements.Count-1 do
+        WriteLn(l_File, f_Elements.Items[i].ToString);
+    end;
+  finally
+    CloseFile(l_File);
+  end;
+//#UC END# *53972CD501F1_5397269D015F_impl*
+//#UC START# *53972CD501F1_5397269D015F_var*
+  const
+    CSV_HEADER : String = 'NodeType;Document ID;Position Type;Position';
+  var
+    l_File : Text;
+    i : Integer;
+//#UC END# *53972CD501F1_5397269D015F_var*
+//#UC START# *5397339A0021_5397269D015F_impl*
+  f_Elements.Add(TatListElement.Create(aNode));
+//#UC END# *5397339A0021_5397269D015F_impl*
+//#UC START# *5397339A0021_5397269D015F_var*
+//#UC END# *5397339A0021_5397269D015F_var*

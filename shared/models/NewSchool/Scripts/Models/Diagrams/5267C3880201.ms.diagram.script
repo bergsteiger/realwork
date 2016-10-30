@@ -1,0 +1,48 @@
+// Search 5267C3880201 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_5267C3880201_diagrams
+
+ MEDIAGRAM ME_5267C3880201_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_5267C3880201' ; // Search
+
+  MEVIEW ME_4AAF93E201FD_view
+   MELINK Original WL? 'ME_4AAF93E201FD' ; // nsPostingsLine
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AAF93E201FD_view
+
+  MEVIEW ME_4AAF9400011C_view
+   MELINK Original WL? 'ME_4AAF9400011C' ; // TnsPostingsTreeSingle
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AAF9400011C_view
+
+  MEVIEW ME_4AC21C8401A8_view
+   MELINK Original WL? 'ME_4AC21C8401A8' ; // TnsPrimeNode
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AC21C8401A8_view
+
+  MEVIEWLINK ME_4ADF433701AC_viewlink
+   MELINK Original WL 'ME_4ADF433701AC' '4AAF93E201FD.ms.model.script' ;
+   MELINK From ME_4AAF93E201FD_view ;
+   MELINK To ME_4AC21C8401A8_view ;
+  ENDMEVIEWLINK // ME_4ADF433701AC_viewlink
+
+  MELIST Views
+   Seq: ( ME_4AAF93E201FD_view // nsPostingsLine
+   ME_4AAF9400011C_view // TnsPostingsTreeSingle
+   ME_4AC21C8401A8_view // TnsPrimeNode
+   ME_4ADF433701AC_viewlink // nsPostingsLine ==> TnsPrimeNode
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5267C3880201_main
+
+ MELIST Diagrams
+  Seq: ( ME_5267C3880201_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5267C3880201_diagrams

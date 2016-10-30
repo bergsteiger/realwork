@@ -1,0 +1,42 @@
+//#UC START# *479731C50290_4CAC5BD701BF_impl*
+ f_DocFilter := nil;
+ f_DrugFilter := nil;
+ inherited;
+//#UC END# *479731C50290_4CAC5BD701BF_impl*
+//#UC START# *479731C50290_4CAC5BD701BF_var*
+//#UC END# *479731C50290_4CAC5BD701BF_var*
+//#UC START# *4CAC5BD701BF_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersContainer.pas
+//#UC END# *4CAC5BD701BF_ext:FileName
+//#UC START# *4CAC5BD701BFimpl_uses*
+//#UC END# *4CAC5BD701BFimpl_uses*
+//#UC START# *4CAD6F700075_4CAC5BD701BFget_impl*
+ case ListType of
+  bs_ltDocument:
+   begin
+    if f_DocFilter = nil then
+     f_DocFilter := TnsFiltersContainerPrim.Make(ftDocuments);
+    Result := f_DocFilter;
+   end;
+  bs_ltDrug:
+   begin
+    if f_DrugFilter = nil then
+     f_DrugFilter := TnsFiltersContainerPrim.Make(ftDrugs);
+    Result := f_DrugFilter;
+   end;
+ else
+  Result := nil 
+ end;
+//#UC END# *4CAD6F700075_4CAC5BD701BFget_impl*
+//#UC START# *4CAD6F700075_4CAC5BD701BFget_var*
+//#UC END# *4CAD6F700075_4CAC5BD701BFget_var*
+//#UC START# *4CB5545B0148_4CAC5BD701BF_impl*
+ defDataAdapter.NativeAdapter.MakeFiltersManager.CreateFilter(aQuery, nsIStr(aName));
+//#UC END# *4CB5545B0148_4CAC5BD701BF_impl*
+//#UC START# *4CB5545B0148_4CAC5BD701BF_var*
+//#UC END# *4CB5545B0148_4CAC5BD701BF_var*
+//#UC START# *4CB5549500AD_4CAC5BD701BF_impl*
+ aFilter.SetName(nsIStr(aName));
+//#UC END# *4CB5549500AD_4CAC5BD701BF_impl*
+//#UC START# *4CB5549500AD_4CAC5BD701BF_var*
+//#UC END# *4CB5549500AD_4CAC5BD701BF_var*

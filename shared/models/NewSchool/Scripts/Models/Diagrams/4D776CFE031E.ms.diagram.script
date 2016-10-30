@@ -1,0 +1,48 @@
+// AttributesUserTypes 4D776CFE031E VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4D776CFE031E_diagrams
+
+ MEDIAGRAM ME_4D776CFE031E_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4D776CFE031E' ; // AttributesUserTypes
+
+  MEVIEW ME_4BD6BA11008E_view
+   MELINK Original WL 'ME_4BD6BA11008E' '4D776CFE031E.ms.model.script' ; // fDocAttribute
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4BD6BA11008E_view
+
+  MEVIEW ME_4BD6BA270181_view
+   MELINK Original WL 'ME_4BD6BA270181' '4D776CFE031E.ms.model.script' ; // fAttributeSynchroView
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4BD6BA270181_view
+
+  MEVIEW ME_37BE60CD03ED_view
+   MELINK Original WL 'ME_37BE60CD03ED' '4D776CFE031E.ms.model.script' ; // fDocAttributeQueryClose
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_37BE60CD03ED_view
+
+  MEVIEWLINK ME_4BD6BA270181_ME_4BD6BA11008E_Inherits
+   MELINK From ME_4BD6BA270181_view ;
+   MELINK To ME_4BD6BA11008E_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4BD6BA270181_ME_4BD6BA11008E_Inherits
+
+  MELIST Views
+   Seq: ( ME_4BD6BA11008E_view // fDocAttribute
+   ME_4BD6BA270181_view // fAttributeSynchroView
+   ME_37BE60CD03ED_view // fDocAttributeQueryClose
+   ME_4BD6BA270181_ME_4BD6BA11008E_Inherits // fAttributeSynchroView ==> fDocAttribute
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4D776CFE031E_main
+
+ MELIST Diagrams
+  Seq: ( ME_4D776CFE031E_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4D776CFE031E_diagrams

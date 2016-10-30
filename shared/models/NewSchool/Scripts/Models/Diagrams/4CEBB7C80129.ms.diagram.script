@@ -1,0 +1,48 @@
+// Tf1ChildMaker 4CEBB7C80129 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4CEBB7C80129_diagrams
+
+ MEDIAGRAM ME_4CEBB7C80129_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4CEBB7C80129' ; // Tf1ChildMaker
+
+  MEVIEW ME_4CEBB84401C9_view
+   MELINK Original WL 'ME_4CEBB84401C9' '4CEBB7C80129.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CEBB84401C9_view
+
+  MEVIEW ME_4CEBB85A01E1_view
+   MELINK Original WL 'ME_4CEBB85A01E1' '4CEBB7C80129.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CEBB85A01E1_view
+
+  MEVIEW ME_4CEBB8250364_view
+   MELINK Original WL 'ME_4CEBB8250364' '4CEBB7C80129.ms.model.script' ; // f_Tag
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CEBB8250364_view
+
+  MEVIEWLINK ME_4CEBB85A01E1_ME_4CEBB84401C9_Inherits
+   MELINK From ME_4CEBB85A01E1_view ;
+   MELINK To ME_4CEBB84401C9_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4CEBB85A01E1_ME_4CEBB84401C9_Inherits
+
+  MELIST Views
+   Seq: ( ME_4CEBB84401C9_view // Create
+   ME_4CEBB85A01E1_view // Make
+   ME_4CEBB8250364_view // f_Tag
+   ME_4CEBB85A01E1_ME_4CEBB84401C9_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4CEBB7C80129_main
+
+ MELIST Diagrams
+  Seq: ( ME_4CEBB7C80129_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4CEBB7C80129_diagrams

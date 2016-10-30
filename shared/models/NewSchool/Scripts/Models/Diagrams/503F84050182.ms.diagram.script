@@ -1,0 +1,48 @@
+// TatFilterHelper 503F84050182 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_503F84050182_diagrams
+
+ MEDIAGRAM ME_503F84050182_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_503F84050182' ; // TatFilterHelper
+
+  MEVIEW ME_503CE9590299_view
+   MELINK Original WL 'ME_503CE9590299' '503F84050182.ms.model.script' ; // ContextFilterParams
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_503CE9590299_view
+
+  MEVIEW ME_5040D3EE02D5_view
+   MELINK Original WL 'ME_5040D3EE02D5' '503F84050182.ms.model.script' ; // TatContextFilter
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5040D3EE02D5_view
+
+  MEVIEW ME_503F85120338_view
+   MELINK Original WL 'ME_503F85120338' '503F84050182.ms.model.script' ; // Consts
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_503F85120338_view
+
+  MEVIEWLINK ME_503F852600D4_viewlink
+   MELINK Original WL 'ME_503F852600D4' '503F84050182.ms.model.script' ;
+   MELINK From ME_503F85120338_view ;
+   MELINK To ME_503CE9590299_view ;
+  ENDMEVIEWLINK // ME_503F852600D4_viewlink
+
+  MELIST Views
+   Seq: ( ME_503CE9590299_view // ContextFilterParams
+   ME_5040D3EE02D5_view // TatContextFilter
+   ME_503F85120338_view // Consts
+   ME_503F852600D4_viewlink // Consts ==> ContextFilterParams
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_503F84050182_main
+
+ MELIST Diagrams
+  Seq: ( ME_503F84050182_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_503F84050182_diagrams

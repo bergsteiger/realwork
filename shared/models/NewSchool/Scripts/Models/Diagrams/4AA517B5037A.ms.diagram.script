@@ -1,0 +1,48 @@
+// AdminApp 4AA517B5037A VCMApplication Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4AA517B5037A_diagrams
+
+ MEDIAGRAM ME_4AA517B5037A_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4AA517B5037A' ; // AdminApp
+
+  MEVIEW ME_4AA518EB039C_view
+   MELINK Original WL? 'ME_4AA518EB039C' ; // PrimAdminMain
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AA518EB039C_view
+
+  MEVIEW ME_4F7C3C0B035C_view
+   MELINK Original WL? 'ME_4F7C3C0B035C' ; // AdminMain
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F7C3C0B035C_view
+
+  MEVIEW ME_4F79AF370350_view
+   MELINK Original WL 'ME_4F79AF370350' '4AA517B5037A.ms.model.script' ; // AdminTitle
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F79AF370350_view
+
+  MEVIEWLINK ME_4F7C3C0B035C_ME_4AA518EB039C_Inherits
+   MELINK From ME_4F7C3C0B035C_view ;
+   MELINK To ME_4AA518EB039C_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4F7C3C0B035C_ME_4AA518EB039C_Inherits
+
+  MELIST Views
+   Seq: ( ME_4AA518EB039C_view // PrimAdminMain
+   ME_4F7C3C0B035C_view // AdminMain
+   ME_4F79AF370350_view // AdminTitle
+   ME_4F7C3C0B035C_ME_4AA518EB039C_Inherits // AdminMain ==> PrimAdminMain
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4AA517B5037A_main
+
+ MELIST Diagrams
+  Seq: ( ME_4AA517B5037A_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4AA517B5037A_diagrams

@@ -30,8 +30,6 @@ ME ME_4F7DC6A801BA
    Seq: ( HWL ME_4F7DC58F01A7_ME_4F7DC6A801BA_G // RemindersLine
  )
  ; // Inherits
- UP "MergeBottomTollbarWithContainer" False
- UP "MergeTopTollbarWithContainer" False
  UP "ZoneType" 'Reminder'
 
 ENDME // ME_4F7DC6A801BA RemindersZone
@@ -47,9 +45,6 @@ ME ME_5369010100E5
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_5368FF710274 // Reminders' Hints
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP "Value" '''Внимание! Документы на контроле изменились'''
 
 ENDME // ME_5369010100E5 ControlledChangingWarningHint
@@ -63,9 +58,6 @@ ME ME_5369013E03D1
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_5368FF710274 // Reminders' Hints
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP "Value" '''Внимание! Информационный банк устарел'''
 
 ENDME // ME_5369013E03D1 OldBaseWarningHint
@@ -79,9 +71,6 @@ ME ME_5369015C0290
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_5368FF710274 // Reminders' Hints
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP "Value" '''Вы работаете с ознакомительной версией системы ГАРАНТ'''
 
 ENDME // ME_5369015C0290 TrialModeWarningHint
@@ -95,9 +84,6 @@ ME ME_5369017300ED
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_5368FF710274 // Reminders' Hints
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP "Value" '''Получены ответы или уведомления от службы Правовой поддержки онлайн'''
 
 ENDME // ME_5369017300ED remUnreadConsultationsHint
@@ -111,9 +97,6 @@ ME ME_536901A301FC
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_5368FF710274 // Reminders' Hints
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP "Value" '''С момента последнего обновления Вашего информационного банка прошло более 6 месяцев. Онлайн-проверка актуальности документов будет отключена.'''
 
 ENDME // ME_536901A301FC remOnlineDeadHint
@@ -121,7 +104,7 @@ ENDME // ME_536901A301FC remOnlineDeadHint
 ME ME_5368FF710274
  MEPROP UID '5368FF710274'
  MEPROP Name 'Reminders'' Hints'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -136,9 +119,6 @@ ME ME_5368FF710274
  HWL ME_536901A301FC // remOnlineDeadHint
  )
  ; // Attributes
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
 
 ENDME // ME_5368FF710274 Reminders' Hints
 
@@ -164,8 +144,6 @@ ME ME_4F7DC5620193
    Seq: ( HWL ME_4C52A66C0209_ME_4F7DC5620193_G // TnscReminder
  )
  ; // Inherits
- UP "ControlClass" 'none'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4F7DC5620193 remOnlineDead
@@ -192,8 +170,6 @@ ME ME_4F7DC54C038D
    Seq: ( HWL ME_4C52A66C0209_ME_4F7DC54C038D_G // TnscReminder
  )
  ; // Inherits
- UP "ControlClass" 'none'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4F7DC54C038D remNewChatMessages
@@ -220,8 +196,6 @@ ME ME_4F7DC52402D9
    Seq: ( HWL ME_4C52A66C0209_ME_4F7DC52402D9_G // TnscReminder
  )
  ; // Inherits
- UP "ControlClass" 'none'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4F7DC52402D9 TrialModeWarning
@@ -248,8 +222,6 @@ ME ME_4F7DC51002CE
    Seq: ( HWL ME_4C52A66C0209_ME_4F7DC51002CE_G // TnscReminder
  )
  ; // Inherits
- UP "ControlClass" 'none'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4F7DC51002CE OldBaseWarning
@@ -290,9 +262,6 @@ ME ME_4F7DC58F01A7
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "ControlClass" 'none'
- UP "need Caption" False
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4F7DC58F01A7 RemindersLine
@@ -346,7 +315,6 @@ FORWARD ME_4F7DCB1D01E4
 ME ME_4F7DCB250143
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
@@ -391,7 +359,6 @@ FORWARD ME_4F7DCB5B003D
 ME ME_4F7DCB5F0150
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
@@ -436,7 +403,6 @@ FORWARD ME_4F7DCB74000D
 ME ME_4F7DCB7702C6
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
@@ -481,7 +447,6 @@ FORWARD ME_4F7DCB90017E
 ME ME_4F7DCB9500DD
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
@@ -685,75 +650,35 @@ MEREF ME_4F86AAF903B5_ME_4F7DAC14027A_impl
  MELINK Original WL 'ME_4F86AAF903B5' '4A8E792A0108.ms.model.script' // RemMWControlledChangingWarning
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4F86AAF903B5_ME_4F7DAC14027A_impl RemMWControlledChangingWarning
 
 MEREF ME_4F86AB3A03E4_ME_4F7DAC14027A_impl
  MELINK Original WL 'ME_4F86AB3A03E4' '4A8E792A0108.ms.model.script' // RemMWOldBaseWarning
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4F86AB3A03E4_ME_4F7DAC14027A_impl RemMWOldBaseWarning
 
 MEREF ME_4F86AB490283_ME_4F7DAC14027A_impl
  MELINK Original WL 'ME_4F86AB490283' '4A8E792A0108.ms.model.script' // RemMWTrialModeWarning
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4F86AB490283_ME_4F7DAC14027A_impl RemMWTrialModeWarning
 
 MEREF ME_4F86AB5600B9_ME_4F7DAC14027A_impl
  MELINK Original WL 'ME_4F86AB5600B9' '4A8E792A0108.ms.model.script' // RemNewChatMessages
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4F86AB5600B9_ME_4F7DAC14027A_impl RemNewChatMessages
 
 MEREF ME_4F86AB6502AA_ME_4F7DAC14027A_impl
  MELINK Original WL 'ME_4F86AB6502AA' '4A8E792A0108.ms.model.script' // RemOnlineDead
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4F86AB6502AA_ME_4F7DAC14027A_impl RemOnlineDead
 
 MEREF ME_4F8BED97037A_ME_4F7DAC14027A_impl
@@ -766,15 +691,8 @@ MEREF ME_542D70330042_ME_4F7DAC14027A_impl
  MELINK Original WL 'ME_542D70330042' '4A8E792A0108.ms.model.script' // remUnreadConsultations
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
  UP "ShowInContextMenu" False
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_542D70330042_ME_4F7DAC14027A_impl remUnreadConsultations
 
 MEREF ME_4A8E8F2E0195_ME_4F7DAC14027A_over
@@ -906,11 +824,6 @@ ME ME_4F7DAC14027A
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "finished dfm" True
- UP "NeedsHackRef" True
- UP "resizeable" False
- UP "restrict form def" 'undefined'
- UP "ZoneType" 'Any'
  UP extprop:NeedsInitEntities True
  UP extprop:pas:TypeName 'TMainWithRemindersForm'
  UP extprop:pas:UnitName 'MainWithReminders_Form'

@@ -1,0 +1,38 @@
+//#UC START# *4A853E260311_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Text.imp.pas
+//#UC END# *4A853E260311_ext:FileName
+//#UC START# *4A854E340357_4A853E260311_impl*
+ if _Instance_R_(Self).Text.GetTopCursor(l_TopCursor) then
+  try
+   Result := TeePara.Make(l_TopCursor.MostInner.Obj.AsPara.AsObject, _Instance_R_(Self).Text As IeeDocumentEx);
+  finally
+   l_TopCursor := nil;
+  end//try..finally
+ else
+  Result := nil;
+//#UC END# *4A854E340357_4A853E260311_impl*
+//#UC START# *4A854E340357_4A853E260311_var*
+//#UC END# *4A854E340357_4A853E260311_var*
+//#UC START# *4A854F880181_4A853E260311_impl*
+ l_Para := nil;
+ with _Instance_R_(Self).Text do
+ begin
+  if (View <> nil) then
+  begin
+   if View.IsCaretVisible then
+    l_Para := TeePara.Make(Selection.Cursor.MostInner.Obj^.AsObject, _Instance_R_(Self).Text)
+   else
+    l_Para := GetTopParaID;
+  end;//View <> nil
+ end;//with Text
+ Result := eeFindNumberedPara(l_Para,
+                              _Instance_R_(Self).Text as IeeDocumentEx,
+                              aSearchDown);
+//#UC END# *4A854F880181_4A853E260311_impl*
+//#UC START# *4A854F880181_4A853E260311_var*
+//#UC END# *4A854F880181_4A853E260311_var*
+//#UC START# *4DF1F6B3027A_4A853E260311get_impl*
+ Result := afw.Application.Settings;
+//#UC END# *4DF1F6B3027A_4A853E260311get_impl*
+//#UC START# *4DF1F6B3027A_4A853E260311get_var*
+//#UC END# *4DF1F6B3027A_4A853E260311get_var*

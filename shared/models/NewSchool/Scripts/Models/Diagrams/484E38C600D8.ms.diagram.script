@@ -1,0 +1,27 @@
+// Модификация списка 484E38C600D8 UseCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_484E38C600D8_diagrams
+
+ MEDIAGRAM ME_484E38C600D8_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_484E38C600D8' '484CE48E02E6.ms.model.script' ; // Модификация списка
+
+  MEVIEW ME_4F7301C6006A_view
+   MELINK Original WL 'ME_4F7301C6006A' '484CE48E02E6.ms.model.script' ; // Операций Undo и Redo (Отмена изменений и Возврат изменений) в списке быть не должно
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F7301C6006A_view
+
+  MELIST Views
+   Seq: ( ME_4F7301C6006A_view // Операций Undo и Redo (Отмена изменений и Возврат изменений) в списке быть не должно
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_484E38C600D8_main
+
+ MELIST Diagrams
+  Seq: ( ME_484E38C600D8_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_484E38C600D8_diagrams

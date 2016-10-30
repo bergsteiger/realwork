@@ -142,6 +142,7 @@ uses
  , nsFiltersUtils
  , nsFiltersInterfaces
  , nsDocumentWithSnippetList
+ , nsSaveDialogExecutor
  , l3Base
  , vtStdRes
  , nsNewCachableNode

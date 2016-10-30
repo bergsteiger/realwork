@@ -1,0 +1,48 @@
+// Tf1AtomChecker 4C722ECF0107 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4C722ECF0107_diagrams
+
+ MEDIAGRAM ME_4C722ECF0107_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4C722ECF0107' ; // Tf1AtomChecker
+
+  MEVIEW ME_4C722F6B0307_view
+   MELINK Original WL 'ME_4C722F6B0307' '4C722ECF0107.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C722F6B0307_view
+
+  MEVIEW ME_4C722F820347_view
+   MELINK Original WL 'ME_4C722F820347' '4C722ECF0107.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C722F820347_view
+
+  MEVIEW ME_4C722F080074_view
+   MELINK Original WL 'ME_4C722F080074' '4C722ECF0107.ms.model.script' ; // f_Tag
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C722F080074_view
+
+  MEVIEWLINK ME_4C722F820347_ME_4C722F6B0307_Inherits
+   MELINK From ME_4C722F820347_view ;
+   MELINK To ME_4C722F6B0307_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4C722F820347_ME_4C722F6B0307_Inherits
+
+  MELIST Views
+   Seq: ( ME_4C722F6B0307_view // Create
+   ME_4C722F820347_view // Make
+   ME_4C722F080074_view // f_Tag
+   ME_4C722F820347_ME_4C722F6B0307_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4C722ECF0107_main
+
+ MELIST Diagrams
+  Seq: ( ME_4C722ECF0107_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4C722ECF0107_diagrams

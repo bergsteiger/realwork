@@ -1,0 +1,69 @@
+// BaseSearch 4ACF3E400050 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4ACF3E400050_diagrams
+
+ MEDIAGRAM ME_4ACF3E400050_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4ACF3E400050' ; // BaseSearch
+
+  MEVIEW ME_4901FC9F0096_view
+   MELINK Original WL? 'ME_4901FC9F0096' ; // TnsBaseSearchPromptFilters
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4901FC9F0096_view
+
+  MEVIEW ME_4AA4D6CF02A9_view
+   MELINK Original WL? 'ME_4AA4D6CF02A9' ; // TnsPromptForDocFilter
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AA4D6CF02A9_view
+
+  MEVIEW ME_4901FD0A034A_view
+   MELINK Original WL? 'ME_4901FD0A034A' ; // TnsCutToLeafFilter
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4901FD0A034A_view
+
+  MEVIEW ME_4906D1790319_view
+   MELINK Original WL? 'ME_4906D1790319' ; // TnsBaseSearchPromptTreeBase
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4906D1790319_view
+
+  MEVIEW ME_4906D9DE02FA_view
+   MELINK Original WL? 'ME_4906D9DE02FA' ; // TnsBaseSearchPromptTree
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4906D9DE02FA_view
+
+  MEVIEW ME_4906D40F0363_view
+   MELINK Original WL? 'ME_4906D40F0363' ; // TnsPromptContextFilterParams
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_4906D40F0363_view
+
+  MEVIEWLINK ME_4906D9DE02FA_ME_4906D1790319_Inherits
+   MELINK From ME_4906D9DE02FA_view ;
+   MELINK To ME_4906D1790319_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4906D9DE02FA_ME_4906D1790319_Inherits
+
+  MELIST Views
+   Seq: ( ME_4901FC9F0096_view // TnsBaseSearchPromptFilters
+   ME_4AA4D6CF02A9_view // TnsPromptForDocFilter
+   ME_4901FD0A034A_view // TnsCutToLeafFilter
+   ME_4906D1790319_view // TnsBaseSearchPromptTreeBase
+   ME_4906D9DE02FA_view // TnsBaseSearchPromptTree
+   ME_4906D40F0363_view // TnsPromptContextFilterParams
+   ME_4906D9DE02FA_ME_4906D1790319_Inherits // TnsBaseSearchPromptTree ==> TnsBaseSearchPromptTreeBase
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4ACF3E400050_main
+
+ MELIST Diagrams
+  Seq: ( ME_4ACF3E400050_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4ACF3E400050_diagrams

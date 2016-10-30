@@ -1,0 +1,39 @@
+//#UC START# *4AE56DE80093_4DDCDD68019E_impl*
+ Get_RightEdition.GetName(l_IDocName);
+ l_DocName := nsWStr(l_IDocName);
+
+ Result := TevFormatHAFMacroReplacer.Make(TnsDocInfoHAFMacroReplacer.Make(nil, Self.pm_GetDocInfo),
+                                          l3Cat(str_cnevChangesBetweenEditions.AsCStr, l_DocName));
+//#UC END# *4AE56DE80093_4DDCDD68019E_impl*
+//#UC START# *4AE56DE80093_4DDCDD68019E_var*
+var
+ l_IDocName: IString;
+ l_DocName: Tl3WString;
+//#UC END# *4AE56DE80093_4DDCDD68019E_var*
+//#UC START# *4DDCDD68019E_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\dsChangesBetweenEditions.pas
+//#UC END# *4DDCDD68019E_ext:FileName
+//#UC START# *4DDCDD68019Eimpl_uses*
+//#UC END# *4DDCDD68019Eimpl_uses*
+//#UC START# *4DDCE9110130_4DDCDD68019Eget_impl*
+ Result := PartData.RightEdition;
+//#UC END# *4DDCE9110130_4DDCDD68019Eget_impl*
+//#UC START# *4DDCE9110130_4DDCDD68019Eget_var*
+//#UC END# *4DDCE9110130_4DDCDD68019Eget_var*
+//#UC START# *4DDD0C170344_4DDCDD68019Eget_impl*
+ if (f_Cont = nil) then
+  f_Cont := TnsChangesBetweenEditionsDocumentContainer.Make(PartData);
+ Result := f_Cont;
+//#UC END# *4DDD0C170344_4DDCDD68019Eget_impl*
+//#UC START# *4DDD0C170344_4DDCDD68019Eget_var*
+//#UC END# *4DDD0C170344_4DDCDD68019Eget_var*
+//#UC START# *4F2BF187026F_4DDCDD68019Eget_impl*
+ Result := PartData.LeftEdition;
+//#UC END# *4F2BF187026F_4DDCDD68019Eget_impl*
+//#UC START# *4F2BF187026F_4DDCDD68019Eget_var*
+//#UC END# *4F2BF187026F_4DDCDD68019Eget_var*
+//#UC START# *4F548A0D0096_4DDCDD68019E_impl*
+ Result := Get_RightEdition;
+//#UC END# *4F548A0D0096_4DDCDD68019E_impl*
+//#UC START# *4F548A0D0096_4DDCDD68019E_var*
+//#UC END# *4F548A0D0096_4DDCDD68019E_var*

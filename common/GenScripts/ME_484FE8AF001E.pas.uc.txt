@@ -1,0 +1,21 @@
+//#UC START# *4843BF1B0059_484FE8AF001E_impl*
+  Result :=
+    ( TFoldersItemType( FoldersNode.GetObjectType ) = FIT_LIST )
+    AND ( inherited CheckIsMatch );
+//#UC END# *4843BF1B0059_484FE8AF001E_impl*
+//#UC START# *4843BF1B0059_484FE8AF001E_var*
+//#UC END# *4843BF1B0059_484FE8AF001E_var*
+//#UC START# *484D51FE0183_484FE8AF001Eget_impl*
+  FoldersNode.Open(l_Object);
+  if (l_Object <> nil) then
+    (l_Object as IDynList).GetName(Result)
+  else
+    Raise Exception.Create('Не могу получить список из ноды!');
+//#UC END# *484D51FE0183_484FE8AF001Eget_impl*
+//#UC START# *484D51FE0183_484FE8AF001Eget_var*
+  var
+    l_Object : IUnknown;
+//#UC END# *484D51FE0183_484FE8AF001Eget_var*
+//#UC START# *484FE8AF001E_ext:ParentFileName
+w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atFoldersHelper.pas
+//#UC END# *484FE8AF001E_ext:ParentFileName

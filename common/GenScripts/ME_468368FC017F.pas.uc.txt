@@ -1,0 +1,37 @@
+//#UC START# *468368FC017F_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Common\nsComplectInfoTreeStruct.pas
+//#UC END# *468368FC017F_ext:FileName
+//#UC START# *468368FC017Fimpl_uses*
+//#UC END# *468368FC017Fimpl_uses*
+//#UC START# *48FEE3640227_468368FC017F_impl*
+ Result := TnsComplectInfoRootNode;
+//#UC END# *48FEE3640227_468368FC017F_impl*
+//#UC START# *48FEE3640227_468368FC017F_var*
+//#UC END# *48FEE3640227_468368FC017F_var*
+//#UC START# *48FF64F60078_468368FC017F_impl*
+ case BeenReseted of
+  rtsRoot :
+   Result := GetComplectInfoTree;
+  else
+   Result := inherited ReAqurieUnfilteredRoot;
+ end
+//#UC END# *48FF64F60078_468368FC017F_impl*
+//#UC START# *48FF64F60078_468368FC017F_var*
+//#UC END# *48FF64F60078_468368FC017F_var*
+//#UC START# *490872B30390_468368FC017F_impl*
+ inherited Create(GetComplectInfoTree, False);
+//#UC END# *490872B30390_468368FC017F_impl*
+//#UC START# *490872B30390_468368FC017F_var*
+//#UC END# *490872B30390_468368FC017F_var*
+//#UC START# *490872E30161_468368FC017F_impl*
+ lCI := DefDataAdapter.NativeAdapter.MakeComplectInfo;
+ try
+  lCI.GetInfo(Result);
+ finally
+  lCI := nil;
+ end;
+//#UC END# *490872E30161_468368FC017F_impl*
+//#UC START# *490872E30161_468368FC017F_var*
+var
+ lCI   : IComplectInfo;
+//#UC END# *490872E30161_468368FC017F_var*

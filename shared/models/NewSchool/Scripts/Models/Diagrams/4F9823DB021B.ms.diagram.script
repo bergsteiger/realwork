@@ -1,0 +1,69 @@
+// FiltersNotification 4F9823DB021B Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4F9823DB021B_diagrams
+
+ MEDIAGRAM ME_4F9823DB021B_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4F9823DB021B' ; // FiltersNotification
+
+  MEVIEW ME_4F98251800B4_view
+   MELINK Original WL? 'ME_4F98251800B4' ; // TnsFiltersListenersList
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F98251800B4_view
+
+  MEVIEW ME_4F98242D007E_view
+   MELINK Original WL? 'ME_4F98242D007E' ; // TnsFiltersListenersManagerPrim
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F98242D007E_view
+
+  MEVIEW ME_4F98440301D2_view
+   MELINK Original WL? 'ME_4F98440301D2' ; // TnsFiltersListenersDrugsManager
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F98440301D2_view
+
+  MEVIEW ME_4F98447C0378_view
+   MELINK Original WL? 'ME_4F98447C0378' ; // TnsFiltersListenersDocManager
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F98447C0378_view
+
+  MEVIEWLINK ME_4F9825B402BF_viewlink
+   MELINK Original WL 'ME_4F9825B402BF' '4F98242D007E.ms.model.script' ;
+   MELINK From ME_4F98242D007E_view ;
+   MELINK To ME_4F98251800B4_view ;
+  ENDMEVIEWLINK // ME_4F9825B402BF_viewlink
+
+  MEVIEWLINK ME_4F98440301D2_ME_4F98242D007E_Inherits
+   MELINK From ME_4F98440301D2_view ;
+   MELINK To ME_4F98242D007E_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4F98440301D2_ME_4F98242D007E_Inherits
+
+  MEVIEWLINK ME_4F98447C0378_ME_4F98242D007E_Inherits
+   MELINK From ME_4F98447C0378_view ;
+   MELINK To ME_4F98242D007E_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4F98447C0378_ME_4F98242D007E_Inherits
+
+  MELIST Views
+   Seq: ( ME_4F98251800B4_view // TnsFiltersListenersList
+   ME_4F98242D007E_view // TnsFiltersListenersManagerPrim
+   ME_4F98440301D2_view // TnsFiltersListenersDrugsManager
+   ME_4F98447C0378_view // TnsFiltersListenersDocManager
+   ME_4F9825B402BF_viewlink // TnsFiltersListenersManagerPrim ==> TnsFiltersListenersList
+   ME_4F98440301D2_ME_4F98242D007E_Inherits // TnsFiltersListenersDrugsManager ==> TnsFiltersListenersManagerPrim
+   ME_4F98447C0378_ME_4F98242D007E_Inherits // TnsFiltersListenersDocManager ==> TnsFiltersListenersManagerPrim
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4F9823DB021B_main
+
+ MELIST Diagrams
+  Seq: ( ME_4F9823DB021B_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4F9823DB021B_diagrams

@@ -1,0 +1,48 @@
+// Main 4AA7E9B9016C VCMForms Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4AA7E9B9016C_diagrams
+
+ MEDIAGRAM ME_4AA7E9B9016C_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4AA7E9B9016C' ; // Main
+
+  MEVIEW ME_4AA7E9CB034A_view
+   MELINK Original WL? 'ME_4AA7E9CB034A' ; // MedicMainMenuRes
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AA7E9CB034A_view
+
+  MEVIEW ME_5391A476038A_view
+   MELINK Original WL? 'ME_5391A476038A' ; // MemoryUsagePrim
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5391A476038A_view
+
+  MEVIEW ME_4F882096008A_view
+   MELINK Original WL? 'ME_4F882096008A' ; // MemoryUsage
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F882096008A_view
+
+  MEVIEWLINK ME_4F882096008A_ME_5391A476038A_Inherits
+   MELINK From ME_4F882096008A_view ;
+   MELINK To ME_5391A476038A_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4F882096008A_ME_5391A476038A_Inherits
+
+  MELIST Views
+   Seq: ( ME_4AA7E9CB034A_view // MedicMainMenuRes
+   ME_5391A476038A_view // MemoryUsagePrim
+   ME_4F882096008A_view // MemoryUsage
+   ME_4F882096008A_ME_5391A476038A_Inherits // MemoryUsage ==> MemoryUsagePrim
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4AA7E9B9016C_main
+
+ MELIST Diagrams
+  Seq: ( ME_4AA7E9B9016C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4AA7E9B9016C_diagrams

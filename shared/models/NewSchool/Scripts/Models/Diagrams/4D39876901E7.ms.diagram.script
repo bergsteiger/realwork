@@ -1,0 +1,41 @@
+// OpenDocumentByNumber 4D39876901E7 VCMForms Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4D39876901E7_diagrams
+
+ MEDIAGRAM ME_4D39876901E7_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4D39876901E7' ; // OpenDocumentByNumber
+
+  MEVIEW ME_4AC63602020E_view
+   MELINK Original WL? 'ME_4AC63602020E' ; // PrimDocNumberQuery
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AC63602020E_view
+
+  MEVIEW ME_4C863B1E0196_view
+   MELINK Original WL? 'ME_4C863B1E0196' ; // PrimDocNumberQueryOptions
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C863B1E0196_view
+
+  MEVIEWLINK ME_4C863B1E0196_ME_4AC63602020E_Inherits
+   MELINK From ME_4C863B1E0196_view ;
+   MELINK To ME_4AC63602020E_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4C863B1E0196_ME_4AC63602020E_Inherits
+
+  MELIST Views
+   Seq: ( ME_4AC63602020E_view // PrimDocNumberQuery
+   ME_4C863B1E0196_view // PrimDocNumberQueryOptions
+   ME_4C863B1E0196_ME_4AC63602020E_Inherits // PrimDocNumberQueryOptions ==> PrimDocNumberQuery
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4D39876901E7_main
+
+ MELIST Diagrams
+  Seq: ( ME_4D39876901E7_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4D39876901E7_diagrams

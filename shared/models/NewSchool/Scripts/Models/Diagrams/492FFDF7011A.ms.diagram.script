@@ -1,0 +1,62 @@
+// TbsConsultationManager 492FFDF7011A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_492FFDF7011A_diagrams
+
+ MEDIAGRAM ME_492FFDF7011A_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_492FFDF7011A' '55FAEA9B0079.ms.model.script' ; // TbsConsultationManager
+
+  MEVIEW ME_55FACCF500B4_view
+   MELINK Original WL 'ME_55FACCF500B4' '55FAEA9B0079.ms.model.script' ; // UpdateUnread
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_55FACCF500B4_view
+
+  MEVIEW ME_55FACD130143_view
+   MELINK Original WL 'ME_55FACD130143' '55FAEA9B0079.ms.model.script' ; // Create
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_55FACD130143_view
+
+  MEVIEW ME_55FACD4C0399_view
+   MELINK Original WL 'ME_55FACD4C0399' '55FAEA9B0079.ms.model.script' ; // Make
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_55FACD4C0399_view
+
+  MEVIEW ME_55FACBF603B5_view
+   MELINK Original WL 'ME_55FACBF603B5' '55FAEA9B0079.ms.model.script' ; // f_Unread
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_55FACBF603B5_view
+
+  MEVIEW ME_55FACCE20172_view
+   MELINK Original WL 'ME_55FACCE20172' '55FAEA9B0079.ms.model.script' ; // f_CurrentStatus
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_55FACCE20172_view
+
+  MEVIEWLINK ME_55FACD4C0399_ME_55FACD130143_Inherits
+   MELINK From ME_55FACD4C0399_view ;
+   MELINK To ME_55FACD130143_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_55FACD4C0399_ME_55FACD130143_Inherits
+
+  MELIST Views
+   Seq: ( ME_55FACCF500B4_view // UpdateUnread
+   ME_55FACD130143_view // Create
+   ME_55FACD4C0399_view // Make
+   ME_55FACBF603B5_view // f_Unread
+   ME_55FACCE20172_view // f_CurrentStatus
+   ME_55FACD4C0399_ME_55FACD130143_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_492FFDF7011A_main
+
+ MELIST Diagrams
+  Seq: ( ME_492FFDF7011A_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_492FFDF7011A_diagrams

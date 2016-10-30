@@ -1,0 +1,54 @@
+//#UC START# *479731C50290_56558AAF003B_impl*
+ f_InnerState := nil;
+ inherited;
+//#UC END# *479731C50290_56558AAF003B_impl*
+//#UC START# *479731C50290_56558AAF003B_var*
+//#UC END# *479731C50290_56558AAF003B_var*
+//#UC START# *561145D802BB_56558AAF003B_impl*
+ // Всё это криво и костыльно. И ужасно. И очень не хотелось так делать.
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=612730339
+ if (not IsEqualGUID(IID, IExTextFormState)) and (f_InnerState <> nil) then
+  Result := f_InnerState.QueryInterface(IID, Obj)
+ else
+  Result := inherited QueryInterface(IID, Obj);
+//#UC END# *561145D802BB_56558AAF003B_impl*
+//#UC START# *561145D802BB_56558AAF003B_var*
+//#UC END# *561145D802BB_56558AAF003B_var*
+//#UC START# *56558A84014E_56558AAF003Bget_impl*
+ Result := f_InnerState;
+//#UC END# *56558A84014E_56558AAF003Bget_impl*
+//#UC START# *56558A84014E_56558AAF003Bget_var*
+//#UC END# *56558A84014E_56558AAF003Bget_var*
+//#UC START# *56558A99000A_56558AAF003Bget_impl*
+ Result := f_NeedShowUserComments;
+//#UC END# *56558A99000A_56558AAF003Bget_impl*
+//#UC START# *56558A99000A_56558AAF003Bget_var*
+//#UC END# *56558A99000A_56558AAF003Bget_var*
+//#UC START# *56558AAF003B_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\ExText_Form.pas
+//#UC END# *56558AAF003B_ext:ParentFileName
+//#UC START# *56558B510110_56558AAF003B_impl*
+ inherited Create;
+ f_InnerState := aInnerState;
+ f_NeedShowUserComments := aNeedShowUserComments;
+ f_NeedShowComments := aNeedShowComments;
+ f_NeedShowVersionComments := aNeedShowVersionComments;
+ f_eeSubIdForTypedCorrespondentList := aEeSubIdForTypedCorrespondentList;
+//#UC END# *56558B510110_56558AAF003B_impl*
+//#UC START# *56558B510110_56558AAF003B_var*
+//#UC END# *56558B510110_56558AAF003B_var*
+//#UC START# *5656B27E015A_56558AAF003Bget_impl*
+ Result := f_eeSubIdForTypedCorrespondentList;
+//#UC END# *5656B27E015A_56558AAF003Bget_impl*
+//#UC START# *5656B27E015A_56558AAF003Bget_var*
+//#UC END# *5656B27E015A_56558AAF003Bget_var*
+//#UC START# *565C49D7029F_56558AAF003Bget_impl*
+ Result := f_NeedShowComments;
+//#UC END# *565C49D7029F_56558AAF003Bget_impl*
+//#UC START# *565C49D7029F_56558AAF003Bget_var*
+//#UC END# *565C49D7029F_56558AAF003Bget_var*
+//#UC START# *565C49E9039D_56558AAF003Bget_impl*
+ Result := f_NeedShowVersionComments;
+//#UC END# *565C49E9039D_56558AAF003Bget_impl*
+//#UC START# *565C49E9039D_56558AAF003Bget_var*
+//#UC END# *565C49E9039D_56558AAF003Bget_var*

@@ -1,0 +1,34 @@
+// Супермобильная версия 4B6142E20091 UseCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4B6142E20091_diagrams
+
+ MEDIAGRAM ME_4B6142E20091_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4B6142E20091' '48561FA8027F.ms.model.script' ; // Супермобильная версия
+
+  MEVIEW ME_4E7C455C0147_view
+   MELINK Original WL 'ME_4E7C455C0147' '48561FA8027F.ms.model.script' ; // Сообщение об изменении документа в МГО должно зависеть от статуса документа
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E7C455C0147_view
+
+  MEVIEW ME_4EC0F40F006E_view
+   MELINK Original WL 'ME_4EC0F40F006E' '48561FA8027F.ms.model.script' ; // Баллон об изменении докмуента в МГО должен содержать ссылку на операцию открытия документа в Интранет
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4EC0F40F006E_view
+
+  MELIST Views
+   Seq: ( ME_4E7C455C0147_view // Сообщение об изменении документа в МГО должно зависеть от статуса документа
+   ME_4EC0F40F006E_view // Баллон об изменении докмуента в МГО должен содержать ссылку на операцию открытия документа в Интранет
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4B6142E20091_main
+
+ MELIST Diagrams
+  Seq: ( ME_4B6142E20091_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4B6142E20091_diagrams

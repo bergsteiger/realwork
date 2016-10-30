@@ -1,0 +1,73 @@
+//#UC START# *45EEE00A025D_483AD19A008E_impl*
+  try
+    Logger.Info( 'Идет поиск... Выполнено %d%%', [aCurCount] );
+  except
+    on ex : Exception do
+    begin
+      Logger.Exception(ex, 'TatProgressIndicator.SetCurrent');
+      Raise;
+    end;
+  end;
+//#UC END# *45EEE00A025D_483AD19A008E_impl*
+//#UC START# *45EEE00A025D_483AD19A008E_var*
+//#UC END# *45EEE00A025D_483AD19A008E_var*
+//#UC START# *45EEE02703C5_483AD19A008Eget_impl*
+  Result := 100; // потому что мы хотим получать ход выполнения в процентах
+//#UC END# *45EEE02703C5_483AD19A008Eget_impl*
+//#UC START# *45EEE02703C5_483AD19A008Eget_var*
+//#UC END# *45EEE02703C5_483AD19A008Eget_var*
+//#UC START# *462741D0012E_483AD19A008E_impl*
+  try
+    f_SearchResult := aEntity;
+    f_Event.SetEvent;
+  except
+    on ex : Exception do
+    begin
+      Logger.Exception(ex, 'TatProgressIndicator.FinishProcess');
+      Raise;
+    end;
+    else
+      Raise;
+  end;
+//#UC END# *462741D0012E_483AD19A008E_impl*
+//#UC START# *462741D0012E_483AD19A008E_var*
+//#UC END# *462741D0012E_483AD19A008E_var*
+//#UC START# *47A6FEE600FC_483AD19A008E_impl*
+  Result := true;
+//#UC END# *47A6FEE600FC_483AD19A008E_impl*
+//#UC START# *47A6FEE600FC_483AD19A008E_var*
+//#UC END# *47A6FEE600FC_483AD19A008E_var*
+//#UC START# *483AD19A008E_ext:ParentFileName
+w:\quality\test\garant6x\AdapterTest\SearchHelpers\atQueryExecutor.pas
+//#UC END# *483AD19A008E_ext:ParentFileName
+//#UC START# *483AD1D1039B_483AD19A008Eget_impl*
+  Result := f_SearchResult;
+//#UC END# *483AD1D1039B_483AD19A008Eget_impl*
+//#UC START# *483AD1D1039B_483AD19A008Eget_var*
+//#UC END# *483AD1D1039B_483AD19A008Eget_var*
+//#UC START# *483AD1F1009D_483AD19A008E_impl*
+  Result := (f_Event.WaitFor(0) = wrSignaled);
+//#UC END# *483AD1F1009D_483AD19A008E_impl*
+//#UC START# *483AD1F1009D_483AD19A008E_var*
+//#UC END# *483AD1F1009D_483AD19A008E_var*
+//#UC START# *483AD202033D_483AD19A008E_impl*
+  f_Event.WaitFor(INFINITE);
+//#UC END# *483AD202033D_483AD19A008E_impl*
+//#UC START# *483AD202033D_483AD19A008E_var*
+//#UC END# *483AD202033D_483AD19A008E_var*
+//#UC START# *483AD6A203E0_483AD19A008E_impl*
+  inherited Create;
+  //
+  f_Event := TSimpleEvent.Create;
+  f_Event.ResetEvent;
+//#UC END# *483AD6A203E0_483AD19A008E_impl*
+//#UC START# *483AD6A203E0_483AD19A008E_var*
+//#UC END# *483AD6A203E0_483AD19A008E_var*
+//#UC START# *5000565C019C_483AD19A008E_impl*
+  f_SearchResult := nil;
+  FreeAndNil(f_Event);
+  //
+  inherited;
+//#UC END# *5000565C019C_483AD19A008E_impl*
+//#UC START# *5000565C019C_483AD19A008E_var*
+//#UC END# *5000565C019C_483AD19A008E_var*

@@ -19,7 +19,6 @@ ME ME_4BD71E5E01D4
  ;
  UP "CanClose" False
  UP "ImageIndex" 145
- UP "Weight" '-1'
  UP extprop:pas:UnitName 'PrimPostingsList_MyPostingList_UserType'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PrimPostingsList_MyPostingList_UserType.pas'
 
@@ -37,9 +36,6 @@ ME ME_4BE93A720328
  MELINK Parent HWL ME_4BE93A2D0378 // Local
  ;
  MEPROP Value '''Ленты новостей|*.xml'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Ленты новостей|*.xml'''
 
 ENDME // ME_4BE93A720328 PrimeFilter
@@ -54,9 +50,6 @@ ME ME_4BE93AE3017A
  MELINK Parent HWL ME_4BE93A2D0378 // Local
  ;
  MEPROP Value '''Экспорт выделенных лент'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Экспорт выделенных лент'''
 
 ENDME // ME_4BE93AE3017A ExportPrimeTitle
@@ -64,7 +57,7 @@ ENDME // ME_4BE93AE3017A ExportPrimeTitle
 ME ME_4BE93A2D0378
  MEPROP UID '4BE93A2D0378'
  MEPROP Name 'Local'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -76,9 +69,6 @@ ME ME_4BE93A2D0378
  HWL ME_4BE93AE3017A // ExportPrimeTitle
  )
  ; // Attributes
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
 
 ENDME // ME_4BE93A2D0378 Local
 
@@ -93,7 +83,6 @@ ME ME_4C84F2B3000F
  MELINK Parent HWL ME_4AAFA13C01B0 // PrimPostingsList
  ;
  UP "ControlClass" 'TeeTreeView'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4C84F2B3000F tvPostings
@@ -111,7 +100,6 @@ ME ME_52826BBE03A6
  ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
- UP "pm" True
 
 ENDME // ME_52826BBE03A6 IsNeedSave
 
@@ -515,12 +503,7 @@ MEREF ME_4C84EE020054_ME_4AAFA13C01B0_impl
  MELINK Original WL 'ME_4C84EE020054' '4C84EDB403D2.ms.model.script' // ptNewTheme
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
  UP "no prefix" True
  UP "ShowInContextMenu" True
  UP "ShowInToolbar" True
@@ -530,12 +513,7 @@ MEREF ME_4C84EE1D0024_ME_4AAFA13C01B0_impl
  MELINK Original WL 'ME_4C84EE1D0024' '4C84EDB403D2.ms.model.script' // ptEditPosting
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
  UP "no prefix" True
  UP "ShowInContextMenu" True
  UP "ShowInToolbar" False
@@ -545,12 +523,7 @@ MEREF ME_4C84EE3801EB_ME_4AAFA13C01B0_impl
  MELINK Original WL 'ME_4C84EE3801EB' '4C84EDB403D2.ms.model.script' // ptDeletePosting
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
  UP "no prefix" True
  UP "ShowInContextMenu" True
  UP "ShowInToolbar" True
@@ -560,13 +533,7 @@ MEREF ME_4C84EE590206_ME_4AAFA13C01B0_impl
  MELINK Original WL 'ME_4C84EE590206' '4C84EDB403D2.ms.model.script' // SavePostList
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
  UP "ShowInContextMenu" True
  UP "ShowInToolbar" True
 ENDMEREF // ME_4C84EE590206_ME_4AAFA13C01B0_impl SavePostList
@@ -575,13 +542,7 @@ MEREF ME_4C84EE750308_ME_4AAFA13C01B0_impl
  MELINK Original WL 'ME_4C84EE750308' '4C84EDB403D2.ms.model.script' // ExportSelected
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
  UP "ShowInContextMenu" True
  UP "ShowInToolbar" False
 ENDMEREF // ME_4C84EE750308_ME_4AAFA13C01B0_impl ExportSelected
@@ -725,13 +686,9 @@ ME ME_4AAFA13C01B0
    Seq: ( 'Main' 'Uses' )
  ; // DiagramsNames
  UP "author" 'Люлин А.В.'
- UP "finished dfm" True
  UP "NeedsHackRef" False
  UP "no hands" True
- UP "resizeable" False
- UP "restrict form def" 'undefined'
  UP "started" '15.09.2009 18:14'
- UP "ZoneType" 'Any'
  UP extprop:NeedsInitEntities True
  UP extprop:pas:TypeName 'TPrimPostingsListForm'
  UP extprop:pas:UnitName 'PrimPostingsList_Form'

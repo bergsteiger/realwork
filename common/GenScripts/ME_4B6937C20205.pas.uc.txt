@@ -1,0 +1,51 @@
+//#UC START# *45EEDE9D01C5_4B6937C20205_impl*
+  f_MREWS.BeginRead;
+  try
+    if (@f_Func <> nil) then
+      f_Func(aNotify);
+  finally
+    f_MREWS.EndRead;
+  end;
+//#UC END# *45EEDE9D01C5_4B6937C20205_impl*
+//#UC START# *45EEDE9D01C5_4B6937C20205_var*
+//#UC END# *45EEDE9D01C5_4B6937C20205_var*
+//#UC START# *479731C50290_4B6937C20205_impl*
+  Detach();
+  FreeAndNil(f_MREWS);
+  {$IFDEF DEBUG}
+  WriteLn('TatChatListener.Cleanup');
+  {$ENDIF}
+  inherited;
+//#UC END# *479731C50290_4B6937C20205_impl*
+//#UC START# *479731C50290_4B6937C20205_var*
+//#UC END# *479731C50290_4B6937C20205_var*
+//#UC START# *4B69379E0046_4B6937C20205_impl*
+  f_MREWS.BeginWrite;
+  try
+    f_Func := aFunction;
+  finally
+    f_MREWS.EndWrite;
+  end;
+//#UC END# *4B69379E0046_4B6937C20205_impl*
+//#UC START# *4B69379E0046_4B6937C20205_var*
+//#UC END# *4B69379E0046_4B6937C20205_var*
+//#UC START# *4B6937B701C3_4B6937C20205_impl*
+  f_MREWS.BeginWrite;
+  try
+    f_Func := nil;
+  finally
+    f_MREWS.EndWrite;
+  end;
+//#UC END# *4B6937B701C3_4B6937C20205_impl*
+//#UC START# *4B6937B701C3_4B6937C20205_var*
+//#UC END# *4B6937B701C3_4B6937C20205_var*
+//#UC START# *4B6937C20205_ext:ParentFileName
+w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atChatWorker.pas
+//#UC END# *4B6937C20205_ext:ParentFileName
+//#UC START# *4B69384701C8_4B6937C20205_impl*
+  inherited Create();
+  f_Func := nil;
+  f_MREWS := TMultiReadExclusiveWriteSynchronizer.Create;
+//#UC END# *4B69384701C8_4B6937C20205_impl*
+//#UC START# *4B69384701C8_4B6937C20205_var*
+//#UC END# *4B69384701C8_4B6937C20205_var*

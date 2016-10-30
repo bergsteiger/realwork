@@ -1,0 +1,48 @@
+// TnsNewCachableNodeThatNeedKeepRoot 4E737EFA0153 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4E737EFA0153_diagrams
+
+ MEDIAGRAM ME_4E737EFA0153_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4E737EFA0153' ; // TnsNewCachableNodeThatNeedKeepRoot
+
+  MEVIEW ME_4E737F9900B3_view
+   MELINK Original WL 'ME_4E737F9900B3' '4E737EFA0153.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E737F9900B3_view
+
+  MEVIEW ME_4E737FBB011E_view
+   MELINK Original WL 'ME_4E737FBB011E' '4E737EFA0153.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E737FBB011E_view
+
+  MEVIEW ME_4E737F3A0192_view
+   MELINK Original WL 'ME_4E737F3A0192' '4E737EFA0153.ms.model.script' ; // f_RootToKeep
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E737F3A0192_view
+
+  MEVIEWLINK ME_4E737FBB011E_ME_4E737F9900B3_Inherits
+   MELINK From ME_4E737FBB011E_view ;
+   MELINK To ME_4E737F9900B3_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4E737FBB011E_ME_4E737F9900B3_Inherits
+
+  MELIST Views
+   Seq: ( ME_4E737F9900B3_view // Create
+   ME_4E737FBB011E_view // Make
+   ME_4E737F3A0192_view // f_RootToKeep
+   ME_4E737FBB011E_ME_4E737F9900B3_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E737EFA0153_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E737EFA0153_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E737EFA0153_diagrams

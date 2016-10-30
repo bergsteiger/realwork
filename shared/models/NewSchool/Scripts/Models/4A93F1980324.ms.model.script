@@ -17,9 +17,7 @@ ME ME_50F667D30021
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
  ;
- UP "ImageIndex" '-1'
  UP "SettingsCaption" 'Ход выполнения'
- UP "Weight" '-1'
  UP extprop:pas:UnitName 'PrimProgressIndicator_utProgressIndicator_UserType'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimProgressIndicator_utProgressIndicator_UserType.pas'
 
@@ -37,9 +35,6 @@ ME ME_50F98852031C
  MELINK Parent HWL ME_50F988320278 // ProgressIndicatorConstants
  ;
  MEPROP Value 'WM_USER + $0101'
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 'WM_USER + $0101'
 
 ENDME // ME_50F98852031C WM_USER_SET_CURRENT
@@ -54,9 +49,6 @@ ME ME_50F9885D0077
  MELINK Parent HWL ME_50F988320278 // ProgressIndicatorConstants
  ;
  MEPROP Value 'WM_USER + $0102'
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 'WM_USER + $0102'
 
 ENDME // ME_50F9885D0077 WM_USER_FINISH_PROCESS
@@ -64,7 +56,7 @@ ENDME // ME_50F9885D0077 WM_USER_FINISH_PROCESS
 ME ME_50F988320278
  MEPROP UID '50F988320278'
  MEPROP Name 'ProgressIndicatorConstants'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -76,7 +68,6 @@ ME ME_50F988320278
  HWL ME_50F9885D0077 // WM_USER_FINISH_PROCESS
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_50F988320278 ProgressIndicatorConstants
 
@@ -91,9 +82,6 @@ ME ME_50F98032028A
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_50F97F89002A // ProgressIndicatorLocalConst
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP "Value" '''&Отмена'''
 
 ENDME // ME_50F98032028A CancelButtonCaption
@@ -101,7 +89,7 @@ ENDME // ME_50F98032028A CancelButtonCaption
 ME ME_50F97F89002A
  MEPROP UID '50F97F89002A'
  MEPROP Name 'ProgressIndicatorLocalConst'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -112,9 +100,6 @@ ME ME_50F97F89002A
    Seq: ( HWL ME_50F98032028A // CancelButtonCaption
  )
  ; // Attributes
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
 
 ENDME // ME_50F97F89002A ProgressIndicatorLocalConst
 
@@ -129,8 +114,6 @@ ME ME_4AC627D2039B
  MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
  ;
  UP "ControlClass" 'TProgressBar'
- UP "pm" True
- UP "put to dfm" True
 
 ENDME // ME_4AC627D2039B ProgressBar
 
@@ -253,7 +236,6 @@ FORWARD ME_50F989800152
 ME ME_50F989830047
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
@@ -306,7 +288,6 @@ FORWARD ME_4AC6270C00E2
 ME ME_4AC62714014D
  MEPROP Name 'aProgress'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4991AAF4000A' '491DAF4202EE.ms.model.script' // InsProgressIndicator
  ;
 
@@ -315,7 +296,6 @@ ENDME // ME_4AC62714014D aProgress
 ME ME_4AC6271401A3
  MEPROP Name 'aCaption'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
  ;
 
@@ -324,7 +304,6 @@ ENDME // ME_4AC6271401A3 aCaption
 ME ME_4AC6271401F7
  MEPROP Name 'aMaxCount'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
@@ -608,11 +587,7 @@ ME ME_4A93F1980324
    Seq: ( 'Main' 'Uses' )
  ; // DiagramsNames
  UP "author" 'Люлин А.В.'
- UP "finished dfm" True
- UP "NeedsHackRef" True
  UP "no hands" True
- UP "resizeable" False
- UP "restrict form def" 'undefined'
  UP "started" '25.08.2009 18:14'
  UP "ZoneType" 'ManualModal'
  UP extprop:pas:TypeName 'TPrimProgressIndicatorForm'

@@ -1,0 +1,65 @@
+//#UC START# *479731C50290_4ADDF50A00E2_impl*
+ f_Query := nil;
+ inherited;
+//#UC END# *479731C50290_4ADDF50A00E2_impl*
+//#UC START# *479731C50290_4ADDF50A00E2_var*
+//#UC END# *479731C50290_4ADDF50A00E2_var*
+//#UC START# *49904E96037F_4ADDF50A00E2get_impl*
+ Result := f_Query;
+//#UC END# *49904E96037F_4ADDF50A00E2get_impl*
+//#UC START# *49904E96037F_4ADDF50A00E2get_var*
+//#UC END# *49904E96037F_4ADDF50A00E2get_var*
+//#UC START# *49904EAB0281_4ADDF50A00E2get_impl*
+ Result := f_DocCount;
+//#UC END# *49904EAB0281_4ADDF50A00E2get_impl*
+//#UC START# *49904EAB0281_4ADDF50A00E2get_var*
+//#UC END# *49904EAB0281_4ADDF50A00E2get_var*
+//#UC START# *4A60B23E00C3_4ADDF50A00E2_impl*
+ Result := inherited COMQueryInterface(IID, Obj);
+ if Result.Fail then
+ begin
+  if (f_Query = nil) then
+   Result.SetNOINTERFACE
+  else
+   Result := Tl3HResult_C(f_Query.QueryInterface(IID.IID, Obj));
+ end;
+//#UC END# *4A60B23E00C3_4ADDF50A00E2_impl*
+//#UC START# *4A60B23E00C3_4ADDF50A00E2_var*
+//#UC END# *4A60B23E00C3_4ADDF50A00E2_var*
+//#UC START# *4ADDF50A00E2_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Common\nsQueryNode.pas
+//#UC END# *4ADDF50A00E2_ext:FileName
+//#UC START# *4ADDF50A00E2impl_uses*
+//#UC END# *4ADDF50A00E2impl_uses*
+//#UC START# *4ADF274E0033_4ADDF50A00E2_impl*
+ inherited Create;
+ if not Assigned(aQuery) then
+  Exit;
+ // Query
+ f_Query := aQuery;
+ // Name
+ aQuery.GetName(l_Str);
+ try
+  pm_SetName(nsWStr(l_Str));
+ finally
+  l_Str := nil;
+ end;{try..finally}
+ // Comment
+ aQuery.GetComment(l_Str);
+ try
+  pm_SetComment(nsWStr(l_Str));
+ finally
+  l_Str := nil;
+ end;{try..finally}
+ // DocCount
+ try
+  f_DocCount := aQuery.GetCount;
+ except
+  on EQueryNotExecuted do
+   f_DocCount := 0;
+ end;{try..except}
+//#UC END# *4ADF274E0033_4ADDF50A00E2_impl*
+//#UC START# *4ADF274E0033_4ADDF50A00E2_var*
+var
+ l_Str : IString;
+//#UC END# *4ADF274E0033_4ADDF50A00E2_var*

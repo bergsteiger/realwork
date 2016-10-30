@@ -32,7 +32,6 @@ FORWARD ME_4AC2018D006C
 ME ME_4AC201990307
  MEPROP Name 'aNotifyType'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_45EEDEA3028F' '45EEA85502B4.ms.model.script' // NotifyType
  ;
 
@@ -270,7 +269,6 @@ FORWARD ME_4AC20023031C
 ME ME_4AC2003500AF
  MEPROP Name 'aNotifyManager'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_45EEDE9A0260' '45EEA85502B4.ms.model.script' // NotifyManager
  ;
 
@@ -392,7 +390,6 @@ ME ME_4AC21ADA024C
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "needs field" True
- UP "pm" True
  UP "reads field" True
 
 ENDME // ME_4AC21ADA024C IsLoggedIn
@@ -410,7 +407,6 @@ ME ME_4AC2181A00BF
  MELINK Target WL 'ME_4AC217A5034F' '4AC2178C0370.ms.model.script' // IGblAdapterDll
  ;
  UP "needs field" True
- UP "pm" True
  UP "reads field" True
 
 ENDME // ME_4AC2181A00BF GblAdapterDll
@@ -428,7 +424,6 @@ ME ME_4AC218B50241
  MELINK Target HWL ME_4AC2000A021C // TatNotifierFacade
  ;
  UP "needs field" True
- UP "pm" True
  UP "reads field" True
 
 ENDME // ME_4AC218B50241 NotifierFacade
@@ -446,7 +441,6 @@ ME ME_4AC218CC00F4
  MELINK Target WL 'ME_45EEE3D303C8' '456FF1DD031C.ms.model.script' // Authorization
  ;
  UP "needs field" True
- UP "pm" True
  UP "reads field" True
 
 ENDME // ME_4AC218CC00F4 Authorization
@@ -464,7 +458,6 @@ ME ME_4AC218D80016
  MELINK Target WL 'ME_45EEE473005D' '456FF1DD031C.ms.model.script' // Common
  ;
  UP "needs field" True
- UP "pm" True
 
 ENDME // ME_4AC218D80016 Common
 
@@ -481,7 +474,6 @@ ME ME_4AC218FB005A
  MELINK Target WL 'ME_45EED7A20292' '4570501E037A.ms.model.script' // Folders
  ;
  UP "needs field" True
- UP "pm" True
  UP "reads field" True
 
 ENDME // ME_4AC218FB005A Folders
@@ -499,7 +491,6 @@ ME ME_4AC21946039A
  MELINK Target WL 'ME_45EED5F0008E' '4570501E037A.ms.model.script' // FoldersNode
  ;
  UP "needs field" True
- UP "pm" True
 
 ENDME // ME_4AC21946039A MyDocuments
 
@@ -516,7 +507,6 @@ ME ME_4AC2196C0042
  MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
  ;
  UP "needs field" True
- UP "pm" True
 
 ENDME // ME_4AC2196C0042 CRTreeRoot
 
@@ -561,7 +551,6 @@ ME ME_4AC219B40386
  MELINK Target WL 'ME_45EEDBE30119' '45EEAA69036E.ms.model.script' // SettingsManager
  ;
  UP "needs field" True
- UP "pm" True
  UP "reads field" True
 
 ENDME // ME_4AC219B40386 SettingsManager
@@ -579,7 +568,6 @@ ME ME_4AC21B9102CC
  MELINK Target HWL ME_4AC21B6701C8 // TatLoggedAs
  ;
  UP "needs field" True
- UP "pm" True
  UP "reads field" True
 
 ENDME // ME_4AC21B9102CC LoggedAs
@@ -597,7 +585,6 @@ ME ME_4B693C680284
  MELINK Target WL? 'ME_4B683B57028D' // TatChatWorker
  ;
  UP "needs field" True
- UP "pm" True
  UP "reads field" True
 
 ENDME // ME_4B693C680284 ChatWorker
@@ -615,7 +602,6 @@ ME ME_4B97915302A2
  MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
  ;
  UP "needs field" True
- UP "pm" True
 
 ENDME // ME_4B97915302A2 MainMenuRoot
 
@@ -632,7 +618,6 @@ ME ME_504FAAE80222
  MELINK Target WL 'ME_45F118B90277' '45EEAA800226.ms.model.script' // ControlManager
  ;
  UP "needs field" True
- UP "pm" True
  UP "reads field" True
 
 ENDME // ME_504FAAE80222 ControlManager
@@ -728,7 +713,6 @@ FORWARD ME_4AC21A7F01E4
 ME ME_4AC21AC10032
  MEPROP Name 'anUserName'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -737,7 +721,6 @@ ENDME // ME_4AC21AC10032 anUserName
 ME ME_4AC21AC10061
  MEPROP Name 'aPassword'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -1015,9 +998,6 @@ ME ME_4B716BFA0036
  MELINK Parent HWL ME_4B716BED024C // UserName
  ;
  MEPROP Value '''Console Adapter Test'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Console Adapter Test'''
 
 ENDME // ME_4B716BFA0036 TAT_USER_NAME
@@ -1025,7 +1005,7 @@ ENDME // ME_4B716BFA0036 TAT_USER_NAME
 ME ME_4B716BED024C
  MEPROP UID '4B716BED024C'
  MEPROP Name 'UserName'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1036,7 +1016,6 @@ ME ME_4B716BED024C
    Seq: ( HWL ME_4B716BFA0036 // TAT_USER_NAME
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_4B716BED024C UserName
 

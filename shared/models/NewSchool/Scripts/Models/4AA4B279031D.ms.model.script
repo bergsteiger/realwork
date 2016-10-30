@@ -23,7 +23,6 @@ MEREF ME_492F060800A2_ME_4FFA8808003E_impl
  MELINK Original WL 'ME_492F060800A2' '492F0586030C.ms.model.script' // MakeNewsLineFakeDS
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" True
 ENDMEREF // ME_492F060800A2_ME_4FFA8808003E_impl MakeNewsLineFakeDS
 
 MEREF ME_4DF9D63B0360_ME_4FFA8808003E_impl
@@ -39,7 +38,6 @@ MEREF ME_50002EC80001_ME_4FFA8808003E_impl
  ;
  MEPROP OpKind opkind_Implemented
  UP "is reference" True
- UP "pm" True
 ENDMEREF // ME_50002EC80001_ME_4FFA8808003E_impl dsDocument
 
 MEREF ME_5111C2BAF24F_ME_4FFA8808003E_impl
@@ -100,10 +98,6 @@ ME ME_4FFA8808003E
  ME_5111C2BAF24F_ME_4FFA8808003E_impl // HasDocument
  )
  ; // Implemented
- UP "ActivateIfUpdate" 'None'
- UP "Need GetFormCount" False
- UP "Need OnFormWeight" 'undefined'
- UP "ZoneType" 'Parent'
 
 ENDME // ME_4FFA8808003E TextForm
 
@@ -123,7 +117,6 @@ MEREF ME_492F060800A2_ME_4FFA88E3034E_impl
  MELINK Original WL 'ME_492F060800A2' '492F0586030C.ms.model.script' // MakeNewsLineFakeDS
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" True
 ENDMEREF // ME_492F060800A2_ME_4FFA88E3034E_impl MakeNewsLineFakeDS
 
 MEREF ME_4DF9D63B0360_ME_4FFA88E3034E_impl
@@ -139,7 +132,6 @@ MEREF ME_50002EC80001_ME_4FFA88E3034E_impl
  ;
  MEPROP OpKind opkind_Implemented
  UP "is reference" True
- UP "pm" True
 ENDMEREF // ME_50002EC80001_ME_4FFA88E3034E_impl dsDocument
 
 MEREF ME_5111C2BAF24F_ME_4FFA88E3034E_impl
@@ -201,8 +193,6 @@ ME ME_4FFA88E3034E
  )
  ; // Implemented
  UP "ActivateIfUpdate" 'IfNotActivated'
- UP "Need GetFormCount" False
- UP "Need OnFormWeight" 'undefined'
  UP "ZoneType" 'Navigator'
 
 ENDME // ME_4FFA88E3034E NewsLine
@@ -221,9 +211,6 @@ ME ME_C5A0B8C88D9F
  MELINK Parent HWL ME_90A3AB6A3D85 // AutoreferatCaptionLocalConstants
  ;
  MEPROP Value '''#1044#1086#1082#1091#1084#1077#1085#1090'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''#1044#1086#1082#1091#1084#1077#1085#1090'''
 
 ENDME // ME_C5A0B8C88D9F fsAutoreferatCaption
@@ -232,7 +219,7 @@ ME ME_90A3AB6A3D85
  MEPROP UID '90A3AB6A3D85'
  MEPROP Name 'AutoreferatCaptionLocalConstants'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Локализуемые константы для фабрики сборки форм Autoreferat' ;
@@ -244,9 +231,6 @@ ME ME_90A3AB6A3D85
    Seq: ( HWL ME_C5A0B8C88D9F // fsAutoreferatCaption
  )
  ; // Attributes
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
 
 ENDME // ME_90A3AB6A3D85 AutoreferatCaptionLocalConstants
 
@@ -381,10 +365,6 @@ ME ME_4AA4B279031D
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "Caption" '#1044#1086#1082#1091#1084#1077#1085#1090'
- UP "DefaultStatusForm" '-1'
- UP "finished dfm" True
- UP "Need GetMainCaption" False
- UP "Need GetMainImageIndex" False
  UP "singleton" True
  UP extprop:pas:InitFields ' inherited;'#13#10' with AddZone(''TextForm'', vcm_ztParent, fm_TextForm) do'#13#10' begin'#13#10'  UserType := dftAutoreferat;'#13#10'  OnNeedMakeForm := TextFormParentDftAutoreferatNeedMakeForm;'#13#10' end;'#13#10' with AddZone(''NewsLine'', vcm_ztNavigator, fm_enNewsLine) do'#13#10' begin'#13#10'  UserType := nltMain;'#13#10'  ActivateIfUpdate := wafIfNotActivated;'#13#10'  OnNeedMakeForm := NewsLineNavigatorNltMainNeedMakeForm;'#13#10' end;'#13#10' Caption := str_fsAutoreferatCaption.AsCStr;'#13#10' OwnerForm := 0;'
  UP extprop:pas:TypeName 'Tfs_Autoreferat'

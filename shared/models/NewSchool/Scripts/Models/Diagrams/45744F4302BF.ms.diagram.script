@@ -1,0 +1,69 @@
+// Complect 45744F4302BF Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_45744F4302BF_diagrams
+
+ MEDIAGRAM ME_45744F4302BF_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_45744F4302BF' ; // Complect
+
+  MEVIEW ME_457451750399_view
+   MELINK Original WL 'ME_457451750399' '45744F4302BF.ms.model.script' ; // ComplectType
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_457451750399_view
+
+  MEVIEW ME_4574514C030D_view
+   MELINK Original WL 'ME_4574514C030D' '45744F4302BF.ms.model.script' ; // ComplectInfoNode
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4574514C030D_view
+
+  MEVIEW ME_53E0B77403C2_view
+   MELINK Original WL 'ME_53E0B77403C2' '45744F4302BF.ms.model.script' ; // VisualRepresentation
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_53E0B77403C2_view
+
+  MEVIEW ME_53E0C7FD03B0_view
+   MELINK Original WL 'ME_53E0C7FD03B0' '45744F4302BF.ms.model.script' ; // VisualRepresentationList
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_53E0C7FD03B0_view
+
+  MEVIEW ME_45744F5A030D_view
+   MELINK Original WL 'ME_45744F5A030D' '45744F4302BF.ms.model.script' ; // ComplectInfo
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_45744F5A030D_view
+
+  MEVIEWLINK ME_53E0C80D0116_viewlink
+   MELINK Original WL 'ME_53E0C80D0116' '45744F4302BF.ms.model.script' ;
+   MELINK From ME_53E0C7FD03B0_view ;
+   MELINK To ME_53E0B77403C2_view ;
+  ENDMEVIEWLINK // ME_53E0C80D0116_viewlink
+
+  MEVIEWLINK ME_45744F5A0311_viewlink
+   MELINK Original WL 'ME_45744F5A0311' '45744F4302BF.ms.model.script' ;
+   MELINK From ME_45744F5A030D_view ;
+   MELINK To ME_457451750399_view ;
+  ENDMEVIEWLINK // ME_45744F5A0311_viewlink
+
+  MELIST Views
+   Seq: ( ME_457451750399_view // ComplectType
+   ME_4574514C030D_view // ComplectInfoNode
+   ME_53E0B77403C2_view // VisualRepresentation
+   ME_53E0C7FD03B0_view // VisualRepresentationList
+   ME_45744F5A030D_view // ComplectInfo
+   ME_53E0C80D0116_viewlink // VisualRepresentationList ==> VisualRepresentation
+   ME_45744F5A0311_viewlink // ComplectInfo ==> ComplectType
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_45744F4302BF_main
+
+ MELIST Diagrams
+  Seq: ( ME_45744F4302BF_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_45744F4302BF_diagrams

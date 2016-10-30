@@ -13,7 +13,6 @@ FORWARD ME_525AE10C01FC
 ME ME_525AE10E0306
  MEPROP Name 'aSender'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_484529DC0276' '47E13C6B0341.ms.model.script' // TCustomForm
  ;
 
@@ -66,9 +65,6 @@ ME ME_525AE88A031C
  MELINK Parent HWL ME_525AE843000D // Registration Form Controls' Hints
  ;
  MEPROP Value '''Введите пароль для авторизации в системе'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Введите пароль для авторизации в системе'''
 
 ENDME // ME_525AE88A031C edPasswordHint
@@ -83,9 +79,6 @@ ME ME_525AE8A600A4
  MELINK Parent HWL ME_525AE843000D // Registration Form Controls' Hints
  ;
  MEPROP Value '''Введите свои имя, фамилию и отчество'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Введите свои имя, фамилию и отчество'''
 
 ENDME // ME_525AE8A600A4 edUserNameHint
@@ -100,9 +93,6 @@ ME ME_525AE8EE0111
  MELINK Parent HWL ME_525AE843000D // Registration Form Controls' Hints
  ;
  MEPROP Value '''Введите имя для работы в системе ГАРАНТ'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Введите имя для работы в системе ГАРАНТ'''
 
 ENDME // ME_525AE8EE0111 edLoginHint
@@ -117,9 +107,6 @@ ME ME_525AE94F02FE
  MELINK Parent HWL ME_525AE843000D // Registration Form Controls' Hints
  ;
  MEPROP Value '''Электронная почта: адрес, на который будет выслан забытый Вами пароль'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Электронная почта: адрес, на который будет выслан забытый Вами пароль'''
 
 ENDME // ME_525AE94F02FE edEmailHint
@@ -134,9 +121,6 @@ ME ME_525AE98D0103
  MELINK Parent HWL ME_525AE843000D // Registration Form Controls' Hints
  ;
  MEPROP Value '''Подтвердите пароль, введенный в предыдущей строке'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Подтвердите пароль, введенный в предыдущей строке'''
 
 ENDME // ME_525AE98D0103 edConfirmHint
@@ -151,9 +135,6 @@ ME ME_5267A7720119
  MELINK Parent HWL ME_525AE843000D // Registration Form Controls' Hints
  ;
  MEPROP Value '''Регистрационное имя может содержать не более 31 символа!'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Регистрационное имя может содержать не более 31 символа!'''
 
 ENDME // ME_5267A7720119 errLoginIsTooLong
@@ -161,7 +142,7 @@ ENDME // ME_5267A7720119 errLoginIsTooLong
 ME ME_525AE843000D
  MEPROP UID '525AE843000D'
  MEPROP Name 'Registration Form Controls'' Hints'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -177,9 +158,6 @@ ME ME_525AE843000D
  HWL ME_5267A7720119 // errLoginIsTooLong
  )
  ; // Attributes
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
 
 ENDME // ME_525AE843000D Registration Form Controls' Hints
 
@@ -197,7 +175,6 @@ ME ME_525AE13E0226
  MELINK Parent HWL ME_525AE124002F // pnMainData
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_525AE13E0226 UserNameLabel
@@ -214,7 +191,6 @@ ME ME_525AE16801CB
  MELINK Parent HWL ME_525AE124002F // pnMainData
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_525AE16801CB PasswordLabel
@@ -231,7 +207,6 @@ ME ME_525AE19F0201
  MELINK Parent HWL ME_525AE124002F // pnMainData
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_525AE19F0201 LoginLabel
@@ -248,7 +223,6 @@ ME ME_525AE1C500C4
  MELINK Parent HWL ME_525AE124002F // pnMainData
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_525AE1C500C4 InfoLabel
@@ -265,7 +239,6 @@ ME ME_525AE1E802A3
  MELINK Parent HWL ME_525AE124002F // pnMainData
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_525AE1E802A3 EMailLabel
@@ -282,7 +255,6 @@ ME ME_525AE3B203B4
  MELINK Parent HWL ME_525AE124002F // pnMainData
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_525AE3B203B4 ConfirmPasswordLabel
@@ -299,7 +271,6 @@ ME ME_525AE3D80354
  MELINK Parent HWL ME_525AE124002F // pnMainData
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'AsteriskLabelLogin'
 
@@ -317,7 +288,6 @@ ME ME_525AE3F60379
  MELINK Parent HWL ME_525AE124002F // pnMainData
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'AsteriskLabelFIO'
 
@@ -334,7 +304,6 @@ ME ME_525AE4330379
  MELINK Parent HWL ME_525AE124002F // pnMainData
  ;
  UP "ControlClass" 'TnscComboBoxWithPwdChar'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'Password'
 
@@ -351,7 +320,6 @@ ME ME_525AE46A0317
  MELINK Parent HWL ME_525AE124002F // pnMainData
  ;
  UP "ControlClass" 'TnscEdit'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'UserName'
 
@@ -368,7 +336,6 @@ ME ME_525AE4B40295
  MELINK Parent HWL ME_525AE124002F // pnMainData
  ;
  UP "ControlClass" 'TnscEdit'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'Login'
 
@@ -385,7 +352,6 @@ ME ME_525AE4E6002A
  MELINK Parent HWL ME_525AE124002F // pnMainData
  ;
  UP "ControlClass" 'TnscEdit'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'Email'
 
@@ -402,7 +368,6 @@ ME ME_525AE4F8003B
  MELINK Parent HWL ME_525AE124002F // pnMainData
  ;
  UP "ControlClass" 'TnscComboBoxWithPwdChar'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'Confirm'
 
@@ -420,7 +385,6 @@ ME ME_525AE5540077
  MELINK Parent HWL ME_525AE124002F // pnMainData
  ;
  UP "ControlClass" 'TvtCheckBox'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_525AE5540077 cbAutoLogin
@@ -439,7 +403,6 @@ ME ME_525AE64E01BF
  MELINK Parent HWL ME_525AE6050391 // NewUserGroupBox
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_525AE64E01BF NewUserLabel
@@ -455,7 +418,6 @@ ME ME_525AE69903B0
  MELINK Parent HWL ME_525AE6050391 // NewUserGroupBox
  ;
  UP "ControlClass" 'TPaintBox'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_525AE69903B0 NewUserPaintBox
@@ -480,7 +442,6 @@ ME ME_525AE6050391
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtGroupBox'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_525AE6050391 NewUserGroupBox
@@ -517,7 +478,6 @@ ME ME_525AE124002F
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_525AE124002F pnMainData
@@ -536,7 +496,6 @@ ME ME_525AE72C03AC
  MELINK Parent HWL ME_525AE70B02AD // BottomPanel
  ;
  UP "ControlClass" 'TElPopupButton'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_525AE72C03AC RegisterButton
@@ -554,7 +513,6 @@ ME ME_525AE783010D
  MELINK Parent HWL ME_525AE74F0211 // HelpPanel
  ;
  UP "ControlClass" 'TPaintBox'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_525AE783010D HelpPaintBox
@@ -571,7 +529,6 @@ ME ME_525AE799037A
  MELINK Parent HWL ME_525AE74F0211 // HelpPanel
  ;
  UP "ControlClass" 'TvtFocusLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_525AE799037A HelpLabel
@@ -595,7 +552,6 @@ ME ME_525AE74F0211
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_525AE74F0211 HelpPanel
@@ -619,7 +575,6 @@ ME ME_525AE70B02AD
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_525AE70B02AD BottomPanel
@@ -636,7 +591,6 @@ ME ME_525AED3900D1
  ;
  MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
  ;
- UP "pm" True
 
 ENDME // ME_525AED3900D1 Login
 
@@ -652,7 +606,6 @@ ME ME_525AED530277
  ;
  MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
  ;
- UP "pm" True
 
 ENDME // ME_525AED530277 Password
 
@@ -668,7 +621,6 @@ ME ME_525AED640191
  ;
  MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
  ;
- UP "pm" True
 
 ENDME // ME_525AED640191 UserName
 
@@ -684,7 +636,6 @@ ME ME_525AEDAA0332
  ;
  MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
  ;
- UP "pm" True
 
 ENDME // ME_525AEDAA0332 EMail
 
@@ -700,7 +651,6 @@ ME ME_525AEDBE00D1
  ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
- UP "pm" True
 
 ENDME // ME_525AEDBE00D1 IsAutoLogin
 
@@ -716,7 +666,6 @@ ME ME_525AEDF803A9
  ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
- UP "pm" True
  UP "reads field" True
 
 ENDME // ME_525AEDF803A9 CanRelogin
@@ -733,7 +682,6 @@ ME ME_525AEE0D005C
  ;
  MELINK Target HWL ME_525AE0FA0147 // TnsRegisterAction
  ;
- UP "pm" True
  UP "reads field" True
  UP "writes field" True
 
@@ -1028,7 +976,6 @@ FORWARD ME_525BCC29025A
 ME ME_525BCC4103CF
  MEPROP Name 'aIsAutoLogin'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -1037,7 +984,6 @@ ENDME // ME_525BCC4103CF aIsAutoLogin
 ME ME_525BCC42003B
  MEPROP Name 'aCanRelogin'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -1323,10 +1269,6 @@ ME ME_525AE04E0326
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' 'Uses' )
  ; // DiagramsNames
- UP "finished dfm" True
- UP "NeedsHackRef" True
- UP "resizeable" False
- UP "restrict form def" 'undefined'
  UP "ZoneType" 'ManualModal'
  UP extprop:pas:TypeName 'TPrimRegistrationForm'
  UP extprop:pas:UnitName 'PrimRegistration_Form'

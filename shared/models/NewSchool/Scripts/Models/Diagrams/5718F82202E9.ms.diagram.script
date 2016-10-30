@@ -1,0 +1,90 @@
+// F1 Определения предметной области 5718F82202E9 ProjectGroup Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_5718F82202E9_diagrams
+
+ MEDIAGRAM ME_5718F82202E9_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_5718F82202E9' ; // F1 Определения предметной области
+
+  MEVIEW ME_45ED6F0303D2_view
+   MELINK Original WL? 'ME_45ED6F0303D2' ; // shared
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_45ED6F0303D2_view
+
+  MEVIEW ME_442BEDF00290_view
+   MELINK Original WL? 'ME_442BEDF00290' ; // garant6x
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_442BEDF00290_view
+
+  MEVIEW ME_4E78CD64017F_view
+   MELINK Original WL? 'ME_4E78CD64017F' ; // F1 Проблемы и решения
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E78CD64017F_view
+
+  MEVIEW ME_4E366CA201C2_view
+   MELINK Original WL? 'ME_4E366CA201C2' ; // F1 Требования
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E366CA201C2_view
+
+  MEVIEW ME_498B35810374_view
+   MELINK Original WL? 'ME_498B35810374' ; // F1 Базовые определения предметной области
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_498B35810374_view
+
+  MEVIEW ME_480759E50328_view
+   MELINK Original WL? 'ME_480759E50328' ; // garant6x_test
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_480759E50328_view
+
+  MEVIEW ME_4DB0572601B7_view
+   MELINK Original WL? 'ME_4DB0572601B7' ; // F1 Поддержка тестов
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_4DB0572601B7_view
+
+  MEVIEW ME_4A856C6B0338_view
+   MELINK Original WL? 'ME_4A856C6B0338' ; // F1 Common For Shell And Monitoring
+   MEPROP X 40
+   MEPROP Y 180
+  ENDMEVIEW // ME_4A856C6B0338_view
+
+  MEVIEWLINK ME_480759E50328_ME_442BEDF00290_Depends
+   MELINK From ME_480759E50328_view ;
+   MELINK To ME_442BEDF00290_view ;
+   MEPROP Class class_Depends
+  ENDMEVIEWLINK // ME_480759E50328_ME_442BEDF00290_Depends
+
+  MEVIEWLINK ME_480759E50328_ME_45ED6F0303D2_Depends
+   MELINK From ME_480759E50328_view ;
+   MELINK To ME_45ED6F0303D2_view ;
+   MEPROP Class class_Depends
+  ENDMEVIEWLINK // ME_480759E50328_ME_45ED6F0303D2_Depends
+
+  MELIST Views
+   Seq: ( ME_45ED6F0303D2_view // shared
+   ME_442BEDF00290_view // garant6x
+   ME_4E78CD64017F_view // F1 Проблемы и решения
+   ME_4E366CA201C2_view // F1 Требования
+   ME_498B35810374_view // F1 Базовые определения предметной области
+   ME_480759E50328_view // garant6x_test
+   ME_4DB0572601B7_view // F1 Поддержка тестов
+   ME_4A856C6B0338_view // F1 Common For Shell And Monitoring
+   ME_480759E50328_ME_442BEDF00290_Depends // garant6x_test ==> garant6x
+   ME_480759E50328_ME_45ED6F0303D2_Depends // garant6x_test ==> shared
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5718F82202E9_main
+
+ MELIST Diagrams
+  Seq: ( ME_5718F82202E9_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5718F82202E9_diagrams

@@ -1,0 +1,152 @@
+//#UC START# *5232EAFF0300_54F34A4103A4_impl*
+ l_Count := Get_EditorReq.FieldsCount - 1;
+ // Сформируем строку контекста из всех строк определенных пользователем
+ for l_Index := 0 to l_Count do
+ begin
+  l_Field := Get_EditorReq.Fields[l_Index];
+  try
+   l_Field.Text := nsContextUtils.CheckContext(l_Field.Text);
+   if not l_Field.IsFieldEmpty then
+    aList.Add(l_Field.Text);
+  finally
+   l_Field := nil;
+  end;//try..finally
+ end;//for l_Index
+//#UC END# *5232EAFF0300_54F34A4103A4_impl*
+//#UC START# *5232EAFF0300_54F34A4103A4_var*
+var
+ l_Index: Integer;
+ l_Count: Integer;
+ l_Field: IevEditorControlField;
+//#UC END# *5232EAFF0300_54F34A4103A4_var*
+//#UC START# *54E5C2970015_54F34A4103A4_impl*
+ Result := True;
+//#UC END# *54E5C2970015_54F34A4103A4_impl*
+//#UC START# *54E5C2970015_54F34A4103A4_var*
+//#UC END# *54E5C2970015_54F34A4103A4_var*
+//#UC START# *54E5C6B2036C_54F34A4103A4_impl*
+ if LoadContextNew(f_MgrSearch.Query, Get_TagName, l_Context) then
+ begin  
+  l_Phrases := nsContextUtils.ContextToPhrases(l_Context);
+  l_FieldCount := Get_EditorReq.FieldsCount;
+  try
+   // Загрузим фразы
+   l_Count := l_Phrases.Count - 1;
+   for l_Index := 0 to l_Count do
+   begin
+    if (l_Index = 0) or (l_FieldCount > l_Index) then
+     with Get_EditorReq do
+     begin
+      if (l_Index = 0) then
+       l_ED := FirstField
+      else
+       l_ED := Fields[l_Index];
+      try
+       l_ED.Text := l_Phrases.ItemC[l_Index];
+      finally
+       l_ED := nil;
+      end;//try..finally
+     end//with Get_EditorReq
+    else
+     with Get_EditorReq do
+     begin
+      AddField(nil);
+      l_ED := LastField;
+      try
+       l_ED.Text := l_Phrases.ItemC[l_Index];
+      finally
+       l_ED := nil;
+      end;//try..finally
+     end;//with Get_EditorReq
+   end;//for l_Index
+  finally
+   l_Phrases := nil;
+  end;//try..finally  
+  Get_EditorReq.Group.Expanded := True;  
+ end;//LoadContextNew
+ inherited;
+//#UC END# *54E5C6B2036C_54F34A4103A4_impl*
+//#UC START# *54E5C6B2036C_54F34A4103A4_var*
+var
+ l_Context: Il3CString;
+ l_Index: Integer;
+ l_Count: Integer;
+ l_ED: IevEditorControlField;
+ l_Phrases: IvcmStrings;
+ l_FieldCount: Integer;
+//#UC END# *54E5C6B2036C_54F34A4103A4_var*
+//#UC START# *54E5C884028F_54F34A4103A4_impl*
+ {$If not defined(Admin)}
+// SaveContextNew(f_MgrSearch.Query, Get_TagName, GetReqAsString(nil));
+ SaveContextNew(f_MgrSearch.Query, Get_TagName, GetReqAsStrings);
+ {$Else}
+ Assert(False);
+ {$IfEnd}
+//#UC END# *54E5C884028F_54F34A4103A4_impl*
+//#UC START# *54E5C884028F_54F34A4103A4_var*
+//#UC END# *54E5C884028F_54F34A4103A4_var*
+//#UC START# *54E5D16303C7_54F34A4103A4_impl*
+ inherited;
+ for I := 0 to Get_EditorReq.FieldsCount - 1 do
+  if Supports(Get_EditorReq.Fields[I], IevEditorFieldWithTree, l_FieldTree) then
+   try
+    l_FieldTree.ComboStyle := ev_cbDropDown;
+   finally
+    l_FieldTree := nil;
+   end;//try..finally
+//#UC END# *54E5D16303C7_54F34A4103A4_impl*
+//#UC START# *54E5D16303C7_54F34A4103A4_var*
+var
+ I: Integer;
+ l_FieldTree: IevEditorFieldWithTree;
+//#UC END# *54E5D16303C7_54F34A4103A4_var*
+//#UC START# *54F348660219_54F34A4103A4_impl*
+ f_MgrSearch.ExecQuery;
+//#UC END# *54F348660219_54F34A4103A4_impl*
+//#UC START# *54F348660219_54F34A4103A4_var*
+//#UC END# *54F348660219_54F34A4103A4_var*
+//#UC START# *54F348BB012A_54F34A4103A4_impl*
+ if Supports(Get_EditorReq.QueryCard, InevControlListener, l_ControlListener)
+  and l_ControlListener.IsPasting then
+ begin
+  {$If not defined(Admin)}
+  aRslt := RepairContext6x(aValue);
+  {$Else}
+  Assert(false);
+  {$IfEnd}
+  Result := not l3Same(aRslt, aValue);
+ end//Supports(EditorReq.QueryCard, InevControlListener, l_ControlListener)
+ else
+  Result := inherited DoAnalyzeString(aValue, aRslt);
+//#UC END# *54F348BB012A_54F34A4103A4_impl*
+//#UC START# *54F348BB012A_54F34A4103A4_var*
+var
+ l_ControlListener: InevControlListener;
+//#UC END# *54F348BB012A_54F34A4103A4_var*
+//#UC START# *54F34A4103A4_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\Search\nsQueryAttribute.pas
+//#UC END# *54F34A4103A4_ext:ParentFileName
+//#UC START# *555495740306_54F34A4103A4_impl*
+ Result := TvcmStringList.Make;
+ l_Count := Get_EditorReq.FieldsCount - 1;
+ // Сформируем строку контекста из всех строк определенных пользователем
+ for l_Index := 0 to l_Count do
+ begin
+  l_Field := Get_EditorReq.Fields[l_Index];
+  try
+   l_Field.Text := nsContextUtils.CheckContext(l_Field.Text);
+   l_Str := nsContextUtils.AddPhrase(l_Str, l_Field.Text);
+   Result.add(l_Str);
+   l_Str := nil;
+  finally
+   l_Field := nil;
+  end;//try..finally
+ end;//for l_Index
+//#UC END# *555495740306_54F34A4103A4_impl*
+//#UC START# *555495740306_54F34A4103A4_var*
+var
+ l_Index: Integer;
+ l_Count: Integer;
+ l_Field: IevEditorControlField;
+ l_Str: Il3CString;
+//#UC END# *555495740306_54F34A4103A4_var*

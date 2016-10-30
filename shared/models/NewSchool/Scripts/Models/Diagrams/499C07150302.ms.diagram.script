@@ -1,0 +1,48 @@
+// SplashTypes 499C07150302 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_499C07150302_diagrams
+
+ MEDIAGRAM ME_499C07150302_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_499C07150302' ; // SplashTypes
+
+  MEVIEW ME_499C08380323_view
+   MELINK Original WL 'ME_499C08380323' '499C07150302.ms.model.script' ; // TnsSplashData
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_499C08380323_view
+
+  MEVIEW ME_499C08FA03D1_view
+   MELINK Original WL 'ME_499C08FA03D1' '499C07150302.ms.model.script' ; // PnsSplashData
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_499C08FA03D1_view
+
+  MEVIEW ME_499C079E018B_view
+   MELINK Original WL 'ME_499C079E018B' '499C07150302.ms.model.script' ; // SplashConstants
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_499C079E018B_view
+
+  MEVIEWLINK ME_499C08FA03D1_ME_499C08380323_Inherits
+   MELINK From ME_499C08FA03D1_view ;
+   MELINK To ME_499C08380323_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_499C08FA03D1_ME_499C08380323_Inherits
+
+  MELIST Views
+   Seq: ( ME_499C08380323_view // TnsSplashData
+   ME_499C08FA03D1_view // PnsSplashData
+   ME_499C079E018B_view // SplashConstants
+   ME_499C08FA03D1_ME_499C08380323_Inherits // PnsSplashData ==> TnsSplashData
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_499C07150302_main
+
+ MELIST Diagrams
+  Seq: ( ME_499C07150302_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_499C07150302_diagrams

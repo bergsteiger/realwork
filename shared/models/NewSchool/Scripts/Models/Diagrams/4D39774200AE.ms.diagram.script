@@ -1,0 +1,41 @@
+// DocumentWithFlash 4D39774200AE VCMForms Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4D39774200AE_diagrams
+
+ MEDIAGRAM ME_4D39774200AE_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4D39774200AE' ; // DocumentWithFlash
+
+  MEVIEW ME_497EDE780363_view
+   MELINK Original WL? 'ME_497EDE780363' ; // PrimDocumentWithFlash
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_497EDE780363_view
+
+  MEVIEW ME_4C87849303A6_view
+   MELINK Original WL? 'ME_4C87849303A6' ; // PrimDocumentWithFlashOptions
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C87849303A6_view
+
+  MEVIEWLINK ME_4C87849303A6_ME_497EDE780363_Inherits
+   MELINK From ME_4C87849303A6_view ;
+   MELINK To ME_497EDE780363_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4C87849303A6_ME_497EDE780363_Inherits
+
+  MELIST Views
+   Seq: ( ME_497EDE780363_view // PrimDocumentWithFlash
+   ME_4C87849303A6_view // PrimDocumentWithFlashOptions
+   ME_4C87849303A6_ME_497EDE780363_Inherits // PrimDocumentWithFlashOptions ==> PrimDocumentWithFlash
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4D39774200AE_main
+
+ MELIST Diagrams
+  Seq: ( ME_4D39774200AE_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4D39774200AE_diagrams

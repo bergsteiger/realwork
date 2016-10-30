@@ -1,0 +1,206 @@
+//#UC START# *4683630000A0_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsContentsTree.pas
+//#UC END# *4683630000A0_ext:FileName
+//#UC START# *4683630000A0impl_uses*
+//#UC END# *4683630000A0impl_uses*
+//#UC START# *479731C50290_4683630000A0_impl*
+ inherited;
+ f_NeedResetRoot := False;
+ f_RootWasResetted := False;
+ FreeAndNil(f_Document);
+//#UC END# *479731C50290_4683630000A0_impl*
+//#UC START# *479731C50290_4683630000A0_var*
+//#UC END# *479731C50290_4683630000A0_var*
+//#UC START# *48FDDE69025A_4683630000A0_impl*
+ Root := TnsContentsRoot.Make(aRoot, f_Document) as Il3SimpleRootNode;
+//#UC END# *48FDDE69025A_4683630000A0_impl*
+//#UC START# *48FDDE69025A_4683630000A0_var*
+//#UC END# *48FDDE69025A_4683630000A0_var*
+//#UC START# *48FEE3640227_4683630000A0_impl*
+ Result := TnsContentsRoot;
+//#UC END# *48FEE3640227_4683630000A0_impl*
+//#UC START# *48FEE3640227_4683630000A0_var*
+//#UC END# *48FEE3640227_4683630000A0_var*
+//#UC START# *48FEE50002EB_4683630000A0_impl*
+ Result := MakeTagNode(f_Document, aChild);
+ if (Result = nil) then
+  Result := TnsContentsNode.Make(aChild, f_Document);//inherited MakeChildNode(aChild);
+//#UC END# *48FEE50002EB_4683630000A0_impl*
+//#UC START# *48FEE50002EB_4683630000A0_var*
+//#UC END# *48FEE50002EB_4683630000A0_var*
+//#UC START# *48FF458602EC_4683630000A0_impl*
+ if aSource is TnsContentsTree then
+  TnsContentsTree(aSource).f_Document.SetRef(f_Document);
+ inherited;
+//#UC END# *48FF458602EC_4683630000A0_impl*
+//#UC START# *48FF458602EC_4683630000A0_var*
+//#UC END# *48FF458602EC_4683630000A0_var*
+//#UC START# *48FF56D003E6_4683630000A0_impl*
+ Result := gi_cpContents;
+//#UC END# *48FF56D003E6_4683630000A0_impl*
+//#UC START# *48FF56D003E6_4683630000A0_var*
+//#UC END# *48FF56D003E6_4683630000A0_var*
+//#UC START# *48FF64E700E5_4683630000A0_impl*
+ inherited;
+ f_NeedResetRoot := True;
+//#UC END# *48FF64E700E5_4683630000A0_impl*
+//#UC START# *48FF64E700E5_4683630000A0_var*
+//#UC END# *48FF64E700E5_4683630000A0_var*
+//#UC START# *48FF64F60078_4683630000A0_impl*
+ Result := nil;
+  // - оглавление приходит из документа, нет фиксированного места из которого
+  //   всегда можно получить корень для оглавления.
+ f_NeedResetRoot := True;
+//#UC END# *48FF64F60078_4683630000A0_impl*
+//#UC START# *48FF64F60078_4683630000A0_var*
+//#UC END# *48FF64F60078_4683630000A0_var*
+//#UC START# *49085E9202C5_4683630000A0_impl*
+ Result := nil;
+ if f_Document.QI(IDocumentTextProvider, l_P) then
+ begin
+  if (aBlockID = 0) then
+   Result := Root.Child
+  else
+  begin
+   l_List := nsCreateFilterForFindTagByID(k2_idBlock, aBlockID);
+   if Supports(Root, INodeBase, l_Root) then
+   begin
+    l_Root.GetFirstFit(l_List, l_Path);
+    if Assigned(l_Path) then
+    begin
+     l_Root.GetNodeByPath(l_Path, l_FoundNode);
+     Result := MakeTagNode(f_Document, l_FoundNode);
+    end//Assigned(l_Path)
+    else
+     Result := nil;
+   end;//Supports(Root, INodeBase, l_Root)
+  end;//aBlockID = 0
+ end;//f_Document.QI(IDocumentTextProvider)
+//#UC END# *49085E9202C5_4683630000A0_impl*
+//#UC START# *49085E9202C5_4683630000A0_var*
+var
+ l_Root: INodeBase;
+ l_List: IFilterList;
+ l_Path: INodeIndexPath;
+ l_FoundNode: INodeBase;
+ l_P : IDocumentTextProvider;
+//#UC END# *49085E9202C5_4683630000A0_var*
+//#UC START# *49085EA001E8_4683630000A0_impl*
+ Result := f_NeedResetRoot;
+//#UC END# *49085EA001E8_4683630000A0_impl*
+//#UC START# *49085EA001E8_4683630000A0_var*
+//#UC END# *49085EA001E8_4683630000A0_var*
+//#UC START# *49085EAE0132_4683630000A0_impl*
+ aDocument.SetRef(f_Document);
+ if Supports(aRoot, INodeBase, l_Root) then
+ begin
+  Changing;
+  try
+   f_RootWasResetted := True;
+   MakeRootNode(GetFilteredRoot(l_Root, Filters, nil, l_Sync, true, true, False));
+  finally
+   Changed;
+  end;
+ end;
+ f_NeedResetRoot := False;
+//#UC END# *49085EAE0132_4683630000A0_impl*
+//#UC START# *49085EAE0132_4683630000A0_var*
+var
+ l_Root: INodeBase;
+ l_Sync: Integer;
+//#UC END# *49085EAE0132_4683630000A0_var*
+//#UC START# *49085EDA00CC_4683630000A0_impl*
+ Result := f_NeedResetRoot or f_RootWasResetted;
+//#UC END# *49085EDA00CC_4683630000A0_impl*
+//#UC START# *49085EDA00CC_4683630000A0_var*
+//#UC END# *49085EDA00CC_4683630000A0_var*
+//#UC START# *49085EE502F1_4683630000A0_impl*
+ f_RootWasResetted := False;
+//#UC END# *49085EE502F1_4683630000A0_impl*
+//#UC START# *49085EE502F1_4683630000A0_var*
+//#UC END# *49085EE502F1_4683630000A0_var*
+//#UC START# *490860BD0003_4683630000A0_impl*
+ Assert(aDocument <> nil);
+ aDocument.SetRef(f_Document);
+ inherited Create(aRoot, False);
+//#UC END# *490860BD0003_4683630000A0_impl*
+//#UC START# *490860BD0003_4683630000A0_var*
+//#UC END# *490860BD0003_4683630000A0_var*
+//#UC START# *49086150030C_4683630000A0_impl*
+ Result := nil;
+ l_Tag := nil;
+ try
+  if aDocument.QI(IDocumentTextProvider, l_Provider) then
+   try
+    if (aChild <> nil) then
+    begin
+     l_Type := k2.TypeTable.TypeByHandle[aChild.GetType];
+     if (l_Type <> nil) AND (l_Type <> k2_typEmpty) then
+     // - иначе - это скрытый корень дерева
+     begin
+      l_ID := aChild.GetNodeId;
+      // http://mdp.garant.ru/pages/viewpage.action?pageId=235055410&focusedCommentId=235056286#comment-235056286
+      if l_Type.IsKindOf(k2_typSub) then
+      begin
+       if (l_ID = 0) then
+        l_Tag := aDocument.AsObject
+       else
+       begin
+        l_Provider.FindBlockOrSub(l_ID, l_Path);
+        l_Tag := nsTagByPath(aDocument.AsObject, l_Path, true);
+        if (l_Tag <> nil) then
+        begin
+(*         if l_Type.IsKindOf(k2_typBlock) AND
+            l_Tag.IsKindOf(k2_typLeafParaDecorationsHolder) then
+         begin
+          Assert(l_Tag.ChildrenCount >= 2);
+          l_Tag := l_Tag.Child[1];
+         end;//l_Type.IsKindOf(k2_typBlock)*)
+         Assert(l_Tag.IsKindOf(l_Type), l_Tag.TagType.AsString + ' != ' + l_Type.AsString);
+         Assert(l_Tag.IntA[k2_tiHandle] = l_ID, IntToStr(l_Tag.IntA[k2_tiHandle]) + ' != ' + IntToStr(l_ID));
+        end;//l_Tag <> nil
+       end;//l_ID = 0
+      end//l_Type.IsKindOf(k2_typSub)
+      else
+      begin
+       Assert(false, 'Неверный тип метки - ' + l_Type.AsString);
+      end;//l_Type.IsKindOf(k2_typSub)
+     end;//l_Type <> nil
+     //l_Tag := TnsParentedTagNode.MakeNodeTag(Tf1TagDataFromIDocTagNodeProvider.Make(l_DocNode));
+    end;//aChild <> nil
+   finally
+    l_Provider := nil;
+   end//try..finally
+  ;
+  if (l_Tag <> nil) AND l_Tag.IsValid then
+  begin
+   if l_Tag.IsKindOf(k2_typDocument) then
+    Result := TnsDocumentNode.Make(aChild, aDocument, l_Tag)
+   else
+   if l_Tag.IsKindOf(k2_typCommentPara) then
+    Result := TnsContentsCommentNode.Make(aChild, aDocument, l_Tag)
+   else
+   if l_Tag.IsKindOf(k2_typBlock) then
+    Result := TnsRealBlockNode.Make(aChild, aDocument, l_Tag)
+   else
+   if l_Tag.IsKindOf(k2_typLeafPara) then
+    Result := TnsContentsLeafParaNode.Make(aChild, aDocument, l_Tag)
+   else
+   if l_Tag.IsKindOf(k2_typBookmark) then
+    Result := TnsBookmarkNode.Make(aChild, aDocument, l_Tag)
+   else
+   if l_Tag.IsKindOf(k2_typSub) then
+    Result := TnsContentsSubNode.Make(aChild, aDocument, l_Tag);
+  end;//(l_Tag <> nil) AND l_Tag.IsValid
+ finally
+  l_Tag := nil;
+ end;//try..finally
+//#UC END# *49086150030C_4683630000A0_impl*
+//#UC START# *49086150030C_4683630000A0_var*
+var
+ l_Provider : IDocumentTextProvider;
+ l_Tag     : Tl3Variant;
+ l_Path    : INodeIndexPath;
+ l_ID      : Integer;
+ l_Type    : Tk2Type;
+//#UC END# *49086150030C_4683630000A0_var*

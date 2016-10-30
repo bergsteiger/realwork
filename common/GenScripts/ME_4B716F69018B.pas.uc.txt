@@ -1,0 +1,20 @@
+//#UC START# *4B716F69018B_ext:ParentFileName
+w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atUserListHelper.pas
+//#UC END# *4B716F69018B_ext:ParentFileName
+//#UC START# *4B71720A0019_4B716F69018B_impl*
+  Result := false;
+  if NOT inherited IsAdd(aProfileNode) then Exit;
+  //
+  aProfileNode.GetEntity(l_Entity);
+  if (l_Entity <> nil) AND Supports(l_Entity, IUserProfile, l_UserProfile) then
+  begin
+    l_UserProfile.GetName(l_Name);
+    Result := (l_Name <> nil) AND (TatStringHelper.AStr2DStr(l_Name) = UserName);
+  end;
+//#UC END# *4B71720A0019_4B716F69018B_impl*
+//#UC START# *4B71720A0019_4B716F69018B_var*
+  var
+    l_Entity : IEntityBase;
+    l_UserProfile : IUserProfile;
+    l_Name : IString;
+//#UC END# *4B71720A0019_4B716F69018B_var*

@@ -1,0 +1,62 @@
+// atOperationBase 48089D120398 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_48089D120398_diagrams
+
+ MEDIAGRAM ME_48089D120398_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_48089D120398' ; // atOperationBase
+
+  MEVIEW ME_48076E9D013E_view
+   MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' ; // TatOperationBase
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_48076E9D013E_view
+
+  MEVIEW ME_48076ECB00C3_view
+   MELINK Original WL 'ME_48076ECB00C3' '48089D120398.ms.model.script' ; // TatOperationsList
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_48076ECB00C3_view
+
+  MEVIEW ME_4808A2FF00D6_view
+   MELINK Original WL 'ME_4808A2FF00D6' '48089D120398.ms.model.script' ; // CTatOperationBase
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4808A2FF00D6_view
+
+  MEVIEWLINK ME_48089E9B0348_viewlink
+   MELINK Original WL 'ME_48089E9B0348' '48089D120398.ms.model.script' ;
+   MELINK From ME_48076E9D013E_view ;
+   MELINK To ME_48076ECB00C3_view ;
+  ENDMEVIEWLINK // ME_48089E9B0348_viewlink
+
+  MEVIEWLINK ME_48076EE503C2_viewlink
+   MELINK Original WL 'ME_48076EE503C2' '48089D120398.ms.model.script' ;
+   MELINK From ME_48076ECB00C3_view ;
+   MELINK To ME_48076E9D013E_view ;
+  ENDMEVIEWLINK // ME_48076EE503C2_viewlink
+
+  MEVIEWLINK ME_4808A2FF00D6_ME_48076E9D013E_Inherits
+   MELINK From ME_4808A2FF00D6_view ;
+   MELINK To ME_48076E9D013E_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4808A2FF00D6_ME_48076E9D013E_Inherits
+
+  MELIST Views
+   Seq: ( ME_48076E9D013E_view // TatOperationBase
+   ME_48076ECB00C3_view // TatOperationsList
+   ME_4808A2FF00D6_view // CTatOperationBase
+   ME_48089E9B0348_viewlink // TatOperationBase ==> TatOperationsList
+   ME_48076EE503C2_viewlink // TatOperationsList ==> TatOperationBase
+   ME_4808A2FF00D6_ME_48076E9D013E_Inherits // CTatOperationBase ==> TatOperationBase
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_48089D120398_main
+
+ MELIST Diagrams
+  Seq: ( ME_48089D120398_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_48089D120398_diagrams

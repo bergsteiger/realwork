@@ -1,0 +1,48 @@
+// TnsChangedParaWaiter 4BFFA13500E1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4BFFA13500E1_diagrams
+
+ MEDIAGRAM ME_4BFFA13500E1_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4BFFA13500E1' '4A6EBE900233.ms.model.script' ; // TnsChangedParaWaiter
+
+  MEVIEW ME_4BFFA1990245_view
+   MELINK Original WL 'ME_4BFFA1990245' '4A6EBE900233.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4BFFA1990245_view
+
+  MEVIEW ME_4BFFA1DF007E_view
+   MELINK Original WL 'ME_4BFFA1DF007E' '4A6EBE900233.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4BFFA1DF007E_view
+
+  MEVIEW ME_4BFFA442000B_view
+   MELINK Original WL 'ME_4BFFA442000B' '4A6EBE900233.ms.model.script' ; // f_Form
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4BFFA442000B_view
+
+  MEVIEWLINK ME_4BFFA1DF007E_ME_4BFFA1990245_Inherits
+   MELINK From ME_4BFFA1DF007E_view ;
+   MELINK To ME_4BFFA1990245_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4BFFA1DF007E_ME_4BFFA1990245_Inherits
+
+  MELIST Views
+   Seq: ( ME_4BFFA1990245_view // Create
+   ME_4BFFA1DF007E_view // Make
+   ME_4BFFA442000B_view // f_Form
+   ME_4BFFA1DF007E_ME_4BFFA1990245_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4BFFA13500E1_main
+
+ MELIST Diagrams
+  Seq: ( ME_4BFFA13500E1_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4BFFA13500E1_diagrams

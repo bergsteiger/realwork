@@ -1,0 +1,24 @@
+//#UC START# *490C3BE30324_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Medic\mmmTree.pas
+//#UC END# *490C3BE30324_ext:FileName
+//#UC START# *490C3BE30324impl_uses*
+//#UC END# *490C3BE30324impl_uses*
+//#UC START# *490C3C280303_490C3BE30324_impl*
+ aRoot.InsertChild(TnsMainMenuNode.Make(Ord(aNode), aCaption.AsCStr));
+//#UC END# *490C3C280303_490C3BE30324_impl*
+//#UC START# *490C3C280303_490C3BE30324_var*
+//#UC END# *490C3C280303_490C3BE30324_var*
+//#UC START# *490C47F80134_490C3BE30324_impl*
+ for l_Index := Low(aDocuments) to High(aDocuments) do
+ begin
+  if nsOpenDocumentByNumber(
+    aDocuments[l_Index] + c_InternalDocShift, l_Document, False) then
+   aRoot.InsertChild(
+    TnsDocumentMainMenuNode.Make(Ord(ns_mntDocument), l_Document));
+ end;//for l_Index := Low(aDocuments) to High(aDocuments) do
+//#UC END# *490C47F80134_490C3BE30324_impl*
+//#UC START# *490C47F80134_490C3BE30324_var*
+var
+ l_Index    : Integer;
+ l_Document : IDocument;
+//#UC END# *490C47F80134_490C3BE30324_var*

@@ -1,0 +1,75 @@
+//#UC START# *49521D8E0295_4C7F738D033Eexec_impl*
+ l_Preview := MakePreview;
+ if (l_Preview <> nil) then
+  l_Preview.Print;
+//#UC END# *49521D8E0295_4C7F738D033Eexec_impl*
+//#UC START# *49521D8E0295_4C7F738D033Eexec_var*
+var
+ l_Preview : IafwComplexDocumentPreview;
+//#UC END# *49521D8E0295_4C7F738D033Eexec_var*
+//#UC START# *495220DE0298_4C7F738D033Eexec_impl*
+ if (afw.Application <> nil) AND (afw.Application.PrintManager <> nil) then
+  afw.Application.PrintManager.PrintDialog(MakePreview);
+//#UC END# *495220DE0298_4C7F738D033Eexec_impl*
+//#UC START# *495220DE0298_4C7F738D033Eexec_var*
+//#UC END# *495220DE0298_4C7F738D033Eexec_var*
+//#UC START# *495220F2033A_4C7F738D033Eexec_impl*
+ TPrintingService.Instance.MakePreview(MakePreview);
+//#UC END# *495220F2033A_4C7F738D033Eexec_impl*
+//#UC START# *495220F2033A_4C7F738D033Eexec_var*
+//#UC END# *495220F2033A_4C7F738D033Eexec_var*
+//#UC START# *497469C90140_4C7F738D033E_impl*
+ inherited;
+//#UC END# *497469C90140_4C7F738D033E_impl*
+//#UC START# *497469C90140_4C7F738D033E_var*
+//#UC END# *497469C90140_4C7F738D033E_var*
+//#UC START# *4C7F738D033E_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\PrimWarningOptions_Form.pas
+//#UC END# *4C7F738D033E_ext:FileName
+//#UC START# *4C7F738D033Eimpl_uses*
+ , Search_Services
+//#UC END# *4C7F738D033Eimpl_uses*
+//#UC START# *4C7F753E02BC_4C7F738D033Eexec_impl*
+ op_TimeMachine_TimeMachineOffAndReset.Call(Aggregate);
+//#UC END# *4C7F753E02BC_4C7F738D033Eexec_impl*
+//#UC START# *4C7F753E02BC_4C7F738D033Eexec_var*
+//#UC END# *4C7F753E02BC_4C7F738D033Eexec_var*
+//#UC START# *4C7F753E02BC_4C7F738D033Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (wtTimeMachineWarning in ViewArea.WarningContent) or
+                                  (wtNotSure in ViewArea.WarningContent);
+//#UC END# *4C7F753E02BC_4C7F738D033Etest_impl*
+//#UC START# *4C7F753E02BC_4C7F738D033Etest_var*
+//#UC END# *4C7F753E02BC_4C7F738D033Etest_var*
+//#UC START# *4C7F7552010A_4C7F738D033Eexec_impl*
+ if (Aggregate <> nil) then
+  Aggregate.Operation(opcode_Redactions_ActualRedaction);
+//#UC END# *4C7F7552010A_4C7F738D033Eexec_impl*
+//#UC START# *4C7F7552010A_4C7F738D033Eexec_var*
+//#UC END# *4C7F7552010A_4C7F738D033Eexec_var*
+//#UC START# *4C7F7552010A_4C7F738D033Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := wtNotActualEdition in ViewArea.WarningContent;
+//#UC END# *4C7F7552010A_4C7F738D033Etest_impl*
+//#UC START# *4C7F7552010A_4C7F738D033Etest_var*
+//#UC END# *4C7F7552010A_4C7F738D033Etest_var*
+//#UC START# *4C7F75660342_4C7F738D033Eexec_impl*
+ op_TimeMachine_TimeMachineOnOff.Call(Aggregate);
+//#UC END# *4C7F75660342_4C7F738D033Eexec_impl*
+//#UC START# *4C7F75660342_4C7F738D033Eexec_var*
+//#UC END# *4C7F75660342_4C7F738D033Eexec_var*
+//#UC START# *4C7F75660342_4C7F738D033Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (wtTimeMachineWarning in ViewArea.WarningContent) or
+                                  (wtNotSure in ViewArea.WarningContent);
+//#UC END# *4C7F75660342_4C7F738D033Etest_impl*
+//#UC START# *4C7F75660342_4C7F738D033Etest_var*
+//#UC END# *4C7F75660342_4C7F738D033Etest_var*
+//#UC START# *4C7F77A50276_4C7F738D033E_impl*
+ if (ViewArea <> nil) then
+  l_HAF := TnsDocInfoHAFMacroReplacer.Make(nil, ViewArea.DocInfo)
+ else
+  l_HAF := nil;
+ Result := Viewer.Preview(TevFormatHAFMacroReplacer.Make(l_HAF, vcmCStr(str_WarningTitle)));
+//#UC END# *4C7F77A50276_4C7F738D033E_impl*
+//#UC START# *4C7F77A50276_4C7F738D033E_var*
+var
+ l_HAF: IafwHAFMacroReplacer;
+//#UC END# *4C7F77A50276_4C7F738D033E_var*

@@ -1,0 +1,41 @@
+// DocumentDomainInterfaces 4991BD69025E Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4991BD69025E_diagrams
+
+ MEDIAGRAM ME_4991BD69025E_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4991BD69025E' ; // DocumentDomainInterfaces
+
+  MEVIEW ME_4991BE7D0056_view
+   MELINK Original WL 'ME_4991BE7D0056' '4991BD69025E.ms.model.script' ; // InsLinkedObjectDescription
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4991BE7D0056_view
+
+  MEVIEW ME_4991BD9B031F_view
+   MELINK Original WL 'ME_4991BD9B031F' '4991BD69025E.ms.model.script' ; // InsLinkedObjectData
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4991BD9B031F_view
+
+  MEVIEWLINK ME_4991BF07038A_viewlink
+   MELINK Original WL 'ME_4991BF07038A' '4991BD69025E.ms.model.script' ;
+   MELINK From ME_4991BD9B031F_view ;
+   MELINK To ME_4991BE7D0056_view ;
+  ENDMEVIEWLINK // ME_4991BF07038A_viewlink
+
+  MELIST Views
+   Seq: ( ME_4991BE7D0056_view // InsLinkedObjectDescription
+   ME_4991BD9B031F_view // InsLinkedObjectData
+   ME_4991BF07038A_viewlink // InsLinkedObjectData ==> InsLinkedObjectDescription
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4991BD69025E_main
+
+ MELIST Diagrams
+  Seq: ( ME_4991BD69025E_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4991BD69025E_diagrams

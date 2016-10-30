@@ -1,0 +1,62 @@
+// nsIntegrationSupport 4F86C0140332 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4F86C0140332_diagrams
+
+ MEDIAGRAM ME_4F86C0140332_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4F86C0140332' ; // nsIntegrationSupport
+
+  MEVIEW ME_4F86C02F0097_view
+   MELINK Original WL 'ME_4F86C02F0097' '4F86C0140332.ms.model.script' ; // TnsLinkDataArray
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F86C02F0097_view
+
+  MEVIEW ME_4F86C03C0179_view
+   MELINK Original WL 'ME_4F86C03C0179' '4F86C0140332.ms.model.script' ; // PnsLinkDataArray
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F86C03C0179_view
+
+  MEVIEW ME_5135ECC0016B_view
+   MELINK Original WL 'ME_5135ECC0016B' '4F86C0140332.ms.model.script' ; // TIntegrationData
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_5135ECC0016B_view
+
+  MEVIEW ME_5135ECD7013D_view
+   MELINK Original WL 'ME_5135ECD7013D' '4F86C0140332.ms.model.script' ; // PIntegrationData
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_5135ECD7013D_view
+
+  MEVIEWLINK ME_4F86C03C0179_ME_4F86C02F0097_Inherits
+   MELINK From ME_4F86C03C0179_view ;
+   MELINK To ME_4F86C02F0097_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4F86C03C0179_ME_4F86C02F0097_Inherits
+
+  MEVIEWLINK ME_5135ECD7013D_ME_5135ECC0016B_Inherits
+   MELINK From ME_5135ECD7013D_view ;
+   MELINK To ME_5135ECC0016B_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5135ECD7013D_ME_5135ECC0016B_Inherits
+
+  MELIST Views
+   Seq: ( ME_4F86C02F0097_view // TnsLinkDataArray
+   ME_4F86C03C0179_view // PnsLinkDataArray
+   ME_5135ECC0016B_view // TIntegrationData
+   ME_5135ECD7013D_view // PIntegrationData
+   ME_4F86C03C0179_ME_4F86C02F0097_Inherits // PnsLinkDataArray ==> TnsLinkDataArray
+   ME_5135ECD7013D_ME_5135ECC0016B_Inherits // PIntegrationData ==> TIntegrationData
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4F86C0140332_main
+
+ MELIST Diagrams
+  Seq: ( ME_4F86C0140332_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4F86C0140332_diagrams

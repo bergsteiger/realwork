@@ -33,8 +33,6 @@ ME ME_4FF2E9C50114
    Seq: ( HWL ME_4FF2EA2200B3_ME_4FF2E9C50114_G // pnLeft
  )
  ; // Inherits
- UP "MergeBottomTollbarWithContainer" False
- UP "MergeTopTollbarWithContainer" False
  UP "ZoneType" 'Child'
 
 ENDME // ME_4FF2E9C50114 Left
@@ -63,8 +61,6 @@ ME ME_4FF2E9E50337
    Seq: ( HWL ME_4FF2EA3A02C6_ME_4FF2E9E50337_G // pnRight
  )
  ; // Inherits
- UP "MergeBottomTollbarWithContainer" False
- UP "MergeTopTollbarWithContainer" False
  UP "ZoneType" 'Main'
 
 ENDME // ME_4FF2E9E50337 Right
@@ -80,7 +76,6 @@ ME ME_4FF2EADD02A4
  MELINK Parent HWL ME_4FF2E935019A // AACContainerPrim
  ;
  UP "ImageIndex" 21
- UP "Weight" '-1'
  UP extprop:pas:UnitName 'AACContainerPrim_AACContainer_UserType'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContainerPrim_AACContainer_UserType.pas'
 
@@ -109,7 +104,6 @@ ME ME_504879B60226
  )
  ; // Inherits
  UP "ImageIndex" 21
- UP "Weight" '-1'
  UP extprop:pas:UnitName 'AACContainerPrim_AACContentsContainer_UserType'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContainerPrim_AACContentsContainer_UserType.pas'
 
@@ -139,7 +133,6 @@ ME ME_4FF2EA3A02C6
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4FF2EA3A02C6 pnRight
@@ -155,8 +148,6 @@ ME ME_503CB1240162
  MELINK Parent HWL ME_503CD4E9014C // pnRightForScroll
  ;
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
- UP "put to dfm" True
 
 ENDME // ME_503CB1240162 pnlRightTop
 
@@ -179,8 +170,6 @@ ME ME_503CD4E9014C
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
- UP "put to dfm" True
 
 ENDME // ME_503CD4E9014C pnRightForScroll
 
@@ -195,8 +184,6 @@ ME ME_503CD5210135
  MELINK Parent HWL ME_503CBA9200CC // pnRightEx
  ;
  UP "ControlClass" 'TvtScrollBar'
- UP "pm" True
- UP "put to dfm" True
 
 ENDME // ME_503CD5210135 scrRight
 
@@ -219,8 +206,6 @@ ME ME_503CBA9200CC
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
- UP "put to dfm" True
 
 ENDME // ME_503CBA9200CC pnRightEx
 
@@ -239,8 +224,6 @@ ME ME_503CB0C80233
  MELINK Parent HWL ME_503CD53B02F9 // pnLeftForScroll
  ;
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
- UP "put to dfm" True
 
 ENDME // ME_503CB0C80233 pnlLeftTop
 
@@ -262,7 +245,6 @@ ME ME_4FF2EA2200B3
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4FF2EA2200B3 pnLeft
@@ -286,8 +268,6 @@ ME ME_503CD53B02F9
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
- UP "put to dfm" True
 
 ENDME // ME_503CD53B02F9 pnLeftForScroll
 
@@ -302,8 +282,6 @@ ME ME_503CD55E0038
  MELINK Parent HWL ME_503CBB1800D0 // pnLeftEx
  ;
  UP "ControlClass" 'TvtScrollBar'
- UP "pm" True
- UP "put to dfm" True
 
 ENDME // ME_503CD55E0038 scrLeft
 
@@ -326,8 +304,6 @@ ME ME_503CBB1800D0
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtSizeablePanel'
- UP "pm" True
- UP "put to dfm" True
 
 ENDME // ME_503CBB1800D0 pnLeftEx
 
@@ -361,8 +337,6 @@ ME ME_4FF405D1019B
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "ControlClass" 'none'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4FF405D1019B pnBack
@@ -388,7 +362,6 @@ FORWARD ME_503CE312021A
 ME ME_503CE32700A7
  MEPROP Name 'aLeft'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -435,7 +408,6 @@ FORWARD ME_503CE36D0185
 ME ME_503CE3700373
  MEPROP Name 'aJumpTo'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_50041C7C0270' '4829D92A037B.ms.model.script' // TevJumpToEvent
  ;
 
@@ -507,28 +479,12 @@ MEREF ME_5005237D0210_ME_4FF2E935019A_impl
  MELINK Original WL 'ME_5005237D0210' '50052359008A.ms.model.script' // GetVScrollBar
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_5005237D0210_ME_4FF2E935019A_impl GetVScrollBar
 
 MEREF ME_5006ED2300F9_ME_4FF2E935019A_impl
  MELINK Original WL 'ME_5006ED2300F9' '50052359008A.ms.model.script' // SetJumpTo
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_5006ED2300F9_ME_4FF2E935019A_impl SetJumpTo
 
 MEREF ME_4A8E8F2E0195_ME_4FF2E935019A_over
@@ -617,11 +573,6 @@ ME ME_4FF2E935019A
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "finished dfm" True
- UP "NeedsHackRef" True
- UP "resizeable" False
- UP "restrict form def" 'undefined'
- UP "ZoneType" 'Any'
  UP extprop:NeedsInitEntities True
  UP extprop:pas:TypeName 'TAACContainerPrimForm'
  UP extprop:pas:UnitName 'AACContainerPrim_Form'

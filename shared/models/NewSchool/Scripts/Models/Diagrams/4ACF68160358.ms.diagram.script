@@ -1,0 +1,69 @@
+// Users$CommonForAdminAndF1 4ACF68160358 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4ACF68160358_diagrams
+
+ MEDIAGRAM ME_4ACF68160358_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4ACF68160358' ; // Users$CommonForAdminAndF1
+
+  MEVIEW ME_4901E8E20154_view
+   MELINK Original WL? 'ME_4901E8E20154' ; // TnsUserFlagsFilter
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4901E8E20154_view
+
+  MEVIEW ME_4906E96C0364_view
+   MELINK Original WL? 'ME_4906E96C0364' ; // TnsUserTreeStruct
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4906E96C0364_view
+
+  MEVIEW ME_4901E95F019D_view
+   MELINK Original WL? 'ME_4901E95F019D' ; // TnsUserFlagsFilters
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4901E95F019D_view
+
+  MEVIEW ME_49F017390338_view
+   MELINK Original WL? 'ME_49F017390338' ; // TnsGroupFilter
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_49F017390338_view
+
+  MEVIEW ME_4B50388A00E5_view
+   MELINK Original WL? 'ME_4B50388A00E5' ; // nsUserPropertyImpl
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4B50388A00E5_view
+
+  MEVIEW ME_4B5038B80195_view
+   MELINK Original WL? 'ME_4B5038B80195' ; // TnsUserProperty
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_4B5038B80195_view
+
+  MEVIEWLINK ME_4B5038B80195_ME_4B50388A00E5_Inherits
+   MELINK From ME_4B5038B80195_view ;
+   MELINK To ME_4B50388A00E5_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4B5038B80195_ME_4B50388A00E5_Inherits
+
+  MELIST Views
+   Seq: ( ME_4901E8E20154_view // TnsUserFlagsFilter
+   ME_4906E96C0364_view // TnsUserTreeStruct
+   ME_4901E95F019D_view // TnsUserFlagsFilters
+   ME_49F017390338_view // TnsGroupFilter
+   ME_4B50388A00E5_view // nsUserPropertyImpl
+   ME_4B5038B80195_view // TnsUserProperty
+   ME_4B5038B80195_ME_4B50388A00E5_Inherits // TnsUserProperty ==> nsUserPropertyImpl
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4ACF68160358_main
+
+ MELIST Diagrams
+  Seq: ( ME_4ACF68160358_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4ACF68160358_diagrams

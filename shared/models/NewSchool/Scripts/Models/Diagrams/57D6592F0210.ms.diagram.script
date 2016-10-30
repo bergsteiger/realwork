@@ -1,0 +1,48 @@
+// TalcuUploadDocStreamExecutor 57D6592F0210 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_57D6592F0210_diagrams
+
+ MEDIAGRAM ME_57D6592F0210_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_57D6592F0210' ; // TalcuUploadDocStreamExecutor
+
+  MEVIEW ME_57D69430002E_view
+   MELINK Original WL 'ME_57D69430002E' '57D6592F0210.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_57D69430002E_view
+
+  MEVIEW ME_57D6946100F7_view
+   MELINK Original WL 'ME_57D6946100F7' '57D6592F0210.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_57D6946100F7_view
+
+  MEVIEW ME_57D694FD02C8_view
+   MELINK Original WL 'ME_57D694FD02C8' '57D6592F0210.ms.model.script' ; // f_OnEraseNotify
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_57D694FD02C8_view
+
+  MEVIEWLINK ME_57D6946100F7_ME_57D69430002E_Inherits
+   MELINK From ME_57D6946100F7_view ;
+   MELINK To ME_57D69430002E_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57D6946100F7_ME_57D69430002E_Inherits
+
+  MELIST Views
+   Seq: ( ME_57D69430002E_view // Create
+   ME_57D6946100F7_view // Make
+   ME_57D694FD02C8_view // f_OnEraseNotify
+   ME_57D6946100F7_ME_57D69430002E_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_57D6592F0210_main
+
+ MELIST Diagrams
+  Seq: ( ME_57D6592F0210_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_57D6592F0210_diagrams

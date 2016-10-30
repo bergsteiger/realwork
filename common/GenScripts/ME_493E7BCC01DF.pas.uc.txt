@@ -1,0 +1,64 @@
+//#UC START# *479731C50290_493E7BCC01DF_impl*
+ f_List_SynchroView_Form := sva_List_SynchroView_None;
+ f_Default_List_SynchroView_Form := sva_List_SynchroView_None;
+ f_List := nil;
+ f_NodeForPositioning := nil;
+ inherited;
+//#UC END# *479731C50290_493E7BCC01DF_impl*
+//#UC START# *479731C50290_493E7BCC01DF_var*
+//#UC END# *479731C50290_493E7BCC01DF_var*
+//#UC START# *493E7BCC01DF_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\List\dList.pas
+//#UC END# *493E7BCC01DF_ext:FileName
+//#UC START# *493E7BCC01DFimpl_uses*
+//#UC END# *493E7BCC01DFimpl_uses*
+//#UC START# *4952880D0314_493E7BCC01DFget_impl*
+ Result := f_List;
+//#UC END# *4952880D0314_493E7BCC01DFget_impl*
+//#UC START# *4952880D0314_493E7BCC01DFget_var*
+//#UC END# *4952880D0314_493E7BCC01DFget_var*
+//#UC START# *4952880D0314_493E7BCC01DFset_impl*
+ f_List := aValue;
+//#UC END# *4952880D0314_493E7BCC01DFset_impl*
+//#UC START# *4952880D0314_493E7BCC01DFset_var*
+//#UC END# *4952880D0314_493E7BCC01DFset_var*
+//#UC START# *4952886A0188_493E7BCC01DFget_impl*
+ Result := f_UseDataProducer;
+//#UC END# *4952886A0188_493E7BCC01DFget_impl*
+//#UC START# *4952886A0188_493E7BCC01DFget_var*
+//#UC END# *4952886A0188_493E7BCC01DFget_var*
+//#UC START# *4952886A0188_493E7BCC01DFset_impl*
+ f_UseDataProducer := aValue;
+//#UC END# *4952886A0188_493E7BCC01DFset_impl*
+//#UC START# *4952886A0188_493E7BCC01DFset_var*
+//#UC END# *4952886A0188_493E7BCC01DFset_var*
+//#UC START# *4B16B8E3013F_493E7BCC01DF_impl*
+ inherited;
+ f_List_SynchroView_Form := sva_List_SynchroView_None;
+ f_Default_List_SynchroView_Form := sva_List_SynchroView_None;
+//#UC END# *4B16B8E3013F_493E7BCC01DF_impl*
+//#UC START# *4B16B8E3013F_493E7BCC01DF_var*
+//#UC END# *4B16B8E3013F_493E7BCC01DF_var*
+//#UC START# *52FC7A000124_493E7BCC01DFget_impl*
+ Result := f_DisableAutoOpenAnnotation;
+//#UC END# *52FC7A000124_493E7BCC01DFget_impl*
+//#UC START# *52FC7A000124_493E7BCC01DFget_var*
+//#UC END# *52FC7A000124_493E7BCC01DFget_var*
+//#UC START# *52FC7A000124_493E7BCC01DFset_impl*
+ f_DisableAutoOpenAnnotation := aValue;
+//#UC END# *52FC7A000124_493E7BCC01DFset_impl*
+//#UC START# *52FC7A000124_493E7BCC01DFset_var*
+//#UC END# *52FC7A000124_493E7BCC01DFset_var*
+//#UC START# *B7BD6799893F_493E7BCC01DFget_impl*
+ if (f_Default_List_SynchroView_Form = sva_List_SynchroView_None) then
+  case afw.Settings.LoadBoolean(pi_List_ShowAnnotationByDefault,
+    dv_List_ShowAnnotationByDefault) of
+   dv_List_ShowAnnotationByDefault:
+    f_Default_List_SynchroView_Form := sva_List_SynchroView_Annotation;
+   else
+    f_Default_List_SynchroView_Form := sva_List_SynchroView_Document;
+  end;//case afw.Settings.LoadInteger(
+ Result := f_Default_List_SynchroView_Form;
+//#UC END# *B7BD6799893F_493E7BCC01DFget_impl*
+//#UC START# *B7BD6799893F_493E7BCC01DFget_var*
+//#UC END# *B7BD6799893F_493E7BCC01DFget_var*

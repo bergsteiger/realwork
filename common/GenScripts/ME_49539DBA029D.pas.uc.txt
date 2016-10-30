@@ -1,0 +1,4304 @@
+//#UC START# *08687812598B_49539DBA029D_impl*
+  if HasDoc then
+   OpenInWindow;
+//#UC END# *08687812598B_49539DBA029D_impl*
+//#UC START# *08687812598B_49539DBA029D_var*
+//#UC END# *08687812598B_49539DBA029D_var*
+//#UC START# *0B8413148796_49539DBA029D_impl*
+  if HasDoc then
+   OpenInWindow;
+//#UC END# *0B8413148796_49539DBA029D_impl*
+//#UC START# *0B8413148796_49539DBA029D_var*
+//#UC END# *0B8413148796_49539DBA029D_var*
+//#UC START# *479731C50290_4C066918002D_impl*
+ Finalize(f_Pos);
+ f_Form := nil;
+ inherited;
+//#UC END# *479731C50290_4C066918002D_impl*
+//#UC START# *479731C50290_4C066918002D_var*
+//#UC END# *479731C50290_4C066918002D_var*
+//#UC START# *479731C50290_56558AAF003B_impl*
+ f_InnerState := nil;
+ inherited;
+//#UC END# *479731C50290_56558AAF003B_impl*
+//#UC START# *479731C50290_56558AAF003B_var*
+//#UC END# *479731C50290_56558AAF003B_var*
+//#UC START# *47E136A80191_49539DBA029D_impl*
+ if Message.Msg = g_GoToIntranetMessage then
+  GoToIntranet
+ else
+  inherited WndProc(Message);
+//#UC END# *47E136A80191_49539DBA029D_impl*
+//#UC START# *47E136A80191_49539DBA029D_var*
+//#UC END# *47E136A80191_49539DBA029D_var*
+//#UC START# *47EA4E9002C6_49539DBA029D_impl*
+ inherited;
+ if lp_ShowMessage then
+  TbsDocumentMissingMessage.Show;
+//#UC END# *47EA4E9002C6_49539DBA029D_impl*
+//#UC START# *47EA4E9002C6_49539DBA029D_var*
+
+ function lp_ShowMessage: Boolean;
+ begin
+  Result := (UserType = dftDocument) and
+     Assigned(ViewArea) and
+     Assigned(ViewArea.DocInfo) and
+    (not Assigned(ViewArea.DocInfo.Doc) or
+     not ViewArea.DocInfo.Doc.IsAlive);
+ end;//function lp_ShowMessage: Boolean;
+
+//#UC END# *47EA4E9002C6_49539DBA029D_var*
+//#UC START# *47EA863A035C_49539DBA029D_impl*
+ Result := False;
+ if (aSettingId = pi_Document_PermanentSelection) then
+ begin
+  Text.PersistentSelection :=
+   Settings.LoadBoolean(pi_Document_PermanentSelection,
+                        dv_Document_PermanentSelection);
+  Result := True;
+ end//aSettingId = pi_Document_PermanentSelection
+ else
+ if (aSettingId = pi_Document_ShowBlockBorders) then
+ begin
+  Text.ShowDocumentParts := Settings.LoadBoolean(pi_Document_ShowBlockBorders,
+                                                 dv_Document_ShowBlockBorders);
+  Result := True;
+ end//aSettingId = pi_Document_ShowBlockBorders
+ else
+ if (aSettingId = pi_Document_ShowSpecial) then
+ begin
+  Text.DrawSpecial := Settings.LoadBoolean(pi_Document_ShowSpecial,
+                                           dv_Document_ShowSpecial);
+  Result := True;
+ end//aSettingId = pi_Document_ShowSpecial
+ else
+ if (aSettingId = pi_Document_SubPanel_ShowBlocks) or
+    (aSettingId = pi_Document_SubPanel_ShowBookmarks) or
+    (aSettingId = pi_Document_SubPanel_ShowJurorComments) or
+    (aSettingId = pi_Document_SubPanel_ShowUserComments) or
+    (aSettingId = pi_Document_SubPanel_ShowSubNumbers) then
+ begin
+  UpdateSubPanelDescription;
+  Result := True;
+ end//aSettingId = pi_Document_SubPanel_ShowBlocks..
+ else
+ if (aSettingId = pi_Document_ShowTechComment) then
+ begin
+  UpdateTechComment;
+  Result := True;
+ end;//aSettingId = pi_Document_ShowTechComment
+//#UC END# *47EA863A035C_49539DBA029D_impl*
+//#UC START# *47EA863A035C_49539DBA029D_var*
+//#UC END# *47EA863A035C_49539DBA029D_var*
+//#UC START# *47EA8B9601FE_49539DBA029D_impl*
+ inherited;
+ DoSettingsChanged;
+//#UC END# *47EA8B9601FE_49539DBA029D_impl*
+//#UC START# *47EA8B9601FE_49539DBA029D_var*
+//#UC END# *47EA8B9601FE_49539DBA029D_var*
+//#UC START# *49539DBA029D_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\ExText_Form.pas
+//#UC END# *49539DBA029D_ext:FileName
+//#UC START# *49539DBA029Dimpl_uses*
+ , vcmEntityForm
+//#UC END# *49539DBA029Dimpl_uses*
+//#UC START# *4958BE910345_49539DBA029D_impl*
+ inherited;
+ DoSettingsChanged;
+//#UC END# *4958BE910345_49539DBA029D_impl*
+//#UC START# *4958BE910345_49539DBA029D_var*
+//#UC END# *4958BE910345_49539DBA029D_var*
+//#UC START# *497469C90140_49539DBA029D_impl*
+ inherited;
+ if (aNew <> nil) then
+ begin
+  CheckLinkedWindows;
+  if (anOld = nil) then
+   lp_CheckBaseSearchArea;
+   
+  if (dsBaseDocument <> nil) AND (dsBaseDocument.DocInfo <> nil) then
+   l_Doc := dsBaseDocument.DocInfo.Doc;
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=590755363
+  // Нужно проставить Caption, иначе при открытии документа в новой вкладке без
+  // переключения на нее заголовок у формы будет неправильный до тех пор,
+  // пока не позовется TextSourceDocumentChanged, т.е. пока пользователь сам
+  // не переключит вкладку. http://mdp.garant.ru/pages/viewpage.action?pageId=340174500
+  if (l_Doc <> nil) then
+  try
+   UpdateDocumentCaption(l_Doc);
+  finally
+   l_Doc := nil;
+  end;//try..finally
+ end;//if (aNew <> nil)...
+
+ if Assigned(ViewArea) then
+  Text.IsStaticText := ViewArea.IsReadOnly; // скорее всего это должно быть не здесь или не так.
+                                            // http://mdp.garant.ru/pages/viewpage.action?pageId=401506914
+//#UC END# *497469C90140_49539DBA029D_impl*
+//#UC START# *497469C90140_49539DBA029D_var*
+
+ procedure lp_CheckBaseSearchArea;
+ var
+  l_BaseSearcher: InsBaseSearcher;
+  l_BSPresentation: InsBaseSearchPresentation;
+ begin
+  l_BaseSearcher := TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm);
+  if l3IEQ(Self as InsBaseSearchPresentation, l_BaseSearcher.Presentation) then
+   TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm).WindowData.Area := ns_saText;
+   // - http://mdp.garant.ru/pages/viewpage.action?pageId=611210158
+ end;
+
+var
+ l_Doc: IDocument;
+ l_Caption: Il3CString;
+//#UC END# *497469C90140_49539DBA029D_var*
+//#UC START# *497F16AC015A_49539DBA029D_impl*
+ if (sdsBaseDocument <> nil) then
+ begin
+  case UserType of
+   dftRelatedDoc:
+    l_ActivationKind := ttakRelated;
+   dftAnnotation:
+    l_ActivationKind := ttakAnnotation;
+   else
+    Exit;
+  end;//case UserType of
+  TnsTextTabActivateEvent.Log(sdsBaseDocument.DocInfo.Doc, l_ActivationKind);
+ end;//sdsBaseDocument <> nil
+//#UC END# *497F16AC015A_49539DBA029D_impl*
+//#UC START# *497F16AC015A_49539DBA029D_var*
+var
+ l_ActivationKind : TnsTextTabActivateKind;
+//#UC END# *497F16AC015A_49539DBA029D_var*
+//#UC START# *49803F5503AA_49539DBA029D_impl*
+ inherited;
+ nsWarnImages;
+ f_LastBookmarkIndex := -1;
+ f_InGoToInternet := False;
+ f_LockAnnoingCheck := False;
+ LoadFromSettings;
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=290953654
+(* with SubPanel do
+ begin
+  if (UserType in [dftDocument, dftDrug]) then
+   SubDescriptors := nsDocumentRes.SubDescriptors
+  else
+   SubDescriptors := nsDocumentRes.LiteSubDescriptors;
+ end;//with SubPanel do*)
+ //LoadFromSettings;
+ // - перенесено выше
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=290953654
+//#UC END# *49803F5503AA_49539DBA029D_impl*
+//#UC START# *49803F5503AA_49539DBA029D_var*
+//#UC END# *49803F5503AA_49539DBA029D_var*
+//#UC START# *49806ED503D5_49539DBA029D_impl*
+ Result := inherited DoSaveState(l_InnerState, aStateType, aForClone);
+ l_State := TExTextFormState.Make(l_InnerState,
+   Text.ShowUserComments,
+   Text.ShowComments,
+   Text.ShowVersionComments,
+   f_eeSubIdForTypedCorrespondentList);
+ theState := l_State;
+//#UC END# *49806ED503D5_49539DBA029D_impl*
+//#UC START# *49806ED503D5_49539DBA029D_var*
+var
+ l_InnerState: IvcmBase;
+ l_State: IExTextFormState;
+//#UC END# *49806ED503D5_49539DBA029D_var*
+//#UC START# *49807428008C_49539DBA029D_impl*
+ if Supports(aState, IExTextFormState, l_State) then
+ begin
+  Text.ShowUserComments := l_State.NeedShowUserComments;
+  Text.ShowComments := l_State.NeedShowComments;
+  Text.ShowVersionComments := l_State.NeedShowVersionComments;
+  f_eeSubIdForTypedCorrespondentList := l_State.eeSubIdForTypedCorrespondentList;
+  Result := inherited DoLoadState(aState, aStateType, aClone);
+
+  // Ниже следует кошмар, который нужен для того, чтобы Text.ShowUserComments
+  // не проставился принудительно в True в InvalidateDataSources,
+  // где проверяют флажки "FromHistory" и "NeedProcess"
+  // на вот этом самом FormDataChangedInfo.
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=609420481
+  FormDataChangedInfo.Init(True);
+  FormDataChangedInfo.NeedProcess := True;
+ end
+ else
+ begin
+  Assert(False);
+  Result := inherited DoLoadState(aState, aStateType, aClone);
+ end;
+//#UC END# *49807428008C_49539DBA029D_impl*
+//#UC START# *49807428008C_49539DBA029D_var*
+var
+ l_State: IExTextFormState;
+//#UC END# *49807428008C_49539DBA029D_var*
+//#UC START# *49883D6D03A2_49539DBA029D_impl*
+ if (ViewArea <> nil) then
+ begin
+(*  Il3Lock(Text).Lock(Text);
+  try*)
+  Text.TextSource.DocumentContainer.LinkWaiter(TnsDocumentPointWaiter.Make(Self, ViewArea.DocInfo.Pos));
+(*  finally
+   Il3Lock(Text).Unlock(Text);
+  end;//try..finally*)
+ end;//ViewArea <> nil
+//#UC END# *49883D6D03A2_49539DBA029D_impl*
+//#UC START# *49883D6D03A2_49539DBA029D_var*
+//#UC END# *49883D6D03A2_49539DBA029D_var*
+//#UC START# *4988675A0308_49539DBA029D_impl*
+ Result := (UserType = dftDocument);
+//#UC END# *4988675A0308_49539DBA029D_impl*
+//#UC START# *4988675A0308_49539DBA029D_var*
+//#UC END# *4988675A0308_49539DBA029D_var*
+//#UC START# *49886FBC0385_49539DBA029D_impl*
+ Result := true;
+ if ReConvertNode then
+  l_Node := bsConvertFilteredCRNode(aType)
+ else
+  l_Node := aType;
+ OpenCRListOpExecute(aKind, l_Node);
+//#UC END# *49886FBC0385_49539DBA029D_impl*
+//#UC START# *49886FBC0385_49539DBA029D_var*
+var
+ l_Node: Il3SimpleNode;
+//#UC END# *49886FBC0385_49539DBA029D_var*
+//#UC START# *4988752302F4_49539DBA029Dexec_impl*
+ if not Operation(opcode_Document_GetCorrespondentListExFrmAct) then
+  Assert(false);
+ if not OpenCRList(aKind, aCRType, True) then
+  Assert(false);
+  //GetCorrespondentListEx(aParams.ItemIndex, bsConvertFilteredCRNode(aParams.CurrentNode));
+//#UC END# *4988752302F4_49539DBA029Dexec_impl*
+//#UC START# *4988752302F4_49539DBA029Dexec_var*
+//#UC END# *4988752302F4_49539DBA029Dexec_var*
+//#UC START# *4988752302F4_49539DBA029Dtest_impl*
+ TypedCRToPartTest(aParams, crtCorrespondents);
+//#UC END# *4988752302F4_49539DBA029Dtest_impl*
+//#UC START# *4988752302F4_49539DBA029Dtest_var*
+//#UC END# *4988752302F4_49539DBA029Dtest_var*
+//#UC START# *4988773A0053_49539DBA029D_impl*
+ OpenCRListOpTest(aParams, aCRType);
+ with aParams do
+ begin
+  if Op.Flag[vcm_ofEnabled] then
+  begin
+   l_Strings := Op.SubItems;
+   l_List := Op.SubNodes;
+   if (l_Strings <> nil) and (l_List <> nil) then
+   begin
+    with DefDataAdapter do
+     if Text.HasSelection then
+     begin
+      l_Strings.Add(vcmCStr(CRListCaptions[1]^));
+      l_List.Add(CRSimpleListTypeRootNode);
+      //
+      l_Strings.Add(vcmCStr(CRListCaptions[2]^));
+      l_List.Add(CRSimpleListTypeRootNode);
+     end
+     else
+      l_List.Add(CRSimpleListTypeRootNode);
+   end;//l_Strings <> nil
+  end;
+ end;
+//#UC END# *4988773A0053_49539DBA029D_impl*
+//#UC START# *4988773A0053_49539DBA029D_var*
+const
+ CRListCaptions : array [1..2] of PvcmStringID = (@str_RespListForText, @str_RespListForPart);
+var
+ l_List    : IvcmNodes;
+ l_Strings : IvcmStrings;
+//#UC END# *4988773A0053_49539DBA029D_var*
+//#UC START# *498878B60084_49539DBA029D_impl*
+ case aParamsIndex of
+  0, 1:
+   OpenCRListOpExecute(crtCorrespondents, aChoosedNode);
+  2:
+   OpenCRListToPart(crtCorrespondents, aChoosedNode);
+  else
+   Assert(False);
+ end;//case aParamsIndex
+//#UC END# *498878B60084_49539DBA029D_impl*
+//#UC START# *498878B60084_49539DBA029D_var*
+//#UC END# *498878B60084_49539DBA029D_var*
+//#UC START# *498879F203D8_49539DBA029D_impl*
+ if Assigned(dsDocument) then
+ begin
+  if Assigned(aPositionList) then
+   l_PositionList := aPositionList
+  else
+   l_PositionList := MakePositionList(aCRType);
+  if Assigned (l_PositionList) then
+  begin
+   if Supports(aType, INodeBase, l_Node) then
+    DocumentSet.OpenCRToPart(l_PositionList, l_Node, aCRType)
+   else
+    DocumentSet.OpenCRToPart(l_PositionList, nil, aCRType);
+  end//Assigned(l_PositionList)
+  else
+  begin
+   //Assert(false,'А разве когда-нибудь Assigned(l_PositionList) неверно?');
+   // - да - бывают случаи когда это неверно
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=269063249
+   // Мы не можем просто вызвать OpenCRType, потому что операции которые мы
+   // собираемся вызвать управляют активность формы корр\респ и сделают форму
+   // активной (CQ: OIT500017328):
+   case aCRType of
+    crtCorrespondents:
+     op_Document_OpenCorrespondentList.Call(Self.As_IvcmEntityForm, aCRType, aType);
+    crtRespondents:
+     op_Document_OpenRespondentList.Call(Self.As_IvcmEntityForm, aCRType, aType);
+   end;//case aCRType
+   //OpenCRList(aCRType, aType);
+  end;//Assigned(l_PositionList)
+ end;//if Assigned(dsDocument) then
+//#UC END# *498879F203D8_49539DBA029D_impl*
+//#UC START# *498879F203D8_49539DBA029D_var*
+var
+ l_PositionList : IPositionList;
+ l_Node         : INodeBase;
+//#UC END# *498879F203D8_49539DBA029D_var*
+//#UC START# *49888E8003B9_49539DBA029Dexec_impl*
+ if not Operation(opcode_Document_GetRespondentListExFrmAct) then
+  Assert(false);
+ if not OpenCRList(aKind, aCRType, false) then
+  Assert(false);
+  //GetRespondentListEx(aParams.ItemIndex, aParams.CurrentNode);
+//#UC END# *49888E8003B9_49539DBA029Dexec_impl*
+//#UC START# *49888E8003B9_49539DBA029Dexec_var*
+//#UC END# *49888E8003B9_49539DBA029Dexec_var*
+//#UC START# *49888E8003B9_49539DBA029Dtest_impl*
+ TypedCRToPartTest(aParams, crtRespondents);
+//#UC END# *49888E8003B9_49539DBA029Dtest_impl*
+//#UC START# *49888E8003B9_49539DBA029Dtest_var*
+//#UC END# *49888E8003B9_49539DBA029Dtest_var*
+//#UC START# *49889018003E_49539DBA029D_impl*
+ case aParamsIndex of
+  0, 1:
+   OpenCRListOpExecute(crtRespondents, aChoosedNode);
+  2:
+   OpenCRListToPart(crtRespondents, aChoosedNode);
+  else
+   Assert(False);
+ end;//case aParamsIndex
+//#UC END# *49889018003E_49539DBA029D_impl*
+//#UC START# *49889018003E_49539DBA029D_var*
+//#UC END# *49889018003E_49539DBA029D_var*
+//#UC START# *498891640253_49539DBA029Dexec_impl*
+ OpenAttributesOpExecute;
+//#UC END# *498891640253_49539DBA029Dexec_impl*
+//#UC START# *498891640253_49539DBA029Dexec_var*
+//#UC END# *498891640253_49539DBA029Dexec_var*
+//#UC START# *498891640253_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] :=
+  (not (UserType in [dftAACContentsLeft, dftAACContentsRight])) AND
+  ((UserType in [dftAACLeft, dftAACRight]) OR
+    (ZoneType <> vcm_ztChild));
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  OpenAttributesOpTest(aParams);
+//#UC END# *498891640253_49539DBA029Dtest_impl*
+//#UC START# *498891640253_49539DBA029Dtest_var*
+//#UC END# *498891640253_49539DBA029Dtest_var*
+//#UC START# *498953170108_49539DBA029D_impl*
+ inherited;
+ ChangePositionByDataSource;
+//#UC END# *498953170108_49539DBA029D_impl*
+//#UC START# *498953170108_49539DBA029D_var*
+//#UC END# *498953170108_49539DBA029D_var*
+//#UC START# *49895A2102E8_49539DBA029Dexec_impl*
+ Result := true;
+ if Supports(aNode, INode, l_FolderNode) then
+  try
+   if not Supports(aData, IevHyperlink, l_Hyperlink) then
+    if not Supports(aData, Il3CString) then
+     Supports(Text.Selection, IevHyperlink, l_Hyperlink);
+
+   try
+    l_FolderNode.Open(l_BaseEntity);
+   except
+    on ECanNotFindData do
+    begin
+     nsSayAdapterObjectMissing(Self, l_FolderNode);
+     Result := false;
+     Exit;
+    end;//on ECanNotFindData
+   end;//try..except
+   try
+    if (l_Hyperlink = nil) then
+     case TFoldersItemType(l_FolderNode.GetObjectType) of
+       FIT_LIST: ;
+        // !Stub! Пока не нужно
+       FIT_QUERY: ;
+        // !Stub! Пока не нужно
+       FIT_BOOKMARK,
+       FIT_PHARM_BOOKMARK:
+        TDocumentService.Instance.OpenEntityAsDocument(l_BaseEntity, nil);
+     end//case TFoldersItemType(l_FolderNode.GetObjectType)
+    else
+    if (l_Hyperlink.ID >= 0) then
+     try
+      l_HyperlinkUndo := Text.StartOp;
+      try
+       if not l_Hyperlink.Exists then
+        l_Hyperlink.Insert;
+       try
+        InitHyperLink(l_Hyperlink, l_BaseEntity);
+       except
+        on EUnsupported do
+        begin
+         Say(err_UnsupportedHyperlinkTarget);
+         Result := false;
+         Exit;
+        end;//on EUnsupported
+       end;//try..except
+      finally
+       l_HyperlinkUndo := nil;
+      end;//try..finally
+     finally
+      l_Hyperlink := nil;
+     end;//try..finally
+   finally
+    l_BaseEntity := nil;
+   end;//try..finally
+  finally
+   l_FolderNode := nil;
+  end;//try..finally
+//#UC END# *49895A2102E8_49539DBA029Dexec_impl*
+//#UC START# *49895A2102E8_49539DBA029Dexec_var*
+var
+ l_FolderNode : INode;
+ l_BaseEntity : IUnknown;
+ l_Hyperlink  : IevHyperlink;
+ l_HyperlinkUndo: InevOp;
+//#UC END# *49895A2102E8_49539DBA029Dexec_var*
+//#UC START# *498993C801DC_49539DBA029Dexec_impl*
+ // ничего не делаем, т.к. это FormActivate - http://mdp.garant.ru/pages/viewpage.action?pageId=135136020&focusedCommentId=136258958#comment-136258958
+//#UC END# *498993C801DC_49539DBA029Dexec_impl*
+//#UC START# *498993C801DC_49539DBA029Dexec_var*
+//#UC END# *498993C801DC_49539DBA029Dexec_var*
+//#UC START# *498993C801DC_49539DBA029Dtest_impl*
+(* aParams.Op.Flag[vcm_ofEnabled] := (ZoneType <> vcm_ztChild);*)
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=380047003
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  OpenRelatedDocOpTest(aParams);
+//#UC END# *498993C801DC_49539DBA029Dtest_impl*
+//#UC START# *498993C801DC_49539DBA029Dtest_var*
+//#UC END# *498993C801DC_49539DBA029Dtest_var*
+//#UC START# *4989CD040306_49539DBA029D_impl*
+ AddBookmark(GetParaForPositionning(False));
+//#UC END# *4989CD040306_49539DBA029D_impl*
+//#UC START# *4989CD040306_49539DBA029D_var*
+//#UC END# *4989CD040306_49539DBA029D_var*
+//#UC START# *4989CF90010A_49539DBA029D_impl*
+ Result := true;
+//#UC END# *4989CF90010A_49539DBA029D_impl*
+//#UC START# *4989CF90010A_49539DBA029D_var*
+//#UC END# *4989CF90010A_49539DBA029D_var*
+//#UC START# *4989D65C0275_49539DBA029Dexec_impl*
+ OpenCRListOpExecute(crtCorrespondents, nil);
+//#UC END# *4989D65C0275_49539DBA029Dexec_impl*
+//#UC START# *4989D65C0275_49539DBA029Dexec_var*
+//#UC END# *4989D65C0275_49539DBA029Dexec_var*
+//#UC START# *4989D65C0275_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := GetCorrespondentListTest;
+//#UC END# *4989D65C0275_49539DBA029Dtest_impl*
+//#UC START# *4989D65C0275_49539DBA029Dtest_var*
+//#UC END# *4989D65C0275_49539DBA029Dtest_var*
+//#UC START# *4989D8430128_49539DBA029Dexec_impl*
+ OpenCRListOpExecute(crtRespondents, nil);
+//#UC END# *4989D8430128_49539DBA029Dexec_impl*
+//#UC START# *4989D8430128_49539DBA029Dexec_var*
+//#UC END# *4989D8430128_49539DBA029Dexec_var*
+//#UC START# *4989D8430128_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := GetRespondentListTest;
+//#UC END# *4989D8430128_49539DBA029Dtest_impl*
+//#UC START# *4989D8430128_49539DBA029Dtest_var*
+//#UC END# *4989D8430128_49539DBA029Dtest_var*
+//#UC START# *4989DE3702CF_49539DBA029Dexec_impl*
+ Result := (UserType in c_CanCloseFormTypes) and
+           OpenAttributesOpCanBeClosed;
+//#UC END# *4989DE3702CF_49539DBA029Dexec_impl*
+//#UC START# *4989DE3702CF_49539DBA029Dexec_var*
+const
+ c_CanCloseFormTypes = [
+  dftNone,
+  dftDocument,
+  dftDictEntry,
+  dftTips,
+  dftMedDictEntry,
+  dftMedicFirm
+ ];
+//#UC END# *4989DE3702CF_49539DBA029Dexec_var*
+//#UC START# *4A793A0A032F_49539DBA029D_impl*
+ op_Editions_SetCurrent.Call(Aggregate, Document);
+//#UC END# *4A793A0A032F_49539DBA029D_impl*
+//#UC START# *4A793A0A032F_49539DBA029D_var*
+//#UC END# *4A793A0A032F_49539DBA029D_var*
+//#UC START# *4A7C0E1A005C_49539DBA029D_impl*
+ Result := (Document <> nil);
+//#UC END# *4A7C0E1A005C_49539DBA029D_impl*
+//#UC START# *4A7C0E1A005C_49539DBA029D_var*
+//#UC END# *4A7C0E1A005C_49539DBA029D_var*
+//#UC START# *4A7FCEA9025D_49539DBA029D_impl*
+ Result := GetParaForPositionning;
+//#UC END# *4A7FCEA9025D_49539DBA029D_impl*
+//#UC START# *4A7FCEA9025D_49539DBA029D_var*
+//#UC END# *4A7FCEA9025D_49539DBA029D_var*
+//#UC START# *4A815E860391_49539DBA029D_impl*
+ Result := True;
+ if Assigned(anOperation) then
+ begin
+  l_Operartion := anOperation.GetId;
+  if l_Operartion = EOI_ESTIMATION then
+  begin
+   if (Consultation <> nil) then
+    try
+     Consultation.GiveMark;
+    except
+     on EbsConsultationAlreadyMark do
+      Say(inf_ConsulationAlreadyMark);
+     on EbsConsultationWasDeleted do
+      Say(inf_ConsultationWasDeleted);
+    end;//try..except
+  end//l_Operartion = EOI_ESTIMATION
+  else
+   if l_Operartion in [EOI_PAYMENT_CONFIRM, EOI_PAYMENT_REFUSAL] then
+   begin
+    if (Consultation <> nil) then
+     try
+      Consultation.ConfirmPayment(l_Operartion = EOI_PAYMENT_CONFIRM);
+      Say(gc_Confirmation[l_Operartion = EOI_PAYMENT_CONFIRM]^);
+     except
+      on EbsConsultationAlreadyConfirmed do
+       Say(inf_ConsulationAlreadyConfirmed);
+      on EbsConsultationWasDeleted do
+       Say(inf_ConsultationWasDeleted);
+      on EbsPaymentForbidden do
+       Say(war_PaymentForbidden);
+      on ENoConnection do
+       Say(war_NoConnection);
+      on ENoSubscription do
+       Say(war_NoSubscription, [defDataAdapter.GetDealerInfo]);
+     end;{try..except}
+   end//l_Operartion in [EOI_PAYMENT_CONFIRM, EOI_PAYMENT_REFUSAL]
+   else
+    if (l_Operartion = EOI_SHOW_HELP_TOPIC) and (UserType = dftConsultation) then
+     Application.HelpSystem.ShowTopicHelp(cHelpConsultingRules, '')
+    else
+     if (l_Operartion = EOI_CONSULTATION_CALL_GARANT) then
+      nsDoShellExecute(nsStringMapManager.Map[smap_InternetCaptions].DisplayNameToValue(vcmCStr(str_ilnCatalogue)))
+     else
+      if (l_Operartion = EOI_SHOW_CONSULTATION_LIST) then
+      begin
+       if (Consultation <> nil) then
+       begin
+        f_HyperlinkCallStatus := false; // http://mdp.garant.ru/pages/viewpage.action?pageId=342335537       
+        if NativeMainForm.HasForm(fm_efList.rFormID, vcm_ztChild, True, @l_Form) then
+         l_Form.SetActiveInParent;
+       end;
+      end
+      else
+       Result := False;
+ end;
+
+//#UC END# *4A815E860391_49539DBA029D_impl*
+//#UC START# *4A815E860391_49539DBA029D_var*
+var
+ l_Operartion: TbsObjectId;
+ l_Form: IvcmEntityForm;
+const
+ gc_Confirmation: array [Boolean] of PvcmMessageID = (@inf_PaymentRejected, @inf_PaymentConfirmed);
+//#UC END# *4A815E860391_49539DBA029D_var*
+//#UC START# *4A815FB3005D_49539DBA029D_impl*
+ Assert(ViewArea <> nil);
+ Result := ViewArea.MakeGotoPointData(aDocument, aPointType, aSub);
+//#UC END# *4A815FB3005D_49539DBA029D_impl*
+//#UC START# *4A815FB3005D_49539DBA029D_var*
+//#UC END# *4A815FB3005D_49539DBA029D_var*
+//#UC START# *4A8160720125_49539DBA029D_impl*
+ Result := false;
+ if (UserType in [dftDocSynchroView,
+                  dftRelatedSynchroView,
+                  dftMedicFirmSynchroView] +
+                 [dftAACLeft,
+                  dftAACRight,
+                  dftAACContentsLeft,
+                  dftAACContentsRight])
+                 // - в ААК по-любому надо открывать НОВЫЙ прецедент
+                 //   т.к. может перегрузится либо правая, либо левая половины
+                 //   документа 
+  then
+  Exit;
+ if aDocument.GetDocType = DT_BOOK then
+  Exit;
+ Result := inherited DoProcessLocalLink(aDocument, aPointType, aSub, aBehaviour);
+//#UC END# *4A8160720125_49539DBA029D_impl*
+//#UC START# *4A8160720125_49539DBA029D_var*
+//#UC END# *4A8160720125_49539DBA029D_var*
+//#UC START# *4A8164E801AE_49539DBA029D_impl*
+ if Text.TextSource.HasDocument then
+ begin
+  if (aPointType = dptSub) then
+  begin
+   if (aPointID AND POSITION_TYPE_MASK = POSITION_TYPE_PARA_ID) then
+    aPointType := dptPara;
+   l3ClearMask(Integer(aPointID), Integer(POSITION_TYPE_MASK));
+  end;//aPointType = dptSub
+  case aPointType of
+   dptPara :
+    try
+     Text.GoToPara(aPointID);
+    except
+     on E: Exception do
+      l3System.Exception2Log(E);
+    end;//try..except
+   dptSub  :
+    begin
+     l_Document := Document;
+     try
+      l_Sub := Text.Editor.Data.Document.Subs.SubsByID[aPointID];
+      if (l_Sub <> nil) and
+         l_Sub.Exists then
+       l_Sub.Select;
+     finally
+      l_Document := nil;
+     end;//try..finally
+    end;//dptSub
+   dptBookmark :
+    begin
+     l_Sub := Text.Editor.Data.Document.Bookmarks.SubsByID[aPointID];
+     if (l_Sub <> nil) and
+        l_Sub.Exists then
+      l_Sub.Select;
+    end;//dptBookmark
+   dptMarker :
+    begin
+     l_Sub := Text.Editor.Data.Document.Markers.SubsByID[aPointID];
+     if (l_Sub <> nil) and
+        l_Sub.Exists then
+      l_Sub.Select;
+    end;//dptMarker
+   dptMark :
+    begin
+     l_Sub := Text.Editor.Data.Document.Marks.SubsByID[aPointID];
+     if (l_Sub <> nil) and
+        l_Sub.Exists then
+      l_Sub.Select;
+    end;//dptMark
+   dptDocumentPlace:
+    if aPointID = LongWord(Ord(ev_dpEnd)) then
+     Text.GotoBottom;
+  end;//case aPointType
+ end//Text.TextSource.HasDocument
+ else
+ if (ViewArea <> nil) then
+  ViewArea.DocInfo.SetPosition(TbsDocPos_C(aPointType, aPointID));
+//#UC END# *4A8164E801AE_49539DBA029D_impl*
+//#UC START# *4A8164E801AE_49539DBA029D_var*
+var
+ l_Document : IDocument;
+ l_Sub      : IeeSub;
+//#UC END# *4A8164E801AE_49539DBA029D_var*
+//#UC START# *4A81650B014A_49539DBA029D_impl*
+ OpenRedactionGlobalLink(aDocument, aSub, aBehaviour);
+//#UC END# *4A81650B014A_49539DBA029D_impl*
+//#UC START# *4A81650B014A_49539DBA029D_var*
+//#UC END# *4A81650B014A_49539DBA029D_var*
+//#UC START# *4A8168BB0217_49539DBA029D_impl*
+ Result := Document;
+//#UC END# *4A8168BB0217_49539DBA029D_impl*
+//#UC START# *4A8168BB0217_49539DBA029D_var*
+//#UC END# *4A8168BB0217_49539DBA029D_var*
+//#UC START# *4A82BC390036_49539DBA029Dget_impl*
+ Result := Text;
+//#UC END# *4A82BC390036_49539DBA029Dget_impl*
+//#UC START# *4A82BC390036_49539DBA029Dget_var*
+//#UC END# *4A82BC390036_49539DBA029Dget_var*
+//#UC START# *4A84183701B9_49539DBA029D_impl*
+ Result := not (UserType in [dftAACLeft,
+                             dftAACRight,
+                             dftAACContentsLeft,
+                             dftAACContentsRight]);
+//#UC END# *4A84183701B9_49539DBA029D_impl*
+//#UC START# *4A84183701B9_49539DBA029D_var*
+//#UC END# *4A84183701B9_49539DBA029D_var*
+//#UC START# *4A8931130363_49539DBA029D_impl*
+ Result := true;
+//#UC END# *4A8931130363_49539DBA029D_impl*
+//#UC START# *4A8931130363_49539DBA029D_var*
+//#UC END# *4A8931130363_49539DBA029D_var*
+//#UC START# *4A8A9DB0001A_49539DBA029D_impl*
+ Result := false;
+//#UC END# *4A8A9DB0001A_49539DBA029D_impl*
+//#UC START# *4A8A9DB0001A_49539DBA029D_var*
+//#UC END# *4A8A9DB0001A_49539DBA029D_var*
+//#UC START# *4A8AAD450084_49539DBA029Dget_impl*
+ Result := Text;
+//#UC END# *4A8AAD450084_49539DBA029Dget_impl*
+//#UC START# *4A8AAD450084_49539DBA029Dget_var*
+//#UC END# *4A8AAD450084_49539DBA029Dget_var*
+//#UC START# *4A8E5CEC021F_49539DBA029D_impl*
+ Result := GetNeedsStatusBarItems;
+//#UC END# *4A8E5CEC021F_49539DBA029D_impl*
+//#UC START# *4A8E5CEC021F_49539DBA029D_var*
+//#UC END# *4A8E5CEC021F_49539DBA029D_var*
+//#UC START# *4A8E8F2E0195_49539DBA029D_impl*
+ inherited;
+ TextSource.OnMakeDocumentContainer := TextSourceMakeDocumentContainer;
+ TextSource.OnDocumentChanged := TextSourceDocumentChanged;
+ TextSource.OnTOCCreated := Self.TextSourceTOCCreated;
+ SubPanel.Color := clWhite;
+ Text.LeftIndentDelta := 7{2};
+                      // ^ http://mdp.garant.ru/pages/viewpage.action?pageId=294590299
+ Text.OnFocusViaMouseSet := Self.DoFocusViaMouseSet;
+ Text.OnHistory := Self.OnHistoryState;
+ Assert(not Assigned(Text.OnHyperlinkNavigate));
+ Text.OnHyperlinkNavigate := Self.DoHyperlinkNavigate;
+ Text.OnZOrderChanging := Self.DoTextZOrderChanging;
+//#UC END# *4A8E8F2E0195_49539DBA029D_impl*
+//#UC START# *4A8E8F2E0195_49539DBA029D_var*
+//#UC END# *4A8E8F2E0195_49539DBA029D_var*
+//#UC START# *4A8EEFED022C_49539DBA029D_impl*
+ if (aUserType = dftNone) then
+  Result := true
+ else
+ begin
+  // А нужны ли в этой проверке первые две строки?
+  // Ну вторая-то точно не нужна...
+  Result := (UserType <> dftNone) and
+            (aUserType <> dftNone) and
+            ((UserType = aUserType) or
+             ((UserType in [dftAACLeft]) and
+              (aUserType = dftDocument)
+             )
+            );
+ end;
+//#UC END# *4A8EEFED022C_49539DBA029D_impl*
+//#UC START# *4A8EEFED022C_49539DBA029D_var*
+//#UC END# *4A8EEFED022C_49539DBA029D_var*
+//#UC START# *4A8EF02E007D_49539DBA029Dexec_impl*
+ // операция может быть вызвана для формы с конкретным UserType
+
+ if not CheckParamForUserType(aUserType) then
+  Exit;
+ OpenDocumentInNewContainer(vcm_okInNewWindow);
+//#UC END# *4A8EF02E007D_49539DBA029Dexec_impl*
+//#UC START# *4A8EF02E007D_49539DBA029Dexec_var*
+var
+ l_NewDocument : IDocument;
+ l_Cont        : IvcmContainer;
+ l_TopPara     : IeePara;
+//#UC END# *4A8EF02E007D_49539DBA029Dexec_var*
+//#UC START# *4A8EF367029E_49539DBA029Dexec_impl*
+ if (UserType = dftDocument) then
+ begin
+  if not defDataAdapter.TimeMachine.IsOn then
+  begin
+   if aStayInCurrentRedaction then
+    f_DontResetRedactions := True;
+   if not f_DontResetRedactions then
+    SetActualRedaction
+   else
+   // чтобы не было пустой вкладки как в http://mdp.garant.ru/pages/viewpage.action?pageId=342866563
+   // добавляем ниже проверку - and dsDocument.TimeMachineOff
+   if Visible and Assigned(dsDocument) and dsDocument.TimeMachineOff then
+    DocumentSet.OpenWarning;
+  end//not defDataAdapter.TimeMachine.IsOn
+  else
+  if not ReloadRedaction(defDataAdapter.TimeMachine.Date) and
+     Visible and Assigned(dsDocument) and dsDocument.TimeMachineOff then
+   DocumentSet.OpenWarning;
+ end;//UserType = dftDocument
+ f_DontResetRedactions := False;
+//#UC END# *4A8EF367029E_49539DBA029Dexec_impl*
+//#UC START# *4A8EF367029E_49539DBA029Dexec_var*
+//#UC END# *4A8EF367029E_49539DBA029Dexec_var*
+//#UC START# *4A8EF4B50044_49539DBA029Dexec_impl*
+ if (UserType = dftDocument) and
+    (Document <> nil) then
+  ReloadRedaction(crtID, aRedactionID);
+//#UC END# *4A8EF4B50044_49539DBA029Dexec_impl*
+//#UC START# *4A8EF4B50044_49539DBA029Dexec_var*
+//#UC END# *4A8EF4B50044_49539DBA029Dexec_var*
+//#UC START# *4A9D26B80015_49539DBA029Dexec_impl*
+ Result := true;
+ if Text.HasSelection then
+  DoFindInDict
+ else
+  Result := false;
+//#UC END# *4A9D26B80015_49539DBA029Dexec_impl*
+//#UC START# *4A9D26B80015_49539DBA029Dexec_var*
+//#UC END# *4A9D26B80015_49539DBA029Dexec_var*
+//#UC START# *4A9D3FC50134_49539DBA029Dexec_impl*
+ DoFindInDict;
+//#UC END# *4A9D3FC50134_49539DBA029Dexec_impl*
+//#UC START# *4A9D3FC50134_49539DBA029Dexec_var*
+//#UC END# *4A9D3FC50134_49539DBA029Dexec_var*
+//#UC START# *4A9D3FC50134_49539DBA029Dtest_impl*
+ if aParams.Op.Flag[vcm_ofEnabled] then 
+  aParams.Op.Flag[vcm_ofEnabled] := (Document <> nil) and
+                                   (not IsPictureUnderCursor) and
+                                   defDataAdapter.IsExplanatoryExists;
+//#UC END# *4A9D3FC50134_49539DBA029Dtest_impl*
+//#UC START# *4A9D3FC50134_49539DBA029Dtest_var*
+//#UC END# *4A9D3FC50134_49539DBA029Dtest_var*
+//#UC START# *4AAA150A0244_49539DBA029D_impl*
+ TnsSwitchVersionCommentsEvent.Log(NewState);
+//#UC END# *4AAA150A0244_49539DBA029D_impl*
+//#UC START# *4AAA150A0244_49539DBA029D_var*
+//#UC END# *4AAA150A0244_49539DBA029D_var*
+//#UC START# *4AC497FD00A2_49539DBA029D_impl*
+ Result := not (UserType in [dftNone,
+                             dftDocument,
+                             dftRelatedDoc,
+                             dftDocSynchroView,
+                             dftRelatedSynchroView,
+                             dftDictEntry,
+                             //dftDictSubEntry,
+                             dftAnnotation,
+                             //dftAutoreferatAfterSearch,
+                             //dftConsultation,
+                             dftTranslation,
+                             dftAnnotationSynchroView,
+                             dftTips,
+                             dftMedDictEntry,
+                             //dftAutoreferat,
+                             //dftDrug,
+                             dftMedicFirm,
+                             dftMedicFirmSynchroView]);
+ if Result then
+ begin
+  theCaption := GetCurrentCaption;
+  theItemIndex := GetCurrentImage;
+ end;//UserType in..
+//#UC END# *4AC497FD00A2_49539DBA029D_impl*
+//#UC START# *4AC497FD00A2_49539DBA029D_var*
+//#UC END# *4AC497FD00A2_49539DBA029D_var*
+//#UC START# *4AE9D38A02DA_49539DBA029Dexec_impl*
+ if not CheckParamForUserType(aUserType) then
+ begin
+  Result := false;
+  Exit;
+ end;//not CheckParamForUserType(aUserType)
+ Result := true;
+ GoToPoint(aPointID, aPointType)
+//#UC END# *4AE9D38A02DA_49539DBA029Dexec_impl*
+//#UC START# *4AE9D38A02DA_49539DBA029Dexec_var*
+//#UC END# *4AE9D38A02DA_49539DBA029Dexec_var*
+//#UC START# *4AE9D9AF02FE_49539DBA029Dexec_impl*
+ if (ZoneType = vcm_ztChild) and
+    (UserType = aUserType) then
+ begin
+  if IsActiveInParent then
+   SetInactiveInParent
+  else
+   SetActiveInParent;
+ end;//ZoneType = vcm_ztChild
+//#UC END# *4AE9D9AF02FE_49539DBA029Dexec_impl*
+//#UC START# *4AE9D9AF02FE_49539DBA029Dexec_var*
+//#UC END# *4AE9D9AF02FE_49539DBA029Dexec_var*
+//#UC START# *4AE9DC070264_49539DBA029Dexec_impl*
+ ExportBlock(ExtractRangeFromContents(aData, aUserType), aToActiveWindow);
+//#UC END# *4AE9DC070264_49539DBA029Dexec_impl*
+//#UC START# *4AE9DC070264_49539DBA029Dexec_var*
+//#UC END# *4AE9DC070264_49539DBA029Dexec_var*
+//#UC START# *4AEAF9C000D8_49539DBA029Dexec_impl*
+ l_CurSub := Text.GetNearestSubByCursor;
+ try
+  if (l_CurSub <> nil) then
+   Result := l_CurSub.ID
+  else
+   Result := -1;
+ finally
+  l_CurSub := nil;
+ end;//try..finally
+//#UC END# *4AEAF9C000D8_49539DBA029Dexec_impl*
+//#UC START# *4AEAF9C000D8_49539DBA029Dexec_var*
+var
+ l_CurSub : IeeSub;
+//#UC END# *4AEAF9C000D8_49539DBA029Dexec_var*
+//#UC START# *4AEAF9C000D8_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (UserType in [dftDocument, dftMedicFirm]);
+//#UC END# *4AEAF9C000D8_49539DBA029Dtest_impl*
+//#UC START# *4AEAF9C000D8_49539DBA029Dtest_var*
+//#UC END# *4AEAF9C000D8_49539DBA029Dtest_var*
+//#UC START# *4AEB097001C3_49539DBA029Dexec_impl*
+ SelectBlock(ExtractRangeFromContents(aData, aUserType));
+//#UC END# *4AEB097001C3_49539DBA029Dexec_impl*
+//#UC START# *4AEB097001C3_49539DBA029Dexec_var*
+//#UC END# *4AEB097001C3_49539DBA029Dexec_var*
+//#UC START# *4AEB09C50287_49539DBA029Dexec_impl*
+ CopyBlock(ExtractRangeFromContents(aData, aUserType));
+//#UC END# *4AEB09C50287_49539DBA029Dexec_impl*
+//#UC START# *4AEB09C50287_49539DBA029Dexec_var*
+//#UC END# *4AEB09C50287_49539DBA029Dexec_var*
+//#UC START# *4AEB0A1C0270_49539DBA029Dexec_impl*
+ PrintBlock(ExtractRangeFromContents(aData, aUserType));
+//#UC END# *4AEB0A1C0270_49539DBA029Dexec_impl*
+//#UC START# *4AEB0A1C0270_49539DBA029Dexec_var*
+//#UC END# *4AEB0A1C0270_49539DBA029Dexec_var*
+//#UC START# *4AEB0A550165_49539DBA029Dexec_impl*
+ PrintDialogBlock(ExtractRangeFromContents(aData, aUserType));
+//#UC END# *4AEB0A550165_49539DBA029Dexec_impl*
+//#UC START# *4AEB0A550165_49539DBA029Dexec_var*
+//#UC END# *4AEB0A550165_49539DBA029Dexec_var*
+//#UC START# *4AEB0A8E002E_49539DBA029Dexec_impl*
+ PreviewBlock(ExtractRangeFromContents(aData, aUserType));
+//#UC END# *4AEB0A8E002E_49539DBA029Dexec_impl*
+//#UC START# *4AEB0A8E002E_49539DBA029Dexec_var*
+//#UC END# *4AEB0A8E002E_49539DBA029Dexec_var*
+//#UC START# *4AEEEE970141_49539DBA029Dexec_impl*
+ if (UserType in [dftDocument, dftAACLeft]) then
+  OpenCRListToPart(crtRespondents, aCurrent, aList);
+//#UC END# *4AEEEE970141_49539DBA029Dexec_impl*
+//#UC START# *4AEEEE970141_49539DBA029Dexec_var*
+//#UC END# *4AEEEE970141_49539DBA029Dexec_var*
+//#UC START# *4AEEEEB7027C_49539DBA029Dexec_impl*
+ if (UserType in [dftDocument, dftAACLeft]) then
+  OpenCRListToPart(crtCorrespondents, aCurrent, aList);
+//#UC END# *4AEEEEB7027C_49539DBA029Dexec_impl*
+//#UC START# *4AEEEEB7027C_49539DBA029Dexec_var*
+//#UC END# *4AEEEEB7027C_49539DBA029Dexec_var*
+//#UC START# *4AEEF7F40304_49539DBA029Dexec_impl*
+ if (Document <> nil) and
+    (Text.Editor.Data.Document.Bookmarks.Count > 0) and
+    Supports(anEntity, IBookmark, l_Bookmark) then
+  try
+   if FindBookmarkInText(l_Bookmark, l_Sub) then
+    try
+     l_Sub.Name := nsGetBookmarkName(l_Bookmark).AsWStr;
+    finally
+     l_Sub := nil;
+    end;//try..finally
+  finally
+   l_Bookmark := nil;
+  end;//try..finally
+//#UC END# *4AEEF7F40304_49539DBA029Dexec_impl*
+//#UC START# *4AEEF7F40304_49539DBA029Dexec_var*
+var
+ l_Bookmark : IBookmark;
+ l_Sub      : IeeSub;
+//#UC END# *4AEEF7F40304_49539DBA029Dexec_var*
+//#UC START# *4AEEF87B00E1_49539DBA029Dexec_impl*
+ if (Document <> nil) and
+    (aTag <> nil) then
+ begin
+  l_eePara := TeePara.Make(aTag.AsObject.Box, Text As IeeDocumentEx);
+  try
+   AddBookmark(eeFindNumberedPara(l_eePara, Text as IeeDocumentEx));
+  finally
+   l_eePara := nil;
+  end;
+ end;//Document <> nil
+//#UC END# *4AEEF87B00E1_49539DBA029Dexec_impl*
+//#UC START# *4AEEF87B00E1_49539DBA029Dexec_var*
+var
+ l_eePara: IeePara;
+//#UC END# *4AEEF87B00E1_49539DBA029Dexec_var*
+//#UC START# *4AF329F6002A_49539DBA029Dexec_impl*
+ if (aParams.CurrentNode <> nil) OR (aParams.ItemIndex >= 0) then
+  GetCorrespondentListEx(aParams.ItemIndex, bsConvertFilteredCRNode(aParams.CurrentNode));
+//#UC END# *4AF329F6002A_49539DBA029Dexec_impl*
+//#UC START# *4AF329F6002A_49539DBA029Dexec_var*
+//#UC END# *4AF329F6002A_49539DBA029Dexec_var*
+//#UC START# *4AF329F6002A_49539DBA029Dtest_impl*
+ TypedCRToPartTest(aParams, crtCorrespondents);
+//#UC END# *4AF329F6002A_49539DBA029Dtest_impl*
+//#UC START# *4AF329F6002A_49539DBA029Dtest_var*
+//#UC END# *4AF329F6002A_49539DBA029Dtest_var*
+//#UC START# *4AF329FD014D_49539DBA029Dexec_impl*
+ if (aParams.CurrentNode <> nil) OR (aParams.ItemIndex >= 0) then
+  GetRespondentListEx(aParams.ItemIndex, aParams.CurrentNode);
+//#UC END# *4AF329FD014D_49539DBA029Dexec_impl*
+//#UC START# *4AF329FD014D_49539DBA029Dexec_var*
+//#UC END# *4AF329FD014D_49539DBA029Dexec_var*
+//#UC START# *4AF329FD014D_49539DBA029Dtest_impl*
+ TypedCRToPartTest(aParams, crtRespondents);
+//#UC END# *4AF329FD014D_49539DBA029Dtest_impl*
+//#UC START# *4AF329FD014D_49539DBA029Dtest_var*
+//#UC END# *4AF329FD014D_49539DBA029Dtest_var*
+//#UC START# *4AF83BDB03AE_49539DBA029Dexec_impl*
+ f_DontResetRedactions := true;
+ TimeMachineOnOff;
+//#UC END# *4AF83BDB03AE_49539DBA029Dexec_impl*
+//#UC START# *4AF83BDB03AE_49539DBA029Dexec_var*
+//#UC END# *4AF83BDB03AE_49539DBA029Dexec_var*
+//#UC START# *4AF83BDB03AE_49539DBA029Dtest_impl*
+ with aParams do
+ begin
+  Op.Flag[vcm_ofEnabled] := Assigned(Document) and
+   (not Document.GetNotTm or DefDataAdapter.TimeMachine.IsOn);
+  if Op.Flag[vcm_ofEnabled] then
+   Op.Flag[vcm_ofChecked] := defDataAdapter.TimeMachine.IsOn;
+ end;//with aParams do
+//#UC END# *4AF83BDB03AE_49539DBA029Dtest_impl*
+//#UC START# *4AF83BDB03AE_49539DBA029Dtest_var*
+//#UC END# *4AF83BDB03AE_49539DBA029Dtest_var*
+//#UC START# *4AF83BEB0393_49539DBA029Dexec_impl*
+ TimeMachineOnOff(True);
+//#UC END# *4AF83BEB0393_49539DBA029Dexec_impl*
+//#UC START# *4AF83BEB0393_49539DBA029Dexec_var*
+//#UC END# *4AF83BEB0393_49539DBA029Dexec_var*
+//#UC START# *4AF83BEB0393_49539DBA029Dtest_impl*
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.TimeMachine.IsOn;
+//#UC END# *4AF83BEB0393_49539DBA029Dtest_impl*
+//#UC START# *4AF83BEB0393_49539DBA029Dtest_var*
+//#UC END# *4AF83BEB0393_49539DBA029Dtest_var*
+//#UC START# *4AF83C3D01DA_49539DBA029Dexec_impl*
+ if (UserType = dftDocument) then
+ begin
+  l_Document := defDataAdapter.TimeMachine.NotSureHelp;
+  if Assigned(l_Document) then
+   try
+    TDocumentService.Instance.OpenDocumentWithCheck(TdeDocInfo.Make(l_Document), NativeMainForm);
+   finally
+    l_Document := nil;
+   end;//try..finally
+ end;//UserType = dftDocument
+//#UC END# *4AF83C3D01DA_49539DBA029Dexec_impl*
+//#UC START# *4AF83C3D01DA_49539DBA029Dexec_var*
+var
+ l_Document: IDocument;
+//#UC END# *4AF83C3D01DA_49539DBA029Dexec_var*
+//#UC START# *4AFAF4900270_49539DBA029Dexec_impl*
+ SetActualRedaction;
+//#UC END# *4AFAF4900270_49539DBA029Dexec_impl*
+//#UC START# *4AFAF4900270_49539DBA029Dexec_var*
+//#UC END# *4AFAF4900270_49539DBA029Dexec_var*
+//#UC START# *4AFAF4900270_49539DBA029Dtest_impl*
+ if EnableRedactionOps(aParams) and Assigned(ViewArea) then
+  aParams.Op.Flag[vcm_ofChecked] := TCommonService.Instance.IsCurEditionActual(ViewArea.DocInfo.Doc);
+//#UC END# *4AFAF4900270_49539DBA029Dtest_impl*
+//#UC START# *4AFAF4900270_49539DBA029Dtest_var*
+//#UC END# *4AFAF4900270_49539DBA029Dtest_var*
+//#UC START# *4AFD4230031F_49539DBA029Dexec_impl*
+ with Text do
+  if (ExcludeSuper = []) then
+   ExcludeSuper := [ev_slFoundWords]
+  else
+   ExcludeSuper := [];
+//#UC END# *4AFD4230031F_49539DBA029Dexec_impl*
+//#UC START# *4AFD4230031F_49539DBA029Dexec_var*
+//#UC END# *4AFD4230031F_49539DBA029Dexec_var*
+//#UC START# *4AFD4230031F_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofChecked] := (Text.ExcludeSuper = []);
+//#UC END# *4AFD4230031F_49539DBA029Dtest_impl*
+//#UC START# *4AFD4230031F_49539DBA029Dtest_var*
+//#UC END# *4AFD4230031F_49539DBA029Dtest_var*
+//#UC START# *4AFD4A45003B_49539DBA029Dexec_impl*
+ if not CheckParamForUserType(aUserType) then
+ begin
+  Result := false;
+  Exit;
+ end;//not CheckParamForUserType(aUserType)
+ Result := true;
+ if not aPara.AsObject.QT(InevObject, l_O) then
+  Assert(false);
+ Text.GotoTag(l_O);
+//#UC END# *4AFD4A45003B_49539DBA029Dexec_impl*
+//#UC START# *4AFD4A45003B_49539DBA029Dexec_var*
+var
+ l_O : InevObject;
+//#UC END# *4AFD4A45003B_49539DBA029Dexec_var*
+//#UC START# *4B043ABF0363_49539DBA029D_impl*
+ if (UserType in [dftRelatedDoc,
+                              dftDictSubEntry,
+                              dftAnnotation,
+                              dftTranslation,
+                              dftChronology]) then
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=573677603
+  op_Switcher_SetFirstPageActive.Call(Container)
+ else
+  SafeClose;
+//#UC END# *4B043ABF0363_49539DBA029D_impl*
+//#UC START# *4B043ABF0363_49539DBA029D_var*
+//#UC END# *4B043ABF0363_49539DBA029D_var*
+//#UC START# *4B261EC80086_49539DBA029Dexec_impl*
+ if DefDataAdapter.TimeMachine.IsOn then
+  TCommonService.Instance.OpenTurnOffTimeMachine(InsTurnOffTimeMachine(Self))
+ else
+  TDocumentService.Instance.OpenTurnOnTimeMachine(InsTurnOnTimeMachine(Self));
+//#UC END# *4B261EC80086_49539DBA029Dexec_impl*
+//#UC START# *4B261EC80086_49539DBA029Dexec_var*
+//#UC END# *4B261EC80086_49539DBA029Dexec_var*
+//#UC START# *4B261EC80086_49539DBA029Dgetstate_impl*
+ if (Document <> nil) then
+ begin
+  if not defDataAdapter.TimeMachine.IsOn then
+   State := st_user_TimeMachine_TimeMachineOnOffNew_MachineOn
+  else
+   State := st_user_TimeMachine_TimeMachineOnOffNew_MachineOff;
+ end//Document <> nil
+ else
+  State := vcm_DefaultOperationState;
+//#UC END# *4B261EC80086_49539DBA029Dgetstate_impl*
+//#UC START# *4B261EC80086_49539DBA029Dgetstate_var*
+//#UC END# *4B261EC80086_49539DBA029Dgetstate_var*
+//#UC START# *4B261EC80086_49539DBA029Dtest_impl*
+ with aParams do
+ begin
+  Op.Flag[vcm_ofEnabled] := Assigned(Document)
+   and (not Document.GetNotTm or DefDataAdapter.TimeMachine.IsOn)
+   and not (UserType in [dftAACContentsRight, dftAACContentsLeft]);
+  if Op.Flag[vcm_ofEnabled] then
+   Op.Flag[vcm_ofChecked] := defDataAdapter.TimeMachine.IsOn;
+ end;//with aParams do
+//#UC END# *4B261EC80086_49539DBA029Dtest_impl*
+//#UC START# *4B261EC80086_49539DBA029Dtest_var*
+//#UC END# *4B261EC80086_49539DBA029Dtest_var*
+//#UC START# *4B262F9701DE_49539DBA029Dexec_impl*
+ OpenRedactionList;
+//#UC END# *4B262F9701DE_49539DBA029Dexec_impl*
+//#UC START# *4B262F9701DE_49539DBA029Dexec_var*
+//#UC END# *4B262F9701DE_49539DBA029Dexec_var*
+//#UC START# *4B262F9701DE_49539DBA029Dgetstate_impl*
+ State := vcm_DefaultOperationState;
+//#UC END# *4B262F9701DE_49539DBA029Dgetstate_impl*
+//#UC START# *4B262F9701DE_49539DBA029Dgetstate_var*
+//#UC END# *4B262F9701DE_49539DBA029Dgetstate_var*
+//#UC START# *4B262F9701DE_49539DBA029Dtest_impl*
+ EnableRedactionOps(aParams);
+//#UC END# *4B262F9701DE_49539DBA029Dtest_impl*
+//#UC START# *4B262F9701DE_49539DBA029Dtest_var*
+//#UC END# *4B262F9701DE_49539DBA029Dtest_var*
+//#UC START# *4B2631930324_49539DBA029D_impl*
+ DocumentSet.OpenEditions;
+//#UC END# *4B2631930324_49539DBA029D_impl*
+//#UC START# *4B2631930324_49539DBA029D_var*
+//#UC END# *4B2631930324_49539DBA029D_var*
+//#UC START# *4B4F13E80365_49539DBA029D_impl*
+ Case UserType of
+  dftAACContentsLeft:
+   Result := true;
+  dftAACRight:
+   Result := false;
+  dftAACContentsRight:
+   Result := false;
+  dftAACLeft:
+   Result := true;
+  else
+   Result := inherited NeedSetMyFocus;
+ end;//Case UserType
+//#UC END# *4B4F13E80365_49539DBA029D_impl*
+//#UC START# *4B4F13E80365_49539DBA029D_var*
+//#UC END# *4B4F13E80365_49539DBA029D_var*
+//#UC START# *4B506F4D0196_49539DBA029Dexec_impl*
+ Result := GetParaForPositionning;
+//#UC END# *4B506F4D0196_49539DBA029Dexec_impl*
+//#UC START# *4B506F4D0196_49539DBA029Dexec_var*
+//#UC END# *4B506F4D0196_49539DBA029Dexec_var*
+//#UC START# *4B506F4D0196_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (UserType in [dftDocument, dftMedicFirm]);
+//#UC END# *4B506F4D0196_49539DBA029Dtest_impl*
+//#UC START# *4B506F4D0196_49539DBA029Dtest_var*
+//#UC END# *4B506F4D0196_49539DBA029Dtest_var*
+//#UC START# *4BFFA0FF01D2_4C066918002D_impl*
+ Result := inherited TrySelectPara(aContainer, aSel, aParaID);
+ try
+  if not Result then
+  begin
+   //http://mdp.garant.ru/pages/viewpage.action?pageId=420416039
+   if ((f_Form.Text.AACLike = nev_aacLeft) and ((f_Pos.rRefType <> dptPara)
+    or ((f_Pos.rRefType = dptSub) and (f_Pos.rPos <> 0)))) then
+   begin
+    f_Form.Text.Try2GoByHyperlinkUnderCursor;
+    Exit;
+   end // if Text.AACLike = nev_aacLeft then
+   else
+   // "Обратная синхронизация" - находим и выделяем ссылку в левой части
+   // на открываемый в правой части документа
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=420416039
+   if ((f_Form.Text.AACLike = nev_aacLeft) and (f_Pos.rRefType = dptPara)) and
+      f_Form.AAC.Right.HasDoc then
+   begin
+    // Поищем параграф в правой части
+    if f_Form.AAC.Right.Container.FindObjByID(f_Pos.rPos, l_Obj) then
+    try
+     if Supports(l_Obj, InevPara, l_Para) then
+     try
+      l_SubHandle := l_Para.AsObject.rAtomEx([k2_tiSubs, k2_tiChildren, k2_tiHandle, Ord(ev_sbtSub),
+       k2_tiChildren, k2_tiByIndex, 0]).IntA[k2_tiHandle];
+      if (l_SubHandle <= 0) then
+      begin
+       if evInBlock(l_Para.AsObject, ev_bvkRight, l_Block) then
+       begin
+        l_SubHandle := l_Block.IntA[k2_tiHandle];
+        l_Block.BoolA[k2_tiCollapsed] := False;
+       end; // if evInPara(l_Para.AsObject, k2_typBlock, l_Block) then
+      end; // if (l_SubHandle <= 0) then
+      if (l_SubHandle > 0) then
+      begin
+       l_Addr := TevAddress_C(-1, l_SubHandle);
+       if (f_Form.Text.SearchHyperLinkAddress(true, true, l_Addr)) then
+        Exit;
+      end;//if (l_SubHandle > 0) then
+     finally
+      l_Para := nil;
+     end;//try..finally
+    finally
+     l_Obj := nil;
+    end;//try..finally
+   end;// if ((f_Form.Text.AACLike = nev_aacLeft) and (f_Pos.rRefType = dptPara))
+   if (f_Pos.rPara <> nil) then
+   // - http://mdp.garant.ru/pages/viewpage.action?pageId=217157085
+   begin
+    Result := true;
+    // - будем оптимистами
+    if f_Form.GotoSub(f_Pos.rPara) then
+     Exit;
+    if (f_Pos.rPara <> nil) then
+     begin
+      if f_Pos.rPara.AsObject.QT(InevPara, l_Para) then
+       try
+        if evInPara(l_Para.AsObject, k2_typBlock, l_Block) AND
+           (l_Block.IntA[k2_tiLayerID] = Ord(ev_sbtSub)) then
+        begin
+         if evInPara(l_Block.AsObject, k2_typDocument, l_Doc) then
+         begin
+          l_Part := TevDocumentPartImplementation.Make(l_Doc,
+                                                       nil,
+                                                       l_Block.IntA[k2_tiHandle],
+                                                       l_Block.IntA[k2_tiLayerID]);
+          try
+           if f_Form.GotoBlock(l_Part) then
+            Exit;
+          finally
+           l_Part := nil;
+          end;//try..finally
+         end;//evInPara(l_Block, k2_typDocument, l_Doc)
+        end;//evInPara(l_Para, k2_typBlock, l_Block)
+       finally
+        l_Para := nil;
+       end;//f_Pos.rPara <> nil
+     end;//try..finally
+    Result := false;
+   end;//f_Pos.rPara <> nil
+  end;//not Result
+ finally
+  if Result then
+  // - здесь надо будет раскрыть комментарии, если параграфа не видно
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=236718088
+  begin
+   if (f_Form <> nil) then
+   begin
+    with f_Form.Text do
+    begin
+     if TextSource.DocumentContainer.FindObjByID(aParaID, l_Obj) then
+     begin
+      if (l_Obj <> nil) then
+      begin
+       l_Fmt := View.FormatInfoByPara(l_Obj);
+       if (l_Fmt <> nil) AND l_Fmt.IsHidden(true, true) then
+       begin
+        if not l_Obj.AsObject.QT(InevPara, l_Para) then
+         Assert(false);
+        if l_Para.IsLegalComment then
+        begin
+         if l_Para.IsComment then
+          ShowComments := True
+         else
+         begin
+          {$IfDef evNeedCollapsedVersionComments}
+          View.IsObjectCollapsed[l_Para] := false;
+          {$Else evNeedCollapsedVersionComments}
+          ShowVersionComments := True;
+          {$EndIf evNeedCollapsedVersionComments}
+         end;//l_Para.IsComment
+         InevSelection(Selection).SelectPoint(l_Para.MakePoint, true);
+        end;//l_Para.IsLegalComment
+       end;//l_Obj.IsHidden(aView.Metrics, aView.FormatInfoByPara(l_Obj), true)
+      end;//l_Obj <> nil
+     end;//TextSource.DocumentContainer.FindObjByID(aParaID, l_Obj)
+    end;//with f_Form.Text
+   end;//f_Form <> nil
+  end;//Result
+ end;//try..finally
+//#UC END# *4BFFA0FF01D2_4C066918002D_impl*
+//#UC START# *4BFFA0FF01D2_4C066918002D_var*
+var
+ l_Para      : InevPara;
+ l_View      : InevView;
+ l_Block     : Tl3Variant;
+ l_Doc       : Tl3Variant;
+ l_Part      : IevDocumentPart;
+ l_Obj       : InevObject;
+ l_Fmt       : TnevFormatInfoPrim;
+ l_Addr      : TevAddress;
+ l_BlockObj  : InevObject;
+ l_SubHandle : Integer;
+//#UC END# *4BFFA0FF01D2_4C066918002D_var*
+//#UC START# *4C0669610060_4C066918002D_impl*
+ inherited Create(aForm.Text, aPos.rPos, DocPosTypeToEdtSubType(aPos.rRefType));
+ f_Pos := aPos;
+ f_Form := aForm;
+//#UC END# *4C0669610060_4C066918002D_impl*
+//#UC START# *4C0669610060_4C066918002D_var*
+//#UC END# *4C0669610060_4C066918002D_var*
+//#UC START# *4C068AB5026A_49539DBA029D_impl*
+ Result := true;
+//#UC END# *4C068AB5026A_49539DBA029D_impl*
+//#UC START# *4C068AB5026A_49539DBA029D_var*
+//#UC END# *4C068AB5026A_49539DBA029D_var*
+//#UC START# *4C2AEDB3003B_49539DBA029Dexec_impl*
+ Assert(false, 'Это контекстная операция');
+//#UC END# *4C2AEDB3003B_49539DBA029Dexec_impl*
+//#UC START# *4C2AEDB3003B_49539DBA029Dexec_var*
+//#UC END# *4C2AEDB3003B_49539DBA029Dexec_var*
+//#UC START# *4C2AEDB3003B_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := false;
+//#UC END# *4C2AEDB3003B_49539DBA029Dtest_impl*
+//#UC START# *4C2AEDB3003B_49539DBA029Dtest_var*
+//#UC END# *4C2AEDB3003B_49539DBA029Dtest_var*
+//#UC START# *4C2AEDC503CC_49539DBA029Dexec_impl*
+ Assert(false, 'Это контекстная операция');
+//#UC END# *4C2AEDC503CC_49539DBA029Dexec_impl*
+//#UC START# *4C2AEDC503CC_49539DBA029Dexec_var*
+//#UC END# *4C2AEDC503CC_49539DBA029Dexec_var*
+//#UC START# *4C2AEDC503CC_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := false;
+//#UC END# *4C2AEDC503CC_49539DBA029Dtest_impl*
+//#UC START# *4C2AEDC503CC_49539DBA029Dtest_var*
+//#UC END# *4C2AEDC503CC_49539DBA029Dtest_var*
+//#UC START# *4C2AEDDA0335_49539DBA029Dexec_impl*
+ TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+ l_eeSub := ExtractSubFromSubPanel(aParams.Target);
+ if Assigned(l_eeSub) then
+ begin
+  f_eeSubIdForTypedCorrespondentList := l_eeSub.ID;
+  OpenCRListToPart(crtCorrespondents,
+                   bsConvertFilteredCRNode(aParams.CurrentNode),
+                   MakePositionListBySub(l_eeSub.ID));
+ end;
+//#UC END# *4C2AEDDA0335_49539DBA029Dexec_impl*
+//#UC START# *4C2AEDDA0335_49539DBA029Dexec_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *4C2AEDDA0335_49539DBA029Dexec_var*
+//#UC START# *4C2AEDDA0335_49539DBA029Dgetstate_impl*
+ State := st_user_DocumentBlock_GetTypedCorrespondentList_InText;
+//#UC END# *4C2AEDDA0335_49539DBA029Dgetstate_impl*
+//#UC START# *4C2AEDDA0335_49539DBA029Dgetstate_var*
+//#UC END# *4C2AEDDA0335_49539DBA029Dgetstate_var*
+//#UC START# *4C2AEDDA0335_49539DBA029Dtest_impl*
+ ExcludeRootSub(aParams);
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  CorrespondentsToSubTest(aParams);
+
+ if aParams.Op.Flag[vcm_ofChecked] then
+ begin
+  l_eeSub := ExtractSubFromSubPanel(aParams.Target);
+  if Assigned(l_eeSub) then
+   if (l_eeSub.ID <> f_eeSubIdForTypedCorrespondentList) then
+    aParams.Op.Flag[vcm_ofChecked] := False;
+ end;
+//#UC END# *4C2AEDDA0335_49539DBA029Dtest_impl*
+//#UC START# *4C2AEDDA0335_49539DBA029Dtest_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *4C2AEDDA0335_49539DBA029Dtest_var*
+//#UC START# *4C2AEDE7028C_49539DBA029Dexec_impl*
+ Assert(false, 'Это контекстная операция');
+//#UC END# *4C2AEDE7028C_49539DBA029Dexec_impl*
+//#UC START# *4C2AEDE7028C_49539DBA029Dexec_var*
+//#UC END# *4C2AEDE7028C_49539DBA029Dexec_var*
+//#UC START# *4C2AEDE7028C_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := false;
+//#UC END# *4C2AEDE7028C_49539DBA029Dtest_impl*
+//#UC START# *4C2AEDE7028C_49539DBA029Dtest_var*
+//#UC END# *4C2AEDE7028C_49539DBA029Dtest_var*
+//#UC START# *4C3AA77E00A3_49539DBA029Dexec_impl*
+ // - ничего не делаем, т.к. это FormActivate
+//#UC END# *4C3AA77E00A3_49539DBA029Dexec_impl*
+//#UC START# *4C3AA77E00A3_49539DBA029Dexec_var*
+//#UC END# *4C3AA77E00A3_49539DBA029Dexec_var*
+//#UC START# *4C3AA77E00A3_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.Monitoring.IsExist and
+  (ZoneType <> vcm_ztChild) and (Document <> nil) and
+  Assigned(dsDocument) and DocumentSet.HasAnnotation
+//#UC END# *4C3AA77E00A3_49539DBA029Dtest_impl*
+//#UC START# *4C3AA77E00A3_49539DBA029Dtest_var*
+//#UC END# *4C3AA77E00A3_49539DBA029Dtest_var*
+//#UC START# *4C3AA78E024D_49539DBA029Dexec_impl*
+ if (dsDocument <> nil) then
+  dsDocument.OpenSimilarDocuments;
+//#UC END# *4C3AA78E024D_49539DBA029Dexec_impl*
+//#UC START# *4C3AA78E024D_49539DBA029Dexec_var*
+//#UC END# *4C3AA78E024D_49539DBA029Dexec_var*
+//#UC START# *4C3AA78E024D_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (dsDocument <> nil) and dsDocument.HasSimilarDocuments;
+//#UC END# *4C3AA78E024D_49539DBA029Dtest_impl*
+//#UC START# *4C3AA78E024D_49539DBA029Dtest_var*
+//#UC END# *4C3AA78E024D_49539DBA029Dtest_var*
+//#UC START# *4C3ADF860163_49539DBA029Dexec_impl*
+ TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+//#UC END# *4C3ADF860163_49539DBA029Dexec_impl*
+//#UC START# *4C3ADF860163_49539DBA029Dexec_var*
+//#UC END# *4C3ADF860163_49539DBA029Dexec_var*
+//#UC START# *4C3ADF860163_49539DBA029Dgetstate_impl*
+ if (dsDocument <> nil) then
+ begin
+  if (DocumentSet.UserCRListInfo[ulFirst].ListType = crtCorrespondents) then
+   State := st_user_DocumentBlockHeader_UserCR1_Corr
+  else
+   State := vcm_DefaultOperationState;
+ end//dsDocument <> nil
+ else
+  State := vcm_DefaultOperationState;
+//#UC END# *4C3ADF860163_49539DBA029Dgetstate_impl*
+//#UC START# *4C3ADF860163_49539DBA029Dgetstate_var*
+//#UC END# *4C3ADF860163_49539DBA029Dgetstate_var*
+//#UC START# *4C3ADF860163_49539DBA029Dtest_impl*
+ DisableOperation(aParams);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
+ {CheckIsDocumentSub(aParams);
+ if aParams.Op.Flag[vcm_ofEnabled] and Assigned(dsDocument) then
+  with DocumentSet.UserCRListInfo[ulFirst] do
+  begin
+   aParams.Op.Flag[vcm_ofEnabled] := Has;
+   if Has then
+   begin
+    aParams.Op.Flag[vcm_ofEnabled] := Has;
+    aParams.Op.Hint := vcmFmt(vcmCStr(str_CorrespondetsDocumentSuffix),
+     [Caption]);
+    aParams.Op.Caption := vcmFmt(vcmCStr(str_CorrespondetsDocumentSuffix),
+     [Caption]);
+   end//UserCRListInfo[ulFirst].ListType <> crtNone
+   else
+    aParams.Op.Hint := nil;
+  end//with DocumentSet
+ else
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+ aParams.Op.Flag[vcm_ofChecked] := False;}
+//#UC END# *4C3ADF860163_49539DBA029Dtest_impl*
+//#UC START# *4C3ADF860163_49539DBA029Dtest_var*
+//#UC END# *4C3ADF860163_49539DBA029Dtest_var*
+//#UC START# *4C3ADF950028_49539DBA029Dexec_impl*
+ TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+//#UC END# *4C3ADF950028_49539DBA029Dexec_impl*
+//#UC START# *4C3ADF950028_49539DBA029Dexec_var*
+//#UC END# *4C3ADF950028_49539DBA029Dexec_var*
+//#UC START# *4C3ADF950028_49539DBA029Dgetstate_impl*
+ if (dsDocument <> nil) then
+ begin
+  if (DocumentSet.UserCRListInfo[ulSecond].ListType = crtCorrespondents) then
+   State := st_user_DocumentBlockHeader_UserCR2_Corr
+  else
+   State := vcm_DefaultOperationState;
+ end//dsDocument <> nil
+ else
+  State := vcm_DefaultOperationState;
+//#UC END# *4C3ADF950028_49539DBA029Dgetstate_impl*
+//#UC START# *4C3ADF950028_49539DBA029Dgetstate_var*
+//#UC END# *4C3ADF950028_49539DBA029Dgetstate_var*
+//#UC START# *4C3ADF950028_49539DBA029Dtest_impl*
+ DisableOperation(aParams);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
+ {CheckIsDocumentSub(aParams);
+ if aParams.Op.Flag[vcm_ofEnabled] and Assigned(dsDocument) then
+  with DocumentSet.UserCRListInfo[ulSecond] do
+  begin
+   aParams.Op.Flag[vcm_ofEnabled] := Has;
+   if Has then
+   begin
+    aParams.Op.Hint := vcmFmt(vcmCStr(str_CorrespondetsDocumentSuffix),
+     [Caption]);
+    aParams.Op.Caption := vcmFmt(vcmCStr(str_CorrespondetsDocumentSuffix),
+     [Caption]);
+   end//UserCRSheetTypes[ulSecond] <> crtNone
+   else
+    aParams.Op.Hint := nil;
+  end//with DocumentSet
+ else
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+ aParams.Op.Flag[vcm_ofChecked] := False;}
+//#UC END# *4C3ADF950028_49539DBA029Dtest_impl*
+//#UC START# *4C3ADF950028_49539DBA029Dtest_var*
+//#UC END# *4C3ADF950028_49539DBA029Dtest_var*
+//#UC START# *4C3ADFA5018F_49539DBA029Dexec_impl*
+ Document_GetCorrespondentListExFrmAct_Execute(aParams);
+ TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+//#UC END# *4C3ADFA5018F_49539DBA029Dexec_impl*
+//#UC START# *4C3ADFA5018F_49539DBA029Dexec_var*
+//#UC END# *4C3ADFA5018F_49539DBA029Dexec_var*
+//#UC START# *4C3ADFA5018F_49539DBA029Dtest_impl*
+ CheckIsDocumentSub(aParams);
+ aParams.Op.Flag[vcm_ofChecked] := False;
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  CorrespondentsToSubTest(aParams);
+//#UC END# *4C3ADFA5018F_49539DBA029Dtest_impl*
+//#UC START# *4C3ADFA5018F_49539DBA029Dtest_var*
+//#UC END# *4C3ADFA5018F_49539DBA029Dtest_var*
+//#UC START# *4C3AE0950253_49539DBA029Dexec_impl*
+ // Получение предыдущей редакции
+ ReloadRedaction(crtPrevious);
+//#UC END# *4C3AE0950253_49539DBA029Dexec_impl*
+//#UC START# *4C3AE0950253_49539DBA029Dexec_var*
+//#UC END# *4C3AE0950253_49539DBA029Dexec_var*
+//#UC START# *4C3AE0950253_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (ViewArea <> nil) and ViewArea.HasPrevRedaction;
+//#UC END# *4C3AE0950253_49539DBA029Dtest_impl*
+//#UC START# *4C3AE0950253_49539DBA029Dtest_var*
+//#UC END# *4C3AE0950253_49539DBA029Dtest_var*
+//#UC START# *4C3AE0CD0079_49539DBA029Dexec_impl*
+ // Получение следующей редакции
+ ReloadRedaction(crtNext);
+//#UC END# *4C3AE0CD0079_49539DBA029Dexec_impl*
+//#UC START# *4C3AE0CD0079_49539DBA029Dexec_var*
+//#UC END# *4C3AE0CD0079_49539DBA029Dexec_var*
+//#UC START# *4C3AE0CD0079_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (ViewArea <> nil) and
+  ViewArea.HasNextRedaction;
+//#UC END# *4C3AE0CD0079_49539DBA029Dtest_impl*
+//#UC START# *4C3AE0CD0079_49539DBA029Dtest_var*
+//#UC END# *4C3AE0CD0079_49539DBA029Dtest_var*
+//#UC START# *4C3AED97022A_49539DBA029D_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4C3AED97022A_49539DBA029D_impl*
+//#UC START# *4C3AED97022A_49539DBA029D_var*
+//#UC END# *4C3AED97022A_49539DBA029D_var*
+//#UC START# *4C3AFAD90234_49539DBA029Dexec_impl*
+ Document_AddToControl_Execute(aParams);
+//#UC END# *4C3AFAD90234_49539DBA029Dexec_impl*
+//#UC START# *4C3AFAD90234_49539DBA029Dexec_var*
+//#UC END# *4C3AFAD90234_49539DBA029Dexec_var*
+//#UC START# *4C3AFAD90234_49539DBA029Dgetstate_impl*
+ if Supports(Document, IControllable, l_Controllable) then
+  try
+   if l_Controllable.GetControlled then
+    State := st_user_Text_AddToControl_RemoveFromControl
+   else
+    State := vcm_DefaultOperationState;
+  finally
+   l_Controllable := nil;
+  end;//try..finally
+//#UC END# *4C3AFAD90234_49539DBA029Dgetstate_impl*
+//#UC START# *4C3AFAD90234_49539DBA029Dgetstate_var*
+var
+ l_Controllable : IControllable;
+//#UC END# *4C3AFAD90234_49539DBA029Dgetstate_var*
+//#UC START# *4C3AFAD90234_49539DBA029Dtest_impl*
+ Document_AddToControl_Test(aParams);
+//#UC END# *4C3AFAD90234_49539DBA029Dtest_impl*
+//#UC START# *4C3AFAD90234_49539DBA029Dtest_var*
+//#UC END# *4C3AFAD90234_49539DBA029Dtest_var*
+//#UC START# *4C3AFB450234_49539DBA029Dexec_impl*
+ CRToPartExecute(aParams, crtCorrespondents);
+//#UC END# *4C3AFB450234_49539DBA029Dexec_impl*
+//#UC START# *4C3AFB450234_49539DBA029Dexec_var*
+//#UC END# *4C3AFB450234_49539DBA029Dexec_var*
+//#UC START# *4C3AFB450234_49539DBA029Dtest_impl*
+ CRToPartTest(aParams, crtCorrespondents);
+//#UC END# *4C3AFB450234_49539DBA029Dtest_impl*
+//#UC START# *4C3AFB450234_49539DBA029Dtest_var*
+//#UC END# *4C3AFB450234_49539DBA029Dtest_var*
+//#UC START# *4C3AFB51020D_49539DBA029Dexec_impl*
+ CRToPartExecute(aParams, crtRespondents);
+//#UC END# *4C3AFB51020D_49539DBA029Dexec_impl*
+//#UC START# *4C3AFB51020D_49539DBA029Dexec_var*
+//#UC END# *4C3AFB51020D_49539DBA029Dexec_var*
+//#UC START# *4C3AFB51020D_49539DBA029Dtest_impl*
+ CRToPartTest(aParams, crtRespondents);
+//#UC END# *4C3AFB51020D_49539DBA029Dtest_impl*
+//#UC START# *4C3AFB51020D_49539DBA029Dtest_var*
+//#UC END# *4C3AFB51020D_49539DBA029Dtest_var*
+//#UC START# *4C3AFBA702E4_49539DBA029Dexec_impl*
+ l_Str := f_ControlMap.DisplayNameToValue(aParams.SelectedString);
+ if not l3Same(afw.Settings.LoadString(pi_DropChangeStatus, dv_DropChangeStatus), l_Str) then
+ begin
+  afw.Settings.SaveString(pi_DropChangeStatus, l_Str);
+  CheckControllableState([dcsAfterReview, dcsExitFromSystem]);
+ end;//if GetString(pi_DropChangeStatus,
+//#UC END# *4C3AFBA702E4_49539DBA029Dexec_impl*
+//#UC START# *4C3AFBA702E4_49539DBA029Dexec_var*
+var l_Str: Il3CString;
+//#UC END# *4C3AFBA702E4_49539DBA029Dexec_var*
+//#UC START# *4C3AFBA702E4_49539DBA029Dtest_impl*
+ l_Strings := aParams.Op.SubItems;
+ if (l_Strings = nil) then
+  Exit;
+ if (l_Strings.Count = 0) and
+  Supports(f_ControlMap, InsStringsSource, l_StringsSource) then
+ try
+  l_StringsSource.FillStrings(l_Strings);
+ finally
+  l_StringsSource := nil;
+ end;//try..finally
+ aParams.Op.SelectedString := f_ControlMap.
+  ValueToDisplayName(afw.Settings.LoadString(pi_DropChangeStatus, dv_DropChangeStatus));
+//#UC END# *4C3AFBA702E4_49539DBA029Dtest_impl*
+//#UC START# *4C3AFBA702E4_49539DBA029Dtest_var*
+var
+ l_Strings : IvcmStrings;
+ l_StringsSource: InsStringsSource;
+//#UC END# *4C3AFBA702E4_49539DBA029Dtest_var*
+//#UC START# *4C3AFC1302FF_49539DBA029Dexec_impl*
+ if DefDataAdapter.TimeMachine.IsOn then
+  TimeMachineOnOff
+ else
+ begin
+  l_Date := vcmSelectDate(l3CStr(vcmConstString(
+   str_CalendarCaptionTimeMachineOn)), nil);
+  if not l3IsNil(l_Date) then
+   TurnOnTimeMachine(l_Date);
+ end;//if DefDataAdapter.TimeMachine.IsOn then
+//#UC END# *4C3AFC1302FF_49539DBA029Dexec_impl*
+//#UC START# *4C3AFC1302FF_49539DBA029Dexec_var*
+var
+ l_Date: Il3CString;
+//#UC END# *4C3AFC1302FF_49539DBA029Dexec_var*
+//#UC START# *4C3AFC1302FF_49539DBA029Dgetstate_impl*
+ if DefDataAdapter.TimeMachine.IsOn then
+  State := st_user_TasksPanel_TimeMachineOnOff_Off
+ else
+  State := st_user_TasksPanel_TimeMachineOnOff_On;
+//#UC END# *4C3AFC1302FF_49539DBA029Dgetstate_impl*
+//#UC START# *4C3AFC1302FF_49539DBA029Dgetstate_var*
+//#UC END# *4C3AFC1302FF_49539DBA029Dgetstate_var*
+//#UC START# *4C3AFC1302FF_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Assigned(Document) and
+  (not Document.GetNotTm or DefDataAdapter.TimeMachine.IsOn);
+//#UC END# *4C3AFC1302FF_49539DBA029Dtest_impl*
+//#UC START# *4C3AFC1302FF_49539DBA029Dtest_var*
+//#UC END# *4C3AFC1302FF_49539DBA029Dtest_var*
+//#UC START# *4C3B036300C4_49539DBA029D_impl*
+ with aParams do
+ begin
+  if (ZoneType = vcm_ztChild) or (UserType in [dftAACRight, dftAACContentsRight]) then
+   Op.Flag[vcm_ofEnabled] := False
+  else
+   aParams.Op.Flag[vcm_ofEnabled] := Assigned(Document) and
+                                     Text.HasSelection;
+  if Op.Flag[vcm_ofEnabled] and
+     Assigned(dsDocument) and
+     Assigned(dsDocument.DocInfo) then
+  begin
+   with DocumentSet do
+    case aCRType of
+     crtCorrespondents:
+      Op.Flag[vcm_ofEnabled] := HasCorrespondents;
+     crtRespondents:
+      Op.Flag[vcm_ofEnabled] := HasRespondents;
+    end;//case aCRType of
+   l_Strings := Op.SubItems;
+   if Assigned(l_Strings) then
+   try
+    l_Strings.Clear;
+    l_List := Op.SubNodes;
+    if (l_List.Count = 0) then
+     l_List.Add(DefDataAdapter.CRSimpleListTypeRootNode);
+   finally
+    l_Strings := nil;
+   end;//try..finally
+  end;//if Op.Flag[vcm_ofVisible]
+ end;//with aParams do
+//#UC END# *4C3B036300C4_49539DBA029D_impl*
+//#UC START# *4C3B036300C4_49539DBA029D_var*
+var
+ l_Strings : IvcmStrings;
+ l_List    : IvcmNodes;
+//#UC END# *4C3B036300C4_49539DBA029D_var*
+//#UC START# *4C3B0399027D_49539DBA029D_impl*
+ if (UserType = dftDocument) then
+  OpenCRListToPart(aCRType, aParams.CurrentNode);
+//#UC END# *4C3B0399027D_49539DBA029D_impl*
+//#UC START# *4C3B0399027D_49539DBA029D_var*
+//#UC END# *4C3B0399027D_49539DBA029D_var*
+//#UC START# *4C3B040002CA_49539DBA029D_impl*
+ // При щелчке в компонент даты вызывается обработчик операции
+ // (TControl.Click), отслеживаем эту ситуацию:
+ if l3Same(aDate, DefDataAdapter.TimeMachine.DateStr) then
+  Exit;
+ // Получение редакции по дате
+ try
+  DecodeDate(nsStrToDate(aDate),
+             l_Date.rYear, l_Date.rMonth, l_Date.rDay);
+ except
+  on EConvertError do
+  begin
+   if not l3CharSetPresent(aDate, cc_Digits) then
+    TimeMachineOnOff(True);
+   Exit;
+  end;//on EConvertError
+ end;//try..except
+ nsTimeMachineOn(Document, l_Date);
+//#UC END# *4C3B040002CA_49539DBA029D_impl*
+//#UC START# *4C3B040002CA_49539DBA029D_var*
+var
+ l_Date: BaseTypesUnit.TDate;
+//#UC END# *4C3B040002CA_49539DBA029D_var*
+//#UC START# *4C3B17DC02C4_49539DBA029Dexec_impl*
+ DocumentBlockBookmarks_AddBookmark_Execute(aParams);
+//#UC END# *4C3B17DC02C4_49539DBA029Dexec_impl*
+//#UC START# *4C3B17DC02C4_49539DBA029Dexec_var*
+//#UC END# *4C3B17DC02C4_49539DBA029Dexec_var*
+//#UC START# *4C3B17DC02C4_49539DBA029Dtest_impl*
+ DisableOperation(aParams);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=469280508
+ //CheckIsDocumentSub(aParams);
+//#UC END# *4C3B17DC02C4_49539DBA029Dtest_impl*
+//#UC START# *4C3B17DC02C4_49539DBA029Dtest_var*
+//#UC END# *4C3B17DC02C4_49539DBA029Dtest_var*
+//#UC START# *4C3B17ED0192_49539DBA029Dexec_impl*
+ DocumentExport(cMap[aParams.ItemIndex > 1], False);
+ TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+//#UC END# *4C3B17ED0192_49539DBA029Dexec_impl*
+//#UC START# *4C3B17ED0192_49539DBA029Dexec_var*
+const
+ cMap: array [Boolean] of TnsExportKind = (ekShell, ekActiveWord);
+//#UC END# *4C3B17ED0192_49539DBA029Dexec_var*
+//#UC START# *4C3B17ED0192_49539DBA029Dtest_impl*
+// DisableOperation(aParams);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
+ CheckIsDocumentSub(aParams);
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  //NotEmptyDocumentWithTrialModeTest(aParams);
+  NotEmptyDocumentTest(aParams);
+ TnsToMSWordOp.Test(aParams);
+//#UC END# *4C3B17ED0192_49539DBA029Dtest_impl*
+//#UC START# *4C3B17ED0192_49539DBA029Dtest_var*
+//#UC END# *4C3B17ED0192_49539DBA029Dtest_var*
+//#UC START# *4C3B17FF03D2_49539DBA029Dexec_impl*
+ DocumentPrint;
+ TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+//#UC END# *4C3B17FF03D2_49539DBA029Dexec_impl*
+//#UC START# *4C3B17FF03D2_49539DBA029Dexec_var*
+//#UC END# *4C3B17FF03D2_49539DBA029Dexec_var*
+//#UC START# *4C3B17FF03D2_49539DBA029Dtest_impl*
+// DisableOperation(aParams);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
+ File_Print_Test(aParams);
+ //nsDisableOperationInTrialMode(aParams);
+ CheckIsDocumentSub(aParams);
+//#UC END# *4C3B17FF03D2_49539DBA029Dtest_impl*
+//#UC START# *4C3B17FF03D2_49539DBA029Dtest_var*
+//#UC END# *4C3B17FF03D2_49539DBA029Dtest_var*
+//#UC START# *4C3B180E038F_49539DBA029Dexec_impl*
+ if (afw.Application <> nil) AND (afw.Application.PrintManager <> nil) then
+ begin
+  l_Preview := MakePreview;
+  try
+   afw.Application.PrintManager.PrintDialog(l_Preview);
+   TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+  finally
+   l_Preview := nil;
+  end;//try..finally
+ end;//if (afw.Application <> nil) AND...
+//#UC END# *4C3B180E038F_49539DBA029Dexec_impl*
+//#UC START# *4C3B180E038F_49539DBA029Dexec_var*
+var
+ l_Preview: IafwComplexDocumentPreview;
+//#UC END# *4C3B180E038F_49539DBA029Dexec_var*
+//#UC START# *4C3B180E038F_49539DBA029Dtest_impl*
+// DisableOperation(aParams);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
+ File_Print_Test(aParams);
+ //nsDisableOperationInTrialMode(aParams);
+ CheckIsDocumentSub(aParams);
+//#UC END# *4C3B180E038F_49539DBA029Dtest_impl*
+//#UC START# *4C3B180E038F_49539DBA029Dtest_var*
+//#UC END# *4C3B180E038F_49539DBA029Dtest_var*
+//#UC START# *4C3B1AEA0127_49539DBA029Dexec_impl*
+ if (Document <> nil) and
+    Supports(aParams.Target, IeeSub, l_eeSub) and
+    (l_eeSub.LayerID = Ord(ev_sbtSub)) then
+ begin
+  AddBookmark(l_eeSub.LeafPara);
+  TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+ end;//Document <> nil..
+//#UC END# *4C3B1AEA0127_49539DBA029Dexec_impl*
+//#UC START# *4C3B1AEA0127_49539DBA029Dexec_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *4C3B1AEA0127_49539DBA029Dexec_var*
+//#UC START# *4C3B1AEA0127_49539DBA029Dtest_impl*
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=469280508
+ DisableOperation(aParams);
+//#UC END# *4C3B1AEA0127_49539DBA029Dtest_impl*
+//#UC START# *4C3B1AEA0127_49539DBA029Dtest_var*
+//#UC END# *4C3B1AEA0127_49539DBA029Dtest_var*
+//#UC START# *4C3B1AFB0270_49539DBA029Dexec_impl*
+ Assert(False);
+ //TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+ //ExportBlock(ExtractRangeFromSubPanel(aParams), aParams.ItemIndex > 1);
+//#UC END# *4C3B1AFB0270_49539DBA029Dexec_impl*
+//#UC START# *4C3B1AFB0270_49539DBA029Dexec_var*
+//#UC END# *4C3B1AFB0270_49539DBA029Dexec_var*
+//#UC START# *4C3B1AFB0270_49539DBA029Dtest_impl*
+ DisableOperation(aParams);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
+ {ExcludeRootSub(aParams);
+ nsDisableOperationInTrialMode(aParams);
+ TnsToMSWordOp.Test(aParams);}
+//#UC END# *4C3B1AFB0270_49539DBA029Dtest_impl*
+//#UC START# *4C3B1AFB0270_49539DBA029Dtest_var*
+//#UC END# *4C3B1AFB0270_49539DBA029Dtest_var*
+//#UC START# *4C3B1B0F0237_49539DBA029Dexec_impl*
+ Assert(False);
+ //TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+ //PrintDialogBlock(ExtractRangeFromSubPanel(aParams));
+//#UC END# *4C3B1B0F0237_49539DBA029Dexec_impl*
+//#UC START# *4C3B1B0F0237_49539DBA029Dexec_var*
+//#UC END# *4C3B1B0F0237_49539DBA029Dexec_var*
+//#UC START# *4C3B1B0F0237_49539DBA029Dtest_impl*
+ DisableOperation(aParams);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
+ {ExcludeRootSub(aParams);
+ nsDisableOperationInTrialMode(aParams);}
+//#UC END# *4C3B1B0F0237_49539DBA029Dtest_impl*
+//#UC START# *4C3B1B0F0237_49539DBA029Dtest_var*
+//#UC END# *4C3B1B0F0237_49539DBA029Dtest_var*
+//#UC START# *4C3B1B1D003C_49539DBA029Dexec_impl*
+ Assert(False);
+ //TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+ //CopyBlock(ExtractRangeFromSubPanel(aParams));
+//#UC END# *4C3B1B1D003C_49539DBA029Dexec_impl*
+//#UC START# *4C3B1B1D003C_49539DBA029Dexec_var*
+//#UC END# *4C3B1B1D003C_49539DBA029Dexec_var*
+//#UC START# *4C3B1B1D003C_49539DBA029Dtest_impl*
+ DisableOperation(aParams);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
+ {ExcludeRootSub(aParams);
+ nsDisableOperationInTrialMode(aParams);}
+//#UC END# *4C3B1B1D003C_49539DBA029Dtest_impl*
+//#UC START# *4C3B1B1D003C_49539DBA029Dtest_var*
+//#UC END# *4C3B1B1D003C_49539DBA029Dtest_var*
+//#UC START# *4C3B241401AA_49539DBA029Dexec_impl*
+ Assert(false, 'Не заказывали');
+//#UC END# *4C3B241401AA_49539DBA029Dexec_impl*
+//#UC START# *4C3B241401AA_49539DBA029Dexec_var*
+//#UC END# *4C3B241401AA_49539DBA029Dexec_var*
+//#UC START# *4C3B241401AA_49539DBA029Dtest_impl*
+ DisableOperation(aParams);
+//#UC END# *4C3B241401AA_49539DBA029Dtest_impl*
+//#UC START# *4C3B241401AA_49539DBA029Dtest_var*
+//#UC END# *4C3B241401AA_49539DBA029Dtest_var*
+//#UC START# *4C3B3754034D_49539DBA029Dexec_impl*
+ if not Op_Contents_ToggleContentsVisibility.Call(Aggregate) then
+  OpenContents(ns_comForce);
+//#UC END# *4C3B3754034D_49539DBA029Dexec_impl*
+//#UC START# *4C3B3754034D_49539DBA029Dexec_var*
+//#UC END# *4C3B3754034D_49539DBA029Dexec_var*
+//#UC START# *4C3B3754034D_49539DBA029Dgetstate_impl*
+ if (UserType = dftDrug) then
+  State := st_user_Document_OpenContentsFrmAct_Drug
+ else
+  State := vcm_DefaultOperationState;
+//#UC END# *4C3B3754034D_49539DBA029Dgetstate_impl*
+//#UC START# *4C3B3754034D_49539DBA029Dgetstate_var*
+//#UC END# *4C3B3754034D_49539DBA029Dgetstate_var*
+//#UC START# *4C3B3754034D_49539DBA029Dtest_impl*
+ if Assigned(Aggregate) then
+ begin
+  // Есть ли у документа оглавление
+  if (DocumentWithContents <> nil) then
+  begin
+   aParams.Op.Flag[vcm_ofEnabled] := (DocumentWithContents.dsContents <> nil)
+                                     and not DocumentWithContents.dsContents.Empty
+   // begin - http://mdp.garant.ru/pages/viewpage.action?pageId=342331306
+                                     or (Text.TextSource.ContentsTree <> nil) and (Text.TextSource.ContentsTree.CountView > 0);
+   // end - http://mdp.garant.ru/pages/viewpage.action?pageId=342331306
+   if aParams.Op.Flag[vcm_ofEnabled] then
+    if Op_Contents_IsContentsVisible.Call(Aggregate) then
+     aParams.Op.Flag[vcm_ofChecked] := true;
+  end//DocumentWithContents <> nil
+  else
+   aParams.Op.Flag[vcm_ofEnabled] := false;
+ end;//Assigned(Aggregate)
+//#UC END# *4C3B3754034D_49539DBA029Dtest_impl*
+//#UC START# *4C3B3754034D_49539DBA029Dtest_var*
+//#UC END# *4C3B3754034D_49539DBA029Dtest_var*
+//#UC START# *4C3B3792000E_49539DBA029Dexec_impl*
+ if afw.Application.IsInternal then
+  try
+   DefDataAdapter.CommonInterfaces.ShowPicturesOnNumber(Document.GetInternalId);
+  except
+   on EWorkingParamsNotFound do
+    Say(err_ShowPictureInvalidParams);
+   on EExternalApplicationError do ;
+  end;
+//#UC END# *4C3B3792000E_49539DBA029Dexec_impl*
+//#UC START# *4C3B3792000E_49539DBA029Dexec_var*
+//#UC END# *4C3B3792000E_49539DBA029Dexec_var*
+//#UC START# *4C3B3792000E_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := afw.Application.IsInternal;
+//#UC END# *4C3B3792000E_49539DBA029Dtest_impl*
+//#UC START# *4C3B3792000E_49539DBA029Dtest_var*
+//#UC END# *4C3B3792000E_49539DBA029Dtest_var*
+//#UC START# *4C3B3D3A0254_49539DBA029D_impl*
+ // На InClose проверяем, потому, что форме, которая находится в состоянии
+ // отложенного удаления продолжают идти сообщения и она инициирует обновление
+ // сборки, в результате создадутся формы, что не правильно. Возможно это будет
+ // перенесено на механизм сборок и обновление не будет осуществлено на уровне
+ // vcmFormSetFactory:
+ if not (Self.as_IvcmEntityForm).InClose and (DocumentWithContents <> nil) then
+ begin
+  l_ST := FiltrateTOCTree(Text.TextSource.ContentsTree);
+  try
+   if (l_ST <> nil) then
+    if (l_ST.CountView = 0) then
+     l_ST := nil;
+   Supports(Text.TextSource.DocumentContainer, InsDocumentAdornments, l_Adornments);
+   try
+    l_SimpleTree := TdeSimpleTree.Make(l_ST, l_Adornments);
+    try
+     if not l_SimpleTree.Empty then
+      DocumentWithContents.OpenContents(l_SimpleTree, aMode, Text.TextSource.DocumentContainer);
+    finally
+     l_SimpleTree := nil;
+    end;//try..finally
+   finally
+    l_Adornments := nil;
+   end;//try..finally
+  finally
+   l_ST := nil;
+  end;//try..finally
+ end;//not (Self.as_IvcmEntityForm).InClose and (DocumentWithContents <> nil)
+//#UC END# *4C3B3D3A0254_49539DBA029D_impl*
+//#UC START# *4C3B3D3A0254_49539DBA029D_var*
+var
+ l_ST : Il3SimpleTree;
+ l_SimpleTree : IdeSimpleTree;
+ l_Adornments : InsDocumentAdornments;
+//#UC END# *4C3B3D3A0254_49539DBA029D_var*
+//#UC START# *4C3B3E270109_49539DBA029D_impl*
+{ if NeedFiltrate and Supports(aTOC, Il3FilterableTree, l_FilterableTree) then
+  Result := l_FilterableTree.MakeFiltered(l_FilterableTree.CloneFilters, nil, l_Dummy)
+ else}
+  Result := aTOC;
+//#UC END# *4C3B3E270109_49539DBA029D_impl*
+//#UC START# *4C3B3E270109_49539DBA029D_var*
+(*var
+ l_FilterableTree: Il3FilterableTree;
+ l_Dummy: Integer;*)
+//#UC END# *4C3B3E270109_49539DBA029D_var*
+//#UC START# *4C3B49DB03BC_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeHotSpot, l_HotSpot) and (l_HotSpot.Hyperlink <> nil) then
+  nsProcessHyperLink(l_HotSpot.Hyperlink, False, Self, Aggregate, Document);
+//#UC END# *4C3B49DB03BC_49539DBA029Dexec_impl*
+//#UC START# *4C3B49DB03BC_49539DBA029Dexec_var*
+var
+ l_HotSpot: IeeHotSpot;
+//#UC END# *4C3B49DB03BC_49539DBA029Dexec_var*
+//#UC START# *4C3B49DB03BC_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) and
+  (l_eeHotSpot.Hyperlink <> nil) and (l_eeHotSpot.Hyperlink.Address{$IfDef XE4}.rTafwAddress{$EndIf}.TypeID = CI_BLOB);
+//#UC END# *4C3B49DB03BC_49539DBA029Dtest_impl*
+//#UC START# *4C3B49DB03BC_49539DBA029Dtest_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+//#UC END# *4C3B49DB03BC_49539DBA029Dtest_var*
+//#UC START# *4C3B49EA00C4_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeHotSpot, l_HotSpot) and (l_HotSpot.Hyperlink <> nil) then
+ try
+  nsSaveHyperLinkExternalObject(l_HotSpot.Hyperlink, Self, Document);
+ finally
+  l_HotSpot := nil;
+ end;//if Supports(aParams.Target, IeeHotSpot, l_HotSpot) and
+//#UC END# *4C3B49EA00C4_49539DBA029Dexec_impl*
+//#UC START# *4C3B49EA00C4_49539DBA029Dexec_var*
+var
+ l_HotSpot: IeeHotSpot;
+//#UC END# *4C3B49EA00C4_49539DBA029Dexec_var*
+//#UC START# *4C3B49EA00C4_49539DBA029Dtest_impl*
+ ExternalObject_Open_Test(aParams);
+//#UC END# *4C3B49EA00C4_49539DBA029Dtest_impl*
+//#UC START# *4C3B49EA00C4_49539DBA029Dtest_var*
+//#UC END# *4C3B49EA00C4_49539DBA029Dtest_var*
+//#UC START# *4C3B4A7D029B_49539DBA029Dexec_impl*
+ if Assigned(ViewArea) and
+    not TCommonService.Instance.IsCurEditionActual(ViewArea.DocInfo.Doc) then
+  SetActualRedaction;
+//#UC END# *4C3B4A7D029B_49539DBA029Dexec_impl*
+//#UC START# *4C3B4A7D029B_49539DBA029Dexec_var*
+//#UC END# *4C3B4A7D029B_49539DBA029Dexec_var*
+//#UC START# *4C3B4A7D029B_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := FormIsMainInDocumentSet;
+//#UC END# *4C3B4A7D029B_49539DBA029Dtest_impl*
+//#UC START# *4C3B4A7D029B_49539DBA029Dtest_var*
+//#UC END# *4C3B4A7D029B_49539DBA029Dtest_var*
+//#UC START# *4C3B4CCF0068_49539DBA029D_impl*
+ if (DocumentSet <> nil) AND lp_NeedOpen then
+  DocumentSet.OpenWarning;
+//#UC END# *4C3B4CCF0068_49539DBA029D_impl*
+//#UC START# *4C3B4CCF0068_49539DBA029D_var*
+
+ function lp_NeedOpen: Boolean;
+ begin
+  if FormIsMainInDocumentSet and Assigned(dsDocument) then
+  begin
+   if SwitchActivity then
+    Result := not Op_Warning_SwitchActive.Call(Aggregate, anOffset)
+   else
+    Result := not Op_Warning_BecomeActive.Call(Aggregate, anOffset);
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=260447845&focusedCommentId=271192159#comment-271192159
+   // - поскольку тут зовётся АГРЕГАЦИЯ, то наверное поэтому и не работает,
+   //   когда живой вкладки нету в сборке. 
+  end//FormIsMainInDocumentSet and Assigned(dsDocument)
+  else
+   Result := false;
+ end;//lp_NeedOpen
+
+//#UC END# *4C3B4CCF0068_49539DBA029D_var*
+//#UC START# *4C3B500B0126_49539DBA029Dexec_impl*
+ ShowWarningPage(true{false{True}, cTimeMachineWarningSub);
+              // ^ - незачем ничего закрывать, если вызываем с медали
+              // http://mdp.garant.ru/pages/viewpage.action?pageId=266898633&focusedCommentId=285508953#comment-285508953
+              // А вот и есть "зачем" - http://mdp.garant.ru/pages/viewpage.action?pageId=287219564
+//#UC END# *4C3B500B0126_49539DBA029Dexec_impl*
+//#UC START# *4C3B500B0126_49539DBA029Dexec_var*
+//#UC END# *4C3B500B0126_49539DBA029Dexec_var*
+//#UC START# *4C3B500B0126_49539DBA029Dgetstate_impl*
+ if Assigned(Aggregate) and Aggregate.HasForm(fm_WarningForm.rFormID, @l_Form) and
+  l_Form.IsActiveInParent then
+  State := st_user_WarnTimeMachine_ShowInfo_Hide
+ else
+  State := vcm_DefaultOperationState;
+//#UC END# *4C3B500B0126_49539DBA029Dgetstate_impl*
+//#UC START# *4C3B500B0126_49539DBA029Dgetstate_var*
+var l_Form: IvcmEntityForm;
+//#UC END# *4C3B500B0126_49539DBA029Dgetstate_var*
+//#UC START# *4C3B500B0126_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := Assigned(dsDocument) and
+  Assigned(DocumentSet) and
+  DocumentSet.HasTimeMachineWarning;
+//#UC END# *4C3B500B0126_49539DBA029Dtest_impl*
+//#UC START# *4C3B500B0126_49539DBA029Dtest_var*
+//#UC END# *4C3B500B0126_49539DBA029Dtest_var*
+//#UC START# *4C3B504A0202_49539DBA029Dexec_impl*
+ TimeMachine_TimeMachineOnOffNew_Execute(aParams);
+//#UC END# *4C3B504A0202_49539DBA029Dexec_impl*
+//#UC START# *4C3B504A0202_49539DBA029Dexec_var*
+//#UC END# *4C3B504A0202_49539DBA029Dexec_var*
+//#UC START# *4C3B504A0202_49539DBA029Dgetstate_impl*
+ TimeMachine_TimeMachineOnOffNew_GetState(State);
+//#UC END# *4C3B504A0202_49539DBA029Dgetstate_impl*
+//#UC START# *4C3B504A0202_49539DBA029Dgetstate_var*
+//#UC END# *4C3B504A0202_49539DBA029Dgetstate_var*
+//#UC START# *4C3B504A0202_49539DBA029Dtest_impl*
+ // - ничего не делаем
+//#UC END# *4C3B504A0202_49539DBA029Dtest_impl*
+//#UC START# *4C3B504A0202_49539DBA029Dtest_var*
+//#UC END# *4C3B504A0202_49539DBA029Dtest_var*
+//#UC START# *4C3B52D6021F_49539DBA029Dexec_impl*
+ ShowWarningPage(true{false{True}, cSimpleWarningSub);
+              // ^ - незачем ничего закрывать, если вызываем с медали
+              // http://mdp.garant.ru/pages/viewpage.action?pageId=266898633&focusedCommentId=285508953#comment-285508953
+              // А вот и есть "зачем" - http://mdp.garant.ru/pages/viewpage.action?pageId=287219564
+//#UC END# *4C3B52D6021F_49539DBA029Dexec_impl*
+//#UC START# *4C3B52D6021F_49539DBA029Dexec_var*
+//#UC END# *4C3B52D6021F_49539DBA029Dexec_var*
+//#UC START# *4C3B52D6021F_49539DBA029Dgetstate_impl*
+ if Assigned(Aggregate) and Aggregate.HasForm(fm_WarningForm.rFormID, @l_Form) and
+  l_Form.IsActiveInParent then
+  State := st_user_WarnJuror_ShowInfo_Hide
+ else
+  State := vcm_DefaultOperationState;
+//#UC END# *4C3B52D6021F_49539DBA029Dgetstate_impl*
+//#UC START# *4C3B52D6021F_49539DBA029Dgetstate_var*
+var l_Form: IvcmEntityForm;
+//#UC END# *4C3B52D6021F_49539DBA029Dgetstate_var*
+//#UC START# *4C3B52D6021F_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := FormIsMainInDocumentSet;
+//#UC END# *4C3B52D6021F_49539DBA029Dtest_impl*
+//#UC START# *4C3B52D6021F_49539DBA029Dtest_var*
+//#UC END# *4C3B52D6021F_49539DBA029Dtest_var*
+//#UC START# *4C3B5337022E_49539DBA029Dexec_impl*
+ Document_CompareEditions_Execute(aParams);
+//#UC END# *4C3B5337022E_49539DBA029Dexec_impl*
+//#UC START# *4C3B5337022E_49539DBA029Dexec_var*
+//#UC END# *4C3B5337022E_49539DBA029Dexec_var*
+//#UC START# *4C3B5337022E_49539DBA029Dtest_impl*
+ Document_CompareEditions_Test(aParams);
+ if aParams.Op.Flag[vcm_ofEnabled] and
+  Supports(Document, IControllable, l_Controllable) then
+  aParams.Op.Flag[vcm_ofEnabled] := (l_Controllable.GetControlStatus and CS_CHANGED) = CS_CHANGED;
+//#UC END# *4C3B5337022E_49539DBA029Dtest_impl*
+//#UC START# *4C3B5337022E_49539DBA029Dtest_var*
+var
+ l_Controllable : IControllable;
+//#UC END# *4C3B5337022E_49539DBA029Dtest_var*
+//#UC START# *4C3B535F0064_49539DBA029Dexec_impl*
+ if (ucpUnderControl <> nil) then
+ begin
+  ucpUnderControl.ClearControlStatus;
+  UpdateUnderControlList;
+ end;//ViewArea <> nil
+//#UC END# *4C3B535F0064_49539DBA029Dexec_impl*
+//#UC START# *4C3B535F0064_49539DBA029Dexec_var*
+//#UC END# *4C3B535F0064_49539DBA029Dexec_var*
+//#UC START# *4C3B535F0064_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := (ucpUnderControl <> nil) and ucpUnderControl.HasControlStatus;
+//#UC END# *4C3B535F0064_49539DBA029Dtest_impl*
+//#UC START# *4C3B535F0064_49539DBA029Dtest_var*
+//#UC END# *4C3B535F0064_49539DBA029Dtest_var*
+//#UC START# *4C3C71290115_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeSub, l_eeSub) and (l_eeSub.LayerID = Ord(ev_sbtBookmark)) then
+ try
+  case nsDeleteBookmark(l_eeSub.ID, Text.TextSource.DocumentContainer) of
+// Теперь не нужно, т.к. закладка удаляется у всех документов в кэше через нотификацию.
+//   drOk: l_eeSub.Delete;
+   drDenied: Say(err_CanNotDeleteBookmark);
+  end;
+ finally
+  l_eeSub := nil;
+ end;
+//#UC END# *4C3C71290115_49539DBA029Dexec_impl*
+//#UC START# *4C3C71290115_49539DBA029Dexec_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *4C3C71290115_49539DBA029Dexec_var*
+//#UC START# *4C3C71290115_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Supports(aParams.Target, IeeSub, l_eeSub) and (l_eeSub.LayerID = Ord(ev_sbtBookmark));
+//#UC END# *4C3C71290115_49539DBA029Dtest_impl*
+//#UC START# *4C3C71290115_49539DBA029Dtest_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *4C3C71290115_49539DBA029Dtest_var*
+//#UC START# *4C3C7131036E_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeSub, l_eeSub) and (l_eeSub.LayerID = Ord(ev_sbtBookmark)) then
+ try
+  EditBookmark(l_eeSub.ID);
+ finally
+  l_eeSub := nil;
+ end;
+//#UC END# *4C3C7131036E_49539DBA029Dexec_impl*
+//#UC START# *4C3C7131036E_49539DBA029Dexec_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *4C3C7131036E_49539DBA029Dexec_var*
+//#UC START# *4C3C7131036E_49539DBA029Dtest_impl*
+ BookmarkIcon_Delete_Test(aParams); // в dfm-е была ссылка на один и тот же метод
+//#UC END# *4C3C7131036E_49539DBA029Dtest_impl*
+//#UC START# *4C3C7131036E_49539DBA029Dtest_var*
+//#UC END# *4C3C7131036E_49539DBA029Dtest_var*
+//#UC START# *4C3C71D20351_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeSub, l_eeSub) and
+    (l_eeSub.LayerID = Ord(ev_sbtMark)) and
+    (l_eeSub.Para <> nil) then
+  // Удаляем параграф на который указывает метка
+  l_eeSub.Para.Delete;
+//#UC END# *4C3C71D20351_49539DBA029Dexec_impl*
+//#UC START# *4C3C71D20351_49539DBA029Dexec_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *4C3C71D20351_49539DBA029Dexec_var*
+//#UC START# *4C3C71D20351_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Supports(aParams.Target, IeeSub, l_eeSub) and
+  (l_eeSub.LayerID = Ord(ev_sbtMark)) and
+  not Text.IsStaticText and (l_eeSub.Flag = 2);
+//#UC END# *4C3C71D20351_49539DBA029Dtest_impl*
+//#UC START# *4C3C71D20351_49539DBA029Dtest_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *4C3C71D20351_49539DBA029Dtest_var*
+//#UC START# *4C3C71E4033D_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeSub, l_eeSub) and (l_eeSub.LayerID = Ord(ev_sbtMark)) then
+ begin
+  case l_eeSub.Flag of
+   1: begin
+       l_Status := not Text.ShowComments;
+       Text.ShowComments := l_Status;
+      end;//1
+   2: begin
+       l_Status := not Text.ShowUserComments;
+       Text.ShowUserComments := l_Status;
+      end;//2
+   3: begin
+       InvertVersionCommentsVisibleByUser;
+       if Text.ShowVersionComments then
+        l_eeSub.Select;
+       // http://mdp.garant.ru/pages/viewpage.action?pageId=235868034
+      end;//3
+  end; // case l_eeSub.Flag
+ end;//Supports(aParams.Target, IeeSub, l_eeSub)
+ l_eeSub := nil;
+//#UC END# *4C3C71E4033D_49539DBA029Dexec_impl*
+//#UC START# *4C3C71E4033D_49539DBA029Dexec_var*
+var
+ l_eeSub: IeeSub;
+ l_Status: Bool;
+//#UC END# *4C3C71E4033D_49539DBA029Dexec_var*
+//#UC START# *4C3C71E4033D_49539DBA029Dgetstate_impl*
+ with SubPanel.ScreenToClient(Mouse.CursorPos) do
+  SubPanel.CheckSubOnPoint(X, Y, l_eeSub);
+ if (l_eeSub <> nil) and
+    (l_eeSub.LayerID = Ord(ev_sbtMark)) then
+ begin
+  case l_eeSub.Flag of
+   1 : if Text.ShowComments then
+        State := st_user_UserCommentIcon_HideShow_GarantShown
+       else
+        State := st_user_UserCommentIcon_HideShow_GarantHidden;
+   2 : if Text.ShowUserComments then
+        State := st_user_UserCommentIcon_HideShow_UserShown
+       else
+        State := st_user_UserCommentIcon_HideShow_UserHidden;
+   3 : if Text.ShowVersionComments then
+        State := st_user_UserCommentIcon_HideShow_VersionShown
+       else
+        State := st_user_UserCommentIcon_HideShow_VersionHidden;
+  end; // case l_eeSub.Flag
+ end//Supports(aParams.Target, IeeSub, l_eeSub)
+ else
+  State := st_user_UserCommentIcon_HideShow_Invisible;
+ l_eeSub := nil;
+//#UC END# *4C3C71E4033D_49539DBA029Dgetstate_impl*
+//#UC START# *4C3C71E4033D_49539DBA029Dgetstate_var*
+var
+ l_eeSub : IeeSub;
+//#UC END# *4C3C71E4033D_49539DBA029Dgetstate_var*
+//#UC START# *4C3C74C603B6_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) and (l_eeHotSpot.Para <> nil) and (l_eeHotSpot.Para.Block <> nil) then
+  (l_eeHotSpot.Para.Block As IeePara).Delete
+ else
+ begin
+  l_EP := LeafParaUnderCursor;
+  if l_EP.IsUserComment then
+   if (l_EP.Block <> nil) then
+    (l_EP.Block As IeePara).Delete;
+ end;
+//#UC END# *4C3C74C603B6_49539DBA029Dexec_impl*
+//#UC START# *4C3C74C603B6_49539DBA029Dexec_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+ l_EP: IeePara;
+//#UC END# *4C3C74C603B6_49539DBA029Dexec_var*
+//#UC START# *4C3C74C603B6_49539DBA029Dtest_impl*
+ if Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) and Supports(l_eeHotSpot.Para, IeeTextPara, l_eeTextPara) then
+  aParams.Op.Flag[vcm_ofEnabled] := l_eeTextPara.IsUserComment and not Text.IsStaticText
+ else
+ begin
+  l_EP := LeafParaUnderCursor;
+  aParams.Op.Flag[vcm_ofEnabled] := (l_EP <> nil) and l_EP.IsUserComment;
+ end;
+//#UC END# *4C3C74C603B6_49539DBA029Dtest_impl*
+//#UC START# *4C3C74C603B6_49539DBA029Dtest_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+ l_eeTextPara: IeeTextPara;
+ l_EP: IeePara;
+//#UC END# *4C3C74C603B6_49539DBA029Dtest_var*
+//#UC START# *4C3C75240091_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) then
+  l_EP := l_eeHotSpot.Para
+ else
+  l_EP := LeafParaUnderCursor;
+
+ if (l_EP <> nil) then
+ begin
+  if not Text.ShowUserComments then
+   Text.ShowUserComments := True;
+   if l_EP.AsObject.QT(InevObject, l_Obj, Text.Processor) then
+   try
+    InevSelection(Text.Selection).SelectPoint(l_Obj.MakePoint, false);
+    Text.InsertUserComment;
+   finally
+    l_Obj := nil;
+   end;//try..finally
+ end;//l_EP <> nil
+//#UC END# *4C3C75240091_49539DBA029Dexec_impl*
+//#UC START# *4C3C75240091_49539DBA029Dexec_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+ l_Obj: InevObject;
+ l_EP: IeePara;
+//#UC END# *4C3C75240091_49539DBA029Dexec_var*
+//#UC START# *4C3C75240091_49539DBA029Dtest_impl*
+ if (UserType in [dftAACContentsRight, dftAACContentsLeft, dftAACRight]) then
+  aParams.Op.Flag[vcm_ofVisible] := False;
+
+ if (aParams.Control is TeeEditor) and TeeEditor(aParams.Control).CanUserModify then
+  if (Document <> nil) then
+  begin
+   if (aParams.Target <> nil) and Supports(aParams.Target, IeeHotSpot, l_HotSpot) then
+    l_EP := l_HotSpot.Para
+   else
+    l_EP := LeafParaUnderCursor;
+
+   if (l_EP <> nil) then
+    if l_EP.AsObject.IsKindOf(k2_typLeafPara) then
+    begin
+     aParams.Op.Flag[vcm_ofEnabled] := True;
+     Exit;
+    end;
+  end;
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4C3C75240091_49539DBA029Dtest_impl*
+//#UC START# *4C3C75240091_49539DBA029Dtest_var*
+var
+ l_HotSpot: IeeHotSpot;
+ l_EP: IeePara;
+//#UC END# *4C3C75240091_49539DBA029Dtest_var*
+//#UC START# *4C3C77CC012A_49539DBA029Dexec_impl*
+(* if (aParams.Count >= 1) and Supports(aParams.AsIU[0], IExternalLink, l_ExternalLink) then
+ else*)
+  if (Document <> nil) and Document.HasInternetImage then
+   Document.GetInternetImageUrl(0, l_ExternalLink);
+ if (l_ExternalLink <> nil) then
+  try
+   nsExecuteExternalLink(l_ExternalLink);
+  finally
+   l_ExternalLink := nil;
+  end;
+//#UC END# *4C3C77CC012A_49539DBA029Dexec_impl*
+//#UC START# *4C3C77CC012A_49539DBA029Dexec_var*
+var
+ l_ExternalLink: IExternalLink;
+//#UC END# *4C3C77CC012A_49539DBA029Dexec_var*
+//#UC START# *4C3C77CC012A_49539DBA029Dtest_impl*
+ with aParams do
+  Op.Flag[vcm_ofEnabled] := (Document <> nil) and Document.HasInternetImage;
+//#UC END# *4C3C77CC012A_49539DBA029Dtest_impl*
+//#UC START# *4C3C77CC012A_49539DBA029Dtest_var*
+//#UC END# *4C3C77CC012A_49539DBA029Dtest_var*
+//#UC START# *4C3EA65F0233_49539DBA029Dexec_impl*
+ if HasDoc then
+  OpenInWindow(False);
+//#UC END# *4C3EA65F0233_49539DBA029Dexec_impl*
+//#UC START# *4C3EA65F0233_49539DBA029Dexec_var*
+//#UC END# *4C3EA65F0233_49539DBA029Dexec_var*
+//#UC START# *4C3EA65F0233_49539DBA029Dtest_impl*
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  aParams.Op.Flag[vcm_ofEnabled] := TextSource.HasDocument;
+//#UC END# *4C3EA65F0233_49539DBA029Dtest_impl*
+//#UC START# *4C3EA65F0233_49539DBA029Dtest_var*
+//#UC END# *4C3EA65F0233_49539DBA029Dtest_var*
+//#UC START# *4C3EA671007A_49539DBA029Dexec_impl*
+ if HasDoc then
+  OpenInWindow;
+//#UC END# *4C3EA671007A_49539DBA029Dexec_impl*
+//#UC START# *4C3EA671007A_49539DBA029Dexec_var*
+//#UC END# *4C3EA671007A_49539DBA029Dexec_var*
+//#UC START# *4C3EA671007A_49539DBA029Dtest_impl*
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  aParams.Op.Flag[vcm_ofEnabled] := TextSource.HasDocument;
+//#UC END# *4C3EA671007A_49539DBA029Dtest_impl*
+//#UC START# *4C3EA671007A_49539DBA029Dtest_var*
+//#UC END# *4C3EA671007A_49539DBA029Dtest_var*
+//#UC START# *4C3EA90300E1_49539DBA029Dexec_impl*
+ Assert(False);
+(* if NativeMainForm.HasForm(fm_enDiction.rFormID, vcm_ztNavigator, True, @l_Form) then
+ try
+  l_Form.SetActiveInParent;
+ finally
+  l_Form := nil;
+ end;{try..finally}*)
+//#UC END# *4C3EA90300E1_49539DBA029Dexec_impl*
+//#UC START# *4C3EA90300E1_49539DBA029Dexec_var*
+//var
+// l_Form: IvcmEntityForm;
+//#UC END# *4C3EA90300E1_49539DBA029Dexec_var*
+//#UC START# *4C3EA90300E1_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=290266547
+ (*if NativeMainForm.HasForm(fm_enDiction.rFormID, vcm_ztNavigator, True, @l_Form) then
+ try
+  aParams.Op.Flag[vcm_ofEnabled] := not l_Form.IsActiveInParent;
+ finally
+  l_Form := nil;
+ end;{try..finally}*)
+//#UC END# *4C3EA90300E1_49539DBA029Dtest_impl*
+//#UC START# *4C3EA90300E1_49539DBA029Dtest_var*
+//var
+// l_Form: IvcmEntityForm;
+//#UC END# *4C3EA90300E1_49539DBA029Dtest_var*
+//#UC START# *4C3EBF860139_49539DBA029Dexec_impl*
+ l_Index := aParams.ItemIndex;
+ if (l_Index >= 0) then
+ begin
+  l_BookmarkList := Text.Editor.Data.Document.Bookmarks;
+  l_Count := GetVisibleBookmarksCount(l_BookmarkList);
+  if (l_Index = 0) then
+  begin
+   if (f_LastBookmarkIndex >= Pred(l_Count)) then
+    f_LastBookmarkIndex := 0
+   else
+    Inc(f_LastBookmarkIndex);
+   l_Index := f_LastBookmarkIndex;
+  end//l_Index = 0
+  else
+  begin
+   Dec(l_Index);
+   f_LastBookmarkIndex := l_Index;
+  end;//l_Index = 0
+  l_Sub := GetVisibleBookmark(l_BookmarkList, l_Index);
+  if (l_Sub <> nil) and
+     l_Sub.Exists then
+   l_Sub.Select;
+ end;//l_Index >= 0
+//#UC END# *4C3EBF860139_49539DBA029Dexec_impl*
+//#UC START# *4C3EBF860139_49539DBA029Dexec_var*
+var
+ l_Count,
+ l_Index: Integer;
+ l_BookmarkList: IeeSubList;
+ l_Sub: IeeSub;
+//#UC END# *4C3EBF860139_49539DBA029Dexec_var*
+//#UC START# *4C3EBF860139_49539DBA029Dtest_impl*
+// Получение текущего списка закладок
+ if (Document <> nil) then
+ begin
+  l_BookmarkList := Text.Editor.Data.Document.Bookmarks;
+  try
+   l_Count := GetVisibleBookmarksCount(l_BookmarkList);
+   if (l_Count > 0) then
+   begin
+    with aParams.Op.SubItems do
+    begin
+     Clear;
+     for l_Index := 0 to Pred(l_BookmarkList.Count) do
+      //if l_BookmarkList.Subs[l_Index].Flags and ev_sfOwn = ev_sfOwn then
+       Add(l_BookmarkList.Subs[l_Index].Name);
+    end;//with aParams.Op.SubItems
+   end//l_Count > 0
+   else
+    aParams.Op.Flag[vcm_ofEnabled] := False;
+  finally
+   l_BookmarkList := nil;
+  end;//try..finally
+ end//Document <> nil
+ else
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4C3EBF860139_49539DBA029Dtest_impl*
+//#UC START# *4C3EBF860139_49539DBA029Dtest_var*
+var
+ l_Count,
+ l_Index: Integer;
+ l_BookmarkList: IeeSubList;
+//#UC END# *4C3EBF860139_49539DBA029Dtest_var*
+//#UC START# *4C3EC2DE00A4_49539DBA029D_impl*
+ Result := 0;
+ if Assigned(aBookmarks) then
+  for I := 0 to Pred(aBookmarks.Count) do
+   //if aBookmarks.Subs[I].Flags and ev_sfOwn = ev_sfOwn then
+    Inc(Result);
+//#UC END# *4C3EC2DE00A4_49539DBA029D_impl*
+//#UC START# *4C3EC2DE00A4_49539DBA029D_var*
+var
+ I: Integer;
+//#UC END# *4C3EC2DE00A4_49539DBA029D_var*
+//#UC START# *4C3EC308025F_49539DBA029D_impl*
+ Result := nil;
+ CurIndex := 0;
+ if Assigned(aBookmarks) then
+  for I := 0 to Pred(aBookmarks.Count) do
+   //if aBookmarks.Subs[I].Flags and ev_sfOwn = ev_sfOwn then
+   begin
+    if CurIndex = anIndex then
+    begin
+     Result := aBookmarks.Subs[I];
+     break;
+    end;
+    Inc(CurIndex);
+   end;
+//#UC END# *4C3EC308025F_49539DBA029D_impl*
+//#UC START# *4C3EC308025F_49539DBA029D_var*
+var
+ CurIndex,
+ I: Integer;
+//#UC END# *4C3EC308025F_49539DBA029D_var*
+//#UC START# *4C3EC3570265_49539DBA029D_impl*
+ if nsFindBookmarkForEditInFolders(anID, l_FoldersNode, l_Entity, true, Text.TextSource.DocumentContainer) then
+  try
+   Op_FoldersControl_EditElement.Call(l_Entity, l_FoldersNode);
+  finally
+   l_Entity := nil;
+   l_FoldersNode := nil;
+  end//try..finally
+ else
+  Say(war_EditMissingBookmark);
+//#UC END# *4C3EC3570265_49539DBA029D_impl*
+//#UC START# *4C3EC3570265_49539DBA029D_var*
+var
+ l_FoldersNode : IFoldersNode;
+ l_Entity      : IvcmEntity;
+//#UC END# *4C3EC3570265_49539DBA029D_var*
+//#UC START# *4C3ED13D03A5_49539DBA029Dexec_impl*
+ if (DictionDocument <> nil) then
+  DictionDocument.OpenLiteratureList;
+//#UC END# *4C3ED13D03A5_49539DBA029Dexec_impl*
+//#UC START# *4C3ED13D03A5_49539DBA029Dexec_var*
+//#UC END# *4C3ED13D03A5_49539DBA029Dexec_var*
+//#UC START# *4C3ED13D03A5_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := (DictionDocument <> nil) and DictionDocument.IsMainDiction;
+//#UC END# *4C3ED13D03A5_49539DBA029Dtest_impl*
+//#UC START# *4C3ED13D03A5_49539DBA029Dtest_var*
+//#UC END# *4C3ED13D03A5_49539DBA029Dtest_var*
+//#UC START# *4C3ED54100A2_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) and
+    (l_eeHotSpot.Para <> nil) then
+ try
+  l_Bookmark := GetVisibleBookmark(l_eeHotSpot.Para.BookMarks);
+  try
+   if Assigned(l_Bookmark) then
+    EditBookmark(l_Bookmark.ID);
+  finally
+   l_Bookmark := nil;
+  end;
+ finally
+  l_eeHotSpot := nil;
+ end;
+//#UC END# *4C3ED54100A2_49539DBA029Dexec_impl*
+//#UC START# *4C3ED54100A2_49539DBA029Dexec_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+ l_Bookmark: IeeSub;
+//#UC END# *4C3ED54100A2_49539DBA029Dexec_var*
+//#UC START# *4C3ED54100A2_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) and
+  (l_eeHotSpot.Para <> nil) and HasVisibleBookmarks(l_eeHotSpot.Para.Bookmarks);
+//#UC END# *4C3ED54100A2_49539DBA029Dtest_impl*
+//#UC START# *4C3ED54100A2_49539DBA029Dtest_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+//#UC END# *4C3ED54100A2_49539DBA029Dtest_var*
+//#UC START# *4C3ED54D03D4_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) and
+    (l_eeHotSpot.Para <> nil) then
+ try
+  l_Bookmark := GetVisibleBookmark(l_eeHotSpot.Para.BookMarks);
+  try
+   if Assigned(l_Bookmark) then
+   case nsDeleteBookmark(l_Bookmark.ID, Text.TextSource.DocumentContainer) of
+//   Теперь не нужно, т.к. закладка удаляется у всех документов в кэше через нотификацию.
+//    drOk: l_eeHotSpot.Para.BookMarks.Subs[0].Delete;
+    drDenied: Say(err_CanNotDeleteBookmark);
+   end;
+  finally
+   l_Bookmark := nil;
+  end;
+ finally
+  l_eeHotSpot := nil;
+ end;
+//#UC END# *4C3ED54D03D4_49539DBA029Dexec_impl*
+//#UC START# *4C3ED54D03D4_49539DBA029Dexec_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+ l_Bookmark: IeeSub;
+//#UC END# *4C3ED54D03D4_49539DBA029Dexec_var*
+//#UC START# *4C3ED54D03D4_49539DBA029Dtest_impl*
+ Text_EditBookmark_Test(aParams);
+//#UC END# *4C3ED54D03D4_49539DBA029Dtest_impl*
+//#UC START# *4C3ED54D03D4_49539DBA029Dtest_var*
+//#UC END# *4C3ED54D03D4_49539DBA029Dtest_var*
+//#UC START# *4C3ED5D502AE_49539DBA029Dexec_impl*
+ if (Document <> nil) and
+    Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) and
+    (l_eeHotSpot.Para <> nil) then
+ try
+  AddBookmark(eeFindNumberedPara(l_eeHotSpot.Para, Text as IeeDocumentEx));
+ finally
+  l_eeHotSpot := nil;
+ end;
+//#UC END# *4C3ED5D502AE_49539DBA029Dexec_impl*
+//#UC START# *4C3ED5D502AE_49539DBA029Dexec_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+//#UC END# *4C3ED5D502AE_49539DBA029Dexec_var*
+//#UC START# *4C3ED5D502AE_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (Document <> nil) and
+   Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) and
+   (l_eeHotSpot.Para <> nil) and
+   Supports(l_eeHotSpot.Para, IeeLeafPara{, l_Para});
+// * Old Code. Проверка допустимости установки закладки
+// * Нахождение параграфа с номером теперь делается в _OnExecute
+// begin
+//  if (l_eeHotSpot.Para.ID >= 0) then
+//  begin
+//   if (l_eeHotSpot.Para.ID > 0) or
+//      Supports(l_eeHotSpot.Para, IeePicture, l_Picture) then
+//    aParams.Op.Flag[vcm_ofVisible] := True;
+//  end
+//  else
+//   aParams.Op.Flag[vcm_ofVisible] := False;
+// end
+
+ l_eeHotSpot := nil;
+//#UC END# *4C3ED5D502AE_49539DBA029Dtest_impl*
+//#UC START# *4C3ED5D502AE_49539DBA029Dtest_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+// l_Para: IeeLeafPara;
+// l_Picture: IeePicture;
+//#UC END# *4C3ED5D502AE_49539DBA029Dtest_var*
+//#UC START# *4C3ED7190010_49539DBA029Dexec_impl*
+ if Assigned(dsDocument) then
+  OpenInWindow
+ else
+  op_Document_CommonDocumentOpenNewWindow.Call(Self.As_IvcmEntityForm, UserType);
+//#UC END# *4C3ED7190010_49539DBA029Dexec_impl*
+//#UC START# *4C3ED7190010_49539DBA029Dexec_var*
+//#UC END# *4C3ED7190010_49539DBA029Dexec_var*
+//#UC START# *4C3ED7190010_49539DBA029Dtest_impl*
+ // В ААК тоже должен быть пункт контекстного меню "Открыть текущий документ в
+ // новом окне"
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=484815594
+ aParams.Op.Flag[vcm_ofEnabled] := (UserType in [dftDocument, dftMedicFirm,
+  dftAACContentsRight, dftAACLeft]) and
+  (Document <> nil);
+//#UC END# *4C3ED7190010_49539DBA029Dtest_impl*
+//#UC START# *4C3ED7190010_49539DBA029Dtest_var*
+//#UC END# *4C3ED7190010_49539DBA029Dtest_var*
+//#UC START# *4C3EDBA7030C_49539DBA029Dexec_impl*
+ if (MedicFirmDocument <> nil) then
+  MedicFirmDocument.OpenDrugList; 
+//#UC END# *4C3EDBA7030C_49539DBA029Dexec_impl*
+//#UC START# *4C3EDBA7030C_49539DBA029Dexec_var*
+//#UC END# *4C3EDBA7030C_49539DBA029Dexec_var*
+//#UC START# *4C3EDBA7030C_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (MedicFirmDocument <> nil);
+ aParams.Op.Flag[vcm_ofVisible] := defDataAdapter.IsInpharmExists;
+//#UC END# *4C3EDBA7030C_49539DBA029Dtest_impl*
+//#UC START# *4C3EDBA7030C_49539DBA029Dtest_var*
+//#UC END# *4C3EDBA7030C_49539DBA029Dtest_var*
+//#UC START# *4C3EDBB80283_49539DBA029Dexec_impl*
+ if (DrugDocument <> nil) then
+  DrugDocument.OpenDrugInternationalNameSynonims;
+//#UC END# *4C3EDBB80283_49539DBA029Dexec_impl*
+//#UC START# *4C3EDBB80283_49539DBA029Dexec_var*
+//#UC END# *4C3EDBB80283_49539DBA029Dexec_var*
+//#UC START# *4C3EDBB80283_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (DrugDocument <> nil);
+ aParams.Op.Flag[vcm_ofVisible] := defDataAdapter.IsInpharmExists;
+//#UC END# *4C3EDBB80283_49539DBA029Dtest_impl*
+//#UC START# *4C3EDBB80283_49539DBA029Dtest_var*
+//#UC END# *4C3EDBB80283_49539DBA029Dtest_var*
+//#UC START# *4C40039C03CD_49539DBA029D_impl*
+ {$IfDef nsTest}
+ if NeedShowIntranetWarningHack then
+  Result := Assigned(Document)
+ else
+ {$EndIf nsTest}
+  Result := not (UserType in [dftAACContentsRight, dftAACRight]) and
+            defDataAdapter.RevisionCheckEnabled and
+            Assigned(Document) and
+            {Document.GetNewRevisionAvailable}
+            (Document.GetChangeStatus <> 0)
+            ;
+//#UC END# *4C40039C03CD_49539DBA029D_impl*
+//#UC START# *4C40039C03CD_49539DBA029D_var*
+//#UC END# *4C40039C03CD_49539DBA029D_var*
+//#UC START# *4C4003D00232_49539DBA029D_impl*
+ f_InGoToInternet := True;
+ try
+  f_NeedAnnoingCheck := False; // http://mdp.garant.ru/pages/viewpage.action?pageId=352453000
+  case MessageDlg(str_InActualDocumentAction,
+                  [BsControlStatusHint(Document.GetChangeStatus, true)]) of
+   -1: GoToIntranetPrim(true);
+   -2, mrCancel : // mrCancel - для обработки закрытия окна (по Esc)
+    // - ничего не делаем
+    ;
+  else
+   Assert(false);
+  end;//Case MessageDlg(str_InActualDocumentAction..
+ finally
+  f_InGoToInternet := False;
+ end;
+//#UC END# *4C4003D00232_49539DBA029D_impl*
+//#UC START# *4C4003D00232_49539DBA029D_var*
+//#UC END# *4C4003D00232_49539DBA029D_var*
+//#UC START# *4C40042A0193_49539DBA029D_impl*
+ {$IfDef nsTest}
+ if not NeedShowIntranetWarningHack then
+ {$EndIf nsTest}
+  if f_NeedAnnoingCheck and (not f_LockAnnoingCheck) and NeedShowIntranetWarning then
+  begin
+   f_NeedAnnoingCheck := False;
+   PostMessage(Handle, g_GoToIntranetMessage, 0, 0);
+  end;//f_NeedAnnoingCheck and NeedShowIntranetWarning
+//#UC END# *4C40042A0193_49539DBA029D_impl*
+//#UC START# *4C40042A0193_49539DBA029D_var*
+//#UC END# *4C40042A0193_49539DBA029D_var*
+//#UC START# *4C40048600C1*
+ g_GoToIntranetMessage := RegisterWindowMessage('{A6BE0224-FE97-4984-8E91-B24104812165}');
+//#UC END# *4C40048600C1*
+//#UC START# *4C7B96FA02DA_49539DBA029Dexec_impl*
+ if (aParams.Control Is TevCustomEditor) then
+ begin
+  if Supports(TevCustomEditor(aParams.Control).Selection, IevHyperlink, l_Hyperlink) then
+   try
+    if (l_Hyperlink.ID >= 0) then
+    begin
+     if not l_Hyperlink.Exists then
+      l_Caption := str_SetHyperLink
+     else
+      l_Caption := str_ChangeHyperLink;
+     TFoldersService.Instance.SelectOpenWithUserData(Self.As_IvcmEntityForm,
+                                      FilterInfoFactory.MakeFilterInfo(ffNone, sfMyDocumentsAndCommon),
+                                      l_Caption,
+                                      l_Hyperlink);
+    end;//l_Hyperlink.ID
+   finally
+    l_Hyperlink := nil;
+   end;//try..finally
+ end;//aParams.Control Is TevCustomEditor
+//#UC END# *4C7B96FA02DA_49539DBA029Dexec_impl*
+//#UC START# *4C7B96FA02DA_49539DBA029Dexec_var*
+var
+ l_Caption   : TvcmStringID;
+ l_Hyperlink : IevHyperlink;
+//#UC END# *4C7B96FA02DA_49539DBA029Dexec_var*
+//#UC START# *4C7B96FA02DA_49539DBA029Dgetstate_impl*
+ State := vcm_DefaultOperationState;
+ l_Selection := Text.Selection;
+ if (l_Selection <> nil) AND not l_Selection.IsMulti then
+ begin
+  if Supports(l_Selection, IevHyperlink, l_Hyperlink) then
+   try
+    if (l_Hyperlink.ID > 0) then
+     State := st_user_Selection_InsertHyperlink_ModifyLink;
+   finally
+    l_Hyperlink := nil;
+   end//try..finally
+ end;//(l_Selection <> nil) AND not l_Selection.IsMulti
+//#UC END# *4C7B96FA02DA_49539DBA029Dgetstate_impl*
+//#UC START# *4C7B96FA02DA_49539DBA029Dgetstate_var*
+var
+ l_Hyperlink : IevHyperlink;
+ l_Selection : InevSelection;
+//#UC END# *4C7B96FA02DA_49539DBA029Dgetstate_var*
+//#UC START# *4C7B96FA02DA_49539DBA029Dtest_impl*
+ if (aParams.Control is TevCustomEditor) then
+ begin
+  l_Selection := TevCustomEditor(aParams.Control).Selection;
+  if (l_Selection <> nil) and not l_Selection.IsMulti then
+  begin
+   if Supports(l_Selection, IevHyperlink, l_Hyperlink) then
+   try
+    if (l_Hyperlink.ID < 0) then
+     aParams.Op.Flag[vcm_ofEnabled] := False
+    else
+    begin
+     l_TempPara := TeePara.Make(l_Hyperlink.Para.AsObject, aParams.Control as IeeDocumentEx);
+     try
+      if Supports(l_TempPara, IeeTextPara, l_TextPara) then
+      try
+       if not l_TextPara.IsUserComment or l3IsNil(l_TextPara.Text) then
+        aParams.Op.Flag[vcm_ofEnabled] := False;
+      finally
+       l_TextPara := nil;
+      end//try..finally
+      else
+       aParams.Op.Flag[vcm_ofEnabled] := False;
+     finally
+      l_TempPara := nil;
+     end;
+    end;//l_Hyperlink.ID < 0
+   finally
+    l_Hyperlink := nil;
+   end//try..finally
+   else
+    aParams.Op.Flag[vcm_ofEnabled] := False;
+  end
+  else
+   aParams.Op.Flag[vcm_ofEnabled] := False;
+
+  if (aParams.Control is TevEditorWithOperations) and aParams.Op.Flag[vcm_ofEnabled] then
+   aParams.Op.Flag[vcm_ofEnabled] := not TevEditorWithOperations(aParams.Control).IsReadOnlyTarget(aParams.Target);
+ end//aParams.Control Is TevCustomEditor
+ else
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4C7B96FA02DA_49539DBA029Dtest_impl*
+//#UC START# *4C7B96FA02DA_49539DBA029Dtest_var*
+var
+ l_Hyperlink : IevHyperlink;
+ l_TempPara  : IeePara;
+ l_TextPara  : IeeTextPara;
+ l_Selection : InevSelection;
+//#UC END# *4C7B96FA02DA_49539DBA029Dtest_var*
+//#UC START# *4C7D354603D3_49539DBA029Dexec_impl*
+ ShowWarningPage(true{false{True}, cEditionWarningSub);
+              // ^ - незачем ничего закрывать, если вызываем с медали
+              // http://mdp.garant.ru/pages/viewpage.action?pageId=266898633&focusedCommentId=285508953#comment-285508953
+              // А вот и есть "зачем" - http://mdp.garant.ru/pages/viewpage.action?pageId=287219564
+//#UC END# *4C7D354603D3_49539DBA029Dexec_impl*
+//#UC START# *4C7D354603D3_49539DBA029Dexec_var*
+//#UC END# *4C7D354603D3_49539DBA029Dexec_var*
+//#UC START# *4C7D354603D3_49539DBA029Dgetstate_impl*
+ if Assigned(Aggregate) and Aggregate.HasForm(fm_WarningForm.rFormID, @l_Form) and
+  l_Form.IsActiveInParent then
+  State := st_user_WarnRedaction_ShowInfo_Hide
+ else
+  State := vcm_DefaultOperationState;
+//#UC END# *4C7D354603D3_49539DBA029Dgetstate_impl*
+//#UC START# *4C7D354603D3_49539DBA029Dgetstate_var*
+var l_Form: IvcmEntityForm;
+//#UC END# *4C7D354603D3_49539DBA029Dgetstate_var*
+//#UC START# *4C7D354603D3_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := FormIsMainInDocumentSet;
+//#UC END# *4C7D354603D3_49539DBA029Dtest_impl*
+//#UC START# *4C7D354603D3_49539DBA029Dtest_var*
+//#UC END# *4C7D354603D3_49539DBA029Dtest_var*
+//#UC START# *4C80FB6E0249_49539DBA029D_impl*
+ if (ViewArea <> nil) AND defDataAdapter.IsExplanatoryExists then
+ begin
+  if (Text.HasSelection) then
+   l_Range := InevSelection(Text.Selection).GetBlock
+  else
+  begin
+   l_Pt := Text.Selection.Cursor.ClonePoint(Text.View);
+   l_Range := l_Pt.Obj.Range;
+   l_Range.Select(Text.View, l_Pt, ev_stWord);
+  end;
+  if not l_Range.Collapsed(Text.View) then
+   l_Str := DeleteEndlines(l3Trim(evAsString(l_Range.Data)))
+  else
+   l_Str := nil;
+  TDictionService.Instance.OpenTermByContext(l_Str, ViewArea.Language);
+ end;//ViewArea <> nil
+//#UC END# *4C80FB6E0249_49539DBA029D_impl*
+//#UC START# *4C80FB6E0249_49539DBA029D_var*
+
+ function DeleteEndlines(const S: Il3CString): Il3CString;
+ begin//DeleteEndlines
+  Result := S;
+  l3Replace(Result, [#$D], cc_HardSpace);
+  l3DeleteChars(Result, [#$A]);
+ end;//DeleteEndlines
+
+var
+ l_Str : Il3CString;
+ l_Range: InevRange;
+ l_Pt: InevBasePoint;
+//#UC END# *4C80FB6E0249_49539DBA029D_var*
+//#UC START# *4C879306001C_49539DBA029Dexec_impl*
+ Assert(false);
+//#UC END# *4C879306001C_49539DBA029Dexec_impl*
+//#UC START# *4C879306001C_49539DBA029Dexec_var*
+//#UC END# *4C879306001C_49539DBA029Dexec_var*
+//#UC START# *4C879306001C_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4C879306001C_49539DBA029Dtest_impl*
+//#UC START# *4C879306001C_49539DBA029Dtest_var*
+//#UC END# *4C879306001C_49539DBA029Dtest_var*
+//#UC START# *4C87931D00FC_49539DBA029Dexec_impl*
+ Assert(false);
+//#UC END# *4C87931D00FC_49539DBA029Dexec_impl*
+//#UC START# *4C87931D00FC_49539DBA029Dexec_var*
+//#UC END# *4C87931D00FC_49539DBA029Dexec_var*
+//#UC START# *4C87931D00FC_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4C87931D00FC_49539DBA029Dtest_impl*
+//#UC START# *4C87931D00FC_49539DBA029Dtest_var*
+//#UC END# *4C87931D00FC_49539DBA029Dtest_var*
+//#UC START# *4C8DCD3B015C_49539DBA029D_impl*
+ with Settings do
+  SaveBoolean(pi_Document_ShowTechComment,
+              not LoadBoolean(pi_Document_ShowTechComment,
+                              dv_Document_ShowTechComment),
+              dv_Document_ShowTechComment);
+//#UC END# *4C8DCD3B015C_49539DBA029D_impl*
+//#UC START# *4C8DCD3B015C_49539DBA029D_var*
+//#UC END# *4C8DCD3B015C_49539DBA029D_var*
+//#UC START# *4C931477005F_49539DBA029D_impl*
+ f_NeedAnnoingCheck := not f_InGoToInternet and
+                       not (UserType in [dftAACContentsRight, dftAACRight]) and
+                       afw.Application.Settings.LoadBoolean(pi_Document_ForceAskForIntranet,
+                                                            dv_Document_ForceAskForIntranet);
+//#UC END# *4C931477005F_49539DBA029D_impl*
+//#UC START# *4C931477005F_49539DBA029D_var*
+//#UC END# *4C931477005F_49539DBA029D_var*
+//#UC START# *4CE41B300315_49539DBA029Dget_impl*
+ //Иначе для ААК-Содержания формировались ссылки на Para,
+ //из-за чего при открытии ссылки не происходило синхронизации
+ //http://mdp.garant.ru/pages/viewpage.action?pageId=401514692
+ if (UserType in [dftAACContentsRight, dftAACContentsLeft])
+  and Assigned(dsDocument) and Assigned(dsDocument.DocInfo) then
+ begin
+  if (dsDocument.DocInfo.Pos.rRefType = dptSub) then
+   Result := dsDocument.DocInfo.Pos.rPos
+  else//(dsDocument.DocInfo.Pos.rRefType = dptSub)
+  if (dsDocument.DocInfo.Pos.rRefType = dptPara) then
+   Result := Integer(Cardinal(dsDocument.DocInfo.Pos.rPos) OR POSITION_TYPE_PARA_ID);
+ end//(UserType in [dftAACContentsRight, dftAACContentsLeft])
+ else
+ begin
+  l_Para := GetParaForPositionning;
+  if (l_Para = nil) then
+   Result := inherited pm_GetHyperlinkSubID
+  else
+  begin
+   if (l_Para.Subs <> nil) AND (l_Para.Subs.Count > 0) then
+    Result := l_Para.Subs.Subs[0].ID
+   else
+   begin
+    Result := l_Para.ID;
+    if (Result <> 0) then
+     Result := Integer(Cardinal(Result) OR POSITION_TYPE_PARA_ID);
+   end;//l_Para.Subs <> nil
+  end;//l_Para = nil
+ end;
+//#UC END# *4CE41B300315_49539DBA029Dget_impl*
+//#UC START# *4CE41B300315_49539DBA029Dget_var*
+var
+ l_Para : IeePara;
+//#UC END# *4CE41B300315_49539DBA029Dget_var*
+//#UC START# *4D78E2BB0211_49539DBA029D_impl*
+ inherited;
+ if (UserType in [dftAACRight, dftAACLeft, dftAACContentsRight, dftAACContentsLeft]) then
+  Text.NeedDrawDocumentEdge := False;
+
+ case UserType of
+  dftAACContentsLeft:
+   begin
+    Text.AACLike := nev_aacLeft;
+    Text.Color := cAACContentsBackColor;
+    Text.RMargin := 0;
+    Text.LMargin := 0;
+    Text.LeftIndentDelta := 0;
+   end;
+  dftAACContentsRight:
+   begin
+    Text.AACLike := nev_aacRight;
+    l_LeftIndent := NativeMainForm.AsForm.Get_VCLWinControl.Width * 7 div 100;
+    if l_LeftIndent < cnAACRightLeftIndentMin then
+     l_LeftIndent := cnAACRightLeftIndentMin;
+    Text.LeftIndentDelta := l_LeftIndent - Text.LMargin; // http://mdp.garant.ru/pages/viewpage.action?pageId=388860126
+    Text.LeftIndentDelta := Text.LeftIndentDelta - 23; // http://mdp.garant.ru/pages/viewpage.action?pageId=617799931
+   end;
+  dftAACLeft:
+   begin
+    Text.AACLike := nev_aacTextLeft;
+    Text.LeftIndentDelta := 45; // http://mdp.garant.ru/pages/viewpage.action?pageId=390577778
+    Text.RMargin := 45;
+   end;
+  dftAACRight:
+   begin
+    //Text.LeftIndentDelta := AACTextContainerPrim_Form.LeftIndentDeltaForAACRight;
+    Text.AACLike := nev_aacTextRight;
+    Text.LeftIndentDelta := 35 - Text.LMargin;
+    Text.RMargin := 10;
+   end;
+ else
+  Text.AACLike := nev_aacNone;
+ end;
+//#UC END# *4D78E2BB0211_49539DBA029D_impl*
+//#UC START# *4D78E2BB0211_49539DBA029D_var*
+const
+ cnAACRightLeftIndentMin = 60;
+var
+ l_LeftIndent: Integer;
+//#UC END# *4D78E2BB0211_49539DBA029D_var*
+//#UC START# *4DDCBABC03B7_49539DBA029Dexec_impl*
+ TChangesBetweenEditionsService.Instance.ViewChangedFragmentsForPrevEdition(Self.Document);
+//#UC END# *4DDCBABC03B7_49539DBA029Dexec_impl*
+//#UC START# *4DDCBABC03B7_49539DBA029Dexec_var*
+//#UC END# *4DDCBABC03B7_49539DBA029Dexec_var*
+//#UC START# *4DDCBABC03B7_49539DBA029Dtest_impl*
+ Document_CompareEditions_Test(aParams);
+//#UC END# *4DDCBABC03B7_49539DBA029Dtest_impl*
+//#UC START# *4DDCBABC03B7_49539DBA029Dtest_var*
+//#UC END# *4DDCBABC03B7_49539DBA029Dtest_var*
+//#UC START# *4DF1F81F02DE_49539DBA029D_impl*
+ if (UserType in [dftDocument, dftDrug, dftAACLeft, dftAACContentsRight]) then
+  l_SubDescriptors := nsDocumentRes.SubDescriptors
+ else
+  l_SubDescriptors := nsDocumentRes.LiteSubDescriptors;
+ l_Document := Document;
+ with Settings, l_SubDescriptors{SubPanel.SubDescriptors} do
+ begin
+  SubsLayer.Flag5.Visible := (UserType = dftDocument) and
+    LoadBoolean(pi_Document_SubPanel_ShowBlocks,
+                dv_Document_SubPanel_ShowBlocks) and
+    ((l_Document = nil) or (l_Document.GetDocType <> DT_BOOK));
+  if (l_SubDescriptors = nsDocumentRes.LiteSubDescriptors) then
+  begin
+   BookmarksLayer.Flag2.Visible := false;
+   MarksLayer.Flag0.Visible := not Text.ShowComments or
+                               LoadBoolean(pi_Document_SubPanel_ShowJurorComments,
+                                           dv_Document_SubPanel_ShowJurorComments);
+   MarksLayer.Flag1.Visible := Op_Contents_HasUserComments.Call(Aggregate) AND
+                               (not Text.ShowUserComments or
+                               LoadBoolean(pi_Document_SubPanel_ShowUserComments,
+                                           dv_Document_SubPanel_ShowUserComments));
+   MarksLayer.Flag2.Visible := false;
+   SubsLayer.Visible := LoadBoolean(pi_Document_SubPanel_ShowSubNumbers,
+                                    dv_Document_SubPanel_ShowSubNumbers);
+  end//l_SubDescriptors = nsDocumentRes.LiteSubDescriptors
+  else
+  begin
+   BookmarksLayer.Flag2.Visible := Op_Contents_HasBookmarks.Call(Aggregate) AND
+                                   LoadBoolean(pi_Document_SubPanel_ShowBookmarks,
+                                               dv_Document_SubPanel_ShowBookmarks);
+   MarksLayer.Flag0.Visible := (not Text.ShowComments or
+                               LoadBoolean(pi_Document_SubPanel_ShowJurorComments,
+                                           dv_Document_SubPanel_ShowJurorComments));
+   MarksLayer.Flag1.Visible := Op_Contents_HasUserComments.Call(Aggregate) AND
+                               (not Text.ShowUserComments or
+                               LoadBoolean(pi_Document_SubPanel_ShowUserComments,
+                                           dv_Document_SubPanel_ShowUserComments));
+   MarksLayer.Flag2.Visible := {false}not Text.ShowVersionComments or
+                                      LoadBoolean(pi_Document_SubPanel_ShowVersionComments,
+                                                  dv_Document_SubPanel_ShowVersionComments);
+   SubsLayer.Visible := LoadBoolean(pi_Document_SubPanel_ShowSubNumbers,
+                                    dv_Document_SubPanel_ShowSubNumbers);
+  end;//l_SubDescriptors = nsDocumentRes.LiteSubDescriptors
+ end;//with Settings
+ if (SubPanel.SubDescriptors <> l_SubDescriptors) then
+  SubPanel.SubDescriptors := l_SubDescriptors;
+ SubPanel.Visible := not (UserType in [dftAACRight,
+                                       dftAACContentsLeft{,
+                                       dftAACContentsRight}]);
+//#UC END# *4DF1F81F02DE_49539DBA029D_impl*
+//#UC START# *4DF1F81F02DE_49539DBA029D_var*
+var
+ l_Document : IDocument;
+ l_SubDescriptors : TevSubDescriptors;
+//#UC END# *4DF1F81F02DE_49539DBA029D_var*
+//#UC START# *4DF20436002A_49539DBA029Dexec_impl*
+ UpdateSubPanelDescription;
+//#UC END# *4DF20436002A_49539DBA029Dexec_impl*
+//#UC START# *4DF20436002A_49539DBA029Dexec_var*
+//#UC END# *4DF20436002A_49539DBA029Dexec_var*
+//#UC START# *4E7B48CB02C1_49539DBA029D_impl*
+ if Op_Contents_IsContentsVisible.Call(Aggregate) then
+  Op_Contents_ToggleContentsVisibility.Call(Aggregate);
+//#UC END# *4E7B48CB02C1_49539DBA029D_impl*
+//#UC START# *4E7B48CB02C1_49539DBA029D_var*
+//#UC END# *4E7B48CB02C1_49539DBA029D_var*
+//#UC START# *4EBA9E0201FC_49539DBA029D_impl*
+ if FormDataChangedInfo.NeedProcess then
+ begin
+  FormDataChangedInfo.NeedProcess := False;
+   // - замок закрываем в начале, чтобы дальше можно было обращатся к контейнеру
+   //   документа, это необходимо если вызов идет из MakeDocumentContainer;
+  if (ViewArea <> nil) then
+  begin
+   //Assert(false, 'А попадаем ли мы сюда? И зачем мы это делаем?');
+   // - попадаем :-(
+   // Выключим машину времени:
+   if ViewArea.TimeMachineOff then
+    DefDataAdapter.TimeMachine.SwitchOff;
+   if FormDataChangedInfo.FromHistory then
+   begin
+    with Text.TextSource do
+     // Если документы разные, то переприсваиваем Контейнер:
+     if not Assigned(DocumentContainer) or
+        not DocumentContainer.IsSame(ViewArea.Container) then
+      DocumentContainer := ViewArea.Container;
+   end
+   else//FormDataChangedInfo.FromHistory
+   begin
+    with Text do
+    begin
+     ShowUserComments := True;
+     ShowComments := True;
+     ShowVersionComments := Settings.LoadBoolean(pi_Document_ShowVersionsComment, dv_Document_ShowVersionsComment);
+    end;//with Text
+    ChangePositionByDataSource;
+   end;//FormDataChangedInfo.FromHistory
+   Text.IsStaticText := ViewArea.IsReadOnly;
+   Text.PreviewCaleeArea := ViewArea.PreviewCaleeArea;
+   CheckControllableState([dcsExitFromSystem]);
+   // Название для консультации:
+   if (dsConsultation <> nil) then
+    CCaption := dsConsultation.DisplayName;
+   // Этот код учитывает ситуацию, когда в историю записаны только формы c
+   // изменившимися _DataSource (при переходе по редакциям, см. также
+   // sfsOnlyIfDataSourceChanged), потому когда будем читать из истории нужно
+   // дополнительно сделать синхронизацию по текущей редакции:
+   if FormDataChangedInfo.FromHistory then
+    SynchronizeWithRedationsForm;
+   UpdateSubPanelDescription;
+   RequiestCheckForcedQueryForInternet;
+  end;//if (ViewArea <> nil) then
+ end;//if FormDataChangedInfo.NeedProcess then
+ if Assigned(f_RecallCreateTOCTree) then
+  CreateTOC(f_RecallCreateTOCTree);
+//#UC END# *4EBA9E0201FC_49539DBA029D_impl*
+//#UC START# *4EBA9E0201FC_49539DBA029D_var*
+//#UC END# *4EBA9E0201FC_49539DBA029D_var*
+//#UC START# *4EBA9FDE0189_49539DBA029D_impl*
+ Text.ShowTechComments := afw.Application.IsInternal and
+                          Settings.LoadBoolean(pi_Document_ShowTechComment,
+                                               dv_Document_ShowTechComment);
+//#UC END# *4EBA9FDE0189_49539DBA029D_impl*
+//#UC START# *4EBA9FDE0189_49539DBA029D_var*
+//#UC END# *4EBA9FDE0189_49539DBA029D_var*
+//#UC START# *4EBAAEB20259_49539DBA029D_impl*
+ with Settings do
+ begin
+  Text.PersistentSelection :=
+   LoadBoolean(pi_Document_PermanentSelection, dv_Document_PermanentSelection);
+  with Text do
+  begin
+   ShowDocumentParts := LoadBoolean(pi_Document_ShowBlockBorders,
+                                    dv_Document_ShowBlockBorders);
+   DrawSpecial := LoadBoolean(pi_Document_ShowSpecial,
+                              dv_Document_ShowSpecial);
+  end;//with Text do
+ end;//with Settings do
+ UpdateSubPanelDescription;
+ UpdateTechComment;
+//#UC END# *4EBAAEB20259_49539DBA029D_impl*
+//#UC START# *4EBAAEB20259_49539DBA029D_var*
+//#UC END# *4EBAAEB20259_49539DBA029D_var*
+//#UC START# *4EBAAF2F03D6_49539DBA029D_impl*
+ with Settings do
+  SaveBoolean(pi_Document_SubPanel_ShowSubNumbers,
+              not LoadBoolean(pi_Document_SubPanel_ShowSubNumbers,
+                              dv_Document_SubPanel_ShowSubNumbers),
+              dv_Document_SubPanel_ShowSubNumbers);
+//#UC END# *4EBAAF2F03D6_49539DBA029D_impl*
+//#UC START# *4EBAAF2F03D6_49539DBA029D_var*
+//#UC END# *4EBAAF2F03D6_49539DBA029D_var*
+//#UC START# *4EBAB1080234_49539DBA029D_impl*
+ Supports(Text.TextSource.DocumentContainer, InsDocumentAdornments, l_Adornments);
+ try
+  CreateTOC(TdeSimpleTree.Make(aTOC, l_Adornments));
+ finally
+  l_Adornments := nil;
+ end;//try..finally
+ TBaseSearchService.Instance.CheckBaseSearchDataReady(NativeMainForm);
+//#UC END# *4EBAB1080234_49539DBA029D_impl*
+//#UC START# *4EBAB1080234_49539DBA029D_var*
+var
+ l_Adornments : InsDocumentAdornments;
+//#UC END# *4EBAB1080234_49539DBA029D_var*
+//#UC START# *4EBAB3C4024F_49539DBA029D_impl*
+ if (ViewArea <> nil) then
+ begin
+  l_Container := ViewArea.Container;
+  if (l_Container <> nil) then
+  begin
+   aMade := l_Container;
+   InvalidateDataSources;
+   f_DocumentLoaded := True;
+  end;//if l_Container <> nil then
+ end;//ViewArea <> nil
+//#UC END# *4EBAB3C4024F_49539DBA029D_impl*
+//#UC START# *4EBAB3C4024F_49539DBA029D_var*
+var
+ l_Container : InevDocumentContainer;
+//#UC END# *4EBAB3C4024F_49539DBA029D_var*
+//#UC START# *4EBAB40900C2_49539DBA029D_impl*
+ TvgRemindersLineManager.ClosePopupForms;
+
+ TBaseSearchService.Instance.CheckBaseSearchDataReady(NativeMainForm);
+ if (aNewDocument <> nil) and
+    l3IOk(aNewDocument.Owner.QueryInterface(IDocument, l_Document)) then
+ begin
+  UpdateDocumentCaption(l_Document);
+  if not (l_Document.GetDocType in [DT_AUTO_REFERAT]) then
+   TnscDocumentHistory.Instance.AddDocument(l_Document.GetInternalId);
+  if (UserType in [dftAACLeft, dftAACContentsRight]) then
+  begin
+   l_DocName := MakeCaption(l_Document, False);
+   Container.SetTabCaption(l_DocName);
+   CCaption := l_DocName;
+   (Container.AsForm.VCLWinControl As TvcmEntityForm).CCaption := CCaption;
+  end;
+
+  if (UserType in [dftAutoreferat, dftAutoreferatAfterSearch, dftAACLeft, dftAACContentsRight]) then
+   Dispatcher.UpdateStatus;
+
+  LoadFromSettings;
+  ContextChanged(nil);
+  CheckLinkedWindows;
+ end;//aNewDocument <> nil..
+//#UC END# *4EBAB40900C2_49539DBA029D_impl*
+//#UC START# *4EBAB40900C2_49539DBA029D_var*
+
+ function GetDocumentName(const aDocument: IDocument): Il3CString;
+ begin
+  Result := nsGetDocumentName(aDocument);
+ end;
+
+var
+ l_Document: IDocument;
+ l_DocName: IvcmCString;
+//#UC END# *4EBAB40900C2_49539DBA029D_var*
+//#UC START# *4EBAB68B0050_49539DBA029D_impl*
+ if (Dispatcher.History <> nil) then
+  IsLast := Dispatcher.History.IsLast;
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=565841783
+//#UC END# *4EBAB68B0050_49539DBA029D_impl*
+//#UC START# *4EBAB68B0050_49539DBA029D_var*
+//#UC END# *4EBAB68B0050_49539DBA029D_var*
+//#UC START# *4EBABF090101_49539DBA029D_impl*
+ // Нужно обновить дерево "Структура документа", оно может понадобиться при
+ // обновлении, если пользователь поставит галочку показать структуру документа:
+ if (UserType in [dftDocument, dftDrug]) then
+  OpenContents(ns_comNotForce);
+ LoadFromSettings;
+//#UC END# *4EBABF090101_49539DBA029D_impl*
+//#UC START# *4EBABF090101_49539DBA029D_var*
+//#UC END# *4EBABF090101_49539DBA029D_var*
+//#UC START# *4EBABF3902F7_49539DBA029D_impl*
+ if (UserType in [dftDictEntry, dftDictSubEntry]) and
+   (ViewArea <> nil) then
+  Result := bsLanguageCaption(ViewArea.Language)
+ else
+  Result := nsCStr(CurUserType.Caption);
+//#UC END# *4EBABF3902F7_49539DBA029D_impl*
+//#UC START# *4EBABF3902F7_49539DBA029D_var*
+//#UC END# *4EBABF3902F7_49539DBA029D_var*
+//#UC START# *4EBABF5503AA_49539DBA029D_impl*
+ if not (UserType in [dftDictEntry, dftDictSubEntry]) then
+  Result := CurUserType.ImageIndex
+ else
+ if (ViewArea <> nil) and Assigned(ViewArea.DocInfo) then
+  Result := bsLanguageImage(ViewArea.DocInfo.Language)
+ else
+  Result := -1;
+//#UC END# *4EBABF5503AA_49539DBA029D_impl*
+//#UC START# *4EBABF5503AA_49539DBA029D_var*
+//#UC END# *4EBABF5503AA_49539DBA029D_var*
+//#UC START# *4EDF70F902E1_49539DBA029D_impl*
+ with aParams do
+ begin
+  if (ZoneType = vcm_ztChild) then
+   Op.Flag[vcm_ofEnabled] := False
+  else
+   aParams.Op.Flag[vcm_ofEnabled] := Assigned(Document);
+  if Op.Flag[vcm_ofEnabled] and
+     Assigned(dsDocument) then
+  begin
+   l_Sub := ExtractSubFromSubPanel(aParams.Target);
+   if Assigned(l_Sub) then
+   begin
+    l_Root := nsGetFilteredCorrespondentsTypeTree(Text.Document.DocumentContainer.SubList.SubEx[l_Sub.ID, l_Sub.LayerID]);
+    if Assigned(l_Root) then
+    begin
+     if (Op.SubItems <> nil) then
+      Op.SubItems.Clear;
+     Op.SubNodes.Clear;
+     l_Child := l_Root.Child;
+     while (l_Child <> nil) do
+     begin
+      Op.SubNodes.Add(l_Child);
+      if l_Child.IsLast then
+       break;
+      l_Child := l_Child.Next; 
+     end;//l_Child <> nil
+     Op.SubNodes.ShowRoot := true; 
+    end//Assigned(l_Root)
+    else
+     aParams.Op.Flag[vcm_ofEnabled] := False;
+   end//Assigned(l_Sub)
+   else
+    aParams.Op.Flag[vcm_ofEnabled] := False;
+  end//Op.Flag[vcm_ofEnabled]..
+  else
+   aParams.Op.Flag[vcm_ofEnabled] := False;
+ end;//with aParams do
+//#UC END# *4EDF70F902E1_49539DBA029D_impl*
+//#UC START# *4EDF70F902E1_49539DBA029D_var*
+var
+ l_Root : Il3SimpleNode;
+ l_Child : Il3SimpleNode;
+ l_Sub: IeeSub;
+//#UC END# *4EDF70F902E1_49539DBA029D_var*
+//#UC START# *4EDF72CC0158_49539DBA029D_impl*
+ if Supports(aTarget, IeeSub, l_eeSub) and
+    (l_eeSub.LayerID = Ord(ev_sbtSub)) then
+  Result := l_eeSub
+ else
+  Result := nil;
+//#UC END# *4EDF72CC0158_49539DBA029D_impl*
+//#UC START# *4EDF72CC0158_49539DBA029D_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *4EDF72CC0158_49539DBA029D_var*
+//#UC START# *4F184AD903C9_49539DBA029D_impl*
+ l_Para := GetTopParaID;
+ if Assigned(l_Para) then
+  l_Para := eeFindNumberedPara(l_Para, Text as IeeDocumentEx);
+ if Assigned(l_Para) then
+  l_ParaID := l_Para.ID
+ else
+  l_ParaID := 0;
+ DefDataAdapter.OpenIntranetDocument(Document.GetInternalId, l_ParaID, aNeedCheck);
+//#UC END# *4F184AD903C9_49539DBA029D_impl*
+//#UC START# *4F184AD903C9_49539DBA029D_var*
+var
+ l_Para: IeePara;
+ l_ParaID: LongWord;
+//#UC END# *4F184AD903C9_49539DBA029D_var*
+//#UC START# *4F184B42019E_49539DBA029Dexec_impl*
+ GoToIntranetPrim(false);
+//#UC END# *4F184B42019E_49539DBA029Dexec_impl*
+//#UC START# *4F184B42019E_49539DBA029Dexec_var*
+//#UC END# *4F184B42019E_49539DBA029Dexec_var*
+//#UC START# *4F382E2D01C1_49539DBA029D_impl*
+ f_HyperlinkCallStatus := aValue;
+//#UC END# *4F382E2D01C1_49539DBA029D_impl*
+//#UC START# *4F382E2D01C1_49539DBA029D_var*
+//#UC END# *4F382E2D01C1_49539DBA029D_var*
+//#UC START# *4F6719C001DB_49539DBA029D_impl*
+ if (aPicture <> nil) then
+ begin
+  l_Cont := nsOpenNewWindowTabbed(NativeMainForm, aOpenKind);
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=530839714
+  TDocumentService.Instance.OpenPicture(l_Cont,
+                        TnsInternalPictureData.Make(aPara,
+                                                    aPicture,
+                                                    nsGetDocumentShortName(Document)));
+ end;//aPicture <> nil
+//#UC END# *4F6719C001DB_49539DBA029D_impl*
+//#UC START# *4F6719C001DB_49539DBA029D_var*
+var
+ l_Cont  : IvcmContainer;
+//#UC END# *4F6719C001DB_49539DBA029D_var*
+//#UC START# *4F672A7903C1_49539DBA029Dexec_impl*
+ l_EP := LeafParaUnderCursor;
+ if Supports(l_EP, IeePicture, l_Picture) then
+  OpenPicture(l_EP, l_Picture);
+//#UC END# *4F672A7903C1_49539DBA029Dexec_impl*
+//#UC START# *4F672A7903C1_49539DBA029Dexec_var*
+var
+ l_EP : IeePara;
+ l_Picture : IeePicture;
+//#UC END# *4F672A7903C1_49539DBA029Dexec_var*
+//#UC START# *4F672A7903C1_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := IsPictureUnderCursor and (aParams.Control = Text);
+//#UC END# *4F672A7903C1_49539DBA029Dtest_impl*
+//#UC START# *4F672A7903C1_49539DBA029Dtest_var*
+//#UC END# *4F672A7903C1_49539DBA029Dtest_var*
+//#UC START# *4F672A9C0083_49539DBA029Dexec_impl*
+ l_EP := LeafParaUnderCursor;
+ if Supports(l_EP, IeePicture, l_Picture) then
+  OpenPicture(l_EP, l_Picture, vcm_okInNewWindow);
+//#UC END# *4F672A9C0083_49539DBA029Dexec_impl*
+//#UC START# *4F672A9C0083_49539DBA029Dexec_var*
+var
+ l_EP : IeePara;
+ l_Picture : IeePicture;
+//#UC END# *4F672A9C0083_49539DBA029Dexec_var*
+//#UC START# *4F672A9C0083_49539DBA029Dtest_impl*
+ Picture_Open_Test(aParams);
+//#UC END# *4F672A9C0083_49539DBA029Dtest_impl*
+//#UC START# *4F672A9C0083_49539DBA029Dtest_var*
+//#UC END# *4F672A9C0083_49539DBA029Dtest_var*
+//#UC START# *4F672B0E03A8_49539DBA029D_impl*
+ if (Text.Selection <> nil) AND
+    (Text.Selection.Cursor <> nil) then
+  Result := TeePara.Make(Text.Selection.Cursor.MostInner.Obj.AsPara.AsObject, Text)
+ else
+  Result := nil; 
+//#UC END# *4F672B0E03A8_49539DBA029D_impl*
+//#UC START# *4F672B0E03A8_49539DBA029D_var*
+//#UC END# *4F672B0E03A8_49539DBA029D_var*
+//#UC START# *4F7C65380244_49539DBA029D_impl*
+ inherited;
+ SetFocusToTextInAAC;
+ if (UserType in [dftAACRight, dftAACLeft, dftAACContentsRight, dftAACContentsLeft]) then
+ begin
+  l_VScroll := Op_AACTextContainer_GetVScrollBar.Call(Aggregate, (UserType = dftAACLeft) or (UserType = dftAACContentsLeft));
+  if Assigned(l_VScroll) then
+   Text.VScrollBar := l_VScroll;
+  if (UserType = dftAACRight) then
+   Op_AACTextContainer_SetJumpTo.Call(Aggregate, Self.JumpTo);
+ end;//UserType in [dftAACRight, dftAACLeft]
+//#UC END# *4F7C65380244_49539DBA029D_impl*
+//#UC START# *4F7C65380244_49539DBA029D_var*
+var
+ l_VScroll: TvtScrollBar;
+//#UC END# *4F7C65380244_49539DBA029D_var*
+//#UC START# *4F7C808A0349_49539DBA029D_impl*
+ inherited;
+ SetFocusToTextInAAC;
+//#UC END# *4F7C808A0349_49539DBA029D_impl*
+//#UC START# *4F7C808A0349_49539DBA029D_var*
+//#UC END# *4F7C808A0349_49539DBA029D_var*
+//#UC START# *4F85B63D00DE_49539DBA029D_impl*
+ if Text.Document.DocumentContainer.SubList.SubEx[aID, aLayerID].Para.QT(InevPara, l_Para) then
+  Result := l_Para.SubRange(Text.View, 0, MaxInt).ParentRange(MaxInt)
+ else
+  Result := nil;
+//#UC END# *4F85B63D00DE_49539DBA029D_impl*
+//#UC START# *4F85B63D00DE_49539DBA029D_var*
+var
+ l_Para: InevPara;
+//#UC END# *4F85B63D00DE_49539DBA029D_var*
+//#UC START# *4F85B66E0260_49539DBA029D_impl*
+ if (aList.Count = 1) then
+  with aList.First do
+   Result := ExtractRangeFromSub(ID, LayerID)
+ else
+ begin
+  l_Ranges := TnevRangeList.Make;
+  try
+   for l_IDX := 0 to aList.Count - 1 do
+   begin
+    l_Range := ExtractRangeFromSub(aList.Items[l_IDX].ID, aList.Items[l_IDX].LayerID);
+    if l_Range <> nil then
+     nevAddRangeToList(l_Ranges, l_Range);
+   end; // for l_IDX := 0 to aList.Count - 1 do
+   Result := TevMultiSelectionBlock.Make(Text.TextSource.Document.AsObject, l_Ranges)
+  finally
+   FreeAndNil(l_Ranges);
+  end;//try..finally
+ end;//aList.Count = 1
+//#UC END# *4F85B66E0260_49539DBA029D_impl*
+//#UC START# *4F85B66E0260_49539DBA029D_var*
+var
+ l_Range: InevRange;
+ l_Ranges: TnevRangeList;
+ l_IDX: Integer;
+//#UC END# *4F85B66E0260_49539DBA029D_var*
+//#UC START# *4F97FB9C0324_49539DBA029D_impl*
+ l_Block := InevSelection(Text.Selection).GetBlock;
+ try
+  if (l_Block = nil) OR
+      l_Block.Solid(Text.View) then // - выделен целый документ
+   Result := nil
+  else
+  begin
+   Result := defDataAdapter.NativeAdapter.MakePositionList;
+   CollectParas(l_Block);
+  end;//l_Block = nil..
+ finally
+  l_Block := nil;
+ end;//try..finally
+//#UC END# *4F97FB9C0324_49539DBA029D_impl*
+//#UC START# *4F97FB9C0324_49539DBA029D_var*
+var
+ l_Block: InevRange;
+//#UC END# *4F97FB9C0324_49539DBA029D_var*
+//#UC START# *4F980CDF02C7__var*
+//#UC END# *4F980CDF02C7__var*
+//#UC START# *4F980CDF02C7iter*
+  l_WasCorrection := false;
+  aRange.
+//#UC END# *4F980CDF02C7iter*
+//#UC START# *4F981D29027B__impl*
+    Result := false;
+    if not l_WasCorrection then
+    begin
+     l_WasCorrection := true;
+     if (aCRType = crtCorrespondents) then
+     begin
+      if ParaHasAnySub(aPara) then
+       // - на параграфе есть хотя бы один Sub - ничего не делаем
+       Exit;
+      if not aPara.AsObject.QT(InevPara, l_P) then
+      begin
+       Assert(false);
+       Exit;
+      end;//not aPara.QT(InevPara, l_P)
+      l_P := l_P.Prev;
+      while (l_P <> nil) AND l_P.AsObject.IsValid do
+      begin
+       if not l_P.AsObject.IsKindOf(k2_typCommentPara) then
+       // - просто пропускаем комментарий пользователя
+       begin
+        if l_P.AsObject.IsKindOf(k2_typParaList) then
+         // - это вложенный блок нашего родителя, туда мы не заходим
+         Exit;
+        if not l_P.IsLegalComment then
+         // - это не комментарий
+         if not l3IsNil(l_P.AsObject.PCharLenA[k2_tiText]) then
+          // - у него не пустой текст
+          Exit;
+        if ParaHasAnySub(l_P) then
+         AddParaToList(l_P);
+        if (l_P.PID = 0) then
+        // - это первый параграф
+         if evInPara(l_P.AsObject, k2_typBlock, l_Block) then
+         // - берём его блок
+          AddBlockToList(l_Block);
+          // - добавляем блок в список
+       end;//not l_P.IsKindOf(k2_typCommentPara)
+       l_P := l_P.Prev;
+      end;//while l_P <> nil..
+     end;//aCRType = crtCorrespondents
+    end;//l_WasCorrection
+//#UC END# *4F981D29027B__impl*
+//#UC START# *4F981D29027B__var*
+
+    function ParaHasAnySub(const aPara: InevObject): Boolean;
+    begin//ParaHasAnySub
+     Result := false;
+     with aPara.AsObject.rAtomEx([k2_tiSubs, k2_tiChildren, k2_tiHandle, Ord(ev_sbtSub)]) do
+      if IsValid then
+       if (ChildrenCount > 0) then
+        Result := true;
+    end;//ParaHasAnySub
+
+    procedure AddBlockToList(aBlock : Tl3Variant);
+    var
+     l_Pos : DocumentUnit.TPosition;
+    begin//AddBlockToList
+     l3FillChar(l_Pos, SizeOf(l_Pos));
+     l_Pos.rPoint := Cardinal(aBlock.IntA[k2_tiHandle]);
+     l_Pos.rType := PT_SUB;
+     l_PositionList.Add(l_Pos);
+    end;//AddBlockToList
+
+   var
+    l_P : InevPara;
+    l_Block : Tl3Variant;
+//#UC END# *4F981D29027B__var*
+//#UC START# *4F981D630001__impl*
+   Result := true;
+   l_P := anItem.Obj;
+   if l_P.AsObject.IsKindOf(k2_typParaList) then
+    CollectParas(anItem)
+   else
+   if l_P.AsObject.IsKindOf(k2_typLeafPara) then
+   begin
+    if not CorrectPara(l_P^) then
+     AddParaToList(l_P^);
+   end;//l_P.IsKindOf(k2_typLeafPara)
+//#UC END# *4F981D630001__impl*
+//#UC START# *4F981D630001__var*
+  var
+   l_P : PInevObject;
+//#UC END# *4F981D630001__var*
+//#UC START# *4F98298400DA__impl*
+    l3FillChar(l_Pos, SizeOf(l_Pos));
+    l_Pos.rPoint := Cardinal(aPara.AsObject.IntA[k2_tiHandle]);
+    if (l_Pos.rPoint <> 0) AND (l_Pos.rPoint <> Cardinal(-1)) then
+    begin
+     l_Pos.rType := PT_PARA;
+     l_PositionList.Add(l_Pos);
+    end;//l_Pos.rPoint <> 0
+//#UC END# *4F98298400DA__impl*
+//#UC START# *4F98298400DA__var*
+   var
+    l_Pos : DocumentUnit.TPosition;
+//#UC END# *4F98298400DA__var*
+//#UC START# *4FF437680128_49539DBA029D_impl*
+ if Text.CanFocus then
+  Text.SetFocus;
+//#UC END# *4FF437680128_49539DBA029D_impl*
+//#UC START# *4FF437680128_49539DBA029D_var*
+//#UC END# *4FF437680128_49539DBA029D_var*
+//#UC START# *4FF4378900EB_49539DBA029D_impl*
+ if (UserType = dftAACLeft) OR (UserType = dftAACContentsLeft) then
+  SetFocusToText;
+//#UC END# *4FF4378900EB_49539DBA029D_impl*
+//#UC START# *4FF4378900EB_49539DBA029D_var*
+//#UC END# *4FF4378900EB_49539DBA029D_var*
+//#UC START# *501013340168_49539DBA029D_impl*
+ Result := UserType in [dftDocument, dftDrug, dftAACLeft, dftAACContentsRight];
+//#UC END# *501013340168_49539DBA029D_impl*
+//#UC START# *501013340168_49539DBA029D_var*
+//#UC END# *501013340168_49539DBA029D_var*
+//#UC START# *50111C6102B7_49539DBA029D_impl*
+//  if (ZoneType = vcm_ztChild) then
+//  begin
+//   Result := False;
+//   Exit;
+//  end;    отключается через ExcludeUserType http://mdp.garant.ru/pages/viewpage.action?pageId=379233069&focusedCommentId=379249025#comment-379249025
+ Result := False;
+ if Assigned(dsDocument) then
+  if DocumentIsValid then
+   Result := DocumentSet.HasCorrespondents;
+//#UC END# *50111C6102B7_49539DBA029D_impl*
+//#UC START# *50111C6102B7_49539DBA029D_var*
+//#UC END# *50111C6102B7_49539DBA029D_var*
+//#UC START# *50111CAC03B5_49539DBA029D_impl*
+//  if (ZoneType = vcm_ztChild) then
+//  begin
+//   Result := False;
+//   Exit;
+//  end;         отключается через ExcludeUserType http://mdp.garant.ru/pages/viewpage.action?pageId=379233069&focusedCommentId=379249025#comment-379249025
+ Result := False;
+ if Assigned(dsDocument) then
+  if DocumentIsValid then
+   Result := DocumentSet.HasRespondents;
+//#UC END# *50111CAC03B5_49539DBA029D_impl*
+//#UC START# *50111CAC03B5_49539DBA029D_var*
+//#UC END# *50111CAC03B5_49539DBA029D_var*
+//#UC START# *501174B10018_49539DBA029D_impl*
+ Case UserType of
+  dftAACContentsLeft,
+  dftAACRight:
+   Result := false;
+  dftAACContentsRight,
+  dftAACLeft:
+   Result := true;
+  else
+   Result := inherited GetIsMainObjectForm;
+ end;//Case UserType
+//#UC END# *501174B10018_49539DBA029D_impl*
+//#UC START# *501174B10018_49539DBA029D_var*
+//#UC END# *501174B10018_49539DBA029D_var*
+//#UC START# *502B835801B4_49539DBA029D_impl*
+ Result := (UserType in [dftDocument, dftDrug, dftAACLeft, dftAACContentsRight]);
+//#UC END# *502B835801B4_49539DBA029D_impl*
+//#UC START# *502B835801B4_49539DBA029D_var*
+//#UC END# *502B835801B4_49539DBA029D_var*
+//#UC START# *502D3AFC0282_49539DBA029D_impl*
+ if (UserType = dftAACContentsLeft) then
+  if Assigned(dsDocument) and
+     Assigned(dsDocument.DocInfo) then
+  begin
+   if (dsDocument.DocInfo.Pos.rRefType = dptSub) then
+   begin
+    //if not Dispatcher.History.InBF then
+    begin
+     l_Addr := TevAddress_C(0, dsDocument.DocInfo.Pos.rPos);
+     if not Text.SearchHyperLinkAddress(true, true, l_Addr) then
+      if (Text.Selection <> nil) then
+       //if Text.Selection.Collapsed then
+       if Dispatcher.History.InBF then
+       begin
+        Text.GotoTop;
+        //Text.NextHyperlink;
+       end;//Dispatcher.History.InBF
+     end;//not Dispatcher.History.InBF
+   end;//dsDocument.DocInfo.Pos.rRefType = dptSub
+  end;//Assigned(dsDocument)
+//#UC END# *502D3AFC0282_49539DBA029D_impl*
+//#UC START# *502D3AFC0282_49539DBA029D_var*
+var
+ l_Addr : TevAddress;
+//#UC END# *502D3AFC0282_49539DBA029D_var*
+//#UC START# *502D43D50306_49539DBA029D_impl*
+ if (UserType = dftAACContentsLeft) then
+  if (dsDocument <> nil) then
+   if not Dispatcher.History.InBF then
+    if (Text <> nil) AND Text.HasDocument then
+    begin
+     Text.OnHyperlinkNavigate := nil;
+     try
+      Self.OpenHyperlink;
+     finally
+      Text.OnHyperlinkNavigate := Self.DoHyperlinkNavigate;
+     end;//try..finally
+    end;//Text <> nil
+//#UC END# *502D43D50306_49539DBA029D_impl*
+//#UC START# *502D43D50306_49539DBA029D_var*
+//#UC END# *502D43D50306_49539DBA029D_var*
+//#UC START# *5072D45A035C_49539DBA029Dexec_impl*
+ Assert(UserType = dftAACLeft);
+ Result := Self;
+//#UC END# *5072D45A035C_49539DBA029Dexec_impl*
+//#UC START# *5072D45A035C_49539DBA029Dexec_var*
+//#UC END# *5072D45A035C_49539DBA029Dexec_var*
+//#UC START# *527CB40000BD_49539DBA029D_impl*
+ // Костыль: Не даем редактору поменять Z-order если над ним есть медали
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=488604061
+{ aCanChangeZOrder := ((csLoading in ComponentState) or (csDestroying in ComponentState)) OR
+  ((aSender is TControl) and VtFindRemindersOverControl(TControl(aSender))); }
+//#UC END# *527CB40000BD_49539DBA029D_impl*
+//#UC START# *527CB40000BD_49539DBA029D_var*
+//#UC END# *527CB40000BD_49539DBA029D_var*
+//#UC START# *52876E7B02BC_49539DBA029D_impl*
+ Result := False;
+ if Assigned(aBookmarks) then
+  for I := 0 to Pred(aBookmarks.Count) do
+   //if aBookmarks.Subs[I].Flags and ev_sfOwn = ev_sfOwn then
+   begin
+    Result := True;
+    Break;
+   end;
+//#UC END# *52876E7B02BC_49539DBA029D_impl*
+//#UC START# *52876E7B02BC_49539DBA029D_var*
+var
+ I: Integer;
+//#UC END# *52876E7B02BC_49539DBA029D_var*
+//#UC START# *528777B1010F_49539DBA029Dexec_impl*
+ Text.Select(ev_stWord);
+//#UC END# *528777B1010F_49539DBA029Dexec_impl*
+//#UC START# *528777B1010F_49539DBA029Dexec_var*
+//#UC END# *528777B1010F_49539DBA029Dexec_var*
+//#UC START# *528777B1010F_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not ((Document = nil) or
+  (Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) and l_eeHotSpot.InSelection));
+//#UC END# *528777B1010F_49539DBA029Dtest_impl*
+//#UC START# *528777B1010F_49539DBA029Dtest_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+//#UC END# *528777B1010F_49539DBA029Dtest_var*
+//#UC START# *528777C803B4_49539DBA029Dexec_impl*
+ Text.Select(ev_stPara);
+//#UC END# *528777C803B4_49539DBA029Dexec_impl*
+//#UC START# *528777C803B4_49539DBA029Dexec_var*
+//#UC END# *528777C803B4_49539DBA029Dexec_var*
+//#UC START# *528777C803B4_49539DBA029Dtest_impl*
+ Text_SelectWord_Test(aParams);
+//#UC END# *528777C803B4_49539DBA029Dtest_impl*
+//#UC START# *528777C803B4_49539DBA029Dtest_var*
+//#UC END# *528777C803B4_49539DBA029Dtest_var*
+//#UC START# *5287A5D4007D_49539DBA029D_impl*
+ l_Sub := ExtractSubFromSubPanel(aParams.Target);
+ aParams.Op.Flag[vcm_ofEnabled] := Assigned(l_Sub) and (l_Sub.ID <> c_DocumentSubID);
+//#UC END# *5287A5D4007D_49539DBA029D_impl*
+//#UC START# *5287A5D4007D_49539DBA029D_var*
+var
+ l_Sub: IeeSub;
+//#UC END# *5287A5D4007D_49539DBA029D_var*
+//#UC START# *5287A6130217_49539DBA029D_impl*
+ Result := defDataAdapter.NativeAdapter.MakePositionList;
+ with l_Pos do
+ begin
+  rType := PT_SUB;
+  rPoint := aSubID;
+ end;
+ Result.Add(l_Pos);
+//#UC END# *5287A6130217_49539DBA029D_impl*
+//#UC START# *5287A6130217_49539DBA029D_var*
+var
+ l_Pos: DocumentUnit.TPosition;
+//#UC END# *5287A6130217_49539DBA029D_var*
+//#UC START# *5287A65300FD_49539DBA029D_impl*
+ l_Sub := ExtractSubFromSubPanel(aParams.Target);
+ aParams.Op.Flag[vcm_ofEnabled] := Assigned(l_Sub) and (l_Sub.ID = c_DocumentSubID)
+//#UC END# *5287A65300FD_49539DBA029D_impl*
+//#UC START# *5287A65300FD_49539DBA029D_var*
+var
+ l_Sub: IeeSub;
+//#UC END# *5287A65300FD_49539DBA029D_var*
+//#UC START# *5287A6D60096_49539DBA029D_impl*
+ l_Sub := ExtractSubFromSubPanel(aParams.Target);
+ if Assigned(l_Sub) then
+  Result := ExtractRangeFromSub(l_Sub.ID, l_Sub.LayerID)
+ else
+  Result := nil;
+//#UC END# *5287A6D60096_49539DBA029D_impl*
+//#UC START# *5287A6D60096_49539DBA029D_var*
+var
+ l_Sub: IeeSub;
+//#UC END# *5287A6D60096_49539DBA029D_var*
+//#UC START# *53A303BE03A8_49539DBA029D_impl*
+ // Сравнение редакций будет строиться между редакцией документа, из которого
+ // ведет гиперссылка и редакцией документа, переданного в aDocument.
+ // В него ведет ссылка.
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=476811628
+ Assert(HyperlinkDocument <> nil);
+ //http://mdp.garant.ru/pages/viewpage.action?pageId=477628351
+ l_CurrentRedactionIndex := lp_GetDocumentRedactionIndex(HyperlinkDocument,
+                                                         lp_GetDocumentRedactionID(aDocument));
+ Assert(aDocument <> nil);
+ l_AnotherRedactionIndex := lp_GetDocumentRedactionIndex(HyperlinkDocument,
+                                                         lp_GetDocumentRedactionID(HyperlinkDocument));
+
+ // перход в текст документа или в сравнение. 513615258
+ l_JumpToText := Settings.LoadBoolean(pi_Document_ShowVersionCommentsLinkBehaviour,
+                                     dv_Document_ShowVersionCommentsLinkBehaviour);
+
+ if TvcmTabbedContainerFormDispatcher.Instance.NeedUseTabs then
+  l_Cont := nsOpenNewWindowTabbed(NativeMainForm, cOpenKindMap[aBehaviour])
+ else
+ if (aBehaviour = phbInNewWindow) then
+  l_Cont := nsOpenNewWindowParams(NativeMainForm)
+ else
+  l_Cont := nil;
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=557299523
+  
+ // Теперь для позиционирования в СР передаем TbsDocPos с указанием номера
+ // блока/саба, а параграф нужен для определения места в документе, куда
+ // нужно вернуться
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=476379343
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=475141260
+ l_ActiveElement := (Text as TevCustomEditorWindow).ActiveElement;
+ try
+  // В данных ссылка на редакцию в обычном параграфе - откроем саму редакцию, без СР
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=495139252
+  if (l_ActiveElement <> nil) and (l_ActiveElement.Para.AsObject.IntA[k2_tiStyle] <> ev_saVersionInfo) then
+  begin
+   TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(aDocument, TbsDocPos_C(dptSub, aSub)), l_Cont);
+   Exit;
+  end;//if (l_ActiveElement <> nil)
+  if Assigned(l_ActiveElement) and
+   evInPara(l_ActiveElement.Para.AsObject, k2_typBlock, l_Block) then
+  begin
+   l_Block.Child[0].QT(InevObject, l_Ob);
+   l_LP := EvFindNumberedPara(l_Ob);
+   if (l_LP = nil) then
+    l_Para := TeeLeafPara.Make(nil, Text) as IeeLeafPara
+   else
+    l_Para := TeeLeafPara.Make(l_LP.AsObject, Text) as IeeLeafPara;
+  end//if Assigned(l_ActiveElement)
+  else
+   l_Para := TeeLeafPara.Make((Text as TevCustomEditorWindow).Selection.Cursor.MostInner.Obj^.AsObject, Text) as IeeLeafPara;
+ finally
+  l_ActiveElement := nil;
+ end;//try..finally
+ try
+  //Коллеги, я прошу прощения, а можно добавить еще уточнение, что выбор окна в сравнении, куда надо помещать
+  //текущую редакцию, зависит от того, со старой редакцией будет сравнение, или с будущей. Если со старой -
+  //текущая должна быть в правом окне. Если с будущей - в левом. Чтобы не отличалось от стандартного сравнения/
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=453155865
+  if (l_CurrentRedactionIndex > l_AnotherRedactionIndex) then
+  begin
+   l_LeftDocument := aDocument;
+   l_RightDocument := HyperlinkDocument;
+  end//if (l_CurrentRedactionIndex > l_AnotherRedactionIndex) 
+  else
+  if (l_CurrentRedactionIndex < l_AnotherRedactionIndex) then
+  begin
+   l_LeftDocument := HyperlinkDocument;
+   l_RightDocument := aDocument;
+  end//if (l_CurrentRedactionIndex < l_AnotherRedactionIndex)
+  else
+   Assert(False, 'Для построения СР поданы два экземпляра одной и той же редакции документа');
+
+  if l_JumpToText then
+  // перход в текст документа или в сравнение. 513615258
+   TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(aDocument, TbsDocPos_C(dptSub, aSub)), l_Cont)
+  else
+   TEditionsService.Instance.MakeCompareEditions(l_LeftDocument, l_RightDocument, TbsDocPos_C(dptSub, aSub), HyperlinkDocument, l_Para, l_Cont);
+ finally
+  l_Para := nil;
+  l_LeftDocument := nil;
+  l_RightDocument := nil;
+ end;//try..finally
+//#UC END# *53A303BE03A8_49539DBA029D_impl*
+//#UC START# *53A303BE03A8_49539DBA029D_var*
+
+ function lp_GetDocumentRedactionID(const aDoc: IDocument): TRedactionID;
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=477628351 *)
+ var
+  l_DocState: IDocumentState;
+  l_DocRedactionInfo: TRedactionInfo;
+ begin
+   Assert(aDoc <> nil);
+   aDoc.GetCurrentState(l_DocState);
+   Assert(l_DocState <> nil);
+   try
+    l_DocState.GetCurrentRedaction(l_DocRedactionInfo);
+    Result := l_DocRedactionInfo.rID;
+   finally
+    l_DocState := nil;
+    Finalize(l_DocRedactionInfo);
+   end;//try..finally
+ end;//lp_GetDocumentRedactionID
+
+ function lp_GetDocumentRedactionIndex(const aDoc: IDocument; aRedactionID: TRedactionID): Integer;
+ //http://mdp.garant.ru/pages/viewpage.action?pageId=477628351
+ var
+  l_RedactionItemInfo: TRedactionInfo;
+  l_RedactionList: IRedactionInfoList;
+  l_Index: Integer;
+ begin
+  aDoc.GetRedactionsList(l_RedactionList);
+  try
+   for l_Index := 0 to l_RedactionList.Count - 1 do
+   begin
+    l_RedactionList.pm_GetItem(l_Index, l_RedactionItemInfo);
+    try
+     if (l_RedactionItemInfo.rID = aRedactionID) then
+     begin
+      Result := l_Index;
+      Exit;
+     end;//if (l_RedactionItemInfo.rID = aRedactionID)
+    finally
+     Finalize(l_RedactionItemInfo);
+    end;//try..finally
+   end;//for l_Index := 0 to l_RedactionList.Count - 1
+  finally
+   l_RedactionList := nil;
+  end;//try..finally
+ end;//lp_GetDocumentRedactionIndex
+
+const
+ cOpenKindMap : array[TbsProcessHyperLinkBehaviour] of TvcmMainFormOpenKind = (vcm_okInCurrentTab,
+  vcm_okInNewTab, vcm_okInNewTab, vcm_okInNewWindow);
+var
+ l_Block: Tl3Variant;
+ l_Ob: InevObject;
+ l_Para: IeeLeafPara;
+ l_CurrentRedactionIndex: Integer;
+ l_AnotherRedactionIndex: Integer;
+ l_ActiveElement: InevActiveElement;
+ l_LeftDocument: IDocument;
+ l_RightDocument: IDocument;
+ l_LP : InevLeafPara;
+ l_Cont: IvcmContainer;
+ l_JumpToText: Boolean; // перход в текст документа или в сравнение. 513615258
+//#UC END# *53A303BE03A8_49539DBA029D_var*
+//#UC START# *53A95A1A0073_49539DBA029D_impl*
+ Result := inherited GetBehaviourFromEffects(anEffects);
+ if UserType = dftAACContentsLeft then
+  if Result in [phbInNewTabNoActivate, phbInNewTabActivate, phbInNewWindow] then // вообще, получается, что всегда. Но вдруг появится другое поведение, так что пусть будет с проверкой.
+   Result := phbInSameContainer;
+//#UC END# *53A95A1A0073_49539DBA029D_impl*
+//#UC START# *53A95A1A0073_49539DBA029D_var*
+//#UC END# *53A95A1A0073_49539DBA029D_var*
+//#UC START# *53BE2C3D0176_49539DBA029D_impl*
+ case UserType of
+  dftDocument, dftDictEntry, dftTips, dftMedDictEntry, dftMedicFirm:
+  begin
+   if (not aShort) then
+   begin
+    if not TCommonService.Instance.IsCurEditionActual(aDocument) then
+     Result := vcmFmt(str_nsRedactionCaption, [lp_GetDocumentName(aDocument)])
+    else
+     Result := l3Cat(CurUserType.Caption + ' : ', lp_GetDocumentName(aDocument));
+   end
+   else
+    Result := lp_GetDocumentName(aDocument);
+    // - http://mdp.garant.ru/pages/viewpage.action?pageId=531971274
+  end;//dftDocument..
+  dftAutoreferat,
+  dftAutoreferatAfterSearch,
+  dftDrug:
+   if aShort then
+   begin
+    //http://mdp.garant.ru/pages/viewpage.action?pageId=562605136
+    if (UserType in [dftAutoreferatAfterSearch, dftAutoreferat]) then
+     Result := lp_GetDocumentShortName(aDocument)
+    else
+     Result := lp_GetDocumentName(aDocument)
+   end
+   else
+    Result := l3Cat(CurUserType.Caption + ' : ', lp_GetDocumentName(aDocument));
+  dftAACLeft,
+  dftAACRight,
+  dftAACContentsRight:
+   if aShort then
+    Result := lp_GetDocumentShortName(aDocument)
+   else
+    Result := l3Cat([str_dftDocumentCaption.AsCStr, vcmCStr(' : '), lp_GetDocumentName(aDocument)]);
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=571639740
+ end;//case UserType
+//#UC END# *53BE2C3D0176_49539DBA029D_impl*
+//#UC START# *53BE2C3D0176_49539DBA029D_var*
+
+ function lp_GetDocumentName(const aDoc: IDocument): Il3CString;
+ begin
+  Result := nsGetDocumentName(aDoc);
+ end;//lp_GetDocumentName
+
+ function lp_GetDocumentShortName(const aDoc: IDocument): Il3CString;
+ begin
+  Result := nsGetDocumentShortName(aDoc);
+ end;
+
+//#UC END# *53BE2C3D0176_49539DBA029D_var*
+//#UC START# *53C3A82F01C0_49539DBA029D_impl*
+ Assert(aDocument <> nil);
+ l_Caption := MakeCaption(aDocument, False);
+ try
+  f_TabCaption := MakeCaption(aDocument, True);
+  if (not l3IsNil(l_Caption)) then
+  begin
+   CCaption := l_Caption;
+   if (UserType in [dftAACLeft, dftAACRight, dftAACContentsRight, dftDictEntry]) then
+    UpdateTabCaption(l_Caption);
+   // - http://mdp.garant.ru/pages/viewpage.action?pageId=590762358
+  end;
+ finally
+  l_Caption := nil;
+ end;
+//#UC END# *53C3A82F01C0_49539DBA029D_impl*
+//#UC START# *53C3A82F01C0_49539DBA029D_var*
+var
+ l_Caption: Il3CString;
+//#UC END# *53C3A82F01C0_49539DBA029D_var*
+//#UC START# *53D8E4B702E4_49539DBA029D_impl*
+ if (UserType in [dftAutoreferat, dftAutoreferatAfterSearch]) then
+  Result := nsGetDocumentName(aDoc)
+  // - потому что документ ленты прайма отдает теперь совсем короткое имя,
+  // без довесков
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=569225205
+ else
+  Result := inherited GetDocumentShortName(aDoc, aExportSelection);
+//#UC END# *53D8E4B702E4_49539DBA029D_impl*
+//#UC START# *53D8E4B702E4_49539DBA029D_var*
+//#UC END# *53D8E4B702E4_49539DBA029D_var*
+//#UC START# *53DF276802DD_49539DBA029Dexec_impl*
+ l_EP := LeafParaUnderCursor;
+ if Supports(l_EP, IeePicture, l_Picture) then
+  OpenPicture(l_EP, l_Picture, vcm_okInNewTab);
+//#UC END# *53DF276802DD_49539DBA029Dexec_impl*
+//#UC START# *53DF276802DD_49539DBA029Dexec_var*
+var
+ l_EP : IeePara;
+ l_Picture : IeePicture;
+//#UC END# *53DF276802DD_49539DBA029Dexec_var*
+//#UC START# *53DF276802DD_49539DBA029Dtest_impl*
+ Picture_OpenNewWindow_Test(aParams);
+//#UC END# *53DF276802DD_49539DBA029Dtest_impl*
+//#UC START# *53DF276802DD_49539DBA029Dtest_var*
+//#UC END# *53DF276802DD_49539DBA029Dtest_var*
+//#UC START# *53DF35EA01CE_49539DBA029D_impl*
+ l_EP := LeafParaUnderCursor;
+ Result := (l_EP <> nil);
+ if Result then
+  if not Supports(l_EP, IeePicture) then
+   Result := false;
+//#UC END# *53DF35EA01CE_49539DBA029D_impl*
+//#UC START# *53DF35EA01CE_49539DBA029D_var*
+var
+ l_EP : IeePara;
+//#UC END# *53DF35EA01CE_49539DBA029D_var*
+//#UC START# *53F1C6EF02C9_49539DBA029D_impl*
+ Result := f_TabCaption;
+//#UC END# *53F1C6EF02C9_49539DBA029D_impl*
+//#UC START# *53F1C6EF02C9_49539DBA029D_var*
+//#UC END# *53F1C6EF02C9_49539DBA029D_var*
+//#UC START# *54058CBC0182_49539DBA029D_impl*
+ Result := DoGetTabCaption
+//#UC END# *54058CBC0182_49539DBA029D_impl*
+//#UC START# *54058CBC0182_49539DBA029D_var*
+//#UC END# *54058CBC0182_49539DBA029D_var*
+//#UC START# *543E3AA801D0_49539DBA029D_impl*
+ Result := 0;
+ case UserType of
+  dftDrug:
+   Result := NsTabIconIndex(titDrug);
+  dftMedicFirm:
+   Result := NsTabIconIndex(titMedicFirm);
+  dftConsultation:
+   Result := NsTabIconIndex(titConsultation);   
+ else
+  if (DataSource <> nil) and (DataSource.UseCaseController <> nil) then
+   Result := DataSource.UseCaseController.FormSetImageIndex;
+ end;
+ if (Result <= 0) then
+  Result := NsTabIconIndex(titDocumentNormal);
+//#UC END# *543E3AA801D0_49539DBA029D_impl*
+//#UC START# *543E3AA801D0_49539DBA029D_var*
+//#UC END# *543E3AA801D0_49539DBA029D_var*
+//#UC START# *544609B9032D_49539DBA029D_impl*
+ Result := (UserType <> dftMedicFirmSynchroView);
+//#UC END# *544609B9032D_49539DBA029D_impl*
+//#UC START# *544609B9032D_49539DBA029D_var*
+//#UC END# *544609B9032D_49539DBA029D_var*
+//#UC START# *544E049F00F7_49539DBA029D_impl*
+ UpdateSubPanelDescription;
+//#UC END# *544E049F00F7_49539DBA029D_impl*
+//#UC START# *544E049F00F7_49539DBA029D_var*
+//#UC END# *544E049F00F7_49539DBA029D_var*
+//#UC START# *54868B67034A_49539DBA029D_impl*
+ UpdateSubPanelDescription;
+//#UC END# *54868B67034A_49539DBA029D_impl*
+//#UC START# *54868B67034A_49539DBA029D_var*
+//#UC END# *54868B67034A_49539DBA029D_var*
+//#UC START# *54868B84029F_49539DBA029D_impl*
+ // ничего не делаем
+//#UC END# *54868B84029F_49539DBA029D_impl*
+//#UC START# *54868B84029F_49539DBA029D_var*
+//#UC END# *54868B84029F_49539DBA029D_var*
+//#UC START# *54EED7B70228_49539DBA029D_impl*
+ if Text.HasDocument then
+  Result := Inherited GetParaIDFOrSaveInWorkJournal
+ else
+ if (not f_DocumentLoaded) then
+ begin
+  // Если документ реально не прогружался - отдаем позицию из DocInfo
+  if (sdsBaseDocument <> nil) and
+     (sdsBaseDocument.DocInfo <> nil) then
+   Result := sdsBaseDocument.DocInfo.Pos.rPos
+  else
+   Result := 0;
+ end;
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=589874196 
+//#UC END# *54EED7B70228_49539DBA029D_impl*
+//#UC START# *54EED7B70228_49539DBA029D_var*
+//#UC END# *54EED7B70228_49539DBA029D_var*
+//#UC START# *54EED7DF0249_49539DBA029D_impl*
+ Result := Inherited NeedSaveInWorkJournal and
+           (Text.HasDocument or
+            ((not f_DocumentLoaded) and
+            (sdsBaseDocument <> nil) and
+            (sdsBaseDocument.DocInfo <> nil)));
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=589874196
+//#UC END# *54EED7DF0249_49539DBA029D_impl*
+//#UC START# *54EED7DF0249_49539DBA029D_var*
+//#UC END# *54EED7DF0249_49539DBA029D_var*
+//#UC START# *54F458DD01CE_49539DBA029D_impl*
+ Result := (UserType <> dftDictSubEntry) and Inherited DoGetNeedAddFormToTasksPanel;
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=588809860
+//#UC END# *54F458DD01CE_49539DBA029D_impl*
+//#UC START# *54F458DD01CE_49539DBA029D_var*
+//#UC END# *54F458DD01CE_49539DBA029D_var*
+//#UC START# *55545C63026E_49539DBA029Dexec_impl*
+ if not CheckParamForUserType(aUserType) then
+  Exit;
+ OpenDocumentInNewContainer(vcm_okInNewTab);
+//#UC END# *55545C63026E_49539DBA029Dexec_impl*
+//#UC START# *55545C63026E_49539DBA029Dexec_var*
+//#UC END# *55545C63026E_49539DBA029Dexec_var*
+//#UC START# *55546DEA0384_49539DBA029D_impl*
+ if (Document <> nil) then
+ begin
+  l_Cont := nsOpenNewWindowTabbed(NativeMainForm, aOpenKind);
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=560729118
+  if (l_Cont <> nil) then
+  try
+   l_TopPara := GetTopParaID;
+   try
+    l_NewDocument := defDataAdapter.TimeMachine.CorrectDocumentEdition(Document);
+    try
+     if (l_TopPara <> nil) then
+      TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(l_NewDocument,
+                                             TbsDocPos_P(l_TopPara)),
+                             l_Cont)
+     else
+      TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(l_NewDocument), l_Cont);
+    finally
+     l_NewDocument := nil;
+    end;//try..finally
+   finally
+    l_TopPara := nil;
+   end;//try..finally
+  finally
+   l_Cont := nil;
+  end;//try..finally
+ end;//Document <> nil
+//#UC END# *55546DEA0384_49539DBA029D_impl*
+//#UC START# *55546DEA0384_49539DBA029D_var*
+var
+ l_NewDocument : IDocument;
+ l_Cont        : IvcmContainer;
+ l_TopPara     : IeePara;
+//#UC END# *55546DEA0384_49539DBA029D_var*
+//#UC START# *5587AA310201_49539DBA029Dexec_impl*
+ if (dsDocument <> nil) and Supports(aParams.Target, IeeSub, l_eeSub) then
+  dsDocument.OpenSimilarDocumentsToFragment(l_eeSub.ID);
+//#UC END# *5587AA310201_49539DBA029Dexec_impl*
+//#UC START# *5587AA310201_49539DBA029Dexec_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *5587AA310201_49539DBA029Dexec_var*
+//#UC START# *5587AA310201_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := TextSource.HasDocument
+                               and Supports(aParams.Target, IeeSub, l_eeSub)
+                               and (l_eeSub.LayerID = Ord(ev_sbtSub))
+                               and Assigned(sdsDocInfo)
+                               and sdsDocInfo.HasSimilarToFragment(l_eeSub.ID);
+//#UC END# *5587AA310201_49539DBA029Dtest_impl*
+//#UC START# *5587AA310201_49539DBA029Dtest_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *5587AA310201_49539DBA029Dtest_var*
+//#UC START# *561145D802BB_56558AAF003B_impl*
+ // Всё это криво и костыльно. И ужасно. И очень не хотелось так делать.
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=612730339
+ if (not IsEqualGUID(IID, IExTextFormState)) and (f_InnerState <> nil) then
+  Result := f_InnerState.QueryInterface(IID, Obj)
+ else
+  Result := inherited QueryInterface(IID, Obj);
+//#UC END# *561145D802BB_56558AAF003B_impl*
+//#UC START# *561145D802BB_56558AAF003B_var*
+//#UC END# *561145D802BB_56558AAF003B_var*
+//#UC START# *56558A84014E_56558AAF003Bget_impl*
+ Result := f_InnerState;
+//#UC END# *56558A84014E_56558AAF003Bget_impl*
+//#UC START# *56558A84014E_56558AAF003Bget_var*
+//#UC END# *56558A84014E_56558AAF003Bget_var*
+//#UC START# *56558A99000A_56558AAF003Bget_impl*
+ Result := f_NeedShowUserComments;
+//#UC END# *56558A99000A_56558AAF003Bget_impl*
+//#UC START# *56558A99000A_56558AAF003Bget_var*
+//#UC END# *56558A99000A_56558AAF003Bget_var*
+//#UC START# *56558B510110_56558AAF003B_impl*
+ inherited Create;
+ f_InnerState := aInnerState;
+ f_NeedShowUserComments := aNeedShowUserComments;
+ f_NeedShowComments := aNeedShowComments;
+ f_NeedShowVersionComments := aNeedShowVersionComments;
+ f_eeSubIdForTypedCorrespondentList := aEeSubIdForTypedCorrespondentList;
+//#UC END# *56558B510110_56558AAF003B_impl*
+//#UC START# *56558B510110_56558AAF003B_var*
+//#UC END# *56558B510110_56558AAF003B_var*
+//#UC START# *5656B27E015A_56558AAF003Bget_impl*
+ Result := f_eeSubIdForTypedCorrespondentList;
+//#UC END# *5656B27E015A_56558AAF003Bget_impl*
+//#UC START# *5656B27E015A_56558AAF003Bget_var*
+//#UC END# *5656B27E015A_56558AAF003Bget_var*
+//#UC START# *565C49D7029F_56558AAF003Bget_impl*
+ Result := f_NeedShowComments;
+//#UC END# *565C49D7029F_56558AAF003Bget_impl*
+//#UC START# *565C49D7029F_56558AAF003Bget_var*
+//#UC END# *565C49D7029F_56558AAF003Bget_var*
+//#UC START# *565C49E9039D_56558AAF003Bget_impl*
+ Result := f_NeedShowVersionComments;
+//#UC END# *565C49E9039D_56558AAF003Bget_impl*
+//#UC START# *565C49E9039D_56558AAF003Bget_var*
+//#UC END# *565C49E9039D_56558AAF003Bget_var*
+//#UC START# *5715DB6E02FC_4C066918002D_impl*
+ Result := inherited TrySelectSub(aContainer, aSel, aSubID, aType);
+ if not Result and (f_Form.AAC <> nil) and (f_Form.AAC.Right <> nil) and f_Form.AAC.Right.HasDoc then
+ begin
+  l_Sub := f_Form.AAC.Right.Container.SubList.SubEx[aSubID, aType];
+  if (l_Sub <> nil) and l_Sub.Exists then
+  begin
+   l_Para := l_Sub.Para;
+   l_SubHandle := 0;
+   if evInBlock(l_Para, ev_bvkRight, l_Block) then
+   begin
+    l_SubHandle := l_Block.IntA[k2_tiHandle];
+    l_Block.BoolA[k2_tiCollapsed] := False;
+   end; // if evInPara(l_Para.AsObject, k2_typBlock, l_Block) then
+   if (l_SubHandle > 0) then
+   begin
+    l_Addr := TevAddress_C(-1, l_SubHandle);
+    f_Form.Text.SearchHyperLinkAddress(true, true, l_Addr);
+   end; // if (l_SubHandle > 0) then
+  end; // if (l_Sub <> nil) and l_Sub.Exists then
+ end; // if not Result then
+//#UC END# *5715DB6E02FC_4C066918002D_impl*
+//#UC START# *5715DB6E02FC_4C066918002D_var*
+var
+ l_Sub      : IevSub;
+ l_Para     : Tl3Variant;
+ l_Addr     : TevAddress;
+ l_Block    : Tl3Variant;
+ l_SubHandle: Integer;
+//#UC END# *5715DB6E02FC_4C066918002D_var*
+//#UC START# *5767DF4D033E_49539DBA029D_impl*
+ if (UserType in [dftAACContentsLeft, dftAACLeft]) then
+  if (aHyperlink.Address.DocID = 0) then // внутренняя ссылка
+    f_LockAnnoingCheck := True;
+//#UC END# *5767DF4D033E_49539DBA029D_impl*
+//#UC START# *5767DF4D033E_49539DBA029D_var*
+//#UC END# *5767DF4D033E_49539DBA029D_var*
+//#UC START# *664D52829DD3_49539DBA029D_impl*
+ if HasDoc then
+  OpenInWindow(False);
+//#UC END# *664D52829DD3_49539DBA029D_impl*
+//#UC START# *664D52829DD3_49539DBA029D_var*
+//#UC END# *664D52829DD3_49539DBA029D_var*
+//#UC START# *701BC3512B2B_49539DBA029D_impl*
+ DoSwitchToFirstTab;
+//#UC END# *701BC3512B2B_49539DBA029D_impl*
+//#UC START# *701BC3512B2B_49539DBA029D_var*
+//#UC END# *701BC3512B2B_49539DBA029D_var*
+//#UC START# *7401AD950C39_49539DBA029D_impl*
+ DoSwitchToFirstTab;
+//#UC END# *7401AD950C39_49539DBA029D_impl*
+//#UC START# *7401AD950C39_49539DBA029D_var*
+//#UC END# *7401AD950C39_49539DBA029D_var*
+//#UC START# *8418208BCCA0_49539DBA029D_impl*
+ DoSwitchToFirstTab;
+//#UC END# *8418208BCCA0_49539DBA029D_impl*
+//#UC START# *8418208BCCA0_49539DBA029D_var*
+//#UC END# *8418208BCCA0_49539DBA029D_var*
+//#UC START# *8A8A353C1A57_49539DBA029D_impl*
+ if HasDoc then
+  OpenInWindow;
+//#UC END# *8A8A353C1A57_49539DBA029D_impl*
+//#UC START# *8A8A353C1A57_49539DBA029D_var*
+//#UC END# *8A8A353C1A57_49539DBA029D_var*
+//#UC START# *918005C1AFE3_49539DBA029D_impl*
+ DoSwitchToFirstTab;
+//#UC END# *918005C1AFE3_49539DBA029D_impl*
+//#UC START# *918005C1AFE3_49539DBA029D_var*
+//#UC END# *918005C1AFE3_49539DBA029D_var*
+//#UC START# *931EEB23421A_49539DBA029D_impl*
+ if HasDoc then
+  OpenInWindow;
+//#UC END# *931EEB23421A_49539DBA029D_impl*
+//#UC START# *931EEB23421A_49539DBA029D_var*
+//#UC END# *931EEB23421A_49539DBA029D_var*
+//#UC START# *A2BF852CD6C7_49539DBA029D_impl*
+ DoSwitchToFirstTab;
+//#UC END# *A2BF852CD6C7_49539DBA029D_impl*
+//#UC START# *A2BF852CD6C7_49539DBA029D_var*
+//#UC END# *A2BF852CD6C7_49539DBA029D_var*
+//#UC START# *AF0C9051AEEF_49539DBA029D_impl*
+ if HasDoc then
+  OpenInWindow(False);
+//#UC END# *AF0C9051AEEF_49539DBA029D_impl*
+//#UC START# *AF0C9051AEEF_49539DBA029D_var*
+//#UC END# *AF0C9051AEEF_49539DBA029D_var*
+//#UC START# *BB5471A3EA8E_49539DBA029D_impl*
+ if HasDoc then
+  OpenInWindow(False);
+//#UC END# *BB5471A3EA8E_49539DBA029D_impl*
+//#UC START# *BB5471A3EA8E_49539DBA029D_var*
+//#UC END# *BB5471A3EA8E_49539DBA029D_var*
+//#UC START# *FD0B95191C1E_49539DBA029D_impl*
+ if HasDoc then
+  OpenInWindow(False);
+//#UC END# *FD0B95191C1E_49539DBA029D_impl*
+//#UC START# *FD0B95191C1E_49539DBA029D_var*
+//#UC END# *FD0B95191C1E_49539DBA029D_var*

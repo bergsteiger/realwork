@@ -1,0 +1,264 @@
+//#UC START# *4A8E8F2E0195_4F7DAC14027A_impl*
+ inherited;
+
+ RemindersLine.Visible := False;
+ RemindersLine.BeginUpdate;
+ try
+  RemindersLine.Images := resWarnImages.nsWarnImages.WarnImages;
+
+  with ControlledChangingWarning do
+  begin
+   Hint := str_ControlledChangingWarningHint.AsCStr;
+   ImageIndex := 2;
+   Flash := True;
+   Visible := False;
+   OnPopupFormShow := ControlledChangingWarningAfterBaloonShowed;
+   OnPopupFormHide := ControlledChangingWarningAfterBaloonHidden;
+   OnShow := ControlledChangingWarningBecomeVisible;
+   UserType := BaloonWarningUserTypes_ControlledChangingWarning_UserType.ControlledChangingWarning;
+   SortIndex := 0;
+  end;
+  with OldBaseWarning do
+  begin
+   Hint := str_OldBaseWarningHint.AsCStr;
+   ImageIndex := 11;
+   Visible := False;
+   OnShow := ControlledChangingWarningBecomeVisible;
+   OldBaseWarning.UserType := BaloonWarningUserTypes_OldBaseWarning_UserType.OldBaseWarning;
+   SortIndex := 1;
+  end;
+  with TrialModeWarning do
+  begin
+   Hint := str_TrialModeWarningHint.AsCStr;
+   ImageIndex := 1;
+   Visible := False;
+   OnShow := ControlledChangingWarningBecomeVisible;
+   TrialModeWarning.UserType := BaloonWarningUserTypes_TrialModeWarning_UserType.TrialModeWarning;
+   SortIndex := 2;
+  end;
+  with remUnreadConsultations do
+  begin
+   Hint := str_remUnreadConsultationsHint.AsCStr;
+   ImageIndex := 14;
+   Flash := True;
+   Visible := False;
+   OnShow := ControlledChangingWarningBecomeVisible;
+   UserType := BaloonWarningUserTypes_remUnreadConsultations_UserType.remUnreadConsultations;
+   SortIndex := 3;
+  end;
+  with remNewChatMessages do
+  begin
+   ImageIndex := 15;
+   Flash := True;
+   Visible := False;
+   OnShow := ControlledChangingWarningBecomeVisible;
+   SortIndex := 4;
+  end;
+  with remOnlineDead do
+  begin
+   Hint := str_remOnlineDeadHint.AsCStr;
+   ImageIndex := 17;
+   Visible := False;
+   OnPopupFormHide := remOnlineDeadAfterBaloonHidden;
+   OnShow := ControlledChangingWarningBecomeVisible;
+   remOnlineDead.UserType := BaloonWarningUserTypes_remOnlineDead_UserType.remOnlineDead;
+   SortIndex := 5;
+  end;
+  RemindersLine.Sorted := True;
+ finally
+  RemindersLine.EndUpdate;
+ end;
+//#UC END# *4A8E8F2E0195_4F7DAC14027A_impl*
+//#UC START# *4A8E8F2E0195_4F7DAC14027A_var*
+//#UC END# *4A8E8F2E0195_4F7DAC14027A_var*
+//#UC START# *4AE1948900DE_4F7DAC14027A_impl*
+ inherited;
+ with ControlledChangingWarning do
+ begin
+  EntityName := en_Reminder;
+  OperationName := op_RemMWControlledChangingWarning;
+ end;
+ with OldBaseWarning do
+ begin
+  EntityName := en_Reminder;
+  OperationName := op_RemMWOldBaseWarning;
+ end;
+ with TrialModeWarning do
+ begin
+  EntityName := en_Reminder;
+  OperationName := op_RemMWTrialModeWarning;
+ end;
+ with remNewChatMessages do
+ begin
+  EntityName := en_Reminder;
+  OperationName := op_RemNewChatMessages;
+ end;
+ with remOnlineDead do
+ begin
+  EntityName := en_Reminder;
+  OperationName := op_RemOnlineDead;
+ end;
+ with remUnreadConsultations do
+ begin
+  EntityName := en_Reminder;
+  OperationName := op_remUnreadConsultations;
+ end;
+//#UC END# *4AE1948900DE_4F7DAC14027A_impl*
+//#UC START# *4AE1948900DE_4F7DAC14027A_var*
+//#UC END# *4AE1948900DE_4F7DAC14027A_var*
+//#UC START# *4F7C808A0349_4F7DAC14027A_impl*
+ inherited;
+ RemindersLine.LockActivateProcessing;
+ try
+  RemindersLine.Visible := Visible;
+ finally
+  RemindersLine.UnlockActivateProcessing;
+ end;
+//#UC END# *4F7C808A0349_4F7DAC14027A_impl*
+//#UC START# *4F7C808A0349_4F7DAC14027A_var*
+//#UC END# *4F7C808A0349_4F7DAC14027A_var*
+//#UC START# *4F7DAC14027A_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\MainWithReminders_Form.pas
+//#UC END# *4F7DAC14027A_ext:FileName
+//#UC START# *4F7DAC14027Aimpl_uses*
+ , Base_Operations_F1Services_Contracts
+//#UC END# *4F7DAC14027Aimpl_uses*
+//#UC START# *4F7DCAFE028B_4F7DAC14027A_impl*
+ if (FindControl(GetForegroundWindow) = nil) then
+ begin
+  for l_IDX := 0 to Dispatcher.FormDispatcher.MainFormsCount - 1 do
+   if Supports(Dispatcher.FormDispatcher.MainForm[l_IDX], IvcmFlashingWindow, l_Flash) then
+   begin
+    l_Flash.StartFlashing;
+    Break;
+   end;// Supports(Dispatcher.FormDispatcher.MainForm[l_IDX], IvcmFlashingWindow, l_Flash)
+  TvcmTabbedContainerFormDispatcher.Instance.StartFlashing;
+ end;//FindControl(GetForegroundWindow) = nil
+//#UC END# *4F7DCAFE028B_4F7DAC14027A_impl*
+//#UC START# *4F7DCAFE028B_4F7DAC14027A_var*
+var
+ l_Flash: IvcmFlashingWindow;
+ l_IDX: Integer;
+//#UC END# *4F7DCAFE028B_4F7DAC14027A_var*
+//#UC START# *4F7DCB4E032C_4F7DAC14027A_impl*
+ TUnderControlService.Instance.OpenUnderControl(Self);
+//#UC END# *4F7DCB4E032C_4F7DAC14027A_impl*
+//#UC START# *4F7DCB4E032C_4F7DAC14027A_var*
+//#UC END# *4F7DCB4E032C_4F7DAC14027A_var*
+//#UC START# *4F7DCB68009E_4F7DAC14027A_impl*
+ // Убираем значок предупреждения
+ ResetControlledObjectsChanging; 
+//#UC END# *4F7DCB68009E_4F7DAC14027A_impl*
+//#UC START# *4F7DCB68009E_4F7DAC14027A_var*
+//#UC END# *4F7DCB68009E_4F7DAC14027A_var*
+//#UC START# *4F7DCB83012B_4F7DAC14027A_impl*
+ f_remOnlineDeadHidden := true;
+//#UC END# *4F7DCB83012B_4F7DAC14027A_impl*
+//#UC START# *4F7DCB83012B_4F7DAC14027A_var*
+//#UC END# *4F7DCB83012B_4F7DAC14027A_var*
+//#UC START# *4F7DCF74032D_4F7DAC14027A_impl*
+ if not f_Flashing then
+ begin
+  l3FillChar(l_Info, SizeOf(l_Info), 0);
+  l_Info.cbSize := SizeOf(l_Info);
+  l_Info.hwnd := Handle;
+  l_Info.dwFlags := FLASHW_ALL or FLASHW_TIMER;
+  FlashWindowEx(l_Info);
+  f_Flashing := True;
+ end;//not f_Flashing
+//#UC END# *4F7DCF74032D_4F7DAC14027A_impl*
+//#UC START# *4F7DCF74032D_4F7DAC14027A_var*
+var
+ l_Info: TFlashWInfo;
+//#UC END# *4F7DCF74032D_4F7DAC14027A_var*
+//#UC START# *4F7DCF8D03CC_4F7DAC14027A_impl*
+ if f_Flashing then
+ begin
+  l3FillChar(l_Info, SizeOf(l_Info), 0);
+  l_Info.cbSize := SizeOf(l_Info);
+  l_Info.hwnd := Handle;
+  l_Info.dwFlags := FLASHW_STOP;
+  FlashWindowEx(l_Info);
+  f_Flashing := False;
+ end;//f_Flashing
+//#UC END# *4F7DCF8D03CC_4F7DAC14027A_impl*
+//#UC START# *4F7DCF8D03CC_4F7DAC14027A_var*
+var
+ l_Info: TFlashWInfo;
+//#UC END# *4F7DCF8D03CC_4F7DAC14027A_var*
+//#UC START# *4F86AAF903B5_4F7DAC14027Aexec_impl*
+ OpenUnderControl;
+//#UC END# *4F86AAF903B5_4F7DAC14027Aexec_impl*
+//#UC START# *4F86AAF903B5_4F7DAC14027Aexec_var*
+//#UC END# *4F86AAF903B5_4F7DAC14027Aexec_var*
+//#UC START# *4F86AAF903B5_4F7DAC14027Atest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := f_IsControlledObjectsChanging;
+//#UC END# *4F86AAF903B5_4F7DAC14027Atest_impl*
+//#UC START# *4F86AAF903B5_4F7DAC14027Atest_var*
+//#UC END# *4F86AAF903B5_4F7DAC14027Atest_var*
+//#UC START# *4F86AB3A03E4_4F7DAC14027Aexec_impl*
+ Say(inf_AnyInformation, [f_OldBaseWarningString]);
+//#UC END# *4F86AB3A03E4_4F7DAC14027Aexec_impl*
+//#UC START# *4F86AB3A03E4_4F7DAC14027Aexec_var*
+//#UC END# *4F86AB3A03E4_4F7DAC14027Aexec_var*
+//#UC START# *4F86AB3A03E4_4F7DAC14027Atest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := l3Len(f_OldBaseWarningString) > 0;
+//#UC END# *4F86AB3A03E4_4F7DAC14027Atest_impl*
+//#UC START# *4F86AB3A03E4_4F7DAC14027Atest_var*
+//#UC END# *4F86AB3A03E4_4F7DAC14027Atest_var*
+//#UC START# *4F86AB490283_4F7DAC14027Aexec_impl*
+ with DefDataAdapter do
+  Say(inf_TrialModeWarning, [TrialDaysLeft, GetDealerInfo]);
+//#UC END# *4F86AB490283_4F7DAC14027Aexec_impl*
+//#UC START# *4F86AB490283_4F7DAC14027Aexec_var*
+//#UC END# *4F86AB490283_4F7DAC14027Aexec_var*
+//#UC START# *4F86AB490283_4F7DAC14027Atest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := defDataAdapter.IsTrialMode;
+//#UC END# *4F86AB490283_4F7DAC14027Atest_impl*
+//#UC START# *4F86AB490283_4F7DAC14027Atest_var*
+//#UC END# *4F86AB490283_4F7DAC14027Atest_var*
+//#UC START# *4F86AB5600B9_4F7DAC14027Aexec_impl*
+ TChatService.Instance.MakeChatDispatcher.OpenAllUnreaded;
+//#UC END# *4F86AB5600B9_4F7DAC14027Aexec_impl*
+//#UC START# *4F86AB5600B9_4F7DAC14027Aexec_var*
+//#UC END# *4F86AB5600B9_4F7DAC14027Aexec_var*
+//#UC START# *4F86AB5600B9_4F7DAC14027Atest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := TChatService.Instance.MakeChatDispatcher.HasUnreadedMessages;
+//#UC END# *4F86AB5600B9_4F7DAC14027Atest_impl*
+//#UC START# *4F86AB5600B9_4F7DAC14027Atest_var*
+//#UC END# *4F86AB5600B9_4F7DAC14027Atest_var*
+//#UC START# *4F86AB6502AA_4F7DAC14027Aexec_impl*
+ defDataAdapter.ShowMessageWithDealerInfo(war_OnlineDead);
+ f_remOnlineDeadHidden := true;
+//#UC END# *4F86AB6502AA_4F7DAC14027Aexec_impl*
+//#UC START# *4F86AB6502AA_4F7DAC14027Aexec_var*
+//#UC END# *4F86AB6502AA_4F7DAC14027Aexec_var*
+//#UC START# *4F86AB6502AA_4F7DAC14027Atest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := not f_remOnlineDeadHidden AND
+                                   DefDataAdapter.NativeAdapter.MakeInternetSupport.ShowWarning;
+//#UC END# *4F86AB6502AA_4F7DAC14027Atest_impl*
+//#UC START# *4F86AB6502AA_4F7DAC14027Atest_var*
+//#UC END# *4F86AB6502AA_4F7DAC14027Atest_var*
+//#UC START# *4F8BED97037A_4F7DAC14027A_impl*
+ f_OldBaseWarningString := l3CStr(l3RTrim(defDataAdapter.GetOldBaseWarning.AsWStr, cc_NonReadable));
+//#UC END# *4F8BED97037A_4F7DAC14027A_impl*
+//#UC START# *4F8BED97037A_4F7DAC14027A_var*
+//#UC END# *4F8BED97037A_4F7DAC14027A_var*
+//#UC START# *537C9007038A_4F7DAC14027A_impl*
+ inherited;
+ if Assigned(RemindersLine) then
+  RemindersLine.Visible := Visible;
+//#UC END# *537C9007038A_4F7DAC14027A_impl*
+//#UC START# *537C9007038A_4F7DAC14027A_var*
+//#UC END# *537C9007038A_4F7DAC14027A_var*
+//#UC START# *542D70330042_4F7DAC14027Aexec_impl*
+ if Ask(qr_TryOpenConsultationAnswer) then
+  TFoldersService.Instance.TryOpenConsultationAnswer(Self);
+//#UC END# *542D70330042_4F7DAC14027Aexec_impl*
+//#UC START# *542D70330042_4F7DAC14027Aexec_var*
+//#UC END# *542D70330042_4F7DAC14027Aexec_var*
+//#UC START# *542D70330042_4F7DAC14027Atest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := IsRemUnreadConsultationsVisible;
+//#UC END# *542D70330042_4F7DAC14027Atest_impl*
+//#UC START# *542D70330042_4F7DAC14027Atest_var*
+//#UC END# *542D70330042_4F7DAC14027Atest_var*

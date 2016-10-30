@@ -1,0 +1,62 @@
+// SimpleListInterfaces 4922BFA000DD ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4922BFA000DD_diagrams
+
+ MEDIAGRAM ME_4922BFA000DD_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4922BFA000DD' ; // SimpleListInterfaces
+
+  MEVIEW ME_47ECD4E8023E_view
+   MELINK Original WL 'ME_47ECD4E8023E' '4922BFA000DD.ms.model.script' ; // IdsSimpleListSynchroViewPrim
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_47ECD4E8023E_view
+
+  MEVIEW ME_494690E5004E_view
+   MELINK Original WL 'ME_494690E5004E' '4922BFA000DD.ms.model.script' ; // IdsSimpleListSynchroView
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_494690E5004E_view
+
+  MEVIEW ME_4922D91D0027_view
+   MELINK Original WL 'ME_4922D91D0027' '4922BFA000DD.ms.model.script' ; // IdeFilter
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4922D91D0027_view
+
+  MEVIEW ME_47FB1D7601A6_view
+   MELINK Original WL 'ME_47FB1D7601A6' '4922BFA000DD.ms.model.script' ; // IucpFilters
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_47FB1D7601A6_view
+
+  MEVIEW ME_4922D94500FB_view
+   MELINK Original WL 'ME_4922D94500FB' '4922BFA000DD.ms.model.script' ; // IdsFilters
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4922D94500FB_view
+
+  MEVIEWLINK ME_494690E5004E_ME_47ECD4E8023E_Inherits
+   MELINK From ME_494690E5004E_view ;
+   MELINK To ME_47ECD4E8023E_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_494690E5004E_ME_47ECD4E8023E_Inherits
+
+  MELIST Views
+   Seq: ( ME_47ECD4E8023E_view // IdsSimpleListSynchroViewPrim
+   ME_494690E5004E_view // IdsSimpleListSynchroView
+   ME_4922D91D0027_view // IdeFilter
+   ME_47FB1D7601A6_view // IucpFilters
+   ME_4922D94500FB_view // IdsFilters
+   ME_494690E5004E_ME_47ECD4E8023E_Inherits // IdsSimpleListSynchroView ==> IdsSimpleListSynchroViewPrim
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4922BFA000DD_main
+
+ MELIST Diagrams
+  Seq: ( ME_4922BFA000DD_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4922BFA000DD_diagrams

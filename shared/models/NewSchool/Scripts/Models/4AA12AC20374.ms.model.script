@@ -101,7 +101,6 @@ MEREF ME_495894020347_ME_4FF69F790079_impl
  MELINK Original WL 'ME_495894020347' '491B305A0096.ms.model.script' // PreviewCaleeArea
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_495894020347_ME_4FF69F790079_impl PreviewCaleeArea
 
 MEREF ME_4AE56DE80093_ME_4FF69F790079_impl
@@ -120,7 +119,6 @@ MEREF ME_500E5D3B02AF_ME_4FF69F790079_impl
  MELINK Original WL 'ME_500E5D3B02AF' '491B305A0096.ms.model.script' // LikeState
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_500E5D3B02AF_ME_4FF69F790079_impl LikeState
 
 MEREF ME_500E5D5D0268_ME_4FF69F790079_impl
@@ -206,10 +204,6 @@ ME ME_4FF69F790079
  ME_54B3A7C7038F_ME_4FF69F790079_impl // GetDocumentName
  )
  ; // Implemented
- UP "ActivateIfUpdate" 'None'
- UP "Need GetFormCount" False
- UP "Need OnFormWeight" 'undefined'
- UP "ZoneType" 'Parent'
 
 ENDME // ME_4FF69F790079 TextForm
 
@@ -289,9 +283,6 @@ ME ME_4FF6A02C03A3
  ME_49255D4A0215_ME_4FF6A02C03A3_impl // DocInfo
  )
  ; // Implemented
- UP "ActivateIfUpdate" 'None'
- UP "Need GetFormCount" False
- UP "Need OnFormWeight" 'undefined'
  UP "ZoneType" 'Child'
 
 ENDME // ME_4FF6A02C03A3 Attributes
@@ -333,14 +324,12 @@ MEREF ME_52F4E72400C2_ME_4FF6A0900289_impl
  MELINK Original WL 'ME_52F4E72400C2' '492540AF02CD.ms.model.script' // ContextFilterState
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_52F4E72400C2_ME_4FF6A0900289_impl ContextFilterState
 
 MEREF ME_5571E60901BC_ME_4FF6A0900289_impl
  MELINK Original WL 'ME_5571E60901BC' '492540AF02CD.ms.model.script' // DictionKind
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_5571E60901BC_ME_4FF6A0900289_impl DictionKind
 
 MEREF ME_4BD6F164037F_ME_4FF6A0900289_G
@@ -396,8 +385,6 @@ ME ME_4FF6A0900289
  )
  ; // Implemented
  UP "ActivateIfUpdate" 'Always'
- UP "Need GetFormCount" False
- UP "Need OnFormWeight" 'undefined'
  UP "ZoneType" 'Navigator'
 
 ENDME // ME_4FF6A0900289 CommonDiction
@@ -416,9 +403,6 @@ ME ME_298A19AD0859
  MELINK Parent HWL ME_8F0AF63CAFB0 // TipsCaptionLocalConstants
  ;
  MEPROP Value '''#1057#1086#1074#1077#1090 #1076#1085#1103'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''#1057#1086#1074#1077#1090 #1076#1085#1103'''
 
 ENDME // ME_298A19AD0859 fsTipsCaption
@@ -427,7 +411,7 @@ ME ME_8F0AF63CAFB0
  MEPROP UID '8F0AF63CAFB0'
  MEPROP Name 'TipsCaptionLocalConstants'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Локализуемые константы для фабрики сборки форм Tips' ;
@@ -439,9 +423,6 @@ ME ME_8F0AF63CAFB0
    Seq: ( HWL ME_298A19AD0859 // fsTipsCaption
  )
  ; // Attributes
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
 
 ENDME // ME_8F0AF63CAFB0 TipsCaptionLocalConstants
 
@@ -608,10 +589,6 @@ ME ME_4AA12AC20374
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "Caption" '#1057#1086#1074#1077#1090 #1076#1085#1103'
- UP "DefaultStatusForm" '-1'
- UP "finished dfm" True
- UP "Need GetMainCaption" False
- UP "Need GetMainImageIndex" False
  UP "singleton" True
  UP extprop:pas:InitFields ' inherited;'#13#10' with AddZone(''TextForm'', vcm_ztParent, fm_TextForm) do'#13#10' begin'#13#10'  UserType := dftTips;'#13#10'  OnNeedMakeForm := TextFormParentDftTipsNeedMakeForm;'#13#10' end;'#13#10' with AddZone(''Attributes'', vcm_ztChild, fm_AttributesForm) do'#13#10' begin'#13#10'  UserType := fDocAttribute;'#13#10'  OnNeedMakeForm := AttributesChildFDocAttributeNeedMakeForm;'#13#10' end;'#13#10' with AddZone(''CommonDiction'', vcm_ztNavigator, fm_en_CommonDiction) do'#13#10' begin'#13#10'  UserType := utTips;'#13#10'  ActivateIfUpdate := wafAlways;'#13#10'  OnNeedMakeForm := CommonDictionNavigatorUtTipsNeedMakeForm;'#13#10' end;'#13#10' Caption := str_fsTipsCaption.AsCStr;'#13#10' OwnerForm := 0;'
  UP extprop:pas:TypeName 'Tfs_Tips'

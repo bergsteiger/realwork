@@ -1,0 +1,62 @@
+// CommonForDocumentAndFlash 4D384F3B0095 VCMForms Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4D384F3B0095_diagrams
+
+ MEDIAGRAM ME_4D384F3B0095_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4D384F3B0095' ; // CommonForDocumentAndFlash
+
+  MEVIEW ME_498721A60125_view
+   MELINK Original WL? 'ME_498721A60125' ; // StatusBarDocumentItems
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_498721A60125_view
+
+  MEVIEW ME_4986C5B30130_view
+   MELINK Original WL? 'ME_4986C5B30130' ; // CommonForTextAndFlash
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4986C5B30130_view
+
+  MEVIEW ME_4CDE81A402A9_view
+   MELINK Original WL? 'ME_4CDE81A402A9' ; // CommonForTextAndFlashOperations
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CDE81A402A9_view
+
+  MEVIEW ME_4B1658140144_view
+   MELINK Original WL? 'ME_4B1658140144' ; // TnsDocumentFromListNavigationEvent
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4B1658140144_view
+
+  MEVIEWLINK ME_4986C5B30130_ME_498721A60125_Implements
+   MELINK From ME_4986C5B30130_view ;
+   MELINK To ME_498721A60125_view ;
+   MEPROP Class class_Implements
+  ENDMEVIEWLINK // ME_4986C5B30130_ME_498721A60125_Implements
+
+  MEVIEWLINK ME_4CDE81A402A9_ME_4986C5B30130_Inherits
+   MELINK From ME_4CDE81A402A9_view ;
+   MELINK To ME_4986C5B30130_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4CDE81A402A9_ME_4986C5B30130_Inherits
+
+  MELIST Views
+   Seq: ( ME_498721A60125_view // StatusBarDocumentItems
+   ME_4986C5B30130_view // CommonForTextAndFlash
+   ME_4CDE81A402A9_view // CommonForTextAndFlashOperations
+   ME_4B1658140144_view // TnsDocumentFromListNavigationEvent
+   ME_4986C5B30130_ME_498721A60125_Implements // CommonForTextAndFlash ==> StatusBarDocumentItems
+   ME_4CDE81A402A9_ME_4986C5B30130_Inherits // CommonForTextAndFlashOperations ==> CommonForTextAndFlash
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4D384F3B0095_main
+
+ MELIST Diagrams
+  Seq: ( ME_4D384F3B0095_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4D384F3B0095_diagrams

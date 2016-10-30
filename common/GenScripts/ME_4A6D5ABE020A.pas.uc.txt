@@ -1,0 +1,204 @@
+//#UC START# *479731C50290_4A6D5ABE020A_impl*
+ f_ParaForPositioning := nil;
+ inherited;
+//#UC END# *479731C50290_4A6D5ABE020A_impl*
+//#UC START# *479731C50290_4A6D5ABE020A_var*
+//#UC END# *479731C50290_4A6D5ABE020A_var*
+//#UC START# *497469C90140_4A6D5ABE020A_impl*
+ inherited;
+ //pnCaption.CCaption := l3Cat('  ', Self.CCaption);
+//#UC END# *497469C90140_4A6D5ABE020A_impl*
+//#UC START# *497469C90140_4A6D5ABE020A_var*
+//#UC END# *497469C90140_4A6D5ABE020A_var*
+//#UC START# *4A6D5ABE020A_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimRightEdition_Form.pas
+//#UC END# *4A6D5ABE020A_ext:FileName
+//#UC START# *4A6D5ABE020Aimpl_uses*
+ , l3Variant
+//#UC END# *4A6D5ABE020Aimpl_uses*
+//#UC START# *4A85585102D2_4A6D5ABE020A_impl*
+ if (f_ParaForPositioning <> nil) then
+ begin
+  // - здесь синхронизируемся с собственным состоянием ДО переключения редакций
+  aMade.LinkWaiter(TevSubWaiter.Make(Text, f_ParaForPositioning.ID, ev_sbtPara));
+  f_ParaForPositioning := nil;
+ end//f_ParaForPositioning <> nil
+ else
+ begin
+  if (EditionDiff.RedactionCurrentPara <> nil) then
+   aMade.LinkWaiter(TnsInitialParaWaiter.Make(Self, EditionDiff.RedactionCurrentPara))
+  else
+  begin
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=476379343
+   aMade.LinkWaiter(TnsInitialParaWaiter.Make(Self, GetInitialDocumentPosition));
+   f_WasInitedByDocPos := True;
+   (*inherited;*)
+  end;
+ end;
+//#UC END# *4A85585102D2_4A6D5ABE020A_impl*
+//#UC START# *4A85585102D2_4A6D5ABE020A_var*
+//#UC END# *4A85585102D2_4A6D5ABE020A_var*
+//#UC START# *4A8559B0013B_4A6D5ABE020A_impl*
+ if TextSource.HasDocument then
+ // - защита от повторного входа в нотификацию
+  f_ParaForPositioning := GetParaForPositionning;
+ inherited;
+//#UC END# *4A8559B0013B_4A6D5ABE020A_impl*
+//#UC START# *4A8559B0013B_4A6D5ABE020A_var*
+//#UC END# *4A8559B0013B_4A6D5ABE020A_var*
+//#UC START# *4A8E8F2E0195_4A6D5ABE020A_impl*
+ Self.ActiveControl := Text; 
+ inherited;
+ pnCaption.FixW2kWMSize := True;
+//#UC END# *4A8E8F2E0195_4A6D5ABE020A_impl*
+//#UC START# *4A8E8F2E0195_4A6D5ABE020A_var*
+//#UC END# *4A8E8F2E0195_4A6D5ABE020A_var*
+//#UC START# *4B1E3833024A_4A6D5ABE020Aexec_impl*
+ ReturnToDocument;
+//#UC END# *4B1E3833024A_4A6D5ABE020Aexec_impl*
+//#UC START# *4B1E3833024A_4A6D5ABE020Aexec_var*
+//#UC END# *4B1E3833024A_4A6D5ABE020Aexec_var*
+//#UC START# *4B4F13E80365_4A6D5ABE020A_impl*
+ Result := true;
+//#UC END# *4B4F13E80365_4A6D5ABE020A_impl*
+//#UC START# *4B4F13E80365_4A6D5ABE020A_var*
+//#UC END# *4B4F13E80365_4A6D5ABE020A_var*
+//#UC START# *4B506F4D0196_4A6D5ABE020Aexec_impl*
+ Result := GetParaForPositionning;
+//#UC END# *4B506F4D0196_4A6D5ABE020Aexec_impl*
+//#UC START# *4B506F4D0196_4A6D5ABE020Aexec_var*
+//#UC END# *4B506F4D0196_4A6D5ABE020Aexec_var*
+//#UC START# *4B506F4D0196_4A6D5ABE020Atest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := true;
+//#UC END# *4B506F4D0196_4A6D5ABE020Atest_impl*
+//#UC START# *4B506F4D0196_4A6D5ABE020Atest_var*
+//#UC END# *4B506F4D0196_4A6D5ABE020Atest_var*
+//#UC START# *4B55ADAD0005_4A6D5ABE020A_impl*
+ if (ViewArea <> nil) then
+  Result := ViewArea.NextEditions
+ else
+  Result := nil;
+//#UC END# *4B55ADAD0005_4A6D5ABE020A_impl*
+//#UC START# *4B55ADAD0005_4A6D5ABE020A_var*
+//#UC END# *4B55ADAD0005_4A6D5ABE020A_var*
+//#UC START# *4B55BB7F0172_4A6D5ABE020A_impl*
+ l_Doc := EditionDiff.Document;
+ Assert(l_Doc <> nil);
+ l_Doc.GetCurrentState(l_PrevState);
+ l_PrevState.Clone(l_State);
+ l_State.SetRedactionOnId(anEditionID);
+ l_Doc.CreateView(l_State, l_NewDoc);
+ if (l_NewDoc = nil) then
+  // - документ не поменялся
+  Exit;
+ Assert(l_NewDoc <> nil);
+ if l_NewDoc.IsSameView(l_Doc) then
+  Exit;
+ Assert(not l_NewDoc.IsSameView(l_Doc));
+ SetFocusToText;
+ TEditionsService.Instance.MakeCompareEditions(l_NewDoc, GetParaForPositionning, CompareEditions.EditionForCompare, EditionDiff.DocumentForReturn);
+//#UC END# *4B55BB7F0172_4A6D5ABE020A_impl*
+//#UC START# *4B55BB7F0172_4A6D5ABE020A_var*
+var
+ l_Doc       : IDocument;
+ l_NewDoc    : IDocument;
+ l_PrevState : IDocumentState;
+ l_State     : IDocumentState;
+//#UC END# *4B55BB7F0172_4A6D5ABE020A_var*
+//#UC START# *4B69B5A802C2_4A6D5ABE020Aexec_impl*
+ SetFocusToText;
+//#UC END# *4B69B5A802C2_4A6D5ABE020Aexec_impl*
+//#UC START# *4B69B5A802C2_4A6D5ABE020Aexec_var*
+//#UC END# *4B69B5A802C2_4A6D5ABE020Aexec_var*
+//#UC START# *4B6AF2A502AE_4A6D5ABE020Aexec_impl*
+ Result := IsParaCurrent(aPara);
+ if Result then
+  if not Text.ForceDrawFocusRect then
+  begin
+   Text.ForceDrawFocusRect := true;
+   if Container.HasForm(vcm_ztChild, false, @l_Form) then
+    Op_Finder_DisableForceDrawFocusRect.Call(l_Form);
+  end;//not Text.ForceDrawFocusRect
+//#UC END# *4B6AF2A502AE_4A6D5ABE020Aexec_impl*
+//#UC START# *4B6AF2A502AE_4A6D5ABE020Aexec_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4B6AF2A502AE_4A6D5ABE020Aexec_var*
+//#UC START# *4BFFA0FF01D2_4D91D8EB00AD_impl*
+ Result := inherited TrySelectPara(aContainer, aSel, aParaID);
+ if not Result then
+ begin
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=217157085
+  if (f_Para <> nil) then
+  begin
+   Result := true;
+   // - будем оптимистами
+   if f_Form.GotoSub(f_Para) then
+    Exit;
+   if (f_Para <> nil) then
+    begin
+     if f_Para.AsObject.QT(InevPara, l_Para) then
+      try
+       if evInPara(l_Para.AsObject, k2_typBlock, l_Block) AND
+          (l_Block.IntA[k2_tiLayerID] = Ord(ev_sbtSub)) then
+       begin
+        if evInPara(l_Block.AsObject, k2_typDocument, l_Doc) then
+        begin
+         l_Part := TevDocumentPartImplementation.Make(l_Doc,
+                                                      nil,
+                                                      l_Block.IntA[k2_tiHandle],
+                                                      l_Block.IntA[k2_tiLayerID]);
+         try
+          if f_Form.GotoBlock(l_Part) then
+           Exit;
+         finally
+          l_Part := nil;
+         end;//try..finally
+        end;//evInPara(l_Block, k2_typDocument, l_Doc)
+       end;//evInPara(l_Para, k2_typBlock, l_Block)
+      finally
+       l_Para := nil;
+      end;//try..finally
+    end;//f_Para <> nil
+   Result := false;
+  end;//f_Para <> nil
+ end;//not Result
+//#UC END# *4BFFA0FF01D2_4D91D8EB00AD_impl*
+//#UC START# *4BFFA0FF01D2_4D91D8EB00AD_var*
+var
+ l_Para  : InevPara;
+ l_Block : Tl3Variant;
+ l_Doc   : Tl3Variant;
+ l_Part  : IevDocumentPart;
+//#UC END# *4BFFA0FF01D2_4D91D8EB00AD_var*
+//#UC START# *4D91D9A70258_4D91D8EB00AD_impl*
+ inherited Create(aForm.Text, aPara.ID, ev_sbtPara);
+ f_Para := aPara;
+ f_Form := aForm;
+//#UC END# *4D91D9A70258_4D91D8EB00AD_impl*
+//#UC START# *4D91D9A70258_4D91D8EB00AD_var*
+//#UC END# *4D91D9A70258_4D91D8EB00AD_var*
+//#UC START# *4F7C65380244_4A6D5ABE020A_impl*
+ inherited;
+ SetFocusToText;
+//#UC END# *4F7C65380244_4A6D5ABE020A_impl*
+//#UC START# *4F7C65380244_4A6D5ABE020A_var*
+//#UC END# *4F7C65380244_4A6D5ABE020A_var*
+//#UC START# *4F7C808A0349_4A6D5ABE020A_impl*
+ inherited;
+ SetFocusToText;
+//#UC END# *4F7C808A0349_4A6D5ABE020A_impl*
+//#UC START# *4F7C808A0349_4A6D5ABE020A_var*
+//#UC END# *4F7C808A0349_4A6D5ABE020A_var*
+//#UC START# *501174B10018_4A6D5ABE020A_impl*
+ Result := true;
+//#UC END# *501174B10018_4A6D5ABE020A_impl*
+//#UC START# *501174B10018_4A6D5ABE020A_var*
+//#UC END# *501174B10018_4A6D5ABE020A_var*
+//#UC START# *5215B94503C0_4D91D8EB00AD_impl*
+ inherited Create(aForm.Text, aPosition.rPos, DocPosTypeToEdtSubType(aPosition.rRefType));
+ f_Para := nil;
+ f_Position := aPosition;
+//#UC END# *5215B94503C0_4D91D8EB00AD_impl*
+//#UC START# *5215B94503C0_4D91D8EB00AD_var*
+//#UC END# *5215B94503C0_4D91D8EB00AD_var*

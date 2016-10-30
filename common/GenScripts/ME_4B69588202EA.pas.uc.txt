@@ -1,0 +1,66 @@
+//#UC START# *479731C50290_4B69588202EA_impl*
+ f_Compared := false;
+ inherited;
+//#UC END# *479731C50290_4B69588202EA_impl*
+//#UC START# *479731C50290_4B69588202EA_var*
+//#UC END# *479731C50290_4B69588202EA_var*
+//#UC START# *47EA4E9002C6_4B69588202EA_impl*
+ inherited;
+ f_Compared := false;
+ Finalize(f_CompareRootPair);
+//#UC END# *47EA4E9002C6_4B69588202EA_impl*
+//#UC START# *47EA4E9002C6_4B69588202EA_var*
+//#UC END# *47EA4E9002C6_4B69588202EA_var*
+//#UC START# *4A785700011C_4B69588202EA_impl*
+ if not f_Compared then
+ begin
+  f_UseCaseData.State.DiffWithRedactionById(f_EditionForCompare, f_CompareRootPair);
+  if (f_UseCaseData.RedactionCurrentPara <> nil) then
+   try
+    f_CompareRootPair.rDiffIterator.MoveTo(f_UseCaseData.RedactionCurrentPara.ID);
+   except
+    on ECannotFindData do
+     ;
+   end;//try..except
+  f_Compared := true;
+ end;//not f_Compared
+//#UC END# *4A785700011C_4B69588202EA_impl*
+//#UC START# *4A785700011C_4B69588202EA_var*
+//#UC END# *4A785700011C_4B69588202EA_var*
+//#UC START# *4B16B8CF0307_4B69588202EA_impl*
+ inherited;
+ f_UseCaseData := aData.UseCaseData;
+ f_EditionForCompare := aData.EditionForCompare;
+ f_CompareRootPair := aData.CompareRootPair;
+ f_Compared := true;
+//#UC END# *4B16B8CF0307_4B69588202EA_impl*
+//#UC START# *4B16B8CF0307_4B69588202EA_var*
+//#UC END# *4B16B8CF0307_4B69588202EA_var*
+//#UC START# *4B69581F0199_4B69588202EAget_impl*
+ Result := f_EditionForCompare;
+//#UC END# *4B69581F0199_4B69588202EAget_impl*
+//#UC START# *4B69581F0199_4B69588202EAget_var*
+//#UC END# *4B69581F0199_4B69588202EAget_var*
+//#UC START# *4B69588202EA_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Editions\sdsCompareEditionsState.pas
+//#UC END# *4B69588202EA_ext:FileName
+//#UC START# *4B69588202EAimpl_uses*
+//#UC END# *4B69588202EAimpl_uses*
+//#UC START# *4B695A9C0194_4B69588202EA_impl*
+ inherited Create;
+ f_UseCaseData := aUseCaseData;
+ f_EditionForCompare := anEditionForCompare;
+//#UC END# *4B695A9C0194_4B69588202EA_impl*
+//#UC START# *4B695A9C0194_4B69588202EA_var*
+//#UC END# *4B695A9C0194_4B69588202EA_var*
+//#UC START# *4B69683A00C4_4B69588202EAget_impl*
+ Result := f_UseCaseData;
+//#UC END# *4B69683A00C4_4B69588202EAget_impl*
+//#UC START# *4B69683A00C4_4B69588202EAget_var*
+//#UC END# *4B69683A00C4_4B69588202EAget_var*
+//#UC START# *4B6972AA017A_4B69588202EAget_impl*
+ CheckCompare;
+ Result := f_CompareRootPair;
+//#UC END# *4B6972AA017A_4B69588202EAget_impl*
+//#UC START# *4B6972AA017A_4B69588202EAget_var*
+//#UC END# *4B6972AA017A_4B69588202EAget_var*

@@ -1,0 +1,41 @@
+// Отображение комментариев 4EBCF31B03CE UseCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4EBCF31B03CE_diagrams
+
+ MEDIAGRAM ME_4EBCF31B03CE_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4EBCF31B03CE' '484900780017.ms.model.script' ; // Отображение комментариев
+
+  MEVIEW ME_4EBCF3480220_view
+   MELINK Original WL 'ME_4EBCF3480220' '484900780017.ms.model.script' ; // Коментарии разного вида должны иметь отступ между друг другом
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4EBCF3480220_view
+
+  MEVIEW ME_4EBCF373039D_view
+   MELINK Original WL 'ME_4EBCF373039D' '484900780017.ms.model.script' ; // Комментарии, находящиеся в разных блоках должны иметь отступ между друг другом
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4EBCF373039D_view
+
+  MEVIEW ME_4EBD0FF0036D_view
+   MELINK Original WL 'ME_4EBD0FF0036D' '484900780017.ms.model.script' ; // Комментарии юристов должны предваряться строчкой "ГАРАНТ"
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4EBD0FF0036D_view
+
+  MELIST Views
+   Seq: ( ME_4EBCF3480220_view // Коментарии разного вида должны иметь отступ между друг другом
+   ME_4EBCF373039D_view // Комментарии, находящиеся в разных блоках должны иметь отступ между друг другом
+   ME_4EBD0FF0036D_view // Комментарии юристов должны предваряться строчкой "ГАРАНТ"
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4EBCF31B03CE_main
+
+ MELIST Diagrams
+  Seq: ( ME_4EBCF31B03CE_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4EBCF31B03CE_diagrams

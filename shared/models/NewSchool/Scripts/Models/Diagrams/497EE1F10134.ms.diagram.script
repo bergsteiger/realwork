@@ -1,0 +1,83 @@
+// PrimMedicListSynchroView 497EE1F10134 VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_497EE1F10134_diagrams
+
+ MEDIAGRAM ME_497EE1F10134_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_497EE1F10134' ; // PrimMedicListSynchroView
+
+  MEVIEW ME_4BD6C82400DF_view
+   MELINK Original WL 'ME_4BD6C82400DF' '497EE1F10134.ms.model.script' ; // mlsfDrugList
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4BD6C82400DF_view
+
+  MEVIEW ME_4BD6C85300DB_view
+   MELINK Original WL 'ME_4BD6C85300DB' '497EE1F10134.ms.model.script' ; // mlsfMedicFirm
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4BD6C85300DB_view
+
+  MEVIEW ME_4C52ECB90313_view
+   MELINK Original WL 'ME_4C52ECB90313' '497EE1F10134.ms.model.script' ; // ChildZone
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C52ECB90313_view
+
+  MEVIEW ME_65F272629DB8_view
+   MELINK Original WL 'ME_65F272629DB8' '497EE1F10134.ms.model.script' ; // mlsfDrugListQueryClose
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_65F272629DB8_view
+
+  MEVIEW ME_C155D2625A02_view
+   MELINK Original WL 'ME_C155D2625A02' '497EE1F10134.ms.model.script' ; // mlsfMedicFirmQueryClose
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_C155D2625A02_view
+
+  MEVIEW ME_4C52EC3F027D_view
+   MELINK Original WL 'ME_4C52EC3F027D' '497EE1F10134.ms.model.script' ; // ztChild
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C52EC3F027D_view
+
+  MEVIEW ME_497EE25C0268_view
+   MELINK Original WL 'ME_497EE25C0268' '497EE1F10134.ms.model.script' ; // dsSimpleListSynchroView
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_497EE25C0268_view
+
+  MEVIEWLINK ME_4BD6C85300DB_ME_4BD6C82400DF_Inherits
+   MELINK From ME_4BD6C85300DB_view ;
+   MELINK To ME_4BD6C82400DF_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4BD6C85300DB_ME_4BD6C82400DF_Inherits
+
+  MEVIEWLINK ME_4C52ECB90313_ME_4C52EC3F027D_Inherits
+   MELINK From ME_4C52ECB90313_view ;
+   MELINK To ME_4C52EC3F027D_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4C52ECB90313_ME_4C52EC3F027D_Inherits
+
+  MELIST Views
+   Seq: ( ME_4BD6C82400DF_view // mlsfDrugList
+   ME_4BD6C85300DB_view // mlsfMedicFirm
+   ME_4C52ECB90313_view // ChildZone
+   ME_65F272629DB8_view // mlsfDrugListQueryClose
+   ME_C155D2625A02_view // mlsfMedicFirmQueryClose
+   ME_4C52EC3F027D_view // ztChild
+   ME_497EE25C0268_view // dsSimpleListSynchroView
+   ME_4BD6C85300DB_ME_4BD6C82400DF_Inherits // mlsfMedicFirm ==> mlsfDrugList
+   ME_4C52ECB90313_ME_4C52EC3F027D_Inherits // ChildZone ==> ztChild
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_497EE1F10134_main
+
+ MELIST Diagrams
+  Seq: ( ME_497EE1F10134_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_497EE1F10134_diagrams

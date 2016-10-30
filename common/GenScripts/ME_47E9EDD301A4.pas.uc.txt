@@ -1,0 +1,39 @@
+//#UC START# *47E9EDD301A4_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Medic\dsDrugList.pas
+//#UC END# *47E9EDD301A4_ext:FileName
+//#UC START# *47E9EDD301A4impl_uses*
+ , vcmDispatcher
+ , nsSaveDialogExecutor
+//#UC END# *47E9EDD301A4impl_uses*
+//#UC START# *47F0C98F020C_47E9EDD301A4_impl*
+ inherited MakeDocInfo(aNode);
+ Result := bsDocInfoMake(CurrentEntryInfo,
+                         aNode,
+                         ImpList,
+                         LG_RUSSIAN,
+                         Root);
+//#UC END# *47F0C98F020C_47E9EDD301A4_impl*
+//#UC START# *47F0C98F020C_47E9EDD301A4_var*
+//#UC END# *47F0C98F020C_47E9EDD301A4_var*
+//#UC START# *47F465F80149_47E9EDD301A4_impl*
+ Result := vtMakeImageListWrapper(nsListRes.ilDrugListItems);
+//#UC END# *47F465F80149_47E9EDD301A4_impl*
+//#UC START# *47F465F80149_47E9EDD301A4_var*
+//#UC END# *47F465F80149_47E9EDD301A4_var*
+//#UC START# *47F4BDDB026E_47E9EDD301A4_impl*
+ if (ucc_DrugList <> nil) then
+  ucc_DrugList.UpdateListInfo;
+//#UC END# *47F4BDDB026E_47E9EDD301A4_impl*
+//#UC START# *47F4BDDB026E_47E9EDD301A4_var*
+//#UC END# *47F4BDDB026E_47E9EDD301A4_var*
+//#UC START# *47F9BFED004F_47E9EDD301A4_impl*
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=481814546
+ inherited MarkNodeForExport(aNode, True);
+//#UC END# *47F9BFED004F_47E9EDD301A4_impl*
+//#UC START# *47F9BFED004F_47E9EDD301A4_var*
+//#UC END# *47F9BFED004F_47E9EDD301A4_var*
+//#UC START# *55097FF5008E_47E9EDD301A4_impl*
+ Result := DefDataAdapter.IsInpharmExists;
+//#UC END# *55097FF5008E_47E9EDD301A4_impl*
+//#UC START# *55097FF5008E_47E9EDD301A4_var*
+//#UC END# *55097FF5008E_47E9EDD301A4_var*

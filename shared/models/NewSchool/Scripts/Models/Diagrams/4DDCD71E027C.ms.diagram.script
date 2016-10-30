@@ -1,0 +1,76 @@
+// ChangesBetweenEditionsInterfaces 4DDCD71E027C ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4DDCD71E027C_diagrams
+
+ MEDIAGRAM ME_4DDCD71E027C_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4DDCD71E027C' ; // ChangesBetweenEditionsInterfaces
+
+  MEVIEW ME_4F2BF13800A5_view
+   MELINK Original WL 'ME_4F2BF13800A5' '4DDCD71E027C.ms.model.script' ; // MnsEditionsHolder
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F2BF13800A5_view
+
+  MEVIEW ME_4DDCD7420084_view
+   MELINK Original WL 'ME_4DDCD7420084' '4DDCD71E027C.ms.model.script' ; // IdsChangesBetweenEditions
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4DDCD7420084_view
+
+  MEVIEW ME_4DDCD8CD008D_view
+   MELINK Original WL 'ME_4DDCD8CD008D' '4DDCD71E027C.ms.model.script' ; // InsChangesBetweenEditionsInfo
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4DDCD8CD008D_view
+
+  MEVIEW ME_4DDCF62C01DF_view
+   MELINK Original WL 'ME_4DDCF62C01DF' '4DDCD71E027C.ms.model.script' ; // IsdsChangesBetweenEditionsData
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4DDCF62C01DF_view
+
+  MEVIEW ME_4DDCD72C006B_view
+   MELINK Original WL 'ME_4DDCD72C006B' '4DDCD71E027C.ms.model.script' ; // IsdsChangesBetweenEditions
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4DDCD72C006B_view
+
+  MEVIEWLINK ME_4DDCD7420084_ME_4F2BF13800A5_Implements
+   MELINK From ME_4DDCD7420084_view ;
+   MELINK To ME_4F2BF13800A5_view ;
+   MEPROP Class class_Implements
+  ENDMEVIEWLINK // ME_4DDCD7420084_ME_4F2BF13800A5_Implements
+
+  MEVIEWLINK ME_4DDCD8CD008D_ME_4F2BF13800A5_Implements
+   MELINK From ME_4DDCD8CD008D_view ;
+   MELINK To ME_4F2BF13800A5_view ;
+   MEPROP Class class_Implements
+  ENDMEVIEWLINK // ME_4DDCD8CD008D_ME_4F2BF13800A5_Implements
+
+  MEVIEWLINK ME_4DDCF63C0353_viewlink
+   MELINK Original WL 'ME_4DDCF63C0353' '4DDCD71E027C.ms.model.script' ;
+   MELINK From ME_4DDCF62C01DF_view ;
+   MELINK To ME_4DDCD8CD008D_view ;
+  ENDMEVIEWLINK // ME_4DDCF63C0353_viewlink
+
+  MELIST Views
+   Seq: ( ME_4F2BF13800A5_view // MnsEditionsHolder
+   ME_4DDCD7420084_view // IdsChangesBetweenEditions
+   ME_4DDCD8CD008D_view // InsChangesBetweenEditionsInfo
+   ME_4DDCF62C01DF_view // IsdsChangesBetweenEditionsData
+   ME_4DDCD72C006B_view // IsdsChangesBetweenEditions
+   ME_4DDCD7420084_ME_4F2BF13800A5_Implements // IdsChangesBetweenEditions ==> MnsEditionsHolder
+   ME_4DDCD8CD008D_ME_4F2BF13800A5_Implements // InsChangesBetweenEditionsInfo ==> MnsEditionsHolder
+   ME_4DDCF63C0353_viewlink // IsdsChangesBetweenEditionsData ==> InsChangesBetweenEditionsInfo
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4DDCD71E027C_main
+
+ MELIST Diagrams
+  Seq: ( ME_4DDCD71E027C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4DDCD71E027C_diagrams

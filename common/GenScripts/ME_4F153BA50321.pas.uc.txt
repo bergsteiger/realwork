@@ -1,0 +1,24 @@
+//#UC START# *47F27DA80172_4F153BA50321_impl*
+ Result := inherited GetDocument;
+ if (Result = nil) OR not Result.IsValid then
+ begin
+  f_ViewArea.GenerateWarning(Self{Viewer.TextSource}.GetGenerator(nil{Viewer.View}, nil), f_UserType);
+  Result := inherited GetDocument;
+  // - надо вернуть то, что нагенерировали
+  Assert(Result.IsValid);
+ end;//Result = nil
+//#UC END# *47F27DA80172_4F153BA50321_impl*
+//#UC START# *47F27DA80172_4F153BA50321_var*
+//#UC END# *47F27DA80172_4F153BA50321_var*
+//#UC START# *4F153BA50321_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\nsWarningDocumentContainer.pas
+//#UC END# *4F153BA50321_ext:FileName
+//#UC START# *4F153BA50321impl_uses*
+//#UC END# *4F153BA50321impl_uses*
+//#UC START# *4F153CE400E6_4F153BA50321_impl*
+ inherited Create;
+ f_ViewArea := aViewArea;
+ f_UserType := aUserType;
+//#UC END# *4F153CE400E6_4F153BA50321_impl*
+//#UC START# *4F153CE400E6_4F153BA50321_var*
+//#UC END# *4F153CE400E6_4F153BA50321_var*

@@ -1,0 +1,55 @@
+// InpharmMainMenu 4958E868009C VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4958E868009C_diagrams
+
+ MEDIAGRAM ME_4958E868009C_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4958E868009C' ; // InpharmMainMenu
+
+  MEVIEW ME_4BD6DC630189_view
+   MELINK Original WL 'ME_4BD6DC630189' '4958E868009C.ms.model.script' ; // ut_mmmMain
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4BD6DC630189_view
+
+  MEVIEW ME_523C85BD022C_view
+   MELINK Original WL 'ME_523C85BD022C' '4958E868009C.ms.model.script' ; // InpharmMainMenu
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_523C85BD022C_view
+
+  MEVIEW ME_52FA3D4702A9_view
+   MELINK Original WL 'ME_52FA3D4702A9' '4958E868009C.ms.model.script' ; // InpharmMainMenu Local Const
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_52FA3D4702A9_view
+
+  MEVIEW ME_523C07150156_view
+   MELINK Original WL 'ME_523C07150156' '4958E868009C.ms.model.script' ; // pnlMain
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_523C07150156_view
+
+  MEVIEWLINK ME_523C85BD022C_ME_4BD6DC630189_Inherits
+   MELINK From ME_523C85BD022C_view ;
+   MELINK To ME_4BD6DC630189_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_523C85BD022C_ME_4BD6DC630189_Inherits
+
+  MELIST Views
+   Seq: ( ME_4BD6DC630189_view // ut_mmmMain
+   ME_523C85BD022C_view // InpharmMainMenu
+   ME_52FA3D4702A9_view // InpharmMainMenu Local Const
+   ME_523C07150156_view // pnlMain
+   ME_523C85BD022C_ME_4BD6DC630189_Inherits // InpharmMainMenu ==> ut_mmmMain
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4958E868009C_main
+
+ MELIST Diagrams
+  Seq: ( ME_4958E868009C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4958E868009C_diagrams

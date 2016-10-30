@@ -1,0 +1,48 @@
+//#UC START# *479731C50290_4CAC5B4900ED_impl*
+ f_Tree := nil;
+ inherited Cleanup;
+//#UC END# *479731C50290_4CAC5B4900ED_impl*
+//#UC START# *479731C50290_4CAC5B4900ED_var*
+//#UC END# *479731C50290_4CAC5B4900ED_var*
+//#UC START# *4991850C0199_4CAC5B4900EDget_impl*
+ if f_Tree = nil then
+  f_Tree := TnsFiltersTree.Make(f_FilterType, nil);
+ Result := f_Tree;
+//#UC END# *4991850C0199_4CAC5B4900EDget_impl*
+//#UC START# *4991850C0199_4CAC5B4900EDget_var*
+//#UC END# *4991850C0199_4CAC5B4900EDget_var*
+//#UC START# *4991855E01FB_4CAC5B4900EDget_impl*
+ l_Result := DefDataAdapter.NativeAdapter.MakeFiltersFromQuery;
+ pm_GetTree.IterateF(l3L2NA(@Collect));
+ Result := l_Result;
+//#UC END# *4991855E01FB_4CAC5B4900EDget_impl*
+//#UC START# *4991855E01FB_4CAC5B4900EDget_var*
+var
+ l_Result: IFiltersFromQuery;
+
+ function Collect(const anIntf: Il3Node): Boolean;
+ var
+  l_IterNode: IFilterFromQuery;
+ begin//Collect
+  if Supports(anIntf, IFilterFromQuery, l_IterNode) then
+   try
+    if l_IterNode.GetPermanent then
+     l_Result.Add(l_IterNode);
+   finally
+    l_IterNode := nil;
+   end;//try..finally
+  Result := False;
+ end;//Collect
+
+//#UC END# *4991855E01FB_4CAC5B4900EDget_var*
+//#UC START# *4CAC5B4900ED_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersContainerPrim.pas
+//#UC END# *4CAC5B4900ED_ext:FileName
+//#UC START# *4CAC5B4900EDimpl_uses*
+//#UC END# *4CAC5B4900EDimpl_uses*
+//#UC START# *4CB30B4A0124_4CAC5B4900ED_impl*
+ inherited Create;
+ f_FilterType := aFilterType;
+//#UC END# *4CB30B4A0124_4CAC5B4900ED_impl*
+//#UC START# *4CB30B4A0124_4CAC5B4900ED_var*
+//#UC END# *4CB30B4A0124_4CAC5B4900ED_var*

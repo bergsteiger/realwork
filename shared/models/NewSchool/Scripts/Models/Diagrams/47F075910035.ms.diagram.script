@@ -1,0 +1,41 @@
+// sdsDrugDocument 47F075910035 ControllerUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_47F075910035_diagrams
+
+ MEDIAGRAM ME_47F075910035_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_47F075910035' ; // sdsDrugDocument
+
+  MEVIEW ME_47F075CD00DC_view
+   MELINK Original WL? 'ME_47F075CD00DC' ; // sdsBaseDrugDocument
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_47F075CD00DC_view
+
+  MEVIEW ME_47F4A2F801D8_view
+   MELINK Original WL? 'ME_47F4A2F801D8' ; // TsdsDrugDocument
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_47F4A2F801D8_view
+
+  MEVIEWLINK ME_47F4A2F801D8_ME_47F075CD00DC_Inherits
+   MELINK From ME_47F4A2F801D8_view ;
+   MELINK To ME_47F075CD00DC_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_47F4A2F801D8_ME_47F075CD00DC_Inherits
+
+  MELIST Views
+   Seq: ( ME_47F075CD00DC_view // sdsBaseDrugDocument
+   ME_47F4A2F801D8_view // TsdsDrugDocument
+   ME_47F4A2F801D8_ME_47F075CD00DC_Inherits // TsdsDrugDocument ==> sdsBaseDrugDocument
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_47F075910035_main
+
+ MELIST Diagrams
+  Seq: ( ME_47F075910035_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_47F075910035_diagrams

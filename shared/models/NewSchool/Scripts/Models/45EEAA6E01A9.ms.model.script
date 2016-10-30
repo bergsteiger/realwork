@@ -70,7 +70,6 @@ FORWARD ME_489816C3023E
 ME ME_489816FE01BE
  MEPROP Name 'conf'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
  ;
 
@@ -79,7 +78,6 @@ ENDME // ME_489816FE01BE conf
 ME ME_489816FE0200
  MEPROP Name 'prop'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
  ;
 
@@ -244,9 +242,6 @@ ME ME_488EBB03035A
  MEPROP Value '-SettingsFlushTimeout'
  MELINK ValueType WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '-SettingsFlushTimeout'
 
 ENDME // ME_488EBB03035A DELTA_OPTION_NAME
@@ -266,9 +261,6 @@ ME ME_488EBB8B0014
  MEPROP Value 600
  MELINK ValueType WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 600
 
 ENDME // ME_488EBB8B0014 DELTA_OPTION_VALUE
@@ -276,7 +268,7 @@ ENDME // ME_488EBB8B0014 DELTA_OPTION_VALUE
 ME ME_488EBACB0163
  MEPROP UID '488EBACB0163'
  MEPROP Name 'ServerCacheValues'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'константы, св€занные с использованием кеша настроек дл€ сбрасывани€ на сервер. ≈сли таймаут меньше нул€, настройеки на сервер вообще не пишутс€, если равен нулю, то пишутс€ сразу без использовани€ кеша' ;
@@ -289,7 +281,6 @@ ME ME_488EBACB0163
  HWL ME_488EBB8B0014 // DELTA_OPTION_VALUE
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_488EBACB0163 ServerCacheValues
 

@@ -17,8 +17,6 @@ ME ME_4C7CE4BB0161
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_49480F0901B9 // PrimUserList
  ;
- UP "ImageIndex" '-1'
- UP "Weight" '-1'
  UP extprop:pas:UnitName 'PrimUserList_admUserList_UserType'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimUserList_admUserList_UserType.pas'
 
@@ -36,9 +34,6 @@ ME ME_50421C9202D7
  MELINK Parent HWL ME_50421BE8036A // PrimUserListConsts
  ;
  MEPROP Value '''Запретить всем использование услуги Правового консалтинга'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Запретить всем использование услуги Правового консалтинга'''
 
 ENDME // ME_50421C9202D7 DisableConsultingForAll
@@ -53,9 +48,6 @@ ME ME_50421DA700D5
  MELINK Parent HWL ME_50421BE8036A // PrimUserListConsts
  ;
  MEPROP Value '''Разрешить всем использование услуги Правового консалтинга'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Разрешить всем использование услуги Правового консалтинга'''
 
 ENDME // ME_50421DA700D5 EnableConsultingForAll
@@ -70,9 +62,6 @@ ME ME_50421DC3004B
  MELINK Parent HWL ME_50421BE8036A // PrimUserListConsts
  ;
  MEPROP Value '''Запретить использование услуги Правового консалтинга'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Запретить использование услуги Правового консалтинга'''
 
 ENDME // ME_50421DC3004B DisableConsulting
@@ -87,9 +76,6 @@ ME ME_50421DDB02D3
  MELINK Parent HWL ME_50421BE8036A // PrimUserListConsts
  ;
  MEPROP Value '''Разрешить использование услуги Правового консалтинга'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Разрешить использование услуги Правового консалтинга'''
 
 ENDME // ME_50421DDB02D3 EnableConsulting
@@ -104,9 +90,6 @@ ME ME_52A6C78001B5
  MELINK Parent HWL ME_50421BE8036A // PrimUserListConsts
  ;
  MEPROP Value '''Не удалось удалить пользователя "%s"'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Не удалось удалить пользователя "%s"'''
 
 ENDME // ME_52A6C78001B5 FailedToDeleteUser
@@ -121,9 +104,6 @@ ME ME_52A6C92F0018
  MELINK Parent HWL ME_50421BE8036A // PrimUserListConsts
  ;
  MEPROP Value '''Невозможно удалить пользователя "%s" так как он работает в системе'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Невозможно удалить пользователя "%s" так как он работает в системе'''
 
 ENDME // ME_52A6C92F0018 CannotDeleteActiveUser
@@ -131,7 +111,7 @@ ENDME // ME_52A6C92F0018 CannotDeleteActiveUser
 ME ME_50421BE8036A
  MEPROP UID '50421BE8036A'
  MEPROP Name 'PrimUserListConsts'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -147,9 +127,6 @@ ME ME_50421BE8036A
  HWL ME_52A6C92F0018 // CannotDeleteActiveUser
  )
  ; // Attributes
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
 
 ENDME // ME_50421BE8036A PrimUserListConsts
 
@@ -159,30 +136,13 @@ MEREF ME_494F89C30197_ME_4DEE27D70074_impl
  MELINK Original WL 'ME_494F89C30197' '494F898C013E.ms.model.script' // Delete
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" True
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_494F89C30197_ME_4DEE27D70074_impl Delete
 
 MEREF ME_4C7D0CC90052_ME_4DEE27D70074_impl
  MELINK Original WL 'ME_4C7D0CC90052' '494F898C013E.ms.model.script' // Delete
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" True
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C7D0CC90052_ME_4DEE27D70074_impl Delete
 
 MEREF ME_494F89AA0017_ME_4DEE27D70074_R
@@ -213,7 +173,6 @@ ME ME_4DEE27D70074
  )
  ; // Implemented
  UP "ControlClass" 'TnscContextFilter'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4DEE27D70074 ContextFilter
@@ -222,30 +181,13 @@ MEREF ME_494F89C30197_ME_4DEE279303CF_impl
  MELINK Original WL 'ME_494F89C30197' '494F898C013E.ms.model.script' // Delete
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" True
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_494F89C30197_ME_4DEE279303CF_impl Delete
 
 MEREF ME_4C7D0CC90052_ME_4DEE279303CF_impl
  MELINK Original WL 'ME_4C7D0CC90052' '494F898C013E.ms.model.script' // Delete
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" True
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C7D0CC90052_ME_4DEE279303CF_impl Delete
 
 MEREF ME_494F89AA0017_ME_4DEE279303CF_R
@@ -276,7 +218,6 @@ ME ME_4DEE279303CF
  )
  ; // Implemented
  UP "ControlClass" 'TeeTreeView'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4DEE279303CF trUserList
@@ -300,7 +241,6 @@ ME ME_527BA0080297
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_527BA0080297 BackgroundPanel
@@ -361,7 +301,6 @@ ME ME_4C7CE5B40225
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "needs field" False
- UP "pm" True
 
 ENDME // ME_4C7CE5B40225 AutoRegistration
 
@@ -429,7 +368,6 @@ FORWARD ME_4C7CE6A500DE
 ME ME_4C7CE6AA0369
  MEPROP Name 'aParams'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4683E07E004B' '467BAB7F021E.ms.model.script' // IvcmTestParamsPrim
  ;
 
@@ -438,7 +376,6 @@ ENDME // ME_4C7CE6AA0369 aParams
 ME ME_4C7CE6AA0391
  MEPROP Name 'TargetValue'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -484,7 +421,6 @@ FORWARD ME_4C7CE6CA036D
 ME ME_4C7CE6D101A8
  MEPROP Name 'IsPrivileged'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -529,7 +465,6 @@ FORWARD ME_4C7CF2D2004E
 ME ME_4C7CF2D50354
  MEPROP Name 'aParams'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4683E07E004B' '467BAB7F021E.ms.model.script' // IvcmTestParamsPrim
  ;
 
@@ -538,7 +473,6 @@ ENDME // ME_4C7CF2D50354 aParams
 ME ME_5042299402BA
  MEPROP Name 'aDisable'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -584,7 +518,6 @@ FORWARD ME_4C7CF2FB008F
 ME ME_4C7CF30100D6
  MEPROP Name 'IsAllowed'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -593,7 +526,6 @@ ENDME // ME_4C7CF30100D6 IsAllowed
 ME ME_4C7CF30100FF
  MEPROP Name 'ForAll'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -863,7 +795,6 @@ FORWARD ME_494FC4EF0305
 ME ME_494FC50D03AE
  MEPROP Name 'aList'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_559E9E3D0263' '491D961C0122.ms.model.script' // IadminUserNodeList
  ;
 
@@ -1124,30 +1055,13 @@ MEREF ME_494F89C30197_ME_49480F0901B9_impl
  MELINK Original WL 'ME_494F89C30197' '494F898C013E.ms.model.script' // Delete
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" True
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_494F89C30197_ME_49480F0901B9_impl Delete
 
 MEREF ME_494FD65902BF_ME_49480F0901B9_impl
  MELINK Original WL 'ME_494FD65902BF' '494FD61000CC.ms.model.script' // Add
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_494FD65902BF_ME_49480F0901B9_impl Add
 
 MEREF ME_49E5B915022D_ME_49480F0901B9_impl
@@ -1172,151 +1086,69 @@ MEREF ME_4C7CDF1B0192_ME_49480F0901B9_impl
  MELINK Original WL 'ME_4C7CDF1B0192' '494FD61000CC.ms.model.script' // LogoutUser
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" True
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C7CDF1B0192_ME_49480F0901B9_impl LogoutUser
 
 MEREF ME_4C7CDF570361_ME_49480F0901B9_impl
  MELINK Original WL 'ME_4C7CDF570361' '494FD61000CC.ms.model.script' // ConsultingStateForNewbie
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" True
- UP "is FormActivate" False
  UP "is query" True
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C7CDF570361_ME_49480F0901B9_impl ConsultingStateForNewbie
 
 MEREF ME_4C7CDFE10330_ME_49480F0901B9_impl
  MELINK Original WL 'ME_4C7CDFE10330' '494FD61000CC.ms.model.script' // Autoregistration
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" True
- UP "is FormActivate" False
  UP "is query" True
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C7CDFE10330_ME_49480F0901B9_impl Autoregistration
 
 MEREF ME_4C7CE03100BF_ME_49480F0901B9_impl
  MELINK Original WL 'ME_4C7CE03100BF' '494FD61000CC.ms.model.script' // AddPrivelegedRight
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "ContextMenuWeight" 1
- UP "has states" True
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C7CE03100BF_ME_49480F0901B9_impl AddPrivelegedRight
 
 MEREF ME_4C7CE0710199_ME_49480F0901B9_impl
  MELINK Original WL 'ME_4C7CE0710199' '494FD61000CC.ms.model.script' // RemovePrivelegedRight
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "ContextMenuWeight" 1
- UP "has states" True
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C7CE0710199_ME_49480F0901B9_impl RemovePrivelegedRight
 
 MEREF ME_4C7CEDAC0209_ME_49480F0901B9_impl
  MELINK Original WL 'ME_4C7CEDAC0209' '494FD61000CC.ms.model.script' // UserFilter
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C7CEDAC0209_ME_49480F0901B9_impl UserFilter
 
 MEREF ME_4C7CEDB701D6_ME_49480F0901B9_impl
  MELINK Original WL 'ME_4C7CEDB701D6' '494FD61000CC.ms.model.script' // DisableConsulting
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C7CEDB701D6_ME_49480F0901B9_impl DisableConsulting
 
 MEREF ME_4C7CEDC20353_ME_49480F0901B9_impl
  MELINK Original WL 'ME_4C7CEDC20353' '494FD61000CC.ms.model.script' // EnableConsulting
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C7CEDC20353_ME_49480F0901B9_impl EnableConsulting
 
 MEREF ME_4C7D0CC90052_ME_49480F0901B9_impl
  MELINK Original WL 'ME_4C7D0CC90052' '494F898C013E.ms.model.script' // Delete
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" True
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C7D0CC90052_ME_49480F0901B9_impl Delete
 
 MEREF ME_4E807746035F_ME_49480F0901B9_impl
  MELINK Original WL 'ME_4E807746035F' '494FD61000CC.ms.model.script' // MakeFiltersShared
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "ContextMenuWeight" 2
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
  UP "ShowInContextMenu" True
  UP "ShowInToolbar" False
 ENDMEREF // ME_4E807746035F_ME_49480F0901B9_impl MakeFiltersShared
@@ -1325,13 +1157,7 @@ MEREF ME_4F3D030901C3_ME_49480F0901B9_impl
  MELINK Original WL 'ME_4F3D030901C3' '494FD61000CC.ms.model.script' // DenyDeleteIdle
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
  UP "ShowInContextMenu" True
  UP "ShowInToolbar" False
 ENDMEREF // ME_4F3D030901C3_ME_49480F0901B9_impl DenyDeleteIdle
@@ -1511,13 +1337,9 @@ ME ME_49480F0901B9
    Seq: ( 'Main' 'uses' )
  ; // DiagramsNames
  UP "author" 'Тучнин Д.А.'
- UP "finished dfm" True
  UP "NeedsHackRef" False
  UP "no hands" True
- UP "resizeable" False
- UP "restrict form def" 'undefined'
  UP "started" '15.08.2005 19.00'
- UP "ZoneType" 'Any'
  UP extprop:NeedsInitEntities True
  UP extprop:pas:TypeName 'TPrimUserListForm'
  UP extprop:pas:UnitName 'PrimUserList_Form'

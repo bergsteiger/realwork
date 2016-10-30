@@ -1,0 +1,41 @@
+// SynchroView 4D39A65E01AF VCMForms Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4D39A65E01AF_diagrams
+
+ MEDIAGRAM ME_4D39A65E01AF_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4D39A65E01AF' ; // SynchroView
+
+  MEVIEW ME_4979E75C00C7_view
+   MELINK Original WL? 'ME_4979E75C00C7' ; // PrimSynchroView
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4979E75C00C7_view
+
+  MEVIEW ME_4C8604040234_view
+   MELINK Original WL? 'ME_4C8604040234' ; // PrimSynchroViewOptions
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C8604040234_view
+
+  MEVIEWLINK ME_4C8604040234_ME_4979E75C00C7_Inherits
+   MELINK From ME_4C8604040234_view ;
+   MELINK To ME_4979E75C00C7_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4C8604040234_ME_4979E75C00C7_Inherits
+
+  MELIST Views
+   Seq: ( ME_4979E75C00C7_view // PrimSynchroView
+   ME_4C8604040234_view // PrimSynchroViewOptions
+   ME_4C8604040234_ME_4979E75C00C7_Inherits // PrimSynchroViewOptions ==> PrimSynchroView
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4D39A65E01AF_main
+
+ MELIST Diagrams
+  Seq: ( ME_4D39A65E01AF_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4D39A65E01AF_diagrams

@@ -1,0 +1,104 @@
+// ContextHistory 54F9EC5B0269 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_54F9EC5B0269_diagrams
+
+ MEDIAGRAM ME_54F9EC5B0269_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_54F9EC5B0269' ; // ContextHistory
+
+  MEVIEW ME_4AD8570C01CC_view
+   MELINK Original WL? 'ME_4AD8570C01CC' ; // nsContextHistory
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AD8570C01CC_view
+
+  MEVIEW ME_4AD83627037B_view
+   MELINK Original WL? 'ME_4AD83627037B' ; // TInsContextSearchHistoryNotifierList
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AD83627037B_view
+
+  MEVIEW ME_4AD843F802B4_view
+   MELINK Original WL? 'ME_4AD843F802B4' ; // nsContextHistoryPrim
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AD843F802B4_view
+
+  MEVIEW ME_4AD846290145_view
+   MELINK Original WL? 'ME_4AD846290145' ; // TnsInpharmContextHistoryPrim
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AD846290145_view
+
+  MEVIEW ME_4AD8457200F3_view
+   MELINK Original WL? 'ME_4AD8457200F3' ; // TnsDocumentContextHistoryPrim
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AD8457200F3_view
+
+  MEVIEW ME_4AD8466301A3_view
+   MELINK Original WL? 'ME_4AD8466301A3' ; // TnsDocumentContextHistory
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AD8466301A3_view
+
+  MEVIEW ME_4AD8469402FA_view
+   MELINK Original WL? 'ME_4AD8469402FA' ; // TnsInpharmContextHistory
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AD8469402FA_view
+
+  MEVIEWLINK ME_4AD8446801B3_viewlink
+   MELINK Original WL 'ME_4AD8446801B3' '4AD843F802B4.ms.model.script' ;
+   MELINK From ME_4AD843F802B4_view ;
+   MELINK To ME_4AD83627037B_view ;
+  ENDMEVIEWLINK // ME_4AD8446801B3_viewlink
+
+  MEVIEWLINK ME_4AD846290145_ME_4AD843F802B4_Inherits
+   MELINK From ME_4AD846290145_view ;
+   MELINK To ME_4AD843F802B4_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4AD846290145_ME_4AD843F802B4_Inherits
+
+  MEVIEWLINK ME_4AD8457200F3_ME_4AD843F802B4_Inherits
+   MELINK From ME_4AD8457200F3_view ;
+   MELINK To ME_4AD843F802B4_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4AD8457200F3_ME_4AD843F802B4_Inherits
+
+  MEVIEWLINK ME_4AD8466301A3_ME_4AD8457200F3_Inherits
+   MELINK From ME_4AD8466301A3_view ;
+   MELINK To ME_4AD8457200F3_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4AD8466301A3_ME_4AD8457200F3_Inherits
+
+  MEVIEWLINK ME_4AD8469402FA_ME_4AD846290145_Inherits
+   MELINK From ME_4AD8469402FA_view ;
+   MELINK To ME_4AD846290145_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4AD8469402FA_ME_4AD846290145_Inherits
+
+  MELIST Views
+   Seq: ( ME_4AD8570C01CC_view // nsContextHistory
+   ME_4AD83627037B_view // TInsContextSearchHistoryNotifierList
+   ME_4AD843F802B4_view // nsContextHistoryPrim
+   ME_4AD846290145_view // TnsInpharmContextHistoryPrim
+   ME_4AD8457200F3_view // TnsDocumentContextHistoryPrim
+   ME_4AD8466301A3_view // TnsDocumentContextHistory
+   ME_4AD8469402FA_view // TnsInpharmContextHistory
+   ME_4AD8446801B3_viewlink // nsContextHistoryPrim ==> TInsContextSearchHistoryNotifierList
+   ME_4AD846290145_ME_4AD843F802B4_Inherits // TnsInpharmContextHistoryPrim ==> nsContextHistoryPrim
+   ME_4AD8457200F3_ME_4AD843F802B4_Inherits // TnsDocumentContextHistoryPrim ==> nsContextHistoryPrim
+   ME_4AD8466301A3_ME_4AD8457200F3_Inherits // TnsDocumentContextHistory ==> TnsDocumentContextHistoryPrim
+   ME_4AD8469402FA_ME_4AD846290145_Inherits // TnsInpharmContextHistory ==> TnsInpharmContextHistoryPrim
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_54F9EC5B0269_main
+
+ MELIST Diagrams
+  Seq: ( ME_54F9EC5B0269_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_54F9EC5B0269_diagrams

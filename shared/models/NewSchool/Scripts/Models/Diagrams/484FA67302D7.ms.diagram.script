@@ -1,0 +1,62 @@
+// GUI 484FA67302D7 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_484FA67302D7_diagrams
+
+ MEDIAGRAM ME_484FA67302D7_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_484FA67302D7' ; // GUI
+
+  MEVIEW ME_484FA70A0269_view
+   MELINK Original WL 'ME_484FA70A0269' '484FA67302D7.ms.model.script' ; // Интерфейс системы
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_484FA70A0269_view
+
+  MEVIEW ME_4856589E0275_view
+   MELINK Original WL 'ME_4856589E0275' '484FA67302D7.ms.model.script' ; // Панели инструментов
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4856589E0275_view
+
+  MEVIEW ME_4D5A1A0703BB_view
+   MELINK Original WL 'ME_4D5A1A0703BB' '484FA67302D7.ms.model.script' ; // Интерфейс 2011
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D5A1A0703BB_view
+
+  MEVIEW ME_4FBB5FE2026D_view
+   MELINK Original WL 'ME_4FBB5FE2026D' '484FA67302D7.ms.model.script' ; // Интерфейс 2012
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4FBB5FE2026D_view
+
+  MEVIEWLINK ME_4D5A1A0703BB_ME_484FA70A0269_Inherits
+   MELINK From ME_4D5A1A0703BB_view ;
+   MELINK To ME_484FA70A0269_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4D5A1A0703BB_ME_484FA70A0269_Inherits
+
+  MEVIEWLINK ME_4FBB5FE2026D_ME_4D5A1A0703BB_Inherits
+   MELINK From ME_4FBB5FE2026D_view ;
+   MELINK To ME_4D5A1A0703BB_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4FBB5FE2026D_ME_4D5A1A0703BB_Inherits
+
+  MELIST Views
+   Seq: ( ME_484FA70A0269_view // Интерфейс системы
+   ME_4856589E0275_view // Панели инструментов
+   ME_4D5A1A0703BB_view // Интерфейс 2011
+   ME_4FBB5FE2026D_view // Интерфейс 2012
+   ME_4D5A1A0703BB_ME_484FA70A0269_Inherits // Интерфейс 2011 ==> Интерфейс системы
+   ME_4FBB5FE2026D_ME_4D5A1A0703BB_Inherits // Интерфейс 2012 ==> Интерфейс 2011
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_484FA67302D7_main
+
+ MELIST Diagrams
+  Seq: ( ME_484FA67302D7_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_484FA67302D7_diagrams

@@ -1,0 +1,34 @@
+// ConsultingData 442BEFCB030D Interface Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_442BEFCB030D_diagrams
+
+ MEDIAGRAM ME_442BEFCB030D_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_442BEFCB030D' '442BEF93030D.ms.model.script' ; // ConsultingData
+
+  MEVIEW ME_442BF015006D_view
+   MELINK Original WL 'ME_442BF015006D' '442BEF93030D.ms.model.script' ; // get_data
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_442BF015006D_view
+
+  MEVIEW ME_442BFEEF0399_view
+   MELINK Original WL 'ME_442BFEEF0399' '442BEF93030D.ms.model.script' ; // data_received
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_442BFEEF0399_view
+
+  MELIST Views
+   Seq: ( ME_442BF015006D_view // get_data
+   ME_442BFEEF0399_view // data_received
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_442BEFCB030D_main
+
+ MELIST Diagrams
+  Seq: ( ME_442BEFCB030D_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_442BEFCB030D_diagrams

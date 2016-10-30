@@ -1,0 +1,484 @@
+//#UC START# *479731C50290_49EC746B01E5_impl*
+(* if (f_Browser <> nil) then
+  f_Browser.Stop;*)
+ FreeAndNil(f_Browser);
+ f_InInit := false;
+ inherited;
+//#UC END# *479731C50290_49EC746B01E5_impl*
+//#UC START# *479731C50290_49EC746B01E5_var*
+//#UC END# *479731C50290_49EC746B01E5_var*
+//#UC START# *494F89C30197_49EC746B01E5exec_impl*
+ f_Browser.ExecWB(OLECMDID_DELETE, OLECMDEXECOPT_DODEFAULT);
+//#UC END# *494F89C30197_49EC746B01E5exec_impl*
+//#UC START# *494F89C30197_49EC746B01E5exec_var*
+//#UC END# *494F89C30197_49EC746B01E5exec_var*
+//#UC START# *494F89C30197_49EC746B01E5getstate_impl*
+ // - ничего не делаем
+//#UC END# *494F89C30197_49EC746B01E5getstate_impl*
+//#UC START# *494F89C30197_49EC746B01E5getstate_var*
+//#UC END# *494F89C30197_49EC746B01E5getstate_var*
+//#UC START# *494F89C30197_49EC746B01E5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_DELETE) AND OLECMDF_ENABLED) <> 0);
+//#UC END# *494F89C30197_49EC746B01E5test_impl*
+//#UC START# *494F89C30197_49EC746B01E5test_var*
+//#UC END# *494F89C30197_49EC746B01E5test_var*
+//#UC START# *4951284902BD_49EC746B01E5exec_impl*
+ f_Browser.ExecWB(OLECMDID_COPY, OLECMDEXECOPT_DODEFAULT);
+//#UC END# *4951284902BD_49EC746B01E5exec_impl*
+//#UC START# *4951284902BD_49EC746B01E5exec_var*
+//#UC END# *4951284902BD_49EC746B01E5exec_var*
+//#UC START# *4951284902BD_49EC746B01E5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_COPY) AND OLECMDF_ENABLED) <> 0);
+//#UC END# *4951284902BD_49EC746B01E5test_impl*
+//#UC START# *4951284902BD_49EC746B01E5test_var*
+//#UC END# *4951284902BD_49EC746B01E5test_var*
+//#UC START# *4951285702E1_49EC746B01E5exec_impl*
+ f_Browser.ExecWB(OLECMDID_CUT, OLECMDEXECOPT_DODEFAULT);
+//#UC END# *4951285702E1_49EC746B01E5exec_impl*
+//#UC START# *4951285702E1_49EC746B01E5exec_var*
+//#UC END# *4951285702E1_49EC746B01E5exec_var*
+//#UC START# *4951285702E1_49EC746B01E5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_CUT) AND OLECMDF_ENABLED) <> 0);
+//#UC END# *4951285702E1_49EC746B01E5test_impl*
+//#UC START# *4951285702E1_49EC746B01E5test_var*
+//#UC END# *4951285702E1_49EC746B01E5test_var*
+//#UC START# *49512B5D0009_49EC746B01E5exec_impl*
+ f_Browser.ExecWB(OLECMDID_FIND, OLECMDEXECOPT_PROMPTUSER);
+//#UC END# *49512B5D0009_49EC746B01E5exec_impl*
+//#UC START# *49512B5D0009_49EC746B01E5exec_var*
+//#UC END# *49512B5D0009_49EC746B01E5exec_var*
+//#UC START# *49512B5D0009_49EC746B01E5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_FIND) AND OLECMDF_ENABLED) <> 0);
+//#UC END# *49512B5D0009_49EC746B01E5test_impl*
+//#UC START# *49512B5D0009_49EC746B01E5test_var*
+//#UC END# *49512B5D0009_49EC746B01E5test_var*
+//#UC START# *495130C40123_49EC746B01E5exec_impl*
+ try
+  f_Browser.ExecWB(OLECMDID_FIND, OLECMDEXECOPT_DODEFAULT);
+ except
+  on E: Exception do
+   l3System.Exception2Log(E);
+ end;//try..except
+//#UC END# *495130C40123_49EC746B01E5exec_impl*
+//#UC START# *495130C40123_49EC746B01E5exec_var*
+//#UC END# *495130C40123_49EC746B01E5exec_var*
+//#UC START# *495130C40123_49EC746B01E5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_FIND) AND OLECMDF_ENABLED) <> 0);
+//#UC END# *495130C40123_49EC746B01E5test_impl*
+//#UC START# *495130C40123_49EC746B01E5test_var*
+//#UC END# *495130C40123_49EC746B01E5test_var*
+//#UC START# *49521D8E0295_49EC746B01E5exec_impl*
+ f_Browser.ExecWB(OLECMDID_PRINT, OLECMDEXECOPT_DONTPROMPTUSER);
+//#UC END# *49521D8E0295_49EC746B01E5exec_impl*
+//#UC START# *49521D8E0295_49EC746B01E5exec_var*
+//#UC END# *49521D8E0295_49EC746B01E5exec_var*
+//#UC START# *49521D8E0295_49EC746B01E5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_PRINT) AND OLECMDF_ENABLED) <> 0);
+//#UC END# *49521D8E0295_49EC746B01E5test_impl*
+//#UC START# *49521D8E0295_49EC746B01E5test_var*
+//#UC END# *49521D8E0295_49EC746B01E5test_var*
+//#UC START# *495220DE0298_49EC746B01E5exec_impl*
+ f_Browser.ExecWB(OLECMDID_PRINT, OLECMDEXECOPT_PROMPTUSER);
+//#UC END# *495220DE0298_49EC746B01E5exec_impl*
+//#UC START# *495220DE0298_49EC746B01E5exec_var*
+//#UC END# *495220DE0298_49EC746B01E5exec_var*
+//#UC START# *495220DE0298_49EC746B01E5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_PRINT) AND OLECMDF_ENABLED) <> 0);
+//#UC END# *495220DE0298_49EC746B01E5test_impl*
+//#UC START# *495220DE0298_49EC746B01E5test_var*
+//#UC END# *495220DE0298_49EC746B01E5test_var*
+//#UC START# *495220F2033A_49EC746B01E5exec_impl*
+ f_Browser.ExecWB(OLECMDID_PRINTPREVIEW, OLECMDEXECOPT_DODEFAULT);
+//#UC END# *495220F2033A_49EC746B01E5exec_impl*
+//#UC START# *495220F2033A_49EC746B01E5exec_var*
+//#UC END# *495220F2033A_49EC746B01E5exec_var*
+//#UC START# *495220F2033A_49EC746B01E5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_PRINTPREVIEW) AND OLECMDF_ENABLED) <> 0);
+//#UC END# *495220F2033A_49EC746B01E5test_impl*
+//#UC START# *495220F2033A_49EC746B01E5test_var*
+//#UC END# *495220F2033A_49EC746B01E5test_var*
+//#UC START# *495235F401C0_49EC746B01E5exec_impl*
+ f_Browser.ExecWB(OLECMDID_SAVEAS, OLECMDEXECOPT_PROMPTUSER);
+//#UC END# *495235F401C0_49EC746B01E5exec_impl*
+//#UC START# *495235F401C0_49EC746B01E5exec_var*
+//#UC END# *495235F401C0_49EC746B01E5exec_var*
+//#UC START# *495235F401C0_49EC746B01E5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_SAVEAS) AND OLECMDF_ENABLED) <> 0);
+//#UC END# *495235F401C0_49EC746B01E5test_impl*
+//#UC START# *495235F401C0_49EC746B01E5test_var*
+//#UC END# *495235F401C0_49EC746B01E5test_var*
+//#UC START# *497469C90140_49EC746B01E5_impl*
+ inherited;
+ if (aNew <> nil) then
+ begin
+  if not Dispatcher.History.InBF then
+  begin
+   f_InInit := true;
+   Navigate(ViewArea.URL);
+  end;//not Dispatcher.History.InBF
+ end;//aNew <> nil
+//#UC END# *497469C90140_49EC746B01E5_impl*
+//#UC START# *497469C90140_49EC746B01E5_var*
+//#UC END# *497469C90140_49EC746B01E5_var*
+//#UC START# *49803F5503AA_49EC746B01E5_impl*
+ inherited;
+ MakeBrowser;
+ if f_Browser.CanFocus then
+  f_Browser.SetFocus;
+//#UC END# *49803F5503AA_49EC746B01E5_impl*
+//#UC START# *49803F5503AA_49EC746B01E5_var*
+//#UC END# *49803F5503AA_49EC746B01E5_var*
+//#UC START# *49806ED503D5_49EC746B01E5_impl*
+ //if (aStateType = vcm_stPosition) then
+ begin
+  theState := TnsInternetAgentState.Make(f_URL, f_Browser.ScrollPos).As_IvcmBase;
+  Result := true;
+  //inherited DoSaveState(theState, aStateType);
+  Exit;
+ end;//aStateType = vcm_stPosition
+ Result := inherited DoSaveState(theState, aStateType, aForClone);
+//#UC END# *49806ED503D5_49EC746B01E5_impl*
+//#UC START# *49806ED503D5_49EC746B01E5_var*
+//#UC END# *49806ED503D5_49EC746B01E5_var*
+//#UC START# *49807428008C_49EC746B01E5_impl*
+ //if (aStateType = vcm_stPosition) then
+ begin
+  if (f_Browser <> nil) then
+  begin
+   l_URL := f_URL;
+   Supports(aState, InsInternetAgentState, l_State);
+   f_InInit := true;
+   if (aStateType = vcm_stPosition) then
+    try
+     if Dispatcher.History.InBack then
+     begin
+      if f_CanBack then
+      begin
+       f_Browser.GoBack;
+       f_InInit := false;
+      end;//f_CanBack
+     end//Dispatcher.History.InBack
+     else
+     begin
+      if f_CanForward then
+      begin
+       f_Browser.GoForward;
+       f_InInit := false;
+      end;//f_CanForward
+     end;//Dispatcher.History.InBack
+    except
+     on EOleError do; // - давим отсутствие истории
+    end;//try..except
+   if f_InInit then
+    if (l_State <> nil) then
+    begin
+     f_Browser.ScrollPos := l_State.ScrollPos;
+     Navigate(l_State.URL);
+    end;
+   Result := true;
+   //inherited DoLoadState(aState, aStateType);
+   // kost: кажись, ниже две строчки не нужны.
+   //if (l_State <> nil) then
+   // l_State.SetParams(l_URL);
+   Exit;
+  end;//f_Browser <> nil
+ end;//aStateType = vcm_stPosition
+ Result := inherited DoLoadState(aState, aStateType, aClone);
+//#UC END# *49807428008C_49EC746B01E5_impl*
+//#UC START# *49807428008C_49EC746B01E5_var*
+var
+ l_State : InsInternetAgentState;
+ l_URL   : WideString;
+//#UC END# *49807428008C_49EC746B01E5_var*
+//#UC START# *49EC746B01E5_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms\PrimInternetAgent_Form.pas
+//#UC END# *49EC746B01E5_ext:FileName
+//#UC START# *49EC746B01E5impl_uses*
+//#UC END# *49EC746B01E5impl_uses*
+//#UC START# *49ED882F0024_49EC746B01E5_impl*
+ BeforeNavigateXE(Sender, pDisp, URL, Flags, TargetFrameName, PostData, Headers, Cancel);
+//#UC END# *49ED882F0024_49EC746B01E5_impl*
+//#UC START# *49ED882F0024_49EC746B01E5_var*
+//#UC END# *49ED882F0024_49EC746B01E5_var*
+//#UC START# *49ED8A6F01AE_49EC746B01E5_impl*
+ Caption := Text;
+//#UC END# *49ED8A6F01AE_49EC746B01E5_impl*
+//#UC START# *49ED8A6F01AE_49EC746B01E5_var*
+//#UC END# *49ED8A6F01AE_49EC746B01E5_var*
+//#UC START# *49ED8AA0026E_49EC746B01E5_impl*
+ NavigateCompleteXE(Sender, pDisp, URL);
+//#UC END# *49ED8AA0026E_49EC746B01E5_impl*
+//#UC START# *49ED8AA0026E_49EC746B01E5_var*
+//#UC END# *49ED8AA0026E_49EC746B01E5_var*
+//#UC START# *49EDAAF403C0_49EDAA740295get_impl*
+ Result := f_URL;
+//#UC END# *49EDAAF403C0_49EDAA740295get_impl*
+//#UC START# *49EDAAF403C0_49EDAA740295get_var*
+//#UC END# *49EDAAF403C0_49EDAA740295get_var*
+//#UC START# *49EDDC9F007A_49EDAA740295_impl*
+ f_URL := anURL;
+ f_ScrollPos := aScrollPos;
+//#UC END# *49EDDC9F007A_49EDAA740295_impl*
+//#UC START# *49EDDC9F007A_49EDAA740295_var*
+//#UC END# *49EDDC9F007A_49EDAA740295_var*
+//#UC START# *49EDE0FF002C_49EC746B01E5_impl*
+ f_URL := anURL;
+ f_NavigateErrorPass := False;
+ f_Browser.Navigate(anURL);
+//#UC END# *49EDE0FF002C_49EC746B01E5_impl*
+//#UC START# *49EDE0FF002C_49EC746B01E5_var*
+//#UC END# *49EDE0FF002C_49EC746B01E5_var*
+//#UC START# *49EDEDCE0015_49EC746B01E5_impl*
+ case Command of
+   CSC_NAVIGATEBACK:
+    f_CanBack := Enable;
+   CSC_NAVIGATEFORWARD:
+    f_CanForward := Enable;
+   //CSC_UPDATECOMMANDS: ButtonCancel.Enabled := Enable;
+ end;
+//#UC END# *49EDEDCE0015_49EC746B01E5_impl*
+//#UC START# *49EDEDCE0015_49EC746B01E5_var*
+//#UC END# *49EDEDCE0015_49EC746B01E5_var*
+//#UC START# *49EDFA3701B0_49EC746B01E5exec_impl*
+ f_Browser.ExecWB(OLECMDID_PASTE, OLECMDEXECOPT_DODEFAULT);
+//#UC END# *49EDFA3701B0_49EC746B01E5exec_impl*
+//#UC START# *49EDFA3701B0_49EC746B01E5exec_var*
+//#UC END# *49EDFA3701B0_49EC746B01E5exec_var*
+//#UC START# *49EDFA3701B0_49EC746B01E5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_PASTE) AND OLECMDF_ENABLED) <> 0);
+//#UC END# *49EDFA3701B0_49EC746B01E5test_impl*
+//#UC START# *49EDFA3701B0_49EC746B01E5test_var*
+//#UC END# *49EDFA3701B0_49EC746B01E5test_var*
+//#UC START# *49EDFCA2006D_49EC746B01E5exec_impl*
+ f_Browser.ExecWB(OLECMDID_UNDO, OLECMDEXECOPT_DODEFAULT);
+//#UC END# *49EDFCA2006D_49EC746B01E5exec_impl*
+//#UC START# *49EDFCA2006D_49EC746B01E5exec_var*
+//#UC END# *49EDFCA2006D_49EC746B01E5exec_var*
+//#UC START# *49EDFCA2006D_49EC746B01E5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_UNDO) AND OLECMDF_ENABLED) <> 0);
+//#UC END# *49EDFCA2006D_49EC746B01E5test_impl*
+//#UC START# *49EDFCA2006D_49EC746B01E5test_var*
+//#UC END# *49EDFCA2006D_49EC746B01E5test_var*
+//#UC START# *49EDFCB100BC_49EC746B01E5exec_impl*
+ f_Browser.ExecWB(OLECMDID_REDO, OLECMDEXECOPT_DODEFAULT);
+//#UC END# *49EDFCB100BC_49EC746B01E5exec_impl*
+//#UC START# *49EDFCB100BC_49EC746B01E5exec_var*
+//#UC END# *49EDFCB100BC_49EC746B01E5exec_var*
+//#UC START# *49EDFCB100BC_49EC746B01E5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_REDO) AND OLECMDF_ENABLED) <> 0);
+//#UC END# *49EDFCB100BC_49EC746B01E5test_impl*
+//#UC START# *49EDFCB100BC_49EC746B01E5test_var*
+//#UC END# *49EDFCB100BC_49EC746B01E5test_var*
+//#UC START# *49EE01AA02BE_49EC746B01E5exec_impl*
+ f_Browser.ExecWB(OLECMDID_SELECTALL, OLECMDEXECOPT_DODEFAULT);
+//#UC END# *49EE01AA02BE_49EC746B01E5exec_impl*
+//#UC START# *49EE01AA02BE_49EC746B01E5exec_var*
+//#UC END# *49EE01AA02BE_49EC746B01E5exec_var*
+//#UC START# *49EE01AA02BE_49EC746B01E5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_SELECTALL) AND OLECMDF_ENABLED) <> 0);
+//#UC END# *49EE01AA02BE_49EC746B01E5test_impl*
+//#UC START# *49EE01AA02BE_49EC746B01E5test_var*
+//#UC END# *49EE01AA02BE_49EC746B01E5test_var*
+//#UC START# *49EE01BC022E_49EC746B01E5exec_impl*
+ f_Browser.ExecWB(OLECMDID_CLEARSELECTION, OLECMDEXECOPT_DODEFAULT);
+//#UC END# *49EE01BC022E_49EC746B01E5exec_impl*
+//#UC START# *49EE01BC022E_49EC746B01E5exec_var*
+//#UC END# *49EE01BC022E_49EC746B01E5exec_var*
+//#UC START# *49EE01BC022E_49EC746B01E5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_CLEARSELECTION) AND OLECMDF_ENABLED) <> 0);
+//#UC END# *49EE01BC022E_49EC746B01E5test_impl*
+//#UC START# *49EE01BC022E_49EC746B01E5test_var*
+//#UC END# *49EE01BC022E_49EC746B01E5test_var*
+//#UC START# *49FEDE4703B8_49EC746B01E5exec_impl*
+ aParams.DoneStatus := vcm_dsDisabled;
+//#UC END# *49FEDE4703B8_49EC746B01E5exec_impl*
+//#UC START# *49FEDE4703B8_49EC746B01E5exec_var*
+//#UC END# *49FEDE4703B8_49EC746B01E5exec_var*
+//#UC START# *49FEDE4703B8_49EC746B01E5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *49FEDE4703B8_49EC746B01E5test_impl*
+//#UC START# *49FEDE4703B8_49EC746B01E5test_var*
+//#UC END# *49FEDE4703B8_49EC746B01E5test_var*
+//#UC START# *4A1133EF0284_49EC746B01E5_impl*
+ NavigateErrorXE(Sender, pDisp, URL, Frame, StatusCode, Cancel);
+//#UC END# *4A1133EF0284_49EC746B01E5_impl*
+//#UC START# *4A1133EF0284_49EC746B01E5_var*
+//#UC END# *4A1133EF0284_49EC746B01E5_var*
+//#UC START# *4BB32C1401C0_49EC746B01E5exec_impl*
+ Result := False;
+ if (f_Browser <> nil) then
+ begin
+  with f_Browser do
+  begin
+   if aInc then
+    Scale := Scale + 10
+   else
+    Scale := Scale - 10;
+   afw.Settings.SaveInteger(pi_InternetAgent_Scale, Scale);
+  end;// f_Browser
+  Result := True;
+ end;//f_Browser <> nil
+//#UC END# *4BB32C1401C0_49EC746B01E5exec_impl*
+//#UC START# *4BB32C1401C0_49EC746B01E5exec_var*
+//#UC END# *4BB32C1401C0_49EC746B01E5exec_var*
+//#UC START# *4BB366A901D7_49EC746B01E5exec_impl*
+ if (f_Browser = nil) then
+  Result := ccsUnknown
+ else
+ if f_Browser.ScaleDisabled then
+  Result := ccsNo
+ else
+ begin
+  if anInc then
+  begin
+   if (f_Browser.Scale < 500) then
+    Result := ccsYes
+   else
+    Result := ccsNo;
+  end//anInc
+  else
+  begin
+   if (f_Browser.Scale > 30) then
+    Result := ccsYes
+   else
+    Result := ccsNo;
+  end;//anInc
+ end;//f_Browser.ScaleDisabled
+//#UC END# *4BB366A901D7_49EC746B01E5exec_impl*
+//#UC START# *4BB366A901D7_49EC746B01E5exec_var*
+//#UC END# *4BB366A901D7_49EC746B01E5exec_var*
+//#UC START# *5175422C03AF_49EC746B01E5_impl*
+ if (not nsIsGarantURL(URL)) and (f_NavigateErrorCode in [c_HTTP_OK, 0]) then
+ begin
+  Cancel := true;
+  case MessageDlg(str_mtNotGarantDomain) of
+    -1:
+     nsDoShellExecute(l3CStr(URL));
+    -2:
+     ;
+    mrCancel:
+     ;
+  end;//MessageDlg(inf_mtNotGarantDomain)
+  Exit;
+ end;//not IsGarantURL(URL)
+ if nsParseLocalDocumentURL(URL, l_DocID, l_SubID) then
+ begin
+  Cancel := true;
+  if not nsOpenLink(l_DocID, l_SubID, dptSub, True, False, False) then
+   nsOpenDocumentByNumber(l_DocID, l_SubID, dptSub, True, False, vcm_okInCurrentTab, True);
+  Exit;
+ end;
+ if nsIsFileFromMobileGarant(URL) then
+ begin
+  Cancel := true;
+  TnsDownloadService.Instance.DownloadFile(URL);
+  Exit;
+ end;
+
+ if f_InInit then
+  f_InInit := false
+ else
+  Dispatcher.History.SaveState(Self.As_IvcmEntityForm, vcm_stPosition);
+ //
+ l_UserAgent := '';
+ //
+ UrlMkGetSessionOption(URLMON_OPTION_USERAGENT, nil, 0, l_UserAgentSize, 0);
+ SetLength(l_UserAgent, Pred(l_UserAgentSize));
+ UrlMkGetSessionOption(URLMON_OPTION_USERAGENT, PChar(l_UserAgent), l_UserAgentSize, l_UserAgentSize, 0);
+ //
+ if (l_UserAgent = '') then
+  l_UserAgent := 'Mozilla/4.0 (compatible)';
+ //
+ l_Position := Pos (Format('; %s', [c_GarantUserAgent]), l_UserAgent);
+ if (l_Position < 1) then
+ begin
+  l_Position := Pos (Format('(%s)', [c_GarantUserAgent]), l_UserAgent);
+  if (l_Position < 1) then
+  begin
+   l_Position := Length(l_UserAgent);
+   //
+   while (l_Position > 0) and (l_UserAgent [l_Position] <> ')') do
+    Dec (l_Position);
+   //
+   if (l_Position = 0) then
+    l_UserAgent := Format('%s (%s)', [l_UserAgent, c_GarantUserAgent])
+   else
+    Insert(Format('; %s', [c_GarantUserAgent]), l_UserAgent, l_Position);
+   //
+   UrlMkSetSessionOption(URLMON_OPTION_USERAGENT, PChar(l_UserAgent), Length(l_UserAgent), 0);
+  end;
+ end;
+//#UC END# *5175422C03AF_49EC746B01E5_impl*
+//#UC START# *5175422C03AF_49EC746B01E5_var*
+const
+ c_GarantUserAgent: string = 'GarantF1';
+var
+ l_UserAgent: string;
+ l_UserAgentSize: DWORD;
+ //
+ l_Position: Integer;
+ l_DocID: Integer;
+ l_SubID: Integer;
+//#UC END# *5175422C03AF_49EC746B01E5_var*
+//#UC START# *517544400331_49EC746B01E5_impl*
+ f_URL := f_Browser.LocationURL;
+ //
+ if f_NavigateErrorPass then
+ begin
+  f_NavigateErrorPass := False;
+  //
+  if (f_NavigateErrorCode <> c_PageNotFoundError) then
+  begin
+   Say(err_InternetAgentNavigateError, [IntToHex(f_NavigateErrorCode, 8)]);
+   //
+   // Если прошли через обработчик ошибок и попали на страницу из ресурса (префикс: `res://`),
+   // делаем дополнительный шаг по истории назад (в этом случае код ошибки будет меньше или равен нулю).
+   if (Integer(f_NavigateErrorCode) <= 0) then
+    Dispatcher.History.Back;
+   //
+   Dispatcher.History.Back(True); // history back and truncate
+  end;
+ end;
+//#UC END# *517544400331_49EC746B01E5_impl*
+//#UC START# *517544400331_49EC746B01E5_var*
+//#UC END# *517544400331_49EC746B01E5_var*
+//#UC START# *517544E2036E_49EC746B01E5_impl*
+ if (StatusCode <> c_HTTP_OK) then
+ begin
+  f_NavigateErrorPass := True;
+  f_NavigateErrorCode := StatusCode;
+ end;//StatusCode <> c_HTTP_OK
+//#UC END# *517544E2036E_49EC746B01E5_impl*
+//#UC START# *517544E2036E_49EC746B01E5_var*
+//#UC END# *517544E2036E_49EC746B01E5_var*
+//#UC START# *5411790D0297_49EC746B01E5_impl*
+ f_Browser := TnsWebBrowser.Create(Self);
+ f_Browser.Align := alClient;
+ TControl(f_Browser).Parent := Self;
+ f_Browser.OnBeforeNavigate2 := {$IfDef XE}Self.BeforeNavigateXE{$Else}Self.BeforeNavigate{$EndIf};
+ f_Browser.OnNavigateComplete2 := {$IfDef XE}Self.NavigateCompleteXE{$Else}Self.NavigateComplete{$EndIf};
+ f_Browser.OnNavigateError := {$IfDef XE}Self.NavigateErrorXE{$Else}Self.NavigateError{$EndIf};
+ f_Browser.OnTitleChange := Self.TitleChange;
+ f_Browser.OnCommandStateChange := Self.CommandStateChange;
+ f_Browser.Scale := afw.Settings.LoadInteger(pi_InternetAgent_Scale, 100);
+ SetFocusedControl(f_Browser);
+//#UC END# *5411790D0297_49EC746B01E5_impl*
+//#UC START# *5411790D0297_49EC746B01E5_var*
+//#UC END# *5411790D0297_49EC746B01E5_var*
+//#UC START# *543E3AA801D0_49EC746B01E5_impl*
+ Result := nsTabIconIndex(titNewsOnline);
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=565271310
+//#UC END# *543E3AA801D0_49EC746B01E5_impl*
+//#UC START# *543E3AA801D0_49EC746B01E5_var*
+//#UC END# *543E3AA801D0_49EC746B01E5_var*
+//#UC START# *5742C1CB030C_49EDAA740295get_impl*
+ Result := f_ScrollPos;
+//#UC END# *5742C1CB030C_49EDAA740295get_impl*
+//#UC START# *5742C1CB030C_49EDAA740295get_var*
+//#UC END# *5742C1CB030C_49EDAA740295get_var*
+//#UC START# *5742CDC7015B_49EDAA740295_impl*
+ inherited Create;
+ SetParams(anUrl, aScrollPos);
+//#UC END# *5742CDC7015B_49EDAA740295_impl*
+//#UC START# *5742CDC7015B_49EDAA740295_var*
+//#UC END# *5742CDC7015B_49EDAA740295_var*

@@ -16,9 +16,6 @@ ME ME_4DC0224102B9
  MELINK Parent HWL ME_4DC0221700D8 // Local
  ;
  MEPROP Value '''Получены ответы или уведомления от службы Правовой поддержки онлайн. Перейти к тексту ответа.'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Получены ответы или уведомления от службы Правовой поддержки онлайн. Перейти к тексту ответа.'''
 
 ENDME // ME_4DC0224102B9 UnreadConsultations
@@ -33,9 +30,6 @@ ME ME_4DC0225F001F
  MELINK Parent HWL ME_4DC0221700D8 // Local
  ;
  MEPROP Value '''Перейти к тексту ответа'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Перейти к тексту ответа'''
 
 ENDME // ME_4DC0225F001F UnreadConsultationsLink
@@ -49,9 +43,6 @@ ME ME_4DC125B80395
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4DC0221700D8 // Local
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP "Value" '''С момента последнего обновления Вашего информационного банка прошло более 6 месяцев. '' + '#13#10'''Онлайн-проверка актуальности документов отключена.'' + #13#10 + '#13#10'''Для обновления системы ГАРАНТ обратитесь в обслуживающую Вас организацию:'' + #13#10 + '#13#10'''%s'''
 
 ENDME // ME_4DC125B80395 OnlineDead
@@ -65,10 +56,7 @@ ME ME_4DC12BDA01A4
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4DC0221700D8 // Local
  ;
- UP "AutoInc" False
  UP "finished" False
- UP "forced type" 'none'
- UP "is define" False
  UP "Value" '''Вы работаете с ознакомительной версией системы ГАРАНТ.'' +'#13#10''' До окончания срока ее действия осталось дней: %s.'' + #13#10 + #13#10 +'#13#10''#13#10'''Чтобы стать зарегистрированным пользователем системы ГАРАНТ и получать полный комплекс информационно-правового обеспечения, обращайтесь в компанию \\"Гарант\\" или к ее региональным партнерам:'' + #13#10 + #13#10 +'#13#10''#13#10'''%s'''
 
 ENDME // ME_4DC12BDA01A4 TrialModeWarning
@@ -83,9 +71,6 @@ ME ME_4DC131A20095
  MELINK Parent HWL ME_4DC0221700D8 // Local
  ;
  MEPROP Value '''Внимание! Документы на контроле изменились.'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Внимание! Документы на контроле изменились.'''
 
 ENDME // ME_4DC131A20095 ControlledChangingWarning
@@ -93,7 +78,7 @@ ENDME // ME_4DC131A20095 ControlledChangingWarning
 ME ME_4DC0221700D8
  MEPROP UID '4DC0221700D8'
  MEPROP Name 'Local'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -109,9 +94,6 @@ ME ME_4DC0221700D8
  )
  ; // Attributes
  UP "children prefix" 'mw'
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'mw'
 
 ENDME // ME_4DC0221700D8 Local
@@ -143,7 +125,6 @@ ME ME_4DC03F5B00A1
  MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
  ;
  UP "needs field" False
- UP "pm" True
 
 ENDME // ME_4DC03F5B00A1 OldBaseWarning
 
@@ -267,7 +248,6 @@ MEREF ME_4DC010300124_ME_4DC011350154_impl
  MELINK Original WL 'ME_4DC010300124' '4DC00FC302B7.ms.model.script' // dsBaloonWarning
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" True
 ENDMEREF // ME_4DC010300124_ME_4DC011350154_impl dsBaloonWarning
 
 MEREF ME_494778CD004F_ME_4DC011350154_G

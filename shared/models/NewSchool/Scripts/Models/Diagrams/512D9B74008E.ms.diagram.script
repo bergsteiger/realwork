@@ -1,0 +1,41 @@
+// archi$EverestLite$TestSupport 512D9B74008E Project Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_512D9B74008E_diagrams
+
+ MEDIAGRAM ME_512D9B74008E_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_512D9B74008E' ; // archi$EverestLite$TestSupport
+
+  MEVIEW ME_512D9BA302E0_view
+   MELINK Original WL? 'ME_512D9BA302E0' ; // EverestTestSupport
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_512D9BA302E0_view
+
+  MEVIEW ME_512DAF9001E3_view
+   MELINK Original WL? 'ME_512DAF9001E3' ; // EverestInsiderTests
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_512DAF9001E3_view
+
+  MEVIEWLINK ME_512DAF9001E3_ME_512D9BA302E0_Depends
+   MELINK From ME_512DAF9001E3_view ;
+   MELINK To ME_512D9BA302E0_view ;
+   MEPROP Class class_Depends
+  ENDMEVIEWLINK // ME_512DAF9001E3_ME_512D9BA302E0_Depends
+
+  MELIST Views
+   Seq: ( ME_512D9BA302E0_view // EverestTestSupport
+   ME_512DAF9001E3_view // EverestInsiderTests
+   ME_512DAF9001E3_ME_512D9BA302E0_Depends // EverestInsiderTests ==> EverestTestSupport
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_512D9B74008E_main
+
+ MELIST Diagrams
+  Seq: ( ME_512D9B74008E_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_512D9B74008E_diagrams

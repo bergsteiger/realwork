@@ -1,0 +1,48 @@
+// Tf1QueryDocumentContainer 4CCEACEC0101 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4CCEACEC0101_diagrams
+
+ MEDIAGRAM ME_4CCEACEC0101_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4CCEACEC0101' ; // Tf1QueryDocumentContainer
+
+  MEVIEW ME_4CCEADD30141_view
+   MELINK Original WL 'ME_4CCEADD30141' '4CCEACEC0101.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CCEADD30141_view
+
+  MEVIEW ME_4CCEAE0E0089_view
+   MELINK Original WL 'ME_4CCEAE0E0089' '4CCEACEC0101.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CCEAE0E0089_view
+
+  MEVIEW ME_4CCEADC200A1_view
+   MELINK Original WL 'ME_4CCEADC200A1' '4CCEACEC0101.ms.model.script' ; // f_CardType
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CCEADC200A1_view
+
+  MEVIEWLINK ME_4CCEAE0E0089_ME_4CCEADD30141_Inherits
+   MELINK From ME_4CCEAE0E0089_view ;
+   MELINK To ME_4CCEADD30141_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4CCEAE0E0089_ME_4CCEADD30141_Inherits
+
+  MELIST Views
+   Seq: ( ME_4CCEADD30141_view // Create
+   ME_4CCEAE0E0089_view // Make
+   ME_4CCEADC200A1_view // f_CardType
+   ME_4CCEAE0E0089_ME_4CCEADD30141_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4CCEACEC0101_main
+
+ MELIST Diagrams
+  Seq: ( ME_4CCEACEC0101_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4CCEACEC0101_diagrams

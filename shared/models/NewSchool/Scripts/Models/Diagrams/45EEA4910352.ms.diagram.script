@@ -1,0 +1,48 @@
+// Filters_i 45EEA4910352 Impl Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_45EEA4910352_diagrams
+
+ MEDIAGRAM ME_45EEA4910352_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_45EEA4910352' ; // Filters_i
+
+  MEVIEW ME_4CB2DC4003E4_view
+   MELINK Original WL 'ME_4CB2DC4003E4' '45EEA4910352.ms.model.script' ; // FilterInfo
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CB2DC4003E4_view
+
+  MEVIEW ME_4CB2D1450374_view
+   MELINK Original WL 'ME_4CB2D1450374' '45EEA4910352.ms.model.script' ; // ErasedIds
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CB2D1450374_view
+
+  MEVIEW ME_4CB2CEE902D8_view
+   MELINK Original WL 'ME_4CB2CEE902D8' '45EEA4910352.ms.model.script' ; // Counter
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CB2CEE902D8_view
+
+  MEVIEWLINK ME_4CB2CF4A0273_viewlink
+   MELINK Original WL 'ME_4CB2CF4A0273' '45EEA4910352.ms.model.script' ;
+   MELINK From ME_4CB2CEE902D8_view ;
+   MELINK To ME_4CB2DC4003E4_view ;
+  ENDMEVIEWLINK // ME_4CB2CF4A0273_viewlink
+
+  MELIST Views
+   Seq: ( ME_4CB2DC4003E4_view // FilterInfo
+   ME_4CB2D1450374_view // ErasedIds
+   ME_4CB2CEE902D8_view // Counter
+   ME_4CB2CF4A0273_viewlink // Counter ==> FilterInfo
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_45EEA4910352_main
+
+ MELIST Diagrams
+  Seq: ( ME_45EEA4910352_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_45EEA4910352_diagrams

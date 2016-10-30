@@ -1,0 +1,32 @@
+//#UC START# *4CB2EE9F02FE_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentToolsNew.pas
+//#UC END# *4CB2EE9F02FE_ext:FileName
+//#UC START# *4CB2EE9F02FEimpl_uses*
+//#UC END# *4CB2EE9F02FEimpl_uses*
+//#UC START# *4D3EC093030F_4CB2EE9F02FE_impl*
+ if (aDocument <> nil) then
+ begin
+  aDocument.GetTextProvider(true, l_Provider);
+  try
+   Assert(l_Provider <> nil);
+   l_Tag := TnsF1DocumentTagNode.Make(l_Provider).AsObject;
+   try
+    Assert(l_Tag <> nil);
+    if not l_Tag.QT(InevObject, l_Obj) then
+     Assert(false);
+    l_Holder := TnevObjectHolder.Create(l_Obj);
+    try
+     theStream := l_Holder;
+    finally
+     FreeAndNil(l_Holder);
+    end;//try..finally
+   finally
+    l_Tag := nil;
+   end;//try..finally
+  finally
+   l_Provider := nil;
+  end;//try..finally
+ end;//(aDocument <> nil)
+//#UC END# *4D3EC093030F_4CB2EE9F02FE_impl*
+//#UC START# *4D3EC093030F_4CB2EE9F02FE_var*
+//#UC END# *4D3EC093030F_4CB2EE9F02FE_var*

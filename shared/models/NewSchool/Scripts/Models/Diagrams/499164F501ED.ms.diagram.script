@@ -1,0 +1,139 @@
+// ConfigInterfaces 499164F501ED Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_499164F501ED_diagrams
+
+ MEDIAGRAM ME_499164F501ED_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_499164F501ED' ; // ConfigInterfaces
+
+  MEVIEW ME_4991656C024F_view
+   MELINK Original WL 'ME_4991656C024F' '499164F501ED.ms.model.script' ; // InsEditSettingsInfo
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4991656C024F_view
+
+  MEVIEW ME_4991666D01FD_view
+   MELINK Original WL 'ME_4991666D01FD' '499164F501ED.ms.model.script' ; // InsStyleTableSettingsInfo
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4991666D01FD_view
+
+  MEVIEW ME_4991667D0318_view
+   MELINK Original WL 'ME_4991667D0318' '499164F501ED.ms.model.script' ; // TnsPageMetrics
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4991667D0318_view
+
+  MEVIEW ME_499166AA0327_view
+   MELINK Original WL 'ME_499166AA0327' '499164F501ED.ms.model.script' ; // TnsMetricsIndex
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_499166AA0327_view
+
+  MEVIEW ME_499166CF011C_view
+   MELINK Original WL 'ME_499166CF011C' '499164F501ED.ms.model.script' ; // TnsMetrics
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_499166CF011C_view
+
+  MEVIEW ME_499166FA025A_view
+   MELINK Original WL 'ME_499166FA025A' '499164F501ED.ms.model.script' ; // InsPageSettingsInfo
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_499166FA025A_view
+
+  MEVIEW ME_499168FA025D_view
+   MELINK Original WL 'ME_499168FA025D' '499164F501ED.ms.model.script' ; // InsConfigSettingsInfo
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_499168FA025D_view
+
+  MEVIEW ME_49916A0A015E_view
+   MELINK Original WL 'ME_49916A0A015E' '499164F501ED.ms.model.script' ; // InsConfigNode
+   MEPROP X 40
+   MEPROP Y 180
+  ENDMEVIEW // ME_49916A0A015E_view
+
+  MEVIEW ME_49916A4F025E_view
+   MELINK Original WL 'ME_49916A4F025E' '499164F501ED.ms.model.script' ; // InsDuplicateConfigNameChecker
+   MEPROP X 200
+   MEPROP Y 180
+  ENDMEVIEW // ME_49916A4F025E_view
+
+  MEVIEW ME_49916A7F01DB_view
+   MELINK Original WL 'ME_49916A7F01DB' '499164F501ED.ms.model.script' ; // InsConfigurationList
+   MEPROP X 360
+   MEPROP Y 180
+  ENDMEVIEW // ME_49916A7F01DB_view
+
+  MEVIEWLINK ME_4991666D01FD_ME_4991656C024F_Inherits
+   MELINK From ME_4991666D01FD_view ;
+   MELINK To ME_4991656C024F_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4991666D01FD_ME_4991656C024F_Inherits
+
+  MEVIEWLINK ME_499166AA0327_ME_4991667D0318_Inherits
+   MELINK From ME_499166AA0327_view ;
+   MELINK To ME_4991667D0318_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_499166AA0327_ME_4991667D0318_Inherits
+
+  MEVIEWLINK ME_499166CF011C_ME_499166AA0327_Inherits
+   MELINK From ME_499166CF011C_view ;
+   MELINK To ME_499166AA0327_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_499166CF011C_ME_499166AA0327_Inherits
+
+  MEVIEWLINK ME_499166FA025A_ME_4991656C024F_Inherits
+   MELINK From ME_499166FA025A_view ;
+   MELINK To ME_4991656C024F_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_499166FA025A_ME_4991656C024F_Inherits
+
+  MEVIEWLINK ME_499168FA025D_ME_4991656C024F_Inherits
+   MELINK From ME_499168FA025D_view ;
+   MELINK To ME_4991656C024F_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_499168FA025D_ME_4991656C024F_Inherits
+
+  MEVIEWLINK ME_49916A2101C9_viewlink
+   MELINK Original WL 'ME_49916A2101C9' '499164F501ED.ms.model.script' ;
+   MELINK From ME_49916A0A015E_view ;
+   MELINK To ME_499168FA025D_view ;
+  ENDMEVIEWLINK // ME_49916A2101C9_viewlink
+
+  MEVIEWLINK ME_49916B830224_viewlink
+   MELINK Original WL 'ME_49916B830224' '499164F501ED.ms.model.script' ;
+   MELINK From ME_49916A7F01DB_view ;
+   MELINK To ME_499168FA025D_view ;
+  ENDMEVIEWLINK // ME_49916B830224_viewlink
+
+  MELIST Views
+   Seq: ( ME_4991656C024F_view // InsEditSettingsInfo
+   ME_4991666D01FD_view // InsStyleTableSettingsInfo
+   ME_4991667D0318_view // TnsPageMetrics
+   ME_499166AA0327_view // TnsMetricsIndex
+   ME_499166CF011C_view // TnsMetrics
+   ME_499166FA025A_view // InsPageSettingsInfo
+   ME_499168FA025D_view // InsConfigSettingsInfo
+   ME_49916A0A015E_view // InsConfigNode
+   ME_49916A4F025E_view // InsDuplicateConfigNameChecker
+   ME_49916A7F01DB_view // InsConfigurationList
+   ME_4991666D01FD_ME_4991656C024F_Inherits // InsStyleTableSettingsInfo ==> InsEditSettingsInfo
+   ME_499166AA0327_ME_4991667D0318_Inherits // TnsMetricsIndex ==> TnsPageMetrics
+   ME_499166CF011C_ME_499166AA0327_Inherits // TnsMetrics ==> TnsMetricsIndex
+   ME_499166FA025A_ME_4991656C024F_Inherits // InsPageSettingsInfo ==> InsEditSettingsInfo
+   ME_499168FA025D_ME_4991656C024F_Inherits // InsConfigSettingsInfo ==> InsEditSettingsInfo
+   ME_49916A2101C9_viewlink // InsConfigNode ==> InsConfigSettingsInfo
+   ME_49916B830224_viewlink // InsConfigurationList ==> InsConfigSettingsInfo
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_499164F501ED_main
+
+ MELIST Diagrams
+  Seq: ( ME_499164F501ED_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_499164F501ED_diagrams

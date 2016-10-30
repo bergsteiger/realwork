@@ -1,0 +1,48 @@
+// TalcuDeliveryResultExecutor 54759BE1037A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_54759BE1037A_diagrams
+
+ MEDIAGRAM ME_54759BE1037A_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_54759BE1037A' ; // TalcuDeliveryResultExecutor
+
+  MEVIEW ME_5475AFFB0169_view
+   MELINK Original WL 'ME_5475AFFB0169' '54759BE1037A.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5475AFFB0169_view
+
+  MEVIEW ME_54759C920201_view
+   MELINK Original WL 'ME_54759C920201' '54759BE1037A.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_54759C920201_view
+
+  MEVIEW ME_5475AFEE00A3_view
+   MELINK Original WL 'ME_5475AFEE00A3' '54759BE1037A.ms.model.script' ; // f_Finisher
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_5475AFEE00A3_view
+
+  MEVIEWLINK ME_54759C920201_ME_5475AFFB0169_Inherits
+   MELINK From ME_54759C920201_view ;
+   MELINK To ME_5475AFFB0169_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_54759C920201_ME_5475AFFB0169_Inherits
+
+  MELIST Views
+   Seq: ( ME_5475AFFB0169_view // Create
+   ME_54759C920201_view // Make
+   ME_5475AFEE00A3_view // f_Finisher
+   ME_54759C920201_ME_5475AFFB0169_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_54759BE1037A_main
+
+ MELIST Diagrams
+  Seq: ( ME_54759BE1037A_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_54759BE1037A_diagrams

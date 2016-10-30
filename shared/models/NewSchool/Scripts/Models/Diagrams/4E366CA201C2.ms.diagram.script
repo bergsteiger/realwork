@@ -1,0 +1,34 @@
+// F1 Требования 4E366CA201C2 VCMUseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4E366CA201C2_diagrams
+
+ MEDIAGRAM ME_4E366CA201C2_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4E366CA201C2' ; // F1 Требования
+
+  MEVIEW ME_481EF5C4020D_view
+   MELINK Original WL? 'ME_481EF5C4020D' ; // Оболочка
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_481EF5C4020D_view
+
+  MEVIEW ME_48561E5A01F7_view
+   MELINK Original WL? 'ME_48561E5A01F7' ; // Специальные версии и возможности
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_48561E5A01F7_view
+
+  MELIST Views
+   Seq: ( ME_481EF5C4020D_view // Оболочка
+   ME_48561E5A01F7_view // Специальные версии и возможности
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E366CA201C2_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E366CA201C2_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E366CA201C2_diagrams

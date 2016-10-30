@@ -17,7 +17,6 @@ FORWARD ME_4B138FE70017
 ME ME_4B13901703C1
  MEPROP Name 'aQuery'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
  ;
 
@@ -249,8 +248,6 @@ ME ME_4D7A3F3B0187
  )
  ; // Inherits
  UP "MergeBottomTollbarWithContainer" True
- UP "MergeTopTollbarWithContainer" False
- UP "ZoneType" 'Parent'
 
 ENDME // ME_4D7A3F3B0187 ztParent
 
@@ -294,11 +291,7 @@ ME ME_542924AD02EF
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_4D7A19E30373 // Local
  ;
- UP "AutoInc" False
  UP "DlgType" 'Information'
- UP "forced type" 'none'
- UP "is define" False
- UP "NeedCheck" False
 
 ENDME // ME_542924AD02EF WellDone
 
@@ -312,11 +305,6 @@ ME ME_55E1D59C003B
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_4D7A19E30373 // Local
  ;
- UP "AutoInc" False
- UP "DlgType" 'Warning'
- UP "forced type" 'none'
- UP "is define" False
- UP "NeedCheck" False
  UP "Value" '''Пожалуйста, уточните запрос.'''
 
 ENDME // ME_55E1D59C003B QueryIsEmptyMessage
@@ -331,9 +319,6 @@ ME ME_4D7A19FA00EA
  MELINK Parent HWL ME_4D7A19E30373 // Local
  ;
  MEPROP Value '''Фильтр'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Фильтр'''
 
 ENDME // ME_4D7A19FA00EA FilterCaption
@@ -341,7 +326,7 @@ ENDME // ME_4D7A19FA00EA FilterCaption
 ME ME_4D7A19E30373
  MEPROP UID '4D7A19E30373'
  MEPROP Name 'Local'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -360,9 +345,6 @@ ME ME_4D7A19E30373
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
 
 ENDME // ME_4D7A19E30373 Local
 
@@ -402,9 +384,7 @@ ME ME_4D711C010312
    Seq: ( HWL ME_4F63418802F1_ME_4D711C010312_R // Высота заголовков карточек поиска
  )
  ; // Implements
- UP "ControlClass" 'none'
  UP "needs field" True
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4D711C010312 lbHeader
@@ -431,9 +411,7 @@ ME ME_4D711C1C01CC
    Seq: ( HWL ME_4ACB3E4B0001_ME_4D711C1C01CC_G // TPaintBox
  )
  ; // Inherits
- UP "ControlClass" 'none'
  UP "needs field" True
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4D711C1C01CC pbHeader
@@ -468,9 +446,7 @@ ME ME_4D711BDE0350
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "ControlClass" 'none'
  UP "needs field" True
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4D711BDE0350 pnHeader
@@ -501,9 +477,7 @@ ME ME_4D72294B0126
    Seq: ( HWL ME_4D7A3F3B0187 // ztParent
  )
  ; // Zones
- UP "ControlClass" 'none'
  UP "needs field" True
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4D72294B0126 ParentZone
@@ -521,7 +495,6 @@ ME ME_4C319872011D
  MELINK Target WL? 'ME_4AB8CB4B0256' // TvcmItems
  ;
  UP "needs field" True
- UP "pm" True
 
 ENDME // ME_4C319872011D QueryHistory
 
@@ -552,7 +525,6 @@ ME ME_4C31AA0F017A
  MELINK Target WL 'ME_4AE8A0440254' '4AE8A02C03E7.ms.model.script' // InsSearchTypeState
  ;
  UP "needs field" True
- UP "pm" True
 
 ENDME // ME_4C31AA0F017A SearchState
 
@@ -578,7 +550,6 @@ FORWARD ME_4C31805701C2
 ME ME_4C31805E0213
  MEPROP Name 'aParams'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4683E07E004B' '467BAB7F021E.ms.model.script' // IvcmTestParamsPrim
  ;
 
@@ -806,7 +777,6 @@ FORWARD ME_4C31966C0195
 ME ME_4C319675034D
  MEPROP Name 'aParams'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4683E1AD0047' '467BAB7F021E.ms.model.script' // IvcmExecuteParamsPrim
  ;
 
@@ -868,7 +838,6 @@ FORWARD ME_4D7132120157
 ME ME_4D71321D01D0
  MEPROP Name 'aSender'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
@@ -913,7 +882,6 @@ FORWARD ME_4D722A190121
 ME ME_4D722A250120
  MEPROP Name 'aSender'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
@@ -958,7 +926,6 @@ FORWARD ME_4D7FA1F20227
 ME ME_4D7FA1FC0076
  MEPROP Name 'aSender'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
@@ -1037,7 +1004,6 @@ FORWARD ME_4F5E07B201F8
 ME ME_4F5E07D001B1
  MEPROP Name 'aQueryType'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_45EEE13200E5' '45EEAA8E034E.ms.model.script' // QueryType
  ;
 
@@ -1046,7 +1012,6 @@ ENDME // ME_4F5E07D001B1 aQueryType
 ME ME_4F5E07D00212
  MEPROP Name 'aFormType'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_47F2534B010F' '499EAAE502A8.ms.model.script' // TvcmUserType
  ;
 
@@ -1592,44 +1557,18 @@ MEREF ME_49885D540232_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_49885D540232' '4AE89F8A004B.ms.model.script' // SaveToFolder
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_49885D540232_ME_4958E3AB0247_impl SaveToFolder
 
 MEREF ME_49885D59018D_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_49885D59018D' '4AE89F8A004B.ms.model.script' // LoadFromFolder
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_49885D59018D_ME_4958E3AB0247_impl LoadFromFolder
 
 MEREF ME_49895A2102E8_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_49895A2102E8' '4AE89F8A004B.ms.model.script' // Load
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_49895A2102E8_ME_4958E3AB0247_impl Load
 
 MEREF ME_4A83AA610299_ME_4958E3AB0247_impl
@@ -1642,128 +1581,59 @@ MEREF ME_4A8AD47D0357_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4A8AD47D0357' '4A8AD3DE0008.ms.model.script' // OkExt
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" True
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4A8AD47D0357_ME_4958E3AB0247_impl OkExt
 
 MEREF ME_4AC5D61E0284_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4AC5D61E0284' '4A8AD3C70195.ms.model.script' // Cancel
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" True
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4AC5D61E0284_ME_4958E3AB0247_impl Cancel
 
 MEREF ME_4AE8A0E10254_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4AE8A0E10254' '4AE89F8A004B.ms.model.script' // ClearAll
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4AE8A0E10254_ME_4958E3AB0247_impl ClearAll
 
 MEREF ME_4AE96F6C0191_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4AE96F6C0191' '4AE89F8A004B.ms.model.script' // SetList
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4AE96F6C0191_ME_4958E3AB0247_impl SetList
 
 MEREF ME_4AEF0BF70306_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4AEF0BF70306' '4AE89F8A004B.ms.model.script' // Add
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
  UP "LongProcess" True
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4AEF0BF70306_ME_4958E3AB0247_impl Add
 
 MEREF ME_4AEF0D1A01C3_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4AEF0D1A01C3' '4AE89F8A004B.ms.model.script' // Delete
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
  UP "LongProcess" True
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4AEF0D1A01C3_ME_4958E3AB0247_impl Delete
 
 MEREF ME_4AF2AA2100CF_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4AF2AA2100CF' '4AE89F8A004B.ms.model.script' // GetList
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4AF2AA2100CF_ME_4958E3AB0247_impl GetList
 
 MEREF ME_4AF80DB80383_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4AF80DB80383' '4AE89F8A004B.ms.model.script' // ClearAll
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
  UP "LongProcess" True
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4AF80DB80383_ME_4958E3AB0247_impl ClearAll
 
 MEREF ME_4AF810230307_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4AF810230307' '4AE89F8A004B.ms.model.script' // Refresh
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4AF810230307_ME_4958E3AB0247_impl Refresh
 
 MEREF ME_4C04AFC8015D_ME_4958E3AB0247_impl
@@ -1776,149 +1646,61 @@ MEREF ME_4C2DFEE000BA_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4C2DFEE000BA' '4AE831B30019.ms.model.script' // ClearAll
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C2DFEE000BA_ME_4958E3AB0247_impl ClearAll
 
 MEREF ME_4C31A4EC023F_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4C31A4EC023F' '4AE89F8A004B.ms.model.script' // GetOldQuery
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C31A4EC023F_ME_4958E3AB0247_impl GetOldQuery
 
 MEREF ME_4C31A68800FA_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4C31A68800FA' '4AE89F8A004B.ms.model.script' // SearchType
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C31A68800FA_ME_4958E3AB0247_impl SearchType
 
 MEREF ME_4C31B48D03BB_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4C31B48D03BB' '4AE89F8A004B.ms.model.script' // LogicOr
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C31B48D03BB_ME_4958E3AB0247_impl LogicOr
 
 MEREF ME_4C31B4990225_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4C31B4990225' '4AE89F8A004B.ms.model.script' // LogicAnd
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C31B4990225_ME_4958E3AB0247_impl LogicAnd
 
 MEREF ME_4C31B4A90088_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4C31B4A90088' '4AE89F8A004B.ms.model.script' // LogicNot
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C31B4A90088_ME_4958E3AB0247_impl LogicNot
 
 MEREF ME_4C762C910358_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4C762C910358' '4A8AD3C70195.ms.model.script' // Cancel
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" True
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C762C910358_ME_4958E3AB0247_impl Cancel
 
 MEREF ME_4C762D9B0224_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4C762D9B0224' '4A8AD3DE0008.ms.model.script' // OkExt
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" True
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C762D9B0224_ME_4958E3AB0247_impl OkExt
 
 MEREF ME_4C81191003E5_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4C81191003E5' '4AE89F8A004B.ms.model.script' // FiltersListOpen
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C81191003E5_ME_4958E3AB0247_impl FiltersListOpen
 
 MEREF ME_4F99403A00A5_ME_4958E3AB0247_impl
  MELINK Original WL 'ME_4F99403A00A5' '4AE89F8A004B.ms.model.script' // GetListType
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4F99403A00A5_ME_4958E3AB0247_impl GetListType
 
 MEREF ME_53B649F600A3_ME_4958E3AB0247_impl
@@ -2276,11 +2058,7 @@ ME ME_4958E3AB0247
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' 'Logging' )
  ; // DiagramsNames
- UP "finished dfm" True
  UP "NeedsHackRef" False
- UP "resizeable" False
- UP "restrict form def" 'undefined'
- UP "ZoneType" 'Any'
  UP extprop:NeedsInitEntities True
  UP extprop:pas:TypeName 'TPrimSaveLoadForm'
  UP extprop:pas:UnitName 'PrimSaveLoad_Form'

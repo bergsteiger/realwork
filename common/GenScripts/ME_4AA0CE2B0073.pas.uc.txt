@@ -1,0 +1,132 @@
+//#UC START# *47EA4E9002C6_4AA0CE2B0073_impl*
+ inherited;
+ ModalResult := mrCancel;
+//#UC END# *47EA4E9002C6_4AA0CE2B0073_impl*
+//#UC START# *47EA4E9002C6_4AA0CE2B0073_var*
+//#UC END# *47EA4E9002C6_4AA0CE2B0073_var*
+//#UC START# *49803F5503AA_4AA0CE2B0073_impl*
+ ListTree.Images := nsSearchRes.SearchItemsImageList;
+//#UC END# *49803F5503AA_4AA0CE2B0073_impl*
+//#UC START# *49803F5503AA_4AA0CE2B0073_var*
+//#UC END# *49803F5503AA_4AA0CE2B0073_var*
+//#UC START# *4A8AD46D0226_4AA0CE2B0073exec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4A8AD46D0226_4AA0CE2B0073exec_impl*
+//#UC START# *4A8AD46D0226_4AA0CE2B0073exec_var*
+//#UC END# *4A8AD46D0226_4AA0CE2B0073exec_var*
+//#UC START# *4A8AD46D0226_4AA0CE2B0073test_impl*
+ // Do nothing
+//#UC END# *4A8AD46D0226_4AA0CE2B0073test_impl*
+//#UC START# *4A8AD46D0226_4AA0CE2B0073test_var*
+//#UC END# *4A8AD46D0226_4AA0CE2B0073test_var*
+//#UC START# *4A8E8F2E0195_4AA0CE2B0073_impl*
+ ActiveControl := ListTree;
+ BorderIcons := [biSystemMenu];
+ FormStyle := fsStayOnTop;
+ Position := poMainFormCenter;
+ Scaled := False;
+
+ with BackgroundPanel do
+ begin
+  Align := alClient;
+  BevelOuter := bvNone;
+  TabOrder := 0;
+ end;
+ with ListTree do
+ begin
+  Align := alClient;
+  BorderStyle := bsNone;
+  TabOrder := 0;
+  MultiStrokeItem := True;
+  ViewOptions := [voShowInterRowSpace, voShowIcons, voShowExpandable, voShowLines, voShowOpenChip];
+  OnGetItemImage := ListTreeGetItemImage;
+  OnActionElement := ListTreeActionElement;
+  OnCanBeginDrag := ListTreeCanBeginDrag;
+  DragAndDropSupported := True;
+ end;        
+//#UC END# *4A8E8F2E0195_4AA0CE2B0073_impl*
+//#UC START# *4A8E8F2E0195_4AA0CE2B0073_var*
+//#UC END# *4A8E8F2E0195_4AA0CE2B0073_var*
+//#UC START# *4A97EBE702F8_4AA0CE2B0073exec_impl*
+ if TryOpen(ListTree.GetCurrentNode) then
+  ModalResult := mrOk;
+//#UC END# *4A97EBE702F8_4AA0CE2B0073exec_impl*
+//#UC START# *4A97EBE702F8_4AA0CE2B0073exec_var*
+//#UC END# *4A97EBE702F8_4AA0CE2B0073exec_var*
+//#UC START# *4A97EBE702F8_4AA0CE2B0073getstate_impl*
+ State := st_user_Result_Ok_Analize;
+//#UC END# *4A97EBE702F8_4AA0CE2B0073getstate_impl*
+//#UC START# *4A97EBE702F8_4AA0CE2B0073getstate_var*
+//#UC END# *4A97EBE702F8_4AA0CE2B0073getstate_var*
+//#UC START# *4A97EBE702F8_4AA0CE2B0073test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := CanOpen(ListTree.GetCurrentNode);
+//#UC END# *4A97EBE702F8_4AA0CE2B0073test_impl*
+//#UC START# *4A97EBE702F8_4AA0CE2B0073test_var*
+//#UC END# *4A97EBE702F8_4AA0CE2B0073test_var*
+//#UC START# *4AA0CE2B0073_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListAnalizer_Form.pas
+//#UC END# *4AA0CE2B0073_ext:FileName
+//#UC START# *4AA0CE2B0073impl_uses*
+ , l3ControlsTypes
+//#UC END# *4AA0CE2B0073impl_uses*
+//#UC START# *4AA0CE5D036E_4AA0CE2B0073_impl*
+ Result := Supports(aNode, INodeBase, l_Node) and (TDynListFlags(l_Node.GetType) = DLF_ANALYSIS_NODE_HAS_DATA);
+//#UC END# *4AA0CE5D036E_4AA0CE2B0073_impl*
+//#UC START# *4AA0CE5D036E_4AA0CE2B0073_var*
+var
+ l_Node: INodeBase;
+//#UC END# *4AA0CE5D036E_4AA0CE2B0073_var*
+//#UC START# *4AA0CE940142_4AA0CE2B0073_impl*
+ Result := False;
+ if Supports(aNode, INodeBase, l_Node) then
+ begin
+  try
+   l_Node.GetEntity(l_Entity);
+   if Supports(l_Entity, IDynList, l_List) then
+   begin
+    nsOpenList(l_List, nil);
+    Result := True;
+   end;//Supports(l_Entity, IDynList, l_List)
+  except
+   on ENoEntity do
+   begin
+    Say(war_OutDatedAnalize);
+    Exit;
+   end;//on ENoEntity
+  end;//try..except
+ end;//Supports(aNode, INodeBase, l_Node)
+//#UC END# *4AA0CE940142_4AA0CE2B0073_impl*
+//#UC START# *4AA0CE940142_4AA0CE2B0073_var*
+var
+ l_Node: INodeBase;
+ l_Entity: IEntityBase;
+ l_List: IDynList;
+//#UC END# *4AA0CE940142_4AA0CE2B0073_var*
+//#UC START# *4AC4FB28001B_4AA0CE2B0073_impl*
+   ListTree.TreeStruct := aData;
+//#UC END# *4AC4FB28001B_4AA0CE2B0073_impl*
+//#UC START# *51C06313011B_4AA0CE2B0073_impl*
+ if TryOpen(ListTree.GetNode(Index)) then
+  ModalResult := mrOk;
+//#UC END# *51C06313011B_4AA0CE2B0073_impl*
+//#UC START# *51C06313011B_4AA0CE2B0073_var*
+//#UC END# *51C06313011B_4AA0CE2B0073_var*
+//#UC START# *51C063260008_4AA0CE2B0073_impl*
+ aOkEffect := DROPEFFECT_NONE;
+//#UC END# *51C063260008_4AA0CE2B0073_impl*
+//#UC START# *51C063260008_4AA0CE2B0073_var*
+//#UC END# *51C063260008_4AA0CE2B0073_var*
+//#UC START# *51C0635E00EF_4AA0CE2B0073_impl*
+ l_l3Node := ListTree.GetNode(Index);
+ if (l_l3Node.Parent = nil) then
+  Result := siilSelectedRoot
+ else
+ if l_l3Node.HasChild then
+  Result := siilFolderStart
+ else
+  Result := siilSelectedElement;
+//#UC END# *51C0635E00EF_4AA0CE2B0073_impl*
+//#UC START# *51C0635E00EF_4AA0CE2B0073_var*
+var
+ l_l3Node : Il3SimpleNode;
+//#UC END# *51C0635E00EF_4AA0CE2B0073_var*

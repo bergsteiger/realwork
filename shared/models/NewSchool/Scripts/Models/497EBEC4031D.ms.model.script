@@ -22,7 +22,6 @@ ME ME_4BD71E1103CD
  UP "CanClose" False
  UP "ImageIndex" 145
  UP "SettingsCaption" 'ПРАЙМ. Моя новостная лента (вкладка)'
- UP "Weight" '-1'
  UP extprop:pas:UnitName 'PrimNewsLine_nltMain_UserType'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimNewsLine_nltMain_UserType.pas'
 
@@ -132,7 +131,6 @@ FORWARD ME_567116F600C6
 ME ME_56713EC50013
  MEPROP Name 'aCurrentNewsLineIndex'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
@@ -141,7 +139,6 @@ ENDME // ME_56713EC50013 aCurrentNewsLineIndex
 ME ME_56713EC50032
  MEPROP Name 'aInnerState'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
  ;
 
@@ -305,9 +302,6 @@ ME ME_541AFCDC0307
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_541AFC7C011A // Choices
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP "Value" 0
 
 ENDME // ME_541AFCDC0307 FillForm
@@ -323,9 +317,6 @@ ME ME_541AFD260322
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_541AFC7C011A // Choices
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP "Value" 1
 
 ENDME // ME_541AFD260322 ViewFullNewsLine
@@ -348,9 +339,6 @@ ME ME_541AFC7C011A
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
 
 ENDME // ME_541AFC7C011A Choices
 
@@ -390,11 +378,7 @@ ME ME_541AFBC7020F
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "AutoInc" False
  UP "DlgType" 'Confirmation'
- UP "forced type" 'none'
- UP "is define" False
- UP "NeedCheck" False
 
 ENDME // ME_541AFBC7020F NewsLineIsNotSetup
 
@@ -413,9 +397,6 @@ ME ME_5429247103D6
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_5429245E00B9 // Choices
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
 
 ENDME // ME_5429247103D6 Continue
 
@@ -430,9 +411,6 @@ ME ME_5429249001BE
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_5429245E00B9 // Choices
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
 
 ENDME // ME_5429249001BE Exit
 
@@ -454,9 +432,6 @@ ME ME_5429245E00B9
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
 
 ENDME // ME_5429245E00B9 Choices
 
@@ -496,11 +471,6 @@ ME ME_54292411034B
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "AutoInc" False
- UP "DlgType" 'Warning'
- UP "forced type" 'none'
- UP "is define" False
- UP "NeedCheck" False
 
 ENDME // ME_54292411034B FormFillIsNotFinished
 
@@ -519,9 +489,6 @@ ME ME_542413E803CB
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_542413CA020F // Choices
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP "Value" 0
 
 ENDME // ME_542413E803CB Ok
@@ -537,9 +504,6 @@ ME ME_5424148601D5
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_542413CA020F // Choices
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP "Value" 1
 
 ENDME // ME_5424148601D5 Details
@@ -562,9 +526,6 @@ ME ME_542413CA020F
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
 
 ENDME // ME_542413CA020F Choices
 
@@ -604,18 +565,14 @@ ME ME_5424133901B6
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "AutoInc" False
  UP "DlgType" 'Error'
- UP "forced type" 'none'
- UP "is define" False
- UP "NeedCheck" False
 
 ENDME // ME_5424133901B6 PrimeIsOffline
 
 ME ME_541AFB5E0323
  MEPROP UID '541AFB5E0323'
  MEPROP Name 'Local'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -631,9 +588,6 @@ ME ME_541AFB5E0323
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
 
 ENDME // ME_541AFB5E0323 Local
 
@@ -655,9 +609,6 @@ ME ME_E29767C3BFA3
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''NewsLineIsNotSetup_Choice_FillForm''; rValue : ''Заполнить анкету'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''NewsLineIsNotSetup_Choice_FillForm''; rValue : ''Заполнить анкету'')'
  UPLINK Speller HWL ME_541AFCDC0307 // FillForm
  ;
@@ -680,9 +631,6 @@ ME ME_D1E45F067EF7
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''NewsLineIsNotSetup_Choice_ViewFullNewsLine''; rValue : ''Посмотреть все поступления в продукт ПРАЙМ'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''NewsLineIsNotSetup_Choice_ViewFullNewsLine''; rValue : ''Посмотреть все поступления в продукт ПРАЙМ'')'
  UPLINK Speller HWL ME_541AFD260322 // ViewFullNewsLine
  ;
@@ -693,7 +641,7 @@ ME ME_3D18BA401352
  MEPROP UID '3D18BA401352'
  MEPROP Name 'LCImpl_NewsLineIsNotSetup_Choices'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Варианты выбора для диалога NewsLineIsNotSetup' ;
@@ -707,7 +655,6 @@ ME ME_3D18BA401352
  )
  ; // Attributes
  UP "elements prefix" 'str'
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'str_'
  UP extprop:pas:ElementPrefixBase 'str'
  UPLINK Speller HWL ME_541AFC7C011A // Choices
@@ -733,9 +680,6 @@ ME ME_EE0C728C9A65
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''FormFillIsNotFinished_Choice_Continue''; rValue : ''Продолжить настройку'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''FormFillIsNotFinished_Choice_Continue''; rValue : ''Продолжить настройку'')'
  UPLINK Speller HWL ME_5429247103D6 // Continue
  ;
@@ -758,9 +702,6 @@ ME ME_DD2C6EE53C20
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''FormFillIsNotFinished_Choice_Exit''; rValue : ''Покинуть анкету'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''FormFillIsNotFinished_Choice_Exit''; rValue : ''Покинуть анкету'')'
  UPLINK Speller HWL ME_5429249001BE // Exit
  ;
@@ -771,7 +712,7 @@ ME ME_913C9148BB27
  MEPROP UID '913C9148BB27'
  MEPROP Name 'LCImpl_FormFillIsNotFinished_Choices'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Варианты выбора для диалога FormFillIsNotFinished' ;
@@ -785,7 +726,6 @@ ME ME_913C9148BB27
  )
  ; // Attributes
  UP "elements prefix" 'str'
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'str_'
  UP extprop:pas:ElementPrefixBase 'str'
  UPLINK Speller HWL ME_5429245E00B9 // Choices
@@ -811,9 +751,6 @@ ME ME_AE5F6B440848
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''PrimeIsOffline_Choice_Ok''; rValue : ''ОК'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrimeIsOffline_Choice_Ok''; rValue : ''ОК'')'
  UPLINK Speller HWL ME_542413E803CB // Ok
  ;
@@ -836,9 +773,6 @@ ME ME_C9617FA10EA8
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''PrimeIsOffline_Choice_Details''; rValue : ''Подробнее'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrimeIsOffline_Choice_Details''; rValue : ''Подробнее'')'
  UPLINK Speller HWL ME_5424148601D5 // Details
  ;
@@ -849,7 +783,7 @@ ME ME_299CFE85D965
  MEPROP UID '299CFE85D965'
  MEPROP Name 'LCImpl_PrimeIsOffline_Choices'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Варианты выбора для диалога PrimeIsOffline' ;
@@ -863,7 +797,6 @@ ME ME_299CFE85D965
  )
  ; // Attributes
  UP "elements prefix" 'str'
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'str_'
  UP extprop:pas:ElementPrefixBase 'str'
  UPLINK Speller HWL ME_542413CA020F // Choices
@@ -887,105 +820,42 @@ MEREF ME_4951285702E1_ME_4AF82291027F_impl
  MELINK Original WL 'ME_4951285702E1' '495127DD017C.ms.model.script' // Cut
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4951285702E1_ME_4AF82291027F_impl Cut
 
 MEREF ME_49512B5D0009_ME_4AF82291027F_impl
  MELINK Original WL 'ME_49512B5D0009' '495127DD017C.ms.model.script' // FindContext
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_49512B5D0009_ME_4AF82291027F_impl FindContext
 
 MEREF ME_495130C40123_ME_4AF82291027F_impl
  MELINK Original WL 'ME_495130C40123' '495127DD017C.ms.model.script' // FindNext
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_495130C40123_ME_4AF82291027F_impl FindNext
 
 MEREF ME_49EDFCA2006D_ME_4AF82291027F_impl
  MELINK Original WL 'ME_49EDFCA2006D' '495127DD017C.ms.model.script' // Undo
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_49EDFCA2006D_ME_4AF82291027F_impl Undo
 
 MEREF ME_49EDFCB100BC_ME_4AF82291027F_impl
  MELINK Original WL 'ME_49EDFCB100BC' '495127DD017C.ms.model.script' // Redo
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_49EDFCB100BC_ME_4AF82291027F_impl Redo
 
 MEREF ME_49FEDE4703B8_ME_4AF82291027F_impl
  MELINK Original WL 'ME_49FEDE4703B8' '495127DD017C.ms.model.script' // FindPrev
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_49FEDE4703B8_ME_4AF82291027F_impl FindPrev
 
 MEREF ME_4C7D0C7B0185_ME_4AF82291027F_impl
  MELINK Original WL 'ME_4C7D0C7B0185' '495127DD017C.ms.model.script' // Copy
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" True
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C7D0C7B0185_ME_4AF82291027F_impl Copy
 
 MEREF ME_54522FE602ED_ME_4AF82291027F_G
@@ -1022,8 +892,6 @@ ME ME_4AF82291027F
  ME_4C7D0C7B0185_ME_4AF82291027F_impl // Copy
  )
  ; // Implemented
- UP "ControlClass" 'none'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4AF82291027F DateList
@@ -1194,7 +1062,6 @@ FORWARD ME_5242A680017A
 ME ME_5242A68400DA
  MEPROP Name 'aNode'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
  ;
 
@@ -1203,7 +1070,6 @@ ENDME // ME_5242A68400DA aNode
 ME ME_5242A68400F7
  MEPROP Name 'AllowOpen'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value True
@@ -1358,42 +1224,18 @@ MEREF ME_4A9807F801F9_ME_497EBEC4031D_impl
  MELINK Original WL 'ME_4A9807F801F9' '4A9807DB01A5.ms.model.script' // BecomeActive
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4A9807F801F9_ME_497EBEC4031D_impl BecomeActive
 
 MEREF ME_4AF822B302C4_ME_497EBEC4031D_impl
  MELINK Original WL 'ME_4AF822B302C4' '4A8ECFED02D8.ms.model.script' // OpenInt
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4AF822B302C4_ME_497EBEC4031D_impl OpenInt
 
 MEREF ME_4AF82EFD0025_ME_497EBEC4031D_impl
  MELINK Original WL 'ME_4AF82EFD0025' '4A9807DB01A5.ms.model.script' // RequestClose
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4AF82EFD0025_ME_497EBEC4031D_impl RequestClose
 
 MEREF ME_479731C50290_ME_497EBEC4031D_over
@@ -1595,13 +1437,9 @@ ME ME_497EBEC4031D
    Seq: ( 'Main' 'Uses' )
  ; // DiagramsNames
  UP "author" 'Люлин А.В.'
- UP "finished dfm" True
  UP "NeedsHackRef" False
  UP "no hands" True
- UP "resizeable" False
- UP "restrict form def" 'undefined'
  UP "started" '27.01.2009 11:00'
- UP "ZoneType" 'Any'
  UP extprop:NeedsInitEntities True
  UP extprop:pas:TypeName 'TPrimNewsLineForm'
  UP extprop:pas:UnitName 'PrimNewsLine_Form'

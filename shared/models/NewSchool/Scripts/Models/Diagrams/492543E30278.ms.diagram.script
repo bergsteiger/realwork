@@ -1,0 +1,83 @@
+// CommonDiction 492543E30278 ControllerUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_492543E30278_diagrams
+
+ MEDIAGRAM ME_492543E30278_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_492543E30278' ; // CommonDiction
+
+  MEVIEW ME_4925449A0296_view
+   MELINK Original WL? 'ME_4925449A0296' ; // dsCommonDiction
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4925449A0296_view
+
+  MEVIEW ME_4936B666032A_view
+   MELINK Original WL? 'ME_4936B666032A' ; // sdsCommonDiction
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4936B666032A_view
+
+  MEVIEW ME_4941654603E7_view
+   MELINK Original WL? 'ME_4941654603E7' ; // TsdsCommonDiction
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4941654603E7_view
+
+  MEVIEW ME_4936B78E0024_view
+   MELINK Original WL? 'ME_4936B78E0024' ; // dCommonDiction
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4936B78E0024_view
+
+  MEVIEW ME_4B1E70D20312_view
+   MELINK Original WL? 'ME_4B1E70D20312' ; // TdeCommonDiction
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4B1E70D20312_view
+
+  MEVIEW ME_4B220E9B0348_view
+   MELINK Original WL? 'ME_4B220E9B0348' ; // TdCommonDiction
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_4B220E9B0348_view
+
+  MEVIEW ME_4D7A7ADE0122_view
+   MELINK Original WL? 'ME_4D7A7ADE0122' ; // TdsChild
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D7A7ADE0122_view
+
+  MEVIEWLINK ME_4941654603E7_ME_4936B666032A_Inherits
+   MELINK From ME_4941654603E7_view ;
+   MELINK To ME_4936B666032A_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4941654603E7_ME_4936B666032A_Inherits
+
+  MEVIEWLINK ME_4B220E9B0348_ME_4936B78E0024_Inherits
+   MELINK From ME_4B220E9B0348_view ;
+   MELINK To ME_4936B78E0024_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4B220E9B0348_ME_4936B78E0024_Inherits
+
+  MELIST Views
+   Seq: ( ME_4925449A0296_view // dsCommonDiction
+   ME_4936B666032A_view // sdsCommonDiction
+   ME_4941654603E7_view // TsdsCommonDiction
+   ME_4936B78E0024_view // dCommonDiction
+   ME_4B1E70D20312_view // TdeCommonDiction
+   ME_4B220E9B0348_view // TdCommonDiction
+   ME_4D7A7ADE0122_view // TdsChild
+   ME_4941654603E7_ME_4936B666032A_Inherits // TsdsCommonDiction ==> sdsCommonDiction
+   ME_4B220E9B0348_ME_4936B78E0024_Inherits // TdCommonDiction ==> dCommonDiction
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_492543E30278_main
+
+ MELIST Diagrams
+  Seq: ( ME_492543E30278_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_492543E30278_diagrams

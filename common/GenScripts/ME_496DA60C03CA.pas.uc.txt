@@ -1,0 +1,49 @@
+//#UC START# *496DA60C03CA_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Common\nsToMSWordOp.pas
+//#UC END# *496DA60C03CA_ext:FileName
+//#UC START# *496DA60C03CAimpl_uses*
+//#UC END# *496DA60C03CAimpl_uses*
+//#UC START# *4975FB3102A5_496DA60C03CA_impl*
+ with aParams.Op.SubItems do
+  if Count = 0 then
+  begin
+   Add(vcmCStr(str_MSWordNewFile));
+   Add(vcmCStr(str_MSWordActiveWindow));
+  end;
+//#UC END# *4975FB3102A5_496DA60C03CA_impl*
+//#UC START# *4975FB3102A5_496DA60C03CA_var*
+//#UC END# *4975FB3102A5_496DA60C03CA_var*
+//#UC START# *4975FB460262_496DA60C03CA_impl*
+ case aKind of
+  mswekNewFile :
+   Result := nsDoShellExecute(aFilePath, True);
+  mswekActiveWindow:
+  begin
+   Result := nsInsertFileIntoWord(aFilePath);
+   if not Result then
+    Result := nsDoShellExecute(aFilePath, True);
+  end;
+  else
+  begin
+   Result := False;
+   Assert(False);
+  end;
+ end;//case aKind 
+//#UC END# *4975FB460262_496DA60C03CA_impl*
+//#UC START# *4975FB460262_496DA60C03CA_var*
+//#UC END# *4975FB460262_496DA60C03CA_var*
+//#UC START# *4975FB5B0162_496DA60C03CA_impl*
+ Case aParams.ItemIndex of
+  0,1:
+   Result := Execute(aFilePath, mswekNewFile);
+  2:
+   Result := Execute(aFilePath, mswekActiveWindow);
+  else
+  begin
+   Result := False;
+   Assert(False);
+  end;
+ end;//Case aParams.ItemIndex
+//#UC END# *4975FB5B0162_496DA60C03CA_impl*
+//#UC START# *4975FB5B0162_496DA60C03CA_var*
+//#UC END# *4975FB5B0162_496DA60C03CA_var*

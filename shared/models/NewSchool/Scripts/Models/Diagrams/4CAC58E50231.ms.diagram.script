@@ -1,0 +1,76 @@
+// nsFiltersInterfaces 4CAC58E50231 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4CAC58E50231_diagrams
+
+ MEDIAGRAM ME_4CAC58E50231_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4CAC58E50231' ; // nsFiltersInterfaces
+
+  MEVIEW ME_499184BF03C8_view
+   MELINK Original WL 'ME_499184BF03C8' '4CAC58E50231.ms.model.script' ; // InsFiltersContainer
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_499184BF03C8_view
+
+  MEVIEW ME_499044E00044_view
+   MELINK Original WL 'ME_499044E00044' '4CAC58E50231.ms.model.script' ; // InsFiltersTree
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_499044E00044_view
+
+  MEVIEW ME_4991887A031F_view
+   MELINK Original WL 'ME_4991887A031F' '4CAC58E50231.ms.model.script' ; // InsFilterNode
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4991887A031F_view
+
+  MEVIEW ME_4CADA33B0257_view
+   MELINK Original WL 'ME_4CADA33B0257' '4CAC58E50231.ms.model.script' ; // TnsFiltersType
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CADA33B0257_view
+
+  MEVIEW ME_4F98240403BA_view
+   MELINK Original WL 'ME_4F98240403BA' '4CAC58E50231.ms.model.script' ; // InsFiltersListener
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F98240403BA_view
+
+  MEVIEW ME_5061DE0D0252_view
+   MELINK Original WL 'ME_5061DE0D0252' '4CAC58E50231.ms.model.script' ; // InsFilterRootNode
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_5061DE0D0252_view
+
+  MEVIEW ME_56443DCF0299_view
+   MELINK Original WL 'ME_56443DCF0299' '4CAC58E50231.ms.model.script' ; // InsFiltersEnumerator
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_56443DCF0299_view
+
+  MEVIEWLINK ME_5061DE2D0275_viewlink
+   MELINK Original WL 'ME_5061DE2D0275' '4CAC58E50231.ms.model.script' ;
+   MELINK From ME_5061DE0D0252_view ;
+   MELINK To ME_4CADA33B0257_view ;
+  ENDMEVIEWLINK // ME_5061DE2D0275_viewlink
+
+  MELIST Views
+   Seq: ( ME_499184BF03C8_view // InsFiltersContainer
+   ME_499044E00044_view // InsFiltersTree
+   ME_4991887A031F_view // InsFilterNode
+   ME_4CADA33B0257_view // TnsFiltersType
+   ME_4F98240403BA_view // InsFiltersListener
+   ME_5061DE0D0252_view // InsFilterRootNode
+   ME_56443DCF0299_view // InsFiltersEnumerator
+   ME_5061DE2D0275_viewlink // InsFilterRootNode ==> TnsFiltersType
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4CAC58E50231_main
+
+ MELIST Diagrams
+  Seq: ( ME_4CAC58E50231_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4CAC58E50231_diagrams

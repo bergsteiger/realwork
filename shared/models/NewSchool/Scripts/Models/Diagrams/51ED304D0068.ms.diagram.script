@@ -1,0 +1,55 @@
+// TnsDocumentLikeStateHolder 51ED304D0068 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_51ED304D0068_diagrams
+
+ MEDIAGRAM ME_51ED304D0068_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_51ED304D0068' ; // TnsDocumentLikeStateHolder
+
+  MEVIEW ME_51ED558501F2_view
+   MELINK Original WL 'ME_51ED558501F2' '51ED304D0068.ms.model.script' ; // InsDocumentLikeStateHolder
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_51ED558501F2_view
+
+  MEVIEW ME_51ED52BC02FC_view
+   MELINK Original WL 'ME_51ED52BC02FC' '51ED304D0068.ms.model.script' ; // Create
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_51ED52BC02FC_view
+
+  MEVIEW ME_51ED55B50288_view
+   MELINK Original WL 'ME_51ED55B50288' '51ED304D0068.ms.model.script' ; // Make
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_51ED55B50288_view
+
+  MEVIEW ME_51ED30850254_view
+   MELINK Original WL 'ME_51ED30850254' '51ED304D0068.ms.model.script' ; // f_LikeState
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_51ED30850254_view
+
+  MEVIEWLINK ME_51ED55B50288_ME_51ED52BC02FC_Inherits
+   MELINK From ME_51ED55B50288_view ;
+   MELINK To ME_51ED52BC02FC_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_51ED55B50288_ME_51ED52BC02FC_Inherits
+
+  MELIST Views
+   Seq: ( ME_51ED558501F2_view // InsDocumentLikeStateHolder
+   ME_51ED52BC02FC_view // Create
+   ME_51ED55B50288_view // Make
+   ME_51ED30850254_view // f_LikeState
+   ME_51ED55B50288_ME_51ED52BC02FC_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_51ED304D0068_main
+
+ MELIST Diagrams
+  Seq: ( ME_51ED304D0068_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_51ED304D0068_diagrams

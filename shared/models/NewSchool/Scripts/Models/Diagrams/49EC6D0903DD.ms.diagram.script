@@ -1,0 +1,41 @@
+// InternetAgent 49EC6D0903DD VCMControllers Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_49EC6D0903DD_diagrams
+
+ MEDIAGRAM ME_49EC6D0903DD_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_49EC6D0903DD' ; // InternetAgent
+
+  MEVIEW ME_49EC6D9000EE_view
+   MELINK Original WL? 'ME_49EC6D9000EE' ; // InternetAgentInterfaces
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_49EC6D9000EE_view
+
+  MEVIEW ME_49EC6DB703E5_view
+   MELINK Original WL? 'ME_49EC6DB703E5' ; // InternetAgent
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_49EC6DB703E5_view
+
+  MEVIEWLINK ME_49EC6DB703E5_ME_49EC6D9000EE_Depends
+   MELINK From ME_49EC6DB703E5_view ;
+   MELINK To ME_49EC6D9000EE_view ;
+   MEPROP Class class_Depends
+  ENDMEVIEWLINK // ME_49EC6DB703E5_ME_49EC6D9000EE_Depends
+
+  MELIST Views
+   Seq: ( ME_49EC6D9000EE_view // InternetAgentInterfaces
+   ME_49EC6DB703E5_view // InternetAgent
+   ME_49EC6DB703E5_ME_49EC6D9000EE_Depends // InternetAgent ==> InternetAgentInterfaces
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_49EC6D0903DD_main
+
+ MELIST Diagrams
+  Seq: ( ME_49EC6D0903DD_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_49EC6D0903DD_diagrams

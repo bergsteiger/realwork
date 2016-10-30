@@ -1,0 +1,92 @@
+//#UC START# *4CE6C58C01DE_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\nsFindIteratorNewForAutoreferat.pas
+//#UC END# *4CE6C58C01DE_ext:ParentFileName
+//#UC START# *4CE6C58C01DEci*
+//#UC END# *4CE6C58C01DEci*
+//#UC START# *4CE6C58C01DEcit*
+//#UC END# *4CE6C58C01DEcit*
+//#UC START# *4CE6C58C01DEimpl*
+function TnsFindIteratorNewForAutoreferatFindPositionList.pm_GetCount: Integer;
+  {-}
+begin
+ Result := f_List.Count;
+end;
+
+procedure TnsFindIteratorNewForAutoreferatFindPositionList.pm_SetCount(aValue: Integer);
+  {-}
+begin
+ Assert(false);
+end;
+
+procedure TnsFindIteratorNewForAutoreferatFindPositionList.Clear;
+  {-}
+begin
+ Assert(false);
+end;
+
+procedure TnsFindIteratorNewForAutoreferatFindPositionList.Delete(anIndex: Integer);
+  {-}
+begin
+ Assert(false);
+end;
+
+procedure TnsFindIteratorNewForAutoreferatFindPositionList.pm_GetItem(anIndex: Integer; out aRet: TFindPosition);
+  {-}
+var
+ l_Path  : INodeIndexPath;
+ l_Index : Integer;
+begin
+ f_List.pm_GetItem(anIndex, aRet);
+ l_Path := DefDataAdapter.NativeAdapter.MakeNodeIndexPath;
+ l_Path.Add(f_Doc.PID);
+ for l_Index := 0 to Pred(aRet.rNode.Count) do
+  l_Path.Add(aRet.rNode[l_Index]);
+ aRet.rNode := l_Path;
+end;
+
+procedure TnsFindIteratorNewForAutoreferatFindPositionList.pm_SetItem(anIndex: Integer; const anItem: TFindPosition);
+  {-}
+begin
+ Assert(false);
+end;
+
+function TnsFindIteratorNewForAutoreferatFindPositionList.Add(const anItem: TFindPosition): Integer;
+  {-}
+begin
+ Assert(false);
+ Result := -1;
+end;
+
+procedure TnsFindIteratorNewForAutoreferatFindPositionList.Insert(anIndex: Integer; const anItem: TFindPosition);
+  {-}
+begin
+ Assert(false);
+end;
+
+//#UC END# *4CE6C58C01DEimpl*
+//#UC START# *4CE6C58C01DEpubl*
+ private
+   // IFindPositionList
+    function  pm_GetCount: Integer; stdcall;
+    procedure pm_SetCount(aValue: Integer); stdcall;
+      { - методы для доступа к свойству Count. }
+    procedure Clear; stdcall;
+      {* очистить список. }
+    procedure Delete(anIndex: Integer); stdcall;
+      {* удаляет элемент по индексу Index. }
+    procedure  pm_GetItem(anIndex: Integer; out aRet: TFindPosition); stdcall;
+      {-}
+    procedure pm_SetItem(anIndex: Integer; const anItem: TFindPosition); stdcall;
+      {-}
+    function  Add(const anItem: TFindPosition): Integer; stdcall;
+      {* - добавляет элемент Item в конец. }
+    procedure Insert(anIndex: Integer; const anItem: TFindPosition); stdcall;
+      {* - вставляет элемент Item по индексу Index. }
+//#UC END# *4CE6C58C01DEpubl*
+//#UC START# *4CE6C60002B8_4CE6C58C01DE_impl*
+ inherited Create;
+ f_Doc := aDoc;
+ f_List := aList;
+//#UC END# *4CE6C60002B8_4CE6C58C01DE_impl*
+//#UC START# *4CE6C60002B8_4CE6C58C01DE_var*
+//#UC END# *4CE6C60002B8_4CE6C58C01DE_var*

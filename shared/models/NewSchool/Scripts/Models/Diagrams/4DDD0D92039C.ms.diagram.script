@@ -1,0 +1,69 @@
+// TnsChangesBetweenEditionsDocumentContainer 4DDD0D92039C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4DDD0D92039C_diagrams
+
+ MEDIAGRAM ME_4DDD0D92039C_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4DDD0D92039C' ; // TnsChangesBetweenEditionsDocumentContainer
+
+  MEVIEW ME_4DDD0E080101_view
+   MELINK Original WL 'ME_4DDD0E080101' '4DDD0D92039C.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4DDD0E080101_view
+
+  MEVIEW ME_4DDD0DF103B5_view
+   MELINK Original WL 'ME_4DDD0DF103B5' '4DDD0D92039C.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4DDD0DF103B5_view
+
+  MEVIEW ME_4EA6BBFA01DF_view
+   MELINK Original WL 'ME_4EA6BBFA01DF' '4DDD0D92039C.ms.model.script' ; // MakeDocument
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4EA6BBFA01DF_view
+
+  MEVIEW ME_4DDD0DCE00D6_view
+   MELINK Original WL 'ME_4DDD0DCE00D6' '4DDD0D92039C.ms.model.script' ; // f_DiffProvider
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4DDD0DCE00D6_view
+
+  MEVIEW ME_4EA6BE01026D_view
+   MELINK Original WL 'ME_4EA6BE01026D' '4DDD0D92039C.ms.model.script' ; // f_Data
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4EA6BE01026D_view
+
+  MEVIEW ME_4EA6CFDC01C8_view
+   MELINK Original WL 'ME_4EA6CFDC01C8' '4DDD0D92039C.ms.model.script' ; // f_GettingDocumentCount
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_4EA6CFDC01C8_view
+
+  MEVIEWLINK ME_4DDD0DF103B5_ME_4DDD0E080101_Inherits
+   MELINK From ME_4DDD0DF103B5_view ;
+   MELINK To ME_4DDD0E080101_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4DDD0DF103B5_ME_4DDD0E080101_Inherits
+
+  MELIST Views
+   Seq: ( ME_4DDD0E080101_view // Create
+   ME_4DDD0DF103B5_view // Make
+   ME_4EA6BBFA01DF_view // MakeDocument
+   ME_4DDD0DCE00D6_view // f_DiffProvider
+   ME_4EA6BE01026D_view // f_Data
+   ME_4EA6CFDC01C8_view // f_GettingDocumentCount
+   ME_4DDD0DF103B5_ME_4DDD0E080101_Inherits // Make ==> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4DDD0D92039C_main
+
+ MELIST Diagrams
+  Seq: ( ME_4DDD0D92039C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4DDD0D92039C_diagrams

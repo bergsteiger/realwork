@@ -17,8 +17,6 @@ ME ME_4DDCDE8F01B8
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4DDCD636016C // PrimChangesBetweenEditons
  ;
- UP "ImageIndex" '-1'
- UP "Weight" '-1'
  UP extprop:pas:UnitName 'PrimChangesBetweenEditons_DocumentChanges_UserType'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\PrimChangesBetweenEditons_DocumentChanges_UserType.pas'
 
@@ -36,9 +34,6 @@ ME ME_4E8C3BAB0068
  MELINK Parent HWL ME_4E8C3BA30178 // Local
  ;
  MEPROP Value '''Сравнить полные тексты редакций'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Сравнить полные тексты редакций'''
 
 ENDME // ME_4E8C3BAB0068 CompareRedactionOperationCaption
@@ -53,9 +48,6 @@ ME ME_4E8C3BD80039
  MELINK Parent HWL ME_4E8C3BA30178 // Local
  ;
  MEPROP Value '''Вернуться в текст документа'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Вернуться в текст документа'''
 
 ENDME // ME_4E8C3BD80039 ReturnToDocumentOperationCaption
@@ -63,7 +55,7 @@ ENDME // ME_4E8C3BD80039 ReturnToDocumentOperationCaption
 ME ME_4E8C3BA30178
  MEPROP UID '4E8C3BA30178'
  MEPROP Name 'Local'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -75,9 +67,6 @@ ME ME_4E8C3BA30178
  HWL ME_4E8C3BD80039 // ReturnToDocumentOperationCaption
  )
  ; // Attributes
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
 
 ENDME // ME_4E8C3BA30178 Local
 
@@ -103,7 +92,6 @@ FORWARD ME_4DDD07AF0283
 ME ME_4DDD07C60172
  MEPROP Name 'aSender'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
@@ -202,7 +190,6 @@ FORWARD ME_5228247B003C
 ME ME_5228247D0204
  MEPROP Name 'aSender'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
@@ -211,7 +198,6 @@ ENDME // ME_5228247D0204 aSender
 ME ME_5228247D021D
  MEPROP Name 'anOldDocument'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
  ;
 
@@ -220,7 +206,6 @@ ENDME // ME_5228247D021D anOldDocument
 ME ME_5228247D0235
  MEPROP Name 'aNewDocument'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
  ;
 
@@ -396,7 +381,6 @@ MEREF ME_4A82BC390036_ME_4DDCD636016C_impl
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs field" False
- UP "pm" True
 ENDMEREF // ME_4A82BC390036_ME_4DDCD636016C_impl HyperlinkText
 
 MEREF ME_4A8931130363_ME_4DDCD636016C_impl
@@ -416,7 +400,6 @@ MEREF ME_4A8AAD450084_ME_4DDCD636016C_impl
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs field" False
- UP "pm" True
 ENDMEREF // ME_4A8AAD450084_ME_4DDCD636016C_impl TextWithComments
 
 MEREF ME_4A8E5E4702C6_ME_4DDCD636016C_impl
@@ -429,14 +412,12 @@ MEREF ME_4ACA195801CB_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4ACA195801CB' '4A9F98B901A5.ms.model.script' // ContainerForBaseSearch
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_4ACA195801CB_ME_4DDCD636016C_impl ContainerForBaseSearch
 
 MEREF ME_4AD6EAA3034A_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4AD6EAA3034A' '4A9F98B901A5.ms.model.script' // ContextSearcher
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_4AD6EAA3034A_ME_4DDCD636016C_impl ContextSearcher
 
 MEREF ME_4AE1B48A0120_ME_4DDCD636016C_impl
@@ -450,7 +431,6 @@ MEREF ME_4AE1C7A8016C_ME_4DDCD636016C_impl
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs field" False
- UP "pm" True
 ENDMEREF // ME_4AE1C7A8016C_ME_4DDCD636016C_impl HasDoc
 
 MEREF ME_4AE1C9890311_ME_4DDCD636016C_impl
@@ -463,29 +443,12 @@ MEREF ME_4AE9D38A02DA_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4AE9D38A02DA' '4A77058200BA.ms.model.script' // SetPosition
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4AE9D38A02DA_ME_4DDCD636016C_impl SetPosition
 
 MEREF ME_4B1E37CE00C1_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4B1E37CE00C1' '4A77058200BA.ms.model.script' // ReturnToDocument
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4B1E37CE00C1_ME_4DDCD636016C_impl ReturnToDocument
 
 MEREF ME_4B4EF0A200BD_ME_4DDCD636016C_impl
@@ -498,21 +461,13 @@ MEREF ME_4B506F4D0196_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4B506F4D0196' '4A77058200BA.ms.model.script' // GetParaForPositionning
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
  UP "is query" False
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4B506F4D0196_ME_4DDCD636016C_impl GetParaForPositionning
 
 MEREF ME_4F1D607E0027_ME_4DDCD636016C_impl
  MELINK Original WL 'ME_4F1D607E0027' '4A9F98B901A5.ms.model.script' // NeedSaveActiveClassBeforeSearch
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_4F1D607E0027_ME_4DDCD636016C_impl NeedSaveActiveClassBeforeSearch
 
 MEREF ME_53A303BE03A8_ME_4DDCD636016C_impl
@@ -525,30 +480,14 @@ MEREF ME_49521D8E0295_ME_4DDCD636016C_over
  MELINK Original WL 'ME_49521D8E0295' '494F898C013E.ms.model.script' // Print
  ;
  MEPROP OpKind opkind_Overridden
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
  UP "ShowInContextMenu" False
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_49521D8E0295_ME_4DDCD636016C_over Print
 
 MEREF ME_495220DE0298_ME_4DDCD636016C_over
  MELINK Original WL 'ME_495220DE0298' '494F898C013E.ms.model.script' // PrintDialog
  ;
  MEPROP OpKind opkind_Overridden
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
  UP "ShowInContextMenu" True
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_495220DE0298_ME_4DDCD636016C_over PrintDialog
 
 MEREF ME_4A8E8F2E0195_ME_4DDCD636016C_over
@@ -818,13 +757,8 @@ ME ME_4DDCD636016C
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "author" 'Люлин А.В.'
- UP "finished dfm" True
- UP "NeedsHackRef" True
  UP "no hands" True
- UP "resizeable" False
- UP "restrict form def" 'undefined'
  UP "started" '25.05.2011 14:13'
- UP "ZoneType" 'Any'
  UP extprop:NeedsInitEntities True
  UP extprop:pas:TypeName 'TPrimChangesBetweenEditonsForm'
  UP extprop:pas:UnitName 'PrimChangesBetweenEditons_Form'

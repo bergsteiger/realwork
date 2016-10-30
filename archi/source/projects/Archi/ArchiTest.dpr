@@ -2595,9 +2595,6 @@ uses
  {$If Defined(AppClientSide) AND NOT Defined(NoScripts)}
  , kwClearConfig in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearConfig.pas'
  {$IfEnd} // Defined(AppClientSide) AND NOT Defined(NoScripts)
- {$If Defined(AppClientSide) AND NOT Defined(NoScripts)}
- , kwClearSpellDictionary in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearSpellDictionary.pas'
- {$IfEnd} // Defined(AppClientSide) AND NOT Defined(NoScripts)
  , l3CustomSortIntegerList in 'w:\common\components\rtl\Garant\L3\l3CustomSortIntegerList.pas'
  , l3CustomOtherListView in 'w:\common\components\rtl\Garant\L3\l3CustomOtherListView.pas'
  , l3CustomLongintListView in 'w:\common\components\rtl\Garant\L3\l3CustomLongintListView.pas'

@@ -1,0 +1,41 @@
+// ConsultationInterfaces 491C3E540050 ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_491C3E540050_diagrams
+
+ MEDIAGRAM ME_491C3E540050_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_491C3E540050' ; // ConsultationInterfaces
+
+  MEVIEW ME_492F005A02C7_view
+   MELINK Original WL 'ME_492F005A02C7' '491C3E540050.ms.model.script' ; // IsdsQuery
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_492F005A02C7_view
+
+  MEVIEW ME_492F01200192_view
+   MELINK Original WL 'ME_492F01200192' '491C3E540050.ms.model.script' ; // IsdsSendConsultation
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_492F01200192_view
+
+  MEVIEWLINK ME_492F01200192_ME_492F005A02C7_Inherits
+   MELINK From ME_492F01200192_view ;
+   MELINK To ME_492F005A02C7_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_492F01200192_ME_492F005A02C7_Inherits
+
+  MELIST Views
+   Seq: ( ME_492F005A02C7_view // IsdsQuery
+   ME_492F01200192_view // IsdsSendConsultation
+   ME_492F01200192_ME_492F005A02C7_Inherits // IsdsSendConsultation ==> IsdsQuery
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_491C3E540050_main
+
+ MELIST Diagrams
+  Seq: ( ME_491C3E540050_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_491C3E540050_diagrams

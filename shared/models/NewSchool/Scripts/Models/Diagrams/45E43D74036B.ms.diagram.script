@@ -1,0 +1,41 @@
+// HCAdapterLib 45E43D74036B Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_45E43D74036B_diagrams
+
+ MEDIAGRAM ME_45E43D74036B_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_45E43D74036B' ; // HCAdapterLib
+
+  MEVIEW ME_442BEF93030D_view
+   MELINK Original WL? 'ME_442BEF93030D' ; // HCInterfaces
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_442BEF93030D_view
+
+  MEVIEW ME_442CE247030D_view
+   MELINK Original WL? 'ME_442CE247030D' ; // HCInterfaces_i
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_442CE247030D_view
+
+  MEVIEWLINK ME_442CE247030D_ME_442BEF93030D_Depends
+   MELINK From ME_442CE247030D_view ;
+   MELINK To ME_442BEF93030D_view ;
+   MEPROP Class class_Depends
+  ENDMEVIEWLINK // ME_442CE247030D_ME_442BEF93030D_Depends
+
+  MELIST Views
+   Seq: ( ME_442BEF93030D_view // HCInterfaces
+   ME_442CE247030D_view // HCInterfaces_i
+   ME_442CE247030D_ME_442BEF93030D_Depends // HCInterfaces_i ==> HCInterfaces
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_45E43D74036B_main
+
+ MELIST Diagrams
+  Seq: ( ME_45E43D74036B_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_45E43D74036B_diagrams

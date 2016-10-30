@@ -1,0 +1,64 @@
+//#UC START# *479731C50290_4908190C017C_impl*
+ f_Root := nil;
+ l3Free(f_AvailableLangs);
+ inherited;
+//#UC END# *479731C50290_4908190C017C_impl*
+//#UC START# *479731C50290_4908190C017C_var*
+//#UC END# *479731C50290_4908190C017C_var*
+//#UC START# *47EA4E9002C6_4908190C017C_impl*
+ inherited;
+ ClearCache;
+//#UC END# *47EA4E9002C6_4908190C017C_impl*
+//#UC START# *47EA4E9002C6_4908190C017C_var*
+//#UC END# *47EA4E9002C6_4908190C017C_var*
+//#UC START# *4908190C017C_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsDictCachePrim.pas
+//#UC END# *4908190C017C_ext:FileName
+//#UC START# *4908190C017Cimpl_uses*
+//#UC END# *4908190C017Cimpl_uses*
+//#UC START# *490819DA005E_4908190C017Cget_impl*
+ if not IsRootReceived then
+ begin
+  try
+   f_Root := DoGetRoot;
+  except
+   f_Root := nil;
+   // - сюда попадаем например когда толковый словарь пропал
+  end;//try..except
+  IsRootReceived := True;
+ end;//if not IsRootReceived then
+ Result := f_Root;
+//#UC END# *490819DA005E_4908190C017Cget_impl*
+//#UC START# *490819DA005E_4908190C017Cget_var*
+//#UC END# *490819DA005E_4908190C017Cget_var*
+//#UC START# *49081A3A00AC_4908190C017C_impl*
+ f_Root := nil;
+ IsRootReceived := False;
+ l3Free(f_AvailableLangs);
+//#UC END# *49081A3A00AC_4908190C017C_impl*
+//#UC START# *49081A3A00AC_4908190C017C_var*
+//#UC END# *49081A3A00AC_4908190C017C_var*
+//#UC START# *49081A4F001E_4908190C017C_impl*
+ Result := False;
+ if not Assigned(f_AvailableLangs) and Assigned(Root) then
+ begin
+  f_AvailableLangs := TnsLangList.Create;
+  Root.GetAvailableLayers(l_Layers);
+  if l_Layers <> nil then
+   for l_Index :=0 to l_Layers.Count - 1 do
+   begin
+    l_PLayer := l_Layers[l_Index];
+    f_AvailableLangs.Add(bsAdapterToBusiness(l_PLayer));
+   end;//for l_Index :=0 to l_Layers.GetCount - 1 do
+ end;//if Root <> nil then
+ // Проверим наличие языков, они могут быть не созданы в случае открытия
+ // толкового словаря, потом обновления базой без толкового словаря
+ if Assigned(f_AvailableLangs) then
+  Result := f_AvailableLangs.IndexOf(aLang) >= 0;
+//#UC END# *49081A4F001E_4908190C017C_impl*
+//#UC START# *49081A4F001E_4908190C017C_var*
+var
+ l_Layers : ILayerIdList;
+ l_Index  : Integer;
+ l_PLayer : TLayerId;
+//#UC END# *49081A4F001E_4908190C017C_var*

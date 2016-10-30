@@ -21,9 +21,6 @@ ME ME_4EB14915018A
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_4EB148D2015E // Choices
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
 
 ENDME // ME_4EB14915018A Exit
 
@@ -38,9 +35,6 @@ ME ME_4EB1492F0013
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_4EB148D2015E // Choices
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
 
 ENDME // ME_4EB1492F0013 Stay
 
@@ -62,9 +56,6 @@ ME ME_4EB148D2015E
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
 
 ENDME // ME_4EB148D2015E Choices
 
@@ -104,11 +95,8 @@ ME ME_4EB148230290
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "AutoInc" False
  UP "CheckCaption" 'Всегда выходить без подтверждения'
  UP "DlgType" 'Confirmation'
- UP "forced type" 'none'
- UP "is define" False
  UP "LongHint" 'Подтверждение при выходе из системы'
  UP "NeedCheck" True
  UP "SettingsCaption" 'Выход из системы'
@@ -125,9 +113,6 @@ ME ME_4EB14D26039E
  MELINK Parent HWL ME_4EB148110130 // Local
  ;
  MEPROP Value '''ГАРАНТ'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''ГАРАНТ'''
 
 ENDME // ME_4EB14D26039E ApplicationName
@@ -143,9 +128,6 @@ ME ME_61DFBAD9D7DA
  MELINK Parent HWL ME_4EB148110130 // Local
  ;
  MEPROP Value '''Всегда выходить без подтверждения'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Всегда выходить без подтверждения'''
 
 ENDME // ME_61DFBAD9D7DA MayExit_CheckCaption
@@ -161,9 +143,6 @@ ME ME_89EC5D0A026E
  MELINK Parent HWL ME_4EB148110130 // Local
  ;
  MEPROP Value '''Выход из системы'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Выход из системы'''
 
 ENDME // ME_89EC5D0A026E MayExit_SettingsCaption
@@ -179,9 +158,6 @@ ME ME_FE3BE2AB73F5
  MELINK Parent HWL ME_4EB148110130 // Local
  ;
  MEPROP Value '''Подтверждение при выходе из системы'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Подтверждение при выходе из системы'''
 
 ENDME // ME_FE3BE2AB73F5 MayExit_LongHint
@@ -189,7 +165,7 @@ ENDME // ME_FE3BE2AB73F5 MayExit_LongHint
 ME ME_4EB148110130
  MEPROP UID '4EB148110130'
  MEPROP Name 'Local'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -210,9 +186,6 @@ ME ME_4EB148110130
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
 
 ENDME // ME_4EB148110130 Local
 
@@ -234,9 +207,6 @@ ME ME_E78A0FE428C9
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''MayExit_Choice_Exit''; rValue : ''Выйти'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''MayExit_Choice_Exit''; rValue : ''Выйти'')'
  UPLINK Speller HWL ME_4EB14915018A // Exit
  ;
@@ -259,9 +229,6 @@ ME ME_84224545092A
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''MayExit_Choice_Stay''; rValue : ''Продолжить работу'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''MayExit_Choice_Stay''; rValue : ''Продолжить работу'')'
  UPLINK Speller HWL ME_4EB1492F0013 // Stay
  ;
@@ -272,7 +239,7 @@ ME ME_3617045CF99C
  MEPROP UID '3617045CF99C'
  MEPROP Name 'LCImpl_MayExit_Choices'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Варианты выбора для диалога MayExit' ;
@@ -286,7 +253,6 @@ ME ME_3617045CF99C
  )
  ; // Attributes
  UP "elements prefix" 'str'
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'str_'
  UP extprop:pas:ElementPrefixBase 'str'
  UPLINK Speller HWL ME_4EB148D2015E // Choices
@@ -435,11 +401,7 @@ ME ME_4A92BD85004D
  MESTRINGLIST DiagramsNames
    Seq: ( 'Uses' )
  ; // DiagramsNames
- UP "finished dfm" True
  UP "NeedsHackRef" False
- UP "resizeable" False
- UP "restrict form def" 'undefined'
- UP "ZoneType" 'Any'
  UP extprop:pas:TypeName 'TPrimMainForm'
  UP extprop:pas:UnitName 'PrimMain_Form'
  UP extprop:rc:isAcceptableForScripts True

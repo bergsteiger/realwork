@@ -58,7 +58,6 @@ ME ME_442BEFCB030D
  HWL ME_442BFEEF0399 // data_received
  )
  ; // Operations
- UP "single impl" False
  UP extprop:pas:TypeName 'IConsultingData'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ConsultingData'
@@ -297,7 +296,6 @@ ENDME // ME_44D1B6C10399 xml_stream
 ME ME_44D1B6C103B9
  MEPROP Name 'consultation_id'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
 
 ENDME // ME_44D1B6C103B9 consultation_id
 
@@ -316,8 +314,6 @@ ME ME_44D1B6C0004E
  ME_44D1B6C103B9 // consultation_id
  )
  ; // Parameters
- UP "const_type" 'read-write'
- UP "transparent multy" False
 
 ENDME // ME_44D1B6C0004E make
 
@@ -370,7 +366,6 @@ ME ME_44D1B68701B5
  ME_442BFEEF0399_ME_44D1B68701B5_impl // data_received
  )
  ; // Implemented
- UP "single impl" False
  UP extprop:pas:TypeName 'IOnlineData'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'OnlineData'
@@ -415,7 +410,6 @@ ME ME_47861A37017B
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_47861964033F // BusinessLogicLifeCycle
  ;
- UP "const_type" 'read-write'
 
 ENDME // ME_47861A37017B make
 
@@ -452,7 +446,6 @@ ME ME_47861964033F
  HWL ME_47861DA9035C // get_consultation_manager70
  )
  ; // Operations
- UP "single impl" False
  UP extprop:pas:TypeName 'IBusinessLogicLifeCycle'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'BusinessLogicLifeCycle'
@@ -471,7 +464,6 @@ ME ME_442CE1BE03C8
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_442BFF3E0232 // ConsultingRequests
  ;
- UP "const_type" 'read-write'
 
 ENDME // ME_442CE1BE03C8 make
 
@@ -480,7 +472,6 @@ FORWARD ME_442BFF9202EE
 ME ME_4EE089FD0120
  MEPROP Name 'query_id'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_4EE089A301DA // QueryID
  ;
 
@@ -755,7 +746,6 @@ ME ME_442BFF3E0232
    Seq: ( ME_44D1C0B1002E // OnlineData
  )
  ; // Dependencies
- UP "single impl" False
  UP extprop:pas:TypeName 'IConsultingRequests'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ConsultingRequests'
@@ -779,9 +769,6 @@ ME ME_464422E8032C
  MEPROP Value '-StatisticPacketSize'
  MELINK ValueType WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '-StatisticPacketSize'
 
 ENDME // ME_464422E8032C STATISTIC_PACKET_SIZE_PARAMETER
@@ -801,9 +788,6 @@ ME ME_464424E20186
  MEPROP Value 500
  MELINK ValueType WL 'ME_4538E9230233' '3DBFDB23006E.ms.model.script' // size
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 500
 
 ENDME // ME_464424E20186 STATISTIC_PACKET_SIZE
@@ -823,9 +807,6 @@ ME ME_464425F3029F
  MEPROP Value '-StatisticSleepTime'
  MELINK ValueType WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '-StatisticSleepTime'
 
 ENDME // ME_464425F3029F STATISTIC_SLEEP_TIME_PARAMETER
@@ -845,9 +826,6 @@ ME ME_464425AC035B
  MEPROP Value 1
  MELINK ValueType WL 'ME_450A6117003E' '3DBFDB23006E.ms.model.script' // unsigned integer
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 1
 
 ENDME // ME_464425AC035B STATISTIC_SLEEP_TIME
@@ -855,7 +833,7 @@ ENDME // ME_464425AC035B STATISTIC_SLEEP_TIME
 ME ME_464422AC00BB
  MEPROP UID '464422AC00BB'
  MEPROP Name 'HCConstants'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Константы для адаптера консультаций.' ;
@@ -870,7 +848,6 @@ ME ME_464422AC00BB
  HWL ME_464425AC035B // STATISTIC_SLEEP_TIME
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_464422AC00BB HCConstants
 
@@ -891,9 +868,6 @@ ME ME_47B064D30045
  MEPROP Value 'INVALID_STATUS'
  MELINK ValueType WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 'INVALID_STATUS'
 
 ENDME // ME_47B064D30045 EES_INVALID_STATUS
@@ -913,9 +887,6 @@ ME ME_47B065E100E6
  MEPROP Value 'NOT_FOUND'
  MELINK ValueType WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 'NOT_FOUND'
 
 ENDME // ME_47B065E100E6 EES_NOT_FOUND
@@ -935,9 +906,6 @@ ME ME_47B0660001BB
  MEPROP Value 'UNKNOWN'
  MELINK ValueType WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 'UNKNOWN'
 
 ENDME // ME_47B0660001BB EES_UNKNOWN
@@ -945,7 +913,7 @@ ENDME // ME_47B0660001BB EES_UNKNOWN
 ME ME_47B0645400B5
  MEPROP UID '47B0645400B5'
  MEPROP Name 'EraseErrorStatuses'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'текстовые значения ошибок в xml при удалении запросов из базы.' ;
@@ -959,7 +927,6 @@ ME ME_47B0645400B5
  HWL ME_47B0660001BB // EES_UNKNOWN
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_47B0645400B5 EraseErrorStatuses
 
@@ -979,9 +946,6 @@ ME ME_47B910B8005E
  MEPROP Value 'QUERY70'
  MELINK ValueType WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 'QUERY70'
 
 ENDME // ME_47B910B8005E QUERY70
@@ -1000,9 +964,6 @@ ME ME_47B910E000E8
  MEPROP Value 'MARK70'
  MELINK ValueType WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 'MARK70'
 
 ENDME // ME_47B910E000E8 MARK70
@@ -1010,7 +971,7 @@ ENDME // ME_47B910E000E8 MARK70
 ME ME_47B910740109
  MEPROP UID '47B910740109'
  MEPROP Name 'OnlineDataKeys'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'ключи мульти фабрик для интерфейса консультации' ;
@@ -1023,7 +984,6 @@ ME ME_47B910740109
  HWL ME_47B910E000E8 // MARK70
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_47B910740109 OnlineDataKeys
 
@@ -1062,7 +1022,6 @@ ME ME_442BEF93030D
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "is namespace" True
  UP cpp:Path 'garant6x\implementation\Garant\HCAdapterLib\HCInterfaces\HCInterfaces.cpp'
  UP cpp:PathOnly '\garant6x\implementation\Garant\HCAdapterLib\HCInterfaces'
  UP extprop:pas:UnitName 'HCInterfacesUnit'

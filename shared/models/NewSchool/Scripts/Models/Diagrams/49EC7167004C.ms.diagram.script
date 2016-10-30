@@ -1,0 +1,69 @@
+// InternetAgent 49EC7167004C VCMModule Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_49EC7167004C_diagrams
+
+ MEDIAGRAM ME_49EC7167004C_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_49EC7167004C' ; // InternetAgent
+
+  MEVIEW ME_49F0573B0332_view
+   MELINK Original WL? 'ME_49F0573B0332' ; // TnsWebBrowserPrim
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_49F0573B0332_view
+
+  MEVIEW ME_49ECB8E002B0_view
+   MELINK Original WL? 'ME_49ECB8E002B0' ; // TnsWebBrowser
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_49ECB8E002B0_view
+
+  MEVIEW ME_49EC746B01E5_view
+   MELINK Original WL? 'ME_49EC746B01E5' ; // PrimInternetAgent
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_49EC746B01E5_view
+
+  MEVIEW ME_49EC739C0100_view
+   MELINK Original WL? 'ME_49EC739C0100' ; // PrimInternetAgent$FP
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_49EC739C0100_view
+
+  MEVIEW ME_4E9574DB0120_view
+   MELINK Original WL? 'ME_4E9574DB0120' ; // nsWebBrowserHelper
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E9574DB0120_view
+
+  MEVIEWLINK ME_49ECB8E002B0_ME_49F0573B0332_Inherits
+   MELINK From ME_49ECB8E002B0_view ;
+   MELINK To ME_49F0573B0332_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_49ECB8E002B0_ME_49F0573B0332_Inherits
+
+  MEVIEWLINK ME_49EC9D2702BA_viewlink
+   MELINK Original WL 'ME_49EC9D2702BA' '49EC746B01E5.ms.model.script' ;
+   MELINK From ME_49EC746B01E5_view ;
+   MELINK To ME_49ECB8E002B0_view ;
+  ENDMEVIEWLINK // ME_49EC9D2702BA_viewlink
+
+  MELIST Views
+   Seq: ( ME_49F0573B0332_view // TnsWebBrowserPrim
+   ME_49ECB8E002B0_view // TnsWebBrowser
+   ME_49EC746B01E5_view // PrimInternetAgent
+   ME_49EC739C0100_view // PrimInternetAgent$FP
+   ME_4E9574DB0120_view // nsWebBrowserHelper
+   ME_49ECB8E002B0_ME_49F0573B0332_Inherits // TnsWebBrowser ==> TnsWebBrowserPrim
+   ME_49EC9D2702BA_viewlink // PrimInternetAgent ==> TnsWebBrowser
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_49EC7167004C_main
+
+ MELIST Diagrams
+  Seq: ( ME_49EC7167004C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_49EC7167004C_diagrams

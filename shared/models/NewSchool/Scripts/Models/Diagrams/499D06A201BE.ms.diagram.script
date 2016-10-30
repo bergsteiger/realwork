@@ -1,0 +1,41 @@
+// SplashServerInterfaces 499D06A201BE Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_499D06A201BE_diagrams
+
+ MEDIAGRAM ME_499D06A201BE_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_499D06A201BE' ; // SplashServerInterfaces
+
+  MEVIEW ME_499D06FE010B_view
+   MELINK Original WL 'ME_499D06FE010B' '499D06A201BE.ms.model.script' ; // InsSplashWaiter
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_499D06FE010B_view
+
+  MEVIEW ME_499D0728005B_view
+   MELINK Original WL 'ME_499D0728005B' '499D06A201BE.ms.model.script' ; // InsSplashInfo
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_499D0728005B_view
+
+  MEVIEWLINK ME_499D074100CF_viewlink
+   MELINK Original WL 'ME_499D074100CF' '499D06A201BE.ms.model.script' ;
+   MELINK From ME_499D0728005B_view ;
+   MELINK To ME_499D06FE010B_view ;
+  ENDMEVIEWLINK // ME_499D074100CF_viewlink
+
+  MELIST Views
+   Seq: ( ME_499D06FE010B_view // InsSplashWaiter
+   ME_499D0728005B_view // InsSplashInfo
+   ME_499D074100CF_viewlink // InsSplashInfo ==> InsSplashWaiter
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_499D06A201BE_main
+
+ MELIST Diagrams
+  Seq: ( ME_499D06A201BE_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_499D06A201BE_diagrams
