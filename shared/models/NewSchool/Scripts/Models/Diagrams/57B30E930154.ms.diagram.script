@@ -1,0 +1,69 @@
+// StringLists 57B30E930154 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_57B30E930154_diagrams
+
+ MEDIAGRAM ME_57B30E930154_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_57B30E930154' ; // StringLists
+
+  MEVIEW ME_57B1674A02B6_view
+   MELINK Original WL? 'ME_57B1674A02B6' ; // TmsmModelElementStringList
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_57B1674A02B6_view
+
+  MEVIEW ME_58114D530021_view
+   MELINK Original WL? 'ME_58114D530021' ; // TmsmSomeWordsListPrim
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_58114D530021_view
+
+  MEVIEW ME_57E54DCD0141_view
+   MELINK Original WL? 'ME_57E54DCD0141' ; // TmsmSomeModelElementsList
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_57E54DCD0141_view
+
+  MEVIEW ME_57E51860015E_view
+   MELINK Original WL? 'ME_57E51860015E' ; // TmsmLoadedWordsList
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_57E51860015E_view
+
+  MEVIEW ME_5811C7710063_view
+   MELINK Original WL? 'ME_5811C7710063' ; // TmsmSomeWordsList
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_5811C7710063_view
+
+  MEVIEWLINK ME_57E51860015E_ME_58114D530021_Inherits
+   MELINK From ME_57E51860015E_view ;
+   MELINK To ME_58114D530021_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57E51860015E_ME_58114D530021_Inherits
+
+  MEVIEWLINK ME_5811C7710063_ME_58114D530021_Inherits
+   MELINK From ME_5811C7710063_view ;
+   MELINK To ME_58114D530021_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_5811C7710063_ME_58114D530021_Inherits
+
+  MELIST Views
+   Seq: ( ME_57B1674A02B6_view // TmsmModelElementStringList
+   ME_58114D530021_view // TmsmSomeWordsListPrim
+   ME_57E54DCD0141_view // TmsmSomeModelElementsList
+   ME_57E51860015E_view // TmsmLoadedWordsList
+   ME_5811C7710063_view // TmsmSomeWordsList
+   ME_57E51860015E_ME_58114D530021_Inherits // TmsmLoadedWordsList ==> TmsmSomeWordsListPrim
+   ME_5811C7710063_ME_58114D530021_Inherits // TmsmSomeWordsList ==> TmsmSomeWordsListPrim
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_57B30E930154_main
+
+ MELIST Diagrams
+  Seq: ( ME_57B30E930154_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_57B30E930154_diagrams

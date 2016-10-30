@@ -17,9 +17,7 @@ ME ME_50F562DF02DB
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
  ;
- UP "ImageIndex" '-1'
  UP "SettingsCaption" 'Дерево стилей'
- UP "Weight" '-1'
  UP extprop:pas:UnitName 'PrimStyleEditorNavigator_utStyleEditorNavigator_UserType'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorNavigator_utStyleEditorNavigator_UserType.pas'
 
@@ -37,9 +35,6 @@ ME ME_527249FD0352
  MELINK Parent HWL ME_527249EF015F // WM_AFTERINSERT const
  ;
  MEPROP Value 'WM_USER  + 111'
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 'WM_USER  + 111'
 
 ENDME // ME_527249FD0352 WM_AFTERINSERT
@@ -47,7 +42,7 @@ ENDME // ME_527249FD0352 WM_AFTERINSERT
 ME ME_527249EF015F
  MEPROP UID '527249EF015F'
  MEPROP Name 'WM_AFTERINSERT const'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -58,7 +53,6 @@ ME ME_527249EF015F
    Seq: ( HWL ME_527249FD0352 // WM_AFTERINSERT
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_527249EF015F WM_AFTERINSERT const
 
@@ -73,7 +67,6 @@ ME ME_4AE826530324
  MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
  ;
  UP "ControlClass" 'TnscTreeViewWithAdapterDragDrop'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4AE826530324 StyleTreeView
@@ -160,7 +153,6 @@ FORWARD ME_52721E580288
 ME ME_52721E5B029D
  MEPROP Name 'aIndex'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
@@ -207,7 +199,6 @@ FORWARD ME_52721E750294
 ME ME_52721E780227
  MEPROP Name 'aStyleId'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
@@ -252,7 +243,6 @@ FORWARD ME_52721E9302A2
 ME ME_52721E9A0079
  MEPROP Name 'aNode'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4912DD2C0082' '4912DD020283.ms.model.script' // IeeNode
  ;
 
@@ -514,28 +504,12 @@ MEREF ME_4AE8250D03D5_ME_4AE8247501DA_impl
  MELINK Original WL 'ME_4AE8250D03D5' '4AE824CB035A.ms.model.script' // ReloadStylesTree
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4AE8250D03D5_ME_4AE8247501DA_impl ReloadStylesTree
 
 MEREF ME_4AF8660E0079_ME_4AE8247501DA_impl
  MELINK Original WL 'ME_4AF8660E0079' '4AE824CB035A.ms.model.script' // ReloadStyleTable
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4AF8660E0079_ME_4AE8247501DA_impl ReloadStyleTable
 
 MEREF ME_47A042E100E2_ME_4AE8247501DA_over
@@ -659,11 +633,7 @@ ME ME_4AE8247501DA
    Seq: ( 'Main' 'Uses' )
  ; // DiagramsNames
  UP "author" 'Люлин А.В.'
- UP "finished dfm" True
- UP "NeedsHackRef" True
  UP "no hands" True
- UP "resizeable" False
- UP "restrict form def" 'undefined'
  UP "started" '28.10.2009 14:01'
  UP "ZoneType" 'Navigator'
  UP extprop:NeedsInitEntities True

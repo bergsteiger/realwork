@@ -53,7 +53,6 @@ FORWARD ME_57AC626200C3
 ME ME_57AC627702A6
  MEPROP Name 'anElement'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_57B3262B00D2' '57B565F200E5.ms.model.script' // TmsmModelElementView
  ;
 
@@ -153,7 +152,7 @@ ME ME_57B30F24002D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57AC3A8100E5 // TmsmModelElementTree
  ;
- MELINK Target WL? 'ME_57B1674A02B6' // TmsmModelElementDir
+ MELINK Target WL? 'ME_57B1674A02B6' // TmsmModelElementStringList
  ;
 
 ENDME // ME_57B30F24002D 
@@ -163,42 +162,48 @@ MEREF ME_57AAD86403AD_ME_57AC3A8100E5_impl
  ;
  MEPROP OpKind opkind_Implemented
  UP "is default" True
- UP "pm" False
 ENDMEREF // ME_57AAD86403AD_ME_57AC3A8100E5_impl Item
 
 MEREF ME_57AAD89C0277_ME_57AC3A8100E5_impl
  MELINK Original WL 'ME_57AAD89C0277' '57B6AC48035C.ms.model.script' // Count
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_57AAD89C0277_ME_57AC3A8100E5_impl Count
 
 MEREF ME_57ADF1B40310_ME_57AC3A8100E5_impl
  MELINK Original WL 'ME_57ADF1B40310' '57B565F200E5.ms.model.script' // Elements
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_57ADF1B40310_ME_57AC3A8100E5_impl Elements
 
 MEREF ME_57AE2E140297_ME_57AC3A8100E5_impl
  MELINK Original WL 'ME_57AE2E140297' '57A9F4A003C8.ms.model.script' // Owner
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_57AE2E140297_ME_57AC3A8100E5_impl Owner
 
 MEREF ME_57AEBED1018D_ME_57AC3A8100E5_impl
  MELINK Original WL 'ME_57AEBED1018D' '57B6AC48035C.ms.model.script' // Strings
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_57AEBED1018D_ME_57AC3A8100E5_impl Strings
+
+MEREF ME_57B4228B001E_ME_57AC3A8100E5_impl
+ MELINK Original WL 'ME_57B4228B001E' '57B5730D0123.ms.model.script' // AddEventsSubscriber
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57B4228B001E_ME_57AC3A8100E5_impl AddEventsSubscriber
+
+MEREF ME_57B422AB0293_ME_57AC3A8100E5_impl
+ MELINK Original WL 'ME_57B422AB0293' '57B5730D0123.ms.model.script' // RemoveEventsSubscriber
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57B422AB0293_ME_57AC3A8100E5_impl RemoveEventsSubscriber
 
 MEREF ME_57B6C7D40215_ME_57AC3A8100E5_impl
  MELINK Original WL 'ME_57B6C7D40215' '57B6AC48035C.ms.model.script' // StringsToFind
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_57B6C7D40215_ME_57AC3A8100E5_impl StringsToFind
 
 MEREF ME_57C9AD1303C2_ME_57AC3A8100E5_impl
@@ -212,6 +217,12 @@ MEREF ME_57D1327900BC_ME_57AC3A8100E5_impl
  ;
  MEPROP OpKind opkind_Implemented
 ENDMEREF // ME_57D1327900BC_ME_57AC3A8100E5_impl IndexOfElementView
+
+MEREF ME_58094B920194_ME_57AC3A8100E5_impl
+ MELINK Original WL 'ME_58094B920194' '57A9F4A003C8.ms.model.script' // Add
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_58094B920194_ME_57AC3A8100E5_impl Add
 
 MEREF ME_479731C50290_ME_57AC3A8100E5_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
@@ -231,7 +242,21 @@ MEREF ME_57ADF14D01B1_ME_57AC3A8100E5_R
  MEPROP OpKind opkind_ReferencedType
 ENDMEREF // ME_57ADF14D01B1_ME_57AC3A8100E5_R ImsmModelElementTree
 
+MEREF ME_57AEBE8A014F_ME_57AC3A8100E5_R
+ MELINK Original WL 'ME_57AEBE8A014F' '57B565F200E5.ms.model.script' // ImsmModelElementStringList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AEBE8A014F_ME_57AC3A8100E5_R ImsmModelElementStringList
+
+MEREF ME_57B6B9670157_ME_57AC3A8100E5_R
+ MELINK Original WL 'ME_57B6B9670157' '57B5730D0123.ms.model.script' // ImsmEventsPublisher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B6B9670157_ME_57AC3A8100E5_R ImsmEventsPublisher
+
 %%ImplementedBy ME_57ADF14D01B1 ME_57AC3A8100E5
+%%ImplementedBy ME_57AEBE8A014F ME_57AC3A8100E5
+%%ImplementedBy ME_57B6B9670157 ME_57AC3A8100E5
 
 %%InheritedBy ME_48724DAD02E0 ME_57AC3A8100E5
 
@@ -252,6 +277,8 @@ ME ME_57AC3A8100E5
  ; // Inherits
  MELIST Implements
    Seq: ( HWL ME_57ADF14D01B1_ME_57AC3A8100E5_R // ImsmModelElementTree
+ HWL ME_57AEBE8A014F_ME_57AC3A8100E5_R // ImsmModelElementStringList
+ HWL ME_57B6B9670157_ME_57AC3A8100E5_R // ImsmEventsPublisher
  )
  ; // Implements
  MELIST Attributes
@@ -271,9 +298,12 @@ ME ME_57AC3A8100E5
  ME_57ADF1B40310_ME_57AC3A8100E5_impl // Elements
  ME_57AE2E140297_ME_57AC3A8100E5_impl // Owner
  ME_57AEBED1018D_ME_57AC3A8100E5_impl // Strings
+ ME_57B4228B001E_ME_57AC3A8100E5_impl // AddEventsSubscriber
+ ME_57B422AB0293_ME_57AC3A8100E5_impl // RemoveEventsSubscriber
  ME_57B6C7D40215_ME_57AC3A8100E5_impl // StringsToFind
  ME_57C9AD1303C2_ME_57AC3A8100E5_impl // NodeByElement
  ME_57D1327900BC_ME_57AC3A8100E5_impl // IndexOfElementView
+ ME_58094B920194_ME_57AC3A8100E5_impl // Add
  )
  ; // Implemented
  MELIST Overridden
@@ -283,7 +313,7 @@ ME ME_57AC3A8100E5
  MELIST Dependencies
    Seq: ( ME_57AC6230009A // SysUtils
  ME_57AC629B0130 // TmsmModelElementNode
- ME_57B30F24002D // TmsmModelElementDir
+ ME_57B30F24002D // TmsmModelElementStringList
  )
  ; // Dependencies
  MESTRINGLIST DiagramsNames

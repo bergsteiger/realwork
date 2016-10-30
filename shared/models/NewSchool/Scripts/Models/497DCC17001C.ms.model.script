@@ -58,7 +58,6 @@ ME ME_51BB45D703AF
    Seq: ( HWL ME_51BB45E1012C // anIndex
  )
  ; // Attributes
- UP "pm" False
 
 ENDME // ME_51BB45D703AF Filter
 
@@ -104,7 +103,6 @@ FORWARD ME_51BB450503E3
 ME ME_51BB450900E4
  MEPROP Name 'aTree'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4912DD1102D3' '4912DD020283.ms.model.script' // IeeTree
  ;
 
@@ -149,7 +147,6 @@ FORWARD ME_51BB4B3803C0
 ME ME_51BB4B3F0223
  MEPROP Name 'aTree'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4912DD1102D3' '4912DD020283.ms.model.script' // IeeTree
  ;
 
@@ -201,7 +198,6 @@ MEREF ME_51BB45D703AF_ME_4D0B4E06037B_impl
  MELINK Original HWL ME_51BB45D703AF // Filter
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_51BB45D703AF_ME_4D0B4E06037B_impl Filter
 
 MEREF ME_479731C50290_ME_4D0B4E06037B_over
@@ -295,9 +291,6 @@ ME ME_4D0B64A301C3
  MELINK Parent HWL ME_4D0B649A006B // Local
  ;
  MEPROP Value '''Создать фильтр...'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Создать фильтр...'''
 
 ENDME // ME_4D0B64A301C3 CreateFilter
@@ -305,7 +298,7 @@ ENDME // ME_4D0B64A301C3 CreateFilter
 ME ME_4D0B649A006B
  MEPROP UID '4D0B649A006B'
  MEPROP Name 'Local'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -316,9 +309,6 @@ ME ME_4D0B649A006B
    Seq: ( HWL ME_4D0B64A301C3 // CreateFilter
  )
  ; // Attributes
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
 
 ENDME // ME_4D0B649A006B Local
 
@@ -333,7 +323,6 @@ ME ME_4AEED6F7020B
  MELINK Parent HWL ME_497DCC17001C // PrimFilters
  ;
  UP "ControlClass" 'TnscTreeViewWithAdapterDragDrop'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4AEED6F7020B FiltersList
@@ -640,7 +629,6 @@ FORWARD ME_51BB2A3B0107
 ME ME_51BB2A4D02AF
  MEPROP Name 'aTreeView'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4CFFBEEA0109' '515DA5860015.ms.model.script' // TvtCustomOutliner
  ;
 
@@ -658,7 +646,6 @@ ENDME // ME_51BB2A4D02D1 aNode
 ME ME_51BB2A4D02F3
  MEPROP Name 'aNewStatus'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -705,7 +692,6 @@ FORWARD ME_51BB2A790015
 ME ME_51BB2A7C001C
  MEPROP Name 'aNode'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4912DD2C0082' '4912DD020283.ms.model.script' // IeeNode
  ;
 
@@ -752,7 +738,6 @@ FORWARD ME_51BB2AFC0278
 ME ME_51BB2AFF0321
  MEPROP Name 'aNode'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4912DD2C0082' '4912DD020283.ms.model.script' // IeeNode
  ;
 
@@ -1053,98 +1038,44 @@ MEREF ME_49895A2102E8_ME_497DCC17001C_impl
  MELINK Original WL 'ME_49895A2102E8' '4AE89F8A004B.ms.model.script' // Load
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_49895A2102E8_ME_497DCC17001C_impl Load
 
 MEREF ME_4AEECBA3030B_ME_497DCC17001C_impl
  MELINK Original WL 'ME_4AEECBA3030B' '4A9807DB01A5.ms.model.script' // ActivateNode
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4AEECBA3030B_ME_497DCC17001C_impl ActivateNode
 
 MEREF ME_4AF2B1AC02F8_ME_497DCC17001C_impl
  MELINK Original WL 'ME_4AF2B1AC02F8' '4AE89F8A004B.ms.model.script' // GetSelected
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4AF2B1AC02F8_ME_497DCC17001C_impl GetSelected
 
 MEREF ME_4AF81DE902B6_ME_497DCC17001C_impl
  MELINK Original WL 'ME_4AF81DE902B6' '4AE89F8A004B.ms.model.script' // SetNewContent
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4AF81DE902B6_ME_497DCC17001C_impl SetNewContent
 
 MEREF ME_4AF8598C0277_ME_497DCC17001C_impl
  MELINK Original WL 'ME_4AF8598C0277' '4A9807DB01A5.ms.model.script' // DeselectAll
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" True
- UP "LongProcess" False
- UP "Needs Broadcast" False
- UP "no prefix" False
 ENDMEREF // ME_4AF8598C0277_ME_497DCC17001C_impl DeselectAll
 
 MEREF ME_4C7D3A81021B_ME_497DCC17001C_impl
  MELINK Original WL 'ME_4C7D3A81021B' '4A9807DB01A5.ms.model.script' // Activate
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" True
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
- UP "ShowInContextMenu" 'undefined'
- UP "ShowInToolbar" 'undefined'
 ENDMEREF // ME_4C7D3A81021B_ME_497DCC17001C_impl Activate
 
 MEREF ME_4D0B5FBF0310_ME_497DCC17001C_impl
  MELINK Original WL 'ME_4D0B5FBF0310' '4CCAAA9D00D6.ms.model.script' // CreateFilter
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
  UP "is query" True
- UP "LongProcess" False
- UP "no prefix" False
  UP "ShowInContextMenu" True
  UP "ShowInToolbar" False
 ENDMEREF // ME_4D0B5FBF0310_ME_497DCC17001C_impl CreateFilter
@@ -1346,13 +1277,9 @@ ME ME_497DCC17001C
    Seq: ( 'Main' 'Uses' )
  ; // DiagramsNames
  UP "author" 'Люлин А.В.'
- UP "finished dfm" True
  UP "NeedsHackRef" False
  UP "no hands" True
- UP "resizeable" False
- UP "restrict form def" 'undefined'
  UP "started" '26.01.2009 17:49'
- UP "ZoneType" 'Any'
  UP extprop:NeedsInitEntities True
  UP extprop:pas:TypeName 'TPrimFiltersForm'
  UP extprop:pas:UnitName 'PrimFilters_Form'

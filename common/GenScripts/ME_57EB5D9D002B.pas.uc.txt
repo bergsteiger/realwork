@@ -1,0 +1,40 @@
+//#UC START# *48077504027E_57EB5D9D002B_impl*
+ f_Operation := nil;
+ inherited;
+//#UC END# *48077504027E_57EB5D9D002B_impl*
+//#UC START# *48077504027E_57EB5D9D002B_var*
+//#UC END# *48077504027E_57EB5D9D002B_var*
+//#UC START# *57EB5BE402D1_57EB5D9D002B_impl*
+ Result := true;
+ l_P := ImsmOperation(f_Operation).Params;
+ Self.Caption := l_P.rCaption;
+ Self.Enabled := l_P.rEnabled;
+ Self.ShortCut := l_P.rShortCut;
+ Self.ImageIndex := TmsmImages.Instance.GetImageForOperation(l_P.rImageIndex{9}{opCopy});
+//#UC END# *57EB5BE402D1_57EB5D9D002B_impl*
+//#UC START# *57EB5BE402D1_57EB5D9D002B_var*
+var
+ l_P : TmsmOperationParams;
+//#UC END# *57EB5BE402D1_57EB5D9D002B_var*
+//#UC START# *57EB5D9D002B_ext:FileName
+w:\common\components\gui\Garant\msm\msmOperationAction.pas
+//#UC END# *57EB5D9D002B_ext:FileName
+//#UC START# *57EB5D9D002Bimpl_uses*
+ , msmOperations
+ //, msmImages
+//#UC END# *57EB5D9D002Bimpl_uses*
+//#UC START# *57EB5E6D011D_57EB5D9D002B_impl*
+ Result := true;
+ ImsmOperation(f_Operation).DoIt;
+//#UC END# *57EB5E6D011D_57EB5D9D002B_impl*
+//#UC START# *57EB5E6D011D_57EB5D9D002B_var*
+//#UC END# *57EB5E6D011D_57EB5D9D002B_var*
+//#UC START# *57EB5ED2020D_57EB5D9D002B_impl*
+ Assert(anOperation <> nil);
+ inherited Create(nil);
+ Self.ActionList := TmsmOperationsActionList.Instance;
+ f_Operation := anOperation;
+ Self.Caption := ImsmOperation(f_Operation).Caption;
+//#UC END# *57EB5ED2020D_57EB5D9D002B_impl*
+//#UC START# *57EB5ED2020D_57EB5D9D002B_var*
+//#UC END# *57EB5ED2020D_57EB5D9D002B_var*

@@ -1,0 +1,41 @@
+// ImsmUseCase 57AD9468006E Facet Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_57AD9468006E_diagrams
+
+ MEDIAGRAM ME_57AD9468006E_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_57AD9468006E' '57CEAF3602AB.ms.model.script' ; // ImsmUseCase
+
+  MEVIEW ME_57AD949C0005_view
+   MELINK Original WL 'ME_57AD949C0005' '57CEAF3602AB.ms.model.script' ; // AddController
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_57AD949C0005_view
+
+  MEVIEW ME_57D29826015D_view
+   MELINK Original WL 'ME_57D29826015D' '57CEAF3602AB.ms.model.script' ; // Bind
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_57D29826015D_view
+
+  MEVIEWLINK ME_57D29826015D_ME_57AD949C0005_Inherits
+   MELINK From ME_57D29826015D_view ;
+   MELINK To ME_57AD949C0005_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57D29826015D_ME_57AD949C0005_Inherits
+
+  MELIST Views
+   Seq: ( ME_57AD949C0005_view // AddController
+   ME_57D29826015D_view // Bind
+   ME_57D29826015D_ME_57AD949C0005_Inherits // Bind ==> AddController
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_57AD9468006E_main
+
+ MELIST Diagrams
+  Seq: ( ME_57AD9468006E_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_57AD9468006E_diagrams

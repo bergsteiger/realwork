@@ -1,0 +1,27 @@
+//#UC START# *57B47A2102DE_57C977AE0264_impl*
+ inherited;
+ if (Index < 0) then
+  Exit;
+ l_E := Self.Model.List[Index];
+ if (l_E <> nil) then
+  with l_E do
+  begin
+   aFont.Italic := BoolProp['IsSummoned'];
+   aFont.Strikeout := not BoolProp['IsFinished'];
+   if IsDeleted then
+    aFont.Strikeout := true;
+   aFont.ForeColor := IntProp['msm:View:ForeColor'];
+  end;//with l_E
+//#UC END# *57B47A2102DE_57C977AE0264_impl*
+//#UC START# *57B47A2102DE_57C977AE0264_var*
+var
+ l_E : ImsmModelElement;
+//#UC END# *57B47A2102DE_57C977AE0264_var*
+//#UC START# *57C977AE0264_ext:FileName
+w:\common\components\gui\Garant\msm\msmMEListLikeViewController.imp.pas
+//#UC END# *57C977AE0264_ext:FileName
+//#UC START# *57D9022D0322_57C977AE0264_impl*
+ Result := TmsmMEImages.Instance.GetMEImageByPropName(Self.Model.List[Index], Self.InitContext.rImageNameProp, aImages);
+//#UC END# *57D9022D0322_57C977AE0264_impl*
+//#UC START# *57D9022D0322_57C977AE0264_var*
+//#UC END# *57D9022D0322_57C977AE0264_var*

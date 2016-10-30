@@ -4,20 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_57B189990202
 
-ME ME_57CFF8900357
- MEPROP UID '57CFF8900357'
- MEPROP Name 'f_IsDir'
- MEPROP Class class_Attribute
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_57B189990202 // TmsmListModelPrim
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
-
-ENDME // ME_57CFF8900357 f_IsDir
-
 ME ME_57D27B5701C9
  MEPROP UID '57D27B5701C9'
  MEPROP Name 'f_List'
@@ -53,7 +39,6 @@ FORWARD ME_57F79A6500D5
 ME ME_57F79AAF01CA
  MEPROP Name 'anElement'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_57A9F4D30086' '57A9F4A003C8.ms.model.script' // ImsmModelElement
  ;
 
@@ -116,20 +101,10 @@ ME ME_57B31A400249
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57B189990202 // TmsmListModelPrim
  ;
- MELINK Target WL? 'ME_57B1674A02B6' // TmsmModelElementDir
+ MELINK Target WL? 'ME_57B1674A02B6' // TmsmModelElementStringList
  ;
 
 ENDME // ME_57B31A400249 
-
-ME ME_57B57E2D00FF
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57B189990202 // TmsmListModelPrim
- ;
- MELINK Target WL? 'ME_57B57D5500F6' // TmsmModelElementRelationList
- ;
-
-ENDME // ME_57B57E2D00FF 
 
 ME ME_57C99B9703BC
  MEPROP Class class_Dependency
@@ -209,11 +184,23 @@ MEREF ME_57E54FA00289_ME_57B189990202_impl
  MEPROP OpKind opkind_Implemented
 ENDMEREF // ME_57E54FA00289_ME_57B189990202_impl SetList
 
+MEREF ME_479731C50290_ME_57B189990202_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57B189990202_over Cleanup
+
 MEREF ME_57E331B90378_ME_57B189990202_over
  MELINK Original WL 'ME_57E331B90378' '57B57EDB003F.ms.model.script' // DoGetCaption
  ;
  MEPROP OpKind opkind_Overridden
 ENDMEREF // ME_57E331B90378_ME_57B189990202_over DoGetCaption
+
+MEREF ME_580A1AD9019C_ME_57B189990202_over
+ MELINK Original WL 'ME_580A1AD9019C' '57B6B5D00202.ms.model.script' // DoHandleEvent
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_580A1AD9019C_ME_57B189990202_over DoHandleEvent
 
 MEREF ME_57B57EDB003F_ME_57B189990202_G
  MELINK Original WL? 'ME_57B57EDB003F' // TmsmListLikeModel
@@ -227,7 +214,14 @@ MEREF ME_57B178F400EB_ME_57B189990202_R
  MEPROP OpKind opkind_ReferencedType
 ENDMEREF // ME_57B178F400EB_ME_57B189990202_R ImsmListModel
 
+MEREF ME_57B6B5D00202_ME_57B189990202_R
+ MELINK Original WL? 'ME_57B6B5D00202' // msmEventsSubscriberPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B6B5D00202_ME_57B189990202_R msmEventsSubscriberPrim
+
 %%ImplementedBy ME_57B178F400EB ME_57B189990202
+%%ImplementedBy ME_57B6B5D00202 ME_57B189990202
 
 %%InheritedBy ME_57B57EDB003F ME_57B189990202
 
@@ -248,11 +242,11 @@ ME ME_57B189990202
  ; // Inherits
  MELIST Implements
    Seq: ( HWL ME_57B178F400EB_ME_57B189990202_R // ImsmListModel
+ HWL ME_57B6B5D00202_ME_57B189990202_R // msmEventsSubscriberPrim
  )
  ; // Implements
  MELIST Attributes
-   Seq: ( HWL ME_57CFF8900357 // f_IsDir
- HWL ME_57D27B5701C9 // f_List
+   Seq: ( HWL ME_57D27B5701C9 // f_List
  HWL ME_57E2972B024B // f_SubElementName
  )
  ; // Attributes
@@ -267,12 +261,13 @@ ME ME_57B189990202
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_57E331B90378_ME_57B189990202_over // DoGetCaption
+   Seq: ( ME_479731C50290_ME_57B189990202_over // Cleanup
+ ME_57E331B90378_ME_57B189990202_over // DoGetCaption
+ ME_580A1AD9019C_ME_57B189990202_over // DoHandleEvent
  )
  ; // Overridden
  MELIST Dependencies
-   Seq: ( ME_57B31A400249 // TmsmModelElementDir
- ME_57B57E2D00FF // TmsmModelElementRelationList
+   Seq: ( ME_57B31A400249 // TmsmModelElementStringList
  ME_57C99B9703BC // ListChangedEvent
  ME_57E29F5800D9 // TtfwWordRefList
  ME_57E29F9C00DD // TtfwWordsIterator

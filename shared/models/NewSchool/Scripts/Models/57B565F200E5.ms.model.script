@@ -74,7 +74,6 @@ FORWARD ME_57B3267D03C8
 ME ME_57B32695026F
  MEPROP Name 'anElement'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_57A9F4D30086' '57A9F4A003C8.ms.model.script' // ImsmModelElement
  ;
 
@@ -83,7 +82,6 @@ ENDME // ME_57B32695026F anElement
 ME ME_57B3269502AF
  MEPROP Name 'aListName'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -92,7 +90,6 @@ ENDME // ME_57B3269502AF aListName
 ME ME_57B3269502C6
  MEPROP Name 'aTextName'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -139,7 +136,6 @@ FORWARD ME_57B327BF01E3
 ME ME_57B327C6009F
  MEPROP Name 'aListName'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -148,7 +144,6 @@ ENDME // ME_57B327C6009F aListName
 ME ME_57B327C600BD
  MEPROP Name 'aTextName'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -195,7 +190,6 @@ FORWARD ME_57B43B4300B8
 ME ME_57B43B4603AA
  MEPROP Name 'anElement'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_57A9F4D30086' '57A9F4A003C8.ms.model.script' // ImsmModelElement
  ;
 
@@ -204,7 +198,6 @@ ENDME // ME_57B43B4603AA anElement
 ME ME_57B43B4603C8
  MEPROP Name 'aListName'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -251,7 +244,6 @@ FORWARD ME_57B43B5B0282
 ME ME_57B43B5F0222
  MEPROP Name 'aListName'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
@@ -297,7 +289,6 @@ FORWARD ME_57B43D060045
 ME ME_57B43D0A02EC
  MEPROP Name 'anElement'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_57A9F4D30086' '57A9F4A003C8.ms.model.script' // ImsmModelElement
  ;
 
@@ -343,7 +334,6 @@ FORWARD ME_57F4ED480340
 ME ME_57F4ED580319
  MEPROP Name 'anOther'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target HWL ME_57B3262B00D2 // TmsmModelElementView
  ;
 
@@ -411,6 +401,77 @@ ME ME_57F4ED230163
 
 ENDME // ME_57F4ED230163 CompareListKey
 
+FORWARD ME_5811C4AC0136
+
+FORWARD ME_5811C4BD0216
+
+ME ME_5811C4C90061
+ MEPROP Name 'aIsDir'
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5811C4C90061 aIsDir
+
+ME ME_5811C4BD0216
+ MEPROP UID '5811C4BD0216'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5811C4AC0136 // ChangeIsDir
+ ;
+ MELINK Target HWL ME_57B3262B00D2 // TmsmModelElementView
+ ;
+ MELIST Parameters
+   Seq: ( ME_5811C4C90061 // aIsDir
+ )
+ ; // Parameters
+
+ENDME // ME_5811C4BD0216 DoIt
+
+ME ME_5811C4AC0136
+ MEPROP UID '5811C4AC0136'
+ MEPROP Name 'ChangeIsDir'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B3262B00D2 // TmsmModelElementView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5811C4BD0216 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5811C4AC0136 ChangeIsDir
+
+MEREF ME_57F4ED230163_ME_5811C4ED035E_G
+ MELINK Original HWL ME_57F4ED230163 // CompareListKey
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57F4ED230163_ME_5811C4ED035E_G CompareListKey
+
+%%InheritedBy ME_57F4ED230163 ME_5811C4ED035E
+
+ME ME_5811C4ED035E
+ MEPROP UID '5811C4ED035E'
+ MEPROP Name 'CompareStringListKey'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B3262B00D2 // TmsmModelElementView
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57F4ED230163_ME_5811C4ED035E_G // CompareListKey
+ )
+ ; // Inherits
+
+ENDME // ME_5811C4ED035E CompareStringListKey
+
 ME ME_57B3262B00D2
  MEPROP UID '57B3262B00D2'
  MEPROP Name 'TmsmModelElementView'
@@ -435,6 +496,8 @@ ME ME_57B3262B00D2
  HWL ME_57B43B540139 // C$3
  HWL ME_57B43CFB03A4 // C$4
  HWL ME_57F4ED230163 // CompareListKey
+ HWL ME_5811C4AC0136 // ChangeIsDir
+ HWL ME_5811C4ED035E // CompareStringListKey
  )
  ; // Operations
  MESTRINGLIST DiagramsNames
@@ -448,21 +511,18 @@ MEREF ME_57AAD89C0277_ME_57B69C79026F_impl
  MELINK Original WL 'ME_57AAD89C0277' '57B6AC48035C.ms.model.script' // Count
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_57AAD89C0277_ME_57B69C79026F_impl Count
 
 MEREF ME_57AEBED1018D_ME_57B69C79026F_impl
  MELINK Original WL 'ME_57AEBED1018D' '57B6AC48035C.ms.model.script' // Strings
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_57AEBED1018D_ME_57B69C79026F_impl Strings
 
 MEREF ME_57B6C7D40215_ME_57B69C79026F_impl
  MELINK Original WL 'ME_57B6C7D40215' '57B6AC48035C.ms.model.script' // StringsToFind
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_57B6C7D40215_ME_57B69C79026F_impl StringsToFind
 
 MEREF ME_57B69C2E00DD_ME_57B69C79026F_R
@@ -504,35 +564,42 @@ MEREF ME_57AAD86403AD_ME_57AEBE8A014F_impl
  ;
  MEPROP OpKind opkind_Implemented
  UP "is default" True
- UP "pm" False
 ENDMEREF // ME_57AAD86403AD_ME_57AEBE8A014F_impl Item
 
 MEREF ME_57AAD89C0277_ME_57AEBE8A014F_impl
  MELINK Original WL 'ME_57AAD89C0277' '57B6AC48035C.ms.model.script' // Count
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_57AAD89C0277_ME_57AEBE8A014F_impl Count
 
 MEREF ME_57AE2E140297_ME_57AEBE8A014F_impl
  MELINK Original WL 'ME_57AE2E140297' '57A9F4A003C8.ms.model.script' // Owner
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_57AE2E140297_ME_57AEBE8A014F_impl Owner
 
 MEREF ME_57AEBED1018D_ME_57AEBE8A014F_impl
  MELINK Original WL 'ME_57AEBED1018D' '57B6AC48035C.ms.model.script' // Strings
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_57AEBED1018D_ME_57AEBE8A014F_impl Strings
+
+MEREF ME_57B4228B001E_ME_57AEBE8A014F_impl
+ MELINK Original WL 'ME_57B4228B001E' '57B5730D0123.ms.model.script' // AddEventsSubscriber
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57B4228B001E_ME_57AEBE8A014F_impl AddEventsSubscriber
+
+MEREF ME_57B422AB0293_ME_57AEBE8A014F_impl
+ MELINK Original WL 'ME_57B422AB0293' '57B5730D0123.ms.model.script' // RemoveEventsSubscriber
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57B422AB0293_ME_57AEBE8A014F_impl RemoveEventsSubscriber
 
 MEREF ME_57B6C7D40215_ME_57AEBE8A014F_impl
  MELINK Original WL 'ME_57B6C7D40215' '57B6AC48035C.ms.model.script' // StringsToFind
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_57B6C7D40215_ME_57AEBE8A014F_impl StringsToFind
 
 MEREF ME_57D1327900BC_ME_57AEBE8A014F_impl
@@ -540,6 +607,12 @@ MEREF ME_57D1327900BC_ME_57AEBE8A014F_impl
  ;
  MEPROP OpKind opkind_Implemented
 ENDMEREF // ME_57D1327900BC_ME_57AEBE8A014F_impl IndexOfElementView
+
+MEREF ME_58094B920194_ME_57AEBE8A014F_impl
+ MELINK Original WL 'ME_58094B920194' '57A9F4A003C8.ms.model.script' // Add
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_58094B920194_ME_57AEBE8A014F_impl Add
 
 MEREF ME_57B69C79026F_ME_57AEBE8A014F_G
  MELINK Original HWL ME_57B69C79026F // ImsmStringList
@@ -553,7 +626,14 @@ MEREF ME_57B5619501B1_ME_57AEBE8A014F_R
  MEPROP OpKind opkind_ReferencedType
 ENDMEREF // ME_57B5619501B1_ME_57AEBE8A014F_R MmsmModelElementList
 
+MEREF ME_57B6B9670157_ME_57AEBE8A014F_R
+ MELINK Original WL 'ME_57B6B9670157' '57B5730D0123.ms.model.script' // ImsmEventsPublisher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B6B9670157_ME_57AEBE8A014F_R ImsmEventsPublisher
+
 %%ImplementedBy ME_57B5619501B1 ME_57AEBE8A014F
+%%ImplementedBy ME_57B6B9670157 ME_57AEBE8A014F
 
 %%InheritedBy ME_57B69C79026F ME_57AEBE8A014F
 
@@ -574,6 +654,7 @@ ME ME_57AEBE8A014F
  ; // Inherits
  MELIST Implements
    Seq: ( HWL ME_57B5619501B1_ME_57AEBE8A014F_R // MmsmModelElementList
+ HWL ME_57B6B9670157_ME_57AEBE8A014F_R // ImsmEventsPublisher
  )
  ; // Implements
  MELIST Implemented
@@ -581,8 +662,11 @@ ME ME_57AEBE8A014F
  ME_57AAD89C0277_ME_57AEBE8A014F_impl // Count
  ME_57AE2E140297_ME_57AEBE8A014F_impl // Owner
  ME_57AEBED1018D_ME_57AEBE8A014F_impl // Strings
+ ME_57B4228B001E_ME_57AEBE8A014F_impl // AddEventsSubscriber
+ ME_57B422AB0293_ME_57AEBE8A014F_impl // RemoveEventsSubscriber
  ME_57B6C7D40215_ME_57AEBE8A014F_impl // StringsToFind
  ME_57D1327900BC_ME_57AEBE8A014F_impl // IndexOfElementView
+ ME_58094B920194_ME_57AEBE8A014F_impl // Add
  )
  ; // Implemented
  UP extprop:rc:isAcceptableForScripts True
@@ -624,7 +708,6 @@ ME ME_57ADF1B40310
    Seq: ( HWL ME_57ADF1DC023B // anIndex
  )
  ; // Attributes
- UP "pm" False
 
 ENDME // ME_57ADF1B40310 Elements
 
@@ -635,7 +718,6 @@ FORWARD ME_57C9AD1F0311
 ME ME_57C9AD30019A
  MEPROP Name 'anElement'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_57A9F4D30086' '57A9F4A003C8.ms.model.script' // ImsmModelElement
  ;
 
@@ -679,7 +761,6 @@ MEREF ME_46825CAA0125_ME_57ADF14D01B1_impl
  MELINK Original WL 'ME_46825CAA0125' '4682595B0268.ms.model.script' // RootNode
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_46825CAA0125_ME_57ADF14D01B1_impl RootNode
 
 MEREF ME_46A44F6B035E_ME_57ADF14D01B1_impl
@@ -848,42 +929,36 @@ MEREF ME_477248FE005A_ME_57ADF14D01B1_impl
  MELINK Original WL 'ME_477248FE005A' '4682595B0268.ms.model.script' // ShowRoot
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_477248FE005A_ME_57ADF14D01B1_impl ShowRoot
 
 MEREF ME_4772490E02F7_ME_57ADF14D01B1_impl
  MELINK Original WL 'ME_4772490E02F7' '4682595B0268.ms.model.script' // CountView
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_4772490E02F7_ME_57ADF14D01B1_impl CountView
 
 MEREF ME_4772491C01C5_ME_57ADF14D01B1_impl
  MELINK Original WL 'ME_4772491C01C5' '4682595B0268.ms.model.script' // SelectCount
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_4772491C01C5_ME_57ADF14D01B1_impl SelectCount
 
 MEREF ME_4772495902EE_ME_57ADF14D01B1_impl
  MELINK Original WL 'ME_4772495902EE' '4682595B0268.ms.model.script' // Flags
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_4772495902EE_ME_57ADF14D01B1_impl Flags
 
 MEREF ME_477249AB0057_ME_57ADF14D01B1_impl
  MELINK Original WL 'ME_477249AB0057' '4682595B0268.ms.model.script' // Select
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_477249AB0057_ME_57ADF14D01B1_impl Select
 
 MEREF ME_477249EB02D9_ME_57ADF14D01B1_impl
  MELINK Original WL 'ME_477249EB02D9' '4682595B0268.ms.model.script' // Nodes
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_477249EB02D9_ME_57ADF14D01B1_impl Nodes
 
 MEREF ME_47A86EA80292_ME_57ADF14D01B1_impl
@@ -909,35 +984,42 @@ MEREF ME_57AAD86403AD_ME_57ADF14D01B1_impl
  ;
  MEPROP OpKind opkind_Implemented
  UP "is default" True
- UP "pm" False
 ENDMEREF // ME_57AAD86403AD_ME_57ADF14D01B1_impl Item
 
 MEREF ME_57AAD89C0277_ME_57ADF14D01B1_impl
  MELINK Original WL 'ME_57AAD89C0277' '57B6AC48035C.ms.model.script' // Count
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_57AAD89C0277_ME_57ADF14D01B1_impl Count
 
 MEREF ME_57AE2E140297_ME_57ADF14D01B1_impl
  MELINK Original WL 'ME_57AE2E140297' '57A9F4A003C8.ms.model.script' // Owner
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_57AE2E140297_ME_57ADF14D01B1_impl Owner
 
 MEREF ME_57AEBED1018D_ME_57ADF14D01B1_impl
  MELINK Original WL 'ME_57AEBED1018D' '57B6AC48035C.ms.model.script' // Strings
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_57AEBED1018D_ME_57ADF14D01B1_impl Strings
+
+MEREF ME_57B4228B001E_ME_57ADF14D01B1_impl
+ MELINK Original WL 'ME_57B4228B001E' '57B5730D0123.ms.model.script' // AddEventsSubscriber
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57B4228B001E_ME_57ADF14D01B1_impl AddEventsSubscriber
+
+MEREF ME_57B422AB0293_ME_57ADF14D01B1_impl
+ MELINK Original WL 'ME_57B422AB0293' '57B5730D0123.ms.model.script' // RemoveEventsSubscriber
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57B422AB0293_ME_57ADF14D01B1_impl RemoveEventsSubscriber
 
 MEREF ME_57B6C7D40215_ME_57ADF14D01B1_impl
  MELINK Original WL 'ME_57B6C7D40215' '57B6AC48035C.ms.model.script' // StringsToFind
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_57B6C7D40215_ME_57ADF14D01B1_impl StringsToFind
 
 MEREF ME_57D1327900BC_ME_57ADF14D01B1_impl
@@ -945,6 +1027,12 @@ MEREF ME_57D1327900BC_ME_57ADF14D01B1_impl
  ;
  MEPROP OpKind opkind_Implemented
 ENDMEREF // ME_57D1327900BC_ME_57ADF14D01B1_impl IndexOfElementView
+
+MEREF ME_58094B920194_ME_57ADF14D01B1_impl
+ MELINK Original WL 'ME_58094B920194' '57A9F4A003C8.ms.model.script' // Add
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_58094B920194_ME_57ADF14D01B1_impl Add
 
 MEREF ME_57B6A2C70212_ME_57ADF14D01B1_G
  MELINK Original WL 'ME_57B6A2C70212' '57B6AC48035C.ms.model.script' // ImsmTree
@@ -1031,8 +1119,11 @@ ME ME_57ADF14D01B1
  ME_57AAD89C0277_ME_57ADF14D01B1_impl // Count
  ME_57AE2E140297_ME_57ADF14D01B1_impl // Owner
  ME_57AEBED1018D_ME_57ADF14D01B1_impl // Strings
+ ME_57B4228B001E_ME_57ADF14D01B1_impl // AddEventsSubscriber
+ ME_57B422AB0293_ME_57ADF14D01B1_impl // RemoveEventsSubscriber
  ME_57B6C7D40215_ME_57ADF14D01B1_impl // StringsToFind
  ME_57D1327900BC_ME_57ADF14D01B1_impl // IndexOfElementView
+ ME_58094B920194_ME_57ADF14D01B1_impl // Add
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -1067,13 +1158,13 @@ ME ME_57B565F200E5
  WL? 'ME_4AB0C3C60310' // Sys
  WL? 'ME_54B90AC6014B' // StringUtils
  WL? 'ME_57A9F4A003C8' // msmModelElements
+ WL? 'ME_57B5730D0123' // msmEvents
  WL? 'ME_57B6AC48035C' // msmUsualData
  )
  ; // Depends
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' 'Uses' )
  ; // DiagramsNames
- UP "is namespace" True
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmElementViews.pas'
 
 ENDME // ME_57B565F200E5 msmElementViews

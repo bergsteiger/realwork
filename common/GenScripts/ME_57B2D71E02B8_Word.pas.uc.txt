@@ -1,0 +1,34 @@
+//#UC START# *57B2D71E02B8_57B2D71E02B8_Word_impl*
+ with TmsmWordsCache.Instance do
+ begin
+  Lock;
+  try
+   Result := FindData(aName, l_Index);
+   if Result then
+    aCtx.rEngine.PushObj(Items[l_Index]);
+  finally
+   Unlock;
+  end;//try..finally
+ end;//with TmsmWordsCache.Instance
+ if not Result then
+ begin
+  with TmsmLostWords.Instance do
+  begin
+   Lock;
+   try
+    Result := FindData(aName, l_Index);
+    if Result then
+     aCtx.rEngine.PushObj(nil);
+   finally
+    Unlock;
+   end;//try..finally
+  end;//with TmsmLostWords.Instance
+ end;//not Result 
+//#UC END# *57B2D71E02B8_57B2D71E02B8_Word_impl*
+//#UC START# *57B2D71E02B8_57B2D71E02B8_Word_var*
+var
+ l_Index: Integer;
+//#UC END# *57B2D71E02B8_57B2D71E02B8_Word_var*
+//#UC START# *57B2D71E02B8_Word_ext:ParentFileName
+w:\common\components\gui\Garant\msm\msmWordsCachePack.pas
+//#UC END# *57B2D71E02B8_Word_ext:ParentFileName

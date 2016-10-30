@@ -1,0 +1,53 @@
+//#UC START# *497469C90140_4CB6D95D003A_impl*
+ inherited;
+ if Assigned(ViewArea) then
+  FilterName.Text := ViewArea.Name;
+//#UC END# *497469C90140_4CB6D95D003A_impl*
+//#UC START# *497469C90140_4CB6D95D003A_var*
+//#UC END# *497469C90140_4CB6D95D003A_var*
+//#UC START# *49803F5503AA_4CB6D95D003A_impl*
+ inherited;
+ CCaption := l3CStr(CurUserType.Caption);
+//#UC END# *49803F5503AA_4CB6D95D003A_impl*
+//#UC START# *49803F5503AA_4CB6D95D003A_var*
+//#UC END# *49803F5503AA_4CB6D95D003A_var*
+//#UC START# *4A8E8F2E0195_4CB6D95D003A_impl*
+ inherited;
+ BorderStyle := bsDialog;
+ NameLabel.Top := 4;
+ NameLabel.Left := 4;
+ FilterName.Top := NameLabel.Top + NameLabel.Height + 4;
+ FilterName.Left := 4;
+ FilterName.Width := 300;
+ Width := FilterName.Left + FilterName.Width + 4;
+ Height := FilterName.Top + FilterName.Height + 4;
+ ClientWidth := Width;
+ ClientHeight := Height;
+ Position := poScreenCenter;
+//#UC END# *4A8E8F2E0195_4CB6D95D003A_impl*
+//#UC START# *4A8E8F2E0195_4CB6D95D003A_var*
+//#UC END# *4A8E8F2E0195_4CB6D95D003A_var*
+//#UC START# *4C762A1501FC_4CB6D95D003Aexec_impl*
+ Result_OkExt_Execute(aParams);
+//#UC END# *4C762A1501FC_4CB6D95D003Aexec_impl*
+//#UC START# *4C762A1501FC_4CB6D95D003Aexec_var*
+//#UC END# *4C762A1501FC_4CB6D95D003Aexec_var*
+//#UC START# *4C762C910358_4CB6D95D003Aexec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4C762C910358_4CB6D95D003Aexec_impl*
+//#UC START# *4C762C910358_4CB6D95D003Aexec_var*
+//#UC END# *4C762C910358_4CB6D95D003Aexec_var*
+//#UC START# *4C762D9B0224_4CB6D95D003Aexec_impl*
+ if (UserType = cfCreate) then
+  ViewArea.CreateFilter(FilterName.Text)
+ else
+  ViewArea.RenameFilter(FilterName.Text);
+ ModalResult := mrOk;
+//#UC END# *4C762D9B0224_4CB6D95D003Aexec_impl*
+//#UC START# *4C762D9B0224_4CB6D95D003Aexec_var*
+//#UC END# *4C762D9B0224_4CB6D95D003Aexec_var*
+//#UC START# *4CB6D95D003A_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\PrimCreateFilter_Form.pas
+//#UC END# *4CB6D95D003A_ext:FileName
+//#UC START# *4CB6D95D003Aimpl_uses*
+//#UC END# *4CB6D95D003Aimpl_uses*

@@ -1,0 +1,149 @@
+//#UC START# *4DAEEDE10285_4DC3D8E200AF_impl*
+ DefDataAdapter.TimeMachine.Date := bsBusinessToAdapter(FlexStr2Date(aCtx.rEngine.PopDelphiString));
+//#UC END# *4DAEEDE10285_4DC3D8E200AF_impl*
+//#UC START# *4DAEEDE10285_4DC3D8E200AF_var*
+//#UC END# *4DAEEDE10285_4DC3D8E200AF_var*
+//#UC START# *4DAEEDE10285_4DD530DD03D8_impl*
+ l_S := aCtx.rCaller.ResolveOutputFilePath(aCtx.rEngine.PopDelphiString);
+ (vcmDispatcher.FormDispatcher.CurrentMainForm.VCLWinControl As TvcmMainForm).DoExportHelp(l_S, false);
+ aCtx.rCaller.CheckWithEtalon(l_S, #0);
+//#UC END# *4DAEEDE10285_4DD530DD03D8_impl*
+//#UC START# *4DAEEDE10285_4DD530DD03D8_var*
+var
+ l_S : String;
+//#UC END# *4DAEEDE10285_4DD530DD03D8_var*
+//#UC START# *4DAEEDE10285_4E68C9020275_impl*
+ ConfigurationList.ActiveConfig.Load(true);
+//#UC END# *4DAEEDE10285_4E68C9020275_impl*
+//#UC START# *4DAEEDE10285_4E68C9020275_var*
+//#UC END# *4DAEEDE10285_4E68C9020275_var*
+//#UC START# *4DAEEDE10285_4E68D33202D5_impl*
+ TnsStyleTableSettingsInfo.Make(ConfigurationList.ActiveConfig.Configuration).Load(true);
+//#UC END# *4DAEEDE10285_4E68D33202D5_impl*
+//#UC START# *4DAEEDE10285_4E68D33202D5_var*
+//#UC END# *4DAEEDE10285_4E68D33202D5_var*
+//#UC START# *4DAEEDE10285_4EC134690154_impl*
+ aCtx.rEngine.PushString(bsBaseDateStr);
+//#UC END# *4DAEEDE10285_4EC134690154_impl*
+//#UC START# *4DAEEDE10285_4EC134690154_var*
+//#UC END# *4DAEEDE10285_4EC134690154_var*
+//#UC START# *4DAEEDE10285_50237E1C0249_impl*
+ aCtx.rEngine.PushString(bsComplectName);
+//#UC END# *4DAEEDE10285_50237E1C0249_impl*
+//#UC START# *4DAEEDE10285_50237E1C0249_var*
+//#UC END# *4DAEEDE10285_50237E1C0249_var*
+//#UC START# *4DAEEDE10285_50237E3A03A5_impl*
+ aCtx.rEngine.PushString(bsComplectOwner);
+//#UC END# *4DAEEDE10285_50237E3A03A5_impl*
+//#UC START# *4DAEEDE10285_50237E3A03A5_var*
+//#UC END# *4DAEEDE10285_50237E3A03A5_var*
+//#UC START# *4DAEEDE10285_51AEF36002D1_impl*
+ DefDataAdapter.CommonInterfaces.GetEncryptedComplectId(l_Id);
+ aCtx.rEngine.PushString(nsCStr(l_Id));
+//#UC END# *4DAEEDE10285_51AEF36002D1_impl*
+//#UC START# *4DAEEDE10285_51AEF36002D1_var*
+var
+ l_Id: IString;
+//#UC END# *4DAEEDE10285_51AEF36002D1_var*
+//#UC START# *4DAEEDE10285_539834A703AD_impl*
+ ConfigurationList.ActiveConfig.RestoreAllSettings;
+//#UC END# *4DAEEDE10285_539834A703AD_impl*
+//#UC START# *4DAEEDE10285_539834A703AD_var*
+//#UC END# *4DAEEDE10285_539834A703AD_var*
+//#UC START# *4DAEEDE10285_53B2E10F03C0_impl*
+ f_ConfigurationManager := DefDataAdapter.NativeAdapter.MakeConfigurationManager;
+ try
+  DoWithConfigurations(aCtx);
+ finally
+  f_ConfigurationManager := nil;
+ end;
+//#UC END# *4DAEEDE10285_53B2E10F03C0_impl*
+//#UC START# *4DAEEDE10285_53B2E10F03C0_var*
+//#UC END# *4DAEEDE10285_53B2E10F03C0_var*
+//#UC START# *53B2E1D201CE_53B2DE010174_impl*
+ ConfigurationManager.GetConfigurations(l_C);
+ try
+  aCtx.rEngine.PushInt(l_C.Count);
+ finally
+  l_C := nil;
+ end;
+//#UC END# *53B2E1D201CE_53B2DE010174_impl*
+//#UC START# *53B2E1D201CE_53B2DE010174_var*
+var
+ l_C: IConfigurations;
+//#UC END# *53B2E1D201CE_53B2DE010174_var*
+//#UC START# *53B2E1D201CE_53B2DF2B005B_impl*
+ RunnerAssert(aCtx.rEngine.IsTopInt, 'Не указан номер конфигурации!', aCtx);
+ ConfigurationManager.GetConfigurations(l_C);
+ try
+  l_C.pm_GetItem(aCtx.rEngine.PopInt, l_Res);
+  aCtx.rEngine.PushIntf(l_Res, TypeInfo(IConfiguration));
+ finally
+  l_C := nil;
+  l_Res := nil;
+ end;
+//#UC END# *53B2E1D201CE_53B2DF2B005B_impl*
+//#UC START# *53B2E1D201CE_53B2DF2B005B_var*
+var
+ l_C: IConfigurations;
+ l_Res: IConfiguration;
+//#UC END# *53B2E1D201CE_53B2DF2B005B_var*
+//#UC START# *53B2E1D201CE_53B2DF81021D_impl*
+ ConfigurationManager.GetActive(l_C);
+ try
+  aCtx.rEngine.PushIntf(l_C, TypeInfo(IConfiguration));
+ finally
+  l_C := nil;
+ end;
+//#UC END# *53B2E1D201CE_53B2DF81021D_impl*
+//#UC START# *53B2E1D201CE_53B2DF81021D_var*
+var
+ l_C: IConfiguration;
+//#UC END# *53B2E1D201CE_53B2DF81021D_var*
+//#UC START# *53B2E1D201CE_53B2E13A03D6_impl*
+ RunnerAssert(aCtx.rEngine.IsTopIntf, 'Не передана конфигурация!', aCtx);
+ l_Unk := aCtx.rEngine.PopIntf;
+ if Supports(l_Unk, IConfiguration, l_Conf) then
+  DoWithConfiguration(l_Conf, aCtx)
+ else
+  RunnerAssert(False, 'Не передана конфигурация!', aCtx);
+//#UC END# *53B2E1D201CE_53B2E13A03D6_impl*
+//#UC START# *53B2E1D201CE_53B2E13A03D6_var*
+var
+ l_Unk: IUnknown;
+ l_Conf: IConfiguration;
+//#UC END# *53B2E1D201CE_53B2E13A03D6_var*
+//#UC START# *53B2E36A0075_53B2DF500282_impl*
+ aConfiguration.GetName(l_S);
+ try
+  aCtx.rEngine.PushString(nsCStr(l_S));
+ finally
+  l_S := nil;
+ end;
+//#UC END# *53B2E36A0075_53B2DF500282_impl*
+//#UC START# *53B2E36A0075_53B2DF500282_var*
+var
+ l_S: IString;
+//#UC END# *53B2E36A0075_53B2DF500282_var*
+//#UC START# *53B2E36A0075_53B2DF6C00CA_impl*
+ aCtx.rEngine.PushInt(Ord(aConfiguration.GetType));
+//#UC END# *53B2E36A0075_53B2DF6C00CA_impl*
+//#UC START# *53B2E36A0075_53B2DF6C00CA_var*
+//#UC END# *53B2E36A0075_53B2DF6C00CA_var*
+//#UC START# *53B2E36A0075_53B2DF9903E3_impl*
+ ConfigurationList.ActivateConfig(aConfiguration);
+//#UC END# *53B2E36A0075_53B2DF9903E3_impl*
+//#UC START# *53B2E36A0075_53B2DF9903E3_var*
+//#UC END# *53B2E36A0075_53B2DF9903E3_var*
+//#UC START# *53B2E36A0075_53B2E3EF00C4_impl*
+ aCtx.rEngine.PushInt(aConfiguration.GetID);
+//#UC END# *53B2E36A0075_53B2E3EF00C4_impl*
+//#UC START# *53B2E36A0075_53B2E3EF00C4_var*
+//#UC END# *53B2E36A0075_53B2E3EF00C4_var*
+//#UC START# *571A2878000D_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\PrimConfigurationListWordsPack.pas
+//#UC END# *571A2878000D_ext:FileName
+//#UC START# *571A2878000Dimpl_uses*
+//#UC END# *571A2878000Dimpl_uses*
+//#UC START# *571A2878000Dintf_uses*
+//#UC END# *571A2878000Dintf_uses*

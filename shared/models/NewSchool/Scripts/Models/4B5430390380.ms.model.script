@@ -16,9 +16,6 @@ ME ME_52614FE4011B
  MELINK Parent HWL ME_52614FCC03D8 // SelfInfo Hints
  ;
  MEPROP Value '''Введите пароль для авторизации в системе'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Введите пароль для авторизации в системе'''
 
 ENDME // ME_52614FE4011B edPasswordHint
@@ -33,9 +30,6 @@ ME ME_52614FFB014C
  MELINK Parent HWL ME_52614FCC03D8 // SelfInfo Hints
  ;
  MEPROP Value '''Введите свои имя, фамилию и отчество'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Введите свои имя, фамилию и отчество'''
 
 ENDME // ME_52614FFB014C edUserNameHint
@@ -50,9 +44,6 @@ ME ME_5261502600FB
  MELINK Parent HWL ME_52614FCC03D8 // SelfInfo Hints
  ;
  MEPROP Value '''Введите имя для работы в системе ГАРАНТ'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Введите имя для работы в системе ГАРАНТ'''
 
 ENDME // ME_5261502600FB edLoginHint
@@ -67,9 +58,6 @@ ME ME_5261504002C9
  MELINK Parent HWL ME_52614FCC03D8 // SelfInfo Hints
  ;
  MEPROP Value '''Электронная почта: адрес, на который будет выслан забытый Вами пароль'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Электронная почта: адрес, на который будет выслан забытый Вами пароль'''
 
 ENDME // ME_5261504002C9 edEmailHint
@@ -84,9 +72,6 @@ ME ME_5261505C036D
  MELINK Parent HWL ME_52614FCC03D8 // SelfInfo Hints
  ;
  MEPROP Value '''Подтвердите пароль, введенный в предыдущей строке'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Подтвердите пароль, введенный в предыдущей строке'''
 
 ENDME // ME_5261505C036D edConfirmHint
@@ -94,7 +79,7 @@ ENDME // ME_5261505C036D edConfirmHint
 ME ME_52614FCC03D8
  MEPROP UID '52614FCC03D8'
  MEPROP Name 'SelfInfo Hints'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -110,9 +95,6 @@ ME ME_52614FCC03D8
  )
  ; // Attributes
  UP "elements prefix" 'PrimSelfInfo'
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'PrimSelfInfo_'
  UP extprop:pas:ElementPrefixBase 'PrimSelfInfo'
 
@@ -132,7 +114,6 @@ ME ME_52614DE000E0
  MELINK Parent HWL ME_52614D6D0167 // pnMainData
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_52614DE000E0 UserNameLabel
@@ -149,7 +130,6 @@ ME ME_52614DE80142
  MELINK Parent HWL ME_52614D6D0167 // pnMainData
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_52614DE80142 PasswordLabel
@@ -166,7 +146,6 @@ ME ME_52614DF10377
  MELINK Parent HWL ME_52614D6D0167 // pnMainData
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_52614DF10377 LoginLabel
@@ -183,7 +162,6 @@ ME ME_52614DFE023D
  MELINK Parent HWL ME_52614D6D0167 // pnMainData
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_52614DFE023D InfoLabel
@@ -200,7 +178,6 @@ ME ME_52614E060349
  MELINK Parent HWL ME_52614D6D0167 // pnMainData
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_52614E060349 EMailLabel
@@ -217,7 +194,6 @@ ME ME_52614E0F011F
  MELINK Parent HWL ME_52614D6D0167 // pnMainData
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_52614E0F011F ConfirmPasswordLabel
@@ -234,7 +210,6 @@ ME ME_52614E1B0288
  MELINK Parent HWL ME_52614D6D0167 // pnMainData
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'AsteriskLabelLogin'
 
@@ -252,7 +227,6 @@ ME ME_52614E34016A
  MELINK Parent HWL ME_52614D6D0167 // pnMainData
  ;
  UP "ControlClass" 'TvtLabel'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'AsteriskLabelFIO'
 
@@ -269,7 +243,6 @@ ME ME_52614E5401CC
  MELINK Parent HWL ME_52614D6D0167 // pnMainData
  ;
  UP "ControlClass" 'TnscComboBoxWithPwdChar'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'Password'
 
@@ -286,7 +259,6 @@ ME ME_52614E5F01DC
  MELINK Parent HWL ME_52614D6D0167 // pnMainData
  ;
  UP "ControlClass" 'TnscEdit'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'UserName'
 
@@ -303,7 +275,6 @@ ME ME_52614E6A018B
  MELINK Parent HWL ME_52614D6D0167 // pnMainData
  ;
  UP "ControlClass" 'TnscEdit'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'Login'
 
@@ -320,7 +291,6 @@ ME ME_52614E7800A3
  MELINK Parent HWL ME_52614D6D0167 // pnMainData
  ;
  UP "ControlClass" 'TnscEdit'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'Email'
 
@@ -337,7 +307,6 @@ ME ME_52614E8001B4
  MELINK Parent HWL ME_52614D6D0167 // pnMainData
  ;
  UP "ControlClass" 'TnscComboBoxWithPwdChar'
- UP "pm" True
  UP "put to dfm" False
  UP extprop:rc:SelfName 'Confirm'
 
@@ -373,7 +342,6 @@ ME ME_52614D6D0167
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_52614D6D0167 pnMainData
@@ -392,7 +360,6 @@ ME ME_526150890250
  MELINK Parent HWL ME_5261506E0057 // BottomPanel
  ;
  UP "ControlClass" 'TElPopupButton'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_526150890250 RegisterButton
@@ -410,7 +377,6 @@ ME ME_526150BA01F7
  MELINK Parent HWL ME_526150A60110 // HelpPanel
  ;
  UP "ControlClass" 'TPaintBox'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_526150BA01F7 HelpPaintBox
@@ -427,7 +393,6 @@ ME ME_526150CB039D
  MELINK Parent HWL ME_526150A60110 // HelpPanel
  ;
  UP "ControlClass" 'TvtFocusLabel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_526150CB039D HelpLabel
@@ -451,7 +416,6 @@ ME ME_526150A60110
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_526150A60110 HelpPanel
@@ -475,7 +439,6 @@ ME ME_5261506E0057
    Seq: ( 'Main' )
  ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_5261506E0057 BottomPanel
@@ -492,7 +455,6 @@ ME ME_5261513C008C
  ;
  MELINK Target WL 'ME_4B50250E0139' '49903C95009E.ms.model.script' // InsUserProperty
  ;
- UP "pm" True
  UP "reads field" True
 
 ENDME // ME_5261513C008C Info
@@ -974,10 +936,6 @@ ME ME_4B5430390380
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' 'Uses' )
  ; // DiagramsNames
- UP "finished dfm" True
- UP "NeedsHackRef" True
- UP "resizeable" False
- UP "restrict form def" 'undefined'
  UP "ZoneType" 'Modal'
  UP extprop:pas:TypeName 'TPrimSelfInfoForm'
  UP extprop:pas:UnitName 'PrimSelfInfo_Form'

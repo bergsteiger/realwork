@@ -1,4 +1,4 @@
-// TmsmLoadedWordsListModel 57E51B3002A8 SimpleClass Class
+// TmsmSomeWordsListModel 57E51B3002A8 SimpleClass Class
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
@@ -11,72 +11,113 @@ ME ME_57E51B830026
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_regular
  MEPROP LinkType lt_ref
- MELINK Parent HWL ME_57E51B3002A8 // TmsmLoadedWordsListModel
+ MELINK Parent HWL ME_57E51B3002A8 // TmsmSomeWordsListModel
  ;
  MELINK Target WL 'ME_57AEBE8A014F' '57B565F200E5.ms.model.script' // ImsmModelElementStringList
  ;
 
 ENDME // ME_57E51B830026 f_List
 
-ME ME_57E51BD6031C
- MEPROP UID '57E51BD6031C'
+FORWARD ME_5811DDFD0037
+
+FORWARD ME_5811DE06005A
+
+ME ME_5811DE0D0255
+ MEPROP Name 'aListName'
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5811DE0D0255 aListName
+
+ME ME_5811DE06005A
+ MEPROP UID '5811DE06005A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5811DDFD0037 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5811DE0D0255 // aListName
+ )
+ ; // Parameters
+
+ENDME // ME_5811DE06005A DoIt
+
+ME ME_5811DDFD0037
+ MEPROP UID '5811DDFD0037'
  MEPROP Name 'Create'
  MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent HWL ME_57E51B3002A8 // TmsmLoadedWordsListModel
+ MELINK Parent HWL ME_57E51B3002A8 // TmsmSomeWordsListModel
  ;
+ MELIST Operations
+   Seq: ( HWL ME_5811DE06005A // DoIt
+ )
+ ; // Operations
 
-ENDME // ME_57E51BD6031C Create
+ENDME // ME_5811DDFD0037 Create
 
-MEREF ME_57E51BD6031C_ME_57E51BDF0094_G
- MELINK Original HWL ME_57E51BD6031C // Create
+MEREF ME_5811DDFD0037_ME_5811DB800076_G
+ MELINK Original HWL ME_5811DDFD0037 // Create
  ;
  MEPROP OpKind opkind_ReferencedType
-ENDMEREF // ME_57E51BD6031C_ME_57E51BDF0094_G Create
+ENDMEREF // ME_5811DDFD0037_ME_5811DB800076_G Create
 
-MEREF ME_57B178F400EB_ME_57E51BDF0094_R
+MEREF ME_57B178F400EB_ME_5811DB800076_R
  MELINK Original WL 'ME_57B178F400EB' '57ADC53E00B6.ms.model.script' // ImsmListModel
  ;
  MEPROP OpKind opkind_ReferencedType
-ENDMEREF // ME_57B178F400EB_ME_57E51BDF0094_R ImsmListModel
+ENDMEREF // ME_57B178F400EB_ME_5811DB800076_R ImsmListModel
 
-%%ImplementedBy ME_57B178F400EB ME_57E51BDF0094
+%%ImplementedBy ME_57B178F400EB ME_5811DB800076
 
-%%InheritedBy ME_57E51BD6031C ME_57E51BDF0094
+%%InheritedBy ME_5811DDFD0037 ME_5811DB800076
 
-ME ME_57E51BDF0094
- MEPROP UID '57E51BDF0094'
+ME ME_5811DB800076
+ MEPROP UID '5811DB800076'
  MEPROP Name 'Make'
  MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent HWL ME_57E51B3002A8 // TmsmLoadedWordsListModel
+ MELINK Parent HWL ME_57E51B3002A8 // TmsmSomeWordsListModel
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57E51BD6031C_ME_57E51BDF0094_G // Create
+   Seq: ( HWL ME_5811DDFD0037_ME_5811DB800076_G // Create
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_57B178F400EB_ME_57E51BDF0094_R // ImsmListModel
+   Seq: ( HWL ME_57B178F400EB_ME_5811DB800076_R // ImsmListModel
  )
  ; // Implements
 
-ENDME // ME_57E51BDF0094 Make
+ENDME // ME_5811DB800076 Make
 
 ME ME_57E51B450129
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57E51B3002A8 // TmsmLoadedWordsListModel
+ MELINK Parent HWL ME_57E51B3002A8 // TmsmSomeWordsListModel
  ;
  MELINK Target WL? 'ME_57E51860015E' // TmsmLoadedWordsList
  ;
 
 ENDME // ME_57E51B450129 
+
+ME ME_5811C79103DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E51B3002A8 // TmsmSomeWordsListModel
+ ;
+ MELINK Target WL? 'ME_5811C7710063' // TmsmSomeWordsList
+ ;
+
+ENDME // ME_5811C79103DB 
 
 MEREF ME_57D271E300C2_ME_57E51B3002A8_impl
  MELINK Original WL 'ME_57D271E300C2' '57B57EDB003F.ms.model.script' // DoGetList
@@ -126,7 +167,7 @@ ENDMEREF // ME_57B178F400EB_ME_57E51B3002A8_R ImsmListModel
 
 ME ME_57E51B3002A8
  MEPROP UID '57E51B3002A8'
- MEPROP Name 'TmsmLoadedWordsListModel'
+ MEPROP Name 'TmsmSomeWordsListModel'
  MEPROP IsSubRoot true
  MEPROP Class class_Class
  MELINK Stereotype st_SimpleClass ;
@@ -148,8 +189,8 @@ ME ME_57E51B3002A8
  )
  ; // Attributes
  MELIST Operations
-   Seq: ( HWL ME_57E51BD6031C // Create
- HWL ME_57E51BDF0094 // Make
+   Seq: ( HWL ME_5811DDFD0037 // Create
+ HWL ME_5811DB800076 // Make
  )
  ; // Operations
  MELIST Implemented
@@ -165,14 +206,15 @@ ME ME_57E51B3002A8
  ; // Overridden
  MELIST Dependencies
    Seq: ( ME_57E51B450129 // TmsmLoadedWordsList
+ ME_5811C79103DB // TmsmSomeWordsList
  )
  ; // Dependencies
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP extprop:pas:UnitName 'msmLoadedWordsListModel'
+ UP extprop:pas:UnitName 'msmSomeWordsListModel'
  UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'msmLoadedWordsListModel'
- UP intf.pas:Path 'common\components\gui\Garant\msm\msmLoadedWordsListModel.pas'
+ UP extprop:rc:SelfName 'msmSomeWordsListModel'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmSomeWordsListModel.pas'
 
-ENDME // ME_57E51B3002A8 TmsmLoadedWordsListModel
+ENDME // ME_57E51B3002A8 TmsmSomeWordsListModel

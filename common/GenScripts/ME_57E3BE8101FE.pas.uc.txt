@@ -1,0 +1,47 @@
+//#UC START# *479731C50290_57E3BE8101FE_impl*
+ List := nil;
+ inherited;
+//#UC END# *479731C50290_57E3BE8101FE_impl*
+//#UC START# *479731C50290_57E3BE8101FE_var*
+//#UC END# *479731C50290_57E3BE8101FE_var*
+//#UC START# *57E3BE8101FE_ext:FileName
+w:\common\components\gui\Garant\msm\msmViewOfModelElementList.pas
+//#UC END# *57E3BE8101FE_ext:FileName
+//#UC START# *57E3BE8101FEimpl_uses*
+ , l3Base
+//#UC END# *57E3BE8101FEimpl_uses*
+//#UC START# *57E3BECB002C_57E3BE8101FEget_impl*
+ if (f_List = nil) then
+ begin
+  Assert(Self.Element.rElement <> nil);
+  l_List := Self.Element.rElement.ListProp[Self.Element.rListName];
+  pm_SetList(l_List);
+ end//f_List = nil
+ else
+ begin
+  if (Self.Element.rElement <> nil) then
+  begin
+   l_List := Self.Element.rElement.ListProp[Self.Element.rListName];
+   if (f_List <> l_List) then
+   // - список почему-то поменялся
+   begin
+    l3System.Msg2Log('Список поменялся неожиданно: ' + Self.Element.rListName);
+    pm_SetList(l_List);
+   end;//f_List <> l_List
+  end;//(Self.Element.rElement <> nil)
+ end;//f_List = nil
+ Result := f_List; 
+//#UC END# *57E3BECB002C_57E3BE8101FEget_impl*
+//#UC START# *57E3BECB002C_57E3BE8101FEget_var*
+var
+ l_List : ItfwValueList;
+//#UC END# *57E3BECB002C_57E3BE8101FEget_var*
+//#UC START# *57E3BECB002C_57E3BE8101FEset_impl*
+ if (f_List <> aValue) then
+ begin
+  f_List := aValue
+  // - тут надо организовать подписку
+ end;//f_List <> aValue
+//#UC END# *57E3BECB002C_57E3BE8101FEset_impl*
+//#UC START# *57E3BECB002C_57E3BE8101FEset_var*
+//#UC END# *57E3BECB002C_57E3BE8101FEset_var*

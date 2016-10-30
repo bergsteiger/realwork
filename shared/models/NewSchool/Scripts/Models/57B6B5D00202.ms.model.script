@@ -1,4 +1,4 @@
-// msmEventsSubscriber 57B6B5D00202 Impurity Class
+// msmEventsSubscriberPrim 57B6B5D00202 Impurity Class
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
@@ -11,7 +11,7 @@ ME ME_57B59FD9030C
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_regular
  MEPROP LinkType lt_agr
- MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriber
+ MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriberPrim
  ;
  MELINK Target WL? 'ME_57B59F9102A4' // TmsmEventList
  ;
@@ -25,7 +25,7 @@ ME ME_57CD7F9503CF
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_regular
  MEPROP LinkType lt_agr
- MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriber
+ MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriberPrim
  ;
  MELINK Target WL? 'ME_57B59F9102A4' // TmsmEventList
  ;
@@ -39,7 +39,7 @@ ME ME_57CE889100B7
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_regular
  MEPROP LinkType lt_agr
- MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriber
+ MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriberPrim
  ;
  MELINK Target WL? 'ME_57CE887A00A0' // TmsmEventHandlers
  ;
@@ -54,7 +54,6 @@ ME ME_D576A3B3F1E4
  MEPROP Name 'anEvent'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_57B5682D00D1' '57B5730D0123.ms.model.script' // TmsmEvent
  ;
 
@@ -92,7 +91,7 @@ ME ME_57ADDC3A0071
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
  MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriber
+ MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriberPrim
  ;
  MELIST Inherits
    Seq: ( HWL ME_57AD8E570241_ME_57ADDC3A0071_G // HandleEvent
@@ -104,38 +103,6 @@ ME ME_57ADDC3A0071
  ; // Operations
 
 ENDME // ME_57ADDC3A0071 DoFire
-
-FORWARD ME_57B6B9CD03B7
-
-ME ME_57B6B9DD0337
- MEPROP UID '57B6B9DD0337'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_57B6B9CD03B7 // Publisher
- ;
- MELINK Target WL 'ME_57B6B9670157' '57B5730D0123.ms.model.script' // ImsmEventsPublisher
- ;
-
-ENDME // ME_57B6B9DD0337 DoIt
-
-ME ME_57B6B9CD03B7
- MEPROP UID '57B6B9CD03B7'
- MEPROP Name 'Publisher'
- MEPROP Class class_Operation
- MELINK Stereotype st_abstractmethod ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriber
- ;
- MELIST Operations
-   Seq: ( HWL ME_57B6B9DD0337 // DoIt
- )
- ; // Operations
-
-ENDME // ME_57B6B9CD03B7 Publisher
 
 FORWARD ME_57CD83CA037F
 
@@ -160,7 +127,7 @@ ME ME_57CD83CA037F
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
  MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriber
+ MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriberPrim
  ;
  MELIST Operations
    Seq: ( HWL ME_E88D94AA729B // DoIt
@@ -176,7 +143,6 @@ FORWARD ME_57CD83F1006B
 ME ME_57CD840D020C
  MEPROP Name 'anEvent'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_57B5682D00D1' '57B5730D0123.ms.model.script' // TmsmEvent
  ;
 
@@ -185,7 +151,6 @@ ENDME // ME_57CD840D020C anEvent
 ME ME_57CD840D0256
  MEPROP Name 'aHandler'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_57CD82BF0129' '57B5730D0123.ms.model.script' // TmsmEventHandler
  ;
 
@@ -215,7 +180,7 @@ ME ME_57CD83DE0170
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
  MEPROP Abstraction at_final
- MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriber
+ MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriberPrim
  ;
  MELIST Operations
    Seq: ( HWL ME_57CD83F1006B // DoIt
@@ -224,10 +189,68 @@ ME ME_57CD83DE0170
 
 ENDME // ME_57CD83DE0170 LinkEventHandler
 
+FORWARD ME_580A1AD9019C
+
+FORWARD ME_02EDB783C425
+
+ME ME_C22986FA26BB
+ MEPROP Name 'anEvent'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_57B5682D00D1' '57B5730D0123.ms.model.script' // TmsmEvent
+ ;
+
+ENDME // ME_C22986FA26BB anEvent
+
+ME ME_02EDB783C425
+ MEPROP UID '02EDB783C425'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_580A1AD9019C // DoHandleEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_C22986FA26BB // anEvent
+ )
+ ; // Parameters
+
+ENDME // ME_02EDB783C425 DoIt
+
+MEREF ME_57AD8E570241_ME_580A1AD9019C_G
+ MELINK Original WL 'ME_57AD8E570241' '57B5730D0123.ms.model.script' // HandleEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AD8E570241_ME_580A1AD9019C_G HandleEvent
+
+%%InheritedBy ME_57AD8E570241 ME_580A1AD9019C
+
+ME ME_580A1AD9019C
+ MEPROP UID '580A1AD9019C'
+ MEPROP Name 'DoHandleEvent'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriberPrim
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57AD8E570241_ME_580A1AD9019C_G // HandleEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_02EDB783C425 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_580A1AD9019C DoHandleEvent
+
 ME ME_57B6B64502C7
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriber
+ MELINK Parent HWL ME_57B6B5D00202 // msmEventsSubscriberPrim
  ;
  MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
@@ -294,7 +317,7 @@ ENDMEREF // ME_57B59EFD01DD_ME_57B6B5D00202_R MmsmEventsManaging
 
 ME ME_57B6B5D00202
  MEPROP UID '57B6B5D00202'
- MEPROP Name 'msmEventsSubscriber'
+ MEPROP Name 'msmEventsSubscriberPrim'
  MEPROP IsSubRoot true
  MEPROP Class class_Class
  MELINK Stereotype st_Impurity ;
@@ -317,9 +340,9 @@ ME ME_57B6B5D00202
  ; // Attributes
  MELIST Operations
    Seq: ( HWL ME_57ADDC3A0071 // DoFire
- HWL ME_57B6B9CD03B7 // Publisher
  HWL ME_57CD83CA037F // LinkEventHandlers
  HWL ME_57CD83DE0170 // LinkEventHandler
+ HWL ME_580A1AD9019C // DoHandleEvent
  )
  ; // Operations
  MELIST Implemented
@@ -341,8 +364,8 @@ ME ME_57B6B5D00202
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP extprop:pas:TypeName '_msmEventsSubscriber_'
- UP extprop:pas:UnitName 'msmEventsSubscriber.imp'
- UP intf.pas:Path 'common\components\gui\Garant\msm\msmEventsSubscriber.imp.pas'
+ UP extprop:pas:TypeName '_msmEventsSubscriberPrim_'
+ UP extprop:pas:UnitName 'msmEventsSubscriberPrim.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmEventsSubscriberPrim.imp.pas'
 
-ENDME // ME_57B6B5D00202 msmEventsSubscriber
+ENDME // ME_57B6B5D00202 msmEventsSubscriberPrim

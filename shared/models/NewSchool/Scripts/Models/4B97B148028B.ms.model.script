@@ -24,7 +24,6 @@ ME ME_461D5314CE38
  MEPROP Name 'aStrings'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4683CEE9034C' '467823B7002C.ms.model.script' // IafwStrings
  ;
 
@@ -54,7 +53,6 @@ ME ME_B1178C20DC43
  MEPROP Name 'aDisplayName'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
  ;
 
@@ -271,7 +269,6 @@ ME ME_251D5667739D
  MEPROP Name 'aStrings'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4683CEE9034C' '467823B7002C.ms.model.script' // IafwStrings
  ;
 
@@ -301,7 +298,6 @@ ME ME_C34806CBD8F6
  MEPROP Name 'aDisplayName'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
  ;
 
@@ -519,7 +515,6 @@ ME ME_CC1DD28CBE03
  MEPROP Name 'aStrings'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4683CEE9034C' '467823B7002C.ms.model.script' // IafwStrings
  ;
 
@@ -549,7 +544,6 @@ ME ME_E88EC44C036D
  MEPROP Name 'aDisplayName'
  UP IsSummoned true
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
  ;
 
@@ -768,9 +762,6 @@ ME ME_4B97B1B60281
  MELINK Parent HWL ME_4B97B1890142 // WordPositionNames
  ;
  MEPROP Value '''В любой части слова'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''В любой части слова'''
 
 ENDME // ME_4B97B1B60281 AnyPathWord
@@ -785,9 +776,6 @@ ME ME_4B97B1C001E1
  MELINK Parent HWL ME_4B97B1890142 // WordPositionNames
  ;
  MEPROP Value '''С начала слова'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''С начала слова'''
 
 ENDME // ME_4B97B1C001E1 AtBeginWord
@@ -802,9 +790,6 @@ ME ME_4B97B1C90337
  MELINK Parent HWL ME_4B97B1890142 // WordPositionNames
  ;
  MEPROP Value '''С начала строки'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''С начала строки'''
 
 ENDME // ME_4B97B1C90337 AtBeginString
@@ -820,7 +805,7 @@ ENDMEREF // ME_46A61BCB033D_ME_4B97B1890142_G Tl3WordPosition
 ME ME_4B97B1890142
  MEPROP UID '4B97B1890142'
  MEPROP Name 'WordPositionNames'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -839,8 +824,6 @@ ME ME_4B97B1890142
  ; // Attributes
  UP "children prefix" 'nsc_wp'
  UP "Need map interface" True
- UP "Need mapping support" False
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'nsc_wp'
 
 ENDME // ME_4B97B1890142 WordPositionNames
@@ -857,9 +840,6 @@ ME ME_4B97CF5D0164
  MELINK Parent HWL ME_4B97CF0C00D4 // TreeLevelDistNames
  ;
  MEPROP Value '''Во всех уровнях'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Во всех уровнях'''
 
 ENDME // ME_4B97CF5D0164 AllLevels
@@ -874,9 +854,6 @@ ME ME_4B97CF660076
  MELINK Parent HWL ME_4B97CF0C00D4 // TreeLevelDistNames
  ;
  MEPROP Value '''В пределах одного уровня'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''В пределах одного уровня'''
 
 ENDME // ME_4B97CF660076 OneLevel
@@ -892,7 +869,7 @@ ENDMEREF // ME_46A61C8B002B_ME_4B97CF0C00D4_G Tl3TreeLevelDist
 ME ME_4B97CF0C00D4
  MEPROP UID '4B97CF0C00D4'
  MEPROP Name 'TreeLevelDistNames'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -910,8 +887,6 @@ ME ME_4B97CF0C00D4
  ; // Attributes
  UP "children prefix" 'nsc_tld'
  UP "Need map interface" True
- UP "Need mapping support" False
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'nsc_tld'
 
 ENDME // ME_4B97CF0C00D4 TreeLevelDistNames
@@ -928,9 +903,6 @@ ME ME_4B97D4210322
  MELINK Parent HWL ME_4B97D3D303BE // WordOrderNames
  ;
  MEPROP Value '''В любом порядке'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''В любом порядке'''
 
 ENDME // ME_4B97D4210322 AnyOrder
@@ -945,9 +917,6 @@ ME ME_4B97D42E01FD
  MELINK Parent HWL ME_4B97D3D303BE // WordOrderNames
  ;
  MEPROP Value '''С учетом порядка'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''С учетом порядка'''
 
 ENDME // ME_4B97D42E01FD AsWrote
@@ -963,7 +932,7 @@ ENDMEREF // ME_46A61C340026_ME_4B97D3D303BE_G Tl3WordOrder
 ME ME_4B97D3D303BE
  MEPROP UID '4B97D3D303BE'
  MEPROP Name 'WordOrderNames'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -981,8 +950,6 @@ ME ME_4B97D3D303BE
  ; // Attributes
  UP "children prefix" 'nsc_wo'
  UP "Need map interface" True
- UP "Need mapping support" False
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'nsc_wo'
 
 ENDME // ME_4B97D3D303BE WordOrderNames
@@ -999,9 +966,6 @@ ME ME_4B97D8050285
  MELINK Parent HWL ME_4B97D7D60086 // ContextParamsMessages
  ;
  MEPROP Value '''Находятся ли искомые слова на разных уровнях иерархического дерева или в пределах одного уровня'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Находятся ли искомые слова на разных уровнях иерархического дерева или в пределах одного уровня'''
 
 ENDME // ME_4B97D8050285 TreeLevelDistHint
@@ -1016,9 +980,6 @@ ME ME_4B97D82103B8
  MELINK Parent HWL ME_4B97D7D60086 // ContextParamsMessages
  ;
  MEPROP Value '''Должны ли слова строго следовать друг за другом или нет'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Должны ли слова строго следовать друг за другом или нет'''
 
 ENDME // ME_4B97D82103B8 WordOrderHint
@@ -1033,9 +994,6 @@ ME ME_4B97D84C0144
  MELINK Parent HWL ME_4B97D7D60086 // ContextParamsMessages
  ;
  MEPROP Value '''Положение контекста в слове, строке'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '''Положение контекста в слове, строке'''
 
 ENDME // ME_4B97D84C0144 WordPositionHint
@@ -1043,7 +1001,7 @@ ENDME // ME_4B97D84C0144 WordPositionHint
 ME ME_4B97D7D60086
  MEPROP UID '4B97D7D60086'
  MEPROP Name 'ContextParamsMessages'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_LocalConst ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1057,9 +1015,6 @@ ME ME_4B97D7D60086
  )
  ; // Attributes
  UP "children prefix" 'nsc_cpm'
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'nsc_cpm'
 
 ENDME // ME_4B97D7D60086 ContextParamsMessages
@@ -1082,9 +1037,6 @@ ME ME_EB2093C3AD36
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''nsc_wpAnyPathWord''; rValue : ''В любой части слова'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_wpAnyPathWord''; rValue : ''В любой части слова'')'
  UPLINK Speller HWL ME_4B97B1B60281 // AnyPathWord
  ;
@@ -1107,9 +1059,6 @@ ME ME_54BC1E3E1F88
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''nsc_wpAtBeginWord''; rValue : ''С начала слова'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_wpAtBeginWord''; rValue : ''С начала слова'')'
  UPLINK Speller HWL ME_4B97B1C001E1 // AtBeginWord
  ;
@@ -1132,9 +1081,6 @@ ME ME_A00B490D6100
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''nsc_wpAtBeginString''; rValue : ''С начала строки'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_wpAtBeginString''; rValue : ''С начала строки'')'
  UPLINK Speller HWL ME_4B97B1C90337 // AtBeginString
  ;
@@ -1145,7 +1091,7 @@ ME ME_3905605C6778
  MEPROP UID '3905605C6778'
  MEPROP Name 'LCImplWordPositionNames'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Локализуемые строки WordPositionNames' ;
@@ -1161,7 +1107,6 @@ ME ME_3905605C6778
  ; // Attributes
  UP "children prefix" 'nsc_wp'
  UP "elements prefix" 'str'
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'str_nsc_wp'
  UP extprop:pas:ElementPrefixBase 'str'
  UPLINK Speller HWL ME_4B97B1890142 // WordPositionNames
@@ -1246,7 +1191,7 @@ ME ME_7B428F54A9B3
  MEPROP UID '7B428F54A9B3'
  MEPROP Name 'WordPositionNamesMap'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_ConstantArray ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Карта преобразования локализованных строк WordPositionNames' ;
@@ -1269,7 +1214,6 @@ ME ME_7B428F54A9B3
  )
  ; // Attributes
  UP "Need map interface" True
- UP "Need mapping support" False
 
 ENDME // ME_7B428F54A9B3 WordPositionNamesMap
 
@@ -1291,9 +1235,6 @@ ME ME_D3AAB46A7B08
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''nsc_tldAllLevels''; rValue : ''Во всех уровнях'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_tldAllLevels''; rValue : ''Во всех уровнях'')'
  UPLINK Speller HWL ME_4B97CF5D0164 // AllLevels
  ;
@@ -1316,9 +1257,6 @@ ME ME_BACFF26B2CDC
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''nsc_tldOneLevel''; rValue : ''В пределах одного уровня'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_tldOneLevel''; rValue : ''В пределах одного уровня'')'
  UPLINK Speller HWL ME_4B97CF660076 // OneLevel
  ;
@@ -1329,7 +1267,7 @@ ME ME_EAC1D4682D0B
  MEPROP UID 'EAC1D4682D0B'
  MEPROP Name 'LCImplTreeLevelDistNames'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Локализуемые строки TreeLevelDistNames' ;
@@ -1344,7 +1282,6 @@ ME ME_EAC1D4682D0B
  ; // Attributes
  UP "children prefix" 'nsc_tld'
  UP "elements prefix" 'str'
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'str_nsc_tld'
  UP extprop:pas:ElementPrefixBase 'str'
  UPLINK Speller HWL ME_4B97CF0C00D4 // TreeLevelDistNames
@@ -1410,7 +1347,7 @@ ME ME_9A2E8A142A43
  MEPROP UID '9A2E8A142A43'
  MEPROP Name 'TreeLevelDistNamesMap'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_ConstantArray ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Карта преобразования локализованных строк TreeLevelDistNames' ;
@@ -1432,7 +1369,6 @@ ME ME_9A2E8A142A43
  )
  ; // Attributes
  UP "Need map interface" True
- UP "Need mapping support" False
 
 ENDME // ME_9A2E8A142A43 TreeLevelDistNamesMap
 
@@ -1454,9 +1390,6 @@ ME ME_3FAF82CC9579
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''nsc_woAnyOrder''; rValue : ''В любом порядке'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_woAnyOrder''; rValue : ''В любом порядке'')'
  UPLINK Speller HWL ME_4B97D4210322 // AnyOrder
  ;
@@ -1479,9 +1412,6 @@ ME ME_2390CD2FE6E0
  MEPROP Value '(rS : -1; rLocalized : false; rKey : ''nsc_woAsWrote''; rValue : ''С учетом порядка'')'
  MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
  ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_woAsWrote''; rValue : ''С учетом порядка'')'
  UPLINK Speller HWL ME_4B97D42E01FD // AsWrote
  ;
@@ -1492,7 +1422,7 @@ ME ME_D07C47D13B55
  MEPROP UID 'D07C47D13B55'
  MEPROP Name 'LCImplWordOrderNames'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Локализуемые строки WordOrderNames' ;
@@ -1507,7 +1437,6 @@ ME ME_D07C47D13B55
  ; // Attributes
  UP "children prefix" 'nsc_wo'
  UP "elements prefix" 'str'
- UP "spell names" False
  UP extprop:pas:ElementPrefix 'str_nsc_wo'
  UP extprop:pas:ElementPrefixBase 'str'
  UPLINK Speller HWL ME_4B97D3D303BE // WordOrderNames
@@ -1573,7 +1502,7 @@ ME ME_758E40454E7A
  MEPROP UID '758E40454E7A'
  MEPROP Name 'WordOrderNamesMap'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_ConstantArray ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Карта преобразования локализованных строк WordOrderNames' ;
@@ -1595,7 +1524,6 @@ ME ME_758E40454E7A
  )
  ; // Attributes
  UP "Need map interface" True
- UP "Need mapping support" False
 
 ENDME // ME_758E40454E7A WordOrderNamesMap
 

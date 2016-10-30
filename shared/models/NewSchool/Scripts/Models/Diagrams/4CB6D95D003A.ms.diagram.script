@@ -1,0 +1,69 @@
+// PrimCreateFilter 4CB6D95D003A VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4CB6D95D003A_diagrams
+
+ MEDIAGRAM ME_4CB6D95D003A_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4CB6D95D003A' ; // PrimCreateFilter
+
+  MEVIEW ME_4CB6D9AE0083_view
+   MELINK Original WL 'ME_4CB6D9AE0083' '4CB6D95D003A.ms.model.script' ; // cfCreate
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CB6D9AE0083_view
+
+  MEVIEW ME_4CB6D9D6011D_view
+   MELINK Original WL 'ME_4CB6D9D6011D' '4CB6D95D003A.ms.model.script' ; // cfRename
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CB6D9D6011D_view
+
+  MEVIEW ME_4CBEF6690037_view
+   MELINK Original WL 'ME_4CBEF6690037' '4CB6D95D003A.ms.model.script' ; // Make
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CBEF6690037_view
+
+  MEVIEW ME_4CBED37D0160_view
+   MELINK Original WL 'ME_4CBED37D0160' '4CB6D95D003A.ms.model.script' ; // NameLabel
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CBED37D0160_view
+
+  MEVIEW ME_4CBED3A1022F_view
+   MELINK Original WL 'ME_4CBED3A1022F' '4CB6D95D003A.ms.model.script' ; // FilterName
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CBED3A1022F_view
+
+  MEVIEW ME_4CB6DB710291_view
+   MELINK Original WL 'ME_4CB6DB710291' '4CB6D95D003A.ms.model.script' ; // ViewArea
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CB6DB710291_view
+
+  MEVIEWLINK ME_4CB6D9D6011D_ME_4CB6D9AE0083_Inherits
+   MELINK From ME_4CB6D9D6011D_view ;
+   MELINK To ME_4CB6D9AE0083_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4CB6D9D6011D_ME_4CB6D9AE0083_Inherits
+
+  MELIST Views
+   Seq: ( ME_4CB6D9AE0083_view // cfCreate
+   ME_4CB6D9D6011D_view // cfRename
+   ME_4CBEF6690037_view // Make
+   ME_4CBED37D0160_view // NameLabel
+   ME_4CBED3A1022F_view // FilterName
+   ME_4CB6DB710291_view // ViewArea
+   ME_4CB6D9D6011D_ME_4CB6D9AE0083_Inherits // cfRename ==> cfCreate
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4CB6D95D003A_main
+
+ MELIST Diagrams
+  Seq: ( ME_4CB6D95D003A_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4CB6D95D003A_diagrams

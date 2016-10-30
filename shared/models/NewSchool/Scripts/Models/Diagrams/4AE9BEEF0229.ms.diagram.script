@@ -1,0 +1,48 @@
+// PrimFoldersInfo 4AE9BEEF0229 VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4AE9BEEF0229_diagrams
+
+ MEDIAGRAM ME_4AE9BEEF0229_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4AE9BEEF0229' ; // PrimFoldersInfo
+
+  MEVIEW ME_4C7E8E76029A_view
+   MELINK Original WL 'ME_4C7E8E76029A' '4AE9BEEF0229.ms.model.script' ; // utFoldersInfoContainer
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C7E8E76029A_view
+
+  MEVIEW ME_528239480348_view
+   MELINK Original WL 'ME_528239480348' '4AE9BEEF0229.ms.model.script' ; // Child
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_528239480348_view
+
+  MEVIEW ME_4C7E8BF702A1_view
+   MELINK Original WL 'ME_4C7E8BF702A1' '4AE9BEEF0229.ms.model.script' ; // ChildZone
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C7E8BF702A1_view
+
+  MEVIEWLINK ME_528239480348_ME_4C7E8BF702A1_Inherits
+   MELINK From ME_528239480348_view ;
+   MELINK To ME_4C7E8BF702A1_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_528239480348_ME_4C7E8BF702A1_Inherits
+
+  MELIST Views
+   Seq: ( ME_4C7E8E76029A_view // utFoldersInfoContainer
+   ME_528239480348_view // Child
+   ME_4C7E8BF702A1_view // ChildZone
+   ME_528239480348_ME_4C7E8BF702A1_Inherits // Child ==> ChildZone
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4AE9BEEF0229_main
+
+ MELIST Diagrams
+  Seq: ( ME_4AE9BEEF0229_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4AE9BEEF0229_diagrams

@@ -25,7 +25,6 @@ ME ME_4EB7CC550343
  ;
  MELINK Target WL 'ME_496B5F7603B4' '4A9F98B901A5.ms.model.script' // InsBaseSearchClass
  ;
- UP "pm" False
 
 ENDME // ME_4EB7CC550343 ActiveClass
 
@@ -41,7 +40,6 @@ ME ME_57DA8F3102AE
  ;
  MELINK Target WL 'ME_5433905403C7' '4A9F98B901A5.ms.model.script' // InsBaseSearcherInitialState
  ;
- UP "pm" False
 
 ENDME // ME_57DA8F3102AE SearcherState
 
@@ -135,7 +133,6 @@ FORWARD ME_4CF4F8510139
 ME ME_57DB839602D4
  MEPROP Name 'anActiveClass'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_496B5F7603B4' '4A9F98B901A5.ms.model.script' // InsBaseSearchClass
  ;
 
@@ -144,7 +141,6 @@ ENDME // ME_57DB839602D4 anActiveClass
 ME ME_57DB839602EF
  MEPROP Name 'aBaseSearcherState'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_5433905403C7' '4A9F98B901A5.ms.model.script' // InsBaseSearcherInitialState
  ;
 
@@ -224,14 +220,12 @@ MEREF ME_4EB7CC550343_ME_4ACB57C4023E_impl
  MELINK Original HWL ME_4EB7CC550343 // ActiveClass
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_4EB7CC550343_ME_4ACB57C4023E_impl ActiveClass
 
 MEREF ME_57DA8F3102AE_ME_4ACB57C4023E_impl
  MELINK Original HWL ME_57DA8F3102AE // SearcherState
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_57DA8F3102AE_ME_4ACB57C4023E_impl SearcherState
 
 MEREF ME_47EA4E9002C6_ME_4ACB57C4023E_over
@@ -437,8 +431,6 @@ ME ME_4D7A37D90398
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- UP "ImageIndex" '-1'
- UP "Weight" '-1'
  UP extprop:pas:UnitName 'PrimBaseSearch_BaseSearch_UserType'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearch_BaseSearch_UserType.pas'
 
@@ -456,9 +448,6 @@ ME ME_4CFCD7BB0036
  MELINK Parent HWL ME_4CFCD7B30075 // Const
  ;
  MEPROP Value 300
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 300
 
 ENDME // ME_4CFCD7BB0036 cMaxLen
@@ -473,9 +462,6 @@ ME ME_4CFCE31C026C
  MELINK Parent HWL ME_4CFCD7B30075 // Const
  ;
  MEPROP Value 2
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
  UP extprop:pas:Value 2
 
 ENDME // ME_4CFCE31C026C c_FlashTimes
@@ -483,7 +469,7 @@ ENDME // ME_4CFCE31C026C c_FlashTimes
 ME ME_4CFCD7B30075
  MEPROP UID '4CFCD7B30075'
  MEPROP Name 'Const'
- MEPROP Class class_Class
+ MEPROP Class class_Const
  MELINK Stereotype st_Constants ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -495,7 +481,6 @@ ME ME_4CFCD7B30075
  HWL ME_4CFCE31C026C // c_FlashTimes
  )
  ; // Attributes
- UP "spell names" False
 
 ENDME // ME_4CFCD7B30075 Const
 
@@ -521,9 +506,6 @@ ME ME_4CF4D1240072
    Seq: ( HWL ME_4CF4D14700AE_ME_4CF4D1240072_G // TnscTreeComboWithHistoryAndOperations
  )
  ; // Inherits
- UP "ControlClass" 'none'
- UP "pm" True
- UP "put to dfm" True
 
 ENDME // ME_4CF4D1240072 ContextEdit
 
@@ -549,10 +531,7 @@ ME ME_4CFCE29E009B
    Seq: ( HWL ME_48C7C96E0135_ME_4CFCE29E009B_G // TTimer
  )
  ; // Inherits
- UP "ComponentClass" 'none'
- UP "need Caption" False
  UP "needs field" True
- UP "pm" True
  UP "put to dfm" False
 
 ENDME // ME_4CFCE29E009B FlashTimer
@@ -654,7 +633,6 @@ ME ME_4CFCCE4B0112
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "needs field" False
- UP "pm" True
 
 ENDME // ME_4CFCCE4B0112 FindBtnEnabled
 
@@ -671,7 +649,6 @@ ME ME_4CFCD6270160
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "needs field" False
- UP "pm" True
 
 ENDME // ME_4CFCD6270160 FindBackBtnEnabled
 
@@ -702,7 +679,6 @@ ME ME_4CFCEBFA0350
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "needs field" False
- UP "pm" True
 
 ENDME // ME_4CFCEBFA0350 ContextLabelVisible
 
@@ -719,7 +695,6 @@ ME ME_4CFCEE450210
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "needs field" False
- UP "pm" True
 
 ENDME // ME_4CFCEE450210 CloseBtnEnabled
 
@@ -859,7 +834,6 @@ FORWARD ME_4CFCCFD701A6
 ME ME_4F2027C8007A
  MEPROP Name 'aClassToSaveInHistory'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_496B5F7603B4' '4A9F98B901A5.ms.model.script' // InsBaseSearchClass
  ;
 
@@ -868,7 +842,6 @@ ENDME // ME_4F2027C8007A aClassToSaveInHistory
 ME ME_4F20293700CC
  MEPROP Name 'aNeedUpdateAndStoreActiveClass'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -877,7 +850,6 @@ ENDME // ME_4F20293700CC aNeedUpdateAndStoreActiveClass
 ME ME_5241B8FC0332
  MEPROP Name 'aUpdateClassBeforeSearch'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -924,7 +896,6 @@ FORWARD ME_4CFCD7DE00FC
 ME ME_4CFCD7E90177
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
@@ -1056,7 +1027,6 @@ FORWARD ME_4CFCDB3D032C
 ME ME_4CFCDB4102AF
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
@@ -1101,7 +1071,6 @@ FORWARD ME_4CFCE1BA01AB
 ME ME_4CFCE1C20347
  MEPROP Name 'aCount'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
@@ -1146,7 +1115,6 @@ FORWARD ME_4CFCE254014B
 ME ME_4CFCE25C02AE
  MEPROP Name 'aKind'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_495132550324' '4A9F98B901A5.ms.model.script' // TnsBaseSearchKind
  ;
 
@@ -1191,7 +1159,6 @@ FORWARD ME_4CFCE2DC0007
 ME ME_4CFCE2DF03A0
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
@@ -1296,7 +1263,6 @@ FORWARD ME_4CFCE41901EA
 ME ME_4CFCE41D022B
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
@@ -1354,7 +1320,6 @@ FORWARD ME_4CFE142F0029
 ME ME_4CFE143203BE
  MEPROP Name 'anArea'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_495132300336' '4A9F98B901A5.ms.model.script' // TnsSearchArea
  ;
 
@@ -1429,7 +1394,6 @@ FORWARD ME_4CFE2866034A
 ME ME_4CFE28710268
  MEPROP Name 'aFragmentsCountSuffix'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
  ;
 
@@ -1474,7 +1438,6 @@ FORWARD ME_4CFE2AB70032
 ME ME_4CFE2AC003A7
  MEPROP Name 'anExampleText'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
  ;
 
@@ -1519,7 +1482,6 @@ FORWARD ME_4CFE39A60000
 ME ME_4CFE39AB00AB
  MEPROP Name 'anArea'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_495132300336' '4A9F98B901A5.ms.model.script' // TnsSearchArea
  ;
 
@@ -1528,7 +1490,6 @@ ENDME // ME_4CFE39AB00AB anArea
 ME ME_4CFE39AB00EE
  MEPROP Name 'anKind'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_495132550324' '4A9F98B901A5.ms.model.script' // TnsBaseSearchKind
  ;
 
@@ -1639,7 +1600,6 @@ FORWARD ME_4CF4D6C40292
 ME ME_4EA052D603AE
  MEPROP Name 'aFromUpdate'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
@@ -1704,7 +1664,6 @@ FORWARD ME_565445DF038D
 ME ME_565445EE01EF
  MEPROP Name 'aData'
  MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
  MELINK Target WL 'ME_496B629D0188' '4A9F98B901A5.ms.model.script' // InsBaseSearcherWindowData
  ;
 
@@ -2009,13 +1968,6 @@ MEREF ME_4A8AD47D0357_ME_4AB791130260_impl
  MELINK Original WL 'ME_4A8AD47D0357' '4A8AD3DE0008.ms.model.script' // OkExt
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
  UP "ShowInContextMenu" True
  UP "ShowInToolbar" True
 ENDMEREF // ME_4A8AD47D0357_ME_4AB791130260_impl OkExt
@@ -2024,13 +1976,6 @@ MEREF ME_4A97EBE702F8_ME_4AB791130260_impl
  MELINK Original WL 'ME_4A97EBE702F8' '4A8AD3C70195.ms.model.script' // Ok
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
  UP "ShowInContextMenu" False
  UP "ShowInToolbar" False
 ENDMEREF // ME_4A97EBE702F8_ME_4AB791130260_impl Ok
@@ -2039,13 +1984,6 @@ MEREF ME_4AC5D61E0284_ME_4AB791130260_impl
  MELINK Original WL 'ME_4AC5D61E0284' '4A8AD3C70195.ms.model.script' // Cancel
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
  UP "ShowInContextMenu" False
  UP "ShowInToolbar" False
 ENDMEREF // ME_4AC5D61E0284_ME_4AB791130260_impl Cancel
@@ -2054,20 +1992,12 @@ MEREF ME_4ACB63B502EA_ME_4AB791130260_impl
  MELINK Original WL 'ME_4ACB63B502EA' '4A9F98B901A5.ms.model.script' // Container
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
 ENDMEREF // ME_4ACB63B502EA_ME_4AB791130260_impl Container
 
 MEREF ME_4C43D2F002EC_ME_4AB791130260_impl
  MELINK Original WL 'ME_4C43D2F002EC' '4C43D2BB005A.ms.model.script' // CloseChild
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
  UP "ShowInContextMenu" False
  UP "ShowInToolbar" False
 ENDMEREF // ME_4C43D2F002EC_ME_4AB791130260_impl CloseChild
@@ -2076,13 +2006,7 @@ MEREF ME_4C762A1501FC_ME_4AB791130260_impl
  MELINK Original WL 'ME_4C762A1501FC' '4A8AD3C70195.ms.model.script' // Ok
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
  UP "ShowInContextMenu" False
  UP "ShowInToolbar" False
 ENDMEREF // ME_4C762A1501FC_ME_4AB791130260_impl Ok
@@ -2091,13 +2015,7 @@ MEREF ME_4C762C910358_ME_4AB791130260_impl
  MELINK Original WL 'ME_4C762C910358' '4A8AD3C70195.ms.model.script' // Cancel
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
  UP "has states" False
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
  UP "ShowInContextMenu" False
  UP "ShowInToolbar" False
 ENDMEREF // ME_4C762C910358_ME_4AB791130260_impl Cancel
@@ -2106,13 +2024,6 @@ MEREF ME_4C762D9B0224_ME_4AB791130260_impl
  MELINK Original WL 'ME_4C762D9B0224' '4A8AD3DE0008.ms.model.script' // OkExt
  ;
  MEPROP OpKind opkind_Implemented
- UP "AutoFocus" False
- UP "AutoLock" False
- UP "has states" True
- UP "is FormActivate" False
- UP "is query" False
- UP "LongProcess" False
- UP "no prefix" False
  UP "ShowInContextMenu" True
  UP "ShowInToolbar" True
 ENDMEREF // ME_4C762D9B0224_ME_4AB791130260_impl OkExt
@@ -2473,13 +2384,9 @@ ME ME_4AB791130260
    Seq: ( 'Main' 'Logging' )
  ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
- UP "finished dfm" True
  UP "NeedsHackRef" False
  UP "no hands" True
- UP "resizeable" False
- UP "restrict form def" 'undefined'
  UP "started" '21.09.2009 18:43'
- UP "ZoneType" 'Any'
  UP extprop:NeedsInitEntities True
  UP extprop:pas:TypeName 'TPrimBaseSearchForm'
  UP extprop:pas:UnitName 'PrimBaseSearch_Form'

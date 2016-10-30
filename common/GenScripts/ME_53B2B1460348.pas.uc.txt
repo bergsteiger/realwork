@@ -1,0 +1,32 @@
+//#UC START# *4DAEEDE10285_53B2B1460348_impl*
+ l_Result := False;
+ l_Filters := GetFilters;
+ try
+  for I := l_Filters.Count - 1 downto 0 do
+  begin
+   l_Filters.pm_GetItem(I, l_Filter);
+   try
+    if l_Filter.GetPermanent then
+    begin
+     l_Result := True;
+     Break;
+    end;
+   finally
+    l_Filter := nil;
+   end; 
+  end;
+ finally
+  l_Filters := nil;
+ end;
+ aCtx.rEngine.PushBool(l_Result);
+//#UC END# *4DAEEDE10285_53B2B1460348_impl*
+//#UC START# *4DAEEDE10285_53B2B1460348_var*
+var
+ l_Filters: IFiltersFromQuery;
+ l_Filter: IFilterFromQuery;
+ l_Result: Boolean;
+ I: Integer;
+//#UC END# *4DAEEDE10285_53B2B1460348_var*
+//#UC START# *53B2B1460348_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\FiltersProcessingWordsPack.pas
+//#UC END# *53B2B1460348_ext:ParentFileName

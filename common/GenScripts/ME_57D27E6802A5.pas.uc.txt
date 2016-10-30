@@ -1,0 +1,30 @@
+//#UC START# *57D27E6802A5_ext:FileName
+w:\common\components\gui\Garant\msm\msmDrawingModel.pas
+//#UC END# *57D27E6802A5_ext:FileName
+//#UC START# *57D27E6802A5impl_uses*
+ , msmElementViews
+//#UC END# *57D27E6802A5impl_uses*
+//#UC START# *57E297C403B4_57D27E6802A5_impl*
+ //CreateSubElementList(TmsmModelElementView_C(anElement, 'Views'), 'MainDiagram');
+ CreateSubElementList(TmsmModelElementView_C(anElement, 'Views'), 'msm:DiagramByName: main');
+//#UC END# *57E297C403B4_57D27E6802A5_impl*
+//#UC START# *57E297C403B4_57D27E6802A5_var*
+//#UC END# *57E297C403B4_57D27E6802A5_var*
+//#UC START# *57F79A4F032E_57D27E6802A5_impl*
+ if (anElement <> nil) then
+ begin
+  if (theNewElement = nil) then
+  begin
+   anElement.Call([], 'msm:CheckMainDiagram');
+   theNewElement := anElement.ElementProp[f_SubElementName];
+   if (theNewElement <> nil) then
+   begin
+    theElementToSelect := nil;
+    Exit;
+   end;//theNewElement <> nil
+  end;//theNewElement = nil
+ end;//anElement <> nil 
+ inherited;
+//#UC END# *57F79A4F032E_57D27E6802A5_impl*
+//#UC START# *57F79A4F032E_57D27E6802A5_var*
+//#UC END# *57F79A4F032E_57D27E6802A5_var*

@@ -1,0 +1,43 @@
+//#UC START# *479731C50290_5811C7710063_impl*
+ List := nil;
+ inherited;
+//#UC END# *479731C50290_5811C7710063_impl*
+//#UC START# *479731C50290_5811C7710063_var*
+//#UC END# *479731C50290_5811C7710063_var*
+//#UC START# *5811547001A8_5811C7710063_impl*
+ if (List = nil) then
+  Result := 0
+ else
+  Result := List.Count;;
+//#UC END# *5811547001A8_5811C7710063_impl*
+//#UC START# *5811547001A8_5811C7710063_var*
+//#UC END# *5811547001A8_5811C7710063_var*
+//#UC START# *581154A203C2_5811C7710063_impl*
+ if (List = nil) then
+  Result := nil
+ else
+  Result := TmsmModelElement.MakeFromValue(List.Items[anIndex]);
+//#UC END# *581154A203C2_5811C7710063_impl*
+//#UC START# *581154A203C2_5811C7710063_var*
+//#UC END# *581154A203C2_5811C7710063_var*
+//#UC START# *5811C7710063_ext:FileName
+w:\common\components\gui\Garant\msm\msmSomeWordsList.pas
+//#UC END# *5811C7710063_ext:FileName
+//#UC START# *5811C7710063impl_uses*
+ , msmModelElement
+//#UC END# *5811C7710063impl_uses*
+//#UC START# *5811CCB20392_5811C7710063get_impl*
+ if (f_List = nil) then
+  pm_SetList(TmsmModelElementMethodCaller.CallAndGetList([], Self.Element.rListName));
+ Result := f_List; 
+//#UC END# *5811CCB20392_5811C7710063get_impl*
+//#UC START# *5811CCB20392_5811C7710063get_var*
+//#UC END# *5811CCB20392_5811C7710063get_var*
+//#UC START# *5811CCB20392_5811C7710063set_impl*
+ if (f_List <> aValue) then
+ begin
+  f_List := aValue;
+ end;//f_List <> aValue 
+//#UC END# *5811CCB20392_5811C7710063set_impl*
+//#UC START# *5811CCB20392_5811C7710063set_var*
+//#UC END# *5811CCB20392_5811C7710063set_var*

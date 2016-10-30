@@ -1,0 +1,98 @@
+// msmEditViewUtils 5810C59F0109 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5810C5BF0218
+
+FORWARD ME_5810C59F0109
+
+FORWARD ME_5810C5BF0218
+
+ME ME_5810C5D70216
+ MEPROP UID '5810C5D70216'
+ MEPROP Name 'rDisabled'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_5810C5BF0218 // TmsmEditViewInitContext
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5810C5D70216 rDisabled
+
+ME ME_5810C5E401C5
+ MEPROP UID '5810C5E401C5'
+ MEPROP Name 'rReadOnly'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_5810C5BF0218 // TmsmEditViewInitContext
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5810C5E401C5 rReadOnly
+
+ME ME_5810C5F70254
+ MEPROP UID '5810C5F70254'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5810C5BF0218 // TmsmEditViewInitContext
+ ;
+
+ENDME // ME_5810C5F70254 C
+
+ME ME_5810C5BF0218
+ MEPROP UID '5810C5BF0218'
+ MEPROP Name 'TmsmEditViewInitContext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5810C59F0109 // msmEditViewUtils
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5810C5D70216 // rDisabled
+ HWL ME_5810C5E401C5 // rReadOnly
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5810C5F70254 // C
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'msmEditViewInitContext'
+
+ENDME // ME_5810C5BF0218 TmsmEditViewInitContext
+
+ME ME_5810C59F0109
+ MEPROP UID '5810C59F0109'
+ MEPROP Name 'msmEditViewUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_57AE0E4B00C5' // ConcreteViewControllers
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5810C5BF0218 // TmsmEditViewInitContext
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmEditViewUtils.pas'
+
+ENDME // ME_5810C59F0109 msmEditViewUtils

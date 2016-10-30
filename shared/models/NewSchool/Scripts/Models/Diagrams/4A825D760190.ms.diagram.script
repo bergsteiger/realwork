@@ -1,0 +1,62 @@
+// WorkJournalImpl 4A825D760190 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4A825D760190_diagrams
+
+ MEDIAGRAM ME_4A825D760190_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4A825D760190' ; // WorkJournalImpl
+
+  MEVIEW ME_4A83AC9D0128_view
+   MELINK Original WL? 'ME_4A83AC9D0128' ; // TnsWorkJournalListeners
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A83AC9D0128_view
+
+  MEVIEW ME_4A825E02010E_view
+   MELINK Original WL? 'ME_4A825E02010E' ; // TbsWorkJournalPrim
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A825E02010E_view
+
+  MEVIEW ME_4A8260EC0099_view
+   MELINK Original WL? 'ME_4A8260EC0099' ; // TnsJournalTreeStruct
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A8260EC0099_view
+
+  MEVIEW ME_4A825E1200F4_view
+   MELINK Original WL? 'ME_4A825E1200F4' ; // TbsWorkJournal
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A825E1200F4_view
+
+  MEVIEWLINK ME_4A83ACF4003F_viewlink
+   MELINK Original WL 'ME_4A83ACF4003F' '4A825E02010E.ms.model.script' ;
+   MELINK From ME_4A825E02010E_view ;
+   MELINK To ME_4A83AC9D0128_view ;
+  ENDMEVIEWLINK // ME_4A83ACF4003F_viewlink
+
+  MEVIEWLINK ME_4A825E1200F4_ME_4A825E02010E_Inherits
+   MELINK From ME_4A825E1200F4_view ;
+   MELINK To ME_4A825E02010E_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4A825E1200F4_ME_4A825E02010E_Inherits
+
+  MELIST Views
+   Seq: ( ME_4A83AC9D0128_view // TnsWorkJournalListeners
+   ME_4A825E02010E_view // TbsWorkJournalPrim
+   ME_4A8260EC0099_view // TnsJournalTreeStruct
+   ME_4A825E1200F4_view // TbsWorkJournal
+   ME_4A83ACF4003F_viewlink // TbsWorkJournalPrim ==> TnsWorkJournalListeners
+   ME_4A825E1200F4_ME_4A825E02010E_Inherits // TbsWorkJournal ==> TbsWorkJournalPrim
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4A825D760190_main
+
+ MELIST Diagrams
+  Seq: ( ME_4A825D760190_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4A825D760190_diagrams

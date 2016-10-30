@@ -1,0 +1,30 @@
+//#UC START# *53B533CE01B6_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\InsFilterNodeWordsPack.pas
+//#UC END# *53B533CE01B6_ext:FileName
+//#UC START# *53B533CE01B6impl_uses*
+//#UC END# *53B533CE01B6impl_uses*
+//#UC START# *53B533CE01B6intf_uses*
+//#UC END# *53B533CE01B6intf_uses*
+//#UC START# *54F9DEB20204_54F9DEB20204_4991887A031F_Word_impl*
+ Result := aFilterNode.UsedStatus;
+//#UC END# *54F9DEB20204_54F9DEB20204_4991887A031F_Word_impl*
+//#UC START# *54F9DEB20204_54F9DEB20204_4991887A031F_Word_var*
+//#UC END# *54F9DEB20204_54F9DEB20204_4991887A031F_Word_var*
+//#UC START# *54F9DEC402CD_54F9DEC402CD_4991887A031F_Word_impl*
+ Result := aFilterNode.DeletedStatus;
+//#UC END# *54F9DEC402CD_54F9DEC402CD_4991887A031F_Word_impl*
+//#UC START# *54F9DEC402CD_54F9DEC402CD_4991887A031F_Word_var*
+//#UC END# *54F9DEC402CD_54F9DEC402CD_4991887A031F_Word_var*
+//#UC START# *54F9DEE200D2_54F9DEE200D2_4991887A031F_Word_impl*
+ Supports(aFilterNode, IFilterFromQuery, l_F);
+ RunnerAssert(Assigned(l_F), 'Что-то не так с фильтром.', aCtx);
+ try
+  Result := l_F.GetChangeable;
+ finally
+  l_F := nil;
+ end;//try..finally
+//#UC END# *54F9DEE200D2_54F9DEE200D2_4991887A031F_Word_impl*
+//#UC START# *54F9DEE200D2_54F9DEE200D2_4991887A031F_Word_var*
+var
+ l_F: IFilterFromQuery;
+//#UC END# *54F9DEE200D2_54F9DEE200D2_4991887A031F_Word_var*

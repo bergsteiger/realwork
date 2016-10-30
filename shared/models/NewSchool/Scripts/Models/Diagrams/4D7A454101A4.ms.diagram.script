@@ -1,0 +1,41 @@
+// PrimBaseSearchContainer 4D7A454101A4 VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_4D7A454101A4_diagrams
+
+ MEDIAGRAM ME_4D7A454101A4_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_4D7A454101A4' ; // PrimBaseSearchContainer
+
+  MEVIEW ME_4D7A460D0058_view
+   MELINK Original WL 'ME_4D7A460D0058' '4D7A454101A4.ms.model.script' ; // ztChild
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D7A460D0058_view
+
+  MEVIEW ME_4D7A45DC01AD_view
+   MELINK Original WL 'ME_4D7A45DC01AD' '4D7A454101A4.ms.model.script' ; // ChildZone
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D7A45DC01AD_view
+
+  MEVIEWLINK ME_4D7A460D0058_ME_4D7A45DC01AD_Inherits
+   MELINK From ME_4D7A460D0058_view ;
+   MELINK To ME_4D7A45DC01AD_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_4D7A460D0058_ME_4D7A45DC01AD_Inherits
+
+  MELIST Views
+   Seq: ( ME_4D7A460D0058_view // ztChild
+   ME_4D7A45DC01AD_view // ChildZone
+   ME_4D7A460D0058_ME_4D7A45DC01AD_Inherits // ztChild ==> ChildZone
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4D7A454101A4_main
+
+ MELIST Diagrams
+  Seq: ( ME_4D7A454101A4_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4D7A454101A4_diagrams

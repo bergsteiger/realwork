@@ -1,0 +1,41 @@
+// MmsmEventsPublisher 57ADE3C3031B PureMixIn Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_57ADE3C3031B_diagrams
+
+ MEDIAGRAM ME_57ADE3C3031B_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_57ADE3C3031B' '57B5730D0123.ms.model.script' ; // MmsmEventsPublisher
+
+  MEVIEW ME_57B4228B001E_view
+   MELINK Original WL 'ME_57B4228B001E' '57B5730D0123.ms.model.script' ; // AddEventsSubscriber
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_57B4228B001E_view
+
+  MEVIEW ME_57B422AB0293_view
+   MELINK Original WL 'ME_57B422AB0293' '57B5730D0123.ms.model.script' ; // RemoveEventsSubscriber
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_57B422AB0293_view
+
+  MEVIEWLINK ME_57B422AB0293_ME_57B4228B001E_Inherits
+   MELINK From ME_57B422AB0293_view ;
+   MELINK To ME_57B4228B001E_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57B422AB0293_ME_57B4228B001E_Inherits
+
+  MELIST Views
+   Seq: ( ME_57B4228B001E_view // AddEventsSubscriber
+   ME_57B422AB0293_view // RemoveEventsSubscriber
+   ME_57B422AB0293_ME_57B4228B001E_Inherits // RemoveEventsSubscriber ==> AddEventsSubscriber
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_57ADE3C3031B_main
+
+ MELIST Diagrams
+  Seq: ( ME_57ADE3C3031B_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_57ADE3C3031B_diagrams

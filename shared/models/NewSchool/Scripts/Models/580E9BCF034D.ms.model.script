@@ -1,0 +1,95 @@
+// msmModelElementMethodCallerPack 580E9BCF034D ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_580E9BCF034D
+
+FORWARD ME_580E9C0901F9
+
+ME ME_580E9C360203
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_580E9C360203 aWord
+
+ME ME_580E9C360264
+ MEPROP Name 'aMethodName'
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_580E9C360264 aMethodName
+
+ME ME_580E9C360296
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_55C0A4F9013F' '4DAF19F600C5.ms.model.script' // TtfwStackValue
+ ;
+
+ENDME // ME_580E9C360296 aValue
+
+ME ME_580E9C0901F9
+ MEPROP UID '580E9C0901F9'
+ MEPROP Name 'msm_CallSetter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_580E9BCF034D // msmModelElementMethodCallerPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_580E9C360203 // aWord
+ ME_580E9C360264 // aMethodName
+ ME_580E9C360296 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_580E9C0901F9 msm_CallSetter
+
+ME ME_580E9BE0016A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_580E9BCF034D // msmModelElementMethodCallerPack
+ ;
+ MELINK Target WL? 'ME_57AA00BD022E' // TmsmModelElementMethodCaller
+ ;
+
+ENDME // ME_580E9BE0016A 
+
+ME ME_580E9BEA0328
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_580E9BCF034D // msmModelElementMethodCallerPack
+ ;
+ MELINK Target WL? 'ME_57AA00BD022E' // TmsmModelElementMethodCaller
+ ;
+
+ENDME // ME_580E9BEA0328 
+
+%%InjectedBy ME_57AA00BD022E ME_580E9BCF034D
+
+ME ME_580E9BCF034D
+ MEPROP UID '580E9BCF034D'
+ MEPROP Name 'msmModelElementMethodCallerPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_57B2D67D038F' // WordsCache
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_580E9C0901F9 // msm_CallSetter
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_580E9BE0016A // TmsmModelElementMethodCaller
+ ME_580E9BEA0328 // TmsmModelElementMethodCaller
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmModelElementMethodCallerPack.pas'
+
+ENDME // ME_580E9BCF034D msmModelElementMethodCallerPack

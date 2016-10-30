@@ -7,16 +7,16 @@ INCLUDE 'ElementsRTTI.ms.dict'
 FORWARD ME_57CEB4640283
 
 MEREF ME_57B4228B001E_ME_57ADBE5B024A_impl
- MELINK Original WL 'ME_57B4228B001E' '57B5730D0123.ms.model.script' // Subscribe
+ MELINK Original WL 'ME_57B4228B001E' '57B5730D0123.ms.model.script' // AddEventsSubscriber
  ;
  MEPROP OpKind opkind_Implemented
-ENDMEREF // ME_57B4228B001E_ME_57ADBE5B024A_impl Subscribe
+ENDMEREF // ME_57B4228B001E_ME_57ADBE5B024A_impl AddEventsSubscriber
 
 MEREF ME_57B422AB0293_ME_57ADBE5B024A_impl
- MELINK Original WL 'ME_57B422AB0293' '57B5730D0123.ms.model.script' // Unsubscribe
+ MELINK Original WL 'ME_57B422AB0293' '57B5730D0123.ms.model.script' // RemoveEventsSubscriber
  ;
  MEPROP OpKind opkind_Implemented
-ENDMEREF // ME_57B422AB0293_ME_57ADBE5B024A_impl Unsubscribe
+ENDMEREF // ME_57B422AB0293_ME_57ADBE5B024A_impl RemoveEventsSubscriber
 
 MEREF ME_57B6B9670157_ME_57ADBE5B024A_R
  MELINK Original WL 'ME_57B6B9670157' '57B5730D0123.ms.model.script' // ImsmEventsPublisher
@@ -42,8 +42,8 @@ ME ME_57ADBE5B024A
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_57B4228B001E_ME_57ADBE5B024A_impl // Subscribe
- ME_57B422AB0293_ME_57ADBE5B024A_impl // Unsubscribe
+   Seq: ( ME_57B4228B001E_ME_57ADBE5B024A_impl // AddEventsSubscriber
+ ME_57B422AB0293_ME_57ADBE5B024A_impl // RemoveEventsSubscriber
  )
  ; // Implemented
  UP extprop:rc:isAcceptableForScripts True
@@ -72,7 +72,6 @@ ME ME_57CEB4640283
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
- UP "is namespace" True
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmModels.pas'
 
 ENDME // ME_57CEB4640283 msmModels

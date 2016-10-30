@@ -1,0 +1,124 @@
+//#UC START# *4DAEEDE10285_57FC1BA5030E_Word_impl*
+ TmsmModelElementMethodValueCache.Instance.Clear;
+//#UC END# *4DAEEDE10285_57FC1BA5030E_Word_impl*
+//#UC START# *4DAEEDE10285_57FC1BA5030E_Word_var*
+//#UC END# *4DAEEDE10285_57FC1BA5030E_Word_var*
+//#UC START# *57B2D68E035D_ext:FileName
+w:\common\components\gui\Garant\msm\msmWordsCachePack.pas
+//#UC END# *57B2D68E035D_ext:FileName
+//#UC START# *57B2D68E035Dimpl_uses*
+ , l3String
+ , WordsRTTIPack
+ , msmModelElementMethodValueList
+//#UC END# *57B2D68E035Dimpl_uses*
+//#UC START# *57B2D71E02B8_57B2D71E02B8_Word_impl*
+ with TmsmWordsCache.Instance do
+ begin
+  Lock;
+  try
+   Result := FindData(aName, l_Index);
+   if Result then
+    aCtx.rEngine.PushObj(Items[l_Index]);
+  finally
+   Unlock;
+  end;//try..finally
+ end;//with TmsmWordsCache.Instance
+ if not Result then
+ begin
+  with TmsmLostWords.Instance do
+  begin
+   Lock;
+   try
+    Result := FindData(aName, l_Index);
+    if Result then
+     aCtx.rEngine.PushObj(nil);
+   finally
+    Unlock;
+   end;//try..finally
+  end;//with TmsmLostWords.Instance
+ end;//not Result 
+//#UC END# *57B2D71E02B8_57B2D71E02B8_Word_impl*
+//#UC START# *57B2D71E02B8_57B2D71E02B8_Word_var*
+var
+ l_Index: Integer;
+//#UC END# *57B2D71E02B8_57B2D71E02B8_Word_var*
+//#UC START# *57B2D7420034_57B2D7420034_Word_impl*
+ if (aWord = nil) then
+  TmsmLostWords.Instance.Add(aName)
+ else
+ begin
+  Assert(l3Same(aName, aWord.Key.AsCStr));
+  TmsmWordsCache.Instance.Add(aWord);
+ end;//aWord = nil
+//#UC END# *57B2D7420034_57B2D7420034_Word_impl*
+//#UC START# *57B2D7420034_57B2D7420034_Word_var*
+//#UC END# *57B2D7420034_57B2D7420034_Word_var*
+//#UC START# *57B2DFE201B1_57B2DFE201B1_Word_impl*
+ Case aCacheWhere.rType of
+  tfw_vtIntf:
+   l_Word := (aCacheWhere.AsIntf As ItfwWordBox).Boxed As TtfwWord;
+  tfw_vtObj:
+   l_Word := aCacheWhere.AsObject As TtfwWord;
+  else
+  begin
+   aLambda.DoIt(aCtx);
+   Exit;
+  end;//else
+ end;//Case aCacheWhere.rType
+
+ if (l_Word = nil) OR (l_Word.GetRefForCompare = nil) then
+ begin
+  aLambda.DoIt(aCtx);
+  //aCtx.rEngine.Push(aDefault);
+  //- вообще-то тут надо звать aLambda.DoIt(aCtx); по-аналогии с DoCache
+  Exit;
+ end;//(l_Word = nil) OR (l_Word.GetRefForCompare)
+
+ l_V := TmsmModelElementMethodValue_C(l_Word, aKey);
+ with TmsmModelElementMethodValueCache.Instance do
+ begin
+  Lock;
+  try
+   if FindData(l_V, l_Index) then
+   begin
+    aCtx.rEngine.Push(ItemSlot(l_Index)^.rValue);
+    //aCtx.rEngine.Push(Items[l_Index].rValue);
+    Exit;
+   end;//FindData(l_V, l_Index)
+  finally
+   Unlock;
+  end;//try..finally
+  aLambda.DoIt(aCtx);
+  // - а вот это надо бы обернуть в try..except и использовать aDefault, по-аналогии с DoCache
+  // - при трансформации элементов внутри надо звать Ctx:EnterCS/Ctx:LeaveCS
+  l_V.rValue := aCtx.rEngine.Top^;
+  {$IfDef MSM}
+(*  if (l_V.rValue.rType = tfw_vtList) then
+   if (l_V.rValue.AsIntf <> nil) then
+    if ItfwValueList(l_V.rValue.AsIntf).IsView then
+     Assert(false);*)
+  {$EndIf MSM}
+  Add(l_V);
+ end;//with TmsmModelElementMethodValueCache.Instance
+//#UC END# *57B2DFE201B1_57B2DFE201B1_Word_impl*
+//#UC START# *57B2DFE201B1_57B2DFE201B1_Word_var*
+var
+ l_Word : TtfwWord;
+ l_V : TmsmModelElementMethodValue;
+ l_Index : Integer;
+//#UC END# *57B2DFE201B1_57B2DFE201B1_Word_var*
+//#UC START# *57F67D3000FE_57F67D3000FE_Word_impl*
+ TmsmModelElementMethodValueCache.Instance.DeleteWordCachedValues(aWord);
+//#UC END# *57F67D3000FE_57F67D3000FE_Word_impl*
+//#UC START# *57F67D3000FE_57F67D3000FE_Word_var*
+//#UC END# *57F67D3000FE_57F67D3000FE_Word_var*
+//#UC START# *57FF6B330005_57FF6B330005_Word_impl*
+ TmsmElementListsService.Instance.RegetViewedListsFor(aWord, aListName);
+//#UC END# *57FF6B330005_57FF6B330005_Word_impl*
+//#UC START# *57FF6B330005_57FF6B330005_Word_var*
+//#UC END# *57FF6B330005_57FF6B330005_Word_var*
+//#UC START# *5807640300C8_5807640300C8_Word_impl*
+ TmsmModelElementMethodValueCache.Instance.DeleteWordCachedValue(aWord, aName);
+//#UC END# *5807640300C8_5807640300C8_Word_impl*
+//#UC START# *5807640300C8_5807640300C8_Word_var*
+//#UC END# *5807640300C8_5807640300C8_Word_var*

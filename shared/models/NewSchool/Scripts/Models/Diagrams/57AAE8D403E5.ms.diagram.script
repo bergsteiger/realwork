@@ -1,0 +1,125 @@
+// msmControllers 57AAE8D403E5 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_57AAE8D403E5_diagrams
+
+ MEDIAGRAM ME_57AAE8D403E5_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_57AAE8D403E5' ; // msmControllers
+
+  MEVIEW ME_57AAEAEC003A_view
+   MELINK Original WL 'ME_57AAEAEC003A' '57AAE8D403E5.ms.model.script' ; // TmsmView
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_57AAEAEC003A_view
+
+  MEVIEW ME_57B1A4520214_view
+   MELINK Original WL 'ME_57B1A4520214' '57AAE8D403E5.ms.model.script' ; // ImsmCaptionModel
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_57B1A4520214_view
+
+  MEVIEW ME_57DAB28A0390_view
+   MELINK Original WL 'ME_57DAB28A0390' '57AAE8D403E5.ms.model.script' ; // MmsmActivateable
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_57DAB28A0390_view
+
+  MEVIEW ME_57AD8C3B0155_view
+   MELINK Original WL 'ME_57AD8C3B0155' '57AAE8D403E5.ms.model.script' ; // TmsmModelEvent
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_57AD8C3B0155_view
+
+  MEVIEW ME_57DAB1F703BA_view
+   MELINK Original WL 'ME_57DAB1F703BA' '57AAE8D403E5.ms.model.script' ; // ImsmActivateable
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_57DAB1F703BA_view
+
+  MEVIEW ME_57B345B20359_view
+   MELINK Original WL 'ME_57B345B20359' '57AAE8D403E5.ms.model.script' ; // TmsmViewParentControl
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_57B345B20359_view
+
+  MEVIEW ME_57B1E89F02AE_view
+   MELINK Original WL 'ME_57B1E89F02AE' '57AAE8D403E5.ms.model.script' ; // ImsmController
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_57B1E89F02AE_view
+
+  MEVIEW ME_57CD31A200FA_view
+   MELINK Original WL 'ME_57CD31A200FA' '57AAE8D403E5.ms.model.script' ; // CaptionChangedEvent
+   MEPROP X 40
+   MEPROP Y 180
+  ENDMEVIEW // ME_57CD31A200FA_view
+
+  MEVIEW ME_57AB05790383_view
+   MELINK Original WL 'ME_57AB05790383' '57AAE8D403E5.ms.model.script' ; // ImsmViewController
+   MEPROP X 200
+   MEPROP Y 180
+  ENDMEVIEW // ME_57AB05790383_view
+
+  MEVIEW ME_57AAF0E701FA_view
+   MELINK Original WL 'ME_57AAF0E701FA' '57AAE8D403E5.ms.model.script' ; // ImsmViewParent
+   MEPROP X 360
+   MEPROP Y 180
+  ENDMEVIEW // ME_57AAF0E701FA_view
+
+  MEVIEWLINK ME_57DAB1F703BA_ME_57DAB28A0390_Implements
+   MELINK From ME_57DAB1F703BA_view ;
+   MELINK To ME_57DAB28A0390_view ;
+   MEPROP Class class_Implements
+  ENDMEVIEWLINK // ME_57DAB1F703BA_ME_57DAB28A0390_Implements
+
+  MEVIEWLINK ME_57B1E89F02AE_ME_57DAB1F703BA_Inherits
+   MELINK From ME_57B1E89F02AE_view ;
+   MELINK To ME_57DAB1F703BA_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57B1E89F02AE_ME_57DAB1F703BA_Inherits
+
+  MEVIEWLINK ME_57CD31A200FA_ME_57AD8C3B0155_Inherits
+   MELINK From ME_57CD31A200FA_view ;
+   MELINK To ME_57AD8C3B0155_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57CD31A200FA_ME_57AD8C3B0155_Inherits
+
+  MEVIEWLINK ME_57AB05790383_ME_57B1E89F02AE_Inherits
+   MELINK From ME_57AB05790383_view ;
+   MELINK To ME_57B1E89F02AE_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57AB05790383_ME_57B1E89F02AE_Inherits
+
+  MEVIEWLINK ME_57AAF0E701FA_ME_57DAB1F703BA_Inherits
+   MELINK From ME_57AAF0E701FA_view ;
+   MELINK To ME_57DAB1F703BA_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57AAF0E701FA_ME_57DAB1F703BA_Inherits
+
+  MELIST Views
+   Seq: ( ME_57AAEAEC003A_view // TmsmView
+   ME_57B1A4520214_view // ImsmCaptionModel
+   ME_57DAB28A0390_view // MmsmActivateable
+   ME_57AD8C3B0155_view // TmsmModelEvent
+   ME_57DAB1F703BA_view // ImsmActivateable
+   ME_57B345B20359_view // TmsmViewParentControl
+   ME_57B1E89F02AE_view // ImsmController
+   ME_57CD31A200FA_view // CaptionChangedEvent
+   ME_57AB05790383_view // ImsmViewController
+   ME_57AAF0E701FA_view // ImsmViewParent
+   ME_57DAB1F703BA_ME_57DAB28A0390_Implements // ImsmActivateable ==> MmsmActivateable
+   ME_57B1E89F02AE_ME_57DAB1F703BA_Inherits // ImsmController ==> ImsmActivateable
+   ME_57CD31A200FA_ME_57AD8C3B0155_Inherits // CaptionChangedEvent ==> TmsmModelEvent
+   ME_57AB05790383_ME_57B1E89F02AE_Inherits // ImsmViewController ==> ImsmController
+   ME_57AAF0E701FA_ME_57DAB1F703BA_Inherits // ImsmViewParent ==> ImsmActivateable
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_57AAE8D403E5_main
+
+ MELIST Diagrams
+  Seq: ( ME_57AAE8D403E5_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_57AAE8D403E5_diagrams

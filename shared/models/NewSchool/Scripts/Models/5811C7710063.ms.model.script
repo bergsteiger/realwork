@@ -1,0 +1,140 @@
+// TmsmSomeWordsList 5811C7710063 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5811C7710063
+
+ME ME_5811CCB20392
+ MEPROP UID '5811CCB20392'
+ MEPROP Name 'List'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_5811C7710063 // TmsmSomeWordsList
+ ;
+ MELINK Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+ ;
+ UP "needs field" True
+
+ENDME // ME_5811CCB20392 List
+
+MEREF ME_58115104021E_ME_5811D4B40297_G
+ MELINK Original WL 'ME_58115104021E' '58114D530021.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_58115104021E_ME_5811D4B40297_G Create
+
+MEREF ME_57AEBE8A014F_ME_5811D4B40297_R
+ MELINK Original WL 'ME_57AEBE8A014F' '57B565F200E5.ms.model.script' // ImsmModelElementStringList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AEBE8A014F_ME_5811D4B40297_R ImsmModelElementStringList
+
+%%ImplementedBy ME_57AEBE8A014F ME_5811D4B40297
+
+%%InheritedBy ME_58115104021E ME_5811D4B40297
+
+ME ME_5811D4B40297
+ MEPROP UID '5811D4B40297'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5811C7710063 // TmsmSomeWordsList
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_58115104021E_ME_5811D4B40297_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57AEBE8A014F_ME_5811D4B40297_R // ImsmModelElementStringList
+ )
+ ; // Implements
+
+ENDME // ME_5811D4B40297 Make
+
+ME ME_5811CC6F015B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5811C7710063 // TmsmSomeWordsList
+ ;
+ MELINK Target WL 'ME_57F4E39D0252' '57AA00BD022E.ms.model.script' // CallAndGetList$1
+ ;
+
+ENDME // ME_5811CC6F015B 
+
+MEREF ME_5811547001A8_ME_5811C7710063_impl
+ MELINK Original WL 'ME_5811547001A8' '58114D530021.ms.model.script' // DoGetCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5811547001A8_ME_5811C7710063_impl DoGetCount
+
+MEREF ME_581154A203C2_ME_5811C7710063_impl
+ MELINK Original WL 'ME_581154A203C2' '58114D530021.ms.model.script' // DoGetItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_581154A203C2_ME_5811C7710063_impl DoGetItem
+
+MEREF ME_479731C50290_ME_5811C7710063_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5811C7710063_over Cleanup
+
+MEREF ME_58114D530021_ME_5811C7710063_G
+ MELINK Original WL? 'ME_58114D530021' // TmsmSomeWordsListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_58114D530021_ME_5811C7710063_G TmsmSomeWordsListPrim
+
+%%InheritedBy ME_58114D530021 ME_5811C7710063
+
+ME ME_5811C7710063
+ MEPROP UID '5811C7710063'
+ MEPROP Name 'TmsmSomeWordsList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B30E930154' // StringLists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_58114D530021_ME_5811C7710063_G // TmsmSomeWordsListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5811CCB20392 // List
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5811D4B40297 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5811547001A8_ME_5811C7710063_impl // DoGetCount
+ ME_581154A203C2_ME_5811C7710063_impl // DoGetItem
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5811C7710063_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5811CC6F015B // CallAndGetList$1
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmSomeWordsList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmSomeWordsList'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmSomeWordsList.pas'
+
+ENDME // ME_5811C7710063 TmsmSomeWordsList

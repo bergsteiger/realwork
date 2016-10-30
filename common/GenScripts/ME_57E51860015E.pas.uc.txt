@@ -1,0 +1,41 @@
+//#UC START# *479731C50290_57E51860015E_impl*
+ inherited;
+//#UC END# *479731C50290_57E51860015E_impl*
+//#UC START# *479731C50290_57E51860015E_var*
+//#UC END# *479731C50290_57E51860015E_var*
+//#UC START# *57E51860015E_ext:FileName
+w:\common\components\gui\Garant\msm\msmLoadedWordsList.pas
+//#UC END# *57E51860015E_ext:FileName
+//#UC START# *57E51860015Eimpl_uses*
+//#UC END# *57E51860015Eimpl_uses*
+//#UC START# *57E51B9E01E1_57E51860015E_impl*
+ inherited Create(TmsmModelElementView_C(nil, 'All'));
+//#UC END# *57E51B9E01E1_57E51860015E_impl*
+//#UC START# *57E51B9E01E1_57E51860015E_var*
+//#UC END# *57E51B9E01E1_57E51860015E_var*
+//#UC START# *5811547001A8_57E51860015E_impl*
+ with TmsmWordsByUserNameIndex.Instance do
+ begin
+  Lock;
+  try
+   Result := Count;
+  finally
+   Unlock;
+  end;//try..finally
+ end;//with TmsmWordsByUserNameIndex.Instance
+//#UC END# *5811547001A8_57E51860015E_impl*
+//#UC START# *5811547001A8_57E51860015E_var*
+//#UC END# *5811547001A8_57E51860015E_var*
+//#UC START# *581154A203C2_57E51860015E_impl*
+ with TmsmWordsByUserNameIndex.Instance do
+ begin
+  Lock;
+  try
+   Result := TmsmModelElement.MakeFromWord(Items[anIndex].rValue);
+  finally
+   Unlock;
+  end;//try..finally
+ end;//with TmsmWordsByUserNameIndex.Instance
+//#UC END# *581154A203C2_57E51860015E_impl*
+//#UC START# *581154A203C2_57E51860015E_var*
+//#UC END# *581154A203C2_57E51860015E_var*

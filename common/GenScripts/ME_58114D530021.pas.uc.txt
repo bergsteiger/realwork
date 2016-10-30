@@ -1,0 +1,76 @@
+//#UC START# *57AAD86403AD_58114D530021get_impl*
+ Result := DoGetItem(anIndex);
+//#UC END# *57AAD86403AD_58114D530021get_impl*
+//#UC START# *57AAD86403AD_58114D530021get_var*
+//#UC END# *57AAD86403AD_58114D530021get_var*
+//#UC START# *57AAD89C0277_58114D530021get_impl*
+ Result := DoGetCount;
+//#UC END# *57AAD89C0277_58114D530021get_impl*
+//#UC START# *57AAD89C0277_58114D530021get_var*
+//#UC END# *57AAD89C0277_58114D530021get_var*
+//#UC START# *57AE2E140297_58114D530021get_impl*
+ Result := nil;
+//#UC END# *57AE2E140297_58114D530021get_impl*
+//#UC START# *57AE2E140297_58114D530021get_var*
+//#UC END# *57AE2E140297_58114D530021get_var*
+//#UC START# *57AEBED1018D_58114D530021get_impl*
+ if (Get_Item(anIndex) = nil) then
+  Result := TtfwCStringFactory.C('(unexisting)')
+ else
+  Result := Get_Item(anIndex).StringProp[Self.Element.rTextName];
+//#UC END# *57AEBED1018D_58114D530021get_impl*
+//#UC START# *57AEBED1018D_58114D530021get_var*
+//#UC END# *57AEBED1018D_58114D530021get_var*
+//#UC START# *57B6C7D40215_58114D530021get_impl*
+ if (Get_Item(anIndex) = nil) then
+  Result := TtfwCStringFactory.C('(unexisting)')
+ else
+  Result := Get_Item(anIndex).StringProp['DefaultSearchText'];
+//#UC END# *57B6C7D40215_58114D530021get_impl*
+//#UC START# *57B6C7D40215_58114D530021get_var*
+//#UC END# *57B6C7D40215_58114D530021get_var*
+//#UC START# *57D1327900BC_58114D530021_impl*
+ Result := -1;
+ if (anElement <> nil) then
+ begin
+  for l_Index := 0 to Pred(Get_Count) do
+  begin
+   l_E := Get_Item(l_Index);
+   if l_E.IsSameElement(anElement) then
+   begin
+    Result := l_Index;
+    Exit;
+   end;//l_E.IsSameElement(anElement)
+  end;//for l_Index
+  for l_Index := 0 to Pred(Get_Count) do
+  begin
+   l_E := Get_Item(l_Index);
+   if l_E.IsSameElementView(anElement) then
+   begin
+    Result := l_Index;
+    Exit;
+   end;//l_E.IsSameElementView(anElement)
+  end;//for l_Index
+ end;//anElement <> nil
+//#UC END# *57D1327900BC_58114D530021_impl*
+//#UC START# *57D1327900BC_58114D530021_var*
+var
+ l_Index : Integer;
+ l_E : ImsmModelElement;
+//#UC END# *57D1327900BC_58114D530021_var*
+//#UC START# *58094B920194_58114D530021_impl*
+ Assert(false);
+//#UC END# *58094B920194_58114D530021_impl*
+//#UC START# *58094B920194_58114D530021_var*
+//#UC END# *58094B920194_58114D530021_var*
+//#UC START# *58114D530021_ext:FileName
+w:\common\components\gui\Garant\msm\msmSomeWordsListPrim.pas
+//#UC END# *58114D530021_ext:FileName
+//#UC START# *58114D530021impl_uses*
+//#UC END# *58114D530021impl_uses*
+//#UC START# *58115104021E_58114D530021_impl*
+ Assert(anElement.rElement = nil);
+ inherited Create(anElement);
+//#UC END# *58115104021E_58114D530021_impl*
+//#UC START# *58115104021E_58114D530021_var*
+//#UC END# *58115104021E_58114D530021_var*

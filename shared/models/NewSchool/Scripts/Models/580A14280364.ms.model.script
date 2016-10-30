@@ -1,0 +1,90 @@
+// msmEventsSubscriber 580A14280364 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_580A14280364
+
+FORWARD ME_57B6B9CD03B7
+
+ME ME_57B6B9DD0337
+ MEPROP UID '57B6B9DD0337'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B6B9CD03B7 // Publisher
+ ;
+ MELINK Target WL 'ME_57B6B9670157' '57B5730D0123.ms.model.script' // ImsmEventsPublisher
+ ;
+
+ENDME // ME_57B6B9DD0337 DoIt
+
+ME ME_57B6B9CD03B7
+ MEPROP UID '57B6B9CD03B7'
+ MEPROP Name 'Publisher'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_580A14280364 // msmEventsSubscriber
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57B6B9DD0337 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57B6B9CD03B7 Publisher
+
+MEREF ME_47A042E100E2_ME_580A14280364_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_580A14280364_over InitFields
+
+MEREF ME_49BFC98902FF_ME_580A14280364_over
+ MELINK Original WL 'ME_49BFC98902FF' '51612ED700B4.ms.model.script' // BeforeRelease
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49BFC98902FF_ME_580A14280364_over BeforeRelease
+
+MEREF ME_57B6B5D00202_ME_580A14280364_G
+ MELINK Original WL? 'ME_57B6B5D00202' // msmEventsSubscriberPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B6B5D00202_ME_580A14280364_G msmEventsSubscriberPrim
+
+%%InheritedBy ME_57B6B5D00202 ME_580A14280364
+
+ME ME_580A14280364
+ MEPROP UID '580A14280364'
+ MEPROP Name 'msmEventsSubscriber'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_57CE85BE0100' // Events
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57B6B5D00202_ME_580A14280364_G // msmEventsSubscriberPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57B6B9CD03B7 // Publisher
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_580A14280364_over // InitFields
+ ME_49BFC98902FF_ME_580A14280364_over // BeforeRelease
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_msmEventsSubscriber_'
+ UP extprop:pas:UnitName 'msmEventsSubscriber.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmEventsSubscriber.imp.pas'
+
+ENDME // ME_580A14280364 msmEventsSubscriber

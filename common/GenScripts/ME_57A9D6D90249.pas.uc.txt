@@ -1,0 +1,19 @@
+//#UC START# *57A9D6D90249_ext:FileName
+w:\common\components\gui\Garant\msm\msmModelLoader.pas
+//#UC END# *57A9D6D90249_ext:FileName
+//#UC START# *57A9D6D90249impl_uses*
+ , l3Chars
+ , tfwScriptingInterfaces
+ , tfwScriptEngineEx
+ // - чтобы аксиоматика подтянулась
+ , SysUtils
+//#UC END# *57A9D6D90249impl_uses*
+//#UC START# *57A9D6F8022B_57A9D6D90249_impl*
+ Result := TmsmModelElement.MakeFromValue(
+  TmsmModelElementMethodCaller.Call(
+   [TtfwStackValue_C(TtfwCStringFactory.C(aFileName))],
+   'WordByDictionaryPath')
+  );
+//#UC END# *57A9D6F8022B_57A9D6D90249_impl*
+//#UC START# *57A9D6F8022B_57A9D6D90249_var*
+//#UC END# *57A9D6F8022B_57A9D6D90249_var*
