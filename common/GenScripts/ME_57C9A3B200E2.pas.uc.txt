@@ -1,0 +1,22 @@
+//#UC START# *57C9A3B200E2_57ADBA39026E_57C9A3B200E2_impl*
+ inherited;
+ l_O := Self.ModelToListen.List.Owner;
+ if (Self.ModelToFire.CurrentElement = nil) then
+ begin
+  if (l_O <> nil) then
+   Self.ModelToFire.CurrentElement := l_O;
+ end//Self.ModelToFire.CurrentElement
+ else
+ if not Self.ModelToFire.CurrentElement.IsSameElement(l_O) then
+  Self.ModelToFire.CurrentElement := l_O;
+//#UC END# *57C9A3B200E2_57ADBA39026E_57C9A3B200E2_impl*
+//#UC START# *57C9A3B200E2_57ADBA39026E_57C9A3B200E2_var*
+var
+ l_O : ImsmModelElement;
+//#UC END# *57C9A3B200E2_57ADBA39026E_57C9A3B200E2_var*
+//#UC START# *57C9A3B200E2_ext:FileName
+w:\common\components\gui\Garant\msm\msmListOwnerToCurrentElementBinding.pas
+//#UC END# *57C9A3B200E2_ext:FileName
+//#UC START# *57C9A3B200E2impl_uses*
+ , msmModelElements
+//#UC END# *57C9A3B200E2impl_uses*
