@@ -114,17 +114,17 @@ end;//TevCustomEditorWindowModelPartFontInfoFree
 
 {$If NOT Defined(NoVCL)}
 function TevCustomEditorWindowModelPartFontInfo.GetFont(aControl: TControl): Il3FontInfo;
-//#UC START# *B31F486B3A13_556F262E022F_var*
-//#UC END# *B31F486B3A13_556F262E022F_var*
+//#UC START# *556F24D50369_556F262E022F_var*
+//#UC END# *556F24D50369_556F262E022F_var*
 begin
-//#UC START# *B31F486B3A13_556F262E022F_impl*
+//#UC START# *556F24D50369_556F262E022F_impl*
  {$IfNDef DesignTimeLibrary}
   if (aControl Is TevCustomEditorWindow) then
   Result := TevCustomEditorWindow(aControl).TextPara.font
  else
  {$EndIf}
   Result := nil; 
-//#UC END# *B31F486B3A13_556F262E022F_impl*
+//#UC END# *556F24D50369_556F262E022F_impl*
 end;//TevCustomEditorWindowModelPartFontInfo.GetFont
 {$IfEnd} // NOT Defined(NoVCL)
 

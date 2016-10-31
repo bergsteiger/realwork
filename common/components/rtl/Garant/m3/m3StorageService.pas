@@ -81,10 +81,10 @@ begin
 end;//Tm3StorageService.pm_SetAlien
 
 function Tm3StorageService.UseSplitted: Boolean;
-//#UC START# *AA9D589FDBFC_5551C8670144_var*
-//#UC END# *AA9D589FDBFC_5551C8670144_var*
+//#UC START# *5551C89E0016_5551C8670144_var*
+//#UC END# *5551C89E0016_5551C8670144_var*
 begin
-//#UC START# *AA9D589FDBFC_5551C8670144_impl*
+//#UC START# *5551C89E0016_5551C8670144_impl*
  Lock;
  try
   if (f_Alien <> nil) then
@@ -94,14 +94,14 @@ begin
  finally
   Unlock;
  end;//try..finally
-//#UC END# *AA9D589FDBFC_5551C8670144_impl*
+//#UC END# *5551C89E0016_5551C8670144_impl*
 end;//Tm3StorageService.UseSplitted
 
 function Tm3StorageService.SetUseSplitted(aValue: Boolean): Boolean;
-//#UC START# *FEF2A1107807_5551C8670144_var*
-//#UC END# *FEF2A1107807_5551C8670144_var*
+//#UC START# *5551C8A7027D_5551C8670144_var*
+//#UC END# *5551C8A7027D_5551C8670144_var*
 begin
-//#UC START# *FEF2A1107807_5551C8670144_impl*
+//#UC START# *5551C8A7027D_5551C8670144_impl*
  Lock;
  try
   if (f_Alien <> nil) then
@@ -114,7 +114,7 @@ begin
  finally
   Unlock;
  end;//try..finally
-//#UC END# *FEF2A1107807_5551C8670144_impl*
+//#UC END# *5551C8A7027D_5551C8670144_impl*
 end;//Tm3StorageService.SetUseSplitted
 
 class function Tm3StorageService.Instance: Tm3StorageService;

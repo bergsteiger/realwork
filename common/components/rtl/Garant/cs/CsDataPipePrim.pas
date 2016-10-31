@@ -62,6 +62,8 @@ type
     ReadSize: Int64 = -1): Boolean; override;
    procedure WriteStreamWithCRCCheck(aStream: TStream;
     KeepPosition: Boolean = False); override;
+   function ReadBoolean: Boolean; override;
+   procedure WriteBoolean(aValue: Boolean); override;
   public
    property ClientID: TCsClientId
     read f_ClientID
@@ -322,6 +324,7 @@ function TCsDataPipePrim.ReadStreamWithCRCCheck(aStream: TStream;
 //#UC END# *580F367C0052_538DC31F03A5_var*
 begin
 //#UC START# *580F367C0052_538DC31F03A5_impl*
+ WriteBufferFlush;
  Result := f_IOHandler.ReadStreamWithCRCCheck(aStream, CalcCRCFromBegin, ReadOffset, ReadSize);
 //#UC END# *580F367C0052_538DC31F03A5_impl*
 end;//TCsDataPipePrim.ReadStreamWithCRCCheck
@@ -335,6 +338,25 @@ begin
  f_IOHandler.WriteStreamWithCRCCheck(aStream);
 //#UC END# *580F36A802FA_538DC31F03A5_impl*
 end;//TCsDataPipePrim.WriteStreamWithCRCCheck
+
+function TCsDataPipePrim.ReadBoolean: Boolean;
+//#UC START# *58172754028B_538DC31F03A5_var*
+//#UC END# *58172754028B_538DC31F03A5_var*
+begin
+//#UC START# *58172754028B_538DC31F03A5_impl*
+ WriteBufferFlush;
+ Result := f_IOHandler.ReadBoolean;
+//#UC END# *58172754028B_538DC31F03A5_impl*
+end;//TCsDataPipePrim.ReadBoolean
+
+procedure TCsDataPipePrim.WriteBoolean(aValue: Boolean);
+//#UC START# *581727750209_538DC31F03A5_var*
+//#UC END# *581727750209_538DC31F03A5_var*
+begin
+//#UC START# *581727750209_538DC31F03A5_impl*
+ f_IOHandler.WriteBoolean(aValue);
+//#UC END# *581727750209_538DC31F03A5_impl*
+end;//TCsDataPipePrim.WriteBoolean
 
 procedure TCsDataPipePrim.Cleanup;
  {* Функция очистки полей объекта. }

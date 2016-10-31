@@ -51,10 +51,10 @@ begin
 end;//TvcmStringIDExHelperFree
 
 function TvcmStringIDExHelper.AsCStr(const aStr: Tl3StringIDEx): Il3CString;
-//#UC START# *201B50E5979A_4B98D9FD038B_var*
-//#UC END# *201B50E5979A_4B98D9FD038B_var*
+//#UC START# *4B98D78501E1_4B98D9FD038B_var*
+//#UC END# *4B98D78501E1_4B98D9FD038B_var*
 begin
-//#UC START# *201B50E5979A_4B98D9FD038B_impl*
+//#UC START# *4B98D78501E1_4B98D9FD038B_impl*
  {$IfDef IsVCMProject}
  if (aStr.rS = -1) OR aStr.rLocalized then
   Result := l3CStr(aStr.rValue)
@@ -63,14 +63,14 @@ begin
  {$Else  IsVCMProject}
  Result := l3CStr(aStr.rValue);
  {$EndIf IsVCMProject}
-//#UC END# *201B50E5979A_4B98D9FD038B_impl*
+//#UC END# *4B98D78501E1_4B98D9FD038B_impl*
 end;//TvcmStringIDExHelper.AsCStr
 
 function TvcmStringIDExHelper.AsStr(const aStr: Tl3StringIDEx): AnsiString;
-//#UC START# *74E80608E1B4_4B98D9FD038B_var*
-//#UC END# *74E80608E1B4_4B98D9FD038B_var*
+//#UC START# *4B98D7A50160_4B98D9FD038B_var*
+//#UC END# *4B98D7A50160_4B98D9FD038B_var*
 begin
-//#UC START# *74E80608E1B4_4B98D9FD038B_impl*
+//#UC START# *4B98D7A50160_4B98D9FD038B_impl*
  {$If Defined(DesignTimeLibrary) OR not Defined(IsVCMProject)}
  Result := aStr.rValue;
  {$Else}
@@ -79,14 +79,14 @@ begin
  else
   Result := vcmConstString(aStr);
  {$IfEnd}
-//#UC END# *74E80608E1B4_4B98D9FD038B_impl*
+//#UC END# *4B98D7A50160_4B98D9FD038B_impl*
 end;//TvcmStringIDExHelper.AsStr
 
 procedure TvcmStringIDExHelper.Init(var theStr: Tl3StringIDEx);
-//#UC START# *071573E75439_4B98D9FD038B_var*
-//#UC END# *071573E75439_4B98D9FD038B_var*
+//#UC START# *4B98D7BA00C6_4B98D9FD038B_var*
+//#UC END# *4B98D7BA00C6_4B98D9FD038B_var*
 begin
-//#UC START# *071573E75439_4B98D9FD038B_impl*
+//#UC START# *4B98D7BA00C6_4B98D9FD038B_impl*
  {$If Defined(IsVCMProject) OR Defined(DesignTimeLibrary)}
  inherited;
  if (theStr.rValue <> '') then
@@ -94,7 +94,7 @@ begin
  {$Else}
  theStr.rS := -1;
  {$IfEnd}
-//#UC END# *071573E75439_4B98D9FD038B_impl*
+//#UC END# *4B98D7BA00C6_4B98D9FD038B_impl*
 end;//TvcmStringIDExHelper.Init
 
 class function TvcmStringIDExHelper.Instance: TvcmStringIDExHelper;

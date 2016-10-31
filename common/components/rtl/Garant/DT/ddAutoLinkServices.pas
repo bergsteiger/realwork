@@ -51,12 +51,12 @@ begin
 end;//TddAutolinkServiceFree
 
 function TddAutolinkService.GetAutolinkFilter: Ik2TagGenerator;
-//#UC START# *27BE83734EFD_552BF7B201EE_var*
+//#UC START# *552BF6BD0156_552BF7B201EE_var*
 var
  l_Filter: TddAutoLinkFilter;
-//#UC END# *27BE83734EFD_552BF7B201EE_var*
+//#UC END# *552BF6BD0156_552BF7B201EE_var*
 begin
-//#UC START# *27BE83734EFD_552BF7B201EE_impl*
+//#UC START# *552BF6BD0156_552BF7B201EE_impl*
  l_Filter := TddAutoLinkFilter.Create(nil);
  try
   l_Filter.AddLinkFinder(ddGetGeneralLawsLinkFinderDef);
@@ -64,16 +64,16 @@ begin
  finally
   FreeAndNil(l_Filter);
  end;
-//#UC END# *27BE83734EFD_552BF7B201EE_impl*
+//#UC END# *552BF6BD0156_552BF7B201EE_impl*
 end;//TddAutolinkService.GetAutolinkFilter
 
 procedure TddAutolinkService.CleanAutolinkFilter;
-//#UC START# *A18BB0B1A222_552BF7B201EE_var*
-//#UC END# *A18BB0B1A222_552BF7B201EE_var*
+//#UC START# *552BF6FF02A9_552BF7B201EE_var*
+//#UC END# *552BF6FF02A9_552BF7B201EE_var*
 begin
-//#UC START# *A18BB0B1A222_552BF7B201EE_impl*
+//#UC START# *552BF6FF02A9_552BF7B201EE_impl*
  ddGeneralLawsLinkFinderCleanup;
-//#UC END# *A18BB0B1A222_552BF7B201EE_impl*
+//#UC END# *552BF6FF02A9_552BF7B201EE_impl*
 end;//TddAutolinkService.CleanAutolinkFilter
 
 class function TddAutolinkService.Instance: TddAutolinkService;

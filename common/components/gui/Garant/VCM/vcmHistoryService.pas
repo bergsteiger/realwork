@@ -105,24 +105,24 @@ begin
 end;//TvcmHistoryService.pm_SetAlien
 
 function TvcmHistoryService.GetFormHistory(const aForm: IvcmEntityForm): IvcmHistory;
-//#UC START# *96E2DB43E67B_559BA19C0076_var*
-//#UC END# *96E2DB43E67B_559BA19C0076_var*
+//#UC START# *559BA1B80327_559BA19C0076_var*
+//#UC END# *559BA1B80327_559BA19C0076_var*
 begin
-//#UC START# *96E2DB43E67B_559BA19C0076_impl*
+//#UC START# *559BA1B80327_559BA19C0076_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.GetFormHistory(aForm)
  else
   Result := TvcmDispatcher.Instance.History;
-//#UC END# *96E2DB43E67B_559BA19C0076_impl*
+//#UC END# *559BA1B80327_559BA19C0076_impl*
 end;//TvcmHistoryService.GetFormHistory
 
 procedure TvcmHistoryService.SaveFormState(const aForm: IvcmEntityForm);
-//#UC START# *975F702287E2_559BA19C0076_var*
+//#UC START# *559BA3270003_559BA19C0076_var*
 var
  l_History: IvcmHistory;
-//#UC END# *975F702287E2_559BA19C0076_var*
+//#UC END# *559BA3270003_559BA19C0076_var*
 begin
-//#UC START# *975F702287E2_559BA19C0076_impl*
+//#UC START# *559BA3270003_559BA19C0076_impl*
  if (f_Alien <> nil) then
   f_Alien.SaveFormState(aForm)
  else
@@ -131,28 +131,28 @@ begin
   Assert(l_History <> nil);
   l_History.ForceSaveState(aForm);
  end;
-//#UC END# *975F702287E2_559BA19C0076_impl*
+//#UC END# *559BA3270003_559BA19C0076_impl*
 end;//TvcmHistoryService.SaveFormState
 
 function TvcmHistoryService.GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
-//#UC START# *27BEBF0EE9FD_559BA19C0076_var*
-//#UC END# *27BEBF0EE9FD_559BA19C0076_var*
+//#UC START# *559CAE8C0067_559BA19C0076_var*
+//#UC END# *559CAE8C0067_559BA19C0076_var*
 begin
-//#UC START# *27BEBF0EE9FD_559BA19C0076_impl*
+//#UC START# *559CAE8C0067_559BA19C0076_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.GetContainerHistory(aContainer)
  else
   Result := TvcmDispatcher.Instance.History;
-//#UC END# *27BEBF0EE9FD_559BA19C0076_impl*
+//#UC END# *559CAE8C0067_559BA19C0076_impl*
 end;//TvcmHistoryService.GetContainerHistory
 
 function TvcmHistoryService.IsInBF(const aForm: IvcmEntityForm): Boolean;
-//#UC START# *A872A2AAB575_559BA19C0076_var*
+//#UC START# *55B8A6460123_559BA19C0076_var*
 var
  l_History: IvcmHistory;
-//#UC END# *A872A2AAB575_559BA19C0076_var*
+//#UC END# *55B8A6460123_559BA19C0076_var*
 begin
-//#UC START# *A872A2AAB575_559BA19C0076_impl*
+//#UC START# *55B8A6460123_559BA19C0076_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.IsInBF(aForm)
  else
@@ -160,62 +160,62 @@ begin
   l_History := GetFormHistory(aForm);
   Result := l_History.InBF;
  end;
-//#UC END# *A872A2AAB575_559BA19C0076_impl*
+//#UC END# *55B8A6460123_559BA19C0076_impl*
 end;//TvcmHistoryService.IsInBF
 
 function TvcmHistoryService.Back(const aForm: IvcmEntityForm): Boolean;
-//#UC START# *18FC3BA729CF_559BA19C0076_var*
-//#UC END# *18FC3BA729CF_559BA19C0076_var*
+//#UC START# *569E01920150_559BA19C0076_var*
+//#UC END# *569E01920150_559BA19C0076_var*
 begin
-//#UC START# *18FC3BA729CF_559BA19C0076_impl*
+//#UC START# *569E01920150_559BA19C0076_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.Back(aForm)
  else
   Result := TvcmDispatcher.Instance.History.Back;
-//#UC END# *18FC3BA729CF_559BA19C0076_impl*
+//#UC END# *569E01920150_559BA19C0076_impl*
 end;//TvcmHistoryService.Back
 
 procedure TvcmHistoryService.MakingCloneStarted(const aContainer: IvcmContainer);
-//#UC START# *03988C3B417F_559BA19C0076_var*
-//#UC END# *03988C3B417F_559BA19C0076_var*
+//#UC START# *57AD88650343_559BA19C0076_var*
+//#UC END# *57AD88650343_559BA19C0076_var*
 begin
-//#UC START# *03988C3B417F_559BA19C0076_impl*
+//#UC START# *57AD88650343_559BA19C0076_impl*
  if (f_Alien <> nil) then
   f_Alien.MakingCloneStarted(aContainer);
-//#UC END# *03988C3B417F_559BA19C0076_impl*
+//#UC END# *57AD88650343_559BA19C0076_impl*
 end;//TvcmHistoryService.MakingCloneStarted
 
 procedure TvcmHistoryService.ContainerForCloneMade(const aOrgContainer: IvcmContainer;
  const aCloneContainer: IvcmContainer);
-//#UC START# *94ACDF598B06_559BA19C0076_var*
-//#UC END# *94ACDF598B06_559BA19C0076_var*
+//#UC START# *57AD88AF012D_559BA19C0076_var*
+//#UC END# *57AD88AF012D_559BA19C0076_var*
 begin
-//#UC START# *94ACDF598B06_559BA19C0076_impl*
+//#UC START# *57AD88AF012D_559BA19C0076_impl*
  if (f_Alien <> nil) then
   f_Alien.ContainerForCLoneMade(aOrgContainer, aCloneContainer);
-//#UC END# *94ACDF598B06_559BA19C0076_impl*
+//#UC END# *57AD88AF012D_559BA19C0076_impl*
 end;//TvcmHistoryService.ContainerForCloneMade
 
 procedure TvcmHistoryService.MakingCloneFinished(const aContainer: IvcmContainer);
-//#UC START# *19896856BA74_559BA19C0076_var*
-//#UC END# *19896856BA74_559BA19C0076_var*
+//#UC START# *57AD88D00074_559BA19C0076_var*
+//#UC END# *57AD88D00074_559BA19C0076_var*
 begin
-//#UC START# *19896856BA74_559BA19C0076_impl*
+//#UC START# *57AD88D00074_559BA19C0076_impl*
  if (f_Alien <> nil) then
   f_Alien.MakingCloneFinished(aContainer);
-//#UC END# *19896856BA74_559BA19C0076_impl*
+//#UC END# *57AD88D00074_559BA19C0076_impl*
 end;//TvcmHistoryService.MakingCloneFinished
 
 function TvcmHistoryService.IsClone(const aContainer: IvcmContainer): Boolean;
-//#UC START# *BB06F1B944C6_559BA19C0076_var*
-//#UC END# *BB06F1B944C6_559BA19C0076_var*
+//#UC START# *57AD88DC01F7_559BA19C0076_var*
+//#UC END# *57AD88DC01F7_559BA19C0076_var*
 begin
-//#UC START# *BB06F1B944C6_559BA19C0076_impl*
+//#UC START# *57AD88DC01F7_559BA19C0076_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.IsClone(aContainer)
  else
   Result := False;
-//#UC END# *BB06F1B944C6_559BA19C0076_impl*
+//#UC END# *57AD88DC01F7_559BA19C0076_impl*
 end;//TvcmHistoryService.IsClone
 
 class function TvcmHistoryService.Instance: TvcmHistoryService;

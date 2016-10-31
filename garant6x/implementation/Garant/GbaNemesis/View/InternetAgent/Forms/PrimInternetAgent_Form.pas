@@ -1112,6 +1112,7 @@ begin
  //if (aStateType = vcm_stPosition) then
  begin
   theState := TnsInternetAgentState.Make(f_URL, f_Browser.ScrollPos).As_IvcmBase;
+  f_Browser.ScrollPos := -1;
   Result := true;
   //inherited DoSaveState(theState, aStateType);
   Exit;

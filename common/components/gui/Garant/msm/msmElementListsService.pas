@@ -80,24 +80,24 @@ begin
 end;//TmsmElementListsService.pm_SetAlien
 
 procedure TmsmElementListsService.RegetLists;
-//#UC START# *80F135399528_57FE4DA6014A_var*
-//#UC END# *80F135399528_57FE4DA6014A_var*
+//#UC START# *57FE4DCD02F8_57FE4DA6014A_var*
+//#UC END# *57FE4DCD02F8_57FE4DA6014A_var*
 begin
-//#UC START# *80F135399528_57FE4DA6014A_impl*
+//#UC START# *57FE4DCD02F8_57FE4DA6014A_impl*
  if (f_Alien <> nil) then
   f_Alien.RegetLists;
-//#UC END# *80F135399528_57FE4DA6014A_impl*
+//#UC END# *57FE4DCD02F8_57FE4DA6014A_impl*
 end;//TmsmElementListsService.RegetLists
 
 procedure TmsmElementListsService.RegetViewedListsFor(aWord: TtfwWord;
  const aListName: AnsiString);
-//#UC START# *F7EFF4FD47C2_57FE4DA6014A_var*
-//#UC END# *F7EFF4FD47C2_57FE4DA6014A_var*
+//#UC START# *57FF6A5703D7_57FE4DA6014A_var*
+//#UC END# *57FF6A5703D7_57FE4DA6014A_var*
 begin
-//#UC START# *F7EFF4FD47C2_57FE4DA6014A_impl*
+//#UC START# *57FF6A5703D7_57FE4DA6014A_impl*
  if (f_Alien <> nil) then
   f_Alien.RegetViewedListsFor(aWord, aListName);
-//#UC END# *F7EFF4FD47C2_57FE4DA6014A_impl*
+//#UC END# *57FF6A5703D7_57FE4DA6014A_impl*
 end;//TmsmElementListsService.RegetViewedListsFor
 
 class function TmsmElementListsService.Instance: TmsmElementListsService;

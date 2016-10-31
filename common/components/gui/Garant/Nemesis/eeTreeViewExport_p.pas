@@ -31,7 +31,7 @@ uses
  , tc6PublicInfo
 ;
 
-function TeeTreeViewExport_pm_GetCurrentNodeLevel(Self: TeeTreeViewExport): Integer;
+function TeeTreeViewExport_Get_CurrentNodeLevel(Self: TeeTreeViewExport): Integer;
 //#UC START# *499C0C240318_499C0C1A009Eget_var*
 //#UC END# *499C0C240318_499C0C1A009Eget_var*
 begin
@@ -41,9 +41,9 @@ begin
   Result := TreeStruct.GetLevel(GetCurrentNode);
 //#UC END# *499C0C240318_499C0C1A009Eget_impl*
  end;//with Self
-end;//TeeTreeViewExport_pm_GetCurrentNodeLevel
+end;//TeeTreeViewExport_Get_CurrentNodeLevel
 
-function TeeTreeViewExport_pm_GetCurrentNodeIndex(Self: TeeTreeViewExport): Integer;
+function TeeTreeViewExport_Get_CurrentNodeIndex(Self: TeeTreeViewExport): Integer;
 //#UC START# *499C0C3600B4_499C0C1A009Eget_var*
 //#UC END# *499C0C3600B4_499C0C1A009Eget_var*
 begin
@@ -53,9 +53,9 @@ begin
  Result := TreeStruct.GetIndex(GetCurrentNode);
 //#UC END# *499C0C3600B4_499C0C1A009Eget_impl*
  end;//with Self
-end;//TeeTreeViewExport_pm_GetCurrentNodeIndex
+end;//TeeTreeViewExport_Get_CurrentNodeIndex
 
-function TeeTreeViewExport_pm_GetCurrentNodeExpanded(Self: TeeTreeViewExport): Boolean;
+function TeeTreeViewExport_Get_CurrentNodeExpanded(Self: TeeTreeViewExport): Boolean;
 //#UC START# *499C0C420199_499C0C1A009Eget_var*
 //#UC END# *499C0C420199_499C0C1A009Eget_var*
 begin
@@ -65,9 +65,9 @@ begin
   Result := TreeStruct.IsExpanded(GetCurrentNode);
 //#UC END# *499C0C420199_499C0C1A009Eget_impl*
  end;//with Self
-end;//TeeTreeViewExport_pm_GetCurrentNodeExpanded
+end;//TeeTreeViewExport_Get_CurrentNodeExpanded
 
-function TeeTreeViewExport_pm_GetIsCurrentOperationEnabled(Self: TeeTreeViewExport): Boolean;
+function TeeTreeViewExport_Get_IsCurrentOperationEnabled(Self: TeeTreeViewExport): Boolean;
 //#UC START# *499C1DC600BD_499C0C1A009Eget_var*
 var
   l_Op: InscOperationNode;
@@ -87,7 +87,7 @@ begin
   end;
 //#UC END# *499C1DC600BD_499C0C1A009Eget_impl*
  end;//with Self
-end;//TeeTreeViewExport_pm_GetIsCurrentOperationEnabled
+end;//TeeTreeViewExport_Get_IsCurrentOperationEnabled
 
 procedure TeeTreeViewExport_Get_CurrentNodeLevel_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

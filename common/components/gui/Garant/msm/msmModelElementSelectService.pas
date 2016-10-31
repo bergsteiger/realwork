@@ -84,15 +84,15 @@ begin
 end;//TmsmModelElementSelectService.pm_SetAlien
 
 procedure TmsmModelElementSelectService.SelectElement(const aSelector: ImsmElementSelector);
-//#UC START# *BBCBB8731EE0_57F5040203B0_var*
-//#UC END# *BBCBB8731EE0_57F5040203B0_var*
+//#UC START# *57F504370010_57F5040203B0_var*
+//#UC END# *57F504370010_57F5040203B0_var*
 begin
-//#UC START# *BBCBB8731EE0_57F5040203B0_impl*
+//#UC START# *57F504370010_57F5040203B0_impl*
  if (f_Alien <> nil) then
   f_Alien.SelectElement(aSelector)
  else
   Assert(false); 
-//#UC END# *BBCBB8731EE0_57F5040203B0_impl*
+//#UC END# *57F504370010_57F5040203B0_impl*
 end;//TmsmModelElementSelectService.SelectElement
 
 class function TmsmModelElementSelectService.Instance: TmsmModelElementSelectService;

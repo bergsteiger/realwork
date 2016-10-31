@@ -78,10 +78,10 @@ end;//TvcmCloseFormHelperFree
 
 {$If NOT Defined(NoVCL)}
 function TvcmCloseFormHelper.Close(aControl: TWinControl): Boolean;
-//#UC START# *A1E64DB467E3_55015117004B_var*
-//#UC END# *A1E64DB467E3_55015117004B_var*
+//#UC START# *5506BFF50385_55015117004B_var*
+//#UC END# *5506BFF50385_55015117004B_var*
 begin
-//#UC START# *A1E64DB467E3_55015117004B_impl*
+//#UC START# *5506BFF50385_55015117004B_impl*
  if (aControl Is TvcmInterfacedForm) then
  begin
   TvcmInterfacedForm(aControl).SafeClose;
@@ -89,7 +89,7 @@ begin
  end//aControl Is TvcmInterfacedForm
  else
   Result := false;
-//#UC END# *A1E64DB467E3_55015117004B_impl*
+//#UC END# *5506BFF50385_55015117004B_impl*
 end;//TvcmCloseFormHelper.Close
 {$IfEnd} // NOT Defined(NoVCL)
 

@@ -105,39 +105,39 @@ begin
 end;//TddPicturePathListnerFree
 
 procedure TddPicturePathService.SetEnableSave(aValue: Boolean);
-//#UC START# *4706AFD6D823_5524073901EA_var*
-//#UC END# *4706AFD6D823_5524073901EA_var*
+//#UC START# *5524069502F4_5524073901EA_var*
+//#UC END# *5524069502F4_5524073901EA_var*
 begin
-//#UC START# *4706AFD6D823_5524073901EA_impl*
+//#UC START# *5524069502F4_5524073901EA_impl*
  TddPicturePathListner.Instance.EnableSave := aValue;
-//#UC END# *4706AFD6D823_5524073901EA_impl*
+//#UC END# *5524069502F4_5524073901EA_impl*
 end;//TddPicturePathService.SetEnableSave
 
 procedure TddPicturePathService.SetPDF4Etalon(aValue: Boolean);
-//#UC START# *86EACEE128F2_5524073901EA_var*
-//#UC END# *86EACEE128F2_5524073901EA_var*
+//#UC START# *552406BA0045_5524073901EA_var*
+//#UC END# *552406BA0045_5524073901EA_var*
 begin
-//#UC START# *86EACEE128F2_5524073901EA_impl*
+//#UC START# *552406BA0045_5524073901EA_impl*
  TddPicturePathListner.Instance.PDF4Etalon := aValue;
-//#UC END# *86EACEE128F2_5524073901EA_impl*
+//#UC END# *552406BA0045_5524073901EA_impl*
 end;//TddPicturePathService.SetPDF4Etalon
 
 procedure TddPicturePathService.AddPicturePath(const aPath: AnsiString);
-//#UC START# *3FB12D269858_5524073901EA_var*
-//#UC END# *3FB12D269858_5524073901EA_var*
+//#UC START# *552406DE00CA_5524073901EA_var*
+//#UC END# *552406DE00CA_5524073901EA_var*
 begin
-//#UC START# *3FB12D269858_5524073901EA_impl*
+//#UC START# *552406DE00CA_5524073901EA_impl*
  TddPicturePathListner.Instance.AddPicturePath(aPath);
-//#UC END# *3FB12D269858_5524073901EA_impl*
+//#UC END# *552406DE00CA_5524073901EA_impl*
 end;//TddPicturePathService.AddPicturePath
 
 procedure TddPicturePathService.SetTestName(const aName: AnsiString);
-//#UC START# *2DCD42915D2E_5524073901EA_var*
-//#UC END# *2DCD42915D2E_5524073901EA_var*
+//#UC START# *552406F80065_5524073901EA_var*
+//#UC END# *552406F80065_5524073901EA_var*
 begin
-//#UC START# *2DCD42915D2E_5524073901EA_impl*
+//#UC START# *552406F80065_5524073901EA_impl*
  TddPicturePathListner.Instance.TestName := aName;
-//#UC END# *2DCD42915D2E_5524073901EA_impl*
+//#UC END# *552406F80065_5524073901EA_impl*
 end;//TddPicturePathService.SetTestName
 
 class function TddPicturePathService.Instance: TddPicturePathService;

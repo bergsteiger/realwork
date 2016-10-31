@@ -6,9 +6,12 @@
    HyTech 2.56  Copyright (c) 1993, 99 by SKAZ_M Ltd
 *)
 
-// $Id: HT_Const.pas,v 1.23 2016/09/30 13:53:23 voba Exp $
+// $Id: HT_Const.pas,v 1.24 2016/10/31 12:51:27 voba Exp $
 
 // $Log: HT_Const.pas,v $
+// Revision 1.24  2016/10/31 12:51:27  voba
+// no message
+//
 // Revision 1.23  2016/09/30 13:53:23  voba
 // no message
 //
@@ -158,7 +161,7 @@ Interface
 const
 {$IFDEF HT_NEWDLL}
  HTDLL = 'ht32db.dll';
- htDllVersion = '2.7.20.296';
+ htDllVersion = '2.7.20.297';
 {$ELSE}
  HTDLL = 'hsht64.dll';
  htDllVersion = '2.7.12.226';

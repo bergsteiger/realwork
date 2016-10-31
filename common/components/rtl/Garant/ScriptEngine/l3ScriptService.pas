@@ -77,23 +77,23 @@ begin
 end;//Tl3ScriptService.pm_SetAlien
 
 procedure Tl3ScriptService.EnterScript;
-//#UC START# *97F121633B1B_5509AA5400EA_var*
-//#UC END# *97F121633B1B_5509AA5400EA_var*
+//#UC START# *5509AA71018F_5509AA5400EA_var*
+//#UC END# *5509AA71018F_5509AA5400EA_var*
 begin
-//#UC START# *97F121633B1B_5509AA5400EA_impl*
+//#UC START# *5509AA71018F_5509AA5400EA_impl*
  if (f_Alien <> nil) then
   f_Alien.EnterScript;
-//#UC END# *97F121633B1B_5509AA5400EA_impl*
+//#UC END# *5509AA71018F_5509AA5400EA_impl*
 end;//Tl3ScriptService.EnterScript
 
 procedure Tl3ScriptService.LeaveScript;
-//#UC START# *BA3808340B4E_5509AA5400EA_var*
-//#UC END# *BA3808340B4E_5509AA5400EA_var*
+//#UC START# *5509AA7D0270_5509AA5400EA_var*
+//#UC END# *5509AA7D0270_5509AA5400EA_var*
 begin
-//#UC START# *BA3808340B4E_5509AA5400EA_impl*
+//#UC START# *5509AA7D0270_5509AA5400EA_impl*
  if (f_Alien <> nil) then
   f_Alien.LeaveScript;
-//#UC END# *BA3808340B4E_5509AA5400EA_impl*
+//#UC END# *5509AA7D0270_5509AA5400EA_impl*
 end;//Tl3ScriptService.LeaveScript
 
 class function Tl3ScriptService.Instance: Tl3ScriptService;

@@ -75,23 +75,23 @@ begin
 end;//Tl3ClipSpyService.pm_SetAlien
 
 procedure Tl3ClipSpyService.Subscribe(const aListner: Il3ClipListner);
-//#UC START# *105C5A110DDA_57762BA20039_var*
-//#UC END# *105C5A110DDA_57762BA20039_var*
+//#UC START# *57762C370191_57762BA20039_var*
+//#UC END# *57762C370191_57762BA20039_var*
 begin
-//#UC START# *105C5A110DDA_57762BA20039_impl*
+//#UC START# *57762C370191_57762BA20039_impl*
  if f_Alien <> nil then
   f_Alien.Subscribe(aListner);
-//#UC END# *105C5A110DDA_57762BA20039_impl*
+//#UC END# *57762C370191_57762BA20039_impl*
 end;//Tl3ClipSpyService.Subscribe
 
 procedure Tl3ClipSpyService.Unsubscribe(const aListner: Il3ClipListner);
-//#UC START# *6EE9F044CA79_57762BA20039_var*
-//#UC END# *6EE9F044CA79_57762BA20039_var*
+//#UC START# *57762C6503A9_57762BA20039_var*
+//#UC END# *57762C6503A9_57762BA20039_var*
 begin
-//#UC START# *6EE9F044CA79_57762BA20039_impl*
+//#UC START# *57762C6503A9_57762BA20039_impl*
  if f_Alien <> nil then
   f_Alien.Unsubscribe(aListner);
-//#UC END# *6EE9F044CA79_57762BA20039_impl*
+//#UC END# *57762C6503A9_57762BA20039_impl*
 end;//Tl3ClipSpyService.Unsubscribe
 
 class function Tl3ClipSpyService.Instance: Tl3ClipSpyService;

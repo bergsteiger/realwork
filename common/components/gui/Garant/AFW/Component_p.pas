@@ -28,7 +28,7 @@ uses
  , tc6PublicInfo
 ;
 
-function TComponent_pm_GetOwnerName(Self: TComponent): AnsiString;
+function TComponent_Get_OwnerName(Self: TComponent): AnsiString;
 //#UC START# *53723DFA005B_53723A470044get_var*
 //#UC END# *53723DFA005B_53723A470044get_var*
 begin
@@ -41,9 +41,9 @@ begin
     Result := '';
 //#UC END# *53723DFA005B_53723A470044get_impl*
  end;//with Self
-end;//TComponent_pm_GetOwnerName
+end;//TComponent_Get_OwnerName
 
-function TComponent_pm_GetOwner(Self: TComponent): TComponent;
+function TComponent_Get_Owner(Self: TComponent): TComponent;
 //#UC START# *53723A65014D_53723A470044get_var*
 //#UC END# *53723A65014D_53723A470044get_var*
 begin
@@ -53,7 +53,7 @@ begin
   Result := Owner;
 //#UC END# *53723A65014D_53723A470044get_impl*
  end;//with Self
-end;//TComponent_pm_GetOwner
+end;//TComponent_Get_Owner
 
 procedure TComponent_Get_OwnerName_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

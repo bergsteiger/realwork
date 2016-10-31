@@ -80,21 +80,21 @@ end;//TevCustomStyleManager.pm_SetAlien
 
 function TevCustomStyleManager.IsAbolishedDocumentLink(aSeg: Tl3Variant;
  const aPara: InevPara): Boolean;
-//#UC START# *391A810FF759_53AABE1F0383_var*
-//#UC END# *391A810FF759_53AABE1F0383_var*
+//#UC START# *5549E17B01C5_53AABE1F0383_var*
+//#UC END# *5549E17B01C5_53AABE1F0383_var*
 begin
-//#UC START# *391A810FF759_53AABE1F0383_impl*
+//#UC START# *5549E17B01C5_53AABE1F0383_impl*
  Result := Assigned(f_Alien) and f_Alien.IsAbolishedDocumentLink(aSeg, aPara);
-//#UC END# *391A810FF759_53AABE1F0383_impl*
+//#UC END# *5549E17B01C5_53AABE1F0383_impl*
 end;//TevCustomStyleManager.IsAbolishedDocumentLink
 
 function TevCustomStyleManager.IsVisitedDocumentLink(aSeg: Tl3Variant): Boolean;
-//#UC START# *DC1A5D24B383_53AABE1F0383_var*
-//#UC END# *DC1A5D24B383_53AABE1F0383_var*
+//#UC START# *5549E1DA0063_53AABE1F0383_var*
+//#UC END# *5549E1DA0063_53AABE1F0383_var*
 begin
-//#UC START# *DC1A5D24B383_53AABE1F0383_impl*
+//#UC START# *5549E1DA0063_53AABE1F0383_impl*
  Result := Assigned(f_Alien) and f_Alien.IsVisitedDocumentLink(aSeg);
-//#UC END# *DC1A5D24B383_53AABE1F0383_impl*
+//#UC END# *5549E1DA0063_53AABE1F0383_impl*
 end;//TevCustomStyleManager.IsVisitedDocumentLink
 
 class function TevCustomStyleManager.Instance: TevCustomStyleManager;

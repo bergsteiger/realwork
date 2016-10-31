@@ -55,15 +55,15 @@ begin
 end;//Tf1VersionInfoServiceFree
 
 function Tf1VersionInfoService.VersionInfo: AnsiString;
-//#UC START# *30F5EA5AF6DF_55DDD0110086_var*
+//#UC START# *55DDCFBE0096_55DDD0110086_var*
 {$Include nsBuildVersion.inc}
-//#UC END# *30F5EA5AF6DF_55DDD0110086_var*
+//#UC END# *55DDCFBE0096_55DDD0110086_var*
 begin
-//#UC START# *30F5EA5AF6DF_55DDD0110086_impl*
+//#UC START# *55DDCFBE0096_55DDD0110086_impl*
  Result := c_BuildVersion;
  if (Result = 'X.XX.X.XXX') then
   Result := '';
-//#UC END# *30F5EA5AF6DF_55DDD0110086_impl*
+//#UC END# *55DDCFBE0096_55DDD0110086_impl*
 end;//Tf1VersionInfoService.VersionInfo
 
 class function Tf1VersionInfoService.Instance: Tf1VersionInfoService;

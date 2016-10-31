@@ -83,43 +83,43 @@ begin
 end;//Tl3PicturePathService.pm_SetAlien
 
 procedure Tl3PicturePathService.SetEnableSave(aValue: Boolean);
-//#UC START# *4706AFD6D823_552406830331_var*
-//#UC END# *4706AFD6D823_552406830331_var*
+//#UC START# *5524069502F4_552406830331_var*
+//#UC END# *5524069502F4_552406830331_var*
 begin
-//#UC START# *4706AFD6D823_552406830331_impl*
+//#UC START# *5524069502F4_552406830331_impl*
  if (f_Alien <> nil) then
   f_Alien.SetEnableSave(aValue); 
-//#UC END# *4706AFD6D823_552406830331_impl*
+//#UC END# *5524069502F4_552406830331_impl*
 end;//Tl3PicturePathService.SetEnableSave
 
 procedure Tl3PicturePathService.SetPDF4Etalon(aValue: Boolean);
-//#UC START# *86EACEE128F2_552406830331_var*
-//#UC END# *86EACEE128F2_552406830331_var*
+//#UC START# *552406BA0045_552406830331_var*
+//#UC END# *552406BA0045_552406830331_var*
 begin
-//#UC START# *86EACEE128F2_552406830331_impl*
+//#UC START# *552406BA0045_552406830331_impl*
  if (f_Alien <> nil) then
   f_Alien.SetPDF4Etalon(aValue); 
-//#UC END# *86EACEE128F2_552406830331_impl*
+//#UC END# *552406BA0045_552406830331_impl*
 end;//Tl3PicturePathService.SetPDF4Etalon
 
 procedure Tl3PicturePathService.AddPicturePath(const aPath: AnsiString);
-//#UC START# *3FB12D269858_552406830331_var*
-//#UC END# *3FB12D269858_552406830331_var*
+//#UC START# *552406DE00CA_552406830331_var*
+//#UC END# *552406DE00CA_552406830331_var*
 begin
-//#UC START# *3FB12D269858_552406830331_impl*
+//#UC START# *552406DE00CA_552406830331_impl*
  if (f_Alien <> nil) then
   f_Alien.AddPicturePath(aPath); 
-//#UC END# *3FB12D269858_552406830331_impl*
+//#UC END# *552406DE00CA_552406830331_impl*
 end;//Tl3PicturePathService.AddPicturePath
 
 procedure Tl3PicturePathService.SetTestName(const aName: AnsiString);
-//#UC START# *2DCD42915D2E_552406830331_var*
-//#UC END# *2DCD42915D2E_552406830331_var*
+//#UC START# *552406F80065_552406830331_var*
+//#UC END# *552406F80065_552406830331_var*
 begin
-//#UC START# *2DCD42915D2E_552406830331_impl*
+//#UC START# *552406F80065_552406830331_impl*
  if (f_Alien <> nil) then
   f_Alien.SetTestName(aName); 
-//#UC END# *2DCD42915D2E_552406830331_impl*
+//#UC END# *552406F80065_552406830331_impl*
 end;//Tl3PicturePathService.SetTestName
 
 class function Tl3PicturePathService.Instance: Tl3PicturePathService;

@@ -84,13 +84,13 @@ procedure TdaLinkServerService.ChangeSubID(aFamilyID: TdaFamilyID;
  aDocID: TdaDocID;
  anOldSubID: TdaSubID;
  aNewSubID: TdaSubID);
-//#UC START# *4572CE349535_57EB5FD6006A_var*
-//#UC END# *4572CE349535_57EB5FD6006A_var*
+//#UC START# *57EB60BD0052_57EB5FD6006A_var*
+//#UC END# *57EB60BD0052_57EB5FD6006A_var*
 begin
-//#UC START# *4572CE349535_57EB5FD6006A_impl*
+//#UC START# *57EB60BD0052_57EB5FD6006A_impl*
  if Assigned(f_Alien) then
   f_Alien.ChangeSubID(aFamilyID, aDocID, anOldSubID, aNewSubID);
-//#UC END# *4572CE349535_57EB5FD6006A_impl*
+//#UC END# *57EB60BD0052_57EB5FD6006A_impl*
 end;//TdaLinkServerService.ChangeSubID
 
 class function TdaLinkServerService.Instance: TdaLinkServerService;

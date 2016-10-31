@@ -92,13 +92,13 @@ end;//Tl3IterateComponentParents.pm_SetAlien
 
 procedure Tl3IterateComponentParents.IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
  aComponent: TComponent);
-//#UC START# *3410F441967F_551AA9BD01EE_var*
+//#UC START# *551AAAFB036B_551AA9BD01EE_var*
 var
  Hack : Pointer absolute anAction;
  l_C: TControl;
-//#UC END# *3410F441967F_551AA9BD01EE_var*
+//#UC END# *551AAAFB036B_551AA9BD01EE_var*
 begin
-//#UC START# *3410F441967F_551AA9BD01EE_impl*
+//#UC START# *551AAAFB036B_551AA9BD01EE_impl*
  if Assigned(f_Alien) then
   f_Alien.IterateF(anAction, aComponent)
  else
@@ -118,7 +118,7 @@ begin
    l3FreeLocalStub(Hack);
   end;//try..finally
  end;//f_Alien <> nil
-//#UC END# *3410F441967F_551AA9BD01EE_impl*
+//#UC END# *551AAAFB036B_551AA9BD01EE_impl*
 end;//Tl3IterateComponentParents.IterateF
 
 class function Tl3IterateComponentParents.Instance: Tl3IterateComponentParents;

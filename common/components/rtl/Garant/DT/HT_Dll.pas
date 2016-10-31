@@ -6,9 +6,12 @@
    HyTech 2.56  Copyright (c) 1993, 99 by SKAZ_M Ltd
 *)
 
-// $Id: HT_Dll.pas,v 1.24 2016/10/28 14:32:06 voba Exp $
+// $Id: HT_Dll.pas,v 1.25 2016/10/31 07:01:48 lukyanets Exp $
 
 // $Log: HT_Dll.pas,v $
+// Revision 1.25  2016/10/31 07:01:48  lukyanets
+// Не собиралось
+//
 // Revision 1.24  2016/10/28 14:32:06  voba
 // no message
 //
@@ -1699,9 +1702,11 @@ Uses HT_Const;
 (* печать идет в файл HtHeap.dmp в текущем каталоге *)
   Procedure htPrintHytechHeap(hTask : LongWord;bGlobal : ShortInt);stdcall;
 
+{$IFDEF HT_NEWDLL}
 //* Выводить сведения о выполнении операций ядра СУБД */
 //HTRET HTAPI htSetParam( const char* cpName, const char* cpValue );
  function htSetParam(aParamName: PAnsiChar; aParamValue: PAnsiChar): SmallInt; stdcall;
+{$ENDIF HT_NEWDLL}
 
  // Константы для конвертации таблиц
  const

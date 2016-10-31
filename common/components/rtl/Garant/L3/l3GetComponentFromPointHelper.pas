@@ -89,10 +89,10 @@ procedure Tl3GetComponentFromPointHelper.GetComponent(const aPoint: TPoint;
  out aComponent: TComponent;
  out aBindedControl: TControl);
  {* aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель }
-//#UC START# *77F02E022F3C_551AB8CA014A_var*
-//#UC END# *77F02E022F3C_551AB8CA014A_var*
+//#UC START# *551ABA0A0154_551AB8CA014A_var*
+//#UC END# *551ABA0A0154_551AB8CA014A_var*
 begin
-//#UC START# *77F02E022F3C_551AB8CA014A_impl*
+//#UC START# *551ABA0A0154_551AB8CA014A_impl*
  if Assigned(f_Alien) then
   f_Alien.GetComponent(aPoint, aComponent, aBindedControl)
  else
@@ -105,7 +105,7 @@ begin
   aBindedControl := FindDragTarget(aPoint, True);
   aComponent := aBindedControl;
  end;
-//#UC END# *77F02E022F3C_551AB8CA014A_impl*
+//#UC END# *551ABA0A0154_551AB8CA014A_impl*
 end;//Tl3GetComponentFromPointHelper.GetComponent
 
 class function Tl3GetComponentFromPointHelper.Instance: Tl3GetComponentFromPointHelper;

@@ -72,14 +72,14 @@ begin
 end;//Tl3PopupControlService.pm_SetAlien
 
 function Tl3PopupControlService.IsPopupControlWindow(aControlWnd: HWND): Boolean;
-//#UC START# *D2E4642CC7BC_55879E12008D_var*
+//#UC START# *55879E4401FC_55879E12008D_var*
 const
  cMenuClassName: String = '#32768';
 var
  l_ClassName: String;
-//#UC END# *D2E4642CC7BC_55879E12008D_var*
+//#UC END# *55879E4401FC_55879E12008D_var*
 begin
-//#UC START# *D2E4642CC7BC_55879E12008D_impl*
+//#UC START# *55879E4401FC_55879E12008D_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.IsPopupControlWindow(aControlWnd)
  else
@@ -89,7 +89,7 @@ begin
   l_ClassName := PChar(l_ClassName);
   Result := (l_ClassName = cMenuClassName);
  end;
-//#UC END# *D2E4642CC7BC_55879E12008D_impl*
+//#UC END# *55879E4401FC_55879E12008D_impl*
 end;//Tl3PopupControlService.IsPopupControlWindow
 
 class function Tl3PopupControlService.Instance: Tl3PopupControlService;

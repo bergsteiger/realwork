@@ -90,10 +90,10 @@ begin
 end;//Tl3FormsService.pm_SetAlien
 
 function Tl3FormsService.GetParentForm(Component: TPersistent): TCustomForm;
-//#UC START# *32D6965B86E7_5506D56601D6_var*
-//#UC END# *32D6965B86E7_5506D56601D6_var*
+//#UC START# *5506D58B0238_5506D56601D6_var*
+//#UC END# *5506D58B0238_5506D56601D6_var*
 begin
-//#UC START# *32D6965B86E7_5506D56601D6_impl*
+//#UC START# *5506D58B0238_5506D56601D6_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.GetParentForm(Component)
  else
@@ -101,14 +101,14 @@ begin
   Result := nil;
   Assert(false, 'Сервис не реализован');
  end;//f_Alien <> nil
-//#UC END# *32D6965B86E7_5506D56601D6_impl*
+//#UC END# *5506D58B0238_5506D56601D6_impl*
 end;//Tl3FormsService.GetParentForm
 
 function Tl3FormsService.GetAnotherParentForm(Component: TPersistent): TCustomForm;
-//#UC START# *1077E9580F6F_5506D56601D6_var*
-//#UC END# *1077E9580F6F_5506D56601D6_var*
+//#UC START# *5506D5B30127_5506D56601D6_var*
+//#UC END# *5506D5B30127_5506D56601D6_var*
 begin
-//#UC START# *1077E9580F6F_5506D56601D6_impl*
+//#UC START# *5506D5B30127_5506D56601D6_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.GetAnotherParentForm(Component)
  else
@@ -116,14 +116,14 @@ begin
   Result := nil;
   Assert(false, 'Сервис не реализован');
  end;//f_Alien <> nil
-//#UC END# *1077E9580F6F_5506D56601D6_impl*
+//#UC END# *5506D5B30127_5506D56601D6_impl*
 end;//Tl3FormsService.GetAnotherParentForm
 
 function Tl3FormsService.GetTopParentForm(Component: TPersistent): TCustomForm;
-//#UC START# *D9663D6CD433_5506D56601D6_var*
-//#UC END# *D9663D6CD433_5506D56601D6_var*
+//#UC START# *5506E84700E5_5506D56601D6_var*
+//#UC END# *5506E84700E5_5506D56601D6_var*
 begin
-//#UC START# *D9663D6CD433_5506D56601D6_impl*
+//#UC START# *5506E84700E5_5506D56601D6_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.GetTopParentForm(Component)
  else
@@ -131,14 +131,14 @@ begin
   Result := nil;
   Assert(false, 'Сервис не реализован');
  end;//f_Alien <> nil
-//#UC END# *D9663D6CD433_5506D56601D6_impl*
+//#UC END# *5506E84700E5_5506D56601D6_impl*
 end;//Tl3FormsService.GetTopParentForm
 
 function Tl3FormsService.GetMainForm(Component: TPersistent): TCustomForm;
-//#UC START# *207716257CFB_5506D56601D6_var*
-//#UC END# *207716257CFB_5506D56601D6_var*
+//#UC START# *5506E861028F_5506D56601D6_var*
+//#UC END# *5506E861028F_5506D56601D6_var*
 begin
-//#UC START# *207716257CFB_5506D56601D6_impl*
+//#UC START# *5506E861028F_5506D56601D6_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.GetMainForm(Component)
  else
@@ -146,7 +146,7 @@ begin
   Result := nil;
   Assert(false, 'Сервис не реализован');
  end;//f_Alien <> nil
-//#UC END# *207716257CFB_5506D56601D6_impl*
+//#UC END# *5506E861028F_5506D56601D6_impl*
 end;//Tl3FormsService.GetMainForm
 
 class function Tl3FormsService.Instance: Tl3FormsService;

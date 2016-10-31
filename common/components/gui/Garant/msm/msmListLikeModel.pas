@@ -843,6 +843,7 @@ procedure TmsmListLikeModel.DeleteSelection;
    if (anElement <> nil) then
    begin
     TmsmDeletedElements.Instance.Add(anElement.MainWord);
+    TmsmChangedElements.Instance.Add(anElement.MainWord);
     //anElement.Delete;
     // - тут нельзя Delete звать ибо например для Override неправильно работает
     // да и для DecoretedType'ов - тоже

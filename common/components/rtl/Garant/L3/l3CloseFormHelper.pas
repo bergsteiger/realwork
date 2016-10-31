@@ -76,10 +76,10 @@ begin
 end;//Tl3CloseFormHelper.pm_SetAlien
 
 function Tl3CloseFormHelper.Close(aControl: TWinControl): Boolean;
-//#UC START# *A1E64DB467E3_55014D810077_var*
-//#UC END# *A1E64DB467E3_55014D810077_var*
+//#UC START# *5506BFF50385_55014D810077_var*
+//#UC END# *5506BFF50385_55014D810077_var*
 begin
-//#UC START# *A1E64DB467E3_55014D810077_impl*
+//#UC START# *5506BFF50385_55014D810077_impl*
  Result := false;
  if (f_Alien <> nil) then
   Result := f_Alien.Close(aControl);
@@ -89,7 +89,7 @@ begin
    TCustomForm(aControl).Close;
    Result := true;
   end;//aControl Is TCustomForm
-//#UC END# *A1E64DB467E3_55014D810077_impl*
+//#UC END# *5506BFF50385_55014D810077_impl*
 end;//Tl3CloseFormHelper.Close
 
 class function Tl3CloseFormHelper.Instance: Tl3CloseFormHelper;

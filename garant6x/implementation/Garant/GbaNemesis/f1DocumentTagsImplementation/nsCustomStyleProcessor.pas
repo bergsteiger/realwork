@@ -187,10 +187,10 @@ end;//TnsCustomStyleProcessor.GetLinkAddress
 
 function TnsCustomStyleProcessor.IsAbolishedDocumentLink(aSeg: Tl3Variant;
  const aPara: InevPara): Boolean;
-//#UC START# *391A810FF759_53AC08C900D0_var*
-//#UC END# *391A810FF759_53AC08C900D0_var*
+//#UC START# *5549E17B01C5_53AC08C900D0_var*
+//#UC END# *5549E17B01C5_53AC08C900D0_var*
 begin
-//#UC START# *391A810FF759_53AC08C900D0_impl*
+//#UC START# *5549E17B01C5_53AC08C900D0_impl*
  Result := False;
  if aSeg.IsValid then
   if aSeg.IsKindOf(k2_typHyperLink) then
@@ -198,18 +198,18 @@ begin
    ReadLinkInfo(aSeg, aPara);
    Result := LinkViewKind[aSeg] = ev_lvkInternalAbolished;
   end;
-//#UC END# *391A810FF759_53AC08C900D0_impl*
+//#UC END# *5549E17B01C5_53AC08C900D0_impl*
 end;//TnsCustomStyleProcessor.IsAbolishedDocumentLink
 
 function TnsCustomStyleProcessor.IsVisitedDocumentLink(aSeg: Tl3Variant): Boolean;
-//#UC START# *DC1A5D24B383_53AC08C900D0_var*
+//#UC START# *5549E1DA0063_53AC08C900D0_var*
 {$If not defined(Admin) AND not defined(Monitorings)}
 var
  l_Addr: TevAddress;
 {$ifend}
-//#UC END# *DC1A5D24B383_53AC08C900D0_var*
+//#UC END# *5549E1DA0063_53AC08C900D0_var*
 begin
-//#UC START# *DC1A5D24B383_53AC08C900D0_impl*
+//#UC START# *5549E1DA0063_53AC08C900D0_impl*
 {$If not defined(Admin) AND not defined(Monitorings)}
  if aSeg.IsValid then
   if aSeg.IsKindOf(k2_typHyperLink) then
@@ -223,7 +223,7 @@ begin
   end;
 {$ifend}
  Result := False;
-//#UC END# *DC1A5D24B383_53AC08C900D0_impl*
+//#UC END# *5549E1DA0063_53AC08C900D0_impl*
 end;//TnsCustomStyleProcessor.IsVisitedDocumentLink
 
 class function TnsCustomStyleProcessor.Instance: TnsCustomStyleProcessor;

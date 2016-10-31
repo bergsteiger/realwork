@@ -71,13 +71,13 @@ begin
 end;//Tl3ExceptionHandler.pm_SetAlien
 
 procedure Tl3ExceptionHandler.HandleException(Sender: TObject);
-//#UC START# *9B9F43B530B0_5589239300B6_var*
-//#UC END# *9B9F43B530B0_5589239300B6_var*
+//#UC START# *558923B00366_5589239300B6_var*
+//#UC END# *558923B00366_5589239300B6_var*
 begin
-//#UC START# *9B9F43B530B0_5589239300B6_impl*
+//#UC START# *558923B00366_5589239300B6_impl*
  if Assigned(f_Alien) then
   f_Alien.HandleException(Sender);
-//#UC END# *9B9F43B530B0_5589239300B6_impl*
+//#UC END# *558923B00366_5589239300B6_impl*
 end;//Tl3ExceptionHandler.HandleException
 
 class function Tl3ExceptionHandler.Instance: Tl3ExceptionHandler;

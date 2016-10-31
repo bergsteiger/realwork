@@ -2869,19 +2869,19 @@ end;//TvcmPopupMenuHelper.CheckPopup
 {$If NOT Defined(NoVCL)}
 function TvcmPopupMenuHelper.GetPopupMenu(aControl: TComponent;
  const aPoint: TPoint): TMenuItem;
-//#UC START# *1FF8AE53688A_55002183037A_var*
+//#UC START# *5506BF830025_55002183037A_var*
 var
  l_M : TvcmPopupMenuPrim;
-//#UC END# *1FF8AE53688A_55002183037A_var*
+//#UC END# *5506BF830025_55002183037A_var*
 begin
-//#UC START# *1FF8AE53688A_55002183037A_impl*
+//#UC START# *5506BF830025_55002183037A_impl*
  Assert(g_MenuManager <> nil);
  l_M := g_MenuManager.FillPopupMenu(aPoint, aControl);
  if (l_M = nil) then
   Result := nil
  else
   Result := l_M.Items;
-//#UC END# *1FF8AE53688A_55002183037A_impl*
+//#UC END# *5506BF830025_55002183037A_impl*
 end;//TvcmPopupMenuHelper.GetPopupMenu
 {$IfEnd} // NOT Defined(NoVCL)
 
@@ -2889,7 +2889,7 @@ end;//TvcmPopupMenuHelper.GetPopupMenu
 procedure TvcmPopupMenuHelper.GetPopupMenuForComponentInfo(aControl: TComponent;
  const aPoint: TPoint;
  aCallback: Tl3PopupMenuHelperCallback);
-//#UC START# *E1C719B751DC_55002183037A_var*
+//#UC START# *5506BFB302ED_55002183037A_var*
  procedure GetvcmPopupMenu(aControl: TComponent; aMenu: TMenuItem);
  var
   l_Form: TCustomForm;
@@ -2912,9 +2912,9 @@ procedure TvcmPopupMenuHelper.GetPopupMenuForComponentInfo(aControl: TComponent;
 
 var
  l_Menu: TPopupMenu;
-//#UC END# *E1C719B751DC_55002183037A_var*
+//#UC END# *5506BFB302ED_55002183037A_var*
 begin
-//#UC START# *E1C719B751DC_55002183037A_impl*
+//#UC START# *5506BFB302ED_55002183037A_impl*
  l_Menu := nil;
  f_Popup := TvcmPopupMenuPrim.Create(aControl);
  try
@@ -2932,7 +2932,7 @@ begin
  finally
   l3Free(f_Popup);
  end;
-//#UC END# *E1C719B751DC_55002183037A_impl*
+//#UC END# *5506BFB302ED_55002183037A_impl*
 end;//TvcmPopupMenuHelper.GetPopupMenuForComponentInfo
 {$IfEnd} // NOT Defined(NoVCL)
 

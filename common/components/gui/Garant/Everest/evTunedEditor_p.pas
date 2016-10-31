@@ -29,7 +29,7 @@ uses
  , tc6PublicInfo
 ;
 
-function TevTunedEditor_pm_GetIsDocumentTailVisible(Self: TevTunedEditor): Boolean;
+function TevTunedEditor_Get_IsDocumentTailVisible(Self: TevTunedEditor): Boolean;
 //#UC START# *499A7B700283_4999A57C01BAget_var*
 //#UC END# *499A7B700283_4999A57C01BAget_var*
 begin
@@ -39,9 +39,9 @@ begin
   Result := View.IsDocumentTailVisible;
 //#UC END# *499A7B700283_4999A57C01BAget_impl*
  end;//with Self
-end;//TevTunedEditor_pm_GetIsDocumentTailVisible
+end;//TevTunedEditor_Get_IsDocumentTailVisible
 
-function TevTunedEditor_pm_GetSelection(Self: TevTunedEditor): TnevSelection;
+function TevTunedEditor_Get_Selection(Self: TevTunedEditor): TnevSelection;
 //#UC START# *4999A61D00BC_4999A57C01BAget_var*
 //#UC END# *4999A61D00BC_4999A57C01BAget_var*
 begin
@@ -51,7 +51,7 @@ begin
   Result := Selection;
 //#UC END# *4999A61D00BC_4999A57C01BAget_impl*
  end;//with Self
-end;//TevTunedEditor_pm_GetSelection
+end;//TevTunedEditor_Get_Selection
 
 procedure TevTunedEditor_Get_IsDocumentTailVisible_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

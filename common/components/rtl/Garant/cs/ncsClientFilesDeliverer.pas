@@ -37,6 +37,11 @@ type
     const aFolder: AnsiString);
    procedure SendDeliveryResult(const aTaskID: AnsiString;
     aResultKind: TncsResultKind);
+   function CheckCancel: Boolean;
+   procedure RequestTaskParams(const aTaskID: AnsiString;
+    out theTargetFolder: AnsiString;
+    aFilesList: TStringList;
+    out aTotalSize: Int64);
   protected
    procedure CheckTaskExistence(const aTaskID: AnsiString); virtual; abstract;
    procedure RequestSendMessage(const aMessage: AnsiString); virtual; abstract;
@@ -68,7 +73,7 @@ uses
  , l3Base
  //#UC START# *5811CF1B02E6impl_uses*
  //#UC END# *5811CF1B02E6impl_uses*
-;
+, CsDataPipePrim;
 
 constructor TncsClientFilesDeliverer.Create(aPipe: TCsDataPipe);
 //#UC START# *5811CF7103B8_5811CF1B02E6_var*
@@ -95,6 +100,7 @@ procedure TncsClientFilesDeliverer.FillTasksList(aList: TStringList);
 begin
 //#UC START# *5811EF09025F_5811CF1B02E6_impl*
  SendCommand(ncs_dcGetTasksList);
+ DataPipe.WriteBufferFlush;
  FillStringList(aList);
 //#UC END# *5811EF09025F_5811CF1B02E6_impl*
 end;//TncsClientFilesDeliverer.FillTasksList
@@ -139,6 +145,8 @@ begin
 {$ENDIF AQTIME_PROFILE}
  try
   Result := False;
+  if not CheckCancel then
+   Exit;
   CheckTaskExistence(aTaskID);
   l_TryCount := 0;
   repeat
@@ -215,12 +223,21 @@ function TncsClientFilesDeliverer.DoReceiveOneTask(const aTaskID: AnsiString;
  var theWriteTime: Double;
  out theTargetFolder: AnsiString): TncsResultKind;
 //#UC START# *581318C90282_5811CF1B02E6_var*
+var
+ l_FilesList: TStringList;
+ l_TotalSize: Int64;
 //#UC END# *581318C90282_5811CF1B02E6_var*
 begin
 //#UC START# *581318C90282_5811CF1B02E6_impl*
  Result := ncs_rkFail;
- Assert(False);
+ l_FilesList := TStringList.Create;
+ try
+  RequestTaskParams(aTaskID, theTargetFolder, l_FilesList, l_TotalSize);
+  Assert(False);
 //!! !!! Needs to be implemented !!!
+ finally
+  FreeAndNil(l_FilesList);
+ end;
 //#UC END# *581318C90282_5811CF1B02E6_impl*
 end;//TncsClientFilesDeliverer.DoReceiveOneTask
 
@@ -252,6 +269,35 @@ begin
  DataPipe.WriteBufferFlush;
 //#UC END# *5813387000E7_5811CF1B02E6_impl*
 end;//TncsClientFilesDeliverer.SendDeliveryResult
+
+function TncsClientFilesDeliverer.CheckCancel: Boolean;
+//#UC START# *581722FB0041_5811CF1B02E6_var*
+//#UC END# *581722FB0041_5811CF1B02E6_var*
+begin
+//#UC START# *581722FB0041_5811CF1B02E6_impl*
+ SendCommand(ncs_dcCheckAlive);
+ DataPipe.WriteBoolean(f_Terminating);
+ if DataPipe.ReadBoolean then
+  f_Terminating := True;
+ Result := f_Terminating;
+//#UC END# *581722FB0041_5811CF1B02E6_impl*
+end;//TncsClientFilesDeliverer.CheckCancel
+
+procedure TncsClientFilesDeliverer.RequestTaskParams(const aTaskID: AnsiString;
+ out theTargetFolder: AnsiString;
+ aFilesList: TStringList;
+ out aTotalSize: Int64);
+//#UC START# *5817381A013C_5811CF1B02E6_var*
+//#UC END# *5817381A013C_5811CF1B02E6_var*
+begin
+//#UC START# *5817381A013C_5811CF1B02E6_impl*
+ SendCommand(ncs_dcGetFilesList);
+ DataPipe.WriteLn(aTaskID);
+ theTargetFolder := DataPipe.ReadLn;
+ FillStringList(aFilesList);
+ aTotalSize := DataPipe.ReadInt64;
+//#UC END# *5817381A013C_5811CF1B02E6_impl*
+end;//TncsClientFilesDeliverer.RequestTaskParams
 
 function TncsClientFilesDeliverer.CheckAndDelivery: Int64;
 //#UC START# *5811CF34007E_5811CF1B02E6_var*

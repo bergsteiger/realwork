@@ -74,12 +74,12 @@ begin
 end;//TnsSaveDialogImplFree
 
 function TnsSaveDialogImpl.Call(aDialog: TnsSaveDialog): Boolean;
-//#UC START# *52B375B038DC_573B090C02C5_var*
+//#UC START# *573A0E8C0257_573B090C02C5_var*
 const
  c_ListKinds = [ns_sdkListInternal, ns_sdkList];
-//#UC END# *52B375B038DC_573B090C02C5_var*
+//#UC END# *573A0E8C0257_573B090C02C5_var*
 begin
-//#UC START# *52B375B038DC_573B090C02C5_impl*
+//#UC START# *573A0E8C0257_573B090C02C5_impl*
  if Tl3BatchService.Instance.IsBatchMode then
  begin
   Result := True;
@@ -116,64 +116,64 @@ begin
   f_SelOnlyDefault := True;
  end else
   Result := aDialog.Execute;
-//#UC END# *52B375B038DC_573B090C02C5_impl*
+//#UC END# *573A0E8C0257_573B090C02C5_impl*
 end;//TnsSaveDialogImpl.Call
 
 function TnsSaveDialogImpl.GetFileName: AnsiString;
-//#UC START# *D50DF667C759_573B090C02C5_var*
-//#UC END# *D50DF667C759_573B090C02C5_var*
+//#UC START# *57447EC501FC_573B090C02C5_var*
+//#UC END# *57447EC501FC_573B090C02C5_var*
 begin
-//#UC START# *D50DF667C759_573B090C02C5_impl*
+//#UC START# *57447EC501FC_573B090C02C5_impl*
  Result := f_FileName;
-//#UC END# *D50DF667C759_573B090C02C5_impl*
+//#UC END# *57447EC501FC_573B090C02C5_impl*
 end;//TnsSaveDialogImpl.GetFileName
 
 procedure TnsSaveDialogImpl.SetFileName(const aName: AnsiString);
-//#UC START# *8E32D0CAA2B7_573B090C02C5_var*
-//#UC END# *8E32D0CAA2B7_573B090C02C5_var*
+//#UC START# *5811C5A001F6_573B090C02C5_var*
+//#UC END# *5811C5A001F6_573B090C02C5_var*
 begin
-//#UC START# *8E32D0CAA2B7_573B090C02C5_impl*
+//#UC START# *5811C5A001F6_573B090C02C5_impl*
  f_FileName := aName;
-//#UC END# *8E32D0CAA2B7_573B090C02C5_impl*
+//#UC END# *5811C5A001F6_573B090C02C5_impl*
 end;//TnsSaveDialogImpl.SetFileName
 
 procedure TnsSaveDialogImpl.SetFileFormat(aFileFormat: TnsFileFormat);
-//#UC START# *593F1F6D46A5_573B090C02C5_var*
-//#UC END# *593F1F6D46A5_573B090C02C5_var*
+//#UC START# *57447EFA00A1_573B090C02C5_var*
+//#UC END# *57447EFA00A1_573B090C02C5_var*
 begin
-//#UC START# *593F1F6D46A5_573B090C02C5_impl*
+//#UC START# *57447EFA00A1_573B090C02C5_impl*
  f_FileFormat := aFileFormat;
-//#UC END# *593F1F6D46A5_573B090C02C5_impl*
+//#UC END# *57447EFA00A1_573B090C02C5_impl*
 end;//TnsSaveDialogImpl.SetFileFormat
 
 procedure TnsSaveDialogImpl.SetSaveObjects(aValue: TnsSaveDialogListTarget);
-//#UC START# *4020F60E166B_573B090C02C5_var*
-//#UC END# *4020F60E166B_573B090C02C5_var*
+//#UC START# *57FCE260011C_573B090C02C5_var*
+//#UC END# *57FCE260011C_573B090C02C5_var*
 begin
-//#UC START# *4020F60E166B_573B090C02C5_impl*
+//#UC START# *57FCE260011C_573B090C02C5_impl*
  f_SaveObjDefault := False;
  f_SaveObjects := aValue;
-//#UC END# *4020F60E166B_573B090C02C5_impl*
+//#UC END# *57FCE260011C_573B090C02C5_impl*
 end;//TnsSaveDialogImpl.SetSaveObjects
 
 procedure TnsSaveDialogImpl.SetMergeFiles(aValue: Boolean);
-//#UC START# *8E9943B92E87_573B090C02C5_var*
-//#UC END# *8E9943B92E87_573B090C02C5_var*
+//#UC START# *57FCE36B0114_573B090C02C5_var*
+//#UC END# *57FCE36B0114_573B090C02C5_var*
 begin
-//#UC START# *8E9943B92E87_573B090C02C5_impl*
+//#UC START# *57FCE36B0114_573B090C02C5_impl*
  f_MergeDefault := False;
  f_MergeFiles := aValue;
-//#UC END# *8E9943B92E87_573B090C02C5_impl*
+//#UC END# *57FCE36B0114_573B090C02C5_impl*
 end;//TnsSaveDialogImpl.SetMergeFiles
 
 procedure TnsSaveDialogImpl.SetSelectedOnly(aValue: Boolean);
-//#UC START# *242B3CA0CFEF_573B090C02C5_var*
-//#UC END# *242B3CA0CFEF_573B090C02C5_var*
+//#UC START# *57FCE99E0115_573B090C02C5_var*
+//#UC END# *57FCE99E0115_573B090C02C5_var*
 begin
-//#UC START# *242B3CA0CFEF_573B090C02C5_impl*
+//#UC START# *57FCE99E0115_573B090C02C5_impl*
  f_SelOnlyDefault := False;
  f_SelectedOnly := aValue;
-//#UC END# *242B3CA0CFEF_573B090C02C5_impl*
+//#UC END# *57FCE99E0115_573B090C02C5_impl*
 end;//TnsSaveDialogImpl.SetSelectedOnly
 
 class function TnsSaveDialogImpl.Instance: TnsSaveDialogImpl;

@@ -67,15 +67,15 @@ begin
 end;//TvcmTabsHistoryServiceFree
 
 function TvcmTabsHistoryService.GetFormHistory(const aForm: IvcmEntityForm): IvcmHistory;
-//#UC START# *96E2DB43E67B_559BA3E6014C_var*
+//#UC START# *559BA1B80327_559BA3E6014C_var*
 var
  l_Form: TForm;
  l_Tab: Il3FormTab;
  l_History: IvcmHistory;
  l_ContainedForm: IvcmContainedForm;
-//#UC END# *96E2DB43E67B_559BA3E6014C_var*
+//#UC END# *559BA1B80327_559BA3E6014C_var*
 begin
-//#UC START# *96E2DB43E67B_559BA3E6014C_impl*
+//#UC START# *559BA1B80327_559BA3E6014C_impl*
  Result := nil;
  if Tl3TabbedContainersDispatcher.Instance.NeedUseTabs then
  begin
@@ -87,51 +87,51 @@ begin
  end;
  if (Result = nil) then
   Result := TvcmDispatcher.Instance.History;
-//#UC END# *96E2DB43E67B_559BA3E6014C_impl*
+//#UC END# *559BA1B80327_559BA3E6014C_impl*
 end;//TvcmTabsHistoryService.GetFormHistory
 
 procedure TvcmTabsHistoryService.SaveFormState(const aForm: IvcmEntityForm);
-//#UC START# *975F702287E2_559BA3E6014C_var*
+//#UC START# *559BA3270003_559BA3E6014C_var*
 var
  l_History: IvcmHistory;
-//#UC END# *975F702287E2_559BA3E6014C_var*
+//#UC END# *559BA3270003_559BA3E6014C_var*
 begin
-//#UC START# *975F702287E2_559BA3E6014C_impl*
+//#UC START# *559BA3270003_559BA3E6014C_impl*
  l_History := GetFormHistory(aForm);
  Assert(l_History <> nil);
  l_History.ForceSaveState(aForm);
-//#UC END# *975F702287E2_559BA3E6014C_impl*
+//#UC END# *559BA3270003_559BA3E6014C_impl*
 end;//TvcmTabsHistoryService.SaveFormState
 
 function TvcmTabsHistoryService.GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
-//#UC START# *27BEBF0EE9FD_559BA3E6014C_var*
-//#UC END# *27BEBF0EE9FD_559BA3E6014C_var*
+//#UC START# *559CAE8C0067_559BA3E6014C_var*
+//#UC END# *559CAE8C0067_559BA3E6014C_var*
 begin
-//#UC START# *27BEBF0EE9FD_559BA3E6014C_impl*
+//#UC START# *559CAE8C0067_559BA3E6014C_impl*
  if Tl3TabbedContainersDispatcher.Instance.NeedUseTabs then
   Result := GetFormHistory(aContainer.AsForm)
  else
   Result := TvcmDispatcher.Instance.History;
-//#UC END# *27BEBF0EE9FD_559BA3E6014C_impl*
+//#UC END# *559CAE8C0067_559BA3E6014C_impl*
 end;//TvcmTabsHistoryService.GetContainerHistory
 
 function TvcmTabsHistoryService.IsInBF(const aForm: IvcmEntityForm): Boolean;
-//#UC START# *A872A2AAB575_559BA3E6014C_var*
-//#UC END# *A872A2AAB575_559BA3E6014C_var*
+//#UC START# *55B8A6460123_559BA3E6014C_var*
+//#UC END# *55B8A6460123_559BA3E6014C_var*
 begin
-//#UC START# *A872A2AAB575_559BA3E6014C_impl*
+//#UC START# *55B8A6460123_559BA3E6014C_impl*
  Result := Tl3TabbedContainersDispatcher.Instance.IsInBF(aForm.VCLWinControl as TForm);
-//#UC END# *A872A2AAB575_559BA3E6014C_impl*
+//#UC END# *55B8A6460123_559BA3E6014C_impl*
 end;//TvcmTabsHistoryService.IsInBF
 
 function TvcmTabsHistoryService.Back(const aForm: IvcmEntityForm): Boolean;
-//#UC START# *18FC3BA729CF_559BA3E6014C_var*
+//#UC START# *569E01920150_559BA3E6014C_var*
 var
  l_Tab: Il3FormTab;
  l_TabHistory: IvcmHistory;
-//#UC END# *18FC3BA729CF_559BA3E6014C_var*
+//#UC END# *569E01920150_559BA3E6014C_var*
 begin
-//#UC START# *18FC3BA729CF_559BA3E6014C_impl*
+//#UC START# *569E01920150_559BA3E6014C_impl*
  if Tl3TabbedContainersDispatcher.Instance.NeedUseTabs then
  begin
   // ≈сли возвращатьс€ некуда - закрываем вкладке
@@ -146,46 +146,46 @@ begin
  end
  else
    Result := TvcmDispatcher.Instance.History.Back;
-//#UC END# *18FC3BA729CF_559BA3E6014C_impl*
+//#UC END# *569E01920150_559BA3E6014C_impl*
 end;//TvcmTabsHistoryService.Back
 
 procedure TvcmTabsHistoryService.MakingCloneStarted(const aContainer: IvcmContainer);
-//#UC START# *03988C3B417F_559BA3E6014C_var*
-//#UC END# *03988C3B417F_559BA3E6014C_var*
+//#UC START# *57AD88650343_559BA3E6014C_var*
+//#UC END# *57AD88650343_559BA3E6014C_var*
 begin
-//#UC START# *03988C3B417F_559BA3E6014C_impl*
+//#UC START# *57AD88650343_559BA3E6014C_impl*
  f_OrgContainer := Pointer(aContainer);
  f_CloneContainer := nil;
-//#UC END# *03988C3B417F_559BA3E6014C_impl*
+//#UC END# *57AD88650343_559BA3E6014C_impl*
 end;//TvcmTabsHistoryService.MakingCloneStarted
 
 procedure TvcmTabsHistoryService.ContainerForCloneMade(const aOrgContainer: IvcmContainer;
  const aCloneContainer: IvcmContainer);
-//#UC START# *94ACDF598B06_559BA3E6014C_var*
-//#UC END# *94ACDF598B06_559BA3E6014C_var*
+//#UC START# *57AD88AF012D_559BA3E6014C_var*
+//#UC END# *57AD88AF012D_559BA3E6014C_var*
 begin
-//#UC START# *94ACDF598B06_559BA3E6014C_impl*
+//#UC START# *57AD88AF012D_559BA3E6014C_impl*
  f_CloneContainer := Pointer(aCloneContainer);
-//#UC END# *94ACDF598B06_559BA3E6014C_impl*
+//#UC END# *57AD88AF012D_559BA3E6014C_impl*
 end;//TvcmTabsHistoryService.ContainerForCloneMade
 
 procedure TvcmTabsHistoryService.MakingCloneFinished(const aContainer: IvcmContainer);
-//#UC START# *19896856BA74_559BA3E6014C_var*
-//#UC END# *19896856BA74_559BA3E6014C_var*
+//#UC START# *57AD88D00074_559BA3E6014C_var*
+//#UC END# *57AD88D00074_559BA3E6014C_var*
 begin
-//#UC START# *19896856BA74_559BA3E6014C_impl*
+//#UC START# *57AD88D00074_559BA3E6014C_impl*
  f_OrgContainer := Pointer(aContainer);
  f_CloneContainer := nil;
-//#UC END# *19896856BA74_559BA3E6014C_impl*
+//#UC END# *57AD88D00074_559BA3E6014C_impl*
 end;//TvcmTabsHistoryService.MakingCloneFinished
 
 function TvcmTabsHistoryService.IsClone(const aContainer: IvcmContainer): Boolean;
-//#UC START# *BB06F1B944C6_559BA3E6014C_var*
-//#UC END# *BB06F1B944C6_559BA3E6014C_var*
+//#UC START# *57AD88DC01F7_559BA3E6014C_var*
+//#UC END# *57AD88DC01F7_559BA3E6014C_var*
 begin
-//#UC START# *BB06F1B944C6_559BA3E6014C_impl*
+//#UC START# *57AD88DC01F7_559BA3E6014C_impl*
  Result := f_CloneContainer = Pointer(aContainer);
-//#UC END# *BB06F1B944C6_559BA3E6014C_impl*
+//#UC END# *57AD88DC01F7_559BA3E6014C_impl*
 end;//TvcmTabsHistoryService.IsClone
 
 class function TvcmTabsHistoryService.Instance: TvcmTabsHistoryService;

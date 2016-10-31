@@ -48,12 +48,12 @@ begin
 end;//TalcuProcessingEnabledServiceFree
 
 function TalcuProcessingEnabledService.Enabled: Boolean;
-//#UC START# *ECCF31CF8A24_561CF00A0193_var*
-//#UC END# *ECCF31CF8A24_561CF00A0193_var*
+//#UC START# *561CEBC40218_561CF00A0193_var*
+//#UC END# *561CEBC40218_561CF00A0193_var*
 begin
-//#UC START# *ECCF31CF8A24_561CF00A0193_impl*
+//#UC START# *561CEBC40218_561CF00A0193_impl*
  Result := not TalcuServer.Instance.IsBaseLocked;
-//#UC END# *ECCF31CF8A24_561CF00A0193_impl*
+//#UC END# *561CEBC40218_561CF00A0193_impl*
 end;//TalcuProcessingEnabledService.Enabled
 
 class function TalcuProcessingEnabledService.Instance: TalcuProcessingEnabledService;

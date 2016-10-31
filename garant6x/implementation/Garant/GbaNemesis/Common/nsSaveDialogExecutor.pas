@@ -101,87 +101,87 @@ begin
 end;//TnsSaveDialogExecutor.pm_SetAlien
 
 function TnsSaveDialogExecutor.Call(aDialog: TnsSaveDialog): Boolean;
-//#UC START# *52B375B038DC_573A0A7E0387_var*
-//#UC END# *52B375B038DC_573A0A7E0387_var*
+//#UC START# *573A0E8C0257_573A0A7E0387_var*
+//#UC END# *573A0E8C0257_573A0A7E0387_var*
 begin
-//#UC START# *52B375B038DC_573A0A7E0387_impl*
+//#UC START# *573A0E8C0257_573A0A7E0387_impl*
  if Assigned(f_Alien) then
   Result := f_Alien.Call(aDialog)
  else
   Result := aDialog.Execute;
-//#UC END# *52B375B038DC_573A0A7E0387_impl*
+//#UC END# *573A0E8C0257_573A0A7E0387_impl*
 end;//TnsSaveDialogExecutor.Call
 
 function TnsSaveDialogExecutor.GetFileName: AnsiString;
-//#UC START# *D50DF667C759_573A0A7E0387_var*
-//#UC END# *D50DF667C759_573A0A7E0387_var*
+//#UC START# *57447EC501FC_573A0A7E0387_var*
+//#UC END# *57447EC501FC_573A0A7E0387_var*
 begin
-//#UC START# *D50DF667C759_573A0A7E0387_impl*
+//#UC START# *57447EC501FC_573A0A7E0387_impl*
  if Assigned(f_Alien) then
   Result := f_Alien.GetFileName
  else
   Assert(False);
-//#UC END# *D50DF667C759_573A0A7E0387_impl*
+//#UC END# *57447EC501FC_573A0A7E0387_impl*
 end;//TnsSaveDialogExecutor.GetFileName
 
 procedure TnsSaveDialogExecutor.SetFileName(const aName: AnsiString);
-//#UC START# *8E32D0CAA2B7_573A0A7E0387_var*
-//#UC END# *8E32D0CAA2B7_573A0A7E0387_var*
+//#UC START# *5811C5A001F6_573A0A7E0387_var*
+//#UC END# *5811C5A001F6_573A0A7E0387_var*
 begin
-//#UC START# *8E32D0CAA2B7_573A0A7E0387_impl*
+//#UC START# *5811C5A001F6_573A0A7E0387_impl*
  if Assigned(f_Alien) then
   f_Alien.SetFileName(aName)
  else
   Assert(False);
-//#UC END# *8E32D0CAA2B7_573A0A7E0387_impl*
+//#UC END# *5811C5A001F6_573A0A7E0387_impl*
 end;//TnsSaveDialogExecutor.SetFileName
 
 procedure TnsSaveDialogExecutor.SetFileFormat(aFileFormat: TnsFileFormat);
-//#UC START# *593F1F6D46A5_573A0A7E0387_var*
-//#UC END# *593F1F6D46A5_573A0A7E0387_var*
+//#UC START# *57447EFA00A1_573A0A7E0387_var*
+//#UC END# *57447EFA00A1_573A0A7E0387_var*
 begin
-//#UC START# *593F1F6D46A5_573A0A7E0387_impl*
+//#UC START# *57447EFA00A1_573A0A7E0387_impl*
  if Assigned(f_Alien) then
   f_Alien.SetFileFormat(aFileFormat)
  else
   Assert(False);
-//#UC END# *593F1F6D46A5_573A0A7E0387_impl*
+//#UC END# *57447EFA00A1_573A0A7E0387_impl*
 end;//TnsSaveDialogExecutor.SetFileFormat
 
 procedure TnsSaveDialogExecutor.SetSaveObjects(aValue: TnsSaveDialogListTarget);
-//#UC START# *4020F60E166B_573A0A7E0387_var*
-//#UC END# *4020F60E166B_573A0A7E0387_var*
+//#UC START# *57FCE260011C_573A0A7E0387_var*
+//#UC END# *57FCE260011C_573A0A7E0387_var*
 begin
-//#UC START# *4020F60E166B_573A0A7E0387_impl*
+//#UC START# *57FCE260011C_573A0A7E0387_impl*
  if Assigned(f_Alien) then
   f_Alien.SetSaveObjects(aValue)
  else
   Assert(False);
-//#UC END# *4020F60E166B_573A0A7E0387_impl*
+//#UC END# *57FCE260011C_573A0A7E0387_impl*
 end;//TnsSaveDialogExecutor.SetSaveObjects
 
 procedure TnsSaveDialogExecutor.SetMergeFiles(aValue: Boolean);
-//#UC START# *8E9943B92E87_573A0A7E0387_var*
-//#UC END# *8E9943B92E87_573A0A7E0387_var*
+//#UC START# *57FCE36B0114_573A0A7E0387_var*
+//#UC END# *57FCE36B0114_573A0A7E0387_var*
 begin
-//#UC START# *8E9943B92E87_573A0A7E0387_impl*
+//#UC START# *57FCE36B0114_573A0A7E0387_impl*
  if Assigned(f_Alien) then
   f_Alien.SetMergeFiles(aValue)
  else
   Assert(False);
-//#UC END# *8E9943B92E87_573A0A7E0387_impl*
+//#UC END# *57FCE36B0114_573A0A7E0387_impl*
 end;//TnsSaveDialogExecutor.SetMergeFiles
 
 procedure TnsSaveDialogExecutor.SetSelectedOnly(aValue: Boolean);
-//#UC START# *242B3CA0CFEF_573A0A7E0387_var*
-//#UC END# *242B3CA0CFEF_573A0A7E0387_var*
+//#UC START# *57FCE99E0115_573A0A7E0387_var*
+//#UC END# *57FCE99E0115_573A0A7E0387_var*
 begin
-//#UC START# *242B3CA0CFEF_573A0A7E0387_impl*
+//#UC START# *57FCE99E0115_573A0A7E0387_impl*
  if Assigned(f_Alien) then
   f_Alien.SetSelectedOnly(aValue)
  else
   Assert(False);
-//#UC END# *242B3CA0CFEF_573A0A7E0387_impl*
+//#UC END# *57FCE99E0115_573A0A7E0387_impl*
 end;//TnsSaveDialogExecutor.SetSelectedOnly
 
 class function TnsSaveDialogExecutor.Instance: TnsSaveDialogExecutor;

@@ -45,6 +45,12 @@ type
    procedure DoCorrectTargetFolder(const aTaskID: AnsiString;
     const aNewFolder: AnsiString); override;
    {$IfEnd} // NOT Defined(Nemesis)
+   {$If NOT Defined(Nemesis)}
+   procedure DoSendFilesList(const aTaskID: AnsiString;
+    out theTargetFolder: AnsiString;
+    aFilesList: TStringList;
+    out theTotalSize: Int64); override;
+   {$IfEnd} // NOT Defined(Nemesis)
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -73,6 +79,7 @@ uses
  {$If NOT Defined(Nemesis)}
  , csExport
  {$IfEnd} // NOT Defined(Nemesis)
+ , TypInfo
  //#UC START# *5811BB7F013Fimpl_uses*
  //#UC END# *5811BB7F013Fimpl_uses*
 ;
@@ -129,9 +136,7 @@ begin
 //#UC START# *58133D420395_5811BB7F013F_impl*
  if not f_TasksList.ForOneByIDF(L2AlcuTasksIteratorForOneByIDFAction(@DoProcess), aTaskID) then
   l3System.Msg2Log('Задача с идентификатором %s не найдена (результат передачи)', [aTaskID]);
- Assert(False);
-//!! !!!  
-// l3System.Msg2Log('Результат передачи %s - %s', [aTaskID, GetEnumName(TypeInfo(TncsResultKind), Ord(aResult))]);
+ l3System.Msg2Log('Результат передачи %s - %s', [aTaskID, GetEnumName(TypeInfo(TncsResultKind), Ord(aResult))]);
  l3System.Msg2Log('Передача результатов завершена');
 //#UC END# *58133D420395_5811BB7F013F_impl*
 end;//TalcuServerFilesDeliverer.DoSetDeliveryResult
@@ -158,6 +163,19 @@ begin
  l3System.Msg2Log('Скорректирован каталог доставки');
 //#UC END# *58133D520215_5811BB7F013F_impl*
 end;//TalcuServerFilesDeliverer.DoCorrectTargetFolder
+
+procedure TalcuServerFilesDeliverer.DoSendFilesList(const aTaskID: AnsiString;
+ out theTargetFolder: AnsiString;
+ aFilesList: TStringList;
+ out theTotalSize: Int64);
+//#UC START# *581740EB03A8_5811BB7F013F_var*
+//#UC END# *581740EB03A8_5811BB7F013F_var*
+begin
+//#UC START# *581740EB03A8_5811BB7F013F_impl*
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+//#UC END# *581740EB03A8_5811BB7F013F_impl*
+end;//TalcuServerFilesDeliverer.DoSendFilesList
 
 procedure TalcuServerFilesDeliverer.Cleanup;
  {* Функция очистки полей объекта. }

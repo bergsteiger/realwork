@@ -34,7 +34,6 @@ type
   , ncs_dcGetFilesList
   , ncs_dcGetFileCRC
   , ncs_dcGetFile
-  , ncs_dcGetTargetFolder
   , ncs_dcSetProgress
   , ncs_dcSetDeliveryResult
   , ncs_dcCorrectTargetFolder

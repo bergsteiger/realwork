@@ -78,27 +78,27 @@ begin
 end;//TmsmModelService.pm_SetAlien
 
 function TmsmModelService.ModelRoot: AnsiString;
-//#UC START# *1DD1AF01B3B1_57E538DB0262_var*
-//#UC END# *1DD1AF01B3B1_57E538DB0262_var*
+//#UC START# *57E5392F0101_57E538DB0262_var*
+//#UC END# *57E5392F0101_57E538DB0262_var*
 begin
-//#UC START# *1DD1AF01B3B1_57E538DB0262_impl*
+//#UC START# *57E5392F0101_57E538DB0262_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.ModelRoot
  else
   Result := f_ModelRoot; 
-//#UC END# *1DD1AF01B3B1_57E538DB0262_impl*
+//#UC END# *57E5392F0101_57E538DB0262_impl*
 end;//TmsmModelService.ModelRoot
 
 procedure TmsmModelService.SetModelRoot(const aValue: AnsiString);
-//#UC START# *3CE0C97271C6_57E538DB0262_var*
-//#UC END# *3CE0C97271C6_57E538DB0262_var*
+//#UC START# *57E5393C00B8_57E538DB0262_var*
+//#UC END# *57E5393C00B8_57E538DB0262_var*
 begin
-//#UC START# *3CE0C97271C6_57E538DB0262_impl*
+//#UC START# *57E5393C00B8_57E538DB0262_impl*
  if (f_Alien <> nil) then
   f_Alien.SetModelRoot(aValue)
  else
   f_ModelRoot := aValue; 
-//#UC END# *3CE0C97271C6_57E538DB0262_impl*
+//#UC END# *57E5393C00B8_57E538DB0262_impl*
 end;//TmsmModelService.SetModelRoot
 
 class function TmsmModelService.Instance: TmsmModelService;

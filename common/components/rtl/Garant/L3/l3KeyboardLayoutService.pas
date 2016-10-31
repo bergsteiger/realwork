@@ -71,13 +71,13 @@ begin
 end;//Tl3KeyboardLayoutService.pm_SetAlien
 
 procedure Tl3KeyboardLayoutService.TryActivateKeyboardLayout;
-//#UC START# *747558CBA739_55099A8303E1_var*
-//#UC END# *747558CBA739_55099A8303E1_var*
+//#UC START# *55099AAA0207_55099A8303E1_var*
+//#UC END# *55099AAA0207_55099A8303E1_var*
 begin
-//#UC START# *747558CBA739_55099A8303E1_impl*
+//#UC START# *55099AAA0207_55099A8303E1_impl*
  if (f_Alien <> nil) then
   f_Alien.TryActivateKeyboardLayout;
-//#UC END# *747558CBA739_55099A8303E1_impl*
+//#UC END# *55099AAA0207_55099A8303E1_impl*
 end;//Tl3KeyboardLayoutService.TryActivateKeyboardLayout
 
 class function Tl3KeyboardLayoutService.Instance: Tl3KeyboardLayoutService;

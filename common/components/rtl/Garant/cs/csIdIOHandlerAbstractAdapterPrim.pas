@@ -46,6 +46,8 @@ type
     ReadSize: Int64 = -1): Boolean; virtual; abstract;
    procedure WriteStreamWithCRCCheck(aStream: TStream;
     KeepPosition: Boolean = False); virtual; abstract;
+   function ReadBoolean: Boolean; virtual; abstract;
+   procedure WriteBoolean(aValue: Boolean); virtual; abstract;
  end;//TcsIdIOHandlerAbstractAdapterPrim
 {$IfEnd} // NOT Defined(Nemesis)
 

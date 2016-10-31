@@ -57,12 +57,12 @@ end;//TalcuTaskChangeHelperFree
 
 {$If NOT Defined(Nemesis)}
 procedure TalcuTaskChangeHelper.TaskGotErrorStatus;
-//#UC START# *F75B4443B80B_5583CD3601BD_var*
-//#UC END# *F75B4443B80B_5583CD3601BD_var*
+//#UC START# *5583BFE00181_5583CD3601BD_var*
+//#UC END# *5583BFE00181_5583CD3601BD_var*
 begin
-//#UC START# *F75B4443B80B_5583CD3601BD_impl*
+//#UC START# *5583BFE00181_5583CD3601BD_impl*
  alcuMail.SendSMSNotify(eventTaskError, dd_apsProcessQuery);
-//#UC END# *F75B4443B80B_5583CD3601BD_impl*
+//#UC END# *5583BFE00181_5583CD3601BD_impl*
 end;//TalcuTaskChangeHelper.TaskGotErrorStatus
 {$IfEnd} // NOT Defined(Nemesis)
 

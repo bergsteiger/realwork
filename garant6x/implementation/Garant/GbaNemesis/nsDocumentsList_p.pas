@@ -183,7 +183,7 @@ begin
  end;//with Self
 end;//TnsDocumentsList_GoToNodeByIndex
 
-function TnsDocumentsList_pm_GetPosition(Self: TnscTreeView): Longword;
+function TnsDocumentsList_Get_Position(Self: TnscTreeView): Longword;
 //#UC START# *499C2F7C0251_499C264700BDget_var*
 var
  l_ListEntry : IListEntryInfo;
@@ -198,9 +198,9 @@ begin
    Result := l_ListEntry.GetPosition;
 //#UC END# *499C2F7C0251_499C264700BDget_impl*
  end;//with Self
-end;//TnsDocumentsList_pm_GetPosition
+end;//TnsDocumentsList_Get_Position
 
-function TnsDocumentsList_pm_GetPositionType(Self: TnscTreeView): AnsiString;
+function TnsDocumentsList_Get_PositionType(Self: TnscTreeView): AnsiString;
 //#UC START# *499C32550095_499C264700BDget_var*
 var
  l_ListEntry : IListEntryInfo;
@@ -219,9 +219,9 @@ begin
    end;//case l_ListEntry.GetType
 //#UC END# *499C32550095_499C264700BDget_impl*
  end;//with Self
-end;//TnsDocumentsList_pm_GetPositionType
+end;//TnsDocumentsList_Get_PositionType
 
-function TnsDocumentsList_pm_GetRelevance(Self: TnscTreeView): SmallInt;
+function TnsDocumentsList_Get_Relevance(Self: TnscTreeView): SmallInt;
 //#UC START# *499C34860092_499C264700BDget_var*
 var
  l_ListEntry : IListEntryInfo;
@@ -236,9 +236,9 @@ begin
    Result := l_ListEntry.GetRelevance;
 //#UC END# *499C34860092_499C264700BDget_impl*
  end;//with Self
-end;//TnsDocumentsList_pm_GetRelevance
+end;//TnsDocumentsList_Get_Relevance
 
-function TnsDocumentsList_pm_GetDocNumber(Self: TnscTreeView): Cardinal;
+function TnsDocumentsList_Get_DocNumber(Self: TnscTreeView): Cardinal;
 //#UC START# *499C369D02F6_499C264700BDget_var*
 var
  l_ListEntry : IListEntryInfo;
@@ -257,9 +257,9 @@ begin
   end;//l_ListEntry <> nil
 //#UC END# *499C369D02F6_499C264700BDget_impl*
  end;//with Self
-end;//TnsDocumentsList_pm_GetDocNumber
+end;//TnsDocumentsList_Get_DocNumber
 
-function TnsDocumentsList_pm_GetText(Self: TnscTreeView): AnsiString;
+function TnsDocumentsList_Get_Text(Self: TnscTreeView): AnsiString;
 //#UC START# *56E71A2400F9_499C264700BDget_var*
   var
     l_DynListNode : IDynListNode;
@@ -281,7 +281,7 @@ begin
     Result := Result + '\' + l_SnippetText;
 //#UC END# *56E71A2400F9_499C264700BDget_impl*
  end;//with Self
-end;//TnsDocumentsList_pm_GetText
+end;//TnsDocumentsList_Get_Text
 
 procedure TnsDocumentsList_GetSubID_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

@@ -59,6 +59,8 @@ type
     ReadSize: Int64 = -1): Boolean; override;
    procedure WriteStreamWithCRCCheck(aStream: TStream;
     KeepPosition: Boolean = False); override;
+   function ReadBoolean: Boolean; override;
+   procedure WriteBoolean(aValue: Boolean); override;
  end;//TcsIdIOHandlerAdapter
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -379,6 +381,7 @@ begin
  Result := False;
  f_IOHandler.Write(ReadOffset);
  f_IOHandler.Write(ReadSize);
+ WriteBufferFlush;
  l_SizeToRead := f_IOHandler.ReadInt64;
  if l_SizeToRead = 0 then
   Exit;
@@ -387,6 +390,7 @@ begin
  else
   l_CalcCRCFromBegin := 0;
  f_IOHandler.Write(l_CalcCRCFromBegin);
+ WriteBufferFlush;
  if CalcCRCFromBegin then
   l_LocalCRC := l3CalcCRC32(aStream, 0, ReadOffset)
  else
@@ -439,6 +443,7 @@ begin
   if l_SizeToWrite > l_Size then
    l_SizeToWrite := l_Size;
   f_IOHandler.Write(l_SizeToWrite);
+  WriteBufferFlush;
   if l_SizeToWrite = 0 then
    Exit;
   l_CalcCRCFromBegin := f_IOHandler.ReadByte;
@@ -448,6 +453,7 @@ begin
    l_LocalCRC := l3CalcCRC32(aStream, l_Offset, 0);
   l_BufferLength := f_IOHandler.SendBufferSize;
   f_IOHandler.Write(l_BufferLength);
+  WriteBufferFlush;
   SetLength(l_Buffer, l_BufferLength);
   try
    while l_SizeToWrite > 0 do
@@ -464,12 +470,33 @@ begin
    SetLength(l_Buffer, 0);
   end;
   f_IOHandler.Write(l_LocalCRC);
+  WriteBufferFlush;
  finally
   if KeepPosition then
    aStream.Seek(l_OldPosition, soBeginning);
  end;
 //#UC END# *580F36A802FA_538DB527006C_impl*
 end;//TcsIdIOHandlerAdapter.WriteStreamWithCRCCheck
+
+function TcsIdIOHandlerAdapter.ReadBoolean: Boolean;
+//#UC START# *58172754028B_538DB527006C_var*
+//#UC END# *58172754028B_538DB527006C_var*
+begin
+//#UC START# *58172754028B_538DB527006C_impl*
+ Result := f_IOHandler.ReadByte = 1;
+//#UC END# *58172754028B_538DB527006C_impl*
+end;//TcsIdIOHandlerAdapter.ReadBoolean
+
+procedure TcsIdIOHandlerAdapter.WriteBoolean(aValue: Boolean);
+//#UC START# *581727750209_538DB527006C_var*
+const
+ cMap: array [Boolean] of Byte = (0, 1);
+//#UC END# *581727750209_538DB527006C_var*
+begin
+//#UC START# *581727750209_538DB527006C_impl*
+ f_IOHandler.Write(cMap[aValue]);
+//#UC END# *581727750209_538DB527006C_impl*
+end;//TcsIdIOHandlerAdapter.WriteBoolean
 
 procedure TcsIdIOHandlerAdapter.Cleanup;
  {* Функция очистки полей объекта. }

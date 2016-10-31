@@ -72,12 +72,12 @@ begin
 end;//l3CrtIC
 
 function Tl3ScreenServiceDef.IC: Il3InfoCanvas;
-//#UC START# *88066E5D0414_556EE661021E_var*
-//#UC END# *88066E5D0414_556EE661021E_var*
+//#UC START# *556EE5D60314_556EE661021E_var*
+//#UC END# *556EE5D60314_556EE661021E_var*
 begin
-//#UC START# *88066E5D0414_556EE661021E_impl*
+//#UC START# *556EE5D60314_556EE661021E_impl*
  Result := l3CrtIC;
-//#UC END# *88066E5D0414_556EE661021E_impl*
+//#UC END# *556EE5D60314_556EE661021E_impl*
 end;//Tl3ScreenServiceDef.IC
 
 class function Tl3ScreenServiceDef.Instance: Tl3ScreenServiceDef;

@@ -72,13 +72,13 @@ begin
 end;//TmsmOpenService.pm_SetAlien
 
 procedure TmsmOpenService.OpenListInNewWindow(const anElementForList: ImsmModelElement);
-//#UC START# *5077A5E39FAB_57CED46B03BD_var*
-//#UC END# *5077A5E39FAB_57CED46B03BD_var*
+//#UC START# *57CED48A00B9_57CED46B03BD_var*
+//#UC END# *57CED48A00B9_57CED46B03BD_var*
 begin
-//#UC START# *5077A5E39FAB_57CED46B03BD_impl*
+//#UC START# *57CED48A00B9_57CED46B03BD_impl*
  if (f_Alien <> nil) then
   f_Alien.OpenListInNewWindow(anElementForList);
-//#UC END# *5077A5E39FAB_57CED46B03BD_impl*
+//#UC END# *57CED48A00B9_57CED46B03BD_impl*
 end;//TmsmOpenService.OpenListInNewWindow
 
 class function TmsmOpenService.Instance: TmsmOpenService;

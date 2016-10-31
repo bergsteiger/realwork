@@ -77,14 +77,14 @@ begin
 end;//Tl3GetComponentBoundsHelper.pm_SetAlien
 
 function Tl3GetComponentBoundsHelper.GetBounds(aComponent: TComponent): TRect;
-//#UC START# *BB0BB5CAA29B_5522D7A90252_var*
+//#UC START# *5522D7D800FE_5522D7A90252_var*
 var
  C, P: TControl;
 const
  c_EmptyRect: TRect = (Left: 0; Top: 0; Right: 0; Bottom: 0);
-//#UC END# *BB0BB5CAA29B_5522D7A90252_var*
+//#UC END# *5522D7D800FE_5522D7A90252_var*
 begin
-//#UC START# *BB0BB5CAA29B_5522D7A90252_impl*
+//#UC START# *5522D7D800FE_5522D7A90252_impl*
  if Assigned(f_Alien)
   then Result := f_Alien.GetBounds(aComponent)
   else Result := c_EmptyRect;
@@ -98,7 +98,7 @@ begin
     then Result := C.BoundsRect
     else Result := Rect(P.ClientToScreen(C.BoundsRect.TopLeft), P.ClientToScreen(C.BoundsRect.BottomRight));                
   end;
-//#UC END# *BB0BB5CAA29B_5522D7A90252_impl*
+//#UC END# *5522D7D800FE_5522D7A90252_impl*
 end;//Tl3GetComponentBoundsHelper.GetBounds
 
 class function Tl3GetComponentBoundsHelper.Instance: Tl3GetComponentBoundsHelper;

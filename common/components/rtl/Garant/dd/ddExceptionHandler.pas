@@ -47,12 +47,12 @@ begin
 end;//TddExceptionHandlerFree
 
 procedure TddExceptionHandler.HandleException(Sender: TObject);
-//#UC START# *9B9F43B530B0_55893A8B0110_var*
-//#UC END# *9B9F43B530B0_55893A8B0110_var*
+//#UC START# *558923B00366_55893A8B0110_var*
+//#UC END# *558923B00366_55893A8B0110_var*
 begin
-//#UC START# *9B9F43B530B0_55893A8B0110_impl*
+//#UC START# *558923B00366_55893A8B0110_impl*
  Application.HandleException(Sender);
-//#UC END# *9B9F43B530B0_55893A8B0110_impl*
+//#UC END# *558923B00366_55893A8B0110_impl*
 end;//TddExceptionHandler.HandleException
 
 class function TddExceptionHandler.Instance: TddExceptionHandler;

@@ -28,7 +28,7 @@ uses
  , tc6PublicInfo
 ;
 
-function TafwCustomCaretType_pm_GetCaretHeight(Self: TafwCustomCaretType): Integer;
+function TafwCustomCaretType_Get_CaretHeight(Self: TafwCustomCaretType): Integer;
 //#UC START# *4999A885032B_4999A8660215get_var*
 //#UC END# *4999A885032B_4999A8660215get_var*
 begin
@@ -38,7 +38,7 @@ begin
   Result := CaretHeight;
 //#UC END# *4999A885032B_4999A8660215get_impl*
  end;//with Self
-end;//TafwCustomCaretType_pm_GetCaretHeight
+end;//TafwCustomCaretType_Get_CaretHeight
 
 procedure TafwCustomCaretType_Get_CaretHeight_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

@@ -31,12 +31,18 @@ type
    procedure SendTasksList;
    procedure CorrectTargetFolder;
    procedure SetDeliveryResult;
+   procedure CheckAlive;
+   procedure SendFilesList;
   protected
    procedure FillTasksList(aList: TStringList); virtual; abstract;
    procedure DoCorrectTargetFolder(const aTaskID: AnsiString;
     const aNewFolder: AnsiString); virtual; abstract;
    procedure DoSetDeliveryResult(const aTaskID: AnsiString;
     aResult: TncsResultKind); virtual; abstract;
+   procedure DoSendFilesList(const aTaskID: AnsiString;
+    out theTargetFolder: AnsiString;
+    aFilesList: TStringList;
+    out theTotalSize: Int64); virtual; abstract;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -102,7 +108,8 @@ begin
  l_List := TStringList.Create;
  try
   FillTasksList(l_List);
-  SendStringList(l_List);
+  SendStringList(l_List);                    
+  DataPipe.WriteBufferFlush;
  finally
   FreeAndNil(l_List);
  end;
@@ -132,6 +139,40 @@ begin
 //#UC END# *58133D11024D_5810A0CC0383_impl*
 end;//TncsServerFilesDeliverer.SetDeliveryResult
 
+procedure TncsServerFilesDeliverer.CheckAlive;
+//#UC START# *58172EF8025B_5810A0CC0383_var*
+//#UC END# *58172EF8025B_5810A0CC0383_var*
+begin
+//#UC START# *58172EF8025B_5810A0CC0383_impl*
+ if DataPipe.ReadBoolean then
+  f_Terminating := True;
+ DataPipe.WriteBoolean(f_Terminating);
+ DataPipe.WriteBufferFlush;
+//#UC END# *58172EF8025B_5810A0CC0383_impl*
+end;//TncsServerFilesDeliverer.CheckAlive
+
+procedure TncsServerFilesDeliverer.SendFilesList;
+//#UC START# *581740D5014C_5810A0CC0383_var*
+var
+ l_TargetFolder: String;
+ l_FilesList: TStringList;
+ l_TotalSize: Int64;
+//#UC END# *581740D5014C_5810A0CC0383_var*
+begin
+//#UC START# *581740D5014C_5810A0CC0383_impl*
+ l_FilesList := TStringList.Create;
+ try
+  DoSendFilesList(DataPipe.ReadLn, l_TargetFolder, l_FilesList, l_TotalSize);
+  DataPipe.WriteLn(l_TargetFolder);
+  SendStringList(l_FilesList);
+  DataPipe.WriteInt64(l_TotalSize);
+  DataPipe.WriteBufferFlush;
+ finally
+  FreeAndNil(l_FilesList);
+ end;
+//#UC END# *581740D5014C_5810A0CC0383_impl*
+end;//TncsServerFilesDeliverer.SendFilesList
+
 procedure TncsServerFilesDeliverer.TerminateProcess;
 //#UC START# *5811A63E0083_5810A0CC0383_var*
 //#UC END# *5811A63E0083_5810A0CC0383_var*
@@ -150,14 +191,13 @@ begin
  begin
   case GetCommand of
    ncs_dcGetTasksList: SendTasksList;
-//   ncs_dcGetFilesList
+   ncs_dcGetFilesList: SendFilesList;
 //   ncs_dcGetFileCRC
 //   ncs_dcGetFile
-//   ncs_dcGetTargetFolder
 //   ncs_dcSetProgress
    ncs_dcSetDeliveryResult: SetDeliveryResult;
    ncs_dcCorrectTargetFolder: CorrectTargetFolder;
-//   ncs_dcCheckAlive
+   ncs_dcCheckAlive: CheckAlive;
    ncs_dcDoneProcess: f_Stopped := True;
   end;
  end;

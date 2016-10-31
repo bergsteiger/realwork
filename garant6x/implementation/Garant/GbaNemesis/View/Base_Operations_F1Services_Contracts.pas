@@ -2664,10 +2664,10 @@ end;//TRubricatorService.ClearFields
 procedure TQueryOpenServiceImpl.OpenQuery(aQueryType: TlgQueryType;
  const aQuery: IQuery;
  const aContainer: IvcmContainer);
-//#UC START# *9856D0A1DBB4_579F4A7103CF_57A339A6014A_Impl_var*
-//#UC END# *9856D0A1DBB4_579F4A7103CF_57A339A6014A_Impl_var*
+//#UC START# *4AC4A69D03B7_579F4A7103CF_57A339A6014A_Impl_var*
+//#UC END# *4AC4A69D03B7_579F4A7103CF_57A339A6014A_Impl_var*
 begin
-//#UC START# *9856D0A1DBB4_579F4A7103CF_57A339A6014A_Impl_impl*
+//#UC START# *4AC4A69D03B7_579F4A7103CF_57A339A6014A_Impl_impl*
  case aQueryType of
   lg_qtKeyWord:
    TSearchService.Instance.OpenKeyWord(aQuery, aContainer);
@@ -2686,7 +2686,7 @@ begin
   else
    Assert(false);   
  end;//case aQueryType
-//#UC END# *9856D0A1DBB4_579F4A7103CF_57A339A6014A_Impl_impl*
+//#UC END# *4AC4A69D03B7_579F4A7103CF_57A339A6014A_Impl_impl*
 end;//TQueryOpenServiceImpl.OpenQuery
 
 class function TQueryOpenServiceImpl.Instance: TQueryOpenServiceImpl;

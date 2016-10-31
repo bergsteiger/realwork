@@ -76,15 +76,15 @@ begin
 end;//Tl3GetCaptureHelper.pm_SetAlien
 
 function Tl3GetCaptureHelper.GetCapture: TComponent;
-//#UC START# *FC96CEF34C46_55226C5F035A_var*
-//#UC END# *FC96CEF34C46_55226C5F035A_var*
+//#UC START# *55226C7E01C4_55226C5F035A_var*
+//#UC END# *55226C7E01C4_55226C5F035A_var*
 begin
-//#UC START# *FC96CEF34C46_55226C5F035A_impl*
+//#UC START# *55226C7E01C4_55226C5F035A_impl*
  if Assigned(f_Alien) then
   Result := f_Alien.GetCapture
  else
   Result := GetCaptureControl;
-//#UC END# *FC96CEF34C46_55226C5F035A_impl*
+//#UC END# *55226C7E01C4_55226C5F035A_impl*
 end;//Tl3GetCaptureHelper.GetCapture
 
 class function Tl3GetCaptureHelper.Instance: Tl3GetCaptureHelper;

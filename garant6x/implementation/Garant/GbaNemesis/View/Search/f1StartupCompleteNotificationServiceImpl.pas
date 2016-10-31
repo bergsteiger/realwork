@@ -93,23 +93,23 @@ begin
 end;//Tf1StartupCompleteNotificationServiceImplFree
 
 procedure Tf1StartupCompleteNotificationServiceImpl.Notify;
-//#UC START# *2627E933260B_55B0CF2803D7_var*
-//#UC END# *2627E933260B_55B0CF2803D7_var*
+//#UC START# *55B0DDC00044_55B0CF2803D7_var*
+//#UC END# *55B0DDC00044_55B0CF2803D7_var*
 begin
-//#UC START# *2627E933260B_55B0CF2803D7_impl*
+//#UC START# *55B0DDC00044_55B0CF2803D7_impl*
  if NeedAskToFillPrimeAtStartup then
  begin
   NeedAskToFillPrimeAtStartup := False;
   if vcmAsk(str_StartupInitPrime, []) then
    TPrimMonitoringsModule.OpenNewsLinePrim;
- end;
+ end;//NeedAskToFillPrimeAtStartup
 
  if NeedShowSettingsDialog then
  begin
   NeedShowSettingsDialog := False;
   vcmAsk(str_DefaultSetttingsWereChanged, []);
- end;
-//#UC END# *2627E933260B_55B0CF2803D7_impl*
+ end;//NeedShowSettingsDialog
+//#UC END# *55B0DDC00044_55B0CF2803D7_impl*
 end;//Tf1StartupCompleteNotificationServiceImpl.Notify
 
 class function Tf1StartupCompleteNotificationServiceImpl.Instance: Tf1StartupCompleteNotificationServiceImpl;

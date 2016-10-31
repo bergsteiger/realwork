@@ -680,48 +680,48 @@ end;//TvcmHugeMessageDlgWithWikiImpl.OnJumpTo
 {$If NOT Defined(NoVCL)}
 procedure TvcmHugeMessageDlgWithWikiImpl.Say(const aText: AnsiString;
  aClickCallback: Tl3WikiLinkClicked);
-//#UC START# *03211FE23BF3_5515501B009E_var*
-//#UC END# *03211FE23BF3_5515501B009E_var*
+//#UC START# *55154391001C_5515501B009E_var*
+//#UC END# *55154391001C_5515501B009E_var*
 begin
-//#UC START# *03211FE23BF3_5515501B009E_impl*
+//#UC START# *55154391001C_5515501B009E_impl*
  f_OnClick := aClickCallback;
  vcmMessageDlg(Tl3Message_C(vcmCStr(aText), '', mtInformation), OnJumpTo);
-//#UC END# *03211FE23BF3_5515501B009E_impl*
+//#UC END# *55154391001C_5515501B009E_impl*
 end;//TvcmHugeMessageDlgWithWikiImpl.Say
 {$IfEnd} // NOT Defined(NoVCL)
 
 {$If NOT Defined(NoVCL)}
 function TvcmHugeMessageDlgWithWikiImpl.FormatLink(const aLinkText: AnsiString;
  const aLinkData: AnsiString): AnsiString;
-//#UC START# *5AFFFDE1F6AB_5515501B009E_var*
-//#UC END# *5AFFFDE1F6AB_5515501B009E_var*
+//#UC START# *55154DC20217_5515501B009E_var*
+//#UC END# *55154DC20217_5515501B009E_var*
 begin
-//#UC START# *5AFFFDE1F6AB_5515501B009E_impl*
+//#UC START# *55154DC20217_5515501B009E_impl*
  Result := '[' + aLinkText + '|' + aLinkData + ']';
-//#UC END# *5AFFFDE1F6AB_5515501B009E_impl*
+//#UC END# *55154DC20217_5515501B009E_impl*
 end;//TvcmHugeMessageDlgWithWikiImpl.FormatLink
 {$IfEnd} // NOT Defined(NoVCL)
 
 {$If NOT Defined(NoVCL)}
 function TvcmHugeMessageDlgWithWikiImpl.FormatCloak(const aCaption: AnsiString;
  const aText: AnsiString): AnsiString;
-//#UC START# *3CDB8D32C712_5515501B009E_var*
-//#UC END# *3CDB8D32C712_5515501B009E_var*
+//#UC START# *551572DE021E_5515501B009E_var*
+//#UC END# *551572DE021E_5515501B009E_var*
 begin
-//#UC START# *3CDB8D32C712_5515501B009E_impl*
+//#UC START# *551572DE021E_5515501B009E_impl*
  Result := '{cloak}'#13#10 + aCaption + #13#10 + aText + #13#10'{/cloak}'#13#10;
-//#UC END# *3CDB8D32C712_5515501B009E_impl*
+//#UC END# *551572DE021E_5515501B009E_impl*
 end;//TvcmHugeMessageDlgWithWikiImpl.FormatCloak
 {$IfEnd} // NOT Defined(NoVCL)
 
 {$If NOT Defined(NoVCL)}
 function TvcmHugeMessageDlgWithWikiImpl.CanUseWiki: Boolean;
-//#UC START# *CDCC556698E5_5515501B009E_var*
-//#UC END# *CDCC556698E5_5515501B009E_var*
+//#UC START# *55157F5F013E_5515501B009E_var*
+//#UC END# *55157F5F013E_5515501B009E_var*
 begin
-//#UC START# *CDCC556698E5_5515501B009E_impl*
+//#UC START# *55157F5F013E_5515501B009E_impl*
  Result := True;
-//#UC END# *CDCC556698E5_5515501B009E_impl*
+//#UC END# *55157F5F013E_5515501B009E_impl*
 end;//TvcmHugeMessageDlgWithWikiImpl.CanUseWiki
 {$IfEnd} // NOT Defined(NoVCL)
 

@@ -80,28 +80,28 @@ begin
 end;//Tk2EVDReaderService.pm_SetAlien
 
 function Tk2EVDReaderService.GetReader: Tk2CustomFileReader;
-//#UC START# *9F46A5A9DAF5_555DB43B00BD_var*
-//#UC END# *9F46A5A9DAF5_555DB43B00BD_var*
+//#UC START# *555DB53301DC_555DB43B00BD_var*
+//#UC END# *555DB53301DC_555DB43B00BD_var*
 begin
-//#UC START# *9F46A5A9DAF5_555DB43B00BD_impl*
+//#UC START# *555DB53301DC_555DB43B00BD_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.GetReader
  else
   Result := nil; 
-//#UC END# *9F46A5A9DAF5_555DB43B00BD_impl*
+//#UC END# *555DB53301DC_555DB43B00BD_impl*
 end;//Tk2EVDReaderService.GetReader
 
 function Tk2EVDReaderService.MakeReader(const aFileName: AnsiString;
  const aFilter: Ik2TagGenerator): Il3Reader;
-//#UC START# *6A9002DE6C1A_555DB43B00BD_var*
-//#UC END# *6A9002DE6C1A_555DB43B00BD_var*
+//#UC START# *55701A7A01B4_555DB43B00BD_var*
+//#UC END# *55701A7A01B4_555DB43B00BD_var*
 begin
-//#UC START# *6A9002DE6C1A_555DB43B00BD_impl*
+//#UC START# *55701A7A01B4_555DB43B00BD_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.MakeReader(aFileName, aFilter)
  else
   Result := nil; 
-//#UC END# *6A9002DE6C1A_555DB43B00BD_impl*
+//#UC END# *55701A7A01B4_555DB43B00BD_impl*
 end;//Tk2EVDReaderService.MakeReader
 
 class function Tk2EVDReaderService.Instance: Tk2EVDReaderService;

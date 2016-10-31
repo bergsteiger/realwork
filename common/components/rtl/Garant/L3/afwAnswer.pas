@@ -88,80 +88,80 @@ begin
 end;//TafwAnswersFree
 
 function TafwBatchService.IsBatchMode: Boolean;
-//#UC START# *8A081B195E08_5507FE0A0095_var*
-//#UC END# *8A081B195E08_5507FE0A0095_var*
+//#UC START# *5507FDED0373_5507FE0A0095_var*
+//#UC END# *5507FDED0373_5507FE0A0095_var*
 begin
-//#UC START# *8A081B195E08_5507FE0A0095_impl*
+//#UC START# *5507FDED0373_5507FE0A0095_impl*
  Result := (f_BatchMode > 0);
-//#UC END# *8A081B195E08_5507FE0A0095_impl*
+//#UC END# *5507FDED0373_5507FE0A0095_impl*
 end;//TafwBatchService.IsBatchMode
 
 procedure TafwBatchService.EnterBatchMode;
-//#UC START# *3E2DB431FD1A_5507FE0A0095_var*
-//#UC END# *3E2DB431FD1A_5507FE0A0095_var*
+//#UC START# *55099B480169_5507FE0A0095_var*
+//#UC END# *55099B480169_5507FE0A0095_var*
 begin
-//#UC START# *3E2DB431FD1A_5507FE0A0095_impl*
+//#UC START# *55099B480169_5507FE0A0095_impl*
  Inc(f_BatchMode);
-//#UC END# *3E2DB431FD1A_5507FE0A0095_impl*
+//#UC END# *55099B480169_5507FE0A0095_impl*
 end;//TafwBatchService.EnterBatchMode
 
 procedure TafwBatchService.LeaveBatchMode;
-//#UC START# *FE46A80B1DA3_5507FE0A0095_var*
-//#UC END# *FE46A80B1DA3_5507FE0A0095_var*
+//#UC START# *55099B590257_5507FE0A0095_var*
+//#UC END# *55099B590257_5507FE0A0095_var*
 begin
-//#UC START# *FE46A80B1DA3_5507FE0A0095_impl*
+//#UC START# *55099B590257_5507FE0A0095_impl*
  Dec(f_BatchMode);
-//#UC END# *FE46A80B1DA3_5507FE0A0095_impl*
+//#UC END# *55099B590257_5507FE0A0095_impl*
 end;//TafwBatchService.LeaveBatchMode
 
 procedure TafwBatchService.PushAnswer(aValue: Integer);
-//#UC START# *194C97B8A2DF_5507FE0A0095_var*
-//#UC END# *194C97B8A2DF_5507FE0A0095_var*
+//#UC START# *553F341100FE_5507FE0A0095_var*
+//#UC END# *553F341100FE_5507FE0A0095_var*
 begin
-//#UC START# *194C97B8A2DF_5507FE0A0095_impl*
+//#UC START# *553F341100FE_5507FE0A0095_impl*
  TafwAnswers.SetAnswer(aValue);
-//#UC END# *194C97B8A2DF_5507FE0A0095_impl*
+//#UC END# *553F341100FE_5507FE0A0095_impl*
 end;//TafwBatchService.PushAnswer
 
 function TafwBatchService.PopAnswer: Integer;
-//#UC START# *FE26372CAD8B_5507FE0A0095_var*
-//#UC END# *FE26372CAD8B_5507FE0A0095_var*
+//#UC START# *553F3424010C_5507FE0A0095_var*
+//#UC END# *553F3424010C_5507FE0A0095_var*
 begin
-//#UC START# *FE26372CAD8B_5507FE0A0095_impl*
+//#UC START# *553F3424010C_5507FE0A0095_impl*
  Result := TafwAnswers.GetAnswer;
-//#UC END# *FE26372CAD8B_5507FE0A0095_impl*
+//#UC END# *553F3424010C_5507FE0A0095_impl*
 end;//TafwBatchService.PopAnswer
 
 procedure TafwBatchService.SignalWasDialog;
-//#UC START# *23858A465AF6_5507FE0A0095_var*
-//#UC END# *23858A465AF6_5507FE0A0095_var*
+//#UC START# *553F428003A3_5507FE0A0095_var*
+//#UC END# *553F428003A3_5507FE0A0095_var*
 begin
-//#UC START# *23858A465AF6_5507FE0A0095_impl*
+//#UC START# *553F428003A3_5507FE0A0095_impl*
  Inc(f_WasDialog);
-//#UC END# *23858A465AF6_5507FE0A0095_impl*
+//#UC END# *553F428003A3_5507FE0A0095_impl*
 end;//TafwBatchService.SignalWasDialog
 
 function TafwBatchService.CheckWasDialog: Boolean;
-//#UC START# *217998C234EE_5507FE0A0095_var*
-//#UC END# *217998C234EE_5507FE0A0095_var*
+//#UC START# *553F429502D1_5507FE0A0095_var*
+//#UC END# *553F429502D1_5507FE0A0095_var*
 begin
-//#UC START# *217998C234EE_5507FE0A0095_impl*
+//#UC START# *553F429502D1_5507FE0A0095_impl*
  Result := (f_WasDialog > 0);
  Dec(f_WasDialog);
  if (f_WasDialog < 0) then
   raise EkwWaitBracketsBalance.Create('ќжидали диалоговое окно, но не по€вилось');
-//#UC END# *217998C234EE_5507FE0A0095_impl*
+//#UC END# *553F429502D1_5507FE0A0095_impl*
 end;//TafwBatchService.CheckWasDialog
 
 procedure TafwBatchService.ClearAnswers;
-//#UC START# *37CC2CF2A1FF_5507FE0A0095_var*
-//#UC END# *37CC2CF2A1FF_5507FE0A0095_var*
+//#UC START# *553F4C9802D8_5507FE0A0095_var*
+//#UC END# *553F4C9802D8_5507FE0A0095_var*
 begin
-//#UC START# *37CC2CF2A1FF_5507FE0A0095_impl*
+//#UC START# *553F4C9802D8_5507FE0A0095_impl*
  if TafwAnswers.Exists then
   TafwAnswers.Instance.Clear;
  f_WasDialog := 0; 
-//#UC END# *37CC2CF2A1FF_5507FE0A0095_impl*
+//#UC END# *553F4C9802D8_5507FE0A0095_impl*
 end;//TafwBatchService.ClearAnswers
 
 class function TafwBatchService.Instance: TafwBatchService;

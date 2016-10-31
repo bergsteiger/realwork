@@ -1091,10 +1091,10 @@ begin
 end;//TvcmToolbarGlyphService.pm_SetAlien
 
 procedure TvcmToolbarGlyphService.SetGlyphSize(aValue: TvcmGlyphSize);
-//#UC START# *E8ADA32D143E_552BADA90096_var*
-//#UC END# *E8ADA32D143E_552BADA90096_var*
+//#UC START# *552BAE12019C_552BADA90096_var*
+//#UC END# *552BAE12019C_552BADA90096_var*
 begin
-//#UC START# *E8ADA32D143E_552BADA90096_impl*
+//#UC START# *552BAE12019C_552BADA90096_impl*
  if (f_Alien <> nil) then
   f_Alien.SetGlyphSize(aValue)
  else
@@ -1102,38 +1102,38 @@ begin
   (g_MenuManager as TvcmCustomMenuManager).GlyphSize := aValue;
   (g_MenuManager as TvcmCustomMenuManager).StoreGlyphSize;
  end;//f_Alien <> nil
-//#UC END# *E8ADA32D143E_552BADA90096_impl*
+//#UC END# *552BAE12019C_552BADA90096_impl*
 end;//TvcmToolbarGlyphService.SetGlyphSize
 
 function TvcmToolbarGlyphService.GetGlyphSize: TvcmGlyphSize;
-//#UC START# *9DEC90563B75_552BADA90096_var*
-//#UC END# *9DEC90563B75_552BADA90096_var*
+//#UC START# *552BBC750285_552BADA90096_var*
+//#UC END# *552BBC750285_552BADA90096_var*
 begin
-//#UC START# *9DEC90563B75_552BADA90096_impl*
+//#UC START# *552BBC750285_552BADA90096_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.GetGlyphSize
  else
   Result := (g_MenuManager as TvcmCustomMenuManager).GlyphSize;
-//#UC END# *9DEC90563B75_552BADA90096_impl*
+//#UC END# *552BBC750285_552BADA90096_impl*
 end;//TvcmToolbarGlyphService.GetGlyphSize
 
 function TvcmToolbarGlyphService.GetGlyphColorDepth: TvcmGlyphColordepth;
-//#UC START# *BC663849408C_552BADA90096_var*
-//#UC END# *BC663849408C_552BADA90096_var*
+//#UC START# *552BC35B0274_552BADA90096_var*
+//#UC END# *552BC35B0274_552BADA90096_var*
 begin
-//#UC START# *BC663849408C_552BADA90096_impl*
+//#UC START# *552BC35B0274_552BADA90096_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.GetGlyphColordepth
  else
   Result := (g_MenuManager as TvcmCustomMenuManager).GlyphColordepth;
-//#UC END# *BC663849408C_552BADA90096_impl*
+//#UC END# *552BC35B0274_552BADA90096_impl*
 end;//TvcmToolbarGlyphService.GetGlyphColorDepth
 
 procedure TvcmToolbarGlyphService.SetGlyphColorDepth(aValue: TvcmGlyphColordepth);
-//#UC START# *B8089BE16F42_552BADA90096_var*
-//#UC END# *B8089BE16F42_552BADA90096_var*
+//#UC START# *552BC3720035_552BADA90096_var*
+//#UC END# *552BC3720035_552BADA90096_var*
 begin
-//#UC START# *B8089BE16F42_552BADA90096_impl*
+//#UC START# *552BC3720035_552BADA90096_impl*
  if (f_Alien <> nil) then
   f_Alien.SetGlyphColorDepth(aValue)
  else
@@ -1141,7 +1141,7 @@ begin
   (g_MenuManager as TvcmCustomMenuManager).GlyphColorDepth := aValue;
   (g_MenuManager as TvcmCustomMenuManager).StoreGlyphColorDepth;
  end;//f_Alien <> nil
-//#UC END# *B8089BE16F42_552BADA90096_impl*
+//#UC END# *552BC3720035_552BADA90096_impl*
 end;//TvcmToolbarGlyphService.SetGlyphColorDepth
 
 class function TvcmToolbarGlyphService.Instance: TvcmToolbarGlyphService;
@@ -4143,10 +4143,10 @@ begin
 end;//TvcmDateEdit.DoCloseUp
 
 function TvcmMenuManagerHelper.CreateManager: Boolean;
-//#UC START# *9CBAC5378D28_55019B3B011B_var*
-//#UC END# *9CBAC5378D28_55019B3B011B_var*
+//#UC START# *5506A8670291_55019B3B011B_var*
+//#UC END# *5506A8670291_55019B3B011B_var*
 begin
-//#UC START# *9CBAC5378D28_55019B3B011B_impl*
+//#UC START# *5506A8670291_55019B3B011B_impl*
  if (g_MenuManager = nil) then
  begin
   Result := true;
@@ -4154,16 +4154,16 @@ begin
  end//g_MenuManager = nil
  else
   Result := false;
-//#UC END# *9CBAC5378D28_55019B3B011B_impl*
+//#UC END# *5506A8670291_55019B3B011B_impl*
 end;//TvcmMenuManagerHelper.CreateManager
 
 procedure TvcmMenuManagerHelper.FreeManager;
-//#UC START# *FFCD4B7E45D8_55019B3B011B_var*
-//#UC END# *FFCD4B7E45D8_55019B3B011B_var*
+//#UC START# *5506A87D008E_55019B3B011B_var*
+//#UC END# *5506A87D008E_55019B3B011B_var*
 begin
-//#UC START# *FFCD4B7E45D8_55019B3B011B_impl*
+//#UC START# *5506A87D008E_55019B3B011B_impl*
  FreeAndNil(g_MenuManager);
-//#UC END# *FFCD4B7E45D8_55019B3B011B_impl*
+//#UC END# *5506A87D008E_55019B3B011B_impl*
 end;//TvcmMenuManagerHelper.FreeManager
 
 class function TvcmMenuManagerHelper.Instance: TvcmMenuManagerHelper;
@@ -4184,14 +4184,14 @@ begin
 end;//TvcmMenuManagerHelper.Exists
 
 procedure TvcmDispatcherHelper.ClearHistory;
-//#UC START# *CA1F3F463873_5501A60D002E_var*
-//#UC END# *CA1F3F463873_5501A60D002E_var*
+//#UC START# *55069D5903C8_5501A60D002E_var*
+//#UC END# *55069D5903C8_5501A60D002E_var*
 begin
-//#UC START# *CA1F3F463873_5501A60D002E_impl*
+//#UC START# *55069D5903C8_5501A60D002E_impl*
  if TvcmDispatcher.Exists then
   if (TvcmDispatcher.Instance.History <> nil) then
    TvcmDispatcher.Instance.History.Clear(false);
-//#UC END# *CA1F3F463873_5501A60D002E_impl*
+//#UC END# *55069D5903C8_5501A60D002E_impl*
 end;//TvcmDispatcherHelper.ClearHistory
 
 class function TvcmDispatcherHelper.Instance: TvcmDispatcherHelper;

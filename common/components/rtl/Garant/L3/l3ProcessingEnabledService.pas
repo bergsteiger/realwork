@@ -71,12 +71,12 @@ begin
 end;//Tl3ProcessingEnabledService.pm_SetAlien
 
 function Tl3ProcessingEnabledService.Enabled: Boolean;
-//#UC START# *ECCF31CF8A24_561CEB90011D_var*
-//#UC END# *ECCF31CF8A24_561CEB90011D_var*
+//#UC START# *561CEBC40218_561CEB90011D_var*
+//#UC END# *561CEBC40218_561CEB90011D_var*
 begin
-//#UC START# *ECCF31CF8A24_561CEB90011D_impl*
+//#UC START# *561CEBC40218_561CEB90011D_impl*
  Result := Assigned(f_Alien) and f_Alien.Enabled;
-//#UC END# *ECCF31CF8A24_561CEB90011D_impl*
+//#UC END# *561CEBC40218_561CEB90011D_impl*
 end;//Tl3ProcessingEnabledService.Enabled
 
 class function Tl3ProcessingEnabledService.Instance: Tl3ProcessingEnabledService;

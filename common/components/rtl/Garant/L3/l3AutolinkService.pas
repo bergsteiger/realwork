@@ -78,25 +78,25 @@ begin
 end;//Tl3AutolinkService.pm_SetAlien
 
 function Tl3AutolinkService.GetAutolinkFilter: Ik2TagGenerator;
-//#UC START# *27BE83734EFD_552BF69B039B_var*
-//#UC END# *27BE83734EFD_552BF69B039B_var*
+//#UC START# *552BF6BD0156_552BF69B039B_var*
+//#UC END# *552BF6BD0156_552BF69B039B_var*
 begin
-//#UC START# *27BE83734EFD_552BF69B039B_impl*
+//#UC START# *552BF6BD0156_552BF69B039B_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.GetAutolinkFilter
  else
   Result := nil; 
-//#UC END# *27BE83734EFD_552BF69B039B_impl*
+//#UC END# *552BF6BD0156_552BF69B039B_impl*
 end;//Tl3AutolinkService.GetAutolinkFilter
 
 procedure Tl3AutolinkService.CleanAutolinkFilter;
-//#UC START# *A18BB0B1A222_552BF69B039B_var*
-//#UC END# *A18BB0B1A222_552BF69B039B_var*
+//#UC START# *552BF6FF02A9_552BF69B039B_var*
+//#UC END# *552BF6FF02A9_552BF69B039B_var*
 begin
-//#UC START# *A18BB0B1A222_552BF69B039B_impl*
+//#UC START# *552BF6FF02A9_552BF69B039B_impl*
  if (f_Alien <> nil) then
   f_Alien.CleanAutolinkFilter;
-//#UC END# *A18BB0B1A222_552BF69B039B_impl*
+//#UC END# *552BF6FF02A9_552BF69B039B_impl*
 end;//Tl3AutolinkService.CleanAutolinkFilter
 
 class function Tl3AutolinkService.Instance: Tl3AutolinkService;

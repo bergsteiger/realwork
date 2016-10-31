@@ -213,7 +213,7 @@ begin
  try
   Result := False;
 {$IFNDEF AQTIME_PROFILE}
-  Listener.CheckTaskExistance(aTaskID);
+  Listener.CheckTaskExistence(aTaskID);
 {$ENDIF AQTIME_PROFILE}
   l_ResultMsg := TncsDeliveryResult.Create;
   try

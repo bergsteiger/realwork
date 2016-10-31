@@ -71,13 +71,13 @@ begin
 end;//Tl3MessagesService.pm_SetAlien
 
 procedure Tl3MessagesService.ProcessMessages;
-//#UC START# *B6C92677BBF7_5506D3B202FA_var*
-//#UC END# *B6C92677BBF7_5506D3B202FA_var*
+//#UC START# *5506D3CD02AA_5506D3B202FA_var*
+//#UC END# *5506D3CD02AA_5506D3B202FA_var*
 begin
-//#UC START# *B6C92677BBF7_5506D3B202FA_impl*
+//#UC START# *5506D3CD02AA_5506D3B202FA_impl*
  if (f_Alien <> nil) then
   f_Alien.ProcessMessages;
-//#UC END# *B6C92677BBF7_5506D3B202FA_impl*
+//#UC END# *5506D3CD02AA_5506D3B202FA_impl*
 end;//Tl3MessagesService.ProcessMessages
 
 class function Tl3MessagesService.Instance: Tl3MessagesService;

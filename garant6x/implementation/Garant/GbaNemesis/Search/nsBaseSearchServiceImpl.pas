@@ -99,13 +99,13 @@ type _Instance_R_ = TnsContainerToBaseSearcherMap;
 {$Include w:\common\components\rtl\Garant\L3\l3Map.imp.pas}
 
 function TnsBaseSearchServiceImpl.GetBaseSearcher(const aEntityForm: IvcmEntityForm): InsBaseSearcher;
-//#UC START# *4923CA8F0CFB_563208C60299_var*
+//#UC START# *5638753D025D_563208C60299_var*
 var
  l_MainForm: IvcmContainer;
  l_Provider: InsBaseSearcherProvider;
-//#UC END# *4923CA8F0CFB_563208C60299_var*
+//#UC END# *5638753D025D_563208C60299_var*
 begin
-//#UC START# *4923CA8F0CFB_563208C60299_impl*
+//#UC START# *5638753D025D_563208C60299_impl*
  Result := nil;
  l_MainForm := aEntityForm.NativeMainForm;
  if f_SearcherMap.Has(Pointer(l_MainForm)) then
@@ -113,94 +113,94 @@ begin
   l_Provider := InsBaseSearcherProvider(f_SearcherMap.ValueByKey(Pointer(l_MainForm)));
   Result := l_Provider.BaseSearcher;
  end; 
-//#UC END# *4923CA8F0CFB_563208C60299_impl*
+//#UC END# *5638753D025D_563208C60299_impl*
 end;//TnsBaseSearchServiceImpl.GetBaseSearcher
 
 procedure TnsBaseSearchServiceImpl.UnregisterBaseSearcherProvider(const aContainer: IvcmContainer;
  const aProvider: InsBaseSearcherProvider);
-//#UC START# *CB784FFDCCE4_563208C60299_var*
+//#UC START# *563875610245_563208C60299_var*
 var
  l_Index: Integer;
-//#UC END# *CB784FFDCCE4_563208C60299_var*
+//#UC END# *563875610245_563208C60299_var*
 begin
-//#UC START# *CB784FFDCCE4_563208C60299_impl*
+//#UC START# *563875610245_563208C60299_impl*
  if f_SearcherMap.FindData(Tl3KeyValuePair_ForFind(Pointer(aContainer)), l_Index) then
   f_SearcherMap.Delete(l_Index);
-//#UC END# *CB784FFDCCE4_563208C60299_impl*
+//#UC END# *563875610245_563208C60299_impl*
 end;//TnsBaseSearchServiceImpl.UnregisterBaseSearcherProvider
 
 procedure TnsBaseSearchServiceImpl.RegisterBaseSearcherProvider(const aContainer: IvcmContainer;
  const aProvider: InsBaseSearcherProvider);
-//#UC START# *B86FD3ED4532_563208C60299_var*
-//#UC END# *B86FD3ED4532_563208C60299_var*
+//#UC START# *5638758B005B_563208C60299_var*
+//#UC END# *5638758B005B_563208C60299_var*
 begin
-//#UC START# *B86FD3ED4532_563208C60299_impl*
+//#UC START# *5638758B005B_563208C60299_impl*
  f_SearcherMap.Add(Pointer(aContainer), Pointer(aProvider));
-//#UC END# *B86FD3ED4532_563208C60299_impl*
+//#UC END# *5638758B005B_563208C60299_impl*
 end;//TnsBaseSearchServiceImpl.RegisterBaseSearcherProvider
 
 function TnsBaseSearchServiceImpl.GetBaseSearchWindow(const aContainer: IvcmContainer): IvcmEntityForm;
-//#UC START# *5E9BD918F50B_563208C60299_var*
-//#UC END# *5E9BD918F50B_563208C60299_var*
+//#UC START# *57060F970080_563208C60299_var*
+//#UC END# *57060F970080_563208C60299_var*
 begin
-//#UC START# *5E9BD918F50B_563208C60299_impl*
+//#UC START# *57060F970080_563208C60299_impl*
  Assert(False);
-//#UC END# *5E9BD918F50B_563208C60299_impl*
+//#UC END# *57060F970080_563208C60299_impl*
 end;//TnsBaseSearchServiceImpl.GetBaseSearchWindow
 
 procedure TnsBaseSearchServiceImpl.OpenBaseSearch(const aContainer: IvcmContainer;
  aOpenKind: TnsBaseSearchOpenKind);
-//#UC START# *5434702F7752_563208C60299_var*
+//#UC START# *57062347014D_563208C60299_var*
 var
  l_BaseSearcher: InsBaseSearcher;
-//#UC END# *5434702F7752_563208C60299_var*
+//#UC END# *57062347014D_563208C60299_var*
 begin
-//#UC START# *5434702F7752_563208C60299_impl*
+//#UC START# *57062347014D_563208C60299_impl*
  l_BaseSearcher := GetBaseSearcher(aContainer.AsForm);
  try
   l_BaseSearcher.ShowWindowByUser(aOpenKind);
  finally
   l_BaseSearcher := nil;
  end;
-//#UC END# *5434702F7752_563208C60299_impl*
+//#UC END# *57062347014D_563208C60299_impl*
 end;//TnsBaseSearchServiceImpl.OpenBaseSearch
 
 function TnsBaseSearchServiceImpl.GetBaseSearchModel(const aContainer: IvcmContainer): InsBaseSearchModel;
-//#UC START# *3ABD99A8B9EE_563208C60299_var*
-//#UC END# *3ABD99A8B9EE_563208C60299_var*
+//#UC START# *570623790185_563208C60299_var*
+//#UC END# *570623790185_563208C60299_var*
 begin
-//#UC START# *3ABD99A8B9EE_563208C60299_impl*
+//#UC START# *570623790185_563208C60299_impl*
  Assert(False);
-//#UC END# *3ABD99A8B9EE_563208C60299_impl*
+//#UC END# *570623790185_563208C60299_impl*
 end;//TnsBaseSearchServiceImpl.GetBaseSearchModel
 
 function TnsBaseSearchServiceImpl.GetBaseSearchController(const aContainer: IvcmContainer): InsBaseSearchController;
-//#UC START# *29D9062E385E_563208C60299_var*
-//#UC END# *29D9062E385E_563208C60299_var*
+//#UC START# *5706239C01A7_563208C60299_var*
+//#UC END# *5706239C01A7_563208C60299_var*
 begin
-//#UC START# *29D9062E385E_563208C60299_impl*
+//#UC START# *5706239C01A7_563208C60299_impl*
  Assert(False);
-//#UC END# *29D9062E385E_563208C60299_impl*
+//#UC END# *5706239C01A7_563208C60299_impl*
 end;//TnsBaseSearchServiceImpl.GetBaseSearchController
 
 procedure TnsBaseSearchServiceImpl.RegisterBaseSearchView(const aBaseSearchView: InsBaseSearchView;
  const aContainer: IvcmContainer);
-//#UC START# *130AF2617571_563208C60299_var*
-//#UC END# *130AF2617571_563208C60299_var*
+//#UC START# *570623BB029C_563208C60299_var*
+//#UC END# *570623BB029C_563208C60299_var*
 begin
-//#UC START# *130AF2617571_563208C60299_impl*
+//#UC START# *570623BB029C_563208C60299_impl*
  Assert(False);
-//#UC END# *130AF2617571_563208C60299_impl*
+//#UC END# *570623BB029C_563208C60299_impl*
 end;//TnsBaseSearchServiceImpl.RegisterBaseSearchView
 
 function TnsBaseSearchServiceImpl.GetBaseSearchView(const aContainer: IvcmContainer): InsBaseSearchView;
-//#UC START# *48C239B7B9E8_563208C60299_var*
-//#UC END# *48C239B7B9E8_563208C60299_var*
+//#UC START# *57077EAC03CA_563208C60299_var*
+//#UC END# *57077EAC03CA_563208C60299_var*
 begin
-//#UC START# *48C239B7B9E8_563208C60299_impl*
+//#UC START# *57077EAC03CA_563208C60299_impl*
  Result := nil;
  Assert(false);
-//#UC END# *48C239B7B9E8_563208C60299_impl*
+//#UC END# *57077EAC03CA_563208C60299_impl*
 end;//TnsBaseSearchServiceImpl.GetBaseSearchView
 
 class function TnsBaseSearchServiceImpl.Instance: TnsBaseSearchServiceImpl;

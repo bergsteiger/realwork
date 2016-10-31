@@ -83,24 +83,24 @@ begin
 end;//TmsmModelElementListFactoryFree
 
 procedure TmsmElementListsServiceImpl.RegetLists;
-//#UC START# *80F135399528_57FE4E3A03C2_var*
-//#UC END# *80F135399528_57FE4E3A03C2_var*
+//#UC START# *57FE4DCD02F8_57FE4E3A03C2_var*
+//#UC END# *57FE4DCD02F8_57FE4E3A03C2_var*
 begin
-//#UC START# *80F135399528_57FE4E3A03C2_impl*
+//#UC START# *57FE4DCD02F8_57FE4E3A03C2_impl*
  if TmsmModelElementListFactory.Exists then
   TmsmModelElementListFactory.Instance.Reget;
-//#UC END# *80F135399528_57FE4E3A03C2_impl*
+//#UC END# *57FE4DCD02F8_57FE4E3A03C2_impl*
 end;//TmsmElementListsServiceImpl.RegetLists
 
 procedure TmsmElementListsServiceImpl.RegetViewedListsFor(aWord: TtfwWord;
  const aListName: AnsiString);
-//#UC START# *F7EFF4FD47C2_57FE4E3A03C2_var*
-//#UC END# *F7EFF4FD47C2_57FE4E3A03C2_var*
+//#UC START# *57FF6A5703D7_57FE4E3A03C2_var*
+//#UC END# *57FF6A5703D7_57FE4E3A03C2_var*
 begin
-//#UC START# *F7EFF4FD47C2_57FE4E3A03C2_impl*
+//#UC START# *57FF6A5703D7_57FE4E3A03C2_impl*
  if TmsmModelElementListFactory.Exists then
   TmsmModelElementListFactory.Instance.RegetViewedListsFor(aWord, aListName);
-//#UC END# *F7EFF4FD47C2_57FE4E3A03C2_impl*
+//#UC END# *57FF6A5703D7_57FE4E3A03C2_impl*
 end;//TmsmElementListsServiceImpl.RegetViewedListsFor
 
 class function TmsmElementListsServiceImpl.Instance: TmsmElementListsServiceImpl;

@@ -48,34 +48,34 @@ begin
 end;//TevdEVDWriterServiceFree
 
 function TevdEVDWriterService.GetWriter: Tk2CustomFileGenerator;
-//#UC START# *26782C1B9519_555DCF5A0060_var*
+//#UC START# *555DCEC1021B_555DCF5A0060_var*
 var
  l_W : TevdCustomNativeWriter;
-//#UC END# *26782C1B9519_555DCF5A0060_var*
+//#UC END# *555DCEC1021B_555DCF5A0060_var*
 begin
-//#UC START# *26782C1B9519_555DCF5A0060_impl*
+//#UC START# *555DCEC1021B_555DCF5A0060_impl*
  l_W := TevdCustomNativeWriter.Create;
  {$IFNDEF EverestLite}
  l_W.Binary := true;
  {$ENDIF}
  Result := l_W;
-//#UC END# *26782C1B9519_555DCF5A0060_impl*
+//#UC END# *555DCEC1021B_555DCF5A0060_impl*
 end;//TevdEVDWriterService.GetWriter
 
 function TevdEVDWriterService.MakeWriter(const aFileName: AnsiString): Ik2TagGenerator;
-//#UC START# *F7BF6A35E2B1_555DCF5A0060_var*
+//#UC START# *55701AE20388_555DCF5A0060_var*
 var
  l_Writer : TevdCustomNativeWriter;
-//#UC END# *F7BF6A35E2B1_555DCF5A0060_var*
+//#UC END# *55701AE20388_555DCF5A0060_var*
 begin
-//#UC START# *F7BF6A35E2B1_555DCF5A0060_impl*
+//#UC START# *55701AE20388_555DCF5A0060_impl*
  l_Writer := TevdCustomNativeWriter.Make(aFileName);
  try
   Result := l_Writer;
  finally
   FreeAndNil(l_Writer);
  end;//try..finally
-//#UC END# *F7BF6A35E2B1_555DCF5A0060_impl*
+//#UC END# *55701AE20388_555DCF5A0060_impl*
 end;//TevdEVDWriterService.MakeWriter
 
 class function TevdEVDWriterService.Instance: TevdEVDWriterService;

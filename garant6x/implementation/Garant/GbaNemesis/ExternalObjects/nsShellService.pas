@@ -118,15 +118,15 @@ end;//TnsShellService.CallShellExecute
 
 function TnsShellService.ShellExecute(const aFile: Il3CString;
  aSetReadOnlyToFile: Boolean): Boolean;
-//#UC START# *F7FE987044FC_57A86F7400E4_var*
-//#UC END# *F7FE987044FC_57A86F7400E4_var*
+//#UC START# *57A86FA30073_57A86F7400E4_var*
+//#UC END# *57A86FA30073_57A86F7400E4_var*
 begin
-//#UC START# *F7FE987044FC_57A86F7400E4_impl*
+//#UC START# *57A86FA30073_57A86F7400E4_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.ShellExecute(aFile, aSetReadOnlyToFile)
  else
   Result := Self.CallShellExecute(aFile, aSetReadOnlyToFile); 
-//#UC END# *F7FE987044FC_57A86F7400E4_impl*
+//#UC END# *57A86FA30073_57A86F7400E4_impl*
 end;//TnsShellService.ShellExecute
 
 class function TnsShellService.Instance: TnsShellService;

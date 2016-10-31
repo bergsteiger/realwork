@@ -71,13 +71,13 @@ begin
 end;//Tl3DocumentsCacheService.pm_SetAlien
 
 procedure Tl3DocumentsCacheService.Clear;
-//#UC START# *0AC8DEBDD602_5506FEA6012A_var*
-//#UC END# *0AC8DEBDD602_5506FEA6012A_var*
+//#UC START# *5506FEB701D1_5506FEA6012A_var*
+//#UC END# *5506FEB701D1_5506FEA6012A_var*
 begin
-//#UC START# *0AC8DEBDD602_5506FEA6012A_impl*
+//#UC START# *5506FEB701D1_5506FEA6012A_impl*
  if (f_Alien <> nil) then
   f_Alien.Clear;
-//#UC END# *0AC8DEBDD602_5506FEA6012A_impl*
+//#UC END# *5506FEB701D1_5506FEA6012A_impl*
 end;//Tl3DocumentsCacheService.Clear
 
 class function Tl3DocumentsCacheService.Instance: Tl3DocumentsCacheService;

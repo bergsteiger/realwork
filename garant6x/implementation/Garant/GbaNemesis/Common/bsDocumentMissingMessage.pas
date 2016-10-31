@@ -71,8 +71,8 @@ const
  {* Варианты выбора для диалога DocumentMissing }
  str_DocumentMissing_Choice_First: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentMissing_Choice_First'; rValue : 'Запросить отсутствующий документ у специалиста Правовой поддержки онлайн');
   {* 'Запросить отсутствующий документ у специалиста Правовой поддержки онлайн' }
- str_DocumentMissing_Choice_Second: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentMissing_Choice_Second'; rValue : 'Вернуться в открытый документ');
-  {* 'Вернуться в открытый документ' }
+ str_DocumentMissing_Choice_Second: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentMissing_Choice_Second'; rValue : 'Продолжить работу');
+  {* 'Продолжить работу' }
  {* Локализуемые строки Local }
  str_MissingDocumentIsContainedInBlock: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MissingDocumentIsContainedInBlock'; rValue : 'Документ содержится в информационном блоке:');
   {* 'Документ содержится в информационном блоке:' }

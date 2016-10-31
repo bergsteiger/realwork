@@ -72,10 +72,10 @@ begin
 end;//Tl3VersionInfoService.pm_SetAlien
 
 function Tl3VersionInfoService.VersionInfo: AnsiString;
-//#UC START# *30F5EA5AF6DF_55DDCF7C004A_var*
-//#UC END# *30F5EA5AF6DF_55DDCF7C004A_var*
+//#UC START# *55DDCFBE0096_55DDCF7C004A_var*
+//#UC END# *55DDCFBE0096_55DDCF7C004A_var*
 begin
-//#UC START# *30F5EA5AF6DF_55DDCF7C004A_impl*
+//#UC START# *55DDCFBE0096_55DDCF7C004A_impl*
  Result := '';
  if (f_Alien <> nil) then
   Result := f_Alien.VersionInfo;
@@ -92,7 +92,7 @@ begin
    Free;
   end;//try..finally
  end;//Result = ''
-//#UC END# *30F5EA5AF6DF_55DDCF7C004A_impl*
+//#UC END# *55DDCFBE0096_55DDCF7C004A_impl*
 end;//Tl3VersionInfoService.VersionInfo
 
 class function Tl3VersionInfoService.Instance: Tl3VersionInfoService;

@@ -76,12 +76,12 @@ begin
 end;//TnsDownloaderGUIService.pm_SetAlien
 
 function TnsDownloaderGUIService.EditParams(const aParams: InsDownloadParams): Boolean;
-//#UC START# *A56660AF8F69_57BC05FD03A1_var*
-//#UC END# *A56660AF8F69_57BC05FD03A1_var*
+//#UC START# *57BC0608023A_57BC05FD03A1_var*
+//#UC END# *57BC0608023A_57BC05FD03A1_var*
 begin
-//#UC START# *A56660AF8F69_57BC05FD03A1_impl*
+//#UC START# *57BC0608023A_57BC05FD03A1_impl*
  !!! Needs to be implemented !!!
-//#UC END# *A56660AF8F69_57BC05FD03A1_impl*
+//#UC END# *57BC0608023A_57BC05FD03A1_impl*
 end;//TnsDownloaderGUIService.EditParams
 
 class function TnsDownloaderGUIService.Instance: TnsDownloaderGUIService;

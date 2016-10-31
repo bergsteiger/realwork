@@ -305,7 +305,8 @@ procedure arClearSpellDictionary;
 begin
 //#UC START# *5813388F029E_4E4B5F29031C_impl*
  Assert(MainForm <> nil);
- MainForm.SpellDictionary.ClearWordList;
+ Assert(False, 'Method SpellDictionary.ClearWordList undefined');
+// MainForm.SpellDictionary.ClearWordList;
 //#UC END# *5813388F029E_4E4B5F29031C_impl*
 end;//arClearSpellDictionary
 {$IfEnd} //InsiderTest AND nsTest

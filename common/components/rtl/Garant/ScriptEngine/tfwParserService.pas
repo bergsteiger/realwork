@@ -148,16 +148,16 @@ end;//TtfwParserService.LoadIncludePaths
 
 function TtfwParserService.MakeCompiledCodeName(const aFileName: AnsiString;
  const anExt: AnsiString): AnsiString;
-//#UC START# *6CBC23B5834F_57726B250063_var*
+//#UC START# *57726B410203_57726B250063_var*
 const
  cDefaultDir = 'C:\Temp';
  //cDefaultDir = '.';
 var
  l_Path : String;
  l_IniName : String;
-//#UC END# *6CBC23B5834F_57726B250063_var*
+//#UC END# *57726B410203_57726B250063_var*
 begin
-//#UC START# *6CBC23B5834F_57726B250063_impl*
+//#UC START# *57726B410203_57726B250063_impl*
  if (f_Alien <> nil) then
   Result := MakeCompiledCodeName(aFileName, anExt)
  else
@@ -193,11 +193,11 @@ begin
    ForceDirectories(l_Path);
   end;//f_CoFileDir = '.'
  end;//f_Alien <> nil
-//#UC END# *6CBC23B5834F_57726B250063_impl*
+//#UC END# *57726B410203_57726B250063_impl*
 end;//TtfwParserService.MakeCompiledCodeName
 
 function TtfwParserService.ResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
-//#UC START# *F6694EB8D038_57726B250063_var*
+//#UC START# *57A9967B0182_57726B250063_var*
 
  procedure DoResolve;
  var
@@ -251,21 +251,21 @@ function TtfwParserService.ResolveIncludedFilePath(const aFile: AnsiString): Ans
   end;//not AnsiStartsText('axiom:', Result)
  end;//DoResolve
 
-//#UC END# *F6694EB8D038_57726B250063_var*
+//#UC END# *57A9967B0182_57726B250063_var*
 begin
-//#UC START# *F6694EB8D038_57726B250063_impl*
+//#UC START# *57A9967B0182_57726B250063_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.ResolveIncludedFilePath(aFile)
  else
   DoResolve;
-//#UC END# *F6694EB8D038_57726B250063_impl*
+//#UC END# *57A9967B0182_57726B250063_impl*
 end;//TtfwParserService.ResolveIncludedFilePath
 
 procedure TtfwParserService.AddIncludePath(const aPath: AnsiString);
-//#UC START# *F5AAF249F97E_57726B250063_var*
-//#UC END# *F5AAF249F97E_57726B250063_var*
+//#UC START# *57CD20F100D7_57726B250063_var*
+//#UC END# *57CD20F100D7_57726B250063_var*
 begin
-//#UC START# *F5AAF249F97E_57726B250063_impl*
+//#UC START# *57CD20F100D7_57726B250063_impl*
  if (f_Alien <> nil) then
   f_Alien.AddIncludePath(aPath)
  else
@@ -275,7 +275,7 @@ begin
   if (f_IncludePaths.IndexOf(aPath) < 0) then
    f_IncludePaths.Add(aPath);
  end;//f_Alien <> nil
-//#UC END# *F5AAF249F97E_57726B250063_impl*
+//#UC END# *57CD20F100D7_57726B250063_impl*
 end;//TtfwParserService.AddIncludePath
 
 class function TtfwParserService.Instance: TtfwParserService;

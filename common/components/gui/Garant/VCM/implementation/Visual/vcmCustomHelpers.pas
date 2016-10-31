@@ -61,7 +61,7 @@ end;//TvcmFormatActionInfoHelperFree
 
 {$If NOT Defined(NoVCL)}
 function TvcmFormatActionInfoHelper.Format(anAction: TCustomAction): AnsiString;
-//#UC START# *781F06EEA149_551442CF02AD_var*
+//#UC START# *5514424D01A2_551442CF02AD_var*
  procedure AddInfo(var theInfo: AnsiString;
    const aCaption: AnsiString;
    const aValue: AnsiString;
@@ -76,9 +76,9 @@ function TvcmFormatActionInfoHelper.Format(anAction: TCustomAction): AnsiString;
    theInfo := theInfo + aCaption + ':' + aValue;
   end;
  end;//AddInfo
-//#UC END# *781F06EEA149_551442CF02AD_var*
+//#UC END# *5514424D01A2_551442CF02AD_var*
 begin
-//#UC START# *781F06EEA149_551442CF02AD_impl*
+//#UC START# *5514424D01A2_551442CF02AD_impl*
  Result := '';
  if anAction is TvcmOperationAction then
  begin
@@ -90,7 +90,7 @@ begin
   if anAction is TvcmModuleAction then
    AddInfo(Result, 'ModuleDef', TvcmModuleAction(anAction).ModuleDef.Name);
  end;
-//#UC END# *781F06EEA149_551442CF02AD_impl*
+//#UC END# *5514424D01A2_551442CF02AD_impl*
 end;//TvcmFormatActionInfoHelper.Format
 {$IfEnd} // NOT Defined(NoVCL)
 

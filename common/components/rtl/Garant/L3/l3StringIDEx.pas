@@ -215,34 +215,34 @@ begin
 end;//Tl3StringIDExHelper.pm_SetAlien
 
 function Tl3StringIDExHelper.AsCStr(const aStr: Tl3StringIDEx): Il3CString;
-//#UC START# *201B50E5979A_4B98D6C201AD_var*
-//#UC END# *201B50E5979A_4B98D6C201AD_var*
+//#UC START# *4B98D78501E1_4B98D6C201AD_var*
+//#UC END# *4B98D78501E1_4B98D6C201AD_var*
 begin
-//#UC START# *201B50E5979A_4B98D6C201AD_impl*
+//#UC START# *4B98D78501E1_4B98D6C201AD_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.AsCStr(aStr)
  else
   Result := l3CStr(aStr.rValue);
-//#UC END# *201B50E5979A_4B98D6C201AD_impl*
+//#UC END# *4B98D78501E1_4B98D6C201AD_impl*
 end;//Tl3StringIDExHelper.AsCStr
 
 function Tl3StringIDExHelper.AsStr(const aStr: Tl3StringIDEx): AnsiString;
-//#UC START# *74E80608E1B4_4B98D6C201AD_var*
-//#UC END# *74E80608E1B4_4B98D6C201AD_var*
+//#UC START# *4B98D7A50160_4B98D6C201AD_var*
+//#UC END# *4B98D7A50160_4B98D6C201AD_var*
 begin
-//#UC START# *74E80608E1B4_4B98D6C201AD_impl*
+//#UC START# *4B98D7A50160_4B98D6C201AD_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.AsStr(aStr)
  else
   Result := aStr.rValue;
-//#UC END# *74E80608E1B4_4B98D6C201AD_impl*
+//#UC END# *4B98D7A50160_4B98D6C201AD_impl*
 end;//Tl3StringIDExHelper.AsStr
 
 procedure Tl3StringIDExHelper.Init(var theStr: Tl3StringIDEx);
-//#UC START# *071573E75439_4B98D6C201AD_var*
-//#UC END# *071573E75439_4B98D6C201AD_var*
+//#UC START# *4B98D7BA00C6_4B98D6C201AD_var*
+//#UC END# *4B98D7BA00C6_4B98D6C201AD_var*
 begin
-//#UC START# *071573E75439_4B98D6C201AD_impl*
+//#UC START# *4B98D7BA00C6_4B98D6C201AD_impl*
  {$IfDef Nemesis}
   {$IfNDef NoVCM}
    Assert(not g_l3ConstStringsSealed);
@@ -255,7 +255,7 @@ begin
  theStr.rS := -1;
  if (f_Alien <> nil) then
   f_Alien.Init(theStr);
-//#UC END# *071573E75439_4B98D6C201AD_impl*
+//#UC END# *4B98D7BA00C6_4B98D6C201AD_impl*
 end;//Tl3StringIDExHelper.Init
 
 class function Tl3StringIDExHelper.Instance: Tl3StringIDExHelper;

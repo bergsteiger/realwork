@@ -114,10 +114,10 @@ begin
 end;//TnsBaseSearchService.pm_SetAlien
 
 function TnsBaseSearchService.GetBaseSearcher(const aEntityForm: IvcmEntityForm): InsBaseSearcher;
-//#UC START# *4923CA8F0CFB_563875050317_var*
-//#UC END# *4923CA8F0CFB_563875050317_var*
+//#UC START# *5638753D025D_563875050317_var*
+//#UC END# *5638753D025D_563875050317_var*
 begin
-//#UC START# *4923CA8F0CFB_563875050317_impl*
+//#UC START# *5638753D025D_563875050317_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.GetBaseSearcher(aEntityForm)
  else
@@ -125,65 +125,65 @@ begin
   Result := nil;
   Assert(False);
  end;
-//#UC END# *4923CA8F0CFB_563875050317_impl*
+//#UC END# *5638753D025D_563875050317_impl*
 end;//TnsBaseSearchService.GetBaseSearcher
 
 procedure TnsBaseSearchService.UnregisterBaseSearcherProvider(const aContainer: IvcmContainer;
  const aProvider: InsBaseSearcherProvider);
-//#UC START# *CB784FFDCCE4_563875050317_var*
-//#UC END# *CB784FFDCCE4_563875050317_var*
+//#UC START# *563875610245_563875050317_var*
+//#UC END# *563875610245_563875050317_var*
 begin
-//#UC START# *CB784FFDCCE4_563875050317_impl*
+//#UC START# *563875610245_563875050317_impl*
  if (f_Alien <> nil) then
   f_Alien.UnregisterBaseSearcherProvider(aContainer, aProvider)
  else
   Assert(False);
-//#UC END# *CB784FFDCCE4_563875050317_impl*
+//#UC END# *563875610245_563875050317_impl*
 end;//TnsBaseSearchService.UnregisterBaseSearcherProvider
 
 procedure TnsBaseSearchService.RegisterBaseSearcherProvider(const aContainer: IvcmContainer;
  const aProvider: InsBaseSearcherProvider);
-//#UC START# *B86FD3ED4532_563875050317_var*
-//#UC END# *B86FD3ED4532_563875050317_var*
+//#UC START# *5638758B005B_563875050317_var*
+//#UC END# *5638758B005B_563875050317_var*
 begin
-//#UC START# *B86FD3ED4532_563875050317_impl*
+//#UC START# *5638758B005B_563875050317_impl*
  if (f_Alien <> nil) then
   f_Alien.RegisterBaseSearcherProvider(aContainer, aProvider)
  else
   Assert(False);
-//#UC END# *B86FD3ED4532_563875050317_impl*
+//#UC END# *5638758B005B_563875050317_impl*
 end;//TnsBaseSearchService.RegisterBaseSearcherProvider
 
 function TnsBaseSearchService.GetBaseSearchWindow(const aContainer: IvcmContainer): IvcmEntityForm;
-//#UC START# *5E9BD918F50B_563875050317_var*
-//#UC END# *5E9BD918F50B_563875050317_var*
+//#UC START# *57060F970080_563875050317_var*
+//#UC END# *57060F970080_563875050317_var*
 begin
-//#UC START# *5E9BD918F50B_563875050317_impl*
+//#UC START# *57060F970080_563875050317_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.GetBaseSearchWindow(aContainer)
  else
   Assert(False);
-//#UC END# *5E9BD918F50B_563875050317_impl*
+//#UC END# *57060F970080_563875050317_impl*
 end;//TnsBaseSearchService.GetBaseSearchWindow
 
 procedure TnsBaseSearchService.OpenBaseSearch(const aContainer: IvcmContainer;
  aOpenKind: TnsBaseSearchOpenKind);
-//#UC START# *5434702F7752_563875050317_var*
-//#UC END# *5434702F7752_563875050317_var*
+//#UC START# *57062347014D_563875050317_var*
+//#UC END# *57062347014D_563875050317_var*
 begin
-//#UC START# *5434702F7752_563875050317_impl*
+//#UC START# *57062347014D_563875050317_impl*
  if (f_Alien <> nil) then
   f_Alien.OpenBaseSearch(aContainer, aOpenKind)
  else
   Assert(False);
-//#UC END# *5434702F7752_563875050317_impl*
+//#UC END# *57062347014D_563875050317_impl*
 end;//TnsBaseSearchService.OpenBaseSearch
 
 function TnsBaseSearchService.GetBaseSearchModel(const aContainer: IvcmContainer): InsBaseSearchModel;
-//#UC START# *3ABD99A8B9EE_563875050317_var*
-//#UC END# *3ABD99A8B9EE_563875050317_var*
+//#UC START# *570623790185_563875050317_var*
+//#UC END# *570623790185_563875050317_var*
 begin
-//#UC START# *3ABD99A8B9EE_563875050317_impl*
+//#UC START# *570623790185_563875050317_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.GetBaseSearchModel(aContainer)
  else
@@ -192,14 +192,14 @@ begin
   Assert(False);
  end;
 
-//#UC END# *3ABD99A8B9EE_563875050317_impl*
+//#UC END# *570623790185_563875050317_impl*
 end;//TnsBaseSearchService.GetBaseSearchModel
 
 function TnsBaseSearchService.GetBaseSearchController(const aContainer: IvcmContainer): InsBaseSearchController;
-//#UC START# *29D9062E385E_563875050317_var*
-//#UC END# *29D9062E385E_563875050317_var*
+//#UC START# *5706239C01A7_563875050317_var*
+//#UC END# *5706239C01A7_563875050317_var*
 begin
-//#UC START# *29D9062E385E_563875050317_impl*
+//#UC START# *5706239C01A7_563875050317_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.GetBaseSearchController(aContainer)
  else
@@ -207,27 +207,27 @@ begin
   Result := nil;
   Assert(False);
  end;
-//#UC END# *29D9062E385E_563875050317_impl*
+//#UC END# *5706239C01A7_563875050317_impl*
 end;//TnsBaseSearchService.GetBaseSearchController
 
 procedure TnsBaseSearchService.RegisterBaseSearchView(const aBaseSearchView: InsBaseSearchView;
  const aContainer: IvcmContainer);
-//#UC START# *130AF2617571_563875050317_var*
-//#UC END# *130AF2617571_563875050317_var*
+//#UC START# *570623BB029C_563875050317_var*
+//#UC END# *570623BB029C_563875050317_var*
 begin
-//#UC START# *130AF2617571_563875050317_impl*
+//#UC START# *570623BB029C_563875050317_impl*
  if (f_Alien <> nil) then
   f_Alien.RegisterBaseSearchView(aBaseSearchView, aContainer)
  else
   Assert(False);
-//#UC END# *130AF2617571_563875050317_impl*
+//#UC END# *570623BB029C_563875050317_impl*
 end;//TnsBaseSearchService.RegisterBaseSearchView
 
 function TnsBaseSearchService.GetBaseSearchView(const aContainer: IvcmContainer): InsBaseSearchView;
-//#UC START# *48C239B7B9E8_563875050317_var*
-//#UC END# *48C239B7B9E8_563875050317_var*
+//#UC START# *57077EAC03CA_563875050317_var*
+//#UC END# *57077EAC03CA_563875050317_var*
 begin
-//#UC START# *48C239B7B9E8_563875050317_impl*
+//#UC START# *57077EAC03CA_563875050317_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.GetBaseSearchView(aContainer)
  else
@@ -235,7 +235,7 @@ begin
   Result := nil;
   Assert(false);
  end;
-//#UC END# *48C239B7B9E8_563875050317_impl*
+//#UC END# *57077EAC03CA_563875050317_impl*
 end;//TnsBaseSearchService.GetBaseSearchView
 
 class function TnsBaseSearchService.Instance: TnsBaseSearchService;

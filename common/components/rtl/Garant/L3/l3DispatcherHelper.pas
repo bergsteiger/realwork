@@ -71,13 +71,13 @@ begin
 end;//Tl3DispatcherHelper.pm_SetAlien
 
 procedure Tl3DispatcherHelper.ClearHistory;
-//#UC START# *CA1F3F463873_5501A3AE02AA_var*
-//#UC END# *CA1F3F463873_5501A3AE02AA_var*
+//#UC START# *55069D5903C8_5501A3AE02AA_var*
+//#UC END# *55069D5903C8_5501A3AE02AA_var*
 begin
-//#UC START# *CA1F3F463873_5501A3AE02AA_impl*
+//#UC START# *55069D5903C8_5501A3AE02AA_impl*
  if (f_Alien <> nil) then
   f_Alien.ClearHistory;
-//#UC END# *CA1F3F463873_5501A3AE02AA_impl*
+//#UC END# *55069D5903C8_5501A3AE02AA_impl*
 end;//Tl3DispatcherHelper.ClearHistory
 
 class function Tl3DispatcherHelper.Instance: Tl3DispatcherHelper;

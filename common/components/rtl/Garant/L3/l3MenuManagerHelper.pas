@@ -74,25 +74,25 @@ begin
 end;//Tl3MenuManagerHelper.pm_SetAlien
 
 function Tl3MenuManagerHelper.CreateManager: Boolean;
-//#UC START# *9CBAC5378D28_550199070251_var*
-//#UC END# *9CBAC5378D28_550199070251_var*
+//#UC START# *5506A8670291_550199070251_var*
+//#UC END# *5506A8670291_550199070251_var*
 begin
-//#UC START# *9CBAC5378D28_550199070251_impl*
+//#UC START# *5506A8670291_550199070251_impl*
 if (f_Alien <> nil) then
   Result := f_Alien.CreateManager
  else
   Result := false; 
-//#UC END# *9CBAC5378D28_550199070251_impl*
+//#UC END# *5506A8670291_550199070251_impl*
 end;//Tl3MenuManagerHelper.CreateManager
 
 procedure Tl3MenuManagerHelper.FreeManager;
-//#UC START# *FFCD4B7E45D8_550199070251_var*
-//#UC END# *FFCD4B7E45D8_550199070251_var*
+//#UC START# *5506A87D008E_550199070251_var*
+//#UC END# *5506A87D008E_550199070251_var*
 begin
-//#UC START# *FFCD4B7E45D8_550199070251_impl*
+//#UC START# *5506A87D008E_550199070251_impl*
  if (f_Alien <> nil) then
   f_Alien.FreeManager;
-//#UC END# *FFCD4B7E45D8_550199070251_impl*
+//#UC END# *5506A87D008E_550199070251_impl*
 end;//Tl3MenuManagerHelper.FreeManager
 
 class function Tl3MenuManagerHelper.Instance: Tl3MenuManagerHelper;

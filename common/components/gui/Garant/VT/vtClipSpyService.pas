@@ -52,25 +52,26 @@ begin
 end;//TvtClipSpyServiceFree
 
 procedure TvtClipSpyService.Subscribe(const aListner: Il3ClipListner);
-//#UC START# *105C5A110DDA_5776300D0270_var*
-//#UC END# *105C5A110DDA_5776300D0270_var*
+//#UC START# *57762C370191_5776300D0270_var*
+//#UC END# *57762C370191_5776300D0270_var*
 begin
-//#UC START# *105C5A110DDA_5776300D0270_impl*
+//#UC START# *57762C370191_5776300D0270_impl*
  if f_ClipSpyWnd = nil then
   f_ClipSpyWnd := TClipSpyWnd.Create(nil);
  f_ClipSpyWnd.Subscribe(aListner);
-//#UC END# *105C5A110DDA_5776300D0270_impl*
+//#UC END# *57762C370191_5776300D0270_impl*
 end;//TvtClipSpyService.Subscribe
 
 procedure TvtClipSpyService.Unsubscribe(const aListner: Il3ClipListner);
-//#UC START# *6EE9F044CA79_5776300D0270_var*
-//#UC END# *6EE9F044CA79_5776300D0270_var*
+//#UC START# *57762C6503A9_5776300D0270_var*
+//#UC END# *57762C6503A9_5776300D0270_var*
 begin
-//#UC START# *6EE9F044CA79_5776300D0270_impl*
+//#UC START# *57762C6503A9_5776300D0270_impl*
  if f_ClipSpyWnd = nil then Exit;
  f_ClipSpyWnd.Unsubscribe(aListner);
- FreeAndNil(f_ClipSpyWnd);
-//#UC END# *6EE9F044CA79_5776300D0270_impl*
+ //FreeAndNil(f_ClipSpyWnd);
+ // - похоже, что это ошибка
+//#UC END# *57762C6503A9_5776300D0270_impl*
 end;//TvtClipSpyService.Unsubscribe
 
 class function TvtClipSpyService.Instance: TvtClipSpyService;

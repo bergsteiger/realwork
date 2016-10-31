@@ -71,15 +71,15 @@ begin
 end;//Tl3TabService.pm_SetAlien
 
 function Tl3TabService.HasTabs: Boolean;
-//#UC START# *A8AF111E1F35_550AE937003B_var*
-//#UC END# *A8AF111E1F35_550AE937003B_var*
+//#UC START# *550AE94503E6_550AE937003B_var*
+//#UC END# *550AE94503E6_550AE937003B_var*
 begin
-//#UC START# *A8AF111E1F35_550AE937003B_impl*
+//#UC START# *550AE94503E6_550AE937003B_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.HasTabs
  else
   Result := false;
-//#UC END# *A8AF111E1F35_550AE937003B_impl*
+//#UC END# *550AE94503E6_550AE937003B_impl*
 end;//Tl3TabService.HasTabs
 
 class function Tl3TabService.Instance: Tl3TabService;

@@ -75,15 +75,15 @@ begin
 end;//TtfwDebugService.pm_SetAlien
 
 function TtfwDebugService.DebugScriptCaller: ItfwScriptCaller;
-//#UC START# *5DBF5C8E6606_56F557030356_var*
-//#UC END# *5DBF5C8E6606_56F557030356_var*
+//#UC START# *56F557410186_56F557030356_var*
+//#UC END# *56F557410186_56F557030356_var*
 begin
-//#UC START# *5DBF5C8E6606_56F557030356_impl*
+//#UC START# *56F557410186_56F557030356_impl*
  if (f_Alien <> nil) then
-  Result := DebugScriptCaller
+  Result := f_Alien.DebugScriptCaller
  else
   Result := nil; 
-//#UC END# *5DBF5C8E6606_56F557030356_impl*
+//#UC END# *56F557410186_56F557030356_impl*
 end;//TtfwDebugService.DebugScriptCaller
 
 class function TtfwDebugService.Instance: TtfwDebugService;

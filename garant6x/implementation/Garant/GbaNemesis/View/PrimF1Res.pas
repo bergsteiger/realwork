@@ -210,12 +210,12 @@ begin
 end;//TnsUserOperationEvent.Exists
 
 procedure TLoggingServiceImpl.LogUserActivity(aKind: TvcmOperationCallType);
-//#UC START# *385066897B82_57A35C870031_var*
-//#UC END# *385066897B82_57A35C870031_var*
+//#UC START# *57A35C6002FD_57A35C870031_var*
+//#UC END# *57A35C6002FD_57A35C870031_var*
 begin
-//#UC START# *385066897B82_57A35C870031_impl*
+//#UC START# *57A35C6002FD_57A35C870031_impl*
  TPrimF1Res.LogUserActivity(aKind);
-//#UC END# *385066897B82_57A35C870031_impl*
+//#UC END# *57A35C6002FD_57A35C870031_impl*
 end;//TLoggingServiceImpl.LogUserActivity
 
 class function TLoggingServiceImpl.Instance: TLoggingServiceImpl;

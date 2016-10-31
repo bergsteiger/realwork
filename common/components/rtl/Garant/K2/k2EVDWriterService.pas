@@ -76,27 +76,27 @@ begin
 end;//Tk2EVDWriterService.pm_SetAlien
 
 function Tk2EVDWriterService.GetWriter: Tk2CustomFileGenerator;
-//#UC START# *26782C1B9519_555DCEA8017E_var*
-//#UC END# *26782C1B9519_555DCEA8017E_var*
+//#UC START# *555DCEC1021B_555DCEA8017E_var*
+//#UC END# *555DCEC1021B_555DCEA8017E_var*
 begin
-//#UC START# *26782C1B9519_555DCEA8017E_impl*
+//#UC START# *555DCEC1021B_555DCEA8017E_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.GetWriter
  else
   Result := nil; 
-//#UC END# *26782C1B9519_555DCEA8017E_impl*
+//#UC END# *555DCEC1021B_555DCEA8017E_impl*
 end;//Tk2EVDWriterService.GetWriter
 
 function Tk2EVDWriterService.MakeWriter(const aFileName: AnsiString): Ik2TagGenerator;
-//#UC START# *F7BF6A35E2B1_555DCEA8017E_var*
-//#UC END# *F7BF6A35E2B1_555DCEA8017E_var*
+//#UC START# *55701AE20388_555DCEA8017E_var*
+//#UC END# *55701AE20388_555DCEA8017E_var*
 begin
-//#UC START# *F7BF6A35E2B1_555DCEA8017E_impl*
+//#UC START# *55701AE20388_555DCEA8017E_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.MakeWriter(aFileName)
  else
   Result := nil; 
-//#UC END# *F7BF6A35E2B1_555DCEA8017E_impl*
+//#UC END# *55701AE20388_555DCEA8017E_impl*
 end;//Tk2EVDWriterService.MakeWriter
 
 class function Tk2EVDWriterService.Instance: Tk2EVDWriterService;

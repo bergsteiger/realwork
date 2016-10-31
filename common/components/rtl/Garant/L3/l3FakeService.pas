@@ -45,7 +45,13 @@ type
 
  _l3FakeImpurity_Parent_ = Tl3ProtoObject;
  {$Include w:\common\components\rtl\Garant\L3\l3FakeImpurity.imp.pas}
- Tl3FakeService = class(_l3FakeImpurity_)
+ _l3FakeImpurity1_Parent_ = _l3FakeImpurity_;
+ {$Include w:\common\components\rtl\Garant\L3\l3FakeImpurity1.imp.pas}
+ _l3FakeImpurity2_Parent_ = _l3FakeImpurity1_;
+ {$Include w:\common\components\rtl\Garant\L3\l3FakeImpurity2.imp.pas}
+ _l3FakeImpurity3_Parent_ = _l3FakeImpurity2_;
+ {$Include w:\common\components\rtl\Garant\L3\l3FakeImpurity3.imp.pas}
+ Tl3FakeService = class(_l3FakeImpurity3_)
   private
    f_Alien: Il3FakeService;
     {* ¬нешн€€ реализаци€ сервиса Il3FakeService }
@@ -78,6 +84,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3FakeUtilityPack
  , SysUtils
  , l3Base
  //#UC START# *MSMBCDA1CC34343impl_uses*
@@ -115,6 +122,12 @@ begin
 end;//MixInInline
 
 {$Include w:\common\components\rtl\Garant\L3\l3FakeImpurity.imp.pas}
+
+{$Include w:\common\components\rtl\Garant\L3\l3FakeImpurity1.imp.pas}
+
+{$Include w:\common\components\rtl\Garant\L3\l3FakeImpurity2.imp.pas}
+
+{$Include w:\common\components\rtl\Garant\L3\l3FakeImpurity3.imp.pas}
 
 procedure Tl3FakeService.pm_SetAlien(const aValue: Il3FakeService);
 begin

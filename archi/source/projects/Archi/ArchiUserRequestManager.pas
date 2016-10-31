@@ -1,7 +1,13 @@
 unit ArchiUserRequestManager;
-{ $Id: ArchiUserRequestManager.pas,v 1.126 2016/10/24 13:32:43 lukyanets Exp $ }
+{ $Id: ArchiUserRequestManager.pas,v 1.128 2016/10/31 09:29:00 lukyanets Exp $ }
 
 // $Log: ArchiUserRequestManager.pas,v $
+// Revision 1.128  2016/10/31 09:29:00  lukyanets
+// Не собиралось
+//
+// Revision 1.127  2016/10/31 07:49:18  lukyanets
+// Не собиралось
+//
 // Revision 1.126  2016/10/24 13:32:43  lukyanets
 // Готовим новую функциональность.
 //
@@ -621,12 +627,12 @@ type
    procedure pipe_ReadToRegionList(aPipe: TcsDataPipe);
    procedure pipe_TerminateTask(aPipe: TcsDataPipe);
    function CorrectExportFolder(var theFolder: AnsiString): Boolean;
-   procedure CheckTaskExistence(const aTaskID: String);
    procedure ReportResult(const aResult: String);
    procedure DoTerminateTask(aTaskID: AnsiString);
+   procedure IntCheckTaskExistence(const aTaskID: AnsiString);
   protected
    // IarResultDelivererListner
-   procedure CheckTaskExistance(const aTaskID: AnsiString);
+   procedure CheckTaskExistence(const aTaskID: AnsiString);
    procedure RequestSendMessage(const aMessage: AnsiString);
    function RequestNewFolder(var aFolder: AnsiString): Boolean;
    procedure ChangeResultFolder(const aTaskID: AnsiString;
@@ -719,7 +725,7 @@ begin
 end;
 
 type
- TCheckTaskExistance = class(Tl3AsyncTask)
+ TCheckTaskExistence = class(Tl3AsyncTask)
  private
   f_Manager: TArchiUserRequestManager;
   f_TaskID: AnsiString;
@@ -1291,7 +1297,7 @@ begin
   RequestResultsDelivery;
 end;
 
-procedure TArchiUserRequestManager.CheckTaskExistence(
+procedure TArchiUserRequestManager.IntCheckTaskExistence(
   const aTaskID: String);
 var
  l_Task1, l_Task2: TddTaskItem;
@@ -1327,12 +1333,12 @@ begin
  end;
 end;
 
-procedure TArchiUserRequestManager.CheckTaskExistance(
+procedure TArchiUserRequestManager.CheckTaskExistence(
   const aTaskID: AnsiString);
 var
- l_Task: TCheckTaskExistance;
+ l_Task: TCheckTaskExistence;
 begin
- l_Task := TCheckTaskExistance.Create(Self, aTaskID);
+ l_Task := TCheckTaskExistence.Create(Self, aTaskID);
  try
   Tl3ExecuteInMainThread.Instance.AsyncExec(l_Task);
  finally
@@ -1369,9 +1375,9 @@ begin
  end;
 end;
 
-{ TCheckTaskExistance }
+{ TCheckTaskExistence }
 
-constructor TCheckTaskExistance.Create(
+constructor TCheckTaskExistence.Create(
   const aManager: TArchiUserRequestManager; const aTaskID: AnsiString);
 begin
  inherited Create;
@@ -1379,9 +1385,9 @@ begin
  f_TaskID := aTaskID;
 end;
 
-procedure TCheckTaskExistance.Exec;
+procedure TCheckTaskExistence.Exec;
 begin
- f_Manager.CheckTaskExistence(f_TaskID);
+ f_Manager.IntCheckTaskExistence(f_TaskID);
 end;
 
 { TRequestSendMessage }

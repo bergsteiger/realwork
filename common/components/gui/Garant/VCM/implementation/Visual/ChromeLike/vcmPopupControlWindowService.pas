@@ -52,15 +52,15 @@ begin
 end;//TvcmPopupControlWindowServiceFree
 
 function TvcmPopupControlWindowService.IsPopupControlWindow(aControlWnd: HWND): Boolean;
-//#UC START# *D2E4642CC7BC_5587AB210223_var*
+//#UC START# *55879E4401FC_5587AB210223_var*
 const
  cMenuClassName: String = '#32768';
 var
  l_Control: TWinControl;
  l_ClassName: String;
-//#UC END# *D2E4642CC7BC_5587AB210223_var*
+//#UC END# *55879E4401FC_5587AB210223_var*
 begin
-//#UC START# *D2E4642CC7BC_5587AB210223_impl*
+//#UC START# *55879E4401FC_5587AB210223_impl*
  l_Control := FindControl(aControlWnd);
  if (l_Control <> nil) then
   Result := l_Control is TvcmDropDownMenuForChromeLike
@@ -71,7 +71,7 @@ begin
   l_ClassName := PChar(l_ClassName);
   Result := (l_ClassName = cMenuClassName);
  end;
-//#UC END# *D2E4642CC7BC_5587AB210223_impl*
+//#UC END# *55879E4401FC_5587AB210223_impl*
 end;//TvcmPopupControlWindowService.IsPopupControlWindow
 
 class function TvcmPopupControlWindowService.Instance: TvcmPopupControlWindowService;

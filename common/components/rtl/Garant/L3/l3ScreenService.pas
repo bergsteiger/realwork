@@ -72,15 +72,15 @@ begin
 end;//Tl3ScreenService.pm_SetAlien
 
 function Tl3ScreenService.IC: Il3InfoCanvas;
-//#UC START# *88066E5D0414_556EE57803CD_var*
-//#UC END# *88066E5D0414_556EE57803CD_var*
+//#UC START# *556EE5D60314_556EE57803CD_var*
+//#UC END# *556EE5D60314_556EE57803CD_var*
 begin
-//#UC START# *88066E5D0414_556EE57803CD_impl*
+//#UC START# *556EE5D60314_556EE57803CD_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.IC
  else
-  Result := nil; 
-//#UC END# *88066E5D0414_556EE57803CD_impl*
+  Result := nil;
+//#UC END# *556EE5D60314_556EE57803CD_impl*
 end;//Tl3ScreenService.IC
 
 class function Tl3ScreenService.Instance: Tl3ScreenService;

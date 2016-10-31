@@ -137,10 +137,10 @@ end;//TnsShellServiceImplFree
 
 function TnsShellServiceImpl.ShellExecute(const aFile: Il3CString;
  aSetReadOnlyToFile: Boolean): Boolean;
-//#UC START# *F7FE987044FC_57A8712A01C9_var*
-//#UC END# *F7FE987044FC_57A8712A01C9_var*
+//#UC START# *57A86FA30073_57A8712A01C9_var*
+//#UC END# *57A86FA30073_57A8712A01C9_var*
 begin
-//#UC START# *F7FE987044FC_57A8712A01C9_impl*
+//#UC START# *57A86FA30073_57A8712A01C9_impl*
  if HookShellExecute then
  begin
   Result := true;
@@ -148,7 +148,7 @@ begin
  end//HookShellExecute
  else
   Result := TnsShellService.Instance.CallShellExecute(aFile, aSetReadOnlyToFile);
-//#UC END# *F7FE987044FC_57A8712A01C9_impl*
+//#UC END# *57A86FA30073_57A8712A01C9_impl*
 end;//TnsShellServiceImpl.ShellExecute
 
 class function TnsShellServiceImpl.Instance: TnsShellServiceImpl;

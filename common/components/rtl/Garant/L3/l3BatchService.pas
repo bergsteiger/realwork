@@ -124,23 +124,23 @@ end;//Tl3BatchServiceFree
 
 {$If NOT Defined(NoScripts)}
 procedure Tl3BatchScriptService.EnterScript;
-//#UC START# *97F121633B1B_5509AAAC0313_var*
-//#UC END# *97F121633B1B_5509AAAC0313_var*
+//#UC START# *5509AA71018F_5509AAAC0313_var*
+//#UC END# *5509AA71018F_5509AAAC0313_var*
 begin
-//#UC START# *97F121633B1B_5509AAAC0313_impl*
+//#UC START# *5509AA71018F_5509AAAC0313_impl*
  Tl3BatchService.Instance.EnterBatchMode;
-//#UC END# *97F121633B1B_5509AAAC0313_impl*
+//#UC END# *5509AA71018F_5509AAAC0313_impl*
 end;//Tl3BatchScriptService.EnterScript
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
 procedure Tl3BatchScriptService.LeaveScript;
-//#UC START# *BA3808340B4E_5509AAAC0313_var*
-//#UC END# *BA3808340B4E_5509AAAC0313_var*
+//#UC START# *5509AA7D0270_5509AAAC0313_var*
+//#UC END# *5509AA7D0270_5509AAAC0313_var*
 begin
-//#UC START# *BA3808340B4E_5509AAAC0313_impl*
+//#UC START# *5509AA7D0270_5509AAAC0313_impl*
  Tl3BatchService.Instance.LeaveBatchMode;
-//#UC END# *BA3808340B4E_5509AAAC0313_impl*
+//#UC END# *5509AA7D0270_5509AAAC0313_impl*
 end;//Tl3BatchScriptService.LeaveScript
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -186,52 +186,52 @@ begin
 end;//Tl3BatchService.ExecuteCurrentModalWorker
 
 function Tl3BatchService.IsBatchMode: Boolean;
-//#UC START# *8A081B195E08_5507FDD203E1_var*
-//#UC END# *8A081B195E08_5507FDD203E1_var*
+//#UC START# *5507FDED0373_5507FDD203E1_var*
+//#UC END# *5507FDED0373_5507FDD203E1_var*
 begin
-//#UC START# *8A081B195E08_5507FDD203E1_impl*
+//#UC START# *5507FDED0373_5507FDD203E1_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.IsBatchMode
  else
   Result := false; 
-//#UC END# *8A081B195E08_5507FDD203E1_impl*
+//#UC END# *5507FDED0373_5507FDD203E1_impl*
 end;//Tl3BatchService.IsBatchMode
 
 procedure Tl3BatchService.EnterBatchMode;
-//#UC START# *3E2DB431FD1A_5507FDD203E1_var*
-//#UC END# *3E2DB431FD1A_5507FDD203E1_var*
+//#UC START# *55099B480169_5507FDD203E1_var*
+//#UC END# *55099B480169_5507FDD203E1_var*
 begin
-//#UC START# *3E2DB431FD1A_5507FDD203E1_impl*
+//#UC START# *55099B480169_5507FDD203E1_impl*
  if (f_Alien <> nil) then
   f_Alien.EnterBatchMode;
-//#UC END# *3E2DB431FD1A_5507FDD203E1_impl*
+//#UC END# *55099B480169_5507FDD203E1_impl*
 end;//Tl3BatchService.EnterBatchMode
 
 procedure Tl3BatchService.LeaveBatchMode;
-//#UC START# *FE46A80B1DA3_5507FDD203E1_var*
-//#UC END# *FE46A80B1DA3_5507FDD203E1_var*
+//#UC START# *55099B590257_5507FDD203E1_var*
+//#UC END# *55099B590257_5507FDD203E1_var*
 begin
-//#UC START# *FE46A80B1DA3_5507FDD203E1_impl*
+//#UC START# *55099B590257_5507FDD203E1_impl*
  if (f_Alien <> nil) then
   f_Alien.LeaveBatchMode;
-//#UC END# *FE46A80B1DA3_5507FDD203E1_impl*
+//#UC END# *55099B590257_5507FDD203E1_impl*
 end;//Tl3BatchService.LeaveBatchMode
 
 procedure Tl3BatchService.PushAnswer(aValue: Integer);
-//#UC START# *194C97B8A2DF_5507FDD203E1_var*
-//#UC END# *194C97B8A2DF_5507FDD203E1_var*
+//#UC START# *553F341100FE_5507FDD203E1_var*
+//#UC END# *553F341100FE_5507FDD203E1_var*
 begin
-//#UC START# *194C97B8A2DF_5507FDD203E1_impl*
+//#UC START# *553F341100FE_5507FDD203E1_impl*
  if (f_Alien <> nil) then
   f_Alien.PushAnswer(aValue);
-//#UC END# *194C97B8A2DF_5507FDD203E1_impl*
+//#UC END# *553F341100FE_5507FDD203E1_impl*
 end;//Tl3BatchService.PushAnswer
 
 function Tl3BatchService.PopAnswer: Integer;
-//#UC START# *FE26372CAD8B_5507FDD203E1_var*
-//#UC END# *FE26372CAD8B_5507FDD203E1_var*
+//#UC START# *553F3424010C_5507FDD203E1_var*
+//#UC END# *553F3424010C_5507FDD203E1_var*
 begin
-//#UC START# *FE26372CAD8B_5507FDD203E1_impl*
+//#UC START# *553F3424010C_5507FDD203E1_impl*
  {$IfNDef NoVCL}
  if (f_Alien <> nil) then
   Result := f_Alien.PopAnswer
@@ -240,39 +240,39 @@ begin
  {$Else  NoVCL}
  Assert(false);
  {$EndIf NoVCL}
-//#UC END# *FE26372CAD8B_5507FDD203E1_impl*
+//#UC END# *553F3424010C_5507FDD203E1_impl*
 end;//Tl3BatchService.PopAnswer
 
 procedure Tl3BatchService.SignalWasDialog;
-//#UC START# *23858A465AF6_5507FDD203E1_var*
-//#UC END# *23858A465AF6_5507FDD203E1_var*
+//#UC START# *553F428003A3_5507FDD203E1_var*
+//#UC END# *553F428003A3_5507FDD203E1_var*
 begin
-//#UC START# *23858A465AF6_5507FDD203E1_impl*
+//#UC START# *553F428003A3_5507FDD203E1_impl*
  if (f_Alien <> nil) then
   f_Alien.SignalWasDialog;
-//#UC END# *23858A465AF6_5507FDD203E1_impl*
+//#UC END# *553F428003A3_5507FDD203E1_impl*
 end;//Tl3BatchService.SignalWasDialog
 
 function Tl3BatchService.CheckWasDialog: Boolean;
-//#UC START# *217998C234EE_5507FDD203E1_var*
-//#UC END# *217998C234EE_5507FDD203E1_var*
+//#UC START# *553F429502D1_5507FDD203E1_var*
+//#UC END# *553F429502D1_5507FDD203E1_var*
 begin
-//#UC START# *217998C234EE_5507FDD203E1_impl*
+//#UC START# *553F429502D1_5507FDD203E1_impl*
  if (f_Alien <> nil) then
   Result := f_Alien.CheckWasDialog
  else
   Result := false; 
-//#UC END# *217998C234EE_5507FDD203E1_impl*
+//#UC END# *553F429502D1_5507FDD203E1_impl*
 end;//Tl3BatchService.CheckWasDialog
 
 procedure Tl3BatchService.ClearAnswers;
-//#UC START# *37CC2CF2A1FF_5507FDD203E1_var*
-//#UC END# *37CC2CF2A1FF_5507FDD203E1_var*
+//#UC START# *553F4C9802D8_5507FDD203E1_var*
+//#UC END# *553F4C9802D8_5507FDD203E1_var*
 begin
-//#UC START# *37CC2CF2A1FF_5507FDD203E1_impl*
+//#UC START# *553F4C9802D8_5507FDD203E1_impl*
  if (f_Alien <> nil) then
   f_Alien.ClearAnswers;
-//#UC END# *37CC2CF2A1FF_5507FDD203E1_impl*
+//#UC END# *553F4C9802D8_5507FDD203E1_impl*
 end;//Tl3BatchService.ClearAnswers
 
 class function Tl3BatchService.Instance: Tl3BatchService;

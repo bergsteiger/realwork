@@ -32,6 +32,7 @@ uses
  , kwDialogsLockDocumentSetSkipMode
  , AttributeExplorerWordsPack
  , kwClearConfig
+ , kwClearSpellDictionary
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes

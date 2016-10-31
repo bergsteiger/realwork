@@ -88,7 +88,7 @@ end;//Tl3FormatObjectInfoHelper.pm_SetAlien
 function Tl3FormatObjectInfoHelper.Format(anObject: TObject;
  aShortInfo: Boolean;
  anObjectPropFound: TRTTIInfoObjectPropertyFoundCallBack): AnsiString;
-//#UC START# *D4A861440DBF_551BCBFD0240_var*
+//#UC START# *551BCC1F00E6_551BCBFD0240_var*
  procedure lp_AddInfo(var theInfo: AnsiString;
   const aCaption: AnsiString;
   const aValue: AnsiString;
@@ -116,9 +116,9 @@ function Tl3FormatObjectInfoHelper.Format(anObject: TObject;
 var
  l_Control: TControl;
  l_ActionProp: TObject;
-//#UC END# *D4A861440DBF_551BCBFD0240_var*
+//#UC END# *551BCC1F00E6_551BCBFD0240_var*
 begin
-//#UC START# *D4A861440DBF_551BCBFD0240_impl*
+//#UC START# *551BCC1F00E6_551BCBFD0240_impl*
  if Assigned(f_Alien) then
   Result := f_Alien.Format(anObject, aShortInfo, anObjectPropFound)
  else
@@ -147,7 +147,7 @@ begin
   end
   else
    Result := L3FormatRTTIInfo(anObject, True, anObjectPropFound, Tl3HugeMessageDlgWithWikiHelper.Instance.CanUseWiki);
-//#UC END# *D4A861440DBF_551BCBFD0240_impl*
+//#UC END# *551BCC1F00E6_551BCBFD0240_impl*
 end;//Tl3FormatObjectInfoHelper.Format
 
 class function Tl3FormatObjectInfoHelper.Instance: Tl3FormatObjectInfoHelper;

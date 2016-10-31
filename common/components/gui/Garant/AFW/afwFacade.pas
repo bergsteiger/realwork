@@ -219,12 +219,12 @@ begin
 end;//TafwTabServiceFree
 
 procedure TafwMessagesService.ProcessMessages;
-//#UC START# *B6C92677BBF7_5506D47E01D2_var*
-//#UC END# *B6C92677BBF7_5506D47E01D2_var*
+//#UC START# *5506D3CD02AA_5506D47E01D2_var*
+//#UC END# *5506D3CD02AA_5506D47E01D2_var*
 begin
-//#UC START# *B6C92677BBF7_5506D47E01D2_impl*
+//#UC START# *5506D3CD02AA_5506D47E01D2_impl*
  afw.ProcessMessages;
-//#UC END# *B6C92677BBF7_5506D47E01D2_impl*
+//#UC END# *5506D3CD02AA_5506D47E01D2_impl*
 end;//TafwMessagesService.ProcessMessages
 
 class function TafwMessagesService.Instance: TafwMessagesService;
@@ -246,39 +246,39 @@ end;//TafwMessagesService.Exists
 
 {$If NOT Defined(NoVCL)}
 function TafwFormsService.GetParentForm(Component: TPersistent): TCustomForm;
-//#UC START# *32D6965B86E7_5506D5FB0019_var*
-//#UC END# *32D6965B86E7_5506D5FB0019_var*
+//#UC START# *5506D58B0238_5506D5FB0019_var*
+//#UC END# *5506D58B0238_5506D5FB0019_var*
 begin
-//#UC START# *32D6965B86E7_5506D5FB0019_impl*
+//#UC START# *5506D58B0238_5506D5FB0019_impl*
  Result := afw.GetParentForm(Component);
-//#UC END# *32D6965B86E7_5506D5FB0019_impl*
+//#UC END# *5506D58B0238_5506D5FB0019_impl*
 end;//TafwFormsService.GetParentForm
 
 function TafwFormsService.GetAnotherParentForm(Component: TPersistent): TCustomForm;
-//#UC START# *1077E9580F6F_5506D5FB0019_var*
-//#UC END# *1077E9580F6F_5506D5FB0019_var*
+//#UC START# *5506D5B30127_5506D5FB0019_var*
+//#UC END# *5506D5B30127_5506D5FB0019_var*
 begin
-//#UC START# *1077E9580F6F_5506D5FB0019_impl*
+//#UC START# *5506D5B30127_5506D5FB0019_impl*
  Result := afw.GetAnotherParentForm(Component);
-//#UC END# *1077E9580F6F_5506D5FB0019_impl*
+//#UC END# *5506D5B30127_5506D5FB0019_impl*
 end;//TafwFormsService.GetAnotherParentForm
 
 function TafwFormsService.GetTopParentForm(Component: TPersistent): TCustomForm;
-//#UC START# *D9663D6CD433_5506D5FB0019_var*
-//#UC END# *D9663D6CD433_5506D5FB0019_var*
+//#UC START# *5506E84700E5_5506D5FB0019_var*
+//#UC END# *5506E84700E5_5506D5FB0019_var*
 begin
-//#UC START# *D9663D6CD433_5506D5FB0019_impl*
+//#UC START# *5506E84700E5_5506D5FB0019_impl*
  Result := afw.GetTopParentForm(Component);
-//#UC END# *D9663D6CD433_5506D5FB0019_impl*
+//#UC END# *5506E84700E5_5506D5FB0019_impl*
 end;//TafwFormsService.GetTopParentForm
 
 function TafwFormsService.GetMainForm(Component: TPersistent): TCustomForm;
-//#UC START# *207716257CFB_5506D5FB0019_var*
-//#UC END# *207716257CFB_5506D5FB0019_var*
+//#UC START# *5506E861028F_5506D5FB0019_var*
+//#UC END# *5506E861028F_5506D5FB0019_var*
 begin
-//#UC START# *207716257CFB_5506D5FB0019_impl*
+//#UC START# *5506E861028F_5506D5FB0019_impl*
  Result := afw.GetMainForm(Component);
-//#UC END# *207716257CFB_5506D5FB0019_impl*
+//#UC END# *5506E861028F_5506D5FB0019_impl*
 end;//TafwFormsService.GetMainForm
 
 class function TafwFormsService.Instance: TafwFormsService;
@@ -300,12 +300,12 @@ end;//TafwFormsService.Exists
 {$IfEnd} // NOT Defined(NoVCL)
 
 procedure TafwKeyboardLayoutService.TryActivateKeyboardLayout;
-//#UC START# *747558CBA739_55099AE90101_var*
-//#UC END# *747558CBA739_55099AE90101_var*
+//#UC START# *55099AAA0207_55099AE90101_var*
+//#UC END# *55099AAA0207_55099AE90101_var*
 begin
-//#UC START# *747558CBA739_55099AE90101_impl*
+//#UC START# *55099AAA0207_55099AE90101_impl*
  afw.TryActivateKeyboardLayout;
-//#UC END# *747558CBA739_55099AE90101_impl*
+//#UC END# *55099AAA0207_55099AE90101_impl*
 end;//TafwKeyboardLayoutService.TryActivateKeyboardLayout
 
 class function TafwKeyboardLayoutService.Instance: TafwKeyboardLayoutService;
@@ -326,15 +326,15 @@ begin
 end;//TafwKeyboardLayoutService.Exists
 
 function TafwTabService.HasTabs: Boolean;
-//#UC START# *A8AF111E1F35_550AE9D40363_var*
-//#UC END# *A8AF111E1F35_550AE9D40363_var*
+//#UC START# *550AE94503E6_550AE9D40363_var*
+//#UC END# *550AE94503E6_550AE9D40363_var*
 begin
-//#UC START# *A8AF111E1F35_550AE9D40363_impl*
+//#UC START# *550AE94503E6_550AE9D40363_impl*
  if (afw.Application <> nil) then
   Result := (afw.Application.TabInterfaceType = afw_titTabs)
  else
   Result := false; 
-//#UC END# *A8AF111E1F35_550AE9D40363_impl*
+//#UC END# *550AE94503E6_550AE9D40363_impl*
 end;//TafwTabService.HasTabs
 
 class function TafwTabService.Instance: TafwTabService;

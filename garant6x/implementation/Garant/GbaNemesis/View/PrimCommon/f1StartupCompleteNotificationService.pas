@@ -71,13 +71,13 @@ begin
 end;//Tf1StartupCompleteNotificationService.pm_SetAlien
 
 procedure Tf1StartupCompleteNotificationService.Notify;
-//#UC START# *2627E933260B_55B0CFA90241_var*
-//#UC END# *2627E933260B_55B0CFA90241_var*
+//#UC START# *55B0DDC00044_55B0CFA90241_var*
+//#UC END# *55B0DDC00044_55B0CFA90241_var*
 begin
-//#UC START# *2627E933260B_55B0CFA90241_impl*
+//#UC START# *55B0DDC00044_55B0CFA90241_impl*
  if Assigned(f_Alien) then
   f_Alien.Notify;
-//#UC END# *2627E933260B_55B0CFA90241_impl*
+//#UC END# *55B0DDC00044_55B0CFA90241_impl*
 end;//Tf1StartupCompleteNotificationService.Notify
 
 class function Tf1StartupCompleteNotificationService.Instance: Tf1StartupCompleteNotificationService;

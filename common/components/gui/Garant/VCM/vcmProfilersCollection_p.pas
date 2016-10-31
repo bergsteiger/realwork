@@ -29,7 +29,7 @@ uses
  , tc6PublicInfo
 ;
 
-function TvcmProfilersCollection_pm_GetProfiler(Self: TvcmProfilersCollection;
+function TvcmProfilersCollection_Get_Profiler(Self: TvcmProfilersCollection;
  ProfilerID: Integer): TvcmProfiler;
 //#UC START# *499AA4C50300_499AA4880244get_var*
 //#UC END# *499AA4C50300_499AA4880244get_var*
@@ -40,7 +40,7 @@ begin
   Result := FindProfilerById(ProfilerID);
 //#UC END# *499AA4C50300_499AA4880244get_impl*
  end;//with Self
-end;//TvcmProfilersCollection_pm_GetProfiler
+end;//TvcmProfilersCollection_Get_Profiler
 
 procedure TvcmProfilersCollection_Get_Profiler_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

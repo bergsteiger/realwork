@@ -48,12 +48,12 @@ begin
 end;//TevDocumentsCacheServiceFree
 
 procedure TevDocumentsCacheService.Clear;
-//#UC START# *0AC8DEBDD602_5506FF1A0056_var*
-//#UC END# *0AC8DEBDD602_5506FF1A0056_var*
+//#UC START# *5506FEB701D1_5506FF1A0056_var*
+//#UC END# *5506FEB701D1_5506FF1A0056_var*
 begin
-//#UC START# *0AC8DEBDD602_5506FF1A0056_impl*
+//#UC START# *5506FEB701D1_5506FF1A0056_impl*
  TevDocumentsCache.Clear;
-//#UC END# *0AC8DEBDD602_5506FF1A0056_impl*
+//#UC END# *5506FEB701D1_5506FF1A0056_impl*
 end;//TevDocumentsCacheService.Clear
 
 class function TevDocumentsCacheService.Instance: TevDocumentsCacheService;

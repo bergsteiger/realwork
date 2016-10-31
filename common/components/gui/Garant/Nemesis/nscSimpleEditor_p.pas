@@ -28,7 +28,7 @@ uses
  , tc6PublicInfo
 ;
 
-function TnscSimpleEditor_pm_GetBuffer(Self: TnscSimpleEditor): AnsiString;
+function TnscSimpleEditor_Get_Buffer(Self: TnscSimpleEditor): AnsiString;
 //#UC START# *4D6BB4690207_4D6BB45600F0get_var*
 //#UC END# *4D6BB4690207_4D6BB45600F0get_var*
 begin
@@ -38,7 +38,7 @@ begin
    Result := Buffer.S;
 //#UC END# *4D6BB4690207_4D6BB45600F0get_impl*
  end;//with Self
-end;//TnscSimpleEditor_pm_GetBuffer
+end;//TnscSimpleEditor_Get_Buffer
 
 procedure TnscSimpleEditor_Get_Buffer_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

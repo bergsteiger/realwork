@@ -98,12 +98,12 @@ end;//Tl3PopupMenuHelper.pm_SetAlien
 
 function Tl3PopupMenuHelper.GetPopupMenu(aControl: TComponent;
  const aPoint: TPoint): TMenuItem;
-//#UC START# *1FF8AE53688A_550013770000_var*
+//#UC START# *5506BF830025_550013770000_var*
 var
  l_M : TMenu;
-//#UC END# *1FF8AE53688A_550013770000_var*
+//#UC END# *5506BF830025_550013770000_var*
 begin
-//#UC START# *1FF8AE53688A_550013770000_impl*
+//#UC START# *5506BF830025_550013770000_impl*
  if (f_Alien = nil) then
  begin
   if (aControl Is TControl) then
@@ -119,21 +119,21 @@ begin
  end//f_Alien = nil
  else
   Result := f_Alien.GetPopupMenu(aControl, aPoint);
-//#UC END# *1FF8AE53688A_550013770000_impl*
+//#UC END# *5506BF830025_550013770000_impl*
 end;//Tl3PopupMenuHelper.GetPopupMenu
 
 procedure Tl3PopupMenuHelper.GetPopupMenuForComponentInfo(aControl: TComponent;
  const aPoint: TPoint;
  aCallback: Tl3PopupMenuHelperCallback);
-//#UC START# *E1C719B751DC_550013770000_var*
-//#UC END# *E1C719B751DC_550013770000_var*
+//#UC START# *5506BFB302ED_550013770000_var*
+//#UC END# *5506BFB302ED_550013770000_var*
 begin
-//#UC START# *E1C719B751DC_550013770000_impl*
+//#UC START# *5506BFB302ED_550013770000_impl*
  if Assigned(f_Alien) then
   f_Alien.GetPopupMenuForComponentInfo(aControl, aPoint, aCallback)
  else
   aCallback(Self.GetPopupMenu(aControl, aPoint));
-//#UC END# *E1C719B751DC_550013770000_impl*
+//#UC END# *5506BFB302ED_550013770000_impl*
 end;//Tl3PopupMenuHelper.GetPopupMenuForComponentInfo
 
 class function Tl3PopupMenuHelper.Instance: Tl3PopupMenuHelper;

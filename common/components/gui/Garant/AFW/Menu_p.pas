@@ -31,7 +31,7 @@ uses
 ;
 
 {$If NOT Defined(NoVCL)}
-function TMenu_pm_GetItems(Self: TMenu): TMenuItem;
+function TMenu_Get_Items(Self: TMenu): TMenuItem;
 //#UC START# *49A3ED2A0248_49A3ECCB0366get_var*
 //#UC END# *49A3ED2A0248_49A3ECCB0366get_var*
 begin
@@ -41,7 +41,7 @@ begin
   Result := Items;
 //#UC END# *49A3ED2A0248_49A3ECCB0366get_impl*
  end;//with Self
-end;//TMenu_pm_GetItems
+end;//TMenu_Get_Items
 
 procedure TMenu_Get_Items_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

@@ -75,7 +75,7 @@ begin
 end;//Tl3FormatActionInfoHelper.pm_SetAlien
 
 function Tl3FormatActionInfoHelper.Format(anAction: TCustomAction): AnsiString;
-//#UC START# *781F06EEA149_551442110069_var*
+//#UC START# *5514424D01A2_551442110069_var*
  function FormatName(const aName: AnsiString): AnsiString;
  begin
   if Length(aName) = 0
@@ -84,9 +84,9 @@ function Tl3FormatActionInfoHelper.Format(anAction: TCustomAction): AnsiString;
  end;
 var
  S: AnsiString;
-//#UC END# *781F06EEA149_551442110069_var*
+//#UC END# *5514424D01A2_551442110069_var*
 begin
-//#UC START# *781F06EEA149_551442110069_impl*
+//#UC START# *5514424D01A2_551442110069_impl*
  Result := FormatName(anAction.Name) + ': ' + anAction.ClassName;
  if Assigned(f_Alien) then
  begin
@@ -94,7 +94,7 @@ begin
   if Length(S) > 0 then
    Result := Result + ' (' + S + ');';
  end;
-//#UC END# *781F06EEA149_551442110069_impl*
+//#UC END# *5514424D01A2_551442110069_impl*
 end;//Tl3FormatActionInfoHelper.Format
 
 class function Tl3FormatActionInfoHelper.Instance: Tl3FormatActionInfoHelper;

@@ -230,16 +230,16 @@ begin
 end;//Tl3ControlFontService.pm_SetAlien
 
 function Tl3ControlFontService.GetFont(aControl: TControl): Il3FontInfo;
-//#UC START# *B31F486B3A13_556F24A80035_var*
-//#UC END# *B31F486B3A13_556F24A80035_var*
+//#UC START# *556F24D50369_556F24A80035_var*
+//#UC END# *556F24D50369_556F24A80035_var*
 begin
-//#UC START# *B31F486B3A13_556F24A80035_impl*
+//#UC START# *556F24D50369_556F24A80035_impl*
  Result := nil;
  if (f_Alien <> nil) then
   Result := f_Alien.Getfont(aControl);
  if (Result = nil) then
   Result := Tl3ControlFontInfo.Make(aControl); 
-//#UC END# *B31F486B3A13_556F24A80035_impl*
+//#UC END# *556F24D50369_556F24A80035_impl*
 end;//Tl3ControlFontService.GetFont
 
 class function Tl3ControlFontService.Instance: Tl3ControlFontService;

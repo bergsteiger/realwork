@@ -55,12 +55,12 @@ procedure Tdt_LinkServerService.ChangeSubID(aFamilyID: TdaFamilyID;
  aDocID: TdaDocID;
  anOldSubID: TdaSubID;
  aNewSubID: TdaSubID);
-//#UC START# *4572CE349535_57EB6297000B_var*
-//#UC END# *4572CE349535_57EB6297000B_var*
+//#UC START# *57EB60BD0052_57EB6297000B_var*
+//#UC END# *57EB60BD0052_57EB6297000B_var*
 begin
-//#UC START# *4572CE349535_57EB6297000B_impl*
+//#UC START# *57EB60BD0052_57EB6297000B_impl*
  LinkServer(aFamilyID).SubTbl.ChangeSubID(aDocID, anOldSubID, aNewSubID); // оставил из-за коррекции SUBID в субатрибутах
-//#UC END# *4572CE349535_57EB6297000B_impl*
+//#UC END# *57EB60BD0052_57EB6297000B_impl*
 end;//Tdt_LinkServerService.ChangeSubID
 
 class function Tdt_LinkServerService.Instance: Tdt_LinkServerService;
