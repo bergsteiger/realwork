@@ -1044,7 +1044,14 @@ BOOLEAN elem_func IsAbstract
 ; // IsAbstract
 
 BOOLEAN elem_func IsFinal
- Self .NSAbstraction at_final ==
+ RULES
+  ( Self .IsUtilityPack )
+   false
+  ( Self .NSAbstraction at_final == )
+   true
+  DEFAULT
+   false 
+ ; // RULES 
  >>> Result
 ; // IsFinal
 
@@ -1591,20 +1598,29 @@ elem_proc msm:AddDiagram
     
     VAR l_DiagramName 
     [ Self .WordName '_' aDiagramName ] strings:Cat >>> l_DiagramName
-    l_DiagramName l_Diagrams @ MEDIAGRAM .msm:NewElementAndDo: (
-      IN aDiagram
-     aDiagram 'Name' aDiagramName .msm:SetElementVar
-     aDiagram 'Original' Self .msm:SetElementVar
-     aDiagram 'Views' [] .msm:SetElementVar
-     //Self 'Diagrams' ( l_DiagramsList .join> [ aDiagram ] ) .msm:SetElementVar
-     Self 'Diagrams' aDiagram .msm:AddToNamedCollection
-     //Self 'msm:Diagrams' Self .Diagrams .msm:SetElementVar
+    VAR l_Diagram
+    l_DiagramsName l_Diagrams .msm:ExistingElement >>> l_Diagram
+    if ( l_Diagram .IsNil ) then
+    begin
+     l_DiagramName l_Diagrams @ MEDIAGRAM .msm:NewElementAndDo: (
+       IN aDiagram
+      aDiagram 'Name' aDiagramName .msm:SetElementVar
+      aDiagram 'Original' Self .msm:SetElementVar
+      aDiagram 'Views' [] .msm:SetElementVar
+      //Self 'Diagrams' ( l_DiagramsList .join> [ aDiagram ] ) .msm:SetElementVar
+      Self 'Diagrams' aDiagram .msm:AddToNamedCollection
+      //Self 'msm:Diagrams' Self .Diagrams .msm:SetElementVar
+      Self msm:DeleteWordCachedValues
+      aDiagram msm:AddChangedElement
+      //Self -> Diagrams .CountIt Msg
+      //Self .Diagrams .CountIt Msg
+      //Self .msm:Diagrams .CountIt Msg
+     ) // .msm:NewElementAndDo:
+    end // ( l_Diagram .IsNil )
+    else
+    begin
      Self msm:DeleteWordCachedValues
-     aDiagram msm:AddChangedElement
-     //Self -> Diagrams .CountIt Msg
-     //Self .Diagrams .CountIt Msg
-     //Self .msm:Diagrams .CountIt Msg
-    ) // .msm:NewElementAndDo:
+    end // ( l_Diagram .IsNil )
     
    end // DEFAULT
  ; // RULES   

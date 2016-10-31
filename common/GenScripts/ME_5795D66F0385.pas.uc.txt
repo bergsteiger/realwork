@@ -1,3 +1,25 @@
+//#UC START# *4AC4A69D03B7_579F4A7103CF_57A339A6014A_Impl_impl*
+ case aQueryType of
+  lg_qtKeyWord:
+   TSearchService.Instance.OpenKeyWord(aQuery, aContainer);
+  lg_qtAttribute:
+   TSearchService.Instance.AttributeSearch(aQuery, nil, aContainer);
+  lg_qtPublishedSource:
+   TSearchService.Instance.PublishSourceSearch(aQuery, nil);
+  lg_qtLegislationReview:
+   TSearchService.Instance.OpenLegislationReview(aQuery);
+  lg_qtSendConsultation:
+   vcmDispatcher.ModuleOperation(mod_opcode_SearchService_OpenConsult);
+  lg_qtBaseSearch:
+   TBaseSearchService.Instance.OpenBaseSearch(ns_bsokGlobal, aQuery);
+  lg_qtInpharmSearch:
+   TSearchService.Instance.InpharmSearch(aQuery, nil, aContainer);
+  else
+   Assert(false);   
+ end;//case aQueryType
+//#UC END# *4AC4A69D03B7_579F4A7103CF_57A339A6014A_Impl_impl*
+//#UC START# *4AC4A69D03B7_579F4A7103CF_57A339A6014A_Impl_var*
+//#UC END# *4AC4A69D03B7_579F4A7103CF_57A339A6014A_Impl_var*
 //#UC START# *4B6074C60325_4B60748400F9_impl*
  Result.rDoc := aDoc;
  Result.rPara := aPara;

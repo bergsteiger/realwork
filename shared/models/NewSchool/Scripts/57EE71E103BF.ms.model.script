@@ -2,59 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_57EE71E103BF
-
 FORWARD ME_57EE71E103BF
-
-FORWARD ME_E5D1FF306E87
-
-FORWARD ME_57EE71FF0071
-
-ME ME_E28E15EEDB83
- MEPROP Name 'aFiler'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
- ;
-
-ENDME // ME_E28E15EEDB83 aFiler
-
-ME ME_D5EA2D973852
- MEPROP UID 'D5EA2D973852'
- MEPROP Name 'TuneFiler'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_E5D1FF306E87 // MtfwParserProgressService
- ;
- MELIST Parameters
-   Seq: ( ME_E28E15EEDB83 // aFiler
- )
- ; // Parameters
- UPLINK Speller HWL ME_57EE71FF0071 // TuneFiler
- ;
-
-ENDME // ME_D5EA2D973852 TuneFiler
-
-ME ME_E5D1FF306E87
- MEPROP UID 'E5D1FF306E87'
- MEPROP Name 'MtfwParserProgressService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TtfwParserProgressService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57EE71E103BF // TtfwParserProgressService
- ;
- MELIST Operations
-   Seq: ( HWL ME_D5EA2D973852 // TuneFiler
- )
- ; // Operations
-
-ENDME // ME_E5D1FF306E87 MtfwParserProgressService
 
 ME ME_57EE720C0143
  MEPROP Name 'aFiler'
@@ -107,10 +55,6 @@ ME ME_57EE71E103BF
    Seq: ( HWL ME_57EE71FF0071 // TuneFiler
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_E5D1FF306E87 // MtfwParserProgressService
- )
- ; // Children
  UP "auto translate to alien" 'undefined'
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwParserProgressService.pas'
  UP extprop:rc:SelfName 'ParserProgressService'

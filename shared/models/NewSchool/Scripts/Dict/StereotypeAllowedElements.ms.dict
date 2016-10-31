@@ -40,6 +40,16 @@ USES
  CopyWithoutDuplicatedUnstereotyped.ms.dict
 ;
 
+ModelElement elem_func GeneralizedStereotypeInModel
+ RULES
+  ( Self .GeneralizedStereotype .NotIsNil )
+   ( Self .GeneralizedStereotype .StereotypeInModel )
+  DEFAULT
+   Self
+ ; // RULES
+ >>> Result
+; // GeneralizedStereotypeInModel
+
 elem_iterator StereotypeAllowedElements
  Cached:
  (
@@ -51,6 +61,7 @@ elem_iterator StereotypeAllowedElements
      Self .Dependencies
      .filter> ( .IsStereotype st_include::Dependency )
      .map> .Target
+     .map> .GeneralizedStereotypeInModel
      .join> (
       Self .Children
       .filter> (
@@ -76,6 +87,7 @@ elem_iterator StereotypeAllowedElements
      end // ( Self .GetUP "inherite constraints" false ?!= )
     end // DEFAULT
   ; // RULES
+  
   .CopyWithoutDuplicatedModelElements
   array:CopyWithoutDuplicatedNames
   array:CopyWithoutDuplicatedUnstereotyped

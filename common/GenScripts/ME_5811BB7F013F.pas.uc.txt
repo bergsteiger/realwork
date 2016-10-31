@@ -34,9 +34,7 @@ w:\archi\source\projects\PipeInAuto\Tasks\alcuServerFilesDeliverer.pas
 //#UC START# *58133D420395_5811BB7F013F_impl*
  if not f_TasksList.ForOneByIDF(L2AlcuTasksIteratorForOneByIDFAction(@DoProcess), aTaskID) then
   l3System.Msg2Log('Задача с идентификатором %s не найдена (результат передачи)', [aTaskID]);
- Assert(False);
-//!! !!!  
-// l3System.Msg2Log('Результат передачи %s - %s', [aTaskID, GetEnumName(TypeInfo(TncsResultKind), Ord(aResult))]);
+ l3System.Msg2Log('Результат передачи %s - %s', [aTaskID, GetEnumName(TypeInfo(TncsResultKind), Ord(aResult))]);
  l3System.Msg2Log('Передача результатов завершена');
 //#UC END# *58133D420395_5811BB7F013F_impl*
 //#UC START# *58133D420395_5811BB7F013F_var*

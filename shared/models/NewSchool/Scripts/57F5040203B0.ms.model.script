@@ -3,7 +3,6 @@
 INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_57F5040203B0
-%%Inner ME_57F5040203B0
 
 FORWARD ME_57F5040203B0
 
@@ -158,56 +157,6 @@ ME ME_57F5098E01B5
 
 ENDME // ME_57F5098E01B5 ImsmElementSelector
 
-FORWARD ME_4345AF874625
-
-FORWARD ME_57F504370010
-
-ME ME_82502CA40222
- MEPROP Name 'aSelector'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target HWL ME_57F5098E01B5 // ImsmElementSelector
- ;
-
-ENDME // ME_82502CA40222 aSelector
-
-ME ME_BBCBB8731EE0
- MEPROP UID 'BBCBB8731EE0'
- MEPROP Name 'SelectElement'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_4345AF874625 // MmsmModelElementSelectService
- ;
- MELIST Parameters
-   Seq: ( ME_82502CA40222 // aSelector
- )
- ; // Parameters
- UPLINK Speller HWL ME_57F504370010 // SelectElement
- ;
-
-ENDME // ME_BBCBB8731EE0 SelectElement
-
-ME ME_4345AF874625
- MEPROP UID '4345AF874625'
- MEPROP Name 'MmsmModelElementSelectService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TmsmModelElementSelectService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57F5040203B0 // TmsmModelElementSelectService
- ;
- MELIST Operations
-   Seq: ( HWL ME_BBCBB8731EE0 // SelectElement
- )
- ; // Operations
-
-ENDME // ME_4345AF874625 MmsmModelElementSelectService
-
 ME ME_57F50C6B02AC
  MEPROP Name 'aSelector'
  MEPROP Class class_Parameter
@@ -261,7 +210,6 @@ ME ME_57F5040203B0
  ; // Operations
  MELIST Children
    Seq: ( HWL ME_57F5098E01B5 // ImsmElementSelector
- HWL ME_4345AF874625 // MmsmModelElementSelectService
  )
  ; // Children
  MESTRINGLIST DiagramsNames

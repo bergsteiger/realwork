@@ -11,6 +11,112 @@ w:\common\components\rtl\Garant\ScriptEngine\tfwParserService.pas
 //#UC START# *57726B250063impl_uses*
  , Classes
 //#UC END# *57726B250063impl_uses*
+//#UC START# *57726B410203_57726B250063_impl*
+ if (f_Alien <> nil) then
+  Result := MakeCompiledCodeName(aFileName, anExt)
+ else
+ begin
+  if (f_CoFileDir = '') then
+  begin
+   l_IniName := ChangeFileExt(ParamStr(0), '.ini');
+   if FileExists(l_IniName) then
+   begin
+    with TIniFile.Create(l_IniName) do
+     try
+      f_CoFileDir := ReadString('SCRIPT', 'CoFileDir', cDefaultDir);
+     finally
+      Free;
+     end;
+   end;//FileExists(l_IniName)
+   if (f_CoFileDir = '') then
+    f_CoFileDir := cDefaultDir;
+  end;//f_CoFileDir = ''
+  if (f_CoFileDir = '.') then
+   Result := aFileName + anExt
+  else
+  begin
+   l_Path := ExtractFilePath(aFileName);
+   if (l_Path = '') OR (l_Path = '.\') then
+    l_Path := GetCurrentDir;
+   l_Path := AnsiReplaceStr(l_Path, ':', '');
+   l_Path := AnsiReplaceStr(l_Path, '\\', '\');
+   Result := ConcatDirName(f_CoFileDir, ConcatDirName(l_Path, ExtractFileName(aFileName) + anExt));
+   l_Path := ExtractFilePath(Result);
+//   if (l_Path = 'C:\Temp\') then
+//    l_Path := ExtractFilePath(Result);
+   ForceDirectories(l_Path);
+  end;//f_CoFileDir = '.'
+ end;//f_Alien <> nil
+//#UC END# *57726B410203_57726B250063_impl*
+//#UC START# *57726B410203_57726B250063_var*
+const
+ cDefaultDir = 'C:\Temp';
+ //cDefaultDir = '.';
+var
+ l_Path : String;
+ l_IniName : String;
+//#UC END# *57726B410203_57726B250063_var*
+//#UC START# *57A9967B0182_57726B250063_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.ResolveIncludedFilePath(aFile)
+ else
+  DoResolve;
+//#UC END# *57A9967B0182_57726B250063_impl*
+//#UC START# *57A9967B0182_57726B250063_var*
+
+ procedure DoResolve;
+ var
+  l_Index : Integer;
+  l_FileName : String;
+  l_ResultFileName : String;
+  l_ItemIndex : Integer;
+ begin//DoResolve
+  Result := aFile;
+  if not AnsiStartsText('axiom:', Result) then
+  begin
+   if (f_FileNameToFileNameMap = nil) then
+    f_FileNameToFileNameMap := TtfwParserServiceFileNameToFileNameMap.Create;
+   f_FileNameToFileNameMap.Lock;
+   try
+    begin
+     l_ItemIndex := f_FileNameToFileNameMap.IndexByKey(Result);
+     if (l_ItemIndex >= 0) then
+     begin
+      Result := f_FileNameToFileNameMap.ValueByIndex(l_ItemIndex);
+      Exit;
+     end//f_FileNameToFileNameMap.Has(Result)
+     else
+     if (f_FileNameToFileNameMap.Count > 5000) then
+      f_FileNameToFileNameMap.Clear;
+    end;//f_FileNameToFileNameMap = nil
+    if not FileExists(Result) then
+    begin
+     LoadIncludePaths;
+     if (f_IncludePaths <> nil) then
+     begin
+      l_FileName := ExtractFileName(Result);
+      for l_Index := 0 to Pred(f_IncludePaths.Count) do
+      begin
+       l_ResultFileName := ConcatDirName(f_IncludePaths[l_Index].AsString, l_FileName);
+       if FileExists(l_ResultFileName) then
+       begin
+        f_FileNameToFileNameMap.Add(Result, l_ResultFileName);
+        Result := l_ResultFileName;
+        Exit;
+       end;//FileExists(l_ResultFileName)
+      end;//for l_Index
+      f_FileNameToFileNameMap.Add(Result, Result);
+     end;//f_IncludePaths <> nil
+    end//not FileExists(Result)
+    else
+     f_FileNameToFileNameMap.Add(Result, Result);
+   finally
+    f_FileNameToFileNameMap.Unlock;
+   end;//try..finally
+  end;//not AnsiStartsText('axiom:', Result)
+ end;//DoResolve
+
+//#UC END# *57A9967B0182_57726B250063_var*
 //#UC START# *57CD20D1028F_57726B250063_impl*
  if (f_IncludePaths = nil) then
  begin
@@ -62,6 +168,19 @@ var
  l_Strings : TStrings;
  l_Index : Integer;
 //#UC END# *57CD20D1028F_57726B250063_var*
+//#UC START# *57CD20F100D7_57726B250063_impl*
+ if (f_Alien <> nil) then
+  f_Alien.AddIncludePath(aPath)
+ else
+ begin
+  LoadIncludePaths;
+  Assert(f_IncludePaths <> nil);
+  if (f_IncludePaths.IndexOf(aPath) < 0) then
+   f_IncludePaths.Add(aPath);
+ end;//f_Alien <> nil
+//#UC END# *57CD20F100D7_57726B250063_impl*
+//#UC START# *57CD20F100D7_57726B250063_var*
+//#UC END# *57CD20F100D7_57726B250063_var*
 //#UC START# *6CBC23B5834F_57726B250063_impl*
  if (f_Alien <> nil) then
   Result := MakeCompiledCodeName(aFileName, anExt)

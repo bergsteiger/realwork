@@ -951,124 +951,6 @@ FORWARD ME_4B30EC81021A
 
 FORWARD ME_552BADA90096
 
-FORWARD ME_CA3791F56DC7
-
-FORWARD ME_552BAE12019C
-
-ME ME_3275AC4F0F3F
- MEPROP Name 'aValue'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_4B977802001D' '4B9777000394.ms.model.script' // TvcmGlyphSize
- ;
-
-ENDME // ME_3275AC4F0F3F aValue
-
-ME ME_E8ADA32D143E
- MEPROP UID 'E8ADA32D143E'
- MEPROP Name 'SetGlyphSize'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_CA3791F56DC7 // MvcmToolbarGlyphService
- ;
- MELIST Parameters
-   Seq: ( ME_3275AC4F0F3F // aValue
- )
- ; // Parameters
- UPLINK Speller HWL ME_552BAE12019C // SetGlyphSize
- ;
-
-ENDME // ME_E8ADA32D143E SetGlyphSize
-
-FORWARD ME_552BBC750285
-
-ME ME_9DEC90563B75
- MEPROP UID '9DEC90563B75'
- MEPROP Name 'GetGlyphSize'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_CA3791F56DC7 // MvcmToolbarGlyphService
- ;
- MELINK Target WL 'ME_4B977802001D' '4B9777000394.ms.model.script' // TvcmGlyphSize
- ;
- UPLINK Speller HWL ME_552BBC750285 // GetGlyphSize
- ;
-
-ENDME // ME_9DEC90563B75 GetGlyphSize
-
-FORWARD ME_552BC35B0274
-
-ME ME_BC663849408C
- MEPROP UID 'BC663849408C'
- MEPROP Name 'GetGlyphColorDepth'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_CA3791F56DC7 // MvcmToolbarGlyphService
- ;
- MELINK Target HWL ME_52A08EFE0261 // TvcmGlyphColordepth
- ;
- UPLINK Speller HWL ME_552BC35B0274 // GetGlyphColorDepth
- ;
-
-ENDME // ME_BC663849408C GetGlyphColorDepth
-
-FORWARD ME_552BC3720035
-
-ME ME_EC9A7EABE0D0
- MEPROP Name 'aValue'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target HWL ME_52A08EFE0261 // TvcmGlyphColordepth
- ;
-
-ENDME // ME_EC9A7EABE0D0 aValue
-
-ME ME_B8089BE16F42
- MEPROP UID 'B8089BE16F42'
- MEPROP Name 'SetGlyphColorDepth'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_CA3791F56DC7 // MvcmToolbarGlyphService
- ;
- MELIST Parameters
-   Seq: ( ME_EC9A7EABE0D0 // aValue
- )
- ; // Parameters
- UPLINK Speller HWL ME_552BC3720035 // SetGlyphColorDepth
- ;
-
-ENDME // ME_B8089BE16F42 SetGlyphColorDepth
-
-ME ME_CA3791F56DC7
- MEPROP UID 'CA3791F56DC7'
- MEPROP Name 'MvcmToolbarGlyphService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TvcmToolbarGlyphService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_552BADA90096 // TvcmToolbarGlyphService
- ;
- MELIST Operations
-   Seq: ( HWL ME_E8ADA32D143E // SetGlyphSize
- HWL ME_9DEC90563B75 // GetGlyphSize
- HWL ME_BC663849408C // GetGlyphColorDepth
- HWL ME_B8089BE16F42 // SetGlyphColorDepth
- )
- ; // Operations
-
-ENDME // ME_CA3791F56DC7 MvcmToolbarGlyphService
-
 ME ME_552BAE23020F
  MEPROP Name 'aValue'
  MEPROP Class class_Parameter
@@ -1174,10 +1056,6 @@ ME ME_552BADA90096
  HWL ME_552BC3720035 // SetGlyphColorDepth
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_CA3791F56DC7 // MvcmToolbarGlyphService
- )
- ; // Children
  MELIST Injected
    Seq: ( WL 'ME_552BAECF03A7' '552BAE9B027D.ms.model.script' // VCMApllicationSettingsPack
  )

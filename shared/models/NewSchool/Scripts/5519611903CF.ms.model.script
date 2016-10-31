@@ -2,88 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_5519611903CF
-
 FORWARD ME_5519611903CF
 
-FORWARD ME_27F5F6C291D9
-
 FORWARD ME_551961AE0005
-
-FORWARD ME_A44911B9A95D
-
-ME ME_FAFE12FA42D6
- MEPROP UID 'FAFE12FA42D6'
- MEPROP Name 'anOwner'
- UP IsSummoned true
- MEPROP Class class_Attribute
- MELINK Stereotype st_in::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_lnk
- MELINK Parent HWL ME_A44911B9A95D // IterateF
- ;
- MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
- ;
-
-ENDME // ME_FAFE12FA42D6 anOwner
-
-ME ME_19E1315B1849
- MEPROP UID '19E1315B1849'
- UP IsSummoned true
- MEPROP Class class_Attribute
- MELINK Stereotype st_element_type::Attribute ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_lnk
- MELINK Parent HWL ME_A44911B9A95D // IterateF
- ;
- MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
- ;
-
-ENDME // ME_19E1315B1849 
-
-ME ME_A44911B9A95D
- MEPROP UID 'A44911B9A95D'
- MEPROP Name 'IterateF'
- UP IsSummoned true
- MEPROP Class class_Operation
- MELINK Stereotype st_facetiterator ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_27F5F6C291D9 // MIterateableService
- ;
- MELIST Attributes
-   Seq: ( HWL ME_FAFE12FA42D6 // anOwner
- HWL ME_19E1315B1849 // 
- )
- ; // Attributes
- UP "needs index" 'undefined'
- UP "needs result" 'undefined'
- UPLINK Speller HWL ME_551961AE0005 // Iterate
- ;
-
-ENDME // ME_A44911B9A95D IterateF
-
-ME ME_27F5F6C291D9
- MEPROP UID '27F5F6C291D9'
- MEPROP Name 'MIterateableService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TIterateableService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5519611903CF // TIterateableService
- ;
- MELIST Operations
-   Seq: ( HWL ME_A44911B9A95D // IterateF
- )
- ; // Operations
-
-ENDME // ME_27F5F6C291D9 MIterateableService
 
 ME ME_551982C90396
  MEPROP UID '551982C90396'
@@ -161,10 +82,6 @@ ME ME_5519611903CF
    Seq: ( HWL ME_551961AE0005 // Iterate
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_27F5F6C291D9 // MIterateableService
- )
- ; // Children
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames

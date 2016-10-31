@@ -3,7 +3,6 @@
 INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_556F24A80035
-%%Inner ME_556F24A80035
 
 FORWARD ME_556F24A80035
 
@@ -271,58 +270,6 @@ ME ME_556F25860097
 
 ENDME // ME_556F25860097 Tl3ControlFontInfo
 
-FORWARD ME_6CEEDAAA8451
-
-FORWARD ME_556F24D50369
-
-ME ME_0F97AE3EC352
- MEPROP Name 'aControl'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
- ;
-
-ENDME // ME_0F97AE3EC352 aControl
-
-ME ME_B31F486B3A13
- MEPROP UID 'B31F486B3A13'
- MEPROP Name 'GetFont'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_6CEEDAAA8451 // Ml3ControlFontService
- ;
- MELINK Target WL 'ME_46A60B17028B' '4677FBA70343.ms.model.script' // Il3FontInfo
- ;
- MELIST Parameters
-   Seq: ( ME_0F97AE3EC352 // aControl
- )
- ; // Parameters
- UPLINK Speller HWL ME_556F24D50369 // GetFont
- ;
-
-ENDME // ME_B31F486B3A13 GetFont
-
-ME ME_6CEEDAAA8451
- MEPROP UID '6CEEDAAA8451'
- MEPROP Name 'Ml3ControlFontService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3ControlFontService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_556F24A80035 // Tl3ControlFontService
- ;
- MELIST Operations
-   Seq: ( HWL ME_B31F486B3A13 // GetFont
- )
- ; // Operations
-
-ENDME // ME_6CEEDAAA8451 Ml3ControlFontService
-
 ME ME_556F24EF0347
  MEPROP Name 'aControl'
  MEPROP Class class_Parameter
@@ -378,7 +325,6 @@ ME ME_556F24A80035
  ; // Operations
  MELIST Children
    Seq: ( HWL ME_556F25860097 // Tl3ControlFontInfo
- HWL ME_6CEEDAAA8451 // Ml3ControlFontService
  )
  ; // Children
  MESTRINGLIST DiagramsNames

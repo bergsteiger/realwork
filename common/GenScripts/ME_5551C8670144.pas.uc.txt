@@ -9,6 +9,35 @@ w:\common\components\rtl\Garant\m3\m3StorageService.pas
 //#UC END# *5551C8670144_ext:FileName
 //#UC START# *5551C8670144impl_uses*
 //#UC END# *5551C8670144impl_uses*
+//#UC START# *5551C89E0016_5551C8670144_impl*
+ Lock;
+ try
+  if (f_Alien <> nil) then
+   Result := f_Alien.UseSplitted
+  else
+   Result := f_UseSplitted;
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *5551C89E0016_5551C8670144_impl*
+//#UC START# *5551C89E0016_5551C8670144_var*
+//#UC END# *5551C89E0016_5551C8670144_var*
+//#UC START# *5551C8A7027D_5551C8670144_impl*
+ Lock;
+ try
+  if (f_Alien <> nil) then
+   Result := f_Alien.SetUseSplitted(aValue)
+  else
+  begin
+   Result := f_UseSplitted;
+   f_UseSplitted := aValue;
+  end;//f_Alien <> nil
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *5551C8A7027D_5551C8670144_impl*
+//#UC START# *5551C8A7027D_5551C8670144_var*
+//#UC END# *5551C8A7027D_5551C8670144_var*
 //#UC START# *AA9D589FDBFC_5551C8670144_impl*
  Lock;
  try

@@ -19,6 +19,17 @@ w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\F1ShellWordsPack.pas
 //#UC END# *556C08EF0058_556C08EF0058_Word_impl*
 //#UC START# *556C08EF0058_556C08EF0058_Word_var*
 //#UC END# *556C08EF0058_556C08EF0058_Word_var*
+//#UC START# *57A86FA30073_57A8712A01C9_impl*
+ if HookShellExecute then
+ begin
+  Result := true;
+  LastShellExecuteFile := aFile;
+ end//HookShellExecute
+ else
+  Result := TnsShellService.Instance.CallShellExecute(aFile, aSetReadOnlyToFile);
+//#UC END# *57A86FA30073_57A8712A01C9_impl*
+//#UC START# *57A86FA30073_57A8712A01C9_var*
+//#UC END# *57A86FA30073_57A8712A01C9_var*
 //#UC START# *57A871C2016D_57A871C2016D_Word_impl*
  TnsShellServiceImpl.Instance.HookShellExecute := aValue;
 //#UC END# *57A871C2016D_57A871C2016D_Word_impl*

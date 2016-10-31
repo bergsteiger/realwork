@@ -630,6 +630,109 @@ ME ME_5813387000E7
 
 ENDME // ME_5813387000E7 SendDeliveryResult
 
+FORWARD ME_581722FB0041
+
+ME ME_5817230501C6
+ MEPROP UID '5817230501C6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_581722FB0041 // CheckCancel
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5817230501C6 DoIt
+
+ME ME_581722FB0041
+ MEPROP UID '581722FB0041'
+ MEPROP Name 'CheckCancel'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5811CF1B02E6 // TncsClientFilesDeliverer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5817230501C6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_581722FB0041 CheckCancel
+
+FORWARD ME_5817381A013C
+
+ME ME_5817386201A3
+ MEPROP Name 'aTaskID'
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5817386201A3 aTaskID
+
+ME ME_5817386201B3
+ MEPROP Name 'theTargetFolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5817386201B3 theTargetFolder
+
+ME ME_5817386201D2
+ MEPROP Name 'aFilesList'
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_4807756101FE' '478CF30500C1.ms.model.script' // TStringList
+ ;
+
+ENDME // ME_5817386201D2 aFilesList
+
+ME ME_5817386201E2
+ MEPROP Name 'aTotalSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_5817386201E2 aTotalSize
+
+ME ME_5817382F0204
+ MEPROP UID '5817382F0204'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5817381A013C // RequestTaskParams
+ ;
+ MELIST Parameters
+   Seq: ( ME_5817386201A3 // aTaskID
+ ME_5817386201B3 // theTargetFolder
+ ME_5817386201D2 // aFilesList
+ ME_5817386201E2 // aTotalSize
+ )
+ ; // Parameters
+
+ENDME // ME_5817382F0204 DoIt
+
+ME ME_5817381A013C
+ MEPROP UID '5817381A013C'
+ MEPROP Name 'RequestTaskParams'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5811CF1B02E6 // TncsClientFilesDeliverer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5817382F0204 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5817381A013C RequestTaskParams
+
 ME ME_5811CF34007E
  MEPROP UID '5811CF34007E'
  MEPROP Name 'CheckAndDelivery'
@@ -732,6 +835,8 @@ ME ME_5811CF1B02E6
  HWL ME_58132BA400F6 // SendRequestNewFolder
  HWL ME_581330B0019D // RequestNewFolder
  HWL ME_5813387000E7 // SendDeliveryResult
+ HWL ME_581722FB0041 // CheckCancel
+ HWL ME_5817381A013C // RequestTaskParams
  HWL ME_5811CF34007E // CheckAndDelivery
  HWL ME_5811D0280291 // TerminateProcess
  )

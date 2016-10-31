@@ -66,6 +66,71 @@ w:\garant6x\implementation\Garant\GbaNemesis\Search\nsBaseSearchServiceImpl.pas
 //#UC END# *563208C60299_ext:FileName
 //#UC START# *563208C60299impl_uses*
 //#UC END# *563208C60299impl_uses*
+//#UC START# *5638753D025D_563208C60299_impl*
+ Result := nil;
+ l_MainForm := aEntityForm.NativeMainForm;
+ if f_SearcherMap.Has(Pointer(l_MainForm)) then
+ begin
+  l_Provider := InsBaseSearcherProvider(f_SearcherMap.ValueByKey(Pointer(l_MainForm)));
+  Result := l_Provider.BaseSearcher;
+ end; 
+//#UC END# *5638753D025D_563208C60299_impl*
+//#UC START# *5638753D025D_563208C60299_var*
+var
+ l_MainForm: IvcmContainer;
+ l_Provider: InsBaseSearcherProvider;
+//#UC END# *5638753D025D_563208C60299_var*
+//#UC START# *563875610245_563208C60299_impl*
+ if f_SearcherMap.FindData(Tl3KeyValuePair_ForFind(Pointer(aContainer)), l_Index) then
+  f_SearcherMap.Delete(l_Index);
+//#UC END# *563875610245_563208C60299_impl*
+//#UC START# *563875610245_563208C60299_var*
+var
+ l_Index: Integer;
+//#UC END# *563875610245_563208C60299_var*
+//#UC START# *5638758B005B_563208C60299_impl*
+ f_SearcherMap.Add(Pointer(aContainer), Pointer(aProvider));
+//#UC END# *5638758B005B_563208C60299_impl*
+//#UC START# *5638758B005B_563208C60299_var*
+//#UC END# *5638758B005B_563208C60299_var*
+//#UC START# *57060F970080_563208C60299_impl*
+ Assert(False);
+//#UC END# *57060F970080_563208C60299_impl*
+//#UC START# *57060F970080_563208C60299_var*
+//#UC END# *57060F970080_563208C60299_var*
+//#UC START# *57062347014D_563208C60299_impl*
+ l_BaseSearcher := GetBaseSearcher(aContainer.AsForm);
+ try
+  l_BaseSearcher.ShowWindowByUser(aOpenKind);
+ finally
+  l_BaseSearcher := nil;
+ end;
+//#UC END# *57062347014D_563208C60299_impl*
+//#UC START# *57062347014D_563208C60299_var*
+var
+ l_BaseSearcher: InsBaseSearcher;
+//#UC END# *57062347014D_563208C60299_var*
+//#UC START# *570623790185_563208C60299_impl*
+ Assert(False);
+//#UC END# *570623790185_563208C60299_impl*
+//#UC START# *570623790185_563208C60299_var*
+//#UC END# *570623790185_563208C60299_var*
+//#UC START# *5706239C01A7_563208C60299_impl*
+ Assert(False);
+//#UC END# *5706239C01A7_563208C60299_impl*
+//#UC START# *5706239C01A7_563208C60299_var*
+//#UC END# *5706239C01A7_563208C60299_var*
+//#UC START# *570623BB029C_563208C60299_impl*
+ Assert(False);
+//#UC END# *570623BB029C_563208C60299_impl*
+//#UC START# *570623BB029C_563208C60299_var*
+//#UC END# *570623BB029C_563208C60299_var*
+//#UC START# *57077EAC03CA_563208C60299_impl*
+ Result := nil;
+ Assert(false);
+//#UC END# *57077EAC03CA_563208C60299_impl*
+//#UC START# *57077EAC03CA_563208C60299_var*
+//#UC END# *57077EAC03CA_563208C60299_var*
 //#UC START# *5E9BD918F50B_563208C60299_impl*
  Assert(False);
 //#UC END# *5E9BD918F50B_563208C60299_impl*

@@ -1,15 +1,3 @@
-//#UC START# *1FF8AE53688A_55002183037A_impl*
- Assert(g_MenuManager <> nil);
- l_M := g_MenuManager.FillPopupMenu(aPoint, aControl);
- if (l_M = nil) then
-  Result := nil
- else
-  Result := l_M.Items;
-//#UC END# *1FF8AE53688A_55002183037A_impl*
-//#UC START# *1FF8AE53688A_55002183037A_var*
-var
- l_M : TvcmPopupMenuPrim;
-//#UC END# *1FF8AE53688A_55002183037A_var*
 //#UC START# *51ED0195036B_55002183037A_impl*
  l_Comp := f_Popup.PopupComponent;
  if (l_Comp is TControl) then
@@ -25,7 +13,19 @@ var
 //#UC START# *55002183037A_ext:ParentFileName
 w:\common\components\gui\Garant\VCM\implementation\Visual\vcmBaseMenuManager.pas
 //#UC END# *55002183037A_ext:ParentFileName
-//#UC START# *E1C719B751DC_55002183037A_impl*
+//#UC START# *5506BF830025_55002183037A_impl*
+ Assert(g_MenuManager <> nil);
+ l_M := g_MenuManager.FillPopupMenu(aPoint, aControl);
+ if (l_M = nil) then
+  Result := nil
+ else
+  Result := l_M.Items;
+//#UC END# *5506BF830025_55002183037A_impl*
+//#UC START# *5506BF830025_55002183037A_var*
+var
+ l_M : TvcmPopupMenuPrim;
+//#UC END# *5506BF830025_55002183037A_var*
+//#UC START# *5506BFB302ED_55002183037A_impl*
  l_Menu := nil;
  f_Popup := TvcmPopupMenuPrim.Create(aControl);
  try
@@ -43,8 +43,8 @@ w:\common\components\gui\Garant\VCM\implementation\Visual\vcmBaseMenuManager.pas
  finally
   l3Free(f_Popup);
  end;
-//#UC END# *E1C719B751DC_55002183037A_impl*
-//#UC START# *E1C719B751DC_55002183037A_var*
+//#UC END# *5506BFB302ED_55002183037A_impl*
+//#UC START# *5506BFB302ED_55002183037A_var*
  procedure GetvcmPopupMenu(aControl: TComponent; aMenu: TMenuItem);
  var
   l_Form: TCustomForm;
@@ -67,4 +67,4 @@ w:\common\components\gui\Garant\VCM\implementation\Visual\vcmBaseMenuManager.pas
 
 var
  l_Menu: TPopupMenu;
-//#UC END# *E1C719B751DC_55002183037A_var*
+//#UC END# *5506BFB302ED_55002183037A_var*

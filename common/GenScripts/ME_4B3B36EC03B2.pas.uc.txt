@@ -60,6 +60,38 @@ w:\common\components\rtl\Garant\L3\l3StringIDEx.pas
 //#UC END# *4B3B4D0A0026_4B3B3728004C_impl*
 //#UC START# *4B3B4D0A0026_4B3B3728004C_var*
 //#UC END# *4B3B4D0A0026_4B3B3728004C_var*
+//#UC START# *4B98D78501E1_4B98D6C201AD_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.AsCStr(aStr)
+ else
+  Result := l3CStr(aStr.rValue);
+//#UC END# *4B98D78501E1_4B98D6C201AD_impl*
+//#UC START# *4B98D78501E1_4B98D6C201AD_var*
+//#UC END# *4B98D78501E1_4B98D6C201AD_var*
+//#UC START# *4B98D7A50160_4B98D6C201AD_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.AsStr(aStr)
+ else
+  Result := aStr.rValue;
+//#UC END# *4B98D7A50160_4B98D6C201AD_impl*
+//#UC START# *4B98D7A50160_4B98D6C201AD_var*
+//#UC END# *4B98D7A50160_4B98D6C201AD_var*
+//#UC START# *4B98D7BA00C6_4B98D6C201AD_impl*
+ {$IfDef Nemesis}
+  {$IfNDef NoVCM}
+   Assert(not g_l3ConstStringsSealed);
+  {$EndIf  NoVCM}
+ {$EndIf Nemesis}
+ {$IfNDef DesignTimeLibrary}
+ if (theStr.rValue <> '') then
+  Tl3ConstStrings.Instance.Add(@theStr);
+ {$EndIf  DesignTimeLibrary}
+ theStr.rS := -1;
+ if (f_Alien <> nil) then
+  f_Alien.Init(theStr);
+//#UC END# *4B98D7BA00C6_4B98D6C201AD_impl*
+//#UC START# *4B98D7BA00C6_4B98D6C201AD_var*
+//#UC END# *4B98D7BA00C6_4B98D6C201AD_var*
 //#UC START# *4BB9D8550292_4B3B3728004C_impl*
  rLocalized := true;
  rValue := anAlien;

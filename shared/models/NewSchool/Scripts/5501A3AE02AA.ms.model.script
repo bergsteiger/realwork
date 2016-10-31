@@ -2,46 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_5501A3AE02AA
-
 FORWARD ME_5501A3AE02AA
-
-FORWARD ME_1FB1A07FEA18
-
-FORWARD ME_55069D5903C8
-
-ME ME_CA1F3F463873
- MEPROP UID 'CA1F3F463873'
- MEPROP Name 'ClearHistory'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_1FB1A07FEA18 // Ml3DispatcherHelper
- ;
- UPLINK Speller HWL ME_55069D5903C8 // ClearHistory
- ;
-
-ENDME // ME_CA1F3F463873 ClearHistory
-
-ME ME_1FB1A07FEA18
- MEPROP UID '1FB1A07FEA18'
- MEPROP Name 'Ml3DispatcherHelper'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3DispatcherHelper' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5501A3AE02AA // Tl3DispatcherHelper
- ;
- MELIST Operations
-   Seq: ( HWL ME_CA1F3F463873 // ClearHistory
- )
- ; // Operations
-
-ENDME // ME_1FB1A07FEA18 Ml3DispatcherHelper
 
 ME ME_55069D5903C8
  MEPROP UID '55069D5903C8'
@@ -82,10 +43,6 @@ ME ME_5501A3AE02AA
    Seq: ( HWL ME_55069D5903C8 // ClearHistory
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_1FB1A07FEA18 // Ml3DispatcherHelper
- )
- ; // Children
  UP "auto translate to alien" 'undefined'
  UP intf.pas:Path 'common\components\rtl\Garant\L3\l3DispatcherHelper.pas'
  UP extprop:rc:SelfName 'DispatcherHelper'

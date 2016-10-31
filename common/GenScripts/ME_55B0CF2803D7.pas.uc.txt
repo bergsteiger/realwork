@@ -38,3 +38,19 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Search\f1StartupCompleteNotifi
 //#UC END# *55B0CF2803D7intf_uses*
 //#UC START# *55B0CF2803D7publ*
 //#UC END# *55B0CF2803D7publ*
+//#UC START# *55B0DDC00044_55B0CF2803D7_impl*
+ if NeedAskToFillPrimeAtStartup then
+ begin
+  NeedAskToFillPrimeAtStartup := False;
+  if vcmAsk(str_StartupInitPrime, []) then
+   TPrimMonitoringsModule.OpenNewsLinePrim;
+ end;//NeedAskToFillPrimeAtStartup
+
+ if NeedShowSettingsDialog then
+ begin
+  NeedShowSettingsDialog := False;
+  vcmAsk(str_DefaultSetttingsWereChanged, []);
+ end;//NeedShowSettingsDialog
+//#UC END# *55B0DDC00044_55B0CF2803D7_impl*
+//#UC START# *55B0DDC00044_55B0CF2803D7_var*
+//#UC END# *55B0DDC00044_55B0CF2803D7_var*

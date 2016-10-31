@@ -2,61 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_55879E12008D
-
 FORWARD ME_55879E12008D
-
-FORWARD ME_9432F7C1A797
-
-FORWARD ME_55879E4401FC
-
-ME ME_94965F53B825
- MEPROP Name 'aControlWnd'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_4E95755B0162' '48A41FF10094.ms.model.script' // HWND
- ;
-
-ENDME // ME_94965F53B825 aControlWnd
-
-ME ME_D2E4642CC7BC
- MEPROP UID 'D2E4642CC7BC'
- MEPROP Name 'IsPopupControlWindow'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_9432F7C1A797 // Ml3PopupControlService
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- MELIST Parameters
-   Seq: ( ME_94965F53B825 // aControlWnd
- )
- ; // Parameters
- UPLINK Speller HWL ME_55879E4401FC // IsPopupControlWindow
- ;
-
-ENDME // ME_D2E4642CC7BC IsPopupControlWindow
-
-ME ME_9432F7C1A797
- MEPROP UID '9432F7C1A797'
- MEPROP Name 'Ml3PopupControlService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3PopupControlService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55879E12008D // Tl3PopupControlService
- ;
- MELIST Operations
-   Seq: ( HWL ME_D2E4642CC7BC // IsPopupControlWindow
- )
- ; // Operations
-
-ENDME // ME_9432F7C1A797 Ml3PopupControlService
 
 ME ME_5587A30D0297
  MEPROP Name 'aControlWnd'
@@ -111,10 +57,6 @@ ME ME_55879E12008D
    Seq: ( HWL ME_55879E4401FC // IsPopupControlWindow
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_9432F7C1A797 // Ml3PopupControlService
- )
- ; // Children
  UP "auto translate to alien" 'undefined'
  UP intf.pas:Path 'common\components\rtl\Garant\L3\l3PopupControlService.pas'
  UP extprop:rc:SelfName 'PopupControlService'

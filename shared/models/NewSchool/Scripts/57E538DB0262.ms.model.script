@@ -2,78 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_57E538DB0262
-
 FORWARD ME_57E538DB0262
-
-FORWARD ME_7B7454AF831D
-
-FORWARD ME_57E5392F0101
-
-ME ME_1DD1AF01B3B1
- MEPROP UID '1DD1AF01B3B1'
- MEPROP Name 'ModelRoot'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_7B7454AF831D // MmsmModelService
- ;
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
- UPLINK Speller HWL ME_57E5392F0101 // ModelRoot
- ;
-
-ENDME // ME_1DD1AF01B3B1 ModelRoot
-
-FORWARD ME_57E5393C00B8
-
-ME ME_2759BF5BC349
- MEPROP Name 'aValue'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
-
-ENDME // ME_2759BF5BC349 aValue
-
-ME ME_3CE0C97271C6
- MEPROP UID '3CE0C97271C6'
- MEPROP Name 'SetModelRoot'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_7B7454AF831D // MmsmModelService
- ;
- MELIST Parameters
-   Seq: ( ME_2759BF5BC349 // aValue
- )
- ; // Parameters
- UPLINK Speller HWL ME_57E5393C00B8 // SetModelRoot
- ;
-
-ENDME // ME_3CE0C97271C6 SetModelRoot
-
-ME ME_7B7454AF831D
- MEPROP UID '7B7454AF831D'
- MEPROP Name 'MmsmModelService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TmsmModelService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57E538DB0262 // TmsmModelService
- ;
- MELIST Operations
-   Seq: ( HWL ME_1DD1AF01B3B1 // ModelRoot
- HWL ME_3CE0C97271C6 // SetModelRoot
- )
- ; // Operations
-
-ENDME // ME_7B7454AF831D MmsmModelService
 
 ME ME_57E539650294
  MEPROP UID '57E539650294'
@@ -159,10 +88,6 @@ ME ME_57E538DB0262
  HWL ME_57E5393C00B8 // SetModelRoot
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_7B7454AF831D // MmsmModelService
- )
- ; // Children
  MELIST Injected
    Seq: ( WL 'ME_57EE6C6B02FD' '57EE6C5602EB.ms.model.script' // msmModelServicePack
  )

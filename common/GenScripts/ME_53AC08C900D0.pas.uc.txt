@@ -107,6 +107,38 @@ Project Nemesis.exe raised exception class EAssertionFailed with message 'Невозм
 const
  evNullAddress: TevAddress = (DocID : -1; SubID : -1);
 //#UC END# *5542334A00E6_53AC08C900D0_var*
+//#UC START# *5549E17B01C5_53AC08C900D0_impl*
+ Result := False;
+ if aSeg.IsValid then
+  if aSeg.IsKindOf(k2_typHyperLink) then
+  begin
+   ReadLinkInfo(aSeg, aPara);
+   Result := LinkViewKind[aSeg] = ev_lvkInternalAbolished;
+  end;
+//#UC END# *5549E17B01C5_53AC08C900D0_impl*
+//#UC START# *5549E17B01C5_53AC08C900D0_var*
+//#UC END# *5549E17B01C5_53AC08C900D0_var*
+//#UC START# *5549E1DA0063_53AC08C900D0_impl*
+{$If not defined(Admin) AND not defined(Monitorings)}
+ if aSeg.IsValid then
+  if aSeg.IsKindOf(k2_typHyperLink) then
+  begin
+   l_Addr := GetLinkAddress(aSeg);
+   if (l_Addr.TypeID = CI_TOPIC) then
+   begin
+    Result := TnscDocumentHistory.Instance.HasDocument(l_Addr.DocID - 100000);
+    Exit;
+   end;
+  end;
+{$ifend}
+ Result := False;
+//#UC END# *5549E1DA0063_53AC08C900D0_impl*
+//#UC START# *5549E1DA0063_53AC08C900D0_var*
+{$If not defined(Admin) AND not defined(Monitorings)}
+var
+ l_Addr: TevAddress;
+{$ifend}
+//#UC END# *5549E1DA0063_53AC08C900D0_var*
 //#UC START# *DC1A5D24B383_53AC08C900D0_impl*
 {$If not defined(Admin) AND not defined(Monitorings)}
  if aSeg.IsValid then

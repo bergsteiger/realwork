@@ -126,8 +126,29 @@ BOOLEAN elem_func UPisTrue
  Self aName |N false .ElemMember true ?== >>> Result  
 ; // UPisTrue
 
+USES
+ MDProcess_CoreTemplates.tpi.ms.dict
+;
+
+USES
+ MDProcess_ForDelphi.tpi.ms.dict
+;
+
+USES
+ MDProcess_ForF1.tpi.ms.dict
+;
+
 BOOLEAN elem_func IsUnstereotypedStereo
- Self .UPisTrue "unstereotyped"
+ RULES
+  ( Self .UPisTrue "unstereotyped" )
+   true
+  ( Self .GetUP "unstereotyped" false ?== )
+   false
+  ( Self .IsStereotype: st_MDAParameter )
+   true 
+  DEFAULT
+   false
+ ; // RULES   
  >>> Result
 ; // IsUnstereotypedStereo
 
@@ -444,18 +465,6 @@ USES
 ;
 
 USES
- MDProcess_CoreTemplates.tpi.ms.dict
-;
-
-USES
- MDProcess_ForDelphi.tpi.ms.dict
-;
-
-USES
- MDProcess_ForF1.tpi.ms.dict
-;
-
-USES
  ME.ms.dict
 ;
 
@@ -480,6 +489,7 @@ ME st_inout
  MEPROP UID 'inout'
  MEPROP Name 'inout'
  %SUMMARY 'Изменяемый параметр' ;
+ UP "unstereotyped" false
  MEPROP Stereotype st_MDAParameter
  //MEPROP Stereotype ME_EmptyStereo
 ENDME // st_inout
@@ -488,6 +498,7 @@ ME st_out
  MEPROP UID 'out'
  MEPROP Name 'out'
  %SUMMARY 'Выходной параметр' ;
+ UP "unstereotyped" false
  MEPROP Stereotype st_MDAParameter
  //MEPROP Stereotype ME_EmptyStereo
 ENDME // st_out
@@ -496,6 +507,7 @@ ME st_const
  MEPROP UID 'const'
  MEPROP Name 'const'
  %SUMMARY 'Гарантированно константный параметр' ;
+ UP "unstereotyped" false
  MEPROP Stereotype st_MDAParameter
  //MEPROP Stereotype ME_EmptyStereo
 ENDME // st_const
@@ -504,6 +516,7 @@ ME st_noconst
  MEPROP UID 'noconst'
  MEPROP Name 'noconst'
  %SUMMARY 'Гарантированно неконстантный параметр' ;
+ UP "unstereotyped" false
  MEPROP Stereotype st_MDAParameter
  //MEPROP Stereotype ME_EmptyStereo
 ENDME // st_noconst

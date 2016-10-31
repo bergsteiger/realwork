@@ -9,11 +9,34 @@
 var
  l_W : TevdCustomNativeWriter;
 //#UC END# *26782C1B9519_555DCF5A0060_var*
+//#UC START# *555DCEC1021B_555DCF5A0060_impl*
+ l_W := TevdCustomNativeWriter.Create;
+ {$IFNDEF EverestLite}
+ l_W.Binary := true;
+ {$ENDIF}
+ Result := l_W;
+//#UC END# *555DCEC1021B_555DCF5A0060_impl*
+//#UC START# *555DCEC1021B_555DCF5A0060_var*
+var
+ l_W : TevdCustomNativeWriter;
+//#UC END# *555DCEC1021B_555DCF5A0060_var*
 //#UC START# *555DCF340385_ext:FileName
 w:\common\components\rtl\Garant\EVD\evdCustomNativeWriterServices.pas
 //#UC END# *555DCF340385_ext:FileName
 //#UC START# *555DCF340385impl_uses*
 //#UC END# *555DCF340385impl_uses*
+//#UC START# *55701AE20388_555DCF5A0060_impl*
+ l_Writer := TevdCustomNativeWriter.Make(aFileName);
+ try
+  Result := l_Writer;
+ finally
+  FreeAndNil(l_Writer);
+ end;//try..finally
+//#UC END# *55701AE20388_555DCF5A0060_impl*
+//#UC START# *55701AE20388_555DCF5A0060_var*
+var
+ l_Writer : TevdCustomNativeWriter;
+//#UC END# *55701AE20388_555DCF5A0060_var*
 //#UC START# *F7BF6A35E2B1_555DCF5A0060_impl*
  l_Writer := TevdCustomNativeWriter.Make(aFileName);
  try

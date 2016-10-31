@@ -11,6 +11,21 @@
 //#UC END# *479731C50290_5776300D0270_impl*
 //#UC START# *479731C50290_5776300D0270_var*
 //#UC END# *479731C50290_5776300D0270_var*
+//#UC START# *57762C370191_5776300D0270_impl*
+ if f_ClipSpyWnd = nil then
+  f_ClipSpyWnd := TClipSpyWnd.Create(nil);
+ f_ClipSpyWnd.Subscribe(aListner);
+//#UC END# *57762C370191_5776300D0270_impl*
+//#UC START# *57762C370191_5776300D0270_var*
+//#UC END# *57762C370191_5776300D0270_var*
+//#UC START# *57762C6503A9_5776300D0270_impl*
+ if f_ClipSpyWnd = nil then Exit;
+ f_ClipSpyWnd.Unsubscribe(aListner);
+ //FreeAndNil(f_ClipSpyWnd);
+ // - похоже, что это ошибка
+//#UC END# *57762C6503A9_5776300D0270_impl*
+//#UC START# *57762C6503A9_5776300D0270_var*
+//#UC END# *57762C6503A9_5776300D0270_var*
 //#UC START# *5776300D0270_ext:FileName
 w:\common\components\gui\Garant\VT\vtClipSpyService.pas
 //#UC END# *5776300D0270_ext:FileName

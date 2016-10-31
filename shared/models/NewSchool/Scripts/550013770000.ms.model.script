@@ -3,7 +3,6 @@
 INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_550013770000
-%%Inner ME_550013770000
 
 FORWARD ME_550013770000
 
@@ -49,118 +48,6 @@ ME ME_5514099B0316
  UP "of object" true
 
 ENDME // ME_5514099B0316 Tl3PopupMenuHelperCallback
-
-FORWARD ME_E654F73164D2
-
-FORWARD ME_5506BF830025
-
-ME ME_E1CC92564CEE
- MEPROP Name 'aControl'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
- ;
-
-ENDME // ME_E1CC92564CEE aControl
-
-ME ME_E1CC92564CEF
- MEPROP Name 'aPoint'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
- ;
-
-ENDME // ME_E1CC92564CEF aPoint
-
-ME ME_1FF8AE53688A
- MEPROP UID '1FF8AE53688A'
- MEPROP Name 'GetPopupMenu'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_E654F73164D2 // Ml3PopupMenuHelper
- ;
- MELINK Target WL 'ME_47E7ABCB0296' '47E7ABAE0110.ms.model.script' // TMenuItem
- ;
- MELIST Parameters
-   Seq: ( ME_E1CC92564CEE // aControl
- ME_E1CC92564CEF // aPoint
- )
- ; // Parameters
- UPLINK Speller HWL ME_5506BF830025 // GetPopupMenu
- ;
-
-ENDME // ME_1FF8AE53688A GetPopupMenu
-
-FORWARD ME_5506BFB302ED
-
-ME ME_1873E626AAA8
- MEPROP Name 'aControl'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
- ;
-
-ENDME // ME_1873E626AAA8 aControl
-
-ME ME_1873E626AAA9
- MEPROP Name 'aPoint'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
- ;
-
-ENDME // ME_1873E626AAA9 aPoint
-
-ME ME_1873E626AAAA
- MEPROP Name 'aCallback'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target HWL ME_5514099B0316 // Tl3PopupMenuHelperCallback
- ;
-
-ENDME // ME_1873E626AAAA aCallback
-
-ME ME_E1C719B751DC
- MEPROP UID 'E1C719B751DC'
- MEPROP Name 'GetPopupMenuForComponentInfo'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_E654F73164D2 // Ml3PopupMenuHelper
- ;
- MELIST Parameters
-   Seq: ( ME_1873E626AAA8 // aControl
- ME_1873E626AAA9 // aPoint
- ME_1873E626AAAA // aCallback
- )
- ; // Parameters
- UPLINK Speller HWL ME_5506BFB302ED // GetPopupMenuForComponentInfo
- ;
-
-ENDME // ME_E1C719B751DC GetPopupMenuForComponentInfo
-
-ME ME_E654F73164D2
- MEPROP UID 'E654F73164D2'
- MEPROP Name 'Ml3PopupMenuHelper'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3PopupMenuHelper' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_550013770000 // Tl3PopupMenuHelper
- ;
- MELIST Operations
-   Seq: ( HWL ME_1FF8AE53688A // GetPopupMenu
- HWL ME_E1C719B751DC // GetPopupMenuForComponentInfo
- )
- ; // Operations
-
-ENDME // ME_E654F73164D2 Ml3PopupMenuHelper
 
 ME ME_5506BF9E033F
  MEPROP Name 'aControl'
@@ -279,7 +166,6 @@ ME ME_550013770000
  ; // Operations
  MELIST Children
    Seq: ( HWL ME_5514099B0316 // Tl3PopupMenuHelperCallback
- HWL ME_E654F73164D2 // Ml3PopupMenuHelper
  )
  ; // Children
  MELIST Dependencies

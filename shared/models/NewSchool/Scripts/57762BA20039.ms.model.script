@@ -2,91 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_57762BA20039
-
 FORWARD ME_57762BA20039
-
-FORWARD ME_383BE0019CFB
-
-FORWARD ME_57762C370191
-
-ME ME_936B740E1A73
- MEPROP Name 'aListner'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Stereotype st_const ;
- MELINK Target WL 'ME_57762C030193' '57762BD601E1.ms.model.script' // Il3ClipListner
- ;
-
-ENDME // ME_936B740E1A73 aListner
-
-ME ME_105C5A110DDA
- MEPROP UID '105C5A110DDA'
- MEPROP Name 'Subscribe'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_383BE0019CFB // Ml3ClipSpyService
- ;
- MELIST Parameters
-   Seq: ( ME_936B740E1A73 // aListner
- )
- ; // Parameters
- UPLINK Speller HWL ME_57762C370191 // Subscribe
- ;
-
-ENDME // ME_105C5A110DDA Subscribe
-
-FORWARD ME_57762C6503A9
-
-ME ME_684255EFC304
- MEPROP Name 'aListner'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Stereotype st_const ;
- MELINK Target WL 'ME_57762C030193' '57762BD601E1.ms.model.script' // Il3ClipListner
- ;
-
-ENDME // ME_684255EFC304 aListner
-
-ME ME_6EE9F044CA79
- MEPROP UID '6EE9F044CA79'
- MEPROP Name 'Unsubscribe'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_383BE0019CFB // Ml3ClipSpyService
- ;
- MELIST Parameters
-   Seq: ( ME_684255EFC304 // aListner
- )
- ; // Parameters
- UPLINK Speller HWL ME_57762C6503A9 // Unsubscribe
- ;
-
-ENDME // ME_6EE9F044CA79 Unsubscribe
-
-ME ME_383BE0019CFB
- MEPROP UID '383BE0019CFB'
- MEPROP Name 'Ml3ClipSpyService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3ClipSpyService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57762BA20039 // Tl3ClipSpyService
- ;
- MELIST Operations
-   Seq: ( HWL ME_105C5A110DDA // Subscribe
- HWL ME_6EE9F044CA79 // Unsubscribe
- )
- ; // Operations
-
-ENDME // ME_383BE0019CFB Ml3ClipSpyService
 
 ME ME_57762C5F03A0
  MEPROP Name 'aListner'
@@ -166,10 +82,6 @@ ME ME_57762BA20039
  HWL ME_57762C6503A9 // Unsubscribe
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_383BE0019CFB // Ml3ClipSpyService
- )
- ; // Children
  UP "auto translate to alien" 'undefined'
  UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ClipSpyService.pas'
  UP extprop:rc:SelfName 'ClipSpyService'

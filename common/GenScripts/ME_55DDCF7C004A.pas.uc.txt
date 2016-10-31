@@ -23,3 +23,23 @@ w:\common\components\rtl\Garant\L3\l3VersionInfoService.pas
 //#UC END# *55DDCF7C004A_ext:FileName
 //#UC START# *55DDCF7C004Aimpl_uses*
 //#UC END# *55DDCF7C004Aimpl_uses*
+//#UC START# *55DDCFBE0096_55DDCF7C004A_impl*
+ Result := '';
+ if (f_Alien <> nil) then
+  Result := f_Alien.VersionInfo;
+ if (Result = '') then
+ begin
+  with TVersionInfo.Create do
+  try
+   if (FixedFileInfo <> nil) then
+    with FileLongVersion do
+    begin
+     Result := (Format('%d.%d.%d.%d', [All[2], All[1], All[4], All[3]]));
+    end;//with FileLongVersion
+  finally
+   Free;
+  end;//try..finally
+ end;//Result = ''
+//#UC END# *55DDCFBE0096_55DDCF7C004A_impl*
+//#UC START# *55DDCFBE0096_55DDCF7C004A_var*
+//#UC END# *55DDCFBE0096_55DDCF7C004A_var*

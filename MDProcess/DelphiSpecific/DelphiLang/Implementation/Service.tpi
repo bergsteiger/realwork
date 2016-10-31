@@ -59,9 +59,11 @@ p auto translate to alien:tribool=undefined ?
 	%S%f_CheckFacet()\
 
 	[{"%S%{Mixin}N"=""}\
+	[{%S#f_UseNewGenRec()!=true|"<{}{%C#f_IsFactoryOnModule()=true}{C}>"!="0"}\
 	%S%f_add_class(%SU_Mixin,PureMixIn,M%f_cut_prefix(%f_pas_TypeName(%S),T),Mixin_Inst)\
 	%{Mixin_Inst}%f_set_documentation(Контракт сервиса %SN)\
 	%S%f_set_var(Mixin,{Mixin_Inst})\
+	]\
 	]\
 
 	[{%S#f_UseNewGenRec()!=true}\
@@ -81,6 +83,7 @@ p auto translate to alien:tribool=undefined ?
 //#UC START# *5502C6A200F5for5502BABC0193*
 	%S%f_CheckOrMakeFacet()\
 
+	[{"%S%{Mixin}N"!=""}\
 	%f_clear_list(RESPS)\
 
 	<{}{%CS=responsibility&%CC=Operation}\
@@ -140,11 +143,14 @@ p auto translate to alien:tribool=undefined ?
 	>\
 
 	%f_clear_list(RESPS)\
+	]\
 
 
 	[{%S#f_UseNewGenRec()!=true}\
+	[{"%S%{Mixin}N"!=""}\
 	%f_addR(%S%{Facet},%S%{Mixin})\
 	%f_addR(%S,%S%{Mixin})\
+	]\
 	%S%f_add_attribute(%SU_%S%{Facet}U_Alien,writeonly,Alien : %S%{Facet}U,Attr_Inst)\
 
 	%{Attr_Inst}%f_set_link_type(ref)\

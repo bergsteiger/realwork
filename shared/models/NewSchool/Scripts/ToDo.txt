@@ -196,8 +196,7 @@ STRING elem_func IfDefStr
 190. fsList - поправить, чтобы различий при генерации не было.
 195. Вывести комментарий // с именем слов после %%Inner.
 203. .IsStereotype -> .IsStereotype:
-207. Добавление Attributes, Dependencies.
-208. Если в диаграммах есть uses/Uses, то делать диаграмму Uses. И вытаскивать туда ВСЕ Depends и Depndencies.
+208. Если в диаграммах есть uses/Uses, то делать диаграмму Uses. И вытаскивать туда ВСЕ Depends и Dependencies.
 209. CallXXX([] заменить на CallXXX(
 210. Сделать модификатор NotCached. Чтобы не кешировать "производные" значения. Типа FullText. Или CanOverride.
 211. Не кешировать KeyValuesCreate: Ну или сделать NotCachedKeyValuesCreate:
@@ -223,9 +222,6 @@ STRING elem_func IfDefStr
    .join> ( Self .ImplementedAndOverridden .OperationsNeededElements )
   end // Self .IsTypedef !
 - использовать что-то вроде .map> .ReferencedTypeOriginal.
-230. array:CopyWithoutDuplicatedNames - в отдельный файл.
-231. array:CopyWithoutDuplicatedUnstereotyped - в отдельный файл.
-232. IsUnstereotypedStereo - в отдельный файл.
 233. Depends тоже превратить в ReferencedType.
 234. Сделать MapSelfTo: чтобы можно было писать что-то вроде:
  BOOLEAN elem_func SomeFunc
@@ -261,14 +257,8 @@ STRING elem_func IfDefStr
 239. Не забыть про Decorated и Referenced.
 241. И msm:DeleteWordCachedValues. Подумать.
 242. Работать с ImsmElementList. Все Array:Add заменить на ImsmElementList.Add. msm:AddChangedElement - туда же убрать. И msm:DeleteWordCachedValues.
-243. Сделать подписку к спискам.
 244. Убрать ListContentChanged из модели.
 245. Сделать подписку в ImsmElemengStringList.
-247. Кешировать Call и CalledFile и TimeStamp. Вот тут:
-class function TmsmModelElementMethodCaller.Call(const aParameters: array of TtfwStackValue;
- const aMethodName: AnsiString): TtfwStackValue;
-- хотя там есть l_WasCompiled.
-248. Open In New Window - учитывать ReferencedTypeOriginal.
 249. -> заменить на SetElementVar.
 251. Не кешировать f_SubElementName, там где есть : и ПРОБЕЛ.
 253. TmsmLoadedWordsList сделать синглетоном.
@@ -277,16 +267,17 @@ class function TmsmModelElementMethodCaller.Call(const aParameters: array of Ttf
 257. implements::Dependency - дублируются. "группа генераторов" и "указание что используется".
 258. Для Not IsMeStub писать РЕАЛЬНЫЕ стереотипы через WL, а НЕ st_XXX. См. предыдущий пункт - 257.
 260. Из NSImplemented удалять методы с совпадающими сигнатурами. Чтобы не морочиться с Exclude.
-261. В Impurity не дают вложить method. Почему-то не учитывается StandardClassInclude.
-263. В NSImplemented inline должны попадать ВСЕГДА, независимо от Abstraction. Abstraction в NS* надо заменить на MetaModelAbstraction.
-264. Для Impurity etc выводить переопределение, чтобы были видны все вложенные стереотипы. См. пункт 261.
 265. Копировать FactoryOnModule в MixIn.
 266. Разрешить DeleteElement в Children.
 269. NeededElementsFromInheritsOrImplements - мапировать на ReferencedTypeOriginal.
 271. Учитывать Elements Prefix в ExtValueOrValue.
-276. Добавлять msm:AddWordToIndex при создании НОВОГО элемента.
 277. Пересортировывать msm:AddWordToIndex при смене имени элемента.
 278. Удалять одноимённые свойства от интерфейсов в Implemented.
-279. Для UtilityPack возвращать abstraction at_regular.
-280. Перегенерировать Archi etc.
-281. 
+281. Раскладывать model.script по папкам проектов.
+282. FirstElement переделать на Item.
+285. Кешировать .?, точнее FindMemberRecur.
+286. Учитывать Original в IsDeleted. Для OpKind <> Normal.
+287. Сделать аналог .? но для ЛЮБОГО "сервиса". Типа:
+ aWord aService .CallService ServiceMethod.
+ - для Dependency Inversion.
+288.

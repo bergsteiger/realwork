@@ -3,6 +3,17 @@ w:\common\components\gui\Garant\VCM\implementation\Visual\vcmUserInteractiveForm
 //#UC END# *4E01D585033A_ext:FileName
 //#UC START# *4E01D585033Aimpl_uses*
 //#UC END# *4E01D585033Aimpl_uses*
+//#UC START# *5506BFF50385_55015117004B_impl*
+ if (aControl Is TvcmInterfacedForm) then
+ begin
+  TvcmInterfacedForm(aControl).SafeClose;
+  Result := true;
+ end//aControl Is TvcmInterfacedForm
+ else
+  Result := false;
+//#UC END# *5506BFF50385_55015117004B_impl*
+//#UC START# *5506BFF50385_55015117004B_var*
+//#UC END# *5506BFF50385_55015117004B_var*
 //#UC START# *A1E64DB467E3_55015117004B_impl*
  if (aControl Is TvcmInterfacedForm) then
  begin

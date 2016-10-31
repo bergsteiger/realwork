@@ -441,121 +441,6 @@ ENDME // ME_4BA223D801B3 Tl3ConstStringsPrim
 
 FORWARD ME_4B98D6C201AD
 
-FORWARD ME_38979385DFF9
-
-FORWARD ME_4B98D78501E1
-
-ME ME_1F5BE5CABF73
- MEPROP Name 'aStr'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target HWL ME_4B3B3728004C // Tl3StringIDEx
- ;
-
-ENDME // ME_1F5BE5CABF73 aStr
-
-ME ME_201B50E5979A
- MEPROP UID '201B50E5979A'
- MEPROP Name 'AsCStr'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_38979385DFF9 // Ml3StringIDExHelper
- ;
- MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
- ;
- MELIST Parameters
-   Seq: ( ME_1F5BE5CABF73 // aStr
- )
- ; // Parameters
- UPLINK Speller HWL ME_4B98D78501E1 // AsCStr
- ;
-
-ENDME // ME_201B50E5979A AsCStr
-
-FORWARD ME_4B98D7A50160
-
-ME ME_3F7C7858DF60
- MEPROP Name 'aStr'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target HWL ME_4B3B3728004C // Tl3StringIDEx
- ;
-
-ENDME // ME_3F7C7858DF60 aStr
-
-ME ME_74E80608E1B4
- MEPROP UID '74E80608E1B4'
- MEPROP Name 'AsStr'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_38979385DFF9 // Ml3StringIDExHelper
- ;
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
- MELIST Parameters
-   Seq: ( ME_3F7C7858DF60 // aStr
- )
- ; // Parameters
- UPLINK Speller HWL ME_4B98D7A50160 // AsStr
- ;
-
-ENDME // ME_74E80608E1B4 AsStr
-
-FORWARD ME_4B98D7BA00C6
-
-ME ME_DCECFBB61D23
- MEPROP Name 'theStr'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Stereotype st_inout ;
- MELINK Target HWL ME_4B3B3728004C // Tl3StringIDEx
- ;
-
-ENDME // ME_DCECFBB61D23 theStr
-
-ME ME_071573E75439
- MEPROP UID '071573E75439'
- MEPROP Name 'Init'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_38979385DFF9 // Ml3StringIDExHelper
- ;
- MELIST Parameters
-   Seq: ( ME_DCECFBB61D23 // theStr
- )
- ; // Parameters
- UPLINK Speller HWL ME_4B98D7BA00C6 // Init
- ;
-
-ENDME // ME_071573E75439 Init
-
-ME ME_38979385DFF9
- MEPROP UID '38979385DFF9'
- MEPROP Name 'Ml3StringIDExHelper'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3StringIDExHelper' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4B98D6C201AD // Tl3StringIDExHelper
- ;
- MELIST Operations
-   Seq: ( HWL ME_201B50E5979A // AsCStr
- HWL ME_74E80608E1B4 // AsStr
- HWL ME_071573E75439 // Init
- )
- ; // Operations
-
-ENDME // ME_38979385DFF9 Ml3StringIDExHelper
-
 ME ME_4B98D79E0230
  MEPROP Name 'aStr'
  MEPROP Class class_Parameter
@@ -681,10 +566,6 @@ ME ME_4B98D6C201AD
  HWL ME_4B98D7BA00C6 // Init
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_38979385DFF9 // Ml3StringIDExHelper
- )
- ; // Children
  MELIST Dependencies
    Seq: ( ME_4B3B51E700BF // l3CStr
  ME_4BB9C53201CA // Tl3ConstStrings

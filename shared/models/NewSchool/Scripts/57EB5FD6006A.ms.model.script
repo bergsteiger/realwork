@@ -2,89 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_57EB5FD6006A
-
 FORWARD ME_57EB5FD6006A
-
-FORWARD ME_D677594F1F3C
-
-FORWARD ME_57EB60BD0052
-
-ME ME_FB95FACCBE3C
- MEPROP Name 'aFamilyID'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_551E7DD302E0' '5432448401BC.ms.model.script' // TdaFamilyID
- ;
-
-ENDME // ME_FB95FACCBE3C aFamilyID
-
-ME ME_FB95FACCBE3D
- MEPROP Name 'aDocID'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
- ;
-
-ENDME // ME_FB95FACCBE3D aDocID
-
-ME ME_FB95FACCBE3E
- MEPROP Name 'anOldSubID'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_576105D902E4' '5432448401BC.ms.model.script' // TdaSubID
- ;
-
-ENDME // ME_FB95FACCBE3E anOldSubID
-
-ME ME_FB95FACCBE3F
- MEPROP Name 'aNewSubID'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_576105D902E4' '5432448401BC.ms.model.script' // TdaSubID
- ;
-
-ENDME // ME_FB95FACCBE3F aNewSubID
-
-ME ME_4572CE349535
- MEPROP UID '4572CE349535'
- MEPROP Name 'ChangeSubID'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_D677594F1F3C // MdaLinkServerService
- ;
- MELIST Parameters
-   Seq: ( ME_FB95FACCBE3C // aFamilyID
- ME_FB95FACCBE3D // aDocID
- ME_FB95FACCBE3E // anOldSubID
- ME_FB95FACCBE3F // aNewSubID
- )
- ; // Parameters
- UPLINK Speller HWL ME_57EB60BD0052 // ChangeSubID
- ;
-
-ENDME // ME_4572CE349535 ChangeSubID
-
-ME ME_D677594F1F3C
- MEPROP UID 'D677594F1F3C'
- MEPROP Name 'MdaLinkServerService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TdaLinkServerService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57EB5FD6006A // TdaLinkServerService
- ;
- MELIST Operations
-   Seq: ( HWL ME_4572CE349535 // ChangeSubID
- )
- ; // Operations
-
-ENDME // ME_D677594F1F3C MdaLinkServerService
 
 ME ME_57EB60FC006A
  MEPROP Name 'aFamilyID'
@@ -164,10 +82,6 @@ ME ME_57EB5FD6006A
    Seq: ( HWL ME_57EB60BD0052 // ChangeSubID
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_D677594F1F3C // MdaLinkServerService
- )
- ; // Children
  UP "auto translate to alien" 'undefined'
  UP intf.pas:Path 'common\components\rtl\Garant\DA\daLinkServerService.pas'
  UP extprop:rc:SelfName 'daLinkServerService'

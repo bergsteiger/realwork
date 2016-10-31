@@ -1,3 +1,32 @@
+//#UC START# *5514424D01A2_551442CF02AD_impl*
+ Result := '';
+ if anAction is TvcmOperationAction then
+ begin
+  AddInfo(Result, 'OpDef', TvcmOperationAction(anAction).OpDef.Name);
+  if anAction is TvcmEntityAction then
+   AddInfo(Result, 'EntityDef', TvcmEntityAction(anAction).EntityDef.Name);
+  if anAction is TvcmActiveEntityActionEx then
+   AddInfo(Result, 'EntityDef', TvcmActiveEntityActionEx(anAction).EntityDef.Name);
+  if anAction is TvcmModuleAction then
+   AddInfo(Result, 'ModuleDef', TvcmModuleAction(anAction).ModuleDef.Name);
+ end;
+//#UC END# *5514424D01A2_551442CF02AD_impl*
+//#UC START# *5514424D01A2_551442CF02AD_var*
+ procedure AddInfo(var theInfo: AnsiString;
+   const aCaption: AnsiString;
+   const aValue: AnsiString;
+   aNewLine: Boolean = False);
+ begin
+  if Length(aValue) > 0 then
+  begin
+   if Length(theInfo) > 0 then
+    if aNewLine
+     then theInfo := theInfo + #13#10
+     else theInfo := theInfo + ', ';
+   theInfo := theInfo + aCaption + ':' + aValue;
+  end;
+ end;//AddInfo
+//#UC END# *5514424D01A2_551442CF02AD_var*
 //#UC START# *551442A301CD_ext:FileName
 w:\common\components\gui\Garant\VCM\implementation\Visual\vcmCustomHelpers.pas
 //#UC END# *551442A301CD_ext:FileName

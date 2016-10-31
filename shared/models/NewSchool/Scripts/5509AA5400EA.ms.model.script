@@ -2,63 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_5509AA5400EA
-
 FORWARD ME_5509AA5400EA
-
-FORWARD ME_EC920DB7EE66
-
-FORWARD ME_5509AA71018F
-
-ME ME_97F121633B1B
- MEPROP UID '97F121633B1B'
- MEPROP Name 'EnterScript'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_EC920DB7EE66 // Ml3ScriptService
- ;
- UPLINK Speller HWL ME_5509AA71018F // EnterScript
- ;
-
-ENDME // ME_97F121633B1B EnterScript
-
-FORWARD ME_5509AA7D0270
-
-ME ME_BA3808340B4E
- MEPROP UID 'BA3808340B4E'
- MEPROP Name 'LeaveScript'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_EC920DB7EE66 // Ml3ScriptService
- ;
- UPLINK Speller HWL ME_5509AA7D0270 // LeaveScript
- ;
-
-ENDME // ME_BA3808340B4E LeaveScript
-
-ME ME_EC920DB7EE66
- MEPROP UID 'EC920DB7EE66'
- MEPROP Name 'Ml3ScriptService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3ScriptService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5509AA5400EA // Tl3ScriptService
- ;
- MELIST Operations
-   Seq: ( HWL ME_97F121633B1B // EnterScript
- HWL ME_BA3808340B4E // LeaveScript
- )
- ; // Operations
-
-ENDME // ME_EC920DB7EE66 Ml3ScriptService
 
 ME ME_5509AA71018F
  MEPROP UID '5509AA71018F'
@@ -112,10 +56,6 @@ ME ME_5509AA5400EA
  HWL ME_5509AA7D0270 // LeaveScript
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_EC920DB7EE66 // Ml3ScriptService
- )
- ; // Children
  UP "auto translate to alien" 'undefined'
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\l3ScriptService.pas'
  UP extprop:rc:SelfName 'ScriptService'

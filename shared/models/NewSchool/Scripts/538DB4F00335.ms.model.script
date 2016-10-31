@@ -918,6 +918,80 @@ ME ME_580F36A802FA
 
 ENDME // ME_580F36A802FA WriteStreamWithCRCCheck
 
+FORWARD ME_58172754028B
+
+ME ME_58172768002B
+ MEPROP UID '58172768002B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_58172754028B // ReadBoolean
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_58172768002B DoIt
+
+ME ME_58172754028B
+ MEPROP UID '58172754028B'
+ MEPROP Name 'ReadBoolean'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_58172768002B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_58172754028B ReadBoolean
+
+FORWARD ME_581727750209
+
+ME ME_5817279200A3
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5817279200A3 aValue
+
+ME ME_5817278602D8
+ MEPROP UID '5817278602D8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_581727750209 // WriteBoolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5817279200A3 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_5817278602D8 DoIt
+
+ME ME_581727750209
+ MEPROP UID '581727750209'
+ MEPROP Name 'WriteBoolean'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5817278602D8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_581727750209 WriteBoolean
+
 ME ME_538DB5AA0036
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -974,6 +1048,8 @@ ME ME_538DB4F00335
  HWL ME_54F5C09C0302 // ReadLargeStr
  HWL ME_580F367C0052 // ReadStreamWithCRCCheck
  HWL ME_580F36A802FA // WriteStreamWithCRCCheck
+ HWL ME_58172754028B // ReadBoolean
+ HWL ME_581727750209 // WriteBoolean
  )
  ; // Operations
  MELIST Dependencies

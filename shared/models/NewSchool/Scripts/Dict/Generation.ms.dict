@@ -1507,6 +1507,16 @@ STRING elem_func IfNDefStr
  (
   Self .GetUP "ifndef" >>> Result
   
+  if ( Result .IsNil ) then
+  begin
+   RULES
+    ( Self .IsScriptKeywordsPack ) 
+     ( 'NoScripts' >>> Result )
+    ( Self .IsScriptKeywords ) 
+     ( 'NoScripts' >>> Result )
+   ; // RULES
+  end // ( Result .IsNil )
+  
   VAR l_Parent
   Self .Parent >>> l_Parent
   if ( l_Parent .IsNotNil ) then
@@ -1673,6 +1683,9 @@ elem_iterator ChildrenExPrim
            aMethod -> Visibility := PublicAccess
            aMethod -> OriginalStereotype := ( anOp .Stereotype .Name )
            aMethod -> Parent := ( aMade .WeakRef )
+           aMethod -> Speller := ( anOp .WeakRef )
+           aMethod -> IsSummoned := true
+           // - чтобы NeedAutoTranslate правильно работал
           ) // anOp .DecorateMethod:
          ) // .for>
          Self .Operations
@@ -1689,6 +1702,8 @@ elem_iterator ChildrenExPrim
            aMethod -> OriginalStereotype := ( anOp .Stereotype .Name )
            aMethod -> Parent := ( aMade .WeakRef )
            aMethod -> Speller := ( anOp .WeakRef )
+           aMethod -> IsSummoned := true
+           // - чтобы NeedAutoTranslate правильно работал
           ) // anOp .DecorateMethod:
          ) // .for>
         ] // aMade -> Operations
@@ -2801,12 +2816,23 @@ BOOLEAN elem_func NeedsIndex
  RULES
   ( Self .UPisTrue "needs index" )
    true
+  ( Self .GetUP "needs index" false ?== )
+   false
   (
    Self .Attributes
    .filter> .IsIndexType
    .NotEmpty
   ) 
    true
+  ( Self .IsServiceIterator )
+   false
+  ( 
+   ( Self .IsFacetIterator ) 
+   AND ( Self .Speller .IsServiceIterator )
+  ) 
+   false
+  ( Self .IsIterator )
+   true  
   DEFAULT
    false 
  ; // RULES
@@ -5347,12 +5373,23 @@ BOOLEAN elem_func NeedsResult
  RULES
   ( Self .UPisTrue "needs result" )
    true
+  ( Self .GetUP "needs result" false ?== )
+   false
   (
    Self .Attributes 
    .filter> .IsResultType
    .NotEmpty
   ) 
    true
+  ( Self .IsServiceIterator )
+   false
+  ( 
+   ( Self .IsFacetIterator ) 
+   AND ( Self .Speller .IsServiceIterator )
+  ) 
+   false
+  ( Self .IsIterator )
+   true  
   DEFAULT
    false 
  ; // RULES
@@ -11007,6 +11044,8 @@ STRING elem_func MethodNamePrefix
       'Set_'
      ( Self .ParentIsInterface ) 
       'Set_'
+     ( Self .Parent .IsTestClass ) 
+      'Set_'
      DEFAULT
       'pm_Set'
     ; // RULES  
@@ -11021,6 +11060,8 @@ STRING elem_func MethodNamePrefix
      ( Self .GetUP "pm" false ?== )
       'Get_'
      ( Self .ParentIsInterface ) 
+      'Get_'
+     ( Self .Parent .IsTestClass ) 
       'Get_'
      DEFAULT
       'pm_Get'

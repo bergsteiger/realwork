@@ -1938,6 +1938,61 @@ var
  end;//lp_DoNotifyListeners
 
 //#UC END# *53E9E9EC013B_4AD5DBBD0147_var*
+//#UC START# *5506BF830025_55002183037A_impl*
+ Assert(g_MenuManager <> nil);
+ l_M := g_MenuManager.FillPopupMenu(aPoint, aControl);
+ if (l_M = nil) then
+  Result := nil
+ else
+  Result := l_M.Items;
+//#UC END# *5506BF830025_55002183037A_impl*
+//#UC START# *5506BF830025_55002183037A_var*
+var
+ l_M : TvcmPopupMenuPrim;
+//#UC END# *5506BF830025_55002183037A_var*
+//#UC START# *5506BFB302ED_55002183037A_impl*
+ l_Menu := nil;
+ f_Popup := TvcmPopupMenuPrim.Create(aControl);
+ try
+  f_Popup.PopupComponent := aControl;
+  PPoint(@f_Popup.PopupPoint)^ := aPoint;
+  GetvcmPopupMenu(aControl, f_Popup.Items);
+  if f_Popup.Items.Count > 0 then
+   l_Menu := f_Popup;
+  if not Assigned(l_Menu) then
+   l_Menu := g_MenuManager.FillPopupMenu(aPoint, aControl);
+  if not Assigned(l_Menu) then
+   l_Menu := TControlFriend(aControl).PopupMenu;
+  if Assigned(l_Menu) then
+   aCallback(l_Menu.Items);
+ finally
+  l3Free(f_Popup);
+ end;
+//#UC END# *5506BFB302ED_55002183037A_impl*
+//#UC START# *5506BFB302ED_55002183037A_var*
+ procedure GetvcmPopupMenu(aControl: TComponent; aMenu: TMenuItem);
+ var
+  l_Form: TCustomForm;
+ begin
+  l_Form := afw.GetParentForm(aControl);
+  if l_Form is TvcmEntityForm then
+  begin
+   f_PopupForm := TvcmEntityForm(l_Form);
+   if (f_PopupForm.GetEntitiesDefIterator <> nil) then
+    vcmMakeEntitiesMenus(aMenu,
+                         TvcmEntitiesDefIteratorForContextMenu.Make(f_PopupForm.GetEntitiesDefIterator),
+                         [vcm_ooShowInContextMenu],
+                         True,
+                         vcm_icExternal,
+                         nil,
+                         CheckPopup
+                         );
+  end;
+ end;
+
+var
+ l_Menu: TPopupMenu;
+//#UC END# *5506BFB302ED_55002183037A_var*
 //#UC START# *E1C719B751DC_55002183037A_impl*
  l_Menu := nil;
  f_Popup := TvcmPopupMenuPrim.Create(aControl);

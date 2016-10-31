@@ -41,6 +41,18 @@ var
 //#UC END# *46A5A5F0010B_57EE7F1302F9_impl*
 //#UC START# *46A5A5F0010B_57EE7F1302F9_var*
 //#UC END# *46A5A5F0010B_57EE7F1302F9_var*
+//#UC START# *57EE71FF0071_57EE7F1302F9_impl*
+ if (aFiler <> nil) then
+ begin
+  if (GetCurrentThreadID = MainThreadID) then
+  begin
+   aFiler.Indicator.NeedProgressProc := true;
+   aFiler.Indicator.Meter := Self;
+  end;//GetCurrentThreadID = MainThreadID
+ end;//aFiler <> nil
+//#UC END# *57EE71FF0071_57EE7F1302F9_impl*
+//#UC START# *57EE71FF0071_57EE7F1302F9_var*
+//#UC END# *57EE71FF0071_57EE7F1302F9_var*
 //#UC START# *57EE7F1302F9_ext:ParentFileName
 w:\common\components\gui\Garant\msm\msmMainForm.pas
 //#UC END# *57EE7F1302F9_ext:ParentFileName
@@ -54,15 +66,3 @@ w:\common\components\gui\Garant\msm\msmMainForm.pas
   private
    f_ProgressCount : Integer;
 //#UC END# *57EE7F1302F9publ*
-//#UC START# *D5EA2D973852_57EE7F1302F9_impl*
- if (aFiler <> nil) then
- begin
-  if (GetCurrentThreadID = MainThreadID) then
-  begin
-   aFiler.Indicator.NeedProgressProc := true;
-   aFiler.Indicator.Meter := Self;
-  end;//GetCurrentThreadID = MainThreadID
- end;//aFiler <> nil
-//#UC END# *D5EA2D973852_57EE7F1302F9_impl*
-//#UC START# *D5EA2D973852_57EE7F1302F9_var*
-//#UC END# *D5EA2D973852_57EE7F1302F9_var*

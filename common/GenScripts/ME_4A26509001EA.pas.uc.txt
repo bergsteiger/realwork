@@ -191,6 +191,16 @@ var
  l_Point: Integer;
  l_Event: TTrackMouseEvent;
 //#UC END# *4C0CC2FC0272_4A26509001EA_var*
+//#UC START# *556F24D50369_556F262E022F_impl*
+ {$IfNDef DesignTimeLibrary}
+  if (aControl Is TevCustomEditorWindow) then
+  Result := TevCustomEditorWindow(aControl).TextPara.font
+ else
+ {$EndIf}
+  Result := nil; 
+//#UC END# *556F24D50369_556F262E022F_impl*
+//#UC START# *556F24D50369_556F262E022F_var*
+//#UC END# *556F24D50369_556F262E022F_var*
 //#UC START# *B31F486B3A13_556F262E022F_impl*
  {$IfNDef DesignTimeLibrary}
   if (aControl Is TevCustomEditorWindow) then

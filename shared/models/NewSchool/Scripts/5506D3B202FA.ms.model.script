@@ -2,46 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_5506D3B202FA
-
 FORWARD ME_5506D3B202FA
-
-FORWARD ME_1D128503AC70
-
-FORWARD ME_5506D3CD02AA
-
-ME ME_B6C92677BBF7
- MEPROP UID 'B6C92677BBF7'
- MEPROP Name 'ProcessMessages'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_1D128503AC70 // Ml3MessagesService
- ;
- UPLINK Speller HWL ME_5506D3CD02AA // ProcessMessages
- ;
-
-ENDME // ME_B6C92677BBF7 ProcessMessages
-
-ME ME_1D128503AC70
- MEPROP UID '1D128503AC70'
- MEPROP Name 'Ml3MessagesService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3MessagesService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5506D3B202FA // Tl3MessagesService
- ;
- MELIST Operations
-   Seq: ( HWL ME_B6C92677BBF7 // ProcessMessages
- )
- ; // Operations
-
-ENDME // ME_1D128503AC70 Ml3MessagesService
 
 ME ME_5506D3CD02AA
  MEPROP UID '5506D3CD02AA'
@@ -82,10 +43,6 @@ ME ME_5506D3B202FA
    Seq: ( HWL ME_5506D3CD02AA // ProcessMessages
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_1D128503AC70 // Ml3MessagesService
- )
- ; // Children
  UP "auto translate to alien" 'undefined'
  UP intf.pas:Path 'common\components\rtl\Garant\L3\l3MessagesService.pas'
  UP extprop:rc:SelfName 'MessagesService'

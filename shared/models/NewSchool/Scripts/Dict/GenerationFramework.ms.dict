@@ -49,35 +49,41 @@ USES
  filterNil.ms.dict
 ;
 
-TtfwWord FUNCTION .FindMemberRecur
+USES
+ ElementsRTTI.ms.dict
+;
+
+TtfwWord word_func FindMemberRecur
   STRING IN aName
-  TtfwWord IN aGen
-
- TtfwKeyWord VAR l_Member
- aName aGen pop:Word:FindMember >>> l_Member
-
- if ( l_Member .IsNil ) then
-  ( nil >>> Result )
- else
-  ( l_Member pop:KeyWord:Word >>> Result )
-
- if ( Result .IsNil ) then
-  ( 
-   aGen .Inherited.Words
-   .filterNil>
-   .for> (
-    IN anItem 
-    VAR l_Found 
-    aName anItem call.me >>> l_Found
-    ( Result .IsNil ) 
-    OR ( l_Found .IsNil ) 
-    OR ( Result = l_Found ) 
-     ?ASSURE [ 'Multiply inheritance. Word: ' aName ' generator ' aGen .WordName ' parent generator ' anItem .WordName ]
-    l_Found >>> Result
-   ) 
-  )
-
-; // .FindMemberRecur
+ aName :Cached: 
+ (
+  TtfwKeyWord VAR l_Member
+  aName Self pop:Word:FindMember >>> l_Member
+ 
+  if ( l_Member .IsNil ) then
+   ( nil >>> Result )
+  else
+   ( l_Member pop:KeyWord:Word >>> Result )
+ 
+  if ( Result .IsNil ) then
+   ( 
+    Self .Inherited.Words
+    .filterNil>
+    .for> (
+      IN anItem 
+     VAR l_Found 
+     anItem aName call.me >>> l_Found
+     ( Result .IsNil ) 
+     OR ( l_Found .IsNil ) 
+     OR ( Result = l_Found ) 
+      ?ASSURE [ 'Multiply inheritance. Word: ' aName ' generator ' Self .WordName ' parent generator ' anItem .WordName ]
+     l_Found >>> Result
+    ) // .for>
+   ) // ( Result .IsNil )
+  Result 
+ )
+ >>> Result
+; // FindMemberRecur
 
 : .?
   ^ IN aWord
@@ -87,7 +93,7 @@ TtfwWord FUNCTION .FindMemberRecur
 
  g_CurrentGenerator .NotIsNil ?ASSURE 'Нет текущего генератора'
  if ( g_CurrentGenerator .NotIsNil ) then
-  ( aWord |N g_CurrentGenerator .FindMemberRecur >>> l_Word )
+  ( g_CurrentGenerator aWord |N .FindMemberRecur >>> l_Word )
 
  if ( l_Word .IsNil ) then
   ( aWord DO )
@@ -132,10 +138,6 @@ BOOLEAN elem_func NeedOwnFile
 STRING elem_func FinalFileNamePrim
  '' >>> Result
 ; // FinalFileNamePrim
-
-USES
- ElementsRTTI.ms.dict
-;
 
 USES
  cGenScriptsFolder.ms.dict

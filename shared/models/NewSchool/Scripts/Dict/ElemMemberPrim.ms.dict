@@ -404,7 +404,7 @@ ModelElement STRING elem_func Stereotype
  Self 'Stereotype' .ElemWord >>> Result
 ; // Stereotype
 
-ModelElement STRING elem_func GeneralizedStereotype
+ModelElement elem_func GeneralizedStereotype
  Self 'GeneralizedStereotype' .ElemWord >>> Result
 ; // Stereotype
 
@@ -563,17 +563,17 @@ elem_iterator StereotypeAncestors
 
 ModelElement STRING elem_func StereotypeInModel
  RULES
-  //( Self .IsStereotype st_MDACategory )
-  // Self
-  //( Self .IsStereotype st_MDAClass )
-  // Self
   ( Self .IsMeStub )
-   ( Self 'StereotypeInModel' .ElemWord )
-  //( Self 'StereotypeInModel' .ElemWord .IsNil )
-  // Self
+   (
+    VAR l_St
+    Self 'StereotypeInModel' .ElemWord >>> l_St
+    if ( l_St .IsNil ) then
+     Self
+    else
+     l_St 
+   ) // ( Self .IsMeStub )
   DEFAULT
    Self
-   //( Self 'StereotypeInModel' .ElemWord )
  ; // RULES  
  >>> Result
 ; // StereotypeInModel
@@ -642,10 +642,7 @@ BOOLEAN elem_func IsStereotype
     RULES 
      ( l_OurStereo .IsNil )
        false
-     (  
-      ( l_OurStereo .IsMeStub )
-      //OR ( l_OurStereo .StereotypeInModel l_OurStereo ?== )
-     ) 
+     ( l_OurStereo .IsMeStub )
       begin
        ModelElement VAR l_Stereo
        aStereo DO >>> l_Stereo

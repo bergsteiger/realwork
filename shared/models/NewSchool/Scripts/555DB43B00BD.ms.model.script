@@ -2,90 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_555DB43B00BD
-
 FORWARD ME_555DB43B00BD
-
-FORWARD ME_30860C64BDA8
-
-FORWARD ME_555DB53301DC
-
-ME ME_9F46A5A9DAF5
- MEPROP UID '9F46A5A9DAF5'
- MEPROP Name 'GetReader'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_30860C64BDA8 // Mk2EVDReaderService
- ;
- MELINK Target WL? 'ME_482D6EB4003A' // Tk2CustomFileReader
- ;
- UPLINK Speller HWL ME_555DB53301DC // GetReader
- ;
-
-ENDME // ME_9F46A5A9DAF5 GetReader
-
-FORWARD ME_55701A7A01B4
-
-ME ME_A8321E95D8B4
- MEPROP Name 'aFileName'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
-
-ENDME // ME_A8321E95D8B4 aFileName
-
-ME ME_A8321E95D8B5
- MEPROP Name 'aFilter'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_4678160E01BE' '53317D14019D.ms.model.script' // Ik2TagGenerator
- ;
-
-ENDME // ME_A8321E95D8B5 aFilter
-
-ME ME_6A9002DE6C1A
- MEPROP UID '6A9002DE6C1A'
- MEPROP Name 'MakeReader'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_30860C64BDA8 // Mk2EVDReaderService
- ;
- MELINK Target WL 'ME_46781657008C' '4677FBA70343.ms.model.script' // Il3Reader
- ;
- MELIST Parameters
-   Seq: ( ME_A8321E95D8B4 // aFileName
- ME_A8321E95D8B5 // aFilter
- )
- ; // Parameters
- UPLINK Speller HWL ME_55701A7A01B4 // MakeReader
- ;
-
-ENDME // ME_6A9002DE6C1A MakeReader
-
-ME ME_30860C64BDA8
- MEPROP UID '30860C64BDA8'
- MEPROP Name 'Mk2EVDReaderService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tk2EVDReaderService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_555DB43B00BD // Tk2EVDReaderService
- ;
- MELIST Operations
-   Seq: ( HWL ME_9F46A5A9DAF5 // GetReader
- HWL ME_6A9002DE6C1A // MakeReader
- )
- ; // Operations
-
-ENDME // ME_30860C64BDA8 Mk2EVDReaderService
 
 ME ME_555DB53301DC
  MEPROP UID '555DB53301DC'
@@ -164,10 +81,6 @@ ME ME_555DB43B00BD
  HWL ME_55701A7A01B4 // MakeReader
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_30860C64BDA8 // Mk2EVDReaderService
- )
- ; // Children
  UP "auto translate to alien" 'undefined'
  UP intf.pas:Path 'common\components\rtl\Garant\K2\k2EVDReaderService.pas'
  UP extprop:rc:SelfName 'EVDReaderService'

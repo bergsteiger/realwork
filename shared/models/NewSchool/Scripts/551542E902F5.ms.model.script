@@ -3,7 +3,6 @@
 INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_551542E902F5
-%%Inner ME_551542E902F5
 
 FORWARD ME_551542E902F5
 
@@ -49,169 +48,6 @@ ME ME_5515434903D6
  UP "of object" true
 
 ENDME // ME_5515434903D6 Tl3WikiLinkClicked
-
-FORWARD ME_59B170ED03AC
-
-FORWARD ME_55154391001C
-
-ME ME_9FEE7453B595
- MEPROP Name 'aText'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
-
-ENDME // ME_9FEE7453B595 aText
-
-ME ME_9FEE7453B596
- MEPROP Name 'aClickCallback'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target HWL ME_5515434903D6 // Tl3WikiLinkClicked
- ;
-
-ENDME // ME_9FEE7453B596 aClickCallback
-
-ME ME_03211FE23BF3
- MEPROP UID '03211FE23BF3'
- MEPROP Name 'Say'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
- ;
- MELIST Parameters
-   Seq: ( ME_9FEE7453B595 // aText
- ME_9FEE7453B596 // aClickCallback
- )
- ; // Parameters
- UPLINK Speller HWL ME_55154391001C // Say
- ;
-
-ENDME // ME_03211FE23BF3 Say
-
-FORWARD ME_55154DC20217
-
-ME ME_6E0C463C6133
- MEPROP Name 'aLinkText'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
-
-ENDME // ME_6E0C463C6133 aLinkText
-
-ME ME_6E0C463C6134
- MEPROP Name 'aLinkData'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
-
-ENDME // ME_6E0C463C6134 aLinkData
-
-ME ME_5AFFFDE1F6AB
- MEPROP UID '5AFFFDE1F6AB'
- MEPROP Name 'FormatLink'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
- ;
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
- MELIST Parameters
-   Seq: ( ME_6E0C463C6133 // aLinkText
- ME_6E0C463C6134 // aLinkData
- )
- ; // Parameters
- UPLINK Speller HWL ME_55154DC20217 // FormatLink
- ;
-
-ENDME // ME_5AFFFDE1F6AB FormatLink
-
-FORWARD ME_551572DE021E
-
-ME ME_454847872576
- MEPROP Name 'aCaption'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
-
-ENDME // ME_454847872576 aCaption
-
-ME ME_454847872577
- MEPROP Name 'aText'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
-
-ENDME // ME_454847872577 aText
-
-ME ME_3CDB8D32C712
- MEPROP UID '3CDB8D32C712'
- MEPROP Name 'FormatCloak'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
- ;
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
- MELIST Parameters
-   Seq: ( ME_454847872576 // aCaption
- ME_454847872577 // aText
- )
- ; // Parameters
- UPLINK Speller HWL ME_551572DE021E // FormatCloak
- ;
-
-ENDME // ME_3CDB8D32C712 FormatCloak
-
-FORWARD ME_55157F5F013E
-
-ME ME_CDCC556698E5
- MEPROP UID 'CDCC556698E5'
- MEPROP Name 'CanUseWiki'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- UPLINK Speller HWL ME_55157F5F013E // CanUseWiki
- ;
-
-ENDME // ME_CDCC556698E5 CanUseWiki
-
-ME ME_59B170ED03AC
- MEPROP UID '59B170ED03AC'
- MEPROP Name 'Ml3HugeMessageDlgWithWikiHelper'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3HugeMessageDlgWithWikiHelper' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
- ;
- MELIST Operations
-   Seq: ( HWL ME_03211FE23BF3 // Say
- HWL ME_5AFFFDE1F6AB // FormatLink
- HWL ME_3CDB8D32C712 // FormatCloak
- HWL ME_CDCC556698E5 // CanUseWiki
- )
- ; // Operations
-
-ENDME // ME_59B170ED03AC Ml3HugeMessageDlgWithWikiHelper
 
 ME ME_551543BA03AF
  MEPROP Name 'aText'
@@ -412,7 +248,6 @@ ME ME_551542E902F5
  ; // Operations
  MELIST Children
    Seq: ( HWL ME_5515434903D6 // Tl3WikiLinkClicked
- HWL ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
  )
  ; // Children
  MELIST Dependencies

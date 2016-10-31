@@ -84,57 +84,17 @@ BOOLEAN elem_func msm:Cache:CanAddWordToIndex
 
 elem_proc msm:Cache:AddWordToIndex
  RULES
-  ( Self .IsSomeView )
-   ()
-  ( Self pop:Word:Producer @ ME ?!= )
-   ()
-  ( Self pop:Word:GetRefForCompare .IsNil )
-   ()
-  ( Self .xStereotype IsString )
-   ()
-  ( Self .xMDAClass class_Unknown == )
-   ()
-  ( Self .xMDAClass class_Parameter == )
-   ()
-  ( Self .xMDAClass class_Dependency == )
-   ()
-  ( Self .xMDAClass class_Attribute == )
-   ()
-  ( Self .xMDAClass class_Operation == )
-   ()
-  ( Self .xStereotype .xName 'method' ?== )
-   ()
-  ( Self .xStereotype .xName 'virtualmethod' ?== )
-   ()
-  ( Self .xStereotype .xName 'abstractmethod' ?== )
-   ()
-  ( Self .xStereotype .xName 'facetmethod' ?== )
-   ()
-  ( Self .xStereotype .xName 'Constructor' ?== )
-   ()
-  ( Self .xStereotype .xName 'Factory' ?== )
-   ()
-  ( Self .xStereotype .xName 'UseCase' ?== )
-   ()
-  ( Self .xStereotype .xName 'UseCaseSetting' ?== )
-   ()
-  ( Self .xStereotype .xName 'UseCaseTagRequirement' ?== )
-   ()
-  ( Self .xStereotype .xName 'UseCaseSettingValue' ?== )
-   ()
-  ( Self .xStereotype .xName 'MDAAttribute' ?== )
-   ()
-  ( Self .xStereotype .xName 'MDAOperation' ?== )
-   ()
-  ( Self .xStereotype .xName 'MDADependency' ?== )
-   ()
-  ( Self .xStereotype .xName 'MDAParameter' ?== )
-   ()
-  DEFAULT
+  ( Self .msm:Cache:CanAddWordToIndex )
    ( Self .xNameInModel Self msm:AddWordToIndex )
  ; // RULES
 ; // msm:Cache:AddWordToIndex
 
 elem_proc msm:Cache:ReAddWordToIndex
   STRING IN anOldName
+ RULES
+  ( Self .msm:Cache:CanAddWordToIndex )
+   ( 
+    // - тут зовём функцию кеша
+   )
+ ; // RULES
 ; // msm:Cache:ReAddWordToIndex

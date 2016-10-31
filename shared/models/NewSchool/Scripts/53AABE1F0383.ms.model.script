@@ -2,103 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_53AABE1F0383
-
 FORWARD ME_53AABE1F0383
-
-FORWARD ME_BA57CFD34717
-
-FORWARD ME_5549E17B01C5
-
-ME ME_C36691049497
- MEPROP Name 'aSeg'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
- ;
-
-ENDME // ME_C36691049497 aSeg
-
-ME ME_C36691049498
- MEPROP Name 'aPara'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
- ;
-
-ENDME // ME_C36691049498 aPara
-
-ME ME_391A810FF759
- MEPROP UID '391A810FF759'
- MEPROP Name 'IsAbolishedDocumentLink'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_BA57CFD34717 // MevCustomStyleManager
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- MELIST Parameters
-   Seq: ( ME_C36691049497 // aSeg
- ME_C36691049498 // aPara
- )
- ; // Parameters
- UPLINK Speller HWL ME_5549E17B01C5 // IsAbolishedDocumentLink
- ;
-
-ENDME // ME_391A810FF759 IsAbolishedDocumentLink
-
-FORWARD ME_5549E1DA0063
-
-ME ME_C1374E2BB356
- MEPROP Name 'aSeg'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
- ;
-
-ENDME // ME_C1374E2BB356 aSeg
-
-ME ME_DC1A5D24B383
- MEPROP UID 'DC1A5D24B383'
- MEPROP Name 'IsVisitedDocumentLink'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_BA57CFD34717 // MevCustomStyleManager
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- MELIST Parameters
-   Seq: ( ME_C1374E2BB356 // aSeg
- )
- ; // Parameters
- UPLINK Speller HWL ME_5549E1DA0063 // IsVisitedDocumentLink
- ;
-
-ENDME // ME_DC1A5D24B383 IsVisitedDocumentLink
-
-ME ME_BA57CFD34717
- MEPROP UID 'BA57CFD34717'
- MEPROP Name 'MevCustomStyleManager'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TevCustomStyleManager' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_53AABE1F0383 // TevCustomStyleManager
- ;
- MELIST Operations
-   Seq: ( HWL ME_391A810FF759 // IsAbolishedDocumentLink
- HWL ME_DC1A5D24B383 // IsVisitedDocumentLink
- )
- ; // Operations
-
-ENDME // ME_BA57CFD34717 MevCustomStyleManager
 
 ME ME_5549E18D025A
  MEPROP Name 'aSeg'
@@ -189,10 +93,6 @@ ME ME_53AABE1F0383
  HWL ME_5549E1DA0063 // IsVisitedDocumentLink
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_BA57CFD34717 // MevCustomStyleManager
- )
- ; // Children
  UP "auto translate to alien" 'undefined'
  UP "singleton" true
  UP intf.pas:Path 'common\components\gui\Garant\Everest\evCustomStyleManager.pas'

@@ -2,46 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_55B0CFA90241
-
 FORWARD ME_55B0CFA90241
-
-FORWARD ME_3044CBAC1F5E
-
-FORWARD ME_55B0DDC00044
-
-ME ME_2627E933260B
- MEPROP UID '2627E933260B'
- MEPROP Name 'Notify'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_3044CBAC1F5E // Mf1StartupCompleteNotificationService
- ;
- UPLINK Speller HWL ME_55B0DDC00044 // Notify
- ;
-
-ENDME // ME_2627E933260B Notify
-
-ME ME_3044CBAC1F5E
- MEPROP UID '3044CBAC1F5E'
- MEPROP Name 'Mf1StartupCompleteNotificationService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tf1StartupCompleteNotificationService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55B0CFA90241 // Tf1StartupCompleteNotificationService
- ;
- MELIST Operations
-   Seq: ( HWL ME_2627E933260B // Notify
- )
- ; // Operations
-
-ENDME // ME_3044CBAC1F5E Mf1StartupCompleteNotificationService
 
 ME ME_55B0DDC00044
  MEPROP UID '55B0DDC00044'
@@ -82,10 +43,6 @@ ME ME_55B0CFA90241
    Seq: ( HWL ME_55B0DDC00044 // Notify
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_3044CBAC1F5E // Mf1StartupCompleteNotificationService
- )
- ; // Children
  UP "auto translate to alien" 'undefined'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\f1StartupCompleteNotificationService.pas'
  UP extprop:rc:SelfName 'f1StartupCompleteNotificationService'

@@ -35,6 +35,74 @@ w:\common\components\rtl\Garant\L3\l3BatchService.pas
 //#UC END# *5507FDD203E1_ext:FileName
 //#UC START# *5507FDD203E1impl_uses*
 //#UC END# *5507FDD203E1impl_uses*
+//#UC START# *5507FDED0373_5507FDD203E1_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.IsBatchMode
+ else
+  Result := false; 
+//#UC END# *5507FDED0373_5507FDD203E1_impl*
+//#UC START# *5507FDED0373_5507FDD203E1_var*
+//#UC END# *5507FDED0373_5507FDD203E1_var*
+//#UC START# *55099B480169_5507FDD203E1_impl*
+ if (f_Alien <> nil) then
+  f_Alien.EnterBatchMode;
+//#UC END# *55099B480169_5507FDD203E1_impl*
+//#UC START# *55099B480169_5507FDD203E1_var*
+//#UC END# *55099B480169_5507FDD203E1_var*
+//#UC START# *55099B590257_5507FDD203E1_impl*
+ if (f_Alien <> nil) then
+  f_Alien.LeaveBatchMode;
+//#UC END# *55099B590257_5507FDD203E1_impl*
+//#UC START# *55099B590257_5507FDD203E1_var*
+//#UC END# *55099B590257_5507FDD203E1_var*
+//#UC START# *5509AA71018F_5509AAAC0313_impl*
+ Tl3BatchService.Instance.EnterBatchMode;
+//#UC END# *5509AA71018F_5509AAAC0313_impl*
+//#UC START# *5509AA71018F_5509AAAC0313_var*
+//#UC END# *5509AA71018F_5509AAAC0313_var*
+//#UC START# *5509AA7D0270_5509AAAC0313_impl*
+ Tl3BatchService.Instance.LeaveBatchMode;
+//#UC END# *5509AA7D0270_5509AAAC0313_impl*
+//#UC START# *5509AA7D0270_5509AAAC0313_var*
+//#UC END# *5509AA7D0270_5509AAAC0313_var*
+//#UC START# *553F341100FE_5507FDD203E1_impl*
+ if (f_Alien <> nil) then
+  f_Alien.PushAnswer(aValue);
+//#UC END# *553F341100FE_5507FDD203E1_impl*
+//#UC START# *553F341100FE_5507FDD203E1_var*
+//#UC END# *553F341100FE_5507FDD203E1_var*
+//#UC START# *553F3424010C_5507FDD203E1_impl*
+ {$IfNDef NoVCL}
+ if (f_Alien <> nil) then
+  Result := f_Alien.PopAnswer
+ else
+  Result := mrNone;
+ {$Else  NoVCL}
+ Assert(false);
+ {$EndIf NoVCL}
+//#UC END# *553F3424010C_5507FDD203E1_impl*
+//#UC START# *553F3424010C_5507FDD203E1_var*
+//#UC END# *553F3424010C_5507FDD203E1_var*
+//#UC START# *553F428003A3_5507FDD203E1_impl*
+ if (f_Alien <> nil) then
+  f_Alien.SignalWasDialog;
+//#UC END# *553F428003A3_5507FDD203E1_impl*
+//#UC START# *553F428003A3_5507FDD203E1_var*
+//#UC END# *553F428003A3_5507FDD203E1_var*
+//#UC START# *553F429502D1_5507FDD203E1_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.CheckWasDialog
+ else
+  Result := false; 
+//#UC END# *553F429502D1_5507FDD203E1_impl*
+//#UC START# *553F429502D1_5507FDD203E1_var*
+//#UC END# *553F429502D1_5507FDD203E1_var*
+//#UC START# *553F4C9802D8_5507FDD203E1_impl*
+ if (f_Alien <> nil) then
+  f_Alien.ClearAnswers;
+//#UC END# *553F4C9802D8_5507FDD203E1_impl*
+//#UC START# *553F4C9802D8_5507FDD203E1_var*
+//#UC END# *553F4C9802D8_5507FDD203E1_var*
 //#UC START# *553F7345032E_5507FDD203E1_impl*
  Result := Tl3ModalService.Instance.HasModalWorker;
 //#UC END# *553F7345032E_5507FDD203E1_impl*

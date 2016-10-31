@@ -11,66 +11,6 @@ FORWARD ME_579F7FDF01C3
 
 FORWARD ME_57A0ADEC0150
 
-FORWARD ME_6FFE066302E5
-
-FORWARD ME_57A0AE3C0377
-
-ME ME_9990A7D79F04
- MEPROP Name 'aDocInfo'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
- ;
-
-ENDME // ME_9990A7D79F04 aDocInfo
-
-ME ME_9990A7D79F05
- MEPROP Name 'aContainer'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
- ;
-
-ENDME // ME_9990A7D79F05 aContainer
-
-ME ME_4D89BAECBC67
- MEPROP UID '4D89BAECBC67'
- MEPROP Name 'OpenDocument'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_6FFE066302E5 // MDocumentOpenService
- ;
- MELIST Parameters
-   Seq: ( ME_9990A7D79F04 // aDocInfo
- ME_9990A7D79F05 // aContainer
- )
- ; // Parameters
- UPLINK Speller HWL ME_57A0AE3C0377 // OpenDocument
- ;
-
-ENDME // ME_4D89BAECBC67 OpenDocument
-
-ME ME_6FFE066302E5
- MEPROP UID '6FFE066302E5'
- MEPROP Name 'MDocumentOpenService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TDocumentOpenService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57A0ADEC0150 // TDocumentOpenService
- ;
- MELIST Operations
-   Seq: ( HWL ME_4D89BAECBC67 // OpenDocument
- )
- ; // Operations
-
-ENDME // ME_6FFE066302E5 MDocumentOpenService
-
 ME ME_57A0AE4603DE
  MEPROP Name 'aDocInfo'
  MEPROP Class class_Parameter
@@ -130,10 +70,6 @@ ME ME_57A0ADEC0150
    Seq: ( HWL ME_57A0AE3C0377 // OpenDocument
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_6FFE066302E5 // MDocumentOpenService
- )
- ; // Children
  UP "auto translate to alien" true
  UP extprop:rc:SelfName 'DocumentOpenService'
  UP extprop:rc:isAcceptableForScripts true
@@ -141,66 +77,6 @@ ME ME_57A0ADEC0150
 ENDME // ME_57A0ADEC0150 TDocumentOpenService
 
 FORWARD ME_57A1E1B200A4
-
-FORWARD ME_555227CBA18B
-
-FORWARD ME_57A1E1C60350
-
-ME ME_CEE1CD60A641
- MEPROP Name 'aList'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_47F20DEA0340' '4B1D3D250382.ms.model.script' // IdeList
- ;
-
-ENDME // ME_CEE1CD60A641 aList
-
-ME ME_CEE1CD60A642
- MEPROP Name 'aContainer'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
- ;
-
-ENDME // ME_CEE1CD60A642 aContainer
-
-ME ME_CE997E214CFA
- MEPROP UID 'CE997E214CFA'
- MEPROP Name 'OpenList'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_555227CBA18B // MListOpenService
- ;
- MELIST Parameters
-   Seq: ( ME_CEE1CD60A641 // aList
- ME_CEE1CD60A642 // aContainer
- )
- ; // Parameters
- UPLINK Speller HWL ME_57A1E1C60350 // OpenList
- ;
-
-ENDME // ME_CE997E214CFA OpenList
-
-ME ME_555227CBA18B
- MEPROP UID '555227CBA18B'
- MEPROP Name 'MListOpenService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TListOpenService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57A1E1B200A4 // TListOpenService
- ;
- MELIST Operations
-   Seq: ( HWL ME_CE997E214CFA // OpenList
- )
- ; // Operations
-
-ENDME // ME_555227CBA18B MListOpenService
 
 ME ME_57A1E1CB0326
  MEPROP Name 'aList'
@@ -261,10 +137,6 @@ ME ME_57A1E1B200A4
    Seq: ( HWL ME_57A1E1C60350 // OpenList
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_555227CBA18B // MListOpenService
- )
- ; // Children
  UP "auto translate to alien" true
  UP extprop:rc:SelfName 'ListOpenService'
  UP extprop:rc:isAcceptableForScripts true
@@ -272,86 +144,6 @@ ME ME_57A1E1B200A4
 ENDME // ME_57A1E1B200A4 TListOpenService
 
 FORWARD ME_57A2146F017F
-
-FORWARD ME_B0C3E322EA56
-
-FORWARD ME_57A2148D0045
-
-ME ME_B29E4644BA5A
- MEPROP Name 'aData'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_45EEC17501B5' '45EEAA800226.ms.model.script' // Controllable
- ;
-
-ENDME // ME_B29E4644BA5A aData
-
-ME ME_5DD3882DDF54
- MEPROP UID '5DD3882DDF54'
- MEPROP Name 'AddControlledObject'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_B0C3E322EA56 // MControlledObjectService
- ;
- MELIST Parameters
-   Seq: ( ME_B29E4644BA5A // aData
- )
- ; // Parameters
- UPLINK Speller HWL ME_57A2148D0045 // AddControlledObject
- ;
-
-ENDME // ME_5DD3882DDF54 AddControlledObject
-
-FORWARD ME_57A2149F0242
-
-ME ME_4E99C7BFD4A1
- MEPROP Name 'aData'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_45EEC17501B5' '45EEAA800226.ms.model.script' // Controllable
- ;
-
-ENDME // ME_4E99C7BFD4A1 aData
-
-ME ME_DD5F4B0AB284
- MEPROP UID 'DD5F4B0AB284'
- MEPROP Name 'DeleteControlledObject'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_B0C3E322EA56 // MControlledObjectService
- ;
- MELIST Parameters
-   Seq: ( ME_4E99C7BFD4A1 // aData
- )
- ; // Parameters
- UPLINK Speller HWL ME_57A2149F0242 // DeleteControlledObject
- ;
-
-ENDME // ME_DD5F4B0AB284 DeleteControlledObject
-
-ME ME_B0C3E322EA56
- MEPROP UID 'B0C3E322EA56'
- MEPROP Name 'MControlledObjectService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TControlledObjectService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57A2146F017F // TControlledObjectService
- ;
- MELIST Operations
-   Seq: ( HWL ME_5DD3882DDF54 // AddControlledObject
- HWL ME_DD5F4B0AB284 // DeleteControlledObject
- )
- ; // Operations
-
-ENDME // ME_B0C3E322EA56 MControlledObjectService
 
 ME ME_57A214960342
  MEPROP Name 'aData'
@@ -428,10 +220,6 @@ ME ME_57A2146F017F
  HWL ME_57A2149F0242 // DeleteControlledObject
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_B0C3E322EA56 // MControlledObjectService
- )
- ; // Children
  UP "auto translate to alien" true
  UP extprop:rc:SelfName 'ControlledObjectService'
  UP extprop:rc:isAcceptableForScripts true
@@ -439,106 +227,6 @@ ME ME_57A2146F017F
 ENDME // ME_57A2146F017F TControlledObjectService
 
 FORWARD ME_57A21528027F
-
-FORWARD ME_B5EFAD77A99E
-
-FORWARD ME_57A2153B0384
-
-ME ME_F84883F0C65B
- MEPROP Name 'aNode'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
- ;
-
-ENDME // ME_F84883F0C65B aNode
-
-ME ME_F84883F0C65C
- MEPROP Name 'aRootToKeep'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
- ;
-
-ENDME // ME_F84883F0C65C aRootToKeep
-
-ME ME_F84883F0C65D
- MEPROP Name 'aMenuSectionItemToKeep'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_4E36C7D80396' '4DD24BD40021.ms.model.script' // SectionItem
- ;
-
-ENDME // ME_F84883F0C65D aMenuSectionItemToKeep
-
-ME ME_F84883F0C65E
- MEPROP Name 'aNeedsSheet'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
-
-ENDME // ME_F84883F0C65E aNeedsSheet
-
-ME ME_F84883F0C65F
- MEPROP Name 'anAggregate'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_49930CC501C9' '4683F37902CF.ms.model.script' // IvcmAggregate
- ;
-
-ENDME // ME_F84883F0C65F anAggregate
-
-ME ME_F84883F0C660
- MEPROP Name 'aContainer'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
- ;
-
-ENDME // ME_F84883F0C660 aContainer
-
-ME ME_D415A8B98D41
- MEPROP UID 'D415A8B98D41'
- MEPROP Name 'OpenRubricator'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_B5EFAD77A99E // MRubricatorOpenService
- ;
- MELIST Parameters
-   Seq: ( ME_F84883F0C65B // aNode
- ME_F84883F0C65C // aRootToKeep
- ME_F84883F0C65D // aMenuSectionItemToKeep
- ME_F84883F0C65E // aNeedsSheet
- ME_F84883F0C65F // anAggregate
- ME_F84883F0C660 // aContainer
- )
- ; // Parameters
- UPLINK Speller HWL ME_57A2153B0384 // OpenRubricator
- ;
-
-ENDME // ME_D415A8B98D41 OpenRubricator
-
-ME ME_B5EFAD77A99E
- MEPROP UID 'B5EFAD77A99E'
- MEPROP Name 'MRubricatorOpenService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TRubricatorOpenService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57A21528027F // TRubricatorOpenService
- ;
- MELIST Operations
-   Seq: ( HWL ME_D415A8B98D41 // OpenRubricator
- )
- ; // Operations
-
-ENDME // ME_B5EFAD77A99E MRubricatorOpenService
 
 ME ME_57A215450193
  MEPROP Name 'aNode'
@@ -635,10 +323,6 @@ ME ME_57A21528027F
    Seq: ( HWL ME_57A2153B0384 // OpenRubricator
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_B5EFAD77A99E // MRubricatorOpenService
- )
- ; // Children
  UP "auto translate to alien" true
  UP extprop:rc:SelfName 'RubricatorOpenService'
  UP extprop:rc:isAcceptableForScripts true
@@ -646,56 +330,6 @@ ME ME_57A21528027F
 ENDME // ME_57A21528027F TRubricatorOpenService
 
 FORWARD ME_57A216370186
-
-FORWARD ME_96E04DF2AA4B
-
-FORWARD ME_57A216530107
-
-ME ME_D19FFB51A5E7
- MEPROP Name 'aContainer'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
- ;
-
-ENDME // ME_D19FFB51A5E7 aContainer
-
-ME ME_C95129E731E7
- MEPROP UID 'C95129E731E7'
- MEPROP Name 'OpenMainMenuIfNeeded'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_96E04DF2AA4B // MMainMenuOpenService
- ;
- MELIST Parameters
-   Seq: ( ME_D19FFB51A5E7 // aContainer
- )
- ; // Parameters
- UPLINK Speller HWL ME_57A216530107 // OpenMainMenuIfNeeded
- ;
-
-ENDME // ME_C95129E731E7 OpenMainMenuIfNeeded
-
-ME ME_96E04DF2AA4B
- MEPROP UID '96E04DF2AA4B'
- MEPROP Name 'MMainMenuOpenService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TMainMenuOpenService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57A216370186 // TMainMenuOpenService
- ;
- MELIST Operations
-   Seq: ( HWL ME_C95129E731E7 // OpenMainMenuIfNeeded
- )
- ; // Operations
-
-ENDME // ME_96E04DF2AA4B MMainMenuOpenService
 
 ME ME_57A216610155
  MEPROP Name 'aContainer'
@@ -747,10 +381,6 @@ ME ME_57A216370186
    Seq: ( HWL ME_57A216530107 // OpenMainMenuIfNeeded
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_96E04DF2AA4B // MMainMenuOpenService
- )
- ; // Children
  UP "auto translate to alien" true
  UP extprop:rc:SelfName 'MainMenuOpenService'
  UP extprop:rc:isAcceptableForScripts true
@@ -3195,21 +2825,6 @@ ENDME // ME_579F7FDF01C3 TCommonService
 
 FORWARD ME_57A21FA40131
 
-ME ME_481E8C2AC6EA
- MEPROP UID '481E8C2AC6EA'
- MEPROP Name 'MInpharmOperations'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TInpharmOperations' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57A21FA40131 // TInpharmOperations
- ;
-
-ENDME // ME_481E8C2AC6EA MInpharmOperations
-
 FORWARD ME_4AB9FD0601CF
 
 ME ME_4AB9FD57001A
@@ -3388,10 +3003,6 @@ ME ME_57A21FA40131
  HWL ME_4AB9FD6F017A // MedicMainMenu$Op
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_481E8C2AC6EA // MInpharmOperations
- )
- ; // Children
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames

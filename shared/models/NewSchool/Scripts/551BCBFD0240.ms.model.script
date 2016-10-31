@@ -2,81 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_551BCBFD0240
-
 FORWARD ME_551BCBFD0240
-
-FORWARD ME_6FB88E211F27
-
-FORWARD ME_551BCC1F00E6
-
-ME ME_18E0BD886492
- MEPROP Name 'anObject'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
- ;
-
-ENDME // ME_18E0BD886492 anObject
-
-ME ME_18E0BD886493
- MEPROP Name 'aShortInfo'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
-
-ENDME // ME_18E0BD886493 aShortInfo
-
-ME ME_18E0BD886494
- MEPROP Name 'anObjectPropFound'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_5320560B0287' '5012BFDC0300.ms.model.script' // TRTTIInfoObjectPropertyFoundCallBack
- ;
-
-ENDME // ME_18E0BD886494 anObjectPropFound
-
-ME ME_D4A861440DBF
- MEPROP UID 'D4A861440DBF'
- MEPROP Name 'Format'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
- ;
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
- MELIST Parameters
-   Seq: ( ME_18E0BD886492 // anObject
- ME_18E0BD886493 // aShortInfo
- ME_18E0BD886494 // anObjectPropFound
- )
- ; // Parameters
- UPLINK Speller HWL ME_551BCC1F00E6 // Format
- ;
-
-ENDME // ME_D4A861440DBF Format
-
-ME ME_6FB88E211F27
- MEPROP UID '6FB88E211F27'
- MEPROP Name 'Ml3FormatObjectInfoHelper'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3FormatObjectInfoHelper' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
- ;
- MELIST Operations
-   Seq: ( HWL ME_D4A861440DBF // Format
- )
- ; // Operations
-
-ENDME // ME_6FB88E211F27 Ml3FormatObjectInfoHelper
 
 ME ME_551BE08301D7
  MEPROP Name 'anObject'
@@ -219,10 +145,6 @@ ME ME_551BCBFD0240
    Seq: ( HWL ME_551BCC1F00E6 // Format
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
- )
- ; // Children
  MELIST Dependencies
    Seq: ( ME_551BCC1303DA // Tl3FormatActionInfoHelper
  ME_551BCCE303C0 // Controls

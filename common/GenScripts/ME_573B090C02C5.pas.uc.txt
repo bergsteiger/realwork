@@ -60,11 +60,86 @@
 const
  c_ListKinds = [ns_sdkListInternal, ns_sdkList];
 //#UC END# *52B375B038DC_573B090C02C5_var*
+//#UC START# *573A0E8C0257_573B090C02C5_impl*
+ if Tl3BatchService.Instance.IsBatchMode then
+ begin
+  Result := True;
+  if aDialog.DialogKind in c_ListKinds then
+  begin
+   if f_SaveObjDefault then
+    f_SaveObjects := ns_sdlkTitles;
+   if f_MergeDefault then
+    f_MergeFiles := False;
+   if f_SelOnlyDefault then
+    f_SelectedOnly := True;
+  end;
+  f_FileName := ChangeFileExt(ParamStr(0), '.autosave');
+  case f_FileFormat of
+   ns_ffTxt: aDialog.FilterIndex := 2;
+   ns_ffHTML: aDialog.FilterIndex := 3;
+   ns_ffPDF: aDialog.FilterIndex := 4;
+   ns_ffXML: aDialog.FilterIndex := 5;
+   ns_ffEvd: aDialog.FilterIndex := 6;
+   ns_ffNull: aDialog.FilterIndex := 7;
+  else
+   aDialog.FilterIndex := 1;
+  end;
+  Assert(aDialog.SelectedFileFormat = f_FileFormat);
+  aDialog.FileName := f_FileName;
+  if aDialog.DialogKind in c_ListKinds then
+  begin
+   aDialog.SaveListTarget := f_SaveObjects;
+   aDialog.MergeChecked := f_MergeFiles;
+   aDialog.SelectedOnlyChecked := f_SelectedOnly;
+  end;
+  f_SaveObjDefault := True;
+  f_MergeDefault := True;
+  f_SelOnlyDefault := True;
+ end else
+  Result := aDialog.Execute;
+//#UC END# *573A0E8C0257_573B090C02C5_impl*
+//#UC START# *573A0E8C0257_573B090C02C5_var*
+const
+ c_ListKinds = [ns_sdkListInternal, ns_sdkList];
+//#UC END# *573A0E8C0257_573B090C02C5_var*
 //#UC START# *573B090C02C5_ext:FileName
 w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSaveDialogImpl.pas
 //#UC END# *573B090C02C5_ext:FileName
 //#UC START# *573B090C02C5impl_uses*
 //#UC END# *573B090C02C5impl_uses*
+//#UC START# *57447EC501FC_573B090C02C5_impl*
+ Result := f_FileName;
+//#UC END# *57447EC501FC_573B090C02C5_impl*
+//#UC START# *57447EC501FC_573B090C02C5_var*
+//#UC END# *57447EC501FC_573B090C02C5_var*
+//#UC START# *57447EFA00A1_573B090C02C5_impl*
+ f_FileFormat := aFileFormat;
+//#UC END# *57447EFA00A1_573B090C02C5_impl*
+//#UC START# *57447EFA00A1_573B090C02C5_var*
+//#UC END# *57447EFA00A1_573B090C02C5_var*
+//#UC START# *57FCE260011C_573B090C02C5_impl*
+ f_SaveObjDefault := False;
+ f_SaveObjects := aValue;
+//#UC END# *57FCE260011C_573B090C02C5_impl*
+//#UC START# *57FCE260011C_573B090C02C5_var*
+//#UC END# *57FCE260011C_573B090C02C5_var*
+//#UC START# *57FCE36B0114_573B090C02C5_impl*
+ f_MergeDefault := False;
+ f_MergeFiles := aValue;
+//#UC END# *57FCE36B0114_573B090C02C5_impl*
+//#UC START# *57FCE36B0114_573B090C02C5_var*
+//#UC END# *57FCE36B0114_573B090C02C5_var*
+//#UC START# *57FCE99E0115_573B090C02C5_impl*
+ f_SelOnlyDefault := False;
+ f_SelectedOnly := aValue;
+//#UC END# *57FCE99E0115_573B090C02C5_impl*
+//#UC START# *57FCE99E0115_573B090C02C5_var*
+//#UC END# *57FCE99E0115_573B090C02C5_var*
+//#UC START# *5811C5A001F6_573B090C02C5_impl*
+ f_FileName := aName;
+//#UC END# *5811C5A001F6_573B090C02C5_impl*
+//#UC START# *5811C5A001F6_573B090C02C5_var*
+//#UC END# *5811C5A001F6_573B090C02C5_var*
 //#UC START# *593F1F6D46A5_573B090C02C5_impl*
  f_FileFormat := aFileFormat;
 //#UC END# *593F1F6D46A5_573B090C02C5_impl*

@@ -2,133 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_57726B250063
-
 FORWARD ME_57726B250063
-
-FORWARD ME_E30699195990
-
-FORWARD ME_57726B410203
-
-ME ME_4B46CD2233F1
- MEPROP Name 'aFileName'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
-
-ENDME // ME_4B46CD2233F1 aFileName
-
-ME ME_4B46CD2233F2
- MEPROP Name 'anExt'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
-
-ENDME // ME_4B46CD2233F2 anExt
-
-ME ME_6CBC23B5834F
- MEPROP UID '6CBC23B5834F'
- MEPROP Name 'MakeCompiledCodeName'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_E30699195990 // MtfwParserService
- ;
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
- MELIST Parameters
-   Seq: ( ME_4B46CD2233F1 // aFileName
- ME_4B46CD2233F2 // anExt
- )
- ; // Parameters
- UPLINK Speller HWL ME_57726B410203 // MakeCompiledCodeName
- ;
-
-ENDME // ME_6CBC23B5834F MakeCompiledCodeName
-
-FORWARD ME_57A9967B0182
-
-ME ME_D417AB5C7D8D
- MEPROP Name 'aFile'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
-
-ENDME // ME_D417AB5C7D8D aFile
-
-ME ME_F6694EB8D038
- MEPROP UID 'F6694EB8D038'
- MEPROP Name 'ResolveIncludedFilePath'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_E30699195990 // MtfwParserService
- ;
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
- MELIST Parameters
-   Seq: ( ME_D417AB5C7D8D // aFile
- )
- ; // Parameters
- UPLINK Speller HWL ME_57A9967B0182 // ResolveIncludedFilePath
- ;
-
-ENDME // ME_F6694EB8D038 ResolveIncludedFilePath
-
-FORWARD ME_57CD20F100D7
-
-ME ME_A87B92DCE7B7
- MEPROP Name 'aPath'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
-
-ENDME // ME_A87B92DCE7B7 aPath
-
-ME ME_F5AAF249F97E
- MEPROP UID 'F5AAF249F97E'
- MEPROP Name 'AddIncludePath'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_E30699195990 // MtfwParserService
- ;
- MELIST Parameters
-   Seq: ( ME_A87B92DCE7B7 // aPath
- )
- ; // Parameters
- UPLINK Speller HWL ME_57CD20F100D7 // AddIncludePath
- ;
-
-ENDME // ME_F5AAF249F97E AddIncludePath
-
-ME ME_E30699195990
- MEPROP UID 'E30699195990'
- MEPROP Name 'MtfwParserService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TtfwParserService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57726B250063 // TtfwParserService
- ;
- MELIST Operations
-   Seq: ( HWL ME_6CBC23B5834F // MakeCompiledCodeName
- HWL ME_F6694EB8D038 // ResolveIncludedFilePath
- HWL ME_F5AAF249F97E // AddIncludePath
- )
- ; // Operations
-
-ENDME // ME_E30699195990 MtfwParserService
 
 ME ME_57726CFF02B7
  MEPROP UID '57726CFF02B7'
@@ -356,10 +230,6 @@ ME ME_57726B250063
    Seq: ( ME_479731C50290_ME_57726B250063_over // Cleanup
  )
  ; // Overridden
- MELIST Children
-   Seq: ( HWL ME_E30699195990 // MtfwParserService
- )
- ; // Children
  MELIST Dependencies
    Seq: ( ME_57726BB002FB // SysUtils
  ME_57726BEA0274 // IniFiles

@@ -2,46 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_5506FEA6012A
-
 FORWARD ME_5506FEA6012A
-
-FORWARD ME_62280531B792
-
-FORWARD ME_5506FEB701D1
-
-ME ME_0AC8DEBDD602
- MEPROP UID '0AC8DEBDD602'
- MEPROP Name 'Clear'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_62280531B792 // Ml3DocumentsCacheService
- ;
- UPLINK Speller HWL ME_5506FEB701D1 // Clear
- ;
-
-ENDME // ME_0AC8DEBDD602 Clear
-
-ME ME_62280531B792
- MEPROP UID '62280531B792'
- MEPROP Name 'Ml3DocumentsCacheService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3DocumentsCacheService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5506FEA6012A // Tl3DocumentsCacheService
- ;
- MELIST Operations
-   Seq: ( HWL ME_0AC8DEBDD602 // Clear
- )
- ; // Operations
-
-ENDME // ME_62280531B792 Ml3DocumentsCacheService
 
 ME ME_5506FEB701D1
  MEPROP UID '5506FEB701D1'
@@ -82,10 +43,6 @@ ME ME_5506FEA6012A
    Seq: ( HWL ME_5506FEB701D1 // Clear
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_62280531B792 // Ml3DocumentsCacheService
- )
- ; // Children
  UP "auto translate to alien" 'undefined'
  UP intf.pas:Path 'common\components\rtl\Garant\L3\l3DocumentsCacheService.pas'
  UP extprop:rc:SelfName 'DocumentsCacheService'

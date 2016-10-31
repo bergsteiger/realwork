@@ -164,45 +164,6 @@ ENDME // ME_4EAA9EA101C9 TnsStyleParserContext
 
 FORWARD ME_57A4A44F02FA
 
-FORWARD ME_4507D3F4B306
-
-FORWARD ME_57A4A4740274
-
-ME ME_34DE7CEFC29D
- MEPROP UID '34DE7CEFC29D'
- MEPROP Name 'ShowChangesInfoSetting'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_4507D3F4B306 // MDocumentSettingsService
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- UPLINK Speller HWL ME_57A4A4740274 // ShowChangesInfoSetting
- ;
-
-ENDME // ME_34DE7CEFC29D ShowChangesInfoSetting
-
-ME ME_4507D3F4B306
- MEPROP UID '4507D3F4B306'
- MEPROP Name 'MDocumentSettingsService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TDocumentSettingsService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57A4A44F02FA // TDocumentSettingsService
- ;
- MELIST Operations
-   Seq: ( HWL ME_34DE7CEFC29D // ShowChangesInfoSetting
- )
- ; // Operations
-
-ENDME // ME_4507D3F4B306 MDocumentSettingsService
-
 ME ME_57A4A4740274
  MEPROP UID '57A4A4740274'
  MEPROP Name 'ShowChangesInfoSetting'
@@ -243,10 +204,6 @@ ME ME_57A4A44F02FA
    Seq: ( HWL ME_57A4A4740274 // ShowChangesInfoSetting
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_4507D3F4B306 // MDocumentSettingsService
- )
- ; // Children
  UP "auto translate to alien" true
  UP extprop:rc:SelfName 'DocumentSettingsService'
  UP extprop:rc:isAcceptableForScripts true

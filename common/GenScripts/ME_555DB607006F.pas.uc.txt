@@ -1,8 +1,26 @@
+//#UC START# *555DB53301DC_555DB62E036B_impl*
+ Result := TevdNativeReader.Create;
+//#UC END# *555DB53301DC_555DB62E036B_impl*
+//#UC START# *555DB53301DC_555DB62E036B_var*
+//#UC END# *555DB53301DC_555DB62E036B_var*
 //#UC START# *555DB607006F_ext:FileName
 w:\common\components\rtl\Garant\EVD\evdNativeReaderServices.pas
 //#UC END# *555DB607006F_ext:FileName
 //#UC START# *555DB607006Fimpl_uses*
 //#UC END# *555DB607006Fimpl_uses*
+//#UC START# *55701A7A01B4_555DB62E036B_impl*
+ l_Reader := TevdNativeReader.Make(aFileName);
+ try
+  l_Reader.Generator := aFilter;
+  Result := l_Reader.As_Il3Reader;
+ finally
+  FreeAndNil(l_Reader);
+ end;//try..finally
+//#UC END# *55701A7A01B4_555DB62E036B_impl*
+//#UC START# *55701A7A01B4_555DB62E036B_var*
+var
+ l_Reader : TevdNativeReader;
+//#UC END# *55701A7A01B4_555DB62E036B_var*
 //#UC START# *6A9002DE6C1A_555DB62E036B_impl*
  l_Reader := TevdNativeReader.Make(aFileName);
  try

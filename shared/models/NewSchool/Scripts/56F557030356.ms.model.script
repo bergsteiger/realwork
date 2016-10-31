@@ -2,48 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_56F557030356
-
 FORWARD ME_56F557030356
-
-FORWARD ME_A92FB72B3275
-
-FORWARD ME_56F557410186
-
-ME ME_5DBF5C8E6606
- MEPROP UID '5DBF5C8E6606'
- MEPROP Name 'DebugScriptCaller'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_A92FB72B3275 // MtfwDebugService
- ;
- MELINK Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.ms.model.script' // ItfwScriptCaller
- ;
- UPLINK Speller HWL ME_56F557410186 // DebugScriptCaller
- ;
-
-ENDME // ME_5DBF5C8E6606 DebugScriptCaller
-
-ME ME_A92FB72B3275
- MEPROP UID 'A92FB72B3275'
- MEPROP Name 'MtfwDebugService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TtfwDebugService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_56F557030356 // TtfwDebugService
- ;
- MELIST Operations
-   Seq: ( HWL ME_5DBF5C8E6606 // DebugScriptCaller
- )
- ; // Operations
-
-ENDME // ME_A92FB72B3275 MtfwDebugService
 
 ME ME_56F557410186
  MEPROP UID '56F557410186'
@@ -86,10 +45,6 @@ ME ME_56F557030356
    Seq: ( HWL ME_56F557410186 // DebugScriptCaller
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_A92FB72B3275 // MtfwDebugService
- )
- ; // Children
  UP "auto translate to alien" 'undefined'
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDebugService.pas'
  UP extprop:rc:SelfName 'DebugService'

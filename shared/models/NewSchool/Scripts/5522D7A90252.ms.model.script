@@ -2,61 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_5522D7A90252
-
 FORWARD ME_5522D7A90252
-
-FORWARD ME_EFEB3610D6E5
-
-FORWARD ME_5522D7D800FE
-
-ME ME_2C21E4297A48
- MEPROP Name 'aComponent'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
- ;
-
-ENDME // ME_2C21E4297A48 aComponent
-
-ME ME_BB0BB5CAA29B
- MEPROP UID 'BB0BB5CAA29B'
- MEPROP Name 'GetBounds'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
- ;
- MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
- ;
- MELIST Parameters
-   Seq: ( ME_2C21E4297A48 // aComponent
- )
- ; // Parameters
- UPLINK Speller HWL ME_5522D7D800FE // GetBounds
- ;
-
-ENDME // ME_BB0BB5CAA29B GetBounds
-
-ME ME_EFEB3610D6E5
- MEPROP UID 'EFEB3610D6E5'
- MEPROP Name 'Ml3GetComponentBoundsHelper'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3GetComponentBoundsHelper' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5522D7A90252 // Tl3GetComponentBoundsHelper
- ;
- MELIST Operations
-   Seq: ( HWL ME_BB0BB5CAA29B // GetBounds
- )
- ; // Operations
-
-ENDME // ME_EFEB3610D6E5 Ml3GetComponentBoundsHelper
 
 ME ME_5522D7EF02AB
  MEPROP Name 'aComponent'
@@ -121,10 +67,6 @@ ME ME_5522D7A90252
    Seq: ( HWL ME_5522D7D800FE // GetBounds
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
- )
- ; // Children
  MELIST Dependencies
    Seq: ( ME_5522D89E03B2 // Controls
  )

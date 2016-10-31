@@ -333,11 +333,29 @@ var
 var
  l_E : ImsmModelElement;
 //#UC END# *57CD5AAF0193_57A9C16601B9_var*
+//#UC START# *57CED48A00B9_57CED5100343_impl*
+ if (anElementForList <> nil) then
+  TmsmMainForm.RunWithList(anElementForList.ElementProp['ReferencedOriginal']);
+//#UC END# *57CED48A00B9_57CED5100343_impl*
+//#UC START# *57CED48A00B9_57CED5100343_var*
+//#UC END# *57CED48A00B9_57CED5100343_var*
 //#UC START# *57EBC65F0320_57A9C16601B9_impl*
  // nothing
 //#UC END# *57EBC65F0320_57A9C16601B9_impl*
 //#UC START# *57EBC65F0320_57A9C16601B9_var*
 //#UC END# *57EBC65F0320_57A9C16601B9_var*
+//#UC START# *57EE71FF0071_57EE7F1302F9_impl*
+ if (aFiler <> nil) then
+ begin
+  if (GetCurrentThreadID = MainThreadID) then
+  begin
+   aFiler.Indicator.NeedProgressProc := true;
+   aFiler.Indicator.Meter := Self;
+  end;//GetCurrentThreadID = MainThreadID
+ end;//aFiler <> nil
+//#UC END# *57EE71FF0071_57EE7F1302F9_impl*
+//#UC START# *57EE71FF0071_57EE7F1302F9_var*
+//#UC END# *57EE71FF0071_57EE7F1302F9_var*
 //#UC START# *57EE7F1302F9ci*
 //#UC END# *57EE7F1302F9ci*
 //#UC START# *57EE7F1302F9cit*
@@ -348,6 +366,11 @@ var
   private
    f_ProgressCount : Integer;
 //#UC END# *57EE7F1302F9publ*
+//#UC START# *57F504370010_57F50B110031_impl*
+ TmsmSelectElementForm.SelectElement(aSelector);
+//#UC END# *57F504370010_57F50B110031_impl*
+//#UC START# *57F504370010_57F50B110031_var*
+//#UC END# *57F504370010_57F50B110031_var*
 //#UC START# *BBCBB8731EE0_57F50B110031_impl*
  TmsmSelectElementForm.SelectElement(aSelector);
 //#UC END# *BBCBB8731EE0_57F50B110031_impl*
