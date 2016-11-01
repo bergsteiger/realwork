@@ -2,82 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_F187BA65AC5B
-
 FORWARD ME_5551C8670144
-
-FORWARD ME_F187BA65AC5B
-
-FORWARD ME_5551C89E0016
-
-ME ME_AA9D589FDBFC
- MEPROP UID 'AA9D589FDBFC'
- MEPROP Name 'UseSplitted'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_F187BA65AC5B // Mm3StorageService
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- UPLINK Speller HWL ME_5551C89E0016 // UseSplitted
- ;
-
-ENDME // ME_AA9D589FDBFC UseSplitted
-
-FORWARD ME_5551C8A7027D
-
-FORWARD ME_FEF2A1107807
-
-ME ME_91AF15293E3D
- MEPROP Name 'aValue'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
-
-ENDME // ME_91AF15293E3D aValue
-
-ME ME_FEF2A1107807
- MEPROP UID 'FEF2A1107807'
- MEPROP Name 'SetUseSplitted'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_F187BA65AC5B // Mm3StorageService
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- MELIST Parameters
-   Seq: ( ME_91AF15293E3D // aValue
- )
- ; // Parameters
- UPLINK Speller HWL ME_5551C8A7027D // SetUseSplitted
- ;
-
-ENDME // ME_FEF2A1107807 SetUseSplitted
-
-ME ME_F187BA65AC5B
- MEPROP UID 'F187BA65AC5B'
- MEPROP Name 'Mm3StorageService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tm3StorageService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5551C8670144 // Tm3StorageService
- ;
- MELIST Operations
-   Seq: ( HWL ME_AA9D589FDBFC // UseSplitted
- HWL ME_FEF2A1107807 // SetUseSplitted
- )
- ; // Operations
-
-ENDME // ME_F187BA65AC5B Mm3StorageService
 
 ME ME_5551C8D40161
  MEPROP UID '5551C8D40161'
@@ -106,6 +31,8 @@ ME ME_5551C89E0016
  ;
 
 ENDME // ME_5551C89E0016 UseSplitted
+
+FORWARD ME_5551C8A7027D
 
 ME ME_5551C8B50249
  MEPROP Name 'aValue'
@@ -187,10 +114,6 @@ ME ME_5551C8670144
    Seq: ( ME_47A042E100E2_ME_5551C8670144_over // InitFields
  )
  ; // Overridden
- MELIST Children
-   Seq: ( HWL ME_F187BA65AC5B // Mm3StorageService
- )
- ; // Children
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
