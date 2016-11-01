@@ -2,88 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_BF20041B6F0C
-
 FORWARD ME_57FE4DA6014A
-
-FORWARD ME_BF20041B6F0C
-
-FORWARD ME_57FE4DCD02F8
-
-ME ME_80F135399528
- MEPROP UID '80F135399528'
- MEPROP Name 'RegetLists'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_BF20041B6F0C // MmsmElementListsService
- ;
- UPLINK Speller HWL ME_57FE4DCD02F8 // RegetLists
- ;
-
-ENDME // ME_80F135399528 RegetLists
-
-FORWARD ME_57FF6A5703D7
-
-FORWARD ME_F7EFF4FD47C2
-
-ME ME_8C42D8788796
- MEPROP Name 'aWord'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
- ;
-
-ENDME // ME_8C42D8788796 aWord
-
-ME ME_8C42D8788797
- MEPROP Name 'aListName'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
-
-ENDME // ME_8C42D8788797 aListName
-
-ME ME_F7EFF4FD47C2
- MEPROP UID 'F7EFF4FD47C2'
- MEPROP Name 'RegetViewedListsFor'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_BF20041B6F0C // MmsmElementListsService
- ;
- MELIST Parameters
-   Seq: ( ME_8C42D8788796 // aWord
- ME_8C42D8788797 // aListName
- )
- ; // Parameters
- UPLINK Speller HWL ME_57FF6A5703D7 // RegetViewedListsFor
- ;
-
-ENDME // ME_F7EFF4FD47C2 RegetViewedListsFor
-
-ME ME_BF20041B6F0C
- MEPROP UID 'BF20041B6F0C'
- MEPROP Name 'MmsmElementListsService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TmsmElementListsService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57FE4DA6014A // TmsmElementListsService
- ;
- MELIST Operations
-   Seq: ( HWL ME_80F135399528 // RegetLists
- HWL ME_F7EFF4FD47C2 // RegetViewedListsFor
- )
- ; // Operations
-
-ENDME // ME_BF20041B6F0C MmsmElementListsService
 
 ME ME_57FE4DCD02F8
  MEPROP UID '57FE4DCD02F8'
@@ -96,6 +15,8 @@ ME ME_57FE4DCD02F8
  ;
 
 ENDME // ME_57FE4DCD02F8 RegetLists
+
+FORWARD ME_57FF6A5703D7
 
 ME ME_57FF6A760225
  MEPROP Name 'aWord'
@@ -158,10 +79,6 @@ ME ME_57FE4DA6014A
  HWL ME_57FF6A5703D7 // RegetViewedListsFor
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_BF20041B6F0C // MmsmElementListsService
- )
- ; // Children
  UP extprop:pas:UnitName 'msmElementListsService'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'msmElementListsService'

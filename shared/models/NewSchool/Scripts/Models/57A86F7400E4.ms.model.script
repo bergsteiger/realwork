@@ -2,73 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_7BCDF64C1E0E
-
 FORWARD ME_57A86F7400E4
-
-FORWARD ME_7BCDF64C1E0E
-
-FORWARD ME_57A86FA30073
-
-FORWARD ME_F7FE987044FC
-
-ME ME_5CF47B6CE3BA
- MEPROP Name 'aFile'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
- ;
-
-ENDME // ME_5CF47B6CE3BA aFile
-
-ME ME_5CF47B6CE3BB
- MEPROP Name 'aSetReadOnlyToFile'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
-
-ENDME // ME_5CF47B6CE3BB aSetReadOnlyToFile
-
-ME ME_F7FE987044FC
- MEPROP UID 'F7FE987044FC'
- MEPROP Name 'ShellExecute'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_7BCDF64C1E0E // MnsShellService
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- MELIST Parameters
-   Seq: ( ME_5CF47B6CE3BA // aFile
- ME_5CF47B6CE3BB // aSetReadOnlyToFile
- )
- ; // Parameters
- UPLINK Speller HWL ME_57A86FA30073 // ShellExecute
- ;
-
-ENDME // ME_F7FE987044FC ShellExecute
-
-ME ME_7BCDF64C1E0E
- MEPROP UID '7BCDF64C1E0E'
- MEPROP Name 'MnsShellService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TnsShellService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57A86F7400E4 // TnsShellService
- ;
- MELIST Operations
-   Seq: ( HWL ME_F7FE987044FC // ShellExecute
- )
- ; // Operations
-
-ENDME // ME_7BCDF64C1E0E MnsShellService
 
 FORWARD ME_57A870780035
 
@@ -124,6 +58,8 @@ ME ME_57A870780035
  ; // Operations
 
 ENDME // ME_57A870780035 CallShellExecute
+
+FORWARD ME_57A86FA30073
 
 ME ME_57A86FAE01F7
  MEPROP Name 'aFile'
@@ -188,10 +124,6 @@ ME ME_57A86F7400E4
  HWL ME_57A86FA30073 // ShellExecute
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_7BCDF64C1E0E // MnsShellService
- )
- ; // Children
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames

@@ -1,0 +1,42 @@
+// ClearSpellDictionary 581338320377 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_581338320377
+
+ME ME_581338D10191
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_581338320377 // ClearSpellDictionary
+ ;
+ MELINK Target WL 'ME_5813388F029E' '4E4B5F29031C.ms.model.script' // arClearSpellDictionary
+ ;
+
+ENDME // ME_581338D10191 
+
+ME ME_581338320377
+ MEPROP UID '581338320377'
+ MEPROP Name 'ClearSpellDictionary'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Очищает пользовательский словарь проверки орфографии.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F6195640184' // CommonArchiWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_581338D10191 // arClearSpellDictionary
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwClearSpellDictionary'
+ UP extprop:pas:UnitName 'kwClearSpellDictionary'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ClearSpellDictionary'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearSpellDictionary.pas'
+
+ENDME // ME_581338320377 ClearSpellDictionary

@@ -50,13 +50,13 @@ end;//TIterateableServiceImplFree
 
 procedure TIterateableServiceImpl.IterateF(anAction: MIterateableService_IterateF_Action;
  anOwner: TComponent);
-//#UC START# *A44911B9A95D_551961470035_var*
+//#UC START# *551961AE0005_551961470035_var*
 var
  Hack : Pointer absolute anAction;
  l_Index : Integer;
-//#UC END# *A44911B9A95D_551961470035_var*
+//#UC END# *551961AE0005_551961470035_var*
 begin
-//#UC START# *A44911B9A95D_551961470035_impl*
+//#UC START# *551961AE0005_551961470035_impl*
  try
   if (anOwner <> nil) then
    for l_Index := 0 to Pred(anOwner.ComponentCount) do
@@ -64,7 +64,7 @@ begin
  finally
   l3FreeLocalStub(Hack);
  end;//try..finally
-//#UC END# *A44911B9A95D_551961470035_impl*
+//#UC END# *551961AE0005_551961470035_impl*
 end;//TIterateableServiceImpl.IterateF
 
 class function TIterateableServiceImpl.Instance: TIterateableServiceImpl;

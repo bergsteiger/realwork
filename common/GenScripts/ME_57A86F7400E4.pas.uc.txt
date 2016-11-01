@@ -8,7 +8,10 @@ w:\garant6x\implementation\Garant\GbaNemesis\ExternalObjects\nsShellService.pas
  , nsTypes
 //#UC END# *57A86F7400E4impl_uses*
 //#UC START# *57A86FA30073_57A86F7400E4_impl*
- !!! Needs to be implemented !!!
+ if (f_Alien <> nil) then
+  Result := f_Alien.ShellExecute(aFile, aSetReadOnlyToFile)
+ else
+  Result := Self.CallShellExecute(aFile, aSetReadOnlyToFile); 
 //#UC END# *57A86FA30073_57A86F7400E4_impl*
 //#UC START# *57A86FA30073_57A86F7400E4_var*
 //#UC END# *57A86FA30073_57A86F7400E4_var*

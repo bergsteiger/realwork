@@ -370,78 +370,7 @@ ENDME // ME_57A32EEB003E TShutdownService
 
 FORWARD ME_57A339A6014A
 
-FORWARD ME_2348669ECCD3
-
 FORWARD ME_4AC4A69D03B7
-
-FORWARD ME_9856D0A1DBB4
-
-ME ME_CA4BA7578912
- MEPROP Name 'aQueryType'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_4AB366EC0271' '46837A08002C.ms.model.script' // TlgQueryType
- ;
-
-ENDME // ME_CA4BA7578912 aQueryType
-
-ME ME_CA4BA7578913
- MEPROP Name 'aQuery'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
- ;
-
-ENDME // ME_CA4BA7578913 aQuery
-
-ME ME_CA4BA7578914
- MEPROP Name 'aContainer'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
- ;
-
-ENDME // ME_CA4BA7578914 aContainer
-
-ME ME_9856D0A1DBB4
- MEPROP UID '9856D0A1DBB4'
- MEPROP Name 'OpenQuery'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_2348669ECCD3 // MQueryOpenService
- ;
- MELIST Parameters
-   Seq: ( ME_CA4BA7578912 // aQueryType
- ME_CA4BA7578913 // aQuery
- ME_CA4BA7578914 // aContainer
- )
- ; // Parameters
- UP "ifndef" 'Admin'
- UPLINK Speller HWL ME_4AC4A69D03B7 // OpenQuery
- ;
-
-ENDME // ME_9856D0A1DBB4 OpenQuery
-
-ME ME_2348669ECCD3
- MEPROP UID '2348669ECCD3'
- MEPROP Name 'MQueryOpenService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TQueryOpenService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57A339A6014A // TQueryOpenService
- ;
- MELIST Operations
-   Seq: ( HWL ME_9856D0A1DBB4 // OpenQuery
- )
- ; // Operations
-
-ENDME // ME_2348669ECCD3 MQueryOpenService
 
 ME ME_4AC4A69D03E6
  MEPROP Name 'aQueryType'
@@ -512,10 +441,6 @@ ME ME_57A339A6014A
    Seq: ( HWL ME_4AC4A69D03B7 // OpenQuery
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_2348669ECCD3 // MQueryOpenService
- )
- ; // Children
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'QueryOpenService'
 
@@ -523,57 +448,7 @@ ENDME // ME_57A339A6014A TQueryOpenService
 
 FORWARD ME_57A3590B001B
 
-FORWARD ME_5C6240CB44B6
-
 FORWARD ME_57A35C6002FD
-
-FORWARD ME_385066897B82
-
-ME ME_EFA250A9A215
- MEPROP Name 'aKind'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_4992F7350274' '499EAAE502A8.ms.model.script' // TvcmOperationCallType
- ;
-
-ENDME // ME_EFA250A9A215 aKind
-
-ME ME_385066897B82
- MEPROP UID '385066897B82'
- MEPROP Name 'LogUserActivity'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_5C6240CB44B6 // MLoggingService
- ;
- MELIST Parameters
-   Seq: ( ME_EFA250A9A215 // aKind
- )
- ; // Parameters
- UPLINK Speller HWL ME_57A35C6002FD // LogUserActivity
- ;
-
-ENDME // ME_385066897B82 LogUserActivity
-
-ME ME_5C6240CB44B6
- MEPROP UID '5C6240CB44B6'
- MEPROP Name 'MLoggingService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TLoggingService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57A3590B001B // TLoggingService
- ;
- MELIST Operations
-   Seq: ( HWL ME_385066897B82 // LogUserActivity
- )
- ; // Operations
-
-ENDME // ME_5C6240CB44B6 MLoggingService
 
 ME ME_57A35C6102AD
  MEPROP Name 'aKind'
@@ -625,10 +500,6 @@ ME ME_57A3590B001B
    Seq: ( HWL ME_57A35C6002FD // LogUserActivity
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_5C6240CB44B6 // MLoggingService
- )
- ; // Children
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'LoggingService'
 

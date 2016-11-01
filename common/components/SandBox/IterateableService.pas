@@ -88,12 +88,12 @@ end;//TIterateableService.pm_SetAlien
 
 procedure TIterateableService.IterateF(anAction: MIterateableService_IterateF_Action;
  anOwner: TComponent);
-//#UC START# *A44911B9A95D_5519611903CF_var*
+//#UC START# *551961AE0005_5519611903CF_var*
 var
  Hack : Pointer absolute anAction;
-//#UC END# *A44911B9A95D_5519611903CF_var*
+//#UC END# *551961AE0005_5519611903CF_var*
 begin
-//#UC START# *A44911B9A95D_5519611903CF_impl*
+//#UC START# *551961AE0005_5519611903CF_impl*
  if (f_Alien <> nil) then
   f_Alien.IterateF(anAction, anOwner)
  else
@@ -104,7 +104,7 @@ begin
    l3FreeLocalStub(Hack);
   end;//try..finally
  end;//f_Alien <> nil
-//#UC END# *A44911B9A95D_5519611903CF_impl*
+//#UC END# *551961AE0005_5519611903CF_impl*
 end;//TIterateableService.IterateF
 
 class function TIterateableService.Instance: TIterateableService;

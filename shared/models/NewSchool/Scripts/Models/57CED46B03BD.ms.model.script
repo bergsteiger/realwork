@@ -2,61 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_FE6ED5E72A1D
-
 FORWARD ME_57CED46B03BD
 
-FORWARD ME_FE6ED5E72A1D
-
 FORWARD ME_57CED48A00B9
-
-FORWARD ME_5077A5E39FAB
-
-ME ME_C568F9861EEC
- MEPROP Name 'anElementForList'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_57A9F4D30086' '57A9F4A003C8.ms.model.script' // ImsmModelElement
- ;
-
-ENDME // ME_C568F9861EEC anElementForList
-
-ME ME_5077A5E39FAB
- MEPROP UID '5077A5E39FAB'
- MEPROP Name 'OpenListInNewWindow'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_FE6ED5E72A1D // MmsmOpenService
- ;
- MELIST Parameters
-   Seq: ( ME_C568F9861EEC // anElementForList
- )
- ; // Parameters
- UPLINK Speller HWL ME_57CED48A00B9 // OpenListInNewWindow
- ;
-
-ENDME // ME_5077A5E39FAB OpenListInNewWindow
-
-ME ME_FE6ED5E72A1D
- MEPROP UID 'FE6ED5E72A1D'
- MEPROP Name 'MmsmOpenService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TmsmOpenService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57CED46B03BD // TmsmOpenService
- ;
- MELIST Operations
-   Seq: ( HWL ME_5077A5E39FAB // OpenListInNewWindow
- )
- ; // Operations
-
-ENDME // ME_FE6ED5E72A1D MmsmOpenService
 
 ME ME_57CED4A302BD
  MEPROP Name 'anElementForList'
@@ -109,10 +57,6 @@ ME ME_57CED46B03BD
    Seq: ( HWL ME_57CED48A00B9 // OpenListInNewWindow
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_FE6ED5E72A1D // MmsmOpenService
- )
- ; // Children
  UP extprop:pas:UnitName 'msmOpenService'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'msmOpenService'

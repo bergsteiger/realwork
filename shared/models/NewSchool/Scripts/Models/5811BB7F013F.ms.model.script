@@ -154,6 +154,16 @@ ME ME_5813499D0374
 
 ENDME // ME_5813499D0374 
 
+ME ME_5817166E0390
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5811BB7F013F // TalcuServerFilesDeliverer
+ ;
+ MELINK Target WL 'ME_4767748503B5' '4767743E00E5.ms.model.script' // TTypeInfo
+ ;
+
+ENDME // ME_5817166E0390 
+
 MEREF ME_5811F1350098_ME_5811BB7F013F_impl
  MELINK Original WL 'ME_5811F1350098' '5810A0CC0383.ms.model.script' // FillTasksList
  ;
@@ -171,6 +181,12 @@ MEREF ME_58133D520215_ME_5811BB7F013F_impl
  ;
  MEPROP OpKind opkind_Implemented
 ENDMEREF // ME_58133D520215_ME_5811BB7F013F_impl DoCorrectTargetFolder
+
+MEREF ME_581740EB03A8_ME_5811BB7F013F_impl
+ MELINK Original WL 'ME_581740EB03A8' '5810A0CC0383.ms.model.script' // DoSendFilesList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_581740EB03A8_ME_5811BB7F013F_impl DoSendFilesList
 
 MEREF ME_479731C50290_ME_5811BB7F013F_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
@@ -214,6 +230,7 @@ ME ME_5811BB7F013F
    Seq: ( ME_5811F1350098_ME_5811BB7F013F_impl // FillTasksList
  ME_58133D420395_ME_5811BB7F013F_impl // DoSetDeliveryResult
  ME_58133D520215_ME_5811BB7F013F_impl // DoCorrectTargetFolder
+ ME_581740EB03A8_ME_5811BB7F013F_impl // DoSendFilesList
  )
  ; // Implemented
  MELIST Overridden
@@ -227,6 +244,7 @@ ME ME_5811BB7F013F
  ME_5813027A00A5 // TcsTaskStatus
  ME_581348F00071 // l3System
  ME_5813499D0374 // TcsExport
+ ME_5817166E0390 // TTypeInfo
  )
  ; // Dependencies
  MESTRINGLIST DiagramsNames
