@@ -73,7 +73,7 @@ uses
  , l3Base
  //#UC START# *5811CF1B02E6impl_uses*
  //#UC END# *5811CF1B02E6impl_uses*
-, CsDataPipePrim;
+;
 
 constructor TncsClientFilesDeliverer.Create(aPipe: TCsDataPipe);
 //#UC START# *5811CF7103B8_5811CF1B02E6_var*

@@ -28,7 +28,7 @@ uses
  , tc6PublicInfo
 ;
 
-function TvgVisualObject_pm_GetScreenLeft(Self: TvgVisualObject): Integer;
+function TvgVisualObject_Get_ScreenLeft(Self: TvgVisualObject): Integer;
 //#UC START# *536B848D031F_536B7D0F0314get_var*
 //#UC END# *536B848D031F_536B7D0F0314get_var*
 begin
@@ -38,9 +38,9 @@ begin
   Result := Trunc(Scene.LocalToScreen(Position.Point).X);
 //#UC END# *536B848D031F_536B7D0F0314get_impl*
  end;//with Self
-end;//TvgVisualObject_pm_GetScreenLeft
+end;//TvgVisualObject_Get_ScreenLeft
 
-function TvgVisualObject_pm_GetScreenTop(Self: TvgVisualObject): Integer;
+function TvgVisualObject_Get_ScreenTop(Self: TvgVisualObject): Integer;
 //#UC START# *536B849D0317_536B7D0F0314get_var*
 //#UC END# *536B849D0317_536B7D0F0314get_var*
 begin
@@ -50,7 +50,7 @@ begin
   Result := Trunc(Scene.LocalToScreen(Position.Point).Y);
 //#UC END# *536B849D0317_536B7D0F0314get_impl*
  end;//with Self
-end;//TvgVisualObject_pm_GetScreenTop
+end;//TvgVisualObject_Get_ScreenTop
 
 procedure TvgVisualObject_Get_ScreenLeft_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin

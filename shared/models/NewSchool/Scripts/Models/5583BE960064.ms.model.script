@@ -2,46 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_5E793B4475C3
-
 FORWARD ME_5583BE960064
-
-FORWARD ME_5E793B4475C3
-
-FORWARD ME_5583BFE00181
-
-ME ME_F75B4443B80B
- MEPROP UID 'F75B4443B80B'
- MEPROP Name 'TaskGotErrorStatus'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_5E793B4475C3 // McsTaskChangeHelper
- ;
- UPLINK Speller HWL ME_5583BFE00181 // TaskGotErrorStatus
- ;
-
-ENDME // ME_F75B4443B80B TaskGotErrorStatus
-
-ME ME_5E793B4475C3
- MEPROP UID '5E793B4475C3'
- MEPROP Name 'McsTaskChangeHelper'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса TcsTaskChangeHelper' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5583BE960064 // TcsTaskChangeHelper
- ;
- MELIST Operations
-   Seq: ( HWL ME_F75B4443B80B // TaskGotErrorStatus
- )
- ; // Operations
-
-ENDME // ME_5E793B4475C3 McsTaskChangeHelper
 
 ME ME_5583BFE00181
  MEPROP UID '5583BFE00181'
@@ -82,10 +43,6 @@ ME ME_5583BE960064
    Seq: ( HWL ME_5583BFE00181 // TaskGotErrorStatus
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_5E793B4475C3 // McsTaskChangeHelper
- )
- ; // Children
  UP extprop:pas:UnitName 'csTaskChangeHelper'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'csTaskChangeHelper'

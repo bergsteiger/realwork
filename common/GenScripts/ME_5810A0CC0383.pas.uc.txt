@@ -25,14 +25,13 @@ w:\common\components\rtl\Garant\cs\ncsServerFilesDeliverer.pas
  begin
   case GetCommand of
    ncs_dcGetTasksList: SendTasksList;
-//   ncs_dcGetFilesList
+   ncs_dcGetFilesList: SendFilesList;
 //   ncs_dcGetFileCRC
 //   ncs_dcGetFile
-//   ncs_dcGetTargetFolder
 //   ncs_dcSetProgress
    ncs_dcSetDeliveryResult: SetDeliveryResult;
    ncs_dcCorrectTargetFolder: CorrectTargetFolder;
-//   ncs_dcCheckAlive
+   ncs_dcCheckAlive: CheckAlive;
    ncs_dcDoneProcess: f_Stopped := True;
   end;
  end;
@@ -58,7 +57,8 @@ var
  l_List := TStringList.Create;
  try
   FillTasksList(l_List);
-  SendStringList(l_List);
+  SendStringList(l_List);                    
+  DataPipe.WriteBufferFlush;
  finally
   FreeAndNil(l_List);
  end;
@@ -82,3 +82,29 @@ var
  l_TaskID: String;
  l_Result: Integer;
 //#UC END# *58133D11024D_5810A0CC0383_var*
+//#UC START# *58172EF8025B_5810A0CC0383_impl*
+ if DataPipe.ReadBoolean then
+  f_Terminating := True;
+ DataPipe.WriteBoolean(f_Terminating);
+ DataPipe.WriteBufferFlush;
+//#UC END# *58172EF8025B_5810A0CC0383_impl*
+//#UC START# *58172EF8025B_5810A0CC0383_var*
+//#UC END# *58172EF8025B_5810A0CC0383_var*
+//#UC START# *581740D5014C_5810A0CC0383_impl*
+ l_FilesList := TStringList.Create;
+ try
+  DoSendFilesList(DataPipe.ReadLn, l_TargetFolder, l_FilesList, l_TotalSize);
+  DataPipe.WriteLn(l_TargetFolder);
+  SendStringList(l_FilesList);
+  DataPipe.WriteInt64(l_TotalSize);
+  DataPipe.WriteBufferFlush;
+ finally
+  FreeAndNil(l_FilesList);
+ end;
+//#UC END# *581740D5014C_5810A0CC0383_impl*
+//#UC START# *581740D5014C_5810A0CC0383_var*
+var
+ l_TargetFolder: String;
+ l_FilesList: TStringList;
+ l_TotalSize: Int64;
+//#UC END# *581740D5014C_5810A0CC0383_var*
