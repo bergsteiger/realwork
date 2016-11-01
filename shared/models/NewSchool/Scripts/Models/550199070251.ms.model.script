@@ -2,65 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_513A59658F12
-
 FORWARD ME_550199070251
-
-FORWARD ME_513A59658F12
-
-FORWARD ME_5506A8670291
-
-ME ME_9CBAC5378D28
- MEPROP UID '9CBAC5378D28'
- MEPROP Name 'CreateManager'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_513A59658F12 // Ml3MenuManagerHelper
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- UPLINK Speller HWL ME_5506A8670291 // CreateManager
- ;
-
-ENDME // ME_9CBAC5378D28 CreateManager
-
-FORWARD ME_5506A87D008E
-
-ME ME_FFCD4B7E45D8
- MEPROP UID 'FFCD4B7E45D8'
- MEPROP Name 'FreeManager'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_513A59658F12 // Ml3MenuManagerHelper
- ;
- UPLINK Speller HWL ME_5506A87D008E // FreeManager
- ;
-
-ENDME // ME_FFCD4B7E45D8 FreeManager
-
-ME ME_513A59658F12
- MEPROP UID '513A59658F12'
- MEPROP Name 'Ml3MenuManagerHelper'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3MenuManagerHelper' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_550199070251 // Tl3MenuManagerHelper
- ;
- MELIST Operations
-   Seq: ( HWL ME_9CBAC5378D28 // CreateManager
- HWL ME_FFCD4B7E45D8 // FreeManager
- )
- ; // Operations
-
-ENDME // ME_513A59658F12 Ml3MenuManagerHelper
 
 ME ME_5506A8670291
  MEPROP UID '5506A8670291'
@@ -116,10 +58,6 @@ ME ME_550199070251
  HWL ME_5506A87D008E // FreeManager
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_513A59658F12 // Ml3MenuManagerHelper
- )
- ; // Children
  UP extprop:pas:UnitName 'l3MenuManagerHelper'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'MenuManagerHelper'

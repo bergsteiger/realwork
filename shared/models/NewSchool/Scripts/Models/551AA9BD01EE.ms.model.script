@@ -2,103 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_8F612712D29F
-
 FORWARD ME_551AA9BD01EE
 
-FORWARD ME_8F612712D29F
-
 FORWARD ME_551AAAFB036B
-
-FORWARD ME_3410F441967F
-
-ME ME_24C2D2F69431
- MEPROP UID '24C2D2F69431'
- MEPROP Name 'aComponent'
- UP IsSummoned true
- MEPROP Class class_Attribute
- MELINK Stereotype st_in::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_lnk
- MELINK Parent HWL ME_3410F441967F // IterateF
- ;
- MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
- ;
-
-ENDME // ME_24C2D2F69431 aComponent
-
-ME ME_C55E2E29D333
- MEPROP UID 'C55E2E29D333'
- UP IsSummoned true
- MEPROP Class class_Attribute
- MELINK Stereotype st_element_type::Attribute ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_lnk
- MELINK Parent HWL ME_3410F441967F // IterateF
- ;
- MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
- ;
-
-ENDME // ME_C55E2E29D333 
-
-ME ME_C4546DACFBEA
- UP IsSummoned true
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_3410F441967F // IterateF
- ;
- MELINK Target WL? 'ME_47E11FC3021E' // Controls
- ;
-
-ENDME // ME_C4546DACFBEA 
-
-ME ME_3410F441967F
- MEPROP UID '3410F441967F'
- MEPROP Name 'IterateF'
- UP IsSummoned true
- MEPROP Class class_Operation
- MELINK Stereotype st_facetiterator ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_8F612712D29F // Ml3IterateComponentParents
- ;
- MELIST Attributes
-   Seq: ( HWL ME_24C2D2F69431 // aComponent
- HWL ME_C55E2E29D333 // 
- )
- ; // Attributes
- MELIST Dependencies
-   Seq: ( ME_C4546DACFBEA // Controls
- )
- ; // Dependencies
- UP "needs index" 'undefined'
- UP "needs result" 'undefined'
- UPLINK Speller HWL ME_551AAAFB036B // Iterate
- ;
-
-ENDME // ME_3410F441967F IterateF
-
-ME ME_8F612712D29F
- MEPROP UID '8F612712D29F'
- MEPROP Name 'Ml3IterateComponentParents'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3IterateComponentParents' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_551AA9BD01EE // Tl3IterateComponentParents
- ;
- MELIST Operations
-   Seq: ( HWL ME_3410F441967F // IterateF
- )
- ; // Operations
-
-ENDME // ME_8F612712D29F Ml3IterateComponentParents
 
 ME ME_551AB83701BC
  MEPROP UID '551AB83701BC'
@@ -188,10 +94,6 @@ ME ME_551AA9BD01EE
    Seq: ( HWL ME_551AAAFB036B // Iterate
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_8F612712D29F // Ml3IterateComponentParents
- )
- ; // Children
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames

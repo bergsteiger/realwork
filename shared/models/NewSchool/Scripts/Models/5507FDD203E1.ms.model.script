@@ -3,7 +3,6 @@
 INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_5509AAAC0313
-%%Inner ME_61A12D8261F1
 
 FORWARD ME_5507FDD203E1
 
@@ -50,183 +49,6 @@ ME ME_5509AAAC0313
 
 ENDME // ME_5509AAAC0313 Tl3BatchScriptService
 
-FORWARD ME_61A12D8261F1
-
-FORWARD ME_5507FDED0373
-
-ME ME_8A081B195E08
- MEPROP UID '8A081B195E08'
- MEPROP Name 'IsBatchMode'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- UPLINK Speller HWL ME_5507FDED0373 // IsBatchMode
- ;
-
-ENDME // ME_8A081B195E08 IsBatchMode
-
-FORWARD ME_55099B480169
-
-ME ME_3E2DB431FD1A
- MEPROP UID '3E2DB431FD1A'
- MEPROP Name 'EnterBatchMode'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
- ;
- UPLINK Speller HWL ME_55099B480169 // EnterBatchMode
- ;
-
-ENDME // ME_3E2DB431FD1A EnterBatchMode
-
-FORWARD ME_55099B590257
-
-ME ME_FE46A80B1DA3
- MEPROP UID 'FE46A80B1DA3'
- MEPROP Name 'LeaveBatchMode'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
- ;
- UPLINK Speller HWL ME_55099B590257 // LeaveBatchMode
- ;
-
-ENDME // ME_FE46A80B1DA3 LeaveBatchMode
-
-FORWARD ME_553F341100FE
-
-FORWARD ME_194C97B8A2DF
-
-ME ME_3BBB07EEB463
- MEPROP Name 'aValue'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
- ;
-
-ENDME // ME_3BBB07EEB463 aValue
-
-ME ME_194C97B8A2DF
- MEPROP UID '194C97B8A2DF'
- MEPROP Name 'PushAnswer'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
- ;
- MELIST Parameters
-   Seq: ( ME_3BBB07EEB463 // aValue
- )
- ; // Parameters
- UPLINK Speller HWL ME_553F341100FE // PushAnswer
- ;
-
-ENDME // ME_194C97B8A2DF PushAnswer
-
-FORWARD ME_553F3424010C
-
-ME ME_FE26372CAD8B
- MEPROP UID 'FE26372CAD8B'
- MEPROP Name 'PopAnswer'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
- ;
- UPLINK Speller HWL ME_553F3424010C // PopAnswer
- ;
-
-ENDME // ME_FE26372CAD8B PopAnswer
-
-FORWARD ME_553F428003A3
-
-ME ME_23858A465AF6
- MEPROP UID '23858A465AF6'
- MEPROP Name 'SignalWasDialog'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
- ;
- UPLINK Speller HWL ME_553F428003A3 // SignalWasDialog
- ;
-
-ENDME // ME_23858A465AF6 SignalWasDialog
-
-FORWARD ME_553F429502D1
-
-ME ME_217998C234EE
- MEPROP UID '217998C234EE'
- MEPROP Name 'CheckWasDialog'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- UPLINK Speller HWL ME_553F429502D1 // CheckWasDialog
- ;
-
-ENDME // ME_217998C234EE CheckWasDialog
-
-FORWARD ME_553F4C9802D8
-
-ME ME_37CC2CF2A1FF
- MEPROP UID '37CC2CF2A1FF'
- MEPROP Name 'ClearAnswers'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
- ;
- UPLINK Speller HWL ME_553F4C9802D8 // ClearAnswers
- ;
-
-ENDME // ME_37CC2CF2A1FF ClearAnswers
-
-ME ME_61A12D8261F1
- MEPROP UID '61A12D8261F1'
- MEPROP Name 'Ml3BatchService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3BatchService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
- ;
- MELIST Operations
-   Seq: ( HWL ME_8A081B195E08 // IsBatchMode
- HWL ME_3E2DB431FD1A // EnterBatchMode
- HWL ME_FE46A80B1DA3 // LeaveBatchMode
- HWL ME_194C97B8A2DF // PushAnswer
- HWL ME_FE26372CAD8B // PopAnswer
- HWL ME_23858A465AF6 // SignalWasDialog
- HWL ME_217998C234EE // CheckWasDialog
- HWL ME_37CC2CF2A1FF // ClearAnswers
- )
- ; // Operations
-
-ENDME // ME_61A12D8261F1 Ml3BatchService
-
 ME ME_5507FDED0373
  MEPROP UID '5507FDED0373'
  MEPROP Name 'IsBatchMode'
@@ -264,6 +86,8 @@ ME ME_55099B590257
  ;
 
 ENDME // ME_55099B590257 LeaveBatchMode
+
+FORWARD ME_553F341100FE
 
 ME ME_553F341F03E3
  MEPROP Name 'aValue'
@@ -436,7 +260,6 @@ ME ME_5507FDD203E1
  ; // Implemented
  MELIST Children
    Seq: ( HWL ME_5509AAAC0313 // Tl3BatchScriptService
- HWL ME_61A12D8261F1 // Ml3BatchService
  )
  ; // Children
  MELIST Dependencies

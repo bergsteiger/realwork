@@ -2,48 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_358069CF953D
-
 FORWARD ME_55226C5F035A
-
-FORWARD ME_358069CF953D
-
-FORWARD ME_55226C7E01C4
-
-ME ME_FC96CEF34C46
- MEPROP UID 'FC96CEF34C46'
- MEPROP Name 'GetCapture'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_358069CF953D // Ml3GetCaptureHelper
- ;
- MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
- ;
- UPLINK Speller HWL ME_55226C7E01C4 // GetCapture
- ;
-
-ENDME // ME_FC96CEF34C46 GetCapture
-
-ME ME_358069CF953D
- MEPROP UID '358069CF953D'
- MEPROP Name 'Ml3GetCaptureHelper'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3GetCaptureHelper' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55226C5F035A // Tl3GetCaptureHelper
- ;
- MELIST Operations
-   Seq: ( HWL ME_FC96CEF34C46 // GetCapture
- )
- ; // Operations
-
-ENDME // ME_358069CF953D Ml3GetCaptureHelper
 
 ME ME_55226C7E01C4
  MEPROP UID '55226C7E01C4'
@@ -96,10 +55,6 @@ ME ME_55226C5F035A
    Seq: ( HWL ME_55226C7E01C4 // GetCapture
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_358069CF953D // Ml3GetCaptureHelper
- )
- ; // Children
  MELIST Dependencies
    Seq: ( ME_5523DAD002EB // Controls
  )

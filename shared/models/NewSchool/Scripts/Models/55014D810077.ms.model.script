@@ -2,63 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_622F6A2DA951
-
 FORWARD ME_55014D810077
 
-FORWARD ME_622F6A2DA951
-
 FORWARD ME_5506BFF50385
-
-FORWARD ME_A1E64DB467E3
-
-ME ME_951E20C5C5A6
- MEPROP Name 'aControl'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
- ;
-
-ENDME // ME_951E20C5C5A6 aControl
-
-ME ME_A1E64DB467E3
- MEPROP UID 'A1E64DB467E3'
- MEPROP Name 'Close'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_622F6A2DA951 // Ml3CloseFormHelper
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- MELIST Parameters
-   Seq: ( ME_951E20C5C5A6 // aControl
- )
- ; // Parameters
- UPLINK Speller HWL ME_5506BFF50385 // Close
- ;
-
-ENDME // ME_A1E64DB467E3 Close
-
-ME ME_622F6A2DA951
- MEPROP UID '622F6A2DA951'
- MEPROP Name 'Ml3CloseFormHelper'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3CloseFormHelper' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55014D810077 // Tl3CloseFormHelper
- ;
- MELIST Operations
-   Seq: ( HWL ME_A1E64DB467E3 // Close
- )
- ; // Operations
-
-ENDME // ME_622F6A2DA951 Ml3CloseFormHelper
 
 ME ME_5506BFFA037E
  MEPROP Name 'aControl'
@@ -123,10 +69,6 @@ ME ME_55014D810077
    Seq: ( HWL ME_5506BFF50385 // Close
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_622F6A2DA951 // Ml3CloseFormHelper
- )
- ; // Children
  MELIST Dependencies
    Seq: ( ME_5501605B0022 // TCustomForm
  )

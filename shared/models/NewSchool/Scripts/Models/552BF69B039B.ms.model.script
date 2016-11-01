@@ -2,65 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_EBF65282559B
-
 FORWARD ME_552BF69B039B
-
-FORWARD ME_EBF65282559B
-
-FORWARD ME_552BF6BD0156
-
-ME ME_27BE83734EFD
- MEPROP UID '27BE83734EFD'
- MEPROP Name 'GetAutolinkFilter'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_EBF65282559B // Ml3AutolinkService
- ;
- MELINK Target WL 'ME_4678160E01BE' '53317D14019D.ms.model.script' // Ik2TagGenerator
- ;
- UPLINK Speller HWL ME_552BF6BD0156 // GetAutolinkFilter
- ;
-
-ENDME // ME_27BE83734EFD GetAutolinkFilter
-
-FORWARD ME_552BF6FF02A9
-
-ME ME_A18BB0B1A222
- MEPROP UID 'A18BB0B1A222'
- MEPROP Name 'CleanAutolinkFilter'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_EBF65282559B // Ml3AutolinkService
- ;
- UPLINK Speller HWL ME_552BF6FF02A9 // CleanAutolinkFilter
- ;
-
-ENDME // ME_A18BB0B1A222 CleanAutolinkFilter
-
-ME ME_EBF65282559B
- MEPROP UID 'EBF65282559B'
- MEPROP Name 'Ml3AutolinkService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3AutolinkService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_552BF69B039B // Tl3AutolinkService
- ;
- MELIST Operations
-   Seq: ( HWL ME_27BE83734EFD // GetAutolinkFilter
- HWL ME_A18BB0B1A222 // CleanAutolinkFilter
- )
- ; // Operations
-
-ENDME // ME_EBF65282559B Ml3AutolinkService
 
 ME ME_552BF6BD0156
  MEPROP UID '552BF6BD0156'
@@ -116,10 +58,6 @@ ME ME_552BF69B039B
  HWL ME_552BF6FF02A9 // CleanAutolinkFilter
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_EBF65282559B // Ml3AutolinkService
- )
- ; // Children
  MELIST Injected
    Seq: ( WL 'ME_552CFA080079' '552CF9C50052.ms.model.script' // AutolinkFilterWordsPack
  )

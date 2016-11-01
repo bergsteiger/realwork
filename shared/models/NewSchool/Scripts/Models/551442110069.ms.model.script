@@ -2,63 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_2B0D8771E8B2
-
 FORWARD ME_551442110069
 
-FORWARD ME_2B0D8771E8B2
-
 FORWARD ME_5514424D01A2
-
-FORWARD ME_781F06EEA149
-
-ME ME_1B4D9FCCF6EF
- MEPROP Name 'anAction'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_47E7626B0083' '47E76250004C.ms.model.script' // TCustomAction
- ;
-
-ENDME // ME_1B4D9FCCF6EF anAction
-
-ME ME_781F06EEA149
- MEPROP UID '781F06EEA149'
- MEPROP Name 'Format'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
- ;
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
- MELIST Parameters
-   Seq: ( ME_1B4D9FCCF6EF // anAction
- )
- ; // Parameters
- UPLINK Speller HWL ME_5514424D01A2 // Format
- ;
-
-ENDME // ME_781F06EEA149 Format
-
-ME ME_2B0D8771E8B2
- MEPROP UID '2B0D8771E8B2'
- MEPROP Name 'Ml3FormatActionInfoHelper'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3FormatActionInfoHelper' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_551442110069 // Tl3FormatActionInfoHelper
- ;
- MELIST Operations
-   Seq: ( HWL ME_781F06EEA149 // Format
- )
- ; // Operations
-
-ENDME // ME_2B0D8771E8B2 Ml3FormatActionInfoHelper
 
 ME ME_5514426501EC
  MEPROP Name 'anAction'
@@ -113,10 +59,6 @@ ME ME_551442110069
    Seq: ( HWL ME_5514424D01A2 // Format
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
- )
- ; // Children
  UP "singleton" True
  UP extprop:pas:UnitName 'l3FormatActionInfoHelper'
  UP extprop:rc:isAcceptableForScripts True

@@ -2,84 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_A24A217A2949
-
 FORWARD ME_551AB8CA014A
 
-FORWARD ME_A24A217A2949
-
 FORWARD ME_551ABA0A0154
-
-FORWARD ME_77F02E022F3C
-
-ME ME_938AE659321C
- MEPROP Name 'aPoint'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
- ;
-
-ENDME // ME_938AE659321C aPoint
-
-ME ME_938AE659321D
- MEPROP Name 'aComponent'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Stereotype st_out ;
- MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
- ;
-
-ENDME // ME_938AE659321D aComponent
-
-ME ME_938AE659321E
- MEPROP Name 'aBindedControl'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Stereotype st_out ;
- MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
- ;
-
-ENDME // ME_938AE659321E aBindedControl
-
-ME ME_77F02E022F3C
- MEPROP UID '77F02E022F3C'
- MEPROP Name 'GetComponent'
- UP IsSummoned true
- MEPROP Class class_Operation
- %SUMMARY 'aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_A24A217A2949 // Ml3GetComponentFromPointHelper
- ;
- MELIST Parameters
-   Seq: ( ME_938AE659321C // aPoint
- ME_938AE659321D // aComponent
- ME_938AE659321E // aBindedControl
- )
- ; // Parameters
- UPLINK Speller HWL ME_551ABA0A0154 // GetComponent
- ;
-
-ENDME // ME_77F02E022F3C GetComponent
-
-ME ME_A24A217A2949
- MEPROP UID 'A24A217A2949'
- MEPROP Name 'Ml3GetComponentFromPointHelper'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3GetComponentFromPointHelper' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_551AB8CA014A // Tl3GetComponentFromPointHelper
- ;
- MELIST Operations
-   Seq: ( HWL ME_77F02E022F3C // GetComponent
- )
- ; // Operations
-
-ENDME // ME_A24A217A2949 Ml3GetComponentFromPointHelper
 
 ME ME_551ABA3E0014
  MEPROP Name 'aPoint'
@@ -153,10 +78,6 @@ ME ME_551AB8CA014A
    Seq: ( HWL ME_551ABA0A0154 // GetComponent
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_A24A217A2949 // Ml3GetComponentFromPointHelper
- )
- ; // Children
  UP extprop:pas:UnitName 'l3GetComponentFromPointHelper'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'GetComponentFromPointHelper'

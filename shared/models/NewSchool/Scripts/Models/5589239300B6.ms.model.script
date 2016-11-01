@@ -2,61 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_65F2D0983F0E
-
 FORWARD ME_5589239300B6
 
-FORWARD ME_65F2D0983F0E
-
 FORWARD ME_558923B00366
-
-FORWARD ME_9B9F43B530B0
-
-ME ME_A437983FE9D4
- MEPROP Name 'Sender'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
- ;
-
-ENDME // ME_A437983FE9D4 Sender
-
-ME ME_9B9F43B530B0
- MEPROP UID '9B9F43B530B0'
- MEPROP Name 'HandleException'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_65F2D0983F0E // Ml3ExceptionHandler
- ;
- MELIST Parameters
-   Seq: ( ME_A437983FE9D4 // Sender
- )
- ; // Parameters
- UPLINK Speller HWL ME_558923B00366 // HandleException
- ;
-
-ENDME // ME_9B9F43B530B0 HandleException
-
-ME ME_65F2D0983F0E
- MEPROP UID '65F2D0983F0E'
- MEPROP Name 'Ml3ExceptionHandler'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3ExceptionHandler' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5589239300B6 // Tl3ExceptionHandler
- ;
- MELIST Operations
-   Seq: ( HWL ME_9B9F43B530B0 // HandleException
- )
- ; // Operations
-
-ENDME // ME_65F2D0983F0E Ml3ExceptionHandler
 
 ME ME_558923C60279
  MEPROP Name 'Sender'
@@ -109,10 +57,6 @@ ME ME_5589239300B6
    Seq: ( HWL ME_558923B00366 // HandleException
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_65F2D0983F0E // Ml3ExceptionHandler
- )
- ; // Children
  UP extprop:pas:UnitName 'l3ExceptionHandler'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ExceptionHandler'

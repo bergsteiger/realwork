@@ -2,48 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-%%Inner ME_9F707534EAE2
-
 FORWARD ME_55DDCF7C004A
-
-FORWARD ME_9F707534EAE2
-
-FORWARD ME_55DDCFBE0096
-
-ME ME_30F5EA5AF6DF
- MEPROP UID '30F5EA5AF6DF'
- MEPROP Name 'VersionInfo'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_9F707534EAE2 // Ml3VersionInfoService
- ;
- MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
- ;
- UPLINK Speller HWL ME_55DDCFBE0096 // VersionInfo
- ;
-
-ENDME // ME_30F5EA5AF6DF VersionInfo
-
-ME ME_9F707534EAE2
- MEPROP UID '9F707534EAE2'
- MEPROP Name 'Ml3VersionInfoService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3VersionInfoService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55DDCF7C004A // Tl3VersionInfoService
- ;
- MELIST Operations
-   Seq: ( HWL ME_30F5EA5AF6DF // VersionInfo
- )
- ; // Operations
-
-ENDME // ME_9F707534EAE2 Ml3VersionInfoService
 
 ME ME_55DDCFBE0096
  MEPROP UID '55DDCFBE0096'
@@ -106,10 +65,6 @@ ME ME_55DDCF7C004A
    Seq: ( HWL ME_55DDCFBE0096 // VersionInfo
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_9F707534EAE2 // Ml3VersionInfoService
- )
- ; // Children
  MELIST Dependencies
    Seq: ( ME_55DDCFB403BB // vtVerInf
  ME_55DDD84A00AB // Format
