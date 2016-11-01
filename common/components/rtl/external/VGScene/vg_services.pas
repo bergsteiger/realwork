@@ -178,12 +178,12 @@ procedure TvgGetComponentFromPointImpl.GetComponent(const aPoint: TPoint;
  out aComponent: TComponent;
  out aBindedControl: TControl);
  {* aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель }
-//#UC START# *77F02E022F3C_551ABD0E013B_var*
+//#UC START# *551ABA0A0154_551ABD0E013B_var*
 var
  l_CPos: TPoint;
-//#UC END# *77F02E022F3C_551ABD0E013B_var*
+//#UC END# *551ABA0A0154_551ABD0E013B_var*
 begin
-//#UC START# *77F02E022F3C_551ABD0E013B_impl*
+//#UC START# *551ABA0A0154_551ABD0E013B_impl*
  aBindedControl := FindDragTarget(aPoint, True);
  if Assigned(aBindedControl) and (aBindedControl is TvgCustomScene) then
   with TvgCustomScene(aBindedControl) do
@@ -192,7 +192,7 @@ begin
    aComponent := ObjectByPoint(l_CPos.X, l_CPos.Y);
   end else
    aComponent := nil;
-//#UC END# *77F02E022F3C_551ABD0E013B_impl*
+//#UC END# *551ABA0A0154_551ABD0E013B_impl*
 end;//TvgGetComponentFromPointImpl.GetComponent
 {$IfEnd} // NOT Defined(NoVCL)
 
@@ -217,7 +217,7 @@ end;//TvgGetComponentFromPointImpl.Exists
 function TvgFormatObjectInfoImpl.Format(anObject: TObject;
  aShortInfo: Boolean;
  anObjectPropFound: TRTTIInfoObjectPropertyFoundCallBack): AnsiString;
-//#UC START# *D4A861440DBF_551BCE070003_var*
+//#UC START# *551BCC1F00E6_551BCE070003_var*
  procedure lp_AddInfo(var theInfo: AnsiString;
   const aCaption: AnsiString;
   const aValue: AnsiString;
@@ -244,9 +244,9 @@ function TvgFormatObjectInfoImpl.Format(anObject: TObject;
  
 var
  l_VO: TvgVisualObject;
-//#UC END# *D4A861440DBF_551BCE070003_var*
+//#UC END# *551BCC1F00E6_551BCE070003_var*
 begin
-//#UC START# *D4A861440DBF_551BCE070003_impl*
+//#UC START# *551BCC1F00E6_551BCE070003_impl*
  if aShortInfo then
  begin
   if Assigned(anObject) and (anObject is TvgVisualObject) then
@@ -264,7 +264,7 @@ begin
  end
  else
   Result := L3FormatRTTIInfo(anObject, True, anObjectPropFound, Tl3HugeMessageDlgWithWikiHelper.Instance.CanUseWiki);
-//#UC END# *D4A861440DBF_551BCE070003_impl*
+//#UC END# *551BCC1F00E6_551BCE070003_impl*
 end;//TvgFormatObjectInfoImpl.Format
 {$IfEnd} // NOT Defined(NoVCL)
 
@@ -288,15 +288,15 @@ end;//TvgFormatObjectInfoImpl.Exists
 {$If NOT Defined(NoVCL)}
 procedure TvgIterateComponentsImpl.IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
  aComponent: TComponent);
-//#UC START# *3410F441967F_551C4D2300E5_var*
+//#UC START# *551AAAFB036B_551C4D2300E5_var*
 var
  Hack : Pointer absolute anAction;
  l_VO: TvgVisualObject;
  l_O: TvgObject;
  l_C: TControl;
-//#UC END# *3410F441967F_551C4D2300E5_var*
+//#UC END# *551AAAFB036B_551C4D2300E5_var*
 begin
-//#UC START# *3410F441967F_551C4D2300E5_impl*
+//#UC START# *551AAAFB036B_551C4D2300E5_impl*
  try
   anAction(aComponent);
   if aComponent is TvgVisualObject then
@@ -323,7 +323,7 @@ begin
  finally
   l3FreeLocalStub(Hack);
  end;
-//#UC END# *3410F441967F_551C4D2300E5_impl*
+//#UC END# *551AAAFB036B_551C4D2300E5_impl*
 end;//TvgIterateComponentsImpl.IterateF
 {$IfEnd} // NOT Defined(NoVCL)
 
@@ -346,12 +346,12 @@ end;//TvgIterateComponentsImpl.Exists
 
 {$If NOT Defined(NoVCL)}
 function TvgGetCaptureImpl.GetCapture: TComponent;
-//#UC START# *FC96CEF34C46_55226D5F0212_var*
+//#UC START# *55226C7E01C4_55226D5F0212_var*
 var
  l_C: TControl;
-//#UC END# *FC96CEF34C46_55226D5F0212_var*
+//#UC END# *55226C7E01C4_55226D5F0212_var*
 begin
-//#UC START# *FC96CEF34C46_55226D5F0212_impl*
+//#UC START# *55226C7E01C4_55226D5F0212_impl*
  Result := GetCaptureControl;
  if Result is TvgCustomScene then
   Result := TvgCustomScene(Result).Captured;
@@ -363,7 +363,7 @@ begin
     with TvgCustomScene(l_C) do
      Result := ObjectByPoint(MousePos.X, MousePos.Y);
   end;
-//#UC END# *FC96CEF34C46_55226D5F0212_impl*
+//#UC END# *55226C7E01C4_55226D5F0212_impl*
 end;//TvgGetCaptureImpl.GetCapture
 {$IfEnd} // NOT Defined(NoVCL)
 
@@ -386,15 +386,15 @@ end;//TvgGetCaptureImpl.Exists
 
 {$If NOT Defined(NoVCL)}
 function TvgGetComponentBoundsImpl.GetBounds(aComponent: TComponent): TRect;
-//#UC START# *BB0BB5CAA29B_5522D81901CB_var*
+//#UC START# *5522D7D800FE_5522D81901CB_var*
 var
  VO: TvgVisualObject;
  TL, BR: TvgPoint;
 const
  c_EmptyRect: TRect = (Left: 0; Top: 0; Right: 0; Bottom: 0);
-//#UC END# *BB0BB5CAA29B_5522D81901CB_var*
+//#UC END# *5522D7D800FE_5522D81901CB_var*
 begin
-//#UC START# *BB0BB5CAA29B_5522D81901CB_impl*
+//#UC START# *5522D7D800FE_5522D81901CB_impl*
  if aComponent is TvgVisualObject then
  begin
   VO := TvgVisualObject(aComponent);
@@ -403,7 +403,7 @@ begin
   Result := Rect(Trunc(TL.X), Trunc(TL.Y), Trunc(BR.X), Trunc(BR.Y));
  end else
   Result := c_EmptyRect;
-//#UC END# *BB0BB5CAA29B_5522D81901CB_impl*
+//#UC END# *5522D7D800FE_5522D81901CB_impl*
 end;//TvgGetComponentBoundsImpl.GetBounds
 {$IfEnd} // NOT Defined(NoVCL)
 
